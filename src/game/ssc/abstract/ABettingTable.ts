@@ -44,7 +44,12 @@ namespace we {
         const { index, data } = evt.data;
         // update inputData
         this.inputData[index] = data;
-
+        for (let i = 0; i < this.inputData.length; i++) {
+          if (this.inputData[i] === '') {
+            this.onInputInvalidate();
+            return;
+          }
+        }
         this.generateCombination();
         if (!this.validateInput()) {
           this.onInputInvalidate();
@@ -86,7 +91,9 @@ namespace we {
 
       protected dataMapping() {
         if (this._config.mapping) {
-          this._config.mapping(this.inputData, this.combinations);
+          for (let i = 0; i < this._config.mappingIndex.length; i++) {
+            this._config.mapping(this.inputData, this._config.pattern);
+          }
         }
       }
 
@@ -94,6 +101,7 @@ namespace we {
 
       public computeNoteCount() {
         this.totalNoteCount = this._config.noteCountFunc(this.inputData, this.combinations);
+
         // this.totalNoteCount = this.betFields.length;
       }
 

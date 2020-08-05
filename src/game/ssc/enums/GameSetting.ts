@@ -40,12 +40,13 @@ namespace we {
           dataType,
           validate: (data: string | any[]) => {
             if (dataType === InputDataType.STRING) {
+              console.log(data.length >= minSelect && data.length <= maxSelect);
               return data.length >= minSelect && data.length <= maxSelect;
             }
 
             if (dataType === InputDataType.SEPARATOR) {
               const datas = (data as string).split('|');
-
+              console.log(data.length >= minSelect && data.length <= maxSelect);
               return datas.length >= minSelect && datas.length <= maxSelect;
             }
           }, // use to validate the output data of this component
@@ -63,12 +64,12 @@ namespace we {
         };
       }
 
-      export function textArea(title, numberPerGroup, isDuplicate = false) {
+      export function textArea(title, numberPerGroup, isUnique = false) {
         return {
           type: InputComponentType.TEXTAREA,
           numberPerGroup,
           title,
-          isDuplicate, // to check if single data allow duplicated number
+          isUnique, // to check if single data allow duplicated number
           validate: (data: string | any[]) => true,
 
           // data example (numberPerGroup=5): 12345|12346|14573|17764|09663|...
@@ -369,7 +370,7 @@ namespace we {
             name: 'DirectionSum',
             input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 0, 27, 1, 28, InputDataType.SEPARATOR)],
             pattern: '123SUMOPTIONAL_$1',
-            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            noteCountFunc: NoteCountFunc.ThreeStar.DirectionalSum,
           },
           Group3: {
             name: 'Group3',
@@ -404,7 +405,7 @@ namespace we {
           GroupCombine: {
             name: 'GroupCombine',
             input: [
-              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+              InputComponentDefinition.textArea('', 2, true), // 12|23|54|67|...
             ],
             pattern: '123THREECOMBINE_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
@@ -413,7 +414,7 @@ namespace we {
             name: 'SumGroup',
             input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 1, 26, 1, 26, InputDataType.SEPARATOR)],
             pattern: '123SUMGROUP_$1',
-            noteCountFunc: NoteCountFunc.ThreeStar.DirectionalSum,
+            noteCountFunc: NoteCountFunc.ThreeStar.GroupSum,
           },
         },
       },
@@ -442,7 +443,7 @@ namespace we {
             name: 'DirectionSum',
             input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 0, 27, 1, 28, InputDataType.SEPARATOR)],
             pattern: '234SUMOPTIONAL_$1',
-            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            noteCountFunc: NoteCountFunc.ThreeStar.DirectionalSum,
           },
           Group3: {
             name: 'Group3',
@@ -477,7 +478,7 @@ namespace we {
           GroupCombine: {
             name: 'GroupCombine',
             input: [
-              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+              InputComponentDefinition.textArea('', 2, true), // 12|23|54|67|...
             ],
             pattern: '234THREECOMBINE_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
@@ -486,7 +487,7 @@ namespace we {
             name: 'SumGroup',
             input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 1, 26, 1, 26, InputDataType.SEPARATOR)],
             pattern: '234SUMGROUP_$1',
-            noteCountFunc: NoteCountFunc.ThreeStar.DirectionalSum,
+            noteCountFunc: NoteCountFunc.ThreeStar.GroupSum,
           },
         },
       },
@@ -515,7 +516,7 @@ namespace we {
             name: 'DirectionSum',
             input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 0, 27, 1, 28, InputDataType.SEPARATOR)],
             pattern: '345SUMOPTIONAL_$1',
-            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            noteCountFunc: NoteCountFunc.ThreeStar.DirectionalSum,
           },
           Group3: {
             name: 'Group3',
@@ -550,7 +551,7 @@ namespace we {
           GroupCombine: {
             name: 'GroupCombine',
             input: [
-              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+              InputComponentDefinition.textArea('', 2, true), // 12|23|54|67|...
             ],
             pattern: '345THREECOMBINE_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
@@ -559,7 +560,7 @@ namespace we {
             name: 'SumGroup',
             input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 1, 26, 1, 26, InputDataType.SEPARATOR)],
             pattern: '345SUMGROUP_$1',
-            noteCountFunc: NoteCountFunc.ThreeStar.DirectionalSum,
+            noteCountFunc: NoteCountFunc.ThreeStar.GroupSum,
           },
         },
       },
@@ -598,7 +599,7 @@ namespace we {
           DirectMenuFirstTwo: {
             name: 'DirectMenuFirstTwo',
             input: [
-              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+              InputComponentDefinition.textArea('', 2, true), // 12|23|54|67|...
             ],
             pattern: '12OPTIONALINPUT_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
@@ -618,7 +619,7 @@ namespace we {
           GroupDirectionalMenuLastTwo: {
             name: 'GroupDirectionalMenuLastTwo',
             input: [
-              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+              InputComponentDefinition.textArea('', 2, true), // 12|23|54|67|...
             ],
             pattern: '45GROUPINPUT_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
@@ -627,7 +628,7 @@ namespace we {
             name: 'GroupSumLastTwo',
             input: [InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 1, 17, 1, 17, InputDataType.SEPARATOR)],
             pattern: '45SUMGROUP_$1',
-            noteCountFunc: NoteCountFunc.TwoStar.DirectionalSum,
+            noteCountFunc: NoteCountFunc.TwoStar.GroupSum,
           },
           GroupDirectionalSelectionFirstTwo: {
             name: 'GroupDirectionalSelectionFirstTwo',
@@ -638,7 +639,7 @@ namespace we {
           GroupDirectionalMenuFirstTwo: {
             name: 'GroupDirectionalMenuFirstTwo',
             input: [
-              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+              InputComponentDefinition.textArea('', 2, true), // 12|23|54|67|...
             ],
             pattern: '12GROUPINPUT_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
@@ -647,7 +648,7 @@ namespace we {
             name: 'GroupSumFirstTwo',
             input: [InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 1, 17, 1, 17, InputDataType.SEPARATOR)],
             pattern: '12SUMGROUP_$1',
-            noteCountFunc: NoteCountFunc.TwoStar.DirectionalSum,
+            noteCountFunc: NoteCountFunc.TwoStar.GroupSum,
           },
         },
       },
@@ -722,50 +723,50 @@ namespace we {
           LastSizeParity: {
             name: 'LastSizeParity',
             input: [
-              InputComponentDefinition.ballData('Ten', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, 4, InputDataType.SEPARATOR), // BIG|SMALL|EVEN|ODD
-              InputComponentDefinition.ballData('Unit', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, 4, InputDataType.SEPARATOR),
+              InputComponentDefinition.ballData('Ten', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR), // BIG|SMALL|EVEN|ODD
+              InputComponentDefinition.ballData('Unit', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR),
             ],
             pattern: 'LAST2SIZEPARITY_$1_$2',
-            noteCountFunc: NoteCountFunc.DirectionalSelection,
+            noteCountFunc: NoteCountFunc.SizeParity.TwoPosDirectionalSelection,
           },
           FrontSizeParity: {
             name: 'LastSizeParity',
             input: [
-              InputComponentDefinition.ballData('TenThousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, 4, InputDataType.SEPARATOR), // BIG|SMALL|EVEN|ODD
-              InputComponentDefinition.ballData('Thousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, 4, InputDataType.SEPARATOR),
+              InputComponentDefinition.ballData('TenThousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR), // BIG|SMALL|EVEN|ODD
+              InputComponentDefinition.ballData('Thousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR),
             ],
             pattern: 'FRONT2SIZEPARITY_$1_$2',
-            noteCountFunc: NoteCountFunc.DirectionalSelection,
+            noteCountFunc: NoteCountFunc.SizeParity.TwoPosDirectionalSelection,
           },
           TenThousandSizeParity: {
             name: 'TenThousandSizeParity',
-            input: [InputComponentDefinition.ballData('TenThousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, 4, InputDataType.SEPARATOR)],
+            input: [InputComponentDefinition.ballData('TenThousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR)],
             pattern: 'MILSIZEPARITY_$1',
-            noteCountFunc: NoteCountFunc.NormalCount,
+            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
           },
           ThousandSizeParity: {
             name: 'ThousandSizeParity',
-            input: [InputComponentDefinition.ballData('Thousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, 4, InputDataType.SEPARATOR)],
+            input: [InputComponentDefinition.ballData('Thousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR)],
             pattern: 'THOUSIZEPARITY_$1',
-            noteCountFunc: NoteCountFunc.NormalCount,
+            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
           },
           HundredSizeParity: {
             name: 'HundredSizeParity',
-            input: [InputComponentDefinition.ballData('Hundred', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, 4, InputDataType.SEPARATOR)],
+            input: [InputComponentDefinition.ballData('Hundred', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR)],
             pattern: 'HUNSIZEPARITY_$1',
-            noteCountFunc: NoteCountFunc.NormalCount,
+            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
           },
           TenSizeParity: {
             name: 'TenSizeParity',
-            input: [InputComponentDefinition.ballData('Ten', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, 4, InputDataType.SEPARATOR)],
+            input: [InputComponentDefinition.ballData('Ten', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR)],
             pattern: 'TENSIZEPARITY_$1',
-            noteCountFunc: NoteCountFunc.NormalCount,
+            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
           },
           SingleSizeParity: {
             name: 'SingleSizeParity',
-            input: [InputComponentDefinition.ballData('Unit', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, 4, InputDataType.SEPARATOR)],
+            input: [InputComponentDefinition.ballData('Unit', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR)],
             pattern: 'SINSIZEPARITY_$1',
-            noteCountFunc: NoteCountFunc.NormalCount,
+            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
           },
         },
       },
@@ -776,25 +777,25 @@ namespace we {
             name: 'Interest1',
             input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, 10, InputDataType.STRING)],
             pattern: 'INTEREST1_$1',
-            noteCountFunc: NoteCountFunc.NormalCount,
+            noteCountFunc: NoteCountFunc.DirectionalSelection,
           },
           Interest2: {
             name: 'Interest2',
             input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, 10, InputDataType.STRING)],
             pattern: 'INTEREST2_$1',
-            noteCountFunc: NoteCountFunc.NormalCount,
+            noteCountFunc: NoteCountFunc.DirectionalSelection,
           },
           Interest3: {
             name: 'Interest3',
             input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, 10, InputDataType.STRING)],
             pattern: 'INTEREST3_$1',
-            noteCountFunc: NoteCountFunc.NormalCount,
+            noteCountFunc: NoteCountFunc.DirectionalSelection,
           },
           Interest4: {
             name: 'Interest4',
             input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, 10, InputDataType.STRING)],
             pattern: 'INTEREST4_$1',
-            noteCountFunc: NoteCountFunc.NormalCount,
+            noteCountFunc: NoteCountFunc.DirectionalSelection,
           },
         },
       },
@@ -803,83 +804,83 @@ namespace we {
         type: {
           TenThosandThosand: {
             name: 'TenThousandThousand',
-            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, 3, InputDataType.STRING)],
-            dataSelect: '1',
-            mapping: (data, combinationData) => {},
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.SEPARATOR)],
+            mapping: DataMapping.DragonTigerMapping,
+            mappingIndex: [0],
             pattern: '12DT_$1',
-            noteCountFunc: NoteCountFunc.NormalCount,
+            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
           },
           TenThousandHundred: {
             name: 'TenThousandHundred',
-            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, 3, InputDataType.STRING)],
-            dataSelect: '1',
-            mapping: (data, combinationData) => {},
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.SEPARATOR)],
+            mapping: DataMapping.DragonTigerMapping,
+            mappingIndex: [0],
             pattern: '13DT_$1',
-            noteCountFunc: NoteCountFunc.NormalCount,
+            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
           },
           TenThousandTen: {
             name: 'TenThousandTen',
-            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, 3, InputDataType.STRING)],
-            dataSelect: '1',
-            mapping: (data, combinationData) => {},
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.SEPARATOR)],
+            mapping: DataMapping.DragonTigerMapping,
+            mappingIndex: [0],
             pattern: '14DT_$1',
-            noteCountFunc: NoteCountFunc.NormalCount,
+            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
           },
           TenThousandUnit: {
             name: 'TenThousandUnit',
-            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, 3, InputDataType.STRING)],
-            dataSelect: '1',
-            mapping: (data, combinationData) => {},
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.SEPARATOR)],
+            mapping: DataMapping.DragonTigerMapping,
+            mappingIndex: [0],
             pattern: '15DT_$1',
-            noteCountFunc: NoteCountFunc.NormalCount,
+            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
           },
           ThousandHundred: {
             name: 'ThousandHundred',
-            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, 3, InputDataType.STRING)],
-            dataSelect: '1',
-            mapping: (data, combinationData) => {},
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.SEPARATOR)],
+            mapping: DataMapping.DragonTigerMapping,
+            mappingIndex: [0],
             pattern: '23DT_$1',
-            noteCountFunc: NoteCountFunc.NormalCount,
+            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
           },
           ThousandTen: {
             name: 'ThousandTen',
-            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, 3, InputDataType.STRING)],
-            dataSelect: '1',
-            mapping: (data, combinationData) => {},
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.SEPARATOR)],
+            mapping: DataMapping.DragonTigerMapping,
+            mappingIndex: [0],
             pattern: '24DT_$1',
-            noteCountFunc: NoteCountFunc.NormalCount,
+            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
           },
           ThousandUnit: {
             name: 'ThousandUnit',
-            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, 3, InputDataType.STRING)],
-            dataSelect: '1',
-            mapping: (data, combinationData) => {},
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
+            mapping: DataMapping.DragonTigerMapping,
+            mappingIndex: [0],
             pattern: '25DT_$1',
-            noteCountFunc: NoteCountFunc.NormalCount,
+            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
           },
           HundredTen: {
             name: 'HundredTen',
-            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, 3, InputDataType.STRING)],
-            dataSelect: '1',
-            mapping: (data, combinationData) => {},
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
+            mapping: DataMapping.DragonTigerMapping,
+            mappingIndex: [0],
             pattern: '34DT_$1',
-            noteCountFunc: NoteCountFunc.NormalCount,
+            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
           },
           HundredUnit: {
             name: 'HundredUnit',
             input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
-            dataSelect: '1',
-            mapping: (data, combinationData) => {},
+            mapping: DataMapping.DragonTigerMapping,
+            mappingIndex: [0],
             pattern: '35DT_$1',
-            noteCountFunc: NoteCountFunc.NormalCount,
+            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
           },
           TenUnit: {
             name: 'TenUnit',
             input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
-            dataSelect: '1',
-            mapping: (data, combinationData) => {},
+            mapping: DataMapping.DragonTigerMapping,
+            mappingIndex: [0],
             pattern: '45DT_$1',
-            noteCountFunc: NoteCountFunc.NormalCount,
+            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
           },
         },
       },
@@ -917,7 +918,7 @@ namespace we {
             ],
             combinationDataId: 1,
             pattern: '^1^2OPTIONALINPUTFREE_$1',
-            noteCountFunc: NoteCountFunc.Any.AnyTwoSum,
+            noteCountFunc: NoteCountFunc.Any.AnyTwoDirectionalSum,
           },
           GroupSelection: {
             name: 'GroupSelection',
@@ -927,7 +928,7 @@ namespace we {
             ],
             combinationDataId: 1,
             pattern: '^1^2TWOGROUPFREE_$1',
-            noteCountFunc: NoteCountFunc.TwoStar.GroupDirectionalSelection,
+            noteCountFunc: NoteCountFunc.Any.AnyGroupDirectionalSelection,
           },
           GroupMenu: {
             name: 'GroupMenu',
@@ -947,7 +948,7 @@ namespace we {
             ],
             combinationDataId: 1,
             pattern: '^1^2SUMGROUPFREE_$1',
-            noteCountFunc: NoteCountFunc.Any.SeparatorNoteCount,
+            noteCountFunc: NoteCountFunc.Any.AnyTwoGroupSum,
           },
         },
       },
@@ -985,7 +986,7 @@ namespace we {
             ],
             combinationDataId: 1,
             pattern: '^1^2^3OPTIONALINPUTFREE_$1',
-            noteCountFunc: NoteCountFunc.Any.AnyThreeSum,
+            noteCountFunc: NoteCountFunc.Any.AnyThreeDirectionalSum,
           },
           GroupThree: {
             name: 'GroupThree',
@@ -1022,7 +1023,7 @@ namespace we {
             ],
             combinationDataId: 1,
             pattern: '^1^2^3SUMGROUPFREE_$1',
-            noteCountFunc: NoteCountFunc.Any.AnyThreeSum,
+            noteCountFunc: NoteCountFunc.Any.AnyThreeGroupSum,
           },
         },
       },

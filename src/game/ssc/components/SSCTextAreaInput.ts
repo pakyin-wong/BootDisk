@@ -175,7 +175,7 @@ namespace we {
         let finalDatas = [];
 
         // duplication checking inside single data
-        if (this._config.isDuplicate) {
+        if (this._config.isUnique) {
           for (let i = 0; i < uniqueTempDatas.length; i++) {
             let k = 1;
             let isDuplicate = 0;

@@ -57,10 +57,6 @@ namespace we {
         return notes * noteMultiplier * data.length; // ??
       }
 
-      export function NormalCount(data, combination = null): number {
-        return data[0].length;
-      }
-
       export namespace FiveStar {
         export function Group120(data, combinations = null): number {
           // Y为选号数量:注数=Y(Y-1)(Y-2)(Y-3)(Y-4)/120
@@ -307,7 +303,77 @@ namespace we {
             return notes;
           }
         }
+
+        export function GroupSum(data, combinations = null): number {
+          const datas = data[0].split('|');
+
+          let combinationsCount;
+          let notes = 0;
+
+          if (combinations.length === 0) {
+            combinationsCount = 1;
+          } else {
+            combinationsCount = combinations.length;
+          }
+
+          for (let i = 0; i < datas.length; i++) {
+            let note = 0;
+            switch (datas[i]) {
+              case '1':
+              case '26':
+                note = 1;
+                break;
+              case '2':
+              case '3':
+              case '24':
+              case '25':
+                note = 2;
+                break;
+              case '4':
+              case '23':
+                note = 4;
+                break;
+              case '5':
+              case '22':
+                note = 5;
+                break;
+              case '6':
+              case '21':
+                note = 6;
+                break;
+              case '7':
+              case '20':
+                note = 8;
+                break;
+              case '8':
+              case '19':
+                note = 10;
+                break;
+              case '9':
+              case '18':
+                note = 11;
+                break;
+              case '10':
+              case '17':
+                note = 13;
+                break;
+              case '11':
+              case '12':
+              case '15':
+              case '16':
+                note = 14;
+                break;
+              case '13':
+              case '14':
+                note = 15;
+                break;
+            }
+            notes += note;
+          }
+          return notes;
+        }
       }
+
       export namespace TwoStar {
         export function DirectionalSum(data, combinations = null): number {
           const datas = data[0].split('|');
@@ -382,6 +448,59 @@ namespace we {
             return (dataCount * (dataCount - 1)) / 2;
           }
         }
+
+        export function GroupSum(data, combinations = null): number {
+          const datas = data[0].split('|');
+
+          let combinationsCount;
+          let notes = 0;
+
+          if (combinations.length === 0) {
+            combinationsCount = 1;
+          } else {
+            combinationsCount = combinations.length;
+          }
+
+          for (let i = 0; i < datas.length; i++) {
+            let note = 0;
+            switch (datas[i]) {
+              case '1':
+              case '2':
+              case '16':
+              case '17':
+                note = 1;
+                break;
+              case '3':
+              case '4':
+              case '14':
+              case '15':
+                note = 2;
+                break;
+              case '5':
+              case '6':
+              case '12':
+              case '13':
+                note = 3;
+                break;
+              case '7':
+              case '8':
+              case '10':
+              case '11':
+                note = 4;
+                break;
+              case '9':
+                note = 5;
+                break;
+            }
+            notes += note;
+          }
+
+          if (combinations.length > 0) {
+            return notes * combinations.length;
+          } else {
+            return notes;
+          }
+        }
       }
 
       export namespace Any {
@@ -415,7 +534,7 @@ namespace we {
           }
         }
 
-        export function AnyTwoSum(data, combinations = null): number {
+        export function AnyTwoDirectionalSum(data, combinations = null): number {
           const datas = data[1].split('|');
 
           let combinationsCount;
@@ -480,7 +599,7 @@ namespace we {
           }
         }
 
-        export function AnyThreeSum(data, combinations = null): number {
+        export function AnyThreeDirectionalSum(data, combinations = null): number {
           const datas = data[1].split('|');
 
           let notes = 0;
@@ -553,6 +672,7 @@ namespace we {
             return notes;
           }
         }
+
         export function SeparatorNoteCount(data, combinations = null): number {
           let combinationsCount;
 
@@ -564,8 +684,147 @@ namespace we {
           const datas = data[1].split('|');
           return datas.length * combinationsCount; // ?
         }
+
+        export function AnyGroupDirectionalSelection(data, combinations = null): number {
+          const dataCount = data[1].length;
+          if (combinations.length > 0) {
+            return ((dataCount * (dataCount - 1)) / 2) * combinations.length;
+          } else {
+            return (dataCount * (dataCount - 1)) / 2;
+          }
+        }
+
+        export function AnyTwoGroupSum(data, combinations = null): number {
+          const datas = data[1].split('|');
+
+          let combinationsCount;
+          let notes = 0;
+
+          if (combinations.length === 0) {
+            combinationsCount = 1;
+          } else {
+            combinationsCount = combinations.length;
+          }
+
+          for (let i = 0; i < datas.length; i++) {
+            let note = 0;
+            switch (datas[i]) {
+              case '1':
+              case '2':
+              case '16':
+              case '17':
+                note = 1;
+                break;
+              case '3':
+              case '4':
+              case '14':
+              case '15':
+                note = 2;
+                break;
+              case '5':
+              case '6':
+              case '12':
+              case '13':
+                note = 3;
+                break;
+              case '7':
+              case '8':
+              case '10':
+              case '11':
+                note = 4;
+                break;
+              case '9':
+                note = 5;
+                break;
+            }
+            notes += note;
+          }
+
+          if (combinations.length > 0) {
+            return notes * combinations.length;
+          } else {
+            return notes;
+          }
+        }
+
+        export function AnyThreeGroupSum(data, combinations = null): number {
+          const datas = data[1].split('|');
+
+          let combinationsCount;
+          let notes = 0;
+
+          if (combinations.length === 0) {
+            combinationsCount = 1;
+          } else {
+            combinationsCount = combinations.length;
+          }
+
+          for (let i = 0; i < datas.length; i++) {
+            let note = 0;
+            switch (datas[i]) {
+              case '1':
+              case '26':
+                note = 1;
+                break;
+              case '2':
+              case '3':
+              case '24':
+              case '25':
+                note = 2;
+                break;
+              case '4':
+              case '23':
+                note = 4;
+                break;
+              case '5':
+              case '22':
+                note = 5;
+                break;
+              case '6':
+              case '21':
+                note = 6;
+                break;
+              case '7':
+              case '20':
+                note = 8;
+                break;
+              case '8':
+              case '19':
+                note = 10;
+                break;
+              case '9':
+              case '18':
+                note = 11;
+                break;
+              case '10':
+              case '17':
+                note = 13;
+                break;
+              case '11':
+              case '12':
+              case '15':
+              case '16':
+                note = 14;
+                break;
+              case '13':
+              case '14':
+                note = 15;
+                break;
+            }
+            notes += note;
+          }
+          return notes * combinationsCount;
+        }
       }
 
+      export namespace SizeParity {
+        export function TwoPosDirectionalSelection(data, combination = null): number {
+          const firstDataCount = data[0].split('|').length;
+          const secondDataCount = data[1].split('|').length;
+
+          return firstDataCount * secondDataCount;
+        }
+      }
       function repeatCount(array1, array2): number {
         let count = 0;
         for (let i = 0; i < array1.length; i++) {
@@ -580,6 +839,35 @@ namespace we {
 
       function sumUp(n: number): number {
         return (n * n + n) / 2;
+      }
+    }
+
+    export namespace DataMapping {
+      export function DragonTigerMapping(data, pattern): string[] {
+        const dataSplit = data[0].split('|');
+        const newInputData = [];
+        let newData = '';
+
+        const re = /\$/gi;
+
+        for (let i = 0; i < dataSplit.length; i++) {
+          if (pattern.search(re) > -1) {
+            newData = pattern.replace('$1', dataSplit[i]);
+            newInputData.push(newData);
+          }
+        }
+
+        for (let i = 0; i < newInputData.length; i++) {
+          if (newInputData[i].search(/[\$\%\^\&]|\b(\w*undefined\w*)\b/gi) > -1) {
+            return [''];
+          }
+        }
+
+        if (newInputData.length > 0) {
+          return newInputData;
+        } else {
+          return [''];
+        }
       }
     }
   }

@@ -7,7 +7,7 @@
             </e:layout>
         </e:Group>
         <e:layout>
-            <e:HorizontalLayout paddingLeft="33" paddingRight="33"/>
+            <e:HorizontalLayout paddingTop="10" verticalAlign="middle" paddingLeft="33" paddingRight="33"/>
         </e:layout>
     </e:Group>
 </e:Skin>
