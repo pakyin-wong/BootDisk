@@ -62,7 +62,8 @@ namespace we {
       protected pSpecificTripleMax: eui.Label;
       protected pSpecificTripleOdd: eui.Label;
 
-      protected _scrollArea: eui.Scroller;
+      protected _scroller: eui.Scroller;
+      protected _scrollArea: eui.Group;
       protected _mask: egret.Shape;
 
       protected childrenCreated(): void {
@@ -71,10 +72,11 @@ namespace we {
         if (env.isMobile && env.orientation === 'landscape') {
           this.addGradentMask();
         }
-
-        this._scrollArea.scrollPolicyV = eui.ScrollPolicy.ON;
-        this._scrollArea.verticalScrollBar.visible = false;
-        this._scrollArea.bounces = true;
+        if (!env.isMobile) {
+          this.addScrollerMask();
+          this._scroller.scrollPolicyV = eui.ScrollPolicy.AUTO;
+          this._scroller.bounces = true;
+        }
       }
 
       private addGradentMask() {
@@ -89,6 +91,20 @@ namespace we {
         this._mask.x = -1;
         this._mask.y = 0;
         this._mask.visible = true;
+      }
+
+      protected addScrollerMask() {
+        this._mask = new egret.Shape();
+        const gr = this._mask.graphics;
+        const matrix = new egret.Matrix();
+        matrix.createGradientBox(408, this._scrollArea.height - 20, Math.PI / 2, 0, 0);
+        gr.beginGradientFill(egret.GradientType.LINEAR, [0xffffff, 0xffffff, 0xffffff, 0xffffff], [0, 1, 1, 0], [0, 20, 200, 255], matrix);
+        gr.drawRect(0, 0, 408, this._scrollArea.height - 20);
+        gr.endFill();
+        this.addChild(this._mask);
+        this._mask.x = 15;
+        this._mask.y = this._scroller.y + 20;
+        this._scroller.mask = this._mask;
       }
 
       public changeLang() {
