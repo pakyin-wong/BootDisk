@@ -81,17 +81,17 @@
 		<ui:RunTimeLabel id="_bainfo" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" text="i"
 		                 size.left_hand_mode="60" size.right_hand_mode="60" />
 	</e:Group>
-	<e:Scroller id="_betArea" width="924" scaleX="1" scaleY="1" scrollPolicyH="off" scrollPolicyV="off"
-	            x="159" y="67">
+	<e:Scroller id="_betArea" width="1182" scaleX="1" scaleY="1" scrollPolicyH="off" scrollPolicyV="off"
+	            x="30" y="1108">
 		<e:Group id="_bAViewport">
 			<e:Rect width="879" height="100" fillAlpha="0" />
 			<e:Group x="0" y="0">
 				<e:Group id="_bATransition" x="0">
-					<e:Group id="_bANormal" x="0" width="924">
-						<dil:MobileTableLayer id="_tableLayer" width="100%" height="100%"
+					<e:Group id="_bANormal" x="0" width="1182">
+						<di:MobileTableLayer id="_tableLayer" width="100%" height="100%"
 						                     skinName="skin_mobile_portrait.dil.MobileTableLayerSkin" isEdgeDismissable="true" />
 					</e:Group>
-					<dil:MobileChipLayer id="_chipLayer" skinName="skin_mobile_portrait.dil.MobileChipLayerSkin" isEdgeDismissable="true" scaleX="1" scaleY="1" left="0" right="0" horizontalCenter="0" top="0"/>
+					<di:MobileChipLayer id="_chipLayer" skinName="skin_mobile_portrait.dil.MobileChipLayerSkin" isEdgeDismissable="true" scaleX="1" scaleY="1" y="0" width="1182" x="0"/>
 				</e:Group>
 			</e:Group>
 		</e:Group>
@@ -153,7 +153,7 @@
 </e:Group>
 <e:Rect strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x212425" left="0"
         right="0" top="2095" bottom="0" />
-<di:MobileBottomGamePanel skinName="skin_mobile_portrait.di.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"
+<di:MobileBottomGamePanel skinName="skin_mobile_portrait.dil.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"
                           x="0" scaleY="1" scaleX="1" bottom="55" locked="true" />
 <e:Group bottom="0" left="0" width="700">
 	<ui:RunTimeLabel id="_baGameIDText" text="Game ID :" bottom="0" left="0" left.left_hand_mode="15"
