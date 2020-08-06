@@ -101,6 +101,7 @@ namespace we {
         }
 
         private formatBetType(gametype, bettype: string) {
+
           switch (gametype) {
             case we.core.GameType.BAC:
             case we.core.GameType.BAS:
@@ -117,6 +118,7 @@ namespace we {
         }
 
         private createGameResult(gametype, gameResult) {
+
           let p: core.BaseEUI;
 
           switch (gametype) {
@@ -129,14 +131,17 @@ namespace we {
             case we.core.GameType.DT:
               p = new DtResultItem(gameResult);
               break;
-
-            case we.core.GameType.ROL:
             case we.core.GameType.RO:
               p = new RoResultItem(gameResult);
               break;
-            case we.core.GameType.DIL:
+            case we.core.GameType.ROL:
+              p = new RolResultItem(gameResult);
+              break;
             case we.core.GameType.DI:
               p = new DiResultItem(gameResult);
+              break;
+            case we.core.GameType.DIL:
+              p = new DilResultItem(gameResult);
               break;
             case we.core.GameType.LW:
               p = new LwResultItem(gameResult);

@@ -1244,12 +1244,13 @@ namespace we {
             b3: '',
             playerpoint: 6,
             bankerpoint: 7,
+            odd: 15,
           },
         });
         tempData.push({
           id: 'XXXXXXXXXX',
           datetime: 1594978242, // timestamp
-          gametype: core.GameType.RO, // type of the Game, GameType
+          gametype: core.GameType.ROL, // type of the Game, GameType
           tablename: 'ROL-132', // name of the table (i.e. table number)
           roundid: '2132131',
           replayurl: '1232131',
@@ -1268,6 +1269,7 @@ namespace we {
             b3: '',
             playerpoint: 6,
             bankerpoint: 7,
+            odd: 20,
           },
         });
         for (let i = 0; i < 20; i++) {
