@@ -1225,6 +1225,31 @@ namespace we {
         tempData.push({
           id: 'XXXXXXXXXX',
           datetime: 1594978242, // timestamp
+          gametype: core.GameType.ROL, // type of the Game, GameType
+          tablename: 'ROL-132', // name of the table (i.e. table number)
+          roundid: '2132131',
+          replayurl: '1232131',
+          remark: 1, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+          field: 'SMALL',
+          betAmount: 200,
+          winAmount: 400,
+          prevremaining: 1231232, // balance before bet
+          endremaining: 21321321, // balance after result
+          result: {
+            a1: 1, // banker 1st card
+            a2: 2,
+            a3: 3,
+            b1: 'spade4', // player 1st card
+            b2: 'spade5',
+            b3: '',
+            playerpoint: 6,
+            bankerpoint: 7,
+            odd: 20,
+          },
+        });
+        tempData.push({
+          id: 'XXXXXXXXXX',
+          datetime: 1594978242, // timestamp
           gametype: core.GameType.DIL, // type of the Game, GameType
           tablename: 'DI-132', // name of the table (i.e. table number)
           roundid: '2132131',
@@ -1250,8 +1275,8 @@ namespace we {
         tempData.push({
           id: 'XXXXXXXXXX',
           datetime: 1594978242, // timestamp
-          gametype: core.GameType.ROL, // type of the Game, GameType
-          tablename: 'ROL-132', // name of the table (i.e. table number)
+          gametype: core.GameType.DIL, // type of the Game, GameType
+          tablename: 'DIL-132', // name of the table (i.e. table number)
           roundid: '2132131',
           replayurl: '1232131',
           remark: 1, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
@@ -1261,6 +1286,33 @@ namespace we {
           prevremaining: 1231232, // balance before bet
           endremaining: 21321321, // balance after result
           result: {
+            a1: 1, // banker 1st card
+            a2: 2,
+            a3: 3,
+            b1: 'spade4', // player 1st card
+            b2: 'spade5',
+            b3: '',
+            playerpoint: 6,
+            bankerpoint: 7,
+            odd: 15,
+          },
+        });
+
+        tempData.push({
+          id: 'XXXXXXXXXX',
+          datetime: 1594978242, // timestamp
+          gametype: core.GameType.LW, // type of the Game, GameType
+          tablename: 'LW-132', // name of the table (i.e. table number)
+          roundid: '2132131',
+          replayurl: '1232131',
+          remark: 1, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+          field: 'SMALL',
+          betAmount: 200,
+          winAmount: 400,
+          prevremaining: 1231232, // balance before bet
+          endremaining: 21321321, // balance after result
+          result: {
+            v: '01',
             a1: 1, // banker 1st card
             a2: 2,
             a3: 3,

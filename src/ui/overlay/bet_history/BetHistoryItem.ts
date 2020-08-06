@@ -101,7 +101,6 @@ namespace we {
         }
 
         private formatBetType(gametype, bettype: string) {
-
           switch (gametype) {
             case we.core.GameType.BAC:
             case we.core.GameType.BAS:
@@ -118,6 +117,7 @@ namespace we {
         }
 
         private createGameResult(gametype, gameResult) {
+
 
           let p: core.BaseEUI;
 

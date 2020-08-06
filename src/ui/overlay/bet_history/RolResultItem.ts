@@ -13,13 +13,17 @@ namespace we {
         }
 
         protected mount() {
-          console.log('RolResultItem', this._gameResult);
+          super.mount();
           this._ball = new ro.ROBeadRoadIcon(this._ballContainer.width);
           this._ball.setByObject({
             v: Number(this._gameResult.a1),
           });
           this._ballContainer.addChild(this._ball);
-          this._oddLabel.text = `${this._gameResult.odd} x`;
+          if (this._gameResult.odd && this._gameResult.odd !== undefined) {
+            this._oddLabel.text = `${this._gameResult.odd} x`;
+          } else {
+            this._oddLabel.text = '';
+          }
         }
       }
     }
