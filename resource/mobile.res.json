@@ -4751,6 +4751,36 @@
 			"url": "assets/images/m/common/general/common/m_common_liveverification_emoji_icon10.png",
 			"type": "image",
 			"name": "m_common_liveverification_emoji_icon10_png"
+		},
+		{
+			"url": "assets/images/m/di/result/Dice1.png",
+			"type": "image",
+			"name": "Dice1_png"
+		},
+		{
+			"url": "assets/images/m/di/result/Dice2.png",
+			"type": "image",
+			"name": "Dice2_png"
+		},
+		{
+			"url": "assets/images/m/di/result/Dice3.png",
+			"type": "image",
+			"name": "Dice3_png"
+		},
+		{
+			"url": "assets/images/m/di/result/Dice4.png",
+			"type": "image",
+			"name": "Dice4_png"
+		},
+		{
+			"url": "assets/images/m/di/result/Dice5.png",
+			"type": "image",
+			"name": "Dice5_png"
+		},
+		{
+			"url": "assets/images/m/di/result/Dice6.png",
+			"type": "image",
+			"name": "Dice6_png"
 		}
 	]
 }
