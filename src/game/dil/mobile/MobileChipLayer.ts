@@ -1,7 +1,6 @@
 namespace we {
   export namespace dil {
     export class MobileChipLayer extends we.dil.ChipLayer {
-
       constructor() {
         super();
         this._betField = dil.BetField;
@@ -32,12 +31,9 @@ namespace we {
 
         let animString = '';
 
-        if(env.orientation === 'portrait')
-        {
+        if (env.orientation === 'portrait') {
           animString = 'Bet_Effect_Mobile_Virtical';
-        }
-        else
-        {
+        } else {
           animString = 'Bet_Effect_Mobile_Horizontal';
         }
 
@@ -92,12 +88,9 @@ namespace we {
 
           let animString = '';
 
-          if(env.orientation === 'portrait')
-          {
+          if (env.orientation === 'portrait') {
             animString = 'Bet_Effect_Mobile_Virtical';
-          }
-          else
-          {
+          } else {
             animString = 'Bet_Effect_Mobile_Horizontal';
           }
 
