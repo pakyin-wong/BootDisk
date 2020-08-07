@@ -42,7 +42,7 @@ namespace we {
             }
           default:
             return null;
-        }         
+        }
       }
 
       // public clearMessage() {

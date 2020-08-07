@@ -539,7 +539,8 @@ namespace we {
             this._resultDisplay.updateResult(this._gameData);
           }
 
-          if (this._resultMessage) {
+          if (this._resultMessage && !this._betDetails) {
+            console.log('here');
             this.checkResultMessage();
           }
         }

@@ -67,7 +67,8 @@ namespace we {
 
         // update slot text
         // for (const slotName of ['win_txt', 'loss_txt']) {
-        for (const slotName of ['Result_Txt_Win', 'Result_Txt_Loss']) {
+        // for (const slotName of ['Result_Txt_Win', 'Result_Txt_Loss']) {
+        for (const slotName of ['result_win', 'result_loss']) {
           const slot = this._display.armature.getSlot(slotName);
           const text: eui.Label = new eui.Label();
           text.width = 320;
@@ -91,9 +92,9 @@ namespace we {
           //   slotName = '+8001';
           // }
           if (winAmount > 0) {
-            slotName = 'Credit_Win';
+            slotName = 'credit_win';
           } else {
-            slotName = 'Credit_Loss';
+            slotName = 'credit_loss';
           }
           const slot = this._display.armature.getSlot(slotName);
           const r = new eui.Label();
