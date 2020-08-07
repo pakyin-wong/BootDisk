@@ -21,10 +21,10 @@ namespace we {
       protected _goodRoadList: string[] = [];
 
       // protected fixedTab: string[] = ['allGame', 'bet', 'goodroad'];
-      protected _pageIds: string = 'bet';
+      protected _pageIds: string = 'allGame';
 
       protected _txt_title: RunTimeLabel;
-      protected _selected: number = 0;
+      protected _selected: number = -2;
 
       constructor() {
         super('GamePanelSkin');

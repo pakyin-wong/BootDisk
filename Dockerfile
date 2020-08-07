@@ -15,7 +15,8 @@ ADD style.css bin-release/web/${ENVIRONMENT}/style.css
 ADD swipeup.png bin-release/web/${ENVIRONMENT}/swipeup.png
 ADD config.${ENVIRONMENT}.json bin-release/web/${ENVIRONMENT}/config.${ENVIRONMENT}.json
 RUN sed -i "s/\"target\":.*/\"target\": \"${ENVIRONMENT}\",/g" bin-release/web/${ENVIRONMENT}/config.json
-RUN if [ "${ENVIRONMENT}" == "development" ] || [ "${ENVIRONMENT}" == "staging" ]; then sed -i "s/\data-show-fps=\"false\"/data-show-fps=\"true\",/g" bin-release/web/${ENVIRONMENT}/index.html; fi
+RUN sed -i "s/js\.zip/js\.zip?v=$(date +%s)/g" bin-release/web/${ENVIRONMENT}/index.html
+RUN if [ ${ENVIRONMENT} == "development" ] || [ ${ENVIRONMENT} == "staging" ]; then sed -i "s/\data-show-fps=\"false\"/data-show-fps=\"true\",/g" bin-release/web/${ENVIRONMENT}/index.html; fi
 
 RUN apt-get install -y zip
 RUN zip -r bin-release/web/${ENVIRONMENT}/js.zip bin-release/web/${ENVIRONMENT}/js
