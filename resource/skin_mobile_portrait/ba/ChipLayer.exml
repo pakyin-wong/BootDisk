@@ -13,19 +13,19 @@
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
 		                 betSumBackgroundHeight="30" betSumLabelFontSize="50" chipLabelOffset="-3" chipLabelSize="50"/>
 	</e:Group>
-	<e:Group id="_playerPairGroup" x="0" y="232" width="295" height="232" touchEnabled="true">
+	<e:Group id="_playerPairGroup" x="0" y="232" width="295" height="232" touchEnabled="true" width.Normal="394">
 		<ui:BetChipStack id="_playerPairBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="200" chipHeight="200"
 		                 chipInterval="7" totalCfmOffset="70" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
 		                 betSumBackgroundHeight="30" betSumLabelFontSize="50" chipLabelOffset="-3" chipLabelSize="50"/>
 	</e:Group>
-	<e:Group id="_tieGroup" x="295" y="232" width="592" height="232" width.SuperSix="296" touchEnabled="true">
+	<e:Group id="_tieGroup" x="295" y="232" width="592" height="232" width.SuperSix="296" touchEnabled="true" x.Normal="394" width.Normal="394">
 		<ui:BetChipStack id="_tieBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="200" chipHeight="200"
 		                 chipInterval="7" totalCfmOffset="70" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
 		                 betSumBackgroundHeight="30" betSumLabelFontSize="50" chipLabelOffset="-3" chipLabelSize="50"/>
 	</e:Group>
-	<e:Group id="_bankerPairGroup" x="887" y="232" width="295" height="232" touchEnabled="true">
+	<e:Group id="_bankerPairGroup" x="887" y="232" width="295" height="232" touchEnabled="true" width.Normal="394" right.Normal="0">
 		<ui:BetChipStack id="_bankerPairBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="200" chipHeight="200"
 		                 chipInterval="7" totalCfmOffset="70" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
