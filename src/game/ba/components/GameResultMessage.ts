@@ -70,13 +70,16 @@ namespace we {
 
         let anim = 'ani_result_';
         if (isNaN(winAmount)) {
-          anim += 'no_bets_';
+          anim += 'nobets_';
         } else if (winAmount > 0) {
           anim += 'win_';
         } else {
           anim += 'loss_';
         }
         anim += background;
+
+        this.visible = true;
+        this._display.animation.play(anim, 1);
 
         // update slot text
         // for (const slotName of ['win_txt', 'loss_txt']) {
@@ -124,9 +127,6 @@ namespace we {
           layer.anchorOffsetY = r.height * 0.5;
           slot.display = layer;
         }
-
-        this.visible = true;
-        this._display.animation.play(anim, 1);
       }
     }
   }

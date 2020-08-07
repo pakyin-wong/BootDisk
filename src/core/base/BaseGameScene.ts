@@ -539,7 +539,7 @@ namespace we {
             this._resultDisplay.updateResult(this._gameData);
           }
 
-          if (this._resultMessage && !this._betDetails) {
+          if (this._resultMessage) {
             console.log('here');
             this.checkResultMessage();
           }
@@ -609,14 +609,15 @@ namespace we {
 
       public checkResultMessage(resultData = null) {
         const totalWin: number = this._tableInfo.totalWin;
+        const totalBet: number = this._tableInfo.totalBet;
 
-        if (!this._gameData) {
+        if (!this._gameData || this._gameData.state !== core.GameState.FINISH) {
           return;
         }
 
         if (resultData === null) {
           // default resultData
-          if (this.hasBet() && !isNaN(totalWin)) {
+          if (totalBet > 0 && !isNaN(totalWin)) {
             resultData = {
               gameData: this._gameData,
               winAmount: totalWin,
