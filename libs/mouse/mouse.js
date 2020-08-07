@@ -44,6 +44,126 @@ var mouse;
         stageObj = stage;
         currentTarget = [stageObj];
 
+
+        // Tooltip Impl
+        // Referenced from Egret Inspector v3, preview-inject.js
+        (() => {
+            // const stageEventHandler = (event) => {
+            //     switch (event.type) {
+            //         case egret.Event.ADDED:
+            //         case egret.Event.REMOVED:
+            //             // this.sendDisplayListInfo();
+            //             break;
+            //         case egret.Event.CHANGE:
+            //             // this.registerToUpdate_Property(event.target)
+            //     }
+            // };
+            // stageObj.addEventListener(egret.Event.ADDED, stageEventHandler, null);
+            // stageObj.addEventListener(egret.Event.REMOVED, stageEventHandler, null);
+            // stageObj.addEventListener(egret.Event.CHANGE, stageEventHandler, null);
+            const hitTest = (e, t) => {
+                if (t instanceof egret.DisplayObjectContainer) {
+                    for (var n = t.$children.length - 1; n >= 0; n--) {
+                        var r = t.$children[n];
+                        if (!r.__debug__ && r.visible) {
+                            var i = hitTest(e, r);
+                            if (i) return i
+                        }
+                    }
+                }
+                return t.getTransformedBounds(stageObj).containsPoint(e) ? t : null
+            }
+            const enteredTarget =  {}
+            let prevTarget = null
+            const triggerTooltip = (displayObject, eventType, x, y) => {
+                if (displayObject.tooltipText.length < 1) {
+                    return
+                }
+                const event = new egret.Event(eventType, false, false, { displayObject, x, y });
+                stageObj.dispatchEvent(event);
+            }
+            const canvasMouseHandler = (event) => {
+                var n = stageObj.$screen.webTouchHandler.getLocation(event);
+
+                // const checkContainer = function(dispObj, posX, posY) {
+                //     if (!dispObj.visible) {
+                //         return null
+                //     }
+                //     console.log('dispObj', dispObj)
+                //     /*if (dispObj.scrollRect) {
+                //         console.log('dispObj', dispObj, '\n', 'dispObj.scrollRect', '\n', dispObj.scrollRect, '==')
+                //         if (posX < dispObj.scrollRect.x || posY < dispObj.scrollRect.y || posX > dispObj.scrollRect.x + dispObj.scrollRect.width || posY > dispObj.scrollRect.y + dispObj.scrollRect.height) {
+                //             return null
+                //         }
+                // } else */if (dispObj.mask) {
+                //         if (dispObj.mask.x > posX || posX > dispObj.mask.x + dispObj.mask.width || dispObj.mask.y > posY || posY > dispObj.mask.y + dispObj.mask.height) {
+                //             return null
+                //         }
+                //     }
+                //     if (!dispObj.$children) {
+                //         return null
+                //     }
+                //     var childCount = dispObj.$children.length;
+                //     var h = dispObj.$touchChildren;
+                //     for (var l = childCount - 1; l >= 0; l--) {
+                //         var c = dispObj.$children[l];
+                //         var matrix = c.$getMatrix();
+                //         // var d = c.scrollRect;
+                //         // if (d) {
+                //         //     matrix.append(1, 0, 0, 1, -d.x, -d.y)
+                //         // }
+                //         matrix.invert();
+                //         const transformCoords = (matrix, x, y) => {
+                //             var resultPoint = {};
+                //             resultPoint.x = matrix.a * x + matrix.c * y + matrix.tx;
+                //             resultPoint.y = matrix.d * y + matrix.b * x + matrix.ty;
+                //             return resultPoint;
+                //         }
+                //         var p = transformCoords(matrix, posX, posY);
+                //         var result = checkContainer(c, p.x, p.y);
+                //         if (result) {
+                //             if (!h) {
+                //                 return dispObj
+                //             }
+                //             return result
+                //         }
+                //     }
+                //     return null
+                // };
+                // console.log('aaa ', checkContainer(stageObj, n.x, n.y))
+
+                
+                var r = hitTest(n, stageObj);
+                switch (r || (r = stageObj), event.type) {
+                    case "mousemove":
+                        var stagePosRect = r.getTransformedBounds(stageObj);
+                        console.log('mouse | move',r,stagePosRect)
+                        if (r.$hashCode === prevTarget) {
+                            return
+                        }
+                        if (enteredTarget[prevTarget] !== undefined) {
+                            // trigger out
+                            triggerTooltip(enteredTarget[prevTarget], 'TOOLTIP_HIDE', n.x, n.y)
+                        }
+                        prevTarget = r.$hashCode
+                        enteredTarget[prevTarget] = r
+                        triggerTooltip(enteredTarget[prevTarget], 'TOOLTIP_SHOW', n.x, n.y)
+                        break;
+                    case "mouseleave":
+                        // e.markTraget(null);
+                        break;
+                    case "mousedown":
+                        event.stopPropagation();
+                        // e.selectTarget(r)
+                        console.log('mouse | down', r)
+                }
+            }
+            stageObj.$screen.webTouchHandler.canvas.addEventListener("mousemove", canvasMouseHandler);
+            stageObj.$screen.webTouchHandler.canvas.addEventListener("mouseleave", canvasMouseHandler);
+            stageObj.$screen.webTouchHandler.canvas.addEventListener("mousedown", canvasMouseHandler);
+        })();
+        // Tooltip Impl
+
         var check = function (x, y) {
             var pointer = false;
             var targetList = [];
@@ -52,10 +172,10 @@ var mouse;
                     egret.TouchEvent.dispatchTouchEvent(displayObject, mouse.MouseEvent.ROLL_OVER, false, false, x, y, null);
                     displayObject["isRollOver"] = true;
                     // if (egret.getQualifiedClassName(displayObject).indexOf('TooltipMessageWrapper') > 0) {
-                    if (displayObject.tooltipText.length > 0) {
-                        const event = new egret.Event('TOOLTIP_SHOW', false, false, { displayObject, x, y });
-                        stageObj.dispatchEvent(event);
-                    }
+                    // if (displayObject.tooltipText.length > 0) {
+                    //     const event = new egret.Event('TOOLTIP_SHOW', false, false, { displayObject, x, y });
+                    //     stageObj.dispatchEvent(event);
+                    // }
                 }
                 if (displayObject["buttonModeForMouse"]) {
                     pointer = true;
@@ -65,10 +185,10 @@ var mouse;
                 if (displayObject["isRollOver"]) {
                     egret.TouchEvent.dispatchTouchEvent(displayObject, mouse.MouseEvent.ROLL_OUT, false, false, x, y, null);
                     delete displayObject["isRollOver"];
-                    if (displayObject.tooltipText.length > 0) {
-                        const event = new egret.Event('TOOLTIP_HIDE', false, false, { displayObject, x, y });
-                        stageObj.dispatchEvent(event);
-                    }
+                    // if (displayObject.tooltipText.length > 0) {
+                    //     const event = new egret.Event('TOOLTIP_HIDE', false, false, { displayObject, x, y });
+                    //     stageObj.dispatchEvent(event);
+                    // }
                 }
             }
             var $hitTest = egret.DisplayObjectContainer.prototype.$hitTest;

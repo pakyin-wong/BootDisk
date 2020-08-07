@@ -149,6 +149,13 @@ namespace we {
       },
       nav: {
         bet_balance: '余额',
+        tooltip: {
+          menu: '选單',
+          back: '返回大堂',
+          refresh: '刷新餘额',
+          profile: '賬户资信',
+          betlimit: '限红设定',
+        },
         menu: {
           title: '设定',
           selectMode: '路纸色调',
