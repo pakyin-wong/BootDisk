@@ -25,42 +25,46 @@
 					                 textKey="baccarat.dealer" />
 					<ui:RunTimeLabel id="tableBetLimitLabel" text="本檯限紅" y="100" x="629" scaleX="1" scaleY="1" size="44"/>
 					<ui:RunTimeLabel id="betLimitLabel" text="投注限紅" y="170" x="629" scaleX="1" scaleY="1" size="44"/>
-					<e:Label id="pTableID" text="-" y="30" textAlign="right" scaleX="1" scaleY="1" size="44" x="167" width="381"
-					         height="44"  alpha="0.7"/>
+					<ui:ClampWidthLabel id="pTableID" text="百家樂01" x="167" y="30" textAlign="right" size="44" 
+			                    targetWidth="381" alpha="0.7" />
+					<ui:ClampWidthLabel id="pGameID" text="000-000-000000000" y="170" textAlign="right" x="167" size="44"
+			                    targetWidth="440" alpha="0.7" />
+					<ui:ClampWidthLabel id="pDealer" text="Mary" textAlign="right" x="732" y="30" size="44" width="440"
+			                    targetWidth="440" alpha="0.7" />
 					<e:Label id="pRoundID" text="-" y="100" textAlign="right" scaleX="1" scaleY="1" size="44" x="167"
 					         width="440"  alpha="0.7"/>
-					<e:Label id="pGameID" text="-" y="170" textAlign="right" scaleX="1" scaleY="1" size="44" x="167"
+					<!--<e:Label id="pGameID" text="-" y="170" textAlign="right" scaleX="1" scaleY="1" size="44" x="167"
 					         width="440"  alpha="0.7"/>
 					<e:Label id="pDealer" text="-" y="30" textAlign="right" scaleX="1" scaleY="1" size="44" x="732"
-					         width="440" verticalAlign="middle"  alpha="0.7"/>
+					         width="440" verticalAlign="middle"  alpha="0.7"/>-->
 					<e:Label id="pTableBetLimit" text="-" y="100" textAlign="right" scaleX="1" scaleY="1" size="44" x="732"
 					         width="440" verticalAlign="middle"  alpha="0.7"/>
 					<e:Label id="pBankerOdd" text="-" y="30" textAlign="right" x="1326" scaleX="1" scaleY="1" size="44" width="301"
 					          alpha="0.7"/>
-					<e:Label id="pBankerMax" text="-" y="30" textAlign="right" x="1176" scaleX="1" scaleY="1" size="44" width="301"
-					          alpha="0.7"/>
+					<!--<e:Label id="pBankerMax" text="-" y="30" textAlign="right" x="1176" scaleX="1" scaleY="1" size="44" width="301"
+					          alpha="0.7"/>-->
 					<e:Label id="pSuperSixBankerOdd" text="-" y="100" textAlign="right" x="1326" scaleX="1" scaleY="1" size="44" width="301"
 					          alpha="0.7"/>
-					<e:Label id="pSuperSixBankerMax" text="-" y="100" textAlign="right" x="1176" scaleX="1" scaleY="1" size="44" width="301"
-					          alpha="0.7"/>
+					<!--<e:Label id="pSuperSixBankerMax" text="-" y="100" textAlign="right" x="1176" scaleX="1" scaleY="1" size="44" width="301"
+					          alpha="0.7"/>-->
 					<e:Label id="pPlayerOdd" text="-" y="170" textAlign="right" x="1450" scaleX="1" scaleY="1" size="44" width="177" alpha="0.7" anchorOffsetX="0"/>
-					<e:Label id="pPlayerMax" text="-" y="170" textAlign="right" x="1176" scaleX="1" scaleY="1" size="44" width="175" alpha="0.7" anchorOffsetX="0"/>
+					<!--<e:Label id="pPlayerMax" text="-" y="170" textAlign="right" x="1176" scaleX="1" scaleY="1" size="44" width="175" alpha="0.7" anchorOffsetX="0"/>-->
 					<e:Label id="pTieOdd" text="-" y="30" textAlign="right" x="1772" scaleX="1" scaleY="1" size="44" width="301"
 					    	 alpha="0.7"/>
-					<e:Label id="pTieMax" text="-" y="30" textAlign="right" x="1622" scaleX="1" scaleY="1" size="44" width="301"
-					    	 alpha="0.7"/>
+					<!--<e:Label id="pTieMax" text="-" y="30" textAlign="right" x="1622" scaleX="1" scaleY="1" size="44" width="301"
+					    	 alpha="0.7"/>-->
 					<e:Label id="pBankerPairOdd" text="-" y="100" textAlign="right" x="1772" scaleX="1" scaleY="1" size="44" width="301"
 					          alpha="0.7"/>
-					<e:Label id="pBankerPairMax" text="-" y="100" textAlign="right" x="1622" scaleX="1" scaleY="1" size="44" width="301"
-					          alpha="0.7"/>
+					<!--<e:Label id="pBankerPairMax" text="-" y="100" textAlign="right" x="1622" scaleX="1" scaleY="1" size="44" width="301"
+					          alpha="0.7"/>-->
 					<e:Label id="pPlayerPairOdd" text="-" y="170" textAlign="right" x="1772" scaleX="1" scaleY="1" size="44" width="301"
 					          alpha="0.7"/>
-					<e:Label id="pPlayerPairMax" text="-" y="170" textAlign="right" x="1622" scaleX="1" scaleY="1" size="44" width="301"
-					          alpha="0.7"/>
+					<!--<e:Label id="pPlayerPairMax" text="-" y="170" textAlign="right" x="1622" scaleX="1" scaleY="1" size="44" width="301"
+					          alpha="0.7"/>-->
 					<e:Label id="pSuperSixOdd" text="-" y="30" textAlign="right" x="2218" scaleX="1" scaleY="1" size="44" width="301"
 					          alpha="0.7"/>
-					<e:Label id="pSuperSixMax" text="-" y="30" textAlign="right" x="2068" scaleX="1" scaleY="1" size="44" width="301"
-					          alpha="0.7"/>
+					<!--<e:Label id="pSuperSixMax" text="-" y="30" textAlign="right" x="2068" scaleX="1" scaleY="1" size="44" width="301"
+					          alpha="0.7"/>-->
 					<ui:RunTimeLabel id="bankerLabel" text="庄" y="30" textAlign="left" x="1195" scaleX="1" scaleY="1" size="44"
 					                 textKey="baccarat.banker" />
 					<ui:RunTimeLabel id="superSixBankerLabel" text="庄 (免佣)" y="100" x="1195" scaleX="1" scaleY="1" size="44"/>
