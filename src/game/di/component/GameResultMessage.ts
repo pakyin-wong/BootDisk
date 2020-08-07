@@ -79,6 +79,10 @@ namespace we {
           //   console.log('not _identical');
           // }
         }
+
+        this.visible = true;
+        this._display.animation.play(anim, 1);
+
         const diceResults = [dice1, dice1, dice2, dice3];
         for (let i = 1; i <= 3; i += 1) {
           // const slot = this._display.armature.getSlot(`dice_${i + (isWin ? 6 : 9)}`);
@@ -145,9 +149,6 @@ namespace we {
           console.log('slot.displayIndex', slot.displayIndex);
           console.log('r.stage', r.stage);
         }
-
-        this.visible = true;
-        this._display.animation.play(anim, 1);
       }
     }
   }
