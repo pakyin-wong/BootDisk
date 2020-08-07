@@ -86,8 +86,8 @@
         })
         loadJSZipLib(list, function() {
             var loaded = 0;
-            // unzip js.zip
-            let zip = loadZip('js.zip?v=0.8.0', function(zip) {
+            // unzip js zip
+            let zip = loadZip('js.zip', function(zip) {
                 var loadNext = function () {
                     // console.log(list[loaded]);
                     createScript(zip,nameList[loaded], function () {

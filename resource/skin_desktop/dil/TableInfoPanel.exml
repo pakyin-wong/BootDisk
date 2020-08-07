@@ -41,38 +41,38 @@
 				<e:Label id="eightThirteenLabel" text="和值 8/13" y="186" x="30" scaleX="1" scaleY="1" size="20" />
 				<e:Label id="nineTwelveLabel" text="和值 9/12" y="220" textAlign="left" x="30" scaleX="1" scaleY="1" size="20" />
 				<e:Label id="tenElevenLabel" text="和值 10/11" y="252" x="30" scaleX="1" scaleY="1" size="20" />
-				<e:Label id="pThreeEieghteenMax" text="-" y="16" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
-				         x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
-				<e:Label id="pThreeEieghteenOdd" text="-" y="16" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
-				         width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="30"/>
+				<e:Label id="pThreeEighteenMax" text="-" y="16" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+				         width="50" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="114"/>
+				<e:Label id="pThreeEighteenOdd" text="-" y="16" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+				         width="64" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="30"/>
 				<e:Label id="pFourSeventeenMax" text="-" y="50" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
-				         x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+				         width="50" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="114"/>
 				<e:Label id="pFourSeventeenOdd" text="-" y="50" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
-				         width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="30"/>
+				         width="64" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="30"/>
 				<e:Label id="pFiveSixteenMax" text="-" y="84" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
-				         x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+				         width="50" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="114"/>
 				<e:Label id="pFiveSixteenOdd" text="-" y="84" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
-				         width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="30"/>
+				         width="64" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="30"/>
 				<e:Label id="pSixFifteenMax" text="-" y="118" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
-				         x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+				         width="50" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="114"/>
 				<e:Label id="pSixFifteenOdd" text="-" y="118" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
-				         width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="30"/>
+				         width="64" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="30"/>
 				<e:Label id="pSevenForteenMax" text="-" y="152" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
-				         size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+				         size="20" width="50" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="114"/>
 				<e:Label id="pSevenForteenOdd" text="-" y="152" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
-				         size="20" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="30"/>
+				         size="20" width="64" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="30"/>
 				<e:Label id="pEightThirteenMax" text="-" y="186" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
-				         size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+				         size="20" width="50" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="114"/>
 				<e:Label id="pEightThirteenOdd" text="-" y="186" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
-				         size="20" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="30"/>
+				         size="20" width="64" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="30"/>
 				<e:Label id="pNineTwelveMax" text="-" y="220" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
-				         size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+				         size="20" width="50" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="114"/>
 				<e:Label id="pNineTwelveOdd" text="-" y="220" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
-				         size="20" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="30"/>
+				         size="20" width="64" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="30"/>
 				<e:Label id="pTenElevenMax" text="-" y="252" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
-				         size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+				         size="20" width="50" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="114"/>
 				<e:Label id="pTenElevenOdd" text="-" y="252" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
-				         size="20" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="30"/>
+				         size="20" width="64" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="30"/>
 			</e:Group>
 	</e:Group>
 </e:Skin>
