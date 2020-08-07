@@ -100,8 +100,13 @@ namespace we {
       protected generateBetFields() {}
 
       public computeNoteCount() {
-        this.totalNoteCount = this._config.noteCountFunc(this.inputData, this.combinations);
+        this.totalNoteCount = 0;
+        this.noteCount = [];
+        this.noteCount = this._config.noteCountFunc(this.inputData, this.combinations);
 
+        for (let i = 0; i < this.noteCount.length; i++) {
+          this.totalNoteCount += this.noteCount[i];
+        }
         // this.totalNoteCount = this.betFields.length;
       }
 

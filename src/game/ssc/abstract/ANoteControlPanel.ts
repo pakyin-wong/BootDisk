@@ -11,7 +11,9 @@ namespace we {
       // }
       public bettingPanel: ABettingPanel;
 
-      public init() {}
+      public init() {
+        this._notes = [];
+      }
 
       public get notes() {
         return this._notes;
@@ -22,24 +24,25 @@ namespace we {
       }
 
       public addNotes(notes: TradNoteData[]) {
-        this._notes.concat(notes);
-      }
-
-      public addTempNotes(tempbetdails?: any) {
-        if (tempbetdails) {
-          this.notes = this._notes.concat(tempbetdails);
-        } else {
-          const temp = [
-            {
-              field: '15OptionalFree_349_089@200',
-              count: 9,
-              multiplier: 1,
-            },
-          ];
-          this.notes = this._notes.concat(temp);
-        }
+        this._notes = this._notes.concat(notes);
         this.updateNoteControlPanel();
       }
+
+      // public addTempNotes(tempbetdails?: any) {
+      //   if (tempbetdails) {
+      //     this.notes = this._notes.concat(tempbetdails);
+      //   } else {
+      //     const temp = [
+      //       {
+      //         field: '15OptionalFree_349_089@200',
+      //         count: 9,
+      //         multiplier: 1,
+      //       },
+      //     ];
+      //     this.notes = this._notes.concat(temp);
+      //   }
+      //   this.updateNoteControlPanel();
+      // }
 
       public clearNotes(note: TradNoteData) {
         if (this.notes.length === 0) {

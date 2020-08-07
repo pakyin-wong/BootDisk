@@ -71,6 +71,7 @@ namespace we {
       }
 
       public init() {
+        super.init();
         // runtimelabel rendertext
         this._lblGameMode.renderText = () => `玩法`;
         this._lblBetItem.renderText = () => `投注項目`;
@@ -84,32 +85,32 @@ namespace we {
         this._lbltotalBetCount.renderText = () => `${this._totalBetCount}`;
         this._lbltotalBetAmount.renderText = () => `${this._totalBetAmount}`;
         this.addListeners();
-        const tempNotes: TradNoteData[] = [
-          {
-            field: '12OptionalFree_1_2@200',
-            count: 1,
-            multiplier: 1,
-          },
-          {
-            field: '13OptionalFree_1_12@200',
-            count: 2,
-            multiplier: 1,
-          },
-          {
-            field: '23OptionalFree_2_12@200',
-            count: 2,
-            multiplier: 1,
-          },
-        ];
+        // const tempNotes: TradNoteData[] = [
+        //   {
+        //     field: '12OptionalFree_1_2@200',
+        //     count: 1,
+        //     multiplier: 1,
+        //   },
+        //   {
+        //     field: '13OptionalFree_1_12@200',
+        //     count: 2,
+        //     multiplier: 1,
+        //   },
+        //   {
+        //     field: '23OptionalFree_2_12@200',
+        //     count: 2,
+        //     multiplier: 1,
+        //   },
+        // ];
 
-        this.notes = tempNotes;
-        console.log('this.notes', this.notes);
+        // this.notes = tempNotes;
+        // console.log('this.notes', this.notes);
         // const itemArray = this.generateStringFromNote(this.notes);
         // this._dataColl = new eui.ArrayCollection();
         // this._dataColl.source = itemArray;
         // this._datagroup.dataProvider = this._dataColl;
         // this._datagroup.itemRenderer = lo.SSCBetNoteItem;
-        this.updateNoteControlPanel();
+        // this.updateNoteControlPanel();
         // this.computeTotalNoteAmount();
 
         // SSCBetNoteItem.PANEL = this;
@@ -150,6 +151,8 @@ namespace we {
         this._datagroup.itemRenderer = lo.SSCBetNoteItem;
         this.computeTotalNoteAmount();
         this.computeTotalCount();
+
+        this.bettingPanel.refreshCurrentBettingTable();
       }
 
       public clearAllNotes() {

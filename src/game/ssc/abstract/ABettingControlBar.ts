@@ -3,7 +3,7 @@ namespace we {
   export namespace lo {
     // manage lottery bet multiplier, denomination and bet buttons
     export abstract class ABettingControlBar extends core.BaseEUI implements IBettingControl {
-      protected _unitBet: number = 2; // bet ammount per note
+      protected _unitBet: number = 200; // bet ammount per note
       protected _multiplier: number = 1; // bet ammount per note
       protected _noteCount: number = 0; // sum of all note.count
       protected _totalBetAmount: number;

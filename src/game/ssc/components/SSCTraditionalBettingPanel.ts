@@ -123,6 +123,10 @@ namespace we {
         this.createSmallTags();
       }
 
+      protected generateNoteData(): TradNoteData[] {
+        return super.generateNoteData();
+      }
+
       protected setActiveBigTag() {
         this.clearSmallTags();
         for (let i = 0; i < this.bigTagsArray.length; i++) {
@@ -271,6 +275,9 @@ namespace we {
         }
       }
 
+      public refreshCurrentBettingTable() {
+        this.createBetTable();
+      }
       protected initCurrentBettingTable() {
         super.initCurrentBettingTable();
         this._buttonGroup.addChild(this._currentBettingTable);

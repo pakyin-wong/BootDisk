@@ -43,13 +43,15 @@ namespace we {
       public clearNote() {
         this._currentBettingTable.clearData();
         if (this._bettingControl) {
-          this._bettingControl.noteCount = this._currentBettingTable.totalNoteCount;
+          this._bettingControl.noteCount = 0;
         }
       }
 
       protected initCurrentBettingTable() {
         this._currentBettingTable.bettingPanel = this;
       }
+
+      public refreshCurrentBettingTable() {}
 
       public onInputChanged() {
         console.log('Lottery input changed');
@@ -69,8 +71,16 @@ namespace we {
         const rawBetFields = this._currentBettingTable.betFields;
         const finalbetFields = this.betFieldMapping(rawBetFields);
         // TODO: generateNoteData using unitBet, multiplier of ABettingControlBar and the betField and noteCount of ABettingTable and store at _notes
+        const tradNoteDataArray = [];
+        for (let i = 0; i < finalbetFields.length; i++) {
+          const tradNoteData = new TradNoteData();
+          tradNoteData.field = finalbetFields[i];
+          tradNoteData.count = this._currentBettingTable.noteCount[i];
+          tradNoteData.multiplier = this._bettingControl.multiplier;
+          tradNoteDataArray.push(tradNoteData);
+        }
 
-        return [];
+        return tradNoteDataArray;
       }
 
       protected placeBet(notes: TradNoteData[]) {
@@ -96,14 +106,19 @@ namespace we {
 
       public addNotes() {
         // add notes to _noteControl
-        // const notes = this.generateNoteData();
-        const tempbetdails = [
-          {
-            field: '34OptionalFree_564_708@200',
-            count: 9,
-            multiplier: 1,
-          },
-        ];
+        const notes = this.generateNoteData();
+        if (!this._noteControl) {
+          return;
+        }
+
+        this._noteControl.addNotes(notes);
+        // const tempbetdails = [
+        //   {
+        //     field: '34OptionalFree_564_708@200',
+        //     count: 9,
+        //     multiplier: 1,
+        //   },
+        // ];
       }
 
       public onBettingControlBarUnitBetUpdate(betFields: string[]) {

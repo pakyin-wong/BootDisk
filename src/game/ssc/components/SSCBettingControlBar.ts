@@ -23,9 +23,9 @@ namespace we {
       private _lblTitleTotalBet;
       private _lblTotalBet;
 
-      private _btnAddBetFields;
+      private _btnAddBetFields: ui.RoundRectButton;
       private _lblAdd;
-      private _btnInstantBet;
+      private _btnInstantBet: ui.RoundRectButton;
       private _lblInstantBet;
 
       // constructor(skin, orientationDependent) {
@@ -54,11 +54,11 @@ namespace we {
       protected addListeners() {
         // if (this._btnAddBetFields) {
         //   // this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP,this.bettingPanel.showConfirm,this);
-        //   // this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this);
+        //   this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this);
         // }
         if (this._btnAddBetFields) {
-          // this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.addNotes, this);
-          this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addBetfield, this);
+          this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.addNotes, this.bettingPanel);
+          // this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addBetfield, this);
         }
         if (this._btnAddMultiplier) {
           this._btnAddMultiplier.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addMultiplier, this);
@@ -71,12 +71,12 @@ namespace we {
         }
       }
 
-      protected addBetfield() {
-        this.bettingPanel._noteControl.addTempNotes(this.bettingPanel._currentBettingTable.betFields);
-      }
+      // protected addBetfield() {
+      //   this.bettingPanel._noteControl.addTempNotes(this.bettingPanel._currentBettingTable.betFields);
+      // }
 
       protected initNoteDropDown() {
-        const _arrCol_note = new eui.ArrayCollection([ui.NewDropdownItem(2, () => `2元`), ui.NewDropdownItem(0.2, () => `2角`), ui.NewDropdownItem(0.02, () => `2分`)]);
+        const _arrCol_note = new eui.ArrayCollection([ui.NewDropdownItem(200, () => `2元`), ui.NewDropdownItem(20, () => `2角`), ui.NewDropdownItem(2, () => `2分`)]);
         this._noteDropDown.isDropdown = true;
         this._noteDropDown.isPoppable = true;
         this._noteDropDown.dismissOnClickOutside = true;
@@ -101,7 +101,7 @@ namespace we {
         }
 
         if (this._lblTotalBet) {
-          this._lblTotalBet.text = `${this._totalBetAmount} 元`;
+          this._lblTotalBet.text = `${this._totalBetAmount / 100} 元`;
         }
       }
 
@@ -123,11 +123,11 @@ namespace we {
       protected validateBet() {
         // TODO: disable button if noteCount == 0
         if (this._noteCount <= 0) {
-          this._btnInstantBet.touchenabled = false;
-          this._btnAddBetFields.touchenabled = false;
+          this._btnInstantBet.buttonEnabled = false;
+          this._btnAddBetFields.buttonEnabled = false;
         } else {
-          this._btnInstantBet.touchenabled = true;
-          this._btnAddBetFields.touchenabled = true;
+          this._btnInstantBet.buttonEnabled = true;
+          this._btnAddBetFields.buttonEnabled = true;
         }
       }
     }

@@ -2,7 +2,7 @@
 namespace we {
   export namespace lo {
     export namespace NoteCountFunc {
-      export function DirectionalSelection(data, combinations = null): number {
+      export function DirectionalSelection(data, combinations = []): number[] {
         let notes = 0;
 
         if (combinations.length === 0) {
@@ -11,9 +11,9 @@ namespace we {
             notes *= data[i].length;
           }
 
-          return notes;
+          return [notes];
         }
-
+        const notesArray = [];
         for (let i = 0; i < combinations.length; i++) {
           let currentNote = 1;
           const combinationIds = combinations[i].split('_');
@@ -22,13 +22,13 @@ namespace we {
 
             currentNote *= data[index].length;
           }
-          notes += currentNote;
+          notesArray.push(currentNote);
         }
 
-        return notes;
+        return notesArray;
       }
 
-      export function SeparatorNoteCount(data, combinations = null): number {
+      export function SeparatorNoteCount(data, combinations = []): number[] {
         let combinationsCount;
 
         if (combinations.length === 0) {
@@ -37,16 +37,23 @@ namespace we {
           combinationsCount = combinations.length;
         }
         const datas = data[0].split('|');
-        return datas.length * combinationsCount; // ?
+
+        const notes = [];
+
+        for (let i = 0; i < combinationsCount; i++) {
+          notes.push(datas.length); // ?
+        }
+
+        return notes;
       }
 
-      export function DirectionalCombination(data, combinations = null): number {
-        let noteMultiplier;
+      export function DirectionalCombination(data, combinations = []): number[] {
+        let combinationsCount;
 
         if (combinations.length === 0) {
-          noteMultiplier = 1;
+          combinationsCount = 1;
         } else {
-          noteMultiplier = combinations.length;
+          combinationsCount = combinations.length;
         }
 
         let notes = 1;
@@ -54,19 +61,24 @@ namespace we {
           notes *= data[i].length;
         }
 
-        return notes * noteMultiplier * data.length; // ??
+        const notesArray = [];
+
+        for (let i = 0; i < combinationsCount; i++) {
+          notesArray.push(notes * data.length); // ?
+        }
+        return notesArray; // ??
       }
 
       export namespace FiveStar {
-        export function Group120(data, combinations = null): number {
+        export function Group120(data, combinations = []): number[] {
           // Y为选号数量:注数=Y(Y-1)(Y-2)(Y-3)(Y-4)/120
 
           const y = data[0].length;
 
-          return (y * (y - 1) * (y - 2) * (y - 3) * (y - 4)) / 120;
+          return [(y * (y - 1) * (y - 2) * (y - 3) * (y - 4)) / 120];
         }
 
-        export function Group60(data, combinations = null): number {
+        export function Group60(data, combinations = []): number[] {
           // N为二重号个数,Y为单号个数;[Y(Y-1)(Y-2)/6]*(N-重)+[(Y-1)(Y-2)(Y-3)/6]*重
           const double = data[0].split('');
           const single = data[1].split('');
@@ -76,10 +88,10 @@ namespace we {
 
           const repeatN = repeatCount(double, single);
 
-          return ((singleCount * (singleCount - 1) * (singleCount - 2)) / 6) * (doubleCount - repeatN) + (((singleCount - 1) * (singleCount - 2) * (singleCount - 3)) / 6) * repeatN;
+          return [((singleCount * (singleCount - 1) * (singleCount - 2)) / 6) * (doubleCount - repeatN) + (((singleCount - 1) * (singleCount - 2) * (singleCount - 3)) / 6) * repeatN];
         }
 
-        export function Group30(data, combinations = null): number {
+        export function Group30(data, combinations = []): number[] {
           // N为二重号个数,Y为单号个数;[Y(Y-1)(Y-2)/6]*(N-重)+[(Y-1)(Y-2)(Y-3)/6]*重
           const double = data[0].split('');
           const single = data[1].split('');
@@ -89,10 +101,10 @@ namespace we {
 
           const repeatN = repeatCount(double, single);
 
-          return sumUp(doubleCount - 1) * (singleCount - repeatN) + sumUp(doubleCount - 2) * repeatN;
+          return [sumUp(doubleCount - 1) * (singleCount - repeatN) + sumUp(doubleCount - 2) * repeatN];
         }
 
-        export function Group20(data, combinations = null) {
+        export function Group20(data, combinations = []) {
           const triple = data[0].split('');
           const single = data[1].split('');
 
@@ -101,10 +113,10 @@ namespace we {
 
           const repeatN = repeatCount(triple, single);
 
-          return sumUp(singleCount - 1) * (tripleCount - repeatN) + sumUp(singleCount - 2) * repeatN;
+          return [sumUp(singleCount - 1) * (tripleCount - repeatN) + sumUp(singleCount - 2) * repeatN];
         }
 
-        export function Group10(data, combinations = null): number {
+        export function Group10(data, combinations = []): number[] {
           const triple = data[0].split('');
           const double = data[1].split('');
 
@@ -113,10 +125,10 @@ namespace we {
 
           const repeatN = repeatCount(triple, double);
 
-          return tripleCount * doubleCount - repeatN;
+          return [tripleCount * doubleCount - repeatN];
         }
 
-        export function Group5(data, combinations = null): number {
+        export function Group5(data, combinations = []): number[] {
           const quadruple = data[0].split('');
           const single = data[1].split('');
 
@@ -125,22 +137,28 @@ namespace we {
 
           const repeatN = repeatCount(quadruple, single);
 
-          return quadrupleCount * singleCount - repeatN;
+          return [quadrupleCount * singleCount - repeatN];
         }
       }
       export namespace FourStar {
-        export function Group24(data, combinations = null): number {
+        export function Group24(data, combinations = []): number[] {
           // Y为选号数量:注数=Y(Y-1)(Y-2)(Y-3)/24=注数
 
           const y = data[0].length;
+
+          const notesArray = [];
+
           if (combinations.length > 0) {
-            return ((y * (y - 1) * (y - 2) * (y - 3)) / 24) * combinations.length;
+            for (let i = 0; i < combinations.length; i++) {
+              notesArray.push((y * (y - 1) * (y - 2) * (y - 3)) / 24); // ?
+            }
+            return notesArray;
           } else {
-            return (y * (y - 1) * (y - 2) * (y - 3)) / 24;
+            return [(y * (y - 1) * (y - 2) * (y - 3)) / 24];
           }
         }
 
-        export function Group12(data, combinations = null): number {
+        export function Group12(data, combinations = []): number[] {
           const double = data[0].split('');
           const single = data[1].split('');
 
@@ -149,26 +167,36 @@ namespace we {
 
           const repeatN = repeatCount(double, single);
 
+          const notesArray = [];
+
           if (combinations.length > 0) {
-            return sumUp(singleCount - 1) * (doubleCount - repeatN) + sumUp(singleCount - 2) * repeatN * combinations.length;
+            for (let i = 0; i < combinations.length; i++) {
+              notesArray.push(sumUp(singleCount - 1) * (doubleCount - repeatN) + sumUp(singleCount - 2) * repeatN); // ?
+            }
+            return notesArray;
           } else {
-            return sumUp(singleCount - 1) * (doubleCount - repeatN) + sumUp(singleCount - 2) * repeatN;
+            return [sumUp(singleCount - 1) * (doubleCount - repeatN) + sumUp(singleCount - 2) * repeatN];
           }
         }
 
-        export function Group6(data, combinations = null): number {
+        export function Group6(data, combinations = []): number[] {
           const double = data[0].split('');
 
           const doubleCount = double.length;
 
+          const notesArray = [];
+
           if (combinations.length > 0) {
-            return ((doubleCount * (doubleCount - 1)) / 2) * combinations.length;
+            for (let i = 0; i < combinations.length; i++) {
+              notesArray.push((doubleCount * (doubleCount - 1)) / 2);
+            }
+            return notesArray;
           } else {
-            return (doubleCount * (doubleCount - 1)) / 2;
+            return [(doubleCount * (doubleCount - 1)) / 2];
           }
         }
 
-        export function Group4(data, combinations = null): number {
+        export function Group4(data, combinations = []): number[] {
           const triple = data[0].split('');
           const single = data[1].split('');
 
@@ -176,34 +204,49 @@ namespace we {
           const singleCount = single.length;
 
           const repeatN = repeatCount(triple, single);
+
+          const notesArray = [];
           if (combinations.length > 0) {
-            return tripleCount * singleCount - repeatN * combinations.length;
+            for (let i = 0; i < combinations.length; i++) {
+              notesArray.push(tripleCount * singleCount - repeatN);
+            }
+            return notesArray;
           } else {
-            return tripleCount * singleCount - repeatN;
+            return [tripleCount * singleCount - repeatN];
           }
         }
       }
 
       export namespace ThreeStar {
-        export function Group3(data, combinations = null): number {
+        export function Group3(data, combinations = []): number[] {
           const datas = data[0].split('');
+
+          const notesArray = [];
           if (combinations.length > 0) {
-            return datas.length * (datas.length - 1) * combinations.length;
+            for (let i = 0; i < combinations.length; i++) {
+              notesArray.push(datas.length * (datas.length - 1));
+            }
+            return notesArray;
           } else {
-            return datas.length * (datas.length - 1);
+            return [datas.length * (datas.length - 1)];
           }
         }
 
-        export function Group6(data, combinations = null): number {
+        export function Group6(data, combinations = []): number[] {
           const datas = data[0].split('');
+
+          const notesArray = [];
           if (combinations.length > 0) {
-            return ((datas.length * (datas.length - 1) * (datas.length - 2)) / 6) * combinations.length;
+            for (let i = 0; i < combinations.length; i++) {
+              notesArray.push((datas.length * (datas.length - 1) * (datas.length - 2)) / 6);
+            }
+            return notesArray;
           } else {
-            return (datas.length * (datas.length - 1) * (datas.length - 2)) / 6;
+            return [(datas.length * (datas.length - 1) * (datas.length - 2)) / 6];
           }
         }
 
-        export function Group3Tow(data, combinations = null): number {
+        export function Group3Tow(data, combinations = []): number {
           // check
           const bravery = data[0].split();
           const tow = data[1].split();
@@ -216,7 +259,7 @@ namespace we {
           return braveryCount * towCount - repeatN;
         }
 
-        export function Group6Tow(data, combinations = null): number {
+        export function Group6Tow(data, combinations = []): number {
           // check
 
           const bravery = data[0].split();
@@ -230,7 +273,7 @@ namespace we {
           return sumUp(towCount - 1) * (braveryCount - repeatN) + sumUp(towCount - 2) * repeatN;
         }
 
-        export function DirectionalSum(data, combinations = null): number {
+        export function DirectionalSum(data, combinations = []): number[] {
           const datas = data[0].split('|');
 
           let notes = 0;
@@ -297,14 +340,18 @@ namespace we {
             notes += note;
           }
 
+          const notesArray = [];
           if (combinations.length > 0) {
-            return notes * combinations.length;
+            for (let i = 0; i < combinations.length; i++) {
+              notesArray.push(notes);
+            }
+            return notesArray;
           } else {
-            return notes;
+            return [notes];
           }
         }
 
-        export function GroupSum(data, combinations = null): number {
+        export function GroupSum(data, combinations = []): number[] {
           const datas = data[0].split('|');
 
           let combinationsCount;
@@ -370,12 +417,21 @@ namespace we {
             }
             notes += note;
           }
-          return notes;
+
+          const notesArray = [];
+          if (combinations.length > 0) {
+            for (let i = 0; i < combinations.length; i++) {
+              notesArray.push(notes);
+            }
+            return notesArray;
+          } else {
+            return [notes];
+          }
         }
       }
 
       export namespace TwoStar {
-        export function DirectionalSum(data, combinations = null): number {
+        export function DirectionalSum(data, combinations = []): number[] {
           const datas = data[0].split('|');
 
           let combinationsCount;
@@ -433,23 +489,31 @@ namespace we {
             notes += note;
           }
 
+          const notesArray = [];
           if (combinations.length > 0) {
-            return notes * combinations.length;
+            for (let i = 0; i < combinations.length; i++) {
+              notesArray.push(notes);
+            }
+            return notesArray;
           } else {
-            return notes;
+            return [notes];
           }
         }
 
-        export function GroupDirectionalSelection(data, combinations = null): number {
+        export function GroupDirectionalSelection(data, combinations = []): number[] {
           const dataCount = data[0].length;
+          const notesArray = [];
           if (combinations.length > 0) {
-            return ((dataCount * (dataCount - 1)) / 2) * combinations.length;
+            for (let i = 0; i < combinations.length; i++) {
+              notesArray.push((dataCount * (dataCount - 1)) / 2);
+            }
+            return notesArray;
           } else {
-            return (dataCount * (dataCount - 1)) / 2;
+            return [(dataCount * (dataCount - 1)) / 2];
           }
         }
 
-        export function GroupSum(data, combinations = null): number {
+        export function GroupSum(data, combinations = []): number[] {
           const datas = data[0].split('|');
 
           let combinationsCount;
@@ -495,46 +559,59 @@ namespace we {
             notes += note;
           }
 
+          const notesArray = [];
           if (combinations.length > 0) {
-            return notes * combinations.length;
+            for (let i = 0; i < combinations.length; i++) {
+              notesArray.push(notes);
+            }
+            return notesArray;
           } else {
-            return notes;
+            return [notes];
           }
         }
       }
 
       export namespace Any {
-        export function TwoPos(data, combinations = null): number {
+        export function TwoPos(data, combinations = []): number[] {
           const dataCount = data[0].length;
 
-          return (dataCount * (dataCount - 1)) / 2;
+          return [(dataCount * (dataCount - 1)) / 2];
         }
 
-        export function ThreePos(data, combinations = null): number {
+        export function ThreePos(data, combinations = []): number[] {
           const dataCount = data[0].length;
 
-          return (dataCount * (dataCount - 1) * (dataCount - 2)) / 2;
+          return [(dataCount * (dataCount - 1) * (dataCount - 2)) / 2];
         }
 
-        export function AnyThreeGroup3(data, combinations = null): number {
+        export function AnyThreeGroup3(data, combinations = []): number[] {
           const datas = data[1].split('');
+
           if (combinations.length > 0) {
-            return datas.length * (datas.length - 1) * combinations.length;
+            const notes = [];
+            for (let i = 0; i < combinations.length; i++) {
+              notes.push(datas.length * (datas.length - 1));
+            }
+            return notes;
           } else {
-            return datas.length * (datas.length - 1);
+            return [datas.length * (datas.length - 1)];
           }
         }
 
-        export function AnyThreeGroup6(data, combinations = null): number {
+        export function AnyThreeGroup6(data, combinations = []): number[] {
           const datas = data[1].split('');
           if (combinations.length > 0) {
-            return ((datas.length * (datas.length - 1) * (datas.length - 2)) / 6) * combinations.length;
+            const notes = [];
+            for (let i = 0; i < combinations.length; i++) {
+              notes.push((datas.length * (datas.length - 1) * (datas.length - 2)) / 6);
+            }
+            return notes;
           } else {
-            return (datas.length * (datas.length - 1) * (datas.length - 2)) / 6;
+            return [(datas.length * (datas.length - 1) * (datas.length - 2)) / 6];
           }
         }
 
-        export function AnyTwoDirectionalSum(data, combinations = null): number {
+        export function AnyTwoDirectionalSum(data, combinations = []): number[] {
           const datas = data[1].split('|');
 
           let combinationsCount;
@@ -592,14 +669,18 @@ namespace we {
             notes += note;
           }
 
+          const notesArray = [];
           if (combinations.length > 0) {
-            return notes * combinations.length;
+            for (let i = 0; i < combinations.length; i++) {
+              notesArray.push(notes);
+            }
+            return notesArray;
           } else {
-            return notes;
+            return [notes];
           }
         }
 
-        export function AnyThreeDirectionalSum(data, combinations = null): number {
+        export function AnyThreeDirectionalSum(data, combinations = []): number[] {
           const datas = data[1].split('|');
 
           let notes = 0;
@@ -666,14 +747,18 @@ namespace we {
             notes += note;
           }
 
+          const notesArray = [];
           if (combinations.length > 0) {
-            return notes * combinations.length;
+            for (let i = 0; i < combinations.length; i++) {
+              notesArray.push(notes);
+            }
+            return notesArray;
           } else {
-            return notes;
+            return [notes];
           }
         }
 
-        export function SeparatorNoteCount(data, combinations = null): number {
+        export function SeparatorNoteCount(data, combinations = []): number[] {
           let combinationsCount;
 
           if (combinations.length === 0) {
@@ -681,20 +766,35 @@ namespace we {
           } else {
             combinationsCount = combinations.length;
           }
-          const datas = data[1].split('|');
-          return datas.length * combinationsCount; // ?
-        }
 
-        export function AnyGroupDirectionalSelection(data, combinations = null): number {
-          const dataCount = data[1].length;
+          const datas = data[1].split('|');
+
+          const notesArray = [];
           if (combinations.length > 0) {
-            return ((dataCount * (dataCount - 1)) / 2) * combinations.length;
+            for (let i = 0; i < combinations.length; i++) {
+              notesArray.push(datas.length);
+            }
+            return notesArray;
           } else {
-            return (dataCount * (dataCount - 1)) / 2;
+            return [datas.length];
           }
         }
 
-        export function AnyTwoGroupSum(data, combinations = null): number {
+        export function AnyGroupDirectionalSelection(data, combinations = []): number[] {
+          const dataCount = data[1].length;
+          const notesArray = [];
+
+          if (combinations.length > 0) {
+            for (let i = 0; i < combinations.length; i++) {
+              notesArray.push((dataCount * (dataCount - 1)) / 2);
+            }
+            return notesArray;
+          } else {
+            return [(dataCount * (dataCount - 1)) / 2];
+          }
+        }
+
+        export function AnyTwoGroupSum(data, combinations = []): number[] {
           const datas = data[1].split('|');
 
           let combinationsCount;
@@ -740,14 +840,19 @@ namespace we {
             notes += note;
           }
 
+          const notesArray = [];
+
           if (combinations.length > 0) {
-            return notes * combinations.length;
+            for (let i = 0; i < combinations.length; i++) {
+              notesArray.push(notes);
+            }
+            return notesArray;
           } else {
-            return notes;
+            return [notes];
           }
         }
 
-        export function AnyThreeGroupSum(data, combinations = null): number {
+        export function AnyThreeGroupSum(data, combinations = []): number[] {
           const datas = data[1].split('|');
 
           let combinationsCount;
@@ -813,7 +918,16 @@ namespace we {
             }
             notes += note;
           }
-          return notes * combinationsCount;
+          const notesArray = [];
+
+          if (combinations.length > 0) {
+            for (let i = 0; i < combinations.length; i++) {
+              notesArray.push(notes);
+            }
+            return notesArray;
+          } else {
+            return [notes];
+          }
         }
       }
 
