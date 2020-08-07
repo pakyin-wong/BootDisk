@@ -33,10 +33,6 @@
 			                    targetWidth="440" alpha="0.7" />
 					<e:Label id="pRoundID" text="-" y="100" textAlign="right" scaleX="1" scaleY="1" size="44" x="167"
 					         width="440"  alpha="0.7"/>
-					<!--<e:Label id="pGameID" text="-" y="170" textAlign="right" scaleX="1" scaleY="1" size="44" x="167"
-					         width="440"  alpha="0.7"/>
-					<e:Label id="pDealer" text="-" y="30" textAlign="right" scaleX="1" scaleY="1" size="44" x="732"
-					         width="440" verticalAlign="middle"  alpha="0.7"/>-->
 					<e:Label id="pTableBetLimit" text="-" y="100" textAlign="right" scaleX="1" scaleY="1" size="44" x="732"
 					         width="440" verticalAlign="middle"  alpha="0.7"/>
 					<e:Label id="pBankerOdd" text="-" y="30" textAlign="right" x="1326" scaleX="1" scaleY="1" size="44" width="301"
