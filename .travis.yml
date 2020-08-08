@@ -1,4 +1,4 @@
-if: branch =~ ^master$|^development$|^staging$|^uat$|^ci
+if: branch =~ ^master$|^staging$|^uat$|^development$|^release|^ci
 
 language: python
 group: stable
@@ -15,27 +15,27 @@ install: # install awscli for ecr upload
 script: |-
   set -e
 
+  RELEASE_REGEX="^(release*)"
   if [ "master" == "${TRAVIS_BRANCH}" ]; then
     for env_value in $(compgen -v |grep '.*_PRODUCTION$'); do
       eval export ${env_value%_PRODUCTION}="${!env_value}"
     done
-    ENVIRONMENT="production"
   elif [ "staging" == "${TRAVIS_BRANCH}" ]; then
     for env_value in $(compgen -v |grep '.*_STAGING$'); do
       eval export ${env_value%_STAGING}="${!env_value}"
     done
-    ENVIRONMENT="staging"
   elif [ "uat" == "${TRAVIS_BRANCH}" ]; then
     for env_value in $(compgen -v |grep '.*_UAT$'); do
       eval export ${env_value%_UAT}="${!env_value}"
     done
-    ENVIRONMENT='uat'
-  
-  else 
+  elif [[ "${TRAVIS_BRANCH}" =~ $RELEASE_REGEX ]]; then
+    for env_value in $(compgen -v |grep '.*_RELEASE$'); do
+      eval export ${env_value%_RELEASE}="${!env_value}"
+    done
+  else
     for env_value in $(compgen -v |grep '.*_DEVELOPMENT$'); do
       eval export ${env_value%_DEVELOPMENT}="${!env_value}"
     done
-    ENVIRONMENT="development"
   fi
 
   tag_build_num="v${TRAVIS_BUILD_NUMBER}-build"
