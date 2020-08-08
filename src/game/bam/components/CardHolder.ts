@@ -264,7 +264,7 @@ namespace we {
       }
 
       public updateResult(gameData: data.GameData, chipLayer?: ui.ChipLayer) {
-        this.gameData = <bam.GameData>gameData;
+        this.gameData = <bam.GameData> gameData;
         this._chipLayer = chipLayer;
 
         this.updateCardArr();

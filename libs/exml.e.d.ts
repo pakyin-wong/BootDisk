@@ -361,6 +361,10 @@ declare module skin_desktop.dil{
 	}
 }
 declare module skin_desktop.dil{
+	class TableInfoPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
 	class TableLayerSkin extends eui.Skin{
 	}
 }
@@ -727,6 +731,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class DilResultItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class DiResultItem extends eui.Skin{
 	}
 }
@@ -768,6 +776,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class PlayerProfileIconItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class RolResultItem extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -1805,6 +1817,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class DilResultItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class DiResultItem extends eui.Skin{
 	}
 }
@@ -1818,6 +1834,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class LiveVerification extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class LwResultItem extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

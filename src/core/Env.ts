@@ -16,7 +16,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.7.9';
+      public version: string = '0.8.0';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -108,6 +108,8 @@ namespace we {
 
       // Check if playing bam first time
       public isFirstTimeBam = false;
+      // check if first time open desktop infoPanel
+      public isFirstTimeInfoPanel = false;
 
       public init() {
         this.mobileValidGameType = [
