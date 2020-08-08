@@ -6,9 +6,9 @@
 	<e:Image id="_bgImg" top="0" bottom="0" x="0" width="1242" source="m_lw_ver_bg_jpg" />
 	<e:Group id="_verticalGroup" width="1242" x="0" bottom="0">
 		<e:Group id="_verticalTop" width="1242" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
-			<dil:MobileTableLayer id="_tableLayer" height="263" y="400" isEdgeDismissable="true"
+			<dil:MobileTableLayer id="_tableLayer" height="324" y="400" isEdgeDismissable="true"
 			               skinName="skin_mobile_portrait.dil.MobileTableLayerSkin" scaleX="1" scaleY="1"  left="0" right="0"/>
-			<dil:MobileChipLayer id="_chipLayer" height="261" y="400" isEdgeDismissable="true"
+			<dil:MobileChipLayer id="_chipLayer" height="324" y="400" isEdgeDismissable="true"
 			              skinName="skin_mobile_portrait.dil.MobileChipLayerSkin" scaleX="1" scaleY="1"  right="0" left="0"/>
 			<ui:BaseImageButton id="_common_listpanel" width="104" height="104" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
 			                    scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
@@ -126,8 +126,8 @@
 	                  infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
 	                  errorBg="d_ba_gamerecord_bankerelement_png" y="623" x="312" />
 <e:Group bottom="0" left="0" width="700">
-	<ui:RunTimeLabel id="_lwGameIDText" text="Game ID :" bottom="0" left="0" />
-	<ui:RunTimeLabel id="_lwGameID" text="ID" bottom="0" left="0" />
+	<ui:RunTimeLabel id="_dilGameIDText" text="Game ID :" bottom="0" left="0" />
+	<ui:RunTimeLabel id="_dilGameID" text="ID" bottom="0" left="0" />
 	<e:layout>
 		<e:HorizontalLayout/>
 	</e:layout>
