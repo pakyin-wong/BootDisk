@@ -57,6 +57,7 @@ script: |-
     --entrypoint "" \
     $IMAGE \
     sh -c "cp -r /usr/share/nginx/html/js /tmp/js && cp -r /usr/share/nginx/html/resource /tmp/resource"
+    
 
 deploy:
   # upload to ecr
