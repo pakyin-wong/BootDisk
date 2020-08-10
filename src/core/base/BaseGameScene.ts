@@ -700,6 +700,11 @@ namespace we {
         }
         this._bgImg.visible = true;
       }
+
+      protected destroy() {
+        super.destroy();
+        env._currTableId = '';
+      }
     }
   }
 }
