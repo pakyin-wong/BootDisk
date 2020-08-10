@@ -214,7 +214,12 @@ namespace we {
         }
         super.showQuickBetGroup();
         egret.Tween.removeTweens(this._chipLayer);
-        const p3 = new Promise(resolve => egret.Tween.get(this._chipLayer).set({ visible: true }).to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1).call(resolve));
+        const p3 = new Promise(resolve =>
+          egret.Tween.get(this._chipLayer)
+            .set({ visible: true })
+            .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
+            .call(resolve)
+        );
       }
 
       protected hideQuickBetGroup() {
@@ -224,7 +229,9 @@ namespace we {
         super.hideQuickBetGroup();
         if (this._chipLayer) {
           egret.Tween.removeTweens(this._chipLayer);
-          egret.Tween.get(this._chipLayer).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1).set({ visible: false });
+          egret.Tween.get(this._chipLayer)
+            .to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1)
+            .set({ visible: false });
         }
       }
 
@@ -280,9 +287,13 @@ namespace we {
         }
         egret.Tween.removeTweens(this._quickbetButton);
         if (show) {
-          egret.Tween.get(this._quickbetButton).set({ visible: true }).to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
+          egret.Tween.get(this._quickbetButton)
+            .set({ visible: true })
+            .to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
         } else {
-          egret.Tween.get(this._quickbetButton).to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250).set({ visible: false });
+          egret.Tween.get(this._quickbetButton)
+            .to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250)
+            .set({ visible: false });
         }
       }
 

@@ -10,8 +10,8 @@ namespace we {
       protected nineTwelveLabel: eui.Label;
       protected tenElevenLabel: eui.Label;
 
-      protected pthreeEieghteenMax: eui.Label;
-      protected pthreeEieghteenOdd: eui.Label;
+      protected pThreeEighteenMax: eui.Label;
+      protected pThreeEighteenOdd: eui.Label;
 
       protected pFourSeventeenMax: eui.Label;
       protected pFourSeventeenOdd: eui.Label;
@@ -25,8 +25,8 @@ namespace we {
       protected pSevenForteenMax: eui.Label;
       protected pSevenForteenOdd: eui.Label;
 
-      protected pEieghtThirteenMax: eui.Label;
-      protected pEieghtThirteenOdd: eui.Label;
+      protected pEightThirteenMax: eui.Label;
+      protected pEightThirteenOdd: eui.Label;
 
       protected pNineTwelveMax: eui.Label;
       protected pNineTwelveOdd: eui.Label;
@@ -78,8 +78,8 @@ namespace we {
         if (betLimitSet.limits && betLimitSet.limits.dil) {
           const limits = betLimitSet.limits.dil;
           const list = [
-            { target: this.pthreeEieghteenMax, value: utils.numberToFaceValue(limits.SUM_3_18.maxlimit) },
-            { target: this.pthreeEieghteenOdd, value: limits.SUM_3_18.odd },
+            { target: this.pThreeEighteenMax, value: utils.numberToFaceValue(limits.SUM_3_18.maxlimit) },
+            { target: this.pThreeEighteenOdd, value: limits.SUM_3_18.odd },
             { target: this.pFourSeventeenMax, value: utils.numberToFaceValue(limits.SUM_4_17.maxlimit) },
             { target: this.pFourSeventeenOdd, value: limits.SUM_4_17.odd },
             { target: this.pFiveSixteenMax, value: utils.numberToFaceValue(limits.SUM_5_16.maxlimit) },
@@ -88,8 +88,8 @@ namespace we {
             { target: this.pSixFifteenOdd, value: limits.SUM_6_15.odd },
             { target: this.pSevenForteenMax, value: utils.numberToFaceValue(limits.SUM_7_14.maxlimit) },
             { target: this.pSevenForteenOdd, value: limits.SUM_7_14.odd },
-            { target: this.pEieghtThirteenMax, value: utils.numberToFaceValue(limits.SUM_8_13.maxlimit) },
-            { target: this.pEieghtThirteenOdd, value: limits.SUM_8_13.odd },
+            { target: this.pEightThirteenMax, value: utils.numberToFaceValue(limits.SUM_8_13.maxlimit) },
+            { target: this.pEightThirteenOdd, value: limits.SUM_8_13.odd },
             { target: this.pNineTwelveMax, value: utils.numberToFaceValue(limits.SUM_9_12.maxlimit) },
             { target: this.pNineTwelveOdd, value: limits.SUM_9_12.odd },
             { target: this.pTenElevenMax, value: utils.numberToFaceValue(limits.SUM_10_11.maxlimit) },
