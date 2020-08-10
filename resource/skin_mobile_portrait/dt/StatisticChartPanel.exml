@@ -47,7 +47,7 @@
 				<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom" />
 			</e:layout>
 		</e:Group>
-		<ui:SimpleChart id="_normalChart" x="430" y="268" width="140" height="140" radius="70" lineWidth="8" />
+		<ui:SimpleChart id="_normalChart" x="411" y="244" radius="90" lineWidth="14" />
 		<ui:RunTimeLabel id="roundCount" text="99" x="449" y="258" textAlign="center" anchorOffsetX="0" width="100" size="88"
 		                 height="118" verticalAlign="middle" />
 		<ui:RunTimeLabel id="roundLabelLeft" text="局" x="346" y="360" scaleX="1" scaleY="1" width="300" height="46" size="35"
