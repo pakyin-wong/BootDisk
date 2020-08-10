@@ -52,7 +52,6 @@ namespace we {
       }
 
       public removeTooltips() {
-        console.trace('>>> removeTooltips ?????');
         if (this.activeTooltip) {
           egret.Tween.removeTweens(this.activeTooltip);
         }
@@ -70,6 +69,11 @@ namespace we {
           case 'below': {
             showX = coord.x + displayObject.width / 2 - this.activeTooltip.width / 2;
             showY = coord.y + displayObject.height + this.margin;
+            break;
+          }
+          case 'above': {
+            showX = coord.x + displayObject.width / 2 - this.activeTooltip.width / 2;
+            showY = coord.y - this.activeTooltip.height - this.margin;
             break;
           }
           default:
