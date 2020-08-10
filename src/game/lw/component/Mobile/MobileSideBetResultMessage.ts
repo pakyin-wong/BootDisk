@@ -42,7 +42,8 @@ namespace we {
           case '06':
             return 'm_lw_listpenal_result_money_bg_gold_png';
           case '07':
-            return 'm_lw_listpenal_result_money_bg_white_png';
+            // return 'm_lw_listpenal_result_money_bg_white_png';
+            return 'm_lw_listpenal_result_money_bg_gold_png';
         }
         return null;
       }
