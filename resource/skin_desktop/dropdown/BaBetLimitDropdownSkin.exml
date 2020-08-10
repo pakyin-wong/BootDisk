@@ -9,7 +9,7 @@
                  width="100%">
             <e:Label id="_label" text="" top="0" bottom="0" textAlign="right" verticalAlign="middle" size="24" left="0"
                      fontFamily="Barlow, Arial" />
-            <e:Image id="_toggleArrow" source="d_ba_navbar_icon_dropdown_png" x="110" y="12" />
+            <e:Image id="_toggleArrow" source="d_ba_navbar_icon_dropdown_png" x="110" y="12" tooltipText="'nav.tooltip.betlimit'" />
             <e:layout>
                 <e:HorizontalLayout verticalAlign="middle" paddingLeft="10" paddingRight="10" paddingTop="8"
                                     paddingBottom="8" horizontalAlign="right" />
