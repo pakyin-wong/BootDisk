@@ -10,7 +10,7 @@ namespace we {
   export namespace dil {
     export class MobileScene extends core.MobileBaseGameScene {
       protected _roadmapControl: DilRoadmapControl;
-      protected _bottomGamePanel: we.di.MobileBottomGamePanel;
+      protected _bottomGamePanel: we.dil.MobileBottomGamePanel;
       protected _dilGameIDText: ui.RunTimeLabel;
       protected _dilGameID: ui.RunTimeLabel;
       protected _totalBet: ui.RunTimeLabel;
@@ -18,6 +18,8 @@ namespace we {
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
       protected _verticalGroup: eui.Group;
+
+      protected _luckyCoinGroup: LuckyCoinGroup;
 
       private _common_listpanel: ui.BaseImageButton;
 
@@ -56,6 +58,8 @@ namespace we {
           egret.Tween.get(this._tableLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
           egret.Tween.get(this._chipLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
         }
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
 
       protected setStateBet(isInit: boolean) {
@@ -66,6 +70,8 @@ namespace we {
         }
         this._dilGameID.renderText = () => `${this._tableInfo.tableid}`;
         this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
 
       protected setStateDeal(isInit: boolean) {
@@ -74,6 +80,36 @@ namespace we {
           egret.Tween.get(this._tableLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
           egret.Tween.get(this._chipLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
         }
+        if (this._previousState !== we.core.GameState.DEAL || isInit) {
+          (<we.dil.MobileChipLayer>this._chipLayer).showLuckyNumber();
+          (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer);
+        }
+      }
+
+      protected setStateFinish(isInit: boolean = false) {
+        super.setStateFinish(isInit);
+        if (isInit && this._previousState !== we.core.GameState.FINISH) {
+          (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer);
+        }
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.MobileChipLayer>this._chipLayer).showWinningNumber();
+      }
+
+      protected setStateRefund(isInit: boolean = false) {
+        super.setStateRefund(isInit);
+        (<we.dil.ChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
+      }
+      protected setStateShuffle(isInit: boolean = false) {
+        super.setStateShuffle(isInit);
+        (<we.dil.ChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
+      }
+
+      protected setStateUnknown(isInit: boolean = false) {
+        super.setStateUnknown(isInit);
+        (<we.dil.ChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
 
       protected initChildren() {

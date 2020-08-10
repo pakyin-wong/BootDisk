@@ -1,7 +1,6 @@
 namespace we {
   export namespace dil {
     export class LuckyCoinGroup extends core.BaseGamePanel {
-      // protected _chipLayer: ui.ChipLayer;
       protected gameData: we.dil.GameData;
 
       protected animXArr;

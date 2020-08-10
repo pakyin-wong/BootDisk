@@ -116,6 +116,7 @@ namespace we {
           core.GameType.BAS,
           core.GameType.BAM,
           core.GameType.DI,
+          core.GameType.DIL,
           core.GameType.DT,
           core.GameType.LW,
           core.GameType.RO,

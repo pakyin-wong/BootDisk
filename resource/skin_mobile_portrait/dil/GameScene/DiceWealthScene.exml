@@ -7,9 +7,9 @@
 	<e:Group id="_verticalGroup" width="1242" x="0" bottom="0">
 		<e:Group id="_verticalTop" width="1242" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
 			<dil:MobileTableLayer id="_tableLayer" height="324" y="400" isEdgeDismissable="true"
-			               skinName="skin_mobile_portrait.dil.MobileTableLayerSkin" scaleX="1" scaleY="1"  left="0" right="0"/>
+			               skinName="skin_mobile_portrait.dil.MobileTableLayerSkin" scaleX="1" scaleY="1"  left="0" right="0" width.left_hand_mode="1182" horizontalCenter.left_hand_mode="0" horizontalCenter.right_hand_mode="0" width.right_hand_mode="1182"/>
 			<dil:MobileChipLayer id="_chipLayer" height="324" y="400" isEdgeDismissable="true"
-			              skinName="skin_mobile_portrait.dil.MobileChipLayerSkin" scaleX="1" scaleY="1"  right="0" left="0"/>
+			              skinName="skin_mobile_portrait.dil.MobileChipLayerSkin" scaleX="1" scaleY="1"  right="0" left="0" width.left_hand_mode="1182" horizontalCenter.left_hand_mode="0" horizontalCenter.right_hand_mode="0" width.right_hand_mode="1182"/>
 			<ui:BaseImageButton id="_common_listpanel" width="104" height="104" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
 			                    scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
 			                    currentState="lobby_panel_gamelist_tag_icon_allgame" x="1109" y="-276" x.right_hand_mode="1109"

@@ -28,6 +28,7 @@ namespace we {
             generalGameType = 'ro';
             break;
           case we.core.GameType.DI:
+          case we.core.GameType.DIL:
             generalGameType = 'di';
             break;
           case we.core.GameType.DT:

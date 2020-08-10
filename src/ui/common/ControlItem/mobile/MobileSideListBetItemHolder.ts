@@ -30,6 +30,7 @@ namespace we {
             break;
 
           case we.core.GameType.DI:
+          case we.core.GameType.DIL:
             generalGameType = 'di';
             break;
 
