@@ -193,7 +193,7 @@ namespace we {
       }
 
       private playPromise(anim, count) {
-        console.log('BaseAnimationButton', anim);
+        // console.log('BaseAnimationButton', anim);
 
         if (!this._display) {
           logger.l(utils.LogTarget.DEBUG, 'Missing display: ' + this._dbClass + ', ' + this._dbDisplay + ',' + anim);
