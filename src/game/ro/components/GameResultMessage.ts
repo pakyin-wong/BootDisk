@@ -28,7 +28,7 @@ namespace we {
 
         let anim = 'ani_result_';
         if (isNaN(winAmount)) {
-          anim += 'nobet_';
+          anim += 'no_bets_';
         } else {
           anim += 'win_loss_';
         }
@@ -41,9 +41,9 @@ namespace we {
         //   ['L_txt3', 60, numRight, 90],
         // ];
         const array = [
-          ['L_Number', 60, numLeft, 0],
-          ['Middle_Number', 90, numCenter, 0],
-          ['R_Number', 60, numRight, 0],
+          ['result_l', 60, numLeft, 0],
+          ['result_middle', 90, numCenter, 0],
+          ['result_r', 60, numRight, 0],
         ];
 
         for (const [slotName, fontSize, text, rotate] of array) {
@@ -61,7 +61,7 @@ namespace we {
         }
 
         // const slot = this._display.armature.getSlot('-800');
-        const slot = this._display.armature.getSlot('Credit');
+        const slot = this._display.armature.getSlot('credit');
         const r = new eui.Label();
         r.fontFamily = 'Barlow';
         r.size = 60;

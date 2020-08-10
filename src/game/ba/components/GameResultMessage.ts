@@ -70,7 +70,7 @@ namespace we {
 
         let anim = 'ani_result_';
         if (isNaN(winAmount)) {
-          anim += 'nobets_';
+          anim += 'no_bets_';
         } else if (winAmount > 0) {
           anim += 'win_';
         } else {
