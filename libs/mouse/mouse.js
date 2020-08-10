@@ -139,7 +139,7 @@ var mouse;
                 switch (r || (r = stageObj), event.type) {
                     case "mousemove":
                         var stagePosRect = r.getTransformedBounds(stageObj);
-                        console.log('mouse | move',r,stagePosRect)
+                        // console.log('mouse | move',r,stagePosRect)
                         if (r.$hashCode === prevTarget) {
                             return
                         }
@@ -157,7 +157,7 @@ var mouse;
                     case "mousedown":
                         event.stopPropagation();
                         // e.selectTarget(r)
-                        console.log('mouse | down', r)
+                        // console.log('mouse | down', r)
                 }
             }, 100)
             stageObj.$screen.webTouchHandler.canvas.addEventListener("mousemove", canvasMouseHandler);
