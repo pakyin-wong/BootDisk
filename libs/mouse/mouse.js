@@ -136,7 +136,11 @@ var mouse;
                 var point = stageObj.$screen.webTouchHandler.getLocation(event);
                 var r = checkContainer(point, stageObj);
 
-                switch (r || (r = stageObj), event.type) {
+                if (!r || r === stageObj) {
+                    return
+                }
+
+                switch (event.type) {
                     case "mousemove":
                         var stagePosRect = r.getTransformedBounds(stageObj);
                         // console.log('mouse | move',r,stagePosRect)
@@ -146,6 +150,7 @@ var mouse;
                         if (enteredTarget[prevTarget] !== undefined) {
                             // trigger out
                             triggerTooltip(enteredTarget[prevTarget], 'TOOLTIP_HIDE', point)
+                            delete enteredTarget[prevTarget]
                         }
                         prevTarget = r.$hashCode
                         enteredTarget[prevTarget] = r
@@ -159,7 +164,7 @@ var mouse;
                         // e.selectTarget(r)
                         // console.log('mouse | down', r)
                 }
-            }, 100)
+            }, 150)
             stageObj.$screen.webTouchHandler.canvas.addEventListener("mousemove", canvasMouseHandler);
             stageObj.$screen.webTouchHandler.canvas.addEventListener("mouseleave", canvasMouseHandler);
             stageObj.$screen.webTouchHandler.canvas.addEventListener("mousedown", canvasMouseHandler);
