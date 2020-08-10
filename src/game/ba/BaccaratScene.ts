@@ -54,9 +54,9 @@ namespace we {
           ({ stageX, stageY }) => {
             if (this._gameData.state !== we.core.GameState.BET) {
               // remove existing tooltip
+              clearTimeout(this.hideTooltipTimeout);
               dir.tooltipCtr.removeTooltips();
               dir.tooltipCtr.displayTooltip(stageX, stageY, 'hello');
-              clearTimeout(this.hideTooltipTimeout);
               this.hideTooltipTimeout = setTimeout(() => {
                 dir.tooltipCtr.removeTooltips();
               }, 2000);
@@ -86,7 +86,9 @@ namespace we {
         super.onTableInfoUpdate(evt);
         if (this._gameData.state === we.core.GameState.BET && this._gameData.state !== this._previousState) {
           // clear tooltip when enter BET again
-          dir.tooltipCtr.removeTooltips();
+          // dir.tooltipCtr.removeTooltips();
+          // Don't remove it here as other non-click triggered tooltip will be removed as well
+          // Let it auto remove in 2 second
         }
       }
 

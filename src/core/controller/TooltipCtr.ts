@@ -52,6 +52,7 @@ namespace we {
       }
 
       public removeTooltips() {
+        console.trace('>>> removeTooltips ?????');
         if (this.activeTooltip) {
           egret.Tween.removeTweens(this.activeTooltip);
         }
