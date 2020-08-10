@@ -36,7 +36,7 @@ namespace we {
         super();
         if (skinName) {
           this.skinName = utils.getSkinByClassname(skinName);
-          if (skinName == 'SideListItemSkin') {
+          if (skinName == 'SideListItemSkin' || env.isMobile) {
             this._betMessageEnable = false;
           }
         }
@@ -408,6 +408,9 @@ namespace we {
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
+        if (this._timer) {
+          this._timer.visible = true;
+        }
         if (this._chipLayer) {
           this._chipLayer.setTouchEnabled(enable);
         }

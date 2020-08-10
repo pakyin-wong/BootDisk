@@ -7,7 +7,7 @@ namespace we {
       protected collection: eui.ArrayCollection;
       protected _editRoadPanel: ba.GoodRoadEditItem;
       protected _cover: eui.Rect;
-      protected _defaultButton: ui.BaseImageButton;
+      protected _defaultButton: ui.RoundRectButton;
 
       constructor() {
         super('CustomRoad');
@@ -43,6 +43,8 @@ namespace we {
         this._cover.visible = false;
 
         this._defaultButton.label.renderText = () => `${i18n.t('overlaypanel_customroad_default')}`;
+        this._defaultButton.label.size = env.isMobile ? 50 : 24;
+        this._defaultButton.label.alpha = 0.7;
 
         this._defaultButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDefaultClicked, this);
       }

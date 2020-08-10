@@ -24,6 +24,11 @@ namespace we {
         if (this._tableInfoWindow) {
           this._tableInfoWindow.setToggler(this._lblRoomInfo);
           this._tableInfoWindow.setValue(this._tableInfo);
+          if (!env.isFirstTimeInfoPanel) {
+            this._tableInfoWindow.x = 6;
+            this._tableInfoWindow.y = 93;
+            env.isFirstTimeInfoPanel = true;
+          }
         }
 
         if (this._panelDismissToggleBtn) {

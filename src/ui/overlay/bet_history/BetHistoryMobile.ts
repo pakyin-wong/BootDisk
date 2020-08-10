@@ -1,7 +1,7 @@
 namespace we {
   export namespace overlay {
     export class BetHistoryMobile extends BetHistory {
-      protected _btn_date: ui.BaseButton;
+      protected _btn_date: ui.RoundRectButton;
       protected _btn_search: ui.BaseImageButton;
       protected _scroller: eui.Scroller;
       protected _detail: betHistory.BetHistoryDetail;
@@ -16,6 +16,10 @@ namespace we {
       }
 
       protected initBetHistoryMobile() {
+        this._btn_searchType.label.size = 50;
+        this._btn_date.label.size = 50;
+        this._btn_custom.label.size = 50;
+
         utils.DropdownCreator.new({
           toggler: this._btn_searchType,
           review: this._btn_searchType.label,
@@ -38,6 +42,7 @@ namespace we {
           selected: 'today',
         });
         this._btn_date.active = true;
+        this._btn_custom.active = false;
 
         // this._scroller.scrollPolicyV = eui.ScrollPolicy.ON;
         this._scroller.verticalScrollBar.skinName = utils.getSkinByClassname('ScrollBarVertical');
@@ -78,11 +83,13 @@ namespace we {
             break;
         }
         this._btn_date.active = true;
+        this._btn_custom.active = false;
       }
 
       protected searchCustomDate(e: egret.Event) {
         super.searchCustomDate(e);
         this._btn_date.active = false;
+        this._btn_custom.active = true;
       }
 
       protected updatePlaceHolder() {

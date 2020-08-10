@@ -34,7 +34,7 @@ namespace we {
         this.roomLayout.verticalGap = this.normalGapSize;
         this.roomLayout.paddingLeft = paddingHorizontal;
         this.roomLayout.paddingRight = paddingHorizontal;
-        this.roomLayout.paddingTop = 160 + root.slider.height + offsetForTableList + this.normalGapSize * 2;
+        this.roomLayout.paddingTop = 1196; // 160 + root.slider.height + offsetForTableList + this.normalGapSize * 2;
         this.roomLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
 
         this.roomLayout.paddingBottom = this.normalGapSize * 3;
@@ -68,6 +68,14 @@ namespace we {
         // root.roomList.addChild(stickyHeader);
 
         root.scroller.viewport = root.roomList;
+
+        const shape: egret.Shape = new egret.Shape();
+        const gr: egret.Graphics = shape.graphics;
+        GradientFill.beginGradientFill(gr, root.roomList.width, 160, ['0x12121200', '0x121212'], 0);
+        gr.drawRect(0, 0, root.roomList.width, 160);
+        shape.y = root.slider.height - 160;
+        // root.roomList.addChildAt(shape, 0);
+        root.slider.addChild(shape);
 
         const gridSwitch: MobileLobbyGridLayoutSwitch = new MobileLobbyGridLayoutSwitch();
         gridSwitch.x = 1088;
