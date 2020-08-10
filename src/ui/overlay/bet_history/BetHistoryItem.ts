@@ -117,8 +117,6 @@ namespace we {
         }
 
         private createGameResult(gametype, gameResult) {
-
-
           let p: core.BaseEUI;
 
           switch (gametype) {
