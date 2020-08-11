@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.lo.SSCTraditionalChaseBetTopMultiplePanel" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="660" height="60">
+    <e:Group id="_continuousChase" width="660" height="60">
+        <ui:RunTimeLabel id="_lblContinuousChaseTitle" text="連續追" textColor="0xffffff" size="24"/>
+        <e:Group width="137" height="60" touchChildren="true">
+            <ui:RoundRectButton id="_btnFiveRound" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" 
+                        stroke="1" strokeColor="0x5F7273" fillAlpha="0" strokeAlpha="0.5"
+                        stroke_hover="0" fillAlpha_hover="0.76" fillColor_hover="0x1B416E"
+                        stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x1B416E"
+                        stroke_active="0" fillAlpha_active="0.7" fillColor_active="0x1B416E"/>
+            <ui:RunTimeLabel id="_lblFiveRound" text="5 期" verticalCenter="0" horizontalCenter="0" size="24" touchEnabled="false"/>
+        </e:Group>
+        <e:Group width="137" height="60" touchChildren="true">
+            <ui:RoundRectButton id="_btnTenRound" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" 
+                        stroke="1" strokeColor="0x5F7273" fillAlpha="0" strokeAlpha="0.5"
+                        stroke_hover="0" fillAlpha_hover="0.76" fillColor_hover="0x1B416E"
+                        stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x1B416E"
+                        stroke_active="0" fillAlpha_active="0.7" fillColor_active="0x1B416E"/>
+            <ui:RunTimeLabel id="_lblTenRound" text="10 期" verticalCenter="0" horizontalCenter="0" size="24" touchEnabled="false"/>
+        </e:Group>
+        <e:Group width="137" height="60" touchChildren="true">
+            <ui:RoundRectButton id="_btnFifthteenRound" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" 
+                        stroke="1" strokeColor="0x5F7273" fillAlpha="0" strokeAlpha="0.5"
+                        stroke_hover="0" fillAlpha_hover="0.76" fillColor_hover="0x1B416E"
+                        stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x1B416E"
+                        stroke_active="0" fillAlpha_active="0.7" fillColor_active="0x1B416E"/>
+            <ui:RunTimeLabel id="_lblFifthteenRound" text="15 期" verticalCenter="0" horizontalCenter="0" size="24" touchEnabled="false"/>
+        </e:Group>
+        <e:Group width="137" height="60" touchChildren="true">
+            <ui:RoundRectButton id="_btnTwentyRound" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" 
+                        stroke="1" strokeColor="0x5F7273" fillAlpha="0" strokeAlpha="0.5"
+                        stroke_hover="0" fillAlpha_hover="0.76" fillColor_hover="0x1B416E"
+                        stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x1B416E"
+                        stroke_active="0" fillAlpha_active="0.7" fillColor_active="0x1B416E"/>
+            <ui:RunTimeLabel id="_lblTwentyRound" text="20 期" verticalCenter="0" horizontalCenter="0" size="24" touchEnabled="false"/>
+        </e:Group>
+        <e:layout>
+            <e:HorizontalLayout gap="10" verticalAlign="middle"/>
+        </e:layout>
+    </e:Group>
+    <ui:RunTimeLabel id="_lbTitleMultiplier" text="倍數" textColor="0xffffff" size="24" x="1455" y="58"/>
+    <e:Group id="_btnMultiplierGroup" x="1523" y="52" width="165" height="50" touchChildren="true">
+        <e:Group id="_btnMinusMultiplier" width="50" height="50">
+            <ui:RoundRectButton cornerTL_TR_BL_BR="25,0,25,0" width="50" height="50" 
+                fillAlpha="1"  fillColor="0x0000FF" stroke="0"/>
+            <ui:RunTimeLabel id="_lblMultiplierMinus" text="-" size="48" verticalAlign="middle" x="21" y="0"/>
+        </e:Group>
+        <e:Group id="_multiplierGroup" width="65" height="50" touchEnabled="false">
+            <e:Rect fillAlpha="1" width="65" height="50" strokeWeight="0" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" fillColor="0x112c4c"/>
+            <ui:RunTimeLabel id="_lblMultiplier" text="1" horizontalCenter="0" verticalCenter="0" size="24"/>
+        </e:Group>
+        <e:Group id="_btnAddMultiplier" width="50" height="50">
+            <ui:RoundRectButton cornerTL_TR_BL_BR="0,25,0,25" width="50" height="50" 
+                fillAlpha="1"  fillColor="0x0000FF"  stroke="0"/>
+            <ui:RunTimeLabel id="_lblMultiplierAdd" text="+" size="48" verticalAlign="middle" x="9" y="0"/>
+        </e:Group>
+        <e:layout>
+            <e:HorizontalLayout verticalAlign="middle" gap="0"/>
+        </e:layout>
+    </e:Group>
+</e:Skin>

@@ -11,4 +11,5 @@
             <e:HorizontalLayout verticalAlign="middle" paddingLeft="33"/>
         </e:layout>
     </e:Group>
+    <e:Rect x="0" y="80" width="1500" height="1" fillColor="0xffffff" fillAlpha="0.7"/>
 </e:Skin>
