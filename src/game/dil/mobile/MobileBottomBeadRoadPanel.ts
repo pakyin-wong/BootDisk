@@ -3,7 +3,7 @@
 namespace we {
   export namespace dil {
     export class MobileBottomBeadRoadPanel extends core.BaseGamePanel {
-      public beadRoad: we.di.DiBeadRoad;
+      public beadRoad: DilBeadRoad;
 
       protected beadRoadConfig: we.di.RoadMapConfig;
 
@@ -30,7 +30,7 @@ namespace we {
       protected initRoadMap() {
         switch (env.orientation) {
           case 'portrait':
-            this.beadRoad = new we.di.DiBeadRoad(1, 9, 120, 1, 5, 24, 6, [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1]); // in game
+            this.beadRoad = new DilBeadRoad(1, 9, 120, 1, 5, 24); // in game
             this.beadRoad.x = 29;
             this.beadRoad.y = 16;
             this.beadRoad.scaleX = 689 / 689;
@@ -39,7 +39,7 @@ namespace we {
             this.beadRoadConfig.parent.addChild(this.beadRoad);
             break;
           case 'landscape':
-            this.beadRoad = new we.di.DiBeadRoad(1, 8, 70, 1, 15, 24, 12, [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1]); // in game
+            this.beadRoad = new DilBeadRoad(1, 8, 70, 1, 15, 24); // in game
             this.beadRoad.x = 29;
             this.beadRoad.y = 16;
             this.beadRoad.scaleX = 689 / 689;
@@ -78,14 +78,14 @@ namespace we {
         // this.beadRoadOddEvenBtn.label = i18n.t('dice.roadOdd') + '/' + i18n.t('dice.roadEven');
       }
 
-      public onBeadRoadChanged(e) {
-        const radio: eui.RadioButton = e.target;
-        if (radio.value === '1') {
-          this.beadRoad.setLayout(1);
-        } else {
-          this.beadRoad.setLayout(0);
-        }
-      }
+      // public onBeadRoadChanged(e) {
+      //   const radio: eui.RadioButton = e.target;
+      //   if (radio.value === '1') {
+      //     this.beadRoad.setLayout(1);
+      //   } else {
+      //     this.beadRoad.setLayout(0);
+      //   }
+      // }
 
       protected updateMode() {
         this._roadmapBg.currentState = 'dark'; // change when light state done
