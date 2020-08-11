@@ -49,24 +49,24 @@ namespace we {
       // }
       public updateResult(gameData) {
         if (this._timer) {
+          // this.card1Banker.visible = false;
+          // this.card2Banker.visible = false;
+          // this.card3Banker.visible = false;
+          // this.card1Player.visible = false;
+          // this.card2Player.visible = false;
+          // this.card3Player.visible = false;
+          this.setCardVisible(false);
           this.updateTimer(gameData);
-          
-          this.card1Banker.visible = false;
-          this.card2Banker.visible = false;
-          this.card3Banker.visible = false;
-          this.card1Player.visible = false;
-          this.card2Player.visible = false;
-          this.card3Player.visible = false;
         }
         super.updateResult(gameData);
-        if (this._timer) {          
-          this.card1Banker.visible = true;
-          this.card2Banker.visible = true;
-          this.card3Banker.visible = true;
-          this.card1Player.visible = true;
-          this.card2Player.visible = true;
-          this.card3Player.visible = true;
-        }
+        // if (this._timer) {
+        //   this.card1Banker.visible = true;
+        //   this.card2Banker.visible = true;
+        //   this.card3Banker.visible = true;
+        //   this.card1Player.visible = true;
+        //   this.card2Player.visible = true;
+        //   this.card3Player.visible = true;
+        // }
         switch (gameData.wintype) {
           case we.ba.WinType.PLAYER:
             this.setPlayerBgColor(true);
@@ -89,7 +89,6 @@ namespace we {
       }
 
       public updateTimer(gameData) {
-        console.log('see the game state', gameData);
         switch (gameData.state) {
           case core.GameState.PEEK:
             this._timer.visible = true;
@@ -97,6 +96,7 @@ namespace we {
             this._timer.countdownValue = gameData.countdownA * 1000;
             this._timer.remainingTime = gameData.countdownA * 1000 - (env.currTime - gameData.peekstarttime);
             this._timer.start();
+            this.setCardVisible(true);
             break;
           case core.GameState.PEEK_BANKER:
             this._timer.visible = true;
@@ -104,6 +104,7 @@ namespace we {
             this._timer.countdownValue = gameData.countdownB * 1000;
             this._timer.remainingTime = gameData.countdownB * 1000 - (env.currTime - gameData.starttime - gameData.peekstarttime);
             this._timer.start();
+            this.setCardVisible(true);
             break;
           case core.GameState.PEEK_PLAYER:
             this._timer.visible = true;
@@ -111,14 +112,29 @@ namespace we {
             this._timer.countdownValue = gameData.countdownB * 1000;
             this._timer.remainingTime = gameData.countdownB * 1000 - (env.currTime - gameData.peekstarttime);
             this._timer.start();
+            this.setCardVisible(true);
+            break;
+          case core.GameState.FINISH:
+            this.bamLabelDisplay.text = '';
+            this._timer.visible = false;
+            this.setCardVisible(true);
             break;
           default:
             this.bamLabelDisplay.text = '';
             this._timer.visible = false;
+            // this.setCardVisible(true);
             break;
         }
       }
 
+      protected setCardVisible(val: boolean) {
+        this.card1Banker.visible = val;
+        this.card2Banker.visible = val;
+        this.card3Banker.visible = val;
+        this.card1Player.visible = val;
+        this.card2Player.visible = val;
+        this.card3Player.visible = val;
+      }
       public setPlayerBgColor(value: boolean) {
         if (value) {
           this._playerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_playwinbg_png');
