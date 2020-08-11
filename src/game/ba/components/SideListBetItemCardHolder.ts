@@ -12,6 +12,13 @@ namespace we {
       protected bamLabelDisplay: eui.Label;
       protected _timer: ui.CountdownTimer;
 
+      protected card1Banker;
+      protected card2Banker;
+      protected card3Banker;
+      protected card3Player;
+      protected card2Player;
+      protected card1Player;
+
       constructor(gameType?: string) {
         super();
         if (gameType) {
@@ -31,11 +38,35 @@ namespace we {
         this.lblBankerName.renderText = () => `${i18n.t('baccarat.banker')}`;
       }
 
+      // protected setDealState() {
+      //   console.log('bam cardholder deal state');
+      //   this._bankerCard1.visible = false;
+      //   this._playerCard1.visible = false;
+      //   this._bankerCard2.visible = false;
+      //   this._playerCard2.visible = false;
+      //   this._bankerCard3.visible = false;
+      //   this._playerCard3.visible = false;
+      // }
       public updateResult(gameData) {
         if (this._timer) {
           this.updateTimer(gameData);
+          
+          this.card1Banker.visible = false;
+          this.card2Banker.visible = false;
+          this.card3Banker.visible = false;
+          this.card1Player.visible = false;
+          this.card2Player.visible = false;
+          this.card3Player.visible = false;
         }
         super.updateResult(gameData);
+        if (this._timer) {          
+          this.card1Banker.visible = true;
+          this.card2Banker.visible = true;
+          this.card3Banker.visible = true;
+          this.card1Player.visible = true;
+          this.card2Player.visible = true;
+          this.card3Player.visible = true;
+        }
         switch (gameData.wintype) {
           case we.ba.WinType.PLAYER:
             this.setPlayerBgColor(true);
