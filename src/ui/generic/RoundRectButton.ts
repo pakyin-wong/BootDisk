@@ -82,7 +82,7 @@ namespace we {
 
       protected mount() {
         this._roundRectShape = new RoundRectShape();
-        this.addChild(this._roundRectShape);
+        this.addChildAt(this._roundRectShape, 0);
         if (this.cornerTL_TR_BL_BR !== '') {
           const corners = this.cornerTL_TR_BL_BR
             .split(' ')

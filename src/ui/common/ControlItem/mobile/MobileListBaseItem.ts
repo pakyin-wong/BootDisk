@@ -4,8 +4,8 @@ namespace we {
     export class MobileListBaseItem extends ControlItem {
       protected _tweenInterval1: number = 250;
 
-      protected _quickBetButton: BaseImageButton;
-      protected _enterTableButton: BaseImageButton;
+      protected _quickBetButton: we.ui.RoundRectButton;
+      protected _enterTableButton: we.ui.RoundRectButton;
       protected _buttonGroup: eui.Group;
       protected _dimmer: eui.Component;
 
@@ -44,12 +44,13 @@ namespace we {
         this._buttonGroup.y = this._buttonGroupHideY;
         this._buttonGroup.visible = false;
 
-        this._quickBetButton.useColorFilter = true;
-        this._enterTableButton.useColorFilter = true;
+        // this._quickBetButton.useColorFilter = true;
+        // this._enterTableButton.useColorFilter = true;
 
         this._quickBetButton.label.renderText = () => {
           return i18n.t('mobile_quick_bet_button_label');
         };
+
         this._enterTableButton.label.renderText = () => {
           return i18n.t('mobile_enter_table_button_label');
         };

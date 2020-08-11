@@ -33,11 +33,14 @@
 	<e:Rect id="_dimmer" left="0" top="104" bottom="0" right="0" fillAlpha="0.7" anchorOffsetY="0"  visible="false"/>
 	<e:Group id="_buttonGroup" width="1140" x="0" y="196" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false"
 	         touchChildren="true">
-		<ui:BaseImageButton id="_quickBetButton" width="350" height="100" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
-		                    scaleY="1" verticalCenter="0" left="200" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
-		                    currentState="1col_btn" />
-		<ui:BaseImageButton id="_enterTableButton" width="350" height="100" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
-		                    scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby" verticalCenter="0" right="200"
-		                    currentState="1col_btn" />
+			<ui:RoundRectButton id="_quickBetButton" verticalCenter="0" left="200"  width="350" height="100" 
+								cornerTL_TR_BL_BR="50,50,50,50"	skinName="skin_mobile.QuickBetButtonSkin"
+			                    stroke="0" strokeIn="0" fillColor="00AA5E" fillAlpha="1" fillAlpha_hover="0.7"
+			                    />
+			<ui:RoundRectButton id="_enterTableButton"  verticalCenter="0" right="200"  width="350" height="100" 
+								cornerTL_TR_BL_BR="50,50,50,50"	
+			                    stroke="0" strokeIn="0" fillColor="00AA5E" fillAlpha="1" fillAlpha_hover="0.7"
+			                    />
+
 	</e:Group>
 </e:Skin>

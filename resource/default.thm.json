@@ -570,6 +570,7 @@
 		"resource/skin_mobile_portrait/sidegamelist/panelcontent/GoodRoadGamePanelSkin.exml",
 		"resource/skin_mobile_portrait/ToggleButton.exml",
 		"resource/skin_mobile/BetChipStack.exml",
+		"resource/skin_mobile/ControlItem/QuickBetButton.exml",
 		"resource/skin_mobile/ControlItem/LiveListItem.exml",
 		"resource/skin_mobile/CountdownTimerRoundSmall.exml",
 		"resource/skin_mobile/ControlItem/LiveListSimpleItem.exml",
