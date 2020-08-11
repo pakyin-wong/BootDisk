@@ -105,9 +105,12 @@ var mouse;
             }
 
             function checkDispObject(point, dispObj) {
-                if (!dispObj.visible) {
+                if (!dispObj.visible && !(dispObj instanceof egret.DisplayObjectContainer)) {
                     return null;
                 }
+                // if (dispObj instanceof egret.DisplayObjectContainer) {
+                //     console.log(dispObj.getTransformedBounds(stageObj), point);
+                // }
                 if (dispObj.getTransformedBounds(stageObj).containsPoint(point)) {
                     return dispObj;
                 }
@@ -124,8 +127,15 @@ var mouse;
                     var cls = egret.getQualifiedClassName(child);
                     // console.log('>>>    ', path + ' > ' + cls);
                     if (child instanceof egret.DisplayObjectContainer && cls !== 'EgretArmatureDisplay') {
-                        result = checkContainer(point, child, path + ' > ' + cls);
+                        if (!dispObj.$touchChildren && !dispObj.$touchEnabled) return null;
+                        if (child.tooltipText.length>0) {
+                            // console.log(child);
+                            result = checkDispObject(point, child);
+                        } else {
+                            result = checkContainer(point, child, path + ' > ' + cls);
+                        }
                     } else {
+                        if (!dispObj.tooltipText.length==0) return null;
                         result = checkDispObject(point, child);
                     }
                     if (result) {
