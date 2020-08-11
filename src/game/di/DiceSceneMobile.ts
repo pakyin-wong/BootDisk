@@ -239,7 +239,7 @@ namespace we {
       }
 
       protected onBottomToggle() {
-        this.diState = this._bottomGamePanel.isPanelOpen ? 'zip' : 'normal';
+        this.diState = env.isBottomPanelOpen ? 'zip' : 'normal';
       }
 
       protected changeHandMode() {

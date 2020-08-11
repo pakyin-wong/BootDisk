@@ -111,6 +111,8 @@ namespace we {
       public isFirstTimeBam = false;
       // check if first time open desktop infoPanel
       public isFirstTimeInfoPanel = false;
+      // check if mobilebottomGamePanel is open
+      public isBottomPanelOpen = true;
 
       public init() {
         this.mobileValidGameType = [

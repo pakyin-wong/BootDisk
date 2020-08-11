@@ -176,7 +176,7 @@ namespace we {
       }
 
       protected onBottomToggle() {
-        this.roState = this._bottomGamePanel.isPanelOpen ? 'zip' : 'normal';
+        this.roState = env.isBottomPanelOpen ? 'zip' : 'normal';
       }
 
       protected set roState(s) {
@@ -271,7 +271,7 @@ namespace we {
         this._raceTrackChipLayer.visible = false;
         this._mode = 'normal';
 
-        this.roState = this._bottomGamePanel.isPanelOpen ? 'zip' : 'normal';
+        this.roState = env.isBottomPanelOpen ? 'zip' : 'normal';
         this._settingPanel.currentState = this._mode;
         (this._chipLayer as MobileChipLayer).changeState(this._mode, this._betDetails);
       }
@@ -312,7 +312,7 @@ namespace we {
             break;
         }
 
-        this.roState = this._bottomGamePanel.isPanelOpen ? 'zip' : 'normal';
+        this.roState = env.isBottomPanelOpen ? 'zip' : 'normal';
         this._settingPanel.currentState = this._mode;
         (this._chipLayer as MobileChipLayer).changeState(this._mode, this._betDetails);
       }
