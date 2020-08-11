@@ -22,7 +22,7 @@ namespace we {
             }
           } else {
             if (resName === 'back') {
-              this.texName = 'd_sq_ba_card_back_png';
+              this.texName = 'm_sq_bac_small_poker_backside_png';
               this.isOpen = false;
             } else {
               this.texName = `m_sq_bac_small_poker_${resName}_vertical_png`;
