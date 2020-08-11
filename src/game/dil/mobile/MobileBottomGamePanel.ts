@@ -2,15 +2,13 @@
 namespace we {
   export namespace dil {
     export class MobileBottomGamePanel extends ui.MobileBottomCommonPanel {
-      public _roadmapPanel: MobileBottomRoadmapPanel;
+      // public _roadmapPanel: MobileBottomRoadmapPanel;
       public _beadroadPanel: MobileBottomBeadRoadPanel;
 
-      public _roadButtonPanel: MobileBottomRoadButtonPanel;
+      // public _roadButtonPanel: MobileBottomRoadButtonPanel;
 
       public _tableInfoPanel: di.TableInfoPanel;
       public _betLimitDropDownBtn: ui.RunTimeLabel;
-
-      public _statisticChartPanel: di.StatisticChartPanel;
 
       // viewStack and radioBtn
       protected historyBtn: eui.RadioButton;
@@ -26,13 +24,13 @@ namespace we {
       protected _historyGroup: eui.Group;
 
       public constructor(skin?: string) {
-        super(skin || !env.isMobile ? skin : 'di.MobileBottomGamePanel');
+        super(skin || !env.isMobile ? skin : 'dil.MobileBottomGamePanel');
       }
 
       protected mount() {
         super.mount();
         this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
-        this._roadButtonPanel.changeState();
+        // this._roadButtonPanel.changeState();
       }
 
       public destroy() {
@@ -53,9 +51,9 @@ namespace we {
         super.addListeners();
         this.chartBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.tableInfoBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        this._roadButtonPanel.roadmapSumBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-        this._roadButtonPanel.roadmapOddevenBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-        this._roadButtonPanel.roadmapSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+        // this._roadButtonPanel.roadmapSumBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+        // this._roadButtonPanel.roadmapOddevenBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+        // this._roadButtonPanel.roadmapSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
         if (this.historyBtn) {
           this.historyBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         }
@@ -71,9 +69,9 @@ namespace we {
         super.removeListeners();
         this.chartBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.tableInfoBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        this._roadButtonPanel.roadmapSumBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-        this._roadButtonPanel.roadmapOddevenBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-        this._roadButtonPanel.roadmapSizeBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+        // this._roadButtonPanel.roadmapSumBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+        // this._roadButtonPanel.roadmapOddevenBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+        // this._roadButtonPanel.roadmapSizeBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
         if (this.historyBtn) {
           this.historyBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         }
@@ -103,7 +101,7 @@ namespace we {
       public manualClose() {
         super.manualClose();
 
-        this._roadmapPanel.visible = false;
+        // this._roadmapPanel.visible = false;
         this._beadroadPanel.visible = false;
       }
 
@@ -115,26 +113,26 @@ namespace we {
               e.target.value = 0;
             }
 
-            if (e.target.value === '1' || e.target.value === '2') {
-              this._roadButtonPanel.visible = false;
-            } else {
-              this._roadButtonPanel.visible = true;
-            }
+            // if (e.target.value === '1' || e.target.value === '2') {
+            //   this._roadButtonPanel.visible = false;
+            // } else {
+            //   this._roadButtonPanel.visible = true;
+            // }
             break;
           case 'portrait':
-            if (e.target.value === '0') {
-              this._roadButtonPanel.roadmapType = 0;
-            }
-            if (e.target.value === '1') {
-              this._roadButtonPanel.roadmapType = 1;
-            }
+            // if (e.target.value === '0') {
+            //   this._roadButtonPanel.roadmapType = 0;
+            // }
+            // if (e.target.value === '1') {
+            //   this._roadButtonPanel.roadmapType = 1;
+            // }
 
-            this._roadButtonPanel.changeState();
-            if (e.target.value === '2' || e.target.value === '3') {
-              this._roadButtonPanel.visible = false;
-            } else {
-              this._roadButtonPanel.visible = true;
-            }
+            // this._roadButtonPanel.changeState();
+            // if (e.target.value === '2' || e.target.value === '3') {
+            //   this._roadButtonPanel.visible = false;
+            // } else {
+            //   this._roadButtonPanel.visible = true;
+            // }
             break;
         }
         this.viewStack.selectedIndex = e.target.value;
@@ -144,17 +142,17 @@ namespace we {
         super.onPanelToggle();
         this.viewStack.selectedIndex = 0;
         if (this.isPanelOpen) {
-          this._roadmapPanel.visible = true;
+          // this._roadmapPanel.visible = true;
           this._beadroadPanel.visible = true;
         } else {
-          this._roadmapPanel.visible = false;
+          // this._roadmapPanel.visible = false;
           this._beadroadPanel.visible = false;
         }
         this.dispatchEvent(new egret.Event('ON_BOTTOM_PANEL_TOGGLE'));
       }
 
       protected onRoadMapChanged(e: eui.UIEvent) {
-        this._roadmapPanel.onRoadMapChanged(e);
+        // this._roadmapPanel.onRoadMapChanged(e);
         this._beadroadPanel.onBeadRoadChanged(e);
       }
     }
