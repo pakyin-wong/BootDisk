@@ -64,6 +64,7 @@ namespace we {
 
       protected betFieldMapping(betFields: string[]) {
         const unitBet = this._bettingControl ? this._bettingControl.unitBet : 10; // temp workaround when bettingControl not exist
+
         return betFields.map(betField => `${betField}@${unitBet}`);
       }
 
@@ -122,7 +123,7 @@ namespace we {
       }
 
       public onBettingControlBarUnitBetUpdate(betFields: string[]) {
-        this.betFieldMapping(betFields);
+        // this.betFieldMapping(betFields);
       }
 
       public chaseBet() {

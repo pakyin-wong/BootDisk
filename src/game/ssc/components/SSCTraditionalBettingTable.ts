@@ -2,24 +2,8 @@
 namespace we {
   export namespace lo {
     export class SSCTraditionalBettingTable extends ABettingTable {
-      // private _inputArray : string[];
-
-      // private _inputType: number;
-      // private _name: string;
-      // private _rowCount: number;
-      // private _rowName: string[];
-      // private _isOption: number;
-      // private _inputArray: string[];
-      // private _showValueArray: string[];
-      // private _betCode: string;
-
-      // not done
       constructor(config) {
         super(config);
-        // this.bigTagIndex = currentBigTagIndex;
-        // this.smallTagIndex = currentSmallTagIndex;
-        // this.init();
-        // this.initComponents();
       }
 
       protected init() {
@@ -80,8 +64,6 @@ namespace we {
 
         const patterns = [];
         const pattern = this._config.pattern;
-        // let pattern = '^1^2OPTIONAL$1';
-        // let pattern = ^1^2OptionalFree_&1_&2';
 
         let value = pattern;
         let inputData = [];
@@ -100,7 +82,6 @@ namespace we {
         }
 
         const combination = this.combinations;
-        // const combination = ['1_2','1_3','1_4','1_5'];
         const datas = [];
         let replace = '';
 

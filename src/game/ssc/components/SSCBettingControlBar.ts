@@ -76,7 +76,14 @@ namespace we {
       // }
 
       protected initNoteDropDown() {
-        const _arrCol_note = new eui.ArrayCollection([ui.NewDropdownItem(200, () => `2元`), ui.NewDropdownItem(20, () => `2角`), ui.NewDropdownItem(2, () => `2分`)]);
+        const _arrCol_note = new eui.ArrayCollection([
+          ui.NewDropdownItem(200, () => `2元`),
+          ui.NewDropdownItem(20, () => `2角`),
+          ui.NewDropdownItem(2, () => `2分`),
+          ui.NewDropdownItem(100, () => `1元`),
+          ui.NewDropdownItem(10, () => `1角`),
+          ui.NewDropdownItem(1, () => `1分`),
+        ]);
         this._noteDropDown.isDropdown = true;
         this._noteDropDown.isPoppable = true;
         this._noteDropDown.dismissOnClickOutside = true;

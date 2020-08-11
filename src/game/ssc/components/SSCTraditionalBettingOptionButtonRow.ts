@@ -1,7 +1,7 @@
 // TypeScript file
 namespace we {
   export namespace lo {
-    export class SSCTradtionalBettingOptionButtonRow extends eui.Component {
+    export class SSCTraditionalBettingOptionButtonRow extends eui.Component {
       private _rowIndex: number;
 
       public _buttonGroup: eui.Group;
@@ -22,7 +22,7 @@ namespace we {
 
       constructor() {
         super();
-        this.skinName = 'skin_desktop.lo.SSCTradtionalBettingOptionButtonRow';
+        this.skinName = 'skin_desktop.lo.SSCTraditionalBettingOptionButtonRow';
         this.init();
       }
 

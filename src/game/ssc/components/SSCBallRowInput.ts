@@ -7,7 +7,8 @@ namespace we {
       private _ballsGroup: eui.Group;
       private _content: eui.Group;
 
-      private _optionPanel: SSCTradtionalBettingOptionButtonRow;
+      private _optionPanel: SSCTraditionalBettingOptionButtonRow;
+      private _randomPanel: SSCTraditionalBettingRandomPanel;
       private _balls: SSCBallButton[];
 
       constructor(index: number, config: any) {
@@ -42,7 +43,7 @@ namespace we {
         }
 
         if (this._config.theme === InputComponentTheme.ROW_WITH_OPTION) {
-          this._optionPanel = new SSCTradtionalBettingOptionButtonRow();
+          this._optionPanel = new SSCTraditionalBettingOptionButtonRow();
           for (let i = 0; i < this._optionPanel._buttonGroup.numChildren; i++) {
             this._optionPanel._buttonGroup.getChildAt(i).addEventListener(egret.TouchEvent.TOUCH_TAP, this.onOptionMenuClicked, this);
           }

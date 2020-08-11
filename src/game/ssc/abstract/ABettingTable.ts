@@ -78,6 +78,41 @@ namespace we {
         return true;
       }
 
+      protected validateBetLimit() {
+        //  [
+        //   {
+        //     gameroundid: '20200101210',
+        //     map:
+        //     [
+        //       {
+        //         betCode:'FIVE120',
+        //         betlimits:[
+        //           '12345:200','11345:0','13456:200'
+        //         ]
+        //       },
+        //       {
+        //         betCode:'12345OPTIONALINPUT',
+        //         betlimits:[
+        //           '12345:200','11345:0','13456:200'
+        //         ]
+        //       },
+        //     ]
+        //   },
+        //   {
+        //     gameroundid: '20200101211',
+        //     map:
+        //     [
+        //       {
+        //         betCode:'INTEREST1',
+        //         betlimits:[
+        //           '0:200','11345:0','13456:200'
+        //         ]
+        //       },
+        //     ]
+        //   }
+        //  ]
+      }
+
       protected onInputInvalidate() {
         this.clearData();
         if (this.bettingPanel) {
