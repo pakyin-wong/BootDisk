@@ -3,10 +3,24 @@ namespace we {
     export class ProgressBar extends eui.Component {
       protected _r: number; // radius
       protected _proportion: number = 0.04;
+      protected _color: number = 0xffffff;
+      protected _baseColor: number = 0x202020;
 
       protected childrenCreated() {
         super.childrenCreated();
         this.draw();
+      }
+
+      public set proportion(value: number) {
+        this._proportion = value;
+      }
+
+      public set color(value: number) {
+        this._color = value;
+      }
+
+      public set baseColor(value: number) {
+        this._baseColor = value;
       }
 
       public draw() {

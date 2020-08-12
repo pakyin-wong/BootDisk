@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.RoLeftPanel" width="668" height="340" xmlns:e="http://ns.egret.com/eui" xmlns:ba="we.ba.*"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-        <e:Rect id="mask" width="668" height="340" x="0" y="0" strokeWeight="0" ellipseHeight="16" ellipseWidth="16"
-                fillColor="0x7c7c7c" />
-        <e:Rect id="topBar" width="668" height="41" x="0" y="0" fillColor="0x1F242B" strokeWeight="0" ellipseHeight="0"
-                ellipseWidth="0" />
-        <e:Rect id="bottomBar" width="668" height="50" x="0" y="290" fillColor="0x1F242B" strokeWeight="0"
-                ellipseHeight="0" ellipseWidth="0" />
-        <ui:RunTimeLabel id="gameIdLabel" text="ID00000000000000" x="17" y="10" textAlign="left" anchorOffsetX="0"
-                         width="514" size="24" />
-        <ui:RunTimeLabel id="totalBetLabel" text="0" x="392.69" y="10" textAlign="right" anchorOffsetX="0" width="260"
-                         size="25" />
+        <ui:RoundRectShape id="bg" cornerTL_TR_BL_BR="14,14,14,14" width="668" height="340" x="0" y="0" stroke="0"
+                           fillColor="0x061323" fillAlpha="0.88" />
+        <ui:RoundRectShape id="bottomBar" cornerTL_TR_BL_BR="0,0,14,14" width="668" height="50" stroke="0" x="1" y="290"
+                           fillColor="0x1f242b" />
+        <ui:RoundRectShape id="topBar" cornerTL_TR_BL_BR="14,14,0,0" width="668" height="41" stroke="0" x="1" y="1"
+                           fillColor="0x1f242b" fillAlpha="0.8" />
+        <ui:RunTimeLabel id="gameIdLabel" text="ID00000000000000" y="10" textAlign="left" anchorOffsetX="0"
+                         width="410" size="22"  left="17" targetWidth="410"/>
+        <ui:RunTimeLabel id="totalBetLabel" text="0" y="10" textAlign="right" anchorOffsetX="0" width="210"
+                         size="22"  right="17" targetWidth="210"/>
         <e:RadioButton id="pageRadioBtn1" x="0" y="290" height="50" value="0" selected="true"
                        groupName="pageRadioBtnGroup" width="220">
                 <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                <e:Image id="hitArea" width="100%" height="100%" source="button_up_png"
-                                         horizontalCenter="0" alpha="0" />
+                                <e:Rect fillColor="0xff0000" width="220" height="50" horizontalCenter="0" fillAlpha="0" />
                                 <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0"
-                                         textColor="0xcccccc" includeIn="up" size="25" />
+                                         textColor="0xcccccc" includeIn="up" size="22" />
                                 <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0"
-                                         textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="25" />
+                                         textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="22" />
                         </e:Skin>
                 </e:skinName>
         </e:RadioButton>
@@ -28,12 +27,11 @@
                        horizontalCenter="0">
                 <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                <e:Image id="hitArea" width="100%" height="100%" source="button_up_png"
-                                         horizontalCenter="0" alpha="0" />
+                                <e:Rect fillColor="0xff0000" width="220" height="50" horizontalCenter="0" fillAlpha="0" />
                                 <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0"
-                                         textColor="0xcccccc" includeIn="up" size="25" />
+                                         textColor="0xcccccc" includeIn="up" size="22" />
                                 <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0"
-                                         textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="25" />
+                                         textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="22" />
                         </e:Skin>
                 </e:skinName>
         </e:RadioButton>
@@ -41,20 +39,17 @@
                        right="0">
                 <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                <e:Image id="hitArea" width="100%" height="100%" source="button_up_png"
-                                         horizontalCenter="0" alpha="0" />
+                                <e:Rect fillColor="0xff0000" width="220" height="50" horizontalCenter="0" fillAlpha="0" />
                                 <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0"
-                                         textColor="0xcccccc" includeIn="up" size="25" />
+                                         textColor="0xcccccc" includeIn="up" size="22" />
                                 <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0"
-                                         textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="25" />
+                                         textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="22" />
                         </e:Skin>
                 </e:skinName>
         </e:RadioButton>
         <e:ViewStack id="pageStack" width="100%" height="249" x="0" y="41" selectedIndex="0" anchorOffsetX="0"
                      anchorOffsetY="0">
                 <e:Group id="page1" width="100%" height="100%" name="Group" anchorOffsetX="0">
-                        <e:Rect width="100%" height="100%" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0"
-                                fillColor="0x061323" fillAlpha="0.8" />
                         <e:Image width="57" height="86" x="30" y="24" anchorOffsetX="0" anchorOffsetY="0"
                                  source="d_ro_history_hot_icon_png" />
                         <e:Image width="200" height="64" x="105" y="42" source="d_ro_history_hot_bg_png"
@@ -67,9 +62,7 @@
                                          width="122" size="42" />
                         <e:Image width="1" height="233" x="332" y="8" source="d_ro_history_hotclod_bg_png" />
                 </e:Group>
-                <e:Group id="page2" width="100%" height="100%" name="View">
-                        <e:Rect width="100%" height="100%" x="0" y="0" fillColor="0x061323" fillAlpha="0.8" />
-                </e:Group>
+                <e:Group id="page2" width="100%" height="100%" name="View"></e:Group>
                 <e:Group id="page3" width="100%" height="100%" name="View">
                         <e:Rect width="100%" height="100%" x="0" y="0" fillColor="0xffffff" />
                         <e:ViewStack id="roadStack" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1"
@@ -82,17 +75,18 @@
                                        selected="true" groupName="roadRadioBtnGroup">
                                 <e:skinName>
                                         <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                <e:Image id="buttonImageUp" width="100%" height="100%"
-                                                         source="d_ro_rm_switch_tag_btn_hover_png" horizontalCenter="0"
-                                                         includeIn="up" />
-                                                <e:Image id="buttonImageDown" width="100%" height="100%"
-                                                         source="d_ro_rm_switch_tag_btn_active_png" horizontalCenter="0"
-                                                         includeIn="down,upAndSelected,downAndSelected" />
+                                                <ui:RoundRectShape cornerTL_TR_BL_BR="17,17,17,17" width="180"
+                                                                   height="34" horizontalCenter="0" stroke="0"
+                                                                   fillColor="0x375b7f"
+                                                                   includeIn="down,upAndSelected,downAndSelected" />
+                                                <ui:RoundRectShape cornerTL_TR_BL_BR="17,17,17,17" width="180"
+                                                                   height="34" horizontalCenter="0" stroke="0"
+                                                                   fillColor="0x375b7f" fillAlpha="0.2" includeIn="up" />
                                                 <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0"
-                                                         textColor="0x000000" includeIn="up" size="25" />
+                                                         textColor="0x375b7f" includeIn="up" size="22" />
                                                 <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0"
                                                          textColor="0xffffff"
-                                                         includeIn="down,upAndSelected,downAndSelected" size="25" />
+                                                         includeIn="down,upAndSelected,downAndSelected" size="22" />
                                         </e:Skin>
                                 </e:skinName>
                         </e:RadioButton>
@@ -100,17 +94,18 @@
                                        groupName="roadRadioBtnGroup" horizontalCenter="0">
                                 <e:skinName>
                                         <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                <e:Image id="buttonImageUp" width="100%" height="100%"
-                                                         source="d_ro_rm_switch_tag_btn_hover_png" horizontalCenter="0"
-                                                         includeIn="up" />
-                                                <e:Image id="buttonImageDown" width="100%" height="100%"
-                                                         source="d_ro_rm_switch_tag_btn_active_png" horizontalCenter="0"
-                                                         includeIn="down,upAndSelected,downAndSelected" />
+                                                <ui:RoundRectShape cornerTL_TR_BL_BR="17,17,17,17" width="180"
+                                                                   height="34" horizontalCenter="0" stroke="0"
+                                                                   fillColor="0x375b7f"
+                                                                   includeIn="down,upAndSelected,downAndSelected" />
+                                                <ui:RoundRectShape cornerTL_TR_BL_BR="17,17,17,17" width="180"
+                                                                   height="34" horizontalCenter="0" stroke="0"
+                                                                   fillColor="0x375b7f" fillAlpha="0.2" includeIn="up" />
                                                 <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0"
-                                                         textColor="0x000000" includeIn="up" size="25" />
+                                                         textColor="0x375b7f" includeIn="up" size="22" />
                                                 <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0"
                                                          textColor="0xffffff"
-                                                         includeIn="down,upAndSelected,downAndSelected" size="25" />
+                                                         includeIn="down,upAndSelected,downAndSelected" size="22" />
                                         </e:Skin>
                                 </e:skinName>
                         </e:RadioButton>
@@ -118,20 +113,25 @@
                                        groupName="roadRadioBtnGroup">
                                 <e:skinName>
                                         <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                <e:Image id="buttonImageUp" width="100%" height="100%"
-                                                         source="d_ro_rm_switch_tag_btn_hover_png" horizontalCenter="0"
-                                                         includeIn="up" />
-                                                <e:Image id="buttonImageDown" width="100%" height="100%"
-                                                         source="d_ro_rm_switch_tag_btn_active_png" horizontalCenter="0"
-                                                         includeIn="down,upAndSelected,downAndSelected" />
+                                                <ui:RoundRectShape cornerTL_TR_BL_BR="17,17,17,17" width="180"
+                                                                   height="34" horizontalCenter="0" stroke="0"
+                                                                   fillColor="0x375b7f"
+                                                                   includeIn="down,upAndSelected,downAndSelected" />
+                                                <ui:RoundRectShape cornerTL_TR_BL_BR="17,17,17,17" width="180"
+                                                                   height="34" horizontalCenter="0" stroke="0"
+                                                                   fillColor="0x375b7f" fillAlpha="0.2" includeIn="up" />
                                                 <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0"
-                                                         textColor="0x000000" includeIn="up" size="25" />
+                                                         textColor="0x375b7f" includeIn="up" size="22" />
                                                 <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0"
                                                          textColor="0xffffff"
-                                                         includeIn="down,upAndSelected,downAndSelected" size="25" />
+                                                         includeIn="down,upAndSelected,downAndSelected" size="22" />
                                         </e:Skin>
                                 </e:skinName>
                         </e:RadioButton>
                 </e:Group>
         </e:ViewStack>
+        <ui:BaseImageButton id="toggleUpDownButton" x="625" y="314" skinName="skin_desktop.ImageButtonSkinGoodRoad"
+                            currentState="b_up" visible="false" />
+        <ui:RoundRectShape id="border" cornerTL_TR_BL_BR="14,14,14,14" width="666" height="338" stroke="2" x="1" y="1"
+                           strokeColor="0x3a3f48" fillAlpha="-1" locked="true" />
 </e:Skin>

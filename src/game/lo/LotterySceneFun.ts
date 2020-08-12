@@ -41,6 +41,7 @@ namespace we {
 
       protected onBetChipChanged() {
         FunBet.bet = this._denominationList[this._betChipSet.selectedChipIndex] * 0.01;
+        // FunBet.bet = this._denominationList[this._betChipSet.selectedChipIndex];
       }
 
       protected onConfirmPressed() {

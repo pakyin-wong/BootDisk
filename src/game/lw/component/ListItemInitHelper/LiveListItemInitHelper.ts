@@ -32,8 +32,8 @@ namespace we {
         road.roadCol = 13;
         road.roadCellWidth = 44;
         road.roadCellHeight = 46;
-        road.roadImageWidth = 28;
-        road.roadImageHeight = 37;
+        road.roadImageWidth = 31;
+        road.roadImageHeight = 31;
         road.roadScale = 1;
         road.roadGridColor = 0xffffff;
         road.roadGridAlpha = 1;

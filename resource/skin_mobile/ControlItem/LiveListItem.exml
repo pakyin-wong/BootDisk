@@ -2,8 +2,8 @@
 <e:Skin class="skin_mobile.LiveListItemSkin" width="1140" height="399" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Group id="_contentContainer" width="100%" height="399" x="0" y="0" anchorOffsetY="0">
-		<e:Rect height="105" y="0" fillColor="0x202020" right="0" left="0" />
-		<ui:CountdownTimer id="_timer" width="90" height="90" x="7" y="7" skinName="skin_mobile.CountdownTimerRoundSkin" />
+		<e:Rect height="401.67" y="0" right="0" left="0"  fillColor="0x23282e" strokeAlpha="1" ellipseWidth="24" ellipseHeight="24" strokeWeight="3" anchorOffsetY="0" strokeColor="0x3a3f48"/>
+		<ui:CountdownTimer id="_timer" width="86" height="86" x="12" y="7" skinName="skin_mobile.CountdownTimerRoundSkin" />
 		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" x="110" y="30" size="48" text="" />
 		<e:Component id="_roadmapNode" width="1136" height="288" y="105" anchorOffsetY="0" horizontalCenter="0"
 		              visible="false"/>
@@ -18,7 +18,7 @@
 				<e:HorizontalLayout verticalAlign="middle" />
 			</e:layout>
 		</e:Group>
-		<e:Group anchorOffsetX="0" anchorOffsetY="0" bottom="20" left="20">
+		<e:Group anchorOffsetX="0" anchorOffsetY="0" x="24" y="296">
 			<ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_mobile_portrait.GoodRoadLabelSkin" right="13" bottom="10" />
 			<e:Group id="_alreadyBetSign" right="5" bottom="40" height="80">
 				<e:Rect right="0" left="0" top="0" bottom="0" ellipseWidth="80" ellipseHeight="80" fillAlpha="0.76"
@@ -30,14 +30,17 @@
 			</e:layout>
 		</e:Group>
 	</e:Group>
-	<e:Rect id="_dimmer" left="0" top="104" bottom="0" right="0" fillAlpha="0.5" anchorOffsetY="0" visible="false" />
+	<e:Rect id="_dimmer" left="0" top="104" bottom="0" right="0" fillAlpha="0.7" anchorOffsetY="0"  visible="false"/>
 	<e:Group id="_buttonGroup" width="1140" x="0" y="196" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false"
 	         touchChildren="true">
-		<ui:BaseImageButton id="_quickBetButton" width="350" height="100" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
-		                    scaleY="1" verticalCenter="0" left="200" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
-		                    currentState="1col_btn" />
-		<ui:BaseImageButton id="_enterTableButton" width="350" height="100" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
-		                    scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby" verticalCenter="0" right="200"
-		                    currentState="1col_btn" />
+			<ui:RoundRectButton id="_quickBetButton" verticalCenter="0" left="200"  width="350" height="100" 
+								cornerTL_TR_BL_BR="50,50,50,50"	skinName="skin_mobile.QuickBetButtonSkin"
+			                    stroke="0" strokeIn="0" fillColor="00AA5E" fillAlpha="1" fillAlpha_hover="0.7"
+			                    />
+			<ui:RoundRectButton id="_enterTableButton"  verticalCenter="0" right="200"  width="350" height="100" 
+								cornerTL_TR_BL_BR="50,50,50,50"	
+			                    stroke="0" strokeIn="0" fillColor="00AA5E" fillAlpha="1" fillAlpha_hover="0.7"
+			                    />
+
 	</e:Group>
 </e:Skin>

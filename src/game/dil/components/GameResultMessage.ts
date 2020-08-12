@@ -2,28 +2,28 @@ namespace we {
   export namespace dil {
     export class GameResultMessage extends ui.GameResultMessage implements ui.IGameResultMessage {
       protected _dbClass = 'dice_w';
-      protected _armatureName = 'Result';
+      protected _armatureName = 'result';
 
       public constructor() {
         super();
       }
 
       protected fillSlotWinAmount(winAmount: number, hasBet) {
-        let winStatus = 'No_Bet';
+        let winStatus = 'no_bet';
 
         if (winAmount === 0 && !hasBet) {
           return winStatus;
         }
 
-        const winAmountSlot = this._display.armature.getSlot('800');
+        const winAmountSlot = this._display.armature.getSlot('credit');
         const winAmountLabel = new eui.Label();
         winAmountLabel.fontFamily = 'Barlow';
         winAmountLabel.size = 55;
         if (winAmount < 0) {
-          winStatus = 'Loss';
+          winStatus = 'loss';
           winAmountLabel.text = utils.formatNumber(winAmount, false);
         } else if (winAmount >= 0) {
-          winStatus = 'Win';
+          winStatus = 'win';
           winAmountLabel.text = '+' + utils.formatNumber(winAmount, false);
         }
 
@@ -44,6 +44,8 @@ namespace we {
         layer.addChild(winAmountLabel);
         layer.anchorOffsetX = winAmountLabel.width * 0.5;
         layer.anchorOffsetY = winAmountLabel.height * 0.5;
+        layer.touchThrough = true;
+        layer.touchEnabled = false;
         winAmountSlot.display = layer;
 
         return winStatus;
@@ -54,7 +56,7 @@ namespace we {
         if (luckyNumber[resultNo] === undefined) {
           return luckyStatus;
         }
-        const oddSlot = this._display.armature.getSlot('Base_Odd');
+        const oddSlot = this._display.armature.getSlot('odds');
 
         const oddLabel = new eui.Label();
         oddLabel.fontFamily = 'NeonOne';
@@ -68,12 +70,12 @@ namespace we {
         layer.anchorOffsetY = oddLabel.height * 0.5;
         oddSlot.display = layer;
 
-        luckyStatus = '_LuckyNo';
+        luckyStatus = '_odds';
         return luckyStatus;
       }
 
       protected fillSlotResultNo(dices: number[], resultNo: number) {
-        const resultSlot = this._display.armature.getSlot('Base_Number');
+        const resultSlot = this._display.armature.getSlot('result');
 
         const resultLabel = new eui.Label();
         resultLabel.fontFamily = 'NeonOne';
@@ -87,7 +89,7 @@ namespace we {
         layer.anchorOffsetY = resultLabel.height * 0.5;
         resultSlot.display = layer;
 
-        const diceArmartureName = ['Base_Dice', 'Base_Dice2', 'Base_Dice3', 'Base_Dice4', 'Base_Dice5', 'Base_Dice6'];
+        const diceArmartureName = ['dice_l', 'dice_c', 'dice_r', 'dice_l_light', 'dice_c_light', 'dice_r_light'];
         for (let i = 0; i < 3; i++) {
           const diceSlot = this._display.armature.getSlot(diceArmartureName[i]);
 
@@ -100,7 +102,7 @@ namespace we {
           layerDice.anchorOffsetY = 61; // diceImage.height * 0.5;
           diceSlot.display = layerDice;
 
-          const diceFlashSlot = this._display.armature.getSlot(diceArmartureName[5 - i]);
+          const diceFlashSlot = this._display.armature.getSlot(diceArmartureName[i + 3]);
           const diceFlashImage = new eui.Image();
           diceFlashImage.source = `Base_Dice_${dices[i]}_png`;
 
@@ -126,7 +128,6 @@ namespace we {
         this.visible = true;
 
         const anim = `${winStatus}${luckyStatus}`;
-        console.log('dil result Anim', anim);
         this._display.animation.play(anim, 1);
       }
     }

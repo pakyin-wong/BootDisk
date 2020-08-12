@@ -34,19 +34,20 @@ namespace we {
         this._visibleDenomNum = 5; // default value
       }
 
-      set navWidth(value: number) {
+      public set navWidth(value: number) {
         this._navWidth = value;
         this._chipContainer.left = this._navWidth;
         this._chipContainer.right = this._navWidth;
       }
-      get navWidth(): number {
+      public get navWidth(): number {
         return this._navWidth;
       }
 
-      set containerPadding(value: number) {
+      public set containerPadding(value: number) {
         this._containerPadding = value;
       }
-      get containerPadding(): number {
+
+      public get containerPadding(): number {
         return this._containerPadding;
       }
 
@@ -71,12 +72,12 @@ namespace we {
         this._visibleDenomNum = count;
       }
 
-      set denomList(value: number[]) {
+      public set denomList(value: number[]) {
         this._denomList = value;
         this.syncChip();
       }
 
-      get denomList() {
+      public get denomList() {
         return this._denomList;
       }
 
@@ -141,10 +142,14 @@ namespace we {
         for (let i = 0; i < this._visibleDenomNum; i += 1) {
           const child: eui.Component & IBetChip = this._chipList[this._startIndex + i];
           this._chipContainer.addChild(child);
-          child.verticalCenter = 0;
           child.width = childInterval - this._containerPadding * 2;
+          child.height = this.height;
+          // (<AnimBetChip> child).debugRect.width = childInterval - this._containerPadding * 2;
+          // (<AnimBetChip> child).debugRect.height = this.height;
           child.x = childpos;
+          child.y = 0;
           childpos += childInterval;
+          child.draw(true);
         }
         this._updateNavigationDisplay();
       }
@@ -152,7 +157,7 @@ namespace we {
       public setChipSet(denomList: number[]) {
         this._denomList = denomList;
         this._denomList.map((value, index) => {
-          const betChip = new BetChip(value);
+          const betChip = new AnimBetChip(value);
           betChip.index = env.getWholeDenomMap()[value];
           betChip.type = we.core.ChipType.PERSPECTIVE;
           betChip.addEventListener(egret.TouchEvent.TOUCH_TAP, this._onChipSelected.bind(this, index), this);
@@ -189,14 +194,11 @@ namespace we {
       }
 
       private setChip(index: number) {
-        this._chipList[this._selectedChipIndex].highlight = false;
         this._chipList[this._selectedChipIndex].type = we.core.ChipType.PERSPECTIVE;
-        this._chipList[this._selectedChipIndex].verticalCenter = 0;
+        // this._chipList[this._selectedChipIndex].draw();
 
-        this._chipList[index].highlight = true;
         this._chipList[index].type = we.core.ChipType.FLAT;
-        this._chipList[index].verticalCenter = 0;
-        this._chipList[index].draw();
+        // this._chipList[index].draw();
 
         this._selectedChipIndex = index;
       }

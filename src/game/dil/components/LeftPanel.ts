@@ -20,12 +20,16 @@ namespace we {
       protected pageStack: eui.ViewStack;
       protected roadStack: eui.ViewStack;
 
+      public beadRoad: DilBeadRoad;
+
       // new for di
-      protected topBar: eui.Rect;
       protected beadRadioBtn1: eui.RadioButton;
       protected beadRadioBtn2: eui.RadioButton;
       protected isExpanded: boolean;
       protected toggleUpDownButton: eui.ToggleSwitch;
+
+      protected bg: ui.RoundRectShape;
+      protected border: ui.RoundRectShape;
 
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'DilLeftPanel');
@@ -37,7 +41,7 @@ namespace we {
 
       public changeLang() {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
-        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
+        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
 
         this.pageRadioBtn1['labelDisplayDown']['text'] = this.pageRadioBtn1['labelDisplayUp']['text'] = i18n.t('dice.luckyNumber');
         this.pageRadioBtn2['labelDisplayDown']['text'] = this.pageRadioBtn2['labelDisplayUp']['text'] = i18n.t('dice.history');
@@ -62,6 +66,17 @@ namespace we {
 
         const page1Group = this.pageStack.getChildAt(0) as eui.Group;
 
+        this.beadRoad = new DilBeadRoad(3, 8, 56, 1, 18, 18, 0x262a2b, 1); // in game
+        this.beadRoad.x = 10;
+        this.beadRoad.y = 20;
+        this.beadRoad.scaleX = 689 / 689;
+        this.beadRoad.scaleY = 689 / 689;
+
+        // add bead road to page stack 1
+        const page2Group = this.pageStack.getChildAt(1) as eui.Group;
+        page2Group.addChild(this.beadRoad);
+
+        dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.pageRadioBtn1.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.pageRadioBtn2.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
@@ -75,13 +90,13 @@ namespace we {
 
       public expandPanel(expand: boolean) {
         if (!this.isExpanded && expand) {
-          this.mask.height += 202;
-          this.mask.y -= 202;
+          this.bg.setRoundRectStyle(580, 340 + 202, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', 1, 0);
+          this.bg.y -= 202;
+          this.border.setRoundRectStyle(580, 340 + 202, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', -1, 2, 0x3a3f48);
+          this.border.y -= 202;
 
           (this.pageStack.getChildAt(0) as eui.Group).height += 202;
           (this.pageStack.getChildAt(0) as eui.Group).y -= 202;
-
-          this.topBar.y -= 202;
 
           this.gameIdLabel.y -= 202;
           this.totalBetLabel.y -= 202;
@@ -92,13 +107,13 @@ namespace we {
 
           this.toggleUpDownButton.currentState = 'b_down';
         } else if (this.isExpanded && !expand) {
-          this.mask.height -= 202;
-          this.mask.y += 202;
+          this.bg.setRoundRectStyle(580, 340, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', 1, 0);
+          this.bg.y += 202;
+          this.border.setRoundRectStyle(580, 340, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', -1, 2, 0x3a3f48);
+          this.border.y += 202;
 
           (this.pageStack.getChildAt(0) as eui.Group).height -= 202;
           (this.pageStack.getChildAt(0) as eui.Group).y += 202;
-
-          this.topBar.y += 202;
 
           this.gameIdLabel.y += 202;
           this.totalBetLabel.y += 202;
@@ -162,6 +177,16 @@ namespace we {
         }
       }
 
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        if (evt.data) {
+          const betInfo = evt.data;
+          if (betInfo.tableid === this.tableInfo.tableid) {
+            this.totalBet = evt.data.total;
+            this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
+          }
+        }
+      }
+
       public destroy() {
         super.destroy();
 
@@ -169,6 +194,7 @@ namespace we {
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }
+        dir.evtHandler.removeEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
       }
 
       protected createLuckyCoinAnim() {
@@ -178,13 +204,12 @@ namespace we {
         const factory = new dragonBones.EgretFactory();
         factory.parseDragonBonesData(skeletonData);
         factory.parseTextureAtlasData(textureData, texture);
-        return factory.buildArmatureDisplay('Draw_Number_Effect_Destop');
+        return factory.buildArmatureDisplay('draw_number');
       }
 
       public updateLuckyNumbers() {
         this._coinGroup.removeChildren();
 
-        console.log(this.tableInfo.data);
         if (!(this.tableInfo && this.tableInfo.data && this.tableInfo.data.luckynumber)) {
           return;
         }
@@ -194,8 +219,11 @@ namespace we {
 
         // 18 = 668 - 5 * 112
         let x = (580 - (noOfLuckNum - 1) * 13 - noOfLuckNum * 175) / 2;
+        let firstCoin = true;
 
         for (const key of Object.keys(luckyNumbers)) {
+          const animName = this.getAnimName(+key);
+
           const coinGroup = new eui.Group();
           coinGroup.x = x;
           coinGroup.y = 10;
@@ -207,43 +235,18 @@ namespace we {
           coinAnim.height = 213;
           // 112 + 18
 
-          const oddLabel = new eui.Label();
-          oddLabel.text = luckyNumbers[key];
-          oddLabel.verticalCenter = 55;
-          oddLabel.horizontalCenter = 0;
-          oddLabel.fontFamily = 'Barlow';
-          oddLabel.textAlign = egret.HorizontalAlign.CENTER;
-          oddLabel.verticalAlign = egret.VerticalAlign.MIDDLE;
-          oddLabel.size = 15;
-          // oddLabel.anchorOffsetX = oddLabel.width / 2;
-          oddLabel.textColor = 0x2ab9c6;
+          const oddSlot = coinAnim.armature.getSlot(`${animName}_odds`);
+          oddSlot.display = this.getOddSlotGroup(luckyNumbers[key]);
 
-          const numberLabel = new eui.Label();
-          numberLabel.text = key.toString();
-          numberLabel.horizontalCenter = 0;
-          numberLabel.verticalCenter = 15;
-          numberLabel.fontFamily = 'Barlow';
-          numberLabel.textAlign = egret.HorizontalAlign.CENTER;
-          numberLabel.verticalAlign = egret.VerticalAlign.MIDDLE;
-          // numberLabel.anchorOffsetX = numberLabel.width / 2;
-          numberLabel.size = 50;
-
-          numberLabel.textColor = 0x2ab9c6;
+          const numberSlot = coinAnim.armature.getSlot(`${animName}_number`);
+          numberSlot.display = this.getNumberSlotGroup(+key);
 
           x += 188;
 
           coinGroup.addChild(coinAnim);
-          coinGroup.addChild(oddLabel);
-          coinGroup.addChild(numberLabel);
+          coinGroup.visible = false;
+
           this._coinGroup.addChild(coinGroup);
-
-          // const oddSlot = coinAnim.armature.getSlot('Odd');
-          // oddSlot.display = this.getOddSlotGroup(luckyNumbers[key]);
-
-          // const numberSlot = coinAnim.armature.getSlot('Number');
-          // numberSlot.display = this.getNumberSlotGroup(+key);
-
-          // let noBet = '_nobet';
 
           if (!this._chipLayer) {
             return;
@@ -251,11 +254,6 @@ namespace we {
 
           const betDetails = this._chipLayer.getConfirmedBetDetails();
 
-          /*
-          if (!betDetails) {
-            return;
-          }
-          */
           if (betDetails) {
             betDetails.map((detail, index) => {
               if (!detail || !detail.field || !detail.amount) {
@@ -271,11 +269,15 @@ namespace we {
               }
             });
           }
-          const animName = this.getAnimName(+key);
 
           (async () => {
+            if (!firstCoin) {
+              await we.utils.sleep(400);
+            }
+
             let p = we.utils.waitDragonBone(coinAnim);
             coinAnim.animation.play(`${animName}_in`, 1);
+            coinGroup.visible = true;
             await p;
 
             p = we.utils.waitDragonBone(coinAnim);
@@ -286,11 +288,74 @@ namespace we {
             coinAnim.animation.play(`${animName}_out`, 1);
             await p;
 
+            coinAnim.animation.stop();
+
             this._coinGroup.removeChildren();
           })();
-
-          we.utils.sleep(250);
+          firstCoin = false;
         }
+      }
+
+      protected getOddSlotGroup(odd: number) {
+        const label = new eui.Label();
+        label.fontFamily = 'Barlow';
+        label.text = odd.toString() + 'x';
+        label.size = 50;
+        label.textColor = 0x2ab9c6;
+        label.textAlign = egret.HorizontalAlign.CENTER;
+        label.verticalAlign = egret.VerticalAlign.MIDDLE;
+        label.width = 112;
+        label.anchorOffsetX = 56;
+        label.anchorOffsetY = 15;
+
+        const group = new eui.Group();
+        group.addChild(label);
+
+        return group;
+      }
+
+      protected getNumberSlotGroup(num: number) {
+        const label = new eui.Label();
+        label.fontFamily = 'Barlow';
+        label.text = num.toString();
+        label.size = 120;
+        label.textColor = 0x2ab9c6;
+        label.textAlign = egret.HorizontalAlign.CENTER;
+        label.verticalAlign = egret.VerticalAlign.MIDDLE;
+        label.width = 300;
+        label.anchorOffsetX = 150;
+        label.anchorOffsetY = 40;
+        label.bold = true;
+        const color: number = 0x33ccff;
+        const alpha: number = 0.8;
+        const blurX: number = 35;
+        const blurY: number = 35;
+        const strength: number = 2;
+        const quality: number = egret.BitmapFilterQuality.HIGH;
+        const inner: boolean = false;
+        const knockout: boolean = false;
+        const glowFilter: egret.GlowFilter = new egret.GlowFilter(color, alpha, blurX, blurY, strength, quality, inner, knockout);
+        label.filters = [glowFilter];
+
+        const group = new eui.Group();
+        group.addChild(label);
+
+        return group;
+      }
+
+      protected getChipSlotGroup(amount) {
+        const coin = new LuckyCoin();
+
+        coin.anchorOffsetX = 90;
+        coin.anchorOffsetY = 90;
+        coin.amount = amount;
+        coin.height = 180;
+        coin.width = 180;
+
+        const group = new eui.Group();
+        group.addChild(coin);
+
+        return group;
       }
 
       public clearLuckyNumbers() {

@@ -1,31 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.MemberReport" width="1689" height="731" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:overlay="we.overlay.*">
+<e:Skin class="skin_desktop.MemberReport" width="1689" height="731" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:overlay="we.overlay.*">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
-		<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x14181e" ellipseHeight="48" ellipseWidth="48" strokeColor="0x333c4a" strokeWeight="2" locked="true"/>
-		<e:Image id="close" width="48" height="48" right="44" top="44" source="d-lobby-button-close-none_png"/>
-		<ui:RunTimeLabel id="_txt_title" text="Label" left="44" top="44" width="192" height="71" verticalAlign="middle" textColor="0xc59466" size="48" bold="true"/>
+		<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x14181e" ellipseHeight="48" ellipseWidth="48"
+		        strokeColor="0x333c4a" strokeWeight="2" locked="true" />
+		<e:Image id="close" width="48" height="48" right="44" top="44" source="d-lobby-button-close-none_png" />
+		<ui:RunTimeLabel id="_txt_title" text="Label" left="44" top="44" width="320" height="71" verticalAlign="middle"
+		                 textColor="0xc59466" size="48" bold="true" anchorOffsetX="0" targetWidth="320" />
+		<!--<ui:BaseButton id="_btn_searchType" width="210" height="60" x="400" y="49"
+		                   skinName="skin_desktop.OverlayPanelButton" active="true" />
+		-->
+		<ui:RoundRectButton id="_btn_searchType" cornerTL_TR_BL_BR="30,30,30,30" width="210" height="60" x="400" y="49"
+		                    stroke="0" strokeIn="0" fillAlpha="1" fillColor="0x1b416e" />
+		<e:Image source="d_lobby_button_down_normal_png" width="35" height="35" y="59" x="559" touchEnabled="false" />
 
-        <ui:BaseButton id="_btn_searchType" width="210" height="60" x="323.15" y="49.5" skinName="skin_desktop.OverlayPanelButton" active="true"/>
-
-		<ui:RunTimeLabel id="_txt_date" text="d" x="867" y="56.5" width="48" height="36" size="24" alpha="0.7" verticalAlign="middle"/>
-		<ui:BaseButton id="_btn_today" width="137" height="60" x="951" y="45.5" skinName="skin_desktop.OverlayPanelButton"/>
-		<ui:BaseButton id="_btn_yesterday" width="137" height="60" x="1108" y="45.5" skinName="skin_desktop.OverlayPanelButton"/>
-		<ui:BaseButton id="_btn_week" width="137" height="60" x="1265" y="45.5" skinName="skin_desktop.OverlayPanelButton"/>
-		<ui:BaseButton id="_btn_custom" width="137" height="60" x="1422.5" y="45.5" skinName="skin_desktop.OverlayPanelButton"/>
-
-		<e:Rect width="773.33" height="227.7" fillColor="0x1E2126" ellipseHeight="32" ellipseWidth="32" strokeColor="0x2A2D32" strokeWeight="2" x="871.67" y="168.68" anchorOffsetY="0" anchorOffsetX="0"/>
-		<e:Rect width="773.33" height="227.7" fillColor="0x1E2126" ellipseHeight="32" ellipseWidth="32" strokeColor="0x2A2D32" strokeWeight="2" x="44" y="168.68" anchorOffsetY="0" anchorOffsetX="0"/>
-		<e:Rect width="773.33" height="227.7" fillColor="0x1E2126" ellipseHeight="32" ellipseWidth="32" strokeColor="0x2A2D32" strokeWeight="2" x="44" y="450.38" anchorOffsetY="0" anchorOffsetX="0"/>
-		<e:Rect width="773.33" height="227.7" fillColor="0x1E2126" ellipseHeight="32" ellipseWidth="32" strokeColor="0x2A2D32" strokeWeight="2" x="871.67" y="450.38" anchorOffsetY="0" anchorOffsetX="0"/>
+		<ui:RunTimeLabel id="_txt_date" text="d" y="56.5" height="36" size="24" alpha="0.7" verticalAlign="middle" right="774" />
+		<ui:RoundRectButton id="_btn_today" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="951" y="46" stroke="2"
+		                    fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x1B416E"
+		                    fillAlpha_click="1" stroke_active="0" fillColor_active="0x1B416E" fillAlpha_active="1" />
+		<ui:RoundRectButton id="_btn_yesterday" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="1108" y="46"
+		                    stroke="2" fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x1B416E"
+		                    fillAlpha_click="1" stroke_active="0" fillColor_active="0x1B416E" fillAlpha_active="1" />
+		<ui:RoundRectButton id="_btn_week" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="1265" y="46" stroke="2"
+		                    fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x1B416E"
+		                    fillAlpha_click="1" stroke_active="0" fillColor_active="0x1B416E" fillAlpha_active="1" />
+		<ui:RoundRectButton id="_btn_custom" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="1422" y="46"
+		                    stroke="2" fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x1B416E"
+		                    fillAlpha_click="1" stroke_active="0" fillColor_active="0x1B416E" fillAlpha_active="1" />
+		<!--<ui:BaseButton id="_btn_today" width="137" height="60" x="951" y="45.5" skinName="skin_desktop.OverlayPanelButton" />
+		<ui:BaseButton id="_btn_yesterday" width="137" height="60" x="1108" y="45.5"
+		               skinName="skin_desktop.OverlayPanelButton" />
+		<ui:BaseButton id="_btn_week" width="137" height="60" x="1265" y="45.5" skinName="skin_desktop.OverlayPanelButton" />
+		<ui:BaseButton id="_btn_custom" width="137" height="60" x="1422.5" y="45.5" skinName="skin_desktop.OverlayPanelButton" />
+		-->
+		<e:Rect width="773.33" height="227.7" fillColor="0x1E2126" ellipseHeight="32" ellipseWidth="32" strokeColor="0x2A2D32"
+		        strokeWeight="2" x="871.67" y="168.68" anchorOffsetY="0" anchorOffsetX="0" />
+		<e:Rect width="773.33" height="227.7" fillColor="0x1E2126" ellipseHeight="32" ellipseWidth="32" strokeColor="0x2A2D32"
+		        strokeWeight="2" x="44" y="168.68" anchorOffsetY="0" anchorOffsetX="0" />
+		<e:Rect width="773.33" height="227.7" fillColor="0x1E2126" ellipseHeight="32" ellipseWidth="32" strokeColor="0x2A2D32"
+		        strokeWeight="2" x="44" y="450.38" anchorOffsetY="0" anchorOffsetX="0" />
+		<e:Rect width="773.33" height="227.7" fillColor="0x1E2126" ellipseHeight="32" ellipseWidth="32" strokeColor="0x2A2D32"
+		        strokeWeight="2" x="871.67" y="450.38" anchorOffsetY="0" anchorOffsetX="0" />
 		<ui:RunTimeLabel id="_txt_betAmount" text="Label" x="74.3" y="198.98" textColor="0xB5B9BC" />
 		<ui:RunTimeLabel id="_txt_washAmount" text="Label" x="901.97" y="199.28" textColor="0xB5B9BC" />
 		<ui:RunTimeLabel id="_txt_winAmount" text="Label" x="74.3" y="480.68" textColor="0xb5b9bc" />
 		<ui:RunTimeLabel id="_txt_totalAmount" text="Label" x="901.97" y="480.68" textColor="0xB5B9BC" />
-		<ui:RunTimeLabel id="_txt_betAmount_value" text="Label" x="74.8" y="259.58" size="60" fontFamily="Barlow"/>
-		<ui:RunTimeLabel id="_txt_washAmount_value" text="Label" x="901.97" y="259.58" size="60" fontFamily="Barlow"/>
-		<ui:RunTimeLabel id="_txt_winAmount_value" text="Label" x="74.8" y="540.98" size="60" fontFamily="Barlow"/>
-		<ui:RunTimeLabel id="_txt_totalAmount_value" text="Label" x="901.97" y="540.98" size="60" fontFamily="Barlow"/>
+		<ui:RunTimeLabel id="_txt_betAmount_value" text="Label" x="74.8" y="259.58" size="60" fontFamily="Barlow" />
+		<ui:RunTimeLabel id="_txt_washAmount_value" text="Label" x="901.97" y="259.58" size="60" fontFamily="Barlow" />
+		<ui:RunTimeLabel id="_txt_winAmount_value" text="Label" x="74.8" y="540.98" size="60" fontFamily="Barlow" />
+		<ui:RunTimeLabel id="_txt_totalAmount_value" text="Label" x="901.97" y="540.98" size="60" fontFamily="Barlow" />
 	</e:Group>
-	<overlay:DoubleCalendarPicker skinName="skin_desktop.DoubleCalendarPicker" id="_datepicker" width="1207" height="795" y="-24" x="511" scaleX="1" scaleY="1" anchorOffsetY="0"/>
+	<overlay:DoubleCalendarPicker skinName="skin_desktop.DoubleCalendarPicker" id="_datepicker" width="1207" height="795"
+	                              y="-24" x="511" scaleX="1" scaleY="1" anchorOffsetY="0" />
 	<ui:Panel id="_ddm_searchType" width="370" maxHeight="300" x="348" y="117" skinName="skin_desktop.NavDropdown" />
 </e:Skin>

@@ -4,7 +4,7 @@ namespace we {
       public constructor() {
         super();
       }
-
+      //////////////// still using this?????????????
       public showResult(gameType: core.GameType, resultData: any) {
         this._dbClass = 'sicbo';
         super.showResult(gameType, resultData);

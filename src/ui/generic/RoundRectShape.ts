@@ -14,7 +14,7 @@ namespace we {
       public stroke: number = 1;
       public strokeColor: number = 0x00ff00;
       public strokeAlpha: number = 1;
-      public strokeIn: number = 1;
+      public strokeIn: number = 0;
       public strokeInColor: number = 0x0000ff;
       public strokeInAlpha: number = 1;
 
@@ -39,59 +39,74 @@ namespace we {
         strokeInColor: number = 0x0000ff,
         strokeInAlpha: number = 1
       ) {
-        this._gr.clear();
-        if (fillAlpha >= 0) {
-          fillColor = fillColor.toString();
-          if (fillColor.indexOf(',') > 0) {
-            const parms = fillColor
-              .split(' ')
-              .join('')
-              .split(',');
+        this.width = width;
+        this.height = height;
+        this.cornerTL = cornerRadius.tl;
+        this.cornerTR = cornerRadius.tr;
+        this.cornerBL = cornerRadius.bl;
+        this.cornerBR = cornerRadius.br;
+        this.fillColor = fillColor;
+        this.stroke = stroke;
+        this.strokeColor = strokeColor;
+        this.strokeAlpha = strokeAlpha;
+        this.strokeIn = strokeIn;
+        this.strokeInColor = strokeInColor;
+        this.strokeInAlpha = strokeInAlpha;
 
-            if (parms.length === 2) {
-              GradientFill.beginGradientFill(this._gr, width, height, [parms[0], parms[1]]);
-            } else if (parms.length === 3) {
-              GradientFill.beginGradientFill(this._gr, width, height, [parms[0], parms[1]], parseInt(parms[2], 10));
+        if (this._gr) {
+          this._gr.clear();
+          if (fillAlpha >= 0) {
+            fillColor = fillColor.toString();
+            if (fillColor.indexOf(',') > 0) {
+              const parms = fillColor
+                .split(' ')
+                .join('')
+                .split(',');
+              if (parms.length === 2) {
+                GradientFill.beginGradientFill(this._gr, width, height, [parms[0], parms[1]]);
+              } else if (parms.length === 3) {
+                GradientFill.beginGradientFill(this._gr, width, height, [parms[0], parms[1]], parseInt(parms[2], 10));
+              }
+            } else {
+              this._gr.beginFill(parseInt(fillColor, 16), fillAlpha);
             }
-          } else {
-            this._gr.beginFill(parseInt(fillColor, 16), fillAlpha);
           }
-        }
-        if (stroke > 0) {
-          this._gr.lineStyle(stroke, strokeColor, strokeAlpha);
-        }
+          if (stroke > 0) {
+            this._gr.lineStyle(stroke, strokeColor, strokeAlpha, true);
+          }
 
-        RoundRect.drawRoundRect(this._gr, 0, 0, width, height, cornerRadius);
-        if (fillAlpha >= 0) {
-          this._gr.endFill();
-        }
+          RoundRect.drawRoundRect(this._gr, 0, 0, width, height, cornerRadius);
+          if (fillAlpha >= 0) {
+            this._gr.endFill();
+          }
 
-        // stroke Inside
-        if (strokeIn > 0) {
-          this._gr.lineStyle(strokeIn, strokeInColor, strokeInAlpha);
-          const strokeSum = strokeIn + stroke;
-          /*
-          const cRadius = {
-            tl: cornerRadius.tl > 0 ? cornerRadius.tl - strokeSum * 0.5 : 0,
-            tr: cornerRadius.tr > 0 ? cornerRadius.tr - strokeSum * 0.5 : 0,
-            bl: cornerRadius.bl > 0 ? cornerRadius.bl - strokeSum * 0.5 : 0,
-            br: cornerRadius.br > 0 ? cornerRadius.br - strokeSum * 0.5 : 0,
-          };
-          RoundRect.drawRoundRect(this._gr, strokeSum * 0.5, strokeSum * 0.5, width - strokeSum, height - strokeSum, cRadius);
-          */
+          // stroke Inside
+          if (strokeIn > 0) {
+            this._gr.lineStyle(strokeIn, strokeInColor, strokeInAlpha, true);
+            const strokeSum = strokeIn + stroke;
+            /*
+            const cRadius = {
+              tl: cornerRadius.tl > 0 ? cornerRadius.tl - strokeSum * 0.5 : 0,
+              tr: cornerRadius.tr > 0 ? cornerRadius.tr - strokeSum * 0.5 : 0,
+              bl: cornerRadius.bl > 0 ? cornerRadius.bl - strokeSum * 0.5 : 0,
+              br: cornerRadius.br > 0 ? cornerRadius.br - strokeSum * 0.5 : 0,
+            };
+            RoundRect.drawRoundRect(this._gr, strokeSum * 0.5, strokeSum * 0.5, width - strokeSum, height - strokeSum, cRadius);
+            */
 
-          const cRadius = {
-            tl: cornerRadius.tl > 0 ? cornerRadius.tl - strokeIn * 0.5 : 0,
-            tr: cornerRadius.tr > 0 ? cornerRadius.tr - strokeIn * 0.5 : 0,
-            bl: cornerRadius.bl > 0 ? cornerRadius.bl - strokeIn * 0.5 : 0,
-            br: cornerRadius.br > 0 ? cornerRadius.br - strokeIn * 0.5 : 0,
-          };
-          RoundRect.drawRoundRect(this._gr, strokeIn * 0.5, strokeIn * 0.5, width - strokeIn, height - strokeIn, cRadius);
-          // RoundRect.drawRoundRect(this._gr, strokeIn * 0.5, strokeIn * 0.5, width - strokeSum, height - strokeIn, cRadius);
+            const cRadius = {
+              tl: cornerRadius.tl > 0 ? cornerRadius.tl - strokeIn * 0.5 : 0,
+              tr: cornerRadius.tr > 0 ? cornerRadius.tr - strokeIn * 0.5 : 0,
+              bl: cornerRadius.bl > 0 ? cornerRadius.bl - strokeIn * 0.5 : 0,
+              br: cornerRadius.br > 0 ? cornerRadius.br - strokeIn * 0.5 : 0,
+            };
+            RoundRect.drawRoundRect(this._gr, strokeIn * 0.5, strokeIn * 0.5, width - strokeIn, height - strokeIn, cRadius);
+            // RoundRect.drawRoundRect(this._gr, strokeIn * 0.5, strokeIn * 0.5, width - strokeSum, height - strokeIn, cRadius);
+          }
         }
       }
 
-      public refresh() {
+      public async refresh() {
         if (this.cornerTL_TR_BL_BR !== '') {
           const corners = this.cornerTL_TR_BL_BR
             .split(' ')
@@ -101,6 +116,15 @@ namespace we {
           this.cornerTR = parseInt(corners[1], 10);
           this.cornerBL = parseInt(corners[2], 10);
           this.cornerBR = parseInt(corners[3], 10);
+        }
+
+        // support percentage width / height
+        if (!isNaN(this.percentWidth) || !isNaN(this.percentHeight)) {
+          await new Promise(resolve => window.requestAnimationFrame(resolve));
+          // wait width / height calculated
+          this.width = (this as any).layoutBoundsWidth;
+          this.height = (this as any).layoutBoundsHeight;
+          this.percentWidth = this.percentHeight = NaN;
         }
 
         this.setRoundRectStyle(

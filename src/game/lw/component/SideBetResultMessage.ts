@@ -18,19 +18,19 @@ namespace we {
 
       protected getResultImage(value): any {
         switch (value) {
-          case 1:
+          case '01':
             return 'd_lw_listpenal_result_east_png';
-          case 2:
+          case '02':
             return 'd_lw_listpenal_result_south_png';
-          case 3:
+          case '03':
             return 'd_lw_listpenal_result_west_png';
-          case 4:
+          case '04':
             return 'd_lw_listpenal_result_north_png';
-          case 5:
+          case '05':
             return 'd_lw_listpenal_result_red_png';
-          case 6:
+          case '06':
             return 'd_lw_listpenal_result_green_png';
-          case 7:
+          case '07':
             return 'd_lw_listpenal_result_white_png';
         }
         return null;
@@ -38,19 +38,19 @@ namespace we {
 
       protected getBannerImage(value): any {
         switch (value) {
-          case 1:
+          case '01':
             return 'd_lw_listpenal_result_money_bg_east_png';
-          case 2:
+          case '02':
             return 'd_lw_listpenal_result_money_bg_south_png';
-          case 3:
+          case '03':
             return 'd_lw_listpenal_result_money_bg_west_png';
-          case 4:
+          case '04':
             return 'd_lw_listpenal_result_money_bg_north_png';
-          case 5:
+          case '05':
             return 'd_lw_listpenal_result_money_bg_gold_png';
-          case 6:
+          case '06':
             return 'd_lw_listpenal_result_money_bg_gold_png';
-          case 7:
+          case '07':
             return 'd_lw_listpenal_result_money_bg_white_png';
         }
         return null;

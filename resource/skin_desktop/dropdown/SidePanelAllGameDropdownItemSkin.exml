@@ -4,7 +4,7 @@
     <e:Group x="0" y="0" touchThrough="false" touchEnabled="true" touchChildren="false" width="100%">
         <e:Rect left="0" right="0" fillAlpha="0.5" height="1" bottom="0" fillColor="0x666666" />
         <e:Label id="_label" text="{data.item}" anchorOffsetX="0" anchorOffsetY="0" verticalAlign="middle" bottom="10"
-                 textAlign="left" size="26" scaleX="1" scaleY="1" left="20" right="20" top="10"
+                 textAlign="left" size="23.7" scaleX="1" scaleY="1" left="20" right="20" top="10"
                  textColor.down="0x53a9ff" />
     </e:Group>
 </e:Skin>

@@ -148,6 +148,14 @@ namespace we {
         },
       },
       nav: {
+        tooltip: {
+          menu: '选單',
+          back: '返回大堂',
+          refresh: '刷新餘额',
+          profile: '賬户资信',
+          roominfo: '游戏资信',
+          betlimit: '限红设定',
+        },
         bet_balance: '余额',
         menu: {
           title: '设定',
@@ -168,11 +176,6 @@ namespace we {
           soundSet: '声音设定',
           videoSet: '视频设定',
         },
-        audio: {
-          liveRecord: '现场收音',
-          soundFx: '游戏音效',
-          bgm: '背景音乐',
-        },
         video: {
           toggle: '视频开关',
           quality: '画質',
@@ -181,6 +184,9 @@ namespace we {
         system: {
           title: '系统设定',
           lang: '语言',
+          liveRecord: '现场收音',
+          soundfx: '游戏音效',
+          bgm: '背景音乐',
           term: '服务条款',
           changeName: '设定暱称',
         },
@@ -251,8 +257,12 @@ namespace we {
         rounds: '局',
       },
       dice: {
+        recent: '最近',
+        recentStat: '最近结果统计',
+        roundResult: '局结果',
+        round: '局',
         big: '大',
-        small: '细',
+        small: '小',
         even: '双',
         odd: '单',
         bigFull: '大',
@@ -394,11 +404,14 @@ namespace we {
         stopBet: '停止下注',
       },
       sidePanel: {
-        betted: '已下注',
+        betted: '已下注项目',
         goodroad: '好路',
         allgames: '全部游戏',
       },
       baccarat: {
+        tooltip: {
+          swapRoadmap: '轉換路紙',
+        },
         playerPair: '闲对',
         bankerPair: '庄对',
         player: '闲',

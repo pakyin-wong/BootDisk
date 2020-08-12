@@ -13,8 +13,13 @@ namespace we {
           return;
         }
 
+        const BAgametype = this.tableInfo.gametype;
         const listItem = new we.ui.MobileSideListBetItem('SideListBetItemSkin');
-        listItem.itemInitHelper = new we.ba.LargeListItemInitHelper();
+        if (BAgametype === core.GameType.BAM) {
+          listItem.itemInitHelper = new we.bam.LargeListItemInitHelper();
+        } else {
+          listItem.itemInitHelper = new we.ba.LargeListItemInitHelper();
+        }
 
         this._displayItem = listItem;
 

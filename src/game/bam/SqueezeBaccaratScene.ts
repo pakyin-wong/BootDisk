@@ -26,7 +26,11 @@ namespace we {
         this.skinName = utils.getSkinByClassname('SqueezeBaccaratScene');
       }
 
-      protected setStateDeal(isInit: boolean = false) {}
+      protected setStateDeal(isInit: boolean = false) {
+        if (this._previousState === we.core.GameState.BET) {
+          this.checkRoundCountWithoutBet();
+        }
+      }
 
       protected setStatePeek(isInit: boolean = false) {
         // console.log('PEEK ' + new Date(Date.now()).toString());

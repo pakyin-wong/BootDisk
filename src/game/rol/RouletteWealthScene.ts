@@ -14,9 +14,9 @@ namespace we {
         this._leftGamePanel.chipLayer = this._chipLayer;
       }
 
-      public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'rol' });
-      }
+      // public backToLobby() {
+      //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'rol' });
+      // }
 
       protected setStateIdle(isInit: boolean = false) {
         super.setStateIdle(isInit);
@@ -42,6 +42,7 @@ namespace we {
         (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
         (<we.rol.RolLeftPanel> this._leftGamePanel).clearLuckyNumbers();
       }
+
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
         (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();

@@ -82,7 +82,7 @@ namespace we {
 
       protected mount() {
         this._roundRectShape = new RoundRectShape();
-        this.addChild(this._roundRectShape);
+        this.addChildAt(this._roundRectShape, 0);
         if (this.cornerTL_TR_BL_BR !== '') {
           const corners = this.cornerTL_TR_BL_BR
             .split(' ')
@@ -110,7 +110,9 @@ namespace we {
           this._label.top = 10;
           this._label.bottom = 10;
           this._label.left = 20;
-          this._label.right = 20;
+          // this._label.right = 20;
+          this._label.width = this.width - 40;
+          this._label.targetWidth = this.width - 40;
           this._label.verticalAlign = 'middle';
           this._label.textAlign = 'center';
           this._label.size = 24;
@@ -121,6 +123,14 @@ namespace we {
         this.touchChildren = false;
         this.buttonEnabled = true;
         mouse.setButtonMode(this, true);
+      }
+
+      public $setWidth(val: number) {
+        super.$setWidth(val);
+        if (this._label) {
+          this._label.width = this.width - 40;
+          this._label.targetWidth = this.width - 40;
+        }
       }
 
       public set buttonEnabled(b: boolean) {

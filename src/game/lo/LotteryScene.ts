@@ -34,7 +34,7 @@ namespace we {
 
       protected mount() {
         super.mount();
-        this.setMode(Mode.Traditional);
+        this.setMode(Mode.Fun);
         utils.addButtonListener(this._btn_trad, this.onClickedTrad, this);
         utils.addButtonListener(this._btn_fun, this.onClickedFun, this);
       }

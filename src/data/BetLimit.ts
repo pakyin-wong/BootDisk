@@ -12,6 +12,7 @@ namespace we {
         dt?: DTBetFieldBetLimit;
         ro?: ROBetFieldBetLimit;
         di?: DIBetFieldBetLimit;
+        dil?: DILBetFieldBetLimit;
         lw?: LWBetFieldBetLimit;
       };
     }
@@ -64,6 +65,17 @@ namespace we {
       public SPECIFIC_1: BetFieldBetLimit; // 1:1
       public SPECIFIC_2: BetFieldBetLimit; // 2:1
       public SPECIFIC_3: BetFieldBetLimit; // 3:1
+    }
+    export class DILBetFieldBetLimit {
+      // to be confirmed from backend
+      public SUM_3_18: BetFieldBetLimit;
+      public SUM_4_17: BetFieldBetLimit;
+      public SUM_5_16: BetFieldBetLimit;
+      public SUM_6_15: BetFieldBetLimit;
+      public SUM_7_14: BetFieldBetLimit;
+      public SUM_8_13: BetFieldBetLimit;
+      public SUM_9_12: BetFieldBetLimit;
+      public SUM_10_11: BetFieldBetLimit;
     }
     export class LWBetFieldBetLimit {
       public LW_0: BetFieldBetLimit;

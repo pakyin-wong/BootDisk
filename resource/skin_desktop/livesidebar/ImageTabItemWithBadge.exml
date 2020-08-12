@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="ImageTabItemWithBadgeSkin" currentState="up" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" 
+<e:Skin class="ImageTabItemWithBadgeSkin" currentState="up" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
         xmlns:w="http://ns.egret.com/wing" states="up,down,upAndSelected,downAndSelected" width="32" height="32">
     <e:Group id="_badge" x="31" y="-13" anchorOffsetX="15" anchorOffsetY="13">
-        <e:Image id="badgeBg" source="d_common_panel_gamelist_notifydot_green_png" />
+        <!--<e:Image id="badgeBg" source="d_common_panel_gamelist_notifydot_green_png" />
+        -->
+        <ui:RoundRectShape id="badgeBg_goodroad" left="0" right="0" top="0" bottom="0" cornerTL_TR_BL_BR="10,10,10,10"
+                           width="25" height="20" stroke="0" strokeIn="0" fillColor="e39200, ffbd1a, 90 " />
+        <ui:RoundRectShape id="badgeBg_bet" left="0" right="0" top="0" bottom="0" cornerTL_TR_BL_BR="10,10,10,10"
+                           width="25" height="20" stroke="0" strokeIn="0" fillColor="00a754, 00d25c, 90 " />
         <e:Label id="_badgeLabel" text="0" right="0" left="0" top="0" bottom="0" verticalAlign="middle"
-                 textAlign="center" size="20" />
+                 textAlign="center" size="15" />
     </e:Group>
 </e:Skin>

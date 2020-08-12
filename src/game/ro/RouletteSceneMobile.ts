@@ -141,9 +141,9 @@ namespace we {
         this._skinKey = 'RouletteScene';
       }
 
-      public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
-      }
+      // public backToLobby() {
+      //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
+      // }
 
       public getTableLayer() {
         return this._tableLayer;
@@ -259,6 +259,23 @@ namespace we {
         (this._chipLayer as MobileChipLayer).changeState(this._mode, this._betDetails);
       }
 
+      protected resetToNormal() {
+        if (this._mode === 'normal') {
+          return;
+        }
+
+        egret.Tween.removeTweens(this._bATransition);
+
+        (this._bATransition.x = 0 - this._bANormal.x), (this._bATransition.y = 0 - this._bANormal.y), (this._chipLayer.$x = this._bANormal.x);
+        this._chipLayer.$y = this._bANormal.y;
+        this._raceTrackChipLayer.visible = false;
+        this._mode = 'normal';
+
+        this.roState = this._bottomGamePanel.isPanelOpen ? 'zip' : 'normal';
+        this._settingPanel.currentState = this._mode;
+        (this._chipLayer as MobileChipLayer).changeState(this._mode, this._betDetails);
+      }
+
       protected toggleBetMode() {
         if (this._betAreaLock) {
           return;
@@ -355,14 +372,14 @@ namespace we {
         this._raceTrackChipLayer.touchChildren = enable;
       }
 
-      public checkResultMessage() {
+      public checkResultMessage(resultData = null) {
         this._betArea.mask = null;
         this._mask.visible = false;
 
         const resultNo = (<ro.GameData> this._gameData).value;
         (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
 
-        super.checkResultMessage();
+        super.checkResultMessage(resultData);
       }
 
       protected initBottomBetLimitSelector() {
@@ -415,7 +432,9 @@ namespace we {
         if (this._betCombination.isActivated) {
           this.hideBetCombination();
         }
-        this.roState = 'small';
+        if (this.tableInfo.gametype == we.core.GameType.RO) {
+          this.roState = 'small';
+        }
       }
 
       protected setStateBet(isInit: boolean = false) {
@@ -433,7 +452,9 @@ namespace we {
         if (this._betCombination.isActivated) {
           this.hideBetCombination();
         }
-        this.roState = 'small';
+        if (this.tableInfo.gametype == we.core.GameType.RO) {
+          this.roState = 'small';
+        }
       }
 
       protected updateTableInfoRelatedComponents() {

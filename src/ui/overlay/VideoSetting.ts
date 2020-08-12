@@ -88,7 +88,7 @@ namespace we {
       //   } else {
       //     this.targetGameScene.playVideo(this.targetGameScene);
       //   }
-      //   this.dispatchEvent(new egret.Event('close'));
+      //   (this.parent as we.ui.Overlay).hide();
       // }
 
       protected addListeners() {
@@ -123,10 +123,10 @@ namespace we {
 
       private onSwitchVideo() {
         if (this.targetScene.isVideoStopped) {
-          this.targetScene.playVideo(this.targetScene);
+          this.targetScene.playVideo();
           this.switch_video.active = true;
         } else {
-          this.targetScene.stopVideo(this.targetScene);
+          this.targetScene.stopVideo();
           this.switch_video.active = false;
         }
       }

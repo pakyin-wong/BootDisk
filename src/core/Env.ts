@@ -5,20 +5,8 @@ namespace we {
       public readonly chipImageLimit = 11;
 
       private static _env: Env;
-      protected mobileValidGameType = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.BAM, core.GameType.DI, core.GameType.DT, core.GameType.LW, core.GameType.RO];
-      protected desktopValidGameType = [
-        core.GameType.BAC,
-        core.GameType.BAI,
-        core.GameType.BAS,
-        core.GameType.BAM,
-        core.GameType.DI,
-        core.GameType.DIL,
-        core.GameType.DT,
-        core.GameType.LW,
-        core.GameType.RO,
-        core.GameType.ROL,
-        core.GameType.LO,
-      ];
+      protected mobileValidGameType = [];
+      protected desktopValidGameType = [];
 
       public static get Instance(): Env {
         const env = this._env ? this._env : new Env();
@@ -28,7 +16,8 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.7.0';
+      public version: string = '0.8.0';
+      public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
       public balanceOnHold: number = 0;
@@ -38,6 +27,10 @@ namespace we {
       public nickname: string;
       public nicknameKey: string;
       public profileimage: string;
+
+      // playersummary
+      public maxWinAmount: number = 0;
+      public maxWinCount: number = 0;
 
       public frameRate: number = 30;
 
@@ -110,10 +103,40 @@ namespace we {
       public sidePanelExpanded: boolean = false;
       public lobbyGridType: number = 1;
 
+      public currentPage: string = 'lobby';
+      public currentTab: string = 'all';
+
       // Check if playing bam first time
       public isFirstTimeBam = false;
+      // check if first time open desktop infoPanel
+      public isFirstTimeInfoPanel = false;
 
       public init() {
+        this.mobileValidGameType = [
+          core.GameType.BAC,
+          core.GameType.BAI,
+          core.GameType.BAS,
+          core.GameType.BAM,
+          core.GameType.DI,
+          core.GameType.DT,
+          core.GameType.LW,
+          core.GameType.RO,
+          core.GameType.ROL,
+        ];
+        this.desktopValidGameType = [
+          core.GameType.BAC,
+          core.GameType.BAI,
+          core.GameType.BAS,
+          core.GameType.BAM,
+          core.GameType.DI,
+          core.GameType.DIL,
+          core.GameType.DT,
+          core.GameType.LW,
+          core.GameType.RO,
+          core.GameType.ROL,
+          core.GameType.LO,
+        ];
+
         dir.evtHandler.addEventListener('LIVE_PAGE_LOCK', this.onLockChanged, this);
       }
       private onLockChanged(evt: egret.Event) {

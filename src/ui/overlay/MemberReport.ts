@@ -5,10 +5,10 @@ namespace we {
       private _txt_date: ui.RunTimeLabel;
 
       private _btn_date: ui.BaseButton;
-      private _btn_today: ui.BaseButton;
-      private _btn_yesterday: ui.BaseButton;
-      private _btn_week: ui.BaseButton;
-      private _btn_custom: ui.BaseButton;
+      private _btn_today: ui.RoundRectButton;
+      private _btn_yesterday: ui.RoundRectButton;
+      private _btn_week: ui.RoundRectButton;
+      private _btn_custom: ui.RoundRectButton;
       private _btn_searchType: ui.BaseButton;
 
       private _txt_betAmount: ui.RunTimeLabel;
@@ -47,10 +47,14 @@ namespace we {
       }
 
       private initMemberReport() {
+        this._btn_searchType.label.size = env.isMobile ? 50 : 24;
+        this._btn_custom.label.size = env.isMobile ? 50 : 24;
+
         this._txt_title.renderText = () => `${i18n.t('overlaypanel_memberreport_title')}`;
         this._txt_date.renderText = () => `${i18n.t('overlaypanel_memberreport_date')}`;
         // mobileonly
         if (env.isMobile) {
+          this._btn_date.label.size = 50;
           this._btn_date.label.renderText = () => `${i18n.t('overlaypanel_memberreport_date')}`;
         }
         // ^mobileonly
@@ -64,10 +68,10 @@ namespace we {
         this._txt_winAmount.renderText = () => `${i18n.t('overlaypanel_memberreport_amountwin')}`;
         this._txt_totalAmount.renderText = () => `${i18n.t('overlaypanel_memberreport_amounttotal')}`;
 
-        this._txt_betAmount_value.renderText = () => `1234`;
-        this._txt_washAmount_value.renderText = () => `1234`;
-        this._txt_winAmount_value.renderText = () => `1234`;
-        this._txt_totalAmount_value.renderText = () => `1234`;
+        this._txt_betAmount_value.renderText = () => `-`;
+        this._txt_washAmount_value.renderText = () => `-`;
+        this._txt_winAmount_value.renderText = () => `-`;
+        this._txt_totalAmount_value.renderText = () => `-`;
 
         const _arrCol_date = new eui.ArrayCollection([
           ui.NewDropdownItem('today', () => `${i18n.t('overlaypanel_memberreport_today')}`),
@@ -104,6 +108,11 @@ namespace we {
         this.addListeners();
         // this.search('today');
         this.searchToday();
+
+        if (env.isMobile) {
+          this._btn_date.active = true;
+        }
+        this._btn_custom.active = false;
       }
 
       protected destroy() {
@@ -178,7 +187,10 @@ namespace we {
             this.searchToday();
             break;
         }
-        this._btn_date.active = true;
+        if (env.isMobile) {
+          this._btn_date.active = true;
+        }
+        this._btn_custom.active = false;
       }
 
       protected searchToday() {
@@ -191,7 +203,7 @@ namespace we {
           .utcOffset(8)
           .endOf('day')
           .unix();
-        this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
+        this._btn_yesterday.active = this._btn_week.active = this._btn_custom.active = false;
         this._btn_today.active = true;
         this.search();
       }
@@ -208,7 +220,7 @@ namespace we {
           .subtract(1, 'day')
           .unix();
         this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
-        // this._btn_today.active = true;
+        this._btn_yesterday.active = true;
         this.search();
       }
 
@@ -221,7 +233,12 @@ namespace we {
           .utcOffset(8)
           .endOf('week')
           .unix();
-        this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
+        const today = moment()
+          .utcOffset(8)
+          .endOf('day')
+          .unix();
+        this._endtime = Math.min(this._endtime, today);
+        this._btn_today.active = this._btn_yesterday.active = this._btn_custom.active = false;
         this._btn_week.active = true;
         this.search();
       }
@@ -230,11 +247,13 @@ namespace we {
         if (!e.data || (this._starttime === e.data.starttime && this._endtime === e.data.endtime)) {
           return;
         }
-
         this._starttime = e.data.starttime;
         this._endtime = e.data.endtime;
-        this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
+        this._btn_today.active = this._btn_week.active = this._btn_yesterday.active = false;
         this._btn_custom.active = true;
+        if (env.isMobile) {
+          this._btn_date.active = false;
+        }
         this.search();
       }
 

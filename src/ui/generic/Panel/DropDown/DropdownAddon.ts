@@ -14,6 +14,8 @@ namespace we {
       private _review: ui.RunTimeLabel;
       private _reviewRenderText: (renderText) => () => string;
 
+      protected _isFullWidth: boolean = false;
+
       constructor(displayObject: egret.DisplayObject & IDropdown) {
         super(displayObject);
         this._dataCollection = new eui.ArrayCollection();
@@ -21,7 +23,32 @@ namespace we {
         this._list.dataProvider = this._dataCollection;
         this._list.itemRenderer = DropdownItemRenderer;
         this._list.requireSelection = false;
+        const layout = new eui.VerticalLayout();
+        layout.horizontalAlign = 'left';
+        this._list.layout = layout;
         this.itemSkin = 'DropdownItem';
+
+        if (this.target.$hasAddToStage) {
+          this.addedToStage();
+        } else {
+          this.target.once(egret.Event.ADDED_TO_STAGE, this.addedToStage, this);
+        }
+      }
+
+      protected addedToStage() {
+        this.target.once(egret.Event.REMOVED_FROM_STAGE, this.removedFromStage, this);
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this, false, -101);
+        this.isFullWidth = this._isFullWidth;
+      }
+
+      protected removedFromStage() {
+        this.target.once(egret.Event.ADDED_TO_STAGE, this.addedToStage, this);
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+      }
+
+      protected changeLang() {
+        this._list.validateNow();
+        this._list.width = this._list.contentWidth;
       }
 
       public init() {
@@ -45,6 +72,25 @@ namespace we {
           this._review = null;
         }
         super.deactivate();
+      }
+
+      public set isFullWidth(val: boolean) {
+        this._isFullWidth = val;
+        if (this.target.stage && this.target.dropdownScroller) {
+          if (val) {
+            this.target.dropdownScroller.left = 20;
+            this.target.dropdownScroller.right = 20;
+            this.target.dropdownScroller.horizontalCenter = NaN;
+          } else {
+            this.target.dropdownScroller.left = NaN;
+            this.target.dropdownScroller.right = NaN;
+            this.target.dropdownScroller.horizontalCenter = 0;
+          }
+        }
+      }
+
+      public get isFullWidth(): boolean {
+        return this._isFullWidth;
       }
 
       public set review(label: ui.RunTimeLabel) {

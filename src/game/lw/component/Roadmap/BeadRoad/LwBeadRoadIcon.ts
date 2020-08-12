@@ -51,10 +51,10 @@ namespace we {
         this.updateSource();
 
         this.imageHighLight = new eui.Image();
-        this.imageHighLight.x = -2;
-        this.imageHighLight.y = -2;
-        this.imageHighLight.width = this.iconWidth + 4;
-        this.imageHighLight.height = this.iconHeight + 4;
+        this.imageHighLight.x = -5;
+        this.imageHighLight.y = -5;
+        this.imageHighLight.width = this.iconWidth + 10;
+        this.imageHighLight.height = this.iconHeight + 10;
         this.imageHighLight.source = this.highLightSource;
         this.addChild(this.imageHighLight);
 

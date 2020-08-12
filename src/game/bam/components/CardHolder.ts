@@ -27,8 +27,10 @@ namespace we {
       protected _playerWinningField: eui.Image;
       protected _bankerWinningField: eui.Image;
 
-      protected _openAllBanker: eui.Image;
-      protected _openAllPlayer: eui.Image;
+      protected _openAllBanker: we.ui.RoundRectButton;
+      protected _openAllPlayer: we.ui.RoundRectButton;
+      protected _openAllBankerGroup: eui.Group;
+      protected _openAllPlayerGroup: eui.Group;
 
       public constructor() {
         super();
@@ -39,8 +41,8 @@ namespace we {
         this.skinName = utils.getSkinByClassname('bam.CardHolderSkin');
       }
 
-      protected childrenCreated() {
-        super.childrenCreated();
+      protected mount() {
+        super.mount();
         this._playerCard1.addEventListener(we.core.Event.CARD_FLIPPED, this.calculatePoint, this);
         this._playerCard2.addEventListener(we.core.Event.CARD_FLIPPED, this.calculatePoint, this);
         this._playerCard3.addEventListener(we.core.Event.CARD_FLIPPED, this.calculatePoint, this);
@@ -109,6 +111,16 @@ namespace we {
         this.setCardImage(1);
         this.setCardImage(3);
         this.setCardImage(4);
+      }
+
+      protected setDealState() {
+        console.log('bam cardholder deal state');
+        this._bankerCard1.visible = false;
+        this._playerCard1.visible = false;
+        this._bankerCard2.visible = false;
+        this._playerCard2.visible = false;
+        this._bankerCard3.visible = false;
+        this._playerCard3.visible = false;
       }
 
       protected setPeekState() {
@@ -186,18 +198,7 @@ namespace we {
         }
       }
 
-      protected setFinishState() {
-        this._disabledPlayerRect.visible = false;
-        this._disabledBankerRect.visible = false;
-
-        if (this._timer) {
-          this._timer.visible = false;
-        }
-        if (!this._prevState) {
-          this.setNormalCards();
-          this.setCardImage(2);
-          this.setCardImage(5);
-        }
+      protected showWinningField() {
         if (this.gameData.wintype === we.ba.WinType.BANKER || this.gameData.wintype === we.ba.WinType.TIE) {
           this._bankerWinningField.visible = true;
           egret.Tween.get(this._bankerWinningField)
@@ -230,6 +231,22 @@ namespace we {
             .to({ alpha: 1 }, 200)
             .to({ alpha: 0.3 }, 200);
         }
+      }
+
+      protected setFinishState() {
+        this._disabledPlayerRect.visible = false;
+        this._disabledBankerRect.visible = false;
+
+        if (this._timer) {
+          this._timer.visible = false;
+        }
+        if (!this._prevState) {
+          this.setNormalCards();
+          this.setCardImage(2);
+          this.setCardImage(5);
+        }
+
+        this.showWinningField();
 
         this._cardHolderArr[0].showFinal();
         this._cardHolderArr[1].showFinal();
@@ -258,6 +275,9 @@ namespace we {
         this.calculatePoint();
 
         switch (gameData.state) {
+          case core.GameState.DEAL:
+            this.setDealState();
+            break;
           case core.GameState.PEEK:
             this.setPeekState();
             break;
@@ -304,12 +324,14 @@ namespace we {
           this._playerCard2.touchEnabled = true;
           this._playerCard3.touchEnabled = true;
           this._openAllPlayer.touchEnabled = true;
+          this._openAllPlayerGroup.visible = true;
         } else {
           this._disabledPlayerRect.visible = true;
           this._playerCard1.touchEnabled = false;
           this._playerCard2.touchEnabled = false;
           this._playerCard3.touchEnabled = false;
           this._openAllPlayer.touchEnabled = false;
+          this._openAllPlayerGroup.visible = false;
         }
         if (this.isBankerFlipAllowed()) {
           this._disabledBankerRect.visible = false;
@@ -317,12 +339,14 @@ namespace we {
           this._bankerCard2.touchEnabled = true;
           this._bankerCard3.touchEnabled = true;
           this._openAllBanker.touchEnabled = true;
+          this._openAllBankerGroup.visible = true;
         } else {
           this._disabledBankerRect.visible = true;
           this._bankerCard1.touchEnabled = false;
           this._bankerCard2.touchEnabled = false;
           this._bankerCard3.touchEnabled = false;
           this._openAllBanker.touchEnabled = false;
+          this._openAllBankerGroup.visible = false;
         }
       }
 
@@ -331,7 +355,9 @@ namespace we {
         if (this._chipLayer && this._chipLayer.getConfirmedBetDetails()) {
           this._chipLayer.getConfirmedBetDetails().map(value => {
             if (value.field === we.ba.BetField.PLAYER || value.field === we.ba.BetField.PLAYER_PAIR || value.field === we.ba.BetField.TIE || value.field === we.ba.BetField.SUPER_SIX) {
-              allowed = true;
+              if (value.amount > 0) {
+                allowed = true;
+              }
             }
           });
         }
@@ -349,7 +375,9 @@ namespace we {
               value.field === we.ba.BetField.SUPER_SIX ||
               value.field === we.ba.BetField.SUPER_SIX_BANKER
             ) {
-              allowed = true;
+              if (value.amount > 0) {
+                allowed = true;
+              }
             }
           });
         }
