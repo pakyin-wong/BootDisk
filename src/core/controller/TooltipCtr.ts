@@ -60,15 +60,20 @@ namespace we {
       }
 
       private onShowTooltip({ data: { displayObject, x, y } }) {
-        const coord = (<egret.DisplayObject>displayObject).localToGlobal(0, 0);
+        const coord = (<egret.DisplayObject> displayObject).localToGlobal(0, 0);
         // init first to get tooltip width
         this._initTooltip(displayObject.tooltipText.replace(/'/g, ''));
         let showX = 0;
         let showY = 0;
-        switch (displayObject.tooltipPosition) {
+        switch (displayObject.tooltipPosition.replace(/'/g, '')) {
           case 'below': {
             showX = coord.x + displayObject.width / 2 - this.activeTooltip.width / 2;
             showY = coord.y + displayObject.height + this.margin;
+            break;
+          }
+          case 'above': {
+            showX = coord.x + displayObject.width / 2 - this.activeTooltip.width / 2;
+            showY = coord.y - this.activeTooltip.height - this.margin;
             break;
           }
           default:

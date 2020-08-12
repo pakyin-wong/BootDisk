@@ -52,7 +52,7 @@ namespace we {
     export interface IBetChip {
       getValue();
       setValue(value: number, index: number); // update the chip appearance according to the value
-      draw();
+      draw(noAnim?: boolean);
       highlight: boolean; // indicate whether the chip is being selected
       type: number;
     }
