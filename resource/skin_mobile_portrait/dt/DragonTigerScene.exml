@@ -128,13 +128,8 @@
 	<e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3" />
 	<ui:RunTimeLabel id="_lblRoomNo" x="25" y="15" size="40" height="56" verticalAlign="middle" width="200"
 	                 textAlign="left" anchorOffsetX="0" text="Label" />
-	<e:Group x="25" y="65">
-		<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Barlow" size="40" text="label" />
-		<e:Image source="m_common_panel_icon_dropdown_png" width="34" height="19" visible="false" />
-		<e:layout>
-			<e:HorizontalLayout verticalAlign="middle" />
-		</e:layout>
-	</e:Group>
+	<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Barlow" size="40" text="label" x="25" y="65"/>
+	<e:Image source="m_common_panel_icon_dropdown_png" width="34" height="19" x="25" y="65" visible="false"/>
 	<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" x="0"
 	                       visible="false" />
 	<!--<e:Image id="_btnBack" width="38" height="35" x="32" y="64" source="d_ba_navbar_chevron_png" />
@@ -143,14 +138,13 @@
 	-->
 	<ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 	            skinName="skin_mobile_portrait.GameBar" visible="false" />
-	<e:Group height="48" y="73" right="0">
-		<ui:RunTimeLabel id="_totalBet" text="0" y="0" height="100%" right="0" anchorOffsetX="0" textAlign="right" />
-		<ui:RunTimeLabel id="_totalBetText" text="bet AMOUNT vfghj" y="0" height="100%" right="0" anchorOffsetX="0"
-		                 textAlign="right" />
-		<e:layout>
-			<e:HorizontalLayout horizontalAlign="right" gap="20" gap.left_hand_mode="20" />
-		</e:layout>
-	</e:Group>
+					<e:Group y="65" right="15">
+						<ui:RunTimeLabel id="_totalBetText" text="總下注" anchorOffsetX="0" textAlign="right" size="36"/>
+		<ui:RunTimeLabel id="_totalBet" text="0" anchorOffsetX="0" textAlign="right" size="36" right="5"/>
+						<e:layout>
+							<e:HorizontalLayout/>
+						</e:layout>
+		</e:Group>
 </e:Group>
 <dt:GameResultMessage id="_resultMessage" x="620" y="468" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
                           visible.right_hand_mode="false" />

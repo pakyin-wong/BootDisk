@@ -7,9 +7,9 @@
 	<e:Group id="_verticalGroup" width="1242" x="0" bottom="0">
 		<e:Group id="_verticalTop" width="1242" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
 			<lw:TableLayer id="_tableLayer" height="263" y="400" isEdgeDismissable="true"
-			               skinName="skin_mobile_portrait.lw.TableLayerSkin" scaleX="1" scaleY="1"  left="0" right="0"/>
+			               skinName="skin_mobile_portrait.lw.TableLayerSkin" scaleX="1" scaleY="1" left="0" right="0" />
 			<lw:ChipLayer id="_chipLayer" height="261" y="400" isEdgeDismissable="true"
-			              skinName="skin_mobile_portrait.lw.ChipLayerSkin" scaleX="1" scaleY="1"  right="0" left="0"/>
+			              skinName="skin_mobile_portrait.lw.ChipLayerSkin" scaleX="1" scaleY="1" right="0" left="0" />
 			<ui:BaseImageButton id="_common_listpanel" width="104" height="104" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
 			                    scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
 			                    currentState="lobby_panel_gamelist_tag_icon_allgame" x="1109" y="-276" x.right_hand_mode="1109"
@@ -110,12 +110,11 @@
 		-->
 		<ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_mobile_portrait.GameBar" visible="false" />
-		<e:Group height="48" y="73" right="0">
-			<ui:RunTimeLabel id="_totalBet" text="0" y="0" height="100%" right="0" anchorOffsetX="0" textAlign="right" />
-			<ui:RunTimeLabel id="_totalBetText" text="bet AMOUNT vfghj" y="0" height="100%" right="0" anchorOffsetX="0"
-			                 textAlign="right" />
+		<e:Group y="65" right="15">
+			<ui:RunTimeLabel id="_totalBetText" text="總下注" anchorOffsetX="0" textAlign="right" size="36" />
+			<ui:RunTimeLabel id="_totalBet" text="0" anchorOffsetX="0" textAlign="right" size="36" right="5" />
 			<e:layout>
-				<e:HorizontalLayout horizontalAlign="right" gap="20" gap.left_hand_mode="20" />
+				<e:HorizontalLayout/>
 			</e:layout>
 		</e:Group>
 	</e:Group>

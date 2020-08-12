@@ -46,12 +46,12 @@
 		</e:Group>
 		<ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_mobile_portrait.GameBar" visible="false" />
-		<e:Group height="48" y="73" right="0">
-			<ui:RunTimeLabel id="_totalBet" text="0" y="0" height="100%" right="0" anchorOffsetX="0" textAlign="right" />
-			<ui:RunTimeLabel id="_totalBetText" text="" y="0" height="100%" right="0" anchorOffsetX="0" textAlign="right" />
-			<e:layout>
-				<e:HorizontalLayout horizontalAlign="right" gap="20" gap.left_hand_mode="20" />
-			</e:layout>
+					<e:Group y="65" right="15">
+						<ui:RunTimeLabel id="_totalBetText" text="總下注" anchorOffsetX="0" textAlign="right" size="36"/>
+		<ui:RunTimeLabel id="_totalBet" text="0" anchorOffsetX="0" textAlign="right" size="36" right="5"/>
+						<e:layout>
+							<e:HorizontalLayout/>
+						</e:layout>
 		</e:Group>
 	</e:Group>
 	<ui:BaseImageButton id="_common_listpanel" width="104" height="104" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"

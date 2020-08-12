@@ -26,16 +26,19 @@
 								 textKey="roulette.betLimitShort" />
 				<ui:RunTimeLabel id="betLimitLabel" text="投注限紅" y="410" x="47" scaleX="1" scaleY="1" size="44" bold="true"
 								 textKey="roulette.betLimitShort" />
-				<e:Label id="pTableID" text="-" y="60" textAlign="right" scaleX="1" scaleY="1" size="44" x="167" width="381"
-						 height="40"  alpha=".7" fontFamily="Barlow"/>
-				<e:Label id="pRoundID" text="-" y="130" textAlign="right" scaleX="1" scaleY="1" size="44" x="167"
-						 width="440"  alpha=".7" fontFamily="Barlow"/>
-				<e:Label id="pGameID" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" x="167"
-						 width="440"  alpha=".7" fontFamily="Barlow"/>
-				<e:Label id="pDealer" text="-" y="270" textAlign="right" scaleX="1" scaleY="1" size="44" x="167"
-						 width="440" verticalAlign="middle"  alpha=".7" fontFamily="Barlow"/>
-				<e:Label id="pTableBetLimit" text="-" y="340" textAlign="right" scaleX="1" scaleY="1" size="44" x="167"
-						 width="440" verticalAlign="middle"  alpha=".7" fontFamily="Barlow"/>			
+				<ui:ClampWidthLabel id="pTableID" text="-" y="60" textAlign="right" scaleX="1" scaleY="1" size="40" x="167" width="381"
+						 height="40"  alpha=".7" targetWidth="381" />
+
+				<e:Label id="pRoundID" text="-" y="130" textAlign="right" scaleX="1" scaleY="1" size="40" x="167"
+						 width="440"  alpha=".7"/>
+				<ui:ClampWidthLabel id="pGameID" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="40" x="167"
+						 width="440"  alpha=".7" targetWidth="440" />
+				<ui:ClampWidthLabel id="pDealer" text="-" y="270" textAlign="right" scaleX="1" scaleY="1" size="40" x="167"
+						 width="440" verticalAlign="middle"  alpha=".7" targetWidth="440" />
+
+
+				<e:Label id="pTableBetLimit" text="-" y="340" textAlign="right" scaleX="1" scaleY="1" size="40" x="167"
+						 width="440" verticalAlign="middle"  alpha=".7"/>			
 				<e:Group id="betLimitBtnGroup" width="304" height="74" x="311" y="400">
 					<e:Image id="limitBg" width="304" height="74" x="0" y="0" source="m_ba_tag_redlimit_bg_png" scaleX="1" scaleY="1" />
 					<e:Image id="dropdownBtn" width="27" height="16" x="248" y="31" source="m_ba_tag_redlimit_btn_dropdown_png" />

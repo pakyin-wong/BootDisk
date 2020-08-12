@@ -27,12 +27,12 @@
 
     <ui:RunTimeLabel id="_lblRoomNo" x="26" y="15" size="40" height="56" verticalAlign="middle" text="輪盤 01"/>
 		<ui:RunTimeLabel id="_lblBetLimit" size="40" text="10-500" x="26" y="65" height="48" verticalAlign="middle" fontFamily="Barlow"/>
-		<e:Group height="50" y="63" right="23">
-			<ui:RunTimeLabel id="_totalBetText" text="總下注" y="0" textAlign="right" size="36" height="50" verticalAlign="middle"/>
-			<ui:RunTimeLabel id="_totalBet" text="$800" y="0" textAlign="right" verticalAlign="middle" height="50" size="36"/>
-			<e:layout>
-				<e:HorizontalLayout gap="20" verticalAlign="middle"/>
-			</e:layout>
+					<e:Group y="65" right="15">
+						<ui:RunTimeLabel id="_totalBetText" text="總下注" anchorOffsetX="0" textAlign="right" size="36"/>
+		<ui:RunTimeLabel id="_totalBet" text="0" anchorOffsetX="0" textAlign="right" size="36" right="5"/>
+						<e:layout>
+							<e:HorizontalLayout/>
+						</e:layout>
 		</e:Group>
 		<e:Group id="_btnBack" width="103" height="103" x="32" y="149">
 			<e:Rect strokeColor="0x444444" fillAlpha="0.4" fillColor="0x212425" left="0" right="0" top="0" bottom="0" ellipseHeight="103" ellipseWidth="103"/>

@@ -45,7 +45,7 @@
 			"name": "scene_lottery"
 		},
 		{
-			"keys": "d_lobby_panel_betcontrol_btn_confirm_bg_png,d_lobby_panel_betcontrol_btn_confirm_icon_png,d_lobby_button_down_normal2_png,d_common_liveverification_emoji_icon13_png,d_common_liveverification_emoji_icon102_png,d_common_liveverification_emoji_icon122_png,d_common_liveverification_emoji_icon112_png,d_common_liveverification_emoji_icon22_png,d_common_liveverification_emoji_icon32_png,d_common_liveverification_emoji_icon42_png,d_common_liveverification_emoji_icon52_png,d_common_liveverification_emoji_icon62_png,d_common_liveverification_emoji_icon72_png,d_common_liveverification_emoji_icon82_png,d_common_liveverification_emoji_icon92_png,m_common_liveverification_emoji_icon1_png,m_common_liveverification_emoji_icon10_png,m_common_liveverification_emoji_icon11_png,m_common_liveverification_emoji_icon12_png,m_common_liveverification_emoji_icon2_png,m_common_liveverification_emoji_icon3_png,m_common_liveverification_emoji_icon4_png,m_common_liveverification_emoji_icon5_png,m_common_liveverification_emoji_icon6_png,m_common_liveverification_emoji_icon7_png,m_common_liveverification_emoji_icon8_png,m_common_liveverification_emoji_icon9_png",
+			"keys": "d_lobby_panel_betcontrol_btn_confirm_bg_png,d_lobby_panel_betcontrol_btn_confirm_icon_png,d_lobby_button_down_normal2_png,d_common_liveverification_emoji_icon13_png,d_common_liveverification_emoji_icon102_png,d_common_liveverification_emoji_icon122_png,d_common_liveverification_emoji_icon112_png,d_common_liveverification_emoji_icon22_png,d_common_liveverification_emoji_icon32_png,d_common_liveverification_emoji_icon42_png,d_common_liveverification_emoji_icon52_png,d_common_liveverification_emoji_icon62_png,d_common_liveverification_emoji_icon72_png,d_common_liveverification_emoji_icon82_png,d_common_liveverification_emoji_icon92_png,m_common_liveverification_emoji_icon1_png,m_common_liveverification_emoji_icon10_png,m_common_liveverification_emoji_icon11_png,m_common_liveverification_emoji_icon12_png,m_common_liveverification_emoji_icon2_png,m_common_liveverification_emoji_icon3_png,m_common_liveverification_emoji_icon4_png,m_common_liveverification_emoji_icon5_png,m_common_liveverification_emoji_icon6_png,m_common_liveverification_emoji_icon7_png,m_common_liveverification_emoji_icon8_png,m_common_liveverification_emoji_icon9_png,m_common_notification_icon_quickbet_png,SicBo_Game_Result_ske_json,SicBo_Game_Result_tex_json,SicBo_Game_Result_tex_png,common_ui_ske-new2_json,common_ui_ske-new-1_json,common_ui_tex-new-1_json,common_ui_tex-new-1_png,common_ui_tex-new2_json,common_ui_tex-new2_png,Lv1_Black2_png,Lv1_Black_B2_png,Lv1_Blue2_png,Lv1_Blue_B2_png,Lv1_Blue_Dark2_png,Lv1_Brown2_png,Lv1_Blue_Dark_B2_png,Lv1_Brown_B2_png,Lv1_Gray_Dark2_png,Lv1_Gray_Dark_B2_png,Lv1_Gray_Light2_png,Lv1_Gray_Light_B2_png,Lv1_Green2_png,Lv1_GreenDark_B2_png,Lv1_Green_B2_png,Lv1_Green_Dark2_png,Lv1_Light_Red2_png,Lv1_Light_Red_B2_png,Lv1_Magentas_Dark2_png,Lv1_Magentas_Dark_B2_png,Lv1_Mud_Yellow2_png,Lv1_Mud_Yellow_B2_png,Lv1_Orange2_png,Lv1_Orange_B2_png,Lv1_Purple2_png,Lv1_Purple_B2_png,Lv1_Red_Dark2_png,Lv1_Red_Dark_B2_png,Lv1_Violet2_png,Lv1_Violet_B2_png,Lv1_Violet_Dark2_png,Lv1_Violet_Dark_B2_png,Lv1_Yellow2_png,Lv1_Yellow_B2_png,dice12_png,dice22_png,dice32_png,dice42_png,dice52_png,dice62_png,dice13_png,dice23_png,dice33_png,dice43_png,dice53_png,dice63_png,flash_png",
 			"name": "preload"
 		}
 	],
@@ -6182,6 +6182,286 @@
 			"url": "assets/images/d/di/dices/dice6.png",
 			"type": "image",
 			"name": "dice6_png"
+		},
+		{
+			"name": "SicBo_Game_Result_ske_json",
+			"type": "json",
+			"url": "assets/SicBo_Game_Result_ske.json"
+		},
+		{
+			"name": "SicBo_Game_Result_tex_json",
+			"type": "json",
+			"url": "assets/SicBo_Game_Result_tex.json"
+		},
+		{
+			"name": "SicBo_Game_Result_tex_png",
+			"type": "image",
+			"url": "assets/SicBo_Game_Result_tex.png"
+		},
+		{
+			"name": "common_ui_ske-new2_json",
+			"type": "json",
+			"url": "assets/dragonbones/common/common_ui/common_ui_ske-new.json"
+		},
+		{
+			"name": "common_ui_ske-new-1_json",
+			"type": "json",
+			"url": "assets/dragonbones/common/common_ui/common_ui_ske-new-1.json"
+		},
+		{
+			"name": "common_ui_tex-new-1_json",
+			"type": "json",
+			"url": "assets/dragonbones/common/common_ui/common_ui_tex-new-1.json"
+		},
+		{
+			"name": "common_ui_tex-new-1_png",
+			"type": "image",
+			"url": "assets/dragonbones/common/common_ui/common_ui_tex-new-1.png"
+		},
+		{
+			"name": "common_ui_tex-new2_json",
+			"type": "json",
+			"url": "assets/dragonbones/common/common_ui/common_ui_tex-new.json"
+		},
+		{
+			"name": "common_ui_tex-new2_png",
+			"type": "image",
+			"url": "assets/dragonbones/common/common_ui/common_ui_tex-new.png"
+		},
+		{
+			"name": "Lv1_Black2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Black.png"
+		},
+		{
+			"name": "Lv1_Black_B2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Black_B.png"
+		},
+		{
+			"name": "Lv1_Blue2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Blue.png"
+		},
+		{
+			"name": "Lv1_Blue_B2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Blue_B.png"
+		},
+		{
+			"name": "Lv1_Blue_Dark2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Blue_Dark.png"
+		},
+		{
+			"name": "Lv1_Brown2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Brown.png"
+		},
+		{
+			"name": "Lv1_Blue_Dark_B2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Blue_Dark_B.png"
+		},
+		{
+			"name": "Lv1_Brown_B2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Brown_B.png"
+		},
+		{
+			"name": "Lv1_Gray_Dark2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Gray_Dark.png"
+		},
+		{
+			"name": "Lv1_Gray_Dark_B2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Gray_Dark_B.png"
+		},
+		{
+			"name": "Lv1_Gray_Light2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Gray_Light.png"
+		},
+		{
+			"name": "Lv1_Gray_Light_B2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Gray_Light_B.png"
+		},
+		{
+			"name": "Lv1_Green2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Green.png"
+		},
+		{
+			"name": "Lv1_GreenDark_B2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_GreenDark_B.png"
+		},
+		{
+			"name": "Lv1_Green_B2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Green_B.png"
+		},
+		{
+			"name": "Lv1_Green_Dark2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Green_Dark.png"
+		},
+		{
+			"name": "Lv1_Light_Red2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Light_Red.png"
+		},
+		{
+			"name": "Lv1_Light_Red_B2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Light_Red_B.png"
+		},
+		{
+			"name": "Lv1_Magentas_Dark2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Magentas_Dark.png"
+		},
+		{
+			"name": "Lv1_Magentas_Dark_B2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Magentas_Dark_B.png"
+		},
+		{
+			"name": "Lv1_Mud_Yellow2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Mud_Yellow.png"
+		},
+		{
+			"name": "Lv1_Mud_Yellow_B2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Mud_Yellow_B.png"
+		},
+		{
+			"name": "Lv1_Orange2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Orange.png"
+		},
+		{
+			"name": "Lv1_Orange_B2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Orange_B.png"
+		},
+		{
+			"name": "Lv1_Purple2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Purple.png"
+		},
+		{
+			"name": "Lv1_Purple_B2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Purple_B.png"
+		},
+		{
+			"name": "Lv1_Red_Dark2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Red_Dark.png"
+		},
+		{
+			"name": "Lv1_Red_Dark_B2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Red_Dark_B.png"
+		},
+		{
+			"name": "Lv1_Violet2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Violet.png"
+		},
+		{
+			"name": "Lv1_Violet_B2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Violet_B.png"
+		},
+		{
+			"name": "Lv1_Violet_Dark2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Violet_Dark.png"
+		},
+		{
+			"name": "Lv1_Violet_Dark_B2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Violet_Dark_B.png"
+		},
+		{
+			"name": "Lv1_Yellow2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Yellow.png"
+		},
+		{
+			"name": "Lv1_Yellow_B2_png",
+			"type": "image",
+			"url": "assets/images/d/common/chips/Lv1_Yellow_B.png"
+		},
+		{
+			"name": "dice12_png",
+			"type": "image",
+			"url": "assets/images/d/di/dices/dice1.png"
+		},
+		{
+			"name": "dice22_png",
+			"type": "image",
+			"url": "assets/images/d/di/dices/dice2.png"
+		},
+		{
+			"name": "dice32_png",
+			"type": "image",
+			"url": "assets/images/d/di/dices/dice3.png"
+		},
+		{
+			"name": "dice42_png",
+			"type": "image",
+			"url": "assets/images/d/di/dices/dice4.png"
+		},
+		{
+			"name": "dice52_png",
+			"type": "image",
+			"url": "assets/images/d/di/dices/dice5.png"
+		},
+		{
+			"name": "dice62_png",
+			"type": "image",
+			"url": "assets/images/d/di/dices/dice6.png"
+		},
+		{
+			"name": "dice13_png",
+			"type": "image",
+			"url": "assets/images/m/di/dices/dice1.png"
+		},
+		{
+			"name": "dice23_png",
+			"type": "image",
+			"url": "assets/images/m/di/dices/dice2.png"
+		},
+		{
+			"name": "dice33_png",
+			"type": "image",
+			"url": "assets/images/m/di/dices/dice3.png"
+		},
+		{
+			"name": "dice43_png",
+			"type": "image",
+			"url": "assets/images/m/di/dices/dice4.png"
+		},
+		{
+			"name": "dice53_png",
+			"type": "image",
+			"url": "assets/images/m/di/dices/dice5.png"
+		},
+		{
+			"name": "dice63_png",
+			"type": "image",
+			"url": "assets/images/m/di/dices/dice6.png"
+		},
+		{
+			"name": "flash_png",
+			"type": "image",
+			"url": "assets/images/m/lobby/common/flash.png"
 		}
 	]
 }
