@@ -74,39 +74,68 @@ var mouse;
             //     return t.getTransformedBounds(stageObj).containsPoint(e) ? t : null
             // }
 
-            function throttle(callback, limit) {
-                var waiting = false;
-                return function () {
-                    if (!waiting) {
-                        callback.apply(this, arguments);
-                        waiting = true;
-                        setTimeout(function () {
-                            waiting = false;
-                        }, limit);
+            /*
+            **  Comparison: https://patrickhlauke.github.io/touch/touch-limit/
+            */
+            // function throttle(callback, limit) {
+            //     var waiting = false;
+            //     return function () {
+            //         if (!waiting) {
+            //             callback.apply(this, arguments);
+            //             waiting = true;
+            //             setTimeout(function () {
+            //                 waiting = false;
+            //             }, limit);
+            //         }
+            //     }
+            // };
+            function debounce(callback, time) {
+                var timeout;
+                return function() {
+                    var context = this;
+                    var args = arguments;
+                    if (timeout) {
+                        clearTimeout(timeout);
                     }
+                    timeout = setTimeout(function() {
+                        timeout = null;
+                        callback.apply(context, args);
+                    }, time);
                 }
-            };
+            }
 
             function checkDispObject(point, dispObj) {
-                if (!dispObj.visible) {
-                    return null
+                if (!dispObj.visible && !(dispObj instanceof egret.DisplayObjectContainer)) {
+                    return null;
                 }
+                // if (dispObj instanceof egret.DisplayObjectContainer) {
+                //     console.log(dispObj.getTransformedBounds(stageObj), point);
+                // }
                 if (dispObj.getTransformedBounds(stageObj).containsPoint(point)) {
                     return dispObj;
                 }
                 return null;
             }
 
-            function checkContainer(point, dispObj) {
-                if (!dispObj.visible) {
+            function checkContainer(point, dispObj, path) {
+                if (dispObj !== stageObj && !dispObj.visible) {
                     return null;
                 }
                 for (var l = dispObj.$children.length - 1; l >= 0; l--) {
                     var child = dispObj.$children[l];
                     var result;
-                    if (child instanceof egret.DisplayObjectContainer) {
-                        result = checkContainer(point, child);
+                    var cls = egret.getQualifiedClassName(child);
+                    // console.log('>>>    ', path + ' > ' + cls);
+                    if (child instanceof egret.DisplayObjectContainer && cls !== 'EgretArmatureDisplay') {
+                        if (!dispObj.$touchChildren && !dispObj.$touchEnabled) return null;
+                        if (child.tooltipText.length>0) {
+                            // console.log(child);
+                            result = checkDispObject(point, child);
+                        } else {
+                            result = checkContainer(point, child, path + ' > ' + cls);
+                        }
                     } else {
+                        if (!dispObj.tooltipText.length==0) return null;
                         result = checkDispObject(point, child);
                     }
                     if (result) {
@@ -119,37 +148,69 @@ var mouse;
                 return null;
             };
 
+            var timeout;
             function triggerTooltip(displayObject, eventType, point) {
-                if (displayObject.tooltipText.length < 1) {
-                    return
+                if (eventType === 'TOOLTIP_HIDE') {
+                    stageObj.dispatchEvent(new egret.Event(eventType));
+                    return;
                 }
-                stageObj.dispatchEvent(new egret.Event(eventType, false, false, {
-                    displayObject,
-                    x: point.x,
-                    y: point.y
-                }));
+                if (displayObject.tooltipText.length < 1) {
+                    return;
+                }
+                clearTimeout(timeout);
+                timeout = setTimeout(function() {
+                    stageObj.dispatchEvent(new egret.Event(eventType, false, false, {
+                        displayObject,
+                        x: point.x,
+                        y: point.y
+                    }));
+                }, 50);
             }
 
-            const enteredTarget =  {}
-            let prevTarget = null
-            const canvasMouseHandler = throttle((event) => {
+            var addedListenerMap =  {};
+            var canvasMouseHandler = debounce(function(event) {
                 var point = stageObj.$screen.webTouchHandler.getLocation(event);
-                var r = checkContainer(point, stageObj);
+                var r = checkContainer(point, stageObj, egret.getQualifiedClassName(stageObj));
 
-                switch (r || (r = stageObj), event.type) {
+                // console.log('>>>', r)
+
+                if (!r || r === stageObj) {
+                    return;
+                }
+
+                while (r !== stageObj) {
+                    if (r.tooltipText.length > 0) {
+                        break;
+                    }
+                    r = r.parent;
+                }
+
+                switch (event.type) {
                     case "mousemove":
-                        var stagePosRect = r.getTransformedBounds(stageObj);
-                        // console.log('mouse | move',r,stagePosRect)
-                        if (r.$hashCode === prevTarget) {
-                            return
+                        if (!addedListenerMap[r.$hashCode]) {
+                            function func() {
+                                r.removeEventListener(mouse.MouseEvent.ROLL_OUT, func, null);
+                                triggerTooltip(r, 'TOOLTIP_HIDE', point);
+                                delete addedListenerMap[r.$hashCode];
+                            }
+                            triggerTooltip(r, 'TOOLTIP_SHOW', point);
+                            r.addEventListener(mouse.MouseEvent.ROLL_OUT, func, null);
+                            addedListenerMap[r.$hashCode] = true;
                         }
-                        if (enteredTarget[prevTarget] !== undefined) {
-                            // trigger out
-                            triggerTooltip(enteredTarget[prevTarget], 'TOOLTIP_HIDE', point)
-                        }
-                        prevTarget = r.$hashCode
-                        enteredTarget[prevTarget] = r
-                        triggerTooltip(enteredTarget[prevTarget], 'TOOLTIP_SHOW', point)
+                        // var stagePosRect = r.getTransformedBounds(stageObj);
+                        // console.log('mouse | move', r, prevTarget, enteredTarget[prevTarget], stagePosRect)
+                        // if (r.$hashCode === prevTarget) {
+                        //     console.log('retun?')
+                        //     return
+                        // }
+                        // if (enteredTarget[prevTarget] !== undefined) {
+                        //     console.log('rhide?')
+                        //     // trigger out
+                        //     delete enteredTarget[prevTarget]
+                        // }
+                        // prevTarget = r.$hashCode
+                        // enteredTarget[prevTarget] = r
+                        // triggerTooltip(enteredTarget[prevTarget], 'TOOLTIP_SHOW', point)
                         break;
                     case "mouseleave":
                         // e.markTraget(null);
@@ -159,7 +220,7 @@ var mouse;
                         // e.selectTarget(r)
                         // console.log('mouse | down', r)
                 }
-            }, 100)
+            }, 25);
             stageObj.$screen.webTouchHandler.canvas.addEventListener("mousemove", canvasMouseHandler);
             stageObj.$screen.webTouchHandler.canvas.addEventListener("mouseleave", canvasMouseHandler);
             stageObj.$screen.webTouchHandler.canvas.addEventListener("mousedown", canvasMouseHandler);
@@ -175,7 +236,7 @@ var mouse;
                     displayObject["isRollOver"] = true;
                     // if (egret.getQualifiedClassName(displayObject).indexOf('TooltipMessageWrapper') > 0) {
                     // if (displayObject.tooltipText.length > 0) {
-                    //     const event = new egret.Event('TOOLTIP_SHOW', false, false, { displayObject, x, y });
+                    //     var event = new egret.Event('TOOLTIP_SHOW', false, false, { displayObject, x, y });
                     //     stageObj.dispatchEvent(event);
                     // }
                 }
@@ -188,7 +249,7 @@ var mouse;
                     egret.TouchEvent.dispatchTouchEvent(displayObject, mouse.MouseEvent.ROLL_OUT, false, false, x, y, null);
                     delete displayObject["isRollOver"];
                     // if (displayObject.tooltipText.length > 0) {
-                    //     const event = new egret.Event('TOOLTIP_HIDE', false, false, { displayObject, x, y });
+                    //     var event = new egret.Event('TOOLTIP_HIDE', false, false, { displayObject, x, y });
                     //     stageObj.dispatchEvent(event);
                     // }
                 }

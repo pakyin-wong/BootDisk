@@ -51,8 +51,8 @@ namespace we {
         const percentages = we.utils.stat.toPercentages(data.dilHistory.round_10);
         for (let i = 3; i < 19; i++) {
           this[`_sum${i}Percent`].text = `${percentages[i - 3]}%`;
-          (<ui.ProgressBar>this[`_sum${i}`]).proportion = percentages[i - 3] / 100;
-          (<ui.ProgressBar>this[`_sum${i}`]).draw();
+          (<ui.ProgressBar> this[`_sum${i}`]).proportion = percentages[i - 3] / 100;
+          (<ui.ProgressBar> this[`_sum${i}`]).draw();
         }
       }
     }

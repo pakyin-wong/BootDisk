@@ -148,14 +148,15 @@ namespace we {
         },
       },
       nav: {
-        bet_balance: '余额',
         tooltip: {
           menu: '选單',
           back: '返回大堂',
           refresh: '刷新餘额',
           profile: '賬户资信',
+          roominfo: '游戏资信',
           betlimit: '限红设定',
         },
+        bet_balance: '余额',
         menu: {
           title: '设定',
           selectMode: '路纸色调',
@@ -408,6 +409,9 @@ namespace we {
         allgames: '全部游戏',
       },
       baccarat: {
+        tooltip: {
+          swapRoadmap: '轉換路紙',
+        },
         playerPair: '闲对',
         bankerPair: '庄对',
         player: '闲',

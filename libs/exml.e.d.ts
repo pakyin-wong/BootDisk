@@ -2067,6 +2067,10 @@ declare module skin_mobile{
 	}
 }
 declare module skin_mobile{
+	class QuickBetButtonSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile{
 	class SideListBetItemSkin extends eui.Skin{
 	}
 }

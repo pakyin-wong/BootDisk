@@ -2,7 +2,7 @@ namespace we {
   export namespace lw {
     export class GameResultMessage extends ui.GameResultMessage implements ui.IGameResultMessage {
       protected _dbClass = 'lucky_wheel';
-      protected _armatureName = 'Luckywheel_Game_Result';
+      // protected _armatureName = 'Luckywheel_Game_Result';
 
       //   private eastSource: string;
       //   private southSource: string;
@@ -121,34 +121,35 @@ namespace we {
         let anim = 'ani_result_';
         switch (value) {
           case 0:
-            anim += 'East';
+            anim += 'east';
             break;
           case 1:
-            anim += 'South';
+            anim += 'south';
             break;
           case 2:
-            anim += 'West';
+            anim += 'west';
             break;
           case 3:
-            anim += 'North';
+            anim += 'north';
             break;
           case 4:
-            anim += 'White';
+            anim += 'white';
             break;
           case 5:
-            anim += 'Gold_Red';
+            anim += 'gold_red';
             break;
           case 6:
           default:
-            anim += 'Gold_Green';
+            anim += 'gold_green';
             break;
         }
 
         if (isNaN(winAmount)) {
-          anim += '_NoBet';
+          anim += '_no_bets';
         }
 
-        const slot = this._display.armature.getSlot('800_Number');
+        // const slot = this._display.armature.getSlot('800_Number');
+        const slot = this._display.armature.getSlot('credit');
         const r = new eui.Label();
         r.fontFamily = 'Barlow';
         r.size = 60;

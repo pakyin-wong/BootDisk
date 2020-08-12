@@ -156,10 +156,10 @@
 </e:Group>
 </e:Group>
 <lw:GameResultMessage id="_resultMessage" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" horizontalCenter="0"
-                      y="100" />
+                      y="100"  y.right_hand_mode="350"/>
 <ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
                   infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
-                  errorBg="d_ba_gamerecord_bankerelement_png" y="282" horizontalCenter="0" />
+                  errorBg="d_ba_gamerecord_bankerelement_png" y="282" horizontalCenter="0"  y.right_hand_mode="450"/>
 <e:Rect width="2424" height="30" x="0" bottom="0" fillColor="0x212425" visible="false" />
 <!--<e:Group height="50" x="1108" anchorOffsetX="0" anchorOffsetY="0" y="655">
 <ui:RunTimeLabel id="_lblBaMode" x="13" y="26" scaleX="1" scaleY="1" />

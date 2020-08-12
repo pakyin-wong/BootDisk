@@ -284,7 +284,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -324,7 +324,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -540,6 +540,7 @@ namespace we {
           }
 
           if (this._resultMessage) {
+            console.log('here');
             this.checkResultMessage();
           }
         }
@@ -607,27 +608,51 @@ namespace we {
       }
 
       public checkResultMessage(resultData = null) {
-        const totalWin: number = this._tableInfo.totalWin;
-
-        if (!this._gameData) {
-          return;
+        let totalWin: number = NaN;
+        if (this._tableInfo.totalWin) {
+          totalWin = this._tableInfo.totalWin;
+        }
+        let pass1: boolean = false;
+        let pass2: boolean = false;
+        switch (this._tableInfo.gametype) {
+          case core.GameType.BAC:
+          case core.GameType.BAI:
+          case core.GameType.BAS:
+          case core.GameType.BAM:
+          case core.GameType.DT:
+            pass1 = this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin);
+            pass2 = this._gameData && this._gameData.wintype != 0;
+            break;
+          case core.GameType.RO:
+          case core.GameType.ROL:
+          case core.GameType.DI:
+          case core.GameType.DIL:
+          case core.GameType.LW:
+            pass1 = this._gameData && this._gameData.state === core.GameState.FINISH && !isNaN(totalWin);
+            pass2 = !!this._gameData && this._gameData.state === core.GameState.FINISH;
+            break;
+          default:
+            logger.e(utils.LogTarget.DEBUG, 'No gametype found in ControlItem::checkResultMessage');
+            break;
         }
 
-        if (resultData === null) {
-          // default resultData
-          if (this.hasBet() && !isNaN(totalWin)) {
-            resultData = {
-              gameData: this._gameData,
+        if (this._tableInfo.totalBet > 0) {
+          if (pass1) {
+            this._resultMessage.showResult(this._tableInfo.gametype, {
+              winType: this._gameData.wintype,
               winAmount: totalWin,
-            };
-          } else {
-            resultData = {
               gameData: this._gameData,
+            });
+          }
+        } else {
+          if (pass2) {
+            this._resultMessage.showResult(this._tableInfo.gametype, {
+              winType: this._gameData.wintype,
               winAmount: NaN,
-            };
+              gameData: this._gameData,
+            });
           }
         }
-        this._resultMessage.showResult(this._tableInfo.gametype, resultData);
 
         this.playResultSoundEffect(totalWin);
       }

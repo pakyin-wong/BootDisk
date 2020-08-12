@@ -33,8 +33,8 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
-            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
           }
         }
       }
@@ -54,9 +54,9 @@ namespace we {
           ({ stageX, stageY }) => {
             if (this._gameData.state !== we.core.GameState.BET) {
               // remove existing tooltip
+              clearTimeout(this.hideTooltipTimeout);
               dir.tooltipCtr.removeTooltips();
               dir.tooltipCtr.displayTooltip(stageX, stageY, 'hello');
-              clearTimeout(this.hideTooltipTimeout);
               this.hideTooltipTimeout = setTimeout(() => {
                 dir.tooltipCtr.removeTooltips();
               }, 2000);
@@ -86,7 +86,9 @@ namespace we {
         super.onTableInfoUpdate(evt);
         if (this._gameData.state === we.core.GameState.BET && this._gameData.state !== this._previousState) {
           // clear tooltip when enter BET again
-          dir.tooltipCtr.removeTooltips();
+          // dir.tooltipCtr.removeTooltips();
+          // Don't remove it here as other non-click triggered tooltip will be removed as well
+          // Let it auto remove in 2 second
         }
       }
 
@@ -130,11 +132,11 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
             // update the scene
-            (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
-            (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
+            (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
+            (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
             this._leftGamePanel.totalBet = evt.data.total;
           }
         }
