@@ -159,7 +159,9 @@ namespace we {
 
       set type(value: number) {
         if (value) {
-          if (this._chipAnim) { this._prevType = this._type; }
+          if (this._chipAnim) {
+            this._prevType = this._type;
+          }
           this._type = value;
         }
         this.draw();
