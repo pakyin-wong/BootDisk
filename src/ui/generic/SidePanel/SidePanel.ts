@@ -56,7 +56,7 @@ namespace we {
             this._tabbar.touchEnabled = true;
             this._tabbar.touchChildren = true;
           }, 400);
-          const content = <eui.Group> this._scroller.viewport; // ?????
+          const content = <eui.Group>this._scroller.viewport; // ?????
           if (this.resizeWidthTimeoutId) {
             clearTimeout(this.resizeWidthTimeoutId);
           }
@@ -86,7 +86,7 @@ namespace we {
           if (!this._scroller.isAnimating()) {
             this._scroller.toggle();
             this._viewStack.selectedIndex = this._tabbar.selectedIndex;
-            const content = <eui.Group> this._scroller.viewport;
+            const content = <eui.Group>this._scroller.viewport;
             if (this.resizeWidthTimeoutId) {
               clearTimeout(this.resizeWidthTimeoutId);
             }
