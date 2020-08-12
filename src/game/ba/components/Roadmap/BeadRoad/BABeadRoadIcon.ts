@@ -204,6 +204,14 @@ namespace we {
           [0x6666dd, 0x000066],
           [0x66aa66, 0x003300],
         ];
+        //         const gradientColors = [
+        //   [0xff0000, 0x000000],
+        //   [0xff0000, 0x000000],
+        //   [0xff0000, 0x000000],
+        //   [0xff0000, 0x000000],
+        //   [0xff0000, 0x000000],
+        //   [0xff0000, 0x000000],
+        // ];
         const iconSize = this.size;
         const circleRadius = (this.size / 2) * 0.9;
         const offset = (iconSize - circleRadius * 2) / 2;
