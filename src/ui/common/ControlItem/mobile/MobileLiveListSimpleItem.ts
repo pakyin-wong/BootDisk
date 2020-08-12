@@ -10,6 +10,7 @@ namespace we {
 
       public constructor(skinName: string = null) {
         super(skinName);
+        this._isSimple = true;
       }
 
       protected initComponents() {
