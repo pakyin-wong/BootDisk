@@ -119,7 +119,7 @@
 			</e:layout>
 		</e:Group>
 	</e:Group>
-	<dil:LuckyCoinGroup id="luckyCoinGroup"/>
+	<dil:LuckyCoinGroup id="_luckyCoinGroup"/>
 	<di:GameResultMessage id="_resultMessage" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
 	                      verticalCenter="-550" horizontalCenter="0" />
 	<ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"

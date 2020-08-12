@@ -109,9 +109,9 @@ namespace we {
         super.onViewChange(e);
         switch (env.orientation) {
           case 'landscape':
-            if (e.target.value === '3') {
-              e.target.value = 0;
-            }
+            // if (e.target.value === '3') {
+            //   e.target.value = 0;
+            // }
 
             // if (e.target.value === '1' || e.target.value === '2') {
             //   this._roadButtonPanel.visible = false;
@@ -153,7 +153,7 @@ namespace we {
 
       protected onRoadMapChanged(e: eui.UIEvent) {
         // this._roadmapPanel.onRoadMapChanged(e);
-        this._beadroadPanel.onBeadRoadChanged(e);
+        // this._beadroadPanel.onBeadRoadChanged(e);
       }
     }
   }

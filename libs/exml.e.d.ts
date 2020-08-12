@@ -1549,6 +1549,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait.dil{
+	class HistorySkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dil{
 	class MobileBottomBeadRoadPanel extends eui.Skin{
 	}
 }
@@ -1562,6 +1566,10 @@ declare module skin_mobile_portrait.dil{
 }
 declare module skin_mobile_portrait.dil{
 	class MobileBottomRoadmapPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dil{
+	class PoolSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.dil{

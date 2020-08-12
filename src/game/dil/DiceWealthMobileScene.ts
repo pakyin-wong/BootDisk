@@ -10,7 +10,7 @@ namespace we {
   export namespace dil {
     export class MobileScene extends core.MobileBaseGameScene {
       protected _roadmapControl: DilRoadmapControl;
-      protected _bottomGamePanel: we.dil.MobileBottomGamePanel;
+      protected _bottomGamePanel: MobileBottomGamePanel;
       protected _dilGameIDText: ui.RunTimeLabel;
       protected _dilGameID: ui.RunTimeLabel;
       protected _totalBet: ui.RunTimeLabel;
@@ -18,6 +18,7 @@ namespace we {
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
       protected _verticalGroup: eui.Group;
+      protected _chipLayer: MobileChipLayer;
 
       protected _luckyCoinGroup: LuckyCoinGroup;
 
@@ -97,18 +98,18 @@ namespace we {
 
       protected setStateRefund(isInit: boolean = false) {
         super.setStateRefund(isInit);
-        (<we.dil.ChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
-        (<we.dil.ChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
 
       protected setStateUnknown(isInit: boolean = false) {
         super.setStateUnknown(isInit);
-        (<we.dil.ChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
 
@@ -122,9 +123,9 @@ namespace we {
           this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
         }
-        if (this._bottomGamePanel._statisticChartPanel) {
-          this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
-        }
+        // if (this._bottomGamePanel._statisticChartPanel) {
+        //   this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
+        // }
         if (this._bottomGamePanel._betLimitDropDownBtn) {
           this.initBottomBetLimitSelector();
         }
@@ -229,9 +230,9 @@ namespace we {
         if (this._bottomGamePanel._tableInfoPanel) {
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
         }
-        if (this._bottomGamePanel._statisticChartPanel) {
-          this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
-        }
+        // if (this._bottomGamePanel._statisticChartPanel) {
+        //   this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
+        // }
       }
 
       public checkResultMessage(resultData = null) {

@@ -56,9 +56,9 @@ namespace we {
         factory.parseDragonBonesData(skeletonData);
         factory.parseTextureAtlasData(textureData, texture);
         if (env.orientation === 'portrait') {
-          return factory.buildArmatureDisplay('Draw_Number_Effect_Mobile_Vertical');
+          return factory.buildArmatureDisplay('draw_number_effect_vertical');
         } else {
-          return factory.buildArmatureDisplay('Draw_Number_Effect_Mobile_Horizontal');
+          return factory.buildArmatureDisplay('draw_number_effect_horizontal');
         }
       }
 

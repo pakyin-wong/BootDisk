@@ -32,9 +32,9 @@ namespace we {
         let animString = '';
 
         if (env.orientation === 'portrait') {
-          animString = 'Bet_Effect_Mobile_Virtical';
+          animString = 'bet_effect_vertical';
         } else {
-          animString = 'Bet_Effect_Mobile_Horizontal';
+          animString = 'bet_effect_horizontal';
         }
 
         this._winningAnim = this.createAnim(animString);
@@ -89,9 +89,9 @@ namespace we {
           let animString = '';
 
           if (env.orientation === 'portrait') {
-            animString = 'Bet_Effect_Mobile_Virtical';
+            animString = 'bet_effect_vertical';
           } else {
-            animString = 'Bet_Effect_Mobile_Horizontal';
+            animString = 'bet_effect_horizontal';
           }
 
           const luckyAnim = this.createAnim(animString);
