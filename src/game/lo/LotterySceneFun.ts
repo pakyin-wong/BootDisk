@@ -44,10 +44,12 @@ namespace we {
       }
 
       protected onConfirmPressed() {
-        dir.evtHandler.createOverlay({
-          class: 'FunBetOverlay',
-          args: [this._tableInfo],
-        });
+        if (Object.keys(FunBet.betDetails).length > 0) {
+          dir.evtHandler.createOverlay({
+            class: 'FunBetOverlay',
+            args: [this._tableInfo],
+          });
+        }
       }
 
       protected onCancelPressed() {

@@ -33,7 +33,8 @@ namespace we {
 
         protected dataChanged(): void {
           this._txt_record_id.text = this.data.betid;
-          this._txt_record_date.text = utils.formatTime((this.data.datetime / Math.pow(10, 9)).toFixed(0));
+          // this._txt_record_date.text = utils.formatTime((this.data.datetime / Math.pow(10, 9)).toFixed(0));
+          this._txt_record_date.text = utils.formatTime(this.data.datetime.toFixed(0));
           this._txt_record_game.text = `${i18n.t('gametype_' + we.core.GameType[this.data.gametype])} ${this.data.tablename}`;
           if (env.isMobile) {
             this._txt_hover_color.visible = false;

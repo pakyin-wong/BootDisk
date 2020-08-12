@@ -118,8 +118,7 @@ namespace we {
         this.stage.frameRate = 60;
         this._bgImg.visible = false;
 
-        this._gameBar.setPlayFunc(this.playVideo(this));
-        this._gameBar.setStopFunc(this.stopVideo(this));
+        this._gameBar.targetScene = this;
 
         if (env.betLimits) {
           this.initDenom();
@@ -638,6 +637,10 @@ namespace we {
         if (this._chipLayer) {
           this._undoStack.popAndUndo();
         }
+      }
+
+      public get isVideoStopped() {
+        return this._video.paused;
       }
 
       public playVideo(scene: any) {
