@@ -39,16 +39,17 @@
             <e:HorizontalLayout verticalAlign="middle" />
         </e:layout>
     </e:Group>
-    <e:Group anchorOffsetX="0" anchorOffsetY="0" bottom="20" left="20">
-        <ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_mobile_portrait.GoodRoadLabelSkin" right="13" bottom="10" />
-        <e:Group id="_alreadyBetSign" right="5" bottom="40" height="80">
+    <e:Group anchorOffsetX="0" anchorOffsetY="0" bottom="20" left="20" height="80">
+        <ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_mobile_portrait.GoodRoadLabelSkin"  x="0" y="0"/>
+        <e:Group id="_alreadyBetSign" height="80" y="0">
             <e:Rect right="0" left="0" top="0" bottom="0" ellipseWidth="80" ellipseHeight="80" fillAlpha="0.76"
                     fillColor="0x42bc60" />
             <e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="56" left="30" right="30" />
         </e:Group>
-        <e:layout>
-            <e:HorizontalLayout horizontalAlign="left" gap="12" />
-        </e:layout>
+			<e:layout>
+				<e:BasicLayout/>
+			</e:layout>
+
     </e:Group>
 </e:Group>
 <e:Group id="_betChipSetPanel" y="945" width="1140" height="588">

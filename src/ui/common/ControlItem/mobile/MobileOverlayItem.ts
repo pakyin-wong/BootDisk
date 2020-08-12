@@ -230,6 +230,8 @@ namespace we {
         super.onTableBetInfoUpdate(evt);
         if (this.tableInfo.totalBet > 0) {
           this._alreadyBetSign.visible = true;
+          this._alreadyBetSign.x = this._goodRoadLabel.visible ? this._goodRoadLabel.width + 10 : 0;
+          console.log('this._alreadyBetSign.x', this._alreadyBetSign.x);
         } else {
           this._alreadyBetSign.visible = false;
         }
