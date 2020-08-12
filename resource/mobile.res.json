@@ -29,7 +29,7 @@
 			"name": "scene_dragontiger"
 		},
 		{
-			"keys": "m_sb_betarea_bg_hover_1_horizontal_png,m_sb_betarea_bg_hover_1_png,m_sb_betarea_bg_hover_10_horizontal_png,m_sb_betarea_bg_hover_10_png,m_sb_betarea_bg_hover_11_horizontal_png,m_sb_betarea_bg_hover_11_png,m_sb_betarea_bg_hover_12_png,m_sb_betarea_bg_hover_13_png,m_sb_betarea_bg_hover_14_png,m_sb_betarea_bg_hover_15_horizontal_png,m_sb_betarea_bg_hover_2_horizontal_png,m_sb_betarea_bg_hover_2_png,m_sb_betarea_bg_hover_3_horizontal_png,m_sb_betarea_bg_hover_3_png,m_sb_betarea_bg_hover_4_horizontal_png,m_sb_betarea_bg_hover_4_png,m_sb_betarea_bg_hover_5_horizontal_png,m_sb_betarea_bg_hover_5_png,m_sb_betarea_bg_hover_6_horizontal_png,m_sb_betarea_bg_hover_6_png,m_sb_betarea_bg_hover_7_horizontal_png,m_sb_betarea_bg_hover_7_png,m_sb_betarea_bg_hover_8_horizontal_png,m_sb_betarea_bg_hover_8_png,m_sb_betarea_bg_hover_9_horizontal_png,m_sb_betarea_bg_hover_9_png,m_sb_betarea_horizontal_png,m_sb_betarea_png,d_sic_history_chart_line-2_png,m_sb_panel_chart_bar_png,m_sb_panel_chart_bg_left_png,m_sb_panel_chart_bg_right_png,m_sb_panel_chart_bluecircle_png,m_sb_panel_chart_greencircle_png,m_sb_panel_chart_redcircle_png,sicbo_game_result_tex_png,sicbo_game_result_tex_json,sicbo_game_result_ske_json,d_gfsb_panel_gamelist_betarea_yellow_png,d_gfsb_panel_gamelist_betarea_red_png,d_gfsb_panel_gamelist_betarea_purple_png,d_gfsb_panel_gamelist_betarea_pink_png,d_gfsb_panel_gamelist_betarea_orange_png,d_gfsb_panel_gamelist_betarea_indigo_png,d_gfsb_panel_gamelist_betarea_green_png,d_gfsb_panel_gamelist_betarea_blue_png",
+			"keys": "m_sb_betarea_bg_hover_1_horizontal_png,m_sb_betarea_bg_hover_1_png,m_sb_betarea_bg_hover_10_horizontal_png,m_sb_betarea_bg_hover_10_png,m_sb_betarea_bg_hover_11_horizontal_png,m_sb_betarea_bg_hover_11_png,m_sb_betarea_bg_hover_12_png,m_sb_betarea_bg_hover_13_png,m_sb_betarea_bg_hover_14_png,m_sb_betarea_bg_hover_15_horizontal_png,m_sb_betarea_bg_hover_2_horizontal_png,m_sb_betarea_bg_hover_2_png,m_sb_betarea_bg_hover_3_horizontal_png,m_sb_betarea_bg_hover_3_png,m_sb_betarea_bg_hover_4_horizontal_png,m_sb_betarea_bg_hover_4_png,m_sb_betarea_bg_hover_5_horizontal_png,m_sb_betarea_bg_hover_5_png,m_sb_betarea_bg_hover_6_horizontal_png,m_sb_betarea_bg_hover_6_png,m_sb_betarea_bg_hover_7_horizontal_png,m_sb_betarea_bg_hover_7_png,m_sb_betarea_bg_hover_8_horizontal_png,m_sb_betarea_bg_hover_8_png,m_sb_betarea_bg_hover_9_horizontal_png,m_sb_betarea_bg_hover_9_png,m_sb_betarea_horizontal_png,m_sb_betarea_png,d_sic_history_chart_line-2_png,m_sb_panel_chart_bar_png,m_sb_panel_chart_bg_left_png,m_sb_panel_chart_bg_right_png,m_sb_panel_chart_bluecircle_png,m_sb_panel_chart_greencircle_png,m_sb_panel_chart_redcircle_png,sicbo_game_result_tex_png,sicbo_game_result_tex_json,sicbo_game_result_ske_json,d_gfsb_panel_gamelist_betarea_yellow_png,d_gfsb_panel_gamelist_betarea_red_png,d_gfsb_panel_gamelist_betarea_purple_png,d_gfsb_panel_gamelist_betarea_pink_png,d_gfsb_panel_gamelist_betarea_orange_png,d_gfsb_panel_gamelist_betarea_indigo_png,d_gfsb_panel_gamelist_betarea_green_png,d_gfsb_panel_gamelist_betarea_blue_png,dice1_png,dice2_png,dice3_png,dice4_png,dice5_png,dice6_png",
 			"name": "scene_dice"
 		},
 		{
@@ -4791,6 +4791,36 @@
 			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_betarea_orange.png",
 			"type": "image",
 			"name": "d_gfsb_panel_gamelist_betarea_orange_png"
+		},
+		{
+			"url": "assets/images/m/di/dices/dice1.png",
+			"type": "image",
+			"name": "dice1_png"
+		},
+		{
+			"url": "assets/images/m/di/dices/dice2.png",
+			"type": "image",
+			"name": "dice2_png"
+		},
+		{
+			"url": "assets/images/m/di/dices/dice3.png",
+			"type": "image",
+			"name": "dice3_png"
+		},
+		{
+			"url": "assets/images/m/di/dices/dice4.png",
+			"type": "image",
+			"name": "dice4_png"
+		},
+		{
+			"url": "assets/images/m/di/dices/dice5.png",
+			"type": "image",
+			"name": "dice5_png"
+		},
+		{
+			"url": "assets/images/m/di/dices/dice6.png",
+			"type": "image",
+			"name": "dice6_png"
 		}
 	]
 }

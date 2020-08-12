@@ -91,13 +91,13 @@ namespace we {
           const slot = this._display.armature.getSlot(`dice${i}${isWin ? '_win' : '_loss'}`);
           const img = new eui.Image();
           // img.source = `d_sic_history_lv3_dice-${diceResults[i]}_png`; // RES.getRes(`d_sic_history_lv3_dice-${diceResults[i]}_png`);
-          img.source = `Dice${diceResults[i]}_png`; // RES.getRes(`d_sic_history_lv3_dice-${diceResults[i]}_png`);
+          img.source = `dice${diceResults[i]}_png`; // RES.getRes(`d_sic_history_lv3_dice-${diceResults[i]}_png`);
 
           // cannot use image.width
-          img.anchorOffsetX = 27;
-          img.anchorOffsetY = 27;
-          img.width = 54;
-          img.height = 54;
+          img.anchorOffsetX = 50;
+          img.anchorOffsetY = 50;
+          img.width = 100;
+          img.height = 100;
           slot.display = img;
         }
 
