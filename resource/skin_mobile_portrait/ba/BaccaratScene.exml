@@ -79,15 +79,15 @@
 
 		<ui:RunTimeLabel id="_lblRoomNo" x="25" y="15" size="40" height="56" verticalAlign="middle" width="200"
 		                 textAlign="left" anchorOffsetX="0" text="Label" />
-		<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Barlow" size="40" text="label" x="25" y="65"/>
+		<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Arial" size="40" text="label" x="25" y="65"/>
 		<e:Image source="m_common_panel_icon_dropdown_png" width="34" height="19" x="34" y="19" visible="false"/>
 		<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" x="0"
 		                        visible="false"/>
 		<ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_mobile_portrait.GameBar" visible="false" />
 					<e:Group y="65" right="15">
-						<ui:RunTimeLabel id="_totalBetText" text="總下注" anchorOffsetX="0" textAlign="right" size="36"/>
-		<ui:RunTimeLabel id="_totalBet" text="0" anchorOffsetX="0" textAlign="right" size="36" right="5"/>
+						<ui:RunTimeLabel id="_totalBet" text="0" anchorOffsetX="0" textAlign="right" size="36" right="5" fontFamily="Barlow"/>
+						<ui:RunTimeLabel id="_totalBetText" text="總下注" anchorOffsetX="0" textAlign="right" size="36" alpha="0.7"/>
 						<e:layout>
 							<e:HorizontalLayout/>
 						</e:layout>

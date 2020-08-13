@@ -47,6 +47,11 @@ namespace we {
       return moment.unix(timestamp).utcOffset(8).format('YYYY/MM/DD HH:mm:ss');
     }
 
+    // for mobile in game display
+    export function formatTime2(timestamp) {
+      return moment.unix(timestamp).utcOffset(8).format('YY/MM/DD HH:mm:ss');
+    }
+
     export function formatCard(source) {
       return source
         .replace(/^(.+?)([0-9ajqk][0]?)$/, '$1_$2')

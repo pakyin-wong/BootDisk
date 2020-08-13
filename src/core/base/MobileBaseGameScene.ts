@@ -113,7 +113,7 @@ namespace we {
           return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
         });
         if (this._lblBetLimit) {
-          this._lblBetLimit.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`;
+          this._lblBetLimit.renderText = () => `${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`;
         }
       }
 

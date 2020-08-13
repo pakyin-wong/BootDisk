@@ -65,7 +65,7 @@ namespace we {
         }
         this._balance.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
         if (env.isMobile) {
-          this._balanceGame.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
+          this._balanceGame.renderText = () => `$ ${dir.meterCtr.getLocal('balance')}`;
           this._balanceText.renderText = () => `${i18n.t('nav.bet_balance')}`;
           dir.meterCtr.register('balance', this._balanceGame);
         }
@@ -198,7 +198,7 @@ namespace we {
       }
 
       private onUpdateTimer() {
-        this._time.text = utils.formatTime(env.currTime / Math.pow(10, 3));
+        this._time.text = env.isMobile ? utils.formatTime2(env.currTime / Math.pow(10, 3)) : utils.formatTime(env.currTime / Math.pow(10, 3));
       }
 
       protected onBackgroundOpacityUpdate(evt: egret.Event) {

@@ -461,7 +461,7 @@ namespace we {
       protected updateTableInfoRelatedComponents() {
         super.updateTableInfoRelatedComponents();
         this._baGameID.renderText = () => `${this._tableInfo.tableid}`;
-        this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
+        this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
       }
     }
   }
