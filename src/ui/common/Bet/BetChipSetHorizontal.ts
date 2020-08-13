@@ -44,15 +44,11 @@ namespace we {
         return this._navWidth;
       }
 
-      public set chipScale(val: number) {
-        this._chipScale = val;
+      public $setChipScale(val: number) {
+        super.$setChipScale(val);
         for (const chip of this._chipList) {
           chip.scaleX = val;
         }
-      }
-
-      public get chipScale(): number {
-        return this._chipScale;
       }
 
       public set containerPadding(value: number) {
