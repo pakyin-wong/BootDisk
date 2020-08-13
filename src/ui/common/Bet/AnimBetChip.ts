@@ -26,9 +26,9 @@ namespace we {
       }
 
       protected createChipAnim() {
-        const skeletonData = RES.getRes(`chip_ske_json`);
-        const textureData = RES.getRes(`chip_tex_json`);
-        const texture = RES.getRes(`chip_tex_png`);
+        const skeletonData = RES.getRes(`chips_select_ske_json`);
+        const textureData = RES.getRes(`chips_select_tex_json`);
+        const texture = RES.getRes(`chips_select_tex_png`);
         const factory = new dragonBones.EgretFactory();
         factory.parseDragonBonesData(skeletonData);
         factory.parseTextureAtlasData(textureData, texture);
@@ -41,7 +41,7 @@ namespace we {
         // this.addChild(this.debugRect);
 
         this._chipAnim = this.createChipAnim();
-        this._chipAnim.touchEnabled = false;
+        this._chipAnim.touchEnabled = true;
         this._chipAnim.touchChildren = false;
         this._chipAnim.scaleX = this._chipScale;
         this._chipAnim.scaleY = this._chipScale;

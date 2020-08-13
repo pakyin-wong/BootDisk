@@ -45,8 +45,8 @@ namespace we {
         this._betChip.scaleY = 0.85;
         this._betChip.labelSize = this.betChipSetGrid ? this.betChipSetGrid.labelSize : this._labelSize;
 
-        if (this.parent && this.parent.parent && this.parent.parent['chipScale']) {
-          this._betChip.chipScale = this.parent.parent['chipScale'];
+        if (this.betChipSetGrid && this.betChipSetGrid['chipScale']) {
+          this._betChip.chipScale = this.betChipSetGrid['chipScale'];
         }
       }
 
