@@ -74,6 +74,7 @@ namespace we {
 
       protected getBetChipSet(): BetChipSet & eui.Component {
         const betChipSet = new BetChipSetHorizontal();
+        betChipSet.chipScale = 0.8;
         betChipSet.navWidth = 20;
         betChipSet.containerPadding = 6;
         return betChipSet;
