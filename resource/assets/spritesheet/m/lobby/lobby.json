@@ -1211,6 +1211,16 @@
       "sourceW": 33,
       "sourceH": 33
     },
+    "flash_png": {
+      "x": 1498.5,
+      "y": 1063.5,
+      "w": 20,
+      "h": 32,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 20,
+      "sourceH": 32
+    },
     "m_lobby_submenu_icon_other_png": {
       "x": 1517,
       "y": 190.5,
@@ -1242,8 +1252,8 @@
       "sourceH": 23
     },
     "d_lobby_panel_button_page_prev_normal_png": {
-      "x": 1302.5,
-      "y": 517,
+      "x": 1505,
+      "y": 1097.5,
       "w": 23,
       "h": 23,
       "offX": 0,
