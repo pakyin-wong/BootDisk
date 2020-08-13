@@ -15,13 +15,13 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this._resultDisplay.passFlipCard(this._resultCard);
-        // if (!env.isFirstTimeBam) {
-        //   dir.evtHandler.createOverlay({
-        //     class: 'SqueezeTutorialOverlay',
-        //   });
+        if (!env.isFirstTimeBam) {
+          dir.evtHandler.createOverlay({
+            class: 'SqueezeTutorialOverlay',
+          });
 
-        //   env.isFirstTimeBam = true;
-        // }
+          env.isFirstTimeBam = true;
+        }
       }
 
       protected setSkinName() {

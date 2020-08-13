@@ -48,7 +48,7 @@ namespace we {
         this.init();
       }
 
-      private init() {
+      protected init() {
         this._captionArr = [];
         this._captionArr.push(this._captionOne);
         this._captionArr.push(this._captionTwo);
@@ -73,17 +73,19 @@ namespace we {
             this._prevButton.currentState = 'off';
           }
         }
-        const shape = new egret.Shape();
-        const matrix = new egret.Matrix();
+        if (!env.isMobile) {
+          const shape = new egret.Shape();
+          const matrix = new egret.Matrix();
 
-        matrix.createGradientBox(this._allOpenThree.width, this._allOpenThree.height, Math.PI / 2, 0, 0);
-        shape.graphics.beginGradientFill(egret.GradientType.LINEAR, [0xffffff, 0xffffff, 0xffffff, 0xffffff], [1, 0.3, 0, 0], [0, 50, 150, 255], matrix);
-        shape.graphics.drawRect(0, 0, this._allOpenThree.width, this._allOpenThree.height); //
+          matrix.createGradientBox(this._allOpenThree.width, this._allOpenThree.height, Math.PI / 2, 0, 0);
+          shape.graphics.beginGradientFill(egret.GradientType.LINEAR, [0xffffff, 0xffffff, 0xffffff, 0xffffff], [1, 0.3, 0, 0], [0, 50, 150, 255], matrix);
+          shape.graphics.drawRect(0, 0, this._allOpenThree.width, this._allOpenThree.height); //
 
-        this._mask.addChild(shape);
-        this._mask.mask = shape;
+          this._mask.addChild(shape);
+          this._mask.mask = shape;
 
-        // add childs then init holder(if DragonBone)
+          // add childs then init holder(if DragonBone)
+        }
       }
 
       private addListeners() {
@@ -91,7 +93,9 @@ namespace we {
         if (this._prevButton) {
           this._prevButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.doPrev, this);
         }
-        this._close.addEventListener(egret.TouchEvent.TOUCH_TAP, this.doDestroy, this);
+        if (this._prevButton) {
+          this._close.addEventListener(egret.TouchEvent.TOUCH_TAP, this.doDestroy, this);
+        }
       }
 
       private removeListners() {

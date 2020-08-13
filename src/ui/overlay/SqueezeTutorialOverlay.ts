@@ -1,10 +1,10 @@
 namespace we {
   export namespace overlay {
-    export class SqueezeTutorialOverlay extends ui.Panel {
+    export class SqueezeTutorialOverlay extends bam.SqueezeTutorial {
       private tutorial;
 
       constructor() {
-        super();
+        super('SqueezeTutorialOverlay');
       }
 
       public mount() {
@@ -13,10 +13,10 @@ namespace we {
       }
 
       public init() {
-        this.tutorial = new we.bam.SqueezeTutorial('SqueezeTutorial');
+        super.init();
+        this.tutorial = new we.bam.SqueezeTutorial('SqueezeTutorialOverlay');
         this.tutorial.x = 0;
         this.tutorial.y = 0;
-        this.close = this.tutorial._close;
         // this.tutorial.isDraggable = true;
         this.addChild(this.tutorial);
         env.isFirstTimeBam = true;

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.SqueezeTutorial" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.SqueezeTutorialOverlay" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Rect id="_bg" fillColor="0x14181e" width="1242" height="2155" alpha="1" />
     <e:Group id="_top" width="1242" height="200">
-        <ui:RunTimeLabel id="_title" bold="true" text="咪牌教學" x="49" y="55" size="80" textColor="0xc59466" fontFamily="Microsoft JhengHei"/>
+        <ui:RunTimeLabel id="_title" bold="true" text="TESTING咪牌教學" x="49" y="55" size="80" textColor="0xc59466" fontFamily="Microsoft JhengHei"/>
         <e:Image id="_close" x="1120" y="267" width="70" height="70" source="d-lobby-button-close-none_png"/>
     </e:Group>
     <e:Group y="200" width="1242" height="1655">
@@ -30,9 +30,9 @@
             </e:Group>
         </ui:HorizontalHolder>
         <ui:RunTimeLabel id="_captionOne" horizontalCenter="0" bottom="70" text="點撃全開按鈕 卡牌立即全開" size="48" alpha="0.7" fontFamily="Microsoft JhengHei"/>
-        <ui:RunTimeLabel id="_captionTwo" horizontalCenter="0" bottom="70" text="點擊卡牌可切換大卡牌" size="48" alpha="0.7" fontFamily="Microsoft JhengHei" visible="false"/>
-        <ui:RunTimeLabel id="_captionThree" horizontalCenter="0" bottom="70" text="點擊大卡牌中間位置快速開牌" size="48" alpha="0.7" fontFamily="Microsoft JhengHei" visible="false"/>
-        <ui:RunTimeLabel id="_captionFour" horizontalCenter="0" bottom="70" text="卡牌四邊四角可咪牌" size="48" alpha="0.7" fontFamily="Microsoft JhengHei" visible="false"/>
+        <ui:RunTimeLabel id="_captionTwo" horizontalCenter="0" bottom="70" text="點擊卡牌可切換大卡牌" size="48" alpha="0.7" fontFamily="Microsoft JhengHei"/>
+        <ui:RunTimeLabel id="_captionThree" horizontalCenter="0" bottom="70" text="點擊大卡牌中間位置快速開牌" size="48" alpha="0.7" fontFamily="Microsoft JhengHei"/>
+        <ui:RunTimeLabel id="_captionFour" horizontalCenter="0" bottom="70" text="卡牌四邊四角可咪牌" size="48" alpha="0.7" fontFamily="Microsoft JhengHei"/>
     </e:Group>
     <e:Group id="_bottom" width="1242" height="300" bottom="0">
         <ui:RunTimeLabel id="_buttonText" text="下一頁" horizontalCenter="0" bottom="160" width="448" height="136" size="48" alpha="0.7" fontFamily="Microsoft JhengHei" verticalAlign="middle" textAlign="center"/>
