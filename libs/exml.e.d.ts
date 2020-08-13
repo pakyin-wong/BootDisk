@@ -1553,27 +1553,11 @@ declare module skin_mobile_portrait.dil{
 	}
 }
 declare module skin_mobile_portrait.dil{
-	class MobileBottomBeadRoadPanel extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait.dil{
 	class MobileBottomGamePanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.dil{
-	class MobileButtonRoadPanel extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait.dil{
-	class MobileBottomRoadmapPanel extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait.dil{
 	class PoolSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait.dil{
-	class StatisticChartPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.dil{

@@ -18,6 +18,7 @@ namespace we {
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
       protected _verticalGroup: eui.Group;
+
       protected _chipLayer: MobileChipLayer;
 
       protected _luckyCoinGroup: LuckyCoinGroup;
@@ -59,8 +60,8 @@ namespace we {
           egret.Tween.get(this._tableLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
           egret.Tween.get(this._chipLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
         }
-        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
+        // (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        // (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
 
       protected setStateBet(isInit: boolean) {
@@ -71,8 +72,8 @@ namespace we {
         }
         this._dilGameID.renderText = () => `${this._tableInfo.tableid}`;
         this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
-        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
+        // (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        // (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
 
       protected setStateDeal(isInit: boolean) {
@@ -82,8 +83,8 @@ namespace we {
           egret.Tween.get(this._chipLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
         }
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
-          (<we.dil.MobileChipLayer>this._chipLayer).showLuckyNumber();
-          (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer);
+          // (<we.dil.MobileChipLayer>this._chipLayer).showLuckyNumber();
+          // (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer);
         }
       }
 
@@ -92,25 +93,25 @@ namespace we {
         if (isInit && this._previousState !== we.core.GameState.FINISH) {
           (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer);
         }
-        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
-        (<we.dil.MobileChipLayer>this._chipLayer).showWinningNumber();
+        // (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        // (<we.dil.MobileChipLayer>this._chipLayer).showWinningNumber();
       }
 
       protected setStateRefund(isInit: boolean = false) {
         super.setStateRefund(isInit);
-        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
+        // (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        // (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
-        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
+        // (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        // (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
 
       protected setStateUnknown(isInit: boolean = false) {
         super.setStateUnknown(isInit);
-        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
+        // (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        // (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
 
       protected initChildren() {
@@ -212,7 +213,7 @@ namespace we {
 
       protected initRoadMap() {
         this._roadmapControl = new DilRoadmapControl(this._tableId);
-        this._roadmapControl.setRoads(this._bottomGamePanel._beadroadPanel.beadRoad, null, null);
+        this._roadmapControl.setRoads(this._bottomGamePanel.beadRoad, null, null);
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {

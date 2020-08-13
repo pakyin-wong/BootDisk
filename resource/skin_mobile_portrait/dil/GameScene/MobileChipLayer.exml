@@ -13,7 +13,7 @@
 			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="70"
 			                 betSumBackgroundHeight="20" chipLabelOffset="-3" chipLabelSize="20" chipType="2" />
 		</e:Group>
-		<e:Group id="_sum_5_group" width="140" height="146">
+		<e:Group id="_sum_5_group" width="140" height="140">
 			<ui:BetChipStack id="_sum_5_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="60" chipHeight="60"
 			                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="70"

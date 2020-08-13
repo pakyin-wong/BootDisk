@@ -4,12 +4,12 @@
         xmlns:live="we.live.*" xmlns:ns1="*" states="left_hand_mode,right_hand_mode">
 	<e:Rect width="1242" height="2155" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" top="0" bottom="0" x="0" width="1242" source="m_lw_ver_bg_jpg" />
-	<e:Group id="_verticalGroup" width="1242" x="0" bottom="0">
+	<e:Group id="_verticalGroup" width="1242" x="0" bottom="30" bottom.left_hand_mode="30">
 		<e:Group id="_verticalTop" width="1242" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
 			<dil:MobileTableLayer id="_tableLayer" height="324" y="400" isEdgeDismissable="true"
-			               skinName="skin_mobile_portrait.dil.MobileTableLayerSkin" scaleX="1" scaleY="1"  left="0" right="0" width.left_hand_mode="1182" horizontalCenter.left_hand_mode="0" horizontalCenter.right_hand_mode="0" width.right_hand_mode="1182"/>
+			               skinName="skin_mobile_portrait.dil.MobileTableLayerSkin" scaleX="1" scaleY="1"  width.left_hand_mode="1182" horizontalCenter.left_hand_mode="0" horizontalCenter.right_hand_mode="0" width.right_hand_mode="1182" horizontalCenter="0"/>
 			<dil:MobileChipLayer id="_chipLayer" height="324" y="400" isEdgeDismissable="true"
-			              skinName="skin_mobile_portrait.dil.MobileChipLayerSkin" scaleX="1" scaleY="1"  right="0" left="0" width.left_hand_mode="1182" horizontalCenter.left_hand_mode="0" horizontalCenter.right_hand_mode="0" width.right_hand_mode="1182"/>
+			              skinName="skin_mobile_portrait.dil.MobileChipLayerSkin" scaleX="1" scaleY="1"  width.left_hand_mode="1182" horizontalCenter.left_hand_mode="0" horizontalCenter.right_hand_mode="0" width.right_hand_mode="1182" horizontalCenter="0"/>
 			<ui:BaseImageButton id="_common_listpanel" width="104" height="104" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
 			                    scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
 			                    currentState="lobby_panel_gamelist_tag_icon_allgame" x="1109" y="-276" x.right_hand_mode="1109"
@@ -35,8 +35,8 @@
 			</e:Group>
 			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" horizontalCenter="505"
 			                           skinName="skin_mobile.BetChipSkin" bottom="291" horizontalCenter.right_hand_mode="-500"
-			                           bottom.right_hand_mode="291" horizontalCenter.left_hand_mode="491"
-			                           bottom.left_hand_mode="291" labelSize="48" />
+			                           bottom.right_hand_mode="330" horizontalCenter.left_hand_mode="491"
+			                           bottom.left_hand_mode="330" labelSize="48" />
 			<e:Group id="_betRelatedGroup" x="34" y="235" x.right_hand_mode="224" scaleX="1" scaleY="1">
 				<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
 				        fillColor="0x444444" />
@@ -65,7 +65,7 @@
 				                    x.right_hand_mode="588" />
 			</e:Group>
 		</e:Group>
-		<di:MobileBottomGamePanel skinName="skin_mobile_portrait.di.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"
+		<dil:MobileBottomGamePanel skinName="skin_mobile_portrait.dil.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"
 		                          x="0" scaleY="1" y="731" scaleX="1" />
 	</e:Group>
 	<e:Group id="_betChipSetPanel" y.right_hand_mode="1110" width="1182" height="762" x.right_hand_mode="34" scaleY="1"
@@ -120,7 +120,7 @@
 		</e:Group>
 	</e:Group>
 	<dil:LuckyCoinGroup id="_luckyCoinGroup"/>
-	<di:GameResultMessage id="_resultMessage" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
+	<dil:GameResultMessage id="_resultMessage" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
 	                      verticalCenter="-550" horizontalCenter="0" />
 	<ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
 	                  infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"

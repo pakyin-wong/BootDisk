@@ -14,7 +14,7 @@
 				</e:Skin>
 			</e:skinName>
 			</e:RadioButton>
-			<e:RadioButton id="roadSheetBtn"  label="路紙" x="286" y="20" width="270" height="80" value="1" scaleX="1" scaleY="1" visible.off="false" groupName="top">
+			<e:RadioButton id="poolBtn"  label="即時彩池" x="286" y="20" width="270" height="80" value="1" scaleX="1" scaleY="1" visible.off="false" groupName="top">
 			<e:skinName>
 				<e:Skin states="up,down,disabled">
 				<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
@@ -50,18 +50,16 @@
 			<e:Rect id="viewStackMask" width="1242" height="532" x="0" y="0" scaleX="1" scaleY="1"/>
 			<e:ViewStack id="viewStack" width="1242" height="532" x="0" y="0" scaleX="1" scaleY="1" selectedIndex="1">
 				<e:Group id="_historyGroup" width="100%" height="100%" name="Group">
-						<di:MobileBottomBeadRoadPanel id="_beadroadPanel" skinName="skin_mobile_portrait.di.MobileBottomBeadRoadPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
 				</e:Group>
-					<e:Group id="_roadmapGroup" width="100%" height="100%" name="Group">
-						<dil:Pool id="_roadmapPanel" skinName="skin_mobile_portrait.dil.PoolSkin" width="100%" height="100%" scaleX="1" scaleY="1"/>
+					<e:Group id="_poolGroup" width="100%" height="100%" name="Group">
+						<dil:Pool id="_poolPanel" skinName="skin_mobile_portrait.dil.PoolSkin" width="100%" height="100%" scaleX="1" scaleY="1"/>
 					</e:Group>
 				<e:Group id="_chartGroup" width="100%" height="100%" name="Group">
-					<dil:History id="_statisticChartPanel" skinName="skin_mobile_portrait.dil.HistorySkin" width="100%" height="100%" scaleX="1" scaleY="1"/>
+					<dil:History id="_chartPanel" skinName="skin_mobile_portrait.dil.HistorySkin" width="100%" height="100%" scaleX="1" scaleY="1"/>
 				</e:Group>
 				<e:Group id="_infoGroup" width="100%" height="100%" name="Group" x="0" y="0" scaleX="1" scaleY="1">
 					<di:TableInfoPanel id="_tableInfoPanel" skinName="skin_mobile_portrait.di.TableInfoPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
 				</e:Group>
 			</e:ViewStack>
-			<di:MobileBottomRoadButtonPanel id="_roadButtonPanel" skinName="skin_mobile_portrait.di.MobileButtonRoadPanel" width="1242" height="70" scaleX="1" scaleY="1" bottom="0" horizontalCenter="0" visible="false"/>
 		</e:Group>
 </e:Skin>
