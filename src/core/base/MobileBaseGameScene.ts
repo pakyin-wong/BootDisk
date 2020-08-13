@@ -119,13 +119,13 @@ namespace we {
 
       protected onClickBetChipSelected() {
         const testpoint: egret.Point = this._betChipSetGridSelected.localToGlobal(0, 0); // _betChipSetGridSelected(0,0)=> global x and y
-        console.log(' this._veritcalTop.localToGlobal(49,61)', testpoint);
+        // console.log(' this._veritcalTop.localToGlobal(49,61)', testpoint);
         this._betChipSetGridEnabled ? this.hideBetChipPanel() : this.showBetChipPanel();
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
-        this._betRelatedGroup.visible = enable;
+        // this._betRelatedGroup.visible = enable;
         this._betChipSetGridSelected.visible = enable;
 
         const isEnable = enable;

@@ -23,6 +23,8 @@ namespace we {
       protected _BAgoodRoadLabel: ui.GoodRoadLabel;
       protected _tableInfoPanel: TableInfoPanel;
 
+      protected _originBetRelatedGroupY: number;
+
       private _common_listpanel: ui.BaseImageButton;
 
       constructor(data: any) {
@@ -110,7 +112,13 @@ namespace we {
       //     // .to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
       //   }
       // }
-
+      protected setBetRelatedComponentsEnabled(enable: boolean) {
+        super.setBetRelatedComponentsEnabled(enable);
+        if (this._betRelatedGroup && env.orientation === 'portrait') {
+          egret.Tween.removeTweens(this._betRelatedGroup);
+          egret.Tween.get(this._betRelatedGroup).to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
+        }
+      }
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
@@ -118,6 +126,7 @@ namespace we {
 
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
+        this._originBetRelatedGroupY = this._betRelatedGroup.y;
 
         if (this._switchBaMode) {
           this._tableLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
