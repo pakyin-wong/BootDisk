@@ -13,7 +13,7 @@
 			                 textKey="baccarat.time" />
 			<e:Label id="pTime" text="-" y="220" textAlign="right" scaleX="1" scaleY="1" size="20" right="237" visible="false" />
 			<e:Label id="close" text="x" x="555" y="20" touchEnabled="true" scaleY="0.8" visible="false" />
-			<e:Image id="btnDetail" width="58" height="58" x="557" y="60" source="m_ba_tag_btn_detail_png" />
+			<e:Image id="btnDetail" width="58" height="58" x="557" y="54" source="m_ba_tag_btn_detail_png" />
 			<ui:RunTimeLabel id="tableNoLabel" text="檯號" y="60" x="47" scaleX="1" scaleY="1" size="44" textKey="baccarat.tableNo" />
 			<ui:RunTimeLabel id="roundNoLabel" text="局號" y="130" x="47" scaleX="1" scaleY="1" size="44"
 			                 textKey="baccarat.roundNo" />
@@ -22,50 +22,57 @@
 			<ui:RunTimeLabel id="dealerLabel" text="荷官" y="270" x="47" scaleX="1" scaleY="1" size="44" textKey="baccarat.dealer" />
 			<ui:RunTimeLabel id="tableBetLimitLabel" text="限紅" y="340" x="47" scaleX="1" scaleY="1" size="44" />
 			<ui:RunTimeLabel id="betLimitLabel" text="限紅" y="410" x="47" scaleX="1" scaleY="1" size="44" />
-			<ui:ClampWidthLabel id="pTableID" text="百家樂01" x="167" y="60" textAlign="right" size="44" 
-			                    targetWidth="381" alpha="0.7" />
-			<e:Label id="pRoundID" text="-" y="130" textAlign="right" scaleX="1" scaleY="1" size="44" x="167" width="440"
-			         alpha="0.7" />
-			<ui:ClampWidthLabel id="pGameID" text="000-000-000000000" y="200" textAlign="right" x="167" size="44"
-			                    targetWidth="440" alpha="0.7" />
-			<ui:ClampWidthLabel id="pDealer" text="Mary" textAlign="right" x="167" y="270" size="44" width="440"
-			                    targetWidth="440" alpha="0.7" />
-			<e:Label id="pTableBetLimit" text="-" y="340" textAlign="right" scaleX="1" scaleY="1" size="44" x="167" width="440"
-			         verticalAlign="middle" alpha="0.7" />
+			<ui:ClampWidthLabel id="pTableID" text="百家樂01" y="60" size="44" textAlign="right" right="703" targetWidth="380" alpha="0.7"
+			                    />
+			<e:Label id="pRoundID" text="-" y="130" textAlign="right" scaleX="1" scaleY="1" size="44" width="440" alpha="0.7"
+			         right="630" />
+			<ui:ClampWidthLabel id="pGameID" text="000-000-000000000" y="200" textAlign="right" right="630" size="44" targetWidth="380"
+			                    alpha="0.7"  />
+			<ui:ClampWidthLabel id="pDealer" text="Mary" textAlign="right" y="270" size="44" targetWidth="380"
+			                    alpha="0.7" right="630" />
+			<e:Label id="pTableBetLimit" text="-" y="340" textAlign="right" scaleX="1" scaleY="1" size="44" width="440"
+			         verticalAlign="middle" alpha="0.7" right="630" />
 			<e:Group id="betLimitBtnGroup" width="304" height="74" x="311" y="400">
 				<e:Image id="limitBg" width="304" height="74" x="0" y="0" source="m_ba_tag_redlimit_bg_png" scaleX="1" scaleY="1" />
 				<e:Image id="dropdownBtn" width="27" height="16" x="248" y="31" source="m_ba_tag_redlimit_btn_dropdown_png" />
 			</e:Group>
 			<ui:RunTimeLabel id="pBetLimit" text="Label" x="311" y="400" width="304" height="74" size="44" verticalAlign="middle"
 			                 textAlign="center" />
-			<ui:ClampWidthLabel id="pBankerOdd" text="0.95:1" textAlign="right" x="1070" y="60" size="44"
-			                    targetWidth="130" alpha="0.7" />
+			<ui:ClampWidthLabel id="pBankerOdd" text="0.95:1" y="60" size="44" alpha="0.7" textAlign="right" targetWidth="200" right="50" />
 			<!--<e:Label id="pBankerMax" text="" y="60" textAlign="right" x="920" scaleX="1" scaleY="1" size="44" width="130"
-			         alpha="0.7" />-->
-			<ui:ClampWidthLabel id="pSuperSixBankerOdd" text="0.95:1" textAlign="right" x="1070" y="130" size="44" 
-			                    targetWidth="130" alpha="0.7" />
+			             alpha="0.7" />
+			-->
+			<ui:ClampWidthLabel id="pSuperSixBankerOdd" text="0.95:1" textAlign="right" y="130" size="44" targetWidth="200" alpha="0.7" right="50" />
 			<!--<e:Label id="pSuperSixBankerMax" text="" y="130" textAlign="right" x="920" scaleX="1" scaleY="1" size="44"
-			         width="130" alpha="0.7" anchorOffsetX="0" />-->
-			<ui:ClampWidthLabel id="pPlayerOdd" text="0.95:1" textAlign="right" x="1070" y="200" size="44" 
-			                    targetWidth="130" alpha="0.7" />
+			             width="130" alpha="0.7" anchorOffsetX="0" />
+			-->
+			<ui:ClampWidthLabel id="pPlayerOdd" text="0.95:1" textAlign="right" y="200" size="44" targetWidth="200" alpha="0.7"
+			                    right="50" />
 			<!--<e:Label id="pPlayerMax" text="" y="200" textAlign="right" x="920" scaleX="1" scaleY="1" size="44" width="130"
-			         alpha="0.7" anchorOffsetX="0" />-->
-			<ui:ClampWidthLabel id="pTieOdd" text="0.95:1.500000" textAlign="right" x="1070" y="270" size="44"
-			                    targetWidth="130" alpha="0.7" />
+			             alpha="0.7" anchorOffsetX="0" />
+			-->
+			<ui:ClampWidthLabel id="pTieOdd" text="0.95:1.500000" textAlign="right" y="270" size="44" targetWidth="200"
+			                    alpha="0.7" right="50" />
 			<!--<e:Label id="pTieMax" text="" y="270" textAlign="right" x="920" scaleX="1" scaleY="1" size="44" width="130"
-			         alpha="0.7" anchorOffsetX="0" />-->
-			<ui:ClampWidthLabel id="pBankerPairOdd" text="0.95:1" textAlign="right" x="1070" y="340" size="44"
-			                    targetWidth="130" alpha="0.7" />
-			<!--<e:Label id="pBankerPairMax" text="" y="340" textAlign="right" x="920" scaleX="1" scaleY="1" size="44" width="130"
-			         alpha="0.7" anchorOffsetX="0" />-->
-			<ui:ClampWidthLabel id="pPlayerPairOdd" text="0.95:1.55" textAlign="right" x="1070" y="410" size="44"
-			                    targetWidth="130" alpha="0.7" />
-			<!--<e:Label id="pPlayerPairMax" text="" y="410" textAlign="right" x="920" scaleX="1" scaleY="1" size="44" width="130"
-			         alpha="0.7" anchorOffsetX="0" />-->
+			             alpha="0.7" anchorOffsetX="0" />
+			-->
+			<ui:ClampWidthLabel id="pBankerPairOdd" text="0.95:1" textAlign="right" y="340" size="44" targetWidth="200"
+			                    alpha="0.7" right="50" />
+			<!--<e:Label id="pBankerPairMax" text="" y="340" textAlign="right" x="920" scaleX="1" scaleY="1" size="44"
+			             width="130" alpha="0.7" anchorOffsetX="0" />
+			-->
+			<ui:ClampWidthLabel id="pPlayerPairOdd" text="0.95:1.55" textAlign="right" y="410" size="44" targetWidth="200"
+			                    alpha="0.7" right="50" />
+			<!--<e:Label id="pPlayerPairMax" text="" y="410" textAlign="right" x="920" scaleX="1" scaleY="1" size="44"
+			             width="130" alpha="0.7" anchorOffsetX="0" />
+			-->
 			<ui:RunTimeLabel id="bankerLabel" text="庄" y="60" textAlign="left" x="745" scaleX="1" scaleY="1" size="44"
 			                 textKey="baccarat.banker" />
-			<ui:RunTimeLabel id="superSixBankerLabel" text="庄 (免佣)" y="130" textAlign="left" x="745" scaleX="1" scaleY="1"
-			                 size="44" />
+			<!--<ui:RunTimeLabel id="superSixBankerLabel" text="庄 (免佣)" y="130" textAlign="left" x="745" scaleX="1" scaleY="1"
+			                     size="44" targetWidth="240" />
+			-->
+			<ui:ClampWidthLabel id="superSixBankerLabel" text="庄 (免佣)" y="130" textAlign="left" x="745" scaleX="1" scaleY="1"
+			                    size="44" targetWidth="240" />
 			<ui:RunTimeLabel id="tieLabel" text="和" y="270" x="745" scaleX="1" scaleY="1" size="44" textKey="baccarat.tie" />
 			<ui:RunTimeLabel id="playerLabel" text="閒" y="200" x="745" scaleX="1" scaleY="1" size="44" textKey="baccarat.player" />
 			<ui:RunTimeLabel id="bankerPairLabel" text="庄對" y="340" x="745" scaleX="1" scaleY="1" size="44"

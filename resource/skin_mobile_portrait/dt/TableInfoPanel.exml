@@ -22,21 +22,20 @@
 		<!--<e:Label id="pTableID" text="-" y="60" textAlign="right" scaleX="1" scaleY="1" size="44" x="167" width="381"
 		             height="44" alpha="0.7" />
 		-->
-		<ui:ClampWidthLabel id="pTableID" text="DT-01" x="167" y="60" textAlign="right" size="44" multiline="false"
-		                    targetWidth="381" alpha="0.7" />
-		<e:Label id="pRoundID" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" x="167" width="440"
+		<ui:ClampWidthLabel id="pTableID" text="DT-01" x="167" y="60" size="44" alpha="0.7" textAlign="right" right="703" targetWidth="380"/>
+		<e:Label id="pRoundID" text="-" y="130" textAlign="right" scaleX="1" scaleY="1" size="44" x="167" width="440"
 		         alpha="0.7" />
 		<!--<e:Label id="pGameID" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" x="167" width="440"
 		             alpha="0.7" />
 		-->
-		<ui:ClampWidthLabel id="pGameID" text="000-000-000-0000001" y="130" textAlign="right" x="167" size="44"
-		                    multiline="false" targetWidth="440" alpha="0.7" />
+		<ui:ClampWidthLabel id="pGameID" text="000-000-000-0000001" y="200" textAlign="right" x="167" size="44"
+		                    targetWidth="380" right="630" alpha="0.7" />
 		<!--<e:Label id="pDealer" text="-" y="270" textAlign="right" scaleX="1" scaleY="1" size="44" x="167" width="440"
 		             verticalAlign="middle" alpha="0.7" />
 		-->
-		<ui:ClampWidthLabel id="pDealer" text="Mary" textAlign="right" x="167" y="270" size="44" width="440" multiline="false"
-		                    targetWidth="440" alpha="0.7" />
-		<e:Label id="pTableBetLimit" text="-" y="340" textAlign="right" scaleX="1" scaleY="1" size="44" x="167" width="440"
+		<ui:ClampWidthLabel id="pDealer" text="Mary" textAlign="right" right="630" x="167" y="270" size="44"
+		                    targetWidth="380" alpha="0.7" />
+		<e:Label id="pTableBetLimit" text="-" y="340" textAlign="right" right="630" scaleX="1" scaleY="1" size="44" width="440"
 		         verticalAlign="middle" alpha="0.7" />
 		<e:Group id="betLimitBtnGroup" width="304" height="74" x="311" y="398">
 			<e:Image id="limitBg" width="304" height="74" x="0" y="0" source="m_ba_tag_redlimit_bg_png" scaleX="1" scaleY="1" />
@@ -44,18 +43,12 @@
 		</e:Group>
 		<e:Label id="pBetLimit" text="Label" x="311" y="398" width="304" height="74" size="44" verticalAlign="middle"
 		         textAlign="center" />
-		<ui:ClampWidthLabel id="pDragonOdd" text="0.95:1" textAlign="right" x="896" y="60" size="44"
-			                    multiline="false" targetWidth="300" alpha="0.7" />
-		<!--<e:Label id="pDragonMax" text="-" y="60" textAlign="right" x="796" scaleX="1" scaleY="1" size="44" width="301"
-		         alpha="0.7" />-->
-		<ui:ClampWidthLabel id="pTigerOdd" text="0.95:1" textAlign="right" x="896" y="130" size="44"
-			                    multiline="false" targetWidth="300" alpha="0.7" />
-		<!--<e:Label id="pTigerMax" text="-" y="130" textAlign="right" x="796" scaleX="1" scaleY="1" size="44" width="301"
-		         alpha="0.7" />-->
-		<ui:ClampWidthLabel id="pTieOdd" text="0.95:1" textAlign="right" x="896" y="200" size="44"
-			                    multiline="false" targetWidth="300" alpha="0.7" />
-		<!--<e:Label id="pTieMax" text="-" y="200" textAlign="right" x="796" scaleX="1" scaleY="1" size="44" width="301"
-		         alpha="0.7" />-->
+		<ui:ClampWidthLabel id="pDragonOdd" text="0.95:1" x="896" y="60" size="44" alpha="0.7" textAlign="right"
+		                    targetWidth="200" right="50" />
+		<ui:ClampWidthLabel id="pTigerOdd" text="0.95:1" x="896" y="130" size="44" alpha="0.7" textAlign="right"
+		                    targetWidth="200" right="50" />
+		<ui:ClampWidthLabel id="pTieOdd" text="0.95:1" x="896" y="200" size="44" alpha="0.7" textAlign="right"
+		                    targetWidth="200" right="50" />
 		<ui:RunTimeLabel id="dragonLabel" text="龍" y="60" textAlign="left" x="745" scaleX="1" scaleY="1" size="44"
 		                 textKey="dragontiger.dragon" />
 		<ui:RunTimeLabel id="tigerLabel" text="虎" y="130" x="745" scaleX="1" scaleY="1" size="44" textKey="dragontiger.tiger" />
