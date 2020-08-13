@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_btn_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_warnbtn_hover_png,d_common_popup_warnbtn_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,m_lobby_header_submenu_bg_png,m_lobby_roadmap_1column_btn_png,m_lobby_roadmap_2column_btn_png,popover_png,common_chips_json,common_game_panel_json,common_menu_json,preload_json,m_lobby_panel_gamelist_tag_bg_allgame_png,m_lobby_panel_gamelist_tag_bg_betted_png,m_lobby_panel_gamelist_tag_bg_goodroad_png,common_general_json,common_cards_big_json,common_cards_small_json,dbjson_zip,m_common_notification_bg_png,common_ui_tex_png,m_ba_betarea_chipsbg_round_png,NeonOne_otf,common_ui_tex-new_png",
+			"keys": "d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_btn_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_warnbtn_hover_png,d_common_popup_warnbtn_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,m_lobby_header_submenu_bg_png,m_lobby_roadmap_1column_btn_png,m_lobby_roadmap_2column_btn_png,popover_png,common_chips_json,common_game_panel_json,common_menu_json,preload_json,m_lobby_panel_gamelist_tag_bg_allgame_png,m_lobby_panel_gamelist_tag_bg_betted_png,m_lobby_panel_gamelist_tag_bg_goodroad_png,common_general_json,common_cards_big_json,common_cards_small_json,dbjson_zip,m_common_notification_bg_png,common_ui_tex_png,m_ba_betarea_chipsbg_round_png,NeonOne_otf,chip_tex_png",
 			"name": "common"
 		},
 		{
@@ -489,9 +489,14 @@
 			"name": "NeonOne_otf"
 		},
 		{
-			"url": "assets/dragonbones/common/common_ui/common_ui_tex-new.png",
+			"url": "assets/dragonbones/m/chip/chip_tex.png",
 			"type": "image",
-			"name": "common_ui_tex-new_png"
+			"name": "chip_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/m/dil/dice_w_game_result_tex.png",
+			"type": "image",
+			"name": "dice_w_game_result_tex_png"
 		}
 	]
 }

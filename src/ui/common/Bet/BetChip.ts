@@ -7,6 +7,7 @@ namespace we {
       protected _type: we.core.ChipType;
       protected _highlight: boolean;
       protected _glowImage: eui.Image;
+      public chipScale: number = 1;
 
       protected _index: number;
 
