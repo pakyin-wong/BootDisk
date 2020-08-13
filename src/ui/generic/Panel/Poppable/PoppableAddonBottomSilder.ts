@@ -13,7 +13,9 @@ namespace we {
         // Set attributes for animating
         content.$y = this.target.stage.stageHeight;
         await new Promise((resolve, reject) => {
-          egret.Tween.get(content).to({ $y: this._contentPos.y }, 200).call(resolve);
+          egret.Tween.get(content)
+            .to({ $y: this._contentPos.y }, 200)
+            .call(resolve);
         });
       }
       protected async onHideAnimation() {
@@ -21,7 +23,9 @@ namespace we {
         // Set attributes for animating
         content.visible = true;
         await new Promise((resolve, reject) => {
-          egret.Tween.get(content).to({ $y: this.target.stage.stageHeight }, 200).call(resolve);
+          egret.Tween.get(content)
+            .to({ $y: this.target.stage.stageHeight }, 200)
+            .call(resolve);
         });
       }
     }

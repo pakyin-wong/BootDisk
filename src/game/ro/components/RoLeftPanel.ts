@@ -205,6 +205,9 @@ namespace we {
         this.roadRadioBtn3.addEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
 
         if (this.toggleUpDownButton) {
+          this.toggleUpDownButton.currentState = 'b_up';
+          this.toggleUpDownButton['tooltipText'] = 'live.tooltip.toggleUp';
+          this.toggleUpDownButton['tooltipPosition'] = 'above';
           this.toggleUpDownButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggleUpDown, this, true);
         }
         // (this.radioBtn1 as any).buttonImage.width = (this.radioBtn1 as any).labelDisplay.textWidth + 10;
@@ -302,7 +305,11 @@ namespace we {
 
           this.isExpanded = true;
 
-          this.toggleUpDownButton && (this.toggleUpDownButton.currentState = 'b_down');
+          if (this.toggleUpDownButton) {
+            this.toggleUpDownButton.currentState = 'b_down';
+            this.toggleUpDownButton['tooltipText'] = 'live.tooltip.toggleDown';
+            this.toggleUpDownButton['tooltipPosition'] = 'above';
+          }
           this.beadRoad.expandRoad(true);
         } else if (this.isExpanded && !expand) {
           this.bg.setRoundRectStyle(666, 338, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x061323', 0.88, 0);
@@ -319,7 +326,11 @@ namespace we {
 
           this.isExpanded = false;
 
-          this.toggleUpDownButton && (this.toggleUpDownButton.currentState = 'b_up');
+          if (this.toggleUpDownButton) {
+            this.toggleUpDownButton.currentState = 'b_up';
+            this.toggleUpDownButton['tooltipText'] = 'live.tooltip.toggleUp';
+            this.toggleUpDownButton['tooltipPosition'] = 'above';
+          }
           this.beadRoad.expandRoad(false);
         }
       }

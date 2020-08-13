@@ -22,6 +22,8 @@ namespace we {
           const btn = new we.ui.BaseAnimationButton();
           btn.dbClass = 'lobby_ui';
           btn.dbDisplay = name;
+          btn['tooltipText'] = 'nav.tooltip.' + name;
+          btn['tooltipPosition'] = 'above';
           btn.isSwitch = true;
           btn.height = 30;
           btn.width = 30;
