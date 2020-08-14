@@ -76,10 +76,10 @@ namespace we {
 
       protected setStateDeal(isInit: boolean) {
         super.setStateDeal(isInit);
-        if (env.orientation === 'landscape') {
-          egret.Tween.get(this._tableLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
-          egret.Tween.get(this._chipLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
-        }
+        // if (env.orientation === 'landscape') {
+        //   egret.Tween.get(this._tableLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
+        //   egret.Tween.get(this._chipLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
+        // }
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
           (<we.dil.MobileChipLayer>this._chipLayer).showLuckyNumber();
           (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer, this._bottomGamePanel.isPanelOpen);
@@ -116,8 +116,6 @@ namespace we {
         super.initChildren();
         this.initRoadMap();
         this._roadmapControl.setTableInfo(this._tableInfo);
-        this._chipLayer.type = we.core.BettingTableType.NORMAL;
-        this._tableLayer.type = we.core.BettingTableType.NORMAL;
         if (this._bottomGamePanel._tableInfoPanel) {
           this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);

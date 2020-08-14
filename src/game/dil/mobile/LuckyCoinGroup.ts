@@ -71,7 +71,7 @@ namespace we {
         }
 
         const luckyNumbers = this.gameData.luckynumber;
-        const noOfLuckNum = Object.keys(luckyNumbers).length;
+        const noOfLuckNum = Object.keys(luckyNumbers).length > 3 ? 3 : Object.keys(luckyNumbers).length;
         this.setAnimPositionVer(noOfLuckNum);
 
         let no = 0;
@@ -81,10 +81,10 @@ namespace we {
 
           const coinAnim = this.createLuckyCoinAnim();
           coinAnim.x = this.animXArr[no];
-          if (isPanelOpen) {
-            coinAnim.y = this.animYArr[no];
+          if (env.orientation === 'portrait' && isPanelOpen === false) {
+            coinAnim.y = this.animYArr[no] + 530;
           } else {
-            coinAnim.y = this.animYArr[no] - 530;
+            coinAnim.y = this.animYArr[no];
           }
           coinAnim.scaleX = 1;
           coinAnim.scaleY = 1;
@@ -99,7 +99,7 @@ namespace we {
           coinAnim.visible = false;
           this.addChild(coinAnim);
 
-          if (chipLayer) {
+          if (!chipLayer) {
             return;
           }
 

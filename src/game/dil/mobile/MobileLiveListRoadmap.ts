@@ -5,8 +5,8 @@ namespace we {
       protected bigRoad: DilBeadRoad;
 
       public roadGridSize: number = 104;
-      public roadCol: number = 2;
-      public roadRow: number = 8;
+      public roadCol: number = 8;
+      public roadRow: number = 2;
       public roadIndentX: number = 38;
       public roadIndentY: number = 24;
       public roadOffsetX: number = 32;

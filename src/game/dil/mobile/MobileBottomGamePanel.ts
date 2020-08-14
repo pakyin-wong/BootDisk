@@ -26,11 +26,19 @@ namespace we {
         super.mount();
         this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
 
-        this.beadRoad = new DilBeadRoad(4, 8, 104, 1, 44, 14, 0x262a2b, 1); // in game
-        this.beadRoad.x = 50;
-        this.beadRoad.y = 14;
-        this.beadRoad.scaleX = 689 / 689;
-        this.beadRoad.scaleY = 689 / 689;
+        if (env.orientation === 'portrait') {
+          this.beadRoad = new DilBeadRoad(4, 8, 104, 1, 44, 14, 0x262a2b, 1); // in game
+          this.beadRoad.x = 50;
+          this.beadRoad.y = 14;
+          this.beadRoad.scaleX = 689 / 689;
+          this.beadRoad.scaleY = 689 / 689;
+        } else {
+          this.beadRoad = new DilBeadRoad(3, 10, 72, 1, 26, 26, 0x262a2b, 1); // in game
+          this.beadRoad.x = 20;
+          this.beadRoad.y = 20;
+          this.beadRoad.scaleX = 1;
+          this.beadRoad.scaleY = 1;
+        }
 
         this._historyGroup.addChild(this.beadRoad);
       }

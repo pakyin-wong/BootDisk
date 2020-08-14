@@ -40,10 +40,15 @@ namespace we {
         this._winningAnim = this.createAnim(this.animString);
         const grid = this._mouseAreaMapping[dil.BetField['SUM_' + sum]];
         grid.addChild(this._winningAnim);
-        this._winningAnim.anchorOffsetX = 5;
-        this._winningAnim.anchorOffsetY = 3;
-        this._winningAnim.scaleX = 1.1;
-        this._winningAnim.scaleY = 1.1;
+        this._winningAnim.anchorOffsetX = 0;
+        this._winningAnim.anchorOffsetY = 0;
+        if (env.orientation === 'portrait') {
+          this._winningAnim.scaleX = 1.1;
+          this._winningAnim.scaleY = 1.1;
+        } else {
+          this._winningAnim.scaleX = 1.6;
+          this._winningAnim.scaleY = 1.6;
+        }
         console.log('showWinningNumber', this._winningAnim);
 
         (async () => {
@@ -98,10 +103,15 @@ namespace we {
           luckyAnim.addDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addGridBg(grid, +key), luckyAnim);
 
           grid.addChild(luckyAnim);
-          luckyAnim.anchorOffsetX = 5;
-          luckyAnim.anchorOffsetY = 3;
-          luckyAnim.scaleX = 1.1;
-          luckyAnim.scaleY = 1.1;
+          luckyAnim.anchorOffsetX = 0;
+          luckyAnim.anchorOffsetY = 0;
+          if (env.orientation === 'portrait') {
+            luckyAnim.scaleX = 1.1;
+            luckyAnim.scaleY = 1.1;
+          } else {
+            luckyAnim.scaleX = 1.6;
+            luckyAnim.scaleY = 1.6;
+          }
 
           this._flashingOdd = new eui.Label();
           this._flashingOdd.verticalCenter = 0;
