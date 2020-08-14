@@ -789,12 +789,12 @@
 			"name": "m_common_setting_uicolour_btn_active_png"
 		},
 		{
-			"url": "assets/images/m/common/menu/m_common_slide_bar_active.png",
+			"url": "assets/images/m/loading/m_common_slide_bar_active.png",
 			"type": "image",
 			"name": "m_common_slide_bar_active_png"
 		},
 		{
-			"url": "assets/images/m/common/menu/m_common_slide_bar_base.png",
+			"url": "assets/images/m/loading/m_common_slide_bar_base.png",
 			"type": "image",
 			"name": "m_common_slide_bar_base_png"
 		},
