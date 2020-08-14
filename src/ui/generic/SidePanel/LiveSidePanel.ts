@@ -63,7 +63,6 @@ namespace we {
               return ro.SideListBetItemHolder;
             case we.core.GameType.DI:
               return di.SideListBetItemHolder;
-
             case we.core.GameType.DIL:
               return dil.SideListBetItemHolder;
             case we.core.GameType.LW:
