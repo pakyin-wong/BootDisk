@@ -129,7 +129,7 @@ namespace we {
       }
 
       protected onNotified(evt: egret.Event) {
-        const notification: data.Notification = <data.Notification> evt.data;
+        const notification: data.Notification = <data.Notification>evt.data;
         this.notificationList.push(notification);
         this.showNextNotification();
       }
@@ -189,7 +189,7 @@ namespace we {
         let idx = 0;
         for (const notification of this.notificationList) {
           if (this.isTypeAvailable(notification.type)) {
-            if (notification.type === 0 && !this.isCountDownAvailble(notification.data.tableid)) {
+            if ((notification.type === 0 && !this.isCountDownAvailble(notification.data.tableid)) || notification.data.tableid === env._currTableId) {
               this.notificationList.splice(idx, 1);
               continue;
             } else {
@@ -254,7 +254,7 @@ namespace we {
         // remove the focus item if exist
         if (this._currentFocus) {
           if (!isRemoved) {
-            const holder = <NotificationItemHolder> this.goodRoadListDisplay.getChildAt(0);
+            const holder = <NotificationItemHolder>this.goodRoadListDisplay.getChildAt(0);
             holder.removeItem();
           }
           this._currentFocus = null;

@@ -350,6 +350,66 @@
       "offY": 0,
       "sourceW": 64.5,
       "sourceH": 53.5
+    },
+    "dice1_png": {
+      "x": 987.5,
+      "y": 551,
+      "w": 50,
+      "h": 50,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 50,
+      "sourceH": 50
+    },
+    "dice2_png": {
+      "x": 987.5,
+      "y": 603,
+      "w": 50,
+      "h": 50,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 50,
+      "sourceH": 50
+    },
+    "dice3_png": {
+      "x": 987.5,
+      "y": 655,
+      "w": 50,
+      "h": 50,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 50,
+      "sourceH": 50
+    },
+    "dice4_png": {
+      "x": 938.5,
+      "y": 857.5,
+      "w": 50,
+      "h": 50,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 50,
+      "sourceH": 50
+    },
+    "dice5_png": {
+      "x": 938.5,
+      "y": 909.5,
+      "w": 50,
+      "h": 50,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 50,
+      "sourceH": 50
+    },
+    "dice6_png": {
+      "x": 906.5,
+      "y": 961.5,
+      "w": 50,
+      "h": 50,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 50,
+      "sourceH": 50
     }
   }
 }

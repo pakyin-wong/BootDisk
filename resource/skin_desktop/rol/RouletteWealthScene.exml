@@ -12,7 +12,7 @@
 	</ui:Group>
 	<ui:Group id="_betRelatedGroup" x="769" y="895">
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
-		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" />
+		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" chipScale="0.9" />
 		<e:Rect width="1" height="54" fillColor="0x000000" alpha="0.3" verticalCenter="0" x="525" />
 		<e:Button id="_confirmButton" label="" y="5" anchorOffsetX="0" width="174" anchorOffsetY="0" height="60"
 		          horizontalCenter="114" skinName="skins_desktop.BetConfirmButtonSkin" />

@@ -10,7 +10,7 @@ namespace we {
       protected _holderState: number = 0;
       public content: eui.Group;
 
-      protected _betChip: BetChip;
+      protected _betChip: AnimBetChip;
       protected _betChipHeight: number = 56;
       protected _betChipWidth: number = 70;
       protected _labelSize: number = 30;
@@ -24,7 +24,7 @@ namespace we {
 
       public constructor() {
         super();
-        this._betChip = new BetChip(0);
+        this._betChip = new AnimBetChip();
         this.once(eui.UIEvent.ADDED_TO_STAGE, this.setSize, this);
         this.addChild(this._betChip);
         mouse.setButtonMode(this._betChip, true);
@@ -44,6 +44,10 @@ namespace we {
         this._betChip.scaleX = 0.85;
         this._betChip.scaleY = 0.85;
         this._betChip.labelSize = this.betChipSetGrid ? this.betChipSetGrid.labelSize : this._labelSize;
+
+        if (this.betChipSetGrid && this.betChipSetGrid['chipScale']) {
+          this._betChip.chipScale = this.betChipSetGrid['chipScale'];
+        }
       }
 
       public itemDataChanged() {
@@ -52,6 +56,7 @@ namespace we {
           const type = this.selected ? we.core.ChipType.FLAT : we.core.ChipType.PERSPECTIVE;
           this._betChip.setValue(this.itemData, this.itemIndex, type);
           this._betChip.index = this.itemIndex;
+          this._betChip.type = type;
         }
       }
 

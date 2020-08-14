@@ -17,6 +17,7 @@ namespace we {
       }
 
       protected dataChanged(): void {
+        this['tooltipText'] = `'${i18n.t(`sidePanel.${this.data}`)}'`;
         this.updateImage(this.currentState);
       }
 

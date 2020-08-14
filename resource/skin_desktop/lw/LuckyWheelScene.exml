@@ -14,7 +14,7 @@
 	</ui:Group>
 	<ui:Group id="_betRelatedGroup" x="804" y="942" isEdgeDismissable="true">
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
-		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" />
+		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" chipScale="0.9" />
 		<e:Button id="_confirmButton" label="" y="3" anchorOffsetX="0" width="155" anchorOffsetY="0" height="64"
 		          horizontalCenter="114" skinName="skins_desktop.BetConfirmButtonSkin" />
 		<ui:CountdownTimer id="_timer" width="160" height="64" y="3" horizontalCenter="115"

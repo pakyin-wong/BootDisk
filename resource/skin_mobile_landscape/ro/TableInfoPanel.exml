@@ -34,16 +34,22 @@
 					<ui:RunTimeLabel id="tableNoLabel" text="檯號" y="22" x="0" scaleX="1" scaleY="1" size="42" bold="true" height="88" verticalAlign="middle" textKey="baccarat.tableNo" />
 					<ui:RunTimeLabel id="roundNoLabel" text="局號" y="110" x="0" scaleX="1" scaleY="1" size="42" bold="true" height="88" verticalAlign="middle" textKey="baccarat.roundNo" />
 					<ui:RunTimeLabel id="gameIdLabel" text="編號" y="198" x="0" scaleX="1" scaleY="1" size="42" bold="true" height="88" verticalAlign="middle" textKey="roulette.gameId" />
-					<e:Label id="pTableID" text="輪盤01" y="34" textAlign="right" size="40" x="120" width="216" height="66" verticalAlign="middle" alpha="0.7"/>
+					<!--<e:Label id="pTableID" text="輪盤01" y="34" textAlign="right" size="40" x="120" width="216" height="66" verticalAlign="middle" alpha="0.7"/>-->
+					                <ui:ClampWidthLabel id="pTableID" text="輪盤01" y="34" textAlign="right" size="40" x="120" width="216" height="66" verticalAlign="middle" alpha="0.7"
+                                    targetWidth="221"  />
 					<e:Label id="pRoundID" text="6-38" y="109" textAlign="right" scaleX="1" scaleY="1" size="42" x="110" width="292" height="88" verticalAlign="middle" alpha="0.7"/>
-					<e:Label id="pGameID" text="110326855429" y="197" textAlign="right" size="42" bold="true" x="110" width="292" height="88" verticalAlign="middle" alpha="0.7"/>
+					<!--<e:Label id="pGameID" text="110326855429" y="197" textAlign="right" size="42" bold="true" x="110" width="292" height="88" verticalAlign="middle" alpha="0.7"/>-->
+					<ui:ClampWidthLabel id="pGameID" text="110326855429" y="197" textAlign="right" size="42" bold="true" x="110" width="292" height="88" verticalAlign="middle" alpha="0.7"
+                                    targetWidth="350" />
 					<e:Rect width="2" height="308" fillColor="0x333333" x="432" y="0"/>
 				</e:Group>
 				<e:Group x="493.94" y="0" scaleX="1" scaleY="1" anchorOffsetX="0" width="501.28">
 					<ui:RunTimeLabel id="dealerLabel" text="荷官" y="22" x="0" size="42" bold="true" width="142" height="88" verticalAlign="middle" textKey="baccarat.dealer" />
 					<ui:RunTimeLabel id="betLimitLabel" text="投注限紅" y="198" x="0" size="42" bold="true" height="88" width="179.88" verticalAlign="middle" textKey="roulette.betLimitShort"  anchorOffsetX="0"/>
 					<ui:RunTimeLabel id="tableBetLimitLabel" text="本檯限紅" y="110" x="0" size="42" bold="true" height="88" width="179.88" verticalAlign="middle" anchorOffsetX="0"/>
-					<e:Label id="pDealer" text="Miki" y="20" textAlign="right" size="44" bold="true" x="143" width="292" verticalAlign="middle" height="88" alpha="0.7"/>
+					<!--<e:Label id="pDealer" text="Miki" y="20" textAlign="right" size="44" bold="true" x="143" width="292" verticalAlign="middle" height="88" alpha="0.7"/>-->
+					<ui:ClampWidthLabel id="pDealer" text="Miki" y="20" textAlign="right" size="44" bold="true" x="143" width="292" verticalAlign="middle" height="88" alpha="0.7"
+			                    targetWidth="440"  />
 					<e:Label id="pTableBetLimit" text="Miki" y="110" textAlign="right" size="44" bold="true" x="143" width="292" verticalAlign="middle" height="88" alpha="0.7"/>
 					<e:Group id="betLimitBtnGroup" width="242" height="74" x="193" y="198">
 						<e:Image id="limitBg" width="242" height="74" x="0" y="0" source="m_ba_tag_redlimit_bg_png" scaleX="1" scaleY="1"/>

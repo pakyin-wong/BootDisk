@@ -53,8 +53,9 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
+        super.onRoadDataUpdate(evt);
         this._roadmapControl.updateRoadData();
-        this._rightGamePanel.updateStat();
+        // this._rightGamePanel.updateStat();
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {

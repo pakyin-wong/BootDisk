@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.SimpleQuickBetButtonSkin" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*"  xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
+        <e:Group width="219" height="70">
+            <e:Group verticalCenter="0" horizontalCenter="0">
+                <e:Image source="flash_png" />
+                <ui:RunTimeLabel i18n="mobile_quick_bet_button_label" size="36" />
+                <e:layout >
+                    <e:HorizontalLayout gap="10" verticalAlign="middle" />
+                </e:layout>
+            </e:Group>
+        </e:Group>
+        <ui:RunTimeLabel id="_label" visible="false" />
+</e:Skin>

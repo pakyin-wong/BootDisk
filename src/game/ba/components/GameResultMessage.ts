@@ -1,12 +1,16 @@
 namespace we {
   export namespace ba {
     export class GameResultMessage extends ui.GameResultMessage implements ui.IGameResultMessage {
-      protected _dbClass = 'baccarat';
+      // protected _dbClass = 'baccarat';
 
       public constructor() {
         super();
-        this.touchEnabled = false;
-        this.visible = false;
+        // this.touchEnabled = false;
+      }
+
+      public showResult(gameType: core.GameType, resultData: any) {
+        this._dbClass = 'baccarat';
+        super.showResult(gameType, resultData);
       }
 
       protected getBackground(gameType: core.GameType, winType: number) {
@@ -41,12 +45,12 @@ namespace we {
         }
       }
 
-      public clearMessage() {
-        // if (this._display && this._display.animation) {
-        //   this._display.animation.stop();
-        // }
-        // this.visible = false;
-      }
+      // public clearMessage() {
+      //   // if (this._display && this._display.animation) {
+      //   //   this._display.animation.stop();
+      //   // }
+      //   // this.visible = false;
+      // }
 
       // animation for Baccarat / Dragon Tiger
       protected startAnim(gameType: core.GameType, resultData: any) {
@@ -74,8 +78,13 @@ namespace we {
         }
         anim += background;
 
+        this.visible = true;
+        this._display.animation.play(anim, 1);
+
         // update slot text
-        for (const slotName of ['win_txt', 'loss_txt']) {
+        // for (const slotName of ['win_txt', 'loss_txt']) {
+        // for (const slotName of ['Result_Txt_Win', 'Result_Txt_Loss']) {
+        for (const slotName of ['result_win', 'result_loss']) {
           const slot = this._display.armature.getSlot(slotName);
           const text: eui.Label = new eui.Label();
           text.width = 320;
@@ -93,13 +102,17 @@ namespace we {
 
         if (!isNaN(winAmount)) {
           let slotName;
+          // if (winAmount > 0) {
+          //   slotName = '+800';
+          // } else {
+          //   slotName = '+8001';
+          // }
           if (winAmount > 0) {
-            slotName = '+800';
+            slotName = 'credit_win';
           } else {
-            slotName = '+8001';
+            slotName = 'credit_loss';
           }
           const slot = this._display.armature.getSlot(slotName);
-
           const r = new eui.Label();
           r.fontFamily = 'barlow';
           r.size = 60;
