@@ -62,12 +62,94 @@ namespace we {
         }
       }
 
+      public updateLuckyNumbers(gameData: data.GameData, chipLayer: ui.ChipLayer, isPanelOpen: boolean) {
+        this.gameData = <dil.GameData>gameData;
+        this.removeChildren();
+
+        if (!(this.gameData && this.gameData.luckynumber)) {
+          return;
+        }
+
+        const luckyNumbers = this.gameData.luckynumber;
+        const noOfLuckNum = Object.keys(luckyNumbers).length;
+        this.setAnimPositionVer(noOfLuckNum);
+
+        let no = 0;
+
+        for (const key of Object.keys(luckyNumbers)) {
+          const animName = this.getAnimName(+key);
+
+          const coinAnim = this.createLuckyCoinAnim();
+          coinAnim.x = this.animXArr[no];
+          if (isPanelOpen) {
+            coinAnim.y = this.animYArr[no];
+          } else {
+            coinAnim.y = this.animYArr[no] - 530;
+          }
+          coinAnim.scaleX = 1;
+          coinAnim.scaleY = 1;
+          no += 1;
+
+          const oddSlot = coinAnim.armature.getSlot(`${animName}_odds`);
+          oddSlot.display = this.getOddSlotGroup(luckyNumbers[key]);
+
+          const numberSlot = coinAnim.armature.getSlot(`${animName}_number`);
+          numberSlot.display = this.getNumberSlotGroup(+key);
+
+          coinAnim.visible = false;
+          this.addChild(coinAnim);
+
+          if (chipLayer) {
+            return;
+          }
+
+          const betDetails = chipLayer.getConfirmedBetDetails();
+
+          if (betDetails) {
+            betDetails.map((detail, index) => {
+              if (!detail || !detail.field || !detail.amount) {
+                return;
+              }
+
+              const f = this.fieldToValue(detail.field);
+
+              if (key === f) {
+                // const chipSlot = coinAnim.armature.getSlot('chips');
+                // chipSlot.display = this.getChipSlotGroup(detail.amount / 100);
+                // noBet = '';
+              }
+            });
+          }
+
+          (async () => {
+            await we.utils.sleep(400);
+
+            let p = we.utils.waitDragonBone(coinAnim);
+            coinAnim.animation.play(`${animName}_in`, 1);
+            coinAnim.visible = true;
+            await p;
+
+            p = we.utils.waitDragonBone(coinAnim);
+            coinAnim.animation.play(`${animName}_loop`, 4);
+            await p;
+
+            p = we.utils.waitDragonBone(coinAnim);
+            coinAnim.animation.play(`${animName}_out`, 1);
+            await p;
+
+            coinAnim.animation.stop();
+
+            this.removeChildren();
+          })();
+        }
+      }
+
       protected getOddSlotGroup(odd: number) {
         const label = new eui.Label();
         label.fontFamily = 'Barlow';
         label.text = odd.toString() + 'x';
         label.size = 50;
-        label.textColor = 0x80fbfd;
+        label.textColor = 0x2ab9c6;
         label.textAlign = egret.HorizontalAlign.CENTER;
         label.verticalAlign = egret.VerticalAlign.MIDDLE;
         label.width = 112;
@@ -85,7 +167,7 @@ namespace we {
         label.fontFamily = 'Barlow';
         label.text = num.toString();
         label.size = 120;
-        label.textColor = 0x80fbfd;
+        label.textColor = 0x2ab9c6;
         label.textAlign = egret.HorizontalAlign.CENTER;
         label.verticalAlign = egret.VerticalAlign.MIDDLE;
         label.width = 300;
@@ -124,90 +206,6 @@ namespace we {
         return group;
       }
 
-      public updateLuckyNumbers(gameData: data.GameData, chipLayer: ui.ChipLayer) {
-        this.gameData = <dil.GameData>gameData;
-        this.removeChildren();
-
-        if (!(this.gameData && this.gameData.luckynumber)) {
-          return;
-        }
-
-        const luckyNumbers = this.gameData.luckynumber;
-        const noOfLuckNum = Object.keys(luckyNumbers).length;
-        this.setAnimPositionVer(noOfLuckNum);
-
-        let no = 0;
-
-        for (const key of Object.keys(luckyNumbers)) {
-          const coinAnim = this.createLuckyCoinAnim();
-          coinAnim.x = this.animXArr[no];
-          coinAnim.y = this.animYArr[no];
-          coinAnim.scaleX = 0.8;
-          coinAnim.scaleY = 0.8;
-          no += 1;
-
-          const oddSlot = coinAnim.armature.getSlot('odds');
-          oddSlot.display = this.getOddSlotGroup(luckyNumbers[key]);
-
-          const numberSlot = coinAnim.armature.getSlot('number');
-          numberSlot.display = this.getNumberSlotGroup(+key);
-
-          let noBet = '_nobet';
-
-          if (chipLayer) {
-            const betDetails = chipLayer.getConfirmedBetDetails();
-            if (betDetails) {
-              betDetails.map((detail, index) => {
-                if (detail && detail.field && detail.amount) {
-                  const f = this.fieldToValue(detail.field);
-                  if (key === f) {
-                    const chipSlot = coinAnim.armature.getSlot('chips');
-                    chipSlot.display = this.getChipSlotGroup(detail.amount / 100);
-                    noBet = '';
-                  }
-                }
-              });
-            }
-          }
-
-          let color: string;
-
-          switch (we.ro.RACETRACK_COLOR[+key]) {
-            case we.ro.Color.GREEN:
-              color = 'green';
-              break;
-            case we.ro.Color.RED:
-              color = 'red';
-              break;
-            case we.ro.Color.BLACK:
-            default:
-              color = 'black';
-          }
-
-          coinAnim.visible = false;
-          this.addChild(coinAnim);
-
-          (async () => {
-            await we.utils.sleep(1000);
-
-            let p = we.utils.waitDragonBone(coinAnim);
-            coinAnim.animation.play(`draw_number_${color}${noBet}_in`, 1);
-            coinAnim.visible = true;
-            await p;
-
-            p = we.utils.waitDragonBone(coinAnim);
-            coinAnim.animation.play(`draw_number_${color}${noBet}_loop`, 4);
-            await p;
-
-            p = we.utils.waitDragonBone(coinAnim);
-            coinAnim.animation.play(`draw_number_${color}${noBet}_out`, 1);
-            await p;
-
-            coinAnim.animation.stop();
-          })();
-        }
-      }
-
       public clearLuckyNumbers() {
         this.removeChildren();
       }
@@ -216,14 +214,28 @@ namespace we {
         if (!fieldName) {
           return null;
         }
-        if (fieldName.indexOf('DIRECT_') === -1) {
+        if (fieldName.indexOf('SUM_') === -1) {
           return null;
         }
-        const result = fieldName.split('DIRECT_');
+        const result = fieldName.split('SUM_');
         if (result && result[1]) {
           return result[1];
         }
         return null;
+      }
+
+      public getAnimName(sum: number) {
+        let animName;
+        if (sum <= 10) {
+          const firstPart = sum;
+          const secondPart = 21 - sum;
+          animName = `${firstPart}_${secondPart}`;
+        } else {
+          const firstPart = 21 - sum;
+          const secondPart = sum;
+          animName = `${firstPart}_${secondPart}`;
+        }
+        return animName;
       }
     }
   }

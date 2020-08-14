@@ -1,6 +1,8 @@
 namespace we {
   export namespace dil {
     export class MobileChipLayer extends we.dil.ChipLayer {
+      protected animString;
+
       constructor() {
         super();
         this._betField = dil.BetField;
@@ -29,19 +31,19 @@ namespace we {
         this.clearWinningAnim();
         this.clearLuckyAnim();
 
-        let animString = '';
-
         if (env.orientation === 'portrait') {
-          animString = 'bet_effect_vertical';
+          this.animString = 'bet_effect_vertical';
         } else {
-          animString = 'bet_effect_horizontal';
+          this.animString = 'bet_effect_horizontal';
         }
 
-        this._winningAnim = this.createAnim(animString);
+        this._winningAnim = this.createAnim(this.animString);
         const grid = this._mouseAreaMapping[dil.BetField['SUM_' + sum]];
         grid.addChild(this._winningAnim);
-        this._winningAnim.anchorOffsetX = 3;
-        this._winningAnim.anchorOffsetY = 2;
+        this._winningAnim.anchorOffsetX = 5;
+        this._winningAnim.anchorOffsetY = 3;
+        this._winningAnim.scaleX = 1.1;
+        this._winningAnim.scaleY = 1.1;
         console.log('showWinningNumber', this._winningAnim);
 
         (async () => {
@@ -86,26 +88,26 @@ namespace we {
 
           const grid = this._mouseAreaMapping[dil.BetField['SUM_' + key]];
 
-          let animString = '';
-
           if (env.orientation === 'portrait') {
-            animString = 'bet_effect_vertical';
+            this.animString = 'bet_effect_vertical';
           } else {
-            animString = 'bet_effect_horizontal';
+            this.animString = 'bet_effect_horizontal';
           }
 
-          const luckyAnim = this.createAnim(animString);
+          const luckyAnim = this.createAnim(this.animString);
           luckyAnim.addDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addGridBg(grid, +key), luckyAnim);
 
           grid.addChild(luckyAnim);
-          luckyAnim.anchorOffsetX = 3;
-          luckyAnim.anchorOffsetY = 2;
+          luckyAnim.anchorOffsetX = 5;
+          luckyAnim.anchorOffsetY = 3;
+          luckyAnim.scaleX = 1.1;
+          luckyAnim.scaleY = 1.1;
 
           this._flashingOdd = new eui.Label();
           this._flashingOdd.verticalCenter = 0;
           this._flashingOdd.horizontalCenter = 0;
           this._flashingOdd.fontFamily = 'Barlow';
-          this._flashingOdd.size = 30;
+          this._flashingOdd.size = 50;
           this._flashingOdd.textColor = 0x83f3af;
           this._flashingOdd.text = luckyNumbers[key] + 'x';
 

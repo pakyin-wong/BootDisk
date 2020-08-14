@@ -15,8 +15,6 @@ namespace we {
       protected _dilGameID: ui.RunTimeLabel;
       protected _totalBet: ui.RunTimeLabel;
       protected _totalBetText: ui.RunTimeLabel;
-      protected _switchBaMode: eui.ToggleSwitch;
-      protected _lblBaMode: ui.RunTimeLabel;
       protected _verticalGroup: eui.Group;
 
       protected _chipLayer: MobileChipLayer;
@@ -60,8 +58,8 @@ namespace we {
           egret.Tween.get(this._tableLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
           egret.Tween.get(this._chipLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
         }
-        // (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
-        // (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
 
       protected setStateBet(isInit: boolean) {
@@ -72,8 +70,8 @@ namespace we {
         }
         this._dilGameID.renderText = () => `${this._tableInfo.tableid}`;
         this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
-        // (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
-        // (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
 
       protected setStateDeal(isInit: boolean) {
@@ -83,35 +81,35 @@ namespace we {
           egret.Tween.get(this._chipLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
         }
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
-          // (<we.dil.MobileChipLayer>this._chipLayer).showLuckyNumber();
-          // (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer);
+          (<we.dil.MobileChipLayer>this._chipLayer).showLuckyNumber();
+          (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer, this._bottomGamePanel.isPanelOpen);
         }
       }
 
       protected setStateFinish(isInit: boolean = false) {
         super.setStateFinish(isInit);
         if (isInit && this._previousState !== we.core.GameState.FINISH) {
-          (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer);
+          (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer, this._bottomGamePanel.isPanelOpen);
         }
-        // (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
-        // (<we.dil.MobileChipLayer>this._chipLayer).showWinningNumber();
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.MobileChipLayer>this._chipLayer).showWinningNumber();
       }
 
       protected setStateRefund(isInit: boolean = false) {
         super.setStateRefund(isInit);
-        // (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
-        // (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
-        // (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
-        // (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
 
       protected setStateUnknown(isInit: boolean = false) {
         super.setStateUnknown(isInit);
-        // (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
-        // (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
 
       protected initChildren() {
@@ -124,9 +122,6 @@ namespace we {
           this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
         }
-        // if (this._bottomGamePanel._statisticChartPanel) {
-        //   this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
-        // }
         if (this._bottomGamePanel._betLimitDropDownBtn) {
           this.initBottomBetLimitSelector();
         }

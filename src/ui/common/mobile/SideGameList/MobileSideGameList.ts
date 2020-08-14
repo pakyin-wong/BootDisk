@@ -120,6 +120,8 @@ namespace we {
               return ro.MobileSideListBetItemHolder;
             case we.core.GameType.DI:
               return di.MobileSideListBetItemHolder;
+            case we.core.GameType.DIL:
+              return dil.MobileSideListBetItemHolder;
             case we.core.GameType.LW:
               return lw.MobileSideListBetItemHolder;
             case we.core.GameType.DT:
