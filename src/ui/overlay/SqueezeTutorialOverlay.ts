@@ -17,7 +17,6 @@ namespace we {
         this.tutorial = new we.bam.SqueezeTutorial('SqueezeTutorialOverlay');
         this.tutorial.x = 0;
         this.tutorial.y = 0;
-        // this.tutorial.isDraggable = true;
         this.addChild(this.tutorial);
         env.isFirstTimeBam = true;
       }

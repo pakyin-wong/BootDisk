@@ -5136,6 +5136,51 @@
 			"url": "assets/dragonbones/m/chip/chips_select_ske.json",
 			"type": "json",
 			"name": "chips_select_ske_json"
+		},
+		{
+			"url": "assets/images/m/ba/squeezeTutorial/.DS_Store",
+			"type": "bin",
+			"name": "_DS_Store"
+		},
+		{
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_button_close_none.png",
+			"type": "image",
+			"name": "m_bam_button_close_none_png"
+		},
+		{
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_crad_group.png",
+			"type": "image",
+			"name": "m_bam_instruction_crad_group_png"
+		},
+		{
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_large_crad.png",
+			"type": "image",
+			"name": "m_bam_instruction_large_crad_png"
+		},
+		{
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_large_crad_HL.png",
+			"type": "image",
+			"name": "m_bam_instruction_large_crad_HL_png"
+		},
+		{
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_reveal_all_btn.png",
+			"type": "image",
+			"name": "m_bam_instruction_reveal_all_btn_png"
+		},
+		{
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_swtich_crad_group.png",
+			"type": "image",
+			"name": "m_bam_instruction_swtich_crad_group_png"
+		},
+		{
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_touch_icon.png",
+			"type": "image",
+			"name": "m_bam_touch_icon_png"
+		},
+		{
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_panel_btn_bg_Inactive.png",
+			"type": "image",
+			"name": "m_bam_panel_btn_bg_Inactive_png"
 		}
 	]
 }
