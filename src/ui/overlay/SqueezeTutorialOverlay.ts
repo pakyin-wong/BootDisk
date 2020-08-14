@@ -2,6 +2,7 @@ namespace we {
   export namespace overlay {
     export class SqueezeTutorialOverlay extends bam.SqueezeTutorial {
       private tutorial;
+      private _closeButton;
 
       constructor() {
         super('SqueezeTutorialOverlay');
@@ -23,6 +24,15 @@ namespace we {
 
       protected destroy() {
         super.destroy();
+      }
+
+      protected updateButton(i) {
+        super.updateButton(this._pageIndex);
+
+        // if last page
+        if (this._pageIndex === 3) {
+          this._closeButton.renderText = () => i18n.t('mobile_notification_close_button_label');
+        }
       }
     }
   }

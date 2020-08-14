@@ -2,7 +2,7 @@
 namespace we {
   export namespace bam {
     export class SqueezeTutorial extends we.ui.Panel {
-      private _nextButton;
+      protected _nextButton;
       private _prevButton;
       public _close;
       private _holder: we.ui.HorizontalHolder;
@@ -18,7 +18,7 @@ namespace we {
       private _captionArr;
 
       private _pageText;
-      private _pageIndex = 0;
+      protected _pageIndex = 0;
 
       private _mask;
 
@@ -144,7 +144,7 @@ namespace we {
         this.parent.removeChild(this);
       }
 
-      private updateButton(index) {
+      protected updateButton(index) {
         if (env.isMobile) {
           return;
         }
