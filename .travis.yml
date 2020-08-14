@@ -19,22 +19,27 @@ script: |-
   if [ "master" == "${TRAVIS_BRANCH}" ]; then
     for env_value in $(compgen -v |grep '.*_PRODUCTION$'); do
       eval export ${env_value%_PRODUCTION}="${!env_value}"
+      ENVIRONMENT="production"
     done
   elif [ "staging" == "${TRAVIS_BRANCH}" ]; then
     for env_value in $(compgen -v |grep '.*_STAGING$'); do
       eval export ${env_value%_STAGING}="${!env_value}"
+      ENVIRONMENT="staging"
     done
   elif [ "uat" == "${TRAVIS_BRANCH}" ]; then
     for env_value in $(compgen -v |grep '.*_UAT$'); do
       eval export ${env_value%_UAT}="${!env_value}"
+      ENVIRONMENT="uat"
     done
   elif [[ "${TRAVIS_BRANCH}" =~ $RELEASE_REGEX ]]; then
     for env_value in $(compgen -v |grep '.*_RELEASE$'); do
       eval export ${env_value%_RELEASE}="${!env_value}"
+      ENVIRONMENT="release"
     done
   else
     for env_value in $(compgen -v |grep '.*_DEVELOPMENT$'); do
       eval export ${env_value%_DEVELOPMENT}="${!env_value}"
+      ENVIRONMENT="development"
     done
   fi
 
