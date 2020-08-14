@@ -47,10 +47,14 @@ namespace we {
       }
 
       private initMemberReport() {
+        this._btn_searchType.label.size = env.isMobile ? 50 : 24;
+        this._btn_custom.label.size = env.isMobile ? 50 : 24;
+
         this._txt_title.renderText = () => `${i18n.t('overlaypanel_memberreport_title')}`;
         this._txt_date.renderText = () => `${i18n.t('overlaypanel_memberreport_date')}`;
         // mobileonly
         if (env.isMobile) {
+          this._btn_date.label.size = 50;
           this._btn_date.label.renderText = () => `${i18n.t('overlaypanel_memberreport_date')}`;
         }
         // ^mobileonly
@@ -104,6 +108,11 @@ namespace we {
         this.addListeners();
         // this.search('today');
         this.searchToday();
+
+        if (env.isMobile) {
+          this._btn_date.active = true;
+        }
+        this._btn_custom.active = false;
       }
 
       protected destroy() {
@@ -178,7 +187,10 @@ namespace we {
             this.searchToday();
             break;
         }
-        this._btn_date.active = true;
+        if (env.isMobile) {
+          this._btn_date.active = true;
+        }
+        this._btn_custom.active = false;
       }
 
       protected searchToday() {
@@ -235,11 +247,13 @@ namespace we {
         if (!e.data || (this._starttime === e.data.starttime && this._endtime === e.data.endtime)) {
           return;
         }
-
         this._starttime = e.data.starttime;
         this._endtime = e.data.endtime;
         this._btn_today.active = this._btn_week.active = this._btn_yesterday.active = false;
         this._btn_custom.active = true;
+        if (env.isMobile) {
+          this._btn_date.active = false;
+        }
         this.search();
       }
 

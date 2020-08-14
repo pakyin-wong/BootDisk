@@ -92,13 +92,17 @@ namespace we {
         }
       }
 
-      public setRoadEnabled(n: boolean) {
+      public setRoadEnabled(enabled: boolean) {
         // 0 for on, 1 for off
-        if (n) {
+        if (enabled) {
           this._activeButton.setInitButtonState(0);
+          this._activeButton['tooltipText'] = 'goodroad.tooltip.disable';
+          this._activeButton['tooltipPosition'] = 'above';
           this.alpha = 1;
         } else {
           this._activeButton.setInitButtonState(1);
+          this._activeButton['tooltipText'] = 'goodroad.tooltip.enable';
+          this._activeButton['tooltipPosition'] = 'above';
           this.alpha = 0.5;
         }
       }

@@ -2,7 +2,7 @@
 <e:Skin class="skin_mobile_landscape.MobileDropdown" width="2424" height="1242" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Group id="content" y="237" left="0" right="0" anchorOffsetY="0" height="1005">
-		<e:Rect fillColor="0x1a1a1a" top="0" left="0" right="0" height="100%" />
+		<e:Rect fillColor="0x1a1a1a" top="0" left="0" right="0" height="100%"  ellipseWidth="24" ellipseHeight="24"/>
 		<ui:RunTimeLabel id="close" text="Label" y="0" height="146" verticalAlign="middle" textAlign="right" size="60"
 		                 right="50" />
 		<e:Group horizontalCenter="0">

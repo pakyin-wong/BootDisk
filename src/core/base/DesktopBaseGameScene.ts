@@ -24,6 +24,11 @@ namespace we {
         if (this._tableInfoWindow) {
           this._tableInfoWindow.setToggler(this._lblRoomInfo);
           this._tableInfoWindow.setValue(this._tableInfo);
+          if (!env.isFirstTimeInfoPanel) {
+            this._tableInfoWindow.x = 6;
+            this._tableInfoWindow.y = 93;
+            env.isFirstTimeInfoPanel = true;
+          }
         }
 
         if (this._panelDismissToggleBtn) {
@@ -45,6 +50,7 @@ namespace we {
         this._leftGamePanel.update();
         this._rightGamePanel.update();
       }
+
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
         if (this._betRelatedGroup) {
@@ -55,8 +61,19 @@ namespace we {
 
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
-        this._leftGamePanel.update();
-        this._rightGamePanel.update();
+        this._leftGamePanel.updateStat();
+        this._rightGamePanel.updateStat();
+      }
+
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
+        if (evt && evt.data) {
+          const betInfo = <data.GameTableBetInfo>evt.data;
+          if (betInfo.tableid === this._tableId) {
+            this._leftGamePanel.updateTableBetInfo();
+            this._rightGamePanel.updateTableBetInfo();
+          }
+        }
       }
     }
   }

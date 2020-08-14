@@ -54,9 +54,9 @@ namespace we {
           ({ stageX, stageY }) => {
             if (this._gameData.state !== we.core.GameState.BET) {
               // remove existing tooltip
+              clearTimeout(this.hideTooltipTimeout);
               dir.tooltipCtr.removeTooltips();
               dir.tooltipCtr.displayTooltip(stageX, stageY, 'hello');
-              clearTimeout(this.hideTooltipTimeout);
               this.hideTooltipTimeout = setTimeout(() => {
                 dir.tooltipCtr.removeTooltips();
               }, 2000);
@@ -86,7 +86,9 @@ namespace we {
         super.onTableInfoUpdate(evt);
         if (this._gameData.state === we.core.GameState.BET && this._gameData.state !== this._previousState) {
           // clear tooltip when enter BET again
-          dir.tooltipCtr.removeTooltips();
+          // dir.tooltipCtr.removeTooltips();
+          // Don't remove it here as other non-click triggered tooltip will be removed as well
+          // Let it auto remove in 2 second
         }
       }
 
@@ -124,21 +126,22 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
+        super.onRoadDataUpdate(evt);
         this._roadmapControl.updateRoadData();
       }
 
-      protected onTableBetInfoUpdate(evt: egret.Event) {
-        super.onTableBetInfoUpdate(evt);
-        if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
-          if (betInfo.tableid === this._tableId) {
-            // update the scene
-            (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
-            (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
-            this._leftGamePanel.totalBet = evt.data.total;
-          }
-        }
-      }
+      // protected onTableBetInfoUpdate(evt: egret.Event) {
+      //   super.onTableBetInfoUpdate(evt);
+      //   if (evt && evt.data) {
+      //     const betInfo = <data.GameTableBetInfo> evt.data;
+      //     if (betInfo.tableid === this._tableId) {
+      //       // update the scene
+      //       (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
+      //       (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+      //       this._leftGamePanel.totalBet = evt.data.total;
+      //     }
+      //   }
+      // }
 
       public checkResultMessage() {
         if (this._gameData.wintype == 0) {

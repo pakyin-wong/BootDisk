@@ -22,23 +22,33 @@
 			                 scaleX="1" scaleY="1" textAlign="right" x="1824" />
 			<ui:BaseImageButton id="_btn_search" width="63" height="63" x="1720" y="73" currentState="search_icon"
 			                    skinName="skin_mobile_portrait.ImageButtonSkinNav" scaleX="1" scaleY="1" />
-			<ui:BaseButton id="_btn_searchType" width="400" height="120" x="639" y="50"
-			               skinName="skin_mobile_portrait.OverlayPanelButton" active="true" scaleX="1" scaleY="1" />
+
+			<!--<ui:BaseButton id="_btn_searchType" width="400" height="120" x="639" y="50"
+			                   skinName="skin_mobile_portrait.OverlayPanelButton" active="true" scaleX="1" scaleY="1" />
 			<ui:BaseButton id="_btn_custom" width="252" height="120" x="1347" y="50"
 			               skinName="skin_mobile_portrait.OverlayPanelSwitch" scaleX="1" scaleY="1" />
 			<ui:BaseButton id="_btn_date" width="252" height="120" y="50" active="true" x="1130"
 			               skinName="skin_mobile_portrait.OverlayPanelSwitch" scaleX="1" scaleY="1" />
-			<e:Image id="close" width="96" height="96" source="d-lobby-button-close-none_png" x="2296" y="20"/>
+			-->
+
+			<ui:RoundRectButton id="_btn_searchType" cornerTL_TR_BL_BR="60,60,60,60" width="400" height="120" x="639" y="50"
+			                    stroke="0" strokeIn="0" fillAlpha="1" fillColor="0x1b416e" />
+			<e:Image source="d_lobby_button_down_normal_png" width="80" height="80" y="70" x="928" touchEnabled="false" />
+			<ui:RoundRectButton id="_btn_custom" cornerTL_TR_BL_BR="60,60,60,60" width="200" height="120" x="1394" y="50"
+			                    stroke="0" strokeIn="0" fillAlpha="0" fillAlpha_active="1" fillColor="0x1b416e" />
+			<ui:RoundRectButton id="_btn_date" cornerTL_TR_BL_BR="60,60,60,60" width="250" height="120" x="1130" y="50"
+			                    stroke="0" strokeIn="0" fillAlpha="0" fillAlpha_active="1" fillColor="0x1b416e" />			    
+			<e:Image source="d_lobby_button_down_normal_png" width="80" height="80" y="70" x="1290" touchEnabled="false" />
+			
+			<e:Image id="close" width="96" height="96" source="d-lobby-button-close-none_png" x="2296" y="20" />
 			<e:Scroller id="_scroller" height="696" y="295" anchorOffsetY="0" left="0" right="0" x="0" scaleX="1" scaleY="1">
-				<e:List id="_datagroup"  width="2424"/>
+				<e:List id="_datagroup" width="2424" />
 			</e:Scroller>
-			<bh:BetHistoryDetail skinName="skin_mobile_landscape.BetHistoryDetail" id="_detail" x="-9" y="-242"/>
-			<bh:BetHistorySearch skinName="skin_mobile_landscape.BetHistorySearch" id="_search" touchEnabled="true"/>
+			<bh:BetHistoryDetail skinName="skin_mobile_landscape.BetHistoryDetail" id="_detail" x="-9" y="-242" />
+			<bh:BetHistorySearch skinName="skin_mobile_landscape.BetHistorySearch" id="_search" touchEnabled="true" />
 		</e:Group>
-
-
-		<ui:RunTimeLabel id="_txt_date" text="d" x="1428" y="58" width="48" height="36" size="24"
-		                 alpha="0.7" verticalAlign="middle" visible="false" />
+		<ui:RunTimeLabel id="_txt_date" text="d" x="1428" y="58" width="48" height="36" size="24" alpha="0.7"
+		                 verticalAlign="middle" visible="false" />
 		<ui:BaseButton id="_btn_today" width="137" height="60" x="1512" y="47"
 		               skinName="skin_mobile_portrait.OverlayPanelButton" visible="false" />
 		<ui:BaseButton id="_btn_week" width="137" height="60" x="1669" y="47"
