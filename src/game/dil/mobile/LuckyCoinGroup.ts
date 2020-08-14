@@ -62,7 +62,7 @@ namespace we {
         }
       }
 
-      public updateLuckyNumbers(gameData: data.GameData, chipLayer: ui.ChipLayer, isPanelOpen: boolean) {
+      public updateLuckyNumbers(gameData: data.GameData, chipLayer: ui.ChipLayer) {
         this.gameData = <dil.GameData>gameData;
         this.removeChildren();
 
@@ -81,7 +81,7 @@ namespace we {
 
           const coinAnim = this.createLuckyCoinAnim();
           coinAnim.x = this.animXArr[no];
-          if (env.orientation === 'portrait' && isPanelOpen === false) {
+          if (env.orientation === 'portrait' && env.isBottomPanelOpen === false) {
             coinAnim.y = this.animYArr[no] + 530;
           } else {
             coinAnim.y = this.animYArr[no];

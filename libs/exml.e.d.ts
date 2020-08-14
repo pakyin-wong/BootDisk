@@ -2163,6 +2163,10 @@ declare module skin_mobile{
 	}
 }
 declare module skin_mobile{
+	class SimpleQuickBetButtonSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile{
 	class CountdownTimerRoundSkin extends eui.Skin{
 	}
 }

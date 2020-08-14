@@ -178,6 +178,8 @@ namespace we {
               return ro.MobileSideListItemHolder;
             case we.core.GameType.DI:
               return di.MobileSideListItemHolder;
+            case we.core.GameType.DIL:
+              return dil.MobileSideListItemHolder;
             case we.core.GameType.LW:
               return lw.MobileSideListItemHolder;
             case we.core.GameType.DT:

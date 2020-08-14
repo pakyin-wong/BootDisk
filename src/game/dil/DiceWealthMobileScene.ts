@@ -54,20 +54,12 @@ namespace we {
 
       protected setStateIdle(isInit: boolean) {
         super.setStateIdle(isInit);
-        if (env.orientation === 'landscape') {
-          egret.Tween.get(this._tableLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
-          egret.Tween.get(this._chipLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
-        }
         (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
 
       protected setStateBet(isInit: boolean) {
         super.setStateBet(isInit);
-        if (env.orientation === 'landscape') {
-          egret.Tween.get(this._tableLayer).to({ scaleX: 1, scaleY: 1 }, 250);
-          egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
-        }
         this._dilGameID.renderText = () => `${this._tableInfo.tableid}`;
         this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
         (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
@@ -76,20 +68,16 @@ namespace we {
 
       protected setStateDeal(isInit: boolean) {
         super.setStateDeal(isInit);
-        // if (env.orientation === 'landscape') {
-        //   egret.Tween.get(this._tableLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
-        //   egret.Tween.get(this._chipLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
-        // }
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
           (<we.dil.MobileChipLayer>this._chipLayer).showLuckyNumber();
-          (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer, this._bottomGamePanel.isPanelOpen);
+          (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer);
         }
       }
 
       protected setStateFinish(isInit: boolean = false) {
         super.setStateFinish(isInit);
         if (isInit && this._previousState !== we.core.GameState.FINISH) {
-          (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer, this._bottomGamePanel.isPanelOpen);
+          (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer);
         }
         (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         (<we.dil.MobileChipLayer>this._chipLayer).showWinningNumber();
