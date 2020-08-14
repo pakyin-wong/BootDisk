@@ -114,7 +114,9 @@ namespace we {
         }
         this._isAnimating = true;
         await new Promise((resolve, reject) => {
-          egret.Tween.get(this.target).to({ height: targetHeight }, this.duration).call(resolve);
+          egret.Tween.get(this.target)
+            .to({ height: targetHeight }, this.duration)
+            .call(resolve);
         });
         this._isAnimating = false;
 
@@ -142,7 +144,9 @@ namespace we {
 
         this._isAnimating = true;
         await new Promise((resolve, reject) => {
-          egret.Tween.get(this.target).to({ height: 0 }, 200).call(resolve);
+          egret.Tween.get(this.target)
+            .to({ height: 0 }, 200)
+            .call(resolve);
         });
         this._isAnimating = false;
       }

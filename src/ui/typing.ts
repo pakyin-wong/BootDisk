@@ -55,6 +55,7 @@ namespace we {
       draw(noAnim?: boolean);
       highlight: boolean; // indicate whether the chip is being selected
       type: number;
+      chipScale: number;
     }
 
     // Opt
