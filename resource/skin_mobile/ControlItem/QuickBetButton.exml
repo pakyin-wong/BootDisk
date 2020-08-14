@@ -4,7 +4,7 @@
         <e:Group width="350" height="100">
             <e:Group verticalCenter="0" horizontalCenter="0">
                 <e:Image source="flash_png" />
-                <ui:RunTimeLabel i18n="mobile_quick_bet_button_label"/>
+                <ui:RunTimeLabel i18n="mobile_quick_bet_button_label" size="50" />
                 <e:layout >
                     <e:HorizontalLayout gap="10" verticalAlign="middle" />
                 </e:layout>
