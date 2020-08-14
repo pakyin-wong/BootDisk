@@ -90,6 +90,15 @@ namespace we {
       overlaypanel_bethistory_dtresult_tiger: '虎',
 
       overlaypanel_bethistory_searchtype_all: '全部游戏',
+      overlay: {
+        tooltip: {
+          bethistory: {
+            prev: '上一页',
+            next: '下一页',
+            replay: '播放錄像',
+          },
+        },
+      },
 
       overlaypanel_gameSet_showGoodRoadHint: '显示好路提示',
       overlaypanel_gameSet_autoBet: '自动确认投注',
@@ -397,6 +406,14 @@ namespace we {
         },
       },
       goodroad: {
+        tooltip: {
+          enable: '啟用好路',
+          disable: '停用好路',
+          cleartext: '清空名称',
+          drawbanker: '画庄',
+          drawplayer: '画閒',
+          confirm: '确认好路',
+        },
         r1: '长庄',
         r2: '长闲',
         r3: '长路转单跳',
