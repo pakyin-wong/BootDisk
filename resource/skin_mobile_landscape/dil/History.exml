@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_landscape.dil.HistorySkin" width="1992" height="308" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_landscape.dil.HistorySkin" width="995" height="308" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal">
         <e:Group horizontalCenter="0" y="38">
                 <ui:RunTimeLabel id="_recent" size="48" i18n="dice.recent"/>
@@ -9,121 +9,121 @@
                         <e:HorizontalLayout gap="10" />
                 </e:layout>
         </e:Group>
-        <e:Group y="100" x="37" scaleY="1">
-                <e:Group width="56" height="402">
-                        <e:Label id="_sum3Percent" horizontalCenter="0" y="2" size="26" text="10%" />
-                        <ui:ProgressBar id="_sum3" color="0xd7d93b" baseColor="0x505050" width="56" height="262"
+        <e:Group y="38" x="204" scaleY="1">
+                <e:Group width="36" height="240">
+                        <e:Label id="_sum3Percent" horizontalCenter="0" size="18" text="10%"  top="5"/>
+                        <ui:ProgressBar id="_sum3" color="0xd7d93b" baseColor="0x505050" width="34" height="158"
                                         horizontalCenter="0" y="30" roundCorner="[5, 5, 5, 5, 5, 5, 5, 5]"
                                         proportion="0.1" />
-                        <e:Label horizontalCenter="0" y="335" size="50" text="3" />
+                        <e:Label horizontalCenter="0" size="40" text="3"  bottom="5"/>
                 </e:Group>
-                <e:Group width="56" height="402">
-                        <e:Label id="_sum4Percent" horizontalCenter="0" y="2" size="26" text="1%" />
-                        <ui:ProgressBar id="_sum4" color="0xd98c20" baseColor="0x505050" width="56" height="262"
+                <e:Group width="36" height="240">
+                        <e:Label id="_sum4Percent" horizontalCenter="0" size="18" text="1%"  top="5"/>
+                        <ui:ProgressBar id="_sum4" color="0xd98c20" baseColor="0x505050" width="34" height="158"
                                         horizontalCenter="0" y="30" roundCorner="[5, 5, 5, 5, 5, 5, 5, 5]"
                                         proportion="0.01" />
-                        <e:Label horizontalCenter="0" y="335" size="50" text="4" />
+                        <e:Label horizontalCenter="0" size="40" text="4"  bottom="5"/>
                 </e:Group>
-                <e:Group width="56" height="402">
-                        <e:Label id="_sum5Percent" horizontalCenter="0" y="2" size="26" text="65%" />
-                        <ui:ProgressBar id="_sum5" color="0xd94341" baseColor="0x505050" width="56" height="262"
+                <e:Group width="36" height="240">
+                        <e:Label id="_sum5Percent" horizontalCenter="0" size="18" text="65%"  top="5"/>
+                        <ui:ProgressBar id="_sum5" color="0xd94341" baseColor="0x505050" width="34" height="158"
                                         horizontalCenter="0" y="30" roundCorner="[5, 5, 5, 5, 5, 5, 5, 5]"
                                         proportion="0.65" />
-                        <e:Label horizontalCenter="0" y="335" size="50" text="5" />
+                        <e:Label horizontalCenter="0" size="40" text="5"  bottom="5"/>
                 </e:Group>
-                <e:Group width="56" height="402">
-                        <e:Label id="_sum6Percent" horizontalCenter="0" y="2" size="26" text="3%" />
-                        <ui:ProgressBar id="_sum6" color="0xd93b96" baseColor="0x505050" width="56" height="262"
+                <e:Group width="36" height="240">
+                        <e:Label id="_sum6Percent" horizontalCenter="0" size="18" text="3%"  top="5"/>
+                        <ui:ProgressBar id="_sum6" color="0xd93b96" baseColor="0x505050" width="34" height="158"
                                         horizontalCenter="0" y="30" roundCorner="[5, 5, 5, 5, 5, 5, 5, 5]"
                                         proportion="0.03" />
-                        <e:Label horizontalCenter="0" y="335" size="50" text="6" />
+                        <e:Label horizontalCenter="0" size="40" text="6"  bottom="5"/>
                 </e:Group>
-                <e:Group width="56" height="402">
-                        <e:Label id="_sum7Percent" horizontalCenter="0" y="2" size="26" text="11%" />
-                        <ui:ProgressBar id="_sum7" color="0xa73ad9" baseColor="0x505050" width="56" height="262"
+                <e:Group width="36" height="240">
+                        <e:Label id="_sum7Percent" horizontalCenter="0" size="18" text="11%"  top="5"/>
+                        <ui:ProgressBar id="_sum7" color="0xa73ad9" baseColor="0x505050" width="34" height="158"
                                         horizontalCenter="0" y="30" roundCorner="[5, 5, 5, 5, 5, 5, 5, 5]"
                                         proportion="0.11" />
-                        <e:Label horizontalCenter="0" y="335" size="50" text="7" />
+                        <e:Label horizontalCenter="0" size="40" text="7"  bottom="5"/>
                 </e:Group>
-                <e:Group width="56" height="402">
-                        <e:Label id="_sum8Percent" horizontalCenter="0" y="2" size="26" text="15%" />
-                        <ui:ProgressBar id="_sum8" color="0x1c75d9" baseColor="0x505050" width="56" height="262"
+                <e:Group width="36" height="240">
+                        <e:Label id="_sum8Percent" horizontalCenter="0" size="18" text="15%"  top="5"/>
+                        <ui:ProgressBar id="_sum8" color="0x1c75d9" baseColor="0x505050" width="34" height="158"
                                         horizontalCenter="0" y="30" roundCorner="[5, 5, 5, 5, 5, 5, 5, 5]"
                                         proportion="0.15" />
-                        <e:Label horizontalCenter="0" y="335" size="50" text="8" />
+                        <e:Label horizontalCenter="0" size="40" text="8"  bottom="5"/>
                 </e:Group>
-                <e:Group width="56" height="402">
-                        <e:Label id="_sum9Percent" horizontalCenter="0" y="2" text="3%"  size="26"/>
-                        <ui:ProgressBar id="_sum9" color="0x3cd9cd" baseColor="0x505050" width="56" height="262"
+                <e:Group width="36" height="240">
+                        <e:Label id="_sum9Percent" horizontalCenter="0" text="3%"  size="18" top="5"/>
+                        <ui:ProgressBar id="_sum9" color="0x3cd9cd" baseColor="0x505050" width="34" height="158"
                                         horizontalCenter="0" y="30" roundCorner="[5, 5, 5, 5, 5, 5, 5, 5]"
                                         proportion="0.03" />
-                        <e:Label horizontalCenter="0" y="335" size="50" text="9" />
+                        <e:Label horizontalCenter="0" size="40" text="9"  bottom="5"/>
                 </e:Group>
-                <e:Group width="56" height="402">
-                        <e:Label id="_sum10Percent" horizontalCenter="0" y="2" size="26" text="2%" />
-                        <ui:ProgressBar id="_sum10" color="0x36d943" baseColor="0x505050" width="56" height="262"
+                <e:Group width="36" height="240">
+                        <e:Label id="_sum10Percent" horizontalCenter="0" size="18" text="2%"  top="5"/>
+                        <ui:ProgressBar id="_sum10" color="0x36d943" baseColor="0x505050" width="34" height="158"
                                         horizontalCenter="0" y="30" roundCorner="[5, 5, 5, 5, 5, 5, 5, 5]"
                                         proportion="0.02" />
-                        <e:Label horizontalCenter="0" y="335" size="50" text="10" />
+                        <e:Label horizontalCenter="0" size="40" text="10"  bottom="5"/>
                 </e:Group>
-                <e:Group width="56" height="402">
-                        <e:Label id="_sum11Percent" horizontalCenter="0" y="2" size="26" text="7%" />
-                        <ui:ProgressBar id="_sum11" color="0x36d943" baseColor="0x505050" width="56" height="262"
+                <e:Group width="36" height="240">
+                        <e:Label id="_sum11Percent" horizontalCenter="0" size="18" text="7%"  top="5"/>
+                        <ui:ProgressBar id="_sum11" color="0x36d943" baseColor="0x505050" width="34" height="158"
                                         horizontalCenter="0" y="30" roundCorner="[5, 5, 5, 5, 5, 5, 5, 5]"
                                         proportion="0.07" />
-                        <e:Label horizontalCenter="0" y="335" size="50" text="11" />
+                        <e:Label horizontalCenter="0" size="40" text="11"  bottom="5"/>
                 </e:Group>
-                <e:Group width="56" height="402">
-                        <e:Label id="_sum12Percent" horizontalCenter="0" y="2" size="26" text="6%" />
-                        <ui:ProgressBar id="_sum12" color="0x3cd9cd" baseColor="0x505050" width="56" height="262"
+                <e:Group width="36" height="240">
+                        <e:Label id="_sum12Percent" horizontalCenter="0" size="18" text="6%"  top="5"/>
+                        <ui:ProgressBar id="_sum12" color="0x3cd9cd" baseColor="0x505050" width="34" height="158"
                                         horizontalCenter="0" y="30" roundCorner="[5, 5, 5, 5, 5, 5, 5, 5]"
                                         proportion="0.06" />
-                        <e:Label horizontalCenter="0" y="335" size="50" text="12" />
+                        <e:Label horizontalCenter="0" size="40" text="12"  bottom="5"/>
                 </e:Group>
-                <e:Group width="56" height="402">
-                        <e:Label id="_sum13Percent" horizontalCenter="0" y="2" size="26" text="3%" />
-                        <ui:ProgressBar id="_sum13" color="0x1c75d9" baseColor="0x505050" width="56" height="262"
+                <e:Group width="36" height="240">
+                        <e:Label id="_sum13Percent" horizontalCenter="0" size="18" text="3%"  top="5"/>
+                        <ui:ProgressBar id="_sum13" color="0x1c75d9" baseColor="0x505050" width="34" height="158"
                                         horizontalCenter="0" y="30" roundCorner="[5, 5, 5, 5, 5, 5, 5, 5]"
                                         proportion="0.03" />
-                        <e:Label horizontalCenter="0" y="335" size="50" text="13" />
+                        <e:Label horizontalCenter="0" size="40" text="13"  bottom="5"/>
                 </e:Group>
-                <e:Group width="56" height="402">
-                        <e:Label id="_sum14Percent" horizontalCenter="0" y="2" size="26" text="9%" />
-                        <ui:ProgressBar id="_sum14" color="0xa73ad9" baseColor="0x505050" width="56" height="262"
+                <e:Group width="36" height="240">
+                        <e:Label id="_sum14Percent" horizontalCenter="0" size="18" text="9%"  top="5"/>
+                        <ui:ProgressBar id="_sum14" color="0xa73ad9" baseColor="0x505050" width="34" height="158"
                                         horizontalCenter="0" y="30" roundCorner="[5, 5, 5, 5, 5, 5, 5, 5]"
                                         proportion="0.09" />
-                        <e:Label horizontalCenter="0" y="335" size="50" text="14" />
+                        <e:Label horizontalCenter="0" size="40" text="14"  bottom="5"/>
                 </e:Group>
-                <e:Group width="56" height="402">
-                        <e:Label id="_sum15Percent" horizontalCenter="0" y="2" size="26" text="5%" />
-                        <ui:ProgressBar id="_sum15" color="0xd93b96" baseColor="0x505050" width="56" height="262"
+                <e:Group width="36" height="240">
+                        <e:Label id="_sum15Percent" horizontalCenter="0" size="18" text="5%"  top="5"/>
+                        <ui:ProgressBar id="_sum15" color="0xd93b96" baseColor="0x505050" width="34" height="158"
                                         horizontalCenter="0" y="30" roundCorner="[5, 5, 5, 5, 5, 5, 5, 5]"
                                         proportion="0.05" />
-                        <e:Label horizontalCenter="0" y="335" size="50" text="15" />
+                        <e:Label horizontalCenter="0" size="40" text="15"  bottom="5"/>
                 </e:Group>
-                <e:Group width="56" height="402">
-                        <e:Label id="_sum16Percent" horizontalCenter="0" y="2" size="26" text="2%" />
-                        <ui:ProgressBar id="_sum16" color="0xd94341" baseColor="0x505050" width="56" height="262"
+                <e:Group width="36" height="240">
+                        <e:Label id="_sum16Percent" horizontalCenter="0" size="18" text="2%"  top="5"/>
+                        <ui:ProgressBar id="_sum16" color="0xd94341" baseColor="0x505050" width="34" height="158"
                                         horizontalCenter="0" y="30" roundCorner="[5, 5, 5, 5, 5, 5, 5, 5]"
                                         proportion="0.02" />
-                        <e:Label horizontalCenter="0" y="335" size="50" text="16" />
+                        <e:Label horizontalCenter="0" size="40" text="16"  bottom="5"/>
                 </e:Group>
-                <e:Group width="56" height="402">
-                        <e:Label id="_sum17Percent" horizontalCenter="0" y="2" size="26" text="1%" />
-                        <ui:ProgressBar id="_sum17" color="0xd98c20" baseColor="0x505050" width="56" height="262"
-                                        horizontalCenter="0" y="30" roundCorner="[5, 5, 5, 5, 5, 5, 5, 5]"
-                                        proportion="0.01" />
-                        <e:Label horizontalCenter="0" y="335" size="50" text="17" />
+                <e:Group width="36" height="240">
+                        <e:Label id="_sum17Percent" horizontalCenter="0" size="18" text="1%"  top="5"/>
+                        <ui:ProgressBar id="_sum17" color="0xd98c20" baseColor="0x505050" width="34" height="158"
+                                        horizontalCenter="0" roundCorner="[5, 5, 5, 5, 5, 5, 5, 5]"
+                                        proportion="0.01"  y="30"/>
+                        <e:Label horizontalCenter="0" size="40" text="17"  bottom="5"/>
                 </e:Group>
-                <e:Group width="56" height="402">
-                        <e:Label id="_sum18Percent" horizontalCenter="0" y="2" size="26" text="3%" />
-                        <ui:ProgressBar id="_sum18" color="0xd7d93b" baseColor="0x505050" width="56" height="262"
+                <e:Group width="36" height="240">
+                        <e:Label id="_sum18Percent" horizontalCenter="0" size="18" text="3%"  top="5"/>
+                        <ui:ProgressBar id="_sum18" color="0xd7d93b" baseColor="0x505050" width="34" height="158"
                                         horizontalCenter="0" y="30" roundCorner="[5, 5, 5, 5, 5, 5, 5, 5]"
                                         proportion="0.03" />
-                        <e:Label horizontalCenter="0" y="335" size="50" text="18" />
+                        <e:Label horizontalCenter="0" size="40" text="18"  bottom="5"/>
                 </e:Group>
                 <e:layout>
-                        <e:HorizontalLayout gap="18" />
+                        <e:HorizontalLayout gap="2" />
                 </e:layout>
         </e:Group>
 </e:Skin>
