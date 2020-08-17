@@ -47,6 +47,18 @@ namespace we {
         return notes;
       }
 
+      export function DragonTigerNoteCount(data, combinations = []): number[] {
+        const datas = data[0].split('|');
+
+        const notes = [];
+
+        for (let i = 0; i < datas.length; i++) {
+          notes.push(1); // ?
+        }
+
+        return notes;
+      }
+
       export function DirectionalCombination(data, combinations = []): number[] {
         let combinationsCount;
 
@@ -932,13 +944,14 @@ namespace we {
       }
 
       export namespace SizeParity {
-        export function TwoPosDirectionalSelection(data, combination = null): number {
+        export function TwoPosDirectionalSelection(data, combination = null): number[] {
           const firstDataCount = data[0].split('|').length;
           const secondDataCount = data[1].split('|').length;
 
-          return firstDataCount * secondDataCount;
+          return [firstDataCount * secondDataCount];
         }
       }
+
       function repeatCount(array1, array2): number {
         let count = 0;
         for (let i = 0; i < array1.length; i++) {

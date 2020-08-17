@@ -63,14 +63,14 @@ namespace we {
           const obj = SelectionMapping[Object.keys(SelectionMapping)[i]];
 
           const bigTagGroup: eui.Group = new eui.Group();
-          bigTagGroup.width = 107;
+          bigTagGroup.width = 107.7;
           bigTagGroup.height = 60;
           // bigTagGroup.name = obj.name;
           bigTagGroup.touchEnabled = true;
           bigTagGroup.touchChildren = true;
 
           const bigTag: ui.RoundRectButton = new ui.RoundRectButton();
-          bigTag.width = 107;
+          bigTag.width = 107.7;
           bigTag.height = 60;
           bigTag.cornerTL_TR_BL_BR = '0,0,0,0';
           bigTag.stroke = 1;
@@ -106,7 +106,7 @@ namespace we {
           lbl.size = 20;
           lbl.textAlign = 'center';
           lbl.verticalAlign = 'middle';
-          lbl.width = 117;
+          lbl.width = 107.7;
           lbl.height = 60;
           lbl.touchEnabled = false;
           bigTagGroup.addChild(lbl);

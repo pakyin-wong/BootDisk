@@ -6,6 +6,8 @@ namespace we {
       protected _bettingControl: ABettingControlBar;
       public _noteControl: ANoteControlPanel;
 
+      public _currentGameRound: string;
+
       protected init() {
         if (this._bettingControl) {
           this._bettingControl.bettingPanel = this;
@@ -86,13 +88,31 @@ namespace we {
 
       protected placeBet(notes: TradNoteData[]) {
         const betdetails = this.generateBetDetail(notes);
-
+        let s = '';
+        for (let i = 0; i < betdetails.length; i++) {
+          s += betdetails[i].field + ' , amount = ' + betdetails[i].amount;
+        }
+        this._noteControl.clearAllNotes();
+        console.log(s);
+        // dir.socket.bet(this._tableId, bets);
         // TODO: send out betdetails
       }
 
+      // protected generateRoundBetDetail(notes: TradNoteData[]): data.RoundBetDetail{
+      //   //
+      // }
+
       protected generateBetDetail(notes: TradNoteData[]): data.BetCommand[] {
         // TODO: generate betDetails using TradNoteDatas
-        return [];
+        //
+        const betDetailArray: data.BetCommand[] = [];
+        for (let i = 0; i < notes.length; i++) {
+          const field = notes[i].field;
+          const amount = parseInt(notes[i].field.split('@')[1], 10) * notes[i].count;
+          betDetailArray.push({ amount, field });
+        }
+
+        return betDetailArray;
       }
 
       public confirmBet() {
@@ -120,6 +140,31 @@ namespace we {
         //     multiplier: 1,
         //   },
         // ];
+      }
+
+      public validateBetLimit() {
+        // temp list of betlimits, need to receive from server
+        // const tempMap = we.lo.tempBetLimitsMap;
+        if (this._currentBettingTable.betFields.length === 0) {
+          return;
+        }
+
+        const noteDataArray = this.generateNoteData();
+        const betDetails = this.generateBetDetail(noteDataArray);
+        const roundBetDetailArray = this.generateCurrentBetRoundBetDetail();
+        //send validation
+      }
+
+      public generateChaseBetRoundBetDetail(): data.LotteryBetCommand[] {
+        //chaseBet
+        return [];
+      }
+
+      public generateCurrentBetRoundBetDetail(): data.LotteryBetCommand[] {
+        // let lotteryBetCommandArray : data.LotteryBetCommand[] = [];
+        let lotteryBetCommand: data.LotteryBetCommand = { roundid: this._currentGameRound, multiplier: 1, stopChaseIfWon: false };
+
+        return [lotteryBetCommand];
       }
 
       public onBettingControlBarUnitBetUpdate(betFields: string[]) {

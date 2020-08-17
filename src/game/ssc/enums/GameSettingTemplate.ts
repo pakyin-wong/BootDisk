@@ -85,6 +85,31 @@ namespace we {
     //   }
     // }
 
+    export const tempBetLimitsMap = [
+      {
+        gameroundid: '20200101210',
+        map: [
+          {
+            betCode: 'FIVE120',
+            betlimits: ['12345:200', '11345:0', '13456:200'],
+          },
+          {
+            betCode: '12345OPTIONALINPUT',
+            betlimits: ['12345:200', '11345:0', '13456:200'],
+          },
+        ],
+      },
+      {
+        gameroundid: '20200101211',
+        map: [
+          {
+            betCode: 'INTEREST1',
+            betlimits: ['0:200', '11345:0', '13456:200'],
+          },
+        ],
+      },
+    ];
+
     export const template = {
       template: {
         name: 'template',
@@ -99,7 +124,7 @@ namespace we {
               InputComponentDefinition.ballRange('Unit', 0, 9, 1),
             ],
             pattern: '12345OPTIONAL_$1_$2_$3_$4_$5',
-            noteCountFunc: NoteCountFunc.StringNoteCount,
+            noteCountFunc: NoteCountFunc.DirectionalSelection,
           },
           Five30: {
             name: 'Five30',

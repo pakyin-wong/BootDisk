@@ -808,7 +808,7 @@ namespace we {
             mapping: DataMapping.DragonTigerMapping,
             mappingIndex: [0],
             pattern: '12DT_$1',
-            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            noteCountFunc: NoteCountFunc.DragonTigerNoteCount,
           },
           TenThousandHundred: {
             name: 'TenThousandHundred',
@@ -816,7 +816,7 @@ namespace we {
             mapping: DataMapping.DragonTigerMapping,
             mappingIndex: [0],
             pattern: '13DT_$1',
-            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            noteCountFunc: NoteCountFunc.DragonTigerNoteCount,
           },
           TenThousandTen: {
             name: 'TenThousandTen',
@@ -824,7 +824,7 @@ namespace we {
             mapping: DataMapping.DragonTigerMapping,
             mappingIndex: [0],
             pattern: '14DT_$1',
-            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            noteCountFunc: NoteCountFunc.DragonTigerNoteCount,
           },
           TenThousandUnit: {
             name: 'TenThousandUnit',
@@ -832,7 +832,7 @@ namespace we {
             mapping: DataMapping.DragonTigerMapping,
             mappingIndex: [0],
             pattern: '15DT_$1',
-            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            noteCountFunc: NoteCountFunc.DragonTigerNoteCount,
           },
           ThousandHundred: {
             name: 'ThousandHundred',
@@ -840,7 +840,7 @@ namespace we {
             mapping: DataMapping.DragonTigerMapping,
             mappingIndex: [0],
             pattern: '23DT_$1',
-            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            noteCountFunc: NoteCountFunc.DragonTigerNoteCount,
           },
           ThousandTen: {
             name: 'ThousandTen',
@@ -848,7 +848,7 @@ namespace we {
             mapping: DataMapping.DragonTigerMapping,
             mappingIndex: [0],
             pattern: '24DT_$1',
-            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            noteCountFunc: NoteCountFunc.DragonTigerNoteCount,
           },
           ThousandUnit: {
             name: 'ThousandUnit',
@@ -856,7 +856,7 @@ namespace we {
             mapping: DataMapping.DragonTigerMapping,
             mappingIndex: [0],
             pattern: '25DT_$1',
-            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            noteCountFunc: NoteCountFunc.DragonTigerNoteCount,
           },
           HundredTen: {
             name: 'HundredTen',
@@ -864,7 +864,7 @@ namespace we {
             mapping: DataMapping.DragonTigerMapping,
             mappingIndex: [0],
             pattern: '34DT_$1',
-            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            noteCountFunc: NoteCountFunc.DragonTigerNoteCount,
           },
           HundredUnit: {
             name: 'HundredUnit',
@@ -872,7 +872,7 @@ namespace we {
             mapping: DataMapping.DragonTigerMapping,
             mappingIndex: [0],
             pattern: '35DT_$1',
-            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            noteCountFunc: NoteCountFunc.DragonTigerNoteCount,
           },
           TenUnit: {
             name: 'TenUnit',
@@ -880,7 +880,7 @@ namespace we {
             mapping: DataMapping.DragonTigerMapping,
             mappingIndex: [0],
             pattern: '45DT_$1',
-            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            noteCountFunc: NoteCountFunc.DragonTigerNoteCount,
           },
         },
       },
@@ -897,7 +897,7 @@ namespace we {
               InputComponentDefinition.ballRange('Unit', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
             ],
             dataSelect: 2,
-            pattern: '^1^2OPTIONALFREE_%1_%2',
+            pattern: '^1^2OPTIONALFREE_&1_&2',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
           },
           DirectionalMenu: {
@@ -965,7 +965,7 @@ namespace we {
               InputComponentDefinition.ballRange('Unit', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
             ],
             dataSelect: 3,
-            pattern: '^1^2^3OPTIONALFREE_%1_%2_%3',
+            pattern: '^1^2^3OPTIONALFREE_&1_&2_&3',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
           },
           DirectionalMenu: {
@@ -1040,7 +1040,7 @@ namespace we {
               InputComponentDefinition.ballRange('Unit', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
             ],
             dataSelect: 4,
-            pattern: '^1^2^3^4OPTIONALFREE_%1_%2_%3_%4',
+            pattern: '^1^2^3^4OPTIONALFREE_&1_&2_&3_&4',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
           },
           DirectionalMenu: {

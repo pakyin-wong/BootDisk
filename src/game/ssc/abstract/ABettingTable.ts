@@ -22,21 +22,21 @@ namespace we {
 
       protected init() {
         const inputConfigs = this._config.input;
-        let isCheckBox = false;
+        // let isCheckBox = false;
         if (inputConfigs && inputConfigs.length > 0) {
           for (let i = 0; i < inputConfigs.length; i++) {
             const inputComponent = InputComponentFactory.generateInputComponent(i, inputConfigs[i]);
-            if (inputConfigs[i].type === InputComponentType.CHECKBOXES) {
-              isCheckBox = true;
-            }
+            // if (inputConfigs[i].type === InputComponentType.CHECKBOXES) {
+            //   isCheckBox = true;
+            // }
             inputComponent.addEventListener(egret.Event.CHANGE, this.onInputChange, this);
             this._inputs.push(inputComponent);
             // init empty inputData
             this.inputData.push('');
           }
-          if (isCheckBox) {
-            this.dispatchEvent(new egret.Event('INIT_CHECKBOXES'));
-          }
+          // if (isCheckBox) {
+          //   this.dispatchEvent(new egret.Event('INIT_CHECKBOXES'));
+          // }
         }
       }
 
@@ -44,20 +44,23 @@ namespace we {
         const { index, data } = evt.data;
         // update inputData
         this.inputData[index] = data;
+
         for (let i = 0; i < this.inputData.length; i++) {
-          if (this.inputData[i] === '') {
+          if (this.inputData[i].length < this._config.input[i].minSelect) {
             this.onInputInvalidate();
             return;
           }
         }
+
         this.generateCombination();
         if (!this.validateInput()) {
           this.onInputInvalidate();
           return;
         }
-        this.dataMapping();
         this.generateBetFields();
+        this.dataMapping();
         this.computeNoteCount();
+        this.validateBetLimit();
 
         this.bettingPanel.onInputChanged();
       }
@@ -79,38 +82,7 @@ namespace we {
       }
 
       protected validateBetLimit() {
-        //  [
-        //   {
-        //     gameroundid: '20200101210',
-        //     map:
-        //     [
-        //       {
-        //         betCode:'FIVE120',
-        //         betlimits:[
-        //           '12345:200','11345:0','13456:200'
-        //         ]
-        //       },
-        //       {
-        //         betCode:'12345OPTIONALINPUT',
-        //         betlimits:[
-        //           '12345:200','11345:0','13456:200'
-        //         ]
-        //       },
-        //     ]
-        //   },
-        //   {
-        //     gameroundid: '20200101211',
-        //     map:
-        //     [
-        //       {
-        //         betCode:'INTEREST1',
-        //         betlimits:[
-        //           '0:200','11345:0','13456:200'
-        //         ]
-        //       },
-        //     ]
-        //   }
-        //  ]
+        this.bettingPanel.validateBetLimit();
       }
 
       protected onInputInvalidate() {
@@ -125,10 +97,15 @@ namespace we {
       }
 
       protected dataMapping() {
+        // for (let i = 0; i < this._config.inputs.length; i++) {
+        //   if (this._config.inputConfig[i].mapping) {
+        //     for (let k = 0; k < this._config.mappingIndex.length; k++) {
+        //       this._config.mapping(this.inputData, this._config.pattern);
+        //     }
+        //   }
+        // }
         if (this._config.mapping) {
-          for (let i = 0; i < this._config.mappingIndex.length; i++) {
-            this._config.mapping(this.inputData, this._config.pattern);
-          }
+          this.betFields = this._config.mapping(this.inputData, this._config.pattern);
         }
       }
 

@@ -83,7 +83,12 @@ action
     bet(tableID: string, betArray: BetValueCommand[], callback: Function): void;
     tradLotteryBet(tableID: string, betArray: BetValueCommand[], roundArray: RoundBetDetail[], callback: Function): void;
 
-    export class LotteryBetCommand {
+    export class RoundBetDetail {
       public roundid: number;
       public multiplier: string;
+      public chaseWinStop: boolean;
     }
+
+    - if win stop chase
+
+    bet history 

@@ -47,6 +47,9 @@ namespace we {
 
       protected _btnAddDataTEMP: eui.Image;
 
+      protected _btnConfirmBet: ui.RoundRectButton;
+      protected _btnChaseBet: ui.RoundRectButton;
+
       private _balance: number = 1;
 
       private _outputData: any = [];
@@ -119,12 +122,14 @@ namespace we {
       protected addListeners() {
         dir.evtHandler.addEventListener(we.core.Event.SSC_DELETE_ONE_NOTE, this.deleteOneNote, this);
         this._btnDelectAll.addEventListener(egret.TouchEvent.TOUCH_TAP, this.clearAllNotes, this);
+        this._btnConfirmBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this.bettingPanel);
         // this._btnAddDataTEMP.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addTempData, this);
       }
 
       protected removeListeners() {
         this._btnDelectAll.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.clearAllNotes, this);
         dir.evtHandler.removeEventListener(we.core.Event.SSC_DELETE_ONE_NOTE, this.deleteOneNote, this);
+        this._btnConfirmBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this.bettingPanel);
       }
 
       protected deleteOneNote(evt: egret.Event) {
@@ -226,11 +231,11 @@ namespace we {
         let totalcount = 0;
         if (this.notes.length === 0) {
           this._totalBetCount = totalcount;
-          this._lbltotalBetCount.renderText = () => `${this._totalBetCount} 注`;
+          this._lbltotalBetCount.renderText = () => `${this._totalBetCount}`;
         } else {
           this.notes.map(obj => (totalcount += obj.count));
           this._totalBetCount = totalcount;
-          this._lbltotalBetCount.renderText = () => `${this._totalBetCount} 注`;
+          this._lbltotalBetCount.renderText = () => `${this._totalBetCount}`;
         }
       }
 

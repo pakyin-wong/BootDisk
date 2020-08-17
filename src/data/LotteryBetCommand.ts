@@ -2,8 +2,9 @@
 namespace we {
   export namespace data {
     export class LotteryBetCommand {
-      public roundid: number;
-      public multiplier: string;
+      public roundid: string;
+      public multiplier: number;
+      public stopChaseIfWon: boolean;
     }
   }
 }

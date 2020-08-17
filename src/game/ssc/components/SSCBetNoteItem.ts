@@ -53,13 +53,13 @@ namespace we {
       }
 
       protected addListeners() {
-        this._btnDelect.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickDelect, this);
+        this._btnDelect.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickDelete, this);
         this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onHover, this);
         this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollOut, this);
       }
 
       protected removeListeners() {
-        this._btnDelect.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickDelect, this);
+        this._btnDelect.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickDelete, this);
         this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onHover, this);
         this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollOut, this);
       }
@@ -71,37 +71,72 @@ namespace we {
       protected onRollOut() {
         this.currentState = 'normal';
       }
-      protected onClickDelect() {
+      protected onClickDelete() {
         console.log('SSCBETNOTEITEM :: onClickDelect', this.data);
         // TODO: call parent to clear the data , delect this.notes ,update total
         dir.evtHandler.dispatch(we.core.Event.SSC_DELETE_ONE_NOTE, this.data);
       }
 
+      // protected generateStringFromField(field: string) {
+      //   // example:'12OptionalFree_1_2@200'
+      //   let result: any = field.split(/@/g);
+      //   // result = ['12OptionalFree_1_2' , '200']
+      //   result[0] = result[0].split(/([a-zA-Z]+)/);
+      //   // result = [['12' , 'OptionalFree' , '_1_2'] , '200']
+      //   result = [...result[0], result[1]];
+      //   // result = ['12' , 'OptionalFree' , '_1_2' , '200']
+      //   this.gamemode = this.generateGameModeFromField(result[0], result[1]); // 萬千 OptionalFree
+      //   this.betmode = Math.round(parseInt(result[3], 10) * 100) / 100;
+      //   this.betitem = this.generateBetitemFromField(result[2]); // 1|2
+      // }
+
       protected generateStringFromField(field: string) {
+        // example:'12DT_BIG|SMALL|ODD@200'
         // example:'12OptionalFree_1_2@200'
+
         let result: any = field.split(/@/g);
-        // result = ['12OptionalFree_1_2' , '200']
-        result[0] = result[0].split(/([a-zA-Z]+)/);
-        // result = [['12' , 'OptionalFree' , '_1_2'] , '200']
+        // result = [['12DT_BIG|SMALL|ODD'] , '200']
+        // result = [['12OptionalFree','_1_2'] , '200']
+        // let result0 : any = result[0].split(/([\_\|])/g);
+        result[0] = result[0].split('_');
+        // [['12DT','BIG','SMALL','ODD'],'200']
+        // result = [['12OptionalFree' , '1','2'] , '200']
+        if (result[0].length > 2) {
+          for (let i = 2; i < result[0].length; i++) {
+            result[0][1] = [...result[0][1], '_' + result[0][i]];
+          }
+        }
+        // [['12DT','_DRAGON_TIGER_TIE'],'200']
+        // result = [['12OptionalFree' , '_1_2'] , '200']
+
+        const resultCodeAndNumbers = [result[0][0], result[0][1]];
+        result[0] = resultCodeAndNumbers;
+
+        // [['12','DT','_DRAGON_TIGER_TIE'],'200']
+        // result = [['12','OptionalFree' , '_1_2'] , '200']
+
         result = [...result[0], result[1]];
         // result = ['12' , 'OptionalFree' , '_1_2' , '200']
-        this.gamemode = this.generateGameModeFromField(result[0], result[1]); // 萬千 OptionalFree
-        this.betmode = Math.round(parseInt(result[3], 10) * 100) / 100;
-        this.betitem = this.generateBetitemFromField(result[2]); // 1|2
+        // this.gamemode = this.generateGameModeFromField(result[0], result[1]); // 萬千 OptionalFree
+        // this.gamemode = i18n.t("result[0]");
+        this.gamemode = result[0];
+        this.betmode = Math.round(parseInt(result[2], 10) * 100) / 100;
+        this.betitem = this.generateBetitemFromField(result[1]); // 1|2
       }
 
       protected generateBetitemFromField(DataString: string) {
         const DataStringArray = DataString.split('_');
+
         // DataStringArray = ['','1','2']
         let OutputDataString: string = '';
-        OutputDataString += `${DataStringArray[1]}`;
-        for (let i = 2; i < DataStringArray.length; i++) {
+        OutputDataString += `${DataStringArray[0]}`;
+        for (let i = 1; i < DataStringArray.length; i++) {
           OutputDataString = OutputDataString + ` | ${DataStringArray[i]}`;
         }
         // TODO:check string length
-        if (OutputDataString.length <= 20) {
-          OutputDataString = this.regenerateBetitemFromField(OutputDataString);
-        }
+        // if (OutputDataString.length <= 20) {
+        OutputDataString = this.regenerateBetitemFromField(OutputDataString);
+        // }
         return OutputDataString;
       }
 
@@ -119,35 +154,35 @@ namespace we {
         return newdatastring;
       }
 
-      protected generateGameModeFromField(index: string, mode: string) {
-        const IndexArray = index.split('');
-        let OutputGameModeSting = '';
-        IndexArray.forEach(IndexArray => {
-          switch (IndexArray) {
-            case '1':
-              // replace i18n later
-              OutputGameModeSting = OutputGameModeSting + '萬';
-              break;
-            case '2':
-              OutputGameModeSting = OutputGameModeSting + '千';
-              break;
-            case '3':
-              OutputGameModeSting = OutputGameModeSting + '百';
-              break;
-            case '4':
-              OutputGameModeSting = OutputGameModeSting + '十';
-              break;
-            case '5':
-              OutputGameModeSting = OutputGameModeSting + '個';
-              break;
-            default:
-              console.log('We dont have this pattern');
-              break;
-          }
-        });
-        OutputGameModeSting += mode;
-        return OutputGameModeSting;
-      }
+      // protected generateGameModeFromField(index: string, mode: string) {
+      //   const IndexArray = index.split('');
+      //   let OutputGameModeSting = '';
+      //   IndexArray.forEach(IndexArray => {
+      //     switch (IndexArray) {
+      //       case '1':
+      //         // replace i18n later
+      //         OutputGameModeSting = OutputGameModeSting + '萬';
+      //         break;
+      //       case '2':
+      //         OutputGameModeSting = OutputGameModeSting + '千';
+      //         break;
+      //       case '3':
+      //         OutputGameModeSting = OutputGameModeSting + '百';
+      //         break;
+      //       case '4':
+      //         OutputGameModeSting = OutputGameModeSting + '十';
+      //         break;
+      //       case '5':
+      //         OutputGameModeSting = OutputGameModeSting + '個';
+      //         break;
+      //       default:
+      //         console.log('We dont have this pattern');
+      //         break;
+      //     }
+      //   });
+      //   OutputGameModeSting += mode;
+      //   return OutputGameModeSting;
+      // }
       // protected generateStringFromField(field: string) {
       //   // example:^1^2OptionalFree_&1_&2@200
       //   const RESULT: any = field.split(/(?=@)/g);

@@ -17,9 +17,18 @@ namespace we {
 
       protected mount() {
         this.removeEventListener(eui.UIEvent.COMPLETE, this.mount, this);
+        const a = ['Dragon|Tiger|Tie'];
 
-        this.generateCombination();
-        this.generateBetFields();
+        const b = we.lo.DataMapping.DragonTigerMapping(a, '12DT_$1');
+        for (let i = 0; i < b.length; i++) {
+          console.log('b' + b[i]);
+        }
+        // console.log(we.lo.DataMapping.DragonTigerMapping(a));
+
+        // this.testNoteCount();
+
+        // this.generateCombination();
+        // this.generateBetFields();
         const temp = new we.lo.SSCTraditionalBettingPanel();
         temp.x = 0;
         temp.y = 0;
@@ -198,6 +207,29 @@ namespace we {
             console.log('invalid pattern included: ' + patterns[i]);
           }
         }
+      }
+
+      private testNoteCount() {
+        // let data0 = ['012', '345', '4567', '2345'];
+        // console.log('Directional Selection note:' + data0 + ' noteCount: ' + we.lo.NoteCountFunc.DirectionalSelection(data0));
+        // data0 = ['0123|1234|4566|7856'];
+        // console.log('Directional Menu note:' + data0 + ' noteCount: ' + we.lo.NoteCountFunc.SeparatorNoteCount(data0));
+        // data0 = ['012', '345', '4567', '2345'];
+        // console.log('Directional Group:' + data0 + ' noteCount: ' + we.lo.NoteCountFunc.DirectionalCombination(data0));
+        // data0 = ['123456'];
+        // console.log('Group24:' + data0 + ' noteCount: ' + we.lo.NoteCountFunc.FourStar.Group24(data0));
+        // data0 = ['0', '012'];
+        // console.log('Group12:' + data0 + ' noteCount: ' + we.lo.NoteCountFunc.FourStar.Group12(data0));
+        // data0 = ['01234', '01234567'];
+        // console.log('Group12:' + data0 + ' noteCount: ' + we.lo.NoteCountFunc.FourStar.Group12(data0));
+        // data0 = ['01'];
+        // console.log('Group6:' + data0 + ' noteCount: ' + we.lo.NoteCountFunc.FourStar.Group6(data0));
+        // data0 = ['01345'];
+        // console.log('Group6:' + data0 + ' noteCount: ' + we.lo.NoteCountFunc.FourStar.Group6(data0));
+        // data0 = ['0', '01'];
+        // console.log('Group4:' + data0 + ' noteCount: ' + we.lo.NoteCountFunc.FourStar.Group4(data0));
+        // data0 = ['012', '01234'];
+        // console.log('Group4:' + data0 + ' noteCount: ' + we.lo.NoteCountFunc.FourStar.Group4(data0));
       }
 
       // for (let k = 0; k < re.length; k++) {
