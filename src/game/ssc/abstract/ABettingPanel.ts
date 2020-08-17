@@ -152,17 +152,17 @@ namespace we {
         const noteDataArray = this.generateNoteData();
         const betDetails = this.generateBetDetail(noteDataArray);
         const roundBetDetailArray = this.generateCurrentBetRoundBetDetail();
-        //send validation
+        // send validation
       }
 
       public generateChaseBetRoundBetDetail(): data.LotteryBetCommand[] {
-        //chaseBet
+        // chaseBet
         return [];
       }
 
       public generateCurrentBetRoundBetDetail(): data.LotteryBetCommand[] {
         // let lotteryBetCommandArray : data.LotteryBetCommand[] = [];
-        let lotteryBetCommand: data.LotteryBetCommand = { roundid: this._currentGameRound, multiplier: 1, stopChaseIfWon: false };
+        const lotteryBetCommand: data.LotteryBetCommand = { roundid: this._currentGameRound, multiplier: 1, stopChaseIfWon: false };
 
         return [lotteryBetCommand];
       }
