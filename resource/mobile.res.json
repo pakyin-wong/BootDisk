@@ -29,7 +29,7 @@
 			"name": "scene_dragontiger"
 		},
 		{
-			"keys": "m_sb_betarea_bg_hover_1_horizontal_png,m_sb_betarea_bg_hover_1_png,m_sb_betarea_bg_hover_10_horizontal_png,m_sb_betarea_bg_hover_10_png,m_sb_betarea_bg_hover_11_horizontal_png,m_sb_betarea_bg_hover_11_png,m_sb_betarea_bg_hover_12_png,m_sb_betarea_bg_hover_13_png,m_sb_betarea_bg_hover_14_png,m_sb_betarea_bg_hover_15_horizontal_png,m_sb_betarea_bg_hover_2_horizontal_png,m_sb_betarea_bg_hover_2_png,m_sb_betarea_bg_hover_3_horizontal_png,m_sb_betarea_bg_hover_3_png,m_sb_betarea_bg_hover_4_horizontal_png,m_sb_betarea_bg_hover_4_png,m_sb_betarea_bg_hover_5_horizontal_png,m_sb_betarea_bg_hover_5_png,m_sb_betarea_bg_hover_6_horizontal_png,m_sb_betarea_bg_hover_6_png,m_sb_betarea_bg_hover_7_horizontal_png,m_sb_betarea_bg_hover_7_png,m_sb_betarea_bg_hover_8_horizontal_png,m_sb_betarea_bg_hover_8_png,m_sb_betarea_bg_hover_9_horizontal_png,m_sb_betarea_bg_hover_9_png,m_sb_betarea_horizontal_png,m_sb_betarea_png,d_sic_history_chart_line-2_png,m_sb_panel_chart_bar_png,m_sb_panel_chart_bg_left_png,m_sb_panel_chart_bg_right_png,m_sb_panel_chart_bluecircle_png,m_sb_panel_chart_greencircle_png,m_sb_panel_chart_redcircle_png,sicbo_game_result_tex_png,sicbo_game_result_tex_json,sicbo_game_result_ske_json,d_gfsb_panel_gamelist_betarea_yellow_png,d_gfsb_panel_gamelist_betarea_red_png,d_gfsb_panel_gamelist_betarea_purple_png,d_gfsb_panel_gamelist_betarea_pink_png,d_gfsb_panel_gamelist_betarea_orange_png,d_gfsb_panel_gamelist_betarea_indigo_png,d_gfsb_panel_gamelist_betarea_green_png,d_gfsb_panel_gamelist_betarea_blue_png,dice1_png,dice2_png,dice3_png,dice4_png,dice5_png,dice6_png,dice_w_game_result_tex_png,dice_w_game_result_tex_json,dice_w_game_result_ske_json",
+			"keys": "m_sb_betarea_bg_hover_1_horizontal_png,m_sb_betarea_bg_hover_1_png,m_sb_betarea_bg_hover_10_horizontal_png,m_sb_betarea_bg_hover_10_png,m_sb_betarea_bg_hover_11_horizontal_png,m_sb_betarea_bg_hover_11_png,m_sb_betarea_bg_hover_12_png,m_sb_betarea_bg_hover_13_png,m_sb_betarea_bg_hover_14_png,m_sb_betarea_bg_hover_15_horizontal_png,m_sb_betarea_bg_hover_2_horizontal_png,m_sb_betarea_bg_hover_2_png,m_sb_betarea_bg_hover_3_horizontal_png,m_sb_betarea_bg_hover_3_png,m_sb_betarea_bg_hover_4_horizontal_png,m_sb_betarea_bg_hover_4_png,m_sb_betarea_bg_hover_5_horizontal_png,m_sb_betarea_bg_hover_5_png,m_sb_betarea_bg_hover_6_horizontal_png,m_sb_betarea_bg_hover_6_png,m_sb_betarea_bg_hover_7_horizontal_png,m_sb_betarea_bg_hover_7_png,m_sb_betarea_bg_hover_8_horizontal_png,m_sb_betarea_bg_hover_8_png,m_sb_betarea_bg_hover_9_horizontal_png,m_sb_betarea_bg_hover_9_png,m_sb_betarea_horizontal_png,m_sb_betarea_png,d_sic_history_chart_line-2_png,m_sb_panel_chart_bar_png,m_sb_panel_chart_bg_left_png,m_sb_panel_chart_bg_right_png,m_sb_panel_chart_bluecircle_png,m_sb_panel_chart_greencircle_png,m_sb_panel_chart_redcircle_png,sicbo_game_result_tex_png,sicbo_game_result_tex_json,sicbo_game_result_ske_json,d_gfsb_panel_gamelist_betarea_yellow_png,d_gfsb_panel_gamelist_betarea_red_png,d_gfsb_panel_gamelist_betarea_purple_png,d_gfsb_panel_gamelist_betarea_pink_png,d_gfsb_panel_gamelist_betarea_orange_png,d_gfsb_panel_gamelist_betarea_indigo_png,d_gfsb_panel_gamelist_betarea_green_png,d_gfsb_panel_gamelist_betarea_blue_png,dice1_png,dice2_png,dice3_png,dice4_png,dice5_png,dice6_png,dice_w_game_result_tex_png,dice_w_game_result_tex_json,dice_w_game_result_ske_json,m_common_panel_info_btn_left_png,m_common_panel_info_btn_left_active_png,m_common_panel_info_btn_right_png,m_common_panel_info_btn_right_active_png,Base_Dice_1_png,Base_Dice_2_png,Base_Dice_3_png,Base_Dice_4_png,Base_Dice_5_png,Base_Dice_6_png,d_gfsb_panel_chart_bar_bg_png,d_gfsb_panel_chart_bar_blue_png,d_gfsb_panel_chart_bar_green_png,d_gfsb_panel_chart_bar_indigo_png,d_gfsb_panel_chart_bar_orange_png,d_gfsb_panel_chart_bar_pink_png,d_gfsb_panel_chart_bar_purple_png,d_gfsb_panel_chart_bar_red_png,d_gfsb_panel_chart_bar_yeloow_png,m_gfsb_panel_betarea_blue_png,m_gfsb_panel_betarea_blue_hover_png,m_gfsb_panel_betarea_green_png,m_gfsb_panel_betarea_green_hover_png,m_gfsb_panel_betarea_indigo_png,m_gfsb_panel_betarea_indigo_hover_png,m_gfsb_panel_betarea_orange_png,m_gfsb_panel_betarea_orange_hover_png,m_gfsb_panel_betarea_pink_png,m_gfsb_panel_betarea_pink_hover_png,m_gfsb_panel_betarea_purple_png,m_gfsb_panel_betarea_purple_hover_png,m_gfsb_panel_betarea_red_png,m_gfsb_panel_betarea_red_hover_png,m_gfsb_panel_betarea_yellow_png,m_gfsb_panel_betarea_yellow_hover_png,m_gfsb_panel_chart_bar_horizontal_bg_png,m_gfsb_panel_chart_bar_horizontal_blue_png,m_gfsb_panel_chart_bar_horizontal_green_png,m_gfsb_panel_chart_bar_horizontal_indigo_png,m_gfsb_panel_chart_bar_horizontal_orange_png,m_gfsb_panel_chart_bar_horizontal_pink_png,m_gfsb_panel_chart_bar_horizontal_purple_png,m_gfsb_panel_chart_bar_horizontal_red_png,m_gfsb_panel_chart_bar_horizontal_yellow_png,m_gfsb_panel_gamelist_gwsb_betarea_red_blue_png,m_gfsb_panel_gamelist_gwsb_betarea_red_blue_hover_png,m_gfsb_panel_gamelist_gwsb_betarea_red_green_png,m_gfsb_panel_gamelist_gwsb_betarea_red_green_hover_png,m_gfsb_panel_gamelist_gwsb_betarea_red_indigo_png,m_gfsb_panel_gamelist_gwsb_betarea_red_indigo_hover_png,m_gfsb_panel_gamelist_gwsb_betarea_red_orange_png,m_gfsb_panel_gamelist_gwsb_betarea_red_orange_hover_png,m_gfsb_panel_gamelist_gwsb_betarea_red_pink_png,m_gfsb_panel_gamelist_gwsb_betarea_red_pink_hover_png,m_gfsb_panel_gamelist_gwsb_betarea_red_purple_png,m_gfsb_panel_gamelist_gwsb_betarea_red_purple_hover_png,m_gfsb_panel_gamelist_gwsb_betarea_red_red_png,m_gfsb_panel_gamelist_gwsb_betarea_red_red_hover_png,m_gfsb_panel_gamelist_gwsb_betarea_red_yellow_png,m_gfsb_panel_gamelist_gwsb_betarea_red_yellow_hover_png,m_gfsb_panel_info_bar_bg_png,m_gfsb_panel_info_bar_blue_png,m_gfsb_panel_info_bar_green_png,m_gfsb_panel_info_bar_horizontal_bg_png,m_gfsb_panel_info_bar_horizontal_blue_png,m_gfsb_panel_info_bar_horizontal_green_png,m_gfsb_panel_info_bar_horizontal_indigo_png,m_gfsb_panel_info_bar_horizontal_orange_png,m_gfsb_panel_info_bar_horizontal_pink_png,m_gfsb_panel_info_bar_horizontal_purple_png,m_gfsb_panel_info_bar_horizontal_red_png,m_gfsb_panel_info_bar_horizontal_yellow_png,m_gfsb_panel_info_bar_indigo_png,m_gfsb_panel_info_bar_orange_png,m_gfsb_panel_info_bar_pink_png,m_gfsb_panel_info_bar_purple_png,m_gfsb_panel_info_bar_red_png,m_gfsb_panel_info_bar_yellow_png,m_gfsb_panel_info_slide_png,m_gfsb_panel_info_slide_disable_png,m_gfsb_panel_roadmap_record_multiple_blue_png,m_gfsb_panel_roadmap_record_multiple_green_png,m_gfsb_panel_roadmap_record_multiple_indigo_png,m_gfsb_panel_roadmap_record_multiple_orange_png,m_gfsb_panel_roadmap_record_multiple_pink_png,m_gfsb_panel_roadmap_record_multiple_purple_png,m_gfsb_panel_roadmap_record_multiple_red_png,m_gfsb_panel_roadmap_record_multiple_yellow_png,m_gfsb_roadmap_record_new_bg_png,m_gfsb_roadmap_record_old_bg_png",
 			"name": "scene_dice"
 		},
 		{
@@ -789,12 +789,12 @@
 			"name": "m_common_setting_uicolour_btn_active_png"
 		},
 		{
-			"url": "assets/images/m/common/menu/m_common_slide_bar_active.png",
+			"url": "assets/images/m/loading/m_common_slide_bar_active.png",
 			"type": "image",
 			"name": "m_common_slide_bar_active_png"
 		},
 		{
-			"url": "assets/images/m/common/menu/m_common_slide_bar_base.png",
+			"url": "assets/images/m/loading/m_common_slide_bar_base.png",
 			"type": "image",
 			"name": "m_common_slide_bar_base_png"
 		},
@@ -5138,6 +5138,56 @@
 			"name": "chips_select_ske_json"
 		},
 		{
+			"url": "assets/images/m/dil/common/m_common_panel_info_btn_left.png",
+			"type": "image",
+			"name": "m_common_panel_info_btn_left_png"
+		},
+		{
+			"url": "assets/images/m/dil/common/m_common_panel_info_btn_left_active.png",
+			"type": "image",
+			"name": "m_common_panel_info_btn_left_active_png"
+		},
+		{
+			"url": "assets/images/m/dil/common/m_common_panel_info_btn_right.png",
+			"type": "image",
+			"name": "m_common_panel_info_btn_right_png"
+		},
+		{
+			"url": "assets/images/m/dil/common/m_common_panel_info_btn_right_active.png",
+			"type": "image",
+			"name": "m_common_panel_info_btn_right_active_png"
+		},
+		{
+			"url": "assets/images/m/dil/gfsb/Base_Dice_1.png",
+			"type": "image",
+			"name": "Base_Dice_1_png"
+		},
+		{
+			"url": "assets/images/m/dil/gfsb/Base_Dice_2.png",
+			"type": "image",
+			"name": "Base_Dice_2_png"
+		},
+		{
+			"url": "assets/images/m/dil/gfsb/Base_Dice_3.png",
+			"type": "image",
+			"name": "Base_Dice_3_png"
+		},
+		{
+			"url": "assets/images/m/dil/gfsb/Base_Dice_4.png",
+			"type": "image",
+			"name": "Base_Dice_4_png"
+		},
+		{
+			"url": "assets/images/m/dil/gfsb/Base_Dice_5.png",
+			"type": "image",
+			"name": "Base_Dice_5_png"
+		},
+		{
+			"url": "assets/images/m/dil/gfsb/Base_Dice_6.png",
+			"type": "image",
+			"name": "Base_Dice_6_png"
+		},
+		{
 			"url": "assets/images/m/dil/gfsb/d_gfsb_panel_chart_bar_bg.png",
 			"type": "image",
 			"name": "d_gfsb_panel_chart_bar_bg_png"
@@ -5173,6 +5223,11 @@
 			"name": "d_gfsb_panel_chart_bar_purple_png"
 		},
 		{
+			"url": "assets/images/m/dil/gfsb/d_gfsb_panel_chart_bar_red.png",
+			"type": "image",
+			"name": "d_gfsb_panel_chart_bar_red_png"
+		},
+		{
 			"url": "assets/images/m/dil/gfsb/d_gfsb_panel_chart_bar_yeloow.png",
 			"type": "image",
 			"name": "d_gfsb_panel_chart_bar_yeloow_png"
@@ -5186,11 +5241,6 @@
 			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_betarea_blue_hover.png",
 			"type": "image",
 			"name": "m_gfsb_panel_betarea_blue_hover_png"
-		},
-		{
-			"url": "assets/images/m/dil/gfsb/d_gfsb_panel_chart_bar_red.png",
-			"type": "image",
-			"name": "d_gfsb_panel_chart_bar_red_png"
 		},
 		{
 			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_betarea_green.png",
@@ -5208,14 +5258,14 @@
 			"name": "m_gfsb_panel_betarea_indigo_png"
 		},
 		{
-			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_betarea_orange.png",
-			"type": "image",
-			"name": "m_gfsb_panel_betarea_orange_png"
-		},
-		{
 			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_betarea_indigo_hover.png",
 			"type": "image",
 			"name": "m_gfsb_panel_betarea_indigo_hover_png"
+		},
+		{
+			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_betarea_orange.png",
+			"type": "image",
+			"name": "m_gfsb_panel_betarea_orange_png"
 		},
 		{
 			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_betarea_orange_hover.png",
@@ -5233,6 +5283,11 @@
 			"name": "m_gfsb_panel_betarea_pink_hover_png"
 		},
 		{
+			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_betarea_purple.png",
+			"type": "image",
+			"name": "m_gfsb_panel_betarea_purple_png"
+		},
+		{
 			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_betarea_purple_hover.png",
 			"type": "image",
 			"name": "m_gfsb_panel_betarea_purple_hover_png"
@@ -5241,11 +5296,6 @@
 			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_betarea_red.png",
 			"type": "image",
 			"name": "m_gfsb_panel_betarea_red_png"
-		},
-		{
-			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_betarea_purple.png",
-			"type": "image",
-			"name": "m_gfsb_panel_betarea_purple_png"
 		},
 		{
 			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_betarea_red_hover.png",
@@ -5263,14 +5313,14 @@
 			"name": "m_gfsb_panel_betarea_yellow_hover_png"
 		},
 		{
-			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_chart_bar_horizontal_blue.png",
-			"type": "image",
-			"name": "m_gfsb_panel_chart_bar_horizontal_blue_png"
-		},
-		{
 			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_chart_bar_horizontal_bg.png",
 			"type": "image",
 			"name": "m_gfsb_panel_chart_bar_horizontal_bg_png"
+		},
+		{
+			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_chart_bar_horizontal_blue.png",
+			"type": "image",
+			"name": "m_gfsb_panel_chart_bar_horizontal_blue_png"
 		},
 		{
 			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_chart_bar_horizontal_green.png",
@@ -5288,14 +5338,14 @@
 			"name": "m_gfsb_panel_chart_bar_horizontal_orange_png"
 		},
 		{
-			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_chart_bar_horizontal_purple.png",
-			"type": "image",
-			"name": "m_gfsb_panel_chart_bar_horizontal_purple_png"
-		},
-		{
 			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_chart_bar_horizontal_pink.png",
 			"type": "image",
 			"name": "m_gfsb_panel_chart_bar_horizontal_pink_png"
+		},
+		{
+			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_chart_bar_horizontal_purple.png",
+			"type": "image",
+			"name": "m_gfsb_panel_chart_bar_horizontal_purple_png"
 		},
 		{
 			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_chart_bar_horizontal_red.png",
@@ -5303,24 +5353,24 @@
 			"name": "m_gfsb_panel_chart_bar_horizontal_red_png"
 		},
 		{
-			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_gamelist_gwsb_betarea_red_blue.png",
-			"type": "image",
-			"name": "m_gfsb_panel_gamelist_gwsb_betarea_red_blue_png"
-		},
-		{
 			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_chart_bar_horizontal_yellow.png",
 			"type": "image",
 			"name": "m_gfsb_panel_chart_bar_horizontal_yellow_png"
 		},
 		{
-			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_gamelist_gwsb_betarea_red_green.png",
+			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_gamelist_gwsb_betarea_red_blue.png",
 			"type": "image",
-			"name": "m_gfsb_panel_gamelist_gwsb_betarea_red_green_png"
+			"name": "m_gfsb_panel_gamelist_gwsb_betarea_red_blue_png"
 		},
 		{
 			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_gamelist_gwsb_betarea_red_blue_hover.png",
 			"type": "image",
 			"name": "m_gfsb_panel_gamelist_gwsb_betarea_red_blue_hover_png"
+		},
+		{
+			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_gamelist_gwsb_betarea_red_green.png",
+			"type": "image",
+			"name": "m_gfsb_panel_gamelist_gwsb_betarea_red_green_png"
 		},
 		{
 			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_gamelist_gwsb_betarea_red_green_hover.png",
@@ -5373,14 +5423,14 @@
 			"name": "m_gfsb_panel_gamelist_gwsb_betarea_red_red_png"
 		},
 		{
-			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_gamelist_gwsb_betarea_red_yellow.png",
-			"type": "image",
-			"name": "m_gfsb_panel_gamelist_gwsb_betarea_red_yellow_png"
-		},
-		{
 			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_gamelist_gwsb_betarea_red_red_hover.png",
 			"type": "image",
 			"name": "m_gfsb_panel_gamelist_gwsb_betarea_red_red_hover_png"
+		},
+		{
+			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_gamelist_gwsb_betarea_red_yellow.png",
+			"type": "image",
+			"name": "m_gfsb_panel_gamelist_gwsb_betarea_red_yellow_png"
 		},
 		{
 			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_gamelist_gwsb_betarea_red_yellow_hover.png",
@@ -5388,24 +5438,24 @@
 			"name": "m_gfsb_panel_gamelist_gwsb_betarea_red_yellow_hover_png"
 		},
 		{
-			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_info_bar_blue.png",
-			"type": "image",
-			"name": "m_gfsb_panel_info_bar_blue_png"
-		},
-		{
 			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_info_bar_bg.png",
 			"type": "image",
 			"name": "m_gfsb_panel_info_bar_bg_png"
 		},
 		{
-			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_info_bar_horizontal_bg.png",
+			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_info_bar_blue.png",
 			"type": "image",
-			"name": "m_gfsb_panel_info_bar_horizontal_bg_png"
+			"name": "m_gfsb_panel_info_bar_blue_png"
 		},
 		{
 			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_info_bar_green.png",
 			"type": "image",
 			"name": "m_gfsb_panel_info_bar_green_png"
+		},
+		{
+			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_info_bar_horizontal_bg.png",
+			"type": "image",
+			"name": "m_gfsb_panel_info_bar_horizontal_bg_png"
 		},
 		{
 			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_info_bar_horizontal_blue.png",
@@ -5458,14 +5508,14 @@
 			"name": "m_gfsb_panel_info_bar_orange_png"
 		},
 		{
-			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_info_bar_purple.png",
-			"type": "image",
-			"name": "m_gfsb_panel_info_bar_purple_png"
-		},
-		{
 			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_info_bar_pink.png",
 			"type": "image",
 			"name": "m_gfsb_panel_info_bar_pink_png"
+		},
+		{
+			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_info_bar_purple.png",
+			"type": "image",
+			"name": "m_gfsb_panel_info_bar_purple_png"
 		},
 		{
 			"url": "assets/images/m/dil/gfsb/m_gfsb_panel_info_bar_red.png",
