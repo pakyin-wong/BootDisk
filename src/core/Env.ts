@@ -16,7 +16,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.8.0';
+      public version: string = '0.8.1';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -121,6 +121,7 @@ namespace we {
           core.GameType.BAS,
           core.GameType.BAM,
           core.GameType.DI,
+          core.GameType.DIL,
           core.GameType.DT,
           core.GameType.LW,
           core.GameType.RO,

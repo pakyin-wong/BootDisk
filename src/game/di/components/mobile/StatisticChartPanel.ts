@@ -238,6 +238,9 @@ namespace we {
       }
 
       public setValue(tableInfo: data.TableInfo) {
+        if (!tableInfo || !tableInfo.gamestatistic) {
+          return;
+        }
         if (tableInfo.gamestatistic.diOdd) {
           this._diPie.setPieOdd([tableInfo.gamestatistic.diOdd.odd, tableInfo.gamestatistic.diOdd.even, tableInfo.gamestatistic.diOdd.tie]);
           this._diPie.setOddValues(tableInfo.gamestatistic.diOdd);

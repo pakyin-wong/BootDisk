@@ -44,7 +44,7 @@ namespace we {
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.DEAL;
         this.dispatchEvent(data);
-        await this.sleep(300000);
+        await this.sleep(5000);
 
         const gameResult1 = Math.floor(Math.random() * 6) + 1;
         const gameResult2 = Math.floor(Math.random() * 6) + 1;
