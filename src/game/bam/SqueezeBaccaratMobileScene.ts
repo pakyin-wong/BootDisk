@@ -9,6 +9,7 @@ namespace we {
     export class MobileScene extends ba.MobileScene {
       protected _resultCard: MobileFlipCardHolder;
       protected _resultDisplay: MobileCardHolder;
+      protected tutorial: we.bam.SqueezeTutorial;
 
       protected _cardHolderData: any;
 
@@ -16,10 +17,20 @@ namespace we {
         super.initChildren();
         this._resultDisplay.passFlipCard(this._resultCard);
         if (!env.isFirstTimeBam) {
-          dir.evtHandler.createOverlay({
-            class: 'SqueezeTutorialOverlay',
-          });
+          this.tutorial = new SqueezeTutorial('SqueezeTutorial');
+          this.tutorial.isDraggable = false;
+          this.tutorial.isEdgeDismissable = false;
 
+          if (env.orientation === 'portrait') {
+            this.tutorial.x = 0;
+            this.tutorial.y = 0;
+            this.tutorial.width = 1242;
+            this.tutorial.height = 2155;
+          } else if (env.orientation === 'landscape') {
+            this.tutorial.bottom = 44;
+            this.tutorial.horizontalCenter = 0;
+          }
+          this.addChild(this.tutorial);
           env.isFirstTimeBam = true;
         }
       }
@@ -81,6 +92,13 @@ namespace we {
         super.setStateFinish(isInit);
         this._resultDisplay.updateResult(this._gameData, this._chipLayer);
         this.setResultRelatedComponentsEnabled(true);
+      }
+
+      protected destroy() {
+        super.destroy();
+        if (this.tutorial) {
+          env.isFirstTimeBam = !env.isFirstTimeBam;
+        }
       }
     }
   }

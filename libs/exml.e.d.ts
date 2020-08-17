@@ -1287,7 +1287,7 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape{
-	class SqueezeTutorialOverlay extends eui.Skin{
+	class SqueezeTutorial extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{
@@ -1961,7 +1961,7 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
-	class SqueezeTutorialOverlay extends eui.Skin{
+	class SqueezeTutorial extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

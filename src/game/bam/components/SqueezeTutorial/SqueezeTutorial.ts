@@ -77,7 +77,9 @@ namespace we {
         if (this._buttonText) {
           this._buttonText.renderText = () => i18n.t('mobile_notification_next_button_label');
         }
-
+        if (env.isMobile) {
+          this._holder.bulletGap = 5;
+        }
         if (!env.isMobile) {
           const shape = new egret.Shape();
           const matrix = new egret.Matrix();
@@ -98,7 +100,7 @@ namespace we {
         if (this._prevButton) {
           this._prevButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.doPrev, this);
         }
-        if (this._prevButton && this._close) {
+        if (this._close) {
           this._close.addEventListener(egret.TouchEvent.TOUCH_TAP, this.doDestroy, this);
         }
       }
