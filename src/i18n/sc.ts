@@ -130,6 +130,7 @@ namespace we {
       mobile_notification_quick_bet_button_label: '即时投注',
       mobile_notification_quick_bet_button_label_real_mobile: '下注',
       mobile_notification_close_button_label: '关闭',
+      mobile_notification_next_button_label: '下一页',
 
       mobile_quick_bet_button_label: '快速投注',
       mobile_enter_table_button_label: '进入游戏',

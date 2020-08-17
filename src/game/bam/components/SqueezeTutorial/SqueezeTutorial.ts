@@ -18,6 +18,7 @@ namespace we {
       private _captionArr;
 
       private _pageText;
+      private _buttonText: ui.RunTimeLabel;
       protected _pageIndex = 0;
 
       private _mask;
@@ -73,6 +74,10 @@ namespace we {
             this._prevButton.currentState = 'off';
           }
         }
+        if (this._buttonText) {
+          this._buttonText.renderText = () => i18n.t('mobile_notification_next_button_label');
+        }
+
         if (!env.isMobile) {
           const shape = new egret.Shape();
           const matrix = new egret.Matrix();
@@ -93,7 +98,7 @@ namespace we {
         if (this._prevButton) {
           this._prevButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.doPrev, this);
         }
-        if (this._prevButton) {
+        if (this._prevButton && this._close) {
           this._close.addEventListener(egret.TouchEvent.TOUCH_TAP, this.doDestroy, this);
         }
       }
@@ -103,7 +108,9 @@ namespace we {
         if (this._prevButton) {
           this._prevButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.doPrev, this);
         }
-        this._close.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.doDestroy, this);
+        if (this._close) {
+          this._close.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.doDestroy, this);
+        }
       }
 
       private doNext(e) {
@@ -116,7 +123,10 @@ namespace we {
         if (this._pageIndex < this._captionArr.length) {
           this.updateText(this._pageIndex);
         } else {
+          // already in last page
           this._pageIndex = this._captionArr.length - 1;
+          this.doDestroy(e);
+          return;
         }
 
         this.updateButton(this._pageIndex);
@@ -169,6 +179,10 @@ namespace we {
 
         if (index >= 0 && index < this._captionArr.length) {
           this._captionArr[index].visible = true;
+          if (index === this._captionArr.length - 1 && env.isMobile) {
+            // if in the last page of mobile
+            this._buttonText.renderText = () => i18n.t('mobile_notification_close_button_label');
+          }
         }
 
         if (this._pageText) {

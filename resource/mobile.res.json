@@ -5631,6 +5631,16 @@
 			"url": "assets/images/m/dil/gfsb/m_gfsb_roadmap_record_old_bg.png",
 			"type": "image",
 			"name": "m_gfsb_roadmap_record_old_bg_png"
+		},
+		{
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_1.png",
+			"type": "image",
+			"name": "m_bam_instruction_card_group_landscape_1_png"
+		},
+		{
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_2.png",
+			"type": "image",
+			"name": "m_bam_instruction_card_group_landscape_2_png"
 		}
 	]
 }

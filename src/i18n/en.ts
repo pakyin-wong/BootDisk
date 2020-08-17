@@ -114,6 +114,7 @@ namespace we {
 
       mobile_notification_quick_bet_button_label: 'Bet Now',
       mobile_notification_close_button_label: 'Dismiss',
+      mobile_notification_next_button_label: 'Next',
 
       mobile_quick_bet_button_label: 'QuickBet',
       mobile_enter_table_button_label: 'Enter',

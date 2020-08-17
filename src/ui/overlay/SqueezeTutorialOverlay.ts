@@ -2,7 +2,6 @@ namespace we {
   export namespace overlay {
     export class SqueezeTutorialOverlay extends bam.SqueezeTutorial {
       private tutorial;
-      private _closeButton;
 
       constructor() {
         super('SqueezeTutorialOverlay');
@@ -15,10 +14,17 @@ namespace we {
 
       public init() {
         super.init();
-        this.tutorial = new we.bam.SqueezeTutorial('SqueezeTutorialOverlay');
-        this.tutorial.x = 0;
-        this.tutorial.y = 0;
-        this.addChild(this.tutorial);
+        // this.tutorial = new we.bam.SqueezeTutorial('SqueezeTutorialOverlay');
+        // if (env.orientation === 'portrait') {
+        //   this.tutorial.x = 0;
+        //   this.tutorial.y = 0;
+        // } else if (env.orientation === 'landscape') {
+        //   this.tutorial.horizontalAlign = 0;
+        //   this.tutorial.bottom = 44;
+        //   this.tutorial.width = this.width * 0.8;
+        //   this.tutorial.height = this.height * 0.8;
+        // }
+        // this.addChild(this.tutorial);
         env.isFirstTimeBam = true;
       }
 
@@ -28,11 +34,6 @@ namespace we {
 
       protected updateButton(i) {
         super.updateButton(this._pageIndex);
-
-        // if last page
-        if (this._pageIndex === 3) {
-          this._closeButton.renderText = () => i18n.t('mobile_notification_close_button_label');
-        }
       }
     }
   }

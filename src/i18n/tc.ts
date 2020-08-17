@@ -114,6 +114,7 @@ namespace we {
 
       mobile_notification_quick_bet_button_label: '即時投注',
       mobile_notification_close_button_label: '關閉',
+      mobile_notification_next_button_label: '下一頁',
 
       mobile_quick_bet_button_label: '快速投注',
       mobile_enter_table_button_label: '進入遊戲',

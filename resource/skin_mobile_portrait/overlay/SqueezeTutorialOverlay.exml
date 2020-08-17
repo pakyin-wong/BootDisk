@@ -5,7 +5,7 @@
     <e:Group id="_top" width="1242" height="200">
         <ui:RunTimeLabel id="_title" bold="true" text="咪牌教學" x="49" y="55" size="80" textColor="0xc59466"
                          fontFamily="Arial" />
-        <e:Image id="_close" x="1120" y="51" width="70" height="70" source="d-lobby-button-close-none_png" />
+        <e:Image id="close" x="1120" y="51" width="70" height="70" source="d-lobby-button-close-none_png" />
     </e:Group>
     <e:Group y="200" width="1242" height="1655">
         <ui:HorizontalHolder id="_holder" bulletGap="5" bulletHorizontalCenter="0" bulletBottom="0" width="1242"
