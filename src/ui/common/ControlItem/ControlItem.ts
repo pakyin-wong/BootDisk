@@ -36,7 +36,7 @@ namespace we {
         super();
         if (skinName) {
           this.skinName = utils.getSkinByClassname(skinName);
-          if (skinName == 'SideListItemSkin') {
+          if (skinName == 'SideListItemSkin' || env.isMobile) {
             this._betMessageEnable = false;
           }
         }
@@ -408,6 +408,9 @@ namespace we {
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
+        if (this._timer) {
+          this._timer.visible = true;
+        }
         if (this._chipLayer) {
           this._chipLayer.setTouchEnabled(enable);
         }
@@ -462,8 +465,8 @@ namespace we {
           case core.GameType.DI:
           case core.GameType.DIL:
           case core.GameType.LW:
-            pass1 = this._gameData && !isNaN(totalWin);
-            pass2 = !!this._gameData;
+            pass1 = this._gameData && this._gameData.state === core.GameState.FINISH && !isNaN(totalWin);
+            pass2 = !!this._gameData && this._gameData.state === core.GameState.FINISH;
             break;
           default:
             logger.e(utils.LogTarget.DEBUG, 'No gametype found in ControlItem::checkResultMessage');

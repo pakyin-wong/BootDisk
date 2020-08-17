@@ -17,6 +17,7 @@ namespace we {
         this._chipsetLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
         this._chipsetLayout.horizontalGap = this._normalGapSize;
         this._chipsetLayout.verticalGap = this._normalGapSize;
+        this._chipsetLayout.paddingTop = this._normalGapSize;
         this._chipsetLayout.paddingBottom = this._normalGapSize;
         this._chipsetLayout.requestedColumnCount = this.numChipsInRow;
 
@@ -27,6 +28,7 @@ namespace we {
         this.addChild(this._chipsetList);
         this._chipsetList.left = 0;
         this._chipsetList.right = 0;
+        this._chipsetList.requireSelection = true;
       }
 
       public init(format: any, denomList: number[]) {
@@ -35,6 +37,9 @@ namespace we {
       }
 
       protected mount() {
+        if (env.isMobile) {
+          this.chipScale = 0.8;
+        }
         this._chipsetList.addEventListener(eui.UIEvent.CHANGE, this.onChipChange, this);
         dir.evtHandler.addEventListener(core.Event.BET_DENOMINATION_CHANGE, this.updateSelectedChip, this);
       }
@@ -43,6 +48,13 @@ namespace we {
         super.destroy();
         this._chipsetList.removeEventListener(eui.UIEvent.CHANGE, this.onChipChange, this);
         dir.evtHandler.removeEventListener(core.Event.BET_DENOMINATION_CHANGE, this.updateSelectedChip, this);
+      }
+
+      public $setChipScale(val: number) {
+        super.$setChipScale(val);
+        for (const chip of this._chipsetList.$children) {
+          chip.scaleX = val;
+        }
       }
 
       private onChipChange() {

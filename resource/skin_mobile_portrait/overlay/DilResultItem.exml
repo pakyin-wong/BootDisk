@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.DilResultItem" width="1069" height="165" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" >
+	<e:Image id="diceImage" width="144" height="144" fillMode="scale"/>
+	<e:Label id="resultLabel" textAlign="center" />
+	<e:Label id="oddLabel" textAlign="left" />
+</e:Skin>
+

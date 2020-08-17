@@ -1,4 +1,4 @@
-if: branch =~ ^master$|^development$|^staging$|^uat$|^ci
+if: branch =~ ^master$|^staging$|^uat$|^development$|^release|^ci
 
 language: python
 group: stable
@@ -15,6 +15,7 @@ install: # install awscli for ecr upload
 script: |-
   set -e
 
+  RELEASE_REGEX="^(release*)"
   if [ "master" == "${TRAVIS_BRANCH}" ]; then
     for env_value in $(compgen -v |grep '.*_PRODUCTION$'); do
       eval export ${env_value%_PRODUCTION}="${!env_value}"
@@ -29,9 +30,13 @@ script: |-
     for env_value in $(compgen -v |grep '.*_UAT$'); do
       eval export ${env_value%_UAT}="${!env_value}"
     done
-    ENVIRONMENT='uat'
-  
-  else 
+    ENVIRONMENT="uat"
+  elif [[ "${TRAVIS_BRANCH}" =~ $RELEASE_REGEX ]]; then
+    for env_value in $(compgen -v |grep '.*_RELEASE$'); do
+      eval export ${env_value%_RELEASE}="${!env_value}"
+    done
+    ENVIRONMENT="release"
+  else
     for env_value in $(compgen -v |grep '.*_DEVELOPMENT$'); do
       eval export ${env_value%_DEVELOPMENT}="${!env_value}"
     done
@@ -57,6 +62,7 @@ script: |-
     --entrypoint "" \
     $IMAGE \
     sh -c "cp -r /usr/share/nginx/html/js /tmp/js && cp -r /usr/share/nginx/html/resource /tmp/resource"
+    
 
 deploy:
   ##upload to ecr

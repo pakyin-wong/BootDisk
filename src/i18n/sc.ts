@@ -39,6 +39,12 @@ namespace we {
       playerprofile_follower: '追随者',
       playerprofile_following: '追随中',
       playerprofile_favouriteDealer: '最爱荷官',
+      playerProfile: {
+        tooltip: {
+          nickname: '设定名稱',
+          refresh: '刷新餘额',
+        },
+      },
 
       overlaypanel_memberreport_title: '会员报表',
       overlaypanel_memberreport_date: '日期',
@@ -84,6 +90,15 @@ namespace we {
       overlaypanel_bethistory_dtresult_tiger: '虎',
 
       overlaypanel_bethistory_searchtype_all: '全部游戏',
+      overlay: {
+        tooltip: {
+          bethistory: {
+            prev: '上一页',
+            next: '下一页',
+            replay: '播放錄像',
+          },
+        },
+      },
 
       overlaypanel_gameSet_showGoodRoadHint: '显示好路提示',
       overlaypanel_gameSet_autoBet: '自动确认投注',
@@ -148,6 +163,17 @@ namespace we {
         },
       },
       nav: {
+        tooltip: {
+          menu: '选單',
+          back: '返回大堂',
+          refresh: '刷新餘额',
+          profile: '賬户资信',
+          roominfo: '游戏资信',
+          betlimit: '限红设定',
+          d_lobby_viewmode_icon_tiny: '簡易版',
+          d_lobby_viewmode_icon_general: '普通版',
+          d_lobby_viewmode_icon_pro: '专业版',
+        },
         bet_balance: '余额',
         menu: {
           title: '设定',
@@ -214,6 +240,26 @@ namespace we {
         categoryFavorite: '我的最爱',
       },
       live: {
+        tooltip: {
+          confirmBet: '确认投注',
+          repeat: '重複下注',
+          cancel: '取消',
+          double: '双倍',
+          undo: '还原',
+          fullscreen: '视频全莹幕',
+          roadmapBankerRound: '庄局数',
+          roadmapPlayerRound: '閒局数',
+          roadmapTierRound: '和局数',
+          roadmapBankerPairRound: '庄对局数',
+          roadmapPlayerPairRound: '閒对局数',
+          roadmapTotalRound: '总局数',
+          toggleUp: '展开记錄',
+          toggleDown: '收起记錄',
+          ro: {
+            spreadAdd: '增加散布',
+            spreadDeduct: '減少散布',
+          },
+        },
         gametype: {
           allGame: '全部游戏',
           bacarrat: '百家乐',
@@ -360,6 +406,14 @@ namespace we {
         },
       },
       goodroad: {
+        tooltip: {
+          enable: '啟用好路',
+          disable: '停用好路',
+          cleartext: '清空名称',
+          drawbanker: '画庄',
+          drawplayer: '画閒',
+          confirm: '确认好路',
+        },
         r1: '长庄',
         r2: '长闲',
         r3: '长路转单跳',
@@ -401,6 +455,9 @@ namespace we {
         allgames: '全部游戏',
       },
       baccarat: {
+        tooltip: {
+          swapRoadmap: '轉換路紙',
+        },
         playerPair: '闲对',
         bankerPair: '庄对',
         player: '闲',

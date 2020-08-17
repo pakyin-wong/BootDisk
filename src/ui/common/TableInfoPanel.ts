@@ -89,10 +89,14 @@ namespace we {
 
         config.forEach(item => {
           if (item.data) {
-            item.lblMax.text = item.data.maxlimit ? utils.numberToFaceValue(item.data.maxlimit) : '-';
+            if (item.lblMax) {
+              item.lblMax.text = item.data.maxlimit ? utils.numberToFaceValue(item.data.maxlimit) : '-';
+            }
             item.lblOdd.text = item.data.odd ? item.data.odd : '-';
           } else {
-            item.lblMax.text = '-';
+            if (item.lblMax) {
+              item.lblMax.text = '-';
+            }
             item.lblOdd.text = '-';
           }
         });

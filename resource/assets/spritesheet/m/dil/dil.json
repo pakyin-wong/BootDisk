@@ -401,6 +401,66 @@
       "sourceW": 58,
       "sourceH": 64
     },
+    "Base_Dice_1_png": {
+      "x": 468,
+      "y": 199,
+      "w": 56.5,
+      "h": 56.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 56.5,
+      "sourceH": 56.5
+    },
+    "Base_Dice_3_png": {
+      "x": 468,
+      "y": 257.5,
+      "w": 56.5,
+      "h": 56.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 56.5,
+      "sourceH": 56.5
+    },
+    "Base_Dice_6_png": {
+      "x": 433,
+      "y": 316,
+      "w": 56.5,
+      "h": 56.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 56.5,
+      "sourceH": 56.5
+    },
+    "Base_Dice_2_png": {
+      "x": 433,
+      "y": 374.5,
+      "w": 56,
+      "h": 56,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 56,
+      "sourceH": 56
+    },
+    "Base_Dice_4_png": {
+      "x": 1,
+      "y": 480.5,
+      "w": 56,
+      "h": 56,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 56,
+      "sourceH": 56
+    },
+    "Base_Dice_5_png": {
+      "x": 59,
+      "y": 480.5,
+      "w": 56,
+      "h": 56,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 56,
+      "sourceH": 56
+    },
     "m_gfsb_roadmap_record_new_bg_png": {
       "x": 273,
       "y": 224.5,
@@ -412,8 +472,8 @@
       "sourceH": 53
     },
     "m_gfsb_roadmap_record_old_bg_png": {
-      "x": 468,
-      "y": 199,
+      "x": 117,
+      "y": 480.5,
       "w": 53,
       "h": 53,
       "offX": 0,
@@ -422,8 +482,8 @@
       "sourceH": 53
     },
     "m_common_panel_info_btn_left_active_png": {
-      "x": 313,
-      "y": 427,
+      "x": 491.5,
+      "y": 316,
       "w": 34,
       "h": 34,
       "offX": 0,
@@ -432,8 +492,8 @@
       "sourceH": 34
     },
     "m_common_panel_info_btn_left_png": {
-      "x": 349,
-      "y": 427,
+      "x": 491.5,
+      "y": 352,
       "w": 34,
       "h": 34,
       "offX": 0,
@@ -442,8 +502,8 @@
       "sourceH": 34
     },
     "m_common_panel_info_btn_right_active_png": {
-      "x": 385,
-      "y": 427,
+      "x": 491,
+      "y": 388,
       "w": 34,
       "h": 34,
       "offX": 0,
@@ -452,8 +512,8 @@
       "sourceH": 34
     },
     "m_common_panel_info_btn_right_png": {
-      "x": 421,
-      "y": 427,
+      "x": 491,
+      "y": 424,
       "w": 34,
       "h": 34,
       "offX": 0,
@@ -482,8 +542,8 @@
       "sourceH": 13
     },
     "m_gfsb_panel_info_bar_green_png": {
-      "x": 253,
-      "y": 463,
+      "x": 243,
+      "y": 175,
       "w": 13.5,
       "h": 13,
       "offX": 0,
@@ -492,8 +552,8 @@
       "sourceH": 13
     },
     "m_gfsb_panel_info_bar_indigo_png": {
-      "x": 268.5,
-      "y": 463,
+      "x": 243,
+      "y": 190,
       "w": 13.5,
       "h": 13,
       "offX": 0,
@@ -502,8 +562,8 @@
       "sourceH": 13
     },
     "m_gfsb_panel_info_bar_orange_png": {
-      "x": 284,
-      "y": 463,
+      "x": 243,
+      "y": 205,
       "w": 13.5,
       "h": 13,
       "offX": 0,
@@ -512,8 +572,8 @@
       "sourceH": 13
     },
     "m_gfsb_panel_info_bar_pink_png": {
-      "x": 299.5,
-      "y": 463,
+      "x": 243,
+      "y": 220,
       "w": 13.5,
       "h": 13,
       "offX": 0,
@@ -522,8 +582,8 @@
       "sourceH": 13
     },
     "m_gfsb_panel_info_bar_purple_png": {
-      "x": 315,
-      "y": 463,
+      "x": 289,
+      "y": 361,
       "w": 13.5,
       "h": 13,
       "offX": 0,
@@ -532,8 +592,8 @@
       "sourceH": 13
     },
     "m_gfsb_panel_info_bar_red_png": {
-      "x": 330.5,
-      "y": 463,
+      "x": 289,
+      "y": 376,
       "w": 13.5,
       "h": 13,
       "offX": 0,
@@ -542,8 +602,8 @@
       "sourceH": 13
     },
     "m_gfsb_panel_info_bar_yellow_png": {
-      "x": 346,
-      "y": 463,
+      "x": 421,
+      "y": 289,
       "w": 13.5,
       "h": 13,
       "offX": 0,
@@ -562,8 +622,8 @@
       "sourceH": 9
     },
     "m_gfsb_panel_info_slide_png": {
-      "x": 175,
-      "y": 249.5,
+      "x": 421,
+      "y": 304,
       "w": 9,
       "h": 9,
       "offX": 0,
@@ -572,6 +632,66 @@
       "sourceH": 9
     },
     "m_gfsb_panel_info_bar_horizontal_bg_png": {
+      "x": 432,
+      "y": 304,
+      "w": 8.5,
+      "h": 8.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 8.5,
+      "sourceH": 8.5
+    },
+    "m_gfsb_panel_info_bar_horizontal_blue_png": {
+      "x": 421,
+      "y": 315,
+      "w": 8.5,
+      "h": 8.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 8.5,
+      "sourceH": 8.5
+    },
+    "m_gfsb_panel_info_bar_horizontal_green_png": {
+      "x": 421,
+      "y": 325.5,
+      "w": 8.5,
+      "h": 8.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 8.5,
+      "sourceH": 8.5
+    },
+    "m_gfsb_panel_info_bar_horizontal_indigo_png": {
+      "x": 421,
+      "y": 336,
+      "w": 8.5,
+      "h": 8.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 8.5,
+      "sourceH": 8.5
+    },
+    "m_gfsb_panel_info_bar_horizontal_orange_png": {
+      "x": 421,
+      "y": 346.5,
+      "w": 8.5,
+      "h": 8.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 8.5,
+      "sourceH": 8.5
+    },
+    "m_gfsb_panel_info_bar_horizontal_pink_png": {
+      "x": 175,
+      "y": 249.5,
+      "w": 8.5,
+      "h": 8.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 8.5,
+      "sourceH": 8.5
+    },
+    "m_gfsb_panel_info_bar_horizontal_purple_png": {
       "x": 217,
       "y": 396,
       "w": 8.5,
@@ -581,8 +701,8 @@
       "sourceW": 8.5,
       "sourceH": 8.5
     },
-    "m_gfsb_panel_info_bar_horizontal_blue_png": {
-      "x": 186,
+    "m_gfsb_panel_info_bar_horizontal_red_png": {
+      "x": 185.5,
       "y": 249.5,
       "w": 8.5,
       "h": 8.5,
@@ -591,69 +711,9 @@
       "sourceW": 8.5,
       "sourceH": 8.5
     },
-    "m_gfsb_panel_info_bar_horizontal_green_png": {
+    "m_gfsb_panel_info_bar_horizontal_yellow_png": {
       "x": 227.5,
       "y": 396,
-      "w": 8.5,
-      "h": 8.5,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 8.5,
-      "sourceH": 8.5
-    },
-    "m_gfsb_panel_info_bar_horizontal_indigo_png": {
-      "x": 238,
-      "y": 396,
-      "w": 8.5,
-      "h": 8.5,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 8.5,
-      "sourceH": 8.5
-    },
-    "m_gfsb_panel_info_bar_horizontal_orange_png": {
-      "x": 273,
-      "y": 309.5,
-      "w": 8.5,
-      "h": 8.5,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 8.5,
-      "sourceH": 8.5
-    },
-    "m_gfsb_panel_info_bar_horizontal_pink_png": {
-      "x": 361.5,
-      "y": 463,
-      "w": 8.5,
-      "h": 8.5,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 8.5,
-      "sourceH": 8.5
-    },
-    "m_gfsb_panel_info_bar_horizontal_purple_png": {
-      "x": 372,
-      "y": 463,
-      "w": 8.5,
-      "h": 8.5,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 8.5,
-      "sourceH": 8.5
-    },
-    "m_gfsb_panel_info_bar_horizontal_red_png": {
-      "x": 382.5,
-      "y": 463,
-      "w": 8.5,
-      "h": 8.5,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 8.5,
-      "sourceH": 8.5
-    },
-    "m_gfsb_panel_info_bar_horizontal_yellow_png": {
-      "x": 393,
-      "y": 463,
       "w": 8.5,
       "h": 8.5,
       "offX": 0,
@@ -702,8 +762,8 @@
       "sourceH": 7.5
     },
     "m_gfsb_panel_chart_bar_horizontal_orange_png": {
-      "x": 403.5,
-      "y": 463,
+      "x": 238,
+      "y": 396,
       "w": 7.5,
       "h": 7.5,
       "offX": 0,
@@ -712,8 +772,8 @@
       "sourceH": 7.5
     },
     "m_gfsb_panel_chart_bar_horizontal_pink_png": {
-      "x": 413,
-      "y": 463,
+      "x": 273,
+      "y": 309.5,
       "w": 7.5,
       "h": 7.5,
       "offX": 0,
@@ -722,8 +782,8 @@
       "sourceH": 7.5
     },
     "m_gfsb_panel_chart_bar_horizontal_purple_png": {
-      "x": 422.5,
-      "y": 463,
+      "x": 243,
+      "y": 235,
       "w": 7.5,
       "h": 7.5,
       "offX": 0,
@@ -732,8 +792,8 @@
       "sourceH": 7.5
     },
     "m_gfsb_panel_chart_bar_horizontal_red_png": {
-      "x": 432,
-      "y": 463,
+      "x": 258.5,
+      "y": 224.5,
       "w": 7.5,
       "h": 7.5,
       "offX": 0,
@@ -742,8 +802,8 @@
       "sourceH": 7.5
     },
     "m_gfsb_panel_chart_bar_horizontal_yellow_png": {
-      "x": 441.5,
-      "y": 463,
+      "x": 252.5,
+      "y": 235,
       "w": 7.5,
       "h": 7.5,
       "offX": 0,
@@ -752,8 +812,8 @@
       "sourceH": 7.5
     },
     "d_gfsb_panel_chart_bar_bg_png": {
-      "x": 403.5,
-      "y": 472.5,
+      "x": 304.5,
+      "y": 361,
       "w": 5.5,
       "h": 5.5,
       "offX": 0,
@@ -762,8 +822,8 @@
       "sourceH": 5.5
     },
     "d_gfsb_panel_chart_bar_blue_png": {
-      "x": 411,
-      "y": 472.5,
+      "x": 304.5,
+      "y": 368.5,
       "w": 5.5,
       "h": 5.5,
       "offX": 0,
@@ -772,8 +832,8 @@
       "sourceH": 5.5
     },
     "d_gfsb_panel_chart_bar_green_png": {
-      "x": 418.5,
-      "y": 472.5,
+      "x": 304.5,
+      "y": 376,
       "w": 5.5,
       "h": 5.5,
       "offX": 0,
@@ -782,8 +842,8 @@
       "sourceH": 5.5
     },
     "d_gfsb_panel_chart_bar_indigo_png": {
-      "x": 426,
-      "y": 472.5,
+      "x": 304.5,
+      "y": 383.5,
       "w": 5.5,
       "h": 5.5,
       "offX": 0,
@@ -792,37 +852,7 @@
       "sourceH": 5.5
     },
     "d_gfsb_panel_chart_bar_orange_png": {
-      "x": 433.5,
-      "y": 472.5,
-      "w": 5.5,
-      "h": 5.5,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 5.5,
-      "sourceH": 5.5
-    },
-    "d_gfsb_panel_chart_bar_pink_png": {
-      "x": 441,
-      "y": 472.5,
-      "w": 5.5,
-      "h": 5.5,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 5.5,
-      "sourceH": 5.5
-    },
-    "d_gfsb_panel_chart_bar_purple_png": {
-      "x": 448.5,
-      "y": 472.5,
-      "w": 5.5,
-      "h": 5.5,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 5.5,
-      "sourceH": 5.5
-    },
-    "d_gfsb_panel_chart_bar_red_png": {
-      "x": 196.5,
+      "x": 196,
       "y": 249.5,
       "w": 5.5,
       "h": 5.5,
@@ -831,9 +861,39 @@
       "sourceW": 5.5,
       "sourceH": 5.5
     },
+    "d_gfsb_panel_chart_bar_pink_png": {
+      "x": 262,
+      "y": 234,
+      "w": 5.5,
+      "h": 5.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 5.5,
+      "sourceH": 5.5
+    },
+    "d_gfsb_panel_chart_bar_purple_png": {
+      "x": 262,
+      "y": 241.5,
+      "w": 5.5,
+      "h": 5.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 5.5,
+      "sourceH": 5.5
+    },
+    "d_gfsb_panel_chart_bar_red_png": {
+      "x": 436.5,
+      "y": 289,
+      "w": 5.5,
+      "h": 5.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 5.5,
+      "sourceH": 5.5
+    },
     "d_gfsb_panel_chart_bar_yeloow_png": {
-      "x": 451,
-      "y": 463,
+      "x": 436.5,
+      "y": 296.5,
       "w": 5.5,
       "h": 5.5,
       "offX": 0,

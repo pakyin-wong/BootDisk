@@ -7,7 +7,7 @@
                          height="100%" y="0" />
                 <e:Label id="playerSum" text="" fontFamily="Barlow" textAlign="center" right="26" y="127.04" size="60" />
                 <ui:RunTimeLabel id="lblPlayerName" text="閒" right="30" y="35.75" size="60" />
-                <ui:Card id="card3Player" width="142" height="98" right="403" verticalCenter="-40" />
+                <ui:Card id="card3Player" width="98" height="142" right="403" verticalCenter="-40" rotation="270" />
                 <ui:Card id="card2Player" width="98" height="142" right="277" verticalCenter="-40" />
                 <ui:Card id="card1Player" width="98" height="142" right="153" verticalCenter="-40" />
         </e:Group>
@@ -17,8 +17,8 @@
                          height="100%" y="0" />
                 <e:Label id="bankerSum" text="" x="30" y="127.04" fontFamily="Barlow" textAlign="center" size="60" />
                 <ui:RunTimeLabel id="lblBankerName" text="莊" x="30" y="35.75" size="60" />
-                <ui:Card id="card3Banker" width="142" height="98" verticalCenter="-40" x="403" anchorOffsetX="0"
-                         anchorOffsetY="0" />
+                <ui:Card id="card3Banker" width="98" height="142" verticalCenter="-40" x="403" anchorOffsetX="0"
+                         anchorOffsetY="0" rotation="270" />
                 <ui:Card id="card2Banker" width="98" height="142" verticalCenter="-40" x="277" anchorOffsetX="0"
                          anchorOffsetY="0" />
                 <ui:Card id="card1Banker" width="98" height="142" verticalCenter="-40" x="153" />

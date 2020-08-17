@@ -3,7 +3,7 @@ namespace we {
     export class TooltipCtr {
       private margin = 8;
       private paddingVertical = 6;
-      private paddingHorizontal = 16;
+      private paddingHorizontal = 14;
       private stage: egret.Stage;
       private activeTooltip: eui.Group = null;
 
@@ -12,12 +12,15 @@ namespace we {
         this.stage = stage;
       }
 
-      public displayTooltip(showX, showY, message) {
+      private _initTooltip(message) {
+        // remove all existing
+        this.removeTooltips();
         this.activeTooltip = new eui.Group();
+        this.activeTooltip.touchEnabled = false;
         // add text
         const text = new we.ui.RunTimeLabel();
         text.renderText = () => i18n.t(message);
-        text.size = 16;
+        text.size = 20;
         text.textColor = 0xffffff;
         text.x = this.paddingHorizontal;
         text.y = this.paddingVertical;
@@ -25,19 +28,29 @@ namespace we {
         // add background
         const bg = new we.ui.RoundRectShape();
         bg.cornerTL_TR_BL_BR = '6,6,6,6';
-        bg.fillColor = '0x000000';
-        bg.fillAlpha = 0.5;
+        bg.fillColor = '0x171b20';
+        bg.fillAlpha = 0.8;
         bg.stroke = 0;
         bg.width = text.width + this.paddingHorizontal * 2;
         bg.height = text.height + this.paddingVertical * 2;
         this.activeTooltip.addChildAt(bg, 0);
-        // show tooltip
-        this.activeTooltip.x = showX;
-        this.activeTooltip.y = showY;
-        this.activeTooltip.alpha = 0;
-        this.activeTooltip.touchEnabled = false;
+        // add tooltip
         dir.layerCtr.tooltip.addChild(this.activeTooltip);
-        egret.Tween.get(this.activeTooltip).to({ alpha: 1 }, 200, egret.Ease.sineIn);
+      }
+
+      private _showTooltip(showX, showY) {
+        const scaleFrom = 0.8;
+        this.activeTooltip.alpha = 0;
+        this.activeTooltip.x = showX + (this.activeTooltip.width * (1 - scaleFrom)) / 2;
+        this.activeTooltip.y = showY;
+        this.activeTooltip.scaleX = scaleFrom;
+        this.activeTooltip.scaleY = scaleFrom;
+        egret.Tween.get(this.activeTooltip).to({ alpha: 1, scaleX: 1, scaleY: 1, x: showX }, 150, egret.Ease.sineIn);
+      }
+
+      public displayTooltip(x, y, message) {
+        this._initTooltip(message);
+        this._showTooltip(x, y);
       }
 
       public removeTooltips() {
@@ -51,25 +64,34 @@ namespace we {
       private onShowTooltip({ data: { displayObject, x, y } }) {
         const coord = (<egret.DisplayObject>displayObject).localToGlobal(0, 0);
         // init first to get tooltip width
-        this.displayTooltip(0, 0, displayObject.tooltipText.replace(/'/g, ''));
-        switch (displayObject.tooltipPosition) {
+        this._initTooltip(displayObject.tooltipText.replace(/'/g, ''));
+        let showX = 0;
+        let showY = 0;
+        switch (displayObject.tooltipPosition.replace(/'/g, '')) {
           case 'below': {
-            this.activeTooltip.x = coord.x + displayObject.width / 2 - this.activeTooltip.width / 2;
-            this.activeTooltip.y = coord.y + displayObject.height + this.margin;
+            showX = coord.x + displayObject.width / 2 - this.activeTooltip.width / 2;
+            showY = coord.y + displayObject.height + this.margin;
+            break;
+          }
+          case 'above': {
+            showX = coord.x + displayObject.width / 2 - this.activeTooltip.width / 2;
+            showY = coord.y - this.activeTooltip.height - this.margin;
+            break;
+          }
+          case 'before': {
+            showX = coord.x - this.activeTooltip.width - this.margin;
+            showY = coord.y + displayObject.height / 2 - this.activeTooltip.height / 2;
             break;
           }
           default:
             break;
         }
-      }
-
-      private onHideTooltip() {
-        this.removeTooltips();
+        this._showTooltip(showX, showY);
       }
 
       public addListeners() {
         this.stage.addEventListener('TOOLTIP_SHOW', this.onShowTooltip.bind(this), false);
-        this.stage.addEventListener('TOOLTIP_HIDE', this.onHideTooltip.bind(this), false);
+        this.stage.addEventListener('TOOLTIP_HIDE', this.removeTooltips.bind(this), false);
       }
     }
   }

@@ -28,4 +28,5 @@
         <e:Image includeIn="lobby_notify_btn_action" width="40" height="65" source="m_common_notification_quickbet_icon_png" />
         <e:Image includeIn="lobby_notify_btn_action_variant" width="22" height="36" source="m_common_btn_previous_png" scaleX="-1" verticalCenter="0" horizontalCenter="0"/>
     </e:Group>
+	<!--<e:Image id="_icon" source="m_common_notification_icon_quickbet_png" width="80" height="80" visible="false" visible.1col_btn="true" x="10" y="9"  touchEnabled.1col_btn="false"/>-->
 </e:Skin>

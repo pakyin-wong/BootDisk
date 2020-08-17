@@ -2,8 +2,8 @@ namespace we {
   export namespace overlay {
     export class MessageDialog extends we.ui.Panel {
       private _txt_title: ui.RunTimeLabel;
-      private _btn_dismiss: ui.BaseImageButton;
-      private _btn_action: ui.BaseImageButton;
+      private _btn_dismiss: ui.RoundRectButton;
+      private _btn_action: ui.RoundRectButton;
       private _buttonProps;
       private _title;
 
@@ -18,7 +18,9 @@ namespace we {
         const buttonNames = Object.keys(this._buttonProps);
         this.currentState = buttonNames.length === 2 ? 'two' : 'one';
         for (const btn of buttonNames) {
-          this[`_btn_${btn}`].text = this._buttonProps[btn].text;
+          (<ui.RoundRectButton>this[`_btn_${btn}`]).label.text = this._buttonProps[btn].text;
+          (<ui.RoundRectButton>this[`_btn_${btn}`]).label.size = env.isMobile ? 60 : 24;
+          (<ui.RoundRectButton>this[`_btn_${btn}`]).label.fontFamily = 'Arial';
           this[`_btn_${btn}`].addEventListener(
             egret.TouchEvent.TOUCH_TAP,
             async () => {
