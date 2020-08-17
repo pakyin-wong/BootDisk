@@ -45,7 +45,7 @@ namespace we {
         this._roundNumber.text = '10';
       }
       public updateStat(data: we.data.GameStatistic) {
-        if (!data || !data.dilHistory || !data.dilHistory.round_10) {
+        if (!data || !data.dilHistory || !data.dilHistory.round_10 || !data.dilHistory.round_50) {
           return;
         }
         const percentages = we.utils.stat.toPercentages(data.dilHistory.round_10);
