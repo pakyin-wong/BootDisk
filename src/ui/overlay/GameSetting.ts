@@ -24,6 +24,10 @@ namespace we {
         this._txt_showHint.renderText = () => `${i18n.t('overlaypanel_gameSet_showGoodRoadHint')}`;
         this._btn_sendLiveVer.label.renderText = () => `${i18n.t('overlaypanel_gameSet_sendLiveVerfication')}`;
 
+        if (env.isMobile) {
+          this._btn_sendLiveVer.label.size = 60;
+        }
+
         this.switch_showHint.active = env.showGoodRoadHint;
         if (!env.isMobile) {
           this._txt_autoBet.renderText = () => `${i18n.t('overlaypanel_gameSet_autoBet')}`;
