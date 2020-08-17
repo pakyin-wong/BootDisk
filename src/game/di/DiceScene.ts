@@ -26,9 +26,9 @@ namespace we {
         this.skinName = utils.getSkinByClassname('DiceScene');
       }
 
-      public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
-      }
+      // public backToLobby() {
+      //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
+      // }
 
       protected initChildren() {
         super.initChildren();
@@ -53,8 +53,9 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
+        super.onRoadDataUpdate(evt);
         this._roadmapControl.updateRoadData();
-        this._rightGamePanel.updateStat();
+        // this._rightGamePanel.updateStat();
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
@@ -65,28 +66,15 @@ namespace we {
       }
 
       public checkResultMessage() {
-        let totalWin: number = NaN;
-        if (!isNaN(this._tableInfo.totalWin)) {
-          totalWin = this._tableInfo.totalWin;
-        }
         (this._tableLayer as di.TableLayer).flashFields(this._gameData);
+        super.checkResultMessage();
+      }
 
-        if (this.hasBet()) {
-          if (this._gameData && !isNaN(totalWin)) {
-            this._resultMessage.showResult(this._tableInfo.gametype, {
-              gameData: this._gameData,
-              winAmount: this._tableInfo.totalWin,
-            });
-            dir.audioCtr.playSequence(['player', 'win']);
-          }
+      protected playResultSoundEffect(totalWin) {
+        if (this.hasBet() && !isNaN(totalWin)) {
+          dir.audioCtr.playSequence(['player', 'win']);
         } else {
-          if (this._gameData) {
-            this._resultMessage.showResult(this._tableInfo.gametype, {
-              gameData: this._gameData,
-              winAmount: NaN,
-            });
-            dir.audioCtr.playSequence(['player', 'win']);
-          }
+          dir.audioCtr.playSequence(['player', 'win']);
         }
       }
     }

@@ -30,9 +30,56 @@ namespace we {
           this.addChild(face);
         }
 
+        let image = new eui.Image('d_sq_bac_large_poker_diamond6_png');
+        image.x = 200;
+        image.y = 600;
+        image.width = 300;
+        image.height = 300;
+        image.fillMode = 'cover';
+        this.addChild(image);
+
+        image = new eui.Image('d_sq_bac_large_poker_diamond6_png');
+        image.x = 800;
+        image.y = 200;
+        image.width = 400;
+        image.height = 800;
+        image.fillMode = 'cover';
+        this.addChild(image);
+
+        image = new eui.Image('d_sq_bac_large_poker_diamond6_png');
+        image.x = 1400;
+        image.y = 600;
+        image.width = 800;
+        image.height = 300;
+        image.fillMode = 'cover';
+        this.addChild(image);
         // step 3: connect socket
         // this.socketConnect();
         // dir.sceneCtr.goto('LobbyScene');
+
+        const label = new ui.ClampWidthLabel();
+        this.addChild(label);
+        label.y = 400;
+        label.width = 300;
+        label.targetWidth = 500;
+        label.scaleX = 2;
+        label.scaleY = 2;
+        label.textAlign = 'center';
+        label.text = 'hello world';
+
+        // const label2 = new ui.ClampWidthLabel();
+        // this.addChild(label2);
+        // label2.x = 400;
+        // label2.y = 600;
+        // label2.width = 200;
+        // label2.textAlign = 'center';
+        // label2.targetWidth = 200;
+        // label2.text = 'hello world';
+
+        setInterval(() => {
+          label.text += '.';
+          // label2.text += '.';
+        }, 500);
       }
 
       protected socketConnect() {

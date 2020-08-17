@@ -33,12 +33,15 @@ namespace we {
 
         protected dataChanged(): void {
           this._txt_record_id.text = this.data.betid;
-          this._txt_record_date.text = utils.formatTime((this.data.datetime / Math.pow(10, 9)).toFixed(0));
+          // this._txt_record_date.text = utils.formatTime((this.data.datetime / Math.pow(10, 9)).toFixed(0));
+          this._txt_record_date.text = utils.formatTime(this.data.datetime.toFixed(0));
           this._txt_record_game.text = `${i18n.t('gametype_' + we.core.GameType[this.data.gametype])} ${this.data.tablename}`;
           if (env.isMobile) {
             this._txt_hover_color.visible = false;
             this._txt_record_bgcolor.fillColor = 0x4b535b;
             this._txt_record_bgcolor.fillAlpha = this.data.colorIndex === 1 ? 0.3 : 0.5;
+          } else {
+            this._txt_record_bgcolor.fillColor = this.data.colorIndex === 1 ? 0x14181e : 0x1a1f26;
           }
           this._txt_record_round.text = this.data.gameroundid;
           this._txt_record_remark.text = this.formatRemark(this.data.remark);
@@ -64,6 +67,8 @@ namespace we {
 
           if (amt > 0) {
             this._txt_record_win.text = `+${utils.formatNumber(this.data.winamount, true)}`;
+          } else if (amt === 0) {
+            this._txt_record_win.text = `${utils.formatNumber(this.data.winamount, true)}`;
           } else {
             this._txt_record_win.text = `-${utils.formatNumber(this.data.winamount, true)}`;
           }
@@ -78,7 +83,10 @@ namespace we {
         }
 
         protected onClickReplay(e: egret.Event) {
-          window.open('https://www.facebook.com/', '_blank');
+          if (this.data && this.data.replayurl) {
+            window.open(this.data.replayurl, '_blank');
+          }
+          // window.open('https://www.facebook.com/', '_blank');
         }
 
         private formatRemark(remark) {
@@ -123,13 +131,17 @@ namespace we {
             case we.core.GameType.DT:
               p = new DtResultItem(gameResult);
               break;
-
-            case we.core.GameType.ROL:
             case we.core.GameType.RO:
               p = new RoResultItem(gameResult);
               break;
+            case we.core.GameType.ROL:
+              p = new RolResultItem(gameResult);
+              break;
             case we.core.GameType.DI:
               p = new DiResultItem(gameResult);
+              break;
+            case we.core.GameType.DIL:
+              p = new DilResultItem(gameResult);
               break;
             case we.core.GameType.LW:
               p = new LwResultItem(gameResult);

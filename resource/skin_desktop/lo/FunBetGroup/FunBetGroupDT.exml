@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.lo.FunBetGroupDT" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing" >
+	<e:Image width="484" height="214"/>
+	<e:Group id="items" left="0" right="0" top="0" bottom="0">
+		<lo:FunBetItem skinName="skin_desktop.lo.FunBetItemDT" x="62" y="51" scaleX="1" scaleY="1" currentState="DRAGON" field="DRAGON"/>
+		<lo:FunBetItem skinName="skin_desktop.lo.FunBetItemDT" x="202" y="51" scaleX="1" scaleY="1" currentState="TIGER" field="TIGER"/>
+		<lo:FunBetItem skinName="skin_desktop.lo.FunBetItemDT" x="342" y="51" scaleX="1" scaleY="1" currentState="TIE" field="TIE"/>
+
+
+
+
+
+	</e:Group>
+
+	<ui:RunTimeLabel id="title" text="Label" y="11" textColor="0x00b8c3" size="20" height="29" verticalAlign="middle" left="0" right="0" textAlign="center"/>
+        
+</e:Skin>

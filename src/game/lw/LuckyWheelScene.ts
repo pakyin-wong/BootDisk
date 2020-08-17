@@ -26,25 +26,26 @@ namespace we {
         this.skinName = utils.getSkinByClassname('LuckyWheelScene');
       }
 
-      public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'lw' });
-      }
+      // public backToLobby() {
+      //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'lw' });
+      // }
 
       public getTableLayer() {
         return this._tableLayer;
       }
 
-      protected onTableBetInfoUpdate(evt: egret.Event) {
-        super.onTableBetInfoUpdate(evt);
-        if (!evt.data) {
-          return;
-        }
-        for (let i = 0; i < 7; i += 1) {
-          this._rightGamePanel[`_lbl_lwValue${i}`].text = evt.data.amount[`LW_${i}`] || 0;
-        }
-        logger.l(JSON.stringify(evt.data.count));
-        logger.l(JSON.stringify(evt.data.amount));
-      }
+      // protected onTableBetInfoUpdate(evt: egret.Event) {
+      //   super.onTableBetInfoUpdate(evt);
+      //   if (!evt.data) {
+      //     return;
+      //   }
+      //   for (let i = 0; i < 7; i += 1) {
+      //     this._rightGamePanel[`_lbl_lwValue${i}`].text = evt.data.amount[`LW_${i}`] || 0;
+      //   }
+      //   logger.l(utils.LogTarget.DEBUG, JSON.stringify(evt.data.count));
+      //   logger.l(utils.LogTarget.DEBUG, JSON.stringify(evt.data.amount));
+
+      // }
 
       protected initChildren() {
         super.initChildren();
@@ -60,26 +61,14 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
+        super.onRoadDataUpdate(evt);
         this._roadmapControl.updateRoadData();
       }
 
       public checkResultMessage() {
-        let totalWin: number = NaN;
-        if (this._tableInfo.totalWin) {
-          totalWin = this._tableInfo.totalWin;
-        }
-
-        if (!this._gameData) {
-          return;
-        }
-
-        console.log('checkResultMessage', this._gameData);
-
-        const resultNo = (<lw.GameData> this._gameData).value; // a string type
+        const resultNo = (<lw.GameData>this._gameData).value;
         (this._tableLayer as lw.TableLayer).flashFields(`LW_${parseInt(resultNo, 10) - 1}`);
-        // const lwGameResultMessage = new lw.GameResultMessage();
-        // lwGameResultMessage.type = null;
-        this._resultMessage.showResult(this._tableInfo.gametype, { value: resultNo, totalWin });
+        super.checkResultMessage();
       }
     }
   }

@@ -3,7 +3,9 @@
         xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal">
 	<e:Label id="_distNumLabel" text="0" horizontalCenter="0" verticalCenter="0" size="35" />
 	<ui:BaseAnimationButton id="_addButton" width="32" height="32" horizontalCenter="42" verticalCenter="0"
-	                    dbClass="roulette_ui" dbDisplay="d_ro_racetrack_bet_add" />
+	                    dbClass="roulette_ui" dbDisplay="d_ro_racetrack_bet_add"
+			    tooltipText="'live.tooltip.ro.spreadAdd'" tooltipPosition="'above'" />
 	<ui:BaseAnimationButton id="_lessButton" width="32" height="32" horizontalCenter="-42" verticalCenter="0"
-	                    dbClass="roulette_ui" dbDisplay="d_ro_racetrack_bet_deduct" />
+	                    dbClass="roulette_ui" dbDisplay="d_ro_racetrack_bet_deduct"
+			    tooltipText="'live.tooltip.ro.spreadDeduct'" tooltipPosition="'above'" />
 </e:Skin>

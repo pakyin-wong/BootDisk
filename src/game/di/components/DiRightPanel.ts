@@ -43,32 +43,33 @@ namespace we {
       }
 
       public updateStat() {
-        if (this.tableInfo) {
-          const stat = this.tableInfo.gamestatistic;
+        if (!this.tableInfo) {
+          return;
+        }
+        const stat = this.tableInfo.gamestatistic;
 
-          if (stat.diOdd) {
-            const odd = stat.diOdd.odd;
-            const even = stat.diOdd.even;
-            const oddTie = stat.diOdd.tie;
-            const result = we.utils.stat.toPercentages([odd, even, oddTie]);
-            this._diPie.setPieOdd(result);
-            this._diPie.setOddValues(stat.diOdd);
-          }
+        if (stat.diOdd) {
+          const odd = stat.diOdd.odd;
+          const even = stat.diOdd.even;
+          const oddTie = stat.diOdd.tie;
+          const result = we.utils.stat.toPercentages([odd, even, oddTie]);
+          this._diPie.setPieOdd([odd, oddTie, even]);
+          this._diPie.setOddValues({ odd: result[0], even: result[1], tie: result[2] });
+        }
 
-          if (stat.diSize) {
-            const small = stat.diSize.small;
-            const big = stat.diSize.big;
-            const sizeTie = stat.diSize.tie;
-            const result = we.utils.stat.toPercentages([small, big, sizeTie]);
-            this._diPie.setPieSize(result);
-            this._diPie.setSizeValues(stat.diSize);
-          }
+        if (stat.diSize) {
+          const small = stat.diSize.small;
+          const big = stat.diSize.big;
+          const sizeTie = stat.diSize.tie;
+          const result = we.utils.stat.toPercentages([small, big, sizeTie]);
+          this._diPie.setPieSize([small, sizeTie, big]);
+          this._diPie.setSizeValues({ small: result[0], big: result[1], tie: result[2] });
+        }
 
-          if (stat.points) {
-            const result = we.utils.stat.toPercentages(stat.points);
-            this._diChance.setDiceValues(result);
-            this._diChance.setMaxWidth(80);
-          }
+        if (stat.points) {
+          const result = we.utils.stat.toPercentages(stat.points);
+          this._diChance.setDiceValues(result);
+          this._diChance.setMaxWidth(80);
         }
       }
 

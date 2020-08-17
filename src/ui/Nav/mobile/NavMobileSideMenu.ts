@@ -44,21 +44,22 @@ namespace we {
           class: 'PlayerProfile',
           args: ['PlayerProfile'],
         });
-        logger.l(`NavSideMenu::onClickInfo`);
+
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickInfo`);
       }
 
       protected onClickRoad() {
         dir.evtHandler.createOverlay({
           class: 'CustomRoadMobile',
         });
-        logger.l(`NavSideMenu::onClickRoad`);
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickRoad`);
       }
 
       protected onClickHistory() {
         dir.evtHandler.createOverlay({
           class: 'BetHistoryMobile',
         });
-        logger.l(`NavSideMenu::onClickHistory`);
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickHistory`);
       }
 
       protected onSwitchLeftHandMode(e) {
@@ -70,6 +71,12 @@ namespace we {
         super.initOrientationDependentComponent();
         this.initTxt();
         this.addListeners();
+      }
+
+      protected onOrientationChange() {
+        super.onOrientationChange();
+        this.switch_leftHandMode.active = env.leftHandMode;
+        this.invalidateState();
       }
     }
   }

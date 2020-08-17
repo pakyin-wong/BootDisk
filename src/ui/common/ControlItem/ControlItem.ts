@@ -30,11 +30,15 @@ namespace we {
       protected _contentContainer: eui.Group;
 
       public itemInitHelper: IListItemHelper;
+      protected _betMessageEnable = true;
 
       public constructor(skinName: string = null) {
         super();
         if (skinName) {
           this.skinName = utils.getSkinByClassname(skinName);
+          if (skinName == 'SideListItemSkin' || env.isMobile) {
+            this._betMessageEnable = false;
+          }
         }
         this.touchEnabled = true;
       }
@@ -43,6 +47,7 @@ namespace we {
       //   super.mount();
       // }
 
+      // clearComponents hvn't been called
       protected clearComponents() {
         this.removeEventListeners();
         this.removeChildren();
@@ -112,13 +117,24 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
         this._chipLayer && this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+        this._chipLayer && this._chipLayer.addEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         this._confirmButton && this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this._cancelButton && this._cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
       }
 
       public insufficientBalance() {
         if (this._message) {
-          this._message.showMessage(ui.InGameMessage.ERROR, 'Insufficient Balance');
+          this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.insufficientBalance'));
+        }
+      }
+
+      public exceedBetLimit(evt: egret.Event) {
+        if (this._message) {
+          if (evt && evt.data && evt.data.exceedLower) {
+            this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.exceedBetLowerLimit'));
+          } else {
+            this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.exceedBetUpperLimit'));
+          }
         }
       }
 
@@ -136,6 +152,7 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
         this._chipLayer && this._chipLayer.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+        this._chipLayer && this._chipLayer.removeEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         this._confirmButton && this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this._cancelButton && this._cancelButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
         this._timer && this._timer.stop();
@@ -157,8 +174,8 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
-        // logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
+        const tableInfo = <data.TableInfo>evt.data;
+        // logger.l(utils.LoggerTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
           switch (this._gameData.state) {
@@ -176,7 +193,7 @@ namespace we {
       protected onMatchGoodRoadUpdate() {}
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
-        // logger.l('LiveBaListSimpleItem::onTableBetInfoUpdate');
+        // logger.l(utils.LoggerTarget.DEBUG, 'LiveBaListSimpleItem::onTableBetInfoUpdate');
       }
 
       // item clicked
@@ -193,6 +210,9 @@ namespace we {
           if (this._resultMessage) {
             this.checkResultMessage();
           }
+        }
+        if (this._undoStack) {
+          this._undoStack.clearStack();
         }
       }
 
@@ -212,7 +232,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -288,15 +308,16 @@ namespace we {
             this._resultMessage.clearMessage();
           }
 
-          if (this._message && !isInit) {
+          if (this._message && !isInit && this._betMessageEnable) {
             this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
           }
 
           if (this._betDetails && this._chipLayer) {
             this._chipLayer.updateBetFields(this._betDetails);
           }
-
-          this._undoStack.clearStack();
+          if (this._undoStack) {
+            this._undoStack.clearStack();
+          }
         }
         // update the countdownTimer
         this.updateCountdownTimer();
@@ -313,7 +334,7 @@ namespace we {
             this._cardHolder.reset();
           }
 
-          if (this._previousState === core.GameState.BET && this._message && !isInit) {
+          if (this._previousState === core.GameState.BET && this._message && !isInit && this._betMessageEnable) {
             this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
           }
 
@@ -337,7 +358,7 @@ namespace we {
             this._cardHolder.reset();
           }
 
-          if ((this._previousState === core.GameState.BET || this._previousState === core.GameState.DEAL) && this._message && !isInit) {
+          if ((this._previousState === core.GameState.BET || this._previousState === core.GameState.DEAL) && this._message && !isInit && this._betMessageEnable) {
             this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
           }
 
@@ -388,9 +409,8 @@ namespace we {
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         if (this._timer) {
-          this._timer.visible = enable;
+          this._timer.visible = true;
         }
-
         if (this._chipLayer) {
           this._chipLayer.setTouchEnabled(enable);
         }
@@ -441,17 +461,20 @@ namespace we {
             pass2 = this._gameData && this._gameData.wintype != 0;
             break;
           case core.GameType.RO:
+          case core.GameType.ROL:
           case core.GameType.DI:
+          case core.GameType.DIL:
           case core.GameType.LW:
-            pass1 = this._gameData && !isNaN(totalWin);
-            pass2 = !!this._gameData;
+            pass1 = this._gameData && this._gameData.state === core.GameState.FINISH && !isNaN(totalWin);
+            pass2 = !!this._gameData && this._gameData.state === core.GameState.FINISH;
             break;
           default:
-            logger.e('No gametype found in ControlItem::checkResultMessage');
+            logger.e(utils.LogTarget.DEBUG, 'No gametype found in ControlItem::checkResultMessage');
             break;
         }
 
-        if (this.hasBet()) {
+        if (this._tableInfo.totalBet > 0) {
+          // this.hasBet()) {
           if (pass1) {
             this._resultMessage.showResult(this._tableInfo.gametype, {
               winType: this._gameData.wintype,
@@ -477,12 +500,16 @@ namespace we {
       public onRollout(evt: egret.Event) {
         this._mouseOutside = true;
       }
+      public get timer() {
+        return this._timer;
+      }
 
       protected onConfirmPressed(evt: egret.Event) {
         if (this._chipLayer) {
           if (this._chipLayer.getTotalUncfmBetAmount() > 0) {
             const bets = this._chipLayer.getUnconfirmedBetDetails();
             this._chipLayer.resetUnconfirmedBet();
+            this._undoStack.clearStack();
             // Not yet decided: any blocking or a new waitingConfirmedBet should be used here.
             dir.socket.bet(this._tableId, bets);
           }

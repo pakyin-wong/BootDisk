@@ -8,6 +8,7 @@ This is the game client for World Entertainment.
 - [Lottery Asset](#lottery-asset)
 
 ## Roadmap
+v0.6.0
 
 ### Tasks
 - Disconnect handling
@@ -48,15 +49,15 @@ if (list has new goodroad) we send out Notification.
 ### MacOS
 1. Install Egret Launcher. (Don't install Egret Wing solely.)
 2. Install Egret Wing and Egret Engine(5.2.29).
-3. Install optipng and pngquant for image compression
+3. Install jpegoptim, optipng and pngquant for image compression
 4. Install npm
 5. Install the following programs
 ```
-npm install -g tslint prettier typescript
-npm install -g cross-zip cross-zip-cli
-npm install -g optipng pngquant
+npm i -g tslint prettier typescript
+npm i -g cross-zip cross-zip-cli
+npm i -g optipng-bin pngquant-bin
 npm i -g @ffflorian/jszip-cli
-npm install -g jpegoptim-bin
+npm i -g jpegoptim-bin
 ```
 
 ### Windows
@@ -68,11 +69,11 @@ npm install -g jpegoptim-bin
 5. Install npm
 6. Install the following programs
 ```
-npm install -g tslint prettier typescript
-npm install -g cross-zip cross-zip-cli
-npm install -g optipng pngquant
+npm i -g tslint prettier typescript
+npm i -g cross-zip cross-zip-cli
+npm i -g optipng-bin pngquant-bin
 npm i -g @ffflorian/jszip-cli
-npm install -g jpegoptim-bin
+npm i -g jpegoptim-bin
 ```
 
 ### SpriteSheet 
@@ -146,9 +147,31 @@ There are few steps needed to be taken before publish
 - [Baccarat Requirement](https://docs.google.com/document/d/1vjd9PBGGMaTAzS12U4EoiQ-daw8yi-vkYh7-XDRwkuw/edit)
 - [Squeezed Baccarat Mobile Requirement (Portrait)](https://docs.google.com/document/d/1MmLHwUiXZQiW7N5u73z9Ej02oTBvUwS5esCrPSS-k80/edit)
 
-
+- [GOW Sicbo Desktop Requirement](https://docs.google.com/document/u/1/d/1A-H_QTX6NlgbiEQRVfVMERfuytIxxMnMZ_fgCviLv8k/mobilebasic)
 
 ## Live Game Asset
+- [22/7 lobby icon dragonbones](https://drive.google.com/file/d/1hNu8nOQOhl1ce6IF36V9_bvCKTNeCxen/view?usp=sharing)
+- [22/7 common icon dragonbones](https://drive.google.com/file/d/1f2cXQTwD5lSjyd6RfJIZMLMB-_1gbUqQ/view?usp=sharing)
+- [22/7 baccarat icon dragonbones](https://drive.google.com/file/d/1VHjrALtDJaOQr_lf6oEPHbzyH-7KCfBb/view?usp=sharing)
+- [22/7 roulette icon dragonbones](https://drive.google.com/file/d/1HlBBA1Y1Ji6ll9OiEqjHm9mNNyr-Yr9W/view?usp=sharing)
+
+- [3/7 God of Wealth Sicbo desktop Assets](https://drive.google.com/file/d/18B5IwK0BgRBUfxn1AK1AvQrNJ3POLcqf/view?usp=sharing)
+- [3/7 God of Wealth Sicbo mobile Assets](https://drive.google.com/drive/folders/10MG0EFUScuyShearr9KnE5O7HYLMTAfW?usp=sharing)
+- [3/7 God of Wealth Sicbo animation Assets](https://drive.google.com/file/d/15_cVXgRdVqzK2D-qLoONG5Y620SlHEsU/view?usp=sharing)
+
+- [3/7 God of Wealth Roulette mobile Assets](https://drive.google.com/file/d/1Kv2AWt3yvFH8sWo3N2VyMZuCIhpGSA8t/view?usp=sharing)
+- [3/7 God of Wealth Roulette desktop animation Assets](https://drive.google.com/file/d/1AogJc0OACzfhH69ON0fyt2uznZlwKi5o/view?usp=sharing)
+- [3/7 God of Wealth Roulette mobile animation Assets](https://drive.google.com/file/d/1Rp9jo6FD-EyuZZEeAG6hRNAxgJowNtNS/view?usp=sharing)
+
+- [God of Wealth Sicbo Animation](https://drive.google.com/file/d/1KYSgMXHM3rQ51-ZBCsppP75Z2DHO3ojR/view?usp=sharing)
+
+- [23/6 God of Wealth Roulette Desktop Animation](https://drive.google.com/file/d/1yqC6Kzc-c1rFPw2gbSswoJLOIFC3oRkL/view?usp=sharing)
+- [23/6 God of Wealth Roulette Mobile Animation](https://drive.google.com/file/d/1Rp9jo6FD-EyuZZEeAG6hRNAxgJowNtNS/view?usp=sharing)
+
+- [God of Wealth Roulette Desktop Animation](https://drive.google.com/open?id=1AogJc0OACzfhH69ON0fyt2uznZlwKi5o)
+- [God of Wealth Roulette Mobile Animation](https://drive.google.com/open?id=13SNhuemmGrRZ_yWi5XcCeYFPXb-3ucCA)
+
+- [Lucky Wheel result message dragonbone](https://drive.google.com/file/d/1tDc-zLLHCX_Cify6mj0STqhsT6UooH_Y/view?usp=sharing)
 
 - [Lucky Wheel 結果通知 Asset](https://drive.google.com/open?id=1C-jERs8Ixsdw3E2gKbYCROna_SuEa5n7)
 - [Lucky Wheel 結果通知 Asset mobile](https://drive.google.com/open?id=1IO_lTsvor9o_dSryBiRPuYKLPn28drGu)
@@ -226,6 +249,6 @@ There are few steps needed to be taken before publish
 - [時時彩 玩法說明](https://drive.google.com/drive/folders/1NKNYbvCVuGMT8cMEHgkUo5RmIpBoRCWu?usp=sharing)
 - [時時彩 Requirement](https://drive.google.com/file/d/1XjppI7cKDkCOOVcRWSQrAXX_mAjjzD53/view?usp=sharing)
 - [Lottery pending and unclearness](https://docs.google.com/document/d/1dkb1aqSjAEqK9TL4wf4UtGk7YeSDjzz0atUuCAjBjec/edit?usp=sharing)
-
+- [排列組合公式大全](https://drive.google.com/file/d/1CbhA5uHBFwjyH2LA6NG5IuyLSkUsmj2D/view?usp=sharing)
 ## Lottery Asset
 - [Lobby + 時時彩 Desktop](https://drive.google.com/open?id=19TTHY9c2-hLl-HWt-q2dLFsl_uFc79GO)

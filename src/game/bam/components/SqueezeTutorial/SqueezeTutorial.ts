@@ -4,7 +4,7 @@ namespace we {
     export class SqueezeTutorial extends we.ui.Panel {
       private _nextButton;
       private _prevButton;
-      private _close;
+      public _close;
       private _holder: we.ui.HorizontalHolder;
 
       private _allOpenOne;
@@ -19,6 +19,8 @@ namespace we {
 
       private _pageText;
       private _pageIndex = 0;
+
+      private _mask;
 
       constructor(skin) {
         super(skin);
@@ -71,6 +73,16 @@ namespace we {
             this._prevButton.currentState = 'off';
           }
         }
+        const shape = new egret.Shape();
+        const matrix = new egret.Matrix();
+
+        matrix.createGradientBox(this._allOpenThree.width, this._allOpenThree.height, Math.PI / 2, 0, 0);
+        shape.graphics.beginGradientFill(egret.GradientType.LINEAR, [0xffffff, 0xffffff, 0xffffff, 0xffffff], [1, 0.3, 0, 0], [0, 50, 150, 255], matrix);
+        shape.graphics.drawRect(0, 0, this._allOpenThree.width, this._allOpenThree.height); //
+
+        this._mask.addChild(shape);
+        this._mask.mask = shape;
+
         // add childs then init holder(if DragonBone)
       }
 

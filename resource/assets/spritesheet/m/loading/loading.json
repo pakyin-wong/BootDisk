@@ -11,9 +11,19 @@
       "sourceW": 2600,
       "sourceH": 150
     },
-    "m_lobby_loading_progress_bar_active_png": {
+    "m_common_slide_bar_active_png": {
       "x": 2,
       "y": 156,
+      "w": 1042,
+      "h": 15,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 1042,
+      "sourceH": 15
+    },
+    "m_lobby_loading_progress_bar_active_png": {
+      "x": 2,
+      "y": 175,
       "w": 1014,
       "h": 30,
       "offX": 0,
@@ -23,7 +33,7 @@
     },
     "d-lobby-loading-progress-bar-base_png": {
       "x": 1020,
-      "y": 156,
+      "y": 175,
       "w": 672,
       "h": 16,
       "offX": 0,
@@ -43,7 +53,7 @@
     },
     "d_lobby_navbar_logo_png": {
       "x": 2,
-      "y": 190,
+      "y": 209,
       "w": 396,
       "h": 113,
       "offX": 0,
@@ -51,15 +61,35 @@
       "sourceW": 396,
       "sourceH": 113
     },
+    "d_common_scrollbar_png": {
+      "x": 2,
+      "y": 326,
+      "w": 14,
+      "h": 279,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 14,
+      "sourceH": 279
+    },
     "m_lobby_loading_progress_bar_base_png": {
-      "x": 402,
-      "y": 190,
+      "x": 20,
+      "y": 326,
       "w": 31,
       "h": 25,
       "offX": 0,
       "offY": 0,
       "sourceW": 31,
       "sourceH": 25
+    },
+    "m_common_slide_bar_base_png": {
+      "x": 1048,
+      "y": 156,
+      "w": 16,
+      "h": 15,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 16,
+      "sourceH": 15
     }
   }
 }

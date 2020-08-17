@@ -35,15 +35,19 @@ namespace we {
         this.mount();
       }
       protected async mount() {
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
+        if (!env.isMobile) {
+          this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
+        }
       }
       protected destroy() {
         super.destroy();
-        this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
+        if (!env.isMobile) {
+          this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
+        }
       }
 
       protected get list(): TableList {
-        return <TableList> this.parent;
+        return <TableList>this.parent;
       }
 
       public changeState(state: number): boolean {
@@ -70,7 +74,7 @@ namespace we {
 
       public itemDataChanged() {
         super.itemDataChanged();
-        logger.l('TableListItemHolder::itemDataChanged::this.itemData ', this.itemData);
+        logger.l(utils.LogTarget.DEBUG, 'TableListItemHolder::itemDataChanged::this.itemData ', this.itemData);
         let prevTableid = '';
         if (this.itemData) {
           if (env && env.tableInfos && env.tableInfos[this.itemData]) {

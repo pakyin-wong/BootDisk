@@ -9,6 +9,26 @@
 namespace we {
   export namespace ro {
     export class MobileScene extends core.MobileBaseGameScene {
+      // constructor(data) {
+      //   super(data);
+      // }
+
+      // public onEnter() {}
+
+      // public onExit() {}
+
+      // protected mount() {
+      //   this.skinName = utils.getSkinByClassname('RouletteScene');
+      //   mouse.setButtonMode(this._btnBack, true);
+      //   this._btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
+      // }
+
+      // protected initComponents() {}
+      // protected destroy() {}
+      // public backToLobby() {
+      //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
+      // }
+
       protected _roadmapControl: we.ro.RORoadmapControl;
       protected _bottomGamePanel: MobileBottomGamePanel;
       protected _settingPanel: MobileSettingPanel;
@@ -33,9 +53,6 @@ namespace we {
 
       protected _baGameIDText: ui.RunTimeLabel;
       protected _baGameID: ui.RunTimeLabel;
-
-      protected _totalBetText: ui.RunTimeLabel;
-      protected _totalBet: ui.RunTimeLabel;
 
       protected _mode: string = 'normal';
 
@@ -84,6 +101,7 @@ namespace we {
         this._mask.x = this._betArea.x;
         this._mask.y = this._betArea.y;
         this._mask.visible = false;
+        // this.betAreaState(this._betAreaTween.currentState);
       }
 
       protected addEventListeners() {
@@ -112,6 +130,7 @@ namespace we {
         } else {
           this.currentState = 'right';
         }
+        this.invalidateState();
       }
 
       protected setSkinName() {
@@ -119,9 +138,9 @@ namespace we {
         this._skinKey = 'RouletteScene';
       }
 
-      public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
-      }
+      // public backToLobby() {
+      //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
+      // }
 
       public getTableLayer() {
         return this._tableLayer;
@@ -154,7 +173,7 @@ namespace we {
       }
 
       protected onBottomToggle() {
-        this.roState = this._bottomGamePanel.isPanelOpen ? 'zip' : 'normal';
+        this.roState = env.isBottomPanelOpen ? 'zip' : 'normal';
       }
 
       protected set roState(s) {
@@ -174,13 +193,13 @@ namespace we {
 
         switch (s) {
           case 'zip':
-            this._betArea.scrollPolicyV = eui.ScrollPolicy.AUTO;
-            egret.Tween.get(this._betArea.viewport).to(
-              {
-                scrollV: (this._betArea.viewport.contentHeight - this._betAreaTween.getTweenPackage().height) * 0.5,
-              },
-              250
-            );
+            this._betArea.scrollPolicyV = eui.ScrollPolicy.ON;
+            // egret.Tween.get(this._betArea.viewport).to(
+            //   {
+            //     scrollV: (this._betArea.viewport.contentHeight - this._betAreaTween.getTweenPackage().height) * 0.5,
+            //   },
+            //   250
+            // );
             if (env.orientation === 'portrait') {
               this._betArea.mask = this._mask;
               this._mask.visible = true;
@@ -199,15 +218,16 @@ namespace we {
               this._betArea.mask = null;
               this._mask.visible = false;
             }
-            break;
           default:
-            this._betArea.scrollPolicyV = eui.ScrollPolicy.OFF;
             egret.Tween.get(this._betArea.viewport).to(
               {
                 scrollV: 0,
               },
               250
             );
+            if (env.isBottomPanelOpen) {
+              this.betAreaState = 'zip';
+            }
             break;
         }
 
@@ -233,6 +253,23 @@ namespace we {
             break;
         }
 
+        this._settingPanel.currentState = this._mode;
+        (this._chipLayer as MobileChipLayer).changeState(this._mode, this._betDetails);
+      }
+
+      protected resetToNormal() {
+        if (this._mode === 'normal') {
+          return;
+        }
+
+        egret.Tween.removeTweens(this._bATransition);
+
+        (this._bATransition.x = 0 - this._bANormal.x), (this._bATransition.y = 0 - this._bANormal.y), (this._chipLayer.$x = this._bANormal.x);
+        this._chipLayer.$y = this._bANormal.y;
+        this._raceTrackChipLayer.visible = false;
+        this._mode = 'normal';
+
+        this.roState = env.isBottomPanelOpen ? 'zip' : 'normal';
         this._settingPanel.currentState = this._mode;
         (this._chipLayer as MobileChipLayer).changeState(this._mode, this._betDetails);
       }
@@ -273,7 +310,7 @@ namespace we {
             break;
         }
 
-        this.roState = this._bottomGamePanel.isPanelOpen ? 'zip' : 'normal';
+        this.roState = env.isBottomPanelOpen ? 'zip' : 'normal';
         this._settingPanel.currentState = this._mode;
         (this._chipLayer as MobileChipLayer).changeState(this._mode, this._betDetails);
       }
@@ -324,6 +361,7 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
+        super.onRoadDataUpdate(evt);
         this._roadmapControl.updateRoadData();
       }
 
@@ -333,36 +371,14 @@ namespace we {
         this._raceTrackChipLayer.touchChildren = enable;
       }
 
-      public checkResultMessage() {
-        let totalWin: number = NaN;
-
+      public checkResultMessage(resultData = null) {
         this._betArea.mask = null;
         this._mask.visible = false;
 
-        if (this._tableInfo.totalWin) {
-          totalWin = this._tableInfo.totalWin;
-        }
-
-        if (!this._gameData) {
-          return;
-        }
-
-        const resultNo = (<ro.GameData> this._gameData).value;
+        const resultNo = (<ro.GameData>this._gameData).value;
         (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
 
-        if (this.hasBet() && !isNaN(totalWin)) {
-          this._resultMessage.showResult(this._tableInfo.gametype, {
-            resultNo,
-            winAmount: this._tableInfo.totalWin,
-          });
-          dir.audioCtr.playSequence(['player', 'win']);
-        } else {
-          this._resultMessage.showResult(this._tableInfo.gametype, {
-            resultNo,
-            winAmount: NaN,
-          });
-          dir.audioCtr.playSequence(['player', 'win']);
-        }
+        super.checkResultMessage(resultData);
       }
 
       protected initBottomBetLimitSelector() {
@@ -400,13 +416,24 @@ namespace we {
         }
       }
 
+      protected setStateIdle(isInit: boolean = false) {
+        super.setStateIdle(isInit);
+        this._betAreaLock = false;
+        this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = true;
+        this.roState = 'normal';
+      }
+
       protected setStateDeal(isInit: boolean = false) {
         super.setStateDeal(isInit);
         this._betAreaLock = true;
         this._bottomGamePanel.manualClose();
         this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = false;
-        this.hideBetCombination();
-        this.roState = 'small';
+        if (this._betCombination.isActivated) {
+          this.hideBetCombination();
+        }
+        if (this.tableInfo.gametype == we.core.GameType.RO) {
+          this.roState = 'small';
+        }
       }
 
       protected setStateBet(isInit: boolean = false) {
@@ -416,10 +443,22 @@ namespace we {
         this.roState = 'normal';
       }
 
+      protected setStateFinish(isInit: boolean = false) {
+        super.setStateFinish(isInit);
+        this._betAreaLock = true;
+        this._bottomGamePanel.manualClose();
+        this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = false;
+        if (this._betCombination.isActivated) {
+          this.hideBetCombination();
+        }
+        if (this.tableInfo.gametype == we.core.GameType.RO) {
+          this.roState = 'small';
+        }
+      }
+
       protected updateTableInfoRelatedComponents() {
         super.updateTableInfoRelatedComponents();
         this._baGameID.renderText = () => `${this._tableInfo.tableid}`;
-        this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
       }
     }
   }

@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
     export class RadialProgressIndicator extends eui.Component implements eui.UIComponent {
-      private progressShape: egret.Shape;
+      public progressShape: egret.Shape;
 
       private _progress: number = 0;
 
@@ -152,6 +152,7 @@ namespace we {
             const deg = 180 - 90 * utils.getProportion(this._progress, 0, this.sectionRatios[3]);
             graphics.drawArc(d, d, r, utils.deg2rad(180), utils.deg2rad(deg), true);
           }
+          // console.log(' this._progress ', this._progress);
         }
       }
     }

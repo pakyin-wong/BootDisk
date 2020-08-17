@@ -28,14 +28,14 @@ namespace we {
       }
 
       private switchMode(evt: egret.Event) {
-        logger.l('LiveListHolder::switchMode', evt.data);
+        logger.l(utils.LogTarget.DEBUG, 'LiveListHolder::switchMode', evt.data);
         this.mode = evt.data;
       }
 
       protected initDisplayItem() {
         let generalGameType: string;
 
-        logger.l(this.tableInfo);
+        logger.l(utils.LogTarget.DEBUG, this.tableInfo);
 
         if (!this.tableInfo) {
           return;
@@ -68,6 +68,9 @@ namespace we {
           case we.core.GameType.ROL:
             generalGameType = 'rol';
             break;
+          case we.core.GameType.DIL:
+            generalGameType = 'dil';
+            break;
           default:
             throw new Error('Invalid Game Type');
         }
@@ -91,7 +94,7 @@ namespace we {
             itemName = 'LiveListSimpleItem';
             break;
           default:
-            logger.e('LiveListHolder::initDisplayItem() - no "mode" can be read');
+            logger.e(utils.LogTarget.DEBUG, 'LiveListHolder::initDisplayItem() - no "mode" can be read');
         }
 
         this.assertSkinExists(generalGameType, `${itemName}Skin`);

@@ -27,7 +27,7 @@ namespace we {
       }
 
       private switchMode(evt: egret.Event) {
-        logger.l('LiveListHolder::switchMode', evt.data);
+        logger.l(utils.LogTarget.DEBUG, 'LiveListHolder::switchMode', evt.data);
         this.mode = evt.data;
       }
 
@@ -50,10 +50,14 @@ namespace we {
             generalGameType = 'dt';
             break;
           case we.core.GameType.RO:
+          case we.core.GameType.ROL:
             generalGameType = 'ro';
             break;
           case we.core.GameType.DI:
             generalGameType = 'di';
+            break;
+          case we.core.GameType.DIL:
+            generalGameType = 'dil';
             break;
           case we.core.GameType.LW:
             generalGameType = 'lw';

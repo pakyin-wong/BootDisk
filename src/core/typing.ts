@@ -3,6 +3,7 @@ namespace we {
   export namespace core {
     export interface ISocket {
       getStaticInitData(callback: (res: any) => void, thisArg: any);
+      getStaticInitDataAsync?(callback: (res: any) => void, thisArg: any);
       connect();
       enterTable(tableID: string);
       leaveTable(tableID: string);
@@ -21,7 +22,7 @@ namespace we {
       createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]);
       getBetCombination();
       removeBetCombination(id: string);
-      sendVerifyInfo(id: string, pattern: string[]);
+      sendVerifyInfo(id: string, pattern: string[], callback: (data: any) => void, thisArg);
       retryPlayerClient(functionName: string, args: any[]);
       getBalance();
       getPlayerProfileSummary(callback: (data: any) => void);

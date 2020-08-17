@@ -43,12 +43,26 @@ namespace we {
 
         this.client = new PlayerClient(options);
 
-        logger.l('MQTTSocketComm is created', this.client);
+        logger.l(utils.LogTarget.STAGING, 'MQTTSocketComm is created', this.client);
       }
 
+      // public updateMaxWinAmountAndCount(){
+      //   this.getPlayerProfileSummary(this._getPlayerProfileSummaryCallback);
+      // }
+
       public getPlayerProfileSummary(callback: (data: any) => void) {
-        this.client.getPlayerProfileSummary(this.warpServerCallback(callback));
+        this.client.getPlayerProfileSummary(callback);
       }
+
+      // private _getPlayerProfileSummaryCallback(data: any){
+      //   if (data.error){
+      //     return;
+      //   }
+      //   let { maxwin , winningstreak } = data;
+      //   console.log('maxwin , winningstreak',[maxwin,winningstreak])
+      //   env.maxWinCount = winningstreak;
+      //   env.maxWinAmount = maxwin;
+      // }
 
       public getPlayerStatistic(filter: any, callback: (data: any) => void) {
         this.client.getPlayerStatistic(filter, this.warpServerCallback(callback));
@@ -69,7 +83,7 @@ namespace we {
       }
 
       public onError(value: any) {
-        logger.l('PlayerClient::onError ', value);
+        logger.l(utils.LogTarget.STAGING, 'PlayerClient::onError ', value);
         if (value.action !== 'retry' || value.method === 'getBalance' || value.method === 'getTableList' || value.method === 'updateSetting') {
           dir.errHandler.handleError(value);
         }
@@ -113,6 +127,16 @@ namespace we {
         this.client.init(env.language, this.warpServerCallback(callback.bind(thisArg)));
       }
 
+      public async getStaticInitDataAsync(callback, thisArg) {
+        return new Promise((resolve, reject) => {
+          const resolveFunc = async (res: any) => {
+            await callback.bind(thisArg)(res);
+            resolve();
+          };
+          this.client.init(env.language, this.warpServerCallback(resolveFunc));
+        });
+      }
+
       public getLobbyMaterial(callback: (res: LobbyMaterial) => void) {
         if (dir.config.resource && dir.config.resource === 'local') {
           callback({
@@ -145,7 +169,7 @@ namespace we {
       }
 
       protected onConnectError(err) {
-        logger.e(err);
+        logger.e(utils.LogTarget.STAGING, err);
       }
 
       // Handler for Ready event
@@ -157,23 +181,36 @@ namespace we {
         env.currency = player.profile.currency;
         // env.nickname = player.profile.nickname;
         env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
-        env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
+        // env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
         // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
         // env.icons = player.profile.settings.icons ? player.profile.settings.icons : player.profile.icons;
-        env.icons = [
-          'd_lobby_profile_pic_01_png',
-          'd_lobby_profile_pic_02_png',
-          'd_lobby_profile_pic_03_png',
-          'd_lobby_profile_pic_04_png',
-          'd_lobby_profile_pic_05_png',
-          'd_lobby_profile_pic_06_png',
-          'd_lobby_profile_pic_07_png',
-          'd_lobby_profile_pic_08_png',
-        ];
-        env.icon = player.profile.settings.icon ? player.profile.settings.icon : 'd_lobby_profile_pic_01_png';
+        env.fallbacknicknames = player.fallbacknicknames;
+        env.icons = player.icons;
+        // env.fallbacknicknames = {
+        //   nicknames: {},
+        //   groups: {},
+        // };
+        // env.icons = {};
+        env.nicknameKey = player.profile.nickname;
 
-        env.profileImageURL = player.profile.profileimage;
-        logger.l('PlayerClient::handleReady() ' + player.profile.betlimits);
+        // env.icons = {
+        //   iconKey01: 'd_lobby_profile_pic_01_png',
+        //   iconKey02: 'd_lobby_profile_pic_02_png',
+        //   iconKey03: 'd_lobby_profile_pic_03_png',
+        //   iconKey04: 'd_lobby_profile_pic_04_png',
+        //   iconKey05: 'd_lobby_profile_pic_05_png',
+        //   iconKey06: 'd_lobby_profile_pic_06_png',
+        //   iconKey07: 'd_lobby_profile_pic_07_png',
+        //   iconKey08: 'd_lobby_profile_pic_08_png',
+        // };
+
+        env.profileimage = player.profile.settings.profileimage
+          ? player.profile.settings.profileimage
+          : player.profile.profileimageurl === ''
+          ? Object.keys(env.icons)[0]
+          : player.profile.profileimageurl;
+        logger.l(utils.LogTarget.STAGING, 'PlayerClient::handleReady() ' + player.profile.betlimits);
+
         env.betLimits = player.profile.betlimits
           ? player.profile.betlimits
           : [
@@ -211,7 +248,7 @@ namespace we {
           env.storedPositions = JSON.parse(player.profile.panelpositions);
         }
 
-        logger.l(`${timestamp}: READY`, player);
+        logger.l(utils.LogTarget.STAGING, `${timestamp}: READY`, player);
 
         dir.evtHandler.dispatch(core.MQTT.CONNECT_SUCCESS);
 
@@ -231,6 +268,7 @@ namespace we {
       }
 
       public getTableList(filter?: string) {
+        logger.l(utils.LogTarget.STAGING, 'Request Table List from server...');
         this.client.getTableList(filter);
       }
 
@@ -270,6 +308,8 @@ namespace we {
         // filter all the display ready table
         // dispatch TABLE_LIST_UPDATE
         this.filterAndDispatch(allTableList, core.Event.TABLE_LIST_UPDATE);
+
+        logger.l(utils.LogTarget.STAGING, `Table list updated`, allTableList);
 
         // console.log('PlayerClient::onTableListUpdate');
         // console.log(tableList.tablesList);
@@ -335,7 +375,7 @@ namespace we {
         }
         tableInfo.data = gameStatus;
 
-        logger.l(`Table ${gameStatus.tableid} change state from ${gameStatus.previousstate} to ${tableInfo.data.state}`);
+        logger.l(utils.LogTarget.DEBUG, `Table ${gameStatus.tableid} data updated`, tableInfo.data);
 
         this.localActions(tableInfo);
         dir.evtHandler.dispatch(core.Event.TABLE_INFO_UPDATE, tableInfo);
@@ -434,7 +474,8 @@ namespace we {
           case core.GameType.BAI:
           case core.GameType.BAS:
           case core.GameType.DT: {
-            const roadmapData = parseAscString(gameStatistic.roadmapdata);
+            // const roadmapData = parseAscString(gameStatistic.roadmapdata);
+            const roadmapData = gameStatistic.roadmapdata;
             const bankerCount: number = getStatistic('bankerwincount');
             const playerCount: number = getStatistic('playerwincount');
             const tieCount: number = getStatistic('tiewincount');
@@ -512,6 +553,33 @@ namespace we {
             tableInfo.gamestatistic = stats;
             break;
           }
+          case core.GameType.DIL: {
+            gameStatistic.roadmapdata.inGame.bead.forEach(e1 => {
+              e1.v = e1.dice[0] + e1.dice[1] + e1.dice[2];
+
+              const gameRoundID1 = e1.gameRoundID;
+              const info = gameStatistic.roadmapdata.gameInfo[gameRoundID1];
+              if (info !== undefined) {
+                if (info.odds !== undefined) {
+                  e1.odds = info.odds;
+                }
+              }
+            });
+
+            gameStatistic.tableID = tableid;
+            gameStatistic.shoeID = gameStatistic.shoeid;
+            tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
+
+            const stats = new we.data.GameStatistic();
+            stats.coldNumbers = getStatistic('cold');
+            stats.hotNumbers = getStatistic('hot');
+            stats.diOdd = getStatistic('odd');
+            stats.diSize = getStatistic('size');
+            stats.points = getStatistic('points');
+            stats.dilHistory = getStatistic('history');
+            tableInfo.gamestatistic = stats;
+            break;
+          }
           case core.GameType.LW:
           default: {
             gameStatistic.tableID = tableid;
@@ -524,6 +592,7 @@ namespace we {
             break;
           }
         }
+        logger.l(utils.LogTarget.DEBUG, `Table ${tableid} statistic and roadmap data updated`, tableInfo.gamestatistic, tableInfo.roadmap);
 
         dir.evtHandler.dispatch(core.Event.ROADMAP_UPDATE, tableInfo);
 
@@ -608,6 +677,8 @@ namespace we {
         env.balanceOnHold = balance.amountOnHold;
         env.currency = balance.currency;
 
+        logger.l(utils.LogTarget.STAGING, `On balance update: ${balance.balance}`);
+
         dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
       }
 
@@ -621,7 +692,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
           return betDetail;
         });
 
@@ -631,6 +702,9 @@ namespace we {
           tableInfo.totalWin = betInfo.winamount; // this.computeTotalWin(tableInfo.bets);
           this.checkResultNotificationReady(tableInfo);
         }
+
+        logger.l(utils.LogTarget.DEBUG, `Table ${tableInfo.tableid} on bet info update`, betInfo);
+
         dir.evtHandler.dispatch(core.Event.PLAYER_BET_INFO_UPDATE, tableInfo);
 
         // // workaround 1-1-1
@@ -639,12 +713,12 @@ namespace we {
         // }
         // const tableInfo: data.TableInfo = env.tableInfos[betInfo.tableid];
         // // tableInfo.bets = betInfo.bets;
-        // logger.l('BetInfoUpdate:', betInfo);
+        // logger.l(utils.LoggerTarget.DEBUG, 'BetInfoUpdate:', betInfo);
         // tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
         //   const betDetail: data.BetDetail = (<any>Object).assign({}, value);
         //   return betDetail;
         // });
-        // logger.l('BetInfoUpdate:', tableInfo.bets);
+        // logger.l(utils.LoggerTarget.DEBUG, 'BetInfoUpdate:', tableInfo.bets);
 
         // dir.evtHandler.dispatch(core.Event.PLAYER_BET_INFO_UPDATE, tableInfo);
       }
@@ -662,13 +736,7 @@ namespace we {
       public checkResultNotificationReady(tableInfo: data.TableInfo) {
         if (tableInfo.data) {
           if (this.hasBet(tableInfo)) {
-            if (
-              tableInfo.data &&
-              tableInfo.data.previousstate !== core.GameState.FINISH &&
-              tableInfo.data.state === core.GameState.FINISH &&
-              tableInfo.data.wintype !== 0 &&
-              !isNaN(tableInfo.totalWin)
-            ) {
+            if (tableInfo.data && tableInfo.data.state === core.GameState.FINISH && !isNaN(tableInfo.totalWin)) {
               const data = {
                 tableid: tableInfo.tableid,
               };
@@ -729,11 +797,11 @@ namespace we {
             }
           })
         );
-        logger.l('Placed bet');
+        logger.l(utils.LogTarget.STAGING, `Table ${tableID} Placed bet`, betDetails);
       }
 
       public betResultCallback(result: data.PlayerBetResult) {
-        logger.l('Bet Result Received');
+        logger.l(utils.LogTarget.STAGING, 'Bet Result Received', result);
         dir.evtHandler.dispatch(core.Event.PLAYER_BET_RESULT, result);
       }
 
@@ -788,18 +856,8 @@ namespace we {
         );
       }
 
-      public sendVerifyInfo(id: string, pattern: string[]) {
-        this.client.sendVerifyInfo(
-          id,
-          pattern,
-          this.warpServerCallback((data: any) => {
-            if (data.error) {
-              // TODO:  handle error on cancel
-            } else {
-              // dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
-            }
-          })
-        );
+      public sendVerifyInfo(id: string, pattern: string[], callback: (data: any) => void, thisArg) {
+        this.client.sendVerifyInfo(id, pattern, this.warpServerCallback(callback.bind(thisArg)));
       }
 
       public getTableHistory() {}
@@ -814,6 +872,8 @@ namespace we {
         const betTableList = tableInfos.map(data => data.tableid);
         env.betTableList = betTableList;
         // filter all the display ready table
+        logger.l(utils.LogTarget.STAGING, `Already Bet Table list updated`, betTableList);
+
         // dispatch BET_TABLE_LIST_UPDATE
         this.filterAndDispatch(betTableList, core.Event.BET_TABLE_LIST_UPDATE);
 
@@ -860,6 +920,7 @@ namespace we {
             tableInfo.goodRoad = null;
           }
         }
+        logger.l(utils.LogTarget.STAGING, `GoodRoad Table list updated`, goodRoadTableList);
         // filter all the display ready table
         // dispatch GOOD_ROAD_TABLE_LIST_UPDATE
         dir.evtHandler.dispatch(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, tableInfos);

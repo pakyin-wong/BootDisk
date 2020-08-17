@@ -5,8 +5,10 @@ namespace we {
     export class DesktopBaseGameScene extends BaseGameScene {
       protected _leftGamePanel: BaseGamePanel;
       protected _rightGamePanel: BaseGamePanel;
-
       protected _tableInfoWindow: ui.TableInfoPanel;
+      protected _originBetRelatedGroupY: number;
+
+      protected _panelDismissToggleBtn: ui.BaseAnimationButton;
 
       constructor(data: any) {
         super(data);
@@ -14,19 +16,30 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        if (core.GameType.RO) {
-          // for testing
-          console.log('removed left and right panel'); // for testing
-        } else {
-          // for testing
-          this._leftGamePanel.setTableInfo(this._tableInfo);
-          this._rightGamePanel.setTableInfo(this._tableInfo);
-        } // for testing
+
+        this._leftGamePanel.setTableInfo(this._tableInfo);
+        this._rightGamePanel.setTableInfo(this._tableInfo);
+        this._originBetRelatedGroupY = this._betRelatedGroup.y;
 
         if (this._tableInfoWindow) {
           this._tableInfoWindow.setToggler(this._lblRoomInfo);
           this._tableInfoWindow.setValue(this._tableInfo);
+          if (!env.isFirstTimeInfoPanel) {
+            this._tableInfoWindow.x = 6;
+            this._tableInfoWindow.y = 93;
+            env.isFirstTimeInfoPanel = true;
+          }
         }
+
+        if (this._panelDismissToggleBtn) {
+          this._panelDismissToggleBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
+        }
+
+        ui.EdgeDismissableAddon.isDismiss = false;
+      }
+
+      protected onPanelToggle(evt: egret.TouchEvent) {
+        ui.EdgeDismissableAddon.toggle();
       }
 
       protected updateTableInfoRelatedComponents() {
@@ -38,10 +51,29 @@ namespace we {
         this._rightGamePanel.update();
       }
 
+      protected setBetRelatedComponentsEnabled(enable: boolean) {
+        super.setBetRelatedComponentsEnabled(enable);
+        if (this._betRelatedGroup) {
+          egret.Tween.removeTweens(this._betRelatedGroup);
+          egret.Tween.get(this._betRelatedGroup).to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
+        }
+      }
+
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
-        this._leftGamePanel.update();
-        this._rightGamePanel.update();
+        this._leftGamePanel.updateStat();
+        this._rightGamePanel.updateStat();
+      }
+
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
+        if (evt && evt.data) {
+          const betInfo = <data.GameTableBetInfo>evt.data;
+          if (betInfo.tableid === this._tableId) {
+            this._leftGamePanel.updateTableBetInfo();
+            this._rightGamePanel.updateTableBetInfo();
+          }
+        }
       }
     }
   }

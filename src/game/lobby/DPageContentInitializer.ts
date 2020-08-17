@@ -2,6 +2,7 @@
 namespace we {
   export namespace lobby {
     export class DPageContentInitializer implements core.IContentInitializer {
+      protected _root: any;
       constructor() {}
 
       public initContent(root: Page) {
@@ -10,10 +11,19 @@ namespace we {
         vlayout.gap = 0;
         group.layout = vlayout;
 
-        root.scroller = new ui.Scroller();
-        root.scroller.width = root.stage.stageWidth;
-        root.scroller.height = root.stage.stageHeight;
-        root.addChild(root.scroller);
+        this._root = root;
+        // root.scroller = new ui.Scroller();
+        // root.scroller.width = root.stage.stageWidth;
+        // root.scroller.height = root.stage.stageHeight;
+        // console.log('root.stage.stageHeight', root.stage.stageHeight);
+        // root.addChild(root.scroller);
+        // root.scroller.addEventListener(egret.Event.CHANGE, this.onScroll, this);
+        this._root.scroller = new ui.Scroller();
+        this._root.scroller.width = root.stage.stageWidth;
+        this._root.scroller.height = root.stage.stageHeight;
+        console.log('root.stage.stageHeight', this._root.stage.stageHeight);
+        this._root.addChild(this._root.scroller);
+        this._root.scroller.addEventListener(egret.Event.CHANGE, this.onScroll, this);
 
         const gapSize = 48;
         const paddingHorizontal = 71;
@@ -21,7 +31,7 @@ namespace we {
 
         // init image slider
         const slider = new we.ui.ImageSlider();
-        slider.width = root.scroller.width;
+        slider.width = this._root.scroller.width;
         slider.height = 790;
         slider.configSlides(dir.lobbyResources.homeHeroBanners);
         const sliderContainer = new eui.Group();
@@ -46,7 +56,7 @@ namespace we {
           poster.addEventListener(
             egret.TouchEvent.TOUCH_TAP,
             () => {
-              logger.l('psoter click', i, link);
+              logger.l(utils.LogTarget.DEBUG, 'psoter click', i, link);
               if (i === 0) {
                 dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
               } else if (i === 3) {
@@ -79,10 +89,11 @@ namespace we {
           const image = new eui.Image();
           image.source = banner.image;
           image.height = 300;
+          // image.height = 3000;
           image.addEventListener(
             egret.TouchEvent.TOUCH_TAP,
             () => {
-              logger.l('banner click', banner.link);
+              logger.l(utils.LogTarget.DEBUG, 'banner click', banner.link);
             },
             this
           );
@@ -95,14 +106,14 @@ namespace we {
 
         // init footer
         const footer = new eui.Group();
-        footer.width = root.stage.stageWidth;
+        footer.width = this._root.stage.stageWidth;
         footer.height = 200;
         const label = new eui.Label();
         label.fontFamily = 'Barlow';
         label.textAlign = egret.HorizontalAlign.CENTER;
         label.verticalCenter = 0;
         label.horizontalCenter = 0;
-        label.text = '© 2020 World Entainment 保留一切權利。';
+        label.text = '© 2020 World Entertainment 保留一切權利。';
         footer.addChild(label);
         group.addChild(footer);
 
@@ -134,7 +145,17 @@ namespace we {
         // createSection('favorite', ['h4_png', 'h5_png', 'h6_png', 'h7_png', 'h8_png', 'h9_png', 'h10_png']);
         // group.addChild(sections);
 
-        root.scroller.viewport = group;
+        this._root.scroller.viewport = group;
+      }
+      protected onScroll() {
+        const currentScrollV = this._root.scroller.viewport.scrollV;
+        this.updateNavbarOpacity(currentScrollV);
+      }
+      protected updateNavbarOpacity(scrollV: number) {
+        const scrollTarget = 700;
+        const ratio = Math.min(1, scrollV / scrollTarget);
+        const opacity = egret.Ease.quintIn(ratio);
+        dir.evtHandler.dispatch(core.Event.UPDATE_NAVBAR_OPACITY, opacity);
       }
     }
   }

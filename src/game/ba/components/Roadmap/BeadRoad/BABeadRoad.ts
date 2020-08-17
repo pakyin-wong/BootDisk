@@ -45,8 +45,13 @@ namespace we {
           const row = Math.floor(posY / this.gridSize);
           const index = col * 6 + row;
 
-          // dispatch the result click by the user
-          this.dispatchEvent(new egret.Event('ClickResult', false, false, { index, mouseX: event.stageX, mouseY: event.stageY }));
+          const iconValue = this.roadMapIconList[index].value;
+          if (iconValue.v !== undefined) {
+            if (iconValue.gameRoundID !== '_--ASK_ROAD_PREDICTED_GAME--_') {
+              // dispatch the result click by the user
+              this.dispatchEvent(new egret.Event('ClickResult', false, false, { index, mouseX: event.stageX, mouseY: event.stageY, gameRoundID: iconValue['gameRoundID'] }));
+            }
+          }
         }
       }
 
@@ -66,8 +71,9 @@ namespace we {
           const row = Math.floor(posY / this.gridSize);
           const index = col * 6 + row;
 
-          // dispatch the result rolled over by the user
-          this.dispatchEvent(new egret.Event('RollOverResult', false, false, { index, mouseX: event.stageX, mouseY: event.stageY }));
+          const iconValue = this.roadMapIconList[index].value;
+          // dispatch the result click by the user
+          this.dispatchEvent(new egret.Event('RollOverResult', false, false, { index, mouseX: event.stageX, mouseY: event.stageY, gameRoundID: iconValue['gameRoundID'] }));
         } else {
           // dispatch rolled out result
           this.dispatchEvent(new egret.Event('RollOutResult'));

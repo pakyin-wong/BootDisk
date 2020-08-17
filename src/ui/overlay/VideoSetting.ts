@@ -1,56 +1,76 @@
 namespace we {
   export namespace overlay {
     export class VideoSetting extends ui.Panel {
-      protected cam_title: ui.RunTimeLabel;
-      protected qua_title: ui.RunTimeLabel;
+      private _txt_title: ui.RunTimeLabel;
 
-      protected autoCamBtn: eui.RadioButton;
-      protected closerCamBtn: eui.RadioButton;
-      protected farCamBtn: eui.RadioButton;
-      protected closeCamBtn: eui.RadioButton;
+      protected _txt_videoSec: ui.RunTimeLabel;
+      protected switch_video: ui.BaseButton;
 
-      protected autoQuaBtn: eui.RadioButton;
-      protected bluRayBtn: eui.RadioButton;
-      protected highQuaBtn: eui.RadioButton;
-      protected standQuaBtn: eui.RadioButton;
+      protected _txt_qualitySec: ui.RunTimeLabel;
+      private _btn_quality: egret.DisplayObject;
+      private _txt_quality: ui.RunTimeLabel;
+      private _ddm_quality: ui.Panel;
 
-      protected confirmBtn: eui.Component;
-      protected confirmLabel: ui.RunTimeLabel;
+      protected _txt_cameraSec: ui.RunTimeLabel;
+      private _btn_camera: egret.DisplayObject;
+      private _txt_camera: ui.RunTimeLabel;
+      private _ddm_camera: ui.Panel;
 
-      protected camIndex: number = 0;
-      protected quaIndex: number = 0;
+      protected targetScene: core.BaseGameScene;
 
-      protected targetGameScene: core.BaseGameScene;
-
-      constructor(data) {
+      constructor(targetScene) {
         super('VideoSetting');
-        this.targetGameScene = data.target;
+        this.targetScene = targetScene;
       }
 
       protected mount() {
-        this.camIndex = env.camMode;
-        this.quaIndex = env.qualityMode;
         super.mount();
       }
 
       protected init_menu() {
-        this.autoCamBtn.label = i18n.t('video_setting_auto');
-        this.closerCamBtn.label = i18n.t('video_setting_closer');
-        this.farCamBtn.label = i18n.t('video_setting_far');
-        this.closeCamBtn.label = i18n.t('video_setting_close');
+        this._txt_title.renderText = () => `${i18n.t('nav.menu.videoSet')}`;
+        this._txt_videoSec.renderText = () => `${i18n.t('nav.video.toggle')}`;
+        this._txt_qualitySec.renderText = () => `${i18n.t('nav.video.quality')}`;
+        this._txt_cameraSec.renderText = () => `${i18n.t('nav.video.camera')}`;
 
-        this.autoQuaBtn.label = i18n.t('video_setting_auto');
-        this.bluRayBtn.label = i18n.t('video_setting_bluray');
-        this.highQuaBtn.label = i18n.t('video_setting_highQua');
-        this.standQuaBtn.label = i18n.t('video_setting_standQua');
+        const _arrCol_quality = new eui.ArrayCollection([ui.NewDropdownItem('01', () => `Auto`)]);
+        const _arrCol_camera = new eui.ArrayCollection([ui.NewDropdownItem('01', () => `Auto`)]);
 
-        this.cam_title.text = i18n.t('video_setting_cam');
-        this.qua_title.text = i18n.t('video_setting_qua');
+        if (this._ddm_quality) {
+          this._ddm_quality.isDropdown = true;
+          this._ddm_quality.isPoppable = true;
+          this._ddm_quality.dismissOnClickOutside = true;
+          this._ddm_quality.setToggler(this._btn_quality);
+          this._ddm_quality.dropdown.review = this._txt_quality;
+          this._ddm_quality.dropdown.data.replaceAll(_arrCol_quality.source);
+          this._ddm_quality.dropdown.select('01');
+        }
+        if (this._ddm_camera) {
+          this._ddm_camera.isDropdown = true;
+          this._ddm_camera.isPoppable = true;
+          this._ddm_camera.dismissOnClickOutside = true;
+          this._ddm_camera.setToggler(this._btn_camera);
+          this._ddm_camera.dropdown.review = this._txt_camera;
+          this._ddm_camera.dropdown.data.replaceAll(_arrCol_camera.source);
+          this._ddm_camera.dropdown.select('01');
+        }
+        utils.DropdownCreator.new({
+          toggler: this._btn_quality,
+          review: this._txt_quality,
+          arrCol: _arrCol_quality,
+          title: () => ``,
+          selected: '01',
+        });
+        utils.DropdownCreator.new({
+          toggler: this._btn_camera,
+          review: this._txt_camera,
+          arrCol: _arrCol_camera,
+          title: () => ``,
+          selected: '01',
+        });
 
-        this.confirmLabel.text = i18n.t('mobile_dropdown_confirm');
+        this.switch_video.active = !this.targetScene.isVideoStopped;
 
-        // this.updateCamButton(this.camIndex);
-        // this.updateQuaButton(this.quaIndex);
         this.addListeners();
       }
 
@@ -59,84 +79,56 @@ namespace we {
         this.removeListeners();
       }
 
-      protected updateCamButton(index: number) {
-        switch (index) {
-          case 0:
-            this.autoCamBtn.selected = true;
-            break;
-          case 1:
-            this.closerCamBtn.selected = true;
-            break;
-          case 2:
-            this.farCamBtn.selected = true;
-            break;
-          case 3:
-            this.closeCamBtn.selected = true;
-            break;
-        }
-      }
-
-      protected updateQuaButton(index: number) {
-        switch (index) {
-          case 0:
-            this.autoQuaBtn.selected = true;
-            break;
-          case 1:
-            this.bluRayBtn.selected = true;
-            break;
-          case 2:
-            this.highQuaBtn.selected = true;
-            break;
-          case 3:
-            this.standQuaBtn.selected = true;
-            break;
-        }
-      }
-
-      protected onCamChange(e: eui.UIEvent) {
-        const radio: eui.RadioButton = e.target;
-        this.camIndex = parseInt(radio.value, 10);
-      }
-
-      protected onQuaChange(e: eui.UIEvent) {
-        const radio: eui.RadioButton = e.target;
-        this.quaIndex = parseInt(radio.value, 10);
-      }
-
-      protected onConfirmChange() {
-        // call the change function after press confirm
-        env.camMode = this.camIndex;
-        env.qualityMode = this.quaIndex;
-        if (this.camIndex === 3) {
-          this.targetGameScene.stopVideo(this.targetGameScene);
-        } else {
-          this.targetGameScene.playVideo(this.targetGameScene);
-        }
-        this.dispatchEvent(new egret.Event('close'));
-      }
+      // protected onConfirmChange() {
+      //   // call the change function after press confirm
+      //   env.camMode = this.camIndex;
+      //   env.qualityMode = this.quaIndex;
+      //   if (this.camIndex === 3) {
+      //     this.targetGameScene.stopVideo(this.targetGameScene);
+      //   } else {
+      //     this.targetGameScene.playVideo(this.targetGameScene);
+      //   }
+      //   (this.parent as we.ui.Overlay).hide();
+      // }
 
       protected addListeners() {
-        this.autoCamBtn.addEventListener(eui.UIEvent.CHANGE, this.onCamChange, this);
-        this.closerCamBtn.addEventListener(eui.UIEvent.CHANGE, this.onCamChange, this);
-        this.farCamBtn.addEventListener(eui.UIEvent.CHANGE, this.onCamChange, this);
-        this.closeCamBtn.addEventListener(eui.UIEvent.CHANGE, this.onCamChange, this);
-        this.autoQuaBtn.addEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
-        this.bluRayBtn.addEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
-        this.highQuaBtn.addEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
-        this.standQuaBtn.addEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
-        this.confirmBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmChange, this);
+        utils.addButtonListener(this.switch_video, this.onSwitchVideo, this);
+        if (env.isMobile) {
+          this._btn_quality.addEventListener('DROPDOWN_ITEM_CHANGE', this.onQualitySelect, this);
+          this._btn_camera.addEventListener('DROPDOWN_ITEM_CHANGE', this.onCameraChange, this);
+        } else {
+          this._ddm_quality.addEventListener('DROPDOWN_ITEM_CHANGE', this.onQualitySelect, this);
+          this._ddm_camera.addEventListener('DROPDOWN_ITEM_CHANGE', this.onCameraChange, this);
+        }
       }
 
       protected removeListeners() {
-        this.autoCamBtn.removeEventListener(eui.UIEvent.CHANGE, this.onCamChange, this);
-        this.closerCamBtn.removeEventListener(eui.UIEvent.CHANGE, this.onCamChange, this);
-        this.farCamBtn.removeEventListener(eui.UIEvent.CHANGE, this.onCamChange, this);
-        this.closeCamBtn.removeEventListener(eui.UIEvent.CHANGE, this.onCamChange, this);
-        this.autoQuaBtn.removeEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
-        this.bluRayBtn.removeEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
-        this.highQuaBtn.removeEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
-        this.standQuaBtn.removeEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
-        this.confirmBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmChange, this);
+        this.switch_video.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchVideo, this);
+        if (env.isMobile) {
+          this._btn_quality.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onQualitySelect, this);
+          this._btn_camera.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onCameraChange, this);
+        } else {
+          this._ddm_quality.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onQualitySelect, this);
+          this._ddm_camera.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onCameraChange, this);
+        }
+      }
+
+      private onQualitySelect(e) {
+        this._ddm_quality && this._ddm_quality.dropdown.select(e.data);
+      }
+
+      private onCameraChange(e) {
+        this._ddm_camera && this._ddm_camera.dropdown.select(e.data);
+      }
+
+      private onSwitchVideo() {
+        if (this.targetScene.isVideoStopped) {
+          this.targetScene.playVideo();
+          this.switch_video.active = true;
+        } else {
+          this.targetScene.stopVideo();
+          this.switch_video.active = false;
+        }
       }
 
       protected initOrientationDependentComponent() {

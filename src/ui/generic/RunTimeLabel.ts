@@ -1,10 +1,11 @@
 namespace we {
   export namespace ui {
-    export class RunTimeLabel extends ui.Label implements ui.IRunTimeComponent {
+    export class RunTimeLabel extends ClampWidthLabel implements ui.IRunTimeComponent {
       private _renderer: () => string;
       private _isReg: boolean = false;
 
       public _textKey: string = '';
+      protected _targetWidth: number = -1;
 
       constructor() {
         super();
@@ -19,10 +20,20 @@ namespace we {
         this._textKey = value;
       }
 
+      public set targetWidth(val: number) {
+        this.$setTargetWidth(val);
+      }
+
+      public get targetWidth(): number {
+        return this.$getTargetWidth();
+      }
+
       protected initRenderText() {
-        if (this._renderer) {
+        if (!this._isReg && this._renderer) {
           i18n.register(this);
+          this._isReg = true;
           this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
+          this.render();
         } else if (this._textKey) {
           this.renderText = () => i18n.t(this._textKey);
         }

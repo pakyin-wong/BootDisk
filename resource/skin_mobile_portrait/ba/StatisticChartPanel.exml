@@ -4,7 +4,7 @@
 	<e:Group id="content" width="100%" height="100%">
 		<e:Rect width="1242" height="532" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" />
 		<ui:RunTimeLabel id="_leftTitle" text="庄閒和比例" x="19" y="80" scaleX="1" scaleY="1" width="600" height="73" size="44"
-		         textAlign="center" verticalAlign="middle" bold="true" textKey="BankerPlayerRatio" />
+		         textAlign="center" verticalAlign="middle" bold="true" textKey="baccarat.BankerPlayerRatio" />
 		<ui:RunTimeLabel id="_rightTitle" text="庄對閒對比例" x="636" y="80" scaleX="1" scaleY="1" width="600" height="73" size="44"
 		         textAlign="center" verticalAlign="middle" bold="true" textKey="baccarat.PairRatio" />
 		<e:Image width="57" height="57" x="42" y="247" source="m_ba_goodroad_info_state_banker_png" />
@@ -79,10 +79,10 @@
 				<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom" />
 			</e:layout>
 		</e:Group>
-		<ui:SimpleChart id="_normalChart" x="429" y="258" width="140" height="140" radius="70" lineWidth="8" />
+		<ui:SimpleChart id="_normalChart" x="411" y="244" radius="70" lineWidth="8" />
 		<ui:RunTimeLabel id="roundCount" text="99" x="449" y="258" textAlign="center" anchorOffsetX="0" width="100" size="88"
 		                 height="118" verticalAlign="middle" />
-		<ui:SimpleChart id="_pairChart" x="1044" y="258" width="140" height="140" radius="70" lineWidth="8" />
+		<ui:SimpleChart id="_pairChart" x="1027" y="244" radius="70" lineWidth="8" />
 		<ui:RunTimeLabel id="roundPairCount" text="9" x="1065" y="258" textAlign="center" anchorOffsetX="0" width="100"
 		                 size="88" height="118" verticalAlign="middle" />
 		<ui:RunTimeLabel id="roundLabelLeft" text="局" x="400" y="348" scaleX="1" scaleY="1" width="200" height="46" size="35"

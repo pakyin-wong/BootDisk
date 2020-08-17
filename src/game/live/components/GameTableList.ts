@@ -41,6 +41,8 @@ namespace we {
 
       protected destroy() {
         dir.evtHandler.removeEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
+        // console.log('GameTableList :::::', dir.evtHandler.hasEventListener(core.Event.ORIENTATION_UPDATE));
+        dir.evtHandler.removeEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChange, this);
         // dir.evtHandler.removeEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
         dir.evtHandler.removeEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this);
         this.roomList.removeChild(this.slider);
@@ -73,7 +75,7 @@ namespace we {
       private onSelectedIndexSorted(evt: any) {
         const prevIdx = evt.data.prevIdx;
         const newIdx = evt.data.newIdx;
-        logger.l(prevIdx, newIdx);
+        logger.l(utils.LogTarget.DEBUG, prevIdx, newIdx);
         const removed = this.tabItems.splice(prevIdx, 1);
         this.tabItems.splice(newIdx, 0, removed[0]);
       }
@@ -82,6 +84,8 @@ namespace we {
         const item = this.tabItems[this.tabs.selectedIndex];
 
         const scrollV = this.scroller.viewport.scrollV;
+
+        env.currentTab = Object.keys(core.LiveGameTab)[this.tabs.selectedIndex];
 
         this.roomList.setGameFiltersByTabIndex(this.tabs.selectedIndex);
         this.roomList.setTableList(this.roomIds, true);
@@ -92,7 +96,7 @@ namespace we {
       }
 
       public selectGameType(game: string = null) {
-        let item = 'bacarrat';
+        let item = 'allGame';
         if (game && core.LiveGameTab[game]) {
           item = core.LiveGameTab[game];
         }

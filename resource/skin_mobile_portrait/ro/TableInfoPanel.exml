@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.ro.TableInfoPanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-    <ui:HorizontalHolder bulletBottom="0" bulletHorizontalCenter="0" width="1242" height="532" slideWidth="1242" slideHeight="532" isLoop="true" isAuto="true">
-		<e:Group id="content" x="0" width="1242" height="532">
+    <ui:HorizontalHolder bulletBottom="0" bulletHorizontalCenter="0" width="1242" height="532" slideWidth="1242" slideHeight="532" isLoop="true" isAuto="false" bulletGapValue="20">
+		<e:Group id="content" x="0" width="1242" height="532" >
 			<e:Rect id="_bg" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" />
 			<e:Image id="moveArea" source="popover_png" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7"
 					 visible="false" />
@@ -26,14 +26,17 @@
 								 textKey="roulette.betLimitShort" />
 				<ui:RunTimeLabel id="betLimitLabel" text="投注限紅" y="410" x="47" scaleX="1" scaleY="1" size="44" bold="true"
 								 textKey="roulette.betLimitShort" />
-				<e:Label id="pTableID" text="-" y="60" textAlign="right" scaleX="1" scaleY="1" size="40" x="167" width="381"
-						 height="40"  alpha=".7"/>
+				<ui:ClampWidthLabel id="pTableID" text="-" y="60" textAlign="right" scaleX="1" scaleY="1" size="40" x="167" width="381"
+						 height="40"  alpha=".7" targetWidth="381" />
+
 				<e:Label id="pRoundID" text="-" y="130" textAlign="right" scaleX="1" scaleY="1" size="40" x="167"
 						 width="440"  alpha=".7"/>
-				<e:Label id="pGameID" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="40" x="167"
-						 width="440"  alpha=".7"/>
-				<e:Label id="pDealer" text="-" y="270" textAlign="right" scaleX="1" scaleY="1" size="40" x="167"
-						 width="440" verticalAlign="middle"  alpha=".7"/>
+				<ui:ClampWidthLabel id="pGameID" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="40" x="167"
+						 width="440"  alpha=".7" targetWidth="440" />
+				<ui:ClampWidthLabel id="pDealer" text="-" y="270" textAlign="right" scaleX="1" scaleY="1" size="40" x="167"
+						 width="440" verticalAlign="middle"  alpha=".7" targetWidth="440" />
+
+
 				<e:Label id="pTableBetLimit" text="-" y="340" textAlign="right" scaleX="1" scaleY="1" size="40" x="167"
 						 width="440" verticalAlign="middle"  alpha=".7"/>			
 				<e:Group id="betLimitBtnGroup" width="304" height="74" x="311" y="400">
@@ -41,36 +44,36 @@
 					<e:Image id="dropdownBtn" width="27" height="16" x="248" y="31" source="m_ba_tag_redlimit_btn_dropdown_png" />
 				</e:Group>
 				<ui:RunTimeLabel id="pBetLimit" text="Label" x="311" y="400" width="304" height="74" size="44"
-								 verticalAlign="middle" textAlign="center" />
+								 verticalAlign="middle" textAlign="center" fontFamily="Barlow" />
 			</e:Group>
 			<e:Group id="_rightPart" x="664" y="0" height="532" visible="true">
 				<e:Label id="directLabel" text="直接注" y="60" x="0" scaleX="1" scaleY="1" size="40" bold="true" />
 				<e:Label id="pDirectMax" text="-" y="60" textAlign="right" scaleX="1" scaleY="1" size="44" x="211" width="202"
-						 height="44" alpha="0.7" />
-				<e:Label id="pDirectOdd" text="-" y="60" textAlign="right" scaleX="1" scaleY="1" size="44" x="447" width="88" alpha="0.7" />
+						 height="44" alpha="0.7" fontFamily="Barlow" />
+				<e:Label id="pDirectOdd" text="-" y="60" textAlign="right" scaleX="1" scaleY="1" size="44" x="447" width="88" alpha="0.7" fontFamily="Barlow" />
 				<e:Label id="separateLabel" text="分注" y="130" x="0" scaleX="1" scaleY="1" size="40" bold="true" />
 				<e:Label id="pSeparateMax" text="-" y="130" textAlign="right" scaleX="1" scaleY="1" size="44" x="211"
-						 width="202" alpha="0.7" />
+						 width="202" alpha="0.7" fontFamily="Barlow" />
 				<e:Label id="pSeparateOdd" text="-" y="130" textAlign="right" scaleX="1" scaleY="1" size="44" x="447"
-						 width="88" alpha="0.7" />
+						 width="88" alpha="0.7" fontFamily="Barlow" />
 				<e:Label id="streetLabel" text="街注/三數" y="200" x="0" scaleX="1" scaleY="1" size="40" bold="true" />
 				<e:Label id="pStreetMax" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" x="211"
-						 width="202" alpha="0.7" />
+						 width="202" alpha="0.7" fontFamily="Barlow" />
 				<e:Label id="pStreetOdd" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" x="447"
-						 width="88" alpha="0.7" />
+						 width="88" alpha="0.7" fontFamily="Barlow" />
 				<e:Label id="cornerLabel" text="角注/四個號碼" y="270" x="0" scaleX="1" scaleY="1" size="40" bold="true" />
 				<e:Label id="pCornerMax" text="-" y="270" textAlign="right" scaleX="1" scaleY="1" size="44" x="211"
-						 width="202" verticalAlign="middle" alpha="0.7" />
+						 width="202" verticalAlign="middle" alpha="0.7" fontFamily="Barlow" />
 				<e:Label id="pCornerOdd" text="-" y="268" textAlign="right" scaleX="1" scaleY="1" size="44" x="447"
-						 width="88" verticalAlign="middle" alpha="0.7" />
+						 width="88" verticalAlign="middle" alpha="0.7" fontFamily="Barlow" />
 				<e:Label id="lineLabel" text="線注" y="340" x="0" scaleX="1" scaleY="1" size="40" bold="true" />
 				<e:Label id="pLineMax" text="-" y="340" textAlign="right" scaleX="1" scaleY="1" size="44" x="211"
-						 width="202" verticalAlign="middle" alpha="0.7" />
+						 width="202" verticalAlign="middle" alpha="0.7" fontFamily="Barlow" />
 				<e:Label id="pLineOdd" text="-" y="340" textAlign="right" scaleX="1" scaleY="1" size="44" x="447"
-						 width="88" verticalAlign="middle" alpha="0.7" />
+						 width="88" verticalAlign="middle" alpha="0.7" fontFamily="Barlow" />
 				<ui:RunTimeLabel id="columnbetLabel" text="下注一打" y="410" x="0" scaleX="1" scaleY="1" size="40" bold="true"/>
-				<e:Label id="pDozenMax" text="-" y="410" textAlign="right" x="210" scaleX="1" scaleY="1" size="44" width="202" alpha="0.7" />
-				<e:Label id="pDozenOdd" text="-" y="408" textAlign="right" x="446" scaleX="1" scaleY="1" size="44" width="88" alpha="0.7" />
+				<e:Label id="pDozenMax" text="-" y="410" textAlign="right" x="210" scaleX="1" scaleY="1" size="44" width="202" alpha="0.7" fontFamily="Barlow" />
+				<e:Label id="pDozenOdd" text="-" y="408" textAlign="right" x="446" scaleX="1" scaleY="1" size="44" width="88" alpha="0.7" fontFamily="Barlow" />
 			</e:Group>
 		</e:Group>
 		<e:Group id="contentTwo" x="0" width="1242" height="532" visible="false">

@@ -15,9 +15,6 @@ namespace we {
       protected _dtGameIDText: ui.RunTimeLabel;
       protected _dtGameID: ui.RunTimeLabel;
 
-      protected _totalBet: ui.RunTimeLabel;
-      protected _totalBetText: ui.RunTimeLabel;
-
       protected _verticalGroup: eui.Group;
 
       private _common_listpanel: ui.BaseImageButton;
@@ -51,18 +48,25 @@ namespace we {
         this._skinKey = 'DragonTigerScene';
       }
 
-      protected setStateBet() {
-        super.setStateBet();
+      protected setStateIdle(isInit: boolean) {
+        super.setStateIdle(isInit);
+        if (env.orientation === 'landscape') {
+          egret.Tween.get(this._tableLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+          egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+        }
+      }
+
+      protected setStateBet(isInit: boolean) {
+        super.setStateBet(isInit);
         if (env.orientation === 'landscape') {
           egret.Tween.get(this._tableLayer).to({ scaleX: 1, scaleY: 1 }, 250);
           egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
         }
         this._dtGameID.renderText = () => `${this._tableInfo.tableid}`;
-        this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.dt.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
-            (<we.dt.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
+            (<we.dt.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
+            (<we.dt.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
           }
         }
       }
@@ -98,7 +102,6 @@ namespace we {
         }
 
         this._dtGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
-        this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
 
         dir.monitor._sideGameList.setToggler(this._common_listpanel);
 
@@ -152,6 +155,7 @@ namespace we {
         } else {
           this.currentState = 'right_hand_mode';
         }
+        this.invalidateState();
       }
 
       // protected createVerticalLayout() {
@@ -202,16 +206,18 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
+        super.onRoadDataUpdate(evt);
         this._roadmapControl.updateRoadData();
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             // update the scene
-            (<we.dt.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-            (<we.dt.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+            (<we.dt.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+            (<we.dt.TableLayer>this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }
@@ -223,58 +229,6 @@ namespace we {
         }
         if (this._bottomGamePanel._statisticChartPanel) {
           this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
-        }
-      }
-
-      public checkResultMessage() {
-        let totalWin: number = NaN;
-        if (this._tableInfo.totalWin) {
-          totalWin = this._tableInfo.totalWin;
-        }
-
-        let subject;
-
-        switch (this._tableInfo.gametype) {
-          case core.GameType.DT: {
-            (this._tableLayer as dt.TableLayer).flashFields(this._gameData);
-            switch (this._gameData.wintype) {
-              case dt.WinType.DRAGON: {
-                subject = 'player';
-                break;
-              }
-              case dt.WinType.TIGER: {
-                subject = 'banker';
-                break;
-              }
-              case dt.WinType.TIE: {
-                subject = 'banker';
-                break;
-              }
-              default:
-                break;
-            }
-            break;
-          }
-          default:
-            break;
-        }
-
-        if (this.hasBet()) {
-          if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
-            this._resultMessage.showResult(this._tableInfo.gametype, {
-              winType: this._gameData.wintype,
-              winAmount: totalWin,
-            });
-            dir.audioCtr.playSequence(['player', 'win']);
-          }
-        } else {
-          if (this._gameData && this._gameData.wintype != 0) {
-            this._resultMessage.showResult(this._tableInfo.gametype, {
-              winType: this._gameData.wintype,
-              winAmount: NaN,
-            });
-            dir.audioCtr.playSequence(['player', 'win']);
-          }
         }
       }
 

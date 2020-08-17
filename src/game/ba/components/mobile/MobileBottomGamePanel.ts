@@ -16,6 +16,10 @@ namespace we {
       protected chartBtn: eui.RadioButton;
       protected tableInfoBtn: eui.RadioButton;
 
+      protected _roadmapGroup: eui.Group;
+      protected _chartGroup: eui.Group;
+      protected _infoGroup: eui.Group;
+
       public constructor(skin?: string) {
         super(skin || !env.isMobile ? skin : 'ba.MobileBottomGamePanel');
       }
@@ -48,7 +52,14 @@ namespace we {
         this.tableInfoBtn.label = i18n.t('mobile_game_panel_table_info');
       }
 
-      protected updateStat() {
+      public destroy() {
+        super.destroy();
+        this._roadmapGroup.removeChildren();
+        // this._chartGroup.removeChildren();
+        // this._infoGroup.removeChildren();
+        this.removeListeners();
+      }
+      public updateStat() {
         super.updateStat();
         this._statisticChartPanel.update();
       }

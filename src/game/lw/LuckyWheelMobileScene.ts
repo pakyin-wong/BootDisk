@@ -5,8 +5,6 @@ namespace we {
       protected _bottomGamePanel: MobileBottomGamePanel;
       protected _lwGameIDText: ui.RunTimeLabel;
       protected _lwGameID: ui.RunTimeLabel;
-      protected _totalBet: ui.RunTimeLabel;
-      protected _totalBetText: ui.RunTimeLabel;
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
       protected _verticalGroup: eui.Group;
@@ -41,6 +39,14 @@ namespace we {
         this._bottomGamePanel._arrowUp.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
       }
 
+      protected setStateIdle(isInit: boolean) {
+        super.setStateIdle(isInit);
+        if (env.orientation === 'landscape') {
+          egret.Tween.get(this._tableLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
+          egret.Tween.get(this._chipLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
+        }
+      }
+
       protected setStateBet(isInit: boolean) {
         super.setStateBet(isInit);
         if (env.orientation === 'landscape') {
@@ -48,7 +54,6 @@ namespace we {
           egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
         }
         this._lwGameID.renderText = () => `${this._tableInfo.tableid}`;
-        this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
       }
 
       protected setStateDeal(isInit: boolean) {
@@ -78,7 +83,6 @@ namespace we {
         this.createVerticalLayout();
         this.changeHandMode();
         this._lwGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
-        this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
         dir.monitor._sideGameList.setToggler(this._common_listpanel);
         this.setChipPanelPos();
       }
@@ -134,6 +138,7 @@ namespace we {
         } else {
           this.currentState = 'right_hand_mode';
         }
+        this.invalidateState();
       }
 
       protected createVerticalLayout() {
@@ -161,12 +166,12 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
+        super.onRoadDataUpdate(evt);
         this._roadmapControl.updateRoadData();
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
-        if (evt && evt.data) {
-        }
+        super.onTableBetInfoUpdate(evt);
       }
 
       protected updateTableInfoRelatedComponents() {
@@ -181,6 +186,7 @@ namespace we {
       }
 
       public checkResultMessage() {
+        /*
         let totalWin: number = NaN;
         if (this._tableInfo.totalWin) {
           totalWin = this._tableInfo.totalWin;
@@ -189,14 +195,16 @@ namespace we {
         if (!this._gameData) {
           return;
         }
+        */
 
         console.log('checkResultMessage', this._gameData);
 
-        const resultNo = (<lw.GameData> this._gameData).value; // a string type
+        const resultNo = (<lw.GameData>this._gameData).value; // a string type
         (this._tableLayer as lw.TableLayer).flashFields(`LW_${parseInt(resultNo, 10) - 1}`);
-        const lwGameResultMessage = new lw.GameResultMessage();
-        lwGameResultMessage.type = null;
-        this._resultMessage.showResult(this._tableInfo.gametype, resultNo);
+        // const lwGameResultMessage = new lw.GameResultMessage();
+        // lwGameResultMessage.type = null;
+        super.checkResultMessage();
+        // this._resultMessage.showResult(this._tableInfo.gametype, resultNo);
       }
 
       protected checkBetChipPanel() {

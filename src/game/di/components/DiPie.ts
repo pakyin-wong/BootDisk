@@ -19,6 +19,12 @@ namespace we {
       protected _pieSize: we.di.RankedPieChart;
       protected _maxChartSize: number = 130;
 
+      protected _pieInteractive: we.di.InteractivePieChart;
+
+      protected _slopedBarChart: we.di.SlopedBarChart;
+
+      protected _horizontalBarChart: we.di.HorizontalBarChart;
+
       protected mount() {
         // this.pieSize = new we.di.RankedPieChart();
         // this.pieSize.x = 476;
@@ -32,6 +38,26 @@ namespace we {
         // this.addChild(this.pieOdd);
         // this._pieSize.setRanksAndAnimate([30, 15, 55]);
         // this._pieOdd.setRanksAndAnimate([45, 10, 45]);
+        /*
+
+          this._pieInteractive = new we.di.InteractivePieChart();
+          this._pieInteractive.x = 450;
+          this._pieInteractive.y = 140;
+          this._pieInteractive.setRanksAndAnimate([10, 10, 10, 10, 10, 10, 10, 10, 10, 10]);
+          this.addChild(this._pieInteractive);
+
+          this._slopedBarChart = new we.di.SlopedBarChart();
+          this._slopedBarChart.x = 0;
+          this._slopedBarChart.y = 50;
+          this._slopedBarChart.setRanksAndAnimate([80, 50, 30]);
+          this.addChild(this._slopedBarChart);
+
+          this._horizontalBarChart = new we.di.HorizontalBarChart();
+          this._horizontalBarChart.x = 0;
+          this._horizontalBarChart.y = 100;
+          this._horizontalBarChart.setRanksAndAnimate([8.2, 18.4, 14.5, 9.5, 6.9, 7]);
+          this.addChild(this._horizontalBarChart);
+        */
       }
 
       public setPieSize(value: number[]) {

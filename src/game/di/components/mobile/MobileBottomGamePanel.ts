@@ -20,25 +20,39 @@ namespace we {
 
       protected historyAndRoadSheetBtn: eui.RadioButton;
 
+      protected _roadmapGroup: eui.Group;
+      protected _chartGroup: eui.Group;
+      protected _infoGroup: eui.Group;
+      protected _historyGroup: eui.Group;
+
       public constructor(skin?: string) {
         super(skin || !env.isMobile ? skin : 'di.MobileBottomGamePanel');
       }
 
       protected mount() {
         super.mount();
-
         this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
         this._roadButtonPanel.changeState();
       }
 
       public destroy() {
         super.destroy();
+        // if (env.orientation === 'portrait') {
+        this._historyGroup && this._historyGroup.removeChildren();
+        this._roadmapGroup && this._roadmapGroup.removeChildren();
+        // } else {
+        this._roadmapGroup && this._roadmapGroup.removeChildren();
+        // }
 
+        // this._chartGroup.removeChildren();
+        // this._infoGroup.removeChildren();
         this.removeListeners();
       }
 
       protected addListeners() {
         super.addListeners();
+        this.chartBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        this.tableInfoBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this._roadButtonPanel.roadmapSumBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
         this._roadButtonPanel.roadmapOddevenBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
         this._roadButtonPanel.roadmapSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
@@ -48,8 +62,6 @@ namespace we {
         if (this.roadSheetBtn) {
           this.roadSheetBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         }
-        this.chartBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        this.tableInfoBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         if (this.historyAndRoadSheetBtn) {
           this.historyAndRoadSheetBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         }
@@ -57,14 +69,17 @@ namespace we {
 
       protected removeListeners() {
         super.removeListeners();
+        this.chartBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        this.tableInfoBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        this._roadButtonPanel.roadmapSumBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+        this._roadButtonPanel.roadmapOddevenBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+        this._roadButtonPanel.roadmapSizeBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
         if (this.historyBtn) {
           this.historyBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         }
         if (this.roadSheetBtn) {
           this.roadSheetBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         }
-        this.chartBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        this.tableInfoBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         if (this.historyAndRoadSheetBtn) {
           this.historyAndRoadSheetBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         }
@@ -85,6 +100,11 @@ namespace we {
         this._gameInfoLabel.text = i18n.t('mobile_panel_game_Info');
       }
 
+      public updateStat() {
+        super.updateStat();
+        this._statisticChartPanel.setValue(this.tableInfo);
+      }
+
       public manualClose() {
         super.manualClose();
 
@@ -93,6 +113,7 @@ namespace we {
       }
 
       protected onViewChange(e: eui.UIEvent) {
+        super.onViewChange(e);
         switch (env.orientation) {
           case 'landscape':
             if (e.target.value === '3') {
@@ -126,7 +147,8 @@ namespace we {
 
       protected onPanelToggle() {
         super.onPanelToggle();
-        if (this.isPanelOpen) {
+        this.viewStack.selectedIndex = 0;
+        if (env.isBottomPanelOpen) {
           this._roadmapPanel.visible = true;
           this._beadroadPanel.visible = true;
         } else {

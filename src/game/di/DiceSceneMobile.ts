@@ -21,8 +21,6 @@ namespace we {
 
       protected _baGameIDText: ui.RunTimeLabel;
       protected _baGameID: ui.RunTimeLabel;
-      protected _totalBet: ui.RunTimeLabel;
-      protected _totalBetText: ui.RunTimeLabel;
 
       private _common_listpanel: ui.BaseImageButton;
 
@@ -88,31 +86,43 @@ namespace we {
         egret.Tween.removeTweens(this._betArea);
 
         switch (s) {
-          case 'zip':
+          case 'zip': // when mobilebottompanel is on
             this._betArea.scrollPolicyV = eui.ScrollPolicy.ON;
-            egret.Tween.get(this._betArea.viewport).to(
-              {
-                scrollV: (this._betArea.viewport.contentHeight - this._betAreaTween.getTweenPackage().height) * 0.5,
-              },
-              250
-            );
+            // egret.Tween.get(this._betArea.viewport).to(
+            //   {
+            //     scrollV: (this._betArea.viewport.contentHeight - this._betAreaTween.getTweenPackage().height) * 0.5,
+            //   },
+            //   250
+            // );
             if (env.orientation === 'portrait') {
               this._tableLayer.top = this._tableLayer.bottom = 100;
               this._chipLayer.top = this._chipLayer.bottom = 100;
-
-              this._betArea.mask = this._mask;
-              this._mask.visible = true;
             }
+            if (env.orientation === 'landscape') {
+              egret.Tween.get(this._betArea).to({ y: 0 }, 250);
+
+              this._tableLayer.top = this._chipLayer.top = 50;
+              this._tableLayer.bottom = this._chipLayer.bottom = 0;
+            }
+            this._betArea.mask = this._mask;
+            this._mask.visible = true;
+
             break;
           case 'small':
-          case 'normal':
+          case 'normal': // when mobilebottompanel is off
             if (env.orientation === 'portrait') {
               this._tableLayer.top = this._tableLayer.bottom = 0;
               this._chipLayer.top = this._chipLayer.bottom = 0;
-              this._betArea.mask = null;
-              if (this._mask) {
-                this._mask.visible = false;
-              }
+            }
+            if (env.orientation === 'landscape') {
+              egret.Tween.get(this._betArea).to({ y: 300 }, 250);
+              this._tableLayer.top = this._tableLayer.bottom = 0; // tbc
+              this._chipLayer.top = this._chipLayer.bottom = 0; // tbc
+            }
+
+            this._betArea.mask = null;
+            if (this._mask) {
+              this._mask.visible = false;
             }
           default:
             this._betArea.scrollPolicyV = eui.ScrollPolicy.OFF;
@@ -122,6 +132,9 @@ namespace we {
               },
               250
             );
+            if (env.isBottomPanelOpen) {
+              this.betAreaState = 'zip';
+            }
             break;
         }
 
@@ -149,9 +162,9 @@ namespace we {
         );
       }
 
-      public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
-      }
+      // public backToLobby() {
+      //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
+      // }
 
       protected initChildren() {
         super.initChildren();
@@ -178,7 +191,6 @@ namespace we {
         }
 
         this._baGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
-        this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
 
         if (env.isMobile) {
           dir.monitor._sideGameList.setToggler(this._common_listpanel);
@@ -189,13 +201,23 @@ namespace we {
         this._mask = new egret.Shape();
         const gr = this._mask.graphics;
         const matrix = new egret.Matrix();
-        matrix.createGradientBox(this._betArea.width, 1270, Math.PI / 2, 0, 0);
-        gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000, 0x000000, 0x000000], [0, 1, 1, 0], [0, 20, 235, 255], matrix);
-        gr.drawRect(0, 0, this._betArea.width, 1270); //
+
+        if (env.orientation === 'portrait') {
+          matrix.createGradientBox(this._betArea.width, 1270, Math.PI / 2, 0, 0);
+          gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000, 0x000000, 0x000000], [0, 1, 1, 0], [0, 20, 235, 255], matrix);
+          gr.drawRect(0, 0, this._betArea.width, 1270); //
+          this._mask.y = 180;
+        }
+        if (env.orientation === 'landscape') {
+          matrix.createGradientBox(this._betArea.width, 550, Math.PI / 2, 0, 0);
+          gr.beginGradientFill(egret.GradientType.LINEAR, [0xffffff, 0xffffff, 0xffffff, 0xffffff], [0, 1, 1, 0], [0, 20, 235, 255], matrix);
+          gr.drawRect(0, 0, this._betArea.width, 550); //
+          this._mask.y = 380;
+        }
+
         gr.endFill();
         this.addChild(this._mask);
         this._mask.x = this._betArea.x;
-        this._mask.y = 180;
         this._mask.visible = false;
       }
 
@@ -216,7 +238,7 @@ namespace we {
       }
 
       protected onBottomToggle() {
-        this.diState = this._bottomGamePanel.isPanelOpen ? 'zip' : 'normal';
+        this.diState = env.isBottomPanelOpen ? 'zip' : 'normal';
       }
 
       protected changeHandMode() {
@@ -230,8 +252,9 @@ namespace we {
 
       // Roadmap & Statistic update
       protected onRoadDataUpdate(evt: egret.Event) {
+        super.onRoadDataUpdate(evt);
         this._roadmapControl.updateRoadData();
-        this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
+        // this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
         (this._tableLayer as di.MobileTableLayer).updateText(this._tableInfo);
       }
 
@@ -249,28 +272,9 @@ namespace we {
           totalWin = this._tableInfo.totalWin;
         }
 
-        if (!this._gameData) {
-          return;
-        }
         (this._tableLayer as di.TableLayer).flashFields(this._gameData);
 
-        if (this.hasBet()) {
-          if (this._gameData && !isNaN(totalWin)) {
-            this._resultMessage.showResult(this._tableInfo.gametype, {
-              gameData: this._gameData,
-              winAmount: this._tableInfo.totalWin,
-            });
-            dir.audioCtr.playSequence(['player', 'win']);
-          }
-        } else {
-          if (this._gameData) {
-            this._resultMessage.showResult(this._tableInfo.gametype, {
-              gameData: this._gameData,
-              winAmount: NaN,
-            });
-            dir.audioCtr.playSequence(['player', 'win']);
-          }
-        }
+        super.checkResultMessage();
       }
 
       protected initBottomBetLimitSelector() {
@@ -293,7 +297,6 @@ namespace we {
         });
 
         this.updateBetLimit(selectedIndex);
-
         this._bottomGamePanel._betLimitDropDownBtn.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
       }
 
@@ -308,6 +311,13 @@ namespace we {
         }
       }
 
+      protected setStateIdle(isInit: boolean = false) {
+        super.setStateIdle(isInit);
+        this._betAreaLock = true;
+        this._bottomGamePanel.manualClose();
+        this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = false;
+        this.diState = 'small';
+      }
       protected setStateDeal(isInit: boolean = false) {
         super.setStateDeal(isInit);
         this._betAreaLock = true;
@@ -322,7 +332,6 @@ namespace we {
         this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = true;
         this.diState = 'normal';
         this._baGameID.renderText = () => `${this._tableInfo.tableid}`;
-        this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
       }
 
       protected showBetChipPanel() {

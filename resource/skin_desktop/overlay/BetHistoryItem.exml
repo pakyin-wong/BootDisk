@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.BetHistoryItem" width="2140" height="76" currentState="normal" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*"  states="normal,hover" >
-	<e:Rect includeIn="hover" left="0" right="0" top="0" bottom="0" fillColor="0x4077ab"/>
+	<e:Rect id="_txt_record_bgcolor" width="2140" height="76" x="0" y="0"/>
+	<!--<e:Rect id="_txt_hover_color" includeIn="hover" left="0" right="0" top="0" bottom="0" fillColor="0x4077ab"/>-->
+	<ui:RoundRectShape includeIn="hover" cornerTL_TR_BL_BR="0,0,0,0" width="2140" height="76" x="0" y="0" stroke="0"
+		    strokeColor="0x4077ab" fillColor="0x13304c,0x4077ab,90" />
 	<e:Group left="0" right="0" top="0" bottom="0" alpha="0.8" alpha.hover="1">
 		<e:Label id="_txt_record_id" text="Label" x="95" y="0" width="171" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
 		<e:Label id="_txt_record_date" text="Label" x="286" y="0" width="228" size="20" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
@@ -12,7 +15,9 @@
 		<e:Label id="_txt_record_win" text="Label" x="1227" y="0" width="139" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
 		<e:Label id="_txt_record_orgbalance" text="Label" x="1386" y="0" width="156" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
 		<e:Label id="_txt_record_finbalance" text="Label" x="1562" y="0" width="88" size="20" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-		<e:Image id="_btn_replay" width="37" height="37" x="786" y="20" scaleX="1" scaleY="1" source.hover="d_lobby_panel_button_play_hover_png" source.normal="d_lobby_panel_button_play_normal_png"/>
+		<e:Image id="_btn_replay" width="37" height="37" x="786" y="20" scaleX="1" scaleY="1"
+			source.hover="d_lobby_panel_button_play_hover_png" source.normal="d_lobby_panel_button_play_normal_png"
+			tooltipText="'overlay.tooltip.bethistory.replay'" tooltipPosition="'above'" />
 		<e:Group id="_record_result" width="490" height="76" x="1650" y="0" scaleX="1" scaleY="1"/>
 	</e:Group>
 </e:Skin>

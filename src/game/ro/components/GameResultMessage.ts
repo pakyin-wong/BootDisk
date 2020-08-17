@@ -1,17 +1,15 @@
 namespace we {
   export namespace ro {
     export class GameResultMessage extends ui.GameResultMessage implements ui.IGameResultMessage {
+      protected _dbClass = 'roulette';
+
       public constructor() {
         super();
       }
 
-      public showResult(gameType: core.GameType, resultData: any) {
-        this._dbClass = 'roulette';
-        super.showResult(gameType, resultData);
-      }
-
       protected startAnim(gameType: core.GameType, resultData: any) {
-        const { resultNo, winAmount } = resultData;
+        const { gameData, winAmount } = resultData;
+        const resultNo = gameData.value;
 
         this._display.armature.eventDispatcher.addDBEventListener(
           dragonBones.EventObject.COMPLETE,
@@ -30,21 +28,30 @@ namespace we {
 
         let anim = 'ani_result_';
         if (isNaN(winAmount)) {
-          anim += 'nobet_';
+          anim += 'no_bets_';
         } else {
           anim += 'win_loss_';
         }
         anim += `${colorMap[we.ro.RACETRACK_COLOR[numLeft]]}${colorMap[we.ro.RACETRACK_COLOR[numCenter]]}${colorMap[we.ro.RACETRACK_COLOR[numRight]]}`;
-        logger.l(anim, numLeft, numCenter, numRight);
+        logger.l(utils.LogTarget.DEBUG, anim, numLeft, numCenter, numRight);
 
-        const array = [['L_txt', 60, numLeft, 90], ['middle_txt', 90, numCenter, 90], ['L_txt3', 60, numRight, 90]];
+        // const array = [
+        //   ['L_txt', 60, numLeft, 90],
+        //   ['middle_txt', 90, numCenter, 90],
+        //   ['L_txt3', 60, numRight, 90],
+        // ];
+        const array = [
+          ['result_l', 60, numLeft, 0],
+          ['result_middle', 90, numCenter, 0],
+          ['result_r', 60, numRight, 0],
+        ];
 
         for (const [slotName, fontSize, text, rotate] of array) {
-          const slot = this._display.armature.getSlot(<string> slotName);
+          const slot = this._display.armature.getSlot(<string>slotName);
           const lbl = new eui.Label();
-          lbl.text = <string> text;
+          lbl.text = <string>text;
           lbl.fontFamily = 'Barlow';
-          lbl.size = <number> fontSize;
+          lbl.size = <number>fontSize;
           lbl.anchorOffsetX = lbl.width / 2;
           lbl.anchorOffsetY = lbl.height / 2;
           lbl.rotation = rotate as number;
@@ -53,7 +60,8 @@ namespace we {
           slot.display = layer;
         }
 
-        const slot = this._display.armature.getSlot('-800');
+        // const slot = this._display.armature.getSlot('-800');
+        const slot = this._display.armature.getSlot('credit');
         const r = new eui.Label();
         r.fontFamily = 'Barlow';
         r.size = 60;

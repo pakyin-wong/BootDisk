@@ -16,8 +16,6 @@ namespace we {
 
       protected _baGameIDText: ui.RunTimeLabel;
       protected _baGameID: ui.RunTimeLabel;
-      protected _totalBet: ui.RunTimeLabel;
-      protected _totalBetText: ui.RunTimeLabel;
 
       protected _verticalGroup: eui.Group;
       protected _BAgoodRoadLabel: ui.GoodRoadLabel;
@@ -56,6 +54,14 @@ namespace we {
         // this._bottomGamePanel._arrowUp.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
       }
 
+      protected setStateIdle(isInit: boolean) {
+        super.setStateIdle(isInit);
+        if (env.orientation === 'landscape') {
+          egret.Tween.get(this._tableLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+          egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+        }
+      }
+
       protected setStateBet(isInit: boolean) {
         super.setStateBet(isInit);
         if (env.orientation === 'landscape') {
@@ -63,11 +69,10 @@ namespace we {
           egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
         }
         this._baGameID.renderText = () => `${this._tableInfo.tableid}`;
-        this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
           }
         }
       }
@@ -117,7 +122,6 @@ namespace we {
         this._BAgoodRoadLabel.visible = false;
 
         this._baGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
-        this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
         if (env.isMobile) {
           dir.monitor._sideGameList.setToggler(this._common_listpanel);
         }
@@ -250,15 +254,17 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
+        super.onRoadDataUpdate(evt);
         this._roadmapControl.updateRoadData();
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }
@@ -272,58 +278,6 @@ namespace we {
 
         if (this._bottomGamePanel._statisticChartPanel) {
           this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
-        }
-      }
-
-      public checkResultMessage() {
-        let totalWin: number = NaN;
-        if (this._tableInfo.totalWin) {
-          totalWin = this._tableInfo.totalWin;
-        }
-
-        let subject;
-        switch (this._tableInfo.gametype) {
-          case core.GameType.BAC:
-          case core.GameType.BAI:
-          case core.GameType.BAS:
-          case core.GameType.BAM: {
-            (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.selected);
-            switch (this._gameData.wintype) {
-              case ba.WinType.BANKER: {
-                subject = 'banker';
-                break;
-              }
-              case ba.WinType.PLAYER: {
-                subject = 'player';
-                break;
-              }
-              case ba.WinType.TIE: {
-                subject = 'player';
-                break;
-              }
-              default:
-                break;
-            }
-            break;
-          }
-        }
-
-        if (this.hasBet()) {
-          if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
-            this._resultMessage.showResult(this._tableInfo.gametype, {
-              winType: this._gameData.wintype,
-              winAmount: totalWin,
-            });
-            dir.audioCtr.playSequence(['player', 'win']);
-          }
-        } else {
-          if (this._gameData && this._gameData.wintype != 0) {
-            this._resultMessage.showResult(this._tableInfo.gametype, {
-              winType: this._gameData.wintype,
-              winAmount: NaN,
-            });
-            dir.audioCtr.playSequence(['player', 'win']);
-          }
         }
       }
 

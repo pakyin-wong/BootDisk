@@ -40,9 +40,16 @@ namespace we {
         this.configSlides();
       }
 
+      protected destroy() {
+        super.destroy();
+        if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
+          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        }
+      }
+
       public configSlides() {
         this.slides = [this.content, this.contentTwo];
-        logger.l(this.width, this.height, this.slides);
+        logger.l(utils.LogTarget.DEBUG, this.width, this.height, this.slides);
 
         if (!this.slides.length) {
           return;
@@ -231,6 +238,9 @@ namespace we {
       }
 
       public setValue(tableInfo: data.TableInfo) {
+        if (!tableInfo || !tableInfo.gamestatistic) {
+          return;
+        }
         if (tableInfo.gamestatistic.diOdd) {
           this._diPie.setPieOdd([tableInfo.gamestatistic.diOdd.odd, tableInfo.gamestatistic.diOdd.even, tableInfo.gamestatistic.diOdd.tie]);
           this._diPie.setOddValues(tableInfo.gamestatistic.diOdd);

@@ -21,6 +21,15 @@ namespace we {
       protected chartBtn: eui.RadioButton;
       protected tableInfoBtn: eui.RadioButton;
 
+      // exist in portrait
+      protected _roadmapGroup: eui.Group;
+      protected _chartGroup: eui.Group;
+      protected _infoGroup: eui.Group;
+      protected _historyGroup: eui.Group;
+
+      // exist in landscape
+      protected _historyRoadGroup: eui.Group;
+
       public constructor(skin?: string) {
         super(skin || !env.isMobile ? skin : 'ro.MobileBottomGamePanel');
       }
@@ -50,7 +59,17 @@ namespace we {
 
       public destroy() {
         super.destroy();
+        // if (env.orientation === 'portrait') {
 
+        this._roadmapGroup && this._roadmapGroup.removeChildren();
+        // this._historyGroup.removeChildren();
+
+        this._historyGroup && this._historyGroup.removeChildren();
+        // } else {
+        // this._historyRoadGroup.removeChildren();
+        // this._historyGroup.removeChildren();
+        // }
+        this._historyRoadGroup && this._historyRoadGroup.removeChildren();
         this.beadRoad.dispose();
 
         this.removeListeners();

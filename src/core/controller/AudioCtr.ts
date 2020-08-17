@@ -31,7 +31,7 @@ namespace we {
       }
 
       constructor(stage: egret.Stage) {
-        logger.l('AudioCtr is created');
+        logger.l(utils.LogTarget.DEBUG, 'AudioCtr is created');
       }
 
       public get volumeBGM() {
@@ -39,7 +39,7 @@ namespace we {
       }
 
       public set volumeBGM(vol: number) {
-        logger.l(`Setting volumeBGM to ${vol}`);
+        logger.l(utils.LogTarget.DEBUG, `Setting volumeBGM to ${vol}`);
         this._volumeBGM = vol;
         if (this._channelBGM) {
           this._channelBGM.volume = this._volumeBGM;
@@ -51,7 +51,7 @@ namespace we {
       }
 
       public set volumeFX(vol: number) {
-        logger.l(`Setting volumeFX to ${vol}`);
+        logger.l(utils.LogTarget.DEBUG, `Setting volumeFX to ${vol}`);
         this._volumeFX = vol;
         if (this._channelFX) {
           this._channelFX.volume = this._volumeFX;
@@ -63,7 +63,7 @@ namespace we {
       }
 
       public set volumeLive(vol: number) {
-        logger.l(`Setting volumeLive to ${vol}`);
+        logger.l(utils.LogTarget.DEBUG, `Setting volumeLive to ${vol}`);
         this._volumeLive = vol;
         if (this._video) {
           this._video.volume = vol;
@@ -94,12 +94,12 @@ namespace we {
             this._channelFX = soundFx.play(0, 1);
             // set initial volume to current fx volume
             this._channelFX.volume = this._volumeFX;
-            logger.l('playing', `sn_${name}_${env.voice}_mp3`);
+            logger.l(utils.LogTarget.DEBUG, 'playing', `sn_${name}_${env.voice}_mp3`);
             return new Promise<void>(resolve => {
               this._channelFX.addEventListener(
                 egret.Event.SOUND_COMPLETE,
                 () => {
-                  logger.l('play end', `sn_${name}_${env.voice}_mp3`);
+                  logger.l(utils.LogTarget.DEBUG, 'play end', `sn_${name}_${env.voice}_mp3`);
                   this._channelFX = null;
                   resolve();
                 },

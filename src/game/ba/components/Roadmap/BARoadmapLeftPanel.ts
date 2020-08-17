@@ -12,20 +12,23 @@ namespace we {
         super(skin ? skin : env.isMobile ? '' : 'BARoadmapLeftPanel');
       }
       public changeLang() {
+        // this.gameIdText.text = i18n.t('baccarat.gameroundid') + ' ';
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
-        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
+        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
       }
 
       protected init() {
         this.gameId = '';
         this.totalBet = 0;
+        // this.gameIdText.alpha = 0.7;
+        // this.gameIdLabel.alpha = 0.7;
 
         const gridSize = 43;
         const numColumn = 16;
 
         this.beadRoad = new BABeadRoad(numColumn, gridSize, 1, true);
         this.beadRoad.x = 0;
-        this.beadRoad.y = 44;
+        this.beadRoad.y = 43;
         this.beadRoad.scaleX = 690 / 689;
         // this.beadRoad.scaleY = 690 / 689;
         this.addChild(this.beadRoad);
@@ -43,12 +46,17 @@ namespace we {
       }
 
       public update() {
+        super.update();
         if (this.tableInfo) {
-          if (this.tableInfo.betInfo) {
-            this.gameId = this.tableInfo.betInfo.gameroundid;
-            this.totalBet = this.tableInfo.betInfo.total;
-            this.changeLang();
-          }
+          this.gameId = this.tableInfo.data.gameroundid;
+          this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
+        }
+      }
+
+      public updateTableBetInfo() {
+        if (this.tableInfo.betInfo) {
+          this.totalBet = this.tableInfo.betInfo.gameroundid === this.tableInfo.data.gameroundid ? this.tableInfo.betInfo.total : 0;
+          this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
         }
       }
 

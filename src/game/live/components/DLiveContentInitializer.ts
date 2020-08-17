@@ -88,7 +88,7 @@ namespace we {
         this.updateDisplayMode(env.lobbyGridType);
 
         root.roomList.layout = this.roomLayout;
-        root.roomList.itemRenderer = LiveListHolder;
+        // root.roomList.itemRenderer = LiveListHolder;
         root.roomList.itemRendererFunction = item => {
           const tableInfo = env.tableInfos[item];
           switch (tableInfo.gametype) {
@@ -102,6 +102,8 @@ namespace we {
               return ro.LiveListHolder;
             case we.core.GameType.DI:
               return di.LiveListHolder;
+            case we.core.GameType.DIL:
+              return dil.LiveListHolder;
             case we.core.GameType.LW:
               return lw.LiveListHolder;
             case we.core.GameType.DT:
@@ -110,7 +112,7 @@ namespace we {
               throw new Error('Invalid Game Type');
           }
         };
-        root.roomList.setGameFilters(core.LiveGameTab.ba);
+        root.roomList.setGameFilters(core.LiveGameTab.all);
         root.roomList.setTableList(root.roomIds);
 
         root.slider = new we.ui.ImageSlider();
@@ -191,7 +193,7 @@ namespace we {
             // this.roomList.layout = this.roomLayout;
             break;
           default:
-            logger.e('DLiveContentInitializer::onDisplayMode() no "mode" can be read');
+            logger.e(utils.LogTarget.DEBUG, 'DLiveContentInitializer::onDisplayMode() no "mode" can be read');
             break;
         }
 

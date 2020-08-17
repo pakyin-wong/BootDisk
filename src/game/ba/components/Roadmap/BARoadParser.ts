@@ -365,7 +365,6 @@ namespace we {
 
         const predictDataArr = [bankerPredictData, playerPredictData];
         const roadIndexArr = ['bigEye', 'small', 'roach'];
-        const aniIndexArr = ['bigEyeAni', 'smallAni', 'roachAni'];
         const predictResults = [];
         try {
           predictDataArr.forEach(predictData => {
@@ -373,13 +372,17 @@ namespace we {
               return;
             }
             for (let i = 0; i < roadIndexArr.length; i++) {
-              if (predictData[aniIndexArr[i]] > -1) {
-                const dataV = predictData[roadIndexArr[i]][predictData[aniIndexArr[i]]].v;
-                if (dataV === 'b') {
-                  predictResults.push({ v: 'b' });
-                } else if (dataV === 'p') {
-                  predictResults.push({ v: 'p' });
+              const roadData = predictData[roadIndexArr[i]];
+              let predictValue = null;
+              roadData.forEach(e => {
+                if (e.gameRoundID === '__--ASK_ROAD_PREDICTED_GAME--__') {
+                  predictValue = e.v;
                 }
+              });
+              if (predictValue === 'b') {
+                predictResults.push({ v: 'b' });
+              } else if (predictValue === 'p') {
+                predictResults.push({ v: 'p' });
               } else {
                 predictResults.push({});
               }
@@ -388,7 +391,7 @@ namespace we {
           this.predictBankerIcons = [predictResults[0], predictResults[1], predictResults[2]];
           this.predictPlayerIcons = [predictResults[3], predictResults[4], predictResults[5]];
         } catch (err) {
-          logger.e(err);
+          logger.e(utils.LogTarget.DEBUG, err);
         }
         return {
           predictBankerIcons: this.predictBankerIcons,
@@ -397,21 +400,24 @@ namespace we {
       }
 
       public mergePredictAnimationData(bankerPredictData: any, playerPredictData: any) {
-        // merge the animation index into the road data
+        // merge the isPredict to the correct cell
 
         const predictDataArr = [bankerPredictData, playerPredictData];
         const roadIndexArr = ['bead', 'bigRoad', 'bigEye', 'small', 'roach'];
-        const aniIndexArr = ['beadAni', 'bigRoadAni', 'bigEyeAni', 'smallAni', 'roachAni'];
         try {
           predictDataArr.forEach(predictData => {
             for (let i = 0; i < roadIndexArr.length; i++) {
-              if (predictData[aniIndexArr[i]] > -1) {
-                predictData[roadIndexArr[i]][predictData[aniIndexArr[i]]].isPredict = 1;
-              }
+              const roadData = predictData[roadIndexArr[i]];
+              const predictValue = null;
+              roadData.forEach(e => {
+                if (e.gameRoundID === '__--ASK_ROAD_PREDICTED_GAME--__') {
+                  e.isPredict = 1;
+                }
+              });
             }
           });
         } catch (err) {
-          logger.e(err);
+          logger.e(utils.LogTarget.DEBUG, err);
         }
       }
 
@@ -622,6 +628,9 @@ namespace we {
           }
           if (data.w !== undefined) {
             roadCell.w = data.w;
+          }
+          if (data.t !== undefined) {
+            roadCell.t = data.t;
           }
 
           // di

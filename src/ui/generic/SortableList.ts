@@ -28,7 +28,7 @@ namespace we {
         if (this.destinationPosition) {
           renderer.x = this.destinationPosition.x;
           renderer.y = this.destinationPosition.y;
-          const itemRenderer = <SortableItemRenderer> renderer;
+          const itemRenderer = <SortableItemRenderer>renderer;
           if (itemRenderer) {
             itemRenderer.isNew = false;
           }
@@ -61,26 +61,26 @@ namespace we {
         return diff;
       }
 
-      protected onRendererTouchBegin(event: egret.TouchEvent) {
-        super.onRendererTouchBegin(event);
-        if (!this.$stage) {
-          return;
-        }
-        this.startPos = this.getTouchPos(event);
-        const [touchedChild] = this.$children.filter((tab: egret.DisplayObject) => {
-          if (tab.$hitTest(event.stageX, event.stageY)) {
-            this.destinationPosition = new egret.Point(tab.x, tab.y);
-            return true;
-          }
-        });
-        if (!touchedChild) {
-          return;
-        }
-        this.targetChildren = <SortableItemRenderer> touchedChild;
-        this.$stage.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
-        this.$stage.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onTouchCancel, this);
-        this.$stage.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
-      }
+      // protected onRendererTouchBegin(event: egret.TouchEvent) {
+      //   super.onRendererTouchBegin(event);
+      //   if (!this.$stage) {
+      //     return;
+      //   }
+      //   this.startPos = this.getTouchPos(event);
+      //   const [touchedChild] = this.$children.filter((tab: egret.DisplayObject) => {
+      //     if (tab.$hitTest(event.stageX, event.stageY)) {
+      //       this.destinationPosition = new egret.Point(tab.x, tab.y);
+      //       return true;
+      //     }
+      //   });
+      //   if (!touchedChild) {
+      //     return;
+      //   }
+      //   this.targetChildren = <SortableItemRenderer> touchedChild;
+      //   this.$stage.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
+      //   this.$stage.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onTouchCancel, this);
+      //   this.$stage.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
+      // }
       protected onRendererTouchCancle(event: egret.TouchEvent) {
         super.onRendererTouchCancle(event);
       }
@@ -180,14 +180,14 @@ namespace we {
 
             // const [swapChild] = this.$children.filter((tab: egret.DisplayObject) => {
             //   const globalCoord2 = this.localToGlobal(tab.x, tab.y);
-            //   logger.l(tab.name, tab.x, tab.y, tab.width, tab.height, globalCoord2.x, globalCoord2.y);
+            //   logger.l(utils.LoggerTarget.DEBUG, tab.name, tab.x, tab.y, tab.width, tab.height, globalCoord2.x, globalCoord2.y);
             //   if (tab instanceof we.live.SegmentedControlTabItem && tab.$hitTest(globalCoord.x, globalCoord.y)) {
             //     return true;
             //   }
             // });
             // console.log('swapChild', swapChild);
             const selectedIndex = this.selectedIndex;
-            const collection = <eui.ArrayCollection> this.$dataProvider;
+            const collection = <eui.ArrayCollection>this.$dataProvider;
             const remIndex = this.$children.indexOf(this.targetChildren);
             const remData = this.$dataProvider.getItemAt(remIndex);
             const addIndex = this.$children.indexOf(swapChild);
@@ -195,7 +195,7 @@ namespace we {
 
             if (remIndex !== addIndex) {
               collection.removeItemAt(remIndex);
-              logger.l(`addIndex maybe out of range: ${addIndex}`);
+              logger.l(utils.LogTarget.DEBUG, `addIndex maybe out of range: ${addIndex}`);
               collection.addItemAt(remData, addIndex);
               this.dispatchEvent(new egret.Event('REORDER', false, false, { prevIdx: remIndex, newIdx: addIndex }));
             }
@@ -203,10 +203,10 @@ namespace we {
             // TODO: update selected index
             if (remIndex === selectedIndex) {
               // the dragged item is the currently selected item
-              logger.l('previous selected index: ', this.selectedIndex);
+              logger.l(utils.LogTarget.DEBUG, 'previous selected index: ', this.selectedIndex);
               this.setSelectedIndex(addIndex, false);
               //   eui.UIEvent.dispatchEvent(this, eui.UIEvent.CHANGE);
-              logger.l('new selected index: ', this.selectedIndex);
+              logger.l(utils.LogTarget.DEBUG, 'new selected index: ', this.selectedIndex);
             }
 
             this.targetChildren = null;
@@ -235,7 +235,7 @@ namespace we {
       }
 
       public clone(): any {
-        const clone: egret.DisplayObject = new (<any> this.constructor)();
+        const clone: egret.DisplayObject = new (<any>this.constructor)();
         clone.x = this.x;
         clone.y = this.y;
         clone.width = this.width;
@@ -271,7 +271,7 @@ namespace we {
       protected onTouchMove(event: egret.TouchEvent) {
         const diffX = event.stageX - this.startX;
         const diffY = event.stageY - this.startY;
-        // logger.l(diffX, diffY);
+        // logger.l(utils.LoggerTarget.DEBUG, diffX, diffY);
         if (Math.max(Math.abs(diffX), Math.abs(diffY)) > this.dragThreshold) {
           // cancel the tap check and do the sorting
           this.onTouchEnd(event);

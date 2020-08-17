@@ -1,32 +1,22 @@
 namespace we {
   export namespace rol {
     export class LuckyCoin extends core.BaseEUI {
-      protected _oddLabel: eui.Label;
       protected _amountLabel: eui.Label;
-      protected _valueLabel: eui.Label;
       protected _bigCoinImage: eui.Image;
-      protected _smallCoinGroup: eui.Group;
 
       constructor() {
         super('LuckyCoin');
       }
 
-      public set odd(value: number) {
-        if (this._oddLabel && value) {
-          this._oddLabel.text = value.toString() + 'x';
-        }
-      }
-
       public set amount(value: number) {
-        if (this._amountLabel && value) {
+        if (this._amountLabel) {
           this._amountLabel.text = value.toString();
-          this._smallCoinGroup.visible = true;
+          this._amountLabel.textColor = 0x000000;
+          this._amountLabel.bold = true;
+          this._amountLabel.size = 60;
+          this._amountLabel.verticalCenter = -20;
         }
-      }
-
-      public set value(value: number) {
-        if (this._valueLabel && (value === 0 || value)) {
-          this._valueLabel.text = value.toString();
+        if (this._bigCoinImage) {
           this._bigCoinImage.source = this.getNumberSource(value);
         }
       }
@@ -35,20 +25,28 @@ namespace we {
         if (value === 0 || value) {
           switch (ro.RACETRACK_COLOR[value]) {
             case ro.Color.GREEN:
-              return 'd_gow_rou_lucky_number_gn_png';
+              if (!env.isMobile) {
+                return 'd_gow_rou_lucky_number_gn_png';
+              } else {
+                return 'm_lobby_panel_betcontrol_chip11_png';
+              }
             case ro.Color.RED:
-              return 'd_gow_rou_lucky_number_red_png';
+              if (!env.isMobile) {
+                return 'd_gow_rou_lucky_number_red_png';
+              } else {
+                return 'm_lobby_panel_betcontrol_chip11_png';
+              }
             case ro.Color.BLACK:
-              return 'd_gow_rou_lucky_number_bk_png';
+              if (!env.isMobile) {
+                return 'd_gow_rou_lucky_number_bk_png';
+              } else {
+                return 'm_lobby_panel_betcontrol_chip11_png';
+              }
             default:
               break;
           }
         }
         return null;
-      }
-
-      protected mount() {
-        super.mount();
       }
     }
   }

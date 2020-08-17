@@ -100,7 +100,7 @@
 		         width="68" rotation="180" x.left_hand_mode="1378" />
 	</e:Group>
 	<ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" horizontalCenter="0" betChipWidth="250"
-	                   betChipHeight="208" scaleY="1" labelSize="48" right="0" left="0" y="20" />
+	                   betChipHeight="208" scaleY="1" labelSize="48" right="0" left="0" y="35" />
 </e:Group>
 <e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" width="2424" touchEnabled="false" touchChildren="true"
          touchThrough="true" height="121">
@@ -133,8 +133,8 @@
 	<ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 	            skinName="skin_mobile_portrait.GameBar" visible="false" />
 </e:Group>
-<ui:ImageGameResultMessage id="_resultMessage" y="239" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
-                           skinName="skin_mobile_portrait.GameResultNormalSkin" height="229" horizontalCenter="0" />
+<dt:GameResultMessage id="_resultMessage" y="239" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
+                          height="229" horizontalCenter="0" />
 <ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
                   infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
                   errorBg="d_ba_gamerecord_bankerelement_png" y="288" horizontalCenter="0" />

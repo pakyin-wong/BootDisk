@@ -6,6 +6,7 @@ namespace we {
       protected _numlabel: eui.IDisplayText & egret.DisplayObject;
 
       protected _isAnimating: boolean;
+      protected _winType: any;
 
       public duration: number = 1600;
 
@@ -16,7 +17,9 @@ namespace we {
       }
 
       public showResult(gameType: core.GameType, resultData: any) {
-        const { winType, winAmount } = resultData;
+        const { winType, winAmount, gameData } = resultData;
+        // const winType = gameData.winType;
+        this._winType = winType;
         const isWin = !isNaN(winAmount) && winAmount > 0;
         egret.Tween.removeTweens(this);
         this.changeSkin(isWin);
@@ -112,7 +115,7 @@ namespace we {
         }
         const tween = egret.Tween.get(this)
           .call(() => {
-            const message: string = i18n.t(utils.getWinMessageKey(gameType, winType));
+            const message: string = i18n.t(utils.getWinMessageKey(gameType, this._winType));
             this.visible = true;
             this._label.visible = true;
             this._label.text = message;

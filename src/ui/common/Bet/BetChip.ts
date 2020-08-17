@@ -1,12 +1,14 @@
 namespace we {
   export namespace ui {
     export class BetChip extends core.BaseEUI implements eui.UIComponent, IBetChip {
+      protected chipImageMapping = ['Lv1_Blue', 'Lv1_Yellow', 'Lv1_Orange', 'Lv1_Light_Red', 'Lv1_Purple', 'Lv1_Magentas_Dark', 'Lv1_Green', 'Lv1_Blue_Dark', 'Lv1_Green_Dark', 'Lv1_Gray_Light'];
       protected _value: number;
       protected _chipImage: eui.Image;
       protected _chipValueLabel: eui.Label;
       protected _type: we.core.ChipType;
       protected _highlight: boolean;
       protected _glowImage: eui.Image;
+      public chipScale: number = 1;
 
       protected _index: number;
 
@@ -158,15 +160,33 @@ namespace we {
         }
       }
 
-      protected getChipSource(type): string {
+      // protected getChipSource(type): string {
+      //   let filename: string;
+
+      //   switch (type) {
+      //     case we.core.ChipType.FLAT:
+      //       filename = 'm_lobby_panel_betcontrol_chip' + `0${this._index + 1}`.slice(-2) + '_active_png';
+      //       break;
+      //     case we.core.ChipType.PERSPECTIVE:
+      //       filename = 'm_lobby_panel_betcontrol_chip' + `0${this._index + 1}`.slice(-2) + '_png';
+      //       break;
+      //     case we.core.ChipType.BETTING:
+      //     default:
+      //       filename = 'd_common_chips_betting_png';
+      //   }
+
+      //   return filename;
+      // }
+
+      protected getChipSource(type: we.core.ChipType = this._type): string {
         let filename: string;
 
         switch (type) {
           case we.core.ChipType.FLAT:
-            filename = 'm_lobby_panel_betcontrol_chip' + `0${this._index + 1}`.slice(-2) + '_active_png';
+            filename = `${this.chipImageMapping[this._index]}_png`;
             break;
           case we.core.ChipType.PERSPECTIVE:
-            filename = 'm_lobby_panel_betcontrol_chip' + `0${this._index + 1}`.slice(-2) + '_png';
+            filename = `${this.chipImageMapping[this._index]}_B_png`;
             break;
           case we.core.ChipType.BETTING:
           default:

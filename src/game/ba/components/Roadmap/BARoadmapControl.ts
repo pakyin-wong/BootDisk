@@ -59,8 +59,8 @@ namespace we {
           if (this.tableInfo.roadmap) {
             const roadData = this.tableInfo.roadmap;
             if (roadData.gameInfo) {
-              if (e.data.index >= 0 && e.data.index + roadData.inGameInfoStart < roadData.gameInfo.length) {
-                const rslt = roadData.gameInfo[e.data.index + roadData.inGameInfoStart];
+              if (e.data.index >= 0 && e.data.gameRoundID !== undefined && e.data.gameRoundID !== '__--ASK_ROAD_PREDICTED_GAME--__') {
+                const rslt = roadData.gameInfo[e.data.gameRoundID];
 
                 const gameData: GameData = new GameData();
                 gameData.a1 = rslt.a1;
@@ -127,10 +127,6 @@ namespace we {
           if (this.tableInfo) {
             if (this.tableInfo.roadmap) {
               const data = this.tableInfo.roadmap;
-
-              // merge the animation index into the road data
-              this.parser.mergePredictAnimationData(data.inGameB, data.inGameP);
-
               if (v === 0) {
                 // banker
                 this.beadRoad.parseRoadData(data.inGameB.bead, 1);
@@ -274,6 +270,9 @@ namespace we {
               // update the gamestatistic
               if (this.tableInfo) {
                 if (this.tableInfo.gamestatistic) {
+                  // mark the isPredict to icon
+                  this.parser.mergePredictAnimationData(roadmapData.inGameB, roadmapData.inGameP);
+
                   const prediction = this.parser.getIconsFromRoadPredictData(roadmapData.inGameB, roadmapData.inGameP);
                   const stat = this.tableInfo.gamestatistic;
                   if (this.targetPanel) {

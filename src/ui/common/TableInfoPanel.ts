@@ -28,6 +28,7 @@ namespace we {
 
       public constructor() {
         super();
+        this.isEdgeDismissable = true;
       }
 
       protected partAdded(partName: string, instance: any): void {
@@ -52,7 +53,6 @@ namespace we {
       public onExit() {
         this.destroy();
       }
-
       public changeLang() {
         this.lblTableInfo.text = i18n.t('tableInfo.tableInfo');
 
@@ -72,12 +72,13 @@ namespace we {
 
       public setValue(tableInfo: data.TableInfo) {
         this.pTableID.text = tableInfo.tableid;
-        this.pRoundID.text = tableInfo.data.gameroundid;
-        if (tableInfo.betInfo) {
-          this.pGameID.text = tableInfo.betInfo.gameroundid ? tableInfo.betInfo.gameroundid : '-';
-        } else {
-          this.pGameID.text = '-';
-        }
+        this.pGameID.text = tableInfo.data.gameroundid;
+        this.pRoundID.text = tableInfo.data.round ? tableInfo.data.round : '-';
+        // if (tableInfo.betInfo) {
+        //   this.pGameID.text = tableInfo.betInfo.gameroundid ? tableInfo.betInfo.gameroundid : '-';
+        // } else {
+        //   this.pGameID.text = '-';
+        // }
         this.pDealer.text = tableInfo.dealername ? tableInfo.dealername : '-';
 
         const betLimitSet = env.betLimits[env.currentSelectedBetLimitIndex];
@@ -88,10 +89,14 @@ namespace we {
 
         config.forEach(item => {
           if (item.data) {
-            item.lblMax.text = item.data.maxlimit ? utils.numberToFaceValue(item.data.maxlimit) : '-';
+            if (item.lblMax) {
+              item.lblMax.text = item.data.maxlimit ? utils.numberToFaceValue(item.data.maxlimit) : '-';
+            }
             item.lblOdd.text = item.data.odd ? item.data.odd : '-';
           } else {
-            item.lblMax.text = '-';
+            if (item.lblMax) {
+              item.lblMax.text = '-';
+            }
             item.lblOdd.text = '-';
           }
         });

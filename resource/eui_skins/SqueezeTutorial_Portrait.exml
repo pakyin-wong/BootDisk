@@ -4,7 +4,7 @@
 	<e:Rect id="_bg" fillColor="0x14181e" width="1242" height="2155" alpha="1" />
     <e:Group id="_top" width="1242" height="200">
         <ui:RunTimeLabel id="_title" bold="true" text="咪牌教學" x="49" y="55" size="80" textColor="0xc59466" fontFamily="Microsoft JhengHei"/>
-        <e:Image id="_close" x="1120" y="55" width="70" height="70" source="m_sq_ba_button_close_none_png"/>
+        <e:Image id="_close" x="1120" y="267" width="70" height="70" source="d-lobby-button-close-none_png"/>
     </e:Group>
     <e:Group y="200" width="1242" height="1655">
         <ui:HorizontalHolder id="_holder" bulletGap="5" bulletHorizontalCenter="0" bulletBottom="0" width="1242" height="1655" slideWidth="1242" slideHeight="1655" isTouchEnabled="false" isLoop="false" isAuto="false">
@@ -38,7 +38,7 @@
         <ui:RunTimeLabel id="_buttonText" text="下一頁" horizontalCenter="0" bottom="160" width="448" height="136" size="48" alpha="0.7" fontFamily="Microsoft JhengHei" verticalAlign="middle" textAlign="center"/>
         <e:Image id="_nextButton" source="m_sq_ba_panel_btn_bg_Inactive_png" horizontalCenter="0" bottom="160" width="448" height="136">
             <e:scale9Grid> 
-                <e:Rectangle x="62" y="136" width="0" height="0"/> 
+                <e:Rect x="62" y="136" width="0" height="0"/> 
             </e:scale9Grid> 
         </e:Image>
     </e:Group>

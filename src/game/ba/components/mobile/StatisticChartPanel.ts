@@ -96,6 +96,10 @@ namespace we {
       public setValue(tableInfo: data.TableInfo) {
         this.tableInfo = tableInfo;
 
+        if (!this.tableInfo.gamestatistic) {
+          return;
+        }
+
         const bankerCount = this.tableInfo.gamestatistic.bankerCount;
         const playerCount = this.tableInfo.gamestatistic.playerCount;
         const tieCount = this.tableInfo.gamestatistic.tieCount;
@@ -103,7 +107,6 @@ namespace we {
         const totalCount = this.tableInfo.gamestatistic.totalCount;
         const bankerPairCount = this.tableInfo.gamestatistic.bankerPairCount;
         const playerPairCount = this.tableInfo.gamestatistic.playerPairCount;
-        console.log('playerPairCount: ', playerPairCount);
         const remainingCount = totalCount - bankerPairCount - playerPairCount;
 
         const bankerPercentage = Math.round((bankerCount / totalCount) * 100);
@@ -167,7 +170,7 @@ namespace we {
       }
 
       public update() {
-        if (this.tableInfo) {
+        if (this.tableInfo && this.tableInfo.gamestatistic) {
           this.setValue(this.tableInfo);
         }
       }

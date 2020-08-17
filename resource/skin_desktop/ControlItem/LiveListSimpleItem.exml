@@ -3,23 +3,26 @@
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Group id="_quickBetGroup" width="578" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" alpha="0">
 		<e:Group width="100%" x="0" y="169" scaleX="1" scaleY="1">
-			<e:Rect width="100%" height="103" x="0" alpha="0.6" y="0" scaleX="1" scaleY="1" />
-			<e:Component id="_betChipSetNode" width="310" height="65" anchorOffsetX="0" x="14" scaleX="1" scaleY="1"
-			             anchorOffsetY="0" verticalCenter="2" />
+			<e:Rect width="100%" height="267" x="0" alpha="0.6" y="-164" scaleX="1" scaleY="1"  anchorOffsetY="0"/>
+
 			<!--<ui:BetChipSetHorizontal id="_betChipSet" width="310" height="65" anchorOffsetX="0" x="14" scaleX="1" scaleY="1"
 			                             anchorOffsetY="0" verticalCenter="2" navWidth="20" containerPadding="6" />
 			-->
-			<ui:BaseImageButton id="_confirmButton" x="430" y="28" width="132" height="50" currentState="lobby_confirm_button"
-			                    skinName="skin_desktop.ImageButtonSkinLobby" anchorOffsetX="0" />
+			<!--<ui:BaseImageButton id="_confirmButton" x="430" y="28" width="132" height="50" currentState="lobby_confirm_button"
+			                    skinName="skin_desktop.ImageButtonSkinLobby" anchorOffsetX="0" />-->
+			<ui:RoundRectButton id="_confirmButton" x="430" y="32" cornerTL_TR_BL_BR="25,25,25,25" width="132" height="50"
+			                    stroke="0" strokeIn="0" fillColor="00aa5e" fillAlpha="1" fillAlpha_hover="0.7" currentState="lobby_confirm_button" />
+			<e:Image x="480" y="47" width="30" height="20" source="d_lobby_panel_betcontrol_btn_confirm_icon_png" touchEnabled="false" />
 		</e:Group>
 		<e:Component id="_tableLayerNode" width="100%" skinName="skin_desktop.ba.LiveListItemTableLayerSkin" anchorOffsetY="0"
-		             left="0" top="0" visible="false" name="NormalTableLayerNode" />
+		             left="0" top="0" name="NormalTableLayerNode"  visible="false"/>
+		<e:Component id="_betChipSetNode" width="310" height="65" anchorOffsetX="0" x="14" scaleX="1" scaleY="1" anchorOffsetY="0" verticalCenter="99"/>
 	</e:Group>
 	<e:Group id="_contentContainer" width="100%" height="219" x="0" y="0">
-		<e:Rect width="578" height="80" x="0" y="0" fillColor="0x202020" />
-		<ui:CountdownTimer id="_timer" width="80" height="80" x="0" y="0" skinName="skin_desktop.CountdownTimerRoundSkin" />
-		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="150" y="20" />
-		<e:Component id="_roadmapNode" width="100%" height="139" y="80" visible="false" />
+		<e:Rect width="578" height="190" x="0" y="0" fillColor="0x202020" anchorOffsetY="0"  ellipseHeight="20" ellipseWidth="20" strokeColor="0x5f6973" strokeWeight="2"/>
+		<ui:CountdownTimer id="_timer" width="43" height="43" x="10" y="3" skinName="skin_desktop.CountdownTimerRoundSmallSkin" />
+		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="75" y="13" size="30" />
+		<e:Component id="_roadmapNode" width="100%" height="139" y="51" />
 		<ui:InGameMessage id="_message" anchorOffsetX="152" anchorOffsetY="16" skinName="skin_desktop.InGameMessageSkin"
 		                  width="303" height="32" horizontalCenter="0.5" y="115" infoBg="d_ba_gamerecord_playerelement_png"
 		                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />
@@ -28,14 +31,14 @@
 			         width="100" height="30" />
 			<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="18" />
 		</e:Group>
-		<live:BetLimitDropdown id="_dropdown" width="200" y="20" anchorOffsetX="0" anchorOffsetY="0"
+		<live:BetLimitDropdown id="_dropdown" width="200" y="4" anchorOffsetX="0" anchorOffsetY="0"
 		                       skinName="BetLimitDropdownSkin" right="7" />
-		<e:Component id="_quickbetButtonNode" alpha="0" horizontalCenter="0" y="180" width="148" height="42" visible="false" />
+		<e:Component id="_quickbetButtonNode" alpha="0" horizontalCenter="0" y="165" width="148" height="42" />
 		<!--<ui:LobbyQuickBetAnimButton id="_quickbetButton" resName="d_lobby_quick_bet_notification_follow_normal_png"
 		                                hoverResName="d_lobby_quick_bet_notification_follow_hover_png" alpha="0"
 		                                horizontalCenter="0" y="180" width="148" height="42" label1text="快速投注" label2text="X" />
 		-->
 	</e:Group>
 	<e:Component id="_chipLayerNode" width="100%" skinName="skin_desktop.ba.LiveListItemChipLayerSkin" anchorOffsetY="0"
-	             y="0" left="0" alpha="0" visible="false" name="NormalChipLayerNode" />
+	             y="0" left="0" alpha="0" name="NormalChipLayerNode"  visible="false"/>
 </e:Skin>
