@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
     export class ProgressBar extends core.BaseEUI {
-      protected _proportion: number = 0.05; // 0 - 1
+      protected _proportion: number = 0; // 0 - 1
       protected _color: any = 0xffffff;
       protected _baseColor: number = 0x202020;
       protected _shape: egret.Shape = new egret.Shape();
@@ -25,7 +25,9 @@ namespace we {
       }
 
       public set proportion(value: number) {
+        console.log('update', value);
         this._proportion = value;
+        this.draw();
       }
 
       public set color(value: string) {
@@ -125,7 +127,7 @@ namespace we {
           } else {
             const fillcolor = this._gradientColor.toString().split(' ').join('').split(',');
             const matrix = new egret.Matrix();
-            matrix.createGradientBox(40, 260);
+            matrix.createGradientBox(1012, 260);
             this._shape.graphics.beginGradientFill(egret.GradientType.LINEAR, [fillcolor[0], fillcolor[1]], [1, 1], [0, 255], matrix);
           }
           let points;
