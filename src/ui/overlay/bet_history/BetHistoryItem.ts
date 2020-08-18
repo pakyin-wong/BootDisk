@@ -67,6 +67,8 @@ namespace we {
 
           if (amt > 0) {
             this._txt_record_win.text = `+${utils.formatNumber(this.data.winamount, true)}`;
+          } else if (amt === 0) {
+            this._txt_record_win.text = `${utils.formatNumber(this.data.winamount, true)}`;
           } else {
             this._txt_record_win.text = `-${utils.formatNumber(this.data.winamount, true)}`;
           }

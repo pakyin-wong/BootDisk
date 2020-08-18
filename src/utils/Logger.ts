@@ -25,11 +25,13 @@ namespace we {
             return 1;
           case 'staging':
             return 2;
-          case 'uat':
+          case 'release':
             return 3;
+          case 'uat':
+            return 4;
           case 'prod':
           default:
-            return 4;
+            return 5;
         }
       }
 
@@ -58,10 +60,7 @@ namespace we {
       }
 
       private log(type, ...args) {
-        let msg = new Error().stack
-          .split('\n')
-          [1 /* logger internal */ + 2].trim()
-          .replace('at ', '');
+        let msg = new Error().stack.split('\n')[1 /* logger internal */ + 2].trim().replace('at ', '');
         const match = msg.match(/http[^\)]+/);
         let link = '';
         if (match && match.length > 0) {
