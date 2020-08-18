@@ -8,7 +8,7 @@
         <e:Image id="_close" x="1120" y="51" width="70" height="70" source="d-lobby-button-close-none_png"  touchEnabled="true"/>
     </e:Group>
     <e:Group y="200" width="1242" height="1655">
-        <ui:HorizontalHolder id="_holder" bulletGap="5" bulletHorizontalCenter="0" bulletBottom="0" width="1242"
+        <ui:HorizontalHolder id="_holder" bulletGap="30" bulletHorizontalCenter="0" bulletBottom="0" width="1242"
                              height="1655" slideWidth="1242" slideHeight="1655" isTouchEnabled="false" isLoop="false"
                              isAuto="false">
             <e:Group id="_pageOne" width="1242" height="1655">
