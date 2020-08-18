@@ -45,11 +45,11 @@ namespace we {
       }
 
       protected arrangeComponents() {
-        super.arrangeComponents();
-        this.init();
+        // super.arrangeComponents();
+        // this.init();
       }
 
-      protected init() {
+      public init() {
         this._captionArr = [];
         this._captionArr.push(this._captionOne);
         this._captionArr.push(this._captionTwo);
@@ -154,6 +154,7 @@ namespace we {
       private doDestroy(e) {
         this.removeListners();
         if (env.isMobile) {
+          dir.layerCtr.nav.visible = true;
           const parent = this.parent as we.bam.MobileScene;
           parent.tutorial = null;
         }

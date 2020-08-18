@@ -537,7 +537,6 @@ namespace we {
           }
 
           if (this._resultMessage) {
-            console.log('here');
             this.checkResultMessage();
           }
         }

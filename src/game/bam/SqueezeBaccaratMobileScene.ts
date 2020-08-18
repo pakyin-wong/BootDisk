@@ -22,6 +22,7 @@ namespace we {
           this.tutorial.isEdgeDismissable = false;
 
           if (env.orientation === 'portrait') {
+            dir.layerCtr.nav.visible = false;
             this.tutorial.x = 0;
             this.tutorial.y = 0;
             this.tutorial.width = 1242;
