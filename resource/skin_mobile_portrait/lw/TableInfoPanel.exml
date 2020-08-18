@@ -61,50 +61,50 @@
 			<e:Group id="_right" width="621" height="532" x="627">
 				<ui:RunTimeLabel id="eastLabel" text="東" textKey="luckywheel.south" x="47" y="50" scaleX="1" scaleY="1" size="44" />
 				<ui:ClampWidthLabel id="pEastOdd" text="-" y="50" scaleX="1" scaleY="1" size="44" verticalAlign="middle" alpha="0.7"
-				                    textAlign="right" targetWidth="200" right="50" />
-				<!--<e:Label id="pEastMax" text="-" y="50" textAlign="right" scaleX="1" scaleY="1" size="44" x="211" width="200"
-				             verticalAlign="middle" alpha="0.7" />
-				-->
+				                    textAlign="right" targetWidth="130" right="50" />
+				<ui:ClampWidthLabel id="pEastMax" text="000" y="50" scaleX="1" scaleY="1" size="44" verticalAlign="middle" alpha="0.7"
+				                    textAlign="right" targetWidth="80" right="200" />
+				
 				<ui:RunTimeLabel id="southLabel" text="南" textKey="luckywheel.west" x="47" y="128" scaleX="1" scaleY="1" size="44" />
 				<ui:ClampWidthLabel id="pSouthOdd" text="-" y="128" scaleX="1" scaleY="1" size="44" verticalAlign="middle"
-				                    alpha="0.7" textAlign="right" targetWidth="200" right="50" />
-				<!--<e:Label id="pSouthMax" text="-" y="128" textAlign="right" scaleX="1" scaleY="1" size="44" x="211" width="200"
-				             verticalAlign="middle" alpha="0.7" />
-				-->
+				                    alpha="0.7" textAlign="right" targetWidth="130" right="50" />
+				<ui:ClampWidthLabel id="pSouthMax" text="000" y="128" scaleX="1" scaleY="1" size="44" verticalAlign="middle" alpha="0.7"
+				                    textAlign="right" targetWidth="80" right="200"/>
+				
 				<ui:RunTimeLabel id="westLabel" text="西" textKey="luckywheel.north" x="47" y="206" scaleX="1" scaleY="1" size="44" />
 				<ui:ClampWidthLabel id="pWestOdd" text="-" y="206" scaleX="1" scaleY="1" size="44" verticalAlign="middle"
-				                    alpha="0.7" textAlign="right" targetWidth="200" right="50" />
-				<!--<e:Label id="pWestMax" text="-" y="206" textAlign="right" scaleX="1" scaleY="1" size="44" x="211" width="200"
-				             verticalAlign="middle" alpha="0.7" />
-				-->
+				                    alpha="0.7" textAlign="right" targetWidth="130" right="50" />
+				<ui:ClampWidthLabel id="pWestMax" text="000" y="206" scaleX="1" scaleY="1" size="44" verticalAlign="middle" alpha="0.7"
+				                    textAlign="right" targetWidth="80" right="200"/>
+				
 				<ui:RunTimeLabel id="northLabel" text="北" textKey="luckywheel.white" x="47" y="284" scaleX="1" scaleY="1" size="44" />
 				<ui:ClampWidthLabel id="pNorthOdd" text="-" y="284" scaleX="1" scaleY="1" size="44" verticalAlign="middle"
-				                    alpha="0.7" textAlign="right" targetWidth="200" right="50" />
-				<!--<e:Label id="pNorthMax" text="-" y="284" textAlign="right" scaleX="1" scaleY="1" size="44" x="211" width="200"
-				             verticalAlign="middle" alpha="0.7" />
-				-->
+				                    alpha="0.7" textAlign="right" targetWidth="130" right="50" />
+				<ui:ClampWidthLabel id="pNorthMax" text="000" y="284" scaleX="1" scaleY="1" size="44" verticalAlign="middle" alpha="0.7"
+				                    textAlign="right" targetWidth="80" right="200"/>
+				
 				<ui:RunTimeLabel id="whiteLabel" text="白" textKey="luckywheel.red" x="47" y="362" scaleX="1" scaleY="1" size="44" />
 				<ui:ClampWidthLabel id="pWhiteOdd" text="-" y="362" scaleX="1" scaleY="1" size="44" verticalAlign="middle"
-				                    alpha="0.7" textAlign="right" targetWidth="200" right="50" />
-				<!--<e:Label id="pWhiteMax" text="-" y="362" textAlign="right" scaleX="1" scaleY="1" size="44" x="211" width="200"
-				             verticalAlign="middle" alpha="0.7" />
-				-->
+				                    alpha="0.7" textAlign="right" targetWidth="130" right="50" />
+				<ui:ClampWidthLabel id="pWhiteMax" text="000" y="362" scaleX="1" scaleY="1" size="44" verticalAlign="middle" alpha="0.7"
+				                    textAlign="right" targetWidth="80" right="200"/>
+				
 				<ui:RunTimeLabel id="redLabel" text="中" textKey="luckywheel.green" x="47" y="440" scaleX="1" scaleY="1" size="44" />
 				<ui:ClampWidthLabel id="pRedOdd" text="-" y="440" scaleX="1" scaleY="1" size="44" verticalAlign="middle" alpha="0.7"
-				                    textAlign="right" targetWidth="200" right="50" />
-				<!--<e:Label id="pRedMax" text="-" y="440" textAlign="right" scaleX="1" scaleY="1" size="44" x="211" width="200"
-				             verticalAlign="middle" alpha="0.7" />
-				-->
+				                    textAlign="right" targetWidth="130" right="50" />
+				<ui:ClampWidthLabel id="pRedMax" text="000" y="440" scaleX="1" scaleY="1" size="44" verticalAlign="middle" alpha="0.7"
+				                    textAlign="right" targetWidth="80" right="200"/>
+				
 			</e:Group>
 		</e:Group>
-		<e:Group id="content0" x="0" width="100%" height="100%">
+		<e:Group id="content0" x="0" width="100%" height="100%" visible="false">
 			<e:Rect id="_bg0" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" />
 			<ui:RunTimeLabel id="greenLabel" text="發" y="50" x="47" scaleX="1" scaleY="1" size="44" textKey="baccarat.tableNo" />
 			<ui:ClampWidthLabel id="pGreenOdd" text="-" y="50" scaleX="1" scaleY="1" size="44" height="44" alpha="0.7"
-			                    textAlign="right" targetWidth="200" right="630" />
-			<!--<e:Label id="pGreenMax" text="-" y="50" textAlign="right" scaleX="1" scaleY="1" size="44" x="67" width="381"
-			             height="44" alpha="0.7" />
-			-->
+			                    textAlign="right" targetWidth="130" right="630" />
+			<ui:ClampWidthLabel id="pGreenMax" text="000" y="50" scaleX="1" scaleY="1" size="44" verticalAlign="middle" alpha="0.7"
+				                    textAlign="right" targetWidth="80" right="828"/>
+			
 		</e:Group>
 	</ui:HorizontalHolder>
 </e:Skin>

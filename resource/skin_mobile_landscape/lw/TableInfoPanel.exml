@@ -3,9 +3,9 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="content" left="0" top="0" width="2140" height="100%">
 		<e:Rect id="_bg" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" locked="true" />
-		<e:Scroller id="_infoArea" scrollPolicyH="auto" scrollPolicyV="off" width="100%" height="100%">
+		<!--<e:Scroller id="_infoArea" scrollPolicyH="auto" scrollPolicyV="off" width="100%" height="100%">-->
 			<e:Group>
-				<e:Group height="100%" width="2600">
+				<e:Group height="100%" width="100%">
 					<e:Image id="moveArea" source="popover_png" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7"
 					         visible="false" />
 					<ui:RunTimeLabel id="lblTableInfo" text="本檯資訊" left="50" top="50" x="50" y="50" scaleX="1" scaleY="1" size="20"
@@ -23,7 +23,7 @@
 						<ui:RunTimeLabel id="gameIdLabel" text="編號" y="230" x="42" scaleX="1" scaleY="1" size="44"
 						                 textKey="luckywheel.gameId" />
 						<e:layout>
-							<e:VerticalLayout gap="40" />
+							<e:VerticalLayout gap="35" />
 						</e:layout>
 					</e:Group>
 					<e:Group width="350" x="131" y="25">
@@ -37,41 +37,46 @@
 						<ui:ClampWidthLabel id="pGameID" text="000-000-000000000" textAlign="right" size="44" targetWidth="350"
 						                    alpha="0.7" />
 						<e:layout>
-							<e:VerticalLayout gap="40" />
+							<e:VerticalLayout gap="35" />
 						</e:layout>
 					</e:Group>
 					<e:Group x="550" y="25">
 						<ui:RunTimeLabel id="dealerLabel" text="荷官" y="71" x="745" scaleX="1" scaleY="1" size="44"
 						                 textKey="baccarat.dealer" />
 						<ui:RunTimeLabel id="betLimitLabel" text="投注限紅" y="148" x="745" scaleX="1" scaleY="1" size="44" />
-						<ui:RunTimeLabel id="tableBetLimitLabel" text="本檯限紅" y="148" x="745" scaleX="1" scaleY="1" size="44" />
+						<!--<ui:RunTimeLabel id="tableBetLimitLabel" text="本檯限紅" y="148" x="745" scaleX="1" scaleY="1" size="44" />
+						-->
 						<e:layout>
-							<e:VerticalLayout gap="40" />
+							<e:VerticalLayout gap="35" />
 						</e:layout>
 					</e:Group>
 					<e:Group width="350" x="728" y="25">
 						<!--<e:Label id="pDealer" text="-" y="0" textAlign="right" scaleX="1" scaleY="1" size="44" x="-3" width="100%"
-						         height="44" alpha="0.7" />-->
+						             height="44" alpha="0.7" />
+						-->
 						<ui:ClampWidthLabel id="pDealer" text="Mary" textAlign="right" right="28" y="1" size="44" width="440"
 						                    targetWidth="440" verticalAlign="middle" alpha="0.7" />
-						<e:Group id="betLimitBtnGroup" y="72" width="100%" height="74">
+						<e:Group id="betLimitBtnGroup" y="62" width="100%" height="74">
 							<e:Image id="limitBg" width="312" height="74" x="34" y="0" source="m_ba_tag_redlimit_bg_png" scaleX="1"
 							         scaleY="1" anchorOffsetX="0" />
 							<e:Label id="pBetLimit" text="Label" y="1.36" scaleX="1" scaleY="1" size="44" x="0" width="100%" height="74"
 							         textAlign="center" verticalAlign="middle" />
-							<e:Image id="dropdownBtn" width="27" height="16" x="242" y="30" source="m_ba_tag_redlimit_btn_dropdown_png"
+							<e:Image id="dropdownBtn" width="27" height="16" x="286" y="30" source="m_ba_tag_redlimit_btn_dropdown_png"
 							         scaleX="1" scaleY="1" />
 						</e:Group>
-						<e:Label id="pTableBetLimit" y="170" text="-" textAlign="right" scaleX="1" scaleY="1" size="44" x="0" width="100%"
-						         height="44" alpha="0.7" />
+						<!--<e:Label id="pTableBetLimit" y="170" text="-" textAlign="right" scaleX="1" scaleY="1" size="44" x="0"
+						             width="100%" height="44" alpha="0.7" />
+						-->
 					</e:Group>
 					<e:Group x="1107" y="25">
 						<ui:RunTimeLabel id="eastLabel" text="東" y="71" x="745" scaleX="1" scaleY="1" size="44" textKey="luckywheel.east" />
 						<ui:RunTimeLabel id="southLabel" text="南" y="148" x="745" scaleX="1" scaleY="1" size="44"
 						                 textKey="luckywheel.south" />
 						<ui:RunTimeLabel id="westLabel" text="西" y="230" x="42" scaleX="1" scaleY="1" size="44" textKey="luckywheel.west" />
+						<ui:RunTimeLabel id="northLabel" text="北" y="230" x="42" scaleX="1" scaleY="1" size="44"
+						                 textKey="luckywheel.north" />
 						<e:layout>
-							<e:VerticalLayout gap="37" />
+							<e:VerticalLayout gap="35" />
 						</e:layout>
 					</e:Group>
 					<e:Group x="1199" width="350" y="25">
@@ -79,51 +84,42 @@
 						         anchorOffsetX="0" width="102.88" alpha="0.7" />
 						<e:Label id="pEastOdd" text="-" y="0" textAlign="right" scaleX="1" scaleY="1" size="44" right="0" height="44"
 						         anchorOffsetX="0" width="102.88" alpha="0.7" />
-						<e:Label id="pSouthMax" text="-" y="80" textAlign="right" scaleX="1" scaleY="1" size="44" right="100"
+						<e:Label id="pSouthMax" text="-" y="70" textAlign="right" scaleX="1" scaleY="1" size="44" right="100"
 						         width="293.94" anchorOffsetX="0" alpha="0.7" />
-						<e:Label id="pSouthOdd" text="-" y="80" textAlign="right" scaleX="1" scaleY="1" size="44" right="0" width="227.27"
+						<e:Label id="pSouthOdd" text="-" y="70" textAlign="right" scaleX="1" scaleY="1" size="44" right="0" width="227.27"
 						         anchorOffsetX="0" alpha="0.7" />
-						<e:Label id="pWestOdd" text="-" y="160" textAlign="right" scaleX="1" scaleY="1" size="44" right="100"
+						<e:Label id="pWestOdd" text="-" y="150" textAlign="right" scaleX="1" scaleY="1" size="44" right="100"
 						         width="221.21" anchorOffsetX="0" alpha="0.7" />
-						<e:Label id="pWestMax" text="-" y="160" textAlign="right" scaleX="1" scaleY="1" size="44" right="0" width="200"
+						<e:Label id="pWestMax" text="-" y="150" textAlign="right" scaleX="1" scaleY="1" size="44" right="0" width="200"
 						         anchorOffsetX="0" alpha="0.7" />
+						<e:Label id="pNorthOdd" text="-" y="230" textAlign="right" scaleX="1" scaleY="1" size="44" width="177"
+						         anchorOffsetX="0" right="0" alpha="0.7" />
+						<e:Label id="pNorthMax" text="-" y="230" textAlign="right" scaleX="1" scaleY="1" size="44" width="177"
+						         anchorOffsetX="0" right="100" alpha="0.7" />
 					</e:Group>
 					<e:Group x="1623" anchorOffsetX="0" width="44" y="25">
-						<ui:RunTimeLabel id="northLabel" text="北" y="230" x="42" scaleX="1" scaleY="1" size="44"
-						                 textKey="luckywheel.north" />
 						<ui:RunTimeLabel id="whiteLabel" text="白" y="71" x="745" scaleX="1" scaleY="1" size="44" textKey="luckywheel.red" />
 						<ui:RunTimeLabel id="redLabel" text="中" y="148" x="745" scaleX="1" scaleY="1" size="44" textKey="luckywheel.green" />
+						<ui:RunTimeLabel id="greenLabel" text="發" y="230" x="42" scaleX="1" scaleY="1" size="44" textKey="luckywheel.white"/>
 						<e:layout>
-							<e:VerticalLayout gap="40" />
+							<e:VerticalLayout gap="35" />
 						</e:layout>
 					</e:Group>
 					<e:Group x="1717" anchorOffsetX="0" width="350" y="25">
-						<e:Label id="pNorthOdd" text="-" y="0" textAlign="right" scaleX="1" scaleY="1" size="44" width="177"
+						<e:Label id="pWhiteOdd" text="-" y="0" textAlign="right" scaleX="1" scaleY="1" size="44" width="177" height="44"
 						         anchorOffsetX="0" right="0" alpha="0.7" />
-						<e:Label id="pNorthMax" text="-" y="0" textAlign="right" scaleX="1" scaleY="1" size="44" width="177"
+						<e:Label id="pWhiteMax" text="-" y="0" textAlign="right" scaleX="1" scaleY="1" size="44" width="177" height="44"
 						         anchorOffsetX="0" right="100" alpha="0.7" />
-						<e:Label id="pWhiteOdd" text="-" y="84" textAlign="right" scaleX="1" scaleY="1" size="44" width="177" height="44"
+						<e:Label id="pRedOdd" text="-" y="70" textAlign="right" scaleX="1" scaleY="1" size="44" width="177"
 						         anchorOffsetX="0" right="0" alpha="0.7" />
-						<e:Label id="pWhiteMax" text="-" y="84" textAlign="right" scaleX="1" scaleY="1" size="44" width="177" height="44"
+						<e:Label id="pRedMax" text="-" y="70" textAlign="right" scaleX="1" scaleY="1" size="44" width="177"
 						         anchorOffsetX="0" right="100" alpha="0.7" />
-						<e:Label id="pRedOdd" text="-" y="168" textAlign="right" scaleX="1" scaleY="1" size="44" width="177"
-						         anchorOffsetX="0" right="0" alpha="0.7" />
-						<e:Label id="pRedMax" text="-" y="168" textAlign="right" scaleX="1" scaleY="1" size="44" width="177"
-						         anchorOffsetX="0" right="100" alpha="0.7" />
-					</e:Group>
-					<e:Group x="2139" anchorOffsetX="0" width="44" y="25">
-						<ui:RunTimeLabel id="greenLabel" text="發" y="230" x="42" scaleX="1" scaleY="1" size="44"
-						                 textKey="luckywheel.white" />
-						<e:layout>
-							<e:VerticalLayout gap="40" />
-						</e:layout>
-					</e:Group>
-					<e:Group x="2223" anchorOffsetX="0" width="350" y="25">
-						<e:Label id="pGreenOdd" text="-" y="0" textAlign="right" scaleX="1" scaleY="1" size="44" right="0" width="100%"
+						<e:Label id="pGreenOdd" text="-" y="150" textAlign="right" scaleX="1" scaleY="1" size="44" right="0" width="100%"
 						         alpha="0.7" />
-						<e:Label id="pGreenMax" text="-" y="0" textAlign="right" scaleX="1" scaleY="1" size="44" right="100" width="100%"
+						<e:Label id="pGreenMax" text="-" y="150" textAlign="right" scaleX="1" scaleY="1" size="44" right="100" width="100%"
 						         alpha="0.7" />
 					</e:Group>
+					<e:Group x="2223" anchorOffsetX="0" width="350" y="25"></e:Group>
 					<e:Group visible="false" locked="true">
 						<ui:RunTimeLabel id="bankerLabel" text="庄" textKey="luckywheel.banker" />
 						<ui:RunTimeLabel id="playerLabel" text="閒" textKey="luckywheel.player" />
@@ -133,6 +129,6 @@
 					</e:Group>
 				</e:Group>
 			</e:Group>
-		</e:Scroller>
+		<!--</e:Scroller>-->
 	</e:Group>
 </e:Skin>
