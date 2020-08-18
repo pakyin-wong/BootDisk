@@ -212,7 +212,7 @@ namespace we {
           dragontiger: 'DT',
           luckywheel: 'Wheel',
           roulette: 'Roulette',
-          dice: 'Dice',
+          dice: 'SicBo',
           other: 'Others',
         },
       },
