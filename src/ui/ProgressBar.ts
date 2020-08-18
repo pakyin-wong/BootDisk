@@ -2,16 +2,26 @@ namespace we {
   export namespace ui {
     export class ProgressBar extends core.BaseEUI {
       protected _proportion: number = 0.05; // 0 - 1
-      protected _color: number = 0xffffff;
+      protected _color: any = 0xffffff;
       protected _baseColor: number = 0x202020;
       protected _shape: egret.Shape = new egret.Shape();
       protected _roundCorner: number[] = [10, 10, 10, 10, 10, 10, 10, 10];
       protected _direction: string = 'vertical';
+      protected _gradientColor: any = null;
+      protected _ratios: number = 0;
 
       protected mount() {
         super.mount();
         this.addChild(this._shape);
         this.draw();
+      }
+
+      public set gradientColor(value: any) {
+        this._gradientColor = value;
+      }
+
+      public set ratios(value: number) {
+        this._ratios = value;
       }
 
       public set proportion(value: number) {
@@ -110,7 +120,14 @@ namespace we {
         }
 
         if (length >= this._roundCorner[7]) {
-          this._shape.graphics.beginFill(this._color, 1);
+          if (this._gradientColor === null) {
+            this._shape.graphics.beginFill(this._color, 1);
+          } else {
+            const fillcolor = this._gradientColor.toString().split(' ').join('').split(',');
+            const matrix = new egret.Matrix();
+            matrix.createGradientBox(40, 260);
+            this._shape.graphics.beginGradientFill(egret.GradientType.LINEAR, [fillcolor[0], fillcolor[1]], [1, 1], [0, 255], matrix);
+          }
           let points;
           if (this._direction === 'vertical') {
             points = utils.roundRectPoints(this.width, length, this._roundCorner, 0, this.height - length);
