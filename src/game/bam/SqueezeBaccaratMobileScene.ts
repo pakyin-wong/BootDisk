@@ -9,7 +9,7 @@ namespace we {
     export class MobileScene extends ba.MobileScene {
       protected _resultCard: MobileFlipCardHolder;
       protected _resultDisplay: MobileCardHolder;
-      protected tutorial: we.bam.SqueezeTutorial;
+      public tutorial: we.bam.SqueezeTutorial;
 
       protected _cardHolderData: any;
 
@@ -42,6 +42,9 @@ namespace we {
 
       protected onOrientationChange() {
         this._cardHolderData = this._resultDisplay.exportData();
+        if (this.tutorial) {
+          env.isFirstTimeBam = false;
+        }
         super.onOrientationChange();
       }
 
@@ -96,9 +99,6 @@ namespace we {
 
       protected destroy() {
         super.destroy();
-        if (this.tutorial) {
-          env.isFirstTimeBam = !env.isFirstTimeBam;
-        }
       }
     }
   }

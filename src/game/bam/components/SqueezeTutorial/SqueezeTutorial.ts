@@ -153,6 +153,10 @@ namespace we {
 
       private doDestroy(e) {
         this.removeListners();
+        if (env.isMobile) {
+          const parent = this.parent as we.bam.MobileScene;
+          parent.tutorial = null;
+        }
         this.parent.removeChild(this);
       }
 
