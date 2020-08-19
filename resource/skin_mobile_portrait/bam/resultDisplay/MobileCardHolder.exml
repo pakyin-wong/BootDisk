@@ -2,12 +2,12 @@
 <e:Skin class="skin_mobile_portrait.bam.MobileCardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing"
         width="1242" height="380">
         <e:Rect width="100%" height="83%" fillColor="0x000000" alpha="0.5" bottom="0" visible="false"/>       
-        <e:Group horizontalCenter="-50" y="245">
+        <e:Group horizontalCenter="-74" y="245">
 		<e:Image width="70" height="89" x="0" y="0" source="m_ba_result_poker_player_png"/>
                 <e:Label id="_playerSum" text="" x="53" y="8" fontFamily="Barlow" textAlign="center" horizontalCenter="0"
                          verticalCenter="0"  size="58" bold="true"/>
         </e:Group>
-        <e:Group horizontalCenter="50" y="245">
+        <e:Group horizontalCenter="76" y="245">
 		<e:Image width="70" height="89" x="0" y="0" source="m_ba_result_poker_banker_png"/>
                 <e:Label id="_bankerSum" text="" x="53" y="8" fontFamily="Barlow" textAlign="center" horizontalCenter="0"
                          verticalCenter="0"  size="58" bold="true"/>
