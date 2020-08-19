@@ -12,12 +12,13 @@ namespace we {
       public tutorial: we.bam.SqueezeTutorial;
 
       protected _cardHolderData: any;
+      protected tutorial_page_index: number;
 
       protected initChildren() {
         super.initChildren();
         this._resultDisplay.passFlipCard(this._resultCard);
         if (!env.isFirstTimeBam) {
-          this.tutorial = new SqueezeTutorial('SqueezeTutorial');
+          this.tutorial = new SqueezeTutorial('SqueezeTutorial', this.tutorial_page_index || 0);
           this.tutorial.isDraggable = false;
           this.tutorial.isEdgeDismissable = false;
 
@@ -45,6 +46,7 @@ namespace we {
         this._cardHolderData = this._resultDisplay.exportData();
         if (this.tutorial) {
           env.isFirstTimeBam = false;
+          this.tutorial_page_index = this.tutorial._pageIndex;
         }
         super.onOrientationChange();
       }

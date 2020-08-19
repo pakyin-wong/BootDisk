@@ -19,13 +19,15 @@ namespace we {
 
       private _pageText;
       private _buttonText: ui.RunTimeLabel;
-      protected _pageIndex = 0;
+      public _pageIndex = 0;
 
       private _mask;
 
-      constructor(skin) {
+      constructor(skin, pageIndex?: number) {
         super(skin);
-
+        if (pageIndex) {
+          this._pageIndex = this._holder._currentPageIdx = pageIndex;
+        }
         // this._skinKey = 'SqueezeTutorial';
         // this.skinName = utils.getSkinByClassname('SqueezeTutorial');
         // this.init();
@@ -62,9 +64,9 @@ namespace we {
           caption.visible = false;
         }
 
-        this._captionArr[0].visible = true;
+        this._captionArr[this._pageIndex].visible = true;
 
-        this._pageIndex = 0;
+        // this._pageIndex = 0;
 
         if (env.isMobile === false) {
           if (this._nextButton) {

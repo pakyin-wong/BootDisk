@@ -4,7 +4,7 @@ namespace we {
     export class HorizontalHolder extends eui.Group {
       protected _slides: any[]; // eui.Group
       protected _sortedSlides;
-      private _currentPageIdx: number = 0;
+      public _currentPageIdx: number = 0;
       private pageCount: number;
 
       public slideWidth: number = 0;
@@ -90,8 +90,6 @@ namespace we {
           console.error('One page or less is not allowed');
           return;
         }
-
-        this._currentPageIdx = 0;
 
         for (let i = 0; i < this.pageCount; i++) {
           this._slides.push(this.getChildAt(i));
