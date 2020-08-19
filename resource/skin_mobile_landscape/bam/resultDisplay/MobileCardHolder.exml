@@ -13,28 +13,28 @@
                          verticalCenter="0"  size="58" bold="true"/>
         </e:Group>
 
-        <e:Group id="_openAllPlayer" width="282" height="100" verticalCenter="0" horizontalCenter="-950">
+        <e:Group id="_openAllPlayer" width="282" height="100" y="80">
                 <ui:RoundRectButton cornerTL_TR_BL_BR="50,50,50,50" width="282" height="100" x="0" y="0" 
                                     stroke="0" fillAlpha="1"  fillColor="0x2a80d9"/>
                 <ui:RunTimeLabel verticalCenter="0" horizontalCenter="0" i18n="baccarat.allOpen"
                                 touchEnabled="false"  size="48"/>
         </e:Group>
 
-        <e:Group id="_openAllBanker" width="282" height="100" verticalCenter="0" horizontalCenter="950">
+        <e:Group id="_openAllBanker" width="282" height="100" verticalCenter="0">
                 <ui:RoundRectButton cornerTL_TR_BL_BR="50,50,50,50" width="282" height="100" x="0" y="0" 
                                     stroke="0" fillAlpha="1"  fillColor="0xd94a50"/>
                 <ui:RunTimeLabel verticalCenter="0" horizontalCenter="0" i18n="baccarat.allOpen"
                                          touchEnabled="false"  size="48"/>
         </e:Group>
 
-        <ui:Card id="card3Banker" name="card3Banker" width="101" height="154"  rotation="90" verticalCenter="20" horizontalCenter="690"/>
+        <ui:Card id="card3Banker" name="card3Banker" width="101" height="154"  rotation="90" verticalCenter="25" horizontalCenter="690"/>
         <ui:Card id="card2Banker" name="card2Banker" width="101" height="154"  verticalCenter="0" horizontalCenter="500"/>
         <ui:Card id="card1Banker" name="card1Banker" width="101" height="154"  verticalCenter="0" horizontalCenter="340"/>
-        <ui:Card id="card3Player" name="card3Player" width="101" height="154"  rotation="90" verticalCenter="20" horizontalCenter="-690"/>
+        <ui:Card id="card3Player" name="card3Player" width="101" height="154"  rotation="90" verticalCenter="25" horizontalCenter="-690"/>
         <ui:Card id="card2Player" name="card2Player" width="101" height="154"  verticalCenter="0" horizontalCenter="-500"/>
         <ui:Card id="card1Player" name="card1Player" width="101" height="154"  verticalCenter="0" horizontalCenter="-340"/>
 
 
         <e:Image id="_highlightCard" width="101" height="154" x="19" y="86" source="m_sq_ba_small_card_HL_png" visible="false"/>
-        <ui:CountdownTimer id="_timer" width="182" height="182"  horizontalCenter="0" skinName="skin_desktop.CountdownTimerRoundSqueezeBaccaratSkin"  verticalCenter="0"/>
+        <ui:CountdownTimer id="_timer" width="182" height="182"  horizontalCenter="0"  verticalCenter="0" skinName="skin_mobile.CountdownTimerRoundSqueezeBaccaratSkin"/>
 </e:Skin>
