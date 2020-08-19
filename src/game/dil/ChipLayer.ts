@@ -91,11 +91,17 @@ namespace we {
 
       protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
         for (const key of Object.keys(fieldAmounts)) {
+          if (fieldAmounts[key] === 0) {
+            break;
+          }
           if (fieldAmounts[key] > betLimit.maxlimit) {
-            return true;
+            return 'upper';
+          }
+          if (fieldAmounts[key] < betLimit.minlimit) {
+            return 'lower';
           }
         }
-        return false;
+        return null;
       }
 
       protected addGridBg(grid: any, num: number) {
@@ -228,12 +234,7 @@ namespace we {
           this._flashingOdd.text = luckyNumbers[key] + 'x';
 
           grid.addChild(this._flashingOdd);
-          egret.Tween.get(this._flashingOdd)
-            .to({ alpha: 0 }, 1000)
-            .to({ alpha: 1 }, 1000)
-            .to({ alpha: 0 }, 1000)
-            .to({ alpha: 1 }, 1000)
-            .to({ alpha: 0 }, 1000);
+          egret.Tween.get(this._flashingOdd).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000);
 
           this._luckyAnims.push(luckyAnim);
 
