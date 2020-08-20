@@ -37,6 +37,12 @@ namespace we {
 
       protected childrenCreated(): void {
         super.childrenCreated();
+        for (const child of this.$children) {
+          if ((<any>child).text !== null) {
+            child.touchEnabled = false;
+          }
+        }
+
         this._initY = this.y;
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);

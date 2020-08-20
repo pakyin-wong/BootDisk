@@ -10,6 +10,7 @@ namespace we {
       public slideWidth: number = 0;
       public slideHeight: number = 0;
       public _duration = 500;
+      public touchAreaAtBottom: boolean = false;
 
       public isTouchEnabled: boolean = true;
       public isDragonBone: boolean = false;
@@ -200,8 +201,9 @@ namespace we {
         this._touchArea = new egret.DisplayObjectContainer();
         this._touchArea.width = this.slideWidth;
         this._touchArea.height = this.slideHeight;
-        this._touchArea.touchThrough = true;
+        this._touchArea.touchThrough = false;
         this._touchArea.touchEnabled = true;
+        this._touchArea.touchChildren = false;
         shape = new egret.Shape();
         gr = shape.graphics;
         gr.clear();
@@ -212,7 +214,8 @@ namespace we {
         shape.x = 0;
         shape.alpha = 0;
         this._touchArea.addChild(shape);
-        this.addChildAt(this._touchArea, this.numChildren);
+
+        this.addChildAt(this._touchArea, this.touchAreaAtBottom ? 0 : this.$children.length);
       }
 
       protected updateBullets() {
