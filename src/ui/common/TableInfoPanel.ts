@@ -19,7 +19,7 @@ namespace we {
       protected lblMax: eui.Label;
       protected lblOdds: eui.Label;
 
-      protected pTableID: eui.Label;
+      protected pTableID: ui.RunTimeLabel;
       protected pRoundID: eui.Label;
       protected pGameID: eui.Label;
       protected pDealer: eui.Label;
@@ -73,7 +73,8 @@ namespace we {
       }
 
       public setValue(tableInfo: data.TableInfo) {
-        this.pTableID.text = tableInfo.tableid;
+        // this.pTableID.text = tableInfo.tableid;
+        this.pTableID.renderText = () => `${i18n.t('gametype_' + we.core.GameType[tableInfo.gametype])} ${env.getTableNameByID(tableInfo.tableid)}`;
         this.pGameID.text = tableInfo.data.gameroundid;
         this.pRoundID.text = tableInfo.data.round ? tableInfo.data.round : '-';
         // if (tableInfo.betInfo) {
