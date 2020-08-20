@@ -486,6 +486,11 @@ namespace we {
         },
       },
 
+      lo_switch_fun: '娱乐',
+      lo_switch_trad: '传统',
+
+      lo_fun_custombet: '自订',
+
       lo_fun_betlayer_tab_fun: '娱乐',
       lo_fun_betlayer_tab_num: '数字',
       lo_fun_betlayer_tab_dt: '龙虎和',

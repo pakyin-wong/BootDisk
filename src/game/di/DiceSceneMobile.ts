@@ -90,19 +90,18 @@ namespace we {
         switch (s) {
           case 'zip': // when mobilebottompanel is on
             this._betArea.scrollPolicyV = eui.ScrollPolicy.ON;
-            egret.Tween.get(this._betArea.viewport).to(
-              {
-                scrollV: (this._betArea.viewport.contentHeight - this._betAreaTween.getTweenPackage().height) * 0.5,
-              },
-              250
-            );
+            // egret.Tween.get(this._betArea.viewport).to(
+            //   {
+            //     scrollV: (this._betArea.viewport.contentHeight - this._betAreaTween.getTweenPackage().height) * 0.5,
+            //   },
+            //   250
+            // );
             if (env.orientation === 'portrait') {
               this._tableLayer.top = this._tableLayer.bottom = 100;
               this._chipLayer.top = this._chipLayer.bottom = 100;
             }
             if (env.orientation === 'landscape') {
               egret.Tween.get(this._betArea).to({ y: 0 }, 250);
-              // this._betArea.bottom = this._betArea.top = 0;
 
               this._tableLayer.top = this._chipLayer.top = 50;
               this._tableLayer.bottom = this._chipLayer.bottom = 0;
@@ -135,6 +134,9 @@ namespace we {
               },
               250
             );
+            if (env.isBottomPanelOpen) {
+              this.betAreaState = 'zip';
+            }
             break;
         }
 
@@ -239,7 +241,7 @@ namespace we {
       }
 
       protected onBottomToggle() {
-        this.diState = this._bottomGamePanel.isPanelOpen ? 'zip' : 'normal';
+        this.diState = env.isBottomPanelOpen ? 'zip' : 'normal';
       }
 
       protected changeHandMode() {

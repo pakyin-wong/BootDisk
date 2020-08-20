@@ -14,24 +14,76 @@ namespace we {
       };
 
       public static bet: number = 0;
+      public static totalBet: number = 0;
       public static betDetails = FunBet.createBetDetails();
 
       public static add(betInfo) {
-        FunBet.betDetails[betInfo.id] = {
-          id: betInfo.id,
-          rate: betInfo.rate,
-          amt: FunBet.bet,
-        };
-        return FunBet.bet;
+        const betLimit = env.betLimits[env.currentSelectedBetLimitIndex];
+        let rBet = 0;
+
+        if (FunBet.totalBet + FunBet.bet > env.balance) {
+          FunBet.evtHandler.dispatchEvent(new egret.Event('LOTTERY_FUNBET_OVERBALANCE'));
+          return null;
+        }
+
+        if (FunBet.betDetails[betInfo.id]) {
+          rBet = FunBet.betDetails[betInfo.id].amt;
+          if (rBet + FunBet.bet <= betLimit.maxlimit) {
+            rBet += FunBet.bet;
+            FunBet.betDetails[betInfo.id].amt = rBet;
+            FunBet.evtHandler.dispatchEvent(new egret.Event('LOTTERY_FUNBET_UPDATE'));
+          } else {
+            FunBet.evtHandler.dispatchEvent(new egret.Event('LOTTERY_FUNBET_OVERBETLIMIT'));
+          }
+        } else {
+          if (FunBet.bet <= betLimit.maxlimit) {
+            FunBet.betDetails[betInfo.id] = {
+              id: betInfo.id,
+              rate: betInfo.rate,
+              amt: FunBet.bet,
+            };
+            rBet = FunBet.betDetails[betInfo.id].amt;
+            FunBet.evtHandler.dispatchEvent(new egret.Event('LOTTERY_FUNBET_UPDATE'));
+          } else {
+            FunBet.evtHandler.dispatchEvent(new egret.Event('LOTTERY_FUNBET_OVERBETLIMIT'));
+          }
+        }
+
+        return rBet * 0.01;
       }
 
       public static reset() {
         FunBet.betDetails = FunBet.createBetDetails();
+        FunBet.totalBet = 0;
         FunBet.evtHandler.dispatchEvent(new egret.Event('LOTTERY_FUNBET_RESET'));
+        FunBet.evtHandler.dispatchEvent(new egret.Event('LOTTERY_FUNBET_UPDATE'));
       }
 
       private static createBetDetails() {
         return {};
+      }
+
+      public static checkAllAvailable() {
+        const betLimit = env.betLimits[env.currentSelectedBetLimitIndex];
+
+        if (FunBet.totalBet > env.balance) {
+          FunBet.evtHandler.dispatchEvent(new egret.Event('LOTTERY_FUNBET_OVERBALANCE'));
+          return false;
+        }
+
+        for (const id in FunBet.betDetails) {
+          const amt = FunBet.betDetails[id].amt;
+          if (amt < betLimit.minlimit) {
+            FunBet.evtHandler.dispatchEvent(new egret.Event('LOTTERY_FUNBET_LOWERBETLIMIT'));
+            return false;
+          }
+          if (amt > betLimit.maxlimit) {
+            FunBet.evtHandler.dispatchEvent(new egret.Event('LOTTERY_FUNBET_OVERBETLIMIT'));
+            return false;
+          }
+        }
+
+        return true;
       }
 
       public static getBetId(type: string, group: string, field: string): string {

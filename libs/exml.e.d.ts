@@ -511,6 +511,10 @@ declare class TabItemWithBadgeSkin extends eui.Skin{
 declare class TestItemSkin extends eui.Skin{
 }
 declare module skin_desktop.lo{
+	class FunBetCustomBet extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
 	class FunBetGroup5 extends eui.Skin{
 	}
 }

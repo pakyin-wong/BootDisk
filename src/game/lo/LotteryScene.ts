@@ -21,6 +21,9 @@ namespace we {
       protected _btn_trad: ui.RoundRectButton;
       protected _btn_fun: ui.RoundRectButton;
 
+      protected _txt_trad: ui.RunTimeLabel;
+      protected _txt_fun: ui.RunTimeLabel;
+
       constructor(data: any) {
         super();
         this.skinName = utils.getSkinByClassname('LotteryScene');
@@ -34,6 +37,10 @@ namespace we {
 
       protected mount() {
         super.mount();
+
+        this._txt_trad.renderText = () => `${i18n.t('lo_switch_trad')}`;
+        this._txt_fun.renderText = () => `${i18n.t('lo_switch_fun')}`;
+
         this.setMode(Mode.Fun);
         utils.addButtonListener(this._btn_trad, this.onClickedTrad, this);
         utils.addButtonListener(this._btn_fun, this.onClickedFun, this);

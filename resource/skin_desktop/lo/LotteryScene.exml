@@ -31,6 +31,8 @@
 		<ui:RoundRectShape width="190" height="50" x="1944" y="24" fillColor="0x124072" fillAlpha="0.4" cornerTL_TR_BL_BR="25,25,25,25" stroke="0"/>
 		<ui:RoundRectButton id="_btn_trad" width="92" height="40" x="2034" y="29" fillColor="0x1b416e" cornerTL_TR_BL_BR="20,20,20,20" fillAlpha_active="1" fillAlpha="0" stroke="0"/>
 		<ui:RoundRectButton id="_btn_fun" width="92" height="40" x="1952" y="29" fillColor="0x1b416e" cornerTL_TR_BL_BR="20,20,20,20" fillAlpha="0" fillAlpha_active="1" stroke="0"/>
+		<ui:RunTimeLabel id="_txt_trad" text="" x="2034" y="29" width="92" height="40" verticalAlign="middle" textAlign="center" size="24" touchEnabled="false"/>
+		<ui:RunTimeLabel id="_txt_fun" text="" x="1952" y="29" width="92" height="40" verticalAlign="middle" textAlign="center" size="24" touchEnabled="false"/>
 		<!--<e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3" />
 		<ui:RunTimeLabel id="_lblRoomNo" x="74.98" y="9.4" size="28" height="40" verticalAlign="middle" width="191"
 		                 textAlign="right" anchorOffsetX="0" />

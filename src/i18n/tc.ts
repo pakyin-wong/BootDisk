@@ -466,6 +466,14 @@ namespace we {
         },
       },
 
+      lo_switch_fun: '娛樂',
+      lo_switch_trad: '傳統',
+
+      lo_fun_custombet: '自訂',
+      lo_fun_bettingRound: '本期投注',
+      lo_fun_round: '期',
+      lo_fun_lastRound: '期開獎中',
+
       lo_fun_betlayer_tab_fun: '娛樂',
       lo_fun_betlayer_tab_num: '數字',
       lo_fun_betlayer_tab_dt: '龍虎和',

@@ -87,6 +87,7 @@ namespace we {
 
       private _tableInfoArray: data.TableInfo[] = [];
       private _tableInfos: { [key: string]: data.TableInfo } = {};
+      public _currTableId: string;
 
       // array of table id
       public allTableList: string[] = [];
@@ -110,6 +111,8 @@ namespace we {
       public isFirstTimeBam = false;
       // check if first time open desktop infoPanel
       public isFirstTimeInfoPanel = false;
+      // check if mobilebottomGamePanel is open
+      public isBottomPanelOpen = true;
 
       public init() {
         this.mobileValidGameType = [
@@ -275,6 +278,7 @@ namespace we {
 
       public gotoScene(tableId: string) {
         const gameType = env.tableInfos[tableId].gametype;
+        this._currTableId = tableId;
         switch (gameType) {
           case core.GameType.BAC:
           case core.GameType.BAS:
@@ -307,6 +311,7 @@ namespace we {
 
           default:
             logger.e(utils.LogTarget.DEBUG, `Scene for GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
+            this._currTableId = '';
             break;
         }
       }

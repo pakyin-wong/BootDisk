@@ -13,6 +13,26 @@ namespace we {
       protected b2: eui.Label;
       protected b1: eui.Label;
 
+      protected mount() {
+        super.mount();
+        this._txt_thisRound.renderText = () => `${i18n.t('lo_fun_bettingRound')}`;
+        this._txt_round.renderText = () => `${i18n.t('lo_fun_round')}`;
+        this._txt_lastRound.renderText = () => `${i18n.t('lo_fun_lastRound')}`;
+
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.onLang, this);
+      }
+
+      protected destroy() {
+        super.destroy();
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.onLang, this);
+      }
+
+      protected onLang() {
+        console.log(env.language);
+
+        this.currentState = env.language === 'en' ? 'en' : 'normal';
+      }
+
       public update(r) {
         this.b1.text = r.ball1 >= 0 ? `${r.ball1}` : `-`;
         this.b2.text = r.ball2 >= 0 ? `${r.ball2}` : `-`;

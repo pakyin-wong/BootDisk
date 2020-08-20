@@ -143,7 +143,7 @@ namespace we {
       protected onPanelToggle() {
         super.onPanelToggle();
         this.viewStack.selectedIndex = 0;
-        if (this.isPanelOpen) {
+        if (env.isBottomPanelOpen) {
           this._roadmapPanel.visible = true;
           this._beadroadPanel.visible = true;
         } else {

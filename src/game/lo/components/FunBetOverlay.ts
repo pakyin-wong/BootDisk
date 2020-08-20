@@ -58,13 +58,13 @@ namespace we {
         this._tf_total.text = `$${total.toFixed(2)}`;
 
         utils.addButtonListener(this._btnConfirm, this.onClickConfirm, this);
-        dir.evtHandler.addEventListener('LOTTERY_FUNBET_CLEANSCREEN', this.onClosed, this);
+        lo.FunBet.evtHandler.addEventListener('LOTTERY_FUNBET_CLEANSCREEN', this.onClosed, this);
       }
 
       protected destroy() {
         super.destroy();
         utils.removeButtonListener(this._btnConfirm, this.onClickConfirm, this);
-        dir.evtHandler.removeEventListener('LOTTERY_FUNBET_CLEANSCREEN', this.onClosed, this);
+        lo.FunBet.evtHandler.removeEventListener('LOTTERY_FUNBET_CLEANSCREEN', this.onClosed, this);
       }
 
       protected onClickConfirm() {

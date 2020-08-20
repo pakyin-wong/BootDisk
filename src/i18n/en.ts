@@ -466,6 +466,11 @@ namespace we {
         },
       },
 
+      lo_switch_fun: 'ENT',
+      lo_switch_trad: 'TRAD',
+
+      lo_fun_custombet: 'Custom',
+
       lo_fun_betlayer_tab_fun: 'Entertainment',
       lo_fun_betlayer_tab_num: 'Number',
       lo_fun_betlayer_tab_dt: 'Dragon Tiger',
@@ -480,11 +485,11 @@ namespace we {
       lo_fun_betgroup_234THREESPECIAL: 'Middle Three',
       lo_fun_betgroup_345THREESPECIAL: 'Last Three',
       lo_fun_betgroup_SUMSIZEPARITY: 'Total',
-      lo_fun_betgroup_MILLIONNUM: '第一球｜万位',
-      lo_fun_betgroup_THOUSANDNUM: '第二球｜千位',
-      lo_fun_betgroup_HUNDREDNUM: '第三球｜百位',
-      lo_fun_betgroup_TENNUM: '第四球｜十位',
-      lo_fun_betgroup_SINGLENUM: '第五球｜个位',
+      lo_fun_betgroup_MILLIONNUM: 'First｜Million',
+      lo_fun_betgroup_THOUSANDNUM: 'Second｜Thousand',
+      lo_fun_betgroup_HUNDREDNUM: 'Third｜Hundred',
+      lo_fun_betgroup_TENNUM: 'Fourth｜Ten',
+      lo_fun_betgroup_SINGLENUM: 'Fifth｜Unit',
       lo_fun_betgroup_12DT2: '第一球 VS 第二球',
       lo_fun_betgroup_13DT2: '第一球 VS 第三球',
       lo_fun_betgroup_14DT2: '第一球 VS 第四球',
