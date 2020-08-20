@@ -2,6 +2,9 @@
 namespace we {
   export namespace lo {
     export class SSCTraditionalBettingPanel extends ABettingPanel {
+      // control by scene
+      public _lblCurrentRound: ui.RunTimeLabel;
+
       protected _buttonGroup: eui.Group;
 
       protected _bigTagsGroup: eui.Group;
@@ -266,6 +269,7 @@ namespace we {
         const bettingTable = new SSCTraditionalBettingTable(config);
         this._currentBettingTable = bettingTable;
         this.initCurrentBettingTable();
+        this._currentBettingTable.init();
       }
 
       protected clearCurrentBettingTable() {
@@ -289,8 +293,6 @@ namespace we {
         this.currentSmallTagIndex = 0;
         this._smallTagsGroup.removeChildren();
       }
-
-      protected onBetFieldUpdate(e) {}
     }
   }
 }

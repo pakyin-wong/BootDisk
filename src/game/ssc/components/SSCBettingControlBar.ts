@@ -23,9 +23,7 @@ namespace we {
       private _lblTitleTotalBet;
       private _lblTotalBet;
 
-      private _btnAddBetFields: ui.RoundRectButton;
       private _lblAdd;
-      private _btnInstantBet: ui.RoundRectButton;
       private _lblInstantBet;
 
       // constructor(skin, orientationDependent) {
@@ -130,12 +128,11 @@ namespace we {
       protected validateBet() {
         // TODO: disable button if noteCount == 0
         if (this._noteCount <= 0) {
-          this._btnInstantBet.buttonEnabled = false;
-          this._btnAddBetFields.buttonEnabled = false;
+          this.bettingPanel.isBetCodeValidate = false;
         } else {
-          this._btnInstantBet.buttonEnabled = true;
-          this._btnAddBetFields.buttonEnabled = true;
+          this.bettingPanel.isBetCodeValidate = true;
         }
+        this.bettingPanel.validateBetButtons();
       }
     }
   }

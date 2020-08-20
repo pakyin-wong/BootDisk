@@ -3,6 +3,8 @@ namespace we {
   export namespace lo {
     // manage lottery note list and bet related buttons
     export abstract class ANoteControlPanel extends core.BaseEUI implements INoteControl {
+      protected _btnConfirmBet: ui.RoundRectButton;
+
       protected _notes: TradNoteData[];
       // TradNoteData {
       //   public field: string; // field consist of several information: Bet type, bet per note and bet detail
@@ -61,6 +63,21 @@ namespace we {
       }
 
       public updateNoteControlPanel() {}
+
+      public setConfirmBetButton(enable: boolean) {
+        if (!this._notes) {
+          return;
+        }
+        if (this._notes.length > 0) {
+          if (enable === true) {
+            this._btnConfirmBet.buttonEnabled = true;
+          } else {
+            this._btnConfirmBet.buttonEnabled = false;
+          }
+        } else {
+          this._btnConfirmBet.buttonEnabled = false;
+        }
+      }
     }
   }
 }

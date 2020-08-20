@@ -6,7 +6,7 @@ namespace we {
         super(config);
       }
 
-      protected init() {
+      public init() {
         super.init();
 
         this.width = 1509;

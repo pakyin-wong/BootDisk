@@ -3,6 +3,9 @@ namespace we {
   export namespace lo {
     // manage lottery bet multiplier, denomination and bet buttons
     export abstract class ABettingControlBar extends core.BaseEUI implements IBettingControl {
+      protected _btnAddBetFields: ui.RoundRectButton;
+      protected _btnInstantBet: ui.RoundRectButton;
+
       protected _unitBet: number = 200; // bet ammount per note
       protected _multiplier: number = 1; // bet ammount per note
       protected _noteCount: number = 0; // sum of all note.count
@@ -67,6 +70,16 @@ namespace we {
 
       protected validateBet() {
         // TODO: disable button if noteCount == 0
+      }
+
+      public setBetRelatedComponentsEnabled(enable: boolean) {}
+
+      public setAddBetFieldsButton(enable: boolean) {
+        this._btnAddBetFields.buttonEnabled = enable;
+      }
+
+      public setInstantBetButton(enable: boolean) {
+        this._btnInstantBet.buttonEnabled = enable;
       }
     }
   }

@@ -7,6 +7,35 @@ namespace we {
       public _noteControl: ANoteControlPanel;
 
       public _currentGameRound: string;
+      private _isStateBet: boolean = false; // is current state allow betting
+      private _isBetCodeValidate: boolean = false; // is current bettingData valid(local checking)
+      private _isBetLimitValidate: boolean = false; // validate betlimit from server
+
+      public _timer: eui.Label;
+
+      public set isStateBet(value) {
+        this._isStateBet = value;
+      }
+
+      public get isStateBet(): boolean {
+        return this._isStateBet;
+      }
+
+      public set isBetCodeValidate(value) {
+        this._isBetCodeValidate = value;
+      }
+
+      public get isBetCodeValidate(): boolean {
+        return this._isBetCodeValidate;
+      }
+
+      public set isBetLimitValidate(value) {
+        this._isBetLimitValidate = value;
+      }
+
+      public get isBetLimitValidate(): boolean {
+        return this._isBetLimitValidate;
+      }
 
       protected init() {
         if (this._bettingControl) {
@@ -17,6 +46,9 @@ namespace we {
           this._noteControl.bettingPanel = this;
           this._noteControl.init();
         }
+
+        this._isBetCodeValidate = false;
+        this._isBetLimitValidate = true;
       }
 
       protected initComponents() {
@@ -61,6 +93,7 @@ namespace we {
         if (!this._bettingControl) {
           return;
         }
+        this._isBetCodeValidate = true;
         this._bettingControl.noteCount = this._currentBettingTable.totalNoteCount;
       }
 
@@ -173,6 +206,40 @@ namespace we {
 
       public chaseBet() {
         // TODO
+      }
+
+      // SceneControl
+      public setBetRelatedComponentsEnabled(enable: boolean) {
+        this._isStateBet = enable;
+        this.validateBetButtons();
+      }
+
+      public validateBetButtons() {
+        if (!this._bettingControl || !this._noteControl) {
+          return;
+        }
+
+        if (this._isBetLimitValidate && this._isBetCodeValidate) {
+          this._bettingControl.setAddBetFieldsButton(true);
+          if (this._isStateBet) {
+            this._bettingControl.setInstantBetButton(true);
+          } else {
+            this._bettingControl.setInstantBetButton(false);
+          }
+        } else {
+          this._bettingControl.setAddBetFieldsButton(false);
+          this._bettingControl.setInstantBetButton(false);
+        }
+
+        if (this._isStateBet) {
+          this._noteControl.setConfirmBetButton(true);
+        } else {
+          this._noteControl.setConfirmBetButton(false);
+        }
+      }
+
+      public onEnablePanel(enable: boolean) {
+        this.touchEnabled = enable;
       }
     }
   }

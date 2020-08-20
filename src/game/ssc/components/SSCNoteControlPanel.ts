@@ -45,9 +45,8 @@ namespace we {
 
       protected _btnDelectAll: eui.Image;
 
-      protected _btnAddDataTEMP: eui.Image;
+      // protected _btnAddDataTEMP: eui.Image;
 
-      protected _btnConfirmBet: ui.RoundRectButton;
       protected _btnChaseBet: ui.RoundRectButton;
 
       private _balance: number = 1;
@@ -158,6 +157,7 @@ namespace we {
         this.computeTotalCount();
 
         this.bettingPanel.refreshCurrentBettingTable();
+        this.bettingPanel.validateBetButtons();
       }
 
       public clearAllNotes() {
@@ -167,6 +167,8 @@ namespace we {
         // this.computeTotalNoteAmount();
         // this.computeTotalCount();
         this.updateNoteControlPanel();
+
+        this.bettingPanel.validateBetButtons();
       }
 
       // protected generateStringFromNote(notes) {
@@ -207,7 +209,7 @@ namespace we {
           this._lbltotalBetAmount.renderText = () => `$ ${this._totalBetAmount}`;
         } else {
           const betmodearray = this.getBetModeArray(this.notes);
-          console.log('betmodearray', betmodearray);
+          // console.log('betmodearray', betmodearray);
           this.notes.map((e, i) => {
             totalamount += e.count * e.multiplier * betmodearray[i];
             // console.log('betmodearray[i];', betmodearray[i]);

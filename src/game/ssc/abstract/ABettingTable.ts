@@ -17,10 +17,10 @@ namespace we {
         super();
         this._config = config;
         this.inputData = [];
-        this.init();
+        // this.init();
       }
 
-      protected init() {
+      public init() {
         const inputConfigs = this._config.input;
         // let isCheckBox = false;
         if (inputConfigs && inputConfigs.length > 0) {
@@ -34,6 +34,10 @@ namespace we {
             // init empty inputData
             this.inputData.push('');
           }
+
+          this.bettingPanel.isBetCodeValidate = false;
+          this.bettingPanel.isBetLimitValidate = false;
+
           // if (isCheckBox) {
           //   this.dispatchEvent(new egret.Event('INIT_CHECKBOXES'));
           // }
@@ -94,6 +98,8 @@ namespace we {
 
       public clearData() {
         this.totalNoteCount = 0;
+        this.bettingPanel.isBetCodeValidate = false;
+        this.bettingPanel.isBetLimitValidate = false;
       }
 
       protected dataMapping() {
