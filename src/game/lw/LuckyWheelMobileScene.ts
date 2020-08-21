@@ -5,8 +5,6 @@ namespace we {
       protected _bottomGamePanel: MobileBottomGamePanel;
       protected _lwGameIDText: ui.RunTimeLabel;
       protected _lwGameID: ui.RunTimeLabel;
-      protected _totalBet: ui.RunTimeLabel;
-      protected _totalBetText: ui.RunTimeLabel;
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
       protected _verticalGroup: eui.Group;
@@ -56,7 +54,6 @@ namespace we {
           egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
         }
         this._lwGameID.renderText = () => `${this._tableInfo.tableid}`;
-        this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
       }
 
       protected setStateDeal(isInit: boolean) {
@@ -86,7 +83,6 @@ namespace we {
         this.createVerticalLayout();
         this.changeHandMode();
         this._lwGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
-        this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
         dir.monitor._sideGameList.setToggler(this._common_listpanel);
         this.setChipPanelPos();
       }
@@ -170,12 +166,12 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
+        super.onRoadDataUpdate(evt);
         this._roadmapControl.updateRoadData();
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
-        if (evt && evt.data) {
-        }
+        super.onTableBetInfoUpdate(evt);
       }
 
       protected updateTableInfoRelatedComponents() {

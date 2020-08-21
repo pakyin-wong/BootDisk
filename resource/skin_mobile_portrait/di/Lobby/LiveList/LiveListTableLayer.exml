@@ -4,21 +4,21 @@
 	<e:Group id="_small_group" x="0" y="0" width="50%" height="154">
 		<e:Image id="_small_image" width="100%" height="100%"
 		         name="d_sic_lobby_betarea_02_hover_png" fillMode="scale" source="d_sic_lobby_betarea_02_normal_png"/>
-		<ui:RunTimeLabel id="_small_label" verticalCenter="0" horizontalCenter="0" />
+		<ui:RunTimeLabel id="_small_label" verticalCenter="0" horizontalCenter="0" size="64" />
 	</e:Group>
 	<e:Group id="_big_group" x="570" y="0" width="50%" height="154">
 		<e:Image id="_big_image"
 		         name="d_sic_lobby_betarea_01_hover_png" width="100%" height="100%" fillMode="scale" source="d_sic_lobby_betarea_01_normal_png"/>
-		<ui:RunTimeLabel id="_big_label" verticalCenter="0" horizontalCenter="0" />
+		<ui:RunTimeLabel id="_big_label" verticalCenter="0" horizontalCenter="0"  size="64" />
 	</e:Group>
 	<e:Group id="_odd_group" x="0" y="154" width="50%" height="154">
 		<e:Image id="_odd_image"
 		         name="d_sic_lobby_betarea_03_hover_png" width="100%" height="100%" fillMode="scale" source="d_sic_lobby_betarea_03_normal_png"/>
-		<ui:RunTimeLabel id="_odd_label" verticalCenter="0" horizontalCenter="0" />
+		<ui:RunTimeLabel id="_odd_label" verticalCenter="0" horizontalCenter="0"  size="64" textColor="0x278eff" />
 	</e:Group>
 	<e:Group id="_even_group" x="570" y="154" width="50%" height="154">
 		<e:Image id="_even_image"
 		         name="d_sic_lobby_betarea_04_hover_png" width="100%" height="100%" fillMode="scale" source="d_sic_lobby_betarea_04_normal_png"/>
-		<ui:RunTimeLabel id="_even_label" verticalCenter="0" horizontalCenter="0" />
+		<ui:RunTimeLabel id="_even_label" verticalCenter="0" horizontalCenter="0"  size="64" textColor="0xff6767"/>
 	</e:Group>
 </e:Skin>

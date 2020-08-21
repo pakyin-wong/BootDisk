@@ -61,7 +61,7 @@ namespace we {
       };
       public dilHistory: {
         round_10: number[];
-        round_20: number[];
+        round_50: number[];
       };
     }
   }

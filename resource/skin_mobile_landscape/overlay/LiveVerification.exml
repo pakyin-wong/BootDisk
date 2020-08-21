@@ -39,10 +39,11 @@
 			<e:Image id="e12" name="e12" height="156" x="712" y="512" source="m_common_liveverification_emoji_icon12_png" width="163"/>
 		</e:Group>
 
-		<e:Group id="confirmBtn" width="792" height="150" x="1359" y="790">
+		<!--<e:Group id="confirmBtn" width="792" height="150" x="1359" y="790">
 			<e:Rect strokeWeight="3" ellipseWidth="60" ellipseHeight="60" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" fillColor="0x1b416e" fillAlpha="0" strokeColor="0x444444"/>
 			<ui:RunTimeLabel id="confirmLabel" text="Label" x="0" y="0" width="100%" height="100%" verticalAlign="middle" textAlign="center" size="60" alpha="0.7" scaleX="1" scaleY="1"/>
-		</e:Group>
+		</e:Group>-->
+		<ui:RoundRectButton id="confirmBtn" cornerTL_TR_BL_BR="60,60,60,60" width="792" height="150" x="1359" y="790" stroke="3" fillAlpha="0" strokeColor="0x444444" stroke_click="0" fillColor_click="0x1b416e" fillAlpha_click="1" stroke_active="0" fillColor_active="0x1b416e" fillAlpha_active="1" />
 		<e:Image id="close" width="120" height="120" source="d-lobby-button-close-none_png"  x="2304" y="1"/>
 		<e:Group id="alert_group" x="0" y="0" width="100%" height="100%">
 			<e:Rect id="close_bg" ellipseWidth="15" ellipseHeight="15" width="100%" height="100%" x="0" y="0" fillAlpha="0.58" fillColor="0x000000"/>

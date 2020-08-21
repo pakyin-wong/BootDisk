@@ -9,10 +9,7 @@ namespace we {
       protected _highlight: boolean;
       protected _index: number;
       protected _labelSize: number = 30;
-      protected _armatureHeight: number = 86;
-      protected _armatureWidth: number = 89;
-      protected _offsetY: number = 10; // hardcode
-      protected _offsetX: number = 0;
+      protected _chipScale: number = 1;
       protected _valueLabel: eui.Label;
       protected _labelGroup: eui.Group;
 
@@ -29,13 +26,13 @@ namespace we {
       }
 
       protected createChipAnim() {
-        const skeletonData = RES.getRes(`common_ui_ske-new_json`);
-        const textureData = RES.getRes(`common_ui_tex-new_json`);
-        const texture = RES.getRes(`common_ui_tex-new_png`);
+        const skeletonData = RES.getRes(`chips_select_ske_json`);
+        const textureData = RES.getRes(`chips_select_tex_json`);
+        const texture = RES.getRes(`chips_select_tex_png`);
         const factory = new dragonBones.EgretFactory();
         factory.parseDragonBonesData(skeletonData);
         factory.parseTextureAtlasData(textureData, texture);
-        return factory.buildArmatureDisplay('Chips_Select');
+        return factory.buildArmatureDisplay('chips_select');
       }
 
       protected mount() {
@@ -44,8 +41,10 @@ namespace we {
         // this.addChild(this.debugRect);
 
         this._chipAnim = this.createChipAnim();
-        this._chipAnim.touchEnabled = false;
+        this._chipAnim.touchEnabled = true;
         this._chipAnim.touchChildren = false;
+        this._chipAnim.scaleX = this._chipScale;
+        this._chipAnim.scaleY = this._chipScale;
         this.addChild(this._chipAnim);
 
         this.setChipValueSlot();
@@ -78,7 +77,7 @@ namespace we {
         this._labelGroup.touchEnabled = false;
         this._labelGroup.addChild(this._valueLabel);
 
-        const chipSlot = this._chipAnim.armature.getSlot('Number');
+        const chipSlot = this._chipAnim.armature.getSlot('number');
         chipSlot.display = this._labelGroup;
       }
 
@@ -98,7 +97,7 @@ namespace we {
         group.height = 0;
         group.addChild(chip);
 
-        const chipSlot = this._chipAnim.armature.getSlot('Chips_Select');
+        const chipSlot = this._chipAnim.armature.getSlot('chips_select');
         chipSlot.display = group;
       }
 
@@ -119,7 +118,7 @@ namespace we {
         group.height = 0;
         group.addChild(chip);
 
-        const chipSlot = this._chipAnim.armature.getSlot('Chips_Deselect');
+        const chipSlot = this._chipAnim.armature.getSlot('chips_deselect');
         chipSlot.display = group;
       }
 
@@ -157,9 +156,23 @@ namespace we {
         return this._labelSize;
       }
 
+      public set chipScale(val: number) {
+        this._chipScale = val;
+        if (this._chipAnim) {
+          this._chipAnim.scaleX = this._chipScale;
+          this._chipAnim.scaleY = this._chipScale;
+        }
+      }
+
+      public get chipScale(): number {
+        return this._chipScale;
+      }
+
       set type(value: number) {
         if (value) {
-          if (this._chipAnim) { this._prevType = this._type; }
+          if (this._chipAnim) {
+            this._prevType = this._type;
+          }
           this._type = value;
         }
         this.draw();
@@ -187,7 +200,6 @@ namespace we {
       }
 
       public draw(noAnim: boolean = false) {
-        console.log('draw AnimBetChip');
         if (!this._chipAnim) {
           return;
         }

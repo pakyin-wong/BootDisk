@@ -100,6 +100,11 @@ namespace we {
         this._gameInfoLabel.text = i18n.t('mobile_panel_game_Info');
       }
 
+      public updateStat() {
+        super.updateStat();
+        this._statisticChartPanel.setValue(this.tableInfo);
+      }
+
       public manualClose() {
         super.manualClose();
 
@@ -143,7 +148,7 @@ namespace we {
       protected onPanelToggle() {
         super.onPanelToggle();
         this.viewStack.selectedIndex = 0;
-        if (this.isPanelOpen) {
+        if (env.isBottomPanelOpen) {
           this._roadmapPanel.visible = true;
           this._beadroadPanel.visible = true;
         } else {

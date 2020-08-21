@@ -55,14 +55,30 @@ namespace we {
         const playerPair = this.getAllValue(fieldAmounts, ba.BetField.PLAYER_PAIR);
         const superSix = this.getAllValue(fieldAmounts, ba.BetField.SUPER_SIX);
 
-        return (
+        if (
           Math.abs(banker - player) > betLimit.maxlimit ||
           Math.abs(superSixBanker - player) > betLimit.maxlimit ||
           tie > betLimit.maxlimit ||
           bankerPair > betLimit.maxlimit ||
           playerPair > betLimit.maxlimit ||
           superSix > betLimit.maxlimit
-        );
+        ) {
+          return 'upper';
+        }
+
+        if (
+          (banker !== 0 && banker < betLimit.minlimit) ||
+          (player !== 0 && player < betLimit.minlimit) ||
+          (superSixBanker !== 0 && superSixBanker < betLimit.minlimit) ||
+          (tie !== 0 && tie < betLimit.minlimit) ||
+          (bankerPair !== 0 && bankerPair < betLimit.minlimit) ||
+          (playerPair !== 0 && playerPair < betLimit.minlimit) ||
+          (superSix !== 0 && superSix < betLimit.minlimit)
+        ) {
+          return 'lower';
+        }
+
+        return null;
       }
 
       protected initOrientationDependentComponent() {

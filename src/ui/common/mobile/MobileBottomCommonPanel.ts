@@ -5,8 +5,7 @@ namespace we {
       // protected totalBetLabel: ui.RunTimeLabel;
       // protected gameId: string;
       // protected totalBet: number;
-      public isPanelOpen: boolean = true;
-      private isFirstTime: boolean = true;
+      public isFirstTime: boolean = true;
 
       public _arrow: egret.DisplayObject;
       public _arrowUp: egret.DisplayObject;
@@ -19,6 +18,8 @@ namespace we {
       protected _middlePartHeight: number;
 
       protected _gameScene: core.MobileBaseGameScene;
+
+      public isPanelOpen: boolean = false;
 
       // landscape bottom game result
       public _bottomResultDisplayContainer: eui.Group;
@@ -39,6 +40,7 @@ namespace we {
         this.updateStat();
         this._middlePart.mask = this.viewStackMask;
         this.viewStack.selectedIndex = 0;
+        this.getMiddlePartHeight();
         this.onPanelToggle(this.isFirstTime);
       }
 
@@ -66,53 +68,39 @@ namespace we {
       }
 
       public manualClose() {
-        if (this.isPanelOpen) {
+        if (env.isBottomPanelOpen) {
           this.currentState = 'off';
           egret.Tween.removeTweens(this._middlePart);
-          // egret.Tween.removeTweens(this.viewStack);
-          // egret.Tween.removeTweens(this.viewStackMask);
-          this.isPanelOpen = false;
+          env.isBottomPanelOpen = false;
           egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
-          // egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
-          // egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
         }
       }
 
       protected onPanelToggle(firstTime?: boolean) {
-        this.currentState = this.isPanelOpen ? 'off' : 'on';
         egret.Tween.removeTweens(this._middlePart);
-        // egret.Tween.removeTweens(this.viewStack);
-        // egret.Tween.removeTweens(this.viewStackMask);
         if (this._gameScene) {
           this._gameScene.betChipSetPanelVisible = false;
         }
-        if (this.isPanelOpen) {
-          this.isPanelOpen = false;
-          if (this.isFirstTime === true) {
-            this.isFirstTime = false;
-            this._middlePartHeight = this._middlePart.height;
-            this._middlePart.height = 0;
-            // egret.Tween.get(this._middlePart).to({ height: 0 }, 1);
-          } else {
+        if (this.isFirstTime) {
+          this.isFirstTime = false;
+          this.currentState = env.isBottomPanelOpen ? 'on' : 'off';
+          this._middlePart.height = env.isBottomPanelOpen ? this._middlePartHeight : 0;
+          return;
+        }
+        this.currentState = env.isBottomPanelOpen ? 'off' : 'on';
+        switch (env.isBottomPanelOpen) {
+          case true:
+            env.isBottomPanelOpen = false;
+            this.isPanelOpen = env.isBottomPanelOpen; 
             egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
-            this._gameScene.updateResultDisplayVisible(this.isPanelOpen);
-          }
-          // egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
-          // egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
-        } else {
-          this.isPanelOpen = true;
-          egret.Tween.get(this._middlePart).to({ height: this._middlePartHeight }, 250);
-          this._gameScene.updateResultDisplayVisible(this.isPanelOpen);
-          // egret.Tween.get(this.viewStack).to({ height: this.measuredHeight }, 250);
-          // egret.Tween.get(this.viewStackMask).to({ height: this.measuredHeight }, 250);
-          // if (this.isPanelOpen) {
-          //   this.currentState = 'off';
-          //   egret.Tween.removeTweens(this.viewStack);
-          //   egret.Tween.removeTweens(this.viewStackMask);
-          //   this.isPanelOpen = false;
-          //   egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
-          //   egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
-          // }
+			      this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
+            break;
+          case false:
+            env.isBottomPanelOpen = true;
+            this.isPanelOpen = env.isBottomPanelOpen; 
+            egret.Tween.get(this._middlePart).to({ height: this._middlePartHeight }, 250);
+			      this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
+            break;
         }
         this.dispatchEvent(new egret.Event('TOGGLE'));
       }
@@ -139,6 +127,7 @@ namespace we {
       }
 
       public update() {
+        super.update();
         if (this.tableInfo) {
           // if (this.tableInfo.betInfo) {
           //   if (this.tableInfo.betInfo.gameroundid) {
@@ -149,11 +138,13 @@ namespace we {
           //   }
           // }
           this.updateText();
-          this.updateStat();
         }
       }
 
-      protected updateStat() {}
+      protected getMiddlePartHeight() {
+        this.currentState = 'on';
+        this._middlePartHeight = this._middlePart.height;
+      }
     }
   }
 }

@@ -6,6 +6,9 @@ namespace we {
       protected _bottomGamePanel: ui.MobileBottomCommonPanel;
       protected _lblBetLimit: ui.RunTimeLabel;
 
+      protected _totalBet: ui.RunTimeLabel;
+      protected _totalBetText: ui.RunTimeLabel;
+
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _betChipSetPanel: eui.Group;
       protected _betPanelGroup: eui.Group;
@@ -85,6 +88,10 @@ namespace we {
           this.initBetLimitSelector();
           dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
           this.changeLang();
+        }
+
+        if (this._totalBetText) {
+          this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
         }
 
         this.setPlayFunc(this.playVideoFunc(this));
@@ -275,9 +282,22 @@ namespace we {
         this._bottomGamePanel.update();
       }
 
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
+        if (evt && evt.data) {
+          const betInfo = <data.GameTableBetInfo>evt.data;
+          if (betInfo.tableid === this._tableId) {
+            if (this._totalBet) {
+              const totalBet = betInfo.gameroundid === this._gameData.gameroundid ? betInfo.total : 0;
+              this._totalBet.renderText = () => utils.numberToFaceValue(totalBet);
+            }
+          }
+        }
+      }
+
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
-        this._bottomGamePanel.update();
+        this._bottomGamePanel.updateStat();
       }
 
       protected addEventListeners() {
@@ -361,6 +381,22 @@ namespace we {
 
       // check if game mode btn (e.g. BA) is selected when orientation
       protected checkGameMode(value: boolean) {}
+
+      protected setStateIdle(isInit: boolean) {
+        super.setStateIdle(isInit);
+        if (this._totalBet && this.tableInfo.betInfo) {
+          const totalBet = this.tableInfo.betInfo.gameroundid === this._gameData.gameroundid ? this.tableInfo.betInfo.total : 0;
+          this._totalBet.renderText = () => `${totalBet}`;
+        }
+      }
+
+      protected setStateBet(isInit: boolean) {
+        super.setStateBet(isInit);
+        if (this._totalBet && this.tableInfo.betInfo) {
+          const totalBet = this.tableInfo.betInfo.gameroundid === this._gameData.gameroundid ? this.tableInfo.betInfo.total : 0;
+          this._totalBet.renderText = () => `${totalBet}`;
+        }
+      }
 
       protected changeLang() {
         this._repeatLabel.text = i18n.t('mobile_ba_repeat');

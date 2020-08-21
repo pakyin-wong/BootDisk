@@ -41,9 +41,7 @@
 			<e:Image id="e12" name="e12" height="65" x="296" y="214" source="d_common_liveverification_emoji_icon12_png" width="68"/>
 		</e:Group>
 
-		<ui:RoundRectButton id="confirmBtn" cornerTL_TR_BL_BR="33,33,33,33" width="322" height="66" x="99" y="635" stroke="2"
-							fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x1b416e"
-							fillAlpha_click="1" stroke_active="0" fillColor_active="0x1b416e" fillAlpha_active="1" />
+		<ui:RoundRectButton id="confirmBtn" cornerTL_TR_BL_BR="33,33,33,33" width="322" height="66" x="99" y="635" stroke="2" fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x1b416e" fillAlpha_click="1" stroke_active="0" fillColor_active="0x1b416e" fillAlpha_active="1" />
 		<e:Group id="alert_group" top="0" left="0" right="0" bottom="0">
 			<ui:RoundRectShape cornerTL_TR_BL_BR="24,24,24,24" width="520" height="749" fillAlpha="0.58" fillColor="0x000000" stroke="0" />
 			<e:Group verticalCenter="0" horizontalCenter="0" width="400" height="305">

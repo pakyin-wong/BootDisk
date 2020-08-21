@@ -7,8 +7,9 @@ namespace we {
       private _visibleDenomNum = 0;
       private _leftNav: eui.Label;
       private _rightNav: eui.Label;
-      private _chipList: Array<IBetChip & core.BaseEUI> = [];
+      private _chipList: (IBetChip & core.BaseEUI)[] = [];
       protected _chipContainer: eui.Component;
+      protected _chipScale: number = 1;
 
       public constructor() {
         super();
@@ -41,6 +42,13 @@ namespace we {
       }
       public get navWidth(): number {
         return this._navWidth;
+      }
+
+      public $setChipScale(val: number) {
+        super.$setChipScale(val);
+        for (const chip of this._chipList) {
+          chip.scaleX = val;
+        }
       }
 
       public set containerPadding(value: number) {
@@ -160,6 +168,7 @@ namespace we {
           const betChip = new AnimBetChip(value);
           betChip.index = env.getWholeDenomMap()[value];
           betChip.type = we.core.ChipType.PERSPECTIVE;
+          betChip.chipScale = this.chipScale;
           betChip.addEventListener(egret.TouchEvent.TOUCH_TAP, this._onChipSelected.bind(this, index), this);
           mouse.setButtonMode(betChip, true);
           this._chipList.push(betChip);

@@ -89,6 +89,7 @@ var mouse;
             //         }
             //     }
             // };
+            var debugPath = true;
             function debounce(callback, time) {
                 var timeout;
                 return function() {
@@ -104,15 +105,21 @@ var mouse;
                 }
             }
 
-            function checkDispObject(point, dispObj) {
-                if (!dispObj.visible && !(dispObj instanceof egret.DisplayObjectContainer)) {
+            function checkDispObject(point, dispObj, path) {
+                if (!dispObj.visible) {
+                    return null;
+                }
+                if (!dispObj.$touchEnabled) {
+                    return null;
+                }
+                if (dispObj.tooltipText.length < 1) {
                     return null;
                 }
                 // if (dispObj instanceof egret.DisplayObjectContainer) {
                 //     console.log(dispObj.getTransformedBounds(stageObj), point);
                 // }
                 if (dispObj.getTransformedBounds(stageObj).containsPoint(point)) {
-                    return dispObj;
+                    return debugPath ? [path, dispObj] : dispObj;
                 }
                 return null;
             }
@@ -125,22 +132,23 @@ var mouse;
                     var child = dispObj.$children[l];
                     var result;
                     var cls = egret.getQualifiedClassName(child);
-                    // console.log('>>>    ', path + ' > ' + cls);
+                    if (debugPath) {
+                        path += ' > ' + cls + '(' + child.$hashCode + ')'
+                    }
+                    // console.log('>>>    ', path);
                     if (child instanceof egret.DisplayObjectContainer && cls !== 'EgretArmatureDisplay') {
-                        if (!dispObj.$touchChildren && !dispObj.$touchEnabled) return null;
-                        if (child.tooltipText.length>0) {
-                            // console.log(child);
-                            result = checkDispObject(point, child);
+                        // If this container has tooltipText immediately return it
+                        if (child.tooltipText.length > 0) {
+                            result = checkDispObject(point, child, path);
                         } else {
-                            result = checkContainer(point, child, path + ' > ' + cls);
+                            result = checkContainer(point, child, path);
                         }
                     } else {
-                        if (!dispObj.tooltipText.length==0) return null;
-                        result = checkDispObject(point, child);
+                        result = checkDispObject(point, child, path);
                     }
                     if (result) {
                         if (!dispObj.$touchChildren) {
-                            return dispObj;
+                            return debugPath ? [path, dispObj] : dispObj;
                         }
                         return result;
                     }
@@ -172,7 +180,10 @@ var mouse;
                 var point = stageObj.$screen.webTouchHandler.getLocation(event);
                 var r = checkContainer(point, stageObj, egret.getQualifiedClassName(stageObj));
 
-                // console.log('>>>', r)
+                if (debugPath && r) {
+                    console.log('>>>', r[0])
+                    r = r[1]
+                }
 
                 if (!r || r === stageObj) {
                     return;

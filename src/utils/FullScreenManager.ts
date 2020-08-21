@@ -198,9 +198,7 @@ class IPhone8Helper extends IPhone7Helper {
   }
 
   public UpdateStyle(visible) {
-    const c = String(document.documentElement.className)
-      .replace('fullscreen-visible', '')
-      .split(' ');
+    const c = String(document.documentElement.className).replace('fullscreen-visible', '').split(' ');
     const cn = [];
     for (const str of c) {
       if (str !== '') {
@@ -306,7 +304,7 @@ class IPhone8Helper extends IPhone7Helper {
 
 class FullScreenIPhoneHelper {
   public static Init() {
-    if (!(env.UAInfo.device.model === 'iPhone' && env.UAInfo.browser.name === 'Mobile Safari')) {
+    if (!(env.UAInfo.device.model === 'iPhone' && (env.UAInfo.browser.name === 'Mobile Safari' || env.UAInfo.browser.name === 'Firefox'))) {
       return;
     }
     const version = parseInt(env.UAInfo.os.version, 10);
@@ -517,9 +515,7 @@ class IPhoneChromeFullscreen {
   }
 
   public UpdateStyle(visible) {
-    const c = String(document.documentElement.className)
-      .replace('fullscreen-visible', '')
-      .split(' ');
+    const c = String(document.documentElement.className).replace('fullscreen-visible', '').split(' ');
     const cn = [];
     for (const str of c) {
       if (str !== '') {

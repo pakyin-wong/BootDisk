@@ -88,7 +88,7 @@ namespace we {
         this.updateDisplayMode(env.lobbyGridType);
 
         root.roomList.layout = this.roomLayout;
-        root.roomList.itemRenderer = LiveListHolder;
+        // root.roomList.itemRenderer = LiveListHolder;
         root.roomList.itemRendererFunction = item => {
           const tableInfo = env.tableInfos[item];
           switch (tableInfo.gametype) {

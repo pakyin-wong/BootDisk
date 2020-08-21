@@ -15,9 +15,6 @@ namespace we {
       protected _dtGameIDText: ui.RunTimeLabel;
       protected _dtGameID: ui.RunTimeLabel;
 
-      protected _totalBet: ui.RunTimeLabel;
-      protected _totalBetText: ui.RunTimeLabel;
-
       protected _verticalGroup: eui.Group;
 
       private _common_listpanel: ui.BaseImageButton;
@@ -60,14 +57,13 @@ namespace we {
         }
       }
 
-      protected setStateBet() {
-        super.setStateBet();
+      protected setStateBet(isInit: boolean) {
+        super.setStateBet(isInit);
         if (env.orientation === 'landscape') {
           egret.Tween.get(this._tableLayer).to({ scaleX: 1, scaleY: 1 }, 250);
           egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
         }
         this._dtGameID.renderText = () => `${this._tableInfo.tableid}`;
-        this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
             (<we.dt.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
@@ -127,7 +123,6 @@ namespace we {
         }
 
         this._dtGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
-        this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
 
         dir.monitor._sideGameList.setToggler(this._common_listpanel);
 
@@ -232,10 +227,12 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
+        super.onRoadDataUpdate(evt);
         this._roadmapControl.updateRoadData();
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
           const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
