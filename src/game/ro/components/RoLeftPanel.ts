@@ -194,7 +194,7 @@ namespace we {
         page1Group.addChild(this.coldIcon4);
         page1Group.addChild(this.coldIcon5);
 
-        dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
+        // dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.pageRadioBtn1.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.pageRadioBtn2.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
@@ -205,6 +205,9 @@ namespace we {
         this.roadRadioBtn3.addEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
 
         if (this.toggleUpDownButton) {
+          this.toggleUpDownButton.currentState = 'b_up';
+          this.toggleUpDownButton['tooltipText'] = 'live.tooltip.toggleUp';
+          this.toggleUpDownButton['tooltipPosition'] = 'above';
           this.toggleUpDownButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggleUpDown, this, true);
         }
         // (this.radioBtn1 as any).buttonImage.width = (this.radioBtn1 as any).labelDisplay.textWidth + 10;
@@ -252,22 +255,17 @@ namespace we {
       }
 
       public update() {
+        super.update();
         if (this.tableInfo) {
-          if (this.tableInfo.betInfo) {
-            this.gameId = this.tableInfo.betInfo.gameroundid;
-            this.totalBet = this.tableInfo.betInfo.total;
-            this.changeLang();
-          }
+          this.gameId = this.tableInfo.data.gameroundid;
+          this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
         }
       }
 
-      protected onTableBetInfoUpdate(evt: egret.Event) {
-        if (evt.data) {
-          const betInfo = evt.data;
-          if (betInfo.tableid === this.tableInfo.tableid) {
-            this.totalBet = evt.data.total;
-            this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
-          }
+      public updateTableBetInfo() {
+        if (this.tableInfo.betInfo) {
+          this.totalBet = this.tableInfo.betInfo.gameroundid === this.tableInfo.data.gameroundid ? this.tableInfo.betInfo.total : 0;
+          this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
         }
       }
 
@@ -302,7 +300,11 @@ namespace we {
 
           this.isExpanded = true;
 
-          this.toggleUpDownButton && (this.toggleUpDownButton.currentState = 'b_down');
+          if (this.toggleUpDownButton) {
+            this.toggleUpDownButton.currentState = 'b_down';
+            this.toggleUpDownButton['tooltipText'] = 'live.tooltip.toggleDown';
+            this.toggleUpDownButton['tooltipPosition'] = 'above';
+          }
           this.beadRoad.expandRoad(true);
         } else if (this.isExpanded && !expand) {
           this.bg.setRoundRectStyle(666, 338, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x061323', 0.88, 0);
@@ -319,7 +321,11 @@ namespace we {
 
           this.isExpanded = false;
 
-          this.toggleUpDownButton && (this.toggleUpDownButton.currentState = 'b_up');
+          if (this.toggleUpDownButton) {
+            this.toggleUpDownButton.currentState = 'b_up';
+            this.toggleUpDownButton['tooltipText'] = 'live.tooltip.toggleUp';
+            this.toggleUpDownButton['tooltipPosition'] = 'above';
+          }
           this.beadRoad.expandRoad(false);
         }
       }
@@ -365,9 +371,9 @@ namespace we {
         this.sizeBigRoad.dispose();
         this.oddBigRoad.dispose();
         egret.Tween.removeTweens(this.activeLine);
-        if (dir.evtHandler.hasEventListener(core.Event.TABLE_BET_INFO_UPDATE)) {
-          dir.evtHandler.removeEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
-        }
+        // if (dir.evtHandler.hasEventListener(core.Event.TABLE_BET_INFO_UPDATE)) {
+        //   dir.evtHandler.removeEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
+        // }
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }

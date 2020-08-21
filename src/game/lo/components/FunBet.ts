@@ -39,6 +39,9 @@ namespace we {
           if (FunBet.bet <= betLimit.maxlimit) {
             FunBet.betDetails[betInfo.id] = {
               id: betInfo.id,
+              type: betInfo.type,
+              group: betInfo.group,
+              field: betInfo.field,
               rate: betInfo.rate,
               amt: FunBet.bet,
             };
@@ -117,6 +120,31 @@ namespace we {
 
           case FunBet.GROUP_TYPE.SUMSIZEPARITY:
             return () => `${i18n.t('lo_fun_betfield_total_' + field)}`;
+        }
+      }
+
+      public static getBetDetailLabel(type: string, group: string, field: string) {
+        const prefix = i18n.t('lo_fun_overlay_betPrefix');
+        const groupKey = type.replace('%id%', group);
+
+        switch (type) {
+          case FunBet.GROUP_TYPE.NUM:
+            return `${prefix}${i18n.t('lo_fun_betgroup_' + groupKey)} - ${field}`;
+
+          case FunBet.GROUP_TYPE.INTEREST1SPECIAL:
+            return `${prefix}${i18n.t('lo_fun_betlayer_tab_five1')} - ${group}`;
+
+          case FunBet.GROUP_TYPE.DT2:
+            return `${prefix}${i18n.t('lo_fun_betgroup_' + groupKey)} - ${i18n.t('lo_fun_betfield_dt_' + field)}`;
+
+          case FunBet.GROUP_TYPE.THREESPECIAL:
+            return `${prefix}${i18n.t('lo_fun_betgroup_' + groupKey)} - ${i18n.t('lo_fun_betfield_n3_' + field)}`;
+
+          case FunBet.GROUP_TYPE.SIZEPARITY2:
+            return `${prefix}${i18n.t('lo_fun_betgroup_' + groupKey)} - ${i18n.t('lo_fun_betfield_n_' + field)}`;
+
+          case FunBet.GROUP_TYPE.SUMSIZEPARITY:
+            return `${prefix}${i18n.t('lo_fun_betgroup_' + groupKey)} - ${i18n.t('lo_fun_betfield_total_' + field)}`;
         }
       }
     }

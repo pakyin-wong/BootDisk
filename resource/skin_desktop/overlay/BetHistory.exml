@@ -62,9 +62,11 @@
 
 		<ui:Panel id="_ddm_searchType" width="370" maxHeight="300" x="348" y="117" skinName="skin_desktop.NavDropdown" />
 		<ui:BaseAnimationButton id="_btn_prev" width="46" height="46" x="973" y="1077" dbClass="lobby_ui"
-		                        dbDisplay="d_lobby_betrecord_icon_prev" />
+		                        dbDisplay="d_lobby_betrecord_icon_prev"
+								tooltipText="'overlay.tooltip.bethistory.prev'" tooltipPosition="'above'" />
 		<ui:BaseAnimationButton id="_btn_next" width="46" height="46" x="1135" y="1077" dbClass="lobby_ui"
-		                        dbDisplay="d_lobby_betrecord_icon_next" />
+		                        dbDisplay="d_lobby_betrecord_icon_next"
+								tooltipText="'overlay.tooltip.bethistory.next'" tooltipPosition="'above'" />
 		<e:Group id="_btn_page" width="90" height="46" x="1029" y="1077">
 			<ui:RunTimeLabel id="_txt_page" text="00/00" left="0" top="0" bottom="0"
 			                 fontFamily="Barlow" size="28"  verticalAlign="middle" width="100%" textAlign="center"/>

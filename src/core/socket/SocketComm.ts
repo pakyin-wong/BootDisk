@@ -209,7 +209,7 @@ namespace we {
           : player.profile.profileimageurl === ''
           ? Object.keys(env.icons)[0]
           : player.profile.profileimageurl;
-        logger.l(utils.LogTarget.DEBUG, 'PlayerClient::handleReady() ' + player.profile.betlimits);
+        logger.l(utils.LogTarget.STAGING, 'PlayerClient::handleReady() ' + player.profile.betlimits);
 
         env.betLimits = player.profile.betlimits
           ? player.profile.betlimits

@@ -46,7 +46,7 @@ namespace we {
         betTableGroup.addChild(scroller);
         this.betTableList = new TableList();
         this.betTableList.isFreezeScrolling = true;
-        this.betTableList.extendHeight = 400;
+        this.betTableList.extendHeight = 500;
         this.betTableList.isAnimateItemTransition = true;
         // this.betTableList.itemRenderer = SideListBetItemHolder;
         this.betTableList.itemRendererFunction = item => {
@@ -63,7 +63,6 @@ namespace we {
               return ro.SideListBetItemHolder;
             case we.core.GameType.DI:
               return di.SideListBetItemHolder;
-
             case we.core.GameType.DIL:
               return dil.SideListBetItemHolder;
             case we.core.GameType.LW:
@@ -91,7 +90,7 @@ namespace we {
         goodRoadTableGroup.addChild(scroller);
         this.goodRoadTableList = new TableList();
         this.goodRoadTableList.isFreezeScrolling = true;
-        this.goodRoadTableList.extendHeight = 400;
+        this.goodRoadTableList.extendHeight = 500;
         this.goodRoadTableList.isAnimateItemTransition = true;
         // this.goodRoadTableList.itemRenderer = SideListItemHolder;
         this.goodRoadTableList.itemRendererFunction = item => {
@@ -137,7 +136,7 @@ namespace we {
         allTableGroup.addChild(scroller);
         this.allTableList = new TableList();
         this.allTableList.isFreezeScrolling = true;
-        this.allTableList.extendHeight = 400;
+        this.allTableList.extendHeight = 500;
         this.allTableList.isAnimateItemTransition = true;
         // this.allTableList.itemRenderer = SideListItemHolder;
 

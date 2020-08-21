@@ -40,7 +40,7 @@
 		</e:Group>
 		<e:Group y="2101" x="0">
 			<ui:RunTimeLabel id="_baGameIDText" text="編號" y="0" height="54" verticalAlign="middle" size="36" textColor="0xf3f3f3" x="0"/>
-			<ui:RunTimeLabel id="_baGameID" text="000000000000" x="197" y="18" height="43" size="36" verticalAlign="middle"/>
+			<ui:RunTimeLabel id="_baGameID" text="000000000000" x="197" y="18" height="43" size="36" verticalAlign="middle" fontFamily="Barlow" textColor="0xf3f3f3" />
 			<e:layout>
 			<e:HorizontalLayout verticalAlign="middle" paddingLeft="8" gap="8"/>
 			</e:layout>
@@ -77,7 +77,7 @@
         <e:Image id="_panel" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1" scaleX="1" width="855" height="871" x="0" y="0"/>
         <e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" scaleY="1" scaleX="1" rotation="90" x="888" y="40"/>
       </e:Group>
-      <ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" betChipWidth="250" betChipHeight="208" scaleY="1" labelSize="48" width="855" height="871" numChipsInRow="3" right.left="0"/>
+      <ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" betChipWidth="250" betChipHeight="208" scaleY="1" labelSize="48" width="855" height="871" numChipsInRow="3" right.left="0" y="35"/>
     </e:Group>
     <e:Group id="_betRelatedGroup" x="1074" y="181" scaleX="1" scaleY="1" width="128" x.left="21">
       <e:Rect id="_roundPanel" width="128" height="834" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"/>

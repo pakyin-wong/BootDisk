@@ -13,6 +13,8 @@ namespace we {
       }
 
       private _initTooltip(message) {
+        // remove all existing
+        this.removeTooltips();
         this.activeTooltip = new eui.Group();
         this.activeTooltip.touchEnabled = false;
         // add text
@@ -74,6 +76,11 @@ namespace we {
           case 'above': {
             showX = coord.x + displayObject.width / 2 - this.activeTooltip.width / 2;
             showY = coord.y - this.activeTooltip.height - this.margin;
+            break;
+          }
+          case 'before': {
+            showX = coord.x - this.activeTooltip.width - this.margin;
+            showY = coord.y + displayObject.height / 2 - this.activeTooltip.height / 2;
             break;
           }
           default:

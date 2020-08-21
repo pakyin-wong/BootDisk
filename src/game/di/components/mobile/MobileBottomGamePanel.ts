@@ -100,6 +100,11 @@ namespace we {
         this._gameInfoLabel.text = i18n.t('mobile_panel_game_Info');
       }
 
+      public updateStat() {
+        super.updateStat();
+        this._statisticChartPanel.setValue(this.tableInfo);
+      }
+
       public manualClose() {
         super.manualClose();
 

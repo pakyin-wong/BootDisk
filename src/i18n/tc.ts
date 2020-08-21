@@ -474,6 +474,20 @@ namespace we {
       lo_fun_round: '期',
       lo_fun_lastRound: '期開獎中',
 
+      lo_fun_overlay_title: '投票確認',
+      lo_fun_overlay_table: '彩種名稱',
+      lo_fun_overlay_round: '投注期數',
+      lo_fun_overlay_bet: '玩法投注',
+      lo_fun_overlay_rate: '賠率',
+      lo_fun_overlay_amt: '單注金額',
+      lo_fun_overlay_total: '總注數',
+      lo_fun_overlay_count: '注',
+      lo_fun_overlay_totalAmt: '總投注額',
+      lo_fun_overlay_confirm: '確定',
+      lo_fun_overlay_cancel: '取消',
+
+      lo_fun_overlay_betPrefix: '娛樂｜',
+
       lo_fun_betlayer_tab_fun: '娛樂',
       lo_fun_betlayer_tab_num: '數字',
       lo_fun_betlayer_tab_dt: '龍虎和',

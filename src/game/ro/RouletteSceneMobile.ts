@@ -54,9 +54,6 @@ namespace we {
       protected _baGameIDText: ui.RunTimeLabel;
       protected _baGameID: ui.RunTimeLabel;
 
-      protected _totalBetText: ui.RunTimeLabel;
-      protected _totalBet: ui.RunTimeLabel;
-
       protected _mode: string = 'normal';
 
       protected _mask: egret.Shape;
@@ -364,6 +361,7 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
+        super.onRoadDataUpdate(evt);
         this._roadmapControl.updateRoadData();
       }
 
@@ -461,7 +459,6 @@ namespace we {
       protected updateTableInfoRelatedComponents() {
         super.updateTableInfoRelatedComponents();
         this._baGameID.renderText = () => `${this._tableInfo.tableid}`;
-        this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
       }
     }
   }

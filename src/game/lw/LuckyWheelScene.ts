@@ -34,22 +34,18 @@ namespace we {
         return this._tableLayer;
       }
 
-      protected onTableBetInfoUpdate(evt: egret.Event) {
-        super.onTableBetInfoUpdate(evt);
-        if (!evt.data) {
-          return;
-        }
-        for (let i = 0; i < 7; i += 1) {
-          this._rightGamePanel[`_lbl_lwValue${i}`].text = evt.data.amount[`LW_${i}`] || 0;
-        }
-        logger.l(utils.LogTarget.DEBUG, JSON.stringify(evt.data.count));
-        logger.l(utils.LogTarget.DEBUG, JSON.stringify(evt.data.amount));
+      // protected onTableBetInfoUpdate(evt: egret.Event) {
+      //   super.onTableBetInfoUpdate(evt);
+      //   if (!evt.data) {
+      //     return;
+      //   }
+      //   for (let i = 0; i < 7; i += 1) {
+      //     this._rightGamePanel[`_lbl_lwValue${i}`].text = evt.data.amount[`LW_${i}`] || 0;
+      //   }
+      //   logger.l(utils.LogTarget.DEBUG, JSON.stringify(evt.data.count));
+      //   logger.l(utils.LogTarget.DEBUG, JSON.stringify(evt.data.amount));
 
-        const betInfo = <data.GameTableBetInfo> evt.data;
-        if (betInfo.tableid === this._tableId) {
-          this._leftGamePanel.totalBet = evt.data.total;
-        }
-      }
+      // }
 
       protected initChildren() {
         super.initChildren();
@@ -65,6 +61,7 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
+        super.onRoadDataUpdate(evt);
         this._roadmapControl.updateRoadData();
       }
 

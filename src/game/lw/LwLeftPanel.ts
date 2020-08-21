@@ -33,15 +33,22 @@ namespace we {
 
       set totalBet(total: number) {
         this._totalBet = total;
-        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this._totalBet);
+        // this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this._totalBet);
       }
 
       public update() {
-        if (this.tableInfo) {
+        super.update();
+        if (this.tableInfo && this.tableInfo.data) {
+          this.gameId = this.tableInfo.data.gameroundid;
+          this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
+        }
+      }
+
+      public updateTableBetInfo() {
+        if (this.tableInfo && this.tableInfo.data) {
           if (this.tableInfo.betInfo) {
-            this.gameId = this.tableInfo.betInfo.gameroundid;
-            this._totalBet = this.tableInfo.betInfo.total;
-            this.changeLang();
+            this._totalBet = this.tableInfo.betInfo.gameroundid === this.tableInfo.data.gameroundid ? this.tableInfo.betInfo.total : 0;
+            this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this._totalBet);
           }
         }
       }

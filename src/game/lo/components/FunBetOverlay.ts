@@ -32,16 +32,32 @@ namespace we {
         this._betDetail = [];
       }
 
+      protected initTxt() {
+        this._btnConfirm.label.renderText = () => `${i18n.t('lo_fun_overlay_confirm')}`;
+        this.close['label'].renderText = () => `${i18n.t('lo_fun_overlay_cancel')}`;
+        this._txt_title.renderText = () => `${i18n.t('lo_fun_overlay_title')}`;
+        this._txt_table.renderText = () => `${i18n.t('lo_fun_overlay_table')}`;
+        this._txt_round.renderText = () => `${i18n.t('lo_fun_overlay_round')}`;
+        this._txt_bet.renderText = () => `${i18n.t('lo_fun_overlay_bet')}`;
+        this._txt_rate.renderText = () => `${i18n.t('lo_fun_overlay_rate')}`;
+        this._txt_amt.renderText = () => `${i18n.t('lo_fun_overlay_amt')}`;
+        this._txt_totalBet.renderText = () => `${i18n.t('lo_fun_overlay_total')}`;
+        this._txt_count.renderText = () => `${i18n.t('lo_fun_overlay_count')}`;
+        this._txt_totalAmt.renderText = () => `${i18n.t('lo_fun_overlay_totalAmt')}`;
+      }
+
       protected mount() {
         super.mount();
+        this.initTxt();
+
         const arrCol: eui.ArrayCollection = new eui.ArrayCollection();
         let count = 0;
         let total = 0;
 
         for (const bd in lo.FunBet.betDetails) {
           this._betDetail.push({
-            field: `${lo.FunBet.betDetails[bd].id}@${lo.FunBet.betDetails[bd].amt}`,
-            amount: lo.FunBet.betDetails[bd].amt * 100,
+            field: `${lo.FunBet.betDetails[bd].id}@${lo.FunBet.betDetails[bd].amt * 0.01}`,
+            amount: lo.FunBet.betDetails[bd].amt,
           });
 
           arrCol.addItem(lo.FunBet.betDetails[bd]);
@@ -55,7 +71,7 @@ namespace we {
         this._list.dataProvider = arrCol;
 
         this._tf_count.text = `${count}`;
-        this._tf_total.text = `$${total.toFixed(2)}`;
+        this._tf_total.text = `$${(total * 0.01).toFixed(2)}`;
 
         utils.addButtonListener(this._btnConfirm, this.onClickConfirm, this);
         lo.FunBet.evtHandler.addEventListener('LOTTERY_FUNBET_CLEANSCREEN', this.onClosed, this);

@@ -44,8 +44,8 @@ namespace we {
         this._buttonGroup.y = this._buttonGroupHideY;
         this._buttonGroup.visible = false;
 
-        // this._quickBetButton.useColorFilter = true;
-        // this._enterTableButton.useColorFilter = true;
+        this._quickBetButton.useColorFilter = true;
+        this._enterTableButton.useColorFilter = true;
 
         this._quickBetButton.label.renderText = () => {
           return i18n.t('mobile_quick_bet_button_label');

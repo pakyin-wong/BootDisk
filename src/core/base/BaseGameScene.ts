@@ -357,10 +357,7 @@ namespace we {
         this._chipLayer.resetUnconfirmedBet();
       }
 
-      protected onRoadDataUpdate(evt: egret.Event) {
-        // this._leftGamePanel.update();
-        // this._rightGamePanel.update();
-      }
+      protected onRoadDataUpdate(evt: egret.Event) {}
 
       public updateGame(isInit: boolean = false) {
         if (!this._gameData) {
@@ -609,7 +606,7 @@ namespace we {
 
       public checkResultMessage(resultData = null) {
         let totalWin: number = NaN;
-        if (this._tableInfo.totalWin) {
+        if (!isNaN(this._tableInfo.totalWin)) {
           totalWin = this._tableInfo.totalWin;
         }
         let pass1: boolean = false;

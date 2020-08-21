@@ -25,11 +25,13 @@ namespace we {
             return 1;
           case 'staging':
             return 2;
-          case 'uat':
+          case 'release':
             return 3;
+          case 'uat':
+            return 4;
           case 'prod':
           default:
-            return 4;
+            return 5;
         }
       }
 

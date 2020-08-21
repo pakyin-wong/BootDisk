@@ -38,10 +38,12 @@
                          width="99" textAlign="right" verticalAlign="middle" />
                 <e:Label id="_favouriteDealer" text="Label" y="691" height="29" right="48" size="24" fontFamily="Barlow"
                          width="99" textAlign="right" verticalAlign="middle" />
-                <ui:BaseAnimationButton id="_editName" width="30" height="30" x="412" y="196" dbClass="lobby_ui"
-                                        dbDisplay="d_lobby_setting_playinfo_icon_edit" />
+                <ui:BaseAnimationButton id="_editName" width="30" height="30" x="412" y="196"
+                                        dbClass="lobby_ui" dbDisplay="d_lobby_setting_playinfo_icon_edit"
+                                        tooltipText="'playerProfile.tooltip.nickname'" tooltipPosition="'above'" />
                 <ui:BaseAnimationButton id="_btn_reload_player_profile" width="30" height="30" x="412" y="248"
-                                        dbClass="lobby_ui" dbDisplay="d_lobby_setting_playinfo_icon_refresh" />
+                                        dbClass="lobby_ui" dbDisplay="d_lobby_setting_playinfo_icon_refresh"
+                                        tooltipText="'playerProfile.tooltip.refresh'" tooltipPosition="'above'" />
             </e:Group>
             <e:Group id="_section_iconSelect" x="490" width="490" height="764" y="0">
                 <e:Image id="_sectionBackIcon" width="48" height="48" x="19" y="18"

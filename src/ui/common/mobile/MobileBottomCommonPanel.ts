@@ -117,6 +117,7 @@ namespace we {
       }
 
       public update() {
+        super.update();
         if (this.tableInfo) {
           // if (this.tableInfo.betInfo) {
           //   if (this.tableInfo.betInfo.gameroundid) {
@@ -127,11 +128,8 @@ namespace we {
           //   }
           // }
           this.updateText();
-          this.updateStat();
         }
       }
-
-      protected updateStat() {}
 
       protected getMiddlePartHeight() {
         this.currentState = 'on';
