@@ -2,9 +2,9 @@
 <e:Skin class="skin_mobile_portrait.ro.TableInfoPanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<ui:HorizontalHolder bulletBottom="0" bulletHorizontalCenter="0" width="1242" height="532" slideWidth="1242"
-	                     slideHeight="532" isLoop="true" isAuto="true" bulletGapValue="20">
-		<e:Group id="content" x="0" width="1242" height="532">
-			<e:Rect id="_bg" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" />
+	                     slideHeight="532" isLoop="true" isAuto="false" bulletGapValue="20" touchAreaAtBottom="true">
+		<e:Group id="content" x="0" width="1242" height="532" touchEnabled="false" touchChildren="true">
+			<e:Rect id="_bg" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" touchEnabled="false"/>
 			<e:Image id="moveArea" source="popover_png" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7"
 			         visible="false" />
 			<ui:RunTimeLabel id="lblTableInfo" text="本檯資訊" left="50" top="50" x="50" y="50" scaleX="1" scaleY="1" size="20"
@@ -13,7 +13,7 @@
 			                 textKey="baccarat.time" />
 			<e:Label id="pTime" text="-" y="220" textAlign="right" scaleX="1" scaleY="1" size="20" right="237" visible="false" />
 			<e:Label id="close" text="x" x="555" y="20" touchEnabled="true" scaleY="0.8" visible="false" />
-			<e:Group id="_leftPartOne" x="0" y="0" height="532" visible="true">
+			<e:Group id="_leftPartOne" x="0" y="0" height="532" visible="true" touchEnabled="false" touchChildren="true">
 				<e:Image id="btnDetail" width="58" height="58" x="557" y="53" source="m_ba_tag_btn_detail_png" />
 				<ui:RunTimeLabel id="tableNoLabel" text="檯號" y="60" x="47" scaleX="1" scaleY="1" size="44"
 				                 textKey="baccarat.tableNo" />
@@ -42,7 +42,7 @@
 				<ui:RunTimeLabel id="pBetLimit" text="Label" x="311" y="400" width="304" height="74" size="44"
 				                 verticalAlign="middle" textAlign="center" fontFamily="Barlow" />
 			</e:Group>
-			<e:Group id="_rightPart" x="656.42" y="0" height="532" visible="true" anchorOffsetX="0" width="581.19">
+			<e:Group id="_rightPart" x="656.42" y="0" height="532" visible="true" anchorOffsetX="0" width="581.19" touchEnabled="false" touchChildren="true">
 				<ui:ClampWidthLabel id="directLabel" text="直接注" y="60" x="0" scaleX="1" scaleY="1" size="44" targetWidth="200" />
 				<ui:ClampWidthLabel id="pDirectMax" text="000" y="60" size="44" alpha="0.7" textAlign="right" targetWidth="80"
 				                    right="200" fontFamily="Barlow"/>
@@ -76,8 +76,8 @@
 				                    right="50" fontFamily="Barlow"/>
 			</e:Group>
 		</e:Group>
-		<e:Group id="contentTwo" x="0" width="1242" height="532">
-			<e:Rect id="_bg0" width="100%" height="100%" x="-1.52" y="-1.52" scaleX="1" scaleY="1" fillColor="0x212425" />
+		<e:Group id="contentTwo" x="0" width="1242" height="532" touchEnabled="false" touchChildren="true" visible="false">
+			<e:Rect id="_bg0" width="100%" height="100%" x="-1.52" y="-1.52" scaleX="1" scaleY="1" fillColor="0x212425" touchEnabled="false"/>
 			<e:Image id="moveArea0" source="popover_png" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7"
 			         visible="false" />
 			<e:Label id="lblTableInfo0" text="本檯資訊" left="50" top="50" x="50" y="50" scaleX="1" scaleY="1" size="20"
@@ -85,7 +85,7 @@
 			<e:Label id="timeLabel0" text="時間" y="220" left="50" x="50" scaleX="1" scaleY="1" size="20" visible="false" />
 			<e:Label id="pTime0" text="-" y="220" textAlign="right" scaleX="1" scaleY="1" size="20" right="237" visible="false" />
 			<e:Label id="close0" text="x" x="555" y="20" touchEnabled="true" scaleY="0.8" visible="false" />
-			<e:Group x="47" y="0" height="532" anchorOffsetX="0" width="605.82">
+			<e:Group x="47" y="0" height="532" anchorOffsetX="0" width="605.82" touchEnabled="false" touchChildren="true">
 				<ui:RunTimeLabel id="rowLabel" text="行注 " y="60" textAlign="left" x="0" scaleX="1" scaleY="1" size="44"
 				                 textKey="roulette.betGroup.row" />
 				<ui:ClampWidthLabel id="pRowMax" text="000" y="60" size="44" alpha="0.7" textAlign="right" targetWidth="80"

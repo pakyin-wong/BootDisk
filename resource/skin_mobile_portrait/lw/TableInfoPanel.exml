@@ -2,9 +2,9 @@
 <e:Skin class="skin_mobile_portrait.lw.TableInfoPanel" width="1242" height="523" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<ui:HorizontalHolder bulletBottom="0" bulletHorizontalCenter="0" width="1242" height="532" slideWidth="1242"
-	                     slideHeight="532" isLoop="true" isAuto="true" bulletGapValue="20">
-		<e:Group id="content" x="0" width="100%" height="100%">
-			<e:Rect id="_bg" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" />
+	                     slideHeight="532"  isLoop="true" isAuto="false" bulletGapValue="20" touchAreaAtBottom="true">
+		<e:Group id="content" x="0" width="100%" height="100%" touchEnabled="false" touchChildren="true">
+			<e:Rect id="_bg" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" touchEnabled="false"/>
 			<e:Image id="moveArea" source="popover_png" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7"
 			         visible="false" />
 			<ui:RunTimeLabel id="lblTableInfo" text="本檯資訊" left="50" top="50" x="50" y="50" scaleX="1" scaleY="1" size="20"
@@ -58,7 +58,7 @@
 			<ui:RunTimeLabel id="playerPairLabel" text="閒對" y="392" x="745" scaleX="1" scaleY="1" size="44" bold="true"
 			                 textKey="luckywheel.playerPair" />
 			-->
-			<e:Group id="_right" width="621" height="532" x="627">
+			<e:Group id="_right" width="621" height="532" x="627" touchEnabled="false" touchChildren="true">
 				<ui:RunTimeLabel id="eastLabel" text="東" textKey="luckywheel.south" x="47" y="50" scaleX="1" scaleY="1" size="44" />
 				<ui:ClampWidthLabel id="pEastOdd" text="-" y="50" scaleX="1" scaleY="1" size="44" verticalAlign="middle" alpha="0.7"
 				                    textAlign="right" targetWidth="130" right="50"  fontFamily="Barlow"/>
@@ -97,8 +97,8 @@
 				
 			</e:Group>
 		</e:Group>
-		<e:Group id="content0" x="0" width="100%" height="100%" visible="false">
-			<e:Rect id="_bg0" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" />
+		<e:Group id="content0" x="0" width="100%" height="100%" visible="false" touchEnabled="false" touchChildren="true">
+			<e:Rect id="_bg0" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" touchEnabled="false"/>
 			<ui:RunTimeLabel id="greenLabel" text="發" y="50" x="47" scaleX="1" scaleY="1" size="44" textKey="baccarat.tableNo" />
 			<ui:ClampWidthLabel id="pGreenOdd" text="-" y="50" scaleX="1" scaleY="1" size="44" height="44" alpha="0.7"
 			                    textAlign="right" targetWidth="130" right="630" fontFamily="Barlow" />
