@@ -381,7 +381,7 @@ namespace we {
       },
       game: {
         insufficientBalance: 'Insufficient Balance',
-        exceedBetLowerLimit: 'Exceed Bet Lower Limit',
+        exceedBetLowerLimit: 'Lower than Bet Lower Limit',
         exceedBetUpperLimit: 'Exceed Bet Upper Limit',
         startBet: 'Start Bet',
         stopBet: 'Stop Bet',

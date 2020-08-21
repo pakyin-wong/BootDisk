@@ -68,7 +68,36 @@ namespace we {
       }
 
       protected onClickConfirm() {
-        dir.socket.bet(this._tableInfo.tableid, this._betDetail);
+        dir.socket.bet(this._tableInfo.tableid, this._betDetail, this.onBetReturned.bind(this));
+      }
+
+      protected onBetReturned(result) {
+        if (!result) {
+          logger.e(utils.LogTarget.STAGING, 'Bet error');
+          return;
+        }
+        // dealing with backend error message
+        if (result.error) {
+          switch (result.error.id) {
+            case '4002':
+            //Insufficient balance
+            /*
+              if(this._chipLayer){
+                this._chipLayer.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
+              }
+            */
+              break;
+            default:
+              //maybe calling errorhandler 
+              logger.e(utils.LogTarget.STAGING, 'Bet error');
+          }
+          return;
+        }
+        // dealing with success message
+        if (result.success) {
+          logger.l(utils.LogTarget.STAGING, 'Bet Result Received', result);
+          this.dispatchEvent(new egret.Event(core.Event.PLAYER_BET_RESULT, false, false, result));
+        }
       }
 
       protected onClosed() {

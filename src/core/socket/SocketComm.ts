@@ -692,7 +692,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
           return betDetail;
         });
 
@@ -775,7 +775,7 @@ namespace we {
       //   dir.evtHandler.dispatch(core.Event.TABLE_LIST_UPDATE, list);
       // }
 
-      public bet(tableID: string, betDetails: data.BetDetail[]) {
+      public bet(tableID: string, betDetails: data.BetDetail[], callback: (result) => void) {
         const betCommands: data.BetCommand[] = betDetails
           .filter(data => {
             return data.amount > 0;
@@ -786,23 +786,8 @@ namespace we {
               amount: data.amount,
             };
           });
-        this.client.bet(
-          tableID,
-          betCommands,
-          this.warpServerCallback(result => {
-            if (result.error) {
-              // TODO: handle error on cancel
-            } else {
-              this.betResultCallback(result);
-            }
-          })
-        );
+        this.client.bet(tableID, betCommands, callback);
         logger.l(utils.LogTarget.STAGING, `Table ${tableID} Placed bet`, betDetails);
-      }
-
-      public betResultCallback(result: data.PlayerBetResult) {
-        logger.l(utils.LogTarget.STAGING, 'Bet Result Received', result);
-        dir.evtHandler.dispatch(core.Event.PLAYER_BET_RESULT, result);
       }
 
       public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {
