@@ -59,8 +59,8 @@ class Main extends eui.UILayer {
 
     // if (type === 'mobile') {
     // if (true) {
-    env.isMobile = true;
-    this.updateMobileHitTest();
+    // env.isMobile = true;
+    // this.updateMobileHitTest();
     // use these when there is portrait mode only
     // this.stage.setContentSize(1242, 2155);
     // this.stage.orientation = egret.OrientationMode.PORTRAIT;
