@@ -3,7 +3,7 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<ui:HorizontalHolder bulletBottom="0" bulletHorizontalCenter="0" width="1242" height="532" slideWidth="1242"
 	                     slideHeight="532" isLoop="true" isAuto="true" bulletGapValue="20">
-		<e:Group id="content" x="0" width="1242" height="532" visible="false">
+		<e:Group id="content" x="0" width="1242" height="532">
 			<e:Rect id="_bg" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" />
 			<e:Image id="moveArea" source="popover_png" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7"
 			         visible="false" />
@@ -14,7 +14,7 @@
 			<e:Label id="pTime" text="-" y="220" textAlign="right" scaleX="1" scaleY="1" size="20" right="237" visible="false" />
 			<e:Label id="close" text="x" x="555" y="20" touchEnabled="true" scaleY="0.8" visible="false" />
 			<e:Group id="_leftPartOne" x="0" y="0" height="532" visible="true">
-				<e:Image id="btnDetail" width="58" height="58" x="557" y="60" source="m_ba_tag_btn_detail_png" />
+				<e:Image id="btnDetail" width="58" height="58" x="557" y="53" source="m_ba_tag_btn_detail_png" />
 				<ui:RunTimeLabel id="tableNoLabel" text="檯號" y="60" x="47" scaleX="1" scaleY="1" size="44"
 				                 textKey="baccarat.tableNo" />
 				<ui:RunTimeLabel id="roundNoLabel" text="局號" y="130" x="47" scaleX="1" scaleY="1" size="44"
@@ -25,16 +25,16 @@
 				                 textKey="roulette.betLimitShort" />
 				<ui:RunTimeLabel id="betLimitLabel" text="投注限紅" y="410" x="47" scaleX="1" scaleY="1" size="44"
 				                 textKey="roulette.betLimitShort" />
-				<ui:ClampWidthLabel id="pTableID" text="-" y="60" textAlign="right" scaleX="1" scaleY="1" size="40" x="167"
-				                    width="381" height="40" alpha=".7" targetWidth="381" />
+				<ui:RunTimeLabel id="pTableID" text="-" y="60" textAlign="right" scaleX="1" scaleY="1" size="40"
+				                     height="40" alpha=".7" targetWidth="381"  fontFamily="Barlow" right="75"/>
 				<e:Label id="pRoundID" text="-" y="130" textAlign="right" scaleX="1" scaleY="1" size="40" x="167" width="440"
-				         alpha=".7" />
+				         alpha=".7"  fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="pGameID" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="40" x="167"
-				                    width="440" alpha=".7" targetWidth="440" />
+				                    width="440" alpha=".7" targetWidth="440"  fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="pDealer" text="-" y="270" textAlign="right" scaleX="1" scaleY="1" size="40" x="167"
-				                    width="440" verticalAlign="middle" alpha=".7" targetWidth="440" />
+				                    width="440" verticalAlign="middle" alpha=".7" targetWidth="440"  fontFamily="Barlow"/>
 				<e:Label id="pTableBetLimit" text="-" y="340" textAlign="right" scaleX="1" scaleY="1" size="40" x="167" width="440"
-				         verticalAlign="middle" alpha=".7" />
+				         verticalAlign="middle" alpha=".7"  fontFamily="Barlow"/>
 				<e:Group id="betLimitBtnGroup" width="304" height="74" x="311" y="400">
 					<e:Image id="limitBg" width="304" height="74" x="0" y="0" source="m_ba_tag_redlimit_bg_png" scaleX="1" scaleY="1" />
 					<e:Image id="dropdownBtn" width="27" height="16" x="248" y="31" source="m_ba_tag_redlimit_btn_dropdown_png" />
@@ -45,35 +45,35 @@
 			<e:Group id="_rightPart" x="656.42" y="0" height="532" visible="true" anchorOffsetX="0" width="581.19">
 				<ui:ClampWidthLabel id="directLabel" text="直接注" y="60" x="0" scaleX="1" scaleY="1" size="44" targetWidth="200" />
 				<ui:ClampWidthLabel id="pDirectMax" text="000" y="60" size="44" alpha="0.7" textAlign="right" targetWidth="80"
-				                    right="200" />
+				                    right="200" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="pDirectOdd" text="-" textAlign="right" y="60" size="44" targetWidth="130" alpha="0.7"
-				                    right="50" />
+				                    right="50" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="separateLabel" text="分注" y="130" textAlign="left" x="0" scaleX="1" scaleY="1" size="44"
 				                    targetWidth="200" />
 				<ui:ClampWidthLabel id="pSeparateMax" text="000" y="130" size="44" alpha="0.7" textAlign="right" targetWidth="80"
-				                    right="200" />
+				                    right="200" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="pSeparateOdd" text="1:0:1.500" textAlign="right" y="130" size="44" targetWidth="130"
-				                    alpha="0.7" right="50" />
+				                    alpha="0.7" right="50" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="streetLabel" text="街注/三數" y="200" x="0" scaleX="1" scaleY="1" size="44" targetWidth="200" />
 				<ui:ClampWidthLabel id="pStreetMax" text="000" y="200" size="44" alpha="0.7" textAlign="right" targetWidth="80"
-				                    right="200" />
+				                    right="200" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="pStreetOdd" text="-" textAlign="right" y="200" size="44" targetWidth="130" alpha="0.7"
-				                    right="50" />
+				                    right="50" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="cornerLabel" text="角注/四個號碼" y="270" x="0" scaleX="1" scaleY="1" size="44" targetWidth="200" />
 				<ui:ClampWidthLabel id="pCornerMax" text="000" y="270" size="44" alpha="0.7" textAlign="right" targetWidth="80"
-				                    right="200" />
+				                    right="200" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="pCornerOdd" text="-" textAlign="right" y="270" size="44" targetWidth="130" alpha="0.7"
-				                    right="50" />
+				                    right="50" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="lineLabel" text="線注" y="340" x="0" scaleX="1" scaleY="1" size="44" targetWidth="200" />
 				<ui:ClampWidthLabel id="pLineMax" text="000" y="340" size="44" alpha="0.7" textAlign="right" targetWidth="80"
-				                    right="200" />
+				                    right="200" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="pLineOdd" text="-" textAlign="right" y="340" size="44" targetWidth="130" alpha="0.7"
-				                    right="50" />
+				                    right="50" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="columnbetLabel" text="下注一打" y="410" x="0" scaleX="1" scaleY="1" size="44" targetWidth="200" />
 				<ui:ClampWidthLabel id="pDozenMax" text="000" y="410" size="44" alpha="0.7" textAlign="right" targetWidth="80"
-				                    right="200" />
+				                    right="200" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="pDozenOdd" text="-" textAlign="right" y="410" size="44" targetWidth="130" alpha="0.7"
-				                    right="50" />
+				                    right="50" fontFamily="Barlow"/>
 			</e:Group>
 		</e:Group>
 		<e:Group id="contentTwo" x="0" width="1242" height="532">
@@ -89,27 +89,27 @@
 				<ui:RunTimeLabel id="rowLabel" text="行注 " y="60" textAlign="left" x="0" scaleX="1" scaleY="1" size="44"
 				                 textKey="roulette.betGroup.row" />
 				<ui:ClampWidthLabel id="pRowMax" text="000" y="60" size="44" alpha="0.7" textAlign="right" targetWidth="80"
-				                    right="200" />
+				                    right="200" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="pRowOdd" text="-" textAlign="right" y="60" size="44" targetWidth="130" alpha="0.7"
-				                    right="50" />
+				                    right="50" fontFamily="Barlow"/>
 				<ui:RunTimeLabel id="colorLabel" text="紅色/黑色" y="130" x="0" scaleX="1" scaleY="1" size="44"
 				                 textKey="roulette.betGroup.color" />
 				<ui:ClampWidthLabel id="pRedBlackMax" text="000" y="130" size="44" alpha="0.7" textAlign="right" targetWidth="80"
-				                    right="200" />
+				                    right="200" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="pRedBlackOdd" text="1:0:1.500" textAlign="right" y="130" size="44" targetWidth="130"
-				                    alpha="0.7" right="50" />
+				                    alpha="0.7" right="50" fontFamily="Barlow"/>
 				<ui:RunTimeLabel id="oddevenLabel" text="雙數/單數" y="200" x="0" scaleX="1" scaleY="1" size="44"
 				                 textKey="roulette.betGroup.oddeven" />
 				<ui:ClampWidthLabel id="pOddEvenMax" text="000" y="200" size="44" alpha="0.7" textAlign="right" targetWidth="80"
-				                    right="200" />
+				                    right="200" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="pOddEvenOdd" text="-" textAlign="right" y="200" size="44" targetWidth="130" alpha="0.7"
-				                    right="50" />
+				                    right="50" fontFamily="Barlow"/>
 				<ui:RunTimeLabel id="sizeLabel" text="大/小" y="270" x="0" scaleX="1" scaleY="1" size="44"
 				                 textKey="roulette.betGroup.size" />
 				<ui:ClampWidthLabel id="pBigSmallMax" text="000" y="270" size="44" alpha="0.7" textAlign="right" targetWidth="80"
-				                    right="200" />
+				                    right="200" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="pBigSmallOdd" text="-" textAlign="right" y="270" size="44" targetWidth="130" alpha="0.7"
-				                    right="50" />
+				                    right="50" fontFamily="Barlow"/>
 			</e:Group>
 		</e:Group>
 	</ui:HorizontalHolder>

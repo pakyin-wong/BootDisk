@@ -23,46 +23,46 @@
 			                 textKey="dice.betLimitShort" />
 			<ui:RunTimeLabel id="betLimitLabel" text="投注限紅" y="410" x="47" scaleX="1" scaleY="1" size="44"
 			                 textKey="dice.betLimitShort" />
-			<ui:ClampWidthLabel id="pTableID" text="DI - 01" x="167" y="60" textAlign="right" size="44" targetWidth="381"
-			                    alpha="0.7" />
+			<ui:RunTimeLabel id="pTableID" text="DI - 01" y="60" textAlign="right" size="44" 
+			                    alpha="0.7"  fontFamily="Barlow" right="710"/>
 			<e:Label id="pRoundID" text="-" y="130" textAlign="right" scaleX="1" scaleY="1" size="44" x="167" width="440"
-			         alpha="0.7" />
+			         alpha="0.7"  fontFamily="Barlow"/>
 			<ui:ClampWidthLabel id="pGameID" text="000-000-000000000" y="200" textAlign="right" x="167" size="44"
-			                    targetWidth="440" alpha="0.7" />
+			                    targetWidth="440" alpha="0.7"  fontFamily="Barlow"/>
 			<ui:ClampWidthLabel id="pDealer" text="Mary" textAlign="right" x="167" y="270" size="44" width="440"
-			                    targetWidth="440" alpha="0.7" />
+			                    targetWidth="440" alpha="0.7"  fontFamily="Barlow"/>
 			<e:Label id="pTableBetLimit" text="-" y="340" textAlign="right" scaleX="1" scaleY="1" size="44" x="167" width="440"
-			         verticalAlign="middle" alpha="0.7" />
+			         verticalAlign="middle" alpha="0.7"  fontFamily="Barlow"/>
 			<e:Group id="betLimitBtnGroup" width="304" height="74" x="311" y="395">
 				<e:Image id="limitBg" width="304" height="74" x="0" y="0" source="m_ba_tag_redlimit_bg_png" scaleX="1" scaleY="1" />
 				<e:Image id="dropdownBtn" width="27" height="16" x="248" y="31" source="m_ba_tag_redlimit_btn_dropdown_png" />
 			</e:Group>
 			<ui:RunTimeLabel id="pBetLimit" text="Label" x="311" y="396" width="304" height="74" size="44" verticalAlign="middle"
-			                 textAlign="center" />
+			                 textAlign="center"  fontFamily="Barlow"/>
 			<ui:ClampWidthLabel id="pOddEvenOdd" text="1:0:1.500" textAlign="right" y="130" size="44" targetWidth="130"
-			                    alpha="0.7" right="50" />
+			                    alpha="0.7" right="50" fontFamily="Barlow"/>
 			<ui:ClampWidthLabel id="pOddEvenMax" text="000" y="130" size="44" alpha="0.7" textAlign="right" targetWidth="80"
-			                    right="200" />
+			                    right="200" fontFamily="Barlow"/>
 			<ui:ClampWidthLabel id="pBigSmallOdd" text="-" textAlign="right" y="60" size="44" targetWidth="130" alpha="0.7"
-			                    right="50" />
+			                    right="50" fontFamily="Barlow"/>
 			<ui:ClampWidthLabel id="pBigSmallMax" text="000" y="60" size="44" alpha="0.7" textAlign="right" targetWidth="80"
-			                    right="200" />
+			                    right="200" fontFamily="Barlow"/>
 			<ui:ClampWidthLabel id="pTripleOdd" text="-" textAlign="right" y="200" size="44" targetWidth="130" alpha="0.7"
-			                    right="50" />
+			                    right="50" fontFamily="Barlow"/>
 			<ui:ClampWidthLabel id="pTripleMax" text="000" y="200" size="44" alpha="0.7" textAlign="right" targetWidth="80"
-			                    right="200" />
+			                    right="200" fontFamily="Barlow"/>
 			<ui:ClampWidthLabel id="pTripleAllOdd" text="-" textAlign="right" y="270" size="44" targetWidth="130" alpha="0.7"
-			                    right="50" />
+			                    right="50" fontFamily="Barlow"/>
 			<ui:ClampWidthLabel id="pTripleAllMax" text="000" y="270" size="44" alpha="0.7" textAlign="right" targetWidth="80"
-			                    right="200" />
+			                    right="200" fontFamily="Barlow"/>
 			<ui:ClampWidthLabel id="pDoubleOdd" text="-" textAlign="right" y="340" size="44" targetWidth="130" alpha="0.7"
-			                    right="50" />
+			                    right="50" fontFamily="Barlow"/>
 			<ui:ClampWidthLabel id="pDoubleMax" text="000" y="340" size="44" alpha="0.7" textAlign="right" targetWidth="80"
-			                    right="200" />
+			                    right="200" fontFamily="Barlow"/>
 			<ui:ClampWidthLabel id="pFourSeventeenOdd" text="-" textAlign="right" y="410" size="44" targetWidth="130" alpha="0.7"
-			                    right="50" />
+			                    right="50" fontFamily="Barlow"/>
 			<ui:ClampWidthLabel id="pFourSeventeenMax" text="000" y="410" size="44" alpha="0.7" textAlign="right"
-			                    targetWidth="80" right="200" />
+			                    targetWidth="80" right="200" fontFamily="Barlow"/>
 			<ui:ClampWidthLabel id="oddevenLabel" text="單 / 雙" y="130" textAlign="left" x="669.7" scaleX="1" scaleY="1" size="44"
 			                    targetWidth="200" />
 			<ui:ClampWidthLabel id="sizeLabel" text="大 / 小" y="60" x="669.7" scaleX="1" scaleY="1" size="44" targetWidth="200" />
@@ -85,51 +85,51 @@
 			<e:Group id="_leftPart" x="48" y="60" anchorOffsetX="0" width="568">
 				<ui:ClampWidthLabel id="fiveSixteenLabel" text="和值 5 / 16" y="0" size="44" targetWidth="200" />
 				<ui:ClampWidthLabel id="pFiveSixteenOdd" text="-" y="0" textAlign="right" size="44" targetWidth="130" alpha="0.7"
-				                    right="50" />
+				                    right="50" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="pFiveSixteenMax" text="000" y="0" size="44" alpha="0.7" textAlign="right" targetWidth="80"
-				                    right="200" />
+				                    right="200" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="sixFifthteenLabel" text="和值 6 / 15" y="70" size="44" targetWidth="200" />
 				<ui:ClampWidthLabel id="pSixFifthTeenOdd" text="-" y="70" textAlign="right" size="44" targetWidth="130" alpha="0.7"
-				                    right="50" />
+				                    right="50" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="pSixFifthTeenMax" text="000" y="70" size="44" alpha="0.7" textAlign="right" targetWidth="80"
-				                    right="200" />
+				                    right="200" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="sevenFourteenLabel" text="和值 7 / 14" y="140" size="44" targetWidth="200" />
 				<ui:ClampWidthLabel id="pSevenFourTeenOdd" text="-" y="140" textAlign="right" size="44" targetWidth="130"
-				                    alpha="0.7" right="50" />
+				                    alpha="0.7" right="50" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="pSevenFourTeenMax" text="000" y="140" size="44" alpha="0.7" textAlign="right"
-				                    targetWidth="80" right="200" />
+				                    targetWidth="80" right="200" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="eightThirdteenLabel" text="和值 8 / 13" y="210" size="44" targetWidth="200" />
 				<ui:ClampWidthLabel id="pEightThirdteenOdd" text="-" y="210" textAlign="right" size="44" targetWidth="130"
-				                    alpha="0.7" right="50" />
+				                    alpha="0.7" right="50" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="pEightThirdteenMax" text="000" y="210" size="44" alpha="0.7" textAlign="right"
-				                    targetWidth="80" right="200" />
+				                    targetWidth="80" right="200" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="nineTenElevenTwelveLabel" text="和值 9 / 10 / 11 / 12" y="280" size="44" targetWidth="200" />
 				<ui:ClampWidthLabel id="pNineTenElevenTwelveOdd" text="-" y="280" textAlign="right" size="44" targetWidth="130"
-				                    alpha="0.7" right="50" />
+				                    alpha="0.7" right="50" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="pNineTenElevenTwelveMax" text="000" y="280" size="44" alpha="0.7" textAlign="right"
-				                    targetWidth="80" right="200" />
+				                    targetWidth="80" right="200" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="combineLabel" text="牌九式 (骨牌) " y="350" size="44" targetWidth="200" />
 				<ui:ClampWidthLabel id="pCombineOdd" text="-" y="350" textAlign="right" size="44" targetWidth="130" alpha="0.7"
-				                    right="50" />
+				                    right="50" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="pCombineMax" text="000" y="350" size="44" alpha="0.7" textAlign="right" targetWidth="80"
-				                    right="200" />
+				                    right="200" fontFamily="Barlow"/>
 			</e:Group>
 			<e:Group id="_rightPart" x="664" y="60" anchorOffsetX="0" width="568">
 				<ui:ClampWidthLabel id="specificSingleLabel" text="指定單骰" y="0" size="44" targetWidth="200" />
 				<ui:ClampWidthLabel id="pSpecificSingleOdd" text="-" y="0" textAlign="right" size="44" targetWidth="130" alpha="0.7"
-				                    right="50" />
+				                    right="50" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="pSpecificSingleMax" text="000" y="0" size="44" alpha="0.7" textAlign="right"
-				                    targetWidth="80" right="200" />
+				                    targetWidth="80" right="200" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="specificDoubleLabel" text="指定雙骰" y="70" size="44" targetWidth="200" />
 				<ui:ClampWidthLabel id="pSpecificDoubleOdd" text="-" y="70" textAlign="right" size="44" targetWidth="130"
-				                    alpha="0.7" right="50" />
+				                    alpha="0.7" right="50" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="pSpecificDoubleMax" text="000" y="70" size="44" alpha="0.7" textAlign="right"
-				                    targetWidth="80" right="200" />
+				                    targetWidth="80" right="200" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="specificTripleLabel" text="指定三骰" y="140" size="44" targetWidth="200" />
 				<ui:ClampWidthLabel id="pSpecificTripleOdd" text="-" y="140" textAlign="right" size="44" targetWidth="130"
-				                    alpha="0.7" right="50" />
+				                    alpha="0.7" right="50" fontFamily="Barlow"/>
 				<ui:ClampWidthLabel id="pSpecificTripleMax" text="000" y="140" size="44" alpha="0.7" textAlign="right"
-				                    targetWidth="80" right="200" />
+				                    targetWidth="80" right="200" fontFamily="Barlow"/>
 			</e:Group>
 		</e:Group>
 	</ui:HorizontalHolder>
