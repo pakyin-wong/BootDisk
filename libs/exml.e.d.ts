@@ -1445,6 +1445,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait.ba{
+	class StatisticChartHolder extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ba{
 	class StatisticChartPanel extends eui.Skin{
 	}
 }

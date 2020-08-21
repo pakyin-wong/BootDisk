@@ -1,97 +1,85 @@
 namespace we {
   export namespace ba {
-    export class StatisticChartPanel extends ui.Panel {
-      protected _leftTitle: ui.RunTimeLabel;
-      protected _rightTitle: ui.RunTimeLabel;
+    export class StatisticChartHolder extends ui.Panel {
+      protected _title01: ui.RunTimeLabel;
+      protected _title02: ui.RunTimeLabel;
 
-      protected _normalChart: ui.SimpleChart;
-      protected _pairChart: ui.SimpleChart;
+      protected _chart01: ui.SimpleChart;
+      protected _chart02: ui.SimpleChart;
 
       protected tableInfo: data.TableInfo;
 
-      protected roundLabelLeft: ui.RunTimeLabel;
-      protected roundLabelRight: ui.RunTimeLabel;
+      protected _roundLabel01: ui.RunTimeLabel;
+      protected _roundLabel02: ui.RunTimeLabel;
 
-      protected totalBankerCount: ui.RunTimeLabel;
-      protected totalBankerCountPer: ui.RunTimeLabel;
-      protected totalPlayerCount: ui.RunTimeLabel;
-      protected totalPlayerCountPer: ui.RunTimeLabel;
-      protected totalTieCount: ui.RunTimeLabel;
-      protected totalTieCountPer: ui.RunTimeLabel;
+      protected _count01_a: ui.RunTimeLabel;
+      protected _count01_b: ui.RunTimeLabel;
+      protected _count01_c: ui.RunTimeLabel;
+      protected _count02_a: ui.RunTimeLabel;
+      protected _count02_b: ui.RunTimeLabel;
+      protected _count02_c: ui.RunTimeLabel;
 
-      protected bankerPairCount: ui.RunTimeLabel;
-      protected bankerPairCountPer: ui.RunTimeLabel;
+      protected _countPer01_a: ui.RunTimeLabel;
+      protected _countPer01_b: ui.RunTimeLabel;
+      protected _countPer01_c: ui.RunTimeLabel;
 
-      protected playerPairCount: ui.RunTimeLabel;
-      protected playerPairCountPer: ui.RunTimeLabel;
+      protected _countPer02_a: ui.RunTimeLabel;
+      protected _countPer02_b: ui.RunTimeLabel;
+      protected _countPer02_c: ui.RunTimeLabel;
 
-      protected tiePairCount: ui.RunTimeLabel;
-      protected tiePairCountPer: ui.RunTimeLabel;
+      protected _roundCount01: ui.RunTimeLabel;
+      protected _roundCount02: ui.RunTimeLabel;
 
-      protected roundCount: ui.RunTimeLabel;
-      protected roundPairCount: ui.RunTimeLabel;
+      protected _img01_a: eui.Image;
+      protected _img01_b: eui.Image;
+      protected _img01_c: eui.Image;
 
-      // protected roundCounter: number = 99;
-      // protected roundPairCounter: number = 1;
+      protected _img02_a: eui.Image;
+      protected _img02_b: eui.Image;
+      protected _img02_c: eui.Image;
 
       public constructor() {
         super();
       }
 
-      // protected partAdded(partName: string, instance: any): void {
-      //   super.partAdded(partName, instance);
-      // }
-      // protected childrenCreated(): void {
-      //   super.childrenCreated();
+      protected partAdded(partName: string, instance: any): void {
+        super.partAdded(partName, instance);
+      }
+      protected childrenCreated(): void {
+        super.childrenCreated();
 
-      //   let _x: number;
-      //   let _y: number;
-      //   if (env.orientation === 'portrait') {
-      //     _x = 0;
-      //     _y = 340;
-      //   } else {
-      //     _x = 15;
-      //     _y = 130;
-      //   }
+        let _x: number;
+        let _y: number;
+        if (env.orientation === 'portrait') {
+          _x = 0;
+          _y = 340;
+        } else {
+          _x = 15;
+          _y = 130;
+        }
+      }
 
-      //   // this.drawChartArc(400, 600, 100, _x + 500, _y, 100, 15);
-      //   // this.drawChartArc(50, 20, 70, _x + 1110, _y, 100, 15);
-
-      //   /*
-      //   this.roundCount.text = this.roundCounter.toString();
-      //   this.roundPairCount.text = this.roundPairCounter.toString();
-
-      //   if (this.roundCounter === 1) {
-      //     this.roundLabelLeft.textKey = 'baccarat.round';
-      //   }
-
-      //   if (this.roundPairCounter === 1) {
-      //     this.roundLabelRight.textKey = 'baccarat.round';
-      //   }
-      //   */
-      // }
-
-      // protected drawChartArc(a: number, b: number, c: number, x: number, y: number, radius: number, thickness: number) {
-      //   const totalAmount = a + b + c;
-      //   const radiusA = 360 * (a / totalAmount);
-      //   const radiusB = 360 * (b / totalAmount);
-      //   const radiusC = 360 * (c / totalAmount);
-      //   const shapeRed: egret.Shape = new egret.Shape();
-      //   shapeRed.graphics.lineStyle(thickness, 0xff6651);
-      //   shapeRed.graphics.drawArc(x, y, radius, 0, radiusA * (Math.PI / 180), false);
-      //   shapeRed.graphics.endFill();
-      //   this.addChild(shapeRed);
-      //   const shapeBlue: egret.Shape = new egret.Shape();
-      //   shapeBlue.graphics.lineStyle(thickness, 0x3c38ff);
-      //   shapeBlue.graphics.drawArc(x, y, radius, radiusA * (Math.PI / 180), (radiusA + radiusB) * (Math.PI / 180), false);
-      //   shapeBlue.graphics.endFill();
-      //   this.addChild(shapeBlue);
-      //   const shapeGreen: egret.Shape = new egret.Shape();
-      //   shapeGreen.graphics.lineStyle(thickness, 0x1f86c);
-      //   shapeGreen.graphics.drawArc(x, y, radius, (radiusA + radiusB) * (Math.PI / 180), (radiusA + radiusB + radiusC) * (Math.PI / 180), false);
-      //   shapeGreen.graphics.endFill();
-      //   this.addChild(shapeGreen);
-      // }
+      protected drawChartArc(a: number, b: number, c: number, x: number, y: number, radius: number, thickness: number) {
+        const totalAmount = a + b + c;
+        const radiusA = 360 * (a / totalAmount);
+        const radiusB = 360 * (b / totalAmount);
+        const radiusC = 360 * (c / totalAmount);
+        const shapeRed: egret.Shape = new egret.Shape();
+        shapeRed.graphics.lineStyle(thickness, 0xff6651);
+        shapeRed.graphics.drawArc(x, y, radius, 0, radiusA * (Math.PI / 180), false);
+        shapeRed.graphics.endFill();
+        this.addChild(shapeRed);
+        const shapeBlue: egret.Shape = new egret.Shape();
+        shapeBlue.graphics.lineStyle(thickness, 0x3c38ff);
+        shapeBlue.graphics.drawArc(x, y, radius, radiusA * (Math.PI / 180), (radiusA + radiusB) * (Math.PI / 180), false);
+        shapeBlue.graphics.endFill();
+        this.addChild(shapeBlue);
+        const shapeGreen: egret.Shape = new egret.Shape();
+        shapeGreen.graphics.lineStyle(thickness, 0x1f86c);
+        shapeGreen.graphics.drawArc(x, y, radius, (radiusA + radiusB) * (Math.PI / 180), (radiusA + radiusB + radiusC) * (Math.PI / 180), false);
+        shapeGreen.graphics.endFill();
+        this.addChild(shapeGreen);
+      }
 
       // public setValue(tableInfo: data.TableInfo) {
       //   this.tableInfo = tableInfo;

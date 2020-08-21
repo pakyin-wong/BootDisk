@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.ba.StatisticChartHolder" width="576" height="240" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<ui:HorizontalHolder bulletBottom="0" bulletHorizontalCenter="0" width="576" height="240" slideWidth="576"
+	                     slideHeight="240" isLoop="true" isAuto="false" bulletGapValue="10" >
+		<e:Group id="content" width="100%" height="100%">
+			<e:Rect width="100%" height="100%" x="0" y="0"  fillColor="0x000000" strokeColor="0x000000"/>
+			<ui:RunTimeLabel id="_title01" text="_title01" x="19" y="15" scaleX="1" scaleY="1" width="434" height="47" size="32"
+			                 textAlign="left" verticalAlign="middle" bold="true" textKey="baccarat.BankerPlayerRatio" />
+			<e:Image id="_img01_a" width="57" height="57" x="42" y="78" source="m_ba_goodroad_info_state_banker_png" />
+			<ui:RunTimeLabel id="_count01_a" text="99" x="37" y="132" textAlign="center" anchorOffsetX="0" width="64"
+			                 size="44" height="73" verticalAlign="middle" bold="true" />
+			<e:Group x="32" y="193">
+				<ui:RunTimeLabel id="_countPer01_a" text="10" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34"
+				                 bold="true" alpha="0.7" verticalAlign="middle" />
+				<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="34" textAlign="center" verticalAlign="bottom" bold="true"
+				         alpha="0.7" />
+				<e:layout>
+					<e:HorizontalLayout verticalAlign="bottom" horizontalAlign="center" gap="2" />
+				</e:layout>
+			</e:Group>
+			<e:Image id="_img01_b" width="57" height="57" x="166" y="78" source="m_ba_goodroad_info_round_player_png" />
+			<ui:RunTimeLabel id="_count01_b" text="99" x="161" y="132" textAlign="center" anchorOffsetX="0" width="64"
+			                 size="44" height="73" verticalAlign="middle" bold="true" />
+			<e:Group x="156" y="193">
+				<ui:RunTimeLabel id="_countPer01_b" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34"
+				                 verticalAlign="middle" bold="true" alpha="0.7" />
+				<e:Label text="%" x="39" y="0" scaleX="1" scaleY="1" size="34" textAlign="center" verticalAlign="bottom" bold="true"
+				         alpha="0.7" />
+				<e:layout>
+					<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom" />
+				</e:layout>
+			</e:Group>
+			<e:Image id="_img01_c" width="57" height="57" x="293" y="78" source="m_ba_goodroad_info_state_player_png" />
+			<ui:RunTimeLabel id="_count01_c" text="99" x="290" y="132" textAlign="center" anchorOffsetX="0" width="64"
+			                 size="44" height="73" verticalAlign="middle" bold="true" />
+			<e:Group x="285" y="193">
+				<ui:RunTimeLabel id="_countPer01_c" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34"
+				                 verticalAlign="middle" bold="true" alpha="0.7" />
+				<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="34" textAlign="center" verticalAlign="bottom" bold="true"
+				         alpha="0.7" />
+				<e:layout>
+					<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom" />
+				</e:layout>
+			</e:Group>
+
+			<ui:SimpleChart id="_chart_01" x="411" y="84" radius="90" lineWidth="14" />
+			<ui:RunTimeLabel id="_roundCount01" text="99" x="449" y="98" textAlign="center" anchorOffsetX="0" width="100" size="88"
+			                 height="118" verticalAlign="middle" />
+			<ui:RunTimeLabel id="_roundLabel01" text="局" x="424" y="188" scaleX="1" scaleY="1" width="151" height="46" size="35"
+			                 textAlign="center" verticalAlign="middle" bold="true" textKey="baccarat.rounds" />
+		</e:Group>
+
+
+		<e:Group id="content0" x="0" width="100%" height="100%">
+		<e:Rect width="100%" height="100%" x="0" y="0"  fillColor="0x000000" strokeColor="0x000000"/>
+			<ui:RunTimeLabel id="_title02" text="_title02" x="19" y="15" scaleX="1" scaleY="1" width="434" height="47" size="32"
+			                 textAlign="left" verticalAlign="middle" bold="true" textKey="baccarat.BankerPlayerRatio" />
+			<e:Image id="_img02_a" width="57" height="57" x="42" y="78" source="m_ba_goodroad_info_state_banker_png" />
+			<ui:RunTimeLabel id="_count02_a" text="99" x="37" y="132" textAlign="center" anchorOffsetX="0" width="64"
+			                 size="44" height="73" verticalAlign="middle" bold="true" />
+			<e:Group x="32" y="193">
+				<ui:RunTimeLabel id="_countPer02_a" text="10" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34"
+				                 bold="true" alpha="0.7" verticalAlign="middle" />
+				<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="34" textAlign="center" verticalAlign="bottom" bold="true"
+				         alpha="0.7" />
+				<e:layout>
+					<e:HorizontalLayout verticalAlign="bottom" horizontalAlign="center" gap="2" />
+				</e:layout>
+			</e:Group>
+			<e:Image id="_img02_b" width="57" height="57" x="166" y="78" source="m_ba_goodroad_info_round_player_png" />
+			<ui:RunTimeLabel id="_count02_b" text="99" x="161" y="132" textAlign="center" anchorOffsetX="0" width="64"
+			                 size="44" height="73" verticalAlign="middle" bold="true" />
+			<e:Group x="156" y="193">
+				<ui:RunTimeLabel id="_countPer02_b" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34"
+				                 verticalAlign="middle" bold="true" alpha="0.7" />
+				<e:Label text="%" x="39" y="0" scaleX="1" scaleY="1" size="34" textAlign="center" verticalAlign="bottom" bold="true"
+				         alpha="0.7" />
+				<e:layout>
+					<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom" />
+				</e:layout>
+			</e:Group>
+			<e:Image id="_img02_c" width="57" height="57" x="293" y="78" source="m_ba_goodroad_info_state_player_png" />
+			<ui:RunTimeLabel id="_count02_c" text="99" x="290" y="132" textAlign="center" anchorOffsetX="0" width="64"
+			                 size="44" height="73" verticalAlign="middle" bold="true" />
+			<e:Group x="285" y="193">
+				<ui:RunTimeLabel id="_countPer02_c" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34"
+				                 verticalAlign="middle" bold="true" alpha="0.7" />
+				<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="34" textAlign="center" verticalAlign="bottom" bold="true"
+				         alpha="0.7" />
+				<e:layout>
+					<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom" />
+				</e:layout>
+			</e:Group>
+
+			<ui:SimpleChart id="_chart_02" x="411" y="84" radius="90" lineWidth="14" />
+			<ui:RunTimeLabel id="_roundCount02" text="99" x="449" y="98" textAlign="center" anchorOffsetX="0" width="100" size="88"
+			                 height="118" verticalAlign="middle" />
+			<ui:RunTimeLabel id="_roundLabel02" text="局" x="424" y="188" scaleX="1" scaleY="1" width="151" height="46" size="35"
+			                 textAlign="center" verticalAlign="middle" bold="true" textKey="baccarat.rounds" />
+							 </e:Group>
+	</ui:HorizontalHolder>
+</e:Skin>

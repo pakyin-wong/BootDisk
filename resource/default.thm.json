@@ -422,6 +422,7 @@
 		"resource/skin_mobile_portrait/ba/resultDisplay/SideListBetItemCardHolder.exml",
 		"resource/skin_mobile_portrait/ba/SidePanelGameResult/SidePanelGameResultNormalSkin.exml",
 		"resource/skin_mobile_portrait/ba/SidePanelGameResult/SidePanelGameResultWinSkin.exml",
+		"resource/skin_mobile_portrait/ba/StatisticChartHolder.exml",
 		"resource/skin_mobile_portrait/bam/resultDisplay/FlipCardHolder.exml",
 		"resource/skin_mobile_portrait/bam/resultDisplay/MobileCardHolder.exml",
 		"resource/skin_mobile_portrait/CountdownText.exml",
