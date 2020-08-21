@@ -14,6 +14,7 @@ namespace we {
       private _removeAllButton: ui.BaseAnimationButton;
       private _saveButton: ui.BaseAnimationButton;
       private _bigRoadMask: eui.Rect;
+      private _editHint: eui.Group;
 
       private roadId: string;
       private roadName: string;
@@ -108,6 +109,9 @@ namespace we {
         this._playerButton.alpha = e.data.canAddPlayer ? 1 : 0.5;
         this._removeButton.alpha = this._removeAllButton.alpha = e.data.canRemove ? 1 : 0.5;
         this.roadPattern = e.data.roadPattern;
+        if (e.data.roadPattern.length > 0) {
+          this._editHint.visible = false;
+        }
       }
 
       public changeLang() {
