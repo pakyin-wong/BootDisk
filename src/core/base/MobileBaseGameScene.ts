@@ -161,9 +161,11 @@ namespace we {
       }
 
       public updateResultDisplayVisible(bottomGamePanelisOpen: boolean) {
-        if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.BET) {
-          this._resultDisplay.visible = !bottomGamePanelisOpen;
-          this._bottomGamePanel._bottomResultDisplayContainer.visible = bottomGamePanelisOpen;
+        if (env.orientation === 'landscape') {
+          if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.BET) {
+            this._resultDisplay.visible = !bottomGamePanelisOpen;
+            this._bottomGamePanel._bottomResultDisplayContainer.visible = bottomGamePanelisOpen;
+          }
         }
       }
       protected initDenom() {

@@ -5,7 +5,7 @@
             <e:skinName>
                 <e:Skin states="up,down,disabled">
                     <e:Rect width="100%" height="100%" fillColor.up="0x375b7f" fillAlpha.up="0.2" fillColor.down="0x375b7f" fillAlpha.down="1" ellipseHeight="72" ellipseWidth="72"/>
-                    <e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" textColor.up="0x375b7f" textColor.down="0xffffff"/>
+                    <e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" textColor.up="0x375b7f" textColor.down="0xffffff" fontFamily="NotoSansCJKtc"/>
                 </e:Skin>
             </e:skinName>
         </e:RadioButton>
@@ -13,7 +13,7 @@
             <e:skinName>
                 <e:Skin states="up,down,disabled">
                     <e:Rect width="100%" height="100%" fillColor.up="0x375b7f" fillAlpha.up="0.2" fillColor.down="0x375b7f" fillAlpha.down="1" ellipseHeight="72" ellipseWidth="72"/>
-                    <e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" textColor.up="0x375b7f" textColor.down="0xffffff"/>
+                    <e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" textColor.up="0x375b7f" textColor.down="0xffffff"  fontFamily="NotoSansCJKtc"/>
                 </e:Skin>
             </e:skinName>
         </e:RadioButton>
@@ -21,7 +21,7 @@
             <e:skinName>
                 <e:Skin states="up,down,disabled">
                     <e:Rect width="100%" height="100%" fillColor.up="0x375b7f" fillAlpha.up="0.2" fillColor.down="0x375b7f" fillAlpha.down="1" ellipseHeight="72" ellipseWidth="72"/>
-                    <e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" textColor.up="0x375b7f" textColor.down="0xffffff"/>
+                    <e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" textColor.up="0x375b7f" textColor.down="0xffffff" alpha="0.5" fontFamily="NotoSansCJKtc"/>
                 </e:Skin>
             </e:skinName>
         </e:RadioButton>
