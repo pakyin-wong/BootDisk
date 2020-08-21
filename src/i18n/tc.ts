@@ -116,6 +116,7 @@ namespace we {
       mobile_notification_close_button_label: '關閉',
 
       mobile_quick_bet_button_label: '快速投注',
+      mobile_quick_bet_button_add_label: '加注',
       mobile_enter_table_button_label: '進入遊戲',
 
       mobile_game_panel_bet_hint_label: '提示：點擊下注區進行追注或進入遊戲',
@@ -382,7 +383,7 @@ namespace we {
       game: {
         insufficientBalance: '餘額不足',
         exceedBetUpperLimit: '超過投注上限',
-        exceedBetLowerLimit: '超過投注下限',
+        exceedBetLowerLimit: '低過投注下限',
         startBet: '開始下注',
         stopBet: '停止下注',
       },

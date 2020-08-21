@@ -109,12 +109,14 @@ namespace we {
 
         if (!this._label) {
           this._label = new RunTimeLabel();
-          this._label.top = 10;
-          this._label.bottom = 10;
-          this._label.left = 20;
+          this._label.horizontalCenter = 0;
+          this._label.verticalCenter = 0;
+          // this._label.top = 10;
+          // this._label.bottom = 10;
+          // this._label.left = 20;
           // this._label.right = 20;
-          this._label.width = this.width - 40;
-          this._label.targetWidth = this.width - 40;
+          // this._label.width = this.width - 40;
+          this._label.targetWidth = this.width - 80;
           this._label.verticalAlign = 'middle';
           this._label.textAlign = 'center';
           this._label.size = this.labelSize;
@@ -130,8 +132,8 @@ namespace we {
       public $setWidth(val: number) {
         super.$setWidth(val);
         if (this._label) {
-          this._label.width = this.width - 40;
-          this._label.targetWidth = this.width - 40;
+          // this._label.width = this.width - 40;
+          this._label.targetWidth = this.width - 80;
         }
       }
 

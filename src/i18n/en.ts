@@ -116,6 +116,7 @@ namespace we {
       mobile_notification_close_button_label: 'Dismiss',
 
       mobile_quick_bet_button_label: 'QuickBet',
+      mobile_quick_bet_button_add_label: 'Raise',
       mobile_enter_table_button_label: 'Enter',
 
       mobile_game_panel_bet_hint_label: 'Hint: Press to add bet or enter room',
@@ -381,7 +382,7 @@ namespace we {
       },
       game: {
         insufficientBalance: 'Insufficient Balance',
-        exceedBetLowerLimit: 'Exceed Bet Lower Limit',
+        exceedBetLowerLimit: 'Lower than Bet Lower Limit',
         exceedBetUpperLimit: 'Exceed Bet Upper Limit',
         startBet: 'Start Bet',
         stopBet: 'Stop Bet',

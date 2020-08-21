@@ -132,6 +132,7 @@ namespace we {
       mobile_notification_close_button_label: '关闭',
 
       mobile_quick_bet_button_label: '快速投注',
+      mobile_quick_bet_button_add_label: '加注',
       mobile_enter_table_button_label: '进入游戏',
 
       mobile_game_panel_bet_hint_label: '提示：点击下注区进行追注或进入游戏',
@@ -167,8 +168,8 @@ namespace we {
           menu: '选單',
           back: '返回大堂',
           refresh: '刷新餘额',
-          profile: '賬户资信',
-          roominfo: '游戏资信',
+          profile: '賬户资訊',
+          roominfo: '游戏资訊',
           betlimit: '限红设定',
           d_lobby_viewmode_icon_tiny: '簡易版',
           d_lobby_viewmode_icon_general: '普通版',
@@ -445,7 +446,7 @@ namespace we {
       game: {
         insufficientBalance: '余额不足',
         exceedBetUpperLimit: '超过投注上限',
-        exceedBetLowerLimit: '超过投注下限',
+        exceedBetLowerLimit: '低过投注下限',
         startBet: '开始下注',
         stopBet: '停止下注',
       },
