@@ -20,6 +20,10 @@ namespace we {
 
       protected _gameScene: core.MobileBaseGameScene;
 
+      // landscape bottom game result
+      public _bottomResultDisplayContainer: eui.Group;
+      public _bottomResultDisplay: ui.IResultDisplay;
+
       public constructor(skin?: string) {
         super();
       }
@@ -91,12 +95,14 @@ namespace we {
             // egret.Tween.get(this._middlePart).to({ height: 0 }, 1);
           } else {
             egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
+            this._gameScene.updateResultDisplayVisible(this.isPanelOpen);
           }
           // egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
           // egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
         } else {
           this.isPanelOpen = true;
           egret.Tween.get(this._middlePart).to({ height: this._middlePartHeight }, 250);
+          this._gameScene.updateResultDisplayVisible(this.isPanelOpen);
           // egret.Tween.get(this.viewStack).to({ height: this.measuredHeight }, 250);
           // egret.Tween.get(this.viewStackMask).to({ height: this.measuredHeight }, 250);
           // if (this.isPanelOpen) {
