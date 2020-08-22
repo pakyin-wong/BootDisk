@@ -98,6 +98,8 @@ namespace we {
       }
 
       public static getBetRate(type: string, group: string, field: string): string {
+        console.log('lo', env.betLimits);
+
         return '1.8';
       }
 

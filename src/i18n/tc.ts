@@ -16,6 +16,7 @@ namespace we {
       gametype_ROL: '財神輪盤',
       gametype_DT: '龍虎',
       gametype_LW: '幸運輪',
+      gametype_LO: '時時彩',
 
       sidegamelist_title: '遊戲列表',
       sidegamelist_tab_bet: '已下注',
@@ -413,6 +414,7 @@ namespace we {
         totalbet: '總投注',
         totalcount: '總數',
         betSuccess: '下注成功',
+        betFail: '下注失敗',
         addNewGoodRoad: '新增好路',
         newGoodRoadName: '我的好路',
         removeGoodRoad: '刪除路紙？',

@@ -49,7 +49,7 @@ namespace we {
 
         this.initVideo();
         this.initText();
-
+        this.updateGame();
         this.addListeners();
       }
 
@@ -173,7 +173,7 @@ namespace we {
       protected setResultRelatedComponentsEnabled(enable: boolean) {}
 
       public updateGame() {
-        console.log(this._gameData);
+        console.log('lo', this._gameData);
 
         if (!this._gameData) {
           return;

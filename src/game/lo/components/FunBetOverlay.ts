@@ -57,7 +57,7 @@ namespace we {
         for (const bd in lo.FunBet.betDetails) {
           this._betDetail.push({
             field: `${lo.FunBet.betDetails[bd].id}@${lo.FunBet.betDetails[bd].amt * 0.01}`,
-            amount: lo.FunBet.betDetails[bd].amt,
+            amount: lo.FunBet.betDetails[bd].amt * 0.01,
           });
 
           arrCol.addItem(lo.FunBet.betDetails[bd]);
@@ -84,6 +84,8 @@ namespace we {
       }
 
       protected onClickConfirm() {
+        console.log('lo', this._betDetail);
+
         dir.socket.bet(this._tableInfo.tableid, this._betDetail);
       }
 

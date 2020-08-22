@@ -3,14 +3,14 @@
         xmlns:ui="we.ui.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing" >
 	<e:Image width="258" height="450" source="d_lottery_ent_penal_betarea_betpenal_bg_blue_png"/>
 	<e:Image width="258" height="48" source="d_lottery_ent_penal_betarea_betpenal_bg_blue_title_png"/>
-	<e:Group id="items" y="56">
+	<e:Group id="items" y="56" horizontalCenter="0">
 		<lo:FunBetItem x="56" y="108" scaleX="1" scaleY="1" skinName="skin_desktop.lo.FunBetItemN" field="SAME"/>
 		<lo:FunBetItem x="111" y="202" scaleX="1" scaleY="1" skinName="skin_desktop.lo.FunBetItemN" field="ORDER"/>
 		<lo:FunBetItem x="58" y="204" scaleX="1" scaleY="1" skinName="skin_desktop.lo.FunBetItemN" field="DOUBLE"/>
 		<lo:FunBetItem x="70" y="279" scaleX="1" scaleY="1" skinName="skin_desktop.lo.FunBetItemN" field="HALFORDER"/>
 		<lo:FunBetItem x="80" y="289" scaleX="1" scaleY="1" skinName="skin_desktop.lo.FunBetItemN" field="OTHER"/>
 		<e:layout>
-			<e:VerticalLayout gap="8"/>
+			<e:VerticalLayout gap="8" horizontalAlign="center"/>
 		</e:layout>
 	</e:Group>
 	<ui:RunTimeLabel id="title" text="Label" y="11" textColor="0x00b8c3" size="20" height="29" verticalAlign="middle" left="0" right="0" textAlign="center"/>

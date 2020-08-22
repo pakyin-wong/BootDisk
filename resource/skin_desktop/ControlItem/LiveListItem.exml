@@ -10,6 +10,8 @@
 			-->
 			<!--<ui:BaseImageButton id="_confirmButton" x="430" y="28" width="132" height="50" currentState="lobby_confirm_button"
 			                    skinName="skin_desktop.ImageButtonSkinLobby" anchorOffsetX="0" />-->
+			<ui:BaseImageButton id="_prevButton" x="360" y="28" width="50" height="50" currentState="quickbet_previous"
+			                    skinName="skin_desktop.ImageButtonSkinLobby" anchorOffsetX="0" />
 			<ui:RoundRectButton id="_confirmButton" x="430" y="32" cornerTL_TR_BL_BR="25,25,25,25" width="132" height="50"
 			                    stroke="0" strokeIn="0" fillColor="00aa5e" fillAlpha="1" fillAlpha_hover="0.7"
 			                    currentState="lobby_confirm_button" />

@@ -16,6 +16,7 @@ namespace we {
       gametype_ROL: 'ROL',
       gametype_DT: 'DT',
       gametype_LW: 'LW',
+      gametype_LO: 'LO`',
 
       sidegamelist_title: 'Game List',
       sidegamelist_tab_bet: 'Bet',
@@ -413,6 +414,7 @@ namespace we {
         totalbet: 'Total Bet',
         totalcount: 'Total',
         betSuccess: 'betSuccess',
+        betFail: 'Bet fail',
         addNewGoodRoad: 'New Good Road',
         newGoodRoadName: 'My Road',
         removeGoodRoad: 'Delete Road Sheet?',

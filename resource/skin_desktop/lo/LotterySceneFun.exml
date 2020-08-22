@@ -50,7 +50,7 @@
 		<!--<ui:GameBar width="251" height="52" x="1558" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_desktop.GameBar" />-->
 	</e:Group>
-	<lo:FunBetResult id="_betResult" x="241" y="1154" skinName="skin_desktop.lo.FunBetResult" visible="false"/>
+	<lo:FunBetResult id="_betResult" x="199" y="1132" skinName="skin_desktop.lo.FunBetResult"/>
 	<!--<ro:GameResultMessage id="_resultMessage" width="0" height="0" horizontalCenter="0" verticalCenter="0" />-->
 	<ui:InGameMessage id="_message" y="650" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
 	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_playerelement_png"
