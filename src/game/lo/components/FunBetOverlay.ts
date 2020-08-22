@@ -86,7 +86,11 @@ namespace we {
       protected onClickConfirm() {
         console.log('lo', this._betDetail);
 
-        dir.socket.bet(this._tableInfo.tableid, this._betDetail);
+        dir.socket.bet(this._tableInfo.tableid, this._betDetail, this.onBetReturned);
+      }
+
+      protected onBetReturned(result) {
+        lo.FunBet.evtHandler.dispatchEvent(new egret.Event(core.Event.PLAYER_BET_RESULT, false, false, result));
       }
 
       protected onClosed() {

@@ -582,6 +582,8 @@ namespace we {
           }
           case core.GameType.LW:
           default: {
+            console.log('lo', '1', gameStatistic);
+
             gameStatistic.tableID = tableid;
             gameStatistic.shoeID = gameStatistic.shoeid;
             tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
@@ -775,7 +777,7 @@ namespace we {
       //   dir.evtHandler.dispatch(core.Event.TABLE_LIST_UPDATE, list);
       // }
 
-      public bet(tableID: string, betDetails: data.BetDetail[]) {
+      public bet(tableID: string, betDetails: data.BetDetail[], callback: (result) => void) {
         const betCommands: data.BetCommand[] = betDetails
           .filter(data => {
             return data.amount > 0;
@@ -786,23 +788,8 @@ namespace we {
               amount: data.amount,
             };
           });
-        this.client.bet(
-          tableID,
-          betCommands,
-          this.warpServerCallback(result => {
-            if (result.error) {
-              // TODO: handle error on cancel
-            } else {
-              this.betResultCallback(result);
-            }
-          })
-        );
+        this.client.bet(tableID, betCommands, callback);
         logger.l(utils.LogTarget.STAGING, `Table ${tableID} Placed bet`, betDetails);
-      }
-
-      public betResultCallback(result: data.PlayerBetResult) {
-        logger.l(utils.LogTarget.STAGING, 'Bet Result Received', result);
-        dir.evtHandler.dispatch(core.Event.PLAYER_BET_RESULT, result);
       }
 
       public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {
