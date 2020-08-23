@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.lo.FunBetRoundInfo" xmlns:e="http://ns.egret.com/eui"
-        xmlns:ui="we.ui.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing"  >
+<e:Skin class="skin_desktop.lo.FunBetRoundInfo" currentState="normal" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing"   states="normal,drawing" >
 		<ui:RoundRectShape width="1050" height="110" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="20,20,20,20" x="0" fillColor="0x000000" fillAlpha="0.7"/>
 		<ui:RunTimeLabel id="_txt_thisRound" text="本期投注" x="30" y="17" alpha="0.7" height="36" verticalAlign="middle" size="24"/>
 		<e:Group id="_rdContainer" x="30" y="55" sortableChildren="true">
@@ -10,10 +10,11 @@
 				<e:HorizontalLayout gap="5" verticalAlign="middle"/>
 			</e:layout>
 		</e:Group>
+	<ui:RunTimeLabel id="_txt_lastRound" text="上期開獎號碼" x="737" y="9" size="24" height="36" verticalAlign="middle" alpha="0.7" visible.drawing="false"/>
 
-		<e:Group id="_lastRdContainer" x="737" y="9" sortableChildren="true">
-			<e:Label id="_tf_lastRound" text="00000000000" x="0" y="0" alpha="0.7" height="36" verticalAlign="middle" fontFamily="Barlow" size="24" textColor="0xffffff" zIndex="0"/>
-			<ui:RunTimeLabel id="_txt_lastRound" text="期開獎中" x="0" y="0" alpha="0.7" height="36" verticalAlign="middle" size="24" zIndex="1"/>
+		<e:Group id="_drawingContainer" x="737" y="9" sortableChildren="true" visible.normal="false">
+			<e:Label id="_tf_drawingRound" text="00000000000" x="0" y="0" alpha="0.7" height="36" verticalAlign="middle" fontFamily="Barlow" size="24" textColor="0xffffff" zIndex="0"/>
+			<ui:RunTimeLabel id="_txt_drawingRound" text="期開獎中" x="0" y="0" alpha="0.7" height="36" verticalAlign="middle" size="24" zIndex="1"/>
 			<e:layout>
 			<e:HorizontalLayout gap="5" verticalAlign="middle"/>
 			</e:layout>

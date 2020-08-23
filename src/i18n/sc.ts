@@ -538,10 +538,13 @@ namespace we {
       lo_switch_fun: '娱乐',
       lo_switch_trad: '传统',
 
+      lo_history_round: '%round% 期',
+
       lo_fun_custombet: '自订',
       lo_fun_bettingRound: '本期投注',
       lo_fun_round: '期',
-      lo_fun_lastRound: '期开奖中',
+      lo_fun_drawingRound: '期开奖中',
+      lo_fun_lastRound: '上期开期号码',
 
       lo_fun_overlay_title: '投票确认',
       lo_fun_overlay_table: '彩种名称',

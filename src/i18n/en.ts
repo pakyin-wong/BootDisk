@@ -472,9 +472,12 @@ namespace we {
       lo_switch_fun: 'ENT',
       lo_switch_trad: 'TRAD',
 
+      lo_history_round: 'Round %round%',
+
       lo_fun_custombet: 'Custom',
       lo_fun_bettingRound: 'Betting deadline',
       lo_fun_round: 'Round',
+      lo_fun_drawingRound: 'is drawing',
       lo_fun_lastRound: 'Last draw number',
 
       lo_fun_overlay_title: 'Confirm bet',

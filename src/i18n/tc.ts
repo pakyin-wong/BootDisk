@@ -472,10 +472,13 @@ namespace we {
       lo_switch_fun: '娛樂',
       lo_switch_trad: '傳統',
 
+      lo_history_round: '%round% 期',
+
       lo_fun_custombet: '自訂',
       lo_fun_bettingRound: '本期投注',
       lo_fun_round: '期',
-      lo_fun_lastRound: '期開獎中',
+      lo_fun_drawingRound: '期開獎中',
+      lo_fun_lastRound: '上期開期號碼',
 
       lo_fun_overlay_title: '投票確認',
       lo_fun_overlay_table: '彩種名稱',
@@ -488,7 +491,6 @@ namespace we {
       lo_fun_overlay_totalAmt: '總投注額',
       lo_fun_overlay_confirm: '確定',
       lo_fun_overlay_cancel: '取消',
-
       lo_fun_overlay_betPrefix: '娛樂｜',
 
       lo_fun_betlayer_tab_fun: '娛樂',

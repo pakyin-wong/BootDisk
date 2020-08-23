@@ -680,6 +680,7 @@ namespace we {
         env.currency = balance.currency;
 
         logger.l(utils.LogTarget.STAGING, `On balance update: ${balance.balance}`);
+        logger.l(utils.LogTarget.STAGING, `On balanceOnHold update: ${balance.balanceOnHold}`);
 
         dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
       }

@@ -141,6 +141,23 @@ namespace we {
         this._betRelatedGroup.visible = enabled;
         this._custombet.enabled = enabled;
       }
+
+      public updateGame() {
+        super.updateGame();
+
+        if (!this._gameData) {
+          return;
+        }
+        switch (this._gameData.state) {
+          case core.GameState.DEAL:
+          case core.GameState.FINISH:
+            this._roundInfo.currentState = 'drawing';
+            break;
+          default:
+            this._roundInfo.currentState = 'normal';
+            break;
+        }
+      }
     }
   }
 }

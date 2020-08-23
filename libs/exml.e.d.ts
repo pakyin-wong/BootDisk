@@ -582,6 +582,18 @@ declare module skin_desktop.lo{
 	class FunBetTabItemRenderer extends eui.Skin{
 	}
 }
+declare module skin_desktop.lo{
+	class LotteryGameBar extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class LotteryHistory extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class LotteryHistoryIR extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class LoLeftPanel extends eui.Skin{
 	}
