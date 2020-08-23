@@ -16,6 +16,7 @@ namespace we {
       gametype_ROL: '財神輪盤',
       gametype_DT: '龍虎',
       gametype_LW: '幸運輪',
+      gametype_LO: '時時彩',
 
       sidegamelist_title: '遊戲列表',
       sidegamelist_tab_bet: '已下注',
@@ -414,6 +415,7 @@ namespace we {
         totalbet: '總投注',
         totalcount: '總數',
         betSuccess: '下注成功',
+        betFail: '下注失敗',
         addNewGoodRoad: '新增好路',
         newGoodRoadName: '我的好路',
         removeGoodRoad: '刪除路紙？',
@@ -466,6 +468,30 @@ namespace we {
           },
         },
       },
+
+      lo_switch_fun: '娛樂',
+      lo_switch_trad: '傳統',
+
+      lo_history_round: '%round% 期',
+
+      lo_fun_custombet: '自訂',
+      lo_fun_bettingRound: '本期投注',
+      lo_fun_round: '期',
+      lo_fun_drawingRound: '期開獎中',
+      lo_fun_lastRound: '上期開期號碼',
+
+      lo_fun_overlay_title: '投票確認',
+      lo_fun_overlay_table: '彩種名稱',
+      lo_fun_overlay_round: '投注期數',
+      lo_fun_overlay_bet: '玩法投注',
+      lo_fun_overlay_rate: '賠率',
+      lo_fun_overlay_amt: '單注金額',
+      lo_fun_overlay_total: '總注數',
+      lo_fun_overlay_count: '注',
+      lo_fun_overlay_totalAmt: '總投注額',
+      lo_fun_overlay_confirm: '確定',
+      lo_fun_overlay_cancel: '取消',
+      lo_fun_overlay_betPrefix: '娛樂｜',
 
       lo_fun_betlayer_tab_fun: '娛樂',
       lo_fun_betlayer_tab_num: '數字',
