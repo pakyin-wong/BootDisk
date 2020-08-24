@@ -19,34 +19,34 @@
 		<ui:RunTimeLabel id="dealerLabel" text="荷官" y="270" x="47" scaleX="1" scaleY="1" size="44" textKey="baccarat.dealer" />
 		<ui:RunTimeLabel id="tableBetLimitLabel" text="本檯限紅" y="340" x="47" scaleX="1" scaleY="1" size="44" />
 		<ui:RunTimeLabel id="betLimitLabel" text="投注限紅" y="410" x="47" scaleX="1" scaleY="1" size="44" />
-		<ui:ClampWidthLabel id="pTableID" text="DT-01" x="167" y="60" size="44" alpha="0.7" textAlign="right" right="703"
-		                    targetWidth="380" />
+		<ui:RunTimeLabel id="pTableID" text="DT-01" x="167" y="60" size="44" alpha="0.7" textAlign="right" right="703"
+		                    fontFamily="Barlow"/>
 		<e:Label id="pRoundID" text="-" y="130" textAlign="right" scaleX="1" scaleY="1" size="44" x="167" width="440"
-		         alpha="0.7" />
+		         alpha="0.7"  fontFamily="Barlow"/>
 		<ui:ClampWidthLabel id="pGameID" text="000-000-000-0000001" y="200" textAlign="right" x="167" size="44"
-		                    targetWidth="380" right="630" alpha="0.7" />
+		                    targetWidth="380" right="630" alpha="0.7"  fontFamily="Barlow"/>
 		<ui:ClampWidthLabel id="pDealer" text="Mary" textAlign="right" right="630" x="167" y="270" size="44" targetWidth="380"
-		                    alpha="0.7" />
+		                    alpha="0.7"  fontFamily="Barlow"/>
 		<e:Label id="pTableBetLimit" text="-" y="340" textAlign="right" right="630" scaleX="1" scaleY="1" size="44"
 		         width="440" verticalAlign="middle" alpha="0.7" />
 		<e:Group id="betLimitBtnGroup" width="304" height="74" x="311" y="398">
 			<e:Image id="limitBg" width="304" height="74" x="0" y="0" source="m_ba_tag_redlimit_bg_png" scaleX="1" scaleY="1" />
 			<e:Image id="dropdownBtn" width="27" height="16" x="248" y="31" source="m_ba_tag_redlimit_btn_dropdown_png" />
 		</e:Group>
-		<e:Label id="pBetLimit" text="Label" x="311" y="398" width="304" height="74" size="44" verticalAlign="middle"
-		         textAlign="center" />
+		<ui:RunTimeLabel id="pBetLimit" text="Label" x="311" y="398" width="304" height="74" size="44" verticalAlign="middle"
+		         textAlign="center"  fontFamily="Barlow"/>
 		<ui:ClampWidthLabel id="pDragonOdd" text="0.95:1" x="896" y="60" size="44" alpha="0.7" textAlign="right"
-		                    targetWidth="130" right="50" />
+		                    targetWidth="130" right="50"  fontFamily="Barlow"/>
 		<ui:ClampWidthLabel id="pDragonMax" text="000" y="60" size="44" alpha="0.7" textAlign="right" targetWidth="80"
-		                    right="200" />
+		                    right="200"  fontFamily="Barlow"/>
 		<ui:ClampWidthLabel id="pTigerOdd" text="0.95:1" x="896" y="130" size="44" alpha="0.7" textAlign="right"
-		                    targetWidth="130" right="50" />
+		                    targetWidth="130" right="50"  fontFamily="Barlow"/>
 		<ui:ClampWidthLabel id="pTigerMax" text="000" y="130" size="44" alpha="0.7" textAlign="right" targetWidth="80"
-		                    right="200" />
+		                    right="200"  fontFamily="Barlow"/>
 		<ui:ClampWidthLabel id="pTieOdd" text="0.95:1" x="896" y="200" size="44" alpha="0.7" textAlign="right"
-		                    targetWidth="130" right="50" />
+		                    targetWidth="130" right="50"  fontFamily="Barlow"/>
 		<ui:ClampWidthLabel id="pTieMax" text="000" y="200" size="44" alpha="0.7" textAlign="right" targetWidth="80"
-		                    right="200" />
+		                    right="200"  fontFamily="Barlow"/>
 		<ui:RunTimeLabel id="dragonLabel" text="龍" y="60" textAlign="left" x="745" scaleX="1" scaleY="1" size="44"
 		                 textKey="dragontiger.dragon" />
 		<ui:RunTimeLabel id="tigerLabel" text="虎" y="130" x="745" scaleX="1" scaleY="1" size="44" textKey="dragontiger.tiger" />

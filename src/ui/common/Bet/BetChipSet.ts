@@ -42,6 +42,7 @@ namespace we {
 
       // setChipSet(denominationList: number[]) {}
       // onChipSelected(index: number) {}
+      public unSelect() {}
     }
   }
 }
