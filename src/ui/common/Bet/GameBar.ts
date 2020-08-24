@@ -16,38 +16,36 @@ namespace we {
         // this.skinName = utils.getSkinByClassname('GameBar');
       }
 
-      protected partAdded(partName: string, instance: any): void {
-        super.partAdded(partName, instance);
-      }
-
       protected childrenCreated(): void {
-        // mouse.setButtonMode(this.videoButton, true);
         super.childrenCreated();
-        if (this.videoButton) {
-          this.videoButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
-        }
-        if (this.soundBtn) {
-          this.soundBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickSound, this);
-        }
-        if (this.gameButton) {
-          this.gameButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickGame, this);
-        }
+        this.mount();
+        this.addEventListener(eui.UIEvent.ADDED_TO_STAGE, this.mount, this);
+        this.addEventListener(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
       }
 
-      protected removeEventListeners() {
+      protected mount(): void {
+        // mouse.setButtonMode(this.videoButton, true);
         if (this.videoButton) {
-          this.videoButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
+          utils.addButtonListener(this.videoButton, this.onClickVideo, this);
         }
         if (this.soundBtn) {
-          this.soundBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickSound, this);
+          utils.addButtonListener(this.soundBtn, this.onClickSound, this);
         }
         if (this.gameButton) {
-          this.gameButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickGame, this);
+          utils.addButtonListener(this.gameButton, this.onClickGame, this);
         }
       }
 
       protected destroy() {
-        this.removeEventListeners();
+        if (this.videoButton) {
+          utils.removeButtonListener(this.videoButton, this.onClickVideo, this);
+        }
+        if (this.soundBtn) {
+          utils.removeButtonListener(this.soundBtn, this.onClickSound, this);
+        }
+        if (this.gameButton) {
+          utils.removeButtonListener(this.gameButton, this.onClickGame, this);
+        }
       }
 
       protected onClickVideo() {

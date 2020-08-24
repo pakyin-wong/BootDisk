@@ -71,8 +71,8 @@ namespace we {
         this._baGameID.renderText = () => `${this._tableInfo.tableid}`;
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
-            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
           }
         }
       }
@@ -261,10 +261,10 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
-            (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
-            (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
+            (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
+            (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }

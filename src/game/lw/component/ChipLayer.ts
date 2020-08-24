@@ -59,11 +59,17 @@ namespace we {
 
       protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
         for (const key of Object.keys(fieldAmounts)) {
+          if (fieldAmounts[key] === 0) {
+            continue;
+          }
           if (fieldAmounts[key] > betLimit.maxlimit) {
-            return true;
+            return 'upper';
+          }
+          if (fieldAmounts[key] < betLimit.minlimit) {
+            return 'lower';
           }
         }
-        return false;
+        return null;
       }
 
       public onGridRollover(fieldName: string) {

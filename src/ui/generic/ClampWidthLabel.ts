@@ -18,7 +18,7 @@ namespace we {
 
       public $setTargetWidth(val) {
         this._targetWidth = val;
-        this.width = val;
+        // this.width = val;
         this.updateTargetScaleX();
       }
       public $getTargetWidth() {
@@ -48,11 +48,16 @@ namespace we {
             this.width = width;
             this._targetScaleX = this.targetWidth / this.width;
             this.$setScaleX(this._explicitScaleX);
-          } else if (this.width !== this.targetWidth) {
-            this.width = this.targetWidth;
+          } else if (this._targetScaleX !== 1) {
+            this.width = NaN;
             this._targetScaleX = 1;
             this.$setScaleX(this._explicitScaleX);
           }
+          // else if (this.width !== this.targetWidth) {
+          //   this.width = this.targetWidth;
+          //   this._targetScaleX = 1;
+          //   this.$setScaleX(this._explicitScaleX);
+          // }
         }
       }
 

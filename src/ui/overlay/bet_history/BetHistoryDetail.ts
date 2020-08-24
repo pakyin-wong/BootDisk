@@ -99,7 +99,7 @@ namespace we {
           if (amt > 0) {
             this._record_win_s.text = this._record_win_l.text = `+${utils.formatNumber(this.data.winamount, true)}`;
           } else {
-            this._record_win_s.text = this._record_win_l.text = `-${utils.formatNumber(this.data.winamount, true)}`;
+            this._record_win_s.text = this._record_win_l.text = `${utils.formatNumber(this.data.winamount, true)}`;
           }
         }
 

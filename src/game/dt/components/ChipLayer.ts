@@ -30,7 +30,19 @@ namespace we {
       }
 
       protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
-        return Math.abs(fieldAmounts[dt.BetField.DRAGON] - fieldAmounts[dt.BetField.TIGER]) > betLimit.maxlimit || fieldAmounts[dt.BetField.TIE] > betLimit.maxlimit;
+        if (Math.abs(fieldAmounts[dt.BetField.DRAGON] - fieldAmounts[dt.BetField.TIGER]) > betLimit.maxlimit || fieldAmounts[dt.BetField.TIE] > betLimit.maxlimit) {
+          return 'upper';
+        }
+
+        if (
+          (fieldAmounts[dt.BetField.DRAGON] !== 0 && fieldAmounts[dt.BetField.DRAGON] < betLimit.minlimit) ||
+          (fieldAmounts[dt.BetField.TIGER] !== 0 && fieldAmounts[dt.BetField.TIGER] < betLimit.minlimit) ||
+          (fieldAmounts[dt.BetField.TIE] !== 0 && fieldAmounts[dt.BetField.TIE] > betLimit.minlimit)
+        ) {
+          return 'lower';
+        }
+
+        return null;
       }
     }
   }

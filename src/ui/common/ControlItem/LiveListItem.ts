@@ -3,9 +3,24 @@ namespace we {
     export class LiveListItem extends LiveListSimpleItem {
       protected _dealerImage;
       protected _contentContainerStatic: eui.Group;
+      protected _prevButton: ui.BaseImageButton;
 
       public constructor(skinName: string = null) {
         super(skinName);
+      }
+
+      protected addEventListeners() {
+        super.addEventListeners();
+        this._prevButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickUndoButton, this);
+      }
+
+      protected removeEventListeners() {
+        super.removeEventListeners();
+        this._prevButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickUndoButton, this);
+      }
+
+      public onClickUndoButton(event) {
+        this._undoStack.popAndUndo();
       }
 
       protected initChildren() {
