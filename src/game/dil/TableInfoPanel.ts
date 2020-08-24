@@ -7,6 +7,16 @@ namespace we {
       protected sixCountLabel: eui.Label;
       protected sevenCountLabel: eui.Label;
       protected eightCountLabel: eui.Label;
+      protected nineCountLabel: eui.Label;
+      protected tenCountLabel: eui.Label;
+      protected elevenCountLabel: eui.Label;
+      protected twelveCountLabel: eui.Label;
+      protected thirteenCountLabel: eui.Label;
+      protected fourteenCountLabel: eui.Label;
+      protected fifteenCountLabel: eui.Label;
+      protected sixteenCountLabel: eui.Label;
+      protected seventeenCountLabel: eui.Label;
+      protected eighteenCountLabel: eui.Label;
 
       // protected threeCountLabel: eui.Label;
       // protected threeCountLabel: eui.Label;
@@ -17,6 +27,16 @@ namespace we {
       protected pSixCount: eui.Label;
       protected pSevenCount: eui.Label;
       protected pEightCount: eui.Label;
+      protected pNineCount: eui.Label;
+      protected pTenCount: eui.Label;
+      protected pElevenCount: eui.Label;
+      protected pTwelveCount: eui.Label;
+      protected pThirteenCount: eui.Label;
+      protected pFourteenCount: eui.Label;
+      protected pFifteenCount: eui.Label;
+      protected pSixteenCount: eui.Label;
+      protected pSeventeenCount: eui.Label;
+      protected pEighteenCount: eui.Label;
       // protected pNineTwelveOdd: eui.Label;
       // protected pTenElevenOdd: eui.Label;
 
@@ -53,8 +73,16 @@ namespace we {
         this.sixCountLabel.text = i18n.t('baccarat.totalcount') + ' 6';
         this.sevenCountLabel.text = i18n.t('baccarat.totalcount') + ' 7';
         this.eightCountLabel.text = i18n.t('baccarat.totalcount') + ' 8';
-        // this.nineTwelveLabel.text = i18n.t('dice.total') + '9 / 12';
-        // this.tenElevenLabel.text = i18n.t('dice.total') + '10 / 11';
+        this.nineCountLabel.text = i18n.t('baccarat.totalcount') + ' 9';
+        this.tenCountLabel.text = i18n.t('baccarat.totalcount') + ' 10';
+        this.elevenCountLabel.text = i18n.t('baccarat.totalcount') + ' 11';
+        this.twelveCountLabel.text = i18n.t('baccarat.totalcount') + ' 12';
+        this.thirteenCountLabel.text = i18n.t('baccarat.totalcount') + ' 13';
+        this.fourteenCountLabel.text = i18n.t('baccarat.totalcount') + ' 14';
+        this.fifteenCountLabel.text = i18n.t('baccarat.totalcount') + ' 15';
+        this.sixteenCountLabel.text = i18n.t('baccarat.totalcount') + ' 16';
+        this.seventeenCountLabel.text = i18n.t('baccarat.totalcount') + ' 17';
+        this.eighteenCountLabel.text = i18n.t('baccarat.totalcount') + ' 18';
       }
 
       public setValue(tableInfo: data.TableInfo) {
@@ -70,6 +98,16 @@ namespace we {
             { target: this.pSixCount, value: limits.SUM_6_15.odd },
             { target: this.pSevenCount, value: limits.SUM_7_14.odd },
             { target: this.pEightCount, value: limits.SUM_8_13.odd },
+            { target: this.pNineCount, value: limits.SUM_3_18.odd },
+            { target: this.pTenCount, value: limits.SUM_4_17.odd },
+            { target: this.pElevenCount, value: limits.SUM_5_16.odd },
+            { target: this.pTwelveCount, value: limits.SUM_6_15.odd },
+            { target: this.pThirteenCount, value: limits.SUM_7_14.odd },
+            { target: this.pFourteenCount, value: limits.SUM_8_13.odd },
+            { target: this.pFifteenCount, value: limits.SUM_3_18.odd },
+            { target: this.pSixteenCount, value: limits.SUM_4_17.odd },
+            { target: this.pSeventeenCount, value: limits.SUM_5_16.odd },
+            { target: this.pEighteenCount, value: limits.SUM_6_15.odd },
             // { target: this.pNineTwelveOdd, value: limits.SUM_9_12.odd },
             // { target: this.pTenElevenOdd, value: limits.SUM_10_11.odd },
           ];

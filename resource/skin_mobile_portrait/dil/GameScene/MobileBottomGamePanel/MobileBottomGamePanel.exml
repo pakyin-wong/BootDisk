@@ -58,7 +58,7 @@
 					<dil:History id="_chartPanel" skinName="skin_mobile_portrait.dil.HistorySkin" width="100%" height="100%" scaleX="1" scaleY="1"/>
 				</e:Group>
 				<e:Group id="_infoGroup" width="100%" height="100%" name="Group" x="0" y="0" scaleX="1" scaleY="1">
-					<di:TableInfoPanel id="_tableInfoPanel" skinName="skin_mobile_portrait.di.TableInfoPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
+					<dil:TableInfoPanel id="_tableInfoPanel" skinName="skin_mobile_portrait.dil.TableInfoPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
 				</e:Group>
 			</e:ViewStack>
 		</e:Group>

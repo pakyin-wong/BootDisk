@@ -54,9 +54,9 @@
 			<ui:RunTimeLabel id="fiveCountLabel" text="圍骰" y="200" x="669.7" scaleX="1" scaleY="1" size="44" textKey="dice.triple" />
 			<ui:RunTimeLabel id="sixCountLabel" text="全圍" y="270" x="669.7" scaleX="1" scaleY="1" size="44" textKey="dice.allTriple" />
 			<ui:RunTimeLabel id="sevenCountLabel" text="對子 (雙骰、長牌)" y="340" x="669.7" scaleX="1" scaleY="1" size="44" textKey="dice.double" />
-			<ui:RunTimeLabel id="fourSeventeenLabel" text="總數4 / 17" y="410" x="669.7" scaleX="1" scaleY="1" size="44" />
+			<ui:RunTimeLabel id="eightCountLabel" text="總數4 / 17" y="410" x="669.7" scaleX="1" scaleY="1" size="44" />
 		</e:Group>
-		<e:Group id="contentTwo" x="0" width="100%" height="100%" visible="false">
+		<e:Group id="contentTwo" x="0" width="100%" height="100%">
 			<e:Rect id="_bg0" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" />
 			<e:Image id="moveArea0" source="popover_png" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7" visible="false" />
 			<ui:RunTimeLabel id="lblTableInfo0" text="本檯資訊" left="50" top="50" x="50" y="50" scaleX="1" scaleY="1" size="20" textColor="0xC59466" visible="false" textKey="" />
@@ -64,49 +64,44 @@
 			<e:Label id="pTime0" text="-" y="220" textAlign="right" scaleX="1" scaleY="1" size="20" right="237" visible="false" />
 			<e:Label id="close0" text="x" x="555" y="20" touchEnabled="true" scaleY="0.8" visible="false" />
 			<e:Group id="_leftPart" x="48" y="60" anchorOffsetX="0" width="568">
-				<ui:RunTimeLabel id="fiveSixteenLabel" text="和值 5 / 16" y="0" x="0" scaleX="1" scaleY="1" size="44" />
-				<e:Label id="pFiveSixteenOdd" text="-" y="0" textAlign="right" scaleX="1" scaleY="1" size="40" width="202"
+				<ui:RunTimeLabel id="nineCountLabel" text="和值 5 / 16" y="0" x="0" scaleX="1" scaleY="1" size="44" />
+				<e:Label id="pNineCount" text="-" y="0" textAlign="right" scaleX="1" scaleY="1" size="40" width="202"
 						 alpha="0.7" right="3" />
-				<e:Label id="pFiveSixteenMax" text="-" y="0" textAlign="right" scaleX="1" scaleY="1" size="40" width="202"
-						 alpha="0.7" right="113" />
-				<ui:RunTimeLabel id="sixFifthteenLabel" text="和值 6 / 15" y="70" x="0" scaleX="1" scaleY="1" size="44" />
-				<e:Label id="pSixFifthTeenOdd" text="-" y="70" textAlign="right" scaleX="1" scaleY="1" size="40"
+
+				<ui:RunTimeLabel id="tenCountLabel" text="和值 6 / 15" y="70" x="0" scaleX="1" scaleY="1" size="44" />
+				<e:Label id="pTenCount" text="-" y="70" textAlign="right" scaleX="1" scaleY="1" size="40"
 						 width="202" alpha="0.7" right="3" />
-				<e:Label id="pSixFifthTeenMax" text="-" y="70" textAlign="right" scaleX="1" scaleY="1" size="40"
-						 width="202" alpha="0.7" right="113" />
-				<ui:RunTimeLabel id="sevenFourteenLabel" text="和值 7 / 14" y="140" x="0" scaleX="1" scaleY="1" size="44" />
-				<e:Label id="pSevenFourTeenOdd" text="-" y="140" textAlign="right" scaleX="1" scaleY="1" size="40"
+
+				<ui:RunTimeLabel id="elevenCountLabel" text="和值 7 / 14" y="140" x="0" scaleX="1" scaleY="1" size="44" />
+				<e:Label id="pElevenCount" text="-" y="140" textAlign="right" scaleX="1" scaleY="1" size="40"
 						 width="202" verticalAlign="middle" alpha="0.7" right="3" />
-				<e:Label id="pSevenFourTeenMax" text="-" y="140" textAlign="right" scaleX="1" scaleY="1" size="40"
-						 width="202" verticalAlign="middle" alpha="0.7" right="113" />
-				<ui:RunTimeLabel id="eightThirdteenLabel" text="和值 8 / 13" y="210" x="0" scaleX="1" scaleY="1" size="44" />
-				<e:Label id="pEightThirdteenOdd" text="-" y="210" textAlign="right" scaleX="1" scaleY="1" size="40"
+
+				<ui:RunTimeLabel id="twelveCountLabel" text="和值 8 / 13" y="210" x="0" scaleX="1" scaleY="1" size="44" />
+				<e:Label id="pTwelveCount" text="-" y="210" textAlign="right" scaleX="1" scaleY="1" size="40"
 						 width="202" verticalAlign="middle" alpha="0.7" right="3" />
-				<e:Label id="pEightThirdteenMax" text="-" y="210" textAlign="right" scaleX="1" scaleY="1" size="40"
-						 width="202" verticalAlign="middle" alpha="0.7" right="113" />
-				<ui:RunTimeLabel id="nineTenElevenTwelveLabel" text="和值 9 / 10 / 11 / 12" y="280" textAlign="left" x="0" scaleX="1" scaleY="1" size="44" />
-				<e:Label id="pNineTenElevenTwelveOdd" text="-" y="280" textAlign="right" scaleX="1" scaleY="1" size="44" width="202"
+
+				<ui:RunTimeLabel id="thirteenCountLabel" text="和值 9 / 10 / 11 / 12" y="280" textAlign="left" x="0" scaleX="1" scaleY="1" size="44" />
+				<e:Label id="pThirteenCount" text="-" y="280" textAlign="right" scaleX="1" scaleY="1" size="44" width="202"
 						 alpha="0.7" right="3" />
-				<e:Label id="pNineTenElevenTwelveMax" text="-" y="280" textAlign="right" scaleX="1" scaleY="1" size="44" width="202"
-						 alpha="0.7" right="113" />
-				<ui:RunTimeLabel id="combineLabel" text="牌九式 (骨牌) " y="350" x="0" scaleX="1" scaleY="1" size="44" />
-				<e:Label id="pCombineOdd" text="-" y="350" textAlign="right" scaleX="1" scaleY="1" size="44" width="202"
+
+				<ui:RunTimeLabel id="fourteenCountLabel" text="牌九式 (骨牌) " y="350" x="0" scaleX="1" scaleY="1" size="44" />
+				<e:Label id="pFourteenCount" text="-" y="350" textAlign="right" scaleX="1" scaleY="1" size="44" width="202"
 						 alpha="0.7" right="3" />
-				<e:Label id="pCombineMax" text="-" y="350" textAlign="right" scaleX="1" scaleY="1" size="44" width="202"
-						 alpha="0.7" right="113" />
+
 			</e:Group>
 			<e:Group id="_rightPart" x="664" y="60" anchorOffsetX="0" width="568">
-				<ui:RunTimeLabel id="specificSingleLabel" text="指定單骰" y="0" x="0" scaleX="1" scaleY="1" size="44" />
-				<e:Label id="pSpecificSingleOdd" text="-" y="0" textAlign="right" scaleX="1" scaleY="1" size="44" width="202"
+				<ui:RunTimeLabel id="fifteenCountLabel" text="指定單骰" y="0" x="0" scaleX="1" scaleY="1" size="44" />
+				<e:Label id="pFifteenCount" text="-" y="0" textAlign="right" scaleX="1" scaleY="1" size="44" width="202"
 					  alpha="0.7" right="13" />
-				<e:Label id="pSpecificSingleMax" text="-" y="0" textAlign="right" scaleX="1" scaleY="1" size="44" width="202"
-					  alpha="0.7" right="113" />
-				<ui:RunTimeLabel id="specificDoubleLabel" text="指定雙骰" y="70" x="0" scaleX="1" scaleY="1" size="44" />
-				<e:Label id="pSpecificDoubleOdd" text="-" y="70" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" alpha="0.7" right="13" />
-				<e:Label id="pSpecificDoubleMax" text="-" y="70" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" alpha="0.7" right="113" />
-				<ui:RunTimeLabel id="specificTripleLabel" text="指定三骰" y="140" x="0" scaleX="1" scaleY="1" size="44" />
-				<e:Label id="pSpecificTripleOdd" text="-" y="140" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" alpha="0.7" right="13" />
-				<e:Label id="pSpecificTripleMax" text="-" y="140" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" alpha="0.7" right="113" />
+
+				<ui:RunTimeLabel id="sixteenCountLabel" text="指定雙骰" y="70" x="0" scaleX="1" scaleY="1" size="44" />
+				<e:Label id="pSixteenCount" text="-" y="70" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" alpha="0.7" right="13" />
+
+				<ui:RunTimeLabel id="seventeenCountLabel" text="指定三骰" y="140" x="0" scaleX="1" scaleY="1" size="44" />
+				<e:Label id="pSeventeenCount" text="-" y="140" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" alpha="0.7" right="13" />
+				<ui:RunTimeLabel id="eighteenCountLabel" text="和值 8 / 13" y="210" x="0" scaleX="1" scaleY="1" size="44"/>
+				<e:Label id="pEighteenCount" text="-" y="210" textAlign="right" scaleX="1" scaleY="1" size="40" width="202" verticalAlign="middle" alpha="0.7" right="3"/>
+
 			</e:Group>
 		</e:Group>
     </ui:HorizontalHolder>

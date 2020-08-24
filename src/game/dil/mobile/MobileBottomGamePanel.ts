@@ -2,7 +2,7 @@
 namespace we {
   export namespace dil {
     export class MobileBottomGamePanel extends ui.MobileBottomCommonPanel {
-      public _tableInfoPanel: di.TableInfoPanel;
+      public _tableInfoPanel: dil.TableInfoPanel;
       public _betLimitDropDownBtn: ui.RunTimeLabel;
 
       // viewStack and radioBtn
