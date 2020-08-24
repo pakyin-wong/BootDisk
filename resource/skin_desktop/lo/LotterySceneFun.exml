@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.LotterySceneFun" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
-        xmlns:ui="we.ui.*"  xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*">
+        xmlns:ui="we.ui.*"  xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*" xmlns:live="we.live.*">
 	<ui:TweenConfig id="_betLayerTween" left="0" right="0" top="0" bottom="0">
 		<ui:skinName>
 		<e:Skin states="open,close" >
@@ -21,13 +21,14 @@
 	<e:Group id="_betRelatedGroup" x="820" y="705" visible="false">
 		<ui:RoundRectShape width="961" height="70" cornerTL_TR_BL_BR="35,35,35,35" stroke="0" fillColor="0x000000" alpha="0.2"/>
 
-		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" chipScale="0.9" />
-		<e:Button id="_confirmButton" label="" y="5" anchorOffsetX="0" width="174" anchorOffsetY="0" height="60"
-		          horizontalCenter="114" skinName="skins_desktop.BetConfirmButtonSkin" />
+		<ui:BetChipSetHorizontal id="_betChipSet" width="527" anchorOffsetX="0" anchorOffsetY="0" x="28"  height="58" y="6"/>
+		<e:Button id="_confirmButton" label="" y="3" anchorOffsetX="0" width="157" anchorOffsetY="0" height="64"
+		          skinName="skins_desktop.BetConfirmButtonSkin"  x="707"/>
 		<!--<ui:CountdownTimer id="_timer" width="180" height="60" y="6" horizontalCenter="115"
 		                   skinName="skin_desktop.CountdownTimerSkin" />-->
-		<ui:BaseAnimationButton id="_cancelButton" width="55" height="55" verticalCenter="0" horizontalCenter="318"
-                            dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_clear" useColorFilter="true" />
+		<ui:BaseAnimationButton id="_cancelButton" width="56" height="56"
+                            dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_clear" useColorFilter="true"  x="882" y="6"/>
+		<lo:FunBetCustomBet id="_custombet" x="570" verticalCenter="0" skinName="skin_desktop.lo.FunBetCustomBet"/>
 		<!--<ui:BaseAnimationButton id="_repeatButton" width="55" height="55" verticalCenter="0" horizontalCenter="243"
                             dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_rebet" useColorFilter="true" />-->
 		<!--<ui:BaseAnimationButton id="_doubleButton" width="55" height="55" verticalCenter="0" horizontalCenter="393"
@@ -45,9 +46,11 @@
 		<!--<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" right="2294" />-->
 		<ui:BaseAnimationButton id="_btnBack" dbClass="common_ui" dbDisplay="d_common_icon_back" width="30" height="30" x="35" y="17" />
 		<e:Image id="_lblRoomInfo" width="24" height="24" x="271.98" y="19" source="d_ba_navbar_icon_info_png" />
+		<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" right="2294" />
 		<!--<ui:GameBar width="251" height="52" x="1558" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_desktop.GameBar" />-->
 	</e:Group>
+	<lo:FunBetResult id="_betResult" x="199" y="1132" skinName="skin_desktop.lo.FunBetResult"/>
 	<!--<ro:GameResultMessage id="_resultMessage" width="0" height="0" horizontalCenter="0" verticalCenter="0" />-->
 	<ui:InGameMessage id="_message" y="650" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
 	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_playerelement_png"

@@ -1162,7 +1162,7 @@ namespace we {
         },
       };
 
-      public bet(tableID: string, betDetails: data.BetDetail[]) {
+      public bet(tableID: string, betDetails: data.BetDetail[], callback: (result) => void) {
         // add the bets to confirmed bet Array
         const data = this.tables[parseInt(tableID, 10) - 1];
         this.tables[parseInt(tableID, 10) - 1].data.currTime = Date.now();
@@ -1208,6 +1208,9 @@ namespace we {
         this.dispatchInfoUpdateEvent(data);
         this.dispatchBetResultEvent();
         this.dispatchBetInfoUpdateEvent(data);
+
+        const result = { success: true };
+        callback(result);
 
         // return promise.resolve with BetResult
       }
