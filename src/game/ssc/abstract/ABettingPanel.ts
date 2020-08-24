@@ -62,9 +62,15 @@ namespace we {
         this.removeEventListeners();
       }
 
-      protected addEventListeners() {}
+      protected addEventListeners() {
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
+      }
 
-      protected removeEventListeners() {}
+      protected removeEventListeners() {
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
+      }
+
+      protected updateText() {}
 
       protected clearCurrentBettingTable() {
         if (this._currentBettingTable) {
@@ -88,7 +94,7 @@ namespace we {
       public refreshCurrentBettingTable() {}
 
       public onInputChanged() {
-        console.log('Lottery input changed');
+        // console.log('Lottery input changed');
         // update current input note count and current bet amount in _bettingControl
         if (!this._bettingControl) {
           return;
@@ -97,8 +103,14 @@ namespace we {
         this._bettingControl.noteCount = this._currentBettingTable.totalNoteCount;
       }
 
-      protected betFieldMapping(betFields: string[]) {
-        const unitBet = this._bettingControl ? this._bettingControl.unitBet : 10; // temp workaround when bettingControl not exist
+      protected betFieldMapping(betFields: string[], isMultiple: boolean = false) {
+        // const unitBet = this._bettingControl ? this._bettingControl.unitBet : 10; // temp workaround when bettingControl not exist
+        const unitBet = this._bettingControl.unitBet;
+        const multiplier = this._bettingControl.multiplier;
+
+        if (isMultiple) {
+          return betFields.map(betField => `${betField}@${unitBet}#${multiplier}`);
+        }
 
         return betFields.map(betField => `${betField}@${unitBet}`);
       }
@@ -121,12 +133,15 @@ namespace we {
 
       protected placeBet(notes: TradNoteData[]) {
         const betdetails = this.generateBetDetail(notes);
-        let s = '';
-        for (let i = 0; i < betdetails.length; i++) {
-          s += betdetails[i].field + ' , amount = ' + betdetails[i].amount;
-        }
+        const roundbetdetals = this.generateCurrentBetRoundBetDetail();
+        // let s = '';
+        // for (let i = 0; i < betdetails.length; i++) {
+        //   s += betdetails[i].field + ' , amount = ' + betdetails[i].amount;
+        // }
+
+        dir.evtHandler.dispatchEventWith('on_lottery_traditional_bet', false, { bets: betdetails, rounds: roundbetdetals }, false);
         this._noteControl.clearAllNotes();
-        console.log(s);
+
         // dir.socket.bet(this._tableId, bets);
         // TODO: send out betdetails
       }
@@ -140,7 +155,7 @@ namespace we {
         //
         const betDetailArray: data.BetCommand[] = [];
         for (let i = 0; i < notes.length; i++) {
-          const field = notes[i].field;
+          const field = notes[i].field + '#' + notes[i].multiplier;
           const amount = parseInt(notes[i].field.split('@')[1], 10) * notes[i].count;
           betDetailArray.push({ amount, field });
         }
@@ -186,6 +201,9 @@ namespace we {
         const betDetails = this.generateBetDetail(noteDataArray);
         const roundBetDetailArray = this.generateCurrentBetRoundBetDetail();
         // send validation
+
+        // if success
+        this.isBetLimitValidate = true;
       }
 
       public generateChaseBetRoundBetDetail(): data.LotteryBetCommand[] {
@@ -218,6 +236,8 @@ namespace we {
         if (!this._bettingControl || !this._noteControl) {
           return;
         }
+
+        // console.log('isStateBet :' + this._isStateBet + 'isBetLimit :' + this._isBetLimitValidate + 'isBetCode :' + this._isBetCodeValidate);
 
         if (this._isBetLimitValidate && this._isBetCodeValidate) {
           this._bettingControl.setAddBetFieldsButton(true);

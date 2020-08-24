@@ -13,6 +13,8 @@ namespace we {
 
       public bettingPanel: ABettingPanel;
 
+      protected _lblHighestWin: ui.RunTimeLabel;
+
       public init() {}
 
       // public get _bettingPanel() {
@@ -76,10 +78,18 @@ namespace we {
 
       public setAddBetFieldsButton(enable: boolean) {
         this._btnAddBetFields.buttonEnabled = enable;
+        this._btnAddBetFields.enabled = enable;
       }
 
       public setInstantBetButton(enable: boolean) {
         this._btnInstantBet.buttonEnabled = enable;
+        this._btnInstantBet.enabled = enable;
+      }
+
+      public updateHighestWin(config: any) {
+        // using local config, need to receive server award & winratio later
+        const maxWin = config.maxWin;
+        this._lblHighestWin.renderText = () => `${i18n.t('lo_trad.highestWin')}${utils.formatNumber(maxWin)}`;
       }
     }
   }

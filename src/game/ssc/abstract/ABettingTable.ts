@@ -86,6 +86,8 @@ namespace we {
       }
 
       protected validateBetLimit() {
+        // temp
+        this.bettingPanel.isBetLimitValidate = true;
         this.bettingPanel.validateBetLimit();
       }
 

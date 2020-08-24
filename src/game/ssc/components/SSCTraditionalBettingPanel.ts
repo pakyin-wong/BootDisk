@@ -13,6 +13,9 @@ namespace we {
       protected bigTagsArray: any[];
       protected smallTagsArray: any[];
 
+      protected bigTagNames: ui.RunTimeLabel[];
+      protected smallTagNames: ui.RunTimeLabel[];
+
       protected currentBigTagIndex: number = 0;
       protected currentSmallTagIndex: number = 0;
       // private currentBetTable;
@@ -61,6 +64,7 @@ namespace we {
       protected createBigTags() {
         this.bigTagsArray = [];
         this.currentBigTagIndex = 0;
+        this.bigTagNames = [];
 
         for (let i = 0; i < Object.keys(SelectionMapping).length; i++) {
           const obj = SelectionMapping[Object.keys(SelectionMapping)[i]];
@@ -104,8 +108,8 @@ namespace we {
           bigTagGroup.addChild(bigTag);
 
           const lbl: ui.RunTimeLabel = new ui.RunTimeLabel();
-          // lbl.text = i18n.t(SelectionMapping[i].name);
-          lbl.text = obj['name'];
+          lbl.renderText = () => `${i18n.t('lo_trad.bigTag.' + bigTag.name)}`;
+          // lbl.text = obj['name'];
           lbl.size = 20;
           lbl.textAlign = 'center';
           lbl.verticalAlign = 'middle';
@@ -113,6 +117,7 @@ namespace we {
           lbl.height = 60;
           lbl.touchEnabled = false;
           bigTagGroup.addChild(lbl);
+          this.bigTagNames.push(lbl);
 
           this.bigTagsArray.push(bigTag);
           this._bigTagsGroup.addChild(bigTagGroup);
@@ -163,6 +168,7 @@ namespace we {
       protected createSmallTags() {
         // this.clearSmallTags();
         this.smallTagsArray = [];
+        this.smallTagNames = [];
         const currentBigTag = SelectionMapping[Object.keys(SelectionMapping)[this.currentBigTagIndex]];
         const smallTagsHeight = 57;
         const lastRowItemIndex = -1;
@@ -177,8 +183,8 @@ namespace we {
           smallTag.touchChildren = false;
 
           const lbl = new ui.RunTimeLabel();
-          // lbl.text = i18n.t(currentSmallTag["name"]);
-          lbl.text = currentSmallTag['name'];
+          lbl.renderText = () => `${i18n.t('lo_trad.smallTag.' + currentSmallTag['name'])}`;
+          // lbl.text = currentSmallTag['name'];
           lbl.alpha = 0.7;
           lbl.textAlign = 'center';
           lbl.verticalAlign = 'middle';
@@ -187,6 +193,7 @@ namespace we {
           lbl.width = env.language === 'en' ? SmallTags.LABELWIDTH_EN : SmallTags.LABELWIDTH_EN;
           lbl.height = 57;
           lbl.size = 18;
+          this.smallTagNames.push(lbl);
 
           smallTag.addChild(lbl);
           this._smallTagsGroup.addChild(smallTag);
@@ -195,18 +202,18 @@ namespace we {
           smallTag.y = 0;
           smallTag.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSmallTagClicked, this);
 
-          if (currentBigTag['seperateLine']) {
-            for (let k = 0; k < currentBigTag['seperateLine'].length; k++) {
-              if (currentBigTag.seperateLine[k] === i) {
-                const shape = new egret.Shape();
-                shape.x = offset + 40 + (i + 1) * smallTag.width;
-                shape.graphics.beginFill(0xffffff, 0.7);
-                shape.graphics.drawRect(0, 0, 1, 30);
-                shape.graphics.endFill();
-                this._smallTagsGroup.addChild(shape);
-              }
-            }
-          }
+          // if (currentBigTag['seperateLine']) {
+          //   for (let k = 0; k < currentBigTag['seperateLine'].length; k++) {
+          //     if (currentBigTag.seperateLine[k] === i) {
+          //       const shape = new egret.Shape();
+          //       shape.x = offset + 40 + (i + 1) * smallTag.width;
+          //       shape.graphics.beginFill(0xffffff, 0.7);
+          //       shape.graphics.drawRect(0, 0, 1, 30);
+          //       shape.graphics.endFill();
+          //       this._smallTagsGroup.addChild(shape);
+          //     }
+          //   }
+          // }
 
           // if(smallTag.x > this._smallTagsGroup.width)
           // {
@@ -260,6 +267,20 @@ namespace we {
         this.createBetTable();
       }
 
+      protected updateText() {
+        for (let i = 0; i < this.bigTagsArray.length; i++) {
+          if (this.bigTagNames[i]) {
+            this.bigTagNames[i].renderText = () => `${i18n.t('lo_trad.bigTag.' + this.bigTagsArray[i].name)}`;
+          }
+        }
+
+        for (let i = 0; i < this.smallTagsArray.length; i++) {
+          if (this.smallTagNames[i]) {
+            this.smallTagNames[i].renderText = () => `${i18n.t('lo_trad.smallTag.' + this.smallTagsArray[i].name)}`;
+          }
+        }
+      }
+
       protected createBetTable() {
         this.clearCurrentBettingTable();
 
@@ -267,6 +288,7 @@ namespace we {
         const config = currentBigTag['type'][Object.keys(currentBigTag['type'])[this.currentSmallTagIndex]];
 
         const bettingTable = new SSCTraditionalBettingTable(config);
+        if (this._bettingControl) this._bettingControl.updateHighestWin(config);
         this._currentBettingTable = bettingTable;
         this.initCurrentBettingTable();
         this._currentBettingTable.init();

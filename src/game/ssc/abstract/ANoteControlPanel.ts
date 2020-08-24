@@ -4,8 +4,11 @@ namespace we {
     // manage lottery note list and bet related buttons
     export abstract class ANoteControlPanel extends core.BaseEUI implements INoteControl {
       protected _btnConfirmBet: ui.RoundRectButton;
-
       protected _notes: TradNoteData[];
+
+      protected _lblBalance: ui.RunTimeLabel;
+      protected _balance: number = 1;
+
       // TradNoteData {
       //   public field: string; // field consist of several information: Bet type, bet per note and bet detail
       //   public count: number; // number of note corresponding to the field
@@ -15,6 +18,21 @@ namespace we {
 
       public init() {
         this._notes = [];
+        this._lblBalance.renderText = () => `餘額 $${dir.meterCtr.getLocal('balance')}`;
+        // if (env.isMobile) {
+        //   this._balanceGame.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
+        //   this._balanceText.renderText = () => `${i18n.t('nav.bet_balance')}`;
+        //   dir.meterCtr.register('balance', this._balanceGame);
+        // }
+        dir.meterCtr.register('balance', this._lblBalance);
+        if (!isNaN(env.balance)) {
+          dir.meterCtr.rackTo('balance', env.balance, 0);
+        }
+        // this._lblBalance.renderText = () => `餘額 $${this._balance}`;
+        // dir.meterCtr.register('balance', this._lblBalance);
+        // if (!isNaN(env.balance)) {
+        //   dir.meterCtr.rackTo('balance', env.balance, 0);
+        // }
       }
 
       public get notes() {
@@ -71,11 +89,14 @@ namespace we {
         if (this._notes.length > 0) {
           if (enable === true) {
             this._btnConfirmBet.buttonEnabled = true;
+            this._btnConfirmBet.enabled = true;
           } else {
             this._btnConfirmBet.buttonEnabled = false;
+            this._btnConfirmBet.enabled = false;
           }
         } else {
           this._btnConfirmBet.buttonEnabled = false;
+          this._btnConfirmBet.enabled = false;
         }
       }
     }

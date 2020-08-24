@@ -72,7 +72,7 @@ namespace we {
         this._lblValue.height = 50;
         this._lblValue.size = 34;
         this._lblValue.alpha = 0.7;
-        this._lblValue.text = this.isNumeric(this._betValue) ? this._betValue : i18n.t(this._betValue);
+        this._lblValue.renderText = () => (this.isNumeric(this._betValue) ? this._betValue : `${i18n.t('lo_trad.inputs.' + this._betValue)}`);
         this._lblValue.textAlign = 'center';
         this._lblValue.verticalAlign = 'middle';
         this._lblValue.touchEnabled = false;

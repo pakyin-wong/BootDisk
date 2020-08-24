@@ -1,18 +1,6 @@
 // TypeScript file
 namespace we {
   export namespace lo {
-    export const ImageMapping = {
-      BIGTAG_ACTIVE: '',
-      BIGTAG_NORMAL: '',
-      BIGTAG_HOVER: '',
-      BET_BALL_ACTIVE: '',
-      BET_BALL_NORMAL: '',
-      BET_BALL_HOVER: '',
-      //   SMALLTAG_ACTIVE:"",
-      //   SMALLTAG_NORMAL:"",
-      //   SMALLTAG_HOVER:""
-    };
-
     export enum InputComponentType {
       BALLS,
       TEXTAREA,
@@ -145,6 +133,7 @@ namespace we {
             ],
             pattern: '12345OPTIONAL_$1_$2_$3_$4_$5',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
+            maxWin: 180000,
           },
           DirectMenu: {
             name: 'DirectMenu',
@@ -153,6 +142,7 @@ namespace we {
             ],
             pattern: '12345OPTIONALINPUT_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 180000,
           },
           DirectCombination: {
             name: 'DirectCombination',
@@ -165,12 +155,14 @@ namespace we {
             ],
             pattern: '12345OPTIONALCOM_$1_$2_$3_$4_$5',
             noteCountFunc: NoteCountFunc.DirectionalCombination,
+            maxWin: 180000,
           },
           Group120: {
             name: 'Group120',
             input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 5)],
             pattern: 'FIVE120_$1',
             noteCountFunc: NoteCountFunc.FiveStar.Group120,
+            maxWin: 1500,
           },
           Group60: {
             name: 'Group60',
@@ -180,6 +172,7 @@ namespace we {
             ],
             pattern: 'FIVE60_$1_$2',
             noteCountFunc: NoteCountFunc.FiveStar.Group60,
+            maxWin: 3000,
             validateData: (data: any[]) => {
               if (data[1].length === 3) {
                 // e.g. invalid: 01_1, 01_0, 09_9, 09_0
@@ -198,6 +191,7 @@ namespace we {
             ],
             pattern: 'FIVE30_$1_$2',
             noteCountFunc: NoteCountFunc.FiveStar.Group30,
+            maxWin: 6000,
             validateData: (data: any[]) => {
               if (data[0].length === 2) {
                 // e.g. invalid: 01_1, 01_0, 09_9, 09_0
@@ -216,6 +210,7 @@ namespace we {
             ],
             pattern: 'FIVE20_$1_$2',
             noteCountFunc: NoteCountFunc.FiveStar.Group20,
+            maxWin: 9000,
             validateData: (data: any[]) => {
               if (data[1].length === 2) {
                 // e.g. invalid: 01_1, 01_0, 09_9, 09_0
@@ -234,6 +229,7 @@ namespace we {
             ],
             pattern: 'FIVE10_$1_$2',
             noteCountFunc: NoteCountFunc.FiveStar.Group10,
+            maxWin: 18000,
             validateData: (data: any[]) => {
               if (data[0].length === 1 || data[1].length === 1) {
                 // e.g. invalid: 01_1, 01_0, 09_9, 09_0
@@ -252,6 +248,7 @@ namespace we {
             ],
             pattern: 'FIVE5_$1_$2',
             noteCountFunc: NoteCountFunc.FiveStar.Group5,
+            maxWin: 36000,
             validateData: (data: any[]) => {
               if (data[0].length === 1 && data[1].length === 1) {
                 // e.g. invalid: 01_1, 01_0, 09_9, 09_0
@@ -278,6 +275,7 @@ namespace we {
             ],
             pattern: '2345OPTIONAL_$1_$2_$3_$4',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
+            maxWin: 18000,
           },
           DirectMenu: {
             name: 'DirectMenu',
@@ -286,6 +284,7 @@ namespace we {
             ],
             pattern: '2345OPTIONALINPUT_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 18000,
           },
           DirectCombination: {
             name: 'DirectCombination',
@@ -297,12 +296,14 @@ namespace we {
             ],
             pattern: '2345OPTIONALCOM_$1_$2_$3_$4',
             noteCountFunc: NoteCountFunc.DirectionalCombination,
+            maxWin: 18000,
           },
           Group24: {
             name: 'Group24',
             input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 4)],
             pattern: '2345FOUR24_$1',
             noteCountFunc: NoteCountFunc.FourStar.Group24,
+            maxWin: 750,
           },
           Group12: {
             name: 'Group12',
@@ -312,6 +313,7 @@ namespace we {
             ],
             pattern: '2345FOUR12_$1_$2',
             noteCountFunc: NoteCountFunc.FourStar.Group12,
+            maxWin: 1500,
             validateData: (data: any[]) => {
               if (data[1].length === 2) {
                 // e.g. invalid: 01_1, 01_0, 09_9, 09_0
@@ -327,6 +329,7 @@ namespace we {
             input: [InputComponentDefinition.ballRange('Double', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2)],
             pattern: '2345FOUR6_$1',
             noteCountFunc: NoteCountFunc.FourStar.Group6,
+            maxWin: 3000,
           },
           Group4: {
             name: 'Group4',
@@ -336,6 +339,7 @@ namespace we {
             ],
             pattern: '2345FOUR4_$1_$2',
             noteCountFunc: NoteCountFunc.FourStar.Group4,
+            maxWin: 4500,
             validateData: (data: any[]) => {
               if (data[0].length === 1 && data[1].length === 1) {
                 return Validator.countDifferent(data[0], data[1], 1);
@@ -346,7 +350,7 @@ namespace we {
         },
       },
       FirstThree: {
-        name: 'First Three',
+        name: 'FirstThree',
         type: {
           DirectionSelection: {
             name: 'DirectionSelection',
@@ -357,6 +361,7 @@ namespace we {
             ],
             pattern: '123OPTIONAL_$1_$2_$3',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
+            maxWin: 1800,
           },
           DirectMenu: {
             name: 'DirectMenu',
@@ -365,42 +370,48 @@ namespace we {
             ],
             pattern: '123OPTIONALINPUT_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 1800,
           },
           DirectionSum: {
             name: 'DirectionSum',
             input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 0, 27, 1, 28, InputDataType.SEPARATOR)],
             pattern: '123SUMOPTIONAL_$1',
             noteCountFunc: NoteCountFunc.ThreeStar.DirectionalSum,
+            maxWin: 1800,
           },
-          Group3: {
-            name: 'Group3',
-            input: [InputComponentDefinition.ballRange('Group3', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2)],
+          Three3: {
+            name: 'Three3',
+            input: [InputComponentDefinition.ballRange('Three3', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2)],
             pattern: '123THREE3_$1',
             noteCountFunc: NoteCountFunc.ThreeStar.Group3,
+            maxWin: 600,
           },
-          Group6: {
-            name: 'Group6',
-            input: [InputComponentDefinition.ballRange('Group6', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 3)],
+          Three6: {
+            name: 'Three6',
+            input: [InputComponentDefinition.ballRange('Three6', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 3)],
             pattern: '123THREE6_$1',
             noteCountFunc: NoteCountFunc.ThreeStar.Group6,
+            maxWin: 300,
           },
-          Group3Tow: {
-            name: 'Group3Tow',
+          Three3Tow: {
+            name: 'Three3Tow',
             input: [
               InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
               InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
             ],
             pattern: '123THREEBRAVERYTOW3_$1_$2',
             noteCountFunc: NoteCountFunc.ThreeStar.Group3Tow,
+            maxWin: 600,
           },
-          Group6Tow: {
-            name: 'Group6Tow',
+          Three6Tow: {
+            name: 'Three6Tow',
             input: [
               InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
               InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2),
             ],
             pattern: '123THREEBRAVERYTOW3_$1_$2',
             noteCountFunc: NoteCountFunc.ThreeStar.Group6Tow,
+            maxWin: 300,
           },
           GroupCombine: {
             name: 'GroupCombine',
@@ -409,17 +420,19 @@ namespace we {
             ],
             pattern: '123THREECOMBINE_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 600,
           },
-          SumGroup: {
-            name: 'SumGroup',
+          GroupSum: {
+            name: 'GroupSum',
             input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 1, 26, 1, 26, InputDataType.SEPARATOR)],
             pattern: '123SUMGROUP_$1',
             noteCountFunc: NoteCountFunc.ThreeStar.GroupSum,
+            maxWin: 600,
           },
         },
       },
       MidThree: {
-        name: 'Mid Three',
+        name: 'MidThree',
         type: {
           DirectionSelection: {
             name: 'DirectionSelection',
@@ -430,6 +443,7 @@ namespace we {
             ],
             pattern: '234OPTIONAL_$1_$2_$3',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
+            maxWin: 1800,
           },
           DirectMenu: {
             name: 'DirectMenu',
@@ -438,42 +452,48 @@ namespace we {
             ],
             pattern: '234OPTIONALINPUT_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 1800,
           },
           DirectionSum: {
             name: 'DirectionSum',
             input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 0, 27, 1, 28, InputDataType.SEPARATOR)],
             pattern: '234SUMOPTIONAL_$1',
             noteCountFunc: NoteCountFunc.ThreeStar.DirectionalSum,
+            maxWin: 1800,
           },
-          Group3: {
-            name: 'Group3',
-            input: [InputComponentDefinition.ballRange('Group3', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2)],
+          Three3: {
+            name: 'Three3',
+            input: [InputComponentDefinition.ballRange('Three3', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2)],
             pattern: '234THREE3_$1',
             noteCountFunc: NoteCountFunc.ThreeStar.Group3,
+            maxWin: 600,
           },
-          Group6: {
-            name: 'Group6',
-            input: [InputComponentDefinition.ballRange('Group6', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 3)],
+          Three6: {
+            name: 'Three6',
+            input: [InputComponentDefinition.ballRange('Three6', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 3)],
             pattern: '234THREE6_$1',
             noteCountFunc: NoteCountFunc.ThreeStar.Group6,
+            maxWin: 300,
           },
-          Group3Tow: {
-            name: 'Group3Tow',
+          Three3Tow: {
+            name: 'Three3Tow',
             input: [
               InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
               InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
             ],
             pattern: '234THREEBRAVERYTOW3_$1_$2',
             noteCountFunc: NoteCountFunc.ThreeStar.Group3Tow,
+            maxWin: 600,
           },
-          Group6Tow: {
-            name: 'Group6Tow',
+          Three6Tow: {
+            name: 'Three6Tow',
             input: [
               InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
               InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2),
             ],
             pattern: '234THREEBRAVERYTOW3_$1_$2',
             noteCountFunc: NoteCountFunc.ThreeStar.Group6Tow,
+            maxWin: 300,
           },
           GroupCombine: {
             name: 'GroupCombine',
@@ -482,17 +502,19 @@ namespace we {
             ],
             pattern: '234THREECOMBINE_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 600,
           },
-          SumGroup: {
-            name: 'SumGroup',
+          GroupSum: {
+            name: 'GroupSum',
             input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 1, 26, 1, 26, InputDataType.SEPARATOR)],
             pattern: '234SUMGROUP_$1',
             noteCountFunc: NoteCountFunc.ThreeStar.GroupSum,
+            maxWin: 600,
           },
         },
       },
       LastThree: {
-        name: 'Last Three',
+        name: 'LastThree',
         type: {
           DirectionSelection: {
             name: 'DirectionSelection',
@@ -503,6 +525,7 @@ namespace we {
             ],
             pattern: '345OPTIONAL_$1_$2_$3',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
+            maxWin: 1800,
           },
           DirectMenu: {
             name: 'DirectMenu',
@@ -511,42 +534,48 @@ namespace we {
             ],
             pattern: '345OPTIONALINPUT_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 1800,
           },
           DirectionSum: {
             name: 'DirectionSum',
             input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 0, 27, 1, 28, InputDataType.SEPARATOR)],
             pattern: '345SUMOPTIONAL_$1',
             noteCountFunc: NoteCountFunc.ThreeStar.DirectionalSum,
+            maxWin: 1800,
           },
-          Group3: {
-            name: 'Group3',
-            input: [InputComponentDefinition.ballRange('Group3', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2)],
+          Three3: {
+            name: 'Three3',
+            input: [InputComponentDefinition.ballRange('Three3', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2)],
             pattern: '345THREE3_$1',
             noteCountFunc: NoteCountFunc.ThreeStar.Group3,
+            maxWin: 600,
           },
-          Group6: {
-            name: 'Group6',
-            input: [InputComponentDefinition.ballRange('Group6', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 3)],
+          Three6: {
+            name: 'Three6',
+            input: [InputComponentDefinition.ballRange('Three6', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 3)],
             pattern: '345THREE6_$1',
             noteCountFunc: NoteCountFunc.ThreeStar.Group6,
+            maxWin: 300,
           },
-          Group3Tow: {
-            name: 'Group3Tow',
+          Three3Tow: {
+            name: 'Three3Tow',
             input: [
               InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
               InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
             ],
             pattern: '345THREEBRAVERYTOW3_$1_$2',
             noteCountFunc: NoteCountFunc.ThreeStar.Group3Tow,
+            maxWin: 600,
           },
-          Group6Tow: {
-            name: 'Group6Tow',
+          Three6Tow: {
+            name: 'Three6Tow',
             input: [
               InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
               InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2),
             ],
             pattern: '345THREEBRAVERYTOW3_$1_$2',
             noteCountFunc: NoteCountFunc.ThreeStar.Group6Tow,
+            maxWin: 300,
           },
           GroupCombine: {
             name: 'GroupCombine',
@@ -555,12 +584,14 @@ namespace we {
             ],
             pattern: '345THREECOMBINE_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 600,
           },
-          SumGroup: {
-            name: 'SumGroup',
+          GroupSum: {
+            name: 'GroupSum',
             input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 1, 26, 1, 26, InputDataType.SEPARATOR)],
             pattern: '345SUMGROUP_$1',
             noteCountFunc: NoteCountFunc.ThreeStar.GroupSum,
+            maxWin: 600,
           },
         },
       },
@@ -572,6 +603,7 @@ namespace we {
             input: [InputComponentDefinition.ballRange('Ten', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1), InputComponentDefinition.ballRange('Unit', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1)],
             pattern: '45OPTIONAL_$1_$2',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
+            maxWin: 180,
           },
           DirectMenuLastTwo: {
             name: 'DirectMenuLastTwo',
@@ -580,12 +612,14 @@ namespace we {
             ],
             pattern: '45OPTIONALINPUT_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 180,
           },
           DirectionalSumLastTwo: {
             name: 'DirectionalSumLastTwo',
             input: [InputComponentDefinition.ballRange('Ten', InputComponentTheme.ROWS, 0, 18, 1, 19, InputDataType.SEPARATOR)],
             pattern: '45OPTIONALSUM_$1',
             noteCountFunc: NoteCountFunc.TwoStar.DirectionalSum,
+            maxWin: 180,
           },
           DirectionSelectionFirstTwo: {
             name: 'DirectionSelectionFirstTwo',
@@ -595,6 +629,7 @@ namespace we {
             ],
             pattern: '12OPTIONAL_$1_$2',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
+            maxWin: 180,
           },
           DirectMenuFirstTwo: {
             name: 'DirectMenuFirstTwo',
@@ -603,18 +638,21 @@ namespace we {
             ],
             pattern: '12OPTIONALINPUT_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 180,
           },
           DirectionalSumFirstTwo: {
             name: 'DirectionalSumFirstTwo',
             input: [InputComponentDefinition.ballRange('Sum', InputComponentTheme.ROWS, 0, 18, 1, 19, InputDataType.SEPARATOR)],
             pattern: '12OPTIONALSUM_$1',
             noteCountFunc: NoteCountFunc.TwoStar.DirectionalSum,
+            maxWin: 180,
           },
           GroupDirectionalSelectionLastTwo: {
             name: 'GroupDirectionalSelectionLastTwo',
             input: [InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 0, 9, 2)],
             pattern: '45TWOINPUT_$1',
             noteCountFunc: NoteCountFunc.TwoStar.GroupDirectionalSelection,
+            maxWin: 90,
           },
           GroupDirectionalMenuLastTwo: {
             name: 'GroupDirectionalMenuLastTwo',
@@ -623,18 +661,21 @@ namespace we {
             ],
             pattern: '45GROUPINPUT_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 90,
           },
           GroupSumLastTwo: {
             name: 'GroupSumLastTwo',
             input: [InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 1, 17, 1, 17, InputDataType.SEPARATOR)],
             pattern: '45SUMGROUP_$1',
             noteCountFunc: NoteCountFunc.TwoStar.GroupSum,
+            maxWin: 90,
           },
           GroupDirectionalSelectionFirstTwo: {
             name: 'GroupDirectionalSelectionFirstTwo',
             input: [InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 0, 9, 2)],
             pattern: '12TWOINPUT_$1',
             noteCountFunc: NoteCountFunc.TwoStar.GroupDirectionalSelection,
+            maxWin: 90,
           },
           GroupDirectionalMenuFirstTwo: {
             name: 'GroupDirectionalMenuFirstTwo',
@@ -643,12 +684,14 @@ namespace we {
             ],
             pattern: '12GROUPINPUT_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 90,
           },
           GroupSumFirstTwo: {
             name: 'GroupSumFirstTwo',
             input: [InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 1, 17, 1, 17, InputDataType.SEPARATOR)],
             pattern: '12SUMGROUP_$1',
             noteCountFunc: NoteCountFunc.TwoStar.GroupSum,
+            maxWin: 90,
           },
         },
       },
@@ -667,53 +710,61 @@ namespace we {
             dataSelect: 1,
             pattern: '^1POSITION_%1',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
+            maxWin: 18,
           },
         },
       }, // ??????
-      Any: {
-        name: 'Any',
+      NotPos: {
+        name: 'NotPos',
         type: {
           AnyLastThreeOne: {
             name: 'AnyLastThreeOne',
             input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1)],
             pattern: '345NOTPOS1_$1',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
+            maxWin: 6.6,
           },
           AnyLastThreeTwo: {
             name: 'AnyLastThreeTwo',
             input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2)],
             pattern: '345NOTPOS2_$1',
             noteCountFunc: NoteCountFunc.Any.TwoPos,
+            maxWin: 33.33,
           },
           AnyFirstThreeOne: {
             name: 'AnyFirstThreeOne',
             input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1)],
             pattern: '123NOTPOS1_$1',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
+            maxWin: 6.6,
           },
           AnyFirstThreeTwo: {
             name: 'AnyFirstThreeTwo',
             input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2)],
             pattern: '123NOTPOS2_$1',
             noteCountFunc: NoteCountFunc.Any.TwoPos,
+            maxWin: 33.33,
           },
           AnyFiveOne: {
             name: 'AnyFiveOne',
             input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1)],
             pattern: '12345NOTPOS1_$1',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
+            maxWin: 4.4,
           },
           AnyFiveTwo: {
             name: 'AnyFiveTwo',
             input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2)],
             pattern: '12345NOTPOS2_$1',
             noteCountFunc: NoteCountFunc.Any.TwoPos,
+            maxWin: 12.27,
           },
           AnyFiveThree: {
             name: 'AnyFiveThree',
             input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 3)],
             pattern: '12345NOTPOS2_$1',
             noteCountFunc: NoteCountFunc.Any.ThreePos,
+            maxWin: 41.38,
           },
         },
       },
@@ -728,6 +779,7 @@ namespace we {
             ],
             pattern: 'LAST2SIZEPARITY_$1_$2',
             noteCountFunc: NoteCountFunc.SizeParity.TwoPosDirectionalSelection,
+            maxWin: 7.2,
           },
           FrontSizeParity: {
             name: 'LastSizeParity',
@@ -737,36 +789,42 @@ namespace we {
             ],
             pattern: 'FRONT2SIZEPARITY_$1_$2',
             noteCountFunc: NoteCountFunc.SizeParity.TwoPosDirectionalSelection,
+            maxWin: 7.2,
           },
           TenThousandSizeParity: {
             name: 'TenThousandSizeParity',
             input: [InputComponentDefinition.ballData('TenThousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR)],
             pattern: 'MILSIZEPARITY_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 3.6,
           },
           ThousandSizeParity: {
             name: 'ThousandSizeParity',
             input: [InputComponentDefinition.ballData('Thousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR)],
             pattern: 'THOUSIZEPARITY_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 3.6,
           },
           HundredSizeParity: {
             name: 'HundredSizeParity',
             input: [InputComponentDefinition.ballData('Hundred', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR)],
             pattern: 'HUNSIZEPARITY_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 3.6,
           },
           TenSizeParity: {
             name: 'TenSizeParity',
             input: [InputComponentDefinition.ballData('Ten', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR)],
             pattern: 'TENSIZEPARITY_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 3.6,
           },
           SingleSizeParity: {
             name: 'SingleSizeParity',
             input: [InputComponentDefinition.ballData('Unit', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR)],
             pattern: 'SINSIZEPARITY_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 3.6,
           },
         },
       },
@@ -778,37 +836,42 @@ namespace we {
             input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, 10, InputDataType.STRING)],
             pattern: 'INTEREST1_$1',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
+            maxWin: 4.4,
           },
           Interest2: {
             name: 'Interest2',
             input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, 10, InputDataType.STRING)],
             pattern: 'INTEREST2_$1',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
+            maxWin: 22,
           },
           Interest3: {
             name: 'Interest3',
             input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, 10, InputDataType.STRING)],
             pattern: 'INTEREST3_$1',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
+            maxWin: 210,
           },
           Interest4: {
             name: 'Interest4',
             input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, 10, InputDataType.STRING)],
             pattern: 'INTEREST4_$1',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
+            maxWin: 3913,
           },
         },
       },
       DragonTiger: {
         name: 'DragonTiger',
         type: {
-          TenThosandThosand: {
+          TenThousandThousand: {
             name: 'TenThousandThousand',
             input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.SEPARATOR)],
             mapping: DataMapping.DragonTigerMapping,
             mappingIndex: [0],
             pattern: '12DT_$1',
             noteCountFunc: NoteCountFunc.DragonTigerNoteCount,
+            maxWin: 18,
           },
           TenThousandHundred: {
             name: 'TenThousandHundred',
@@ -817,6 +880,7 @@ namespace we {
             mappingIndex: [0],
             pattern: '13DT_$1',
             noteCountFunc: NoteCountFunc.DragonTigerNoteCount,
+            maxWin: 18,
           },
           TenThousandTen: {
             name: 'TenThousandTen',
@@ -825,6 +889,7 @@ namespace we {
             mappingIndex: [0],
             pattern: '14DT_$1',
             noteCountFunc: NoteCountFunc.DragonTigerNoteCount,
+            maxWin: 18,
           },
           TenThousandUnit: {
             name: 'TenThousandUnit',
@@ -833,6 +898,7 @@ namespace we {
             mappingIndex: [0],
             pattern: '15DT_$1',
             noteCountFunc: NoteCountFunc.DragonTigerNoteCount,
+            maxWin: 18,
           },
           ThousandHundred: {
             name: 'ThousandHundred',
@@ -841,6 +907,7 @@ namespace we {
             mappingIndex: [0],
             pattern: '23DT_$1',
             noteCountFunc: NoteCountFunc.DragonTigerNoteCount,
+            maxWin: 18,
           },
           ThousandTen: {
             name: 'ThousandTen',
@@ -849,6 +916,7 @@ namespace we {
             mappingIndex: [0],
             pattern: '24DT_$1',
             noteCountFunc: NoteCountFunc.DragonTigerNoteCount,
+            maxWin: 18,
           },
           ThousandUnit: {
             name: 'ThousandUnit',
@@ -857,6 +925,7 @@ namespace we {
             mappingIndex: [0],
             pattern: '25DT_$1',
             noteCountFunc: NoteCountFunc.DragonTigerNoteCount,
+            maxWin: 18,
           },
           HundredTen: {
             name: 'HundredTen',
@@ -865,6 +934,7 @@ namespace we {
             mappingIndex: [0],
             pattern: '34DT_$1',
             noteCountFunc: NoteCountFunc.DragonTigerNoteCount,
+            maxWin: 18,
           },
           HundredUnit: {
             name: 'HundredUnit',
@@ -873,6 +943,7 @@ namespace we {
             mappingIndex: [0],
             pattern: '35DT_$1',
             noteCountFunc: NoteCountFunc.DragonTigerNoteCount,
+            maxWin: 18,
           },
           TenUnit: {
             name: 'TenUnit',
@@ -881,14 +952,15 @@ namespace we {
             mappingIndex: [0],
             pattern: '45DT_$1',
             noteCountFunc: NoteCountFunc.DragonTigerNoteCount,
+            maxWin: 18,
           },
         },
       },
       AnyTwo: {
-        name: 'Any Two',
+        name: 'AnyTwo',
         type: {
-          DirectionalSelection: {
-            name: 'DirectionalSelection',
+          DirectionSelection: {
+            name: 'DirectionSelection',
             input: [
               InputComponentDefinition.ballRange('TenThousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
               InputComponentDefinition.ballRange('Thousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
@@ -899,9 +971,10 @@ namespace we {
             dataSelect: 2,
             pattern: '^1^2OPTIONALFREE_&1_&2',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
+            maxWin: 180,
           },
-          DirectionalMenu: {
-            name: 'DirectionalMenu',
+          DirectMenu: {
+            name: 'DirectMenu',
             input: [
               InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 2),
               InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
@@ -909,9 +982,10 @@ namespace we {
             combinationDataId: 1,
             pattern: '^1^2OPTIONALINPUTFREE_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 180,
           },
-          DirectionalSum: {
-            name: 'DirectionalSum',
+          DirectionSum: {
+            name: 'DirectionSum',
             input: [
               InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 2),
               InputComponentDefinition.ballRange('', InputComponentTheme.ROWS, 0, 18, 1, 19, InputDataType.SEPARATOR),
@@ -919,6 +993,7 @@ namespace we {
             combinationDataId: 1,
             pattern: '^1^2OPTIONALINPUTFREE_$1',
             noteCountFunc: NoteCountFunc.Any.AnyTwoDirectionalSum,
+            maxWin: 180,
           },
           GroupSelection: {
             name: 'GroupSelection',
@@ -929,6 +1004,7 @@ namespace we {
             combinationDataId: 1,
             pattern: '^1^2TWOGROUPFREE_$1',
             noteCountFunc: NoteCountFunc.Any.AnyGroupDirectionalSelection,
+            maxWin: 90,
           },
           GroupMenu: {
             name: 'GroupMenu',
@@ -939,6 +1015,7 @@ namespace we {
             combinationDataId: 1,
             pattern: '^1^2TWOGROUPFREEINPUT_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 90,
           },
           GroupSum: {
             name: 'GroupSum',
@@ -949,14 +1026,15 @@ namespace we {
             combinationDataId: 1,
             pattern: '^1^2SUMGROUPFREE_$1',
             noteCountFunc: NoteCountFunc.Any.AnyTwoGroupSum,
+            maxWin: 90,
           },
         },
       },
       AnyThree: {
         name: 'AnyThree',
         type: {
-          DirectionalSelection: {
-            name: 'DirectionalSelection',
+          DirectionSelection: {
+            name: 'DirectionSelection',
             input: [
               InputComponentDefinition.ballRange('TenThousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
               InputComponentDefinition.ballRange('Thousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
@@ -967,9 +1045,10 @@ namespace we {
             dataSelect: 3,
             pattern: '^1^2^3OPTIONALFREE_&1_&2_&3',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
+            maxWin: 1800,
           },
-          DirectionalMenu: {
-            name: 'DirectionalMenu',
+          DirectMenu: {
+            name: 'DirectMenu',
             input: [
               InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3),
               InputComponentDefinition.textArea('', 3), // 12|23|54|67|...
@@ -977,9 +1056,10 @@ namespace we {
             combinationDataId: 1,
             pattern: '^1^2^3OPTIONALINPUTFREE_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 1800,
           },
-          DirectionalSum: {
-            name: 'DirectionalSum',
+          DirectionSum: {
+            name: 'DirectionSum',
             input: [
               InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3),
               InputComponentDefinition.ballRange('', InputComponentTheme.ROWS, 0, 27, 1, 28, InputDataType.SEPARATOR),
@@ -987,6 +1067,7 @@ namespace we {
             combinationDataId: 1,
             pattern: '^1^2^3OPTIONALINPUTFREE_$1',
             noteCountFunc: NoteCountFunc.Any.AnyThreeDirectionalSum,
+            maxWin: 1800,
           },
           GroupThree: {
             name: 'GroupThree',
@@ -997,6 +1078,7 @@ namespace we {
             combinationDataId: 1,
             pattern: '^1^2^3THREE3FREE_$1',
             noteCountFunc: NoteCountFunc.Any.AnyThreeGroup3,
+            maxWin: 600,
           },
           GroupSix: {
             name: 'GroupSix',
@@ -1007,6 +1089,7 @@ namespace we {
             combinationDataId: 1,
             pattern: '^1^2^3THREE6FREE_$1',
             noteCountFunc: NoteCountFunc.Any.AnyThreeGroup6,
+            maxWin: 300,
           },
           MixGroup: {
             name: 'MixGroup',
@@ -1014,6 +1097,7 @@ namespace we {
             combinationDataId: 1,
             pattern: '^1^2^3THREECOMBINEFREE_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 600,
           },
           GroupSum: {
             name: 'GroupSum',
@@ -1024,14 +1108,15 @@ namespace we {
             combinationDataId: 1,
             pattern: '^1^2^3SUMGROUPFREE_$1',
             noteCountFunc: NoteCountFunc.Any.AnyThreeGroupSum,
+            maxWin: 600,
           },
         },
       },
       AnyFour: {
         name: 'AnyFour',
         type: {
-          DirectionalSelection: {
-            name: 'DirectionalSelection',
+          DirectionSelection: {
+            name: 'DirectionSelection',
             input: [
               InputComponentDefinition.ballRange('TenThousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
               InputComponentDefinition.ballRange('Thousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
@@ -1042,9 +1127,10 @@ namespace we {
             dataSelect: 4,
             pattern: '^1^2^3^4OPTIONALFREE_&1_&2_&3_&4',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
+            maxWin: 18000,
           },
-          DirectionalMenu: {
-            name: 'DirectionalMenu',
+          DirectMenu: {
+            name: 'DirectMenu',
             input: [
               InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 4),
               InputComponentDefinition.textArea('', 4), // 12|23|54|67|...
@@ -1052,6 +1138,7 @@ namespace we {
             combinationDataId: 1,
             pattern: '^1^2^3^4OPTIONALFREEINPUT_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            maxWin: 18000,
           },
           Group24: {
             name: 'Group24',
@@ -1062,6 +1149,7 @@ namespace we {
             combinationDataId: 1,
             pattern: '^1^2^3^4FOUR24FREE_$1',
             noteCountFunc: NoteCountFunc.FourStar.Group24,
+            maxWin: 750,
           },
           Group12: {
             name: 'Group12',
@@ -1073,6 +1161,7 @@ namespace we {
             combinationDataId: 1,
             pattern: '^1^2^3^4FOUR12FREE_$1_$2',
             noteCountFunc: NoteCountFunc.FourStar.Group12,
+            maxWin: 1500,
           },
           Group6: {
             name: 'Group6',
@@ -1083,6 +1172,7 @@ namespace we {
             combinationDataId: 1,
             pattern: '^1^2^3^4FOUR6FREE_$1',
             noteCountFunc: NoteCountFunc.FourStar.Group6,
+            maxWin: 3000,
           },
           Group4: {
             name: 'Group4',
@@ -1094,6 +1184,7 @@ namespace we {
             combinationDataId: 1,
             pattern: '^1^2^3^4FOUR6FREE_$1_$2',
             noteCountFunc: NoteCountFunc.FourStar.Group4,
+            maxWin: 4500,
           },
         },
       },

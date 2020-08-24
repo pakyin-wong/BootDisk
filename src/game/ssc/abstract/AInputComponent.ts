@@ -10,7 +10,18 @@ namespace we {
         super();
         this._index = index;
         this._config = config;
+        this.addEventListeners();
       }
+
+      public addEventListeners() {
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
+      }
+
+      public removeEventListners() {
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
+      }
+
+      protected updateText() {}
 
       public validate() {
         if (this._config.validate) {

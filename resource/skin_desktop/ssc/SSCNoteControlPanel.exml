@@ -30,7 +30,7 @@
 				<ui:RunTimeLabel id="_lbltotalBetCountText" text="總投注額" x="55" y="131" width="200" size="36" verticalAlign="middle" height="54" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>          
 				<ui:RunTimeLabel id="_lbltotalBetAmount" text="Label" x="55" y="186" width="200" size="36" verticalAlign="middle" height="34" textColor="0xe4493a" scaleX="1" scaleY="1"/>    
 				<e:Image id="_btnRemoveNotes" width="52" height="56" x="319" scaleX="1" scaleY="1" source="d_lobby_panel_button_play_normal_png" y="281" visible="false"/>              
-				<e:Group width="118" height="50" touchChildren="true" y="263" x="55">
+				<!--<e:Group width="118" height="50" touchChildren="true" y="263" x="55">
 					<ui:RoundRectButton id="_btnChaseBet" width="118" height="50" cornerTL_TR_BL_BR="25,25,25,25"
 							stroke="2" strokeColor="0x0f9d5d" fillAlpha="0" strokeAlpha="1"
 							stroke_disabled="2" strokeColor_disabled="0x5f6973" fillAlpha_disabled="0" strokeAlpha_disabled="1"
@@ -38,7 +38,7 @@
 							stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x0f9d5d"
 							stroke_active="2" strokeColor_active="0x007842" fillAlpha_active="0" strokeAlpha_active="1"/>                
 							<ui:RunTimeLabel id="_lblChaseBet" text="追號" size="20" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
-				</e:Group>
+				</e:Group>-->
 				<e:Group width="166" height="50" touchChildren="true" y="263" x="201">
 					<ui:RoundRectButton id="_btnConfirmBet" width="166" height="50" cornerTL_TR_BL_BR="25,25,25,25"
 							stroke="2" strokeColor="0x0f9d5d" fillAlpha="0" strokeAlpha="1"

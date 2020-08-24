@@ -17,7 +17,6 @@ namespace we {
       private _btnBetDescription; // need tooltips????
       private _lblBetDescription;
 
-      private _lblHighestWin;
       private _lblTitleNoteChosen;
       private _lblNoteChosen;
       private _lblTitleTotalBet;

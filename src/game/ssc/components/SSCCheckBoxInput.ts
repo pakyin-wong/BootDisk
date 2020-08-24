@@ -39,7 +39,8 @@ namespace we {
           const lbl = new ui.RunTimeLabel();
           lbl.size = 22;
           lbl.textColor = 0xb7b9bc;
-          lbl.text = this._config.title[i];
+          lbl.renderText = () => `${i18n.t('lo_trad.inputTitle.' + this._config.title[i])}`;
+
           this.checkBoxArray[i].addChild(lbl);
 
           const layout = new eui.HorizontalLayout();
@@ -68,6 +69,12 @@ namespace we {
           this.checkBoxImg[i].source = this.checkBoxValueArray[i] ? 'checkbox_select_up_png' : 'checkbox_unselect_png';
         }
         this.updateData();
+      }
+
+      protected updateText() {
+        for (let i = 0; i < this.checkBoxArray.length; i++) {
+          (this.checkBoxArray[i].getChildAt(1) as ui.RunTimeLabel).renderText = () => `${i18n.t('lo_trad.inputTitle.' + this._config.title[i])}`;
+        }
       }
 
       public onInitAllCheckBox(e: egret.Event) {

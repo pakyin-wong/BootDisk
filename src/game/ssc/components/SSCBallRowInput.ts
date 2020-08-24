@@ -32,7 +32,9 @@ namespace we {
         this._balls = [];
 
         if (this._config.title && this._title) {
-          this._title.text = this._config.title;
+          this._title.renderText = () => `${i18n.t('lo_trad.inputTitle.' + this._config.title)}`;
+        } else {
+          this._title.renderText = () => '';
         }
 
         for (let i = 0; i < this._config.data.length; i++) {
@@ -106,6 +108,14 @@ namespace we {
       protected onBallClicked(e: egret.TouchEvent) {
         (e.target as SSCBallButton).toggleActive();
         this.updateData();
+      }
+
+      protected updateText() {
+        if (this._config.title && this._title) {
+          this._title.renderText = () => `${i18n.t('lo_trad.inputTitle.' + this._config.title)}`;
+        } else {
+          this._title.renderText = () => '';
+        }
       }
 
       protected updateData() {

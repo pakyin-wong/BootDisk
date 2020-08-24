@@ -49,8 +49,6 @@ namespace we {
 
       protected _btnChaseBet: ui.RoundRectButton;
 
-      private _balance: number = 1;
-
       private _outputData: any = [];
       private _totalBetAmount: any = 0;
       private _totalBetCount: any = 0;
