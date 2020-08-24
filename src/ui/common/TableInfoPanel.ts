@@ -37,11 +37,10 @@ namespace we {
 
       protected childrenCreated(): void {
         super.childrenCreated();
-        for (const child of this.$children) {
-          if ((<any>child).text !== null) {
-            child.touchEnabled = false;
-          }
-        }
+        utils.disableTouchforChildren(this, obj => {
+          const bool = !!(<any>obj).text;
+          return bool;
+        });
 
         this._initY = this.y;
 
@@ -94,7 +93,8 @@ namespace we {
         if (this.pTableBetLimit) {
           this.pTableBetLimit.text = utils.numberToFaceValue(betLimitSet.maxlimit);
         }
-        this.pBetLimit.text = `${utils.numberToFaceValue(betLimitSet.chips[0])} -  ${utils.numberToFaceValue(betLimitSet.chips[betLimitSet.chips.length - 1])}`;
+        this.pBetLimit.text = `${utils.numberToFaceValue(betLimitSet.minlimit)} - ${utils.numberToFaceValue(betLimitSet.maxlimit)}`;
+        // this.pBetLimit.text = `${utils.numberToFaceValue(betLimitSet.chips[0])} - ${utils.numberToFaceValue(betLimitSet.chips[betLimitSet.chips.length - 1])}`;
 
         const config = this.getConfig();
 

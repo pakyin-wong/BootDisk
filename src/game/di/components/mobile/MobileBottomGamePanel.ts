@@ -8,7 +8,7 @@ namespace we {
       public _roadButtonPanel: MobileBottomRoadButtonPanel;
 
       public _tableInfoPanel: di.TableInfoPanel;
-      public _betLimitDropDownBtn: ui.RunTimeLabel;
+      // public _betLimitDropDownBtn: ui.RunTimeLabel;
 
       public _statisticChartPanel: di.StatisticChartPanel;
 
@@ -31,7 +31,7 @@ namespace we {
 
       protected mount() {
         super.mount();
-        this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
+        // this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
         this._roadButtonPanel.changeState();
       }
 
