@@ -19,7 +19,9 @@
 		<e:Image id="_profilePrc" width="58" height="58" x="0" y="7.8" anchorOffsetX="0" anchorOffsetY="0" fillMode="scale"
 		         scaleX="1" scaleY="1" source="d_lobby_profile_pic_03_png" />
 	</e:Group>
-	<e:Image id="_refreshButton" scaleX="1" scaleY="1" source="m_common_header_icon_refresh_png" y="31" width="30" height="30" x="2436" tooltipText="'nav.tooltip.refresh'" />
+	<ui:BaseAnimationButton id="_refreshButton" y="31" x="2436" scaleX="1.2" scaleY="1.2" width="30" height="30"
+		                        dbClass="common_ui" dbDisplay="d_common_icon_refresh" useColorFilter="false"
+								 tooltipText="'nav.tooltip.refresh'" />
 	<e:Image id="_menu_toggle" width="28.8" height="24.4" x="2527" y="35" source="d_lobby_navbar_menu_png" tooltipText="'nav.tooltip.menu'" />
 	<!--<ui:UserInfoWindow id="_userInfo" width="480" height="700" x="2000" y="115.76" isPoppable="true"
 	                       dismissOnClickOutside="true" />

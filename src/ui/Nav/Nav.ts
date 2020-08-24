@@ -17,7 +17,7 @@ namespace we {
       private _balanceText: ui.RunTimeLabel;
 
       private _profilePrc: eui.Image;
-      private _refreshButton: eui.Image;
+      private _refreshButton: ui.BaseAnimationButton;
 
       private isPlayerProfileOpened: boolean = false;
       // from Monitor.ts
