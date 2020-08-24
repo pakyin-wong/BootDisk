@@ -48,14 +48,21 @@
 		<e:Group id="_middlePart" width="1242" x="0" y="100" scaleX="1" scaleY="1">
 			<e:Rect strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x212425" strokeColor="0x212425" left="0" right="0" top="0" bottom="0" locked="true"/>
 			<e:Rect id="viewStackMask" width="1242" height="532" x="0" y="0" scaleX="1" scaleY="1"/>
-			<e:ViewStack id="viewStack" width="1242" height="532" x="0" y="0" scaleX="1" scaleY="1" selectedIndex="1">
+			<e:ViewStack id="viewStack" width="1242" height="532" x="0" y="0" scaleX="1" scaleY="1" selectedIndex="2">
 				<e:Group id="_historyGroup" width="100%" height="100%" name="Group">
 				</e:Group>
 					<e:Group id="_poolGroup" width="100%" height="100%" name="Group">
 						<dil:Pool id="_poolPanel" skinName="skin_mobile_portrait.dil.PoolSkin" width="100%" height="100%" scaleX="1" scaleY="1"/>
 					</e:Group>
 				<e:Group id="_chartGroup" width="100%" height="100%" name="Group">
-					<dil:History id="_chartPanel" skinName="skin_mobile_portrait.dil.HistorySkin" width="100%" height="100%" scaleX="1" scaleY="1"/>
+					<ui:HorizontalHolder bulletWidth="25" bulletHeight="25" bulletGapValue="15" bulletRight="10" bulletTop="10" width="1242" height="532" slideWidth="1242" slideHeight="532" isLoop="false" isAuto="false">
+						<e:Group width="1242" height="532" y="0">
+							<dil:History id="_historyPanel1" skinName="skin_mobile_portrait.dil.HistorySkin" width="100%" height="100%" scaleX="1" scaleY="1"/>
+						</e:Group>
+						<e:Group width="1242" height="532" x="1242">
+							<dil:History id="_historyPanel2" skinName="skin_mobile_portrait.dil.HistorySkin" width="100%" height="100%" scaleX="1" scaleY="1"/>
+						</e:Group>
+					</ui:HorizontalHolder>	
 				</e:Group>
 				<e:Group id="_infoGroup" width="100%" height="100%" name="Group" x="0" y="0" scaleX="1" scaleY="1">
 					<dil:TableInfoPanel id="_tableInfoPanel" skinName="skin_mobile_portrait.dil.TableInfoPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>

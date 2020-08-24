@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.dil.TableInfoPanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-    <ui:HorizontalHolder bulletBottom="0" bulletHorizontalCenter="0" width="1242" height="532" slideWidth="1242" slideHeight="532" isLoop="true" isAuto="false" bulletGapValue="20">
-		<e:Group id="content" width="100%" height="100%">
+    <ui:HorizontalHolder bulletWidth="25" bulletHeight="25" bulletBottom="25" bulletHorizontalCenter="0" width="1242" height="532" slideWidth="1242" slideHeight="532" isLoop="true" isAuto="false" bulletGapValue="20">
+		<e:Group id="content" width="1242" height="532">
 			<e:Rect id="_bg" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" />
 			<e:Image id="moveArea" source="popover_png" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7"
 					 visible="false" />
@@ -56,7 +56,7 @@
 			<ui:RunTimeLabel id="sevenCountLabel" text="對子 (雙骰、長牌)" y="340" x="669.7" scaleX="1" scaleY="1" size="44" textKey="dice.double" />
 			<ui:RunTimeLabel id="eightCountLabel" text="總數4 / 17" y="410" x="669.7" scaleX="1" scaleY="1" size="44" />
 		</e:Group>
-		<e:Group id="contentTwo" x="0" width="100%" height="100%">
+		<e:Group id="contentTwo" x="0" width="1242" height="532">
 			<e:Rect id="_bg0" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" />
 			<e:Image id="moveArea0" source="popover_png" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7" visible="false" />
 			<ui:RunTimeLabel id="lblTableInfo0" text="本檯資訊" left="50" top="50" x="50" y="50" scaleX="1" scaleY="1" size="20" textColor="0xC59466" visible="false" textKey="" />
