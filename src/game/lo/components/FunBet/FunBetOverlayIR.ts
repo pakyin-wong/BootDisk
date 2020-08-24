@@ -11,9 +11,9 @@ namespace we {
       }
 
       protected dataChanged(): void {
-        this.field.text = i18n.t(this.data.id);
+        this.field.text = FunBet.getBetDetailLabel(this.data.type, this.data.group, this.data.field);
         this.rate.text = this.data.rate;
-        this.amt.text = `$${this.data.amt.toFixed(2)}`;
+        this.amt.text = `$${(this.data.amt * 0.01).toFixed(2)}`;
       }
     }
   }

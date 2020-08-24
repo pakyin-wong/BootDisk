@@ -4301,32 +4301,38 @@
 		{
 			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_bg_blue.png",
 			"type": "image",
-			"name": "d_lottery_ent_penal_betarea_betpenal_bg_blue_png"
+			"name": "d_lottery_ent_penal_betarea_betpenal_bg_blue_png",
+			"scale9grid": "20,20,3,3"
 		},
 		{
 			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_bg_blue_title.png",
 			"type": "image",
-			"name": "d_lottery_ent_penal_betarea_betpenal_bg_blue_title_png"
+			"name": "d_lottery_ent_penal_betarea_betpenal_bg_blue_title_png",
+			"scale9grid": "21,21,22,22"
 		},
 		{
 			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_bg_green.png",
 			"type": "image",
-			"name": "d_lottery_ent_penal_betarea_betpenal_bg_green_png"
+			"name": "d_lottery_ent_penal_betarea_betpenal_bg_green_png",
+			"scale9grid": "20,20,3,3"
 		},
 		{
 			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_bg_green_title.png",
 			"type": "image",
-			"name": "d_lottery_ent_penal_betarea_betpenal_bg_green_title_png"
+			"name": "d_lottery_ent_penal_betarea_betpenal_bg_green_title_png",
+			"scale9grid": "21,21,22,22"
 		},
 		{
 			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_bg_purple.png",
 			"type": "image",
-			"name": "d_lottery_ent_penal_betarea_betpenal_bg_purple_png"
+			"name": "d_lottery_ent_penal_betarea_betpenal_bg_purple_png",
+			"scale9grid": "21,20,2,3"
 		},
 		{
 			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_bg_purple_title.png",
 			"type": "image",
-			"name": "d_lottery_ent_penal_betarea_betpenal_bg_purple_title_png"
+			"name": "d_lottery_ent_penal_betarea_betpenal_bg_purple_title_png",
+			"scale9grid": "22,21,21,22"
 		},
 		{
 			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_dt_bet_active.png",
