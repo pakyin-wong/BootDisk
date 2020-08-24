@@ -2,7 +2,8 @@ namespace we {
   export namespace loading {
     export class Scene extends core.BaseScene {
       private _bannerSlider: ui.ImageSlider;
-      private _progressbar: eui.ProgressBar;
+      // private _progressbar: eui.ProgressBar;
+      private _progressbar2: ui.ProgressBar;
       private _progressMsg: ui.RunTimeLabel;
       private _tip: ui.NavLantern;
       private _bannerImages: core.IRemoteResourceItem[];
@@ -49,9 +50,9 @@ namespace we {
 
       private async getBanner() {
         this._progressMsg.renderText = () => `${i18n.t('loading.socket.connecting')}`;
-        this._progressbar.minimum = 0;
-        this._progressbar.maximum = 1;
-        this._progressbar.value = 0;
+        // this._progressbar.minimum = 0;
+        // this._progressbar.maximum = 1;
+        // this._progressbar.value = 0;
 
         this._tip.alignToCenter();
         this._tip.messages = [];
@@ -79,9 +80,9 @@ namespace we {
       /** Step 2.5: Get Static Server Init Data */
       private async getStaticData() {
         this._progressMsg.renderText = () => `${i18n.t('loading.socket.connecting')}`;
-        this._progressbar.minimum = 0;
-        this._progressbar.maximum = 1;
-        this._progressbar.value = 0;
+        // this._progressbar.minimum = 0;
+        // this._progressbar.maximum = 1;
+        // this._progressbar.value = 0;
 
         this._tip.alignToCenter();
         this._tip.messages = [];
@@ -126,9 +127,9 @@ namespace we {
       /** Step 3: Socket Connect */
       private async socketConnect() {
         this._progressMsg.renderText = () => `${i18n.t('loading.socket.connecting')}`;
-        this._progressbar.minimum = 0;
-        this._progressbar.maximum = 1;
-        this._progressbar.value = 0;
+        // this._progressbar.minimum = 0;
+        // this._progressbar.maximum = 1;
+        // this._progressbar.value = 0;
 
         dir.evtHandler.once(core.MQTT.CONNECT_SUCCESS, this.next, this);
         // dir.evtHandler.once(enums.mqtt.event.CONNECT_FAIL, this.socketConnectFail, this);
@@ -143,9 +144,9 @@ namespace we {
       /** Step 4: Auth and get user profiles */
       private async auth() {
         this._progressMsg.renderText = () => `${i18n.t('loading.socket.auth')}`;
-        this._progressbar.minimum = 0;
-        this._progressbar.maximum = 1;
-        this._progressbar.value = 0;
+        // this._progressbar.minimum = 0;
+        // this._progressbar.maximum = 1;
+        // this._progressbar.value = 0;
 
         await utils.sleep(100);
         this.next();
@@ -181,9 +182,9 @@ namespace we {
         RES.createGroup('firstRun', [core.res.Lobby, core.res.Baccarat, core.res.DragonTiger, core.res.Roulette, core.res.Dice, core.res.Common, core.res.Nav, core.res.LuckyWheel, 'temp', 'test']);
         RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
         this._progressMsg.renderText = () => `${i18n.t('loading.res.onload')}`;
-        this._progressbar.minimum = 0;
-        this._progressbar.maximum = 0;
-        this._progressbar.value = 0;
+        // this._progressbar.minimum = 0;
+        // this._progressbar.maximum = 0;
+        // this._progressbar.value = 0;
         await RES.loadGroup('firstRun');
         await new Promise(resolve => {
           dir.socket.getLobbyMaterial(async res => {
@@ -244,9 +245,13 @@ namespace we {
 
       private onResourceProgress(event: RES.ResourceEvent) {
         if (event.groupName === 'firstRun') {
-          this._progressbar.minimum = 0;
-          this._progressbar.maximum = event.itemsTotal;
-          this._progressbar.value = event.itemsLoaded;
+          // this._progressbar.minimum = 0;
+          // this._progressbar.maximum = event.itemsTotal;
+          // this._progressbar.value = event.itemsLoaded;
+          const progress = Math.floor((event.itemsLoaded * 100) / event.itemsTotal) / 100;
+          this._progressbar2.proportion = progress;
+          console.log('progress', progress);
+          // this._progressbar2.proportion =
         }
       }
 

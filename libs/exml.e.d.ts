@@ -2203,6 +2203,10 @@ declare module skin_mobile{
 	}
 }
 declare module skin_mobile{
+	class CountdownTimerRoundSqueezeBaccaratSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile{
 	class MobileSideGameListItemRenderer extends eui.Skin{
 	}
 }

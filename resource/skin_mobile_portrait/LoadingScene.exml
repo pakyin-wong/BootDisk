@@ -3,8 +3,11 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<ui:ImageSlider id="_bannerSlider" left="0" top="0" right="0" bottom="0" touchEnabled="false" />
 	<e:Image id="logo" width="378" height="108" x="822" y="26.8" source="d_lobby_navbar_logo_png"  visible="false"/>
-	<e:ProgressBar id="_progressbar" width="1012" height="30" horizontalCenter="0" y="1705" anchorOffsetY="0"
-	               skinName="skin_mobile_portrait.LoadingProgressBar" touchEnabled="false" />
+	<!--<e:ProgressBar id="_progressbar" width="1012" height="30" horizontalCenter="0" y="1705" anchorOffsetY="0"
+	               skinName="skin_mobile_portrait.LoadingProgressBar" touchEnabled="false" />-->
+	<ui:ProgressBar id="_progressbar2" gradientColor="0x855205,0xd9b989"  baseColor="0x505050" width="1012" height="30"
+                        horizontalCenter="0" y="1705" roundCorner="[10, 10, 10, 10, 10, 10, 10, 10]"
+                        touchEnabled="false" direction="horizontal"/>
 	<ui:RunTimeLabel id="_progressMsg" text="" y="1629" textAlign="center" left="0" right="0"
 	                 size="40" height="56" />
 	<e:Rect width="750" height="52" y="1840" ellipseHeight="50" ellipseWidth="50" fillColor="0x000000" fillAlpha="0.4"
