@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.ba.StatisticChartPanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*">
+	<e:Rect width="1242" height="532" x="0" y="0" fillColor="0x212425"/>
 		<ba:StatisticChartHolder id="_leftHolder" skinName="skin_mobile_portrait.ba.StatisticChartHolder" width="576" height="240"  y="30" x="30"></ba:StatisticChartHolder>
 		<ba:StatisticChartHolder id="_rightHolder" skinName="skin_mobile_portrait.ba.StatisticChartHolder" width="576" height="240"  y="30" x="630"></ba:StatisticChartHolder>
+
 	<!--<e:Group id="content" width="100%" height="100%">
 	<e:Rect width="1242" height="532" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" />
 	<ui:RunTimeLabel id="_leftTitle" text="庄閒和比例" x="19" y="80" scaleX="1" scaleY="1" width="600" height="73" size="44"

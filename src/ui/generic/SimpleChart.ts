@@ -26,7 +26,7 @@ namespace we {
         this.drawChart();
       }
 
-      public drawChart() {
+      public drawChart(shapeGrey?: boolean) {
         this.removeChildren();
 
         const shapeRed: egret.Shape = new egret.Shape();
@@ -42,7 +42,11 @@ namespace we {
         this.addChild(shapeBlue);
 
         const shapeGreen: egret.Shape = new egret.Shape();
-        shapeGreen.graphics.lineStyle(this._lineWidth, 0x1f86c);
+        if (shapeGrey) {
+          shapeGreen.graphics.lineStyle(this._lineWidth, 0x606060);
+        } else {
+          shapeGreen.graphics.lineStyle(this._lineWidth, 0x1f86c);
+        }
         shapeGreen.graphics.drawArc(this._radius, this._radius, this._radius, (this._redAngle + this._blueAngle) * (Math.PI / 180), 360 * (Math.PI / 180), false);
         shapeGreen.graphics.endFill();
         this.addChild(shapeGreen);

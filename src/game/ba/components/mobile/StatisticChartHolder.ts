@@ -4,26 +4,26 @@ namespace we {
       protected _title01: ui.RunTimeLabel;
       protected _title02: ui.RunTimeLabel;
 
-      public _count01_bank: ui.RunTimeLabel;
-      public _count01_player: ui.RunTimeLabel;
-      public _count01_tie: ui.RunTimeLabel;
-      public _count02_bank: ui.RunTimeLabel;
-      public _count02_player: ui.RunTimeLabel;
-      public _count02_tie: ui.RunTimeLabel;
+      public _count01_bank: eui.Label;
+      public _count01_player: eui.Label;
+      public _count01_tie: eui.Label;
+      public _count02_bank: eui.Label;
+      public _count02_player: eui.Label;
+      public _count02_tie: eui.Label;
 
-      public _countPer01_bank: ui.RunTimeLabel;
-      public _countPer01_player: ui.RunTimeLabel;
-      public _countPer01_tie: ui.RunTimeLabel;
+      public _countPer01_bank: eui.Label;
+      public _countPer01_player: eui.Label;
+      public _countPer01_tie: eui.Label;
 
-      public _countPer02_bank: ui.RunTimeLabel;
-      public _countPer02_player: ui.RunTimeLabel;
-      public _countPer02_tie: ui.RunTimeLabel;
+      public _countPer02_bank: eui.Label;
+      public _countPer02_player: eui.Label;
+      public _countPer02_tie: eui.Label;
 
       public _chart_01: ui.SimpleChart;
       public _chart_02: ui.SimpleChart;
 
-      public _roundCount01: ui.RunTimeLabel;
-      public _roundCount02: ui.RunTimeLabel;
+      public _roundCount01: eui.Label;
+      public _roundCount02: eui.Label;
 
       public _roundLabel01: ui.RunTimeLabel;
       public _roundLabel02: ui.RunTimeLabel;
