@@ -76,7 +76,7 @@
     <e:Group id="_betRelatedGroup" x="819" y="18">
 				<e:Rect id="_roundPanel" width="765" height="130" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"  x="0" x.left="219"/>
 				<e:Button id="_confirmButton" width="324" height="130" skinName="skin_mobile_portrait.BetConfirmButtonSkin" x="649" x.left="0"/>
-				<ui:CountdownTimer id="_timer" width="324" height="130" skinName="skin_mobile_portrait.CountdownTimerSkin" x="649" x.left="0"/>
+				<ui:CountdownTimer id="_timer" width="324" height="130" skinName="skin_mobile_portrait.CountdownTimerSkin" x="649" x.left="0" colorChange="true"/>
 			<ui:RunTimeLabel id="_repeatLabel" text="再次下注" x="41" y="73"  textAlign="center" width="128" size="32" height="47" verticalAlign="middle" x.left="792"/>
 			<ui:RunTimeLabel id="_cancelLabel" text="清除" x="336" y="73"  textAlign="center" size="32" height="47" verticalAlign="middle" width="128" x.left="488"/>
 			<ui:RunTimeLabel id="_doubleLabel" text="雙倍" x="193" y="73"  textAlign="center" size="32" height="47" verticalAlign="middle" width="128" x.left="640"/>
