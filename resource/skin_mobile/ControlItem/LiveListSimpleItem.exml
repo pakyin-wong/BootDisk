@@ -19,7 +19,7 @@
 		</e:Group>
 		<e:Group anchorOffsetX="0" anchorOffsetY="0" x="27" y="199" height="50">
 			<ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_mobile_portrait.GoodRoadLabelSkin"
-			                  currentState="small" />
+			                  currentState="small"  visible="false"/>
 			<e:Group id="_alreadyBetSign" scaleX="1"
 			         scaleY="1" height="50">
 				<e:Rect right="0" left="0" top="0" bottom="0" ellipseWidth="50" ellipseHeight="50" fillAlpha="0.76"
@@ -27,7 +27,7 @@
 				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="40" left="20" right="20" />
 			</e:Group>
 			<e:layout>
-				<e:BasicLayout/>
+				<e:HorizontalLayout/>
 			</e:layout>
 
 		</e:Group>
