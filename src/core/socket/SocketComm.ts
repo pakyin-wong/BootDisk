@@ -582,6 +582,8 @@ namespace we {
           }
           case core.GameType.LW:
           default: {
+            console.log('lo', '1', gameStatistic);
+
             gameStatistic.tableID = tableid;
             gameStatistic.shoeID = gameStatistic.shoeid;
             tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
@@ -678,6 +680,7 @@ namespace we {
         env.currency = balance.currency;
 
         logger.l(utils.LogTarget.STAGING, `On balance update: ${balance.balance}`);
+        logger.l(utils.LogTarget.STAGING, `On balanceOnHold update: ${balance.balanceOnHold}`);
 
         dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
       }

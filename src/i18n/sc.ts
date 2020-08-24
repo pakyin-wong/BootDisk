@@ -16,6 +16,7 @@ namespace we {
       gametype_ROL: '财神轮盘',
       gametype_DT: '龙虎',
       gametype_LW: '幸運轮',
+      gametype_LO: '时时彩',
 
       sidegamelist_title: '游戏列表',
       sidegamelist_tab_bet: '已下注',
@@ -480,6 +481,7 @@ namespace we {
         totalbet: '总投注',
         totalcount: '总数',
         betSuccess: '下注成功',
+        betFail: '下注失败',
         addNewGoodRoad: '新增好路',
         newGoodRoadName: '我的好路',
         removeGoodRoad: '删除路纸？',
@@ -533,10 +535,35 @@ namespace we {
         },
       },
 
+      lo_switch_fun: '娱乐',
+      lo_switch_trad: '传统',
+
+      lo_history_round: '%round% 期',
+
+      lo_fun_custombet: '自订',
+      lo_fun_bettingRound: '本期投注',
+      lo_fun_round: '期',
+      lo_fun_drawingRound: '期开奖中',
+      lo_fun_lastRound: '上期开期号码',
+
+      lo_fun_overlay_title: '投票确认',
+      lo_fun_overlay_table: '彩种名称',
+      lo_fun_overlay_round: '投注期数',
+      lo_fun_overlay_bet: '玩法投注',
+      lo_fun_overlay_rate: '赔率',
+      lo_fun_overlay_amt: '单注金额',
+      lo_fun_overlay_total: '总注数',
+      lo_fun_overlay_count: '注',
+      lo_fun_overlay_totalAmt: '总投注额',
+      lo_fun_overlay_confirm: '确定',
+      lo_fun_overlay_cancel: '取消',
+
       lo_fun_betlayer_tab_fun: '娱乐',
       lo_fun_betlayer_tab_num: '数字',
       lo_fun_betlayer_tab_dt: '龙虎和',
       lo_fun_betlayer_tab_five1: '全五中一',
+
+      lo_fun_overlay_betPrefix: '娱乐｜',
 
       lo_fun_betgroup_MILSIZEPARITY2: '第一球｜万位',
       lo_fun_betgroup_THOUSIZEPARITY2: '第二球｜千位',

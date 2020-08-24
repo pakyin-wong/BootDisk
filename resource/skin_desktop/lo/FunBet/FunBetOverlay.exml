@@ -29,8 +29,8 @@
 		</ui:Scroller>
 
 
-		<ui:RoundRectButton id="close" width="224" height="68" x="171" y="580" fillAlpha="0" fillAlpha_hover="1" fillColor_hover="0x0f9d5d" stroke="2" strokeColor="0x5f6973" strokeAlpha_hover="0" cornerTL_TR_BL_BR="35,35,35,35"/>
-		<ui:RoundRectButton id="_btnConfirm" width="224" height="68" x="427" y="580" fillAlpha="0" fillAlpha_hover="1" fillColor_hover="0x0f9d5d" stroke="2" strokeColor="0x5f6973" strokeAlpha_hover="0" cornerTL_TR_BL_BR="35,35,35,35"/>
+		<ui:RoundRectButton id="close" width="224" height="68" x="171" y="580" stroke="2" strokeColor="0x5f6973" cornerTL_TR_BL_BR="35,35,35,35" fillColor="0x0f1721" strokeAlpha_hover="1" strokeAlpha="0.7"/>
+		<ui:RoundRectButton id="_btnConfirm" width="224" height="68" x="427" y="580" stroke="0" strokeColor="0x5f6973" cornerTL_TR_BL_BR="35,35,35,35" fillColor="0x0f9d5d" fillAlpha="0.7" fillAlpha_hover="1"/>
 	</e:Group>
 </e:Skin>
 

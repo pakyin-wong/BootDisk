@@ -511,6 +511,10 @@ declare class TabItemWithBadgeSkin extends eui.Skin{
 declare class TestItemSkin extends eui.Skin{
 }
 declare module skin_desktop.lo{
+	class FunBetCustomBet extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
 	class FunBetGroup5 extends eui.Skin{
 	}
 }
@@ -567,11 +571,27 @@ declare module skin_desktop.lo{
 	}
 }
 declare module skin_desktop.lo{
+	class FunBetResult extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
 	class FunBetRoundInfo extends eui.Skin{
 	}
 }
 declare module skin_desktop.lo{
 	class FunBetTabItemRenderer extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class LotteryGameBar extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class LotteryHistory extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class LotteryHistoryIR extends eui.Skin{
 	}
 }
 declare module skin_desktop{

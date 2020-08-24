@@ -678,12 +678,12 @@ namespace we {
         if (result.error) {
           switch (result.error.id) {
             case '4002':
-              if(this._chipLayer){
+              if (this._chipLayer) {
                 this._chipLayer.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
               }
               break;
             default:
-              //maybe calling errorhandler 
+              // maybe calling errorhandler
               logger.e(utils.LogTarget.STAGING, 'Bet error');
           }
           return;
