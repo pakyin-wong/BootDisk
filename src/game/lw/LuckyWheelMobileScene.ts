@@ -56,7 +56,7 @@ namespace we {
           this._tableLayer.alpha = this._chipLayer.alpha = 1;
         }
         this._lwGameID.renderText = () => `${this._tableInfo.tableid}`;
-        //this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
+        // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
       }
 
       protected setStateDeal(isInit: boolean) {
@@ -203,7 +203,7 @@ namespace we {
 
         console.log('checkResultMessage', this._gameData);
 
-        const resultNo = (<lw.GameData> this._gameData).value; // a string type
+        const resultNo = (<lw.GameData>this._gameData).value; // a string type
         (this._tableLayer as lw.TableLayer).flashFields(`LW_${parseInt(resultNo, 10) - 1}`);
         // const lwGameResultMessage = new lw.GameResultMessage();
         // lwGameResultMessage.type = null;
