@@ -46,7 +46,7 @@
 			<e:Image width="41" height="33" source="d_ba_navbar_chevron_png" scaleX="1" scaleY="1" horizontalCenter="0"
 			         verticalCenter="0" />
 		</e:Group>
-		<e:Group y="2101" x="0">
+		<e:Group left="0" bottom="-2029">
 			<ui:RunTimeLabel id="_baGameIDText" text="編號" y="0" height="54" verticalAlign="middle" size="36" textColor="0xf3f3f3"
 			                 x="0" />
 			<ui:RunTimeLabel id="_baGameID" text="000000000000" x="197" y="18" height="43" size="36" verticalAlign="middle" />
