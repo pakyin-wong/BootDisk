@@ -1,8 +1,8 @@
 namespace we {
   export namespace ba {
     export class StatisticChartHolder extends ui.Panel {
-      protected _title01: ui.RunTimeLabel;
-      protected _title02: ui.RunTimeLabel;
+      public _title01: ui.RunTimeLabel;
+      public _title02: ui.RunTimeLabel;
 
       public _count01_bank: eui.Label;
       public _count01_player: eui.Label;

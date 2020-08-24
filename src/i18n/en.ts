@@ -395,6 +395,12 @@ namespace we {
         allgames: 'All Game',
       },
       baccarat: {
+        statisticChart: {
+          bankerPlayerTie: 'Banker Player Tie (100 rounds)',
+          bankerPlayerTiePair: 'Banker Player Tie pair (100 rounds)',
+          shoeBankerPlayerTie: 'Banker Player Tie(本靴)',
+          shoeBankerPlayerTiePair: 'Banker Player Tie pair (本靴)',
+        },
         playerPair: 'Player Pair',
         bankerPair: 'Banker Pair',
         playerShort: 'P',

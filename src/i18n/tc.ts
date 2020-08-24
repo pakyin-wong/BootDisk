@@ -395,6 +395,12 @@ namespace we {
         allgames: '全部遊戲',
       },
       baccarat: {
+        statisticChart: {
+          bankerPlayerTie: '庄閒和比例(100局)',
+          bankerPlayerTiePair: '庄閒和对比例 (100局)',
+          shoeBankerPlayerTie: '庄閒和比例(本靴)',
+          shoeBankerPlayerTiePair: '庄閒和對比例(本靴)',
+        },
         playerPair: '閒對',
         bankerPair: '庄對',
         player: '閒',
