@@ -139,7 +139,7 @@
 	-->
 	<rol:GameResultMessage id="_resultMessage" y="264" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
 	                       horizontalCenter="0" touchEnabled="false" y.left="400" y.right="400" />
-	<ui:InGameMessage id="_message" x="311" y="474" skinName="skin_mobile_portrait.InGameMessageSkin"
+	<ui:InGameMessage id="_message" x="311" y="500" skinName="skin_mobile_portrait.InGameMessageSkin"
 	                  infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
 	                  errorBg="d_ba_gamerecord_bankerelement_png" touchEnabled="false" />
 	<!--<ro:TableInfoPanel width="600" height="319.7" x="0" y="91" id="_tableInfoWindow" isPoppable="true"
