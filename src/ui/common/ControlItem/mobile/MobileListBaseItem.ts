@@ -16,8 +16,6 @@ namespace we {
 
       protected _toggler: ui.RunTimeLabel;
 
-      protected _isSimple: boolean = false;
-
       public constructor(skinName: string = null) {
         super(skinName);
         this.orientationDependent = false;
@@ -62,13 +60,6 @@ namespace we {
         }
       }
 
-      // public get isSimple() {
-      //   return this._isSimple;
-      // }
-
-      // public set isSimple(val:boolean) {
-      //   this._isSimple = val;
-      // }
       protected initBetLimitSelector() {
         const betLimitList = env.betLimits;
         const betLimitItems = betLimitList.map(data => {
@@ -109,13 +100,10 @@ namespace we {
         const betLimitItems = betLimitList.map(data => {
           return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
         });
-        if (this._toggler && this._isSimple === false) {
-          this._toggler.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`;
-        }
-        if (this._toggler && this._isSimple === true) {
-          this._toggler.renderText = () => ` ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`;
-        }
+        this.updateBetLimitText(betLimitItems, selectedIndex);
       }
+
+      protected updateBetLimitText(items, idx) {}
 
       public getActionButton(): eui.Component {
         return this._quickBetButton;

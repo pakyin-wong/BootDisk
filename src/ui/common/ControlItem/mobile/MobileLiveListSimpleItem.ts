@@ -10,7 +10,6 @@ namespace we {
 
       public constructor(skinName: string = null) {
         super(skinName);
-        this._isSimple = true;
       }
 
       protected initComponents() {
@@ -102,7 +101,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);
@@ -120,6 +119,12 @@ namespace we {
           this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
         } else {
           this._goodRoadLabel.visible = false;
+        }
+      }
+
+      protected updateBetLimitText(items, idx) {
+        if (this._toggler) {
+          this._toggler.renderText = () => ` ${items.length > 0 ? items[idx] : ''}`;
         }
       }
     }

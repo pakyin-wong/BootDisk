@@ -13,7 +13,6 @@ namespace we {
 
       public constructor(skinName: string = null) {
         super(skinName);
-        this._isSimple = false;
       }
 
       protected initCustomPos() {
@@ -43,6 +42,12 @@ namespace we {
           this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
         } else {
           // this._goodRoadLabel.visible = false;
+        }
+      }
+
+      protected updateBetLimitText(items, idx) {
+        if (this._toggler) {
+          this._toggler.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${items.length > 0 ? items[idx] : ''}`;
         }
       }
 
