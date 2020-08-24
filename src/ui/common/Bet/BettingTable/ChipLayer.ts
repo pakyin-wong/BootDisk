@@ -495,7 +495,6 @@ namespace we {
       // check if the current unconfirmed betDetails are valid
       protected validateFieldAmounts(fieldAmounts: {}, totalBetAmount: number): boolean {
         const betLimit: data.BetLimitSet = env.betLimits[this._getSelectedBetLimitIndex()];
-
         const balance = env.balance;
         if (balance < totalBetAmount) {
           this.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));

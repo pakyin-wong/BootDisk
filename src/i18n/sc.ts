@@ -16,6 +16,7 @@ namespace we {
       gametype_ROL: '财神轮盘',
       gametype_DT: '龙虎',
       gametype_LW: '幸運轮',
+      gametype_LO: '时时彩',
 
       sidegamelist_title: '游戏列表',
       sidegamelist_tab_bet: '已下注',
@@ -133,6 +134,7 @@ namespace we {
       mobile_notification_next_button_label: '下一页',
 
       mobile_quick_bet_button_label: '快速投注',
+      mobile_quick_bet_button_add_label: '加注',
       mobile_enter_table_button_label: '进入游戏',
 
       mobile_game_panel_bet_hint_label: '提示：点击下注区进行追注或进入游戏',
@@ -168,8 +170,8 @@ namespace we {
           menu: '选單',
           back: '返回大堂',
           refresh: '刷新餘额',
-          profile: '賬户资信',
-          roominfo: '游戏资信',
+          profile: '賬户资訊',
+          roominfo: '游戏资訊',
           betlimit: '限红设定',
           d_lobby_viewmode_icon_tiny: '簡易版',
           d_lobby_viewmode_icon_general: '普通版',
@@ -446,7 +448,7 @@ namespace we {
       game: {
         insufficientBalance: '余额不足',
         exceedBetUpperLimit: '超过投注上限',
-        exceedBetLowerLimit: '超过投注下限',
+        exceedBetLowerLimit: '低过投注下限',
         startBet: '开始下注',
         stopBet: '停止下注',
       },
@@ -480,6 +482,7 @@ namespace we {
         totalbet: '总投注',
         totalcount: '总数',
         betSuccess: '下注成功',
+        betFail: '下注失败',
         addNewGoodRoad: '新增好路',
         newGoodRoadName: '我的好路',
         removeGoodRoad: '删除路纸？',
@@ -533,10 +536,35 @@ namespace we {
         },
       },
 
+      lo_switch_fun: '娱乐',
+      lo_switch_trad: '传统',
+
+      lo_history_round: '%round% 期',
+
+      lo_fun_custombet: '自订',
+      lo_fun_bettingRound: '本期投注',
+      lo_fun_round: '期',
+      lo_fun_drawingRound: '期开奖中',
+      lo_fun_lastRound: '上期开期号码',
+
+      lo_fun_overlay_title: '投票确认',
+      lo_fun_overlay_table: '彩种名称',
+      lo_fun_overlay_round: '投注期数',
+      lo_fun_overlay_bet: '玩法投注',
+      lo_fun_overlay_rate: '赔率',
+      lo_fun_overlay_amt: '单注金额',
+      lo_fun_overlay_total: '总注数',
+      lo_fun_overlay_count: '注',
+      lo_fun_overlay_totalAmt: '总投注额',
+      lo_fun_overlay_confirm: '确定',
+      lo_fun_overlay_cancel: '取消',
+
       lo_fun_betlayer_tab_fun: '娱乐',
       lo_fun_betlayer_tab_num: '数字',
       lo_fun_betlayer_tab_dt: '龙虎和',
       lo_fun_betlayer_tab_five1: '全五中一',
+
+      lo_fun_overlay_betPrefix: '娱乐｜',
 
       lo_fun_betgroup_MILSIZEPARITY2: '第一球｜万位',
       lo_fun_betgroup_THOUSIZEPARITY2: '第二球｜千位',

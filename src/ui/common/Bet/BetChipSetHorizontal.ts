@@ -7,7 +7,7 @@ namespace we {
       private _visibleDenomNum = 0;
       private _leftNav: eui.Label;
       private _rightNav: eui.Label;
-      private _chipList: (IBetChip & core.BaseEUI)[] = [];
+      private _chipList: Array<IBetChip & core.BaseEUI> = [];
       protected _chipContainer: eui.Component;
       protected _chipScale: number = 1;
 
@@ -226,6 +226,10 @@ namespace we {
             value.touchEnabled = enabled;
           });
         }
+      }
+
+      public unSelect() {
+        this._chipList[this._selectedChipIndex].type = we.core.ChipType.PERSPECTIVE;
       }
 
       public setUpdateChipSetSelectedChipFunc(value: (value: number, index: number) => void) {}

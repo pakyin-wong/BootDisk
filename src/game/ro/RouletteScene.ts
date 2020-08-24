@@ -100,7 +100,7 @@ namespace we {
       }
 
       public checkResultMessage(resultData = null) {
-        const resultNo = (<ro.GameData>this._gameData).value;
+        const resultNo = (<ro.GameData> this._gameData).value;
         (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
         super.checkResultMessage(resultData);
       }
