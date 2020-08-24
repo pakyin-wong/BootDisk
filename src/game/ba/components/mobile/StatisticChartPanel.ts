@@ -6,9 +6,6 @@ namespace we {
       protected _leftHolder: we.ba.StatisticChartHolder;
       protected _rightHolder: we.ba.StatisticChartHolder;
 
-      // protected roundCounter: number = 99;
-      // protected roundPairCounter: number = 1;
-
       public constructor() {
         super();
       }
@@ -20,50 +17,15 @@ namespace we {
         } else {
           this.initData();
         }
-
-        // Count
-        // if (bankerCount || Math.round(bankerCount) === 0) {
-        //   this.totalBankerCount && (this.totalBankerCount.text = bankerCount.toString());
-        // }
-        // if (playerCount || Math.round(playerCount) === 0) {
-        //   this.totalPlayerCount && (this.totalPlayerCount.text = playerCount.toString());
-        // }
-        // if (tieCount || Math.round(tieCount) === 0) {
-        //   this.totalTieCount && (this.totalTieCount.text = tieCount.toString());
-        // }
-        // if (bankerPairCount || Math.round(bankerPairCount) === 0) {
-        //   this.bankerPairCount && (this.bankerPairCount.text = bankerPairCount.toString());
-        // }
-        // if (playerPairCount || Math.round(playerPairCount) === 0) {
-        //   this.playerPairCount && (this.playerPairCount.text = playerPairCount.toString());
-        // }
-        // if (remainingCount || Math.round(remainingCount) === 0) {
-        //   this.tiePairCount && (this.tiePairCount.text = remainingCount.toString());
-        // }
-
-        // // Percentage
-        // if (bankerPercentage || Math.round(bankerPercentage) === 0) {
-        //   this.totalBankerCountPer && (this.totalBankerCountPer.text = bankerPercentage.toString());
-        // }
-        // if (playerPercentage || Math.round(playerPercentage) === 0) {
-        //   this.totalPlayerCountPer && (this.totalPlayerCountPer.text = playerPercentage.toString());
-        // }
-        // if (tiePercentage || Math.round(tiePercentage) === 0) {
-        //   this.totalTieCountPer && (this.totalTieCountPer.text = tiePercentage.toString());
-        // }
-        // if (bankerPairPercentage || Math.round(bankerPairPercentage) === 0) {
-        //   this.bankerPairCountPer && (this.bankerPairCountPer.text = bankerPairPercentage.toString());
-        // }
-        // if (playerPairPercentage || Math.round(playerPairPercentage) === 0) {
-        //   this.playerPairCountPer && (this.playerPairCountPer.text = playerPairPercentage.toString());
-        // }
-        // if (remainingPercentage || Math.round(remainingPercentage) === 0) {
-        //   this.tiePairCountPer && (this.tiePairCountPer.text = remainingPercentage.toString());
-        // }
       }
 
       protected initData() {
         console.log(`.......${JSON.stringify(this.tableInfo.gamestatistic)}`);
+
+        this._leftHolder._icon01.visible = this._leftHolder._icon02.visible = true;
+        this._leftHolder._icon01_pair.visible = this._leftHolder._icon02_pair.visible = false;
+        this._rightHolder._icon01_pair.visible = this._rightHolder._icon02_pair.visible = true;
+        this._rightHolder._icon01.visible = this._rightHolder._icon02.visible = false;
 
         // page 1 of _leftHolder
         const shoeBankerCount = this.tableInfo.gamestatistic.shoeBankerCount;

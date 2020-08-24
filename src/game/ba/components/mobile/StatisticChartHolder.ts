@@ -36,6 +36,11 @@ namespace we {
       public _icon02_player: eui.Image;
       public _icon02_tie: eui.Image;
 
+      public _icon01: eui.Group;
+      public _icon02: eui.Group;
+      public _icon01_pair: eui.Group;
+      public _icon02_pair: eui.Group;
+
       public constructor() {
         super();
       }

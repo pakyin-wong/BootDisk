@@ -8,9 +8,6 @@
 			                   fillColor="0x00000000" touchEnabled="false" />
 			<ui:RunTimeLabel id="_title01" text="_title01" x="19" y="0" scaleX="1" scaleY="1" width="434" height="47" size="32"
 			                 textAlign="left" verticalAlign="middle" textKey="baccarat.BankerPlayerRatio" fontFamily="Barlow" />
-			<e:Image id="_icon01_bank" width="57" height="57" x="42" y="78" source="m_ba_goodroad_info_state_banker_png" />
-			<ui:RunTimeLabel text="庄" x="51" y="86" width="40" height="40" size="30" textAlign="center" verticalAlign="middle"
-			                 textKey="baccarat.bankerShort" fontFamily="Barlow" />
 			<e:Label id="_count01_bank" text="99" x="37" y="132" textAlign="center" anchorOffsetX="0" width="75" size="44"
 			         height="73" verticalAlign="middle" fontFamily="Barlow" />
 			<e:Group x="32" y="193">
@@ -22,9 +19,6 @@
 					<e:HorizontalLayout verticalAlign="bottom" horizontalAlign="center" gap="2" />
 				</e:layout>
 			</e:Group>
-			<e:Image id="_icon01_player" width="57" height="57" x="166" y="78" source="m_ba_goodroad_info_round_player_png" />
-			<ui:RunTimeLabel text="闲" x="175" y="86" width="40" height="40" size="30" textAlign="center" verticalAlign="middle"
-			                 textKey="baccarat.playerShort" fontFamily="Barlow" />
 			<e:Label id="_count01_player" text="99" x="161" y="132" textAlign="center" anchorOffsetX="0" width="75" size="44"
 			         height="73" verticalAlign="middle" fontFamily="Barlow" />
 			<e:Group x="156" y="193">
@@ -36,9 +30,6 @@
 					<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom" />
 				</e:layout>
 			</e:Group>
-			<e:Image id="_icon01_tie" width="57" height="57" x="293" y="78" source="m_ba_goodroad_info_state_player_png" />
-			<ui:RunTimeLabel text="和" x="301" y="86" width="40" height="40" size="30" textAlign="center" verticalAlign="middle"
-			                 textKey="baccarat.tieShort" fontFamily="Barlow" />
 			<e:Label id="_count01_tie" text="99" x="290" y="132" textAlign="center" anchorOffsetX="0" width="75" size="44"
 			         height="73" verticalAlign="middle" fontFamily="Barlow" />
 			<e:Group x="285" y="193">
@@ -49,6 +40,28 @@
 				<e:layout>
 					<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom" />
 				</e:layout>
+			</e:Group>
+			<e:Group id="_icon01" visible="false">
+				<e:Group x="41" y="78">
+					<e:Image width="57" height="57" x="0" y="0" source="m_ba_goodroad_info_state_banker_png" />
+					<ui:RunTimeLabel text="庄" x="10" y="7" width="40" height="40" size="30" textAlign="center" verticalAlign="middle"
+					                 textKey="baccarat.bankerShort" fontFamily="Barlow" />
+				</e:Group>
+				<e:Group x="166" y="78">
+					<e:Image width="57" height="57" x="0" y="0" source="m_ba_goodroad_info_round_player_png" />
+					<ui:RunTimeLabel text="闲" x="8" y="8" width="40" height="40" size="30" textAlign="center" verticalAlign="middle"
+					                 textKey="baccarat.playerShort" fontFamily="Barlow" />
+				</e:Group>
+				<e:Group x="293" y="78">
+					<e:Image width="57" height="57" x="0" y="0" source="m_ba_goodroad_info_state_player_png" />
+					<ui:RunTimeLabel text="和" x="8" y="8" width="40" height="40" size="30" textAlign="center" verticalAlign="middle"
+					                 textKey="baccarat.tieShort" fontFamily="Barlow" />
+				</e:Group>
+			</e:Group>
+			<e:Group id="_icon01_pair" visible="true">
+				<e:Image width="57" height="57" x="41" y="78" source="d_ba_roadmap_bar_bankerpairstate_png" />
+				<e:Image width="57" height="57" x="166" y="78" source="d_ba_roadmap_bar_playerpairstate_png" />
+				<e:Image width="57" height="57" x="293" y="78" source="d_ba_roadmap_bar_remainingstate_png"  />
 			</e:Group>
 			<ui:SimpleChart id="_chart_01" x="400" y="70" radius="90" lineWidth="14" scaleX="0.9" scaleY="0.9" />
 			<e:Label id="_roundCount01" text="99" x="426" y="81" textAlign="center" anchorOffsetX="0" width="111" size="65"
@@ -61,9 +74,6 @@
 			                   fillColor="0x00000000" touchEnabled="false" />
 			<ui:RunTimeLabel id="_title02" text="_title02" x="19" y="0" scaleX="1" scaleY="1" width="434" height="47" size="32"
 			                 textAlign="left" verticalAlign="middle" textKey="baccarat.BankerPlayerRatio" fontFamily="Barlow" />
-			<e:Image id="_icon02_bank" width="57" height="57" x="42" y="78" source="m_ba_goodroad_info_state_banker_png" />
-			<ui:RunTimeLabel text="庄" x="51" y="86" width="40" height="40" size="30" textAlign="center" verticalAlign="middle"
-			                 textKey="baccarat.bankerShort" fontFamily="Barlow" />
 			<e:Label id="_count02_bank" text="99" x="37" y="132" textAlign="center" anchorOffsetX="0" width="75" size="44"
 			         height="73" verticalAlign="middle" fontFamily="Barlow" />
 			<e:Group x="32" y="193">
@@ -75,9 +85,6 @@
 					<e:HorizontalLayout verticalAlign="bottom" horizontalAlign="center" gap="2" />
 				</e:layout>
 			</e:Group>
-			<e:Image id="_icon02_player" width="57" height="57" x="166" y="78" source="m_ba_goodroad_info_round_player_png" />
-			<ui:RunTimeLabel text="闲" x="175" y="86" width="40" height="40" size="30" textAlign="center" verticalAlign="middle"
-			                 textKey="baccarat.playerShort" fontFamily="Barlow" />
 			<e:Label id="_count02_player" text="99" x="161" y="132" textAlign="center" anchorOffsetX="0" width="75" size="44"
 			         height="73" verticalAlign="middle" fontFamily="Barlow" />
 			<e:Group x="156" y="193">
@@ -89,9 +96,6 @@
 					<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom" />
 				</e:layout>
 			</e:Group>
-			<e:Image id="_icon02_tie" width="57" height="57" x="293" y="78" source="m_ba_goodroad_info_state_player_png" />
-			<ui:RunTimeLabel text="和" x="301" y="86" width="40" height="40" size="30" textAlign="center" verticalAlign="middle"
-			                 textKey="baccarat.tieShort" fontFamily="Barlow" />
 			<e:Label id="_count02_tie" text="99" x="290" y="132" textAlign="center" anchorOffsetX="0" width="75" size="44"
 			         height="73" verticalAlign="middle" fontFamily="Barlow" />
 			<e:Group x="285" y="193">
@@ -102,6 +106,28 @@
 				<e:layout>
 					<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom" />
 				</e:layout>
+			</e:Group>
+			<e:Group id="_icon02" visible="true">
+				<e:Group x="41" y="78">
+					<e:Image width="57" height="57" x="0" y="0" source="m_ba_goodroad_info_state_banker_png" />
+					<ui:RunTimeLabel text="庄" x="10" y="7" width="40" height="40" size="30" textAlign="center" verticalAlign="middle"
+					                 textKey="baccarat.bankerShort" fontFamily="Barlow" />
+				</e:Group>
+				<e:Group x="166" y="78">
+					<e:Image width="57" height="57" x="0" y="0" source="m_ba_goodroad_info_round_player_png" />
+					<ui:RunTimeLabel text="闲" x="8" y="8" width="40" height="40" size="30" textAlign="center" verticalAlign="middle"
+					                 textKey="baccarat.playerShort" fontFamily="Barlow" />
+				</e:Group>
+				<e:Group x="293" y="78">
+					<e:Image width="57" height="57" x="0" y="0" source="m_ba_goodroad_info_state_player_png" />
+					<ui:RunTimeLabel text="和" x="8" y="8" width="40" height="40" size="30" textAlign="center" verticalAlign="middle"
+					                 textKey="baccarat.tieShort" fontFamily="Barlow" />
+				</e:Group>
+			</e:Group>
+			<e:Group id="_icon02_pair" visible="true">
+				<e:Image width="57" height="57" x="41" y="78" source="d_ba_roadmap_bar_bankerpairstate_png" />
+				<e:Image width="57" height="57" x="166" y="78" source="d_ba_roadmap_bar_playerpairstate_png" />
+				<e:Image width="57" height="57" x="293" y="78" source="d_ba_roadmap_bar_remainingstate_png" />
 			</e:Group>
 			<ui:SimpleChart id="_chart_02" x="400" y="70" radius="90" lineWidth="14" scaleX="0.9" scaleY="0.9" />
 			<e:Label id="_roundCount02" text="99" x="426" y="81" textAlign="center" anchorOffsetX="0" width="111" size="65"

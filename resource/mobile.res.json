@@ -5641,6 +5641,11 @@
 			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_2.png",
 			"type": "image",
 			"name": "m_bam_instruction_card_group_landscape_2_png"
+		},
+		{
+			"url": "assets/images/d/ba/roadmap/d_ba_roadmap_bar_remainingstate.png",
+			"type": "image",
+			"name": "d_ba_roadmap_bar_remainingstate_png"
 		}
 	]
 }
