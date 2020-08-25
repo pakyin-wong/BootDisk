@@ -2,8 +2,8 @@
 <e:Skin class="skin_mobile_portrait.ba.StatisticChartHolder" width="576" height="240" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<ui:HorizontalHolder bulletRight="20" bulletTop="20" width="576" height="240" slideWidth="576" slideHeight="240"
-	                     isLoop="true" isAuto="true" bulletGapValue="10">
-		<e:Group id="content" width="100%" height="100%" touchEnabled="false" touchChildren="true">
+	                     isLoop="true" isAuto="false" bulletGapValue="10" touchAreaAtBottom="true">
+		<e:Group id="content" width="100%" height="100%" touchEnabled="false" touchChildren="true" >
 			<ui:RoundRectShape cornerTL_TR_BL_BR="30,30,30,30" width="100%" height="100%" x="0" y="0" stroke="0"
 			                   fillColor="0x00000000" touchEnabled="false" />
 			<ui:RunTimeLabel id="_title01" text="_title01" x="19" y="0" scaleX="1" scaleY="1" width="434" height="47" size="32"
