@@ -23,6 +23,9 @@ namespace we {
 
       protected _originBetRelatedGroupY: number;
 
+      protected _gradientmask: eui.Group;
+      protected _shape: egret.Shape = new egret.Shape();
+
       private _common_listpanel: ui.BaseImageButton;
 
       constructor(data: any) {
@@ -73,13 +76,13 @@ namespace we {
         this._baGameID.renderText = () => `${this._tableInfo.tableid}`;
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
           }
         }
         if (this._resultDisplay && env.orientation === 'portrait') {
           egret.Tween.removeTweens(this._resultDisplay);
-          egret.Tween.get(this._resultDisplay).to({ y: 232 }, 10);
+          egret.Tween.get(this._resultDisplay).to({ y: 232, alpha: 0 }, 10);
         }
       }
 
@@ -91,7 +94,7 @@ namespace we {
         }
         if (this._resultDisplay && env.orientation === 'portrait') {
           egret.Tween.removeTweens(this._resultDisplay);
-          egret.Tween.get(this._resultDisplay).to({ y: 40 }, 400);
+          egret.Tween.get(this._resultDisplay).to({ y: 40, alpha: 1 }, 400);
           //   egret.Tween.get(this._betRelatedGroup)
           // .to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
         }
@@ -154,6 +157,16 @@ namespace we {
         this._baGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
         if (env.isMobile) {
           dir.monitor._sideGameList.setToggler(this._common_listpanel);
+        }
+
+        if (env.orientation === 'portrait') {
+          const gr = this._shape.graphics;
+          const matrix = new egret.Matrix();
+          matrix.createGradientBox(1242, 350, Math.PI / 2);
+          gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000], [0, 0.7], [0, 255], matrix);
+          gr.drawRect(0, 0, 1242, 418);
+          gr.endFill();
+          this._gradientmask.addChild(this._shape);
         }
         // dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
       }
@@ -291,10 +304,10 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }
