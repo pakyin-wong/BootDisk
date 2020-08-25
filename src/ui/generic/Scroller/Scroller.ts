@@ -207,19 +207,23 @@ namespace we {
       }
 
       private onMouseOver(event: egret.TouchEvent) {
-        (<any>window).addEventListener('wheel', this.onMouseWheel, { passive: false });
+        this.enableWheel();
       }
 
       private onMouseOut(event: egret.TouchEvent) {
-        (<any>window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
+        this.disableWheel();
       }
 
       public disableWheel() {
-        (<any>window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
+        // (<any>window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
+        (<any>window).removeEventListener('DOMMouseScroll', this.onMouseWheel, { passive: false });
+        (<any>window).removeEventListener('mousewheel', this.onMouseWheel, { passive: false });
       }
 
       public enableWheel() {
-        (<any>window).addEventListener('wheel', this.onMouseWheel, { passive: false });
+        // (<any>window).addEventListener('wheel', this.onMouseWheel, { passive: false });
+        (<any>window).addEventListener('DOMMouseScroll', this.onMouseWheel, { passive: false });
+        (<any>window).addEventListener('mousewheel', this.onMouseWheel, { passive: false });
       }
 
       public enableVScroller() {
@@ -233,11 +237,24 @@ namespace we {
       public _prevDeltaY = 0;
       public _stopTimeout = null;
 
+      protected wheelDistance(evt) {
+        if (!evt) evt = event;
+        const w = evt.wheelDelta;
+        const d = evt.detail;
+        if (d) {
+          if (w) return (w / d / 40) * d > 0 ? 1 : -1;
+          // Opera
+          else return -d / 3; // Firefox;         TODO: do not /3 for OS X
+        } else return w / 120; // IE/Safari/Chrome TODO: /3 for Chrome OS X
+      }
+
       private onMouseWheel = this.throttle((event: WheelEvent) => {
         event.preventDefault();
         try {
+          console.log(event);
+          const delta = -this.wheelDistance(event) * 100;
           const viewHeight = this.viewport.contentHeight - this.height;
-          this.viewport.scrollV = Math.max(0, Math.min(viewHeight, this.viewport.scrollV + event.deltaY));
+          this.viewport.scrollV = Math.max(0, Math.min(viewHeight, this.viewport.scrollV + delta));
           this.dispatchEvent(new egret.Event(egret.Event.CHANGE));
           // for bounce if this.scrollPolicyV = eui.ScrollPolicy.ON | AUTO;
           /*

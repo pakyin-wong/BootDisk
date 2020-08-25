@@ -35,6 +35,14 @@ namespace we {
         this.balances = [3000, 6000, 99999999999999, 2000];
         this.balance_index = 0;
         // end
+        const value = window.location.search;
+        const query = value.replace('?', '');
+        let data: any = {};
+        data = utils.getQueryParams(query);
+        const playerID = data.playerid ? data.playerid : dir.config.playerID;
+        const secret = data.secret ? data.secret : dir.config.secret;
+
+        logger.l(utils.LogTarget.DEBUG, `playerID: ${playerID}`);
 
         env.balance = 2800000;
         env.currency = core.Currency.RMB;

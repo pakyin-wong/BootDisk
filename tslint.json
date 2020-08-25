@@ -13,7 +13,7 @@
         "eofline": true,
         "max-line-length": [
             true,
-            200
+            500
         ],
         "forin": false,
         "prefer-for-of": false,

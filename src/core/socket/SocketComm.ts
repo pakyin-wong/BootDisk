@@ -9,9 +9,10 @@ namespace we {
         const query = value.replace('?', '');
         let data: any = {};
         data = utils.getQueryParams(query);
-        const playerID = data.playerID ? data.playerID : dir.config.playerID;
+        const playerID = data.playerid ? data.playerid : dir.config.playerID;
         const secret = data.secret ? data.secret : dir.config.secret;
 
+        logger.l(utils.LogTarget.RELEASE, `playerID: ${playerID}`);
         const options: any = {};
         options.playerID = playerID;
         if (secret) {
@@ -43,7 +44,7 @@ namespace we {
 
         this.client = new PlayerClient(options);
 
-        logger.l(utils.LogTarget.STAGING, 'MQTTSocketComm is created', this.client);
+        logger.l(utils.LogTarget.RELEASE, 'MQTTSocketComm is created', this.client);
       }
 
       // public updateMaxWinAmountAndCount(){
@@ -83,7 +84,7 @@ namespace we {
       }
 
       public onError(value: any) {
-        logger.l(utils.LogTarget.STAGING, 'PlayerClient::onError ', value);
+        logger.l(utils.LogTarget.RELEASE, 'PlayerClient::onError ', value);
         if (value.action !== 'retry' || value.method === 'getBalance' || value.method === 'getTableList' || value.method === 'updateSetting') {
           dir.errHandler.handleError(value);
         }
@@ -169,7 +170,7 @@ namespace we {
       }
 
       protected onConnectError(err) {
-        logger.e(utils.LogTarget.STAGING, err);
+        logger.e(utils.LogTarget.RELEASE, err);
       }
 
       // Handler for Ready event
@@ -209,7 +210,7 @@ namespace we {
           : player.profile.profileimageurl === ''
           ? Object.keys(env.icons)[0]
           : player.profile.profileimageurl;
-        logger.l(utils.LogTarget.STAGING, 'PlayerClient::handleReady() ' + player.profile.betlimits);
+        logger.l(utils.LogTarget.RELEASE, 'PlayerClient::handleReady() ' + player.profile.betlimits);
 
         env.betLimits = player.profile.betlimits
           ? player.profile.betlimits
@@ -248,7 +249,7 @@ namespace we {
           env.storedPositions = JSON.parse(player.profile.panelpositions);
         }
 
-        logger.l(utils.LogTarget.STAGING, `${timestamp}: READY`, player);
+        logger.l(utils.LogTarget.RELEASE, `${timestamp}: READY`, player);
 
         dir.evtHandler.dispatch(core.MQTT.CONNECT_SUCCESS);
 
@@ -268,7 +269,7 @@ namespace we {
       }
 
       public getTableList(filter?: string) {
-        logger.l(utils.LogTarget.STAGING, 'Request Table List from server...');
+        logger.l(utils.LogTarget.RELEASE, 'Request Table List from server...');
         this.client.getTableList(filter);
       }
 
@@ -309,7 +310,7 @@ namespace we {
         // dispatch TABLE_LIST_UPDATE
         this.filterAndDispatch(allTableList, core.Event.TABLE_LIST_UPDATE);
 
-        logger.l(utils.LogTarget.STAGING, `Table list updated`, allTableList);
+        logger.l(utils.LogTarget.RELEASE, `Table list updated`, allTableList);
 
         // console.log('PlayerClient::onTableListUpdate');
         // console.log(tableList.tablesList);
@@ -679,8 +680,8 @@ namespace we {
         env.balanceOnHold = balance.amountOnHold;
         env.currency = balance.currency;
 
-        logger.l(utils.LogTarget.STAGING, `On balance update: ${balance.balance}`);
-        logger.l(utils.LogTarget.STAGING, `On balanceOnHold update: ${balance.balanceOnHold}`);
+        logger.l(utils.LogTarget.RELEASE, `On balance update: ${balance.balance}`);
+        logger.l(utils.LogTarget.RELEASE, `On balanceOnHold update: ${balance.balanceOnHold}`);
 
         dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
       }
@@ -790,7 +791,7 @@ namespace we {
             };
           });
         this.client.bet(tableID, betCommands, callback);
-        logger.l(utils.LogTarget.STAGING, `Table ${tableID} Placed bet`, betDetails);
+        logger.l(utils.LogTarget.RELEASE, `Table ${tableID} Placed bet`, betDetails);
       }
 
       public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {
@@ -860,7 +861,7 @@ namespace we {
         const betTableList = tableInfos.map(data => data.tableid);
         env.betTableList = betTableList;
         // filter all the display ready table
-        logger.l(utils.LogTarget.STAGING, `Already Bet Table list updated`, betTableList);
+        logger.l(utils.LogTarget.RELEASE, `Already Bet Table list updated`, betTableList);
 
         // dispatch BET_TABLE_LIST_UPDATE
         this.filterAndDispatch(betTableList, core.Event.BET_TABLE_LIST_UPDATE);
@@ -908,7 +909,7 @@ namespace we {
             tableInfo.goodRoad = null;
           }
         }
-        logger.l(utils.LogTarget.STAGING, `GoodRoad Table list updated`, goodRoadTableList);
+        logger.l(utils.LogTarget.RELEASE, `GoodRoad Table list updated`, goodRoadTableList);
         // filter all the display ready table
         // dispatch GOOD_ROAD_TABLE_LIST_UPDATE
         dir.evtHandler.dispatch(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, tableInfos);

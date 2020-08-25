@@ -23,6 +23,9 @@ namespace we {
 
       private _videoBtn: egret.DisplayObject;
 
+      // protected _bottomResultDisplay: ui.IResultDisplay;
+      // protected _bottomResultDisplayContainer: eui.Group;
+
       public played: boolean;
       public playFunc: () => void;
       public stopFunc: () => void;
@@ -32,9 +35,33 @@ namespace we {
         this._betChipSetPanel.alpha = 0;
         this._betChipSetPanel.visible = false;
         this._betChipSet.alpha = 1;
-
         this.played = false;
       }
+      // public updateBottomResultDisplay() {
+      //   if (!this._bottomResultDisplayContainer || this._previousState !== we.core.GameState.DEAL) { //only landscape contain _bottomResultDisplayContainer
+      //     return
+      //   }
+      //   if ( this._bottomGamePanel.isPanelOpen ) {
+      //     this._bottomResultDisplayContainer.visible = true;
+      //     this._resultDisplay.visible = false;
+      //   } else {
+      //     this._bottomResultDisplayContainer.visible = false;
+      //     this._resultDisplay.visible = true;
+      //   }
+      //   console.log('this._bottomGamePanel.isPanelOpen',this._bottomGamePanel.isPanelOpen);
+      // }
+
+      // public get bottomResultDisplayContainerVisible(): boolean {
+      //   return this._bottomResultDisplayContainer.visible;
+      // }
+
+      // public set bottomResultDisplayContainerVisible(val: boolean) {
+      //   if ( this._previousState !== we.core.GameState.BET ) {
+      //     return
+      //   }
+      //   this._bottomResultDisplayContainer.visible = val;
+      //   this._resultDisplay.visible = !val;
+      // }
 
       public get betChipSetPanelVisible(): boolean {
         return this._betChipSetPanel.visible;
@@ -76,6 +103,74 @@ namespace we {
         this.played = true;
       }
 
+      protected setStateDeal(isInit: boolean = false) {
+        super.setStateDeal(isInit);
+        if (this._previousState !== we.core.GameState.DEAL && env.orientation === 'landscape') {
+          if (this._bottomGamePanel._bottomResultDisplay) {
+            this._bottomGamePanel._bottomResultDisplay.reset();
+          }
+        }
+        if (this._bottomGamePanel._bottomResultDisplay && env.orientation === 'landscape') {
+          this._bottomGamePanel._bottomResultDisplay.updateResult(this._gameData);
+        }
+      }
+
+      protected setStateFinish(isInit: boolean = false) {
+        super.setStateFinish(isInit);
+        if (this._previousState !== we.core.GameState.FINISH && env.orientation === 'landscape') {
+          if (this._bottomGamePanel._bottomResultDisplay) {
+            this._bottomGamePanel._bottomResultDisplay.updateResult(this._gameData);
+          }
+        }
+      }
+
+      // protected setStateFinish(isInit: boolean = false) {
+      //   if (this._previousState !== we.core.GameState.FINISH || isInit) {
+      //     this.setBetRelatedComponentsEnabled(false);
+      //     this.setResultRelatedComponentsEnabled(true);
+      //   }
+      //   if (this._previousState !== we.core.GameState.FINISH) {
+      //     if (this._resultDisplay) {
+      //       this._resultDisplay.updateResult(this._gameData);
+      //     }
+
+      //     if (this._resultMessage) {
+      //       this.checkResultMessage();
+      //     }
+      //   if (this._previousState !== we.core.GameState.FINISH) {
+      //     if (this._bottomResultDisplay) {
+      //       this._bottomResultDisplay.updateResult(this._gameData);
+      //     }
+      //   }
+      //   }
+      // }
+
+      protected setResultRelatedComponentsEnabled(enable: boolean) {
+        super.setResultRelatedComponentsEnabled(enable);
+        if (this._bottomGamePanel._bottomResultDisplayContainer && env.orientation === 'landscape') {
+          this._bottomGamePanel._bottomResultDisplayContainer.visible = enable;
+          if (this._bottomGamePanel.isPanelOpen) {
+            if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.BET) {
+              this._bottomGamePanel._bottomResultDisplayContainer.visible = true;
+              this._resultDisplay.visible = false;
+            }
+          } else {
+            if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.BET) {
+              this._bottomGamePanel._bottomResultDisplayContainer.visible = false;
+              this._resultDisplay.visible = true;
+            }
+          }
+        }
+      }
+
+      public updateResultDisplayVisible(bottomGamePanelisOpen: boolean) {
+        if (env.orientation === 'landscape') {
+          if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.BET) {
+            this._resultDisplay.visible = !bottomGamePanelisOpen;
+            this._bottomGamePanel._bottomResultDisplayContainer.visible = bottomGamePanelisOpen;
+          }
+        }
+      }
       protected initDenom() {
         this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
@@ -156,13 +251,13 @@ namespace we {
 
       protected onClickBetChipSelected() {
         const testpoint: egret.Point = this._betChipSetGridSelected.localToGlobal(0, 0); // _betChipSetGridSelected(0,0)=> global x and y
-        console.log(' this._veritcalTop.localToGlobal(49,61)', testpoint);
+        // console.log(' this._veritcalTop.localToGlobal(49,61)', testpoint);
         this._betChipSetGridEnabled ? this.hideBetChipPanel() : this.showBetChipPanel();
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
-        this._betRelatedGroup.visible = enable;
+        // this._betRelatedGroup.visible = enable;
         this._betChipSetGridSelected.visible = enable;
 
         const isEnable = enable;

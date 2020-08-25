@@ -18,6 +18,7 @@ namespace we {
       protected _verticalGroup: eui.Group;
 
       private _common_listpanel: ui.BaseImageButton;
+      protected _originBetRelatedGroupY: number;
 
       constructor(data: any) {
         super(data);
@@ -70,6 +71,12 @@ namespace we {
             (<we.dt.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
           }
         }
+        if (this._resultDisplay && env.orientation === 'portrait') {
+          egret.Tween.removeTweens(this._resultDisplay);
+          egret.Tween.get(this._resultDisplay).to({ y: 232 }, 10);
+          //   egret.Tween.get(this._betRelatedGroup)
+          // .to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
+        }
       }
 
       protected setStateDeal() {
@@ -78,14 +85,28 @@ namespace we {
           egret.Tween.get(this._tableLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
           egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
         }
+        if (this._resultDisplay && env.orientation === 'portrait') {
+          egret.Tween.removeTweens(this._resultDisplay);
+          egret.Tween.get(this._resultDisplay).to({ y: 40 }, 400);
+          //   egret.Tween.get(this._betRelatedGroup)
+          // .to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
+        }
       }
-
+      protected setBetRelatedComponentsEnabled(enable: boolean) {
+        super.setBetRelatedComponentsEnabled(enable);
+        // if (this._betRelatedGroup && env.orientation === 'portrait') {
+        if (this._betRelatedGroup) {
+          egret.Tween.removeTweens(this._betRelatedGroup);
+          egret.Tween.get(this._betRelatedGroup).to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
+        }
+      }
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
 
         this._roadmapControl.setTableInfo(this._tableInfo);
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
+        this._originBetRelatedGroupY = this._betRelatedGroup.y;
 
         if (this._bottomGamePanel._tableInfoPanel) {
           this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
