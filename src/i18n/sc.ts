@@ -491,6 +491,8 @@ namespace we {
         clickToSeeVideo: '点击播放本局视频',
         askBanker: '庄问路',
         askPlayer: '闲问路',
+        statType100: '100局',
+        statTypeShoe: '本靴',
         BankerPlayerRatio: '庄闲和比例',
         PairRatio: '庄对闲对比例',
         round: '局',

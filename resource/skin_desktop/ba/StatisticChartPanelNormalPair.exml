@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.ba.StatisticChartPanelNormalPair" width="240" height="160" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<e:Rect width="240" height="160" x="0" y="0" fillColor="0x212425" />
+	<ui:Label factor="2" id="title" text="庄閒和比例(100局)" x="14" y="10" height="27" size="20" textAlign="left"
+	          verticalAlign="middle" bold="true" />
+	<e:Group x="19" y="66">
+		<e:Image width="21" height="21" source="d_ba_roadmap_bar_bankerstate_png" />
+		<ui:RunTimeLabel id="_firstLabel" text="B" size="10" verticalAlign="middle" bold="true" verticalCenter="0"
+		                 horizontalCenter="0" i18n="baccarat.bankerShort" />
+	</e:Group>
+	<e:Group x="8" y="86" width="43">
+		<e:Label id="_firstCountLabel" text="50" textAlign="center" horizontalCenter="0" y="0" size="20" />
+		<e:Group horizontalCenter="0" y="30">
+			<e:Label id="_firstPercentageLabel" text="50" textAlign="center" size="12" />
+			<e:Label text="%" textAlign="center" size="12" />
+			<e:layout>
+				<e:HorizontalLayout gap="2" />
+			</e:layout>
+		</e:Group>
+	</e:Group>
+	<e:Group x="64" y="66">
+		<e:Image width="21" height="21" source="d_ba_roadmap_bar_playerstate_png" />
+		<ui:RunTimeLabel id="_secondLabel" text="P" size="10" verticalAlign="middle" bold="true" verticalCenter="0"
+		                 horizontalCenter="0" i18n="baccarat.playerShort" />
+	</e:Group>
+	<e:Group x="53" y="86" width="43">
+		<e:Label id="_secondCountLabel" text="50" textAlign="center" horizontalCenter="0" y="0" size="20" />
+		<e:Group horizontalCenter="0" y="30">
+			<e:Label id="_secondPercentageLabel" text="50" textAlign="center" size="12" />
+			<e:Label text="%" textAlign="center" size="12" />
+			<e:layout>
+				<e:HorizontalLayout gap="2" />
+			</e:layout>
+		</e:Group>
+	</e:Group>
+	<e:Group x="110" y="66">
+		<e:Image width="21" height="21" source="d_ba_roadmap_bar_tierstate_png" />
+		<ui:RunTimeLabel id="_thirdLabel" text="T" size="10" verticalAlign="middle" bold="true" verticalCenter="0"
+		                 horizontalCenter="0" i18n="baccarat.tieShort" />
+	</e:Group>
+	<e:Group x="100" y="86" width="43">
+		<e:Label id="_thirdCountLabel" text="50" textAlign="center" horizontalCenter="0" y="0" size="20" />
+		<e:Group horizontalCenter="0" y="30">
+			<e:Label id="_thirdPercentageLabel" text="50" textAlign="center" size="12" />
+			<e:Label text="%" textAlign="center" size="12" />
+			<e:layout>
+				<e:HorizontalLayout gap="2" />
+			</e:layout>
+		</e:Group>
+	</e:Group>
+	<e:Rect x="51" y="89" width="2" height="15" fillColor="0xCCCCCC" />
+	<e:Rect x="98" y="89" width="2" height="15" fillColor="0xCCCCCC" />
+	<e:Group x="150" y="70">
+		<ui:SimpleChart id="chart" width="70" height="70" radius="35" lineWidth="8" />
+		<e:Group verticalCenter="0" horizontalCenter="0">
+			<e:Label id="_totalLabel" text="40" size="12" />
+			<e:Label text="局" size="12" />
+			<e:layout>
+				<e:HorizontalLayout gap="2" />
+			</e:layout>
+		</e:Group>
+	</e:Group>
+</e:Skin>

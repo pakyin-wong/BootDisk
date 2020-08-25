@@ -86,9 +86,10 @@ namespace we {
         if (tiePercentage || Math.round(tiePercentage) === 0) {
           this.totalTieCountPer && (this.totalTieCountPer.text = tiePercentage.toString());
         }
-
+/*
         this._normalChart.redAngle = bankerPercentage * 3.6;
         this._normalChart.blueAngle = playerPercentage * 3.6;
+        */
         this._normalChart.drawChart();
 
         // this._normalChart;

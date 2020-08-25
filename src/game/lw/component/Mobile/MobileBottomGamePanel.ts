@@ -9,7 +9,7 @@ namespace we {
       public _betLimitDropDownBtn: ui.RunTimeLabel;
 
       // statisticChartPanel
-      public _statisticChartPanel: ba.StatisticChartPanel;
+      public _statisticChartPanel: lw.StatisticChartPanel;
 
       // viewStack and radioBtn
       protected roadSheetBtn: eui.RadioButton;
