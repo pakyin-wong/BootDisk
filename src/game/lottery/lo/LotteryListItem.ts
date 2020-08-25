@@ -1,7 +1,6 @@
 namespace we {
   export namespace lo {
     export class LotteryListItem extends ui.ListBaseItem {
-
       protected _rdContainer: ui.Group;
       protected _tf_round: eui.Label;
       protected _txt_round: ui.RunTimeLabel;
@@ -17,7 +16,6 @@ namespace we {
       protected addEventListeners() {
         super.addEventListeners();
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.onLang, this);
-
       }
 
       protected removeEventListeners() {
@@ -32,7 +30,7 @@ namespace we {
       }
 
       protected updateCountdownTimer() {
-clearInterval(this._counterInterval);
+        clearInterval(this._counterInterval);
         this._targetTime = this._gameData.starttime + this._gameData.countdown * 1000;
 
         this._counterInterval = setInterval(this.update.bind(this), 500);
