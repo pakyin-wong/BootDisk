@@ -189,6 +189,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class LotteryListItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class SideListBetItemSkin extends eui.Skin{
 	}
 }
@@ -626,6 +630,10 @@ declare module skin_desktop{
 	class LobbyTabListItemRenderer extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class LotteryPage extends eui.Skin{
+	}
+}
 declare module skin_desktop.lw{
 	class Analysis extends eui.Skin{
 	}
@@ -701,6 +709,8 @@ declare module skin_desktop{
 declare module skin_desktop{
 	class NavSideMenu extends eui.Skin{
 	}
+}
+declare class NewFile extends eui.Skin{
 }
 declare module skin_desktop{
 	class GoodRoadNotificationContainerSkin extends eui.Skin{

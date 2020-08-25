@@ -469,6 +469,7 @@ namespace we {
         },
       },
 
+      lo_round: 'Round %round%',
       lo_switch_fun: 'ENT',
       lo_switch_trad: 'TRAD',
 
