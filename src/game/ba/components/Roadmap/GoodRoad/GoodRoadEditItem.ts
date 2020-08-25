@@ -109,7 +109,7 @@ namespace we {
         this._playerButton.alpha = e.data.canAddPlayer ? 1 : 0.5;
         this._removeButton.alpha = this._removeAllButton.alpha = e.data.canRemove ? 1 : 0.5;
         this.roadPattern = e.data.roadPattern;
-        if (e.data.roadPattern.length > 0) {
+        if (this._editHint && e.data.roadPattern.length > 0) {
           this._editHint.visible = false;
         }
       }
