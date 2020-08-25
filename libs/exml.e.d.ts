@@ -1017,22 +1017,6 @@ declare module skin_mobile_landscape.ba{
 	}
 }
 declare module skin_mobile_landscape.ba{
-	class StatisticChartPanelNormal extends eui.Skin{
-	}
-}
-declare module skin_mobile_landscape.ba{
-	class StatisticChartPanelNormalPair extends eui.Skin{
-	}
-}
-declare module skin_mobile_landscape.ba{
-	class StatisticChartPanelShoe extends eui.Skin{
-	}
-}
-declare module skin_mobile_landscape.ba{
-	class StatisticChartPanelShoePair extends eui.Skin{
-	}
-}
-declare module skin_mobile_landscape.ba{
 	class TableInfoPanel extends eui.Skin{
 	}
 }
@@ -1508,22 +1492,6 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait.ba{
 	class StatisticChartPanel extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait.ba{
-	class StatisticChartPanelNormal extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait.ba{
-	class StatisticChartPanelNormalPair extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait.ba{
-	class StatisticChartPanelShoe extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait.ba{
-	class StatisticChartPanelShoePair extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ba{
@@ -2210,6 +2178,22 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class ToggleButtonSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile.ba{
+	class StatisticChartPanelNormal extends eui.Skin{
+	}
+}
+declare module skin_mobile.ba{
+	class StatisticChartPanelNormalPair extends eui.Skin{
+	}
+}
+declare module skin_mobile.ba{
+	class StatisticChartPanelShoe extends eui.Skin{
+	}
+}
+declare module skin_mobile.ba{
+	class StatisticChartPanelShoePair extends eui.Skin{
 	}
 }
 declare module skin_mobile{

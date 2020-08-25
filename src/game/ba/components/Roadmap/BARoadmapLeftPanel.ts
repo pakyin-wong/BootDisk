@@ -49,7 +49,7 @@ namespace we {
         super.update();
         if (this.tableInfo) {
           this.gameId = this.tableInfo.data.gameroundid;
-          this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
+          this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' a ' + this.gameId;
         }
       }
 
