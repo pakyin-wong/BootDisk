@@ -45,6 +45,9 @@ namespace we {
       // protected _leftGamePanel: BaseGamePanel;
       // protected _rightGamePanel: BaseGamePanel;
 
+      public get previousState() {
+        return this._previousState;
+      }
       public get tableInfo() {
         return this._tableInfo;
       }

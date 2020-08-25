@@ -197,6 +197,7 @@ namespace we {
         // const colors = [0xee2e2e, 0x3531ec, 0x10b04b, 0xaa0000, 0x0000aa, 0x009900];
         const colors = [0xdc0012, 0x0167cc, 0x19a634, 0xc3002b, 0x004ca9, 0x008f25];
         const gradientColors = [[0xee2e2e, 0xee2e2e], [0x3531ec, 0x3531ec], [0x10b04b, 0x10b04b], [0xdd6666, 0xaa0000], [0x6666dd, 0x000066], [0x66aa66, 0x003300]];
+
         const iconSize = this.size;
         const circleRadius = (this.size / 2) * 0.9;
         const offset = (iconSize - circleRadius * 2) / 2;
@@ -224,6 +225,10 @@ namespace we {
                 break;
             }
             this._iconText.text = arr[textIdx];
+            if (env.orientation === 'landscape') {
+              this._iconText.scaleX = 0.7;
+              this._iconText.scaleY = 0.7;
+            }
 
             const fillMatrix = new egret.Matrix();
             // fillMatrix.createGradientBox(this.size, this.size, Math.PI / 2, 0, 0);

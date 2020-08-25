@@ -4,8 +4,9 @@ namespace we {
       DEBUG = 0,
       DEV = 1,
       STAGING = 2,
-      UAT = 3,
-      PROD = 4,
+      RELEASE = 3,
+      UAT = 4,
+      PROD = 5,
     }
 
     export class Logger {
@@ -60,10 +61,7 @@ namespace we {
       }
 
       private log(type, ...args) {
-        let msg = new Error().stack
-          .split('\n')
-          [1 /* logger internal */ + 2].trim()
-          .replace('at ', '');
+        let msg = new Error().stack.split('\n')[1 /* logger internal */ + 2].trim().replace('at ', '');
         const match = msg.match(/http[^\)]+/);
         let link = '';
         if (match && match.length > 0) {
