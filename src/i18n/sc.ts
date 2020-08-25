@@ -443,6 +443,7 @@ namespace we {
         tie: '和',
         playerPair: '闲对',
         bankerPair: '庄对',
+        gameRecord: '游戏记录',
       },
       game: {
         insufficientBalance: '余额不足',

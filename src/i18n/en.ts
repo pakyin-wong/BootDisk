@@ -257,6 +257,7 @@ namespace we {
         tie: 'Tie',
         playerPair: 'Player Pair',
         bankerPair: 'Banker Pair',
+        gameRecord: 'Game Record',
       },
       dice: {
         recent: 'Recent',
