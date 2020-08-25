@@ -168,6 +168,30 @@ namespace we {
           }
         }
       }
+
+      public updateTableLayerPosition(bottomGamePanelisOpen: boolean) {
+        if (env.orientation === 'landscape') {
+          if (this._tableLayer) {
+            switch (env.tableInfos[this._tableId].gametype) {
+              case core.GameType.BAC:
+              case core.GameType.BAS:
+              case core.GameType.BAI:
+                console.log('this._aaaaa', this._tableLayer);
+                if (bottomGamePanelisOpen === true) {
+                  this._tableLayer.y -= 24;
+                  // this._chipLayer.y -= 24;
+                } else {
+                  this._tableLayer.y += 24;
+                  // this._chipLayer.y += 24;
+                }
+                break;
+              default:
+                break;
+            }
+          }
+        }
+      }
+
       protected initDenom() {
         this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
@@ -287,7 +311,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             if (this._totalBet) {
               const totalBet = betInfo.gameroundid === this._gameData.gameroundid ? betInfo.total : 0;
