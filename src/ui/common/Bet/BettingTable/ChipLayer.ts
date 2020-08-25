@@ -488,24 +488,24 @@ namespace we {
       }
 
       // Tick button
-      protected validateBet(): boolean {
+      public validateBet(): boolean {
         const fieldAmounts = utils.arrayToKeyValue(this._uncfmBetDetails, 'field', 'amount');
-        return this.validateFieldAmounts(fieldAmounts, this.getTotalUncfmBetAmount());
+        return this.validateFieldAmounts(fieldAmounts, null, true);
       }
 
       // check if the current unconfirmed betDetails are valid
-      protected validateFieldAmounts(fieldAmounts: {}, totalBetAmount: number, betDetail: data.BetDetail=null): boolean {
+      protected validateFieldAmounts(fieldAmounts: {}, betDetail: data.BetDetail = null, checkLowerLimit: boolean = false): boolean {
         const betLimit: data.BetLimitSet = env.betLimits[this._getSelectedBetLimitIndex()];
-        // const balance = env.balance;
-        // if (balance < totalBetAmount) {
-        //   this.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
-        //   return false;
-        // }
 
-        const exceedBetLimit = this.isExceedBetLimit(fieldAmounts, betLimit, betDetail);
+        let exceedBetLimit = false;
+        if (checkLowerLimit) {
+          exceedBetLimit = this.isExceedLowerBetLimit(fieldAmounts, betLimit);
+        } else {
+          exceedBetLimit = this.isExceedUpperBetLimit(fieldAmounts, betLimit, betDetail);
+        }
 
         if (exceedBetLimit) {
-          const data = { exceedLower: exceedBetLimit === 'lower' };
+          const data = { exceedLower: checkLowerLimit };
           this.dispatchEvent(new egret.Event(core.Event.EXCEED_BET_LIMIT, false, false, data));
           return false;
         }
@@ -527,24 +527,28 @@ namespace we {
         return total;
       }
 
-      protected abstract isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail?: data.BetDetail);
+      protected abstract isExceedUpperBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail: data.BetDetail);
+      protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+        return false;
+      }
 
       // check if the current bet action is valid, betDetail.amount could be updated based on the limits
       public validateBetAction(betDetail: data.BetDetail): boolean {
         const fieldAmounts = utils.arrayToKeyValue(this._uncfmBetDetails, 'field', 'amount');
-        fieldAmounts[betDetail.field] += betDetail.amount;
+        // fieldAmounts[betDetail.field] += betDetail.amount;
 
         // clamp bet amount with current balance
         const totalUncfmAmount = this.getTotalUncfmBetAmount() + betDetail.amount;
         const balance = env.balance;
         if (balance < totalUncfmAmount) {
           betDetail.amount += balance - totalUncfmAmount;
-          if (betDetail.amount<=0) {
+          if (betDetail.amount <= 0) {
             this.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
             return false;
           }
         }
-        return this.validateFieldAmounts(fieldAmounts, this.getTotalUncfmBetAmount() + betDetail.amount, betDetail);
+
+        return this.validateFieldAmounts(fieldAmounts, betDetail);
       }
 
       public resetUnconfirmedBet() {
