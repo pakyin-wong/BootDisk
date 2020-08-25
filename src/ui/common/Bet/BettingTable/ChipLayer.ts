@@ -490,6 +490,15 @@ namespace we {
       // Tick button
       public validateBet(): boolean {
         const fieldAmounts = utils.arrayToKeyValue(this._uncfmBetDetails, 'field', 'amount');
+
+        // clamp bet amount with current balance
+        const totalUncfmAmount = this.getTotalUncfmBetAmount();
+        const balance = env.balance;
+        if (balance < totalUncfmAmount) {
+          this.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
+          return false;
+        }
+
         return this.validateFieldAmounts(fieldAmounts, null, true);
       }
 
@@ -528,7 +537,15 @@ namespace we {
       }
 
       protected abstract isExceedUpperBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail: data.BetDetail);
-      protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+      protected abstract isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet);
+
+      protected checkLimit(checkBet, betDetail, maxlimit) {
+        if (checkBet > maxlimit) {
+          betDetail.amount += maxlimit - checkBet;
+          if (betDetail.amount === 0) {
+            return true;
+          }
+        }
         return false;
       }
 

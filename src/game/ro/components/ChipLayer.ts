@@ -656,6 +656,17 @@ namespace we {
         });
       }
 
+      protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+        for (const key of Object.keys(fieldAmounts)) {
+          if (fieldAmounts[key] === 0) {
+            continue;
+          }
+          if (fieldAmounts[key] < betLimit.minlimit) {
+            return true;
+          }
+        }
+        return false;
+      }
       protected isExceedUpperBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail: data.BetDetail) {
         for (const key of Object.keys(fieldAmounts)) {
           if (fieldAmounts[key] === 0) {

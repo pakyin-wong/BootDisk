@@ -46,16 +46,6 @@ namespace we {
         this._betChipStackMapping[ba.BetField.SUPER_SIX] = this._superSixBetChipStack;
       }
 
-      protected checkLimit(checkBet, betDetail, maxlimit) {
-        if (checkBet > maxlimit) {
-          betDetail.amount += maxlimit - checkBet;
-          if (betDetail.amount === 0) {
-            return true;
-          }
-        }
-        return false;
-      }
-
       protected isExceedUpperBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail: data.BetDetail) {
         const banker = this.getAllValue(fieldAmounts, ba.BetField.BANKER);
         const player = this.getAllValue(fieldAmounts, ba.BetField.PLAYER);
@@ -65,7 +55,6 @@ namespace we {
         const playerPair = this.getAllValue(fieldAmounts, ba.BetField.PLAYER_PAIR);
         const superSix = this.getAllValue(fieldAmounts, ba.BetField.SUPER_SIX);
 
-        const result = null;
         let val = null;
 
         switch (betDetail.field) {
