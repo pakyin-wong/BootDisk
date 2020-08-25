@@ -11,21 +11,21 @@
 		<e:Image id="_bankerImage" source="m_ba_betarea_banker_png" name="m_ba_betarea_banker_png" width="100%" height="100%" />
 		<ui:RunTimeLabel id="_bankerLabel" horizontalCenter="0" size="98" bottom="96"
 		                 />
-		<e:Label text="0.95:1" horizontalCenter="0" size="48" verticalAlign="top" top="135" alpha="0.7" />
+		<e:Label text="0.95:1" horizontalCenter="0" size="48" verticalAlign="top" top="135" alpha="0.7" fontFamily="Barlow"/>
 	</e:Group>
 	<e:Group id="_playerPairGroup" x="0" y="232" width="295" height="232" width.Normal="394">
 		<e:Image id="_playerPairImage" source="m_ba_betarea_playerpair_png" name="m_ba_betarea_playerpair_png" width="100%"
 		         height="100%" />
 		<ui:RunTimeLabel id="_playerPairLabel" horizontalCenter="0" size="80" bottom="108" textColor="0x438dff"
 		                 />
-		<e:Label text="11:1" horizontalCenter="0" size="48" verticalAlign="top" top="132" alpha="0.7" />
+		<e:Label text="11:1" horizontalCenter="0" size="48" verticalAlign="top" top="132" alpha="0.7" fontFamily="Barlow"/>
 	</e:Group>
 	<e:Group id="_tieGroup" x="295" y="232" width="592" height="232" width.SuperSix="296" width.Normal="394" x.Normal="394">
 		<e:Image id="_tieImage" source="m_ba_betarea_tie_png" name="m_ba_betarea_tie_png" width="100%" height="100%"
 		         width.SuperSix="100%" />
 		<ui:RunTimeLabel id="_tieLabel" horizontalCenter="0" size="80" bottom="108" textColor="0x44c870"
 		                 />
-		<e:Label text="8:1" horizontalCenter="0" size="48" verticalAlign="top" top="132" alpha="0.7" />
+		<e:Label text="8:1" horizontalCenter="0" size="48" verticalAlign="top" top="132" alpha="0.7" fontFamily="Barlow"/>
 	</e:Group>
 	<e:Group id="_bankerPair" x="887" y="232" width="295" height="232" width.Normal="394" right.Normal="0" right.SuperSix="0">
 		<e:Image id="_bankerPairImage" source="m_ba_betarea_bankerpair_png" name="m_ba_betarea_bankerpair_png" width="100%"
