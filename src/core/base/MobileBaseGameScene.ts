@@ -20,6 +20,7 @@ namespace we {
       protected _undoLabel: ui.RunTimeLabel;
 
       protected _veritcalTop: eui.Group;
+      protected _verticalGroup: eui.Group;
 
       private _videoBtn: egret.DisplayObject;
 
@@ -171,6 +172,7 @@ namespace we {
 
       public updateTableLayerPosition(bottomGamePanelisOpen: boolean) {
         if (env.orientation === 'landscape') {
+          const vlayout = new eui.VerticalLayout();
           if (this._tableLayer) {
             switch (env.tableInfos[this._tableId].gametype) {
               case core.GameType.BAC:
@@ -178,16 +180,19 @@ namespace we {
               case core.GameType.BAI:
                 console.log('this._aaaaa', this._tableLayer);
                 if (bottomGamePanelisOpen === true) {
-                  this._tableLayer.y -= 24;
+                  vlayout.gap = -65;
+                  // this._tableLayer.y -= 24;
                   // this._chipLayer.y -= 24;
                 } else {
-                  this._tableLayer.y += 24;
+                  vlayout.gap = -40;
+                  // this._tableLayer.y += 24;
                   // this._chipLayer.y += 24;
                 }
                 break;
               default:
                 break;
             }
+            this._verticalGroup.layout = vlayout;
           }
         }
       }
