@@ -89,7 +89,7 @@ namespace we {
         this._betChipStackMapping[dil.BetField.SUM_18] = this._sum_18_betChipStack;
       }
 
-      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail: data.BetDetail) {
         for (const key of Object.keys(fieldAmounts)) {
           if (fieldAmounts[key] === 0) {
             continue;

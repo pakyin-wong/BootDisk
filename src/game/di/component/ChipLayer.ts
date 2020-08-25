@@ -235,7 +235,7 @@ namespace we {
         this._groupHoverMapping = {};
       }
 
-      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail: data.BetDetail) {
         for (const key of Object.keys(fieldAmounts)) {
           if (fieldAmounts[key] === 0) {
             continue;

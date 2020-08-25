@@ -334,22 +334,23 @@ namespace we {
         this.onBetFieldUpdate(fieldName);
       }
 
-      public onBetFieldsUpdate(fieldNames: string[], hashkey: string = null) {
-        fieldNames.map(fieldName => {
-          const betDetail = { field: fieldName, amount: this.getOrderAmount() };
-          if (!this.validateBetAction(betDetail)) {
-            return;
-          }
-        });
+      // public onBetFieldsUpdate(fieldNames: string[], hashkey: string = null) {
+      //   fieldNames.map(fieldName => {
+      //     const betDetail = { field: fieldName, amount: this.getOrderAmount() };
+      //     if (!this.validateBetAction(betDetail)) {
+      //       return;
+      //     }
+      //   });
 
-        fieldNames.map(fieldName => {
-          this.addBetToBetField(fieldName, this.getOrderAmount());
-          this.undoStack.push(hashkey, we.utils.clone({ field: fieldName, amount: this.getOrderAmount() }), this.undoBetFieldUpdate.bind(this));
-          this.updateBetChipUncfmBet(fieldName, this.getUncfmBetByField(fieldName).amount);
-        });
-      }
+      //   fieldNames.map(fieldName => {
+      //     this.addBetToBetField(fieldName, this.getOrderAmount());
+      //     this.undoStack.push(hashkey, we.utils.clone({ field: fieldName, amount: this.getOrderAmount() }), this.undoBetFieldUpdate.bind(this));
+      //     this.updateBetChipUncfmBet(fieldName, this.getUncfmBetByField(fieldName).amount);
+      //   });
+      // }
 
       public betFieldsUpdate(betDetails: data.BetDetail[], hashkey: string = null) {
+        // TODO: check total bet value and see if its greater than balance, if yes, insufficient balance
         betDetails.map(value => {
           if (!this.validateBetAction(value)) {
             return;
@@ -367,7 +368,7 @@ namespace we {
         const betDetail = { field: fieldName, amount: this.getOrderAmount() };
         // validate bet action
         if (this.validateBetAction(betDetail)) {
-          this.addBetToBetField(fieldName, this.getOrderAmount());
+          this.addBetToBetField(fieldName, betDetail.amount);
           this.undoStack.push(hashkey, we.utils.clone({ field: fieldName, amount: betDetail.amount }), this.undoBetFieldUpdate.bind(this));
           this.updateBetChipUncfmBet(fieldName, this.getUncfmBetByField(fieldName).amount);
         }
@@ -493,15 +494,15 @@ namespace we {
       }
 
       // check if the current unconfirmed betDetails are valid
-      protected validateFieldAmounts(fieldAmounts: {}, totalBetAmount: number): boolean {
+      protected validateFieldAmounts(fieldAmounts: {}, totalBetAmount: number, betDetail: data.BetDetail=null): boolean {
         const betLimit: data.BetLimitSet = env.betLimits[this._getSelectedBetLimitIndex()];
-        const balance = env.balance;
-        if (balance < totalBetAmount) {
-          this.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
-          return false;
-        }
+        // const balance = env.balance;
+        // if (balance < totalBetAmount) {
+        //   this.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
+        //   return false;
+        // }
 
-        const exceedBetLimit = this.isExceedBetLimit(fieldAmounts, betLimit);
+        const exceedBetLimit = this.isExceedBetLimit(fieldAmounts, betLimit, betDetail);
 
         if (exceedBetLimit) {
           const data = { exceedLower: exceedBetLimit === 'lower' };
@@ -526,13 +527,24 @@ namespace we {
         return total;
       }
 
-      protected abstract isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet);
+      protected abstract isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail?: data.BetDetail);
 
-      // check if the current bet action is valid
+      // check if the current bet action is valid, betDetail.amount could be updated based on the limits
       public validateBetAction(betDetail: data.BetDetail): boolean {
         const fieldAmounts = utils.arrayToKeyValue(this._uncfmBetDetails, 'field', 'amount');
         fieldAmounts[betDetail.field] += betDetail.amount;
-        return this.validateFieldAmounts(fieldAmounts, this.getTotalUncfmBetAmount() + betDetail.amount);
+
+        // clamp bet amount with current balance
+        const totalUncfmAmount = this.getTotalUncfmBetAmount() + betDetail.amount;
+        const balance = env.balance;
+        if (balance < totalUncfmAmount) {
+          betDetail.amount += balance - totalUncfmAmount;
+          if (betDetail.amount<=0) {
+            this.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
+            return false;
+          }
+        }
+        return this.validateFieldAmounts(fieldAmounts, this.getTotalUncfmBetAmount() + betDetail.amount, betDetail);
       }
 
       public resetUnconfirmedBet() {

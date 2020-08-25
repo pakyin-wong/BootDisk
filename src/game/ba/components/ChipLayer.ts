@@ -46,7 +46,7 @@ namespace we {
         this._betChipStackMapping[ba.BetField.SUPER_SIX] = this._superSixBetChipStack;
       }
 
-      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail: data.BetDetail) {
         const banker = this.getAllValue(fieldAmounts, ba.BetField.BANKER);
         const player = this.getAllValue(fieldAmounts, ba.BetField.PLAYER);
         const superSixBanker = this.getAllValue(fieldAmounts, ba.BetField.SUPER_SIX_BANKER);
