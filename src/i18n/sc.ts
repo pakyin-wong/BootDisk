@@ -535,6 +535,7 @@ namespace we {
         },
       },
 
+      lo_round: '%round% 期',
       lo_switch_fun: '娱乐',
       lo_switch_trad: '传统',
 

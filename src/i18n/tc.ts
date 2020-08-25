@@ -469,6 +469,7 @@ namespace we {
         },
       },
 
+      lo_round: '%round% 期',
       lo_switch_fun: '娛樂',
       lo_switch_trad: '傳統',
 
