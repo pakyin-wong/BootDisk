@@ -58,7 +58,7 @@
 					                 textKey="baccarat.tieShort" fontFamily="Barlow" />
 				</e:Group>
 			</e:Group>
-			<e:Group id="_icon01_pair" visible="true">
+			<e:Group id="_icon01_pair" visible="false">
 				<e:Image width="57" height="57" x="41" y="78" source="d_ba_roadmap_bar_bankerpairstate_png" />
 				<e:Image width="57" height="57" x="166" y="78" source="d_ba_roadmap_bar_playerpairstate_png" />
 				<e:Image width="57" height="57" x="293" y="78" source="d_ba_roadmap_bar_remainingstate_png"  />
@@ -107,7 +107,7 @@
 					<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom" />
 				</e:layout>
 			</e:Group>
-			<e:Group id="_icon02" visible="true">
+			<e:Group id="_icon02" visible="false">
 				<e:Group x="41" y="78">
 					<e:Image width="57" height="57" x="0" y="0" source="m_ba_goodroad_info_state_banker_png" />
 					<ui:RunTimeLabel text="庄" x="10" y="7" width="40" height="40" size="30" textAlign="center" verticalAlign="middle"
@@ -124,7 +124,7 @@
 					                 textKey="baccarat.tieShort" fontFamily="Barlow" />
 				</e:Group>
 			</e:Group>
-			<e:Group id="_icon02_pair" visible="true">
+			<e:Group id="_icon02_pair" visible="false">
 				<e:Image width="57" height="57" x="41" y="78" source="d_ba_roadmap_bar_bankerpairstate_png" />
 				<e:Image width="57" height="57" x="166" y="78" source="d_ba_roadmap_bar_playerpairstate_png" />
 				<e:Image width="57" height="57" x="293" y="78" source="d_ba_roadmap_bar_remainingstate_png" />

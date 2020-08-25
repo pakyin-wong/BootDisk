@@ -127,7 +127,7 @@ namespace we {
           stats.shoeTieCount = 6; // Baccarat
           stats.shoeBankerPairCount = 8; // Baccarat
           stats.shoePlayerPairCount = 5; // Baccarat
-          stats.shoeTotalCount = 42; // Baccarat
+          stats.shoeTotalCount = 55; // Baccarat
 
           return stats;
         } else if (data.gametype === core.GameType.RO || data.gametype === core.GameType.ROL) {

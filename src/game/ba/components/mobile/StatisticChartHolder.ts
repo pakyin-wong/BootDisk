@@ -4,37 +4,26 @@ namespace we {
       public _title01: ui.RunTimeLabel;
       public _title02: ui.RunTimeLabel;
 
-      public _count01_bank: eui.Label;
-      public _count01_player: eui.Label;
-      public _count01_tie: eui.Label;
-      public _count02_bank: eui.Label;
-      public _count02_player: eui.Label;
-      public _count02_tie: eui.Label;
+      private _count01_bank: eui.Label;
+      private _count01_player: eui.Label;
+      private _count01_tie: eui.Label;
+      private _count02_bank: eui.Label;
+      private _count02_player: eui.Label;
+      private _count02_tie: eui.Label;
 
-      public _countPer01_bank: eui.Label;
-      public _countPer01_player: eui.Label;
-      public _countPer01_tie: eui.Label;
+      private _countPer01_bank: eui.Label;
+      private _countPer01_player: eui.Label;
+      private _countPer01_tie: eui.Label;
 
-      public _countPer02_bank: eui.Label;
-      public _countPer02_player: eui.Label;
-      public _countPer02_tie: eui.Label;
+      private _countPer02_bank: eui.Label;
+      private _countPer02_player: eui.Label;
+      private _countPer02_tie: eui.Label;
 
-      public _chart_01: ui.SimpleChart;
-      public _chart_02: ui.SimpleChart;
+      private _chart_01: ui.SimpleChart;
+      private _chart_02: ui.SimpleChart;
 
-      public _roundCount01: eui.Label;
-      public _roundCount02: eui.Label;
-
-      public _roundLabel01: ui.RunTimeLabel;
-      public _roundLabel02: ui.RunTimeLabel;
-
-      public _icon01_bank: eui.Image;
-      public _icon01_player: eui.Image;
-      public _icon01_tie: eui.Image;
-
-      public _icon02_bank: eui.Image;
-      public _icon02_player: eui.Image;
-      public _icon02_tie: eui.Image;
+      private _roundCount01: eui.Label;
+      private _roundCount02: eui.Label;
 
       public _icon01: eui.Group;
       public _icon02: eui.Group;
@@ -60,6 +49,70 @@ namespace we {
           _x = 15;
           _y = 130;
         }
+      }
+
+      public set count01_bank(value: number) {
+        this._count01_bank.text = value.toString();
+      }
+
+      public set count01_player(value: number) {
+        this._count01_player.text = value.toString();
+      }
+
+      public set count01_tie(value: number) {
+        this._count01_tie.text = value.toString();
+      }
+
+      public set count02_bank(value: number) {
+        this._count02_bank.text = value.toString();
+      }
+
+      public set count02_player(value: number) {
+        this._count02_player.text = value.toString();
+      }
+
+      public set count02_tie(value: number) {
+        this._count02_tie.text = value.toString();
+      }
+
+      public set countPer01_bank(value: number) {
+        this._countPer01_bank.text = value.toString();
+      }
+
+      public set countPer01_player(value: number) {
+        this._countPer01_player.text = value.toString();
+      }
+
+      public set countPer01_tie(value: number) {
+        this._countPer01_tie.text = value.toString();
+      }
+
+      public set countPer02_bank(value: number) {
+        this._countPer02_bank.text = value.toString();
+      }
+
+      public set countPer02_player(value: number) {
+        this._countPer02_player.text = value.toString();
+      }
+
+      public set countPer02_tie(value: number) {
+        this._countPer02_tie.text = value.toString();
+      }
+
+      public set roundCount01(value: number) {
+        this._roundCount01.text = value.toString();
+      }
+
+      public set roundCount02(value: number) {
+        this._roundCount02.text = value.toString();
+      }
+
+      public get chart_01() {
+        return this._chart_01;
+      }
+
+      public get chart_02() {
+        return this._chart_02;
       }
 
       protected drawChartArc(a: number, b: number, c: number, x: number, y: number, radius: number, thickness: number) {

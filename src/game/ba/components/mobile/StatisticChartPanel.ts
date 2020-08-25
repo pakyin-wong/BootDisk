@@ -20,12 +20,8 @@ namespace we {
       }
 
       protected initData() {
-        console.log(`.......${JSON.stringify(this.tableInfo.gamestatistic)}`);
-
         this._leftHolder._icon01.visible = this._leftHolder._icon02.visible = true;
-        this._leftHolder._icon01_pair.visible = this._leftHolder._icon02_pair.visible = false;
         this._rightHolder._icon01_pair.visible = this._rightHolder._icon02_pair.visible = true;
-        this._rightHolder._icon01.visible = this._rightHolder._icon02.visible = false;
 
         // title of the holders
         this._leftHolder._title01.renderText = () => i18n.t('baccarat.statisticChart.shoeBankerPlayerTie');
@@ -43,7 +39,6 @@ namespace we {
         const bankerCount = this.tableInfo.gamestatistic.bankerCount;
         const playerCount = this.tableInfo.gamestatistic.playerCount;
         const tieCount = this.tableInfo.gamestatistic.tieCount;
-        // const tieCount = this.tableInfo.gamestatistic.tieCount;
 
         // page 2 of _rightHolder
         const bankerPairCount = this.tableInfo.gamestatistic.bankerPairCount;
@@ -54,7 +49,7 @@ namespace we {
         // page 1 of _rightHolder
         const shoeBankerPairCount = this.tableInfo.gamestatistic.shoeBankerPairCount;
         const shoePlayerPairCount = this.tableInfo.gamestatistic.shoePlayerPairCount;
-        const remainingCount_shoe = shoeTotalCount - bankerPairCount - playerPairCount;
+        const remainingCount_shoe = shoeTotalCount - shoeBankerPairCount - shoePlayerPairCount;
 
         // total rounds
         const total = bankerCount + playerCount + tieCount;
@@ -81,62 +76,62 @@ namespace we {
         const playerPairPercentage = Math.round((playerPairCount / totalCount) * 100);
         const remainingPercentage = Math.round((remainingCount_pair / totalCount) * 100);
 
-        this._leftHolder._count01_bank.text = shoeBankerCount.toString();
-        this._leftHolder._count01_player.text = shoePlayerCount.toString();
-        this._leftHolder._count01_tie.text = shoeTieCount.toString();
+        this._leftHolder.countPer01_bank = shoeBankerPercentage;
+        this._leftHolder.countPer01_player = shoePlayerPercentage;
+        this._leftHolder.countPer01_tie = shoeTiePercentage;
 
-        this._rightHolder._count01_bank.text = shoeBankerPairCount.toString();
-        this._rightHolder._count01_player.text = shoePlayerPairCount.toString();
-        this._rightHolder._count01_tie.text = remainingCount_shoe.toString();
+        this._rightHolder.countPer01_bank = shoeBankerPairPercentage;
+        this._rightHolder.countPer01_player = shoePlayerPairPercentage;
+        this._rightHolder.countPer01_tie = shoeRemainingPercentage;
 
-        this._leftHolder._count02_bank.text = bankerCount.toString();
-        this._leftHolder._count02_player.text = playerCount.toString();
-        this._leftHolder._count02_tie.text = tieCount.toString();
+        this._leftHolder.countPer02_bank = bankerPercentage;
+        this._leftHolder.countPer02_player = playerPercentage;
+        this._leftHolder.countPer02_tie = tiePercentage;
 
-        this._rightHolder._count02_bank.text = bankerPairCount.toString();
-        this._rightHolder._count02_player.text = playerPairCount.toString();
-        this._rightHolder._count02_tie.text = remainingCount_pair.toString();
+        this._rightHolder.countPer02_bank = bankerPairPercentage;
+        this._rightHolder.countPer02_player = playerPairPercentage;
+        this._rightHolder.countPer02_tie = remainingPercentage;
 
-        this._leftHolder._countPer01_bank.text = shoeBankerPercentage.toString();
-        this._leftHolder._countPer01_player.text = shoePlayerPercentage.toString();
-        this._leftHolder._countPer01_tie.text = shoeTiePercentage.toString();
+        this._leftHolder.count01_bank = shoeBankerCount;
+        this._leftHolder.count01_player = shoePlayerCount;
+        this._leftHolder.count01_tie = shoeTieCount;
 
-        this._rightHolder._countPer01_bank.text = shoeBankerPairPercentage.toString();
-        this._rightHolder._countPer01_player.text = shoePlayerPairPercentage.toString();
-        this._rightHolder._countPer01_tie.text = shoeRemainingPercentage.toString();
+        this._rightHolder.count01_bank = shoeBankerPairCount;
+        this._rightHolder.count01_player = shoePlayerPairCount;
+        this._rightHolder.count01_tie = remainingCount_shoe;
 
-        this._leftHolder._countPer02_bank.text = bankerPercentage.toString();
-        this._leftHolder._countPer02_player.text = playerPercentage.toString();
-        this._leftHolder._countPer02_tie.text = tiePercentage.toString();
+        this._leftHolder.count02_bank = bankerCount;
+        this._leftHolder.count02_player = playerCount;
+        this._leftHolder.count02_tie = tieCount;
 
-        this._rightHolder._countPer02_bank.text = bankerPairPercentage.toString();
-        this._rightHolder._countPer02_player.text = playerPairPercentage.toString();
-        this._rightHolder._countPer02_tie.text = remainingPercentage.toString();
+        this._rightHolder.count02_bank = bankerPairCount;
+        this._rightHolder.count02_player = playerPairCount;
+        this._rightHolder.count02_tie = remainingCount_pair;
 
-        this._leftHolder._roundCount01.text = shoeTotalCount.toString();
-        this._rightHolder._roundCount01.text = shoeTotalCount.toString();
-        this._leftHolder._roundCount02.text = totalCount.toString();
-        this._rightHolder._roundCount02.text = totalCount.toString();
+        this._leftHolder.roundCount01 = shoeTotalCount;
+        this._rightHolder.roundCount01 = shoeTotalCount;
+        this._leftHolder.roundCount02 = totalCount;
+        this._rightHolder.roundCount02 = totalCount;
 
         // chart of page 1 _leftHolder
-        this._leftHolder._chart_01.redAngle = shoeBankerPercentage * 3.6;
-        this._leftHolder._chart_01.blueAngle = shoePlayerPercentage * 3.6;
-        this._leftHolder._chart_01.drawChart();
+        this._leftHolder.chart_01.redAngle = shoeBankerPercentage * 3.6;
+        this._leftHolder.chart_01.blueAngle = shoePlayerPercentage * 3.6;
+        this._leftHolder.chart_01.drawChart();
 
         // chart of page 2 _leftHolder
-        this._leftHolder._chart_02.redAngle = bankerPercentage * 3.6;
-        this._leftHolder._chart_02.blueAngle = playerPercentage * 3.6;
-        this._leftHolder._chart_02.drawChart();
+        this._leftHolder.chart_02.redAngle = bankerPercentage * 3.6;
+        this._leftHolder.chart_02.blueAngle = playerPercentage * 3.6;
+        this._leftHolder.chart_02.drawChart();
 
         // chart of page 1 _rightHolder
-        this._rightHolder._chart_01.redAngle = shoeBankerPairPercentage * 3.6;
-        this._rightHolder._chart_01.blueAngle = shoePlayerPairPercentage * 3.6;
-        this._rightHolder._chart_01.drawChart(true);
+        this._rightHolder.chart_01.redAngle = shoeBankerPairPercentage * 3.6;
+        this._rightHolder.chart_01.blueAngle = shoePlayerPairPercentage * 3.6;
+        this._rightHolder.chart_01.drawChart(true);
 
         // chart of page 2 _rightHolder
-        this._rightHolder._chart_02.redAngle = bankerPairPercentage * 3.6;
-        this._rightHolder._chart_02.blueAngle = playerPairPercentage * 3.6;
-        this._rightHolder._chart_02.drawChart(true);
+        this._rightHolder.chart_02.redAngle = bankerPairPercentage * 3.6;
+        this._rightHolder.chart_02.blueAngle = playerPairPercentage * 3.6;
+        this._rightHolder.chart_02.drawChart(true);
       }
 
       public update() {
