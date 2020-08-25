@@ -13,7 +13,7 @@ namespace we {
       // private _txt_record_finbalance: eui.Label;
       // private _record_result: egret.DisplayObjectContainer;
       // private _btn_replay: egret.DisplayObject;
-      // private _txt_record_bgcolor: eui.Rect;
+      private _txt_record_bgcolor: eui.Rect;
       // private _txt_hover_color: eui.Rect;
       private _txtGameMode: eui.Label;
       private _txtBetItem: eui.Label;
@@ -44,6 +44,7 @@ namespace we {
       protected dataChanged(): void {
         super.dataChanged();
         this.generateStringFromField(this.data.field);
+        this._txt_record_bgcolor.fillColor = 0x214a72;
         this._txtGameMode.text = this.gamemode;
         this._txtBetItem.text = this.betitem;
         this._txtBetMode.text = `${parseInt(this.betmode, 10) / 100} 元`;

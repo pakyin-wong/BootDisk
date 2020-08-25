@@ -15,9 +15,6 @@ namespace we {
 
       protected bigTagNames: ui.RunTimeLabel[];
       protected smallTagNames: ui.RunTimeLabel[];
-
-      protected currentBigTagIndex: number = 0;
-      protected currentSmallTagIndex: number = 0;
       // private currentBetTable;
 
       protected _buttons;

@@ -366,7 +366,7 @@ namespace we {
           DirectMenu: {
             name: 'DirectMenu',
             input: [
-              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+              InputComponentDefinition.textArea('', 3), // 12|23|54|67|...
             ],
             pattern: '123OPTIONALINPUT_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
@@ -416,7 +416,7 @@ namespace we {
           GroupCombine: {
             name: 'GroupCombine',
             input: [
-              InputComponentDefinition.textArea('', 2, true), // 12|23|54|67|...
+              InputComponentDefinition.textArea('', 3, true), // 12|23|54|67|...
             ],
             pattern: '123THREECOMBINE_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
@@ -448,7 +448,7 @@ namespace we {
           DirectMenu: {
             name: 'DirectMenu',
             input: [
-              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+              InputComponentDefinition.textArea('', 3), // 12|23|54|67|...
             ],
             pattern: '234OPTIONALINPUT_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
@@ -498,7 +498,7 @@ namespace we {
           GroupCombine: {
             name: 'GroupCombine',
             input: [
-              InputComponentDefinition.textArea('', 2, true), // 12|23|54|67|...
+              InputComponentDefinition.textArea('', 3, true), // 12|23|54|67|...
             ],
             pattern: '234THREECOMBINE_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
@@ -530,7 +530,7 @@ namespace we {
           DirectMenu: {
             name: 'DirectMenu',
             input: [
-              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+              InputComponentDefinition.textArea('', 3), // 12|23|54|67|...
             ],
             pattern: '345OPTIONALINPUT_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
@@ -580,7 +580,7 @@ namespace we {
           GroupCombine: {
             name: 'GroupCombine',
             input: [
-              InputComponentDefinition.textArea('', 2, true), // 12|23|54|67|...
+              InputComponentDefinition.textArea('', 3, true), // 12|23|54|67|...
             ],
             pattern: '345THREECOMBINE_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,

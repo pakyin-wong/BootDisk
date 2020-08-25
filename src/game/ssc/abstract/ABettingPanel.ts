@@ -2,6 +2,9 @@
 namespace we {
   export namespace lo {
     export abstract class ABettingPanel extends core.BaseEUI implements IBettingPanel {
+      protected currentBigTagIndex: number = 0;
+      protected currentSmallTagIndex: number = 0;
+
       public _currentBettingTable: ABettingTable;
       protected _bettingControl: ABettingControlBar;
       public _noteControl: ANoteControlPanel;
@@ -108,10 +111,6 @@ namespace we {
         const unitBet = this._bettingControl.unitBet;
         const multiplier = this._bettingControl.multiplier;
 
-        if (isMultiple) {
-          return betFields.map(betField => `${betField}@${unitBet}#${multiplier}`);
-        }
-
         return betFields.map(betField => `${betField}@${unitBet}`);
       }
 
@@ -125,13 +124,19 @@ namespace we {
           tradNoteData.field = finalbetFields[i];
           tradNoteData.count = this._currentBettingTable.noteCount[i];
           tradNoteData.multiplier = this._bettingControl.multiplier;
+          const betMode = SelectionMapping[Object.keys(SelectionMapping)[this.currentBigTagIndex]];
+          const betMethod = betMode['type'][Object.keys(betMode['type'])[this.currentSmallTagIndex]];
+          tradNoteData.betmode = betMode.name;
+          tradNoteData.betmethod = betMethod.name;
           tradNoteDataArray.push(tradNoteData);
         }
 
         return tradNoteDataArray;
       }
 
-      protected placeBet(notes: TradNoteData[]) {
+      protected placeBet(evt: egret.Event) {
+        dir.evtHandler.removeEventListener('onLotteryConfirmBet', this.placeBet, this);
+        const notes = evt.data;
         const betdetails = this.generateBetDetail(notes);
         const roundbetdetals = this.generateCurrentBetRoundBetDetail();
         // let s = '';
@@ -165,12 +170,22 @@ namespace we {
 
       public confirmBet() {
         const notes = this._noteControl.notes;
-        this.placeBet(notes);
+        // this.placeBet(notes);
+        dir.evtHandler.createOverlay({
+          class: 'SSCBetConfirmPanel',
+          args: [notes],
+        });
+        dir.evtHandler.addEventListener('onLotteryConfirmBet', this.placeBet, this);
       }
 
       public instantBet() {
         const notes = this.generateNoteData();
-        this.placeBet(notes);
+        // this.placeBet(notes);
+        dir.evtHandler.createOverlay({
+          class: 'SSCBetConfirmPanel',
+          args: [notes],
+        });
+        dir.evtHandler.addEventListener('onLotteryConfirmBet', this.placeBet, this);
       }
 
       public addNotes() {
@@ -252,7 +267,7 @@ namespace we {
         }
 
         if (this._isStateBet) {
-          this._noteControl.setConfirmBetButton(true);
+        this._noteControl.setConfirmBetButton(true);
         } else {
           this._noteControl.setConfirmBetButton(false);
         }

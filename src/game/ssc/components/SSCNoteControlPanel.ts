@@ -207,10 +207,8 @@ namespace we {
           this._lbltotalBetAmount.renderText = () => `$ ${this._totalBetAmount}`;
         } else {
           const betmodearray = this.getBetModeArray(this.notes);
-          // console.log('betmodearray', betmodearray);
           this.notes.map((e, i) => {
             totalamount += e.count * e.multiplier * betmodearray[i];
-            // console.log('betmodearray[i];', betmodearray[i]);
           });
           this._totalBetAmount = totalamount;
           this._lbltotalBetAmount.renderText = () => `$ ${this._totalBetAmount}`;

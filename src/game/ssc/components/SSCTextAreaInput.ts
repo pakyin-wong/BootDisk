@@ -40,6 +40,7 @@ namespace we {
       protected onTouchClear(e) {
         this._textArea.text = '';
         this._data = '';
+        this.isValidate = false;
       }
 
       protected onTextAreaChange() {
@@ -209,6 +210,7 @@ namespace we {
         }
 
         this.isValidate = true;
+        this.updateData();
       }
 
       protected hasDuplicates(arr) {

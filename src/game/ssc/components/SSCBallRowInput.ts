@@ -34,7 +34,9 @@ namespace we {
         if (this._config.title && this._title) {
           this._title.renderText = () => `${i18n.t('lo_trad.inputTitle.' + this._config.title)}`;
         } else {
-          this._title.renderText = () => '';
+          if (this._title) {
+            this._title.renderText = () => `${''}`;
+          }
         }
 
         for (let i = 0; i < this._config.data.length; i++) {
