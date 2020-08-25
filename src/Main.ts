@@ -57,7 +57,14 @@ class Main extends eui.UILayer {
 
     const { type } = env.UAInfo.device;
 
-    if (type !== 'mobile') {
+    const value = window.location.search;
+
+    const query = value.replace('?', '');
+    let data: any = {};
+    data = we.utils.getQueryParams(query);
+    const isMobile = data.ismobile ? data.ismobile : 0;
+
+    if (type === 'mobile' || !!isMobile) {
       // if (true) {
       env.isMobile = true;
       // this.updateMobileHitTest();

@@ -4,8 +4,9 @@ namespace we {
       DEBUG = 0,
       DEV = 1,
       STAGING = 2,
-      UAT = 3,
-      PROD = 4,
+      RELEASE = 3,
+      UAT = 4,
+      PROD = 5,
     }
 
     export class Logger {
