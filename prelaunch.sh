@@ -42,14 +42,14 @@ fi
 
 hasUntrack=$(git diff-index --quiet HEAD -- || echo "yes")
 
-if [ "$hasUntrack" = "yes" ]; then
-    if test $lastrun -gt 21600; then
-        # echo $now > /tmp/egretlastrun.tmp
-        # flist="$(/usr/bin/find src -name "*.ts")"
-        # flist="$(echo $flist | tr '\r\n' ' ' | awk '{$1=$1};1')"
-        # prettier --write $flist && tslint -c tslint.json --fix $flist && $bin $@
-    fi
-fi
+# if [ "$hasUntrack" = "yes" ]; then
+#     if test $lastrun -gt 21600; then
+#         # echo $now > /tmp/egretlastrun.tmp
+#         # flist="$(/usr/bin/find src -name "*.ts")"
+#         # flist="$(echo $flist | tr '\r\n' ' ' | awk '{$1=$1};1')"
+#         # prettier --write $flist && tslint -c tslint.json --fix $flist && $bin $@
+#     fi
+# fi
 
 echo "$gitStatus $hasUntrack"
 
