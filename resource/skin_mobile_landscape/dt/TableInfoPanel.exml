@@ -3,7 +3,7 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="content" left="0" top="0" height="100%" width="100%">
 		<e:Rect id="_bg" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" anchorOffsetY="0" width="100%" />
-				<e:Group height="100%" width="2500">
+				<e:Group height="100%" width="100%">
 					<e:Image id="moveArea" source="popover_png" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7"
 					         visible="false" />
 					<ui:RunTimeLabel id="lblTableInfo" text="本檯資訊" left="50" top="50" x="50" y="50" scaleX="1" scaleY="1" size="20"
