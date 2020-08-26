@@ -88,6 +88,7 @@ namespace we {
       private _tableInfoArray: data.TableInfo[] = [];
       private _tableInfos: { [key: string]: data.TableInfo } = {};
       public _currTableId: string;
+      public _currGameType: number;
 
       // array of table id
       public allTableList: string[] = [];
@@ -113,6 +114,7 @@ namespace we {
       public isFirstTimeInfoPanel = false;
       // check if mobilebottomGamePanel is open
       public isBottomPanelOpen = true;
+      public bottomPanelSelectedIdx: number;
 
       public init() {
         this.mobileValidGameType = [
@@ -280,6 +282,7 @@ namespace we {
       public gotoScene(tableId: string) {
         const gameType = env.tableInfos[tableId].gametype;
         this._currTableId = tableId;
+        this._currGameType = gameType;
         switch (gameType) {
           case core.GameType.BAC:
           case core.GameType.BAS:

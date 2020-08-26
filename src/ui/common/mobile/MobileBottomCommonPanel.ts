@@ -39,7 +39,10 @@ namespace we {
         this.updateText();
         this.updateStat();
         this._middlePart.mask = this.viewStackMask;
-        this.viewStack.selectedIndex = 0;
+        this.viewStack.selectedIndex = env.bottomPanelSelectedIdx;
+        // if (env._currGameType === core.GameType.BAI || core.GameType.BAM || core.GameType.BAI || core.GameType.BAC || core.GameType.BAS || core.GameType.DT || core.GameType.LW) {
+        // this.viewStack.selectedIndex = env.bottomPanelSelectedIdx || 0;
+        // }
         this.getMiddlePartHeight();
         this.onPanelToggle(this.isFirstTime);
       }
@@ -124,6 +127,7 @@ namespace we {
       protected onViewChange(e: eui.UIEvent) {
         const radio: eui.RadioButton = e.target;
         this.viewStack.selectedIndex = radio.value;
+        env.bottomPanelSelectedIdx = radio.value;
       }
 
       public update() {

@@ -755,6 +755,7 @@ namespace we {
       protected destroy() {
         super.destroy();
         env._currTableId = '';
+        env._currGameType = null;
       }
     }
   }
