@@ -508,7 +508,7 @@ namespace we {
 
         let exceedBetLimit = false;
         if (checkLowerLimit) {
-          exceedBetLimit = this.isExceedLowerBetLimit(fieldAmounts, betLimit);
+          // exceedBetLimit = this.isExceedLowerBetLimit(fieldAmounts, betLimit);
         } else {
           exceedBetLimit = this.isExceedUpperBetLimit(fieldAmounts, betLimit, betDetail);
         }
