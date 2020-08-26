@@ -668,18 +668,37 @@ namespace we {
         return false;
       }
       protected isExceedUpperBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail: data.BetDetail) {
-        for (const key of Object.keys(fieldAmounts)) {
-          if (fieldAmounts[key] === 0) {
-            continue;
-          }
-          if (fieldAmounts[key] > betLimit.maxlimit) {
-            return 'upper';
-          }
-          if (fieldAmounts[key] < betLimit.minlimit) {
-            return 'lower';
-          }
+        const val = this.getAllValue(fieldAmounts, betDetail.field) + betDetail.amount;
+
+        const fieldType = betDetail.field.split('_')[0].toLowerCase();
+
+        switch (fieldType) {
+          case 'odd':
+          case 'even':
+            return this.checkLimit(val, betDetail, betLimit.limits.ro.ODD_EVEN.maxlimit);
+          case 'big':
+          case 'small':
+            return this.checkLimit(val, betDetail, betLimit.limits.ro.BIG_SMALL.maxlimit);
+          case 'red':
+          case 'black':
+            return this.checkLimit(val, betDetail, betLimit.limits.ro.RED_BLACK.maxlimit);
+          case 'direct':
+            return this.checkLimit(val, betDetail, betLimit.limits.ro.DIRECT.maxlimit);
+          case 'separate':
+            return this.checkLimit(val, betDetail, betLimit.limits.ro.SEPARATE.maxlimit);
+          case 'line':
+            return this.checkLimit(val, betDetail, betLimit.limits.ro.LINE.maxlimit);
+          case 'corner':
+            return this.checkLimit(val, betDetail, betLimit.limits.ro.CORNER.maxlimit);
+          case 'street':
+            return this.checkLimit(val, betDetail, betLimit.limits.ro.STREET.maxlimit);
+          case 'row':
+            return this.checkLimit(val, betDetail, betLimit.limits.ro.ROW.maxlimit);
+          case 'dozen':
+            return this.checkLimit(val, betDetail, betLimit.limits.ro.DOZEN.maxlimit);
+          case 'street':
+            return this.checkLimit(val, betDetail, betLimit.limits.ro.STREET.maxlimit);
         }
-        return null;
       }
 
       public onGridRollover(fieldName: string) {

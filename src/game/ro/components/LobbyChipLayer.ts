@@ -51,26 +51,9 @@ namespace we {
           case 'odd':
           case 'even':
             return this.checkLimit(val, betDetail, betLimit.limits.ro.ODD_EVEN.maxlimit);
-          case 'big':
-          case 'small':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.BIG_SMALL.maxlimit);
           case 'red':
           case 'black':
             return this.checkLimit(val, betDetail, betLimit.limits.ro.RED_BLACK.maxlimit);
-          case 'direct':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.DIRECT.maxlimit);
-          case 'separate':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.SEPARATE.maxlimit);
-          case 'line':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.LINE.maxlimit);
-          case 'street':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.STREET.maxlimit);
-          case 'row':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.ROW.maxlimit);
-          case 'dozen':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.DOZEN.maxlimit);
-          case 'street':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.STREET.maxlimit);
         }
       }
     }
