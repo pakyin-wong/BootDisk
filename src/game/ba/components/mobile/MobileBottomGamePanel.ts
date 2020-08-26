@@ -27,6 +27,11 @@ namespace we {
         super(skin || !env.isMobile ? skin : 'ba.MobileBottomGamePanel');
       }
 
+      public setTableInfo(tableInfo: data.TableInfo) {
+        super.setTableInfo(tableInfo)
+        this._roadmapPanel.setTableInfo(this.tableInfo);
+      }
+
       protected mount() {
         super.mount();
 
