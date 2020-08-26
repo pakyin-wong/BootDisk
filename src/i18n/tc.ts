@@ -514,6 +514,10 @@ namespace we {
       lo_fun_betfield_total_EVEN: '總雙',
 
       lo_trad: {
+        highest_win: '單倍最高金額：',
+        erase_non_number: '清除錯誤或重複項',
+        all_clear: '全清',
+        upload_document: '上傳文件',
         bigTag: {
           FiveStar: '五星',
           FourStar: '四星',
@@ -638,6 +642,14 @@ namespace we {
           EVEN: '雙',
           BIG: '大',
           SMALL: '小',
+        },
+        option: {
+          ALL: '全',
+          BIG: '大',
+          SMALL: '小',
+          ODD: '奇',
+          EVEN: '偶',
+          CLEAR: '清',
         },
       },
     };

@@ -13,6 +13,10 @@ namespace we {
 
       protected duplicatedDatas; // for display
 
+      protected _lblBtnUpload;
+      protected _lblBtnFix;
+      protected _lblBtnClear;
+
       private isValidate = false;
 
       constructor(index: number, config: any) {
@@ -22,6 +26,7 @@ namespace we {
 
       protected initComponents() {
         this.addListeners();
+        this.updateText();
       }
 
       public addListeners() {
@@ -45,16 +50,18 @@ namespace we {
 
       protected onTextAreaChange() {
         this.isValidate = false;
-        // this.updateData();
+
+        this.updateData();
       }
 
       // update the data when user interact with the component
       protected updateData() {
+        this._data = '';
         const inputText = this._textArea.text;
-        // this.validateTextArea(inputText);
+        this.validateTextArea(inputText);
 
         if (this._data !== [] && this._data !== '' && this._data !== null && this.isValidate) {
-          this.dispatchEventWith(egret.Event.CHANGE, false, { index: this._index, data: this._data });
+          this.dispatchEventWith('lo_trad_textareaupdate', false, { index: this._index, data: this._data });
         }
       }
 
@@ -67,7 +74,8 @@ namespace we {
 
       protected onTouchFix(e: egret.TouchEvent) {
         const inputText = this._textArea.text;
-        this.validateTextArea(inputText);
+        this.validateTextArea(inputText, true);
+        this.updateData();
       }
 
       private loadFileAbort() {
@@ -119,9 +127,17 @@ namespace we {
         this.isValidate = false;
         this._textArea.text = '';
         this._textArea.text = atob(result.split(',')[1]);
+        this.updateData();
       }
 
-      protected validateTextArea(text: string) {
+      protected updateText() {
+        super.updateText();
+        this._lblBtnUpload.renderText = () => `${i18n.t('lo_trad.upload_document')}`;
+        this._lblBtnFix.renderText = () => `${i18n.t('lo_trad.erase_non_number')}`;
+        this._lblBtnClear.renderText = () => `${i18n.t('lo_trad.all_clear')}`;
+      }
+
+      protected validateTextArea(text: string, isUpdateTextField = false) {
         // remove except numbers
         this.duplicatedDatas = [];
 
@@ -150,7 +166,7 @@ namespace we {
         let temp = '';
 
         this._data = '';
-        this._textArea.text = '';
+        if (isUpdateTextField) this._textArea.text = '';
         let count = 0;
 
         for (let i = 0; i < datas.length; i++) {
@@ -201,16 +217,16 @@ namespace we {
         // set textArea & set _data
         for (let i = 0; i < finalDatas.length; i++) {
           if (i === finalDatas.length - 1) {
-            this._textArea.text += finalDatas[i];
+            if (isUpdateTextField) this._textArea.text += finalDatas[i];
             this._data += finalDatas[i];
           } else {
-            this._textArea.text += finalDatas[i] + ', ';
+            if (isUpdateTextField) this._textArea.text += finalDatas[i] + ', ';
             this._data += finalDatas[i] + '|';
           }
         }
 
         this.isValidate = true;
-        this.updateData();
+        // this.updateData();
       }
 
       protected hasDuplicates(arr) {

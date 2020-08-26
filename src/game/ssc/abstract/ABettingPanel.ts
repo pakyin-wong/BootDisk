@@ -267,7 +267,7 @@ namespace we {
         }
 
         if (this._isStateBet) {
-        this._noteControl.setConfirmBetButton(true);
+          this._noteControl.setConfirmBetButton(true);
         } else {
           this._noteControl.setConfirmBetButton(false);
         }
@@ -275,6 +275,10 @@ namespace we {
 
       public onEnablePanel(enable: boolean) {
         this.touchEnabled = enable;
+      }
+
+      public onExit() {
+        this.destroy();
       }
     }
   }

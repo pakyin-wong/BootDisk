@@ -9,6 +9,6 @@
 		<e:Label id="_txtNoteCount" text="Label" x="623" y="0" width="109" height="56" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
 		<e:Label id="_txtMultiplier" text="Label" x="736" y="0" width="66" height="56" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
 		<e:Label id="_txtTotalBet" text="Label" x="869" y="0" width="109" height="56" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
-		<e:Image id="_btnDelect" width="56" height="56" x="1025" scaleX="1" scaleY="1" source="d_lobby_panel_button_play_normal_png"/>
+		<e:Image id="_btnDelect" width="56" height="56" x="1025" scaleX="1" scaleY="1" source="d_common_icon_close_png"/>
 	</e:Group>
 </e:Skin>

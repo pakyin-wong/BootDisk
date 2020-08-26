@@ -29,7 +29,11 @@ namespace we {
             // if (inputConfigs[i].type === InputComponentType.CHECKBOXES) {
             //   isCheckBox = true;
             // }
-            inputComponent.addEventListener(egret.Event.CHANGE, this.onInputChange, this);
+            if (inputConfigs[i].type === InputComponentType.TEXTAREA) {
+              inputComponent.addEventListener('lo_trad_textareaupdate', this.onInputChange, this);
+            } else {
+              inputComponent.addEventListener(egret.Event.CHANGE, this.onInputChange, this);
+            }
             this._inputs.push(inputComponent);
             // init empty inputData
             this.inputData.push('');
@@ -45,7 +49,15 @@ namespace we {
       }
 
       protected onInputChange(evt: egret.Event) {
+        if (evt.data === null || evt.data === undefined) {
+          this.onInputInvalidate();
+          return;
+        }
+
         const { index, data } = evt.data;
+
+        this.bettingPanel.isBetCodeValidate = false;
+        this.bettingPanel.isBetLimitValidate = false;
         // update inputData
         this.inputData[index] = data;
 
@@ -95,6 +107,7 @@ namespace we {
         this.clearData();
         if (this.bettingPanel) {
           this.bettingPanel.clearNote();
+          this.bettingPanel.validateBetButtons();
         }
       }
 
@@ -127,7 +140,6 @@ namespace we {
         for (let i = 0; i < this.noteCount.length; i++) {
           this.totalNoteCount += this.noteCount[i];
         }
-        // this.totalNoteCount = this.betFields.length;
       }
 
       public dispose() {}

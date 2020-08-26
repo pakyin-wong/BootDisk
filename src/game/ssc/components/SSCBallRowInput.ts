@@ -118,6 +118,10 @@ namespace we {
         } else {
           this._title.renderText = () => '';
         }
+
+        if (this._optionPanel) {
+          this._optionPanel.updateText();
+        }
       }
 
       protected updateData() {

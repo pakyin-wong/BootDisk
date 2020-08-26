@@ -28,13 +28,11 @@ namespace we {
           dataType,
           validate: (data: string | any[]) => {
             if (dataType === InputDataType.STRING) {
-              console.log(data.length >= minSelect && data.length <= maxSelect);
               return data.length >= minSelect && data.length <= maxSelect;
             }
 
             if (dataType === InputDataType.SEPARATOR) {
               const datas = (data as string).split('|');
-              console.log(data.length >= minSelect && data.length <= maxSelect);
               return datas.length >= minSelect && datas.length <= maxSelect;
             }
           }, // use to validate the output data of this component
@@ -393,26 +391,26 @@ namespace we {
             noteCountFunc: NoteCountFunc.ThreeStar.Group6,
             maxWin: 300,
           },
-          Three3Tow: {
-            name: 'Three3Tow',
-            input: [
-              InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
-              InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
-            ],
-            pattern: '123THREEBRAVERYTOW3_$1_$2',
-            noteCountFunc: NoteCountFunc.ThreeStar.Group3Tow,
-            maxWin: 600,
-          },
-          Three6Tow: {
-            name: 'Three6Tow',
-            input: [
-              InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
-              InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2),
-            ],
-            pattern: '123THREEBRAVERYTOW3_$1_$2',
-            noteCountFunc: NoteCountFunc.ThreeStar.Group6Tow,
-            maxWin: 300,
-          },
+          // Three3Tow: {
+          //   name: 'Three3Tow',
+          //   input: [
+          //     InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+          //     InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+          //   ],
+          //   pattern: '123THREEBRAVERYTOW3_$1_$2',
+          //   noteCountFunc: NoteCountFunc.ThreeStar.Group3Tow,
+          //   maxWin: 600,
+          // },
+          // Three6Tow: {
+          //   name: 'Three6Tow',
+          //   input: [
+          //     InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+          //     InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2),
+          //   ],
+          //   pattern: '123THREEBRAVERYTOW3_$1_$2',
+          //   noteCountFunc: NoteCountFunc.ThreeStar.Group6Tow,
+          //   maxWin: 300,
+          // },
           GroupCombine: {
             name: 'GroupCombine',
             input: [
@@ -475,26 +473,26 @@ namespace we {
             noteCountFunc: NoteCountFunc.ThreeStar.Group6,
             maxWin: 300,
           },
-          Three3Tow: {
-            name: 'Three3Tow',
-            input: [
-              InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
-              InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
-            ],
-            pattern: '234THREEBRAVERYTOW3_$1_$2',
-            noteCountFunc: NoteCountFunc.ThreeStar.Group3Tow,
-            maxWin: 600,
-          },
-          Three6Tow: {
-            name: 'Three6Tow',
-            input: [
-              InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
-              InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2),
-            ],
-            pattern: '234THREEBRAVERYTOW3_$1_$2',
-            noteCountFunc: NoteCountFunc.ThreeStar.Group6Tow,
-            maxWin: 300,
-          },
+          // Three3Tow: {
+          //   name: 'Three3Tow',
+          //   input: [
+          //     InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+          //     InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+          //   ],
+          //   pattern: '234THREEBRAVERYTOW3_$1_$2',
+          //   noteCountFunc: NoteCountFunc.ThreeStar.Group3Tow,
+          //   maxWin: 600,
+          // },
+          // Three6Tow: {
+          //   name: 'Three6Tow',
+          //   input: [
+          //     InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+          //     InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2),
+          //   ],
+          //   pattern: '234THREEBRAVERYTOW3_$1_$2',
+          //   noteCountFunc: NoteCountFunc.ThreeStar.Group6Tow,
+          //   maxWin: 300,
+          // },
           GroupCombine: {
             name: 'GroupCombine',
             input: [
@@ -557,26 +555,26 @@ namespace we {
             noteCountFunc: NoteCountFunc.ThreeStar.Group6,
             maxWin: 300,
           },
-          Three3Tow: {
-            name: 'Three3Tow',
-            input: [
-              InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
-              InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
-            ],
-            pattern: '345THREEBRAVERYTOW3_$1_$2',
-            noteCountFunc: NoteCountFunc.ThreeStar.Group3Tow,
-            maxWin: 600,
-          },
-          Three6Tow: {
-            name: 'Three6Tow',
-            input: [
-              InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
-              InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2),
-            ],
-            pattern: '345THREEBRAVERYTOW3_$1_$2',
-            noteCountFunc: NoteCountFunc.ThreeStar.Group6Tow,
-            maxWin: 300,
-          },
+          // Three3Tow: {
+          //   name: 'Three3Tow',
+          //   input: [
+          //     InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+          //     InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+          //   ],
+          //   pattern: '345THREEBRAVERYTOW3_$1_$2',
+          //   noteCountFunc: NoteCountFunc.ThreeStar.Group3Tow,
+          //   maxWin: 600,
+          // },
+          // Three6Tow: {
+          //   name: 'Three6Tow',
+          //   input: [
+          //     InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+          //     InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2),
+          //   ],
+          //   pattern: '345THREEBRAVERYTOW3_$1_$2',
+          //   noteCountFunc: NoteCountFunc.ThreeStar.Group6Tow,
+          //   maxWin: 300,
+          // },
           GroupCombine: {
             name: 'GroupCombine',
             input: [

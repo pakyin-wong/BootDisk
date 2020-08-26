@@ -13,17 +13,27 @@ namespace we {
       public _evenButton;
       public _clearButton;
 
-      private _lblAll;
-      private _lblBig;
-      private _lblSmall;
-      private _lblOdd;
-      private _lblEven;
-      private _lblClear;
+      private _lblAllButton;
+      private _lblBigButton;
+      private _lblSmallButton;
+      private _lblOddButton;
+      private _lblEvenButton;
+      private _lblClearButton;
 
       constructor() {
         super();
         this.skinName = 'skin_desktop.lo.SSCTraditionalBettingOptionButtonRow';
         this.init();
+        this.updateText();
+      }
+
+      public updateText() {
+        this._lblAllButton.renderText = () => `${i18n.t('lo_trad.option.ALL')}`;
+        this._lblBigButton.renderText = () => `${i18n.t('lo_trad.option.BIG')}`;
+        this._lblSmallButton.renderText = () => `${i18n.t('lo_trad.option.SMALL')}`;
+        this._lblOddButton.renderText = () => `${i18n.t('lo_trad.option.ODD')}`;
+        this._lblEvenButton.renderText = () => `${i18n.t('lo_trad.option.EVEN')}`;
+        this._lblClearButton.renderText = () => `${i18n.t('lo_trad.option.CLEAR')}`;
       }
 
       private init() {

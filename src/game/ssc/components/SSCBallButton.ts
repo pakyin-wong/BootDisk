@@ -29,11 +29,10 @@ namespace we {
         this.height = 50;
         if (this._betValue.length > 1) {
           this.width = 150;
-          this.cornerTL_TR_BL_BR = '25,25,25,25';
         } else {
           this.width = 50;
-          this.cornerTL_TR_BL_BR = '25,25,25,25';
         }
+        this.cornerTL_TR_BL_BR = '25,25,25,25';
 
         this.fillAlpha = 0;
         this.stroke = 1;
@@ -64,11 +63,11 @@ namespace we {
         // shape.width = shape.height = 50;
 
         this._lblValue = new ui.RunTimeLabel();
-        if (this._betValue.length > 1) {
-          this._lblValue.width = 150;
-        } else {
-          this._lblValue.width = 50;
-        }
+        // if (this._betValue.length > 1) {
+        //   this._lblValue.width = 150;
+        // } else {
+        //   this._lblValue.width = 50;
+        // }
         this._lblValue.height = 50;
         this._lblValue.size = 34;
         this._lblValue.alpha = 0.7;
@@ -77,6 +76,9 @@ namespace we {
         this._lblValue.verticalAlign = 'middle';
         this._lblValue.touchEnabled = false;
         this.addChildAt(this._lblValue, 1);
+        this._lblValue.horizontalCenter = 0;
+        this._lblValue.verticalCenter = 0;
+
         // this._image = new eui.Image();
         //   this._image.source =
       }

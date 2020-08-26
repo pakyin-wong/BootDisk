@@ -75,7 +75,7 @@ namespace we {
           const field = this.generateStringFromField(this._noteData[i].field);
 
           const lblBetMode = new ui.RunTimeLabel();
-          lblBetMode.renderText = () => `${i18n.t('lo_trad.bigTag.' + this._noteData[i].betmode)}|${i18n.t('lo_trad.smallTag.' + this._noteData[i].betmethod)} - ${field[0]}`;
+          lblBetMode.renderText = () => `${i18n.t('lo_trad.bigTag.' + this._noteData[i].betmode)}| ${i18n.t('lo_trad.smallTag.' + this._noteData[i].betmethod)} - ${field[0]}`;
           lblBetMode.size = 24;
           data.addChild(lblBetMode);
           lblBetMode.left = 0;

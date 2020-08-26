@@ -2,7 +2,7 @@
 <e:Skin class="skin_desktop.lo.SSCTraditionalBettingPanel" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*" xmlns:ui="we.ui.*" width="1508" height="1213">
     <e:Rect x="0" y="0" width="1508" height="1213" fillColor="0x10151b"/>
     <ui:RoundRectShape cornerTL_TR_BL_BR="10,10,10,10" x="0" y="0" width="1508" height="825" stroke="1" fillColor="0x112c4c" strokeColor="0x214a72"/>
-    <e:Group bottom="12" width="1508" height="337">
+    <e:Group bottom="0" width="1508" height="377">
 		<lo:SSCNoteControlPanel id="_noteControl"/>
     </e:Group>
     <e:Group id="_content" width="1508" height="849">

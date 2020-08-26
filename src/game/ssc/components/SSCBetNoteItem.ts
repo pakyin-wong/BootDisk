@@ -44,7 +44,7 @@ namespace we {
       protected dataChanged(): void {
         super.dataChanged();
         this.generateStringFromField(this.data.field);
-        this._txt_record_bgcolor.fillColor = 0x214a72;
+        this._txt_record_bgcolor.fillColor = 0x0f1721;
         this._txtGameMode.text = this.gamemode;
         this._txtBetItem.text = this.betitem;
         this._txtBetMode.text = `${parseInt(this.betmode, 10) / 100} 元`;
@@ -73,7 +73,6 @@ namespace we {
         this.currentState = 'normal';
       }
       protected onClickDelete() {
-        console.log('SSCBETNOTEITEM :: onClickDelect', this.data);
         // TODO: call parent to clear the data , delect this.notes ,update total
         dir.evtHandler.dispatch(we.core.Event.SSC_DELETE_ONE_NOTE, this.data);
       }
@@ -120,7 +119,8 @@ namespace we {
         // result = ['12' , 'OptionalFree' , '_1_2' , '200']
         // this.gamemode = this.generateGameModeFromField(result[0], result[1]); // 萬千 OptionalFree
         // this.gamemode = i18n.t("result[0]");
-        this.gamemode = result[0];
+        // this.gamemode = result[0];
+        this.gamemode = `${i18n.t('lo_trad.bigTag.' + this.data.betmode)}| ${i18n.t('lo_trad.smallTag.' + this.data.betmethod)}`;
         this.betmode = Math.round(parseInt(result[2], 10) * 100) / 100;
         this.betitem = this.generateBetitemFromField(result[1]); // 1|2
       }
@@ -130,9 +130,35 @@ namespace we {
 
         // DataStringArray = ['','1','2']
         let OutputDataString: string = '';
-        OutputDataString += `${DataStringArray[0]}`;
+        if (this.isNumeric(parseInt(DataStringArray[0], 10))) {
+          OutputDataString += `${DataStringArray[0]}`;
+        } else {
+          const tempString = DataStringArray[0].split('|');
+          if (tempString.length > 1) {
+            OutputDataString += `${i18n.t('lo_trad.inputs.' + tempString[0].trim().toUpperCase())}`;
+            for (let i = 1; i < tempString.length; i++) {
+              OutputDataString += ',' + `${i18n.t('lo_trad.inputs.' + tempString[i].trim().toUpperCase())}`;
+            }
+          } else {
+            OutputDataString += `${i18n.t('lo_trad.inputs.' + DataStringArray[0].trim().toUpperCase())}`;
+          }
+        }
         for (let i = 1; i < DataStringArray.length; i++) {
-          OutputDataString = OutputDataString + ` | ${DataStringArray[i]}`;
+          if (this.isNumeric(parseInt(DataStringArray[i], 10))) {
+            OutputDataString += ` | ${DataStringArray[i]}`;
+          } else {
+            {
+              const tempString = DataStringArray[i].split('|');
+              if (tempString.length > 1) {
+                OutputDataString += ` | ${i18n.t('lo_trad.inputs.' + tempString[0].trim().toUpperCase())}`;
+                for (let k = 1; k < tempString.length; k++) {
+                  OutputDataString += ',' + `${i18n.t('lo_trad.inputs.' + tempString[k].trim().toUpperCase())}`;
+                }
+              } else {
+                OutputDataString += ` | ${i18n.t('lo_trad.inputs.' + DataStringArray[i].trim().toUpperCase())}`;
+              }
+            }
+          }
         }
         // TODO:check string length
         // if (OutputDataString.length <= 20) {
@@ -155,6 +181,9 @@ namespace we {
         return newdatastring;
       }
 
+      protected isNumeric(num) {
+        return !isNaN(num);
+      }
       // protected generateGameModeFromField(index: string, mode: string) {
       //   const IndexArray = index.split('');
       //   let OutputGameModeSting = '';

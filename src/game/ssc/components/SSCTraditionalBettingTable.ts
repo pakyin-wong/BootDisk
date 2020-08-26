@@ -165,9 +165,9 @@ namespace we {
           }
         }
 
-        for (let i = 0; i < this.betFields.length; i++) {
-          console.log('pattern :' + this.betFields[i]);
-        }
+        // for (let i = 0; i < this.betFields.length; i++) {
+        //   console.log('pattern :' + this.betFields[i]);
+        // }
       }
     }
   }
