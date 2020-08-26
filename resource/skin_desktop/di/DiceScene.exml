@@ -17,14 +17,18 @@
 		          horizontalCenter="114" skinName="skins_desktop.BetConfirmButtonSkin" />
 		<ui:CountdownTimer id="_timer" width="160" height="64" y="3" horizontalCenter="115"
 		                   skinName="skin_desktop.CountdownTimerSkin" />
+		<ui:BaseAnimationButton id="_undoButton" width="55" height="55" verticalCenter="0" horizontalCenter="243"
+		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true"
+								tooltipText="'live.tooltip.undo'" tooltipPosition="'above'" />
 		<ui:BaseAnimationButton id="_cancelButton" width="55" height="55" verticalCenter="0" horizontalCenter="318"
-		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_clear" useColorFilter="true" />
-		<ui:BaseAnimationButton id="_repeatButton" width="55" height="55" verticalCenter="0" horizontalCenter="243"
-		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_rebet" useColorFilter="true" />
+		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_clear" useColorFilter="true"
+								tooltipText="'live.tooltip.cancel'" tooltipPosition="'above'" />
 		<ui:BaseAnimationButton id="_doubleButton" width="55" height="55" verticalCenter="0" horizontalCenter="393"
-		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_double" useColorFilter="true" />
-		<ui:BaseAnimationButton id="_undoButton" width="55" height="55" verticalCenter="0" horizontalCenter="467"
-		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true" />
+		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_double" useColorFilter="true"
+								tooltipText="'live.tooltip.double'" tooltipPosition="'above'" />
+		<ui:BaseAnimationButton id="_repeatButton" width="55" height="55" verticalCenter="0" horizontalCenter="467"
+		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_rebet" useColorFilter="true"
+								tooltipText="'live.tooltip.repeat'" tooltipPosition="'above'" />
 	</ui:Group>
 	<di:DiLeftPanel id="_leftGamePanel" width="580" height="341" x="16" y="987" anchorOffsetX="0" anchorOffsetY="0"
 	                isEdgeDismissable="true" dismissPosX="16" dismissPosY="1297" />
