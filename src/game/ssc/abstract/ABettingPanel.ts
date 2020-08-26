@@ -170,22 +170,22 @@ namespace we {
 
       public confirmBet() {
         const notes = this._noteControl.notes;
+        dir.evtHandler.addEventListener('onLotteryConfirmBet', this.placeBet, this);
         // this.placeBet(notes);
         dir.evtHandler.createOverlay({
           class: 'SSCBetConfirmPanel',
           args: [notes],
         });
-        dir.evtHandler.addEventListener('onLotteryConfirmBet', this.placeBet, this);
       }
 
       public instantBet() {
         const notes = this.generateNoteData();
+        dir.evtHandler.addEventListener('onLotteryConfirmBet', this.placeBet, this);
         // this.placeBet(notes);
         dir.evtHandler.createOverlay({
           class: 'SSCBetConfirmPanel',
           args: [notes],
         });
-        dir.evtHandler.addEventListener('onLotteryConfirmBet', this.placeBet, this);
       }
 
       public addNotes() {

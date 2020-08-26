@@ -159,7 +159,7 @@ namespace we {
       protected onConfirmPressed(e: egret.Event) {
         const { bets, roundBets } = e.data;
         // dir.socket.tradLotteryBet(this._tableId, bets, roundBets); //TODO
-        dir.socket.bet(this._tableId, bets);
+        dir.socket.bet(this._tableId, bets, this.onBetReturned.bind(this));
       }
 
       public checkResultMessage(resultData = null) {

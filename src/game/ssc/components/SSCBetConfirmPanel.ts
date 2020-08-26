@@ -58,7 +58,8 @@ namespace we {
       }
 
       private onConfirmPressed(e) {
-        this.dispatchEventWith('onLotteryConfirmBet', false, this._noteData);
+        dir.evtHandler.dispatchEventWith('onLotteryConfirmBet', false, this._noteData);
+        this.destroy();
       }
 
       protected dataMapping() {
@@ -113,15 +114,49 @@ namespace we {
 
       protected generateBetitemFromField(DataString: string) {
         const DataStringArray = DataString.split('_');
+
+        // DataStringArray = ['','1','2']
         let OutputDataString: string = '';
-        OutputDataString += `${DataStringArray[0]}`;
-        for (let i = 1; i < DataStringArray.length; i++) {
-          OutputDataString = OutputDataString + ` | ${DataStringArray[i]}`;
+        if (this.isNumeric(parseInt(DataStringArray[0], 10))) {
+          OutputDataString += `${DataStringArray[0]}`;
+        } else {
+          const tempString = DataStringArray[0].split('|');
+          if (tempString.length > 1) {
+            OutputDataString += `${i18n.t('lo_trad.inputs.' + tempString[0].trim().toUpperCase())}`;
+            for (let i = 1; i < tempString.length; i++) {
+              OutputDataString += ',' + `${i18n.t('lo_trad.inputs.' + tempString[i].trim().toUpperCase())}`;
+            }
+          } else {
+            OutputDataString += `${i18n.t('lo_trad.inputs.' + DataStringArray[0].trim().toUpperCase())}`;
+          }
         }
-
+        
+        for (let i = 1; i < DataStringArray.length; i++) {
+          if (this.isNumeric(parseInt(DataStringArray[i], 10))) {
+            OutputDataString += ` | ${DataStringArray[i]}`;
+          } else {
+            {
+              const tempString = DataStringArray[i].split('|');
+              if (tempString.length > 1) {
+                OutputDataString += ` | ${i18n.t('lo_trad.inputs.' + tempString[0].trim().toUpperCase())}`;
+                for (let k = 1; k < tempString.length; k++) {
+                  OutputDataString += ',' + `${i18n.t('lo_trad.inputs.' + tempString[k].trim().toUpperCase())}`;
+                }
+              } else {
+                OutputDataString += ` | ${i18n.t('lo_trad.inputs.' + DataStringArray[i].trim().toUpperCase())}`;
+              }
+            }
+          }
+        }
+        // TODO:check string length
+        // if (OutputDataString.length <= 20) {
         OutputDataString = this.regenerateBetitemFromField(OutputDataString);
-
+        // }
         return OutputDataString;
+      }
+
+      protected isNumeric(num) {
+        return !isNaN(num);
       }
 
       protected regenerateBetitemFromField(DataString: string) {
@@ -195,6 +230,7 @@ namespace we {
         this.removeEventListeners();
 
         super.destroy();
+        this.foreclosed();
       }
     }
   }
