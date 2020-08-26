@@ -29,9 +29,9 @@ class Main extends eui.UILayer {
   private async init() {
     egret.ImageLoader.crossOrigin = 'anonymous';
 
-    eui.Label.default_fontFamily = 'Microsoft JhengHei,Sans-Serif';
-    egret.TextField.default_fontFamily = 'Microsoft JhengHei,Sans-Serif';
-    we.ui.RunTimeLabel.default_fontFamily = 'Microsoft JhengHei,Sans-Serif';
+    eui.Label.default_fontFamily = 'Barlow,Microsoft JhengHei,Sans-Serif';
+    egret.TextField.default_fontFamily = 'Barlow,Microsoft JhengHei,Sans-Serif';
+    we.ui.RunTimeLabel.default_fontFamily = 'Barlow,Microsoft JhengHei,Sans-Serif';
     // step 1: init director elements (socket comm, controller, handler)
     // dir.socket = new socket.SocketMock();
     dir.config = await we.utils.getConfig();
@@ -57,20 +57,27 @@ class Main extends eui.UILayer {
 
     const { type } = env.UAInfo.device;
 
-    if (type === 'mobile') {
-    // if (true) {
-    env.isMobile = true;
-    // this.updateMobileHitTest();
-    // use these when there is portrait mode only
-    // this.stage.setContentSize(1242, 2155);
-    // this.stage.orientation = egret.OrientationMode.PORTRAIT;
-    // env.orientation = egret.OrientationMode.PORTRAIT;
-    // this.stage.setContentSize(2155, 1242);
-    // this.stage.orientation = egret.OrientationMode.LANDSCAPE;
-    // env.orientation = egret.OrientationMode.LANDSCAPE;
+    const value = window.location.search;
 
-    // uncomment below when there are both portrait and landscape layout
-    this.orientationManager = new we.utils.OrientationManager(this.stage);
+    const query = value.replace('?', '');
+    let data: any = {};
+    data = we.utils.getQueryParams(query);
+    const isMobile = data.ismobile ? data.ismobile : 0;
+
+    if (type === 'mobile' || !!isMobile) {
+      // if (true) {
+      env.isMobile = true;
+      // this.updateMobileHitTest();
+      // use these when there is portrait mode only
+      // this.stage.setContentSize(1242, 2155);
+      // this.stage.orientation = egret.OrientationMode.PORTRAIT;
+      // env.orientation = egret.OrientationMode.PORTRAIT;
+      // this.stage.setContentSize(2155, 1242);
+      // this.stage.orientation = egret.OrientationMode.LANDSCAPE;
+      // env.orientation = egret.OrientationMode.LANDSCAPE;
+
+      // uncomment below when there are both portrait and landscape layout
+      this.orientationManager = new we.utils.OrientationManager(this.stage);
     }
 
     dir.evtHandler = new we.core.EventHandler();

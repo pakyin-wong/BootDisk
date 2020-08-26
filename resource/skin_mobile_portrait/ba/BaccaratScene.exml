@@ -8,6 +8,7 @@
 
 	<e:Group id="_verticalGroup" width="1242" x="0" bottom="0">
 		<e:Group id="_verticalTop" width="1242" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
+			<ba:CardHolder id="_resultDisplay" width="412" height="152" y="40" horizontalCenter="0" anchorOffsetX="0" anchorOffsetY="0" x="415" scaleX="1" scaleY="1" y.right_hand_mode="232"/>
 			<ba:TableLayer id="_tableLayer" width="1182" height="464" x="30" y="243" isEdgeDismissable="true"
 			               skinName="skin_mobile_portrait.ba.TableLayerSkin" scaleX="1" scaleY="1" />
 			<ba:ChipLayer id="_chipLayer" width="1182" height="464" x="30" y="243" isEdgeDismissable="true"
@@ -41,22 +42,22 @@
 				<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="0" colorChange="true"
 				                   verticalCenter="0" x.right_hand_mode="683" />
 			<e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0" touchEnabled="false" touchChildren="false">
-					<ui:RunTimeLabel id="_repeatLabel" text="再次下注" verticalCenter="0" x="788" x.right_hand_mode="82"/>
-					<ui:RunTimeLabel id="_cancelLabel" text="清除" verticalCenter="0" x="500" x.right_hand_mode="432"/>
-					<ui:RunTimeLabel id="_doubleLabel" text="雙倍" verticalCenter="0" x="650" x.right_hand_mode="266"/>
-					<ui:RunTimeLabel id="_undoLabel" text="復原" verticalCenter="0" x="349" x.right_hand_mode="588"/>
+					<ui:RunTimeLabel id="_repeatLabel" text="再次下注" verticalCenter="0" x="788" x.right_hand_mode="66" />
+
+					<ui:RunTimeLabel id="_doubleLabel" text="雙倍" verticalCenter="0" x="650" x.right_hand_mode="245" />
+				<ui:RunTimeLabel id="_cancelLabel" text="清除" verticalCenter="0" x="500" x.right_hand_mode="395"/>
+					<ui:RunTimeLabel id="_undoLabel" text="復原" verticalCenter="0" x="349" x.right_hand_mode="547" />
 				</e:Group>
 				<ui:BaseImageButton id="_repeatButton" y="0" anchorOffsetX="0" width="128" anchorOffsetY="0" height="120"
-				                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_repeat"  x="787" x.right_hand_mode="77"/>
+				                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_repeat"  x="787" x.right_hand_mode="61"/>
+				<ui:BaseImageButton id="_doubleButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_double" x="651" x.right_hand_mode="239"/>
 				<ui:BaseImageButton id="_cancelButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
-				                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_cancel"  x="500" x.right_hand_mode="432"/>
-				<ui:BaseImageButton id="_doubleButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
-				                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_double"  x="651" x.right_hand_mode="264"/>
+				                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_cancel"  x="500" x.right_hand_mode="393"/>
+
 				<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
-				                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo"  x="351" x.right_hand_mode="588"/>
+				                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo"  x="351" x.right_hand_mode="545"/>
 			</e:Group>
-			<ba:CardHolder id="_resultDisplay" width="412" height="152" y="40" horizontalCenter="0" anchorOffsetX="0"
-			               anchorOffsetY="0" x="415" scaleX="1" scaleY="1" />
+
 		</e:Group>
 		<ba:MobileBottomGamePanel skinName="skin_mobile_portrait.ba.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"
 		                          x="0" scaleY="1" y="783" scaleX="1" />
@@ -79,15 +80,15 @@
 
 		<ui:RunTimeLabel id="_lblRoomNo" x="25" y="15" size="40" height="56" verticalAlign="middle" width="200"
 		                 textAlign="left" anchorOffsetX="0" text="Label" />
-		<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Barlow" size="40" text="label" x="25" y="65"/>
+		<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Arial" size="40" text="label" x="25" y="65"/>
 		<e:Image source="m_common_panel_icon_dropdown_png" width="34" height="19" x="34" y="19" visible="false"/>
 		<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" x="0"
 		                        visible="false"/>
 		<ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_mobile_portrait.GameBar" visible="false" />
 					<e:Group y="65" right="15">
-						<ui:RunTimeLabel id="_totalBetText" text="總下注" anchorOffsetX="0" textAlign="right" size="36"/>
-		<ui:RunTimeLabel id="_totalBet" text="0" anchorOffsetX="0" textAlign="right" size="36" right="5"/>
+						<ui:RunTimeLabel id="_totalBet" text="0" anchorOffsetX="0" textAlign="right" size="36" right="5" fontFamily="Barlow"/>
+						<ui:RunTimeLabel id="_totalBetText" text="總下注" anchorOffsetX="0" textAlign="right" size="36" alpha="0.7"/>
 						<e:layout>
 							<e:HorizontalLayout/>
 						</e:layout>
@@ -102,7 +103,7 @@
 	<ba:GameResultMessage id="_resultMessage" x="620" y="468" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
 	                           scaleY="1" visible="false"/>
 	<ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
-	                  infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
+	                  infoBg="d_ba_gamerecord_chipvalue_png" successBg="d_ba_gamerecord_tieelement_png"
 	                  errorBg="d_ba_gamerecord_bankerelement_png" y="623" x="312" />
 
 	<ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="241.6" x="18.49" y="644" anchorOffsetX="0"

@@ -8,8 +8,8 @@
              left.normal="20" right.normal="20">
         <e:Image source="d_lobby_panel_gamelist_icon_goodroad_active_png" x="9" y="14" height="56" width="56"
                  width.small="40" height.small="40" />
-        <ui:RunTimeLabel id="label" text="" x="12" y="7" size="50" size.small="40" text.normal="" size.normal="56"
-                         text.small="" verticalAlign.small="middle" y.normal="8" verticalAlign.normal="middle" />
+        <ui:RunTimeLabel id="label" text="" x="12" y="7" size="36" size.small="36" text.normal="" size.normal="36"
+                         text.small="" verticalAlign.small="middle" y.normal="8"  height.normal="56" verticalAlign.normal="middle"/>
         <e:layout>
             <e:HorizontalLayout />
         </e:layout>
