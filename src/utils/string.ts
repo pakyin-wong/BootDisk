@@ -52,7 +52,10 @@ namespace we {
 
     // for mobile in game display
     export function formatTime2(timestamp) {
-      return moment.unix(timestamp).utcOffset(8).format('YY/MM/DD HH:mm:ss');
+      return moment
+        .unix(timestamp)
+        .utcOffset(8)
+        .format('YY/MM/DD HH:mm:ss');
     }
 
     export function formatCard(source) {

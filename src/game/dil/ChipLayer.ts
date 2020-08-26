@@ -89,19 +89,45 @@ namespace we {
         this._betChipStackMapping[dil.BetField.SUM_18] = this._sum_18_betChipStack;
       }
 
-      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+      protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
         for (const key of Object.keys(fieldAmounts)) {
           if (fieldAmounts[key] === 0) {
             continue;
           }
-          if (fieldAmounts[key] > betLimit.maxlimit) {
-            return 'upper';
-          }
           if (fieldAmounts[key] < betLimit.minlimit) {
-            return 'lower';
+            return true;
           }
         }
-        return null;
+        return false;
+      }
+      protected isExceedUpperBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail: data.BetDetail) {
+        const val = this.getAllValue(fieldAmounts, betDetail.field) + betDetail.amount;
+
+        const fieldType = betDetail.field.split('_')[0].toLowerCase();
+
+        switch (fieldType) {
+          case 'sum':
+            const num = betDetail.field.split('_')[1];
+            let limit = 0;
+            if (num === '3' || num === '18') {
+              limit = betLimit.limits.dil.SUM_3_18.maxlimit;
+            } else if (num === '4' || num === '17') {
+              limit = betLimit.limits.dil.SUM_4_17.maxlimit;
+            } else if (num === '5' || num === '16') {
+              limit = betLimit.limits.dil.SUM_5_16.maxlimit;
+            } else if (num === '6' || num === '15') {
+              limit = betLimit.limits.dil.SUM_6_15.maxlimit;
+            } else if (num === '7' || num === '14') {
+              limit = betLimit.limits.dil.SUM_7_14.maxlimit;
+            } else if (num === '8' || num === '13') {
+              limit = betLimit.limits.dil.SUM_8_13.maxlimit;
+            } else if (num === '9' || num === '12') {
+              limit = betLimit.limits.dil.SUM_9_12.maxlimit;
+            } else if (num === '10' || num === '11') {
+              limit = betLimit.limits.dil.SUM_10_11.maxlimit;
+            }
+            return this.checkLimit(val, betDetail, limit);
+        }
       }
 
       protected addGridBg(grid: any, num: number) {
@@ -234,7 +260,12 @@ namespace we {
           this._flashingOdd.text = luckyNumbers[key] + 'x';
 
           grid.addChild(this._flashingOdd);
-          egret.Tween.get(this._flashingOdd).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000);
+          egret.Tween.get(this._flashingOdd)
+            .to({ alpha: 0 }, 1000)
+            .to({ alpha: 1 }, 1000)
+            .to({ alpha: 0 }, 1000)
+            .to({ alpha: 1 }, 1000)
+            .to({ alpha: 0 }, 1000);
 
           this._luckyAnims.push(luckyAnim);
 

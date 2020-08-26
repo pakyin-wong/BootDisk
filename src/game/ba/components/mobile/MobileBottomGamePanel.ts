@@ -29,6 +29,10 @@ namespace we {
 
         // this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
       }
+      public setTableInfo(tableInfo: data.TableInfo) {
+        super.setTableInfo(tableInfo);
+        this._statisticChartPanel.setValue(tableInfo);
+      }
 
       protected addListeners() {
         super.addListeners();
@@ -59,6 +63,7 @@ namespace we {
         // this._infoGroup.removeChildren();
         this.removeListeners();
       }
+
       public updateStat() {
         super.updateStat();
         this._statisticChartPanel.update();

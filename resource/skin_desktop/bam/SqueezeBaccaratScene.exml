@@ -14,18 +14,22 @@
 	<ui:Group id="_betRelatedGroup" x="769" y="939" isEdgeDismissable="true">
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" chipScale="0.9" />
-		<e:Button id="_confirmButton" label="" y="3" anchorOffsetX="0" width="155" anchorOffsetY="0" height="64"
+		<e:Button id="_confirmButton" label="" y="5" anchorOffsetX="0" width="174" anchorOffsetY="0" height="60"
 		          horizontalCenter="114" skinName="skins_desktop.BetConfirmButtonSkin" />
-		<ui:CountdownTimer id="_timer" width="160" height="64" y="3" horizontalCenter="115"
-		                   skinName="skin_desktop.CountdownTimerSkin" />
-		<ui:BaseImageButton id="_cancelButton" y="0" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
-		                    horizontalCenter="318" skinName="skin_desktop.ImageButtonSkinBettingPanel" currentState="b_cancel" />
-		<ui:BaseImageButton id="_repeatButton" y="0" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
-		                    horizontalCenter="243" skinName="skin_desktop.ImageButtonSkinBettingPanel" currentState="b_repeat" />
-		<ui:BaseImageButton id="_doubleButton" y="0" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
-		                    horizontalCenter="393" skinName="skin_desktop.ImageButtonSkinBettingPanel" currentState="b_double" />
-		<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
-		                    horizontalCenter="467" skinName="skin_desktop.ImageButtonSkinBettingPanel" currentState="b_undo" />
+		<ui:CountdownTimer id="_timer" width="180" height="60" y="6" horizontalCenter="115" colorChange="true" skinName="skin_desktop.CountdownTimerSkin"
+						   tooltipText="'live.tooltip.confirmBet'" tooltipPosition="'above'" />
+		<ui:BaseAnimationButton id="_cancelButton" width="55" height="55" verticalCenter="0" horizontalCenter="318"
+		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_clear" useColorFilter="true"
+								tooltipText="'live.tooltip.cancel'" tooltipPosition="'above'" />
+		<ui:BaseAnimationButton id="_repeatButton" width="55" height="55" verticalCenter="0" horizontalCenter="243"
+		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_rebet" useColorFilter="true"
+								tooltipText="'live.tooltip.repeat'" tooltipPosition="'above'" />
+		<ui:BaseAnimationButton id="_doubleButton" width="55" height="55" verticalCenter="0" horizontalCenter="393"
+		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_double" useColorFilter="true"
+								tooltipText="'live.tooltip.double'" tooltipPosition="'above'" />
+		<ui:BaseAnimationButton id="_undoButton" width="55" height="55" verticalCenter="0" horizontalCenter="467"
+		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true"
+								tooltipText="'live.tooltip.undo'" tooltipPosition="'above'" />
 	</ui:Group>
 	<ba:BARoadmapLeftPanel id="_leftGamePanel" width="692" height="304" x="16" y="1024" dismissPosX="16" dismissPosY="1298"
 	                       anchorOffsetX="0" anchorOffsetY="0" isEdgeDismissable="true" />
@@ -37,8 +41,8 @@
 		<ui:RunTimeLabel id="_lblRoomNo" x="74.98" y="9.4" size="28" height="40" verticalAlign="middle" width="191"
 		                 textAlign="right" anchorOffsetX="0" />
 		<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" right="2294" />
-		<e:Image id="_btnBack" width="30" height="30" x="35" y="17" source="d_ba_navbar_chevron_png" />
-		<e:Image id="_lblRoomInfo" width="24" height="24" x="271.98" y="19" source="d_ba_navbar_icon_info_png" />
+		<ui:BaseAnimationButton id="_btnBack" dbClass="common_ui" dbDisplay="d_common_icon_back" width="30" height="30" x="35" y="17" tooltipText="'nav.tooltip.back'" />
+		<e:Image id="_lblRoomInfo" width="24" height="24" x="272" y="19" source="d_ba_navbar_icon_info_png" tooltipText="'nav.tooltip.roominfo'" />
 		<ui:GameBar width="251" height="52" x="1894" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_desktop.GameBar" />
 	</e:Group>

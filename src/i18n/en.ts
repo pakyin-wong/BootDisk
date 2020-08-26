@@ -390,6 +390,7 @@ namespace we {
         stopBet: 'Stop Bet',
       },
       sidePanel: {
+        changeChip: 'Change Betchips',
         betted: 'Bet',
         goodroad: 'Good Road',
         allgames: 'All Game',
@@ -432,6 +433,8 @@ namespace we {
         clickToSeeVideo: 'Click to see video for this round',
         askBanker: 'Ask B',
         askPlayer: 'Ask P',
+        statType100: '100局',
+        statTypeShoe: '本靴',
         BankerPlayerRatio: 'Banker:Player:Tie ratio',
         PairRatio: 'Banker pair:Player pair ratio',
         round: 'round',
@@ -476,6 +479,7 @@ namespace we {
         },
       },
 
+      lo_round: 'Round %round%',
       lo_switch_fun: 'ENT',
       lo_switch_trad: 'TRAD',
 
