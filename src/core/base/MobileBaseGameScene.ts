@@ -438,9 +438,13 @@ namespace we {
 
       protected changeLang() {
         this._repeatLabel.text = i18n.t('mobile_ba_repeat');
+        this._repeatLabel.targetWidth = 120;
         this._cancelLabel.text = i18n.t('mobile_ba_clear');
+        this._cancelLabel.targetWidth = 120;
         this._doubleLabel.text = i18n.t('mobile_ba_double');
+        this._doubleLabel.targetWidth = 120;
         this._undoLabel.text = i18n.t('mobile_ba_undo');
+        this._undoLabel.targetWidth = 120;
       }
     }
   }

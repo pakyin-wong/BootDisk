@@ -64,7 +64,7 @@
 				        fillColor="0x444444"  width.left_hand_mode="100%"/>
 			<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="874"
 				          verticalCenter="0" x.right_hand_mode="682"  skinName="skin_mobile_portrait.BetConfirmButtonSkin" x.left_hand_mode="3"/>
-			<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="0"
+			<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="0" colorChange="true"
 				                   verticalCenter="0" x.right_hand_mode="683" />
 			<e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0" touchEnabled="false" touchChildren="false">
 					<ui:RunTimeLabel id="_repeatLabel" text="再次下注" verticalCenter="0" x="788" x.right_hand_mode="66" />

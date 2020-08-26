@@ -6,7 +6,7 @@
 	                            right="0" thickness="6" touchEnabled="false" touchChildren="false" />
 	<e:Group width="62" x="25" y="25" rotation.vertical="270" y.vertical="89">
 		<e:Label id="countdownLabel" text="0" verticalCenter="0" horizontalCenter="0" textAlign="center"
-		         verticalAlign="middle" size="54" bold="true" textColor="0x15d688" rotation="0" 
+		         verticalAlign="middle" size="54" bold="true" rotation="0" 
 		         fontFamily="Barlow" />
 	</e:Group>
 </e:Skin>
