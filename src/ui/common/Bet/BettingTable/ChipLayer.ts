@@ -19,6 +19,8 @@ namespace we {
       protected _uncfmBetDetails: data.BetDetail[];
       protected _cfmBetDetails: data.BetDetail[];
 
+      public onConfirmPressed: (e: egret.Event) => void;
+
       constructor(skinName?: string) {
         super(skinName);
         this._cfmBetDetails = [];
@@ -371,6 +373,10 @@ namespace we {
           this.addBetToBetField(fieldName, betDetail.amount);
           this.undoStack.push(hashkey, we.utils.clone({ field: fieldName, amount: betDetail.amount }), this.undoBetFieldUpdate.bind(this));
           this.updateBetChipUncfmBet(fieldName, this.getUncfmBetByField(fieldName).amount);
+
+          if (env.autoConfirmBet && this.onConfirmedPress) {
+            this.onConfirmedPress();
+          }
         }
       }
 
