@@ -10,13 +10,13 @@
 					<ba:StatisticChartPanel id="_normalChartPanel" skinName="skin_desktop.ba.StatisticChartPanelNormal" width="100%" height="100%" scaleX="1" scaleY="1"/>
 				</e:Group>
 				<e:Group width="240" height="160" x="240">
-					<ba:StatisticChartPanel id="_normalPairChartPanel" skinName="skin_desktop.ba.StatisticChartPanelNormalPair" width="100%" height="100%" scaleX="1" scaleY="1"/>
+					<ba:StatisticChartPanel id="_shoeChartPanel" skinName="skin_desktop.ba.StatisticChartPanelShoe" width="100%" height="100%" scaleX="1" scaleY="1"/>
 				</e:Group>
 			</ui:HorizontalHolder>
 			<ui:HorizontalHolder y="174" bulletWidth="10" bulletHeight="10" bulletRight="0" bulletTop="0" width="240"
 			                     height="160" slideWidth="240" slideHeight="160" isLoop="false" isAuto="false">
 				<e:Group width="240" height="160" y="0">
-					<ba:StatisticChartPanel id="_shoeChartPanel" skinName="skin_desktop.ba.StatisticChartPanelShoe" width="100%" height="100%" scaleX="1" scaleY="1"/>
+					<ba:StatisticChartPanel id="_normalPairChartPanel" skinName="skin_desktop.ba.StatisticChartPanelNormalPair" width="100%" height="100%" scaleX="1" scaleY="1"/>
 				</e:Group>
 				<e:Group width="240" height="160" x="240">
 					<ba:StatisticChartPanel id="_shoePairChartPanel" skinName="skin_desktop.ba.StatisticChartPanelShoePair" width="100%" height="100%" scaleX="1" scaleY="1"/>

@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.ba.StatisticChartPanelNormal" width="240" height="160" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-	<e:Rect width="240" height="160" x="0" y="0" fillColor="0x212425" />
-	<ui:Label factor="2" id="title" text="庄閒和比例(100局)" x="14" y="10" height="27" size="20" textAlign="left"
-	          verticalAlign="middle" bold="true" />
+	<ui:RoundRectShape cornerTL_TR_BL_BR="10,10,10,10" width="240" height="160" stroke="0" fillColor="0x212425" />
+	<e:Group x="14" y="10">
+		<ui:RunTimeLabel text="庄閒和比例" x="24" y="12" height="27" size="20" textAlign="left" verticalAlign="middle" bold="true"
+		                 i18n="baccarat.BankerPlayerRatio" />
+		<ui:Label text="(" x="24" y="12" height="27" size="20" textAlign="left" verticalAlign="middle" bold="true" />
+		<ui:RunTimeLabel text="100局" x="24" y="12" height="27" size="20" textAlign="left" verticalAlign="middle" bold="true"
+		                 i18n="baccarat.statType100" />
+		<ui:Label text=")" x="24" y="12" height="27" size="20" textAlign="left" verticalAlign="middle" bold="true" />
+		<e:layout>
+			<e:HorizontalLayout gap="2" />
+		</e:layout>
+	</e:Group>
 	<e:Group x="19" y="66">
 		<e:Image width="21" height="21" source="d_ba_roadmap_bar_bankerstate_png" />
 		<ui:RunTimeLabel id="_firstLabel" text="B" size="10" verticalAlign="middle" bold="true" verticalCenter="0"
