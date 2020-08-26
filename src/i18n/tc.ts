@@ -550,6 +550,146 @@ namespace we {
       lo_fun_betfield_total_SMALL: '總小',
       lo_fun_betfield_total_ODD: '總單',
       lo_fun_betfield_total_EVEN: '總雙',
+
+      lo_trad: {
+        highest_win: '單倍最高金額：',
+        erase_non_number: '清除錯誤或重複項',
+        all_clear: '全清',
+        upload_document: '上傳文件',
+        bigTag: {
+          FiveStar: '五星',
+          FourStar: '四星',
+          FirstThree: '前三',
+          TwoStar: '二星',
+          StaticTow: '定位膽',
+          NotPos: '不定位',
+          SizeParity: '大小單雙',
+          Interest: '趣味',
+          DragonTiger: '龍虎',
+          AnyTwo: '任選二',
+          AnyThree: '任選三',
+          AnyFour: '任選四',
+        },
+        smallTag: {
+          DirectionSelection: '直選複式', // FiveStar
+          DirectMenu: '直選單式',
+          DirectCombination: '直選組合',
+          Group120: '組選120',
+          Group60: '組選60',
+          Group30: '組選30',
+          Group20: '組選20',
+          Group10: '組選10',
+          Group5: '組選5',
+
+          Group24: '組選24', // FourStar
+          Group12: '組選12',
+          Group6: '組選6',
+          Group4: '組選4',
+
+          DirectionSum: '直选和值', // Three Star
+          Three3: '組三',
+          Three6: '組六',
+          Three3Tow: '組三膽拖',
+          Three6Tow: '組六膽拖',
+          GroupCombine: '混合組選',
+          GroupSum: '組选和值',
+
+          DirectionSelectionLastTwo: '直選後二複式', // Two Star
+          DirectMenuLastTwo: '直選後二單式',
+          DirectionalSumLastTwo: '直選後二和值',
+          DirectionSelectionFirstTwo: '直選前二複式',
+          DirectMenuFirstTwo: '直選前二單式',
+          DirectionalSumFirstTwo: '直選前二和值',
+          GroupDirectionalSelectionLastTwo: '組選後二複式',
+          GroupDirectionalMenuLastTwo: '組選後二單式',
+          GroupSumLastTwo: '組選後二和值',
+          GroupDirectionalSelectionFirstTwo: '組選前二複式',
+          GroupDirectionalMenuFirstTwo: '組選前二單式',
+          GroupSumFirstTwo: '組選前二和值',
+
+          StaticTow: '定位膽',
+
+          AnyLastThreeOne: '後三一碼不定位', // NotPos
+          AnyLastThreeTwo: '後三二碼不定位',
+          AnyFirstThreeOne: '前三一碼不定位',
+          AnyFirstThreeTwo: '前三二碼不定位',
+          AnyFiveOne: '五星一碼不定位',
+          AnyFiveTwo: '五星二碼不定位',
+          AnyFiveThree: '五星三碼不定位',
+
+          LastSizeParity: '後二大小單雙', // SizeParity
+          FrontSizeParity: '前二大小單雙',
+          TenThousandSizeParity: '萬位大小單雙',
+          ThousandSizeParity: '千位大小單雙',
+          HundredSizeParity: '百位大小單雙',
+          TenSizeParity: '十位大小單雙',
+          SingleSizeParity: '個位大小單雙',
+
+          Interest1: '一帆風順', // Interest
+          Interest2: '好事成雙',
+          Interest3: '三星報喜',
+          Interest4: '四季發財',
+
+          TenThosandThosand: '萬千',
+          TenThousandHundred: '萬百',
+          TenThousandTen: '萬十',
+          TenThousandUnit: '萬個',
+          ThousandHundred: '千百',
+          ThousandTen: '千十',
+          ThousandUnit: '千個',
+          HundredTen: '百十',
+          HundredUnit: '百個',
+          TenUnit: '十個',
+
+          GroupSelection: '組選複式',
+          GroupMenu: '組選單式',
+
+          GroupThree: '組三復式',
+          GroupSix: '組六複式',
+          MixGroup: '混合組選',
+        },
+        inputTitle: {
+          TenThousand: '第一球｜萬位',
+          Thousand: '第二球｜千位',
+          Hundred: '第三球｜百位',
+          Ten: '第四球｜十位',
+          Unit: '第五球｜個位',
+
+          Single: '單號',
+          Double: '二重號',
+          Triple: '三重號',
+          Quadruple: '四重號',
+
+          DirectionSum: '直選和值',
+          Three3: '組三',
+          Three6: '組六',
+          Bravery: '膽碼',
+          Tow: '拖碼',
+
+          Sum: '和值',
+          Group: '組選',
+
+          Any: '任選',
+        },
+        inputs: {
+          DRAGON: '龍',
+          TIGER: '虎',
+          TIE: '和',
+
+          ODD: '單',
+          EVEN: '雙',
+          BIG: '大',
+          SMALL: '小',
+        },
+        option: {
+          ALL: '全',
+          BIG: '大',
+          SMALL: '小',
+          ODD: '奇',
+          EVEN: '偶',
+          CLEAR: '清',
+        },
+      },
     };
   }
 }

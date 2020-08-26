@@ -551,6 +551,146 @@ namespace we {
       lo_fun_betfield_total_SMALL: 'Total Small',
       lo_fun_betfield_total_ODD: 'Total Odd',
       lo_fun_betfield_total_EVEN: 'Total Even',
+
+      lo_trad: {
+        highest_win: '單倍最高金額：',
+        erase_non_number: '清除錯誤或重複項',
+        all_clear: '全清',
+        upload_document: '上傳文件',
+        bigTag: {
+          FiveStar: 'FiveStar',
+          FourStar: 'FourStar',
+          FirstThree: 'FirstThree',
+          TwoStar: 'TwoStar',
+          StaticTow: 'StaticTow',
+          NotPos: 'NotPos',
+          SizeParity: 'SizeParity',
+          Interest: 'Interest',
+          DragonTiger: 'DragonTiger',
+          AnyTwo: 'AnyTwo',
+          AnyThree: 'AnyThree',
+          AnyFour: 'AnyFour',
+        },
+        smallTag: {
+          DirectionSelection: 'DirectionSelection', // FiveStar
+          DirectMenu: 'DirectMenu',
+          DirectCombination: 'DirectCombination',
+          Group120: 'Group120',
+          Group60: 'Group60',
+          Group30: 'Group30',
+          Group20: 'Group20',
+          Group10: 'Group10',
+          Group5: 'Group5',
+
+          Group24: 'Group24', // FourStar
+          Group12: 'Group12',
+          Group6: 'Group6',
+          Group4: 'Group4',
+
+          DirectionSum: 'DirectionSum', // Three Star
+          Three3: 'Three3',
+          Three6: 'Three6',
+          Three3Tow: 'Three3Tow',
+          Three6Tow: 'Three6Tow',
+          GroupCombine: 'GroupCombine',
+          GroupSum: 'GroupSum',
+
+          DirectionSelectionLastTwo: 'DirectionSelectionLastTwo', // Two Star
+          DirectMenuLastTwo: 'DirectMenuLastTwo',
+          DirectionalSumLastTwo: 'DirectionalSumLastTwo',
+          DirectionSelectionFirstTwo: 'DirectionSelectionFirstTwo',
+          DirectMenuFirstTwo: 'DirectMenuFirstTwo',
+          DirectionalSumFirstTwo: 'DirectionalSumFirstTwo',
+          GroupDirectionalSelectionLastTwo: 'GroupDirectionalSelectionLastTwo',
+          GroupDirectionalMenuLastTwo: 'GroupDirectionalMenuLastTwo',
+          GroupSumLastTwo: 'GroupSumLastTwo',
+          GroupDirectionalSelectionFirstTwo: 'GroupDirectionalSelectionFirstTwo',
+          GroupDirectionalMenuFirstTwo: 'GroupDirectionalMenuFirstTwo',
+          GroupSumFirstTwo: 'GroupSumFirstTwo',
+
+          StaticTow: 'StaticTow',
+
+          AnyLastThreeOne: 'AnyLastThreeOne', // NotPos
+          AnyLastThreeTwo: 'AnyLastThreeTwo',
+          AnyFirstThreeOne: 'AnyFirstThreeOne',
+          AnyFirstThreeTwo: 'AnyFirstThreeTwo',
+          AnyFiveOne: 'AnyFiveOne',
+          AnyFiveTwo: 'AnyFiveTwo',
+          AnyFiveThree: 'AnyFiveThree',
+
+          LastSizeParity: 'LastSizeParity', // SizeParity
+          FrontSizeParity: 'FrontSizeParity',
+          TenThousandSizeParity: 'TenThousandSizeParity',
+          ThousandSizeParity: 'ThousandSizeParity',
+          HundredSizeParity: 'HundredSizeParity',
+          TenSizeParity: 'TenSizeParity',
+          SingleSizeParity: 'SingleSizeParity',
+
+          Interest1: 'Interest1', // Interest
+          Interest2: 'Interest2',
+          Interest3: 'Interest3',
+          Interest4: 'Interest4',
+
+          TenThosandThosand: 'TenThosandThosand',
+          TenThousandHundred: 'TenThousandHundred',
+          TenThousandTen: 'TenThousandTen',
+          TenThousandUnit: 'TenThousandUnit',
+          ThousandHundred: 'ThousandHundred',
+          ThousandTen: 'ThousandTen',
+          ThousandUnit: 'ThousandUnit',
+          HundredTen: 'HundredTen',
+          HundredUnit: 'HundredUnit',
+          TenUnit: 'TenUnit',
+
+          GroupSelection: 'GroupSelection',
+          GroupMenu: 'GroupMenu',
+
+          GroupThree: 'GroupThree',
+          GroupSix: 'GroupSix',
+          MixGroup: 'MixGroup',
+        },
+        inputTitle: {
+          TenThousand: 'TenThousand',
+          Thousand: 'Thousand',
+          Hundred: 'Hundred',
+          Ten: 'Ten',
+          Unit: 'Unit',
+
+          Single: 'Single',
+          Double: 'Double',
+          Triple: 'Triple',
+          Quadruple: 'Quadruple',
+
+          DirectionSum: 'DirectionSum',
+          Three3: 'Three3',
+          Three6: 'Three6',
+          Bravery: 'Bravery',
+          Tow: 'Tow',
+
+          Sum: 'Sum',
+          Group: 'Group',
+
+          Any: 'Any',
+        },
+        inputs: {
+          DRAGON: 'DRAGON',
+          TIGER: 'TIGER',
+          TIE: 'TIE',
+
+          ODD: 'ODD',
+          EVEN: 'EVEN',
+          BIG: 'BIG',
+          SMALL: 'SMALL',
+        },
+        option: {
+          ALL: 'ALL',
+          BIG: 'BIG',
+          SMALL: 'SMALL',
+          ODD: 'ODD',
+          EVEN: 'EVEN',
+          CLEAR: 'CLEAR',
+        },
+      },
     };
   }
 }
