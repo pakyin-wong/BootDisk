@@ -389,6 +389,7 @@ namespace we {
         stopBet: '停止下注',
       },
       sidePanel: {
+        changeChip: '切換籌碼',
         betted: '已下注項目',
         goodroad: '好路',
         allgames: '全部遊戲',

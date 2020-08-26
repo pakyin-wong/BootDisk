@@ -389,9 +389,11 @@ namespace we {
         stopBet: 'Stop Bet',
       },
       sidePanel: {
+        changeChip: 'Change Betchips',
         betted: 'Bet',
         goodroad: 'Good Road',
         allgames: 'All Game',
+
       },
       baccarat: {
         playerPair: 'Player Pair',
