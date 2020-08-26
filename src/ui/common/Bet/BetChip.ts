@@ -59,14 +59,15 @@ namespace we {
         if (value) {
           this._glowImage = new eui.Image();
           this._glowImage.source = env.isMobile ? 'd_lobby_panel_betcontrol_chips_select_png' : 'd_lobby_panel_betcontrol_chips_select_png';
-          this._glowImage.bottom = this._chipImage.bottom - 6;
-          this._glowImage.top = this._chipImage.top - 6;
-          this._glowImage.left = this._chipImage.left - 6;
-          this._glowImage.right = this._chipImage.right - 6;
+          this._glowImage.bottom = this._chipImage.bottom - 12;
+          this._glowImage.top = this._chipImage.top - 12;
+          this._glowImage.left = this._chipImage.left - 12;
+          this._glowImage.right = this._chipImage.right - 12;
           this._glowImage.verticalCenter = this._chipImage.verticalCenter;
           this._glowImage.horizontalCenter = this._chipImage.horizontalCenter;
-          this._glowImage.height = this._chipImage.width;
+          this._glowImage.height = this._chipImage.height;
           this._glowImage.width = this._chipImage.width;
+
           this._glowImage.touchEnabled = false;
           this.addChild(this._glowImage);
         } else {
