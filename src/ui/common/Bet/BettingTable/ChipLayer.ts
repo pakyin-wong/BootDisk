@@ -374,8 +374,8 @@ namespace we {
           this.undoStack.push(hashkey, we.utils.clone({ field: fieldName, amount: betDetail.amount }), this.undoBetFieldUpdate.bind(this));
           this.updateBetChipUncfmBet(fieldName, this.getUncfmBetByField(fieldName).amount);
 
-          if (env.autoConfirmBet && this.onConfirmedPress) {
-            this.onConfirmedPress();
+          if (env.autoConfirmBet && this.onConfirmPressed) {
+            this.onConfirmPressed(null);
           }
         }
       }
