@@ -115,6 +115,7 @@ namespace we {
 
       mobile_notification_quick_bet_button_label: '即時投注',
       mobile_notification_close_button_label: '關閉',
+      mobile_notification_next_button_label: '下一頁',
 
       mobile_quick_bet_button_label: '快速投注',
       mobile_quick_bet_button_add_label: '加注',
@@ -395,6 +396,12 @@ namespace we {
         allgames: '全部遊戲',
       },
       baccarat: {
+        statisticChart: {
+          bankerPlayerTie: '庄閒和比例(100局)',
+          bankerPlayerTiePair: '庄閒和对比例 (100局)',
+          shoeBankerPlayerTie: '庄閒和比例(本靴)',
+          shoeBankerPlayerTiePair: '庄閒和對比例(本靴)',
+        },
         playerPair: '閒對',
         bankerPair: '庄對',
         player: '閒',

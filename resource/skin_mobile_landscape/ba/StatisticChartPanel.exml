@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_landscape.ba.StatisticChartPanel" width="1242" height="260" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-	<e:Group id="content" width="100%" height="260">
+<e:Skin class="skin_mobile_landscape.ba.StatisticChartPanel" width="2140" height="260" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*">
+			<e:Rect width="2140" height="260" x="0" y="0" fillColor="0x212425"/>
+		<ba:StatisticChartHolder id="_leftHolder" skinName="skin_mobile_portrait.ba.StatisticChartHolder" width="576" height="240"  y="10" x="30"></ba:StatisticChartHolder>
+		<ba:StatisticChartHolder id="_rightHolder" skinName="skin_mobile_portrait.ba.StatisticChartHolder" width="576" height="240"  y="10" x="630"></ba:StatisticChartHolder>
+	<!--<e:Group id="content" width="100%" height="260">
 		<e:Rect width="100%" height="260" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425"/>
 		<e:Rect width="578" height="242" x="608" y="12" scaleX="1" scaleY="1" ellipseHeight="40" ellipseWidth="40" fillColor="0x212425" strokeColor="0x212425"/>
 		<e:Rect width="578" height="242" x="12" y="12" scaleX="1" scaleY="1" ellipseHeight="40" ellipseWidth="40" fillColor="0x212425" strokeColor="0x212425"/>
@@ -57,10 +60,10 @@
 				<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom" />
 			</e:layout>
 		</e:Group>
-		<ui:SimpleChart id="_normalChart" x="424" y="57" radius="90" lineWidth="14" />
+		<ui:SimpleChart id="_normalChart" x="422" y="57" radius="90" lineWidth="14" />
 		<ui:RunTimeLabel id="roundCount" text="99" x="461" y="71" textAlign="center" anchorOffsetX="0" width="100" size="88"
 		                 height="118" verticalAlign="middle" />
-		<ui:SimpleChart id="_pairChart" x="1040" y="57" radius="90" lineWidth="14" />
+		<ui:SimpleChart id="_pairChart" x="1038" y="57" radius="90" lineWidth="14" />
 		<ui:RunTimeLabel id="roundPairCount" text="9" x="1077" y="71" textAlign="center" anchorOffsetX="0" width="100"
 		                 size="88" height="118" verticalAlign="middle" />		
 		<ui:RunTimeLabel  id="roundLabelLeft" text="局" x="444" scaleX="1" scaleY="1" width="130" height="46" size="35"
@@ -91,5 +94,5 @@
 		         bold="true" alpha="0.7" rotation="358.03" />
 		<e:Label text="%" x="210" y="200" scaleX="1" scaleY="1" size="33" textAlign="center" verticalAlign="bottom"
 		         bold="true" alpha="0.7" />
-	</e:Group>
+	</e:Group>-->
 </e:Skin>

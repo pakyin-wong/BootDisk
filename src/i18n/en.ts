@@ -115,6 +115,7 @@ namespace we {
 
       mobile_notification_quick_bet_button_label: 'Bet Now',
       mobile_notification_close_button_label: 'Dismiss',
+      mobile_notification_next_button_label: 'Next',
 
       mobile_quick_bet_button_label: 'QuickBet',
       mobile_quick_bet_button_add_label: 'Raise',
@@ -393,9 +394,14 @@ namespace we {
         betted: 'Bet',
         goodroad: 'Good Road',
         allgames: 'All Game',
-
       },
       baccarat: {
+        statisticChart: {
+          bankerPlayerTie: 'Banker Player Tie (100 rounds)',
+          bankerPlayerTiePair: 'Banker Player Tie pair (100 rounds)',
+          shoeBankerPlayerTie: 'Banker Player Tie(本靴)',
+          shoeBankerPlayerTiePair: 'Banker Player Tie pair (本靴)',
+        },
         playerPair: 'Player Pair',
         bankerPair: 'Banker Pair',
         playerShort: 'P',

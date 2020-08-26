@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
     export class GoodRoadLabel extends core.BaseEUI {
-      protected label: RunTimeLabel;
+      public label: RunTimeLabel;
 
       constructor() {
         super();

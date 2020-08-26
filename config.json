@@ -1,5 +1,5 @@
 {
-    "target": "development",
+    "target": "staging",
     "mode": "",
     "playerID": "BNC9O6DH5S5JNQTG8PR2",
     "endpoint": "https://dev-rest-gateway.weapi247.com",

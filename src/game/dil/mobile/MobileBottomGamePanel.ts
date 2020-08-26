@@ -3,7 +3,7 @@ namespace we {
   export namespace dil {
     export class MobileBottomGamePanel extends ui.MobileBottomCommonPanel {
       public _tableInfoPanel: di.TableInfoPanel;
-      public _betLimitDropDownBtn: ui.RunTimeLabel;
+      // public _betLimitDropDownBtn: ui.RunTimeLabel;
 
       // viewStack and radioBtn
       protected historyBtn: eui.RadioButton;
@@ -27,7 +27,7 @@ namespace we {
 
       protected mount() {
         super.mount();
-        this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
+        // this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
 
         if (env.orientation === 'portrait') {
           this.beadRoad = new DilBeadRoad(4, 8, 104, 1, 44, 14, 0x262a2b, 1); // in game

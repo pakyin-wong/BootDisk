@@ -71,6 +71,8 @@ namespace we {
           egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
         }
         this._baGameID.renderText = () => `${this._tableInfo.tableid}`;
+        // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
+
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
             (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
@@ -158,10 +160,6 @@ namespace we {
 
         this.changeHandMode();
 
-        if (this._bottomGamePanel._betLimitDropDownBtn) {
-          this.initBottomBetLimitSelector();
-        }
-
         this.setChipPanelPos();
         this._BAgoodRoadLabel.visible = false;
 
@@ -172,48 +170,10 @@ namespace we {
         // dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
       }
 
-      protected initBottomBetLimitSelector() {
-        const betLimitList = env.betLimits;
-        const betLimitItems = betLimitList.map(data => {
-          return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
-        });
-        const dropdownSource = betLimitList.map((data, index) => {
-          return ui.NewDropdownItem(index, () => `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`);
-        });
-
-        const selectedIndex = env.currentSelectedBetLimitIndex;
-
-        utils.DropdownCreator.new({
-          toggler: this._bottomGamePanel._betLimitDropDownBtn,
-          review: this._bottomGamePanel._betLimitDropDownBtn,
-          arrCol: new eui.ArrayCollection(dropdownSource),
-          title: () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`,
-          selected: 0,
-        });
-
-        this.updateBetLimit(selectedIndex);
-
-        // this._bottomGamePanel._betLimitDropDownBtn.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
-      }
-
-      protected updateBetLimit(selectedIndex) {
-        super.updateBetLimit(selectedIndex);
-        const bottomBetLimitList = env.betLimits;
-        const bottomBetLimitItems = bottomBetLimitList.map(data => {
-          return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
-        });
-        if (this._bottomGamePanel._betLimitDropDownBtn) {
-          this._bottomGamePanel._betLimitDropDownBtn.renderText = () => ` ${bottomBetLimitItems.length > 0 ? bottomBetLimitItems[selectedIndex] : ''}`;
-        }
-      }
-
       protected addEventListeners() {
         super.addEventListeners();
         if (this._switchBaMode) {
           this._switchBaMode.addEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
-        }
-        if (this._bottomGamePanel._betLimitDropDownBtn) {
-          this._bottomGamePanel._betLimitDropDownBtn.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
         }
         dir.evtHandler.addEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
         dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
@@ -225,9 +185,6 @@ namespace we {
         super.removeEventListeners();
         if (this._switchBaMode) {
           this._switchBaMode.removeEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
-        }
-        if (this._bottomGamePanel._betLimitDropDownBtn) {
-          this._bottomGamePanel._betLimitDropDownBtn.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
         }
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
         dir.evtHandler.removeEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
@@ -342,6 +299,7 @@ namespace we {
       protected onMatchGoodRoadUpdate() {
         if (this._tableInfo.goodRoad) {
           this._BAgoodRoadLabel.visible = true;
+          this._BAgoodRoadLabel.label.size = 36;
           const goodRoadData = this._tableInfo.goodRoad;
           const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
           this._BAgoodRoadLabel.renderText = () => goodRoadName;

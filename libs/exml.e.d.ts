@@ -30,14 +30,6 @@ declare module skins{
 	class ScrollerSkin extends eui.Skin{
 	}
 }
-declare module skin_mobile_landscape{
-	class SqueezeTutorial extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class SqueezeTutorial extends eui.Skin{
-	}
-}
 declare class TestHorizontalHolderSkin extends eui.Skin{
 }
 declare module skins{
@@ -1337,6 +1329,10 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape{
+	class SqueezeTutorial extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class SystemSetting extends eui.Skin{
 	}
 }
@@ -1488,6 +1484,14 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class SidePanelGameResultWinSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile.ba{
+	class StatisticChart extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ba{
+	class StatisticChartHolder extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ba{
@@ -2004,6 +2008,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class RoResultItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class SqueezeTutorial extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

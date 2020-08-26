@@ -57,8 +57,6 @@ namespace we {
             return this.checkLimit(val, betDetail, betLimit.limits.di.BIG_SMALL.maxlimit);
         }
       }
-
-
     }
   }
 }

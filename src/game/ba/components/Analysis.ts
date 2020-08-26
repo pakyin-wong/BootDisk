@@ -13,10 +13,10 @@ namespace we {
       protected _analysisGroup: eui.Group;
 
       // statisticChartPanels
-      public _normalChartPanel: ba.StatisticChartPanel;
-      public _normalPairChartPanel: ba.StatisticChartPanel;
-      public _shoeChartPanel: ba.StatisticChartPanel;
-      public _shoePairChartPanel: ba.StatisticChartPanel;
+      public _normalChartPanel: ba.StatisticChart;
+      public _normalPairChartPanel: ba.StatisticChart;
+      public _shoeChartPanel: ba.StatisticChart;
+      public _shoePairChartPanel: ba.StatisticChart;
 
       public advancedRoad: we.ui.IAdvancedRoad;
 
