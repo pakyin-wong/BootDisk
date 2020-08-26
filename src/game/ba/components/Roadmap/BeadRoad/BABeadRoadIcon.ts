@@ -204,6 +204,7 @@ namespace we {
           [0x6666dd, 0x000066],
           [0x66aa66, 0x003300],
         ];
+
         const iconSize = this.size;
         const circleRadius = (this.size / 2) * 0.9;
         const offset = (iconSize - circleRadius * 2) / 2;
@@ -231,6 +232,10 @@ namespace we {
                 break;
             }
             this._iconText.text = arr[textIdx];
+            if (env.orientation === 'landscape') {
+              this._iconText.scaleX = 0.7;
+              this._iconText.scaleY = 0.7;
+            }
 
             const fillMatrix = new egret.Matrix();
             // fillMatrix.createGradientBox(this.size, this.size, Math.PI / 2, 0, 0);

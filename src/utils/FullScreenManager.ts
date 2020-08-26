@@ -306,7 +306,7 @@ class IPhone8Helper extends IPhone7Helper {
 
 class FullScreenIPhoneHelper {
   public static Init() {
-    if (!(env.UAInfo.device.model === 'iPhone' && env.UAInfo.browser.name === 'Mobile Safari')) {
+    if (!(env.UAInfo.device.model === 'iPhone' && (env.UAInfo.browser.name === 'Mobile Safari' || env.UAInfo.browser.name === 'Firefox'))) {
       return;
     }
     const version = parseInt(env.UAInfo.os.version, 10);

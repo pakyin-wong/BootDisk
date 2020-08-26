@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.ba.MobileBottomGamePanel" width="1242" currentState="off" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" states="on,off">
+<e:Skin class="skin_mobile_portrait.ba.MobileBottomGamePanel" width="1242" currentState="off"
+        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*"
+        states="on,off">
 	<e:Group>
 		<e:Group id="_topPart" width="100%" x="0" y="0" scaleX="1" scaleY="1">
-			<!--<e:Rect width="100%" height="50" x="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x212425" strokeColor="0x212425" bottom="0"/>
+			<!--<e:Rect width="100%" height="50" x="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
+			            fillColor="0x212425" strokeColor="0x212425" bottom="0" />
 			<e:Rect id="top_bg" width="100%" height="100" x="0" y="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0"
-			        scaleX="1" scaleY="1" fillColor="0x212425" strokeColor="0x212425"  ellipseWidth="50" ellipseHeight="50"/>-->
+			        scaleX="1" scaleY="1" fillColor="0x212425" strokeColor="0x212425" ellipseWidth="50" ellipseHeight="50" />
+			-->
 			<ui:RoundRectShape cornerTL_TR_BL_BR="30,30,0,0" width="1242" height="100" x="0" y="0" stroke="0"
-		                   strokeColor="0x212425" fillColor="0x212425" />
+			                   strokeColor="0x212425" fillColor="0x212425" />
 			<e:RadioButton id="roadSheetBtn" label="路紙" x="16" y="20" width="360" height="80" value="0" selected="true"
 			               scaleX="1" scaleY="1" visible.off="false">
 				<e:skinName>
@@ -53,8 +56,29 @@
 					                             width="100%" height="100%" scaleX="1" scaleY="1" />
 				</e:Group>
 				<e:Group id="_chartGroup" width="100%" height="100%" name="Group">
-					<ba:StatisticChartPanel id="_statisticChartPanel" skinName="skin_mobile_portrait.ba.StatisticChartPanel"
-					                        width="100%" height="100%" scaleX="1" scaleY="1" />
+					<ui:HorizontalHolder bulletWidth="10" bulletHeight="10" bulletRight="0" bulletTop="0" x="30" y="125" width="576" height="240"
+					                     slideWidth="574" slideHeight="240" isLoop="false" isAuto="false">
+						<e:Group width="576" height="240" y="0">
+							<ba:StatisticChartPanel id="_normalChartPanel" skinName="skin_mobile.ba.StatisticChartPanelNormal" width="100%"
+							                        height="100%" scaleX="1" scaleY="1" />
+						</e:Group>
+						<e:Group width="576" height="532" x="240">
+							<ba:StatisticChartPanel id="_shoeChartPanel" skinName="skin_mobile.ba.StatisticChartPanelShoe" width="100%"
+							                        height="100%" scaleX="1" scaleY="1" />
+
+						</e:Group>
+					</ui:HorizontalHolder>
+					<ui:HorizontalHolder bulletWidth="10" bulletHeight="10" bulletRight="0" bulletTop="0" x="640" y="125" width="576" height="240"
+					                     slideWidth="576" slideHeight="240" isLoop="false" isAuto="false">
+						<e:Group width="576" height="240" y="0">
+							<ba:StatisticChartPanel id="_normalPairChartPanel" skinName="skin_mobile.ba.StatisticChartPanelNormalPair"
+							                        width="100%" height="100%" scaleX="1" scaleY="1" />
+						</e:Group>
+						<e:Group width="576" height="240" x="240">
+							<ba:StatisticChartPanel id="_shoePairChartPanel" skinName="skin_mobile.ba.StatisticChartPanelShoePair" width="100%"
+							                        height="100%" scaleX="1" scaleY="1" />
+						</e:Group>
+					</ui:HorizontalHolder>
 				</e:Group>
 				<e:Group id="_infoGroup" width="100%" height="100%" name="Group">
 					<ba:TableInfoPanel id="_tableInfoPanel" skinName="skin_mobile_portrait.ba.TableInfoPanel" width="100%"

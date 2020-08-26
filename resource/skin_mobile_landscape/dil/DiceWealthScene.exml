@@ -35,6 +35,7 @@
 		                    x.right_hand_mode="588" x.left_hand_mode="350" />
 	</e:Group>
 	<!-- === -->
+	<e:Rect width="1218" height="324" y="435" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x1b1f22" horizontalCenter="0" ellipseWidth="20" ellipseHeight="20"/>
 	<dil:MobileTableLayer id="_tableLayer" y="435" isEdgeDismissable="true" skinName="skin_mobile_landscape.dil.MobileTableLayerSkin"
 	               scaleX="1" scaleY="1" horizontalCenter="0" alpha="0.7" />
 	<dil:MobileChipLayer id="_chipLayer" y="435" isEdgeDismissable="true" skinName="skin_mobile_landscape.dil.MobileChipLayerSkin"

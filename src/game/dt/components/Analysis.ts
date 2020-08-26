@@ -151,6 +151,7 @@ namespace we {
           return;
         }
         if (env && env.tableInfos && env.tableInfos[this._tableId] && env.tableInfos[this._tableId].gamestatistic) {
+          /*
           const bankerCount = env.tableInfos[this._tableId].gamestatistic.bankerCount;
           const playerCount = env.tableInfos[this._tableId].gamestatistic.playerCount;
           const tieCount = env.tableInfos[this._tableId].gamestatistic.tieCount;
@@ -192,6 +193,7 @@ namespace we {
           this._pairChart.redAngle = (bankerPairCount / totalCount) * 360;
           this._pairChart.blueAngle = (playerPairCount / totalCount) * 360;
           this._pairChart.drawChart();
+          */
         }
       }
     }

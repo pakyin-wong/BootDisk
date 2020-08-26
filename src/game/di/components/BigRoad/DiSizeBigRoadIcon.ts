@@ -140,7 +140,7 @@ namespace we {
           }
 
           this._iconShape.graphics.beginFill(colors[colorIdx]);
-          this._iconShape.graphics.drawRoundRect(lineWidth, lineWidth, iconSize - lineWidth * 2, iconSize - lineWidth * 2, 12, 12);
+          this._iconShape.graphics.drawRoundRect(lineWidth, lineWidth, iconSize - lineWidth * 2, iconSize - lineWidth * 2, 16, 16);
           this._iconShape.graphics.endFill();
 
           this.changeLang();

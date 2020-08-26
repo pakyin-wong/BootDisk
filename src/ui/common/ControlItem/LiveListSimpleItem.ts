@@ -121,7 +121,7 @@ namespace we {
         }
         if (this._chipLayer.isAlreadyBet()) {
           this._alreadyBetSign.visible = true;
-          this._button.label1text = '加注';
+          this._button.label1text = i18n.t('mobile_quick_bet_button_add_label');
         } else {
           this._alreadyBetSign.visible = false;
           this._button.label1text = i18n.t('mobile_quick_bet_button_label');
@@ -135,7 +135,7 @@ namespace we {
         }
         if (this._chipLayer.isAlreadyBet()) {
           this._alreadyBetSign.visible = true;
-          this._button.label1text = '加注';
+          this._button.label1text = i18n.t('mobile_quick_bet_button_add_label');
         } else {
           this._alreadyBetSign.visible = false;
           this._button.label1text = i18n.t('mobile_quick_bet_button_label');
@@ -190,6 +190,7 @@ namespace we {
         this._chipLayer.getSelectedChipIndex = () => this._betChipSet.selectedChipIndex;
 
         this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+        this._chipLayer.addEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
       }
 
       protected runtimeGenerateTableLayer() {

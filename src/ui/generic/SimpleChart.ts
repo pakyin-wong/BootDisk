@@ -3,8 +3,12 @@ namespace we {
     export class SimpleChart extends core.BaseEUI {
       protected _lineWidth = 15;
       protected _radius = 100;
-      protected _redAngle = 120;
-      protected _blueAngle = 120;
+      protected _firstAngle = 120;
+      protected _secondAngle = 120;
+      protected _firstColor = 0xff6651;
+      protected _secondColor = 0x3c38ff;
+      protected _thirdColor = 0x1f86c;
+      protected _startingAngle = 90;
 
       public set lineWidth(value: number) {
         this._lineWidth = value;
@@ -14,12 +18,12 @@ namespace we {
         this._radius = value;
       }
 
-      public set redAngle(value: number) {
-        this._redAngle = value;
+      public set firstAngle(value: number) {
+        this._firstAngle = value;
       }
 
-      public set blueAngle(value: number) {
-        this._blueAngle = value;
+      public set secondAngle(value: number) {
+        this._secondAngle = value;
       }
 
       protected mount() {
@@ -29,23 +33,23 @@ namespace we {
       public drawChart() {
         this.removeChildren();
 
-        const shapeRed: egret.Shape = new egret.Shape();
-        shapeRed.graphics.lineStyle(this._lineWidth, 0xff6651);
-        shapeRed.graphics.drawArc(this._radius, this._radius, this._radius, 0, this._redAngle * (Math.PI / 180), false);
-        shapeRed.graphics.endFill();
-        this.addChild(shapeRed);
+        const shapeFirst: egret.Shape = new egret.Shape();
+        shapeFirst.graphics.lineStyle(this._lineWidth, this._firstColor);
+        shapeFirst.graphics.drawArc(this._radius, this._radius, this._radius, 0, this._firstAngle * (Math.PI / 180), false);
+        shapeFirst.graphics.endFill();
+        this.addChild(shapeFirst);
 
-        const shapeBlue: egret.Shape = new egret.Shape();
-        shapeBlue.graphics.lineStyle(this._lineWidth, 0x3c38ff);
-        shapeBlue.graphics.drawArc(this._radius, this._radius, this._radius, this._redAngle * (Math.PI / 180), (this._redAngle + this._blueAngle) * (Math.PI / 180), false);
-        shapeBlue.graphics.endFill();
-        this.addChild(shapeBlue);
+        const shapeSecond: egret.Shape = new egret.Shape();
+        shapeSecond.graphics.lineStyle(this._lineWidth, this._secondColor);
+        shapeSecond.graphics.drawArc(this._radius, this._radius, this._radius, this._firstAngle * (Math.PI / 180), (this._firstAngle + this._secondAngle) * (Math.PI / 180), false);
+        shapeSecond.graphics.endFill();
+        this.addChild(shapeSecond);
 
-        const shapeGreen: egret.Shape = new egret.Shape();
-        shapeGreen.graphics.lineStyle(this._lineWidth, 0x1f86c);
-        shapeGreen.graphics.drawArc(this._radius, this._radius, this._radius, (this._redAngle + this._blueAngle) * (Math.PI / 180), 360 * (Math.PI / 180), false);
-        shapeGreen.graphics.endFill();
-        this.addChild(shapeGreen);
+        const shapeThird: egret.Shape = new egret.Shape();
+        shapeThird.graphics.lineStyle(this._lineWidth, this._thirdColor);
+        shapeThird.graphics.drawArc(this._radius, this._radius, this._radius, (this._firstAngle + this._secondAngle) * (Math.PI / 180), 360 * (Math.PI / 180), false);
+        shapeThird.graphics.endFill();
+        this.addChild(shapeThird);
       }
     }
   }

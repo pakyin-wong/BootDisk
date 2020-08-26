@@ -228,6 +228,10 @@ namespace we {
         }
       }
 
+      public unSelect() {
+        this._chipList[this._selectedChipIndex].type = we.core.ChipType.PERSPECTIVE;
+      }
+
       public setUpdateChipSetSelectedChipFunc(value: (value: number, index: number) => void) {}
     }
   }

@@ -35,6 +35,14 @@ namespace we {
         this.balances = [3000, 6000, 99999999999999, 2000];
         this.balance_index = 0;
         // end
+        const value = window.location.search;
+        const query = value.replace('?', '');
+        let data: any = {};
+        data = utils.getQueryParams(query);
+        const playerID = data.playerid ? data.playerid : dir.config.playerID;
+        const secret = data.secret ? data.secret : dir.config.secret;
+
+        logger.l(utils.LogTarget.DEBUG, `playerID: ${playerID}`);
 
         env.balance = 2800000;
         env.currency = core.Currency.RMB;
@@ -1162,7 +1170,7 @@ namespace we {
         },
       };
 
-      public bet(tableID: string, betDetails: data.BetDetail[]) {
+      public bet(tableID: string, betDetails: data.BetDetail[], callback: (result) => void) {
         // add the bets to confirmed bet Array
         const data = this.tables[parseInt(tableID, 10) - 1];
         this.tables[parseInt(tableID, 10) - 1].data.currTime = Date.now();
@@ -1208,6 +1216,9 @@ namespace we {
         this.dispatchInfoUpdateEvent(data);
         this.dispatchBetResultEvent();
         this.dispatchBetInfoUpdateEvent(data);
+
+        const result = { success: true };
+        callback(result);
 
         // return promise.resolve with BetResult
       }

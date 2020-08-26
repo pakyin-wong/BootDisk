@@ -57,10 +57,17 @@ class Main extends eui.UILayer {
 
     const { type } = env.UAInfo.device;
 
-    if (type === 'mobile') {
+    const value = window.location.search;
+
+    const query = value.replace('?', '');
+    let data: any = {};
+    data = we.utils.getQueryParams(query);
+    const isMobile = data.ismobile ? data.ismobile : 0;
+
+    if (type === 'mobile' || !!isMobile) {
       // if (true) {
       env.isMobile = true;
-      this.updateMobileHitTest();
+      // this.updateMobileHitTest();
       // use these when there is portrait mode only
       // this.stage.setContentSize(1242, 2155);
       // this.stage.orientation = egret.OrientationMode.PORTRAIT;

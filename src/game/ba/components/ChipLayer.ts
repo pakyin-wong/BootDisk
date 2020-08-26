@@ -46,7 +46,7 @@ namespace we {
         this._betChipStackMapping[ba.BetField.SUPER_SIX] = this._superSixBetChipStack;
       }
 
-      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+      protected isExceedUpperBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail: data.BetDetail) {
         const banker = this.getAllValue(fieldAmounts, ba.BetField.BANKER);
         const player = this.getAllValue(fieldAmounts, ba.BetField.PLAYER);
         const superSixBanker = this.getAllValue(fieldAmounts, ba.BetField.SUPER_SIX_BANKER);
@@ -55,14 +55,55 @@ namespace we {
         const playerPair = this.getAllValue(fieldAmounts, ba.BetField.PLAYER_PAIR);
         const superSix = this.getAllValue(fieldAmounts, ba.BetField.SUPER_SIX);
 
-        return (
-          Math.abs(banker - player) > betLimit.maxlimit ||
-          Math.abs(superSixBanker - player) > betLimit.maxlimit ||
-          tie > betLimit.maxlimit ||
-          bankerPair > betLimit.maxlimit ||
-          playerPair > betLimit.maxlimit ||
-          superSix > betLimit.maxlimit
-        );
+        let val = null;
+
+        switch (betDetail.field) {
+          case ba.BetField.BANKER:
+            val = Math.abs(banker + betDetail.amount - player);
+            return this.checkLimit(val, betDetail, betLimit.limits.ba.BANKER.maxlimit);
+          case ba.BetField.BANKER_PAIR:
+            val = bankerPair + betDetail.amount;
+            return this.checkLimit(val, betDetail, betLimit.limits.ba.BANKER_PAIR.maxlimit);
+          case ba.BetField.PLAYER:
+            val = Math.abs(player + betDetail.amount - banker);
+            return this.checkLimit(val, betDetail, betLimit.limits.ba.PLAYER.maxlimit);
+          case ba.BetField.PLAYER_PAIR:
+            val = playerPair + betDetail.amount;
+            return this.checkLimit(val, betDetail, betLimit.limits.ba.PLAYER_PAIR.maxlimit);
+          case ba.BetField.TIE:
+            val = tie + betDetail.amount;
+            return this.checkLimit(val, betDetail, betLimit.limits.ba.TIE.maxlimit);
+          case ba.BetField.SUPER_SIX:
+            val = superSix + betDetail.amount;
+            return this.checkLimit(val, betDetail, betLimit.limits.ba.SUPER_SIX.maxlimit);
+          case ba.BetField.SUPER_SIX_BANKER:
+            val = superSixBanker + betDetail.amount;
+            return this.checkLimit(val, betDetail, betLimit.limits.ba.SUPER_SIX_BANKER.maxlimit);
+        }
+      }
+
+      protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+        const banker = this.getAllValue(fieldAmounts, ba.BetField.BANKER);
+        const player = this.getAllValue(fieldAmounts, ba.BetField.PLAYER);
+        const superSixBanker = this.getAllValue(fieldAmounts, ba.BetField.SUPER_SIX_BANKER);
+        const tie = this.getAllValue(fieldAmounts, ba.BetField.TIE);
+        const bankerPair = this.getAllValue(fieldAmounts, ba.BetField.BANKER_PAIR);
+        const playerPair = this.getAllValue(fieldAmounts, ba.BetField.PLAYER_PAIR);
+        const superSix = this.getAllValue(fieldAmounts, ba.BetField.SUPER_SIX);
+
+        if (
+          (banker !== 0 && banker < betLimit.minlimit) ||
+          (player !== 0 && player < betLimit.minlimit) ||
+          (superSixBanker !== 0 && superSixBanker < betLimit.minlimit) ||
+          (tie !== 0 && tie < betLimit.minlimit) ||
+          (bankerPair !== 0 && bankerPair < betLimit.minlimit) ||
+          (playerPair !== 0 && playerPair < betLimit.minlimit) ||
+          (superSix !== 0 && superSix < betLimit.minlimit)
+        ) {
+          return true;
+        }
+
+        return false;
       }
 
       protected initOrientationDependentComponent() {

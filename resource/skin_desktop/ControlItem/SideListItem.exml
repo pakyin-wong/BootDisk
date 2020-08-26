@@ -11,7 +11,7 @@
         <ui:RoundRectShape cornerTL_TR_BL_BR="0,0,8,8" width="337" height="122" x="0" y="0" stroke="2"
                            strokeColor="0x000000" fillColor="0x282828" strokeIn="4" strokeInColor="0x3a3f48" />
         <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" x="136" y="128"
-                                   skinName="skin_desktop.BetChipSkin" />
+                                   skinName="skin_desktop.BetChipSkin" tooltipText="'sidePanel.changeChip'" />
         <e:Component id="_tableLayerNode"
                      anchorOffsetY="0" height="120" left="2" top="0" name="sidebettingtable" visible="false" />
         <ui:BaseImageButton id="_closeButton" x="12" y="125" width="56" height="60"

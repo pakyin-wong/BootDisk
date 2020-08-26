@@ -19,6 +19,12 @@ namespace we {
 
       protected _gameScene: core.MobileBaseGameScene;
 
+      public isPanelOpen: boolean = false;
+
+      // landscape bottom game result
+      public _bottomResultDisplayContainer: eui.Group;
+      public _bottomResultDisplay: ui.IResultDisplay;
+
       public constructor(skin?: string) {
         super();
       }
@@ -85,11 +91,15 @@ namespace we {
         switch (env.isBottomPanelOpen) {
           case true:
             env.isBottomPanelOpen = false;
+            this.isPanelOpen = env.isBottomPanelOpen;
             egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
+            this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
             break;
           case false:
             env.isBottomPanelOpen = true;
+            this.isPanelOpen = env.isBottomPanelOpen;
             egret.Tween.get(this._middlePart).to({ height: this._middlePartHeight }, 250);
+            this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
             break;
         }
         this.dispatchEvent(new egret.Event('TOGGLE'));

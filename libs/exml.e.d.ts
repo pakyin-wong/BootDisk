@@ -137,7 +137,19 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop.ba{
-	class StatisticChartPanel extends eui.Skin{
+	class StatisticChartPanelNormal extends eui.Skin{
+	}
+}
+declare module skin_desktop.ba{
+	class StatisticChartPanelNormalPair extends eui.Skin{
+	}
+}
+declare module skin_desktop.ba{
+	class StatisticChartPanelShoe extends eui.Skin{
+	}
+}
+declare module skin_desktop.ba{
+	class StatisticChartPanelShoePair extends eui.Skin{
 	}
 }
 declare module skin_desktop.ba{
@@ -186,6 +198,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class LiveListSimpleItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LotteryListItem extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -511,6 +527,10 @@ declare class TabItemWithBadgeSkin extends eui.Skin{
 declare class TestItemSkin extends eui.Skin{
 }
 declare module skin_desktop.lo{
+	class FunBetCustomBet extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
 	class FunBetGroup5 extends eui.Skin{
 	}
 }
@@ -567,11 +587,27 @@ declare module skin_desktop.lo{
 	}
 }
 declare module skin_desktop.lo{
+	class FunBetResult extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
 	class FunBetRoundInfo extends eui.Skin{
 	}
 }
 declare module skin_desktop.lo{
 	class FunBetTabItemRenderer extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class LotteryGameBar extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class LotteryHistory extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class LotteryHistoryIR extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -604,6 +640,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class LobbyTabListItemRenderer extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LotteryPage extends eui.Skin{
 	}
 }
 declare module skin_desktop.lw{
@@ -681,6 +721,8 @@ declare module skin_desktop{
 declare module skin_desktop{
 	class NavSideMenu extends eui.Skin{
 	}
+}
+declare class NewFile extends eui.Skin{
 }
 declare module skin_desktop{
 	class GoodRoadNotificationContainerSkin extends eui.Skin{
@@ -2194,6 +2236,22 @@ declare module skin_mobile_portrait{
 	class ToggleButtonSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile.ba{
+	class StatisticChartPanelNormal extends eui.Skin{
+	}
+}
+declare module skin_mobile.ba{
+	class StatisticChartPanelNormalPair extends eui.Skin{
+	}
+}
+declare module skin_mobile.ba{
+	class StatisticChartPanelShoe extends eui.Skin{
+	}
+}
+declare module skin_mobile.ba{
+	class StatisticChartPanelShoePair extends eui.Skin{
+	}
+}
 declare module skin_mobile{
 	class BetChipSkin extends eui.Skin{
 	}
@@ -2236,6 +2294,10 @@ declare module skin_mobile{
 }
 declare module skin_mobile{
 	class LobbyTabListItemRenderer extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class CountdownTimerRoundSqueezeBaccaratSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile{

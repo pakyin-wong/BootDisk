@@ -6,6 +6,7 @@
 	<e:Image id="_bgImg" top="0" bottom="0" x="0" width="1242" source="m_lw_ver_bg_jpg" />
 	<e:Group id="_verticalGroup" width="1242" x="0" bottom="30" bottom.left_hand_mode="30">
 		<e:Group id="_verticalTop" width="1242" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
+			<e:Rect width="1212" height="324" y="400" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x1b1f22" horizontalCenter="0" ellipseWidth="20" ellipseHeight="20"/>
 			<dil:MobileTableLayer id="_tableLayer" height="324" y="400" isEdgeDismissable="true"
 			               skinName="skin_mobile_portrait.dil.MobileTableLayerSkin" scaleX="1" scaleY="1"  width.left_hand_mode="1182" horizontalCenter.left_hand_mode="0" horizontalCenter.right_hand_mode="0" width.right_hand_mode="1182" horizontalCenter="0"/>
 			<dil:MobileChipLayer id="_chipLayer" height="324" y="400" isEdgeDismissable="true"

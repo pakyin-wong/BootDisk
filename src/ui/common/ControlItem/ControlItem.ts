@@ -116,8 +116,6 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitUpdate, this);
         dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
-        this._chipLayer && this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
-        this._chipLayer && this._chipLayer.addEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         this._confirmButton && this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this._cancelButton && this._cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
       }
@@ -151,8 +149,6 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitUpdate, this);
         dir.evtHandler.removeEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
-        this._chipLayer && this._chipLayer.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
-        this._chipLayer && this._chipLayer.removeEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         this._confirmButton && this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this._cancelButton && this._cancelButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
         this._timer && this._timer.stop();
@@ -507,12 +503,40 @@ namespace we {
       protected onConfirmPressed(evt: egret.Event) {
         if (this._chipLayer) {
           if (this._chipLayer.getTotalUncfmBetAmount() > 0) {
-            const bets = this._chipLayer.getUnconfirmedBetDetails();
-            this._chipLayer.resetUnconfirmedBet();
-            this._undoStack.clearStack();
-            // Not yet decided: any blocking or a new waitingConfirmedBet should be used here.
-            dir.socket.bet(this._tableId, bets);
+            if (this._chipLayer.validateBet()) {
+              const bets = this._chipLayer.getUnconfirmedBetDetails();
+              this._chipLayer.resetUnconfirmedBet();
+              this._undoStack.clearStack();
+              // Not yet decided: any blocking or a new waitingConfirmedBet should be used here.
+              dir.socket.bet(this._tableId, bets, this.onBetReturned.bind(this));
+            }
           }
+        }
+      }
+
+      protected onBetReturned(result) {
+        if (!result) {
+          logger.e(utils.LogTarget.STAGING, 'Bet error');
+          return;
+        }
+        // dealing with backend error message
+        if (result.error) {
+          switch (result.error.id) {
+            case '4002':
+              if (this._chipLayer) {
+                this._chipLayer.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
+              }
+              break;
+            default:
+              // maybe calling errorhandler
+              logger.e(utils.LogTarget.STAGING, 'Bet error');
+          }
+          return;
+        }
+        // dealing with success message
+        if (result.success) {
+          logger.l(utils.LogTarget.STAGING, 'Bet Result Received', result);
+          this.dispatchEvent(new egret.Event(core.Event.PLAYER_BET_RESULT, false, false, result));
         }
       }
 
