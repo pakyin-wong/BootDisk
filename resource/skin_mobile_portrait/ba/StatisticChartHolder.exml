@@ -3,7 +3,7 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<ui:HorizontalHolder bulletRight="20" bulletTop="20" width="576" height="240" slideWidth="576" slideHeight="240"
 	                     isLoop="true" isAuto="false" bulletGapValue="10" touchAreaAtBottom="true">
-		<e:Group id="content" width="100%" height="100%" touchEnabled="false" touchChildren="true" >
+		<e:Group id="content" width="100%" height="100%" touchEnabled="false" touchChildren="false"  touchThrough="true">
 			<ui:RoundRectShape cornerTL_TR_BL_BR="30,30,30,30" width="100%" height="100%" x="0" y="0" stroke="0"
 			                   fillColor="0x00000000" touchEnabled="false" />
 			<ui:RunTimeLabel id="_title01" text="_title01" x="19" y="0" scaleX="1" scaleY="1" width="434" height="47" size="32"
@@ -69,7 +69,7 @@
 			<ui:RunTimeLabel id="_roundLabel01" text="局" x="405" y="171" scaleX="1" scaleY="1" width="151" height="46" size="25"
 			                 textAlign="center" verticalAlign="middle" textKey="baccarat.rounds" fontFamily="Barlow" />
 		</e:Group>
-		<e:Group id="content0" x="0" width="100%" height="100%" touchEnabled="false" touchChildren="true">
+		<e:Group id="content0" x="0" width="100%" height="100%" touchEnabled="false" touchChildren="false" touchThrough="true">
 			<ui:RoundRectShape cornerTL_TR_BL_BR="30,30,30,30" width="100%" height="100%" x="0" y="0" stroke="0"
 			                   fillColor="0x00000000" touchEnabled="false" />
 			<ui:RunTimeLabel id="_title02" text="_title02" x="19" y="0" scaleX="1" scaleY="1" width="434" height="47" size="32"
