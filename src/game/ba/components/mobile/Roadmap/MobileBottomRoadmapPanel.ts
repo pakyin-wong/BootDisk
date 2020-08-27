@@ -38,10 +38,6 @@ namespace we {
         super();
       }
 
-      public setTableInfo(tableInfo: data.TableInfo) {
-        this.setTableInfo(tableInfo);
-      }
-
       protected childrenCreated() {
         super.childrenCreated();
         // this.init();

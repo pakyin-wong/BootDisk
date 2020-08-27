@@ -90,6 +90,9 @@ namespace we {
           dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
           this.changeLang();
         }
+        if (this._bottomGamePanel._betLimitDropDownBtn) {
+          this.initBottomBetLimitSelector();
+        }
 
         if (this._totalBetText) {
           this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
@@ -234,13 +237,37 @@ namespace we {
           toggler: this._lblBetLimit,
           review: this._lblBetLimit,
           arrCol: new eui.ArrayCollection(dropdownSource),
-          title: () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`,
+          title: () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[env.currentSelectedBetLimitIndex] : ''}`,
           selected: 0,
         });
 
         this.updateBetLimit(selectedIndex);
 
         this._lblBetLimit.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
+      }
+
+      protected initBottomBetLimitSelector() {
+        const betLimitList = env.betLimits;
+        const betLimitItems = betLimitList.map(data => {
+          return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
+        });
+        const dropdownSource = betLimitList.map((data, index) => {
+          return ui.NewDropdownItem(index, () => `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`);
+        });
+
+        const selectedIndex = env.currentSelectedBetLimitIndex;
+        this._bottomGamePanel._betLimitDropDownBtn.touchEnabled = true;
+        utils.DropdownCreator.new({
+          toggler: this._bottomGamePanel._betLimitDropDownBtn,
+          review: this._bottomGamePanel._betLimitDropDownBtn,
+          arrCol: new eui.ArrayCollection(dropdownSource),
+          title: () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[env.currentSelectedBetLimitIndex] : ''}`,
+          selected: 0,
+        });
+
+        this.updateBetLimit(selectedIndex);
+
+        // this._bottomGamePanel._betLimitDropDownBtn.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
       }
 
       protected onBetLimitSelected(evt: egret.Event) {
@@ -260,7 +287,10 @@ namespace we {
           return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
         });
         if (this._lblBetLimit) {
-          this._lblBetLimit.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`;
+          this._lblBetLimit.renderText = () => `${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`;
+        }
+        if (this._bottomGamePanel._betLimitDropDownBtn) {
+          this._bottomGamePanel._betLimitDropDownBtn.renderText = () => `${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`;
         }
       }
 
@@ -350,6 +380,9 @@ namespace we {
       protected addEventListeners() {
         super.addEventListeners();
         this._betChipSetGridSelected.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
+        if (this._bottomGamePanel._betLimitDropDownBtn) {
+          this._bottomGamePanel._betLimitDropDownBtn.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
+        }
         // if (this._videoBtn) {
         //   this._videoBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
         // }
@@ -372,6 +405,9 @@ namespace we {
       protected removeEventListeners() {
         super.removeEventListeners();
         this._betChipSetGridSelected.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
+        if (this._bottomGamePanel._betLimitDropDownBtn) {
+          this._bottomGamePanel._betLimitDropDownBtn.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
+        }
         // if (this._videoBtn) {
         //   this._videoBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
         // }
@@ -447,9 +483,13 @@ namespace we {
 
       protected changeLang() {
         this._repeatLabel.text = i18n.t('mobile_ba_repeat');
+        this._repeatLabel.targetWidth = 120;
         this._cancelLabel.text = i18n.t('mobile_ba_clear');
+        this._cancelLabel.targetWidth = 120;
         this._doubleLabel.text = i18n.t('mobile_ba_double');
+        this._doubleLabel.targetWidth = 120;
         this._undoLabel.text = i18n.t('mobile_ba_undo');
+        this._undoLabel.targetWidth = 120;
       }
     }
   }

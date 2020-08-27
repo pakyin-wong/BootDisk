@@ -46,7 +46,7 @@
 				<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="684"
 				          verticalCenter="0" x.right_hand_mode="684" skinName="skin_mobile_portrait.BetConfirmButtonSkin"
 				          x.left_hand_mode="5" />
-				<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="684"
+				<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="684" colorChange="true"
 				                   verticalCenter="0" x.right_hand_mode="684" x.left_hand_mode="0" />
 				<e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0"
 				         touchEnabled="false" touchChildren="false">
@@ -130,9 +130,9 @@
 	<bam:MobileFlipCardHolder id="_resultCard" width="2424" height="1094" anchorOffsetX="0"
 			               anchorOffsetY="0" scaleX="1" scaleY="1"  y.left_hand_mode="750" y.right_hand_mode="745" verticalCenter="-35" horizontalCenter="0"/>
 
-	<e:Group width="700" x.right_hand_mode="175" y.right_hand_mode="24" y="25" x="253" x.left_hand_mode="183">
-		<ui:RunTimeLabel id="_baGameIDText" text="Game ID :" bottom="0" left="0" />
-		<ui:RunTimeLabel id="_baGameID" text="ID" bottom="0" left="0" />
+	<e:Group y="24" x="200" >
+		<ui:RunTimeLabel id="_baGameIDText" text="Game ID :" bottom="0" left="0"  alpha=".7" height="56" verticalAlign="top" size="26"/>
+		<ui:RunTimeLabel id="_baGameID" text="ID0000000000000001" bottom="0" left="0"  height="56" verticalAlign="top" fontFamily="Barlow" size="26"/>
 		<e:layout>
 			<e:HorizontalLayout/>
 		</e:layout>

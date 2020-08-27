@@ -66,7 +66,7 @@ namespace we {
       }
 
       public checkResultMessage() {
-        const resultNo = (<lw.GameData> this._gameData).value;
+        const resultNo = (<lw.GameData>this._gameData).value;
         (this._tableLayer as lw.TableLayer).flashFields(`LW_${parseInt(resultNo, 10) - 1}`);
         super.checkResultMessage();
       }

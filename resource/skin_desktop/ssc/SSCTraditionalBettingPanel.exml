@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.lo.SSCTraditionalBettingPanel" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*" xmlns:ui="we.ui.*" width="1508" height="1213">
+    <e:Rect x="0" y="0" width="1508" height="1213" fillColor="0x10151b"/>
+    <ui:RoundRectShape cornerTL_TR_BL_BR="10,10,10,10" x="0" y="0" width="1508" height="825" stroke="1" fillColor="0x112c4c" strokeColor="0x214a72"/>
+    <e:Group bottom="0" width="1508" height="377">
+		<lo:SSCNoteControlPanel id="_noteControl"/>
+    </e:Group>
+    <e:Group id="_content" width="1508" height="849">
+        <e:Group id="_topGroup" width="1508" height="127">
+            <e:Image x="10" y="20" width="87" height="86"/>
+            <ui:RunTimeLabel id="_lblbettingDeadLine" text="本期投注" y="20" textAlign="left" x="121" width="200" height="36" size="24" verticalAlign="middle" alpha=".7"/>
+            <ui:RunTimeLabel id="_lblCurrentRound" text="20200414029" y="60" textAlign="left" x="121" width="300" height="36" size="30" verticalAlign="middle" textColor="0xc59466" bold="true"/>
+            <ui:RunTimeLabel id="_timer" text="00:00:00" x="380" y="24" size="80" bold="true" textColor="0xe4493a"/>
+            <e:Rect x="750" y="20" fillColor="0xffffff" width="1" height="80" alpha="0.2"/>
+            <e:Group id="_resultGroup" x="791" y="20" width="300" height="100">
+                <ui:RunTimeLabel id="_currentRoundState" text="開獎中" size="24" alpha="0.7"/>
+                <e:Group y="26">
+                    <e:Group width="50" height="50">
+                        <ui:RoundRectShape id="_resultBall0" width="50" height="50" cornerTL_TR_BL_BR="25,25,25,25" 
+                                           strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
+                        <ui:RunTimeLabel id="_lblResultBall0" horizontalCenter="0" verticalCenter="0" size="34" text="-" textColor="0xc59466"/>
+                    </e:Group>
+                    <e:Group width="50" height="50">
+                        <ui:RoundRectShape id="_resultBall1" width="50" height="50" cornerTL_TR_BL_BR="25,25,25,25" 
+                                           strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
+                        <ui:RunTimeLabel id="lblResultBall1" horizontalCenter="0" verticalCenter="0" size="34" text="-" textColor="0xc59466"/>
+                    </e:Group>
+                    <e:Group width="50" height="50">
+                        <ui:RoundRectShape id="_resultBall2" width="50" height="50" cornerTL_TR_BL_BR="25,25,25,25" 
+                                           strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
+                        <ui:RunTimeLabel id="lblResultBall2" horizontalCenter="0" verticalCenter="0" size="34" text="-" textColor="0xc59466"/>
+                    </e:Group>
+                    <e:Group width="50" height="50">
+                        <ui:RoundRectShape id="_resultBall3" width="50" height="50" cornerTL_TR_BL_BR="25,25,25,25" 
+                                           strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
+                        <ui:RunTimeLabel id="lblResultBall3" horizontalCenter="0" verticalCenter="0" size="34" text="-" textColor="0xc59466"/>
+                    </e:Group>
+                    <e:Group width="50" height="50">
+                        <ui:RoundRectShape id="_resultBall4" width="50" height="50" cornerTL_TR_BL_BR="25,25,25,25" 
+                                           strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
+                        <ui:RunTimeLabel id="lblResultBall4" horizontalCenter="0" verticalCenter="0" size="34" text="-" textColor="0xc59466"/>
+                    </e:Group>
+                    <e:layout>
+                        <e:HorizontalLayout gap="5"/>
+                    </e:layout>
+                </e:Group>
+            </e:Group>
+            <e:Group id="_previousResultGroup" x="1091" y="20" width="300" height="100">
+                <e:Group y="0">
+                    <ui:RunTimeLabel id="_lblLastRoundResult" size="24" text="20200414027"/>
+                    <e:Group>
+                        <e:Group width="30" height="30">
+                            <ui:RoundRectShape id="_lastBall0" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
+                                            strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
+                            <ui:RunTimeLabel id="lblLastBall0" horizontalCenter="0" verticalCenter="0" size="18" text="-" textColor="0xc59466"/>
+                        </e:Group>
+                        <e:Group width="30" height="30">
+                            <ui:RoundRectShape id="_lastBall1" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
+                                            strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
+                            <ui:RunTimeLabel id="lblLastBall1" horizontalCenter="0" verticalCenter="0" size="18" text="-" textColor="0xc59466"/>
+                        </e:Group>
+                        <e:Group width="30" height="30">
+                            <ui:RoundRectShape id="_lastBall2" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
+                                            strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
+                            <ui:RunTimeLabel id="lblLastBall2" horizontalCenter="0" verticalCenter="0" size="18" text="-" textColor="0xc59466"/>
+                        </e:Group>
+                        <e:Group width="30" height="30">
+                            <ui:RoundRectShape id="_lastBall3" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
+                                            strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
+                            <ui:RunTimeLabel id="lblLastBall3" horizontalCenter="0" verticalCenter="0" size="18" text="-" textColor="0xc59466"/>
+                        </e:Group>
+                        <e:Group width="30" height="30">
+                            <ui:RoundRectShape id="_lastBall4" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
+                                            strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
+                            <ui:RunTimeLabel id="lblLastBall4" horizontalCenter="0" verticalCenter="0" size="18" text="-" textColor="0xc59466"/>
+                        </e:Group>
+                        <e:layout>
+                            <e:HorizontalLayout gap="3"/>
+                        </e:layout>
+                    </e:Group>
+                    <e:layout>
+                        <e:HorizontalLayout gap="5"/>
+                    </e:layout>
+                </e:Group>
+                <e:Group y="32">
+                    <ui:RunTimeLabel id="_lblPrevRoundResult" size="24" text="20200414028"/>
+                    <e:Group>
+                        <e:Group width="30" height="30">
+                            <ui:RoundRectShape id="_prevBall0" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
+                                            strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
+                            <ui:RunTimeLabel id="lblPrevBall0" horizontalCenter="0" verticalCenter="0" size="18" text="-" textColor="0xc59466"/>
+                        </e:Group>
+                        <e:Group width="30" height="30">
+                            <ui:RoundRectShape id="_prevBall1" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
+                                            strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
+                            <ui:RunTimeLabel id="lblPrevBall1" horizontalCenter="0" verticalCenter="0" size="18" text="-" textColor="0xc59466"/>
+                        </e:Group>
+                        <e:Group width="30" height="30">
+                            <ui:RoundRectShape id="_prevBall2" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
+                                            strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
+                            <ui:RunTimeLabel id="lblPrevBall2" horizontalCenter="0" verticalCenter="0" size="18" text="-" textColor="0xc59466"/>
+                        </e:Group>
+                        <e:Group width="30" height="30">
+                            <ui:RoundRectShape id="_prevBall3" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
+                                            strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
+                            <ui:RunTimeLabel id="lblPrevBall3" horizontalCenter="0" verticalCenter="0" size="18" text="-" textColor="0xc59466"/>
+                        </e:Group>
+                        <e:Group width="30" height="30">
+                            <ui:RoundRectShape id="_prevBall4" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
+                                            strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
+                            <ui:RunTimeLabel id="lblPrevBall4" horizontalCenter="0" verticalCenter="0" size="18" text="-" textColor="0xc59466"/>
+                        </e:Group>
+                        <e:layout>
+                            <e:HorizontalLayout gap="3"/>
+                        </e:layout>
+                    </e:Group>
+                    <e:layout>
+                        <e:HorizontalLayout gap="5"/>
+                    </e:layout>
+                </e:Group>
+            </e:Group>
+        </e:Group>
+        <e:Group id="_bigTagsGroup" width="1508" height="60" touchEnabled="true" touchChildren="true">
+            <e:Rect fillColor="0x151c26" width="1508" height="60"/>
+        </e:Group>
+        <e:Group id="_smallTagsGroup" width="1508" height="57" touchEnabled="true" touchChildren="true">
+        </e:Group>
+        <e:Group id="_buttonGroup" width="1508" height="478" touchEnabled="true" touchChildren="true">
+            <e:Rect fillColor="0x151c26" width="1508" height="478"/>
+        </e:Group>
+        <e:Group id="_bottomGroup" width="1508" height="127">
+            <lo:SSCBettingControlBar id="_bettingControl"/>
+        </e:Group>
+        <e:layout>
+            <e:VerticalLayout gap="0"/>
+        </e:layout>
+    </e:Group>
+</e:Skin>

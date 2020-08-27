@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.lo.SSCTraditionalChaseBetPanel" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="1800" height="907">
+    <ui:RoundRectShape cornerTL_TR_BL_BR="25,25,25,25" width="1800" height="907" x="0" y="0" stroke="1" strokeColor="0x214a72" fillColor="0x151c26"/>
+    <e:Image id="_close" top="44" right="44" source="m_common_icon_close_png" touchEnabled="true"/>
+    <e:Group id="_topPart" width="1500" height="140">
+        <ui:RunTimeLabel x="44" y="40" id="_lblChaseBetTitle" text="追號" textColor="0xc59466" size="48"/>
+        <e:Group id="_btnChaseType" width="210" height="60" x="211" y="47">
+            <e:Rect fillAlpha="1" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50" ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" fillColor="0x1b416e"/>
+            <e:Image id="_arrow" source="d_lobby_button_down_normal_png" width="40" height="40" verticalCenter="0" x="150"/>
+            <ui:RunTimeLabel id="_lblChaseType" text="同倍追號" size="24" horizontalCenter="-20" verticalCenter="0"/>
+        </e:Group>
+    </e:Group>
+    <e:Group id="_content" width="1800" height="608" y="140"/>
+    <e:Group id="_bottomPart" bottom="0" width="1800" height="148">
+        <e:Group id="_leftPart" width="1100" height="140">
+            <e:Group height="83">
+                <ui:RunTimeLabel id="_lblTotalRoundCount" text="15" size="40"/>
+                <ui:RunTimeLabel id="_lblTotalRoundTitle" text="期數" size="20"/>
+                <e:layout>
+                    <e:VerticalLayout horizontalAlign="center" gap="6"/>
+                </e:layout>
+            </e:Group>
+            <e:Group height="83">
+                <ui:RunTimeLabel id="_lblTotalNoteCount" text="15" size="40"/>
+                <ui:RunTimeLabel id="_lblTotalNoteTitle" text="注數" size="20"/>
+                <e:layout>
+                    <e:VerticalLayout horizontalAlign="center" gap="6"/>
+                </e:layout>
+            </e:Group>
+            <e:Group height="83">
+                <ui:RunTimeLabel id="_lblTotalBet" text="15" size="40"/>
+                <ui:RunTimeLabel id="_lblTotalBetTitle" text="追號方案總金額 (元)" size="20"/>
+                <e:layout>
+                    <e:VerticalLayout horizontalAlign="center" gap="6"/>
+                </e:layout>
+            </e:Group>
+            <e:Group height="83">
+                <ui:RunTimeLabel id="_lblRoundCountDown" textColor="0x4adc84" text="00:02:30" size="40"/>
+                <ui:RunTimeLabel id="_lblRoundCountDownTitle" text="本期投注截止" size="20"/>
+                <e:layout>
+                    <e:VerticalLayout horizontalAlign="center" gap="6"/>
+                </e:layout>
+            </e:Group>
+            <e:layout>
+                <e:HorizontalLayout paddingLeft="77" verticalAlign="middle" gap="172"/>
+            </e:layout>
+        </e:Group>
+        <e:Group id="_rightPart" width="700" height="140" x="1100">
+            <e:Group touchChildren="true">
+                <e:Image id="_stopChaseIfWinCheckBox" width="28" height="28" touchEnabled="true"/>
+                <ui:RunTimeLabel id="_lblStopChaseIfWin" text="中獎後停止追號" size="24"/>
+                <e:layout>
+                    <e:HorizontalLayout verticalAlign="middle" gap="5"/>
+                </e:layout>
+            </e:Group>
+            <e:Group width="213" height="50" touchChildren="true">
+            	<ui:RoundRectButton id="_btnInstantBet" width="213" height="58" cornerTL_TR_BL_BR="29,29,29,29"
+                        stroke="2" strokeColor="0x0f9d5d" fillAlpha="0" strokeAlpha="1"
+                        stroke_disabled="2" strokeColor_disabled="0x5f6973" fillAlpha_disabled="0" strokeAlpha_disabled="1"
+                        stroke_hover="2" strokeAlpha_hover="1" strokeColor_hover="0x00c46d" fillAlpha_hover="0.2" fillColor_hover="0x00c46d"
+                        stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x00c46d"
+                        stroke_active="2" strokeColor_active="0x007842" fillAlpha_active="1" fillColor_active="0x007842" strokeAlpha_active="1"/>
+                <ui:RunTimeLabel id="_lblInstantBet" text="確認追號投注" size="20" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
+            </e:Group>
+            <e:layout>
+                <e:HorizontalLayout paddingLeft="77" verticalAlign="middle" gap="72"/>
+            </e:layout>
+        </e:Group>
+    </e:Group>
+</e:Skin>

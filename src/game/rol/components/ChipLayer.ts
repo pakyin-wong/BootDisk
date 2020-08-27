@@ -155,7 +155,12 @@ namespace we {
           this._flashingOdd.text = luckyNumbers[key] + 'x';
 
           grid.addChild(this._flashingOdd);
-          egret.Tween.get(this._flashingOdd).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000);
+          egret.Tween.get(this._flashingOdd)
+            .to({ alpha: 0 }, 1000)
+            .to({ alpha: 1 }, 1000)
+            .to({ alpha: 0 }, 1000)
+            .to({ alpha: 1 }, 1000)
+            .to({ alpha: 0 }, 1000);
 
           this._luckyAnims.push(luckyAnim);
 

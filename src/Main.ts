@@ -29,9 +29,9 @@ class Main extends eui.UILayer {
   private async init() {
     egret.ImageLoader.crossOrigin = 'anonymous';
 
-    eui.Label.default_fontFamily = 'Microsoft JhengHei,Sans-Serif';
-    egret.TextField.default_fontFamily = 'Microsoft JhengHei,Sans-Serif';
-    we.ui.RunTimeLabel.default_fontFamily = 'Microsoft JhengHei,Sans-Serif';
+    eui.Label.default_fontFamily = 'Barlow,Microsoft JhengHei,Sans-Serif';
+    egret.TextField.default_fontFamily = 'Barlow,Microsoft JhengHei,Sans-Serif';
+    we.ui.RunTimeLabel.default_fontFamily = 'Barlow,Microsoft JhengHei,Sans-Serif';
     // step 1: init director elements (socket comm, controller, handler)
     // dir.socket = new socket.SocketMock();
     dir.config = await we.utils.getConfig();
@@ -64,7 +64,7 @@ class Main extends eui.UILayer {
     data = we.utils.getQueryParams(query);
     const isMobile = data.ismobile ? data.ismobile : 0;
 
-    if (type !== 'mobile') {
+    if (type !== 'mobile' ) {
       // if (true) {
       env.isMobile = true;
       // this.updateMobileHitTest();

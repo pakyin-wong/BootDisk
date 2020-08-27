@@ -184,10 +184,14 @@ namespace we {
 
         switch (type) {
           case we.core.ChipType.FLAT:
-            filename = `${this.chipImageMapping[this._index]}_png`;
+            if (this._index != null) {
+              filename = `${this.chipImageMapping[this._index]}_png`;
+            }
             break;
           case we.core.ChipType.PERSPECTIVE:
-            filename = `${this.chipImageMapping[this._index]}_B_png`;
+            if (this._index != null) {
+              filename = `${this.chipImageMapping[this._index]}_B_png`;
+            }
             break;
           case we.core.ChipType.BETTING:
           default:
