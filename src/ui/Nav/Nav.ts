@@ -131,9 +131,11 @@ namespace we {
 
         env.maxWinCount = winningstreak;
         env.maxWinAmount = maxwin;
-        this._profile.winAmount = env.maxWinAmount;
-        this._profile.winStreak = env.maxWinCount;
-        this._profile.updateProfileText();
+        if (this._profile) {
+          this._profile.winAmount = env.maxWinAmount;
+          this._profile.winStreak = env.maxWinCount;
+          this._profile.updateProfileText();
+        }
       }
 
       private onSceneChange(e = null) {
