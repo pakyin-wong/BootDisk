@@ -88,7 +88,7 @@ namespace we {
           const gr = this._shape.graphics;
           const matrix = new egret.Matrix();
           matrix.createGradientBox(2424, 600, Math.PI / 2);
-          gr.beginGradientFill(egret.GradientType.LINEAR, [0xffffff, 0xffffff], [0, 0.7], [0, 255], matrix);
+          gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000], [0, 0.7], [0, 255], matrix);
           gr.drawRect(0, 0, 2424, 600);
           gr.endFill();
           this._gradientmask.addChild(this._shape);

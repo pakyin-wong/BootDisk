@@ -162,6 +162,9 @@ namespace we {
       }
 
       public updateResultDisplayVisible(bottomGamePanelisOpen: boolean) {
+        if (!this._bottomGamePanel._bottomResultDisplayContainer) {
+          return;
+        }
         if (env.orientation === 'landscape') {
           if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.BET) {
             this._resultDisplay.visible = !bottomGamePanelisOpen;
@@ -185,6 +188,17 @@ namespace we {
                   // this._chipLayer.y -= 24;
                 } else {
                   vlayout.gap = -40;
+                  // this._tableLayer.y += 24;
+                  // this._chipLayer.y += 24;
+                }
+                break;
+              case core.GameType.LW:
+                if (bottomGamePanelisOpen === true) {
+                  vlayout.gap = -20;
+                  // this._tableLayer.y -= 24;
+                  // this._chipLayer.y -= 24;
+                } else {
+                  vlayout.gap = -60;
                   // this._tableLayer.y += 24;
                   // this._chipLayer.y += 24;
                 }
