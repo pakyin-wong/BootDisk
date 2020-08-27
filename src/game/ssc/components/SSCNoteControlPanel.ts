@@ -80,7 +80,7 @@ namespace we {
         this._lblMultiplier.renderText = () => `倍數`;
         this._lblTotalBet.renderText = () => `金額`;
         this._lblControl.renderText = () => `操作`;
-        this._lblBalance.renderText = () => `餘額 $${this._balance}`;
+        this._lblBalance.renderText = () => `餘額 $${env.balance? utils.formatNumber(env.balance,true) : ' - '}`;
 
         this._lbltotalBetCount.renderText = () => `${this._totalBetCount}`;
         this._lbltotalBetAmount.renderText = () => `${this._totalBetAmount}`;

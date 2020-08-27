@@ -4,7 +4,7 @@
         <ui:RunTimeLabel width="124" height="25" id="_title" text="Title" verticalAlign="middle" textAlign="left" size="18"/>
         <e:Group id="_ballsGroup" width="768" height="80">
             <e:layout>
-                <e:TileLayout paddingLeft="44" paddingRight="44" verticalAlign="middle" horizontalGap="20" columnAlign="justifyUsingWidth" rowAlign="justifyUsingHeight"/>
+                <e:TileLayout paddingLeft="44" paddingRight="44" verticalAlign="middle" horizontalGap="20" rowAlign="justifyUsingHeight"/>
             </e:layout>
         </e:Group>
         <e:layout>
