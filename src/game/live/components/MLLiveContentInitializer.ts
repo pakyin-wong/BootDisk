@@ -3,7 +3,7 @@ namespace we {
   export namespace live {
     export class MLLiveContentInitializer implements IContentInitializer {
       protected root: GameTableList;
-
+      protected _shouldTouchFocus: boolean = true;
       constructor() {}
 
       public initContent(root: GameTableList) {
@@ -41,12 +41,31 @@ namespace we {
         root.roomList.useVirtualLayout = true;
 
         root.scroller.viewport = root.roomList;
+        root.scroller.viewport.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.touchBegin, this, true, -1);
+        root.scroller.viewport.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.touchContinue, this, true, -1);
+        root.scroller.viewport.addEventListener(egret.TouchEvent.TOUCH_END, this.touchContinue, this, true, -1);
 
         root.tabItems = utils.EnumHelpers.values(core.LiveGameTab);
         root.tabs = new DropDownLiveGameTabbar(root.tabItems);
         root.addChild(root.tabs);
 
         this.setDisplayMode(env.lobbyGridType);
+      }
+
+      protected touchBegin(e: egret.TouchEvent) {
+        if (e.currentTarget !== e.target) {
+          if ((e.target as egret.EventDispatcher).hasEventListener(egret.TouchEvent.TOUCH_BEGIN)) {
+            this._shouldTouchFocus = false;
+            e.preventDefault();
+            return;
+          }
+        }
+        this._shouldTouchFocus = true;
+      }
+      protected touchContinue(e: egret.TouchEvent) {
+        if (!this._shouldTouchFocus) {
+          e.preventDefault();
+        }
       }
 
       public onDisplayMode(evt: egret.Event) {
