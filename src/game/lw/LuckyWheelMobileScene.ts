@@ -10,6 +10,9 @@ namespace we {
       protected _verticalGroup: eui.Group;
       private _common_listpanel: ui.BaseImageButton;
 
+      protected _gradientmask: eui.Group;
+      protected _shape: egret.Shape = new egret.Shape();
+
       constructor(data: any) {
         super(data);
       }
@@ -79,6 +82,16 @@ namespace we {
         }
         if (this._bottomGamePanel._betLimitDropDownBtn) {
           this.initBottomBetLimitSelector();
+        }
+
+        if (env.orientation === 'landscape') {
+          const gr = this._shape.graphics;
+          const matrix = new egret.Matrix();
+          matrix.createGradientBox(2424, 600, Math.PI / 2);
+          gr.beginGradientFill(egret.GradientType.LINEAR, [0xffffff, 0xffffff], [0, 0.7], [0, 255], matrix);
+          gr.drawRect(0, 0, 2424, 600);
+          gr.endFill();
+          this._gradientmask.addChild(this._shape);
         }
         this.createVerticalLayout();
         this.changeHandMode();
@@ -199,7 +212,7 @@ namespace we {
 
         console.log('checkResultMessage', this._gameData);
 
-        const resultNo = (<lw.GameData> this._gameData).value; // a string type
+        const resultNo = (<lw.GameData>this._gameData).value; // a string type
         (this._tableLayer as lw.TableLayer).flashFields(`LW_${parseInt(resultNo, 10) - 1}`);
         // const lwGameResultMessage = new lw.GameResultMessage();
         // lwGameResultMessage.type = null;
