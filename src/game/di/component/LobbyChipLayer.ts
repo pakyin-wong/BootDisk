@@ -31,17 +31,17 @@ namespace we {
         this._betChipStackMapping[di.BetField.EVEN] = this._even_betChipStack;
       }
 
-      protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
-        for (const key of Object.keys(fieldAmounts)) {
-          if (fieldAmounts[key] === 0) {
-            continue;
-          }
-          if (fieldAmounts[key] < betLimit.minlimit) {
-            return true;
-          }
-        }
-        return false;
-      }
+      // protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+      //   for (const key of Object.keys(fieldAmounts)) {
+      //     if (fieldAmounts[key] === 0) {
+      //       continue;
+      //     }
+      //     if (fieldAmounts[key] < betLimit.minlimit) {
+      //       return true;
+      //     }
+      //   }
+      //   return false;
+      // }
 
       protected isExceedUpperBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail: data.BetDetail) {
         const val = this.getAllValue(fieldAmounts, betDetail.field) + betDetail.amount;
