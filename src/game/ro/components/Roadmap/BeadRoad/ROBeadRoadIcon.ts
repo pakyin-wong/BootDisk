@@ -16,7 +16,9 @@ namespace we {
       protected _topTextLayer: egret.DisplayObjectContainer;
       protected _layerVisible: boolean;
 
-      public constructor(size: number = 30, emptyColor: number = 0xc1c1c1, emptyAlpha: number = 0.2) {
+      public isSmall: boolean = false;
+
+      public constructor(size: number = 30, emptyColor: number = 0xc1c1c1, emptyAlpha: number = 0.2 , _isSmall: boolean = false) {
         super(size);
         this.emptyColor = emptyColor;
         this.emptyAlpha = emptyAlpha;
@@ -26,6 +28,7 @@ namespace we {
         this._iconText.x = this._offsetX;
         this._iconText.y = this._offsetY;
 
+        this.isSmall = _isSmall;
         const iconSize = this.size;
         const lineWidth = 1;
         const circleRadius = this.size / 2 + 2;
@@ -35,6 +38,10 @@ namespace we {
         this.iconHightLight.graphics.endFill();
         this.iconHightLight.visible = false;
 
+        if (this.isSmall = true){
+          this._iconText.scaleX = 0.8;
+          this._iconText.scaleY = 0.8;
+        }
         //
         this._iconTopText = new egret.TextField();
         this._iconTopText.size = size * 0.3 * 2;
