@@ -674,7 +674,7 @@ namespace we {
 
       protected onBetReturned(result) {
         if (!result) {
-          logger.e(utils.LogTarget.STAGING, 'Bet error');
+          logger.e(utils.LogTarget.RELEASE, 'Bet error');
           return;
         }
         // dealing with backend error message
@@ -687,13 +687,13 @@ namespace we {
               break;
             default:
               // maybe calling errorhandler
-              logger.e(utils.LogTarget.STAGING, 'Bet error');
+              logger.e(utils.LogTarget.RELEASE, 'Bet error');
           }
           return;
         }
         // dealing with success message
         if (result.success) {
-          logger.l(utils.LogTarget.STAGING, 'Bet Result Received', result);
+          logger.l(utils.LogTarget.RELEASE, 'Bet Result Received', result);
           this.dispatchEvent(new egret.Event(core.Event.PLAYER_BET_RESULT, false, false, result));
         }
       }
