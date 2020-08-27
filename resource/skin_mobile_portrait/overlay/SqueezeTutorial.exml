@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.SqueezeTutorial" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+    <e:Rect id="_bg" fillColor="0x14181e" width="1242" height="2155" alpha="1" />
+    <e:Group id="_top" width="1242" height="200">
+        <ui:RunTimeLabel id="_title" bold="true" text="咪牌教學" x="49" y="55" size="80" textColor="0xc59466"
+                         fontFamily="Arial" />
+        <e:Image id="_close" x="1120" y="51" width="70" height="70" source="d-lobby-button-close-none_png"  touchEnabled="true"/>
+    </e:Group>
+    <e:Group y="200" width="1242" height="1655">
+        <ui:HorizontalHolder id="_holder" bulletGap="30" bulletHorizontalCenter="0" bulletBottom="0" width="1242"
+                             height="1655" slideWidth="1242" slideHeight="1655" isTouchEnabled="false" isLoop="false"
+                             isAuto="false">
+            <e:Group id="_pageOne" width="1242" height="1655">
+                <e:Image width="338" height="120" x="121" y="220" source="m_bam_instruction_reveal_all_btn_png" />
+                <ui:RunTimeLabel id="_allOpenOne" width="338" height="120" x="121" y="220" textAlign="center" text="全開"
+                                 size="57.6" fontFamily="Arial" verticalAlign="middle" />
+                <e:Image x="364" y="225" source="m_bam_touch_icon_png" />
+                <e:Image source="m_bam_instruction_crad_group_png" horizontalCenter="0" bottom="192" width="1142"
+                         height="1165" scaleX="0.81" scaleY="0.9"  anchorOffsetX="0" anchorOffsetY="0"/>
+            </e:Group>
+            <e:Group id="_pageTwo" width="1242" height="1655">
+                <e:Image width="338" height="120" x="121" y="220" source="m_bam_instruction_reveal_all_btn_png" />
+                <ui:RunTimeLabel id="_allOpenTwo" width="338" height="120" x="121" y="220" textAlign="center" text="全開"
+                                 size="57.6" fontFamily="Arial" verticalAlign="middle" />
+                <e:Image source="m_bam_instruction_swtich_crad_group_png" horizontalCenter="0" bottom="100" width="1142" height="1165" scaleX="0.81"
+                         scaleY="0.9" />
+                
+            </e:Group>
+            <e:Group id="_pageThree" width="1242" height="1655">
+                <e:Image width="790" height="1216" source="m_bam_instruction_large_crad_png" horizontalCenter="0" verticalCenter="0" />
+                <e:Image horizontalCenter="42" verticalCenter="23" source="m_bam_touch_icon_png" />
+                
+            </e:Group>
+            <e:Group id="_pageFour" width="1242" height="1655">
+                <e:Image width="790" height="1216" source="m_bam_instruction_large_crad_png" horizontalCenter="0" verticalCenter="0" />
+                <e:Image width="793" height="1219" source="m_bam_instruction_large_crad_HL_png" horizontalCenter="0" verticalCenter="0" />
+                <e:Image x="925" y="1331" source="m_bam_touch_icon_png" />
+                
+            </e:Group>
+        </ui:HorizontalHolder>
+        <ui:RunTimeLabel id="_captionOne" horizontalCenter="0" bottom="70" text="點撃全開按鈕 卡牌立即全開" size="48" alpha="0.7"
+                         fontFamily="Arial" />
+        <ui:RunTimeLabel id="_captionTwo" horizontalCenter="0" bottom="70" text="點擊卡牌可切換大卡牌" size="48" alpha="0.7"
+                         fontFamily="Arial" />
+        <ui:RunTimeLabel id="_captionThree" horizontalCenter="0" bottom="70" text="點擊大卡牌中間位置快速開牌" size="48" alpha="0.7"
+                         fontFamily="Arial" />
+        <ui:RunTimeLabel id="_captionFour" horizontalCenter="0" bottom="70" text="卡牌四邊四角可咪牌" size="48" alpha="0.7"
+                         fontFamily="Arial" />
+    </e:Group>
+    <e:Group id="_bottom" width="1242" height="300" bottom="0">
+        <ui:RunTimeLabel id="_buttonText" text="下一頁" width="448" height="136"
+                         size="48" alpha="0.7" fontFamily="Arial" verticalAlign="middle" textAlign="center"  horizontalCenter="0" y="82"/>
+        <e:Image id="_nextButton" source="m_bam_panel_btn_bg_Inactive_png" horizontalCenter="0" width="448"
+                 height="136" y="82">
+            <!--<ui:RoundRectButton id="_btn_searchType" cornerTL_TR_BL_BR="30,30,30,30" width="210" height="60" x="400"
+                                    y="49" stroke="0" strokeIn="0" fillAlpha="1" fillColor="0x1b416e" />
+            -->
+            <e:scale9Grid>
+                <e:Rect x="62" y="136" width="0" height="0" />
+            </e:scale9Grid>
+        </e:Image>
+    </e:Group>
+</e:Skin>

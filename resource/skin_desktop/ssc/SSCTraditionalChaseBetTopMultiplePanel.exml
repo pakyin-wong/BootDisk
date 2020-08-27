@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.lo.SSCTraditionalChaseBetTopMultiplePanel" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="1203" height="60">
+    <e:Group id="_continuousChase" width="1203" height="60">
+        <e:Group width="464" height="60">
+            <ui:RunTimeLabel id="_lblStartMulti" text="起始倍數" size="24" alpha="0.7"/>
+            <e:Group width="120" height="60">
+                <ui:RoundRectShape cornerTL_TR_BL_BR="8,8,8,8" width="120" height="60" x="0" y="0" stroke="1" strokeColor="0x214a72" fillColor="0x151c26"/>
+                <ui:RunTimeLabel id="_lblMinMultiplier" text="0" size="24" horizontalCenter="0" verticalCenter="0" alpha="0.7"/>
+            </e:Group>     
+            <ui:RunTimeLabel id="_lblTo" text="隔" size="24" alpha="0.7"/>
+            <e:Group width="120" height="60">
+                <ui:RoundRectShape cornerTL_TR_BL_BR="8,8,8,8" width="120" height="60" x="0" y="0" stroke="1" strokeColor="0x214a72" fillColor="0x151c26"/>
+                <ui:RunTimeLabel id="_lblMaxMultiplier" text="0" size="24" horizontalCenter="0" verticalCenter="0" alpha="0.7"/>
+            </e:Group>    
+            <ui:RunTimeLabel id="_lblGameRound" text="期" size="24" alpha="0.7"/>
+            <e:layout>
+                <e:HorizontalLayout verticalAlign="middle" gap="20"/>
+            </e:layout>        
+        </e:Group>
+        <e:Group width="415" height="60">
+            <ui:RunTimeLabel id="_lblMultiplierTitle" text="倍數" size="24" alpha="0.7"/>
+            <e:Group id="_btnMultiplierGroup" width="165" height="50" touchChildren="true">
+                <e:Group id="_btnMinusMultiplier" width="50" height="50">
+                    <ui:RoundRectButton cornerTL_TR_BL_BR="25,0,25,0" width="50" height="50" 
+                        fillAlpha="1"  fillColor="0x0000FF" stroke="0"/>
+                    <ui:RunTimeLabel id="_lblMultiplierMinus" text="-" size="48" verticalAlign="middle" x="21" y="0"/>
+                </e:Group>
+                <e:Group id="_multiplierGroup" width="65" height="50" touchEnabled="false">
+                    <e:Rect fillAlpha="1" width="65" height="50" strokeWeight="0" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" fillColor="0x112c4c"/>
+                    <ui:RunTimeLabel id="_lblMultiplier" text="1" horizontalCenter="0" verticalCenter="0" size="24"/>
+                </e:Group>
+                <e:Group id="_btnAddMultiplier" width="50" height="50">
+                    <ui:RoundRectButton cornerTL_TR_BL_BR="0,25,0,25" width="50" height="50" 
+                        fillAlpha="1"  fillColor="0x0000FF"  stroke="0"/>
+                    <ui:RunTimeLabel id="_lblMultiplierAdd" text="+" size="48" verticalAlign="middle" x="9" y="0"/>
+                </e:Group>
+                <e:layout>
+                    <e:HorizontalLayout verticalAlign="middle" gap="0"/>
+                </e:layout>
+            </e:Group>
+            <e:Group>
+                <ui:RunTimeLabel id="_lblChaseRoundTitle" text="追號期數" size="24" alpha="0.7"/>
+                <e:Group width="120" height="60">
+                    <ui:RoundRectShape cornerTL_TR_BL_BR="8,8,8,8" width="120" height="60" x="0" y="0" stroke="1" strokeColor="0x214a72" fillColor="0x151c26"/>
+                    <ui:RunTimeLabel id="_lblChaseRound" text="0" size="24" horizontalCenter="0" verticalCenter="0" alpha="0.7"/>
+                </e:Group> 
+                <e:layout>
+                    <e:HorizontalLayout paddingLeft="22" verticalAlign="middle" gap="20"/>
+                </e:layout>
+            </e:Group>
+            <e:layout>
+                <e:HorizontalLayout verticalAlign="middle" gap="20"/>
+            </e:layout>
+        </e:Group>
+        <e:layout>
+            <e:HorizontalLayout verticalAlign="middle" gap="108" paddingRight="120"/>
+        </e:layout>
+    </e:Group>
+</e:Skin>

@@ -277,39 +277,39 @@ namespace we {
         super.checkResultMessage();
       }
 
-      protected initBottomBetLimitSelector() {
-        const betLimitList = env.betLimits;
-        const betLimitItems = betLimitList.map(data => {
-          return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
-        });
-        const dropdownSource = betLimitList.map((data, index) => {
-          return ui.NewDropdownItem(index, () => `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`);
-        });
+      // protected initBottomBetLimitSelector() {
+      //   const betLimitList = env.betLimits;
+      //   const betLimitItems = betLimitList.map(data => {
+      //     return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
+      //   });
+      //   const dropdownSource = betLimitList.map((data, index) => {
+      //     return ui.NewDropdownItem(index, () => `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`);
+      //   });
 
-        const selectedIndex = env.currentSelectedBetLimitIndex;
+      //   const selectedIndex = env.currentSelectedBetLimitIndex;
 
-        utils.DropdownCreator.new({
-          toggler: this._bottomGamePanel._betLimitDropDownBtn,
-          review: this._bottomGamePanel._betLimitDropDownBtn,
-          arrCol: new eui.ArrayCollection(dropdownSource),
-          title: () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`,
-          selected: 0,
-        });
+      //   utils.DropdownCreator.new({
+      //     toggler: this._bottomGamePanel._betLimitDropDownBtn,
+      //     review: this._bottomGamePanel._betLimitDropDownBtn,
+      //     arrCol: new eui.ArrayCollection(dropdownSource),
+      //     title: () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`,
+      //     selected: 0,
+      //   });
 
-        this.updateBetLimit(selectedIndex);
-        this._bottomGamePanel._betLimitDropDownBtn.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
-      }
+      //   this.updateBetLimit(selectedIndex);
+      //   this._bottomGamePanel._betLimitDropDownBtn.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
+      // }
 
-      protected updateBetLimit(selectedIndex) {
-        super.updateBetLimit(selectedIndex);
-        const bottomBetLimitList = env.betLimits;
-        const bottomBetLimitItems = bottomBetLimitList.map(data => {
-          return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
-        });
-        if (this._bottomGamePanel._betLimitDropDownBtn) {
-          this._bottomGamePanel._betLimitDropDownBtn.renderText = () => ` ${bottomBetLimitItems.length > 0 ? bottomBetLimitItems[selectedIndex] : ''}`;
-        }
-      }
+      // protected updateBetLimit(selectedIndex) {
+      //   super.updateBetLimit(selectedIndex);
+      //   const bottomBetLimitList = env.betLimits;
+      //   const bottomBetLimitItems = bottomBetLimitList.map(data => {
+      //     return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
+      //   });
+      //   if (this._bottomGamePanel._betLimitDropDownBtn) {
+      //     this._bottomGamePanel._betLimitDropDownBtn.renderText = () => ` ${bottomBetLimitItems.length > 0 ? bottomBetLimitItems[selectedIndex] : ''}`;
+      //   }
+      // }
 
       protected setStateIdle(isInit: boolean = false) {
         super.setStateIdle(isInit);
@@ -332,6 +332,7 @@ namespace we {
         this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = true;
         this.diState = 'normal';
         this._baGameID.renderText = () => `${this._tableInfo.tableid}`;
+        // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
       }
 
       protected showBetChipPanel() {

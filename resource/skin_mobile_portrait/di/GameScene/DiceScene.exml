@@ -30,7 +30,7 @@
 		<ui:RunTimeLabel id="_lblRoomNo" x="25" y="15" size="40" height="56" verticalAlign="middle" width="200"
 		                 textAlign="left" anchorOffsetX="0" text="Label" />
 		<e:Group x="25" y="65">
-			<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Barlow" size="40" text="label" />
+			<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Arial" size="40" text="label" />
 			<e:Image source="m_common_panel_icon_dropdown_png" width="34" height="19" visible="false" />
 			<e:layout>
 				<e:HorizontalLayout verticalAlign="middle" />
@@ -47,8 +47,8 @@
 		<ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_mobile_portrait.GameBar" visible="false" />
 					<e:Group y="65" right="15">
-						<ui:RunTimeLabel id="_totalBetText" text="總下注" anchorOffsetX="0" textAlign="right" size="36"/>
-		<ui:RunTimeLabel id="_totalBet" text="0" anchorOffsetX="0" textAlign="right" size="36" right="5"/>
+						<ui:RunTimeLabel id="_totalBet" text="0" anchorOffsetX="0" textAlign="right" size="36" right="5"/>
+						<ui:RunTimeLabel id="_totalBetText" text="總下注" anchorOffsetX="0" textAlign="right" size="36" alpha="0.7"/>
 						<e:layout>
 							<e:HorizontalLayout/>
 						</e:layout>
@@ -144,7 +144,7 @@
 		<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="684"
 		          x.right_hand_mode="124" skinName="skin_mobile_portrait.BetConfirmButtonMobile" x.left_hand_mode="130"
 		          rotation="90" y="740" />
-		<ui:CountdownTimer id="_timer" width="256" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" y="740"
+		<ui:CountdownTimer id="_timer" width="256" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" y="740" colorChange="true"
 		                   horizontalCenter="0" rotation="90" currentState="vertical" width.right_hand_mode="300"
 		                   anchorOffsetX.right_hand_mode="0" horizontalCenter.right_hand_mode="0" x.left_hand_mode="130"
 		                   width.left_hand_mode="300" />

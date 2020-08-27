@@ -100,5 +100,15 @@ namespace we {
       const result = JSON.parse(JSON.stringify(obj));
       return result;
     }
+
+    export function disableTouchforChildren(root: egret.DisplayObjectContainer, checker: (obj: egret.DisplayObject) => boolean) {
+      for (const child of root.$children) {
+        if (child.$children) {
+          disableTouchforChildren(child as egret.DisplayObjectContainer, checker);
+        } else if (checker(child)) {
+          child.touchEnabled = false;
+        }
+      }
+    }
   }
 }

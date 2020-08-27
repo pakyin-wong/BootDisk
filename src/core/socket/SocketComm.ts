@@ -466,6 +466,9 @@ namespace we {
         */
 
         function getStatistic(field: string) {
+          if (!gameStatistic || !gameStatistic.statistic) {
+            return 0;
+          }
           return gameStatistic.statistic[field] ? gameStatistic.statistic[field] : 0;
         }
 
@@ -581,10 +584,7 @@ namespace we {
             tableInfo.gamestatistic = stats;
             break;
           }
-          case core.GameType.LW:
-          default: {
-            console.log('lo', '1', gameStatistic);
-
+          case core.GameType.LW: {
             gameStatistic.tableID = tableid;
             gameStatistic.shoeID = gameStatistic.shoeid;
             tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
@@ -593,6 +593,15 @@ namespace we {
             stats.totalCount = getStatistic('totalCount');
             tableInfo.gamestatistic = stats;
             break;
+          }
+          case core.GameType.LO:
+          default: {
+            console.log('lo', 'gameStatistic', gameStatistic);
+            // gameStatistic.tableID = tableid;
+            // gameStatistic.shoeID = gameStatistic.shoeid;
+            // const stats = new we.data.GameStatistic();
+            // stats.totalCount = getStatistic('totalCount');
+            // tableInfo.gamestatistic = stats;
           }
         }
         logger.l(utils.LogTarget.DEBUG, `Table ${tableid} statistic and roadmap data updated`, tableInfo.gamestatistic, tableInfo.roadmap);

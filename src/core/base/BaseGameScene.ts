@@ -164,6 +164,7 @@ namespace we {
           this._chipLayer.init();
           this._chipLayer.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
           this._chipLayer.getSelectedChipIndex = () => this._betChipSet.selectedChipIndex;
+          this._chipLayer.onConfirmPressed = this.onConfirmPressed.bind(this);
         }
       }
 
@@ -287,7 +288,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -327,7 +328,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -661,10 +662,12 @@ namespace we {
       protected onConfirmPressed(evt: egret.Event) {
         if (this._chipLayer) {
           if (this._chipLayer.getTotalUncfmBetAmount() > 0) {
-            const bets = this._chipLayer.getUnconfirmedBetDetails();
-            this._chipLayer.resetUnconfirmedBet(); // Waiting to change to push to waitingforconfirmedbet
-            this._undoStack.clearStack();
-            dir.socket.bet(this._tableId, bets, this.onBetReturned.bind(this));
+            if (this._chipLayer.validateBet()) {
+              const bets = this._chipLayer.getUnconfirmedBetDetails();
+              this._chipLayer.resetUnconfirmedBet(); // Waiting to change to push to waitingforconfirmedbet
+              this._undoStack.clearStack();
+              dir.socket.bet(this._tableId, bets, this.onBetReturned.bind(this));
+            }
           }
         }
       }

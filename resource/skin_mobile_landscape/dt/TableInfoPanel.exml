@@ -3,9 +3,7 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="content" left="0" top="0" height="100%" width="100%">
 		<e:Rect id="_bg" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" anchorOffsetY="0" width="100%" />
-		<e:Scroller id="_infoArea" scrollPolicyH="auto" scrollPolicyV="off" width="100%" height="100%">
-			<e:Group>
-				<e:Group height="100%" width="2500">
+				<e:Group height="100%" width="100%">
 					<e:Image id="moveArea" source="popover_png" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7"
 					         visible="false" />
 					<ui:RunTimeLabel id="lblTableInfo" text="本檯資訊" left="50" top="50" x="50" y="50" scaleX="1" scaleY="1" size="20"
@@ -15,7 +13,7 @@
 					<e:Label id="pTime" text="-" y="220" textAlign="right" scaleX="1" scaleY="1" size="20" right="237" visible="false" />
 					<e:Label id="close" text="x" x="555" y="20" touchEnabled="true" scaleY="0.8" visible="false" />
 					<e:Image id="btnDetail" width="58" height="58" x="555.48" y="16" source="m_ba_tag_btn_detail_png" />
-					<ui:RunTimeLabel id="tableNoLabel" text="檯號" y="25" x="45.48" scaleX="1" scaleY="1" size="44"
+					<ui:RunTimeLabel id="tableNoLabel" text="檯號" y="20" x="45.48" scaleX="1" scaleY="1" size="44"
 					                 textKey="baccarat.tableNo" />
 					<ui:RunTimeLabel id="roundNoLabel" text="局號" y="91" x="46.06" scaleX="1" scaleY="1" size="44"
 					                 textKey="baccarat.roundNo" />
@@ -26,31 +24,31 @@
 					<ui:RunTimeLabel id="tableBetLimitLabel" text="本檯限紅" y="90" x="656" scaleX="1" scaleY="1" size="44" />
 					<ui:RunTimeLabel id="betLimitLabel" text="投注限紅" y="158" x="656" scaleX="1" scaleY="1" size="44" />
 
-					<ui:ClampWidthLabel id="pTableID" text="DT - 01" x="167" y="20" textAlign="right" size="44" targetWidth="381"
-					                    alpha="0.7" />
+					<ui:RunTimeLabel id="pTableID" text="DT - 01" y="20" textAlign="right" size="44" 
+					                    alpha="0.7"  right="1598"/>
 					<ui:ClampWidthLabel id="pGameID" text="000-000-000000000" y="160" textAlign="right" x="167" size="44"
-					                    targetWidth="440" alpha="0.7" />
+					                    targetWidth="440" alpha="0.7"  fontFamily="Barlow"/>
 					<ui:ClampWidthLabel id="pDealer" text="Mary" textAlign="right" x="749" y="20" size="44" width="440"
 					                    targetWidth="440" alpha="0.7" />
 					<e:Label id="pRoundID" text="-" y="90" textAlign="right" scaleX="1" scaleY="1" size="44" x="165.48" width="440"
-					         alpha="0.7" />
+					         alpha="0.7"  fontFamily="Barlow"/>
 					<e:Label id="pTableBetLimit" text="-" y="90" textAlign="right" scaleX="1" scaleY="1" size="44" x="748.5"
-					         width="440" verticalAlign="middle" alpha="0.7" />
-					<e:Label id="pDragonOdd" text="-" y="20" textAlign="right" x="1454" scaleX="1" scaleY="1" size="44" width="301"
-					         alpha="0.7" />
-					<!--<e:Label id="pDragonMax" text="-" y="20" textAlign="right" x="1354" scaleX="1" scaleY="1" size="44" width="301"
-					             alpha="0.7" />
-					-->
-					<e:Label id="pTigerOdd" text="-" y="90" textAlign="right" x="1454" scaleX="1" scaleY="1" size="44" width="301"
-					         alpha="0.7" />
-					<!--<e:Label id="pTigerMax" text="-" y="90" textAlign="right" x="1354" scaleX="1" scaleY="1" size="44" width="301"
-					             alpha="0.7" />
-					-->
-					<e:Label id="pTieOdd" text="-" y="160" textAlign="right" x="1454" scaleX="1" scaleY="1" size="44" width="301"
-					         alpha="0.7" />
-					<!--<e:Label id="pTieMax" text="-" y="160" textAlign="right" x="1354" scaleX="1" scaleY="1" size="44" width="301"
-					             alpha="0.7" />
-					-->
+					         width="440" verticalAlign="middle" alpha="0.7"  fontFamily="Barlow"/>
+					<ui:ClampWidthLabel id="pDragonOdd" text="-" y="20" textAlign="right" targetWidth="120" size="44"
+					         alpha="0.7"  right="750" fontFamily="Barlow" visible="false"/>
+					<ui:ClampWidthLabel id="pDragonMax" text="000" y="20" textAlign="right" size="44" targetWidth="80"
+					             alpha="0.7"  right="600" fontFamily="Barlow"/>
+					
+					<ui:ClampWidthLabel id="pTigerOdd" text="-" y="90" textAlign="right" targetWidth="120" size="44"
+					         alpha="0.7"  right="750" fontFamily="Barlow" visible="false"/>
+					<ui:ClampWidthLabel id="pTigerMax" text="000" y="90" textAlign="right" size="44" targetWidth="80"
+					             alpha="0.7"  right="600" fontFamily="Barlow"/>
+					
+					<ui:ClampWidthLabel id="pTieOdd" text="-" y="160" textAlign="right" targetWidth="120" size="44"
+					         alpha="0.7"  right="750" fontFamily="Barlow" visible="false"/>
+					<ui:ClampWidthLabel id="pTieMax" text="000" y="160" textAlign="right" size="44" targetWidth="80"
+					             alpha="0.7"  right="600" fontFamily="Barlow"/>
+					
 					<ui:RunTimeLabel id="dragonLabel" text="龍" y="21" x="1272" scaleX="1" scaleY="1" size="44"
 					                 textKey="dragontiger.dragon" />
 					<ui:RunTimeLabel id="tigerLabel" text="虎" y="91" x="1272" scaleX="1" scaleY="1" size="44"
@@ -61,10 +59,8 @@
 					<e:Group id="betLimitBtnGroup" width="304" height="74" x="887" y="148">
 						<e:Image id="dropdownBtn" width="27" height="16" x="248" y="31" source="m_ba_tag_redlimit_btn_dropdown_png" />
 						<ui:RunTimeLabel id="pBetLimit" text="Label" x="-3" y="2" width="304" height="74" size="44" verticalAlign="middle"
-						                 textAlign="center" textKey="" />
+						                 textAlign="center" textKey=""  fontFamily="Barlow"/>
 					</e:Group>
 				</e:Group>
-			</e:Group>
-		</e:Scroller>
 	</e:Group>
 </e:Skin>

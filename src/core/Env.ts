@@ -116,6 +116,10 @@ namespace we {
       public isBottomPanelOpen = true;
       public bottomPanelSelectedIdx: number = 0;
 
+      // Lottery
+      public loDenominationList = [2, 20, 200];
+      public loDeniminationIdx = 0;
+
       public init() {
         this.mobileValidGameType = [
           core.GameType.BAC,

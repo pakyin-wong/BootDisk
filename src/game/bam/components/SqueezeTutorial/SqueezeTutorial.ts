@@ -2,7 +2,7 @@
 namespace we {
   export namespace bam {
     export class SqueezeTutorial extends we.ui.Panel {
-      private _nextButton;
+      protected _nextButton;
       private _prevButton;
       public _close;
       private _holder: we.ui.HorizontalHolder;
@@ -18,13 +18,16 @@ namespace we {
       private _captionArr;
 
       private _pageText;
-      private _pageIndex = 0;
+      private _buttonText: ui.RunTimeLabel;
+      public _pageIndex = 0;
 
       private _mask;
 
-      constructor(skin) {
+      constructor(skin, pageIndex?: number) {
         super(skin);
-
+        if (pageIndex) {
+          this._pageIndex = this._holder._currentPageIdx = pageIndex;
+        }
         // this._skinKey = 'SqueezeTutorial';
         // this.skinName = utils.getSkinByClassname('SqueezeTutorial');
         // this.init();
@@ -44,11 +47,11 @@ namespace we {
       }
 
       protected arrangeComponents() {
-        super.arrangeComponents();
-        this.init();
+        // super.arrangeComponents();
+        // this.init();
       }
 
-      private init() {
+      public init() {
         this._captionArr = [];
         this._captionArr.push(this._captionOne);
         this._captionArr.push(this._captionTwo);
@@ -61,9 +64,9 @@ namespace we {
           caption.visible = false;
         }
 
-        this._captionArr[0].visible = true;
+        this._captionArr[this._pageIndex].visible = true;
 
-        this._pageIndex = 0;
+        // this._pageIndex = 0;
 
         if (env.isMobile === false) {
           if (this._nextButton) {
@@ -73,17 +76,25 @@ namespace we {
             this._prevButton.currentState = 'off';
           }
         }
-        const shape = new egret.Shape();
-        const matrix = new egret.Matrix();
+        if (this._buttonText) {
+          this._buttonText.renderText = () => i18n.t('mobile_notification_next_button_label');
+        }
+        if (env.isMobile) {
+          this._holder.bulletGap = 5;
+        }
+        if (!env.isMobile) {
+          const shape = new egret.Shape();
+          const matrix = new egret.Matrix();
 
-        matrix.createGradientBox(this._allOpenThree.width, this._allOpenThree.height, Math.PI / 2, 0, 0);
-        shape.graphics.beginGradientFill(egret.GradientType.LINEAR, [0xffffff, 0xffffff, 0xffffff, 0xffffff], [1, 0.3, 0, 0], [0, 50, 150, 255], matrix);
-        shape.graphics.drawRect(0, 0, this._allOpenThree.width, this._allOpenThree.height); //
+          matrix.createGradientBox(this._allOpenThree.width, this._allOpenThree.height, Math.PI / 2, 0, 0);
+          shape.graphics.beginGradientFill(egret.GradientType.LINEAR, [0xffffff, 0xffffff, 0xffffff, 0xffffff], [1, 0.3, 0, 0], [0, 50, 150, 255], matrix);
+          shape.graphics.drawRect(0, 0, this._allOpenThree.width, this._allOpenThree.height); //
 
-        this._mask.addChild(shape);
-        this._mask.mask = shape;
+          this._mask.addChild(shape);
+          this._mask.mask = shape;
 
-        // add childs then init holder(if DragonBone)
+          // add childs then init holder(if DragonBone)
+        }
       }
 
       private addListeners() {
@@ -91,7 +102,9 @@ namespace we {
         if (this._prevButton) {
           this._prevButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.doPrev, this);
         }
-        this._close.addEventListener(egret.TouchEvent.TOUCH_TAP, this.doDestroy, this);
+        if (this._close) {
+          this._close.addEventListener(egret.TouchEvent.TOUCH_TAP, this.doDestroy, this);
+        }
       }
 
       private removeListners() {
@@ -99,7 +112,9 @@ namespace we {
         if (this._prevButton) {
           this._prevButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.doPrev, this);
         }
-        this._close.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.doDestroy, this);
+        if (this._close) {
+          this._close.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.doDestroy, this);
+        }
       }
 
       private doNext(e) {
@@ -112,7 +127,10 @@ namespace we {
         if (this._pageIndex < this._captionArr.length) {
           this.updateText(this._pageIndex);
         } else {
+          // already in last page
           this._pageIndex = this._captionArr.length - 1;
+          this.doDestroy(e);
+          return;
         }
 
         this.updateButton(this._pageIndex);
@@ -137,10 +155,15 @@ namespace we {
 
       private doDestroy(e) {
         this.removeListners();
+        if (env.isMobile) {
+          dir.layerCtr.nav.visible = true;
+          const parent = this.parent as we.bam.MobileScene;
+          parent.tutorial = null;
+        }
         this.parent.removeChild(this);
       }
 
-      private updateButton(index) {
+      protected updateButton(index) {
         if (env.isMobile) {
           return;
         }
@@ -165,6 +188,10 @@ namespace we {
 
         if (index >= 0 && index < this._captionArr.length) {
           this._captionArr[index].visible = true;
+          if (index === this._captionArr.length - 1 && env.isMobile) {
+            // if in the last page of mobile
+            this._buttonText.renderText = () => i18n.t('mobile_notification_close_button_label');
+          }
         }
 
         if (this._pageText) {
