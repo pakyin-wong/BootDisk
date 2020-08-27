@@ -19,6 +19,8 @@ namespace we {
 
       // table name label
       protected _label: ui.RunTimeLabel;
+      protected _label_game: ui.RunTimeLabel;
+      protected _label_ID: eui.Label;
 
       protected _betDetails: data.BetDetail[];
       protected _previousState: number;
@@ -186,14 +188,14 @@ namespace we {
         }
       }
 
-      protected onMatchGoodRoadUpdate() {}
+      protected onMatchGoodRoadUpdate() { }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         // logger.l(utils.LoggerTarget.DEBUG, 'LiveBaListSimpleItem::onTableBetInfoUpdate');
       }
 
       // item clicked
-      protected onTouchTap(evt: egret.Event) {}
+      protected onTouchTap(evt: egret.Event) { }
 
       protected onBetDetailUpdateInBetState() {
         if (this._betDetails && this._chipLayer) {
@@ -223,6 +225,12 @@ namespace we {
         if (this._label) {
           this._label.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this.tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
         }
+        if (this._label_game) {
+          this._label_game.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this.tableInfo.gametype])}`;
+        }
+        if (this._label_ID) {
+          this._label_ID.text = ` ${env.getTableNameByID(this._tableId)}`;
+        }
         this.updateGame(true);
       }
 
@@ -241,7 +249,7 @@ namespace we {
         }
       }
 
-      protected onRoadDataUpdate(evt: egret.Event) {}
+      protected onRoadDataUpdate(evt: egret.Event) { }
 
       public updateGame(isInit: boolean = false) {
         if (!this._gameData) {
