@@ -191,6 +191,7 @@ namespace we {
                   // this._tableLayer.y += 24;
                   // this._chipLayer.y += 24;
                 }
+                this._verticalGroup.layout = vlayout;
                 break;
               case core.GameType.LW:
                 if (bottomGamePanelisOpen === true) {
@@ -202,11 +203,12 @@ namespace we {
                   // this._tableLayer.y += 24;
                   // this._chipLayer.y += 24;
                 }
+                this._verticalGroup.layout = vlayout;
                 break;
               default:
                 break;
             }
-            this._verticalGroup.layout = vlayout;
+            // this._verticalGroup.layout = vlayout;
           }
         }
       }
