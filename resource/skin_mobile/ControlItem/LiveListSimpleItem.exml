@@ -2,26 +2,28 @@
 <e:Skin class="skin_mobile.LiveListSimpleItemSkin" width="552" height="272" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Group id="_contentContainer" width="100%" height="272" x="0" y="0" anchorOffsetY="0">
+		<ui:RoundRectShape cornerTL_TR_BL_BR="12,12,12,12" height="100%" width="100%" y="0" left="0" right="0" stroke="1"
+		                   strokeIn="1" strokeColor="0x000000" strokeInColor="0x3a3f48" fillColor="0xffffff" />
 		<e:Rect height="80" y="0" fillColor="0x202020" left="0" right="0" />
-		<ui:CountdownTimer id="_timer" width="50" height="50" x="16" y="16" skinName="skin_mobile.CountdownTimerRoundSmallSkin"  scaleX="0.9" scaleY="0.9"/>
-		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" x="85" y="24" text=""  size="36"/>
+		<ui:CountdownTimer id="_timer" width="50" height="50" x="16" y="16"
+		                   skinName="skin_mobile.CountdownTimerRoundSmallSkin" scaleX="0.9" scaleY="0.9" />
+		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" x="85" y="24" text="" size="36" />
 		<e:Component id="_roadmapNode" width="100%" height="192" y="80" anchorOffsetY="0" visible="false" />
 		<ui:InGameMessage id="_message" anchorOffsetX="238.79" anchorOffsetY="42.5"
 		                  skinName="skin_mobile_portrait.InGameMessageSkin" width="476" height="85" horizontalCenter="0"
 		                  y="167.5" infoBg="m_common_gamestate_message_black_png"
 		                  successBg="m_common_gamestate_message_green_png" errorBg="m_common_gamestate_message_red_png" />
 		<e:Group right="20" y="24">
-			<ui:RunTimeLabel id="_toggler" textAlign="left" />
+			<ui:RunTimeLabel id="_toggler" textAlign="left" size="36" />
 			<e:Image source="m_common_panel_icon_dropdown_png" x="920" y="52" width="34" height="19" />
 			<e:layout>
 				<e:HorizontalLayout verticalAlign="middle" />
 			</e:layout>
 		</e:Group>
 		<e:Group anchorOffsetX="0" anchorOffsetY="0" x="27" y="199" height="50">
-			<ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_mobile_portrait.GoodRoadLabelSkin"
-			                  currentState="small"  visible="false"/>
-			<e:Group id="_alreadyBetSign" scaleX="1"
-			         scaleY="1" height="50">
+			<ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_mobile_portrait.GoodRoadLabelSkin" currentState="small"
+			                  visible="false" />
+			<e:Group id="_alreadyBetSign" scaleX="1" scaleY="1" height="50">
 				<e:Rect right="0" left="0" top="0" bottom="0" ellipseWidth="50" ellipseHeight="50" fillAlpha="0.76"
 				        fillColor="0x42bc60" />
 				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="40" left="20" right="20" />
