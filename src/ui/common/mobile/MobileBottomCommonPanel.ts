@@ -39,10 +39,11 @@ namespace we {
         this.updateText();
         this.updateStat();
         this._middlePart.mask = this.viewStackMask;
-        this.viewStack.selectedIndex = env.bottomPanelSelectedIdx;
-        // if (env._currGameType === core.GameType.BAI || core.GameType.BAM || core.GameType.BAI || core.GameType.BAC || core.GameType.BAS || core.GameType.DT || core.GameType.LW) {
-        // this.viewStack.selectedIndex = env.bottomPanelSelectedIdx || 0;
-        // }
+        if (env._currGameType === core.GameType.BAI || core.GameType.BAM || core.GameType.BAI || core.GameType.BAC || core.GameType.BAS || core.GameType.DT || core.GameType.LW) {
+          this.viewStack.selectedIndex = env.bottomPanelSelectedIdx;
+          console.log(`................${this.viewStack.selectedIndex}`);
+          console.log(`................${env.bottomPanelSelectedIdx}`);
+        }
         this.getMiddlePartHeight();
         this.onPanelToggle(this.isFirstTime);
       }
@@ -94,15 +95,15 @@ namespace we {
         switch (env.isBottomPanelOpen) {
           case true:
             env.isBottomPanelOpen = false;
-            this.isPanelOpen = env.isBottomPanelOpen; 
+            this.isPanelOpen = env.isBottomPanelOpen;
             egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
-			      this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
+            this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
             break;
           case false:
             env.isBottomPanelOpen = true;
-            this.isPanelOpen = env.isBottomPanelOpen; 
+            this.isPanelOpen = env.isBottomPanelOpen;
             egret.Tween.get(this._middlePart).to({ height: this._middlePartHeight }, 250);
-			      this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
+            this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
             break;
         }
         this.dispatchEvent(new egret.Event('TOGGLE'));
@@ -127,7 +128,9 @@ namespace we {
       protected onViewChange(e: eui.UIEvent) {
         const radio: eui.RadioButton = e.target;
         this.viewStack.selectedIndex = radio.value;
-        env.bottomPanelSelectedIdx = radio.value;
+        if (env._currGameType === core.GameType.BAI || core.GameType.BAM || core.GameType.BAI || core.GameType.BAC || core.GameType.BAS || core.GameType.DT || core.GameType.LW) {
+          env.bottomPanelSelectedIdx = radio.value;
+        }
       }
 
       public update() {

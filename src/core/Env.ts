@@ -114,7 +114,7 @@ namespace we {
       public isFirstTimeInfoPanel = false;
       // check if mobilebottomGamePanel is open
       public isBottomPanelOpen = true;
-      public bottomPanelSelectedIdx: number;
+      public bottomPanelSelectedIdx: number = 0;
 
       public init() {
         this.mobileValidGameType = [

@@ -28,6 +28,18 @@ namespace we {
         super.mount();
 
         this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
+        console.log(env.bottomPanelSelectedIdx);
+        switch (env.bottomPanelSelectedIdx) {
+          case 0:
+            this.roadSheetBtn.selected = true;
+            break;
+          case 1:
+            this.roadSheetBtn.selected = true;
+            break;
+          case 2:
+            this.roadSheetBtn.selected = true;
+            break;
+        }
       }
 
       protected addListeners() {
