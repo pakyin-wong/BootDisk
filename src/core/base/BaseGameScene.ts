@@ -30,7 +30,7 @@ namespace we {
       protected _timer: ui.CountdownTimer;
 
       protected _btnBack: egret.DisplayObject;
-      protected _lblRoomInfo: eui.Label;
+      protected _lblRoomInfo: egret.DisplayObject;
       protected _lblRoomNo: ui.RunTimeLabel;
 
       protected _gameBar: ui.GameBar;
