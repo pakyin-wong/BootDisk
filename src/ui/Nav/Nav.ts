@@ -117,13 +117,10 @@ namespace we {
 
       private updatePlayerProfileSummary() {
         this.getPlayerProfileSummary();
-        this._profile.winAmount = env.maxWinAmount;
-        this._profile.winStreak = env.maxWinCount;
-        this._profile.updateProfileText();
       }
 
       private getPlayerProfileSummary() {
-        dir.socket.getPlayerProfileSummary(this.updateMaxWinAmountAndCount);
+        dir.socket.getPlayerProfileSummary(data => this.updateMaxWinAmountAndCount(data));
       }
 
       private updateMaxWinAmountAndCount(data) {
@@ -134,8 +131,9 @@ namespace we {
 
         env.maxWinCount = winningstreak;
         env.maxWinAmount = maxwin;
-        // this._profile.maxWinAmountText(env.maxWinAmount);
-        // this._profile.maxWinCountText(env.maxWinCount);
+        this._profile.winAmount = env.maxWinAmount;
+        this._profile.winStreak = env.maxWinCount;
+        this._profile.updateProfileText();
       }
 
       private onSceneChange(e = null) {
