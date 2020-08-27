@@ -22,23 +22,20 @@ namespace we {
       }
 
       protected mount() {
-        // this.debugRect = new eui.Rect();
-        // this.debugRect.fillColor = 0xffffff;
-        // this.addChild(this.debugRect);
-
         this._chipAnim = this.createChipAnim();
         this._chipAnim.touchEnabled = true;
         this._chipAnim.touchChildren = false;
         this._chipAnim.scaleX = this._chipScale * 0.7;
         this._chipAnim.scaleY = this._chipScale * 0.7;
+        this._chipAnim.y = 30;
         this.addChild(this._chipAnim);
 
         this._value = env.betLimits[env.currentSelectedBetLimitIndex].chips[env.currentChipSelectedIndex];
         this._type = core.ChipType.FLAT;
-
+        console.log('this._chipAnim.x,y', [this._chipAnim.x, this._chipAnim.y]);
         this.setChipValueSlot();
         this.setChipSelectSlot();
-        this.setChipDeselectSlot();
+        // this.setChipDeselectSlot();
         this.draw();
         dir.evtHandler.addEventListener(core.Event.BET_DENOMINATION_CHANGE, this.updateSelectedChip, this);
       }
@@ -61,53 +58,35 @@ namespace we {
         chipSlot.display = group;
       }
 
-      protected setChipDeselectSlot() {
-        if (!(this._chipAnim && (this._index || this._index === 0) && (this._value || this._value === 0))) {
-          return null;
-        }
+      // protected setChipDeselectSlot() {
+      //   if (!(this._chipAnim && (this._index || this._index === 0) && (this._value || this._value === 0))) {
+      //     return null;
+      //   }
 
-        const chip = new eui.Image();
-        chip.source = this.getChipSource(we.core.ChipType.PERSPECTIVE);
-        chip.horizontalCenter = 0;
-        chip.verticalCenter = 0;
+      //   const chip = new eui.Image();
+      //   chip.source = this.getChipSource(we.core.ChipType.PERSPECTIVE);
+      //   chip.horizontalCenter = 0;
+      //   chip.verticalCenter = 0;
 
-        const group = new eui.Group();
-        group.width = 0;
-        group.height = 0;
-        group.addChild(chip);
+      //   const group = new eui.Group();
+      //   group.width = 0;
+      //   group.height = 0;
+      //   group.addChild(chip);
 
-        const chipSlot = this._chipAnim.armature.getSlot('chips_deselect');
-        chipSlot.display = group;
-      }
+      //   const chipSlot = this._chipAnim.armature.getSlot('chips_deselect');
+      //   chipSlot.display = group;
+      // }
 
       protected updateSelectedChip() {
         this._value = env.betLimits[env.currentSelectedBetLimitIndex].chips[env.currentChipSelectedIndex];
-        console.log('this._value', this._value);
+        this._index = env.currentChipSelectedIndex;
         this.setValue(this._value, this._index, we.core.ChipType.FLAT);
         this.setChipValueSlot();
         this.setChipSelectSlot();
-        this.setChipDeselectSlot();
+        // this.setChipDeselectSlot();
         this.draw();
       }
 
-      protected getChipSource(type: we.core.ChipType = this._type): string {
-        let filename: string;
-
-        switch (type) {
-          case we.core.ChipType.FLAT:
-            filename = `${this.chipImageMapping[this._index]}_png`;
-            console.log('filenameFLAT', filename);
-            break;
-          case we.core.ChipType.PERSPECTIVE:
-            filename = `${this.chipImageMapping[this._index]}_B_png`;
-            console.log('filenamePERSPECTIVE', filename);
-            break;
-          default:
-            filename = 'd_common_chips_betting_png';
-        }
-
-        return filename;
-      }
       // protected updateSelectedChip() {
       //   this._value = env.betLimits[env.currentSelectedBetLimitIndex].chips[env.currentChipSelectedIndex];
 
