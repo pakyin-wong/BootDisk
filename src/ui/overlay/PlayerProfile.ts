@@ -73,6 +73,8 @@ namespace we {
       protected mount() {
         super.mount();
 
+        this._section_iconSelect.visible = true;
+
         if (!env.isMobile) {
           let i = 0; // to calculate y value of ddm_nickname
           // for (const item of Object.keys(env.nameList)) {
@@ -109,7 +111,7 @@ namespace we {
             _txt_nickname.y = 7;
             _txt_nickname.width = 155;
             _txt_nickname.height = 36;
-            _txt_nickname.fontFamily = 'NotoSansCJKtc';
+            // _txt_nickname.fontFamily = 'NotoSansCJKtc';
             _txt_nickname.size = 24;
             _txt_nickname.scaleY = 1;
 
@@ -191,7 +193,6 @@ namespace we {
         }
         if (env.isMobile) {
           this.MobileGetPlayerProfileSummary();
-          this.updateProfileText();
         }
 
         this._txt_maxWinAmount.renderText = () => `${i18n.t('playerprofile_maxWinAmount')}`;
@@ -223,7 +224,7 @@ namespace we {
       }
 
       private MobileGetPlayerProfileSummary() {
-        dir.socket.getPlayerProfileSummary(this.MobileUpdateMaxWinAmountAndCount);
+        dir.socket.getPlayerProfileSummary(data => this.MobileUpdateMaxWinAmountAndCount(data));
       }
 
       protected MobileUpdateMaxWinAmountAndCount(data) {
@@ -233,6 +234,7 @@ namespace we {
         const { maxwin, winningstreak } = data;
         env.maxWinCount = winningstreak;
         env.maxWinAmount = maxwin;
+        this.updateProfileText();
       }
 
       protected destroy() {
@@ -271,6 +273,7 @@ namespace we {
           this._iconScroller.visible = true;
           this._nameScroller.visible = false;
         }
+        this._section_iconSelect.visible = true;
         this._txt_setting.renderText = () => `${i18n.t('playerprofile_iconsetting')}`;
         // cancel current tween
         egret.Tween.removeTweens(this._section_main);
@@ -285,6 +288,7 @@ namespace we {
           this._iconScroller.visible = false;
           this._nameScroller.visible = true;
         }
+        this._section_iconSelect.visible = true;
         this._txt_setting.renderText = () => `${i18n.t('nav.system.changeName')}`;
         // cancel current tween
         egret.Tween.removeTweens(this._section_main);
@@ -300,7 +304,11 @@ namespace we {
         egret.Tween.removeTweens(this._section_iconSelect);
         // tween move to new position
         egret.Tween.get(this._section_main).to({ $x: 0 }, 200);
-        egret.Tween.get(this._section_iconSelect).to({ $x: this._section_iconSelect.width }, 200);
+        egret.Tween.get(this._section_iconSelect)
+          .to({ $x: this._section_iconSelect.width }, 200)
+          .call(() => {
+            this._section_iconSelect.visible = false;
+          });
       }
 
       private onChangeName(e) {
