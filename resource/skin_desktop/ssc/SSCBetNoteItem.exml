@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.SSCBetNoteItem" width="1124" height="56" currentState="normal" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*"  states="normal,hover" >
+	<e:Rect id="_txt_record_bgcolor" width="1144" x="0" y="0" height="56"/>
+	<e:Rect id="_txt_hover_color" includeIn="hover" left="0" right="0" top="0" bottom="0" fillColor="0x4077ab" width="1144" height="56"/>
+	<e:Group left="0" right="0" top="0" bottom="0" alpha="0.8" alpha.hover="1">
+		<e:Label id="_txtGameMode" text="Label" x="34" y="0" width="171" height="56" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_txtBetItem" text="Label" x="316" y="0" width="477" size="20" verticalAlign="middle" height="56" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_txtBetMode" text="Label" x="511" y="0" width="275" height="56" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+		<e:Label id="_txtNoteCount" text="Label" x="623" y="0" width="109" height="56" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_txtMultiplier" text="Label" x="736" y="0" width="66" height="56" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+		<e:Label id="_txtTotalBet" text="Label" x="869" y="0" width="109" height="56" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+		<e:Image id="_btnDelect" width="56" height="56" x="1025" scaleX="1" scaleY="1" source="d_common_icon_close_png"/>
+	</e:Group>
+</e:Skin>

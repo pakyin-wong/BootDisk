@@ -114,6 +114,10 @@ namespace we {
       // check if mobilebottomGamePanel is open
       public isBottomPanelOpen = true;
 
+      // Lottery
+      public loDenominationList = [2, 20, 200];
+      public loDeniminationIdx = 0;
+
       public init() {
         this.mobileValidGameType = [
           core.GameType.BAC,

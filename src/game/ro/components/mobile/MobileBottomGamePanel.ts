@@ -9,7 +9,7 @@ namespace we {
 
       // table info panel
       public _tableInfoPanel: ro.TableInfoPanel;
-      public _betLimitDropDownBtn: ui.RunTimeLabel;
+      // public _betLimitDropDownBtn: ui.RunTimeLabel;
 
       // statisticChartPanel
       public _statisticChartPanel: ro.StatisticChartPanel;
@@ -38,7 +38,7 @@ namespace we {
         super.mount();
         this.initHistoryRoad();
 
-        this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
+        // this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
       }
 
       protected initHistoryRoad() {

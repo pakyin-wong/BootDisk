@@ -84,8 +84,9 @@ namespace we {
 
         // draw the hightlight
         // this.iconHightLight.graphics.lineStyle(2, 0x2da1fe, 1, true);
-        this.iconHightLight.graphics.beginFill(this.itemColors[3], this.itemColors[4]);
-        this.iconHightLight.graphics.drawRoundRect(0, 0, iconSize, spacing * 4 + displaySize, 8, 8);
+        // this.iconHightLight.graphics.beginFill(this.itemColors[3], this.itemColors[4]);
+        this.iconHightLight.graphics.beginFill(0x184077, 0.8);
+        this.iconHightLight.graphics.drawRoundRect(0, 0, iconSize, spacing * 4 + displaySize, 36, 36);
         this.iconHightLight.graphics.endFill();
         this.iconHightLight.visible = false;
 
@@ -105,7 +106,7 @@ namespace we {
         this.oddText.width = iconSize;
         this.oddText.height = displaySize;
         this.oddText.size = iconSize * 0.5;
-        // this.iconText.fontFamily = 'Times New Roman';
+        this.oddText.fontFamily = 'Barlow';
 
         this.totalText.textAlign = egret.HorizontalAlign.CENTER;
         this.totalText.verticalAlign = egret.VerticalAlign.MIDDLE;
