@@ -44,11 +44,6 @@ namespace we {
         this.updateText();
         this.updateStat();
         this._middlePart.mask = this.viewStackMask;
-        if (env._currGameType === core.GameType.BAI || core.GameType.BAM || core.GameType.BAI || core.GameType.BAC || core.GameType.BAS || core.GameType.DT || core.GameType.LW) {
-          this.viewStack.selectedIndex = env.bottomPanelSelectedIdx;
-          console.log(`................${this.viewStack.selectedIndex}`);
-          console.log(`................${env.bottomPanelSelectedIdx}`);
-        }
         this.getMiddlePartHeight();
         this.onPanelToggle(this.isFirstTime);
       }
@@ -144,9 +139,6 @@ namespace we {
       protected onViewChange(e: eui.UIEvent) {
         const radio: eui.RadioButton = e.target;
         this.viewStack.selectedIndex = radio.value;
-        if (env._currGameType === core.GameType.BAI || core.GameType.BAM || core.GameType.BAI || core.GameType.BAC || core.GameType.BAS || core.GameType.DT || core.GameType.LW) {
-          env.bottomPanelSelectedIdx = radio.value;
-        }
       }
 
       public update() {

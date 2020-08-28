@@ -26,21 +26,18 @@ namespace we {
 
       protected mount() {
         super.mount();
-
-        console.log(env.bottomPanelSelectedIdx);
-        console.log(`.......type of.........${typeof (env.bottomPanelSelectedIdx)}`);
+        this.viewStack.selectedIndex = env.bottomPanelSelectedIdx;
         switch (env.bottomPanelSelectedIdx.toString()) {
-          case "0":
+          case '0':
             this.roadSheetBtn.selected = true;
             break;
-          case "1":
+          case '1':
             this.chartBtn.selected = true;
             break;
-          case "2":
+          case '2':
             this.tableInfoBtn.selected = true;
             break;
         }
-        this.invalidateState();
 
         // this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
       }
@@ -85,11 +82,14 @@ namespace we {
         this._statisticChartPanel.update();
       }
 
-      
-      public openTableInfo(){
-         super.openTableInfo();
-         this.tableInfoBtn.selected = true;
-         this.viewStack.selectedIndex = this.tableInfoBtn.value
+      public openTableInfo() {
+        super.openTableInfo();
+        this.tableInfoBtn.selected = true;
+        this.viewStack.selectedIndex = this.tableInfoBtn.value;
+      }
+      protected onViewChange(e: eui.UIEvent) {
+        super.onViewChange(e);
+        env.bottomPanelSelectedIdx = this.viewStack.selectedIndex;
       }
     }
   }
