@@ -34,10 +34,10 @@ namespace we {
             this.roadSheetBtn.selected = true;
             break;
           case "1":
-            this.roadSheetBtn.selected = true;
+            this.chartBtn.selected = true;
             break;
           case "2":
-            this.roadSheetBtn.selected = true;
+            this.tableInfoBtn.selected = true;
             break;
         }
         this.invalidateState();
