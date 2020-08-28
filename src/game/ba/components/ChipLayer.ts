@@ -82,29 +82,29 @@ namespace we {
         }
       }
 
-      protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
-        const banker = this.getAllValue(fieldAmounts, ba.BetField.BANKER);
-        const player = this.getAllValue(fieldAmounts, ba.BetField.PLAYER);
-        const superSixBanker = this.getAllValue(fieldAmounts, ba.BetField.SUPER_SIX_BANKER);
-        const tie = this.getAllValue(fieldAmounts, ba.BetField.TIE);
-        const bankerPair = this.getAllValue(fieldAmounts, ba.BetField.BANKER_PAIR);
-        const playerPair = this.getAllValue(fieldAmounts, ba.BetField.PLAYER_PAIR);
-        const superSix = this.getAllValue(fieldAmounts, ba.BetField.SUPER_SIX);
+      // protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+      //   const banker = this.getAllValue(fieldAmounts, ba.BetField.BANKER);
+      //   const player = this.getAllValue(fieldAmounts, ba.BetField.PLAYER);
+      //   const superSixBanker = this.getAllValue(fieldAmounts, ba.BetField.SUPER_SIX_BANKER);
+      //   const tie = this.getAllValue(fieldAmounts, ba.BetField.TIE);
+      //   const bankerPair = this.getAllValue(fieldAmounts, ba.BetField.BANKER_PAIR);
+      //   const playerPair = this.getAllValue(fieldAmounts, ba.BetField.PLAYER_PAIR);
+      //   const superSix = this.getAllValue(fieldAmounts, ba.BetField.SUPER_SIX);
 
-        if (
-          (banker !== 0 && banker < betLimit.minlimit) ||
-          (player !== 0 && player < betLimit.minlimit) ||
-          (superSixBanker !== 0 && superSixBanker < betLimit.minlimit) ||
-          (tie !== 0 && tie < betLimit.minlimit) ||
-          (bankerPair !== 0 && bankerPair < betLimit.minlimit) ||
-          (playerPair !== 0 && playerPair < betLimit.minlimit) ||
-          (superSix !== 0 && superSix < betLimit.minlimit)
-        ) {
-          return true;
-        }
+      //   if (
+      //     (banker !== 0 && banker < betLimit.minlimit) ||
+      //     (player !== 0 && player < betLimit.minlimit) ||
+      //     (superSixBanker !== 0 && superSixBanker < betLimit.minlimit) ||
+      //     (tie !== 0 && tie < betLimit.minlimit) ||
+      //     (bankerPair !== 0 && bankerPair < betLimit.minlimit) ||
+      //     (playerPair !== 0 && playerPair < betLimit.minlimit) ||
+      //     (superSix !== 0 && superSix < betLimit.minlimit)
+      //   ) {
+      //     return true;
+      //   }
 
-        return false;
-      }
+      //   return false;
+      // }
 
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();

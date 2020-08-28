@@ -234,6 +234,8 @@ namespace we {
         const { maxwin, winningstreak } = data;
         env.maxWinCount = winningstreak;
         env.maxWinAmount = maxwin;
+        this.winAmount = env.maxWinAmount;
+        this.winStreak = env.maxWinCount;
         this.updateProfileText();
       }
 

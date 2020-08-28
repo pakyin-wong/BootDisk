@@ -89,17 +89,17 @@ namespace we {
         this._betChipStackMapping[dil.BetField.SUM_18] = this._sum_18_betChipStack;
       }
 
-      protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
-        for (const key of Object.keys(fieldAmounts)) {
-          if (fieldAmounts[key] === 0) {
-            continue;
-          }
-          if (fieldAmounts[key] < betLimit.minlimit) {
-            return true;
-          }
-        }
-        return false;
-      }
+      // protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+      //   for (const key of Object.keys(fieldAmounts)) {
+      //     if (fieldAmounts[key] === 0) {
+      //       continue;
+      //     }
+      //     if (fieldAmounts[key] < betLimit.minlimit) {
+      //       return true;
+      //     }
+      //   }
+      //   return false;
+      // }
       protected isExceedUpperBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail: data.BetDetail) {
         const val = this.getAllValue(fieldAmounts, betDetail.field) + betDetail.amount;
 
@@ -260,12 +260,7 @@ namespace we {
           this._flashingOdd.text = luckyNumbers[key] + 'x';
 
           grid.addChild(this._flashingOdd);
-          egret.Tween.get(this._flashingOdd)
-            .to({ alpha: 0 }, 1000)
-            .to({ alpha: 1 }, 1000)
-            .to({ alpha: 0 }, 1000)
-            .to({ alpha: 1 }, 1000)
-            .to({ alpha: 0 }, 1000);
+          egret.Tween.get(this._flashingOdd).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000);
 
           this._luckyAnims.push(luckyAnim);
 

@@ -216,7 +216,7 @@ namespace we {
         }
         */
 
-        console.log('checkResultMessage', this._gameData);
+        // console.log('checkResultMessage', this._gameData);
 
         const resultNo = (<lw.GameData>this._gameData).value; // a string type
         (this._tableLayer as lw.TableLayer).flashFields(`LW_${parseInt(resultNo, 10) - 1}`);

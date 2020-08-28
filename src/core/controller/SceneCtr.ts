@@ -8,7 +8,7 @@ namespace we {
         this._currScene = new BaseScene();
         dir.layerCtr.scene.addChild(this._currScene);
         dir.layerCtr.nav.addChild(this._currScene.sceneHeader);
-        logger.l(utils.LogTarget.STAGING, 'SceneCtr is created');
+        logger.l(utils.LogTarget.RELEASE, 'SceneCtr is created');
       }
 
       /** switch scene immediately */
@@ -30,7 +30,7 @@ namespace we {
             }
           }
         } catch (error) {
-          logger.e(utils.LogTarget.STAGING, `scene ${id} resource load error`, error);
+          logger.e(utils.LogTarget.RELEASE, `scene ${id} resource load error`, error);
         }
 
         try {
@@ -41,13 +41,13 @@ namespace we {
             _next = new we[id].Scene(data);
           }
         } catch (e) {
-          logger.l(utils.LogTarget.STAGING, `scene ${id} defined error`, e);
+          logger.l(utils.LogTarget.RELEASE, `scene ${id} defined error`, e);
           return;
         }
         dir.layerCtr.scene.addChild(_next);
         dir.layerCtr.nav.addChild(_next.sceneHeader);
         this._currScene = _next;
-        logger.l(utils.LogTarget.STAGING, `enter ${id}`);
+        logger.l(utils.LogTarget.RELEASE, `enter ${id}`);
         dir.evtHandler.dispatch(core.Event.ENTER_SCENE, id);
         dir.layerCtr.nav.removeChild(_prev.sceneHeader);
         _next.onEnter();
@@ -67,13 +67,13 @@ namespace we {
             _next = new we[id].Scene(data);
           }
         } catch (e) {
-          logger.l(utils.LogTarget.STAGING, `scene ${id} defined error`);
+          logger.l(utils.LogTarget.RELEASE, `scene ${id} defined error`);
           return;
         }
         dir.layerCtr.scene.addChild(_next);
         dir.layerCtr.nav.addChild(_next.sceneHeader);
         this._currScene = _next;
-        logger.l(utils.LogTarget.STAGING, `enter ${id}`);
+        logger.l(utils.LogTarget.RELEASE, `enter ${id}`);
         dir.evtHandler.dispatch(core.Event.ENTER_SCENE, id);
         dir.layerCtr.nav.removeChild(_prev.sceneHeader);
         await _prev.onFadeExit();

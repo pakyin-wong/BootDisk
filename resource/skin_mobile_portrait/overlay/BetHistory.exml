@@ -40,7 +40,7 @@
 				<e:List id="_datagroup" />
 			</e:Scroller>
 			<overlay:DoubleCalendarPicker skinName="skin_mobile_portrait.DoubleCalendarPicker" id="_datepicker" width="1050"
-			                              height="1402" horizontalCenter="-0.5" y="456" x="96" scaleX="1" scaleY="1" />
+			                              height="1500" horizontalCenter="-0.5" x="96" scaleX="1" scaleY="1"  verticalCenter="0"/>
 		</e:Group>
 		<bh:BetHistoryDetail skinName="skin_mobile_portrait.BetHistoryDetail" id="_detail" left="0" right="0" top="0"
 		                     bottom="0" />

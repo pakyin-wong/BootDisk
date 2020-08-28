@@ -101,6 +101,12 @@ namespace we {
         this.tableInfoBtn.label = i18n.t('mobile_game_panel_table_info');
         this._gameInfoLabel.text = i18n.t('mobile_panel_game_Info');
       }
+
+      public openTableInfo() {
+        super.openTableInfo();
+        this.tableInfoBtn.selected = true;
+        this.viewStack.selectedIndex = this.tableInfoBtn.value;
+      }
     }
   }
 }

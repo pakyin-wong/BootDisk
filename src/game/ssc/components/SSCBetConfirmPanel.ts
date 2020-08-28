@@ -130,7 +130,7 @@ namespace we {
             OutputDataString += `${i18n.t('lo_trad.inputs.' + DataStringArray[0].trim().toUpperCase())}`;
           }
         }
-        
+
         for (let i = 1; i < DataStringArray.length; i++) {
           if (this.isNumeric(parseInt(DataStringArray[i], 10))) {
             OutputDataString += ` | ${DataStringArray[i]}`;
