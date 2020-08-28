@@ -50,10 +50,10 @@ namespace we {
         switch (fieldType) {
           case 'odd':
           case 'even':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.ODD_EVEN.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'ro', 'ODD_EVEN'));
           case 'red':
           case 'black':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.RED_BLACK.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'ro', 'RED_BLACK'));
         }
       }
     }

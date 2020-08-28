@@ -51,13 +51,13 @@ namespace we {
         switch (betDetail.field) {
           case dt.BetField.DRAGON:
             val = dragon + betDetail.amount;
-            return this.checkLimit(val, betDetail, betLimit.limits.dt.DRAGON.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'dt', 'DRAGON'));
           case dt.BetField.TIGER:
             val = tiger + betDetail.amount;
-            return this.checkLimit(val, betDetail, betLimit.limits.dt.TIGER.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'dt', 'TIGER'));
           case dt.BetField.TIE:
             val = tie + betDetail.amount;
-            return this.checkLimit(val, betDetail, betLimit.limits.dt.TIE.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'dt', 'TIE'));
         }
       }
     }

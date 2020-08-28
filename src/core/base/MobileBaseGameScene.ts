@@ -103,7 +103,7 @@ namespace we {
 
         this.played = true;
 
-        if (this._bottomGamePanel._tableInfoPanel) {
+        if (this._bottomGamePanel._tableInfoPanel && this._lblRoomInfo) {
           this._lblRoomInfo.addEventListener(
             egret.TouchEvent.TOUCH_TAP,
             () => {

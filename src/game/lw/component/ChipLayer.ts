@@ -73,19 +73,19 @@ namespace we {
 
         switch (betDetail.field) {
           case lw.BetField.LW_0:
-            return this.checkLimit(val, betDetail, betLimit.limits.lw.LW_0.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'lw', 'LW_0'));
           case lw.BetField.LW_1:
-            return this.checkLimit(val, betDetail, betLimit.limits.lw.LW_1.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'lw', 'LW_1'));
           case lw.BetField.LW_2:
-            return this.checkLimit(val, betDetail, betLimit.limits.lw.LW_2.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'lw', 'LW_2'));
           case lw.BetField.LW_3:
-            return this.checkLimit(val, betDetail, betLimit.limits.lw.LW_3.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'lw', 'LW_3'));
           case lw.BetField.LW_4:
-            return this.checkLimit(val, betDetail, betLimit.limits.lw.LW_4.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'lw', 'LW_4'));
           case lw.BetField.LW_5:
-            return this.checkLimit(val, betDetail, betLimit.limits.lw.LW_5.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'lw', 'LW_5'));
           case lw.BetField.LW_6:
-            return this.checkLimit(val, betDetail, betLimit.limits.lw.LW_6.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'lw', 'LW_6'));
         }
         return false;
       }

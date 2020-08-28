@@ -110,5 +110,14 @@ namespace we {
         }
       }
     }
+
+    export function getBetLimit(betLimitSet: data.BetLimitSet, game: string, fieldType: string) {
+      const limits = betLimitSet.limits;
+      if (limits[game] && limits[game][fieldType]) {
+        return limits[game][fieldType].maxlimit;
+      }
+
+      return betLimitSet.maxlimit;
+    }
   }
 }
