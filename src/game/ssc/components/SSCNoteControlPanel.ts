@@ -73,6 +73,28 @@ namespace we {
       public init() {
         super.init();
         // runtimelabel rendertext
+        this.updateText();
+        this.addListeners();
+      }
+
+      protected addListeners() {
+        super.addListeners();
+
+        dir.evtHandler.addEventListener(we.core.Event.SSC_DELETE_ONE_NOTE, this.deleteOneNote, this);
+        this._btnDelectAll.addEventListener(egret.TouchEvent.TOUCH_TAP, this.clearAllNotes, this);
+        this._btnConfirmBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this.bettingPanel);
+        // this._btnAddDataTEMP.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addTempData, this);
+      }
+
+      protected removeListeners() {
+        super.removeListeners();
+
+        this._btnDelectAll.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.clearAllNotes, this);
+        dir.evtHandler.removeEventListener(we.core.Event.SSC_DELETE_ONE_NOTE, this.deleteOneNote, this);
+        this._btnConfirmBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this.bettingPanel);
+      }
+
+      public updateText() {
         this._lblGameMode.renderText = () => `${i18n.t('lo_trad.ui.gamemode')}`;
         this._lblBetItem.renderText = () => `${i18n.t('lo_trad.ui.betitem')}`;
         this._lblBetMode.renderText = () => `${i18n.t('lo_trad.ui.betmode')}`;
@@ -84,49 +106,6 @@ namespace we {
 
         this._lbltotalBetCount.renderText = () => `${this._totalBetCount}`;
         this._lbltotalBetAmount.renderText = () => `${this._totalBetAmount}`;
-        this.addListeners();
-        // const tempNotes: TradNoteData[] = [
-        //   {
-        //     field: '12OptionalFree_1_2@200',
-        //     count: 1,
-        //     multiplier: 1,
-        //   },
-        //   {
-        //     field: '13OptionalFree_1_12@200',
-        //     count: 2,
-        //     multiplier: 1,
-        //   },
-        //   {
-        //     field: '23OptionalFree_2_12@200',
-        //     count: 2,
-        //     multiplier: 1,
-        //   },
-        // ];
-
-        // this.notes = tempNotes;
-        // console.log('this.notes', this.notes);
-        // const itemArray = this.generateStringFromNote(this.notes);
-        // this._dataColl = new eui.ArrayCollection();
-        // this._dataColl.source = itemArray;
-        // this._datagroup.dataProvider = this._dataColl;
-        // this._datagroup.itemRenderer = lo.SSCBetNoteItem;
-        // this.updateNoteControlPanel();
-        // this.computeTotalNoteAmount();
-
-        // SSCBetNoteItem.PANEL = this;
-      }
-
-      protected addListeners() {
-        dir.evtHandler.addEventListener(we.core.Event.SSC_DELETE_ONE_NOTE, this.deleteOneNote, this);
-        this._btnDelectAll.addEventListener(egret.TouchEvent.TOUCH_TAP, this.clearAllNotes, this);
-        this._btnConfirmBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this.bettingPanel);
-        // this._btnAddDataTEMP.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addTempData, this);
-      }
-
-      protected removeListeners() {
-        this._btnDelectAll.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.clearAllNotes, this);
-        dir.evtHandler.removeEventListener(we.core.Event.SSC_DELETE_ONE_NOTE, this.deleteOneNote, this);
-        this._btnConfirmBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this.bettingPanel);
       }
 
       protected deleteOneNote(evt: egret.Event) {
@@ -237,6 +216,10 @@ namespace we {
         }
       }
 
+      public onExit() {
+        super.onExit();
+        this.removeListeners();
+      }
       // protected addTotalBetCount(count: number) {
       //   this._totalBetCount += count;
       //   this._lbltotalBetCount.renderText = () => `total count ${this._totalBetCount}`;

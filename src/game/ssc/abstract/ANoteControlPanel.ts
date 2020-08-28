@@ -16,6 +16,14 @@ namespace we {
       // }
       public bettingPanel: ABettingPanel;
 
+      protected addListeners() {
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
+      }
+
+      protected removeListeners() {
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
+      }
+
       public init() {
         this._notes = [];
         // this._lblBalance.renderText = () => `餘額 $${env.balance? env.balance : ' - '}`;
@@ -99,6 +107,10 @@ namespace we {
           this._btnConfirmBet.enabled = false;
         }
       }
+
+      public onExit() {}
+
+      public updateText() {}
     }
   }
 }

@@ -943,6 +943,83 @@ namespace we {
         }
       }
 
+      export namespace AnyFour {
+        export function Group24(data, combinations = []): number[] {
+          // Y为选号数量:注数=Y(Y-1)(Y-2)(Y-3)/24=注数
+
+          const y = data[1].length;
+
+          const notesArray = [];
+
+          if (combinations.length > 0) {
+            for (let i = 0; i < combinations.length; i++) {
+              notesArray.push((y * (y - 1) * (y - 2) * (y - 3)) / 24); // ?
+            }
+            return notesArray;
+          } else {
+            return [(y * (y - 1) * (y - 2) * (y - 3)) / 24];
+          }
+        }
+
+        export function Group12(data, combinations = []): number[] {
+          const double = data[1].split('');
+          const single = data[2].split('');
+
+          const doubleCount = double.length;
+          const singleCount = single.length;
+
+          const repeatN = repeatCount(double, single);
+
+          const notesArray = [];
+
+          if (combinations.length > 0) {
+            for (let i = 0; i < combinations.length; i++) {
+              notesArray.push(sumUp(singleCount - 1) * (doubleCount - repeatN) + sumUp(singleCount - 2) * repeatN); // ?
+            }
+            return notesArray;
+          } else {
+            return [sumUp(singleCount - 1) * (doubleCount - repeatN) + sumUp(singleCount - 2) * repeatN];
+          }
+        }
+
+        export function Group6(data, combinations = []): number[] {
+          const double = data[1].split('');
+
+          const doubleCount = double.length;
+
+          const notesArray = [];
+
+          if (combinations.length > 0) {
+            for (let i = 0; i < combinations.length; i++) {
+              notesArray.push((doubleCount * (doubleCount - 1)) / 2);
+            }
+            return notesArray;
+          } else {
+            return [(doubleCount * (doubleCount - 1)) / 2];
+          }
+        }
+
+        export function Group4(data, combinations = []): number[] {
+          const triple = data[1].split('');
+          const single = data[2].split('');
+
+          const tripleCount = triple.length;
+          const singleCount = single.length;
+
+          const repeatN = repeatCount(triple, single);
+
+          const notesArray = [];
+          if (combinations.length > 0) {
+            for (let i = 0; i < combinations.length; i++) {
+              notesArray.push(tripleCount * singleCount - repeatN);
+            }
+            return notesArray;
+          } else {
+            return [tripleCount * singleCount - repeatN];
+          }
+        }
+      }
+
       export namespace SizeParity {
         export function TwoPosDirectionalSelection(data, combination = null): number[] {
           const firstDataCount = data[0].split('|').length;

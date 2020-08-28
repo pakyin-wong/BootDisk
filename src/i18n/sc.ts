@@ -767,6 +767,9 @@ namespace we {
           betamount: '金额',
           action: '操作',
         },
+        description: {
+          checkbox: '请至少选择$min$位位数，您当前选择了$count$个位置\n，系统将自动生成$combination$个方案',
+        },
       },
     };
   }

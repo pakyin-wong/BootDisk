@@ -698,6 +698,9 @@ namespace we {
           betamount: '金額',
           action: '操作',
         },
+        description: {
+          checkbox: '請至少選擇$min$位位數，您當前選擇了$count$個位置\n，系統將自動生成$combination$個方案',
+        },
       },
     };
   }

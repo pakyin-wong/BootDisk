@@ -313,6 +313,12 @@ namespace we {
       }
 
       public onExit() {
+        if (this._noteControl) {
+          this._noteControl.onExit();
+        }
+        if (this._bettingControl) {
+          this._bettingControl.onExit();
+        }
         this.destroy();
       }
     }

@@ -178,6 +178,14 @@ namespace we {
         }
       }
 
+      protected onBetDetailUpdateInFinishState() {
+        // this._chipLayer.showWinEffect(this._betDetails);
+        // if (this._betDetails && this._chipLayer) {
+        //   if (this._resultMessage) {
+        //     this.checkResultMessage();
+        //   }
+        // }
+      }
 
       protected initChildren() {
         // super.initChildren();
