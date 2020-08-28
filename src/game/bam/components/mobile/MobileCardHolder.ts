@@ -40,6 +40,9 @@ namespace we {
 
       protected _data;
 
+      protected showNextCardTimeoutId: number = -1;
+      protected showNextCardTimeout: number = 2000;
+
       constructor() {
         super();
       }
@@ -135,6 +138,30 @@ namespace we {
         this.checkOpenAllBtn();
 
         this.calculatePoint();
+
+        if (this.showNextCardTimeoutId>-1) {
+          clearTimeout(this.showNextCardTimeoutId);
+        }
+
+        this.showNextCardTimeoutId = setTimeout(() => {
+          this.showNextCard();
+        }, this.showNextCardTimeout);
+      }
+
+      protected showNextCard() {
+        const nextIdx = this.getNextIndex(this._flipIndex);
+        if (nextIdx>-1) {
+          this.selectCardByIdx(nextIdx);
+        }
+      }
+
+      protected getNextIndex(cardArrIdx: number) {
+        const posIdxArray = [5,4,3,0,1,2];
+        const posIdx = posIdxArray.indexOf(cardArrIdx);
+        if (posIdx>-1 && posIdx<posIdxArray.length-1) {
+          return posIdxArray[posIdx+1];
+        }
+        return -1;
       }
 
       protected checkOpenAllBtn() {
@@ -298,6 +325,10 @@ namespace we {
         this._highlightCard.y = selectedCard.y;
         this._highlightCard.rotation = selectedCard.rotation;
         this._highlightCard.visible = true;
+
+        if (this.showNextCardTimeoutId>-1) {
+          clearTimeout(this.showNextCardTimeoutId);
+        }
 
         this._resultCard.showAndMoveCard(this._moveIndex, this.cardArr[this._flipIndex]);
       }
@@ -485,7 +516,7 @@ namespace we {
           this._openAllPlayer.visible = false;
         }
 
-        if (initSelectedIdx > -1) {
+        if (initSelectedIdx>-1) {
           this.selectCardByIdx(initSelectedIdx);
         }
       }
