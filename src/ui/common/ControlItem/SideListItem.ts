@@ -148,7 +148,13 @@ namespace we {
         }
       }
 
+      protected showQuickBetGroup() {
+        this._betChipSetGridSelected.touchEnabled = true;
+        super.showQuickBetGroup();
+      }
+
       protected hideQuickBetGroup() {
+        this._betChipSetGridSelected.touchEnabled = false;
         super.hideQuickBetGroup();
         this.hideBetChipPanel();
       }

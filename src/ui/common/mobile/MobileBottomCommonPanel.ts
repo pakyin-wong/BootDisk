@@ -19,6 +19,10 @@ namespace we {
 
       protected _gameScene: core.MobileBaseGameScene;
 
+      // table info panel
+      public _tableInfoPanel: ui.TableInfoPanel;
+      public _betLimitDropDownBtn: ui.RunTimeLabel;
+
       public isPanelOpen: boolean = false;
 
       // landscape bottom game result
@@ -35,6 +39,7 @@ namespace we {
 
       protected mount() {
         super.mount();
+        this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
         this.addListeners();
         this.updateText();
         this.updateStat();

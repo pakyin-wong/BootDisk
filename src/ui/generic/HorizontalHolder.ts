@@ -4,12 +4,13 @@ namespace we {
     export class HorizontalHolder extends eui.Group {
       protected _slides: any[]; // eui.Group
       protected _sortedSlides;
-      private _currentPageIdx: number = 0;
+      public _currentPageIdx: number = 0;
       private pageCount: number;
 
       public slideWidth: number = 0;
       public slideHeight: number = 0;
       public _duration = 500;
+      public touchAreaAtBottom: boolean = false;
 
       public isTouchEnabled: boolean = true;
       public isDragonBone: boolean = false;
@@ -90,8 +91,6 @@ namespace we {
           console.error('One page or less is not allowed');
           return;
         }
-
-        this._currentPageIdx = 0;
 
         for (let i = 0; i < this.pageCount; i++) {
           this._slides.push(this.getChildAt(i));
@@ -202,8 +201,9 @@ namespace we {
         this._touchArea = new egret.DisplayObjectContainer();
         this._touchArea.width = this.slideWidth;
         this._touchArea.height = this.slideHeight;
-        this._touchArea.touchThrough = true;
+        this._touchArea.touchThrough = false;
         this._touchArea.touchEnabled = true;
+        this._touchArea.touchChildren = false;
         shape = new egret.Shape();
         gr = shape.graphics;
         gr.clear();
@@ -214,7 +214,8 @@ namespace we {
         shape.x = 0;
         shape.alpha = 0;
         this._touchArea.addChild(shape);
-        this.addChildAt(this._touchArea, this.numChildren);
+
+        this.addChildAt(this._touchArea, this.touchAreaAtBottom ? 0 : this.$children.length);
       }
 
       protected updateBullets() {

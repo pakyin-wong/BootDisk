@@ -32,10 +32,10 @@
 	         touchChildren="true" touchThrough="true" height="121">
 		<ui:RunTimeLabel id="_lblRoomNo" x="26" y="15" size="40" height="56" verticalAlign="middle" text="輪盤 01" />
 		<ui:RunTimeLabel id="_lblBetLimit" size="40" text="10-500" x="26" y="65" height="48" verticalAlign="middle"
-		                 fontFamily="Barlow" />
+		                 fontFamily="Arial" />
 		<e:Group y="65" right="15">
-			<ui:RunTimeLabel id="_totalBetText" text="總下注" anchorOffsetX="0" textAlign="right" size="36" />
 			<ui:RunTimeLabel id="_totalBet" text="0" anchorOffsetX="0" textAlign="right" size="36" right="5" />
+			<ui:RunTimeLabel id="_totalBetText" text="總下注" anchorOffsetX="0" textAlign="right" size="36" alpha="0.7"/>
 			<e:layout>
 				<e:HorizontalLayout/>
 			</e:layout>
@@ -101,7 +101,7 @@
 			<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="256" anchorOffsetY="0" height="120"
 			          horizontalCenter="0" y="675" skinName="skin_mobile_portrait.BetConfirmButtonMobile" rotation="90" />
 			<ui:CountdownTimer id="_timer" width="256" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" y="675"
-			                   horizontalCenter="0" rotation="90" currentState="vertical" />
+			                   horizontalCenter="0" rotation="90" currentState="vertical" colorChange="true"/>
 			<ui:RunTimeLabel id="_repeatLabel" text="再次下注" y="154" left="0" right="0" textAlign="center" verticalAlign="middle"
 			                 size="32" height="47" />
 			<ui:RunTimeLabel id="_cancelLabel" text="清除" y="445" left="0" right="0" textAlign="center" verticalAlign="middle"

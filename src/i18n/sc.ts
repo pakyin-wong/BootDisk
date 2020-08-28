@@ -84,6 +84,12 @@ namespace we {
       overlaypanel_bethistory_remark_win: '嬴',
       overlaypanel_bethistory_remark_lose: '输',
       overlaypanel_bethistory_remark_ties: '和',
+      overlaypanel_bethistory_limit: "每贡显示项目：",
+      overlaypanel_bethistory_total: "现在显示：%now% 项 共 %total% 项记录",
+      overlaypanel_bethistory_record_round: '局数',
+      overlaypanel_bethistory_record_bettype: '投注项目',
+      overlaypanel_bethistory_record_result: '游戏结果',
+      overlaypanel_bethistory_record_replay: '重播',
 
       overlaypanel_bethistory_baresult_banker: '庄',
       overlaypanel_bethistory_baresult_player: '闲',
@@ -131,6 +137,7 @@ namespace we {
       mobile_notification_quick_bet_button_label: '即时投注',
       mobile_notification_quick_bet_button_label_real_mobile: '下注',
       mobile_notification_close_button_label: '关闭',
+      mobile_notification_next_button_label: '下一页',
 
       mobile_quick_bet_button_label: '快速投注',
       mobile_quick_bet_button_add_label: '加注',
@@ -452,6 +459,7 @@ namespace we {
         stopBet: '停止下注',
       },
       sidePanel: {
+        changeChip: '切换筹码',
         betted: '已下注项目',
         goodroad: '好路',
         allgames: '全部游戏',
@@ -459,6 +467,12 @@ namespace we {
       baccarat: {
         tooltip: {
           swapRoadmap: '轉換路紙',
+        },
+        statisticChart: {
+          bankerPlayerTie: '庄闲和比例(100局)',
+          bankerPlayerTiePair: '庄闲和对比例 (100局)',
+          shoeBankerPlayerTie: '庄闲和比例(本靴)',
+          shoeBankerPlayerTiePair: '庄闲和比例对(本靴)',
         },
         playerPair: '闲对',
         bankerPair: '庄对',
@@ -491,6 +505,8 @@ namespace we {
         clickToSeeVideo: '点击播放本局视频',
         askBanker: '庄问路',
         askPlayer: '闲问路',
+        statType100: '100局',
+        statTypeShoe: '本靴',
         BankerPlayerRatio: '庄闲和比例',
         PairRatio: '庄对闲对比例',
         round: '局',
@@ -607,6 +623,148 @@ namespace we {
       lo_fun_betfield_total_SMALL: '总小',
       lo_fun_betfield_total_ODD: '总单',
       lo_fun_betfield_total_EVEN: '总双',
+
+      lo_trad: {
+        highest_win: '單倍最高金額：',
+        erase_non_number: '清除錯誤或重複項',
+        all_clear: '全清',
+        upload_document: '上傳文件',
+        bigTag: {
+          FiveStar: '五星',
+          FourStar: '四星',
+          FirstThree: '前三',
+          MidThree: '中三',
+          LastThree: '后三',
+          TwoStar: '二星',
+          StaticTow: '定位胆',
+          NotPos: '不定位',
+          SizeParity: '大小单双',
+          Interest: '趣味',
+          DragonTiger: '龙虎',
+          AnyTwo: '任选二',
+          AnyThree: '任选三',
+          AnyFour: '任选四',
+        },
+        smallTag: {
+          DirectionSelection: '直选复式', // FiveStar
+          DirectMenu: '直选单式',
+          DirectCombination: '直选组合',
+          Group120: '组选120',
+          Group60: '组选60',
+          Group30: '组选30',
+          Group20: '组选20',
+          Group10: '组选10',
+          Group5: '组选5',
+
+          Group24: '组选24', // FourStar
+          Group12: '组选12',
+          Group6: '组选6',
+          Group4: '组选4',
+
+          DirectionSum: '直选和值', // Three Star
+          Three3: '组三',
+          Three6: '组六',
+          Three3Tow: '组三胆拖',
+          Three6Tow: '组六胆拖',
+          GroupCombine: '混合组选',
+          GroupSum: '组选和值',
+
+          DirectionSelectionLastTwo: '直选后二复式', // Two Star
+          DirectMenuLastTwo: '直选后二单式',
+          DirectionalSumLastTwo: '直选后二和值',
+          DirectionSelectionFirstTwo: '直选前二复式',
+          DirectMenuFirstTwo: '直选前二单式',
+          DirectionalSumFirstTwo: '直选前二和值',
+          GroupDirectionalSelectionLastTwo: '组选后二复式',
+          GroupDirectionalMenuLastTwo: '组选后二单式',
+          GroupSumLastTwo: '组选后二和值',
+          GroupDirectionalSelectionFirstTwo: '组选前二复式',
+          GroupDirectionalMenuFirstTwo: '组选前二单式',
+          GroupSumFirstTwo: '组选前二和值',
+
+          StaticTow: '定位胆',
+
+          AnyLastThreeOne: '后三一码不定位', // NotPos
+          AnyLastThreeTwo: '后三二码不定位',
+          AnyFirstThreeOne: '前三一码不定位',
+          AnyFirstThreeTwo: '前三二码不定位',
+          AnyFiveOne: '五星一码不定位',
+          AnyFiveTwo: '五星二码不定位',
+          AnyFiveThree: '五星三码不定位',
+
+          LastSizeParity: '后二大小单双', // SizeParity
+          FrontSizeParity: '前二大小单双',
+          TenThousandSizeParity: '万位大小单双',
+          ThousandSizeParity: '千位大小单双',
+          HundredSizeParity: '百位大小单双',
+          TenSizeParity: '十位大小单双',
+          SingleSizeParity: '个位大小单双',
+
+          Interest1: '一帆风顺', // Interest
+          Interest2: '好事成双',
+          Interest3: '三星报喜',
+          Interest4: '四季发财',
+
+          TenThousandThousand: '万千',
+          TenThousandHundred: '万百',
+          TenThousandTen: '万十',
+          TenThousandUnit: '万个',
+          ThousandHundred: '千百',
+          ThousandTen: '千十',
+          ThousandUnit: '千个',
+          HundredTen: '百十',
+          HundredUnit: '百个',
+          TenUnit: '十个',
+
+          GroupSelection: '组选复式',
+          GroupMenu: '组选单式',
+
+          GroupThree: '组三复式',
+          GroupSix: '组六复式',
+          MixGroup: '混合组选',
+        },
+        inputTitle: {
+          TenThousand: '第一球｜万位',
+          Thousand: '第二球｜千位',
+          Hundred: '第三球｜百位',
+          Ten: '第四球｜十位',
+          Unit: '第五球｜个位',
+
+          Single: '单号',
+          Double: '二重号',
+          Triple: '三重号',
+          Quadruple: '四重号',
+
+          DirectionSum: '直选和值',
+          Three3: '组三',
+          Three6: '组六',
+          Bravery: '胆码',
+          Tow: '拖码',
+
+          Sum: '和值',
+          Group: '组选',
+
+          Any: '任选',
+        },
+        inputs: {
+          DRAGON: '龙',
+          TIGER: '虎',
+          TIE: '和',
+
+          ODD: '单',
+          EVEN: '双',
+          BIG: '大',
+          SMALL: '小',
+        },
+        option: {
+          ALL: '全',
+          BIG: '大',
+          SMALL: '小',
+          ODD: '奇',
+          EVEN: '偶',
+          CLEAR: '清',
+        },
+      },
     };
   }
 }

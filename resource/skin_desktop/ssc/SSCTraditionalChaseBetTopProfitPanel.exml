@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.lo.SSCTraditionalChaseBetTopMultiplePanel" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="660" height="80">
+    <e:Group id="_continuousChase" width="660" height="60">
+        <e:Group width="299" height="60">
+            <ui:RunTimeLabel id="_lblLowestProfitRateTitle" text="最低收益率 (%)" size="24" alpha="0.7"/>
+            <e:Group width="120" height="60">
+                <ui:RoundRectShape cornerTL_TR_BL_BR="8,8,8,8" width="120" height="60" x="0" y="0" stroke="1" strokeColor="0x214a72" fillColor="0x151c26"/>
+                <ui:RunTimeLabel id="_lblLowestProfitRate" text="0" size="24" horizontalCenter="0" verticalCenter="0" alpha="0.7"/>
+            </e:Group>
+            <e:layout>
+                <e:HorizontalLayout verticalAlign="middle"/>
+            </e:layout>
+        </e:Group>
+        <e:Group width="299" height="60">
+            <ui:RunTimeLabel id="_lblChaseRoundTitle" text="追號期數" size="24" alpha="0.7"/>
+            <e:Group width="120" height="60">
+                <ui:RoundRectShape cornerTL_TR_BL_BR="8,8,8,8" width="120" height="60" x="0" y="0" stroke="1" strokeColor="0x214a72" fillColor="0x151c26"/>
+                <ui:RunTimeLabel id="_lblChaseRound" text="0" size="24" horizontalCenter="0" verticalCenter="0" alpha="0.7"/>
+            </e:Group>
+            <e:layout>
+                <e:HorizontalLayout verticalAlign="middle"/>
+            </e:layout>
+        </e:Group>
+        <e:layout>
+          <e:HorizontalLayout paddingRight="120" verticalAlign="middle"/>
+        </e:layout>
+    </e:Group>
+    <ui:RunTimeLabel id="_lblNotice" text="注意：利潤率計算使用當前用戶最小獎金組展示" size="20" right="120" bottom="0" alpha="0.7"/>
+</e:Skin>

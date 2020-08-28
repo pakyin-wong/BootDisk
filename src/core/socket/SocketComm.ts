@@ -466,6 +466,9 @@ namespace we {
         */
 
         function getStatistic(field: string) {
+          if (!gameStatistic || !gameStatistic.statistic) {
+            return 0;
+          }
           return gameStatistic.statistic[field] ? gameStatistic.statistic[field] : 0;
         }
 

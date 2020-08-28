@@ -30,10 +30,10 @@
   <e:Image id="_bgImg" top="0" bottom="0" source="frame-3_jpg" left="0" right="0" locked="true"/>
   <e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" touchEnabled="false" touchChildren="true" touchThrough="true" height="121" right="0" width="2424">
     <ui:RunTimeLabel id="_lblRoomNo" x="20" y="15" size="40" height="56" verticalAlign="middle" text="輪盤 01"/>
-		<ui:RunTimeLabel id="_lblBetLimit" size="40" text="10-500" x="20" y="65" height="48" verticalAlign="middle" fontFamily="Barlow"/>
-		<e:Group height="54" y="59" right="20">
+		<ui:RunTimeLabel id="_lblBetLimit" size="40" text="10-500" x="20" y="65" height="48" verticalAlign="middle" fontFamily="Arial"/>
+		<e:Group height="54" y="59" right="15">
 			<ui:RunTimeLabel id="_totalBet" text="$800" y="0" textAlign="right" verticalAlign="middle" height="50" size="36"/>
-			<ui:RunTimeLabel id="_totalBetText" text="總下注" y="0" textAlign="right" size="36" height="50" verticalAlign="middle"/>
+			<ui:RunTimeLabel id="_totalBetText" text="總下注" y="0" textAlign="right" size="36" height="50" verticalAlign="middle" alpha=".7"/>
 			<e:layout>
 				<e:HorizontalLayout gap="20" verticalAlign="middle"/>
 			</e:layout>
@@ -76,7 +76,7 @@
     <e:Group id="_betRelatedGroup" x="819" y="18">
 				<e:Rect id="_roundPanel" width="765" height="130" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"  x="0" x.left="219"/>
 				<e:Button id="_confirmButton" width="324" height="130" skinName="skin_mobile_portrait.BetConfirmButtonSkin" x="649" x.left="0"/>
-				<ui:CountdownTimer id="_timer" width="324" height="130" skinName="skin_mobile_portrait.CountdownTimerSkin" x="649" x.left="0"/>
+				<ui:CountdownTimer id="_timer" width="324" height="130" skinName="skin_mobile_portrait.CountdownTimerSkin" x="649" x.left="0" colorChange="true"/>
 			<ui:RunTimeLabel id="_repeatLabel" text="再次下注" x="41" y="73"  textAlign="center" width="128" size="32" height="47" verticalAlign="middle" x.left="792"/>
 			<ui:RunTimeLabel id="_cancelLabel" text="清除" x="336" y="73"  textAlign="center" size="32" height="47" verticalAlign="middle" width="128" x.left="488"/>
 			<ui:RunTimeLabel id="_doubleLabel" text="雙倍" x="193" y="73"  textAlign="center" size="32" height="47" verticalAlign="middle" width="128" x.left="640"/>

@@ -43,7 +43,7 @@
 				        fillColor="0x444444" />
 				<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="0"
 				          verticalCenter="0" x.right_hand_mode="684" skinName="skin_mobile_portrait.BetConfirmButtonSkin" />
-				<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="0"
+				<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="0" colorChange="true"
 				                   verticalCenter="0" x.right_hand_mode="684" />
 				<e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0"
 				         touchChildren="false" touchEnabled="false">
