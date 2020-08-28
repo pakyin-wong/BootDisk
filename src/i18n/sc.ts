@@ -84,6 +84,12 @@ namespace we {
       overlaypanel_bethistory_remark_win: '嬴',
       overlaypanel_bethistory_remark_lose: '输',
       overlaypanel_bethistory_remark_ties: '和',
+      overlaypanel_bethistory_limit: '每贡显示项目：',
+      overlaypanel_bethistory_total: '现在显示：%now% 项 共 %total% 项记录',
+      overlaypanel_bethistory_record_round: '局数',
+      overlaypanel_bethistory_record_bettype: '投注项目',
+      overlaypanel_bethistory_record_result: '游戏结果',
+      overlaypanel_bethistory_record_replay: '重播',
 
       overlaypanel_bethistory_baresult_banker: '庄',
       overlaypanel_bethistory_baresult_player: '闲',

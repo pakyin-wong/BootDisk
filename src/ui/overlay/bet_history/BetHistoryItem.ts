@@ -17,6 +17,10 @@ namespace we {
         private _txt_record_bgcolor: eui.Rect;
         private _txt_hover_color: eui.Rect;
 
+        private _txt_round: eui.Label;
+        private _txt_bettype: eui.Label;
+        private _txt_result: eui.Label;
+
         public constructor() {
           super();
           this.skinName = utils.getSkinByClassname('BetHistoryItem');
@@ -24,14 +28,20 @@ namespace we {
 
         protected childrenCreated(): void {
           super.childrenCreated();
-          this.$addListener(mouse.MouseEvent.ROLL_OVER, this.onHover, this);
-          this.$addListener(mouse.MouseEvent.ROLL_OUT, this.onRollOut, this);
+
+          // this.$addListener(mouse.MouseEvent.ROLL_OVER, this.onHover, this);
+          // this.$addListener(mouse.MouseEvent.ROLL_OUT, this.onRollOut, this);
           this._btn_replay.$addListener(egret.TouchEvent.TOUCH_TAP, this.onClickReplay, this);
 
           mouse.setButtonMode(this._btn_replay, true);
         }
 
         protected dataChanged(): void {
+          this._txt_round && (this._txt_round.text = i18n.t('overlaypanel_bethistory_record_round'));
+          this._txt_bettype && (this._txt_bettype.text = i18n.t('overlaypanel_bethistory_record_bettype'));
+          this._txt_result && (this._txt_result.text = i18n.t('overlaypanel_bethistory_record_result'));
+          this._btn_replay['label'] && (this._btn_replay['label'].text = i18n.t('overlaypanel_bethistory_record_replay'));
+
           this._txt_record_id.text = this.data.betid;
           // this._txt_record_date.text = utils.formatTime((this.data.datetime / Math.pow(10, 9)).toFixed(0));
           this._txt_record_date.text = utils.formatTime(this.data.datetime.toFixed(0));
@@ -86,7 +96,6 @@ namespace we {
           if (this.data && this.data.replayurl) {
             window.open(this.data.replayurl, '_blank');
           }
-          // window.open('https://www.facebook.com/', '_blank');
         }
 
         private formatRemark(remark) {

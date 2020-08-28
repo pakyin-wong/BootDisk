@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.LwResultItem" width="490" height="76" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" >
-	<e:Image id="image" width="40" height="53" horizontalCenter="0" verticalCenter="0"/>
+<e:Skin class="skin_desktop.LwResultItem" height="76" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" >
+	<e:Image id="image" width="40" height="53" verticalCenter="0" x="0"/>
 
 
 </e:Skin>

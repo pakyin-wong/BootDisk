@@ -38,21 +38,31 @@ namespace we {
       protected childrenCreated(): void {
         super.childrenCreated();
         utils.disableTouchforChildren(this, obj => {
-          const bool = !!(<any>obj).text;
+          const bool = !!(<any> obj).text;
           return bool;
         });
 
         this._initY = this.y;
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitChange, this);
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onExit, this);
         mouse.setButtonMode(this.close, true);
         this.changeLang();
       }
 
+      protected onBetLimitChange() {
+        const betLimitSet = env.betLimits[env.currentSelectedBetLimitIndex];
+        if (this.pTableBetLimit && this.pBetLimit) {
+          this.pTableBetLimit.text = utils.numberToFaceValue(betLimitSet.maxlimit);
+          this.pBetLimit.text = `${utils.numberToFaceValue(betLimitSet.minlimit)} - ${utils.numberToFaceValue(betLimitSet.maxlimit)}`;
+        }
+      }
+
       protected destroy(): void {
         super.destroy();
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        dir.evtHandler.removeEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitChange, this);
       }
 
       public onExit() {

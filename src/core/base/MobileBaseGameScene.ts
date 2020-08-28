@@ -102,7 +102,7 @@ namespace we {
 
         this.played = true;
 
-        if (this._bottomGamePanel._tableInfoPanel) {
+        if (this._bottomGamePanel._tableInfoPanel && this._lblRoomInfo) {
           this._lblRoomInfo.addEventListener(
             egret.TouchEvent.TOUCH_TAP,
             () => {
@@ -327,7 +327,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
             if (this._totalBet) {
               const totalBet = betInfo.gameroundid === this._gameData.gameroundid ? betInfo.total : 0;

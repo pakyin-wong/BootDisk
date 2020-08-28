@@ -115,12 +115,13 @@ namespace we {
         if (this._datas) {
           let count = 0;
           for (const v of this._datas) {
-            if (v instanceof we.data.BetCombination) {
-              this._existitems[count].data = v;
-              this._container.addChild(this._existitems[count]);
-              this._existitems[count].currentState = this._edit ? 'edit' : 'normal';
-              count++;
-            }
+            // if (v instanceof we.data.BetCombination) {
+            this._existitems[count].data = v;
+            this._container.addChild(this._existitems[count]);
+            this._existitems[count].currentState = this._edit ? 'edit' : 'normal';
+            count++;
+            if (count >= 12) break;
+            // }
           }
         }
 
