@@ -175,6 +175,8 @@
 		"resource/skin_desktop/lo/FunBetTabItemRenderer.exml",
 		"resource/skin_desktop/nav/NavDropdown.exml",
 		"resource/skin_desktop/lo/LoLeftPanel.exml",
+		"resource/skin_desktop/lo/LoRightDrawerPanel.exml",
+		"resource/skin_desktop/lo/LoRightPanel.exml",
 		"resource/skin_desktop/lo/LotteryScene.exml",
 		"resource/skin_desktop/lo/LotterySceneFun.exml",
 		"resource/skin_desktop/ro/TableLayer.exml",

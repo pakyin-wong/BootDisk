@@ -135,6 +135,75 @@ namespace we {
           stats.diSize = { big: 27, small: 32, tie: 8 };
           stats.points = [4, 2, 7, 11, 5, 2];
           return stats;
+        } else if (data.gametype === core.GameType.LO) {
+          const stats = new we.data.GameStatistic();
+          stats.roundId = 'A2020041408B';
+          stats.loHistory = {
+            show: [
+              {
+                count: 4,
+                data: ['INTEREST1SPECIAL_0', '45DT2_DRAGON', 'THOUSIZEPARITY2_ODD', 'HUNSIZEPARITY2_EVEN', 'TENSIZEPARITY2_BIG', 'SINSIZEPARITY2_SMALL'],
+              },
+            ],
+            noshow: [],
+            hot: [],
+            cold: [],
+          };
+          stats.loChart = {
+            fav_bet: {
+              day: [
+                {
+                  key: 'INTEREST1SPECIAL',
+                  value: 15.7,
+                }, // bet code:value
+              ],
+              pday: [],
+              week: [],
+              pweek: [],
+              month: [],
+              pmonth: [],
+            },
+            fav_game: {
+              day: [
+                {
+                  key: '18',
+                  value: 5000,
+                }, // game id:value
+              ],
+              pday: [],
+              week: [],
+              pweek: [],
+              month: [],
+              pmonth: [],
+            },
+            lucky_time: {
+              day: [
+                {
+                  key: '10:00',
+                  value: 15.8,
+                }, // time slot:value
+              ],
+              pday: [],
+              week: [],
+              pweek: [],
+              month: [],
+              pmonth: [],
+            },
+            lucky_game: {
+              day: [
+                {
+                  key: '18',
+                  value: 5000,
+                }, // game id: value
+              ],
+              pday: [],
+              week: [],
+              pweek: [],
+              month: [],
+              pmonth: [],
+            },
+          };
+          return stats;
         }
       }
 
@@ -406,7 +475,7 @@ namespace we {
               data.tableid = (++this._tempIdx).toString();
               data.tablename = data.tableid;
               data.state = TableState.ONLINE;
-              data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRORoadData);
+              data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockLoRoadData);
               data.gametype = core.GameType.LO;
 
               data.gamestatistic = this.generateDummyStatistic(data);
@@ -1082,6 +1151,80 @@ namespace we {
           cde345: { gameRoundID: 'cde345', v: '12345', video: 'null' },
           g34345: { gameRoundID: 'g34345', v: '34512', video: 'null' },
           g45454: { gameRoundID: 'g45454', v: '15634', video: 'null' },
+        },
+
+        roundId: 'A2020041408B',
+        loHistory: {
+          show: [
+            {
+              count: 4, // number of continues show
+              data: [
+                'INTEREST1SPECIAL_0', // 全五中一 - 0
+                '45DT2_DRAGON', // 千萬 - 龍
+                'THOUSIZEPARITY2_ODD', // 千位 - 單
+                'HUNSIZEPARITY2_EVEN', // 百位 - 雙
+                'TENSIZEPARITY2_BIG', // 十位 - 大
+                'SINSIZEPARITY2_SMALL', // 個位 - 小
+              ],
+            },
+          ],
+          noshow: [],
+          hot: [],
+          cold: [],
+        },
+        loChart: {
+          fav_bet: {
+            day: [
+              {
+                key: 'INTEREST1SPECIAL',
+                value: 15.7,
+              }, // bet code:value
+            ],
+            pday: [],
+            week: [],
+            pweek: [],
+            month: [],
+            pmonth: [],
+          },
+          fav_game: {
+            day: [
+              {
+                key: '18',
+                value: 5000,
+              }, // game id:value
+            ],
+            pday: [],
+            week: [],
+            pweek: [],
+            month: [],
+            pmonth: [],
+          },
+          lucky_time: {
+            day: [
+              {
+                key: '10:00',
+                value: 15.8,
+              }, // time slot:value
+            ],
+            pday: [],
+            week: [],
+            pweek: [],
+            month: [],
+            pmonth: [],
+          },
+          lucky_game: {
+            day: [
+              {
+                key: '18',
+                value: 5000,
+              }, // game id: value
+            ],
+            pday: [],
+            week: [],
+            pweek: [],
+            month: [],
+            pmonth: [],
+          },
         },
       };
 

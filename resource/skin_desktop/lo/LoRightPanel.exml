@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.LoRightPanel" width="1024" height="329" xmlns:e="http://ns.egret.com/eui" xmlns:ba="we.ba.*"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+        <ui:RoundRectShape cornerTL_TR_BL_BR="12,12,0,0" width="1024" height="59" x="0" y="1" stroke="0"
+                           fillColor="0x132439" locked="true" />
+        <ui:RoundRectShape cornerTL_TR_BL_BR="0,0,12,12" width="1024" height="270" x="0" y="59" stroke="0"
+                           fillColor="0x151c26" />
+        <e:ViewStack id="chartStack" width="100%" height="100%" x="0" y="0" selectedIndex="0">
+                <e:Group id="chart1Page" width="100%" height="100%" name="Group">
+                        <e:Group height="29" x="622" y="13" anchorOffsetX="0">
+                                <e:RadioButton id="chart1Btn1" height="29" value="0" selected="true"
+                                               groupName="chart1Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chart1Btn2" height="29" value="1" selected="false"
+                                               groupName="chart1Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chart1Btn3" height="29" value="2" selected="false"
+                                               groupName="chart1Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chart1Btn4" height="29" value="3" selected="false"
+                                               groupName="chart1Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chart1Btn5" height="29" value="4" selected="true"
+                                               groupName="chart1Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chart1Btn6" height="29" value="5" selected="true"
+                                               groupName="chart1Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:layout>
+                                        <e:HorizontalLayout gap="0" />
+                                </e:layout>
+                        </e:Group>
+                        <e:Rect x="0" y="59" width="429" height="270" fillColor="0x0e1621" />
+                        <ui:RunTimeLabel id="luckyTimeTitle" text="Best Time" x="22" y="87" width="150" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" />
+                        <ui:RunTimeLabel id="luckyTimeTitleValue" text="20:00" x="22" y="120" width="132" height="198"
+                                         verticalAlign="top" textAlign="left" size="36" textColor="0xc59466"
+                                         lineSpacing="0" anchorOffsetY="0" />
+                        <ui:RoundRectShape id="luckyTimeIcon1" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
+                                           x="452" y="88" stroke="0" fillColor="0xeef700" />
+                        <ui:RunTimeLabel id="luckyTimeTxt1" text="10:00" x="484" y="88" width="135" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="luckyTimeTxtValue1" text="10.98%" y="88" height="24" verticalAlign="middle"
+                                         textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
+                                         x="608" />
+                        <ui:RoundRectShape id="luckyTimeIcon2" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
+                                           x="452" y="136" stroke="0" fillColor="0x7cffa0" />
+                        <ui:RunTimeLabel id="luckyTimeTxt2" text="10:00" x="484" y="136" width="135" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="luckyTimeTxtValue2" text="10.98%" y="136" height="24"
+                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" x="608" />
+                        <ui:RoundRectShape id="luckyTimeIcon3" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
+                                           x="452" y="184" stroke="0" fillColor="0x37fbf1" />
+                        <ui:RunTimeLabel id="luckyTimeTxt3" text="10:00" x="484" y="184" width="135" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="luckyTimeTxtValue3" text="10.98%" y="184" height="24"
+                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" x="608" />
+                        <ui:RoundRectShape id="luckyTimeIcon4" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
+                                           x="452" y="232" stroke="0" fillColor="0x27abdd" />
+                        <ui:RunTimeLabel id="luckyTimeTxt4" text="10:00" x="484" y="232" width="135" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="luckyTimeTxtValue4" text="10.98%" y="232" height="24"
+                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" x="608" />
+                        <ui:RoundRectShape id="luckyTimeIcon5" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
+                                           x="452" y="280" stroke="0" fillColor="0x0a4481" />
+                        <ui:RunTimeLabel id="luckyTimeTxt5" text="10:00" x="484" y="280" width="135" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="luckyTimeTxtValue5" text="10.98%" y="280" height="24"
+                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" x="608" />
+                        <ui:RoundRectShape id="luckyTimeIcon6" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
+                                           x="740" y="88" stroke="0" fillColor="0x5832e5" />
+                        <ui:RunTimeLabel id="luckyTimeTxt6" text="10:00" x="772" y="88" width="135" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="luckyTimeTxtValue6" text="10.98%" y="88" height="24" verticalAlign="middle"
+                                         textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
+                                         x="896" />
+                        <ui:RoundRectShape id="luckyTimeIcon7" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
+                                           x="740" y="136" stroke="0" fillColor="0x8633e7" />
+                        <ui:RunTimeLabel id="luckyTimeTxt7" text="10:00" x="772" y="136" width="135" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="luckyTimeTxtValue7" text="10.98%" y="136" height="24"
+                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" x="896" />
+                        <ui:RoundRectShape id="luckyTimeIcon8" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
+                                           x="740" y="184" stroke="0" fillColor="0xe033e7" />
+                        <ui:RunTimeLabel id="luckyTimeTxt8" text="10:00" x="772" y="184" width="135" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="luckyTimeTxtValue8" text="10.98%" y="184" height="24"
+                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" x="896" />
+                        <ui:RoundRectShape id="luckyTimeIcon9" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
+                                           x="740" y="232" stroke="0" fillColor="0xca0d59" />
+                        <ui:RunTimeLabel id="luckyTimeTxt9" text="10:00" x="772" y="232" width="135" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="luckyTimeTxtValue9" text="10.98%" y="232" height="24"
+                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" x="896" />
+                        <ui:RoundRectShape id="luckyTimeIcon10" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
+                                           x="740" y="280" stroke="0" fillColor="0xff9000" />
+                        <ui:RunTimeLabel id="luckyTimeTxt10" text="10:00" x="772" y="280" width="135" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="luckyTimeTxtValue10" text="10.98%" y="280" height="24"
+                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" x="896" />
+                </e:Group>
+                <e:Group id="chart2Page" width="100%" height="100%" name="Group">
+                        <e:Group height="29" x="622" y="13" anchorOffsetX="0">
+                                <e:RadioButton id="chart2Btn1" height="29" value="0" selected="true"
+                                               groupName="chart2Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chart2Btn2" height="29" value="1" selected="false"
+                                               groupName="chart2Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chart2Btn3" height="29" value="2" selected="false"
+                                               groupName="chart2Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chart2Btn4" height="29" value="3" selected="false"
+                                               groupName="chart2Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chart2Btn5" height="29" value="4" selected="true"
+                                               groupName="chart2Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chart2Btn6" height="29" value="5" selected="true"
+                                               groupName="chart2Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:layout>
+                                        <e:HorizontalLayout gap="0" />
+                                </e:layout>
+                        </e:Group>
+                        <ui:RunTimeLabel id="luckyGameTitle" text="Best Game" x="22" y="87" width="150" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" />
+                        <ui:RunTimeLabel id="luckyGameTitleValue" text="Lottery" x="22" y="120" width="132" height="198"
+                                         verticalAlign="top" textAlign="left" size="36" textColor="0xc59466"
+                                         lineSpacing="0" anchorOffsetY="0" />
+                        <ui:RoundRectShape id="luckyGameIcon1" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
+                                           x="452" y="88" stroke="0" fillColor="0xeef700" />
+                        <ui:RunTimeLabel id="luckyGameTxt1" text="10:00" x="484" y="88" width="135" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="luckyGameTxtValue1" text="10.98%" y="88" height="24" verticalAlign="middle"
+                                         textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
+                                         x="608" />
+                        <ui:RoundRectShape id="luckyGameIcon2" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
+                                           x="452" y="136" stroke="0" fillColor="0x7cffa0" />
+                        <ui:RunTimeLabel id="luckyGameTxt2" text="10:00" x="484" y="136" width="135" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="luckyGameTxtValue2" text="10.98%" y="136" height="24"
+                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" x="608" />
+                        <ui:RoundRectShape id="luckyGameIcon3" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
+                                           x="452" y="184" stroke="0" fillColor="0x37fbf1" />
+                        <ui:RunTimeLabel id="luckyGameTxt3" text="10:00" x="484" y="184" width="135" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="luckyGameTxtValue3" text="10.98%" y="184" height="24"
+                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" x="608" />
+                        <ui:RoundRectShape id="luckyGameIcon4" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
+                                           x="452" y="232" stroke="0" fillColor="0x27abdd" />
+                        <ui:RunTimeLabel id="luckyGameTxt4" text="10:00" x="484" y="232" width="135" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="luckyGameTxtValue4" text="10.98%" y="232" height="24"
+                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" x="608" />
+                        <ui:RoundRectShape id="luckyGameIcon5" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
+                                           x="452" y="280" stroke="0" fillColor="0x0a4481" />
+                        <ui:RunTimeLabel id="luckyGameTxt5" text="10:00" x="484" y="280" width="135" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="luckyGameTxtValue5" text="10.98%" y="280" height="24"
+                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" x="608" />
+                        <ui:RoundRectShape id="luckyGameIcon6" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
+                                           x="740" y="88" stroke="0" fillColor="0x5832e5" />
+                        <ui:RunTimeLabel id="luckyGameTxt6" text="10:00" x="772" y="88" width="135" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="luckyGameTxtValue6" text="10.98%" y="88" height="24" verticalAlign="middle"
+                                         textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
+                                         x="896" />
+                        <ui:RoundRectShape id="luckyGameIcon7" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
+                                           x="740" y="136" stroke="0" fillColor="0x8633e7" />
+                        <ui:RunTimeLabel id="luckyGameTxt7" text="10:00" x="772" y="136" width="135" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="luckyGameTxtValue7" text="10.98%" y="136" height="24"
+                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" x="896" />
+                        <ui:RoundRectShape id="luckyGameIcon8" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
+                                           x="740" y="184" stroke="0" fillColor="0xe033e7" />
+                        <ui:RunTimeLabel id="luckyGameTxt8" text="10:00" x="772" y="184" width="135" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="luckyGameTxtValue8" text="10.98%" y="184" height="24"
+                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" x="896" />
+                        <ui:RoundRectShape id="luckyGameIcon9" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
+                                           x="740" y="232" stroke="0" fillColor="0xca0d59" />
+                        <ui:RunTimeLabel id="luckyGameTxt9" text="10:00" x="772" y="232" width="135" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="luckyGameTxtValue9" text="10.98%" y="232" height="24"
+                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" x="896" />
+                        <ui:RoundRectShape id="luckyGameIcon10" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
+                                           x="740" y="280" stroke="0" fillColor="0xff9000" />
+                        <ui:RunTimeLabel id="luckyGameTxt10" text="10:00" x="772" y="280" width="135" height="24"
+                                         verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="luckyGameTxtValue10" text="10.98%" y="280" height="24"
+                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" x="896" />
+                </e:Group>
+                <e:Group id="chart3Page" width="100%" height="100%" name="Group">
+                        <e:Group height="29" x="622" y="13" anchorOffsetX="0">
+                                <e:RadioButton id="chart3Btn1" height="29" value="0" selected="true"
+                                               groupName="chart3Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chart3Btn2" height="29" value="1" selected="false"
+                                               groupName="chart3Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chart3Btn3" height="29" value="2" selected="false"
+                                               groupName="chart3Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chart3Btn4" height="29" value="3" selected="false"
+                                               groupName="chart3Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chart3Btn5" height="29" value="4" selected="true"
+                                               groupName="chart3Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chart3Btn6" height="29" value="5" selected="true"
+                                               groupName="chart3Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:layout>
+                                        <e:HorizontalLayout gap="0" />
+                                </e:layout>
+                        </e:Group>
+                        <ui:RunTimeLabel id="favBetTxt1" text="全5中1" x="2" y="80" width="149" height="20"
+                                         verticalAlign="middle" textAlign="right" size="20" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="favBetTxtValue1" text="10.98%" x="967" y="80" height="20"
+                                         verticalAlign="middle" textAlign="left" size="20" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" />
+                        <ui:RunTimeLabel id="favBetTxt2" text="全5中1" x="2" y="122" width="149" height="20"
+                                         verticalAlign="middle" textAlign="right" size="20" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="favBetTxtValue2" text="10.98%" x="967" y="122" height="20"
+                                         verticalAlign="middle" textAlign="left" size="20" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" />
+                        <ui:RunTimeLabel id="favBetTxt3" text="全5中1" x="2" y="164" width="149" height="20"
+                                         verticalAlign="middle" textAlign="right" size="20" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="favBetTxtValue3" text="10.98%" x="967" y="164" height="20"
+                                         verticalAlign="middle" textAlign="left" size="20" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" />
+                        <ui:RunTimeLabel id="favBetTxt4" text="全5中1" x="2" y="206" width="149" height="20"
+                                         verticalAlign="middle" textAlign="right" size="20" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="favBetTxtValue4" text="10.98%" x="967" y="206" height="20"
+                                         verticalAlign="middle" textAlign="left" size="20" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" />
+                        <ui:RunTimeLabel id="favBetTxt5" text="全5中1" x="2" y="248" width="149" height="20"
+                                         verticalAlign="middle" textAlign="right" size="20" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="favBetTxtValue5" text="10.98%" x="967" y="248" height="20"
+                                         verticalAlign="middle" textAlign="left" size="20" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" />
+                        <ui:RunTimeLabel id="favBetTxt6" text="全5中1" x="2" y="290" width="149" height="20"
+                                         verticalAlign="middle" textAlign="right" size="20" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="favBetTxtValue6" text="10.98%" x="967" y="290" height="20"
+                                         verticalAlign="middle" textAlign="left" size="20" alpha="0.7" scaleX="1"
+                                         scaleY="1" width="106" />
+                </e:Group>
+                <e:Group id="chart4Page" width="100%" height="100%" name="Group">
+                        <e:Group height="29" x="622" y="13" anchorOffsetX="0">
+                                <e:RadioButton id="chart4Btn1" height="29" value="0" selected="true"
+                                               groupName="chart4Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chart4Btn2" height="29" value="1" selected="false"
+                                               groupName="chart4Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chart4Btn3" height="29" value="2" selected="false"
+                                               groupName="chart4Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chart4Btn4" height="29" value="3" selected="false"
+                                               groupName="chart4Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chart4Btn5" height="29" value="4" selected="true"
+                                               groupName="chart4Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chart4Btn6" height="29" value="5" selected="true"
+                                               groupName="chart4Group" width="64" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:layout>
+                                        <e:HorizontalLayout gap="0" />
+                                </e:layout>
+                        </e:Group>
+                        <ui:RunTimeLabel id="favGameTxtPercent1" text="100%" y="214" width="180" height="32"
+                                         verticalAlign="middle" textAlign="center" size="32" alpha="0.7" scaleX="1"
+                                         scaleY="1" x="18" />
+                        <ui:RunTimeLabel id="favGameTxt1" text="全5中1" y="274" width="180" height="22"
+                                         verticalAlign="middle" textAlign="center" size="22" alpha="0.7" scaleX="1"
+                                         scaleY="1" x="18" />
+                        <ui:RunTimeLabel id="favGameTxtValue1" text="50000" y="298" height="22" verticalAlign="middle"
+                                         textAlign="center" size="22" alpha="0.7" scaleX="1" scaleY="1" width="180"
+                                         x="18" />
+                        <ui:RunTimeLabel id="favGameTxtPercent2" text="100%" y="214" width="180" height="32"
+                                         verticalAlign="middle" textAlign="center" size="32" alpha="0.7" scaleX="1"
+                                         scaleY="1" x="220" />
+                        <ui:RunTimeLabel id="favGameTxt2" text="全5中1" y="274" width="180" height="22"
+                                         verticalAlign="middle" textAlign="center" size="22" alpha="0.7" scaleX="1"
+                                         scaleY="1" x="220" />
+                        <ui:RunTimeLabel id="favGameTxtValue2" text="50000" y="298" height="22" verticalAlign="middle"
+                                         textAlign="center" size="22" alpha="0.7" scaleX="1" scaleY="1" width="180"
+                                         x="220" />
+                        <ui:RunTimeLabel id="favGameTxtPercent3" text="100%" y="214" width="180" height="32"
+                                         verticalAlign="middle" textAlign="center" size="32" alpha="0.7" scaleX="1"
+                                         scaleY="1" x="422" />
+                        <ui:RunTimeLabel id="favGameTxt3" text="全5中1" y="274" width="180" height="22"
+                                         verticalAlign="middle" textAlign="center" size="22" alpha="0.7" scaleX="1"
+                                         scaleY="1" x="422" />
+                        <ui:RunTimeLabel id="favGameTxtValue3" text="50000" y="298" height="22" verticalAlign="middle"
+                                         textAlign="center" size="22" alpha="0.7" scaleX="1" scaleY="1" width="180"
+                                         x="422" />
+                        <ui:RunTimeLabel id="favGameTxtPercent4" text="100%" y="214" width="180" height="32"
+                                         verticalAlign="middle" textAlign="center" size="32" alpha="0.7" scaleX="1"
+                                         scaleY="1" x="624" />
+                        <ui:RunTimeLabel id="favGameTxt4" text="全5中1" y="274" width="180" height="22"
+                                         verticalAlign="middle" textAlign="center" size="22" alpha="0.7" scaleX="1"
+                                         scaleY="1" x="624" />
+                        <ui:RunTimeLabel id="favGameTxtValue4" text="50000" y="298" height="22" verticalAlign="middle"
+                                         textAlign="center" size="22" alpha="0.7" scaleX="1" scaleY="1" width="180"
+                                         x="624" />
+                        <ui:RunTimeLabel id="favGameTxtPercent5" text="100%" y="214" width="180" height="32"
+                                         verticalAlign="middle" textAlign="center" size="32" alpha="0.7" scaleX="1"
+                                         scaleY="1" x="826" />
+                        <ui:RunTimeLabel id="favGameTxt5" text="全5中1" y="274" width="180" height="22"
+                                         verticalAlign="middle" textAlign="center" size="22" alpha="0.7" scaleX="1"
+                                         scaleY="1" x="826" />
+                        <ui:RunTimeLabel id="favGameTxtValue5" text="50000" y="298" height="22" verticalAlign="middle"
+                                         textAlign="center" size="22" alpha="0.7" scaleX="1" scaleY="1" width="180"
+                                         x="826" />
+                </e:Group>
+        </e:ViewStack>
+        <e:Group id="btnPageSelect" width="100" height="34" x="18" y="14">
+                <e:Rect fillAlpha="1" strokeWeight="0" strokeColor="0x4b535b" ellipseWidth="34" ellipseHeight="34"
+                        width="100" height="34" fillColor="0x214a72" />
+                <ui:RunTimeLabel id="txtPageSelect" text="Label" x="0" y="0" width="90%" height="100%"
+                                 verticalAlign="middle" textAlign="center" size="24" alpha="0.7" scaleX="1" scaleY="1" />
+                <e:Image width="10" height="15" x="92" y="13" source="d_lobby_button_triangle_next_png" rotation="90"
+                         touchEnabled="false" />
+        </e:Group>
+        <ui:Panel id="panelPageSelect" width="251" x="13" y="59" skinName="skin_desktop.NavDropdown" maxHeight="300" />
+        <ui:RoundRectShape id="_border" cornerTL_TR_BL_BR="12,12,12,12" width="1024" height="329" x="0" y="0" stroke="1"
+                           strokeColor="0x214a72" fillAlpha="0" locked="true" touchEnabled="false" />
+</e:Skin>

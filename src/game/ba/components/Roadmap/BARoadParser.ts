@@ -611,6 +611,131 @@ namespace we {
           });
         }
 
+        // lo
+        if (data.size1 !== undefined) {
+          roadSet.size1 = [];
+          data.size1.forEach(element => {
+            roadSet.size1.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+        if (data.size2 !== undefined) {
+          roadSet.size2 = [];
+          data.size2.forEach(element => {
+            roadSet.size2.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+        if (data.size3 !== undefined) {
+          roadSet.size3 = [];
+          data.size3.forEach(element => {
+            roadSet.size3.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+        if (data.size4 !== undefined) {
+          roadSet.size4 = [];
+          data.size4.forEach(element => {
+            roadSet.size4.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+        if (data.size5 !== undefined) {
+          roadSet.size5 = [];
+          data.size5.forEach(element => {
+            roadSet.size5.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
+        if (data.odd1 !== undefined) {
+          roadSet.odd1 = [];
+          data.odd1.forEach(element => {
+            roadSet.odd1.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+        if (data.odd2 !== undefined) {
+          roadSet.odd2 = [];
+          data.odd2.forEach(element => {
+            roadSet.odd2.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+        if (data.odd3 !== undefined) {
+          roadSet.odd3 = [];
+          data.odd3.forEach(element => {
+            roadSet.odd3.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+        if (data.odd4 !== undefined) {
+          roadSet.odd4 = [];
+          data.odd4.forEach(element => {
+            roadSet.odd4.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+        if (data.odd5 !== undefined) {
+          roadSet.odd5 = [];
+          data.odd5.forEach(element => {
+            roadSet.odd5.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
+        if (data.dt1v2 !== undefined) {
+          roadSet.dt1v2 = [];
+          data.dt1v2.forEach(element => {
+            roadSet.dt1v2.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+        if (data.dt1v3 !== undefined) {
+          roadSet.dt1v3 = [];
+          data.dt1v3.forEach(element => {
+            roadSet.dt1v3.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+        if (data.dt1v4 !== undefined) {
+          roadSet.dt1v4 = [];
+          data.dt1v4.forEach(element => {
+            roadSet.dt1v4.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+        if (data.dt1v5 !== undefined) {
+          roadSet.dt1v5 = [];
+          data.dt1v5.forEach(element => {
+            roadSet.dt1v5.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+        if (data.dt2v3 !== undefined) {
+          roadSet.dt2v3 = [];
+          data.dt2v3.forEach(element => {
+            roadSet.dt2v3.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
+        if (data.dt2v4 !== undefined) {
+          roadSet.dt2v4 = [];
+          data.dt2v4.forEach(element => {
+            roadSet.dt2v4.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+        if (data.dt2v5 !== undefined) {
+          roadSet.dt2v5 = [];
+          data.dt2v5.forEach(element => {
+            roadSet.dt2v5.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+        if (data.dt3v4 !== undefined) {
+          roadSet.dt3v4 = [];
+          data.dt3v4.forEach(element => {
+            roadSet.dt3v4.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+        if (data.dt3v5 !== undefined) {
+          roadSet.dt3v5 = [];
+          data.dt3v5.forEach(element => {
+            roadSet.dt3v5.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+        if (data.dt4v5 !== undefined) {
+          roadSet.dt4v5 = [];
+          data.dt4v5.forEach(element => {
+            roadSet.dt4v5.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
         return roadSet;
       }
 
