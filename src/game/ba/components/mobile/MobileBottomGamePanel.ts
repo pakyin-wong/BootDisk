@@ -69,6 +69,12 @@ namespace we {
         super.updateStat();
         this._statisticChartPanel.update();
       }
+
+      public openTableInfo() {
+        super.openTableInfo();
+        this.tableInfoBtn.selected = true;
+        this.viewStack.selectedIndex = this.tableInfoBtn.value;
+      }
     }
   }
 }

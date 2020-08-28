@@ -656,17 +656,17 @@ namespace we {
         });
       }
 
-      protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
-        for (const key of Object.keys(fieldAmounts)) {
-          if (fieldAmounts[key] === 0) {
-            continue;
-          }
-          if (fieldAmounts[key] < betLimit.minlimit) {
-            return true;
-          }
-        }
-        return false;
-      }
+      // protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+      //   for (const key of Object.keys(fieldAmounts)) {
+      //     if (fieldAmounts[key] === 0) {
+      //       continue;
+      //     }
+      //     if (fieldAmounts[key] < betLimit.minlimit) {
+      //       return true;
+      //     }
+      //   }
+      //   return false;
+      // }
       protected isExceedUpperBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail: data.BetDetail) {
         const val = this.getAllValue(fieldAmounts, betDetail.field) + betDetail.amount;
 
@@ -675,29 +675,29 @@ namespace we {
         switch (fieldType) {
           case 'odd':
           case 'even':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.ODD_EVEN.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'ro', 'ODD_EVEN'));
           case 'big':
           case 'small':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.BIG_SMALL.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'ro', 'BIG_SMALL'));
           case 'red':
           case 'black':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.RED_BLACK.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'ro', 'RED_BLACK'));
           case 'direct':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.DIRECT.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'ro', 'DIRECT'));
           case 'separate':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.SEPARATE.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'ro', 'SEPARATE'));
           case 'line':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.LINE.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'ro', 'LINE'));
           case 'corner':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.CORNER.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'ro', 'CORNER'));
           case 'street':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.STREET.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'ro', 'STREET'));
           case 'row':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.ROW.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'ro', 'ROW'));
           case 'dozen':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.DOZEN.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'ro', 'DOZEN'));
           case 'street':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.STREET.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'ro', 'STREET'));
         }
       }
 
