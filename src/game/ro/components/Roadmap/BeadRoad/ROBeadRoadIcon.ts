@@ -38,9 +38,17 @@ namespace we {
         this.iconHightLight.graphics.endFill();
         this.iconHightLight.visible = false;
 
-        if (this.isSmall = true){
-          this._iconText.scaleX = 0.8;
-          this._iconText.scaleY = 0.8;
+        if ((this.isSmall = true)) {
+          // this._iconText.font = RES.getRes(`${env.isMobile ? 'm' : ''}roadmapfont_fnt`);
+          // this._iconText.font = RES.getRes('Barlow-Regular_otf');
+          this._iconText.width = size * 0.3;
+          this._iconText.height = size * 0.3;
+          this._iconText.textAlign = egret.HorizontalAlign.CENTER;
+          this._iconText.verticalAlign = egret.VerticalAlign.MIDDLE;
+          this._iconText.anchorOffsetX = this._iconText.width * 0.5;
+          this._iconText.anchorOffsetY = this._iconText.height;
+          // this._iconText.scaleX = 0.8;
+          // this._iconText.scaleY = 0.8;
         }
         //
         this._iconTopText = new egret.TextField();
