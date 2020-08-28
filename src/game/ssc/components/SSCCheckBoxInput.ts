@@ -91,9 +91,9 @@ namespace we {
         let searchText: string = '$count$';
         text = text.replace(searchText, boxCount.toString());
         searchText = '$combination$';
-        text =text.replace(searchText, this._data.length.toString());
+        text = text.replace(searchText, this._data.length.toString());
         searchText = '$min$';
-        text =text.replace(searchText, this._config.minSelect.toString());
+        text = text.replace(searchText, this._config.minSelect.toString());
         this._description.renderText = () => `${text}`;
       }
 

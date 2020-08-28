@@ -59,6 +59,9 @@ namespace we {
         }
 
         this._counter = this._bettingPanel._timer;
+
+        if(this._tableInfo)
+          this._bettingPanel.updateBetTableInfo(this._tableInfo);
       }
 
       public onExit() {
@@ -74,6 +77,9 @@ namespace we {
         this._bettingPanelGroup.removeChild(this._bettingPanel);
         this._bettingPanel = null;
         this.removeChildren();
+      }
+      protected setupTableInfo() {
+        super.setupTableInfo();
       }
 
       protected setSkinName() {
@@ -213,15 +219,15 @@ namespace we {
         // this.playVideo();
         const aspect = 16 / 9;
         const ratio = this.stage.stageWidth / this.stage.stageHeight;
-        this._video.x = this.stage.stageWidth * 0.5;
-        this._video.y = this.stage.stageHeight * 0.5;
-        this._video.width = ratio < 1 ? this.stage.stageHeight * aspect : this.stage.stageWidth;
-        this._video.height = ratio < 1 ? this.stage.stageHeight : this.stage.stageWidth / aspect;
-        this._video.$anchorOffsetX = this._video.width * 0.5;
-        this._video.$anchorOffsetY = this._video.height * 0.5;
+        this._video.x = 1560;
+        this._video.y = 104;
+        this._video.width = 1024;
+        this._video.height = 575;
+        // this._video.$anchorOffsetX = this._video.width * 0.5;
+        // this._video.$anchorOffsetY = this._video.height * 0.5;
         this._video.play();
         this.stage.frameRate = 60;
-        this._bgImg.visible = false;
+        this._bgImg.visible = true;
 
         this._gameBar.targetScene = this;
 

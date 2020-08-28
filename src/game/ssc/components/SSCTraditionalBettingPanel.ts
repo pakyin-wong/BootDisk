@@ -44,11 +44,11 @@ namespace we {
       private _lblResultBall3: ui.RunTimeLabel;
       private _lblResultBall4: ui.RunTimeLabel;
 
+      private _lblLastBall0: ui.RunTimeLabel;
       private _lblLastBall1: ui.RunTimeLabel;
       private _lblLastBall2: ui.RunTimeLabel;
       private _lblLastBall3: ui.RunTimeLabel;
       private _lblLastBall4: ui.RunTimeLabel;
-      private _lblLastBall5: ui.RunTimeLabel;
 
       private _lblPrevBall0: ui.RunTimeLabel;
       private _lblPrevBall1: ui.RunTimeLabel;
@@ -320,9 +320,10 @@ namespace we {
 
       public updateBetTableInfo(info) {
         super.updateBetTableInfo(info);
-        if (info.loresults) {
-          let index = info.loresults.length - 1;
-          const data = info.loresults;
+        if (info.gamestatistic.loresults) {
+          const data = info.gamestatistic.loresults;
+          let index = data.length - 1;
+
           this._lblCurrentRoundState.renderText = () => `${data[index].Roundnumber + i18n.t('lo_fun_drawingRound')}`;
           this._lblResultBall0.renderText = () => (data[index].Data.ball1 >= 0 ? `${data[index].Data.ball1}` : '-');
           this._lblResultBall1.renderText = () => (data[index].Data.ball2 >= 0 ? `${data[index].Data.ball2}` : '-');
@@ -330,25 +331,26 @@ namespace we {
           this._lblResultBall3.renderText = () => (data[index].Data.ball4 >= 0 ? `${data[index].Data.ball4}` : '-');
           this._lblResultBall4.renderText = () => (data[index].Data.ball5 >= 0 ? `${data[index].Data.ball5}` : '-');
 
-          if (info.loresults.length >= 2) {
-            index = info.loresults.length - 2;
+          if (data.length >= 2) {
+            index = data.length - 2;
 
-            this._lblLastRound.renderText = () => `${data[index].Roundnumber + i18n.t('lo_fun_drawingRound')}`;
-            this._lblLastBall1.renderText = () => (data[index].Data.ball1 >= 0 ? `${data[index].Data.ball1}` : '-');
+            this._lblLastRound.renderText = () => `${data[index].Roundnumber}`;
+            this._lblLastBall0.renderText = () => (data[index].Data.ball1 >= 0 ? `${data[index].Data.ball1}` : '-');
+            console.log(data[index].Data.ball1);
             this._lblLastBall1.renderText = () => (data[index].Data.ball2 >= 0 ? `${data[index].Data.ball2}` : '-');
-            this._lblLastBall1.renderText = () => (data[index].Data.ball3 >= 0 ? `${data[index].Data.ball3}` : '-');
-            this._lblLastBall1.renderText = () => (data[index].Data.ball4 >= 0 ? `${data[index].Data.ball4}` : '-');
-            this._lblLastBall1.renderText = () => (data[index].Data.ball5 >= 0 ? `${data[index].Data.ball5}` : '-');
+            this._lblLastBall2.renderText = () => (data[index].Data.ball3 >= 0 ? `${data[index].Data.ball3}` : '-');
+            this._lblLastBall3.renderText = () => (data[index].Data.ball4 >= 0 ? `${data[index].Data.ball4}` : '-');
+            this._lblLastBall4.renderText = () => (data[index].Data.ball5 >= 0 ? `${data[index].Data.ball5}` : '-');
           }
-          if (info.loresults.length >= 3) {
-            index = info.loresults.length - 3;
+          if (data.length >= 3) {
+            index = data.length - 3;
 
-            this._lblPrevRound.renderText = () => `${data[index].Roundnumber + i18n.t('lo_fun_drawingRound')}`;
-            this._lblPrevBall1.renderText = () => (data[index].Data.ball1 >= 0 ? `${data[index].Data.ball1}` : '-');
+            this._lblPrevRound.renderText = () => `${data[index].Roundnumber}`;
+            this._lblPrevBall0.renderText = () => (data[index].Data.ball1 >= 0 ? `${data[index].Data.ball1}` : '-');
             this._lblPrevBall1.renderText = () => (data[index].Data.ball2 >= 0 ? `${data[index].Data.ball2}` : '-');
-            this._lblPrevBall1.renderText = () => (data[index].Data.ball3 >= 0 ? `${data[index].Data.ball3}` : '-');
-            this._lblPrevBall1.renderText = () => (data[index].Data.ball4 >= 0 ? `${data[index].Data.ball4}` : '-');
-            this._lblPrevBall1.renderText = () => (data[index].Data.ball5 >= 0 ? `${data[index].Data.ball5}` : '-');
+            this._lblPrevBall2.renderText = () => (data[index].Data.ball3 >= 0 ? `${data[index].Data.ball3}` : '-');
+            this._lblPrevBall3.renderText = () => (data[index].Data.ball4 >= 0 ? `${data[index].Data.ball4}` : '-');
+            this._lblPrevBall4.renderText = () => (data[index].Data.ball5 >= 0 ? `${data[index].Data.ball5}` : '-');
           }
         }
       }
