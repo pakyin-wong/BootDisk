@@ -102,7 +102,7 @@ namespace we {
 
       public updateResult(gameData: data.GameData, chipLayer?: ui.ChipLayer) {
         // TODO: update card using the gameData
-        this.gameData = <bam.GameData>gameData;
+        this.gameData = <bam.GameData> gameData;
         this._chipLayer = chipLayer;
 
         this.updateCardArr();
@@ -139,7 +139,7 @@ namespace we {
 
         this.calculatePoint();
 
-        if (this.showNextCardTimeoutId>-1) {
+        if (this.showNextCardTimeoutId > -1) {
           clearTimeout(this.showNextCardTimeoutId);
         }
 
@@ -150,16 +150,25 @@ namespace we {
 
       protected showNextCard() {
         const nextIdx = this.getNextIndex(this._flipIndex);
-        if (nextIdx>-1) {
+        if (nextIdx > -1) {
           this.selectCardByIdx(nextIdx);
         }
       }
 
       protected getNextIndex(cardArrIdx: number) {
-        const posIdxArray = [5,4,3,0,1,2];
+        const posIdxArray = [5, 4, 3, 0, 1, 2];
         const posIdx = posIdxArray.indexOf(cardArrIdx);
-        if (posIdx>-1 && posIdx<posIdxArray.length-1) {
-          return posIdxArray[posIdx+1];
+        if (posIdx > -1) {
+          let checked = 0;
+          while (checked < 5) {
+            const nextPos = (posIdx + 1) % 6;
+            const nextIdx = posIdxArray[nextPos];
+            const card: eui.Component = this.cardHolderArr[nextIdx];
+            if (card.visible && card.touchEnabled) {
+              return nextIdx;
+            }
+            checked++;
+          }
         }
         return -1;
       }
@@ -326,7 +335,7 @@ namespace we {
         this._highlightCard.rotation = selectedCard.rotation;
         this._highlightCard.visible = true;
 
-        if (this.showNextCardTimeoutId>-1) {
+        if (this.showNextCardTimeoutId > -1) {
           clearTimeout(this.showNextCardTimeoutId);
         }
 
@@ -516,7 +525,7 @@ namespace we {
           this._openAllPlayer.visible = false;
         }
 
-        if (initSelectedIdx>-1) {
+        if (initSelectedIdx > -1) {
           this.selectCardByIdx(initSelectedIdx);
         }
       }
