@@ -208,9 +208,9 @@ namespace we {
         }
       }
 
-            protected setBetRelatedComponentsEnabled(enable: boolean) {
-              super.setBetRelatedComponentsEnabled(enable);
-              this._switchBaMode.enabled = enable;
+      protected setBetRelatedComponentsEnabled(enable: boolean) {
+        super.setBetRelatedComponentsEnabled(enable);
+        this._switchBaMode.enabled = enable;
       }
     }
   }

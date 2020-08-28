@@ -162,7 +162,7 @@ namespace we {
         this._middlePartHeight = this._middlePart.height;
       }
 
-      public openTableInfo(){
+      public openTableInfo() {
         this.manualOpen();
       }
     }
