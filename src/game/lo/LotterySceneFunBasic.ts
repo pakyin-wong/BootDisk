@@ -150,12 +150,12 @@ namespace we {
               break;
             default:
               this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('baccarat.betFail'));
-              logger.e(utils.LogTarget.STAGING, 'Bet error');
+              logger.e(utils.LogTarget.RELEASE, 'Bet error');
               break;
           }
         } else {
           this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('baccarat.betFail'));
-          logger.e(utils.LogTarget.STAGING, 'Bet error');
+          logger.e(utils.LogTarget.RELEASE, 'Bet error');
         }
       }
 

@@ -12,7 +12,7 @@ namespace we {
 
       protected _gameInfoLabel: ui.RunTimeLabel;
 
-      protected viewStack: eui.ViewStack;
+      public viewStack: eui.ViewStack;
       protected viewStackMask: eui.Rect;
       protected _middlePart: eui.Group;
       protected _middlePartHeight: number;
@@ -74,6 +74,17 @@ namespace we {
 
       public updateText() {
         this._gameInfoLabel.text = i18n.t('mobile_panel_game_Info');
+      }
+
+      public manualOpen() {
+        if (!env.isBottomPanelOpen) {
+          this.currentState = 'on';
+          egret.Tween.removeTweens(this._middlePart);
+          env.isBottomPanelOpen = true;
+          this.isPanelOpen = env.isBottomPanelOpen;
+          egret.Tween.get(this._middlePart).to({ height: this._middlePartHeight }, 250);
+          this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
+        }
       }
 
       public manualClose() {
@@ -156,6 +167,10 @@ namespace we {
       protected getMiddlePartHeight() {
         this.currentState = 'on';
         this._middlePartHeight = this._middlePart.height;
+      }
+
+      public openTableInfo(){
+        this.manualOpen();
       }
     }
   }

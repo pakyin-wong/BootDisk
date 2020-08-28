@@ -514,7 +514,7 @@ namespace we {
 
         let exceedBetLimit = false;
         if (checkLowerLimit) {
-          // exceedBetLimit = this.isExceedLowerBetLimit(fieldAmounts, betLimit);
+          exceedBetLimit = this.isExceedLowerBetLimit(fieldAmounts, betLimit);
         } else {
           exceedBetLimit = this.isExceedUpperBetLimit(fieldAmounts, betLimit, betDetail);
         }
@@ -543,7 +543,16 @@ namespace we {
       }
 
       protected abstract isExceedUpperBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail: data.BetDetail);
-      protected abstract isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet);
+
+      protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+        const totalUncfmAmount = this.getTotalUncfmBetAmount();
+
+        if (betLimit.minlimit > totalUncfmAmount) {
+          return true;
+        }
+
+        return false;
+      }
 
       protected checkLimit(checkBet, betDetail, maxlimit) {
         if (checkBet > maxlimit) {

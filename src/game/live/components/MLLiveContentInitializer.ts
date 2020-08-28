@@ -3,17 +3,36 @@ namespace we {
   export namespace live {
     export class MLLiveContentInitializer implements IContentInitializer {
       protected root: GameTableList;
-
+      protected _shouldTouchFocus: boolean = true;
       constructor() {}
 
       public initContent(root: GameTableList) {
         this.root = root;
 
-        root.slider = new ui.ImageSlider();
-        root.slider.x = 60;
-        root.slider.width = 850;
-        root.slider.height = 850;
-        root.slider.configSlides(dir.liveResources.liveHeroBanners);
+        // root.slider = new ui.ImageSlider();
+        // root.slider.x = 60;
+        // root.slider.width = 850;
+        // root.slider.height = 850;
+        // root.slider.configSlides(dir.liveResources.liveHeroBanners);
+        root.holder = new we.ui.HorizontalHolder();
+        root.holder.x = 60;
+        root.holder.slideHeight = 850;
+        root.holder.slideWidth = 850;
+        root.holder.isAuto = true;
+        root.holder.isLoop = true;
+        root.holder.isBullet = true;
+        root.holder.height = 850;
+        root.holder.width = 850;
+        root.holder.bulletGapValue = 20;
+        root.holder.bulletBottom = 50;
+        root.holder.bulletHorizontalCenter = 0;
+        dir.liveResources.liveHeroBanners.forEach(element => {
+          const image = new eui.Image();
+          if (element.image) {
+            image.source = element.image;
+          }
+          root.holder.addChild(image);
+        });
 
         root.roomList.layout = root.roomListRefer.layout;
         root.roomList.itemRenderer = MobileLiveListHolder;
@@ -22,12 +41,31 @@ namespace we {
         root.roomList.useVirtualLayout = true;
 
         root.scroller.viewport = root.roomList;
+        root.scroller.viewport.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.touchBegin, this, true, -1);
+        root.scroller.viewport.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.touchContinue, this, true, -1);
+        root.scroller.viewport.addEventListener(egret.TouchEvent.TOUCH_END, this.touchContinue, this, true, -1);
 
         root.tabItems = utils.EnumHelpers.values(core.LiveGameTab);
         root.tabs = new DropDownLiveGameTabbar(root.tabItems);
         root.addChild(root.tabs);
 
         this.setDisplayMode(env.lobbyGridType);
+      }
+
+      protected touchBegin(e: egret.TouchEvent) {
+        if (e.currentTarget !== e.target) {
+          if ((e.target as egret.EventDispatcher).hasEventListener(egret.TouchEvent.TOUCH_BEGIN)) {
+            this._shouldTouchFocus = false;
+            e.preventDefault();
+            return;
+          }
+        }
+        this._shouldTouchFocus = true;
+      }
+      protected touchContinue(e: egret.TouchEvent) {
+        if (!this._shouldTouchFocus) {
+          e.preventDefault();
+        }
       }
 
       public onDisplayMode(evt: egret.Event) {

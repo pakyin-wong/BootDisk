@@ -89,17 +89,17 @@ namespace we {
         this._betChipStackMapping[dil.BetField.SUM_18] = this._sum_18_betChipStack;
       }
 
-      protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
-        for (const key of Object.keys(fieldAmounts)) {
-          if (fieldAmounts[key] === 0) {
-            continue;
-          }
-          if (fieldAmounts[key] < betLimit.minlimit) {
-            return true;
-          }
-        }
-        return false;
-      }
+      // protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+      //   for (const key of Object.keys(fieldAmounts)) {
+      //     if (fieldAmounts[key] === 0) {
+      //       continue;
+      //     }
+      //     if (fieldAmounts[key] < betLimit.minlimit) {
+      //       return true;
+      //     }
+      //   }
+      //   return false;
+      // }
       protected isExceedUpperBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail: data.BetDetail) {
         const val = this.getAllValue(fieldAmounts, betDetail.field) + betDetail.amount;
 
@@ -110,21 +110,21 @@ namespace we {
             const num = betDetail.field.split('_')[1];
             let limit = 0;
             if (num === '3' || num === '18') {
-              limit = betLimit.limits.dil.SUM_3_18.maxlimit;
+              limit = utils.getBetLimit(betLimit, 'dil', 'SUM_3_18');
             } else if (num === '4' || num === '17') {
-              limit = betLimit.limits.dil.SUM_4_17.maxlimit;
+              limit = utils.getBetLimit(betLimit, 'dil', 'SUM_4_17');
             } else if (num === '5' || num === '16') {
-              limit = betLimit.limits.dil.SUM_5_16.maxlimit;
+              limit = utils.getBetLimit(betLimit, 'dil', 'SUM_5_16');
             } else if (num === '6' || num === '15') {
-              limit = betLimit.limits.dil.SUM_6_15.maxlimit;
+              limit = utils.getBetLimit(betLimit, 'dil', 'SUM_6_15');
             } else if (num === '7' || num === '14') {
-              limit = betLimit.limits.dil.SUM_7_14.maxlimit;
+              limit = utils.getBetLimit(betLimit, 'dil', 'SUM_7_14');
             } else if (num === '8' || num === '13') {
-              limit = betLimit.limits.dil.SUM_8_13.maxlimit;
+              limit = utils.getBetLimit(betLimit, 'dil', 'SUM_8_13');
             } else if (num === '9' || num === '12') {
-              limit = betLimit.limits.dil.SUM_9_12.maxlimit;
+              limit = utils.getBetLimit(betLimit, 'dil', 'SUM_9_12');
             } else if (num === '10' || num === '11') {
-              limit = betLimit.limits.dil.SUM_10_11.maxlimit;
+              limit = utils.getBetLimit(betLimit, 'dil', 'SUM_10_11');
             }
             return this.checkLimit(val, betDetail, limit);
         }

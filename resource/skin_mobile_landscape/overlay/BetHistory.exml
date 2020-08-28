@@ -85,5 +85,5 @@
 			                 textAlign="center" fontFamily="Barlow" size="28" />
 		</e:Group>
 	</e:Group>
-	<overlay:DoubleCalendarPicker skinName="skin_mobile_landscape.DoubleCalendarPicker" id="_datepicker" width="1402" height="1050" y="96" x="511" scaleX="1" scaleY="1" anchorOffsetY="0"/>
+	<overlay:DoubleCalendarPicker skinName="skin_mobile_landscape.DoubleCalendarPicker" id="_datepicker" width="1402" height="1200" x="511" scaleX="1" scaleY="1" anchorOffsetY="0" verticalCenter="0"/>
 </e:Skin>

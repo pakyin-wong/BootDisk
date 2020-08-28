@@ -163,6 +163,12 @@ namespace we {
         this._roadmapPanel.onRoadMapChanged(e);
         this._beadroadPanel.onBeadRoadChanged(e);
       }
+
+      public openTableInfo() {
+        super.openTableInfo();
+        this.tableInfoBtn.selected = true;
+        this.viewStack.selectedIndex = this.tableInfoBtn.value;
+      }
     }
   }
 }

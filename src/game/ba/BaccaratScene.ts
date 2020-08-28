@@ -207,6 +207,11 @@ namespace we {
           dir.audioCtr.playSequence([subject, 'win']);
         }
       }
+
+            protected setBetRelatedComponentsEnabled(enable: boolean) {
+              super.setBetRelatedComponentsEnabled(enable);
+              this._switchBaMode.enabled = enable;
+      }
     }
   }
 }

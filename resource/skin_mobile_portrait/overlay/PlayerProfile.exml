@@ -15,7 +15,7 @@
 					<e:Image width="52" height="52" source="m_common_setting_playinfo_profilepic_edit_icon_png" x="17" y="17" />
 				</e:Group>
 				<ui:RunTimeLabel id="_username" text="Johathan" y="686" textColor="0xc59466" size="80" anchorOffsetY="0" height="96"
-				                 fontFamily="Barlow" textAlign="center" width="700" horizontalCenter="0" verticalAlign="middle" />
+				                 textAlign="center" width="700" horizontalCenter="0" verticalAlign="middle" />
 				<ui:RunTimeLabel id="_balance" text="RMB 120,889,200" y="806" size="80" height="96" width="700" horizontalCenter="0"
 				         verticalAlign="middle" textAlign="center" />
 				<ui:RunTimeLabel id="_txt_maxWinAmount" text="Label" x="96" y="1218" size="56" alpha="0.7" height="83"
@@ -23,22 +23,22 @@
 				<ui:RunTimeLabel id="_txt_maxWinCount" text="Label" x="96" y="1333" height="83" size="56" alpha="0.7"
 				                 verticalAlign="middle" />
 				<e:Label id="_maxWinAmount" text="Label" y="1223" right="96" size="60" height="72" verticalAlign="middle"
-				         textAlign="right" fontFamily="Barlow" />
-				<e:Label id="_maxWinCount" text="Label" y="1341" height="72" right="96" size="60" fontFamily="Barlow"
+				         textAlign="right" />
+				<e:Label id="_maxWinCount" text="Label" y="1341" height="72" right="96" size="60"
 				         textAlign="right" verticalAlign="middle" />
 				<e:Rect width="1050" height="3" y="1509" fillAlpha="0.9" fillColor="0x979797" x="96" scaleX="1" scaleY="1" />
 				<ui:RunTimeLabel id="_txt_follower" text="Label" x="96" y="1608" height="83" size="56" alpha="0.7"
-				                 verticalAlign="middle" scaleX="1" scaleY="1" />
+				                 verticalAlign="middle" scaleX="1" scaleY="1"  visible="false"/>
 				<ui:RunTimeLabel id="_txt_following" text="Label" x="96" y="1723" height="83" size="56" alpha="0.7"
-				                 verticalAlign="middle" scaleX="1" scaleY="1" />
+				                 verticalAlign="middle" scaleX="1" scaleY="1"  visible="false"/>
 				<ui:RunTimeLabel id="_txt_favouriteDealer" text="Label" x="96" y="1838" height="83" size="56" alpha="0.7"
-				                 verticalAlign="middle" scaleX="1" scaleY="1" />
-				<e:Label id="_follower" text="Label" y="1615" height="72" right="96" size="60" fontFamily="Barlow" textAlign="right"
-				         verticalAlign="middle" />
-				<e:Label id="_following" text="Label" y="1731" height="72" right="96" size="60" fontFamily="Barlow"
-				         textAlign="right" verticalAlign="middle" />
-				<e:Label id="_favouriteDealer" text="Label" y="1846" height="72" right="96" size="60" fontFamily="Barlow"
-				         textAlign="right" verticalAlign="middle" />
+				                 verticalAlign="middle" scaleX="1" scaleY="1"  visible="false"/>
+				<e:Label id="_follower" text="Label" y="1615" height="72" right="96" size="60" textAlign="right"
+				         verticalAlign="middle"  visible="false"/>
+				<e:Label id="_following" text="Label" y="1731" height="72" right="96" size="60"
+				         textAlign="right" verticalAlign="middle"  visible="false"/>
+				<e:Label id="_favouriteDealer" text="Label" y="1846" height="72" right="96" size="60"
+				         textAlign="right" verticalAlign="middle"  visible="false"/>
 				<ui:BaseImageButton id="_editName" width="58" height="60" x="1087" y="710"
 				                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_profile_edit" />
 				<ui:BaseImageButton width="57" height="58" x="1088" y="831" skinName="skin_mobile_portrait.ImageButtonSkinNav"

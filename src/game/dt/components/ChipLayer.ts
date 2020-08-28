@@ -29,17 +29,17 @@ namespace we {
         this._betChipStackMapping[dt.BetField.TIGER] = this._tigerBetChipStack;
       }
 
-      protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
-        if (
-          (fieldAmounts[dt.BetField.DRAGON] !== 0 && fieldAmounts[dt.BetField.DRAGON] < betLimit.minlimit) ||
-          (fieldAmounts[dt.BetField.TIGER] !== 0 && fieldAmounts[dt.BetField.TIGER] < betLimit.minlimit) ||
-          (fieldAmounts[dt.BetField.TIE] !== 0 && fieldAmounts[dt.BetField.TIE] > betLimit.minlimit)
-        ) {
-          return true;
-        }
+      // protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+      //   if (
+      //     (fieldAmounts[dt.BetField.DRAGON] !== 0 && fieldAmounts[dt.BetField.DRAGON] < betLimit.minlimit) ||
+      //     (fieldAmounts[dt.BetField.TIGER] !== 0 && fieldAmounts[dt.BetField.TIGER] < betLimit.minlimit) ||
+      //     (fieldAmounts[dt.BetField.TIE] !== 0 && fieldAmounts[dt.BetField.TIE] > betLimit.minlimit)
+      //   ) {
+      //     return true;
+      //   }
 
-        return false;
-      }
+      //   return false;
+      // }
 
       protected isExceedUpperBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail: data.BetDetail) {
         const dragon = this.getAllValue(fieldAmounts, dt.BetField.DRAGON);
@@ -51,13 +51,13 @@ namespace we {
         switch (betDetail.field) {
           case dt.BetField.DRAGON:
             val = dragon + betDetail.amount;
-            return this.checkLimit(val, betDetail, betLimit.limits.dt.DRAGON.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'dt', 'DRAGON'));
           case dt.BetField.TIGER:
             val = tiger + betDetail.amount;
-            return this.checkLimit(val, betDetail, betLimit.limits.dt.TIGER.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'dt', 'TIGER'));
           case dt.BetField.TIE:
             val = tie + betDetail.amount;
-            return this.checkLimit(val, betDetail, betLimit.limits.dt.TIE.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'dt', 'TIE'));
         }
       }
     }

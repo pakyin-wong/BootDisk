@@ -506,7 +506,7 @@ namespace we {
         PairRatio: '庄对闲对比例',
         round: '局',
         rounds: '局',
-        playersqueeze: '玩家咪牌',
+        playersqueeze: '咪牌中',
         allOpen: '全开',
       },
       message: {

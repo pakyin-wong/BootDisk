@@ -101,6 +101,13 @@ namespace we {
         this.setStopFunc(this.stopVideoFunc(this));
 
         this.played = true;
+
+		    if (this._bottomGamePanel._tableInfoPanel) {
+          this._lblRoomInfo.addEventListener(egret.TouchEvent.TOUCH_TAP,()=>{
+            this._bottomGamePanel.openTableInfo();
+            
+          },this)
+        }
       }
 
       protected setStateDeal(isInit: boolean = false) {

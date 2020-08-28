@@ -71,5 +71,5 @@
 		          maxHeight="200" visible="false" />
 	</e:Group>
 	<overlay:DoubleCalendarPicker skinName="skin_mobile_landscape.DoubleCalendarPicker" id="_datepicker" width="1402"
-	                              height="1050" y="-24" x="511" scaleX="1" scaleY="1" anchorOffsetY="0" />
+	                              height="1200" x="511" scaleX="1" scaleY="1" anchorOffsetY="0"  verticalCenter="0"/>
 </e:Skin>
