@@ -35,8 +35,6 @@ namespace we {
       protected updateStatistic(s) {
         const r = [];
 
-        console.log(this._tableId, s);
-
         if (s && s.length) {
           for (let i = s.length - 1; i >= 0; i--) {
             r.push({

@@ -140,8 +140,6 @@ namespace we {
       protected onBetResultReceived(evt: egret.Event) {
         const result: data.PlayerBetResult = evt.data;
 
-        console.log('lo', 'betResult', result);
-
         if (result && result.success) {
           this.onBetConfirmed();
         } else {
@@ -200,8 +198,6 @@ namespace we {
       protected setResultRelatedComponentsEnabled(enable: boolean) {}
 
       public updateGame() {
-        console.log('lo', 'gamedata', this._gameData);
-
         if (!this._gameData) {
           return;
         }

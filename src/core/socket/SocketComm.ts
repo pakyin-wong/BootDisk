@@ -597,7 +597,6 @@ namespace we {
             break;
           }
           case core.GameType.LO: {
-            console.log('lo', 'gameStatistic', gameStatistic);
             gameStatistic.tableID = tableid;
             gameStatistic.shoeID = gameStatistic.shoeid;
             tableInfo.gamestatistic = gameStatistic;
