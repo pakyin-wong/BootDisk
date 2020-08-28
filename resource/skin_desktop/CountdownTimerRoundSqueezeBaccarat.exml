@@ -8,5 +8,5 @@
 	<e:Label id="countdownLabel" text="0" verticalCenter="-22" horizontalCenter="0" 
 		 textAlign="center" verticalAlign="middle" width="90" height="80" 
 		 fontFamily="Barlow" size="76"/>
-	<ui:RunTimeLabel i18n="baccarat.playersqueeze" size="50" verticalCenter="32" horizontalCenter="0" textAlign="center"/>
+	<ui:RunTimeLabel i18n="baccarat.playersqueeze" size="30" verticalCenter="32" horizontalCenter="0" textAlign="center"/>
 </e:Skin>

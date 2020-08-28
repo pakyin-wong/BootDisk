@@ -107,6 +107,12 @@ namespace we {
         this.viewStack.selectedIndex = 0;
         this.dispatchEvent(new egret.Event('ON_BOTTOM_PANEL_TOGGLE'));
       }
+
+      public openTableInfo() {
+        super.openTableInfo();
+        this.tableInfoBtn.selected = true;
+        this.viewStack.selectedIndex = this.tableInfoBtn.value;
+      }
     }
   }
 }

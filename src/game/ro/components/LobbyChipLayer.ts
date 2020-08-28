@@ -31,17 +31,17 @@ namespace we {
         this._betChipStackMapping[ro.BetField.BLACK] = this._black_betChipStack;
       }
 
-      protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
-        for (const key of Object.keys(fieldAmounts)) {
-          if (fieldAmounts[key] === 0) {
-            continue;
-          }
-          if (fieldAmounts[key] < betLimit.minlimit) {
-            return true;
-          }
-        }
-        return false;
-      }
+      // protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+      //   for (const key of Object.keys(fieldAmounts)) {
+      //     if (fieldAmounts[key] === 0) {
+      //       continue;
+      //     }
+      //     if (fieldAmounts[key] < betLimit.minlimit) {
+      //       return true;
+      //     }
+      //   }
+      //   return false;
+      // }
       protected isExceedUpperBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail: data.BetDetail) {
         const val = this.getAllValue(fieldAmounts, betDetail.field) + betDetail.amount;
 
@@ -50,10 +50,10 @@ namespace we {
         switch (fieldType) {
           case 'odd':
           case 'even':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.ODD_EVEN.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'ro', 'ODD_EVEN'));
           case 'red':
           case 'black':
-            return this.checkLimit(val, betDetail, betLimit.limits.ro.RED_BLACK.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'ro', 'RED_BLACK'));
         }
       }
     }

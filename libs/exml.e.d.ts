@@ -969,6 +969,10 @@ declare module skin_desktop.lo{
 	}
 }
 declare module skin_desktop{
+	class SSCBetConfirmPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class SSCBetNoteItem extends eui.Skin{
 	}
 }
@@ -978,10 +982,6 @@ declare module skin_desktop.lo{
 }
 declare module skin_desktop.lo{
 	class SSCNoteControlPanel extends eui.Skin{
-	}
-}
-declare module skin_desktop.lo{
-	class SSCTraditionalActionButtonPanel extends eui.Skin{
 	}
 }
 declare module skin_desktop.lo{
