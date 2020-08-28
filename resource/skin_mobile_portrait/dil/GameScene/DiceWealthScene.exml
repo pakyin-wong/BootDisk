@@ -119,6 +119,13 @@
 				<e:HorizontalLayout horizontalAlign="right" gap="20" gap.left_hand_mode="20" />
 			</e:layout>
 		</e:Group>
+		<e:Group bottom="-2029" left="0" width="700" x="0" y="2125" scaleX="1" scaleY="1">
+			<ui:RunTimeLabel id="_dilGameIDText" text="Game ID :" bottom="0" left="0"/>
+			<ui:RunTimeLabel id="_dilGameID" text="ID" bottom="0" left="0"/>
+			<e:layout>
+			<e:HorizontalLayout/>
+			</e:layout>
+		</e:Group>
 	</e:Group>
 
 	<dil:GameResultMessage id="_resultMessage" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
@@ -127,11 +134,5 @@
 	                  infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
 	                  errorBg="d_ba_gamerecord_bankerelement_png" y="660" x="312" />
 	<dil:LuckyCoinGroup id="_luckyCoinGroup"/>
-<e:Group bottom="0" left="0" width="700">
-	<ui:RunTimeLabel id="_dilGameIDText" text="Game ID :" bottom="0" left="0" />
-	<ui:RunTimeLabel id="_dilGameID" text="ID" bottom="0" left="0" />
-	<e:layout>
-		<e:HorizontalLayout/>
-	</e:layout>
-</e:Group>
+
 </e:Skin>
