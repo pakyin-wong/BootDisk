@@ -260,13 +260,12 @@ namespace we {
         }
       }
 
-      protected openFlipCard(evt: eui.UIEvent) {
-        const selectedCard: eui.Component = evt.target;
-        this._highlightCard.x = selectedCard.x;
-        this._highlightCard.y = selectedCard.y;
-        this._highlightCard.rotation = selectedCard.rotation;
-        this._highlightCard.visible = true;
+      protected selectCardByIdx(idx: number) {
+        this.selectCard(this.cardHolderArr[idx]);
+      }
 
+      protected selectCard(card: ui.Card) {
+        const selectedCard = card;
         switch (selectedCard.name) {
           case 'card1Banker':
             this._flipIndex = 0;
@@ -292,9 +291,20 @@ namespace we {
             this._flipIndex = 5;
             this._moveIndex = 0;
             break;
+          default:
+            logger.e(utils.LogTarget.PROD, 'BAM Unknown Card');
         }
+        this._highlightCard.x = selectedCard.x;
+        this._highlightCard.y = selectedCard.y;
+        this._highlightCard.rotation = selectedCard.rotation;
+        this._highlightCard.visible = true;
 
         this._resultCard.showAndMoveCard(this._moveIndex, this.cardArr[this._flipIndex]);
+      }
+
+      protected openFlipCard(evt: eui.UIEvent) {
+        const selectedCard: ui.Card = evt.target;
+        this.selectCard(selectedCard);
       }
 
       public setPeekState() {
@@ -439,6 +449,25 @@ namespace we {
       }
 
       protected setCardsFlipAllowed(playCardno: number, bankCardno: number) {
+        let initSelectedIdx = -1;
+
+        if (this.isBankerFlipAllowed()) {
+          for (let i: number = bankCardno; i >= 0; i--) {
+            this.cardHolderArr[i].filters = [this.enableFilter];
+            this._openAllBanker.visible = false;
+            if (!this.cardHolderArr[i].isOpen) {
+              this.cardHolderArr[i].touchEnabled = true;
+              this._openAllBanker.visible = true;
+              initSelectedIdx = i;
+            } else {
+              this.cardHolderArr[i].touchEnabled = false;
+            }
+          }
+        } else {
+          this.disableCard('banker');
+          this._openAllBanker.visible = false;
+        }
+
         if (this.isPlayerFlipAllowed()) {
           for (let i: number = 3; i <= playCardno; i++) {
             this.cardHolderArr[i].filters = [this.enableFilter];
@@ -446,6 +475,7 @@ namespace we {
             if (!this.cardHolderArr[i].isOpen) {
               this.cardHolderArr[i].touchEnabled = true;
               this._openAllPlayer.visible = true;
+              initSelectedIdx = i;
             } else {
               this.cardHolderArr[i].touchEnabled = false;
             }
@@ -454,20 +484,9 @@ namespace we {
           this.disableCard('player');
           this._openAllPlayer.visible = false;
         }
-        if (this.isBankerFlipAllowed()) {
-          for (let i: number = 0; i <= bankCardno; i++) {
-            this.cardHolderArr[i].filters = [this.enableFilter];
-            this._openAllBanker.visible = false;
-            if (!this.cardHolderArr[i].isOpen) {
-              this.cardHolderArr[i].touchEnabled = true;
-              this._openAllBanker.visible = true;
-            } else {
-              this.cardHolderArr[i].touchEnabled = false;
-            }
-          }
-        } else {
-          this.disableCard('banker');
-          this._openAllBanker.visible = false;
+
+        if (initSelectedIdx > -1) {
+          this.selectCardByIdx(initSelectedIdx);
         }
       }
 
