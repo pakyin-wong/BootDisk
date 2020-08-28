@@ -690,6 +690,13 @@ namespace we {
           EVEN: 'EVEN',
           CLEAR: 'CLEAR',
         },
+          gamemode: 'gamemode',
+          betitem: 'betitem',
+          betmode: 'betmode',
+          notecount: 'notecount',
+          multiplier: 'multiplier',
+          betamount: 'betamount',
+          action: 'action',
       },
     };
   }

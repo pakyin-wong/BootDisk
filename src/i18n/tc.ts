@@ -689,6 +689,15 @@ namespace we {
           EVEN: '偶',
           CLEAR: '清',
         },
+        ui: {
+          gamemode: '玩法',
+          betitem: '投注項目',
+          betmode: '模式',
+          notecount: '注數',
+          multiplier: '倍數',
+          betamount: '金額',
+          action: '操作',
+        },
       },
     };
   }

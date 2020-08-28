@@ -232,7 +232,6 @@ namespace we {
         }
 
         this._noteControl.addNotes(notes);
-
       }
 
       public validateBetLimit() {
@@ -276,7 +275,7 @@ namespace we {
       }
 
       public updateBetInfo(data) {
-        if(this._noteControl){
+        if (this._noteControl) {
           this._noteControl.updateBalance();
         }
       }

@@ -10,7 +10,7 @@
             <e:Image x="10" y="20" width="87" height="86"/>
             <ui:RunTimeLabel id="_lblbettingDeadLine" text="本期投注" y="20" textAlign="left" x="121" width="200" height="36" size="24" verticalAlign="middle" alpha=".7"/>
             <ui:RunTimeLabel id="_lblCurrentRound" text="20200414029" y="60" textAlign="left" x="121" width="300" height="36" size="30" verticalAlign="middle" textColor="0xc59466" bold="true"/>
-            <ui:RunTimeLabel id="_timer" text="00:00:00" x="380" y="24" size="80" bold="true" textColor="0xe4493a"/>
+            <ui:RunTimeLabel id="_timer" text="00:00:00" x="380" y="24" size="80" bold="true" textColor="0x4adc84"/>
             <e:Rect x="750" y="20" fillColor="0xffffff" width="1" height="80" alpha="0.2"/>
             <e:Group id="_resultGroup" x="791" y="20" width="300" height="100">
                 <ui:RunTimeLabel id="_lblCurrentRoundState" text="開獎中" size="24" alpha="0.7"/>

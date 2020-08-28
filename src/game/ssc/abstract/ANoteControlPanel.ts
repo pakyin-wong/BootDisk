@@ -79,7 +79,7 @@ namespace we {
       public updateNoteControlPanel() {}
 
       public updateBalance() {
-        this._lblBalance.renderText = () => `餘額 $${env.balance? utils.formatNumber(env.balance,true) : ' - '}`;
+        this._lblBalance.renderText = () => `${i18n.t('nav.bet_balance')} $${env.balance ? utils.formatNumber(env.balance, true) : ' - '}`;
       }
 
       public setConfirmBetButton(enable: boolean) {

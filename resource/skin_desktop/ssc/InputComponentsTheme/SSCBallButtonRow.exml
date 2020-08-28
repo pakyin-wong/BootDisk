@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.lo.SSCBallButtonRow" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="1500" height="80">
     <e:Group id="_content" width="1509" height="80">
-        <ui:RunTimeLabel width="124" height="25" id="_title" text="Title" verticalAlign="middle" textAlign="left" size="18"/>
+        <ui:RunTimeLabel width="124" height="25" id="_title" text="Title" verticalAlign="middle" textAlign="left" size="18" textColor="0x00b8c3"/>
         <e:Group id="_ballsGroup" width="768" height="80">
             <e:layout>
                 <e:TileLayout paddingLeft="44" paddingRight="44" verticalAlign="middle" horizontalGap="20" rowAlign="justifyUsingHeight"/>
