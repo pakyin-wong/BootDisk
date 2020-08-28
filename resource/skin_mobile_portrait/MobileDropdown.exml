@@ -4,7 +4,7 @@
 
 
 	<e:Group id="content" y="1294" left="0" right="0">
-		<e:Rect fillColor="0x1a1a1a" top="0" bottom="0" left="0" right="0"/>
+		<e:Rect fillColor="0x1a1a1a" top="0" bottom="0" left="0" right="0" ellipseWidth="48" ellipseHeight="48"/>
 		<ui:RunTimeLabel id="close" text="Label" y="0" height="146" verticalAlign="middle" textAlign="right" size="60" x="1055"/>
 		<ui:RunTimeLabel id="_title" text="Label" y="0" height="146" textAlign="center" verticalAlign="middle" size="70" left="0" right="0"/>
 		<e:Scroller id="_scroller" height="718" y="143" left="0" right="0">

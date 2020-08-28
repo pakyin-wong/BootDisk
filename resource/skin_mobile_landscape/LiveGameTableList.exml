@@ -4,9 +4,9 @@
 
 
 
-	<e:List id="roomListRefer" visible="false">
+	<e:List id="roomListRefer" useVirtualLayout="true" visible="false">
 		<e:layout>
-		<e:TileLayout orientation="rows" horizontalGap="52" verticalGap="52" requestedRowCount="2" columnWidth="1139" rowHeight="399" columnWidth.simple="550" horizontalGap.simple="20" verticalGap.simple="20" requestedRowCount.simple="3" rowHeight.simple="270" paddingRight="80" paddingLeft="930"/>
+		<e:TileLayout orientation="columns" horizontalGap="52" verticalGap="52" requestedRowCount="2" columnWidth="1139" rowHeight="399" columnWidth.simple="550" horizontalGap.simple="20" verticalGap.simple="20" requestedRowCount.simple="3" rowHeight.simple="270" paddingRight="80" paddingLeft="930"/>
 		</e:layout>
 	</e:List>
 	<e:Scroller id="scroller" height="850" y="156" left="0" right="0">

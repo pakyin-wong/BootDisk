@@ -17,12 +17,18 @@
                          width="61" size="24" />
         <ui:RunTimeLabel id="playerPairCountLabel" text="0" x="536.5" y="13" textAlign="left" anchorOffsetX="0"
                          width="61" size="24" />
-        <e:Image width="20" height="20" x="277" y="14" source="d_ba_roadmap_bar_bankerstate_png" />
-        <e:Image width="20" height="20" x="597.84" y="14" source="d_ba_goodroad_info_state_total_png" />
-        <e:Image width="20" height="20" x="336" y="14" source="d_ba_roadmap_bar_playerstate_png" />
-        <e:Image width="20" height="20" x="395" y="14" source="d_ba_roadmap_bar_tierstate_png" />
-        <e:Image width="20" height="20" x="454" y="14" source="d_ba_roadmap_bar_bankerpairstate_png" />
-        <e:Image width="20" height="20" x="513" y="14" source="d_ba_roadmap_bar_playerpairstate_png" />
+        <e:Image width="20" height="20" x="277" y="14" source="d_ba_roadmap_bar_bankerstate_png"
+                tooltipText="'live.tooltip.roadmapBankerRound'" tooltipPosition="'above'" />
+        <e:Image width="20" height="20" x="336" y="14" source="d_ba_roadmap_bar_playerstate_png"
+                tooltipText="'live.tooltip.roadmapPlayerRound'" tooltipPosition="'above'" />
+        <e:Image width="20" height="20" x="395" y="14" source="d_ba_roadmap_bar_tierstate_png"
+                tooltipText="'live.tooltip.roadmapTierRound'" tooltipPosition="'above'" />
+        <e:Image width="20" height="20" x="454" y="14" source="d_ba_roadmap_bar_bankerpairstate_png"
+                tooltipText="'live.tooltip.roadmapBankerPairRound'" tooltipPosition="'above'" />
+        <e:Image width="20" height="20" x="513" y="14" source="d_ba_roadmap_bar_playerpairstate_png"
+                tooltipText="'live.tooltip.roadmapPlayerPairRound'" tooltipPosition="'above'" />
+        <e:Image width="20" height="20" x="597.84" y="14" source="d_ba_goodroad_info_state_total_png"
+                tooltipText="'live.tooltip.roadmapTotalRound'" tooltipPosition="'above'" />
         <e:Image id="iconBankerBead" width="66" height="30" x="142" y="9" source="d_ba_roadmap_topbar_textbg_banker_png"
                  anchorOffsetX="0" />
         <e:Image id="iconPlayerBead" width="66" height="30" x="9" y="9" source="d_ba_roadmap_topbar_textbg_player_png" />

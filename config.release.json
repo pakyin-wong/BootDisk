@@ -1,0 +1,12 @@
+{
+    "target": "staging",
+    "mode": "comm",
+    "playerID": "BMJCQSLH5S5VDBFBP1A0",
+    "endpoint": "https://release-rest-gateway.weapi247.com",
+    "rabbitmqhostname": "mqrelease-apse1.weinfra247.com",
+    "rabbitmqport": "443",
+    "rabbitmqprotocol": "wss",
+    "rabbitmqvirtualhost":"/",
+    "path":"/ws/mqtt",    
+    "connectTimeout": 1000000
+}

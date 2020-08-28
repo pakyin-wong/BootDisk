@@ -97,6 +97,10 @@ namespace we {
         this._tableLayer.currentState = 'Normal';
         this._chipLayer.removeAllMouseListeners();
         this._chipLayer.setTouchEnabled(false);
+
+        this._quickBetButton.label.renderText = () => {
+          return i18n.t('mobile_quick_bet_button_add_label');
+        };
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {

@@ -8,8 +8,11 @@
 		<ui:RunTimeLabel id="_txt_title" text="Good Road Settings" x="48" y="27" width="519.27" height="71"
 		                 verticalAlign="middle" textColor="0xc59466" size="48" fontFamily="NotoSansCJKtc-Medium"
 		                 anchorOffsetX="0" />
-		<ui:BaseImageButton id="_defaultButton" y="38" anchorOffsetX="0" width="300" anchorOffsetY="0" height="70"
-		                    currentState="b_cancel" x="469.81" skinName="ImageButtonSkinDialog" />
+		<!--<ui:BaseImageButton id="_defaultButton" y="38" anchorOffsetX="0" width="300" anchorOffsetY="0" height="70"
+		                        currentState="b_cancel" x="469.81" skinName="ImageButtonSkinDialog" />
+		-->
+		<ui:RoundRectButton id="_defaultButton" cornerTL_TR_BL_BR="30,30,30,30" width="161" height="60" x="1392" y="38"
+		                    stroke="0" strokeIn="3" strokeInColor="0x5f6973" fillAlpha="0" />
 		<ui:Scroller id="scroller" width="1643" height="766" x="28" y="130">
 			<ui:List id="roomList">
 				<e:layout>

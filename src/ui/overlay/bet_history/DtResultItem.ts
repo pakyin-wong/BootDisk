@@ -27,7 +27,11 @@ namespace we {
         }
 
         protected getCardRes(source) {
-          return source !== '' ? `d_common_poker_vertical_${utils.formatCard(source)}_png` : '';
+          if (env.isMobile) {
+            return source !== '' ? `m_sq_bac_small_poker_${utils.formatCard(source)}_vertical_png` : '';
+          } else {
+            return source !== '' ? `d_common_poker_vertical_${utils.formatCard(source)}_png` : '';
+          }
         }
       }
     }

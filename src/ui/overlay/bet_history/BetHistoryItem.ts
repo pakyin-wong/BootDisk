@@ -67,6 +67,8 @@ namespace we {
 
           if (amt > 0) {
             this._txt_record_win.text = `+${utils.formatNumber(this.data.winamount, true)}`;
+          } else if (amt === 0) {
+            this._txt_record_win.text = `${utils.formatNumber(this.data.winamount, true)}`;
           } else {
             this._txt_record_win.text = `-${utils.formatNumber(this.data.winamount, true)}`;
           }
@@ -129,14 +131,17 @@ namespace we {
             case we.core.GameType.DT:
               p = new DtResultItem(gameResult);
               break;
-
-            case we.core.GameType.ROL:
             case we.core.GameType.RO:
               p = new RoResultItem(gameResult);
               break;
-            case we.core.GameType.DIL:
+            case we.core.GameType.ROL:
+              p = new RolResultItem(gameResult);
+              break;
             case we.core.GameType.DI:
               p = new DiResultItem(gameResult);
+              break;
+            case we.core.GameType.DIL:
+              p = new DilResultItem(gameResult);
               break;
             case we.core.GameType.LW:
               p = new LwResultItem(gameResult);

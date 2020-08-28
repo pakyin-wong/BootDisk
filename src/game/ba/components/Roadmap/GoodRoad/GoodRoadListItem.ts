@@ -92,13 +92,17 @@ namespace we {
         }
       }
 
-      public setRoadEnabled(n: boolean) {
+      public setRoadEnabled(enabled: boolean) {
         // 0 for on, 1 for off
-        if (n) {
+        if (enabled) {
           this._activeButton.setInitButtonState(0);
+          this._activeButton['tooltipText'] = 'goodroad.tooltip.disable';
+          this._activeButton['tooltipPosition'] = 'above';
           this.alpha = 1;
         } else {
           this._activeButton.setInitButtonState(1);
+          this._activeButton['tooltipText'] = 'goodroad.tooltip.enable';
+          this._activeButton['tooltipPosition'] = 'above';
           this.alpha = 0.5;
         }
       }
@@ -118,7 +122,7 @@ namespace we {
           this._titleLabel.text = i18n.t('baccarat.addNewGoodRoad');
         } else if (this.roadType === 1) {
           // default road
-          this._titleLabel.text = i18n.t('goodroad.' + this.roadName);
+          this._titleLabel.text = i18n.t('goodroad.r' + this.roadName);
         } else if (this.roadType === 2) {
           // custom road
           this._titleLabel.text = this.roadName;

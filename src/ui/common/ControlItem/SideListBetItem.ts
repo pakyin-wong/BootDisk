@@ -44,6 +44,8 @@ namespace we {
         if (this.itemInitHelper) {
           this._chipLayer = this.itemInitHelper.generateChipLayer(this._chipLayerNode);
         }
+        this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+        this._chipLayer.addEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
       }
 
       protected generateResultMessage() {

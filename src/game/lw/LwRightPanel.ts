@@ -41,6 +41,14 @@ namespace we {
         this._horizontalBarChart.setRanksAndAnimate([25080000, 18000060, 50500, 10022000, 800000, 19000010, 20012000]);
         this.addChild(this._horizontalBarChart);
       }
+
+      public updateTableBetInfo() {
+        for (let i = 0; i < 7; i += 1) {
+          this[`_lbl_lwValue${i}`].text = this.tableInfo.betInfo.amount[`LW_${i}`] || 0;
+        }
+        logger.l(utils.LogTarget.DEBUG, JSON.stringify(this.tableInfo.betInfo.count));
+        logger.l(utils.LogTarget.DEBUG, JSON.stringify(this.tableInfo.betInfo.amount));
+      }
     }
   }
 }

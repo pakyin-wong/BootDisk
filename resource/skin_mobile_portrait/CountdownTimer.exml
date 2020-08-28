@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.CountdownTimerSkin" width="200" height="80" xmlns:e="http://ns.egret.com/eui"         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="horizontal,vertical" >
+<e:Skin class="skin_mobile_portrait.CountdownTimerSkin" width="200" height="80" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="horizontal,vertical">
 	<w:Config id="16dcf084172"></w:Config>
 	<ui:RadialProgressIndicator id="progressIndicator" anchorOffsetX="0" anchorOffsetY="0" left="0" top="0" bottom="0"
 	                            right="0" thickness="6" touchEnabled="false" touchChildren="false" />
-	<e:Label id="countdownLabel" text="30" verticalCenter="0" textAlign="center" verticalAlign="middle"           anchorOffsetX="25" anchorOffsetY="15" width="62"  size="54" bold="true" textColor="0x15d688" x="50" rotation="0" rotation.vertical="270" fontFamily="Barlow"/>
+	<e:Group width="62" x="25" y="25" rotation.vertical="270" y.vertical="89">
+		<e:Label id="countdownLabel" text="0" verticalCenter="0" horizontalCenter="0" textAlign="center"
+		         verticalAlign="middle" size="54" bold="true" rotation="0" 
+		         fontFamily="Barlow" />
+	</e:Group>
 </e:Skin>

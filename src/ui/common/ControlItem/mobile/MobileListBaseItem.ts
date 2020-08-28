@@ -4,8 +4,8 @@ namespace we {
     export class MobileListBaseItem extends ControlItem {
       protected _tweenInterval1: number = 250;
 
-      protected _quickBetButton: BaseImageButton;
-      protected _enterTableButton: BaseImageButton;
+      protected _quickBetButton: we.ui.RoundRectButton;
+      protected _enterTableButton: we.ui.RoundRectButton;
       protected _buttonGroup: eui.Group;
       protected _dimmer: eui.Component;
 
@@ -50,6 +50,7 @@ namespace we {
         this._quickBetButton.label.renderText = () => {
           return i18n.t('mobile_quick_bet_button_label');
         };
+
         this._enterTableButton.label.renderText = () => {
           return i18n.t('mobile_enter_table_button_label');
         };
@@ -99,10 +100,10 @@ namespace we {
         const betLimitItems = betLimitList.map(data => {
           return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
         });
-        if (this._toggler) {
-          this._toggler.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`;
-        }
+        this.updateBetLimitText(betLimitItems, selectedIndex);
       }
+
+      protected updateBetLimitText(items, idx) {}
 
       public getActionButton(): eui.Component {
         return this._quickBetButton;

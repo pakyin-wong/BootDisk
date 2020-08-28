@@ -4,6 +4,7 @@ namespace we {
       protected _denomList: number[];
       protected _selectedChipIndex: number = 10;
       // protected _chipContainer: eui.Group;
+      protected _chipScale: number = 1;
 
       public resetDenominationList(denominationList: number[]) {}
 
@@ -19,6 +20,18 @@ namespace we {
         this._selectedChipIndex = index;
       }
 
+      public $setChipScale(val: number) {
+        this._chipScale = val;
+      }
+
+      public set chipScale(val: number) {
+        this.$setChipScale(val);
+      }
+
+      public get chipScale(): number {
+        return this._chipScale;
+      }
+
       // public get selectedChip() {
       //   return this._denomList[this._selectedChipIndex];
       // }
@@ -29,6 +42,7 @@ namespace we {
 
       // setChipSet(denominationList: number[]) {}
       // onChipSelected(index: number) {}
+      public unSelect() {}
     }
   }
 }

@@ -474,6 +474,9 @@ namespace we {
       }
 
       public static CreateRoadmapDataFromObject(data: any): we.data.RoadmapData {
+        if (!data) {
+          return;
+        }
         const road: we.data.RoadmapData = new we.data.RoadmapData();
         road.tableID = data.tableID;
         road.shoeID = data.shoeID;

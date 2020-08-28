@@ -214,7 +214,7 @@ namespace we {
               this._iconNumText.visible = false;
 
               this._borderImage.visible = true;
-              this._borderImage.source = 'd_gfsb_panel_roadmap_record_multiple_' + this.colorIndex[value.v - 3] + '_png';
+              this._borderImage.source = (env.isMobile ? 'm' : 'd') + '_gfsb_panel_roadmap_record_multiple_' + this.colorIndex[value.v - 3] + '_png';
             }
           }
 

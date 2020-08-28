@@ -37,16 +37,16 @@
         <ui:RunTimeLabel id="_lblRoomNo" x="25" y="15" size="40" height="56" verticalAlign="middle" width="200"
                          textAlign="left" anchorOffsetX="0" text="Label" />
         <e:Group x="25" y="65">
-            <ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Barlow" size="40" text="label" />
+            <ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Arial" size="40" text="label" />
             <e:Image source="m_common_panel_icon_dropdown_png" width="34" height="19" visible="false" />
             <e:layout>
                 <e:HorizontalLayout verticalAlign="middle" />
             </e:layout>
         </e:Group>
-        <e:Group height="48" y="73" right="0">
-            <ui:RunTimeLabel id="_totalBet" text="0" y="0" height="100%" right="0" anchorOffsetX="0" textAlign="right" />
+        <e:Group height="48" y="73" right="15">
+            <ui:RunTimeLabel id="_totalBet" text="0" y="0" height="100%" right="0" anchorOffsetX="0" textAlign="right"  size="36" fontFamily="Barlow"/>
             <ui:RunTimeLabel id="_totalBetText" text="bet AMOUNT vfghj" y="0" height="100%" right="0" anchorOffsetX="0"
-                             textAlign="right" />
+                             textAlign="right"  alpha=".7" size="36"/>
             <e:layout>
                 <e:HorizontalLayout horizontalAlign="right" gap="20" gap.left_hand_mode="20" />
             </e:layout>
@@ -117,7 +117,7 @@
             <e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="684"
                       verticalCenter="0" x.right_hand_mode="684" skinName="skin_mobile_portrait.BetConfirmButtonSkin"
                       x.left_hand_mode="5" />
-            <ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin"
+            <ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" colorChange="true"
                                x="684" verticalCenter="0" x.right_hand_mode="684" x.left_hand_mode="0" />
             <e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0"
                      touchEnabled="false" touchChildren="false">
@@ -151,7 +151,7 @@
                      rotation.left_hand_mode="0" />
         </e:Group>
         <ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" horizontalCenter="0" betChipWidth="250"
-                           betChipHeight="208" scaleY="1" anchorOffsetY="0" right="0" left="0" labelSize="48" y="20" />
+                           betChipHeight="208" scaleY="1" anchorOffsetY="0" right="0" left="0" labelSize="48" y="35" />
     </e:Group>
     <di:GameResultMessage id="_resultMessage" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
                           horizontalCenter.left_hand_mode="0" top.left_hand_mode="350"
@@ -159,4 +159,11 @@
     <ui:InGameMessage id="_message" x="311" y="474" skinName="skin_mobile_portrait.InGameMessageSkin"
                       infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
                       errorBg="d_ba_gamerecord_bankerelement_png" horizontalCenter="0" verticalCenter="0" />
+                      	<e:Group y="24" x="200" >
+		<ui:RunTimeLabel id="_diGameIDText" text="Game ID :" bottom="0" left="0"  alpha=".7" height="56" verticalAlign="top" size="26"/>
+		<ui:RunTimeLabel id="_diGameID" text="ID0000000000000001" bottom="0" left="0"  height="56" verticalAlign="top" fontFamily="Barlow" size="26"/>
+		<e:layout>
+			<e:HorizontalLayout/>
+		</e:layout>
+	</e:Group>
 </e:Skin>

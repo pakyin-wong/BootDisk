@@ -79,6 +79,9 @@ namespace we {
           case we.core.GameType.DI:
             generalGameType = 'di';
             break;
+          case we.core.GameType.DIL:
+            generalGameType = 'dil';
+            break;
 
           case we.core.GameType.DT:
           default:

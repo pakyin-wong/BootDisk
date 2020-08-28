@@ -53,6 +53,7 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         if (this._goodRoadLabel) {
+          this._goodRoadLabel.width = 0;
           this._goodRoadLabel.visible = false;
         }
         if (this._alreadyBetSign) {
@@ -73,6 +74,8 @@ namespace we {
         super.onTableBetInfoUpdate(evt);
         if (this.tableInfo.totalBet > 0) {
           this._alreadyBetSign.visible = true;
+          // this._alreadyBetSign.x = this._goodRoadLabel.visible ? this._goodRoadLabel.width + 10 : 0;
+          // this._alreadyBetSign.x = this._goodRoadLabel.visible ? this._goodRoadLabel.width + 10 : 0;
         } else {
           this._alreadyBetSign.visible = false;
         }
@@ -87,19 +90,21 @@ namespace we {
         }
         if (this.tableInfo.goodRoad) {
           this._goodRoadLabel.visible = true;
+          this._goodRoadLabel.width = NaN;
           const goodRoadData = this.tableInfo.goodRoad;
           const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
           // this._goodRoadLabel.text = goodRoadName;
           this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
         } else {
           // this._goodRoadLabel.visible = false;
+          // this._goodRoadLabel.width = 0;
         }
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);
@@ -111,12 +116,20 @@ namespace we {
       protected onMatchGoodRoadUpdate() {
         if (this.tableInfo.goodRoad) {
           this._goodRoadLabel.visible = true;
+          this._goodRoadLabel.width = NaN;
           const goodRoadData = this.tableInfo.goodRoad;
           const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
           // this._goodRoadLabel.text = goodRoadName;
           this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
         } else {
           this._goodRoadLabel.visible = false;
+          this._goodRoadLabel.width = 0;
+        }
+      }
+
+      protected updateBetLimitText(items, idx) {
+        if (this._toggler) {
+          this._toggler.renderText = () => ` ${items.length > 0 ? items[idx] : ''}`;
         }
       }
     }

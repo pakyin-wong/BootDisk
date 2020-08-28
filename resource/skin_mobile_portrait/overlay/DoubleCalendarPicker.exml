@@ -1,19 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.DoubleCalendarPicker" width="1050" height="1402" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*" >
-
+<e:Skin class="skin_mobile_portrait.DoubleCalendarPicker" width="1050" height="1500" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
-		<e:Rect strokeColor="0x3b4f6c" ellipseHeight="80" ellipseWidth="80" fillColor="0x253343" strokeWeight="2" left="0" top="0" bottom="0" right="0"/>
-		<overlay:DatepickerCalendar id="_calender_prev" width="490" height="490" x="39" y="262" visible="false"/>
-		<overlay:DatepickerCalendar id="_calender_next" width="952" height="952" y="310" horizontalCenter="0"/>
-		<ui:BaseImageButton id="_btn_prev" width="70" height="70" x="96" y="156" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="page_prev_icon"/>
-		<ui:BaseImageButton id="_btn_next" width="70" height="70" y="156" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="page_next_icon" x="884"/>
-		<e:Label id="_txt_prev" text="Label" x="132" y="202" height="45" textAlign="left" verticalAlign="middle" width="200" visible="false"/>
-		<e:Label id="_txt_next" text="Label" y="140" height="96" textAlign="center" verticalAlign="middle" width="700" horizontalCenter="0" size="80"/>
-		<ui:BaseButton id="_btn_confirm" width="433" height="130" x="547" y="1172" skinName="skin_mobile_portrait.OverlayPanelButton"/>
-		<ui:BaseButton id="_btn_clean" width="433" height="130" x="70" y="1172" skinName="skin_mobile_portrait.OverlayPanelButton"/>
+		<e:Rect strokeColor="0x3b4f6c" ellipseHeight="80" ellipseWidth="80" fillColor="0x253343" strokeWeight="2" left="0"
+		        top="0" bottom="0" right="0" />
+		<overlay:DatepickerCalendar id="_calender_prev" width="490" height="490" x="39" y="262" visible="false" />
+		<overlay:DatepickerCalendar id="_calender_next" width="952" height="952" y="310" horizontalCenter="0" />
+		<!--<ui:BaseImageButton id="_btn_prev" width="70" height="70" x="96" y="156"
+		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="page_prev_icon" />
+		<ui:BaseImageButton id="_btn_next" width="70" height="70" y="156" skinName="skin_mobile_portrait.ImageButtonSkinNav"
+		                    currentState="page_next_icon" x="884" />-->
+
+		<ui:RoundRectButton id="_btn_prev" cornerTL_TR_BL_BR="35,35,35,35" width="70" height="70" x="96" y="156" stroke="3"
+		                    strokeIn="0" strokeColor="0x5f6973" fillAlpha="0" />
+		<e:Image x="165" y="155" source="d_lobby_button_down_normal_png" width="70" height="70" rotation="90" touchEnabled="false"/>
+		<ui:RoundRectButton id="_btn_next" cornerTL_TR_BL_BR="35,35,35,35" width="70" height="70" x="884" y="156" stroke="3"
+		                    strokeIn="0" strokeColor="0x5f6973" fillAlpha="0" />
+		<e:Image x="886" y="227" source="d_lobby_button_down_normal_png" width="70" height="70" rotation="270" touchEnabled="false"/>
 
 
-		<e:Label id="_txt_current" text="" x="64" y="67" width="418" height="60" textAlign="center" verticalAlign="middle" fontFamily="Barlow" size="28" visible="false"/>
+		<e:Label id="_txt_prev" text="Label" x="132" y="202" height="45" textAlign="left" verticalAlign="middle" width="200"
+		         visible="false" />
+		<e:Label id="_txt_next" text="Label" y="140" height="96" textAlign="center" verticalAlign="middle" width="700"
+		         horizontalCenter="0" size="80" />
+		<!--<ui:BaseButton id="_btn_confirm" width="433" height="130" x="547" y="1172"
+		                   skinName="skin_mobile_portrait.OverlayPanelButton" />
+		<ui:BaseButton id="_btn_clean" width="433" height="130" x="70" y="1172"
+		               skinName="skin_mobile_portrait.OverlayPanelButton" />
+		-->
+
+		<ui:RoundRectButton id="_btn_confirm" cornerTL_TR_BL_BR="65,65,65,65" width="433" height="130" x="547" y="1335" stroke="2" strokeIn="0" strokeColor="0x5f6973" fillAlpha="0" fillAlpha_click="1" strokeAlpha_click="0" fillColor="0x1b416e"/>
+		<ui:RoundRectButton id="_btn_clean" cornerTL_TR_BL_BR="65,65,65,65" width="433" height="130" x="70" y="1335" stroke="2" strokeIn="0" strokeColor="0x5f6973" fillAlpha="0" fillAlpha_click="1" strokeAlpha_click="0" fillColor="0x1b416e"/>
+		<e:Label id="_txt_current" text="" x="64" y="67" width="418" height="60" textAlign="center" verticalAlign="middle"
+		         size="28" visible="false" />
 	</e:Group>
-
 </e:Skin>

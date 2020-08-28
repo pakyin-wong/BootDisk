@@ -14,7 +14,7 @@
 			<e:Rect id="viewStackMask" y="0" scaleX="1" scaleY="1" top="0" bottom="0" left="0" right="0"/>
 			<e:Group id="_topPart" width="284" y="80" scaleX="1" scaleY="1" anchorOffsetX="0" top="0" bottom="0" x="2140">
 			<e:Rect id="top_bg" width="100%" height="260" y="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x212425" strokeColor="0x212425" x="0"/>
-			<e:RadioButton id="roadSheetBtn" label="路紙" x="8" y="10" width="252" height="80" value="0" selected="true" scaleX="1" scaleY="1">
+			<e:RadioButton id="roadSheetBtn" label="路紙" x="8" y="12" width="252" height="70" value="0" selected="true" scaleX="1" scaleY="1">
 				<e:skinName>
 				<e:Skin states="up,down,disabled">
 					<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
@@ -23,7 +23,7 @@
 				</e:Skin>
 				</e:skinName>
 			</e:RadioButton>
-			<e:RadioButton id="chartBtn" label="統計圖表" x="4" y="100" width="252" height="80" value="1" scaleX="1" scaleY="1">
+			<e:RadioButton id="chartBtn" label="統計圖表" x="4" y="95" width="252" height="70" value="1" scaleX="1" scaleY="1">
 				<e:skinName>
 				<e:Skin states="up,down,disabled">
 					<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
@@ -32,7 +32,7 @@
 				</e:Skin>
 				</e:skinName>
 			</e:RadioButton>
-			<e:RadioButton id="tableInfoBtn" label="本檯資訊" x="8" y="180" width="252" height="80" value="2" scaleX="1" scaleY="1">
+			<e:RadioButton id="tableInfoBtn" label="本檯資訊" x="8" y="181" width="252" height="70" value="2" scaleX="1" scaleY="1">
 				<e:skinName>
 				<e:Skin states="up,down,disabled">
 					<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
@@ -54,6 +54,11 @@
 				<dt:TableInfoPanel id="_tableInfoPanel" skinName="skin_mobile_landscape.dt.TableInfoPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
 			</e:Group>
 			</e:ViewStack>
+			<e:Group id="_bottomResultDisplayContainer" width="1894" height="259" x="0" y="0" touchEnabled="false" touchThrough="true" touchChildren="false">
+				<e:Rect width="100%" height="100%" fillColor="0x000000" fillAlpha="0.4" touchEnabled="false" touchChildren="false"/>
+				<dt:CardHolder id="_bottomResultDisplay" width="1384" height="152" y="1.5" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
+					 scaleY="1" horizontalCenter="0"  touchChildren="false" touchEnabled="false"/>
+			</e:Group>
 		</e:Group>
 	</e:Group>
 	<!--<e:Rect id="mask" width="100%" height="100%" x="0" y="0" strokeWeight="0" ellipseHeight="40" ellipseWidth="40"

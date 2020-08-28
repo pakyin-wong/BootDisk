@@ -10,19 +10,40 @@
 		                anchorOffsetY="0" size="24" maxChars="20" multiline="false" />
 		<e:Rect id="_bigRoadMask" width="292" height="175" x="14" y="75" anchorOffsetX="0" anchorOffsetY="0"
 		        ellipseHeight="30" ellipseWidth="30" alpha="0" />
-		<ba:GoodRoadmapEdit id="_bigRoad" width="291" height="175" y="75" x="14" />
+		<e:Group width="291" height="175" x="14" y="75">
+			<ba:GoodRoadmapEdit id="_bigRoad" width="291" height="175" />
+			<e:Group id="_editHint" width="248" height="44" horizontalCenter="0" verticalCenter="0">
+				<ui:RoundRectShape cornerTL_TR_BL_BR="6,6,6,6" width="100%" height="100%" stroke="0" fillColor="0x202730" fillAlpha="70%" />
+				<e:Group width="248" height="44" horizontalCenter="0" verticalCenter="0">
+					<ui:RunTimeLabel id="_editHintLeft" textAlign="left" text="Press" size="24"/>
+					<e:Image source="d_ba_panel_statistics_bankerelement_png" />
+					<ui:RunTimeLabel id="_editHintCenter" textAlign="left" text="or" size="24" />
+					<e:Image source="d_ba_panel_statistics_playerelement_png" />
+					<ui:RunTimeLabel id="_editHintRight" textAlign="left" text="to set." size="24" />
+					<e:layout>
+						<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle" />
+					</e:layout>
+				</e:Group>
+			</e:Group>
+		</e:Group>
 		<ui:BaseImageButton id="_clearButton" currentState="b_clear" y="29" width="17" height="18" anchorOffsetX="0" x="238"
-		                    skinName="skin_desktop.ImageButtonSkinGoodRoad" />
+		                    skinName="skin_desktop.ImageButtonSkinGoodRoad"
+				    tooltipText="'goodroad.tooltip.cleartext'" tooltipPosition="'above'" />
 		<e:Image id="close" width="29" height="29" x="282" y="22" source="d-lobby-button-close-none_png" />
 		<ui:BaseImageButton id="_bankerButton" currentState="b_banker" width="46" height="46" anchorOffsetX="0" y="262" x="13"
-		                    skinName="skin_desktop.ImageButtonSkinGoodRoad" />
+		                    skinName="skin_desktop.ImageButtonSkinGoodRoad"
+				    tooltipText="'goodroad.tooltip.drawbanker'" tooltipPosition="'above'" />
 		<ui:BaseImageButton id="_playerButton" currentState="b_player" width="46" height="46" anchorOffsetX="0" y="262" x="61.65"
-		                    skinName="skin_desktop.ImageButtonSkinGoodRoad" />
+		                    skinName="skin_desktop.ImageButtonSkinGoodRoad"
+				    tooltipText="'goodroad.tooltip.drawplayer'" tooltipPosition="'above'" />
 		<ui:BaseAnimationButton id="_removeButton" width="46" height="46" x="110.97" y="262"
-		                    dbClass="lobby_ui" dbDisplay="d_lobby_goodroad_panel_addroad_btn_undo" />
+		                    dbClass="lobby_ui" dbDisplay="d_lobby_goodroad_panel_addroad_btn_undo"
+				    tooltipText="'live.tooltip.undo'" tooltipPosition="'above'" />
 		<ui:BaseAnimationButton id="_removeAllButton" width="46" height="46" x="160.96" y="262"
-		                    dbClass="lobby_ui" dbDisplay="d_lobby_goodroad_panel_addroad_btn_clear" />
+		                    dbClass="lobby_ui" dbDisplay="d_lobby_goodroad_panel_addroad_btn_clear"
+				    tooltipText="'live.tooltip.cancel'" tooltipPosition="'above'" />
 		<ui:BaseAnimationButton id="_saveButton" width="95" height="46" x="211" y="262"
-		                    dbClass="lobby_ui" dbDisplay="d_lobby_goodroad_panel_addroad_btn_confirm" />
+		                    dbClass="lobby_ui" dbDisplay="d_lobby_goodroad_panel_addroad_btn_confirm"
+				    tooltipText="'goodroad.tooltip.confirm'" tooltipPosition="'above'" />
 	</e:Group>
 </e:Skin>

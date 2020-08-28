@@ -2,10 +2,10 @@ arch=$(uname -s)
 
 if [ -z "$1" ]
   then
-    echo "Please specify the target platform (testing|staging|production|development)"
+    echo "Please specify the target platform (testing|staging|production|development|release)"
     exit 1
 elif [ "$1" != "staging" ] && [ "$1" != "production" ] && [ "$1" != "development" ] && [ "$1" != "testing" ]; then
-    echo "Unknown target platform (development|testing|staging|production)"
+    echo "Unknown target platform (development|testing|staging|production|release)"
     exit 1
 fi
 
@@ -40,11 +40,13 @@ cp $path/config.$1.json $target
 case "${arch}" in
   Linux*|Darwin*)
     sed -i "" "s/\"target\":.*/\"target\": \"$1\",/g" "$target/config.json"
-    if [ "$1" == "development" ] || [ "$1" == "staging" ]; then sed -i "" "s/\data-show-fps=\"false\"/data-show-fps=\"true\",/g" bin-release/web/$1/index.html; fi
+    sed -i "" "s/js\.zip/js\.zip?v=$(date +%s)/g" bin-release/web/$1/index.html
+    if [ "$1" == "development" ] || [ "$1" == "staging" ]; then sed -i "" "s/\data-show-fps=\"false\"/data-show-fps=\"true\"/g" bin-release/web/$1/index.html; fi
   ;;
   CYGWIN*|MINGW32*|MSYS*|MINGW64*)
     sed -i "s/\"target\":.*/\"target\": \"$1\",/g" "$target/config.json"
-    if [ "$1" == "development" ] || [ "$1" == "staging" ]; then sed -i "s/\data-show-fps=\"false\"/data-show-fps=\"true\",/g" bin-release/web/$1/index.html; fi
+    sed -i "s/js\.zip/js\.zip?v=$(date +%s)/g" bin-release/web/$1/index.html
+    if [ "$1" == "development" ] || [ "$1" == "staging" ]; then sed -i "s/\data-show-fps=\"false\"/data-show-fps=\"true\"/g" bin-release/web/$1/index.html; fi
   ;;
 esac
 

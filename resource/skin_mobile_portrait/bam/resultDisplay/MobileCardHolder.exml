@@ -2,40 +2,40 @@
 <e:Skin class="skin_mobile_portrait.bam.MobileCardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing"
         width="1242" height="380">
         <e:Rect width="100%" height="83%" fillColor="0x000000" alpha="0.5" bottom="0" visible="false"/>       
-        <e:Group horizontalCenter="-50" y="245">
+        <e:Group horizontalCenter="-74" y="245">
 		<e:Image width="70" height="89" x="0" y="0" source="m_ba_result_poker_player_png"/>
                 <e:Label id="_playerSum" text="" x="53" y="8" fontFamily="Barlow" textAlign="center" horizontalCenter="0"
                          verticalCenter="0"  size="58" bold="true"/>
         </e:Group>
-        <e:Group horizontalCenter="50" y="245">
+        <e:Group horizontalCenter="76" y="245">
 		<e:Image width="70" height="89" x="0" y="0" source="m_ba_result_poker_banker_png"/>
                 <e:Label id="_bankerSum" text="" x="53" y="8" fontFamily="Barlow" textAlign="center" horizontalCenter="0"
                          verticalCenter="0"  size="58" bold="true"/>
         </e:Group>
 
-        <e:Group id="_openAllPlayer" width="282" height="100" left="220" bottom="250">
+        <e:Group id="_openAllPlayer" width="282" left="220" top="36" height="100">
                 <ui:RoundRectButton cornerTL_TR_BL_BR="50,50,50,50" width="282" height="100" x="0" y="0" 
                                     stroke="0" fillAlpha="1"  fillColor="0x2a80d9"/>
                 <ui:RunTimeLabel verticalCenter="0" horizontalCenter="0" i18n="baccarat.allOpen"
                                 touchEnabled="false"  size="48"/>
         </e:Group>
 
-        <e:Group id="_openAllBanker" width="282" height="100" right="220" bottom="250">
+        <e:Group id="_openAllBanker" width="282" right="220" top="36" height="100">
                 <ui:RoundRectButton cornerTL_TR_BL_BR="50,50,50,50" width="282" height="100" x="0" y="0" 
                                     stroke="0" fillAlpha="1"  fillColor="0xd94a50"/>
                 <ui:RunTimeLabel verticalCenter="0" horizontalCenter="0" i18n="baccarat.allOpen"
                                          touchEnabled="false"  size="48"/>
         </e:Group>
 
-        <ui:Card id="card3Banker" name="card3Banker" width="115" height="168" y="250"  rotation="90" x="1210"/>
-        <ui:Card id="card2Banker" name="card2Banker" width="115" height="168" y="200"  x="901"/>
-        <ui:Card id="card1Banker" name="card1Banker" width="115" height="168" y="200"  x="760"/>
-        <ui:Card id="card3Player" name="card3Player" width="115" height="168" y="250"  rotation="90" x="201"/>
-        <ui:Card id="card2Player" name="card2Player" width="115" height="168" y="200"  x="230"/>
-        <ui:Card id="card1Player" name="card1Player" width="115" height="168" y="200"  x="375"/>
+        <ui:Card id="card3Banker" name="card3Banker" width="115" height="168" y="250"  rotation="90" x="1218"/>
+        <ui:Card id="card2Banker" name="card2Banker" width="115" height="168" y="200"  x="909"/>
+        <ui:Card id="card1Banker" name="card1Banker" width="115" height="168" y="200"  x="768"/>
+        <ui:Card id="card3Player" name="card3Player" width="115" height="168" y="250"  rotation="90" x="193"/>
+        <ui:Card id="card2Player" name="card2Player" width="115" height="168" y="200"  x="222"/>
+        <ui:Card id="card1Player" name="card1Player" width="115" height="168" y="200"  x="367"/>
 
 
 
-        <ui:CountdownTimer id="_timer" width="182" height="182"  y="0" horizontalCenter="0" skinName="skin_desktop.CountdownTimerRoundSqueezeBaccaratSkin" />
+        <ui:CountdownTimer id="_timer" width="182" height="182"  y="0" horizontalCenter="0" skinName="skin_mobile.CountdownTimerRoundSqueezeBaccaratSkin" />
 	<e:Image id="_highlightCard" width="115" height="168" x="91" y="152" source="m_sq_ba_small_card_HL_png" visible="false"/>
 </e:Skin>

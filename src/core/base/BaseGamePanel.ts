@@ -21,7 +21,13 @@ namespace we {
 
       // called whenever an update is needed, render components from this.tableInfo
       // to be implemented by each Sub class
-      public update() {}
+      public update() {
+        this.updateTableBetInfo();
+      }
+
+      public updateTableBetInfo() {}
+
+      public updateStat() {}
     }
   }
 }

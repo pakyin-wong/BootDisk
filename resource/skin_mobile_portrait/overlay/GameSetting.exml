@@ -10,27 +10,12 @@
 			<ui:RunTimeLabel id="_txt_showHint" text="Label" x="0" y="3" anchorOffsetX="0" width="620" height="89" size="60" textColor="0xFFFFFF" fontFamily="NotoSansCJKtc" verticalAlign="middle"/>
 			<ui:BaseButton id="switch_showHint" width="153" height="93" x="629" y="0.5" skinName="skin_mobile_portrait.NavLeftHandModeBtn"/>
 		</e:Group>
-		<e:Group id="_btn_sendLiveVer" width="792" height="150" x="94" y="438">
+		<!--<e:Group id="_btn_sendLiveVer" width="792" height="150" x="94" y="438">
 			<e:Rect fillColor="0xffffff" fillAlpha="0" strokeWeight="3" strokeColor="0x4b535b" ellipseWidth="130" ellipseHeight="130" scaleX="1" scaleY="1" bottom="0" top="0" left="0" right="0"/>
 			<ui:RunTimeLabel id="_txt_sendLiveVer" text="Label" verticalAlign="middle" textAlign="center" size="60" alpha="0.7" scaleX="1" scaleY="1" left="0" top="0" width="100%" height="100%"/>
-		</e:Group>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		</e:Group>-->
+<ui:RoundRectButton id="_btn_sendLiveVer" cornerTL_TR_BL_BR="60,60,60,60" width="792" height="150" x="94" y="438" stroke="3"
+		                    fillAlpha="0" strokeColor="0x4b535b" stroke_click="0" fillColor_click="0x1B416E"
+		                    fillAlpha_click="1" stroke_active="0" fillColor_active="0x1B416E" fillAlpha_active="1" />
 	</e:Group>
 </e:Skin>

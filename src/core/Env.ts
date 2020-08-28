@@ -16,7 +16,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.7.9';
+      public version: string = '0.8.2';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -87,6 +87,7 @@ namespace we {
 
       private _tableInfoArray: data.TableInfo[] = [];
       private _tableInfos: { [key: string]: data.TableInfo } = {};
+      public _currTableId: string;
 
       // array of table id
       public allTableList: string[] = [];
@@ -108,6 +109,14 @@ namespace we {
 
       // Check if playing bam first time
       public isFirstTimeBam = false;
+      // check if first time open desktop infoPanel
+      public isFirstTimeInfoPanel = false;
+      // check if mobilebottomGamePanel is open
+      public isBottomPanelOpen = true;
+
+      // Lottery
+      public loDenominationList = [2, 20, 200];
+      public loDeniminationIdx = 0;
 
       public init() {
         this.mobileValidGameType = [
@@ -116,6 +125,7 @@ namespace we {
           core.GameType.BAS,
           core.GameType.BAM,
           core.GameType.DI,
+          core.GameType.DIL,
           core.GameType.DT,
           core.GameType.LW,
           core.GameType.RO,
@@ -273,6 +283,7 @@ namespace we {
 
       public gotoScene(tableId: string) {
         const gameType = env.tableInfos[tableId].gametype;
+        this._currTableId = tableId;
         switch (gameType) {
           case core.GameType.BAC:
           case core.GameType.BAS:
@@ -305,6 +316,7 @@ namespace we {
 
           default:
             logger.e(utils.LogTarget.DEBUG, `Scene for GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
+            this._currTableId = '';
             break;
         }
       }

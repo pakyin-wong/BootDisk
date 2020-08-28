@@ -26,13 +26,13 @@
   <e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="1242" touchEnabled="false" touchChildren="true" touchThrough="true" height="121">
 
     <ui:RunTimeLabel id="_lblRoomNo" x="26" y="15" size="40" height="56" verticalAlign="middle" text="輪盤 01"/>
-		<ui:RunTimeLabel id="_lblBetLimit" size="40" text="10-500" x="26" y="65" height="48" verticalAlign="middle" fontFamily="Barlow"/>
-		<e:Group height="50" y="63" right="23">
-			<ui:RunTimeLabel id="_totalBetText" text="總下注" y="0" textAlign="right" size="36" height="50" verticalAlign="middle"/>
-			<ui:RunTimeLabel id="_totalBet" text="$800" y="0" textAlign="right" verticalAlign="middle" height="50" size="36"/>
-			<e:layout>
-				<e:HorizontalLayout gap="20" verticalAlign="middle"/>
-			</e:layout>
+		<ui:RunTimeLabel id="_lblBetLimit" size="40" text="10-500" x="26" y="65" height="48" verticalAlign="middle" fontFamily="Arial"/>
+					<e:Group y="65" right="15">
+						<ui:RunTimeLabel id="_totalBet" text="0" anchorOffsetX="0" textAlign="right" size="36" right="5"/>
+						<ui:RunTimeLabel id="_totalBetText" text="總下注" anchorOffsetX="0" textAlign="right" size="36" alpha="0.7"/>
+						<e:layout>
+							<e:HorizontalLayout/>
+						</e:layout>
 		</e:Group>
 		<e:Group id="_btnBack" width="103" height="103" x="32" y="149">
 			<e:Rect strokeColor="0x444444" fillAlpha="0.4" fillColor="0x212425" left="0" right="0" top="0" bottom="0" ellipseHeight="103" ellipseWidth="103"/>
@@ -40,7 +40,7 @@
 		</e:Group>
 		<e:Group y="2101" x="0">
 			<ui:RunTimeLabel id="_baGameIDText" text="編號" y="0" height="54" verticalAlign="middle" size="36" textColor="0xf3f3f3" x="0"/>
-			<ui:RunTimeLabel id="_baGameID" text="000000000000" x="197" y="18" height="43" size="36" verticalAlign="middle"/>
+			<ui:RunTimeLabel id="_baGameID" text="000000000000" x="197" y="18" height="43" size="36" verticalAlign="middle" fontFamily="Barlow" textColor="0xf3f3f3" />
 			<e:layout>
 			<e:HorizontalLayout verticalAlign="middle" paddingLeft="8" gap="8"/>
 			</e:layout>
@@ -77,12 +77,12 @@
         <e:Image id="_panel" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1" scaleX="1" width="855" height="871" x="0" y="0"/>
         <e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" scaleY="1" scaleX="1" rotation="90" x="888" y="40"/>
       </e:Group>
-      <ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" betChipWidth="250" betChipHeight="208" scaleY="1" labelSize="48" width="855" height="871" numChipsInRow="3" right.left="0"/>
+      <ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" betChipWidth="250" betChipHeight="208" scaleY="1" labelSize="48" width="855" height="871" numChipsInRow="3" right.left="0" y="35"/>
     </e:Group>
     <e:Group id="_betRelatedGroup" x="1074" y="181" scaleX="1" scaleY="1" width="128" x.left="21">
       <e:Rect id="_roundPanel" width="128" height="834" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"/>
       <e:Button id="_confirmButton" label="" anchorOffsetX="0" width="256" anchorOffsetY="0" height="120" horizontalCenter="0" y="675" skinName="skin_mobile_portrait.BetConfirmButtonMobile" rotation="90"/>
-      <ui:CountdownTimer id="_timer" width="256" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" y="675" horizontalCenter="0" rotation="90" currentState="vertical"/>
+      <ui:CountdownTimer id="_timer" width="256" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" y="675" horizontalCenter="0" rotation="90" currentState="vertical" colorChange="true"/>
 			<ui:RunTimeLabel id="_repeatLabel" text="再次下注" y="154" left="0" right="0" textAlign="center" verticalAlign="middle" size="32" height="47"/>
 			<ui:RunTimeLabel id="_cancelLabel" text="清除" y="445" left="0" right="0" textAlign="center" verticalAlign="middle" size="32" height="47"/>
 			<ui:RunTimeLabel id="_doubleLabel" text="雙倍" y="306" left="0" right="0" textAlign="center" verticalAlign="middle" size="32" height="47"/>

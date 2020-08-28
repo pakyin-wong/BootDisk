@@ -99,7 +99,7 @@ namespace we {
 
       public updateResult(gameData: data.GameData, chipLayer?: ui.ChipLayer) {
         // TODO: update card using the gameData
-        this.gameData = <bam.GameData> gameData;
+        this.gameData = <bam.GameData>gameData;
         this._chipLayer = chipLayer;
 
         this.updateCardArr();
@@ -310,7 +310,9 @@ namespace we {
         }
 
         this.cardHolderArr[2].visible = false;
+        this._openAllBanker.x = 1827;
         this.cardHolderArr[5].visible = false;
+        this._openAllPlayer.x = 314;
 
         if (this._data == null) {
           this.reset();
@@ -335,7 +337,9 @@ namespace we {
         this.cardHolderArr[4].setCard(utils.formatCard(this.cardArr[4]));
 
         this.cardHolderArr[5].visible = true;
+        this._openAllPlayer.x = 120;
         this.cardHolderArr[2].visible = false;
+        this._openAllBanker.x = 1827;
         this._highlightCard.visible = false;
         this._resultCard.closeFlipPanel();
         this.setCardsFlipAllowed(5, 1);
@@ -355,6 +359,7 @@ namespace we {
         this.cardHolderArr[4].setCard(utils.formatCard(this.cardArr[4]));
 
         this.cardHolderArr[2].visible = true;
+        this._openAllBanker.x = 2020;
         if (this.cardArr[5]) {
           this.cardHolderArr[5].visible = true;
           this.cardHolderArr[5].setCard(utils.formatCard(this.cardArr[5]));

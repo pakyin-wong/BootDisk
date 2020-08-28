@@ -27,11 +27,11 @@ namespace we {
           case '04':
             return 'd_lw_listpenal_result_north_png';
           case '05':
-            return 'd_lw_listpenal_result_red_png';
-          case '06':
-            return 'd_lw_listpenal_result_green_png';
-          case '07':
             return 'd_lw_listpenal_result_white_png';
+          case '06':
+            return 'd_lw_listpenal_result_red_png';
+          case '07':
+            return 'd_lw_listpenal_result_green_png';
         }
         return null;
       }
@@ -47,11 +47,11 @@ namespace we {
           case '04':
             return 'd_lw_listpenal_result_money_bg_north_png';
           case '05':
-            return 'd_lw_listpenal_result_money_bg_gold_png';
+            return 'd_lw_listpenal_result_money_bg_white_png';
           case '06':
             return 'd_lw_listpenal_result_money_bg_gold_png';
           case '07':
-            return 'd_lw_listpenal_result_money_bg_white_png';
+            return 'd_lw_listpenal_result_money_bg_gold_png';
         }
         return null;
       }

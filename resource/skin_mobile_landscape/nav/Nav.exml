@@ -5,7 +5,7 @@
 	<ui:NavLantern id="_lantern" width="2000" height="38"   y="17" x="20" lineSpacing="38" fontsize="36" visible.Game="false" visible.Lobby="true"/>
 
 	<e:Image height="150" left="0" right="0" top="0" source="d-lobby-header-dim_png" touchEnabled="false"  visible="false"/>
-	<e:Label id="_time" text="yyyy/mm/dd 00:00:00" size="36" fontFamily="Barlow" width="340" height="38" textAlign="right" anchorOffsetX="0" verticalAlign="top" textColor="0xa5a5a5" y="17" x.Game="486" x="2064"/>
+	<e:Label id="_time" text="yyyy/mm/dd 00:00:00" size="36" fontFamily="Barlow" width="340" height="38" textAlign="right" anchorOffsetX="0" verticalAlign="top" textColor="0xa5a5a5" y="17" x.Game="479" x="2064" size.Game="26" width.Game="273" y.Game="24"/>
 		<e:Group id="_profile_toggle" y="34" y.Game="9" width.Game="531" right.Game="0" x.Lobby="1996" y.Lobby="1095" height.Game="91" width.Lobby="316" visible.Game="false">
 		<e:Label id="_user" text="User" x="108" y="0" height="47" size="38.8" fontFamily="Barlow" textColor="0xffffff" textAlign="left" verticalAlign="middle" maxWidth="202" visible.Game="false" x.Lobby="121"/>
 
@@ -18,15 +18,16 @@
 
 
 	</e:Group>
-	<e:Group height="63" includeIn="Game" right="0" top="0">
-		<ui:RunTimeLabel id="_balanceGame" text="123,456,789" x.Lobby="108" y="49" height="47" fontFamily="Barlow" size="39" textColor="0xffffff" verticalAlign="middle" maxWidth="202" y.Game="0"  x.Game="81" scaleX="1" scaleY="1"/>
-		<ui:RunTimeLabel id="_balanceText" text="餘額" includeIn="Game" x="418" y="4.97" anchorOffsetY="0" height="47" size="36" verticalAlign="middle" />
+	<e:Group height="63" includeIn="Game" y="17" right="15">
+		<ui:RunTimeLabel id="_balanceGame" text="123,456,789" x.Lobby="108" y="49" height="47" fontFamily="Barlow" size="36" textColor="0xffffff" verticalAlign="middle" maxWidth="202" y.Game="0"  x.Game="81" scaleX="1" scaleY="1"/>
+		<ui:RunTimeLabel id="_balanceText" text="餘額" includeIn="Game" x="418" y="4.97" anchorOffsetY="0" height="47" size="36" verticalAlign="middle" alpha="0.7"/>
 		<e:layout>
 			<e:HorizontalLayout gap="10" horizontalAlign="right"/>
 		</e:layout>
 	</e:Group>
-
-	<e:Image id="_refreshButton" width="55" height="55" y="1106" scaleX="1" scaleY="1" source="m_common_header_icon_refresh_png" right="38" visible.Game="false"/>
+	<ui:BaseAnimationButton id="_refreshButton" y="1106" right="38" scaleX="2" scaleY="2" width="50" height="50"  visible.Game="false"
+		                        dbClass="common_ui" dbDisplay="d_common_icon_refresh" useColorFilter="false"
+								 tooltipText="'nav.tooltip.refresh'"  />
 	<ui:BaseImageButton id="_slider_toggle" y="944" width="117" height="117"
 		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_icon_menu"  x="2270" y.Game="148"/>
 

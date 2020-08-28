@@ -8,6 +8,10 @@ namespace we {
       private _active: boolean = false;
       private _click: boolean = false;
 
+      public useColorFilter: boolean = false;
+      public downColorOffset: number = -30;
+      public hoverColorOffset: number = 30;
+
       public cornerTL_TR_BL_BR: string = ''; // eg. "8,8,0,0" for TL:8, TR:8, BL:0, BR:0
       public cornerTL: number = 8;
       public cornerTR: number = 8;
@@ -79,10 +83,11 @@ namespace we {
       public strokeIn_hover: number = -2;
       public strokeInColor_hover: number = -2;
       public strokeInAlpha_hover: number = -2;
+      public labelSize: number = 24;
 
       protected mount() {
         this._roundRectShape = new RoundRectShape();
-        this.addChild(this._roundRectShape);
+        this.addChildAt(this._roundRectShape, 0);
         if (this.cornerTL_TR_BL_BR !== '') {
           const corners = this.cornerTL_TR_BL_BR
             .split(' ')
@@ -107,15 +112,17 @@ namespace we {
 
         if (!this._label) {
           this._label = new RunTimeLabel();
-          this._label.top = 10;
-          this._label.bottom = 10;
-          this._label.left = 20;
+          this._label.horizontalCenter = 0;
+          this._label.verticalCenter = 0;
+          // this._label.top = 10;
+          // this._label.bottom = 10;
+          // this._label.left = 20;
           // this._label.right = 20;
-          this._label.width = this.width - 40;
-          this._label.targetWidth = this.width - 40;
+          // this._label.width = this.width - 40;
+          this._label.targetWidth = this.width - 80;
           this._label.verticalAlign = 'middle';
           this._label.textAlign = 'center';
-          this._label.size = 24;
+          this._label.size = this.labelSize;
           this.addChild(this._label);
           // this._label.text = 'Hello';
           // left="20" right="20" top="10" bottom="10" verticalAlign="middle" textAlign="center" size="24" alpha="0.7" alpha.active="1" alpha.click="1" alpha.hover="1" bold.hover="true"
@@ -128,8 +135,8 @@ namespace we {
       public $setWidth(val: number) {
         super.$setWidth(val);
         if (this._label) {
-          this._label.width = this.width - 40;
-          this._label.targetWidth = this.width - 40;
+          // this._label.width = this.width - 40;
+          this._label.targetWidth = this.width - 80;
         }
       }
 
@@ -236,6 +243,30 @@ namespace we {
           strokeInAlpha
         );
         this._label.textColor = labelColor;
+
+        if (this.useColorFilter) {
+          this.updateColorFilter(this.currentState);
+        }
+      }
+
+      protected updateColorFilter(buttonState) {
+        let colorMatrix;
+        let offset = 0;
+        switch (buttonState) {
+          case 'hover':
+            offset = this.hoverColorOffset;
+            break;
+          case 'down':
+            offset = this.downColorOffset;
+            break;
+        }
+        if (buttonState === 'disabled') {
+          colorMatrix = [0.3, 0.6, 0, 0, 0, 0.3, 0.6, 0, 0, 0, 0.3, 0.6, 0, 0, 0, 0, 0, 0, 1, 0];
+        } else {
+          colorMatrix = [1, 0, 0, 0, offset, 0, 1, 0, 0, offset, 0, 0, 1, 0, offset, 0, 0, 0, 1, 0];
+        }
+        const colorFilter = new egret.ColorMatrixFilter(colorMatrix);
+        this.filters = [colorFilter];
       }
     }
   }

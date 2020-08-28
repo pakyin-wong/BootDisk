@@ -4,7 +4,6 @@ namespace we {
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _betChipSetGridEnabled: boolean = false;
       protected _closeButton: ui.BaseImageButton;
-      protected _prevButton: ui.BaseImageButton;
 
       protected _advancedRoadNode: eui.Component;
       protected _advancedRoad: IAdvancedRoad & eui.Component;
@@ -114,7 +113,12 @@ namespace we {
         super.addEventListeners();
         this._betChipSetGridSelected.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
         this._closeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
-        this._prevButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickUndoButton, this);
+      }
+
+      protected removeEventListeners() {
+        super.removeEventListeners();
+        this._betChipSetGridSelected.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
+        this._closeButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
       }
 
       public onClickUndoButton(evt: egret.Event) {
@@ -144,7 +148,7 @@ namespace we {
         // console.log('LiveListAdvancedItem', this._tableId);
         // console.log('LiveListAdvancedItem::onRoadDataUpdate', evt.data);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._analysis) {
               this._analysis.tableId = this._tableId;
@@ -185,7 +189,7 @@ namespace we {
         // console.log('LiveListAdvancedItem', this._tableId);
         // console.log('LiveListAdvancedItem::onTableBetInfoUpdate', evt.data);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._analysis) {
               this._analysis.tableId = this._tableId;

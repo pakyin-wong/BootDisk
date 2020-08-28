@@ -57,11 +57,35 @@ namespace we {
         });
       }
 
-      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
-        for (const key of Object.keys(fieldAmounts)) {
-          if (fieldAmounts[key] > betLimit.maxlimit) {
-            return true;
-          }
+      // protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+      //   for (const key of Object.keys(fieldAmounts)) {
+      //     if (fieldAmounts[key] === 0) {
+      //       continue;
+      //     }
+      //     if (fieldAmounts[key] < betLimit.minlimit) {
+      //       return true;
+      //     }
+      //   }
+      //   return false;
+      // }
+      protected isExceedUpperBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail: data.BetDetail) {
+        const val = this.getAllValue(fieldAmounts, betDetail.field) + betDetail.amount;
+
+        switch (betDetail.field) {
+          case lw.BetField.LW_0:
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'lw', 'LW_0'));
+          case lw.BetField.LW_1:
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'lw', 'LW_1'));
+          case lw.BetField.LW_2:
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'lw', 'LW_2'));
+          case lw.BetField.LW_3:
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'lw', 'LW_3'));
+          case lw.BetField.LW_4:
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'lw', 'LW_4'));
+          case lw.BetField.LW_5:
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'lw', 'LW_5'));
+          case lw.BetField.LW_6:
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'lw', 'LW_6'));
         }
         return false;
       }

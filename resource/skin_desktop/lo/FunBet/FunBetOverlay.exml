@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.lo.FunBetOverlay" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*"  xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*">
+	<e:Group>
+		<ui:RoundRectShape width="820" height="683" scaleX="1" scaleY="1" cornerTL_TR_BL_BR="13,13,13,13" fillColor="0x0f1721" strokeColor="0x1d2b3f" stroke="2"/>
+		<e:Rect height="1" y="163" left="49" right="47" alpha="0.4"/>
+		<e:Rect height="1" y="422" left="49" right="47" alpha="0.4"/>
+		<ui:RunTimeLabel id="_txt_title" text="投注確認" x="47" y="26" textColor="0xce925e" height="45" verticalAlign="middle"/>
+		<ui:RunTimeLabel id="_txt_table" text="彩種名稱" x="48" y="107" size="24" alpha="0.7" height="36" verticalAlign="middle"/>
+		<e:Label id="_tf_table" text="WG 時時彩" x="188" y="107" height="36" size="24" verticalAlign="middle"/>
+		<ui:RunTimeLabel id="_txt_round" text="投注期數" x="457" y="107" size="24" alpha="0.7" height="36" verticalAlign="middle"/>
+		<e:Label id="_tf_round" text="20200606203 期" y="107" height="36" size="24" verticalAlign="middle" right="47"/>
+		<ui:RunTimeLabel id="_txt_bet" text="玩法投注" x="48" y="186" height="36" verticalAlign="middle" size="24" alpha="0.7"/>
+		<ui:RunTimeLabel id="_txt_rate" text="賠率" x="460" y="186" height="36" verticalAlign="middle" alpha="0.7" size="24"/>
+		<ui:RunTimeLabel id="_txt_amt" text="單注金額" x="677" y="186" height="36" verticalAlign="middle" alpha="0.7" size="24"/>
+		<ui:RunTimeLabel id="_txt_totalBet" text="總注數" x="457" y="445" height="36" verticalAlign="middle" alpha="0.7" size="24"/>
+		<e:Group height="42" y="439" right="47">
+			<e:Label id="_tf_count" text="4" x="50" y="22" size="42" bold="true" textColor="0x33bb7e" height="42" verticalAlign="middle"/>
+			<ui:RunTimeLabel id="_txt_count" text="注" x="-305.99999999999994" y="68" alpha="0.7" size="24" scaleX="1" scaleY="1" height="36" verticalAlign="middle"/>
+			<e:layout>
+			<e:HorizontalLayout horizontalAlign="right" verticalAlign="bottom"/>
+			</e:layout>
+		</e:Group>
+		<ui:RunTimeLabel id="_txt_totalAmt" text="總投注額" x="457" y="497" height="36" verticalAlign="middle" alpha="0.7" size="24"/>
+
+		<e:Label id="_tf_total" text="$200.00" y="491" textColor="0xe4493a" size="40" height="42" right="47" bold="true"/>
+		<ui:Scroller id="_scroller" height="168" y="234" left="48" right="27">
+        		<e:List id="_list"/>
+		</ui:Scroller>
+
+
+		<ui:RoundRectButton id="close" width="224" height="68" x="171" y="580" stroke="2" strokeColor="0x5f6973" cornerTL_TR_BL_BR="35,35,35,35" fillColor="0x0f1721" strokeAlpha_hover="1" strokeAlpha="0.7"/>
+		<ui:RoundRectButton id="_btnConfirm" width="224" height="68" x="427" y="580" stroke="0" strokeColor="0x5f6973" cornerTL_TR_BL_BR="35,35,35,35" fillColor="0x0f9d5d" fillAlpha="0.7" fillAlpha_hover="1"/>
+	</e:Group>
+</e:Skin>
+

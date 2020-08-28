@@ -30,7 +30,7 @@ namespace we {
       protected _timer: ui.CountdownTimer;
 
       protected _btnBack: egret.DisplayObject;
-      protected _lblRoomInfo: eui.Label;
+      protected _lblRoomInfo: egret.DisplayObject;
       protected _lblRoomNo: ui.RunTimeLabel;
 
       protected _gameBar: ui.GameBar;
@@ -45,6 +45,9 @@ namespace we {
       // protected _leftGamePanel: BaseGamePanel;
       // protected _rightGamePanel: BaseGamePanel;
 
+      public get previousState() {
+        return this._previousState;
+      }
       public get tableInfo() {
         return this._tableInfo;
       }
@@ -161,6 +164,7 @@ namespace we {
           this._chipLayer.init();
           this._chipLayer.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
           this._chipLayer.getSelectedChipIndex = () => this._betChipSet.selectedChipIndex;
+          this._chipLayer.onConfirmPressed = this.onConfirmPressed.bind(this);
         }
       }
 
@@ -185,12 +189,12 @@ namespace we {
 
       protected addEventListeners() {
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
+        this.addEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
 
         dir.evtHandler.addEventListener(core.Event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
         dir.evtHandler.addEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
         dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.addEventListener(core.Event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
-        dir.evtHandler.addEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
         dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitUpdate, this);
         dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
@@ -236,10 +240,10 @@ namespace we {
 
       protected removeEventListeners() {
         this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
+        this.removeEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
 
         dir.evtHandler.removeEventListener(core.Event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
         dir.evtHandler.removeEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
-        dir.evtHandler.removeEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
         dir.evtHandler.removeEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.removeEventListener(core.Event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
         dir.evtHandler.removeEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitUpdate, this);
@@ -284,7 +288,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -324,7 +328,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -357,10 +361,7 @@ namespace we {
         this._chipLayer.resetUnconfirmedBet();
       }
 
-      protected onRoadDataUpdate(evt: egret.Event) {
-        // this._leftGamePanel.update();
-        // this._rightGamePanel.update();
-      }
+      protected onRoadDataUpdate(evt: egret.Event) {}
 
       public updateGame(isInit: boolean = false) {
         if (!this._gameData) {
@@ -608,27 +609,51 @@ namespace we {
       }
 
       public checkResultMessage(resultData = null) {
-        const totalWin: number = this._tableInfo.totalWin;
-
-        if (!this._gameData) {
-          return;
+        let totalWin: number = NaN;
+        if (!isNaN(this._tableInfo.totalWin)) {
+          totalWin = this._tableInfo.totalWin;
+        }
+        let pass1: boolean = false;
+        let pass2: boolean = false;
+        switch (this._tableInfo.gametype) {
+          case core.GameType.BAC:
+          case core.GameType.BAI:
+          case core.GameType.BAS:
+          case core.GameType.BAM:
+          case core.GameType.DT:
+            pass1 = this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin);
+            pass2 = this._gameData && this._gameData.wintype != 0;
+            break;
+          case core.GameType.RO:
+          case core.GameType.ROL:
+          case core.GameType.DI:
+          case core.GameType.DIL:
+          case core.GameType.LW:
+            pass1 = this._gameData && this._gameData.state === core.GameState.FINISH && !isNaN(totalWin);
+            pass2 = !!this._gameData && this._gameData.state === core.GameState.FINISH;
+            break;
+          default:
+            logger.e(utils.LogTarget.DEBUG, 'No gametype found in ControlItem::checkResultMessage');
+            break;
         }
 
-        if (resultData === null) {
-          // default resultData
-          if (this.hasBet() && !isNaN(totalWin)) {
-            resultData = {
-              gameData: this._gameData,
+        if (this._tableInfo.totalBet > 0) {
+          if (pass1) {
+            this._resultMessage.showResult(this._tableInfo.gametype, {
+              winType: this._gameData.wintype,
               winAmount: totalWin,
-            };
-          } else {
-            resultData = {
               gameData: this._gameData,
+            });
+          }
+        } else {
+          if (pass2) {
+            this._resultMessage.showResult(this._tableInfo.gametype, {
+              winType: this._gameData.wintype,
               winAmount: NaN,
-            };
+              gameData: this._gameData,
+            });
           }
         }
-        this._resultMessage.showResult(this._tableInfo.gametype, resultData);
 
         this.playResultSoundEffect(totalWin);
       }
@@ -638,13 +663,42 @@ namespace we {
       protected onConfirmPressed(evt: egret.Event) {
         if (this._chipLayer) {
           if (this._chipLayer.getTotalUncfmBetAmount() > 0) {
-            const bets = this._chipLayer.getUnconfirmedBetDetails();
-            this._chipLayer.resetUnconfirmedBet(); // Waiting to change to push to waitingforconfirmedbet
-            this._undoStack.clearStack();
-            dir.socket.bet(this._tableId, bets);
+            if (this._chipLayer.validateBet()) {
+              const bets = this._chipLayer.getUnconfirmedBetDetails();
+              this._chipLayer.resetUnconfirmedBet(); // Waiting to change to push to waitingforconfirmedbet
+              this._undoStack.clearStack();
+              dir.socket.bet(this._tableId, bets, this.onBetReturned.bind(this));
+            }
           }
         }
       }
+
+      protected onBetReturned(result) {
+        if (!result) {
+          logger.e(utils.LogTarget.RELEASE, 'Bet error');
+          return;
+        }
+        // dealing with backend error message
+        if (result.error) {
+          switch (result.error.id) {
+            case '4002':
+              if (this._chipLayer) {
+                this._chipLayer.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
+              }
+              break;
+            default:
+              // maybe calling errorhandler
+              logger.e(utils.LogTarget.RELEASE, 'Bet error');
+          }
+          return;
+        }
+        // dealing with success message
+        if (result.success) {
+          logger.l(utils.LogTarget.RELEASE, 'Bet Result Received', result);
+          this.dispatchEvent(new egret.Event(core.Event.PLAYER_BET_RESULT, false, false, result));
+        }
+      }
+
       protected onCancelPressed(evt: egret.Event) {
         if (this._chipLayer) {
           this._chipLayer.cancelBet();
@@ -700,6 +754,11 @@ namespace we {
           console.log('Video play Error');
         }
         this._bgImg.visible = true;
+      }
+
+      protected destroy() {
+        super.destroy();
+        env._currTableId = '';
       }
     }
   }

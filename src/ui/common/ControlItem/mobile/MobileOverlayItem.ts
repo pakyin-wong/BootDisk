@@ -108,6 +108,7 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
+        this._goodRoadLabel.width = 0;
         this._goodRoadLabel.visible = false;
         this._alreadyBetSign.visible = false;
 
@@ -230,6 +231,8 @@ namespace we {
         super.onTableBetInfoUpdate(evt);
         if (this.tableInfo.totalBet > 0) {
           this._alreadyBetSign.visible = true;
+          // this._alreadyBetSign.x = this._goodRoadLabel.visible ? this._goodRoadLabel.width + 10 : 0;
+          // console.log('this._alreadyBetSign.x', this._alreadyBetSign.x);
         } else {
           this._alreadyBetSign.visible = false;
         }
@@ -247,24 +250,27 @@ namespace we {
         }
         if (this.tableInfo.goodRoad) {
           this._goodRoadLabel.visible = true;
+          this._goodRoadLabel.width = NaN;
           const goodRoadData = this.tableInfo.goodRoad;
           const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
           // this._goodRoadLabel.text = goodRoadName;
           this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
         } else {
-          this._goodRoadLabel.visible = false;
+          // this._goodRoadLabel.visible = false;
         }
       }
 
       protected onMatchGoodRoadUpdate() {
         if (this.tableInfo.goodRoad) {
           this._goodRoadLabel.visible = true;
+          this._goodRoadLabel.width = NaN;
           const goodRoadData = this.tableInfo.goodRoad;
           const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
           // this._goodRoadLabel.text = goodRoadName;
           this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
         } else {
           this._goodRoadLabel.visible = false;
+          this._goodRoadLabel.width = 0;
         }
       }
     }

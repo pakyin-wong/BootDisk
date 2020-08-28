@@ -6,7 +6,7 @@ namespace we {
 
       // table info panel
       public _tableInfoPanel: ba.TableInfoPanel;
-      public _betLimitDropDownBtn: ui.RunTimeLabel;
+      // public _betLimitDropDownBtn: ui.RunTimeLabel;
 
       // statisticChartPanel
       public _statisticChartPanel: ba.StatisticChartPanel;
@@ -27,7 +27,12 @@ namespace we {
       protected mount() {
         super.mount();
 
-        this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
+        // this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
+      }
+      public setTableInfo(tableInfo: data.TableInfo) {
+        super.setTableInfo(tableInfo);
+        this._roadmapPanel.setTableInfo(this.tableInfo);
+        this._statisticChartPanel.setValue(tableInfo);
       }
 
       protected addListeners() {
@@ -59,9 +64,16 @@ namespace we {
         // this._infoGroup.removeChildren();
         this.removeListeners();
       }
-      protected updateStat() {
+
+      public updateStat() {
         super.updateStat();
         this._statisticChartPanel.update();
+      }
+
+      public openTableInfo() {
+        super.openTableInfo();
+        this.tableInfoBtn.selected = true;
+        this.viewStack.selectedIndex = this.tableInfoBtn.value;
       }
     }
   }
