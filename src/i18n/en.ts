@@ -698,18 +698,18 @@ namespace we {
         betamount: 'betamount',
         action: 'action',
       },
-        ui: {
-          gamemode: 'gamemode',
-          betitem: 'betitem',
-          betmode: 'betmode',
-          notecount: 'notecount',
-          multiplier: 'multiplier',
-          betamount: 'betamount',
-          action: 'action',
-        },
-        description: {
-          checkbox: 'At least $min$ options should be selected，\n you are selecting $count$ options\n，system will auto generate $combination$ combinations',
-        },
+      ui: {
+        gamemode: 'gamemode',
+        betitem: 'betitem',
+        betmode: 'betmode',
+        notecount: 'notecount',
+        multiplier: 'multiplier',
+        betamount: 'betamount',
+        action: 'action',
+      },
+      description: {
+        checkbox: 'At least $min$ options should be selected，\n you are selecting $count$ options\n，system will auto generate $combination$ combinations',
+      },
     };
   }
 }
