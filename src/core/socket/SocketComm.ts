@@ -819,7 +819,7 @@ namespace we {
             return { field: value.betcode, amount: value.amount };
           }),
           this.warpServerCallback((data: any) => {
-            if (!data.error) {
+            if (data.error) {
               // TODO: handle error on cancel
             } else {
               dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);

@@ -34,11 +34,20 @@ namespace we {
       }
 
       public generateResultMessage(node: eui.Component) {
-        const gameResultMessage = new ro.GameResultMessage();
+        const gameResultMessage = new ro.SideBetResultMessage();
+        gameResultMessage.skinName = `skin_mobile_portrait.ro.SideBetResultMessage`;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(gameResultMessage, idx);
         return gameResultMessage;
       }
+
+      // public generateResultDisplay(node: eui.Component) {
+      //   const cardHolder = new ro.SideBetResultMessage();
+      //   cardHolder.skinName = `skin_mobile_portrait.ro.SideBetResultMessage`;
+      //   const idx = node.parent.getChildIndex(node);
+      //   node.parent.addChildAt(cardHolder, idx);
+      //   return cardHolder;
+      // }
     }
   }
 }
