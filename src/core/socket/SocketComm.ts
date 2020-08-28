@@ -177,6 +177,8 @@ namespace we {
       protected handleReady(player: data.PlayerSession, timestamp: string) {
         // return data with struct data.PlayerSession
 
+        console.log(player);
+
         this.updateTimestamp(timestamp);
         env.playerID = player.playerid;
         env.currency = player.profile.currency;
@@ -594,9 +596,12 @@ namespace we {
             tableInfo.gamestatistic = stats;
             break;
           }
-          case core.GameType.LO:
+          case core.GameType.LO: {
+            gameStatistic.tableID = tableid;
+            gameStatistic.shoeID = gameStatistic.shoeid;
+            tableInfo.gamestatistic = gameStatistic;
+          }
           default: {
-            console.log('lo', 'gameStatistic', gameStatistic);
             // gameStatistic.tableID = tableid;
             // gameStatistic.shoeID = gameStatistic.shoeid;
             // const stats = new we.data.GameStatistic();
@@ -705,7 +710,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
           return betDetail;
         });
 

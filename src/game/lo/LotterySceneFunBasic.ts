@@ -16,6 +16,7 @@ namespace we {
 
       protected _tableId: string;
       protected _tableInfo: data.TableInfo;
+      protected _statistic;
       protected _betDetails: data.BetDetail[];
       protected _previousState: number;
       protected _gameData: we.data.GameData;
@@ -30,6 +31,8 @@ namespace we {
         super(data);
         this._tableId = data.tableid;
         this.setupTableInfo(env.tableInfos[this._tableId]);
+        this._statistic = this._tableInfo.gamestatistic;
+        this.onGameStatisticUpdated();
         this.setSkinName();
       }
 
@@ -116,7 +119,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             this.setupTableInfo(tableInfo);
             this.updateGame();
@@ -124,12 +127,18 @@ namespace we {
         }
       }
 
-      protected onRoadDataUpdate(evt: egret.Event) {}
+      protected onRoadDataUpdate(evt: egret.Event) {
+        if (evt.data.tableid === this._tableId) {
+          this._statistic = evt.data.gamestatistic;
+          this.onGameStatisticUpdated();
+          this.updateGame();
+        }
+      }
+
+      protected onGameStatisticUpdated() {}
 
       protected onBetResultReceived(evt: egret.Event) {
         const result: data.PlayerBetResult = evt.data;
-
-        console.log('lo', result);
 
         if (result && result.success) {
           this.onBetConfirmed();
@@ -162,7 +171,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {}
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         if (tableInfo.tableid === this._tableId) {
           logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
           this._betDetails = tableInfo.bets;
@@ -189,8 +198,6 @@ namespace we {
       protected setResultRelatedComponentsEnabled(enable: boolean) {}
 
       public updateGame() {
-        console.log('lo', this._gameData);
-
         if (!this._gameData) {
           return;
         }

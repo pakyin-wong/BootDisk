@@ -3,7 +3,7 @@ namespace we {
   export namespace lo {
     export class InputComponentFactory {
       // TODO
-      static generateInputComponent(index, config): AInputComponent {
+      public static generateInputComponent(index, config): AInputComponent {
         const { type } = config;
         switch (type) {
           case InputComponentType.BALLS:
@@ -19,7 +19,7 @@ namespace we {
         return null;
       }
 
-      static findNextCombination(inputData: string[], combinations: string[], sample: number, i: number, depth: number, itemString: string) {
+      public static findNextCombination(inputData: string[], combinations: string[], sample: number, i: number, depth: number, itemString: string) {
         if (depth === sample) {
           if (InputComponentFactory.validateCombination(itemString, sample)) {
             const stringCheck = itemString.split('_');
@@ -39,7 +39,7 @@ namespace we {
         }
       }
 
-      static validateCombination(itemStr: string, sampleSize: number): boolean {
+      public static validateCombination(itemStr: string, sampleSize: number): boolean {
         const items = itemStr.split('_');
         if (items.length === sampleSize) {
           return true;

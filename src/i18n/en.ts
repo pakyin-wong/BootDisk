@@ -78,6 +78,12 @@ namespace we {
       overlaypanel_bethistory_remark_win: 'Win',
       overlaypanel_bethistory_remark_lose: 'Lose',
       overlaypanel_bethistory_remark_ties: 'Ties',
+      overlaypanel_bethistory_limit: 'records per page',
+      overlaypanel_bethistory_total: 'Now showing %now%, Total %total%',
+      overlaypanel_bethistory_record_round: 'Round',
+      overlaypanel_bethistory_record_bettype: 'Bet type',
+      overlaypanel_bethistory_record_result: 'Game Result',
+      overlaypanel_bethistory_record_replay: 'Replay',
 
       overlaypanel_bethistory_baresult_banker: 'B',
       overlaypanel_bethistory_baresult_player: 'P',
