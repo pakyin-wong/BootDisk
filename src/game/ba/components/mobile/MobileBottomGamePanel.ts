@@ -28,17 +28,20 @@ namespace we {
         super.mount();
 
         console.log(env.bottomPanelSelectedIdx);
-        switch (env.bottomPanelSelectedIdx) {
-          case 0:
+        console.log(`.......type of.........${typeof (env.bottomPanelSelectedIdx)}`);
+        switch (env.bottomPanelSelectedIdx.toString()) {
+          case "0":
             this.roadSheetBtn.selected = true;
             break;
-          case 1:
+          case "1":
             this.roadSheetBtn.selected = true;
             break;
-          case 2:
+          case "2":
             this.roadSheetBtn.selected = true;
             break;
         }
+        this.invalidateState();
+
         // this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
       }
       public setTableInfo(tableInfo: data.TableInfo) {
