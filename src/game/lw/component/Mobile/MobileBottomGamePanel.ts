@@ -58,6 +58,12 @@ namespace we {
         }
       }
 
+      public openTableInfo() {
+        super.openTableInfo();
+        this.tableInfoBtn.selected = true;
+        this.viewStack.selectedIndex = this.tableInfoBtn.value;
+      }
+
       public destroy() {
         super.destroy();
         this._roadmapGroup.removeChildren();

@@ -30,7 +30,7 @@ namespace we {
       protected _timer: ui.CountdownTimer;
 
       protected _btnBack: egret.DisplayObject;
-      protected _lblRoomInfo: eui.Label;
+      protected _lblRoomInfo: egret.DisplayObject;
       protected _lblRoomNo: ui.RunTimeLabel;
 
       protected _gameBar: ui.GameBar;
@@ -674,7 +674,7 @@ namespace we {
 
       protected onBetReturned(result) {
         if (!result) {
-          logger.e(utils.LogTarget.STAGING, 'Bet error');
+          logger.e(utils.LogTarget.RELEASE, 'Bet error');
           return;
         }
         // dealing with backend error message
@@ -687,13 +687,13 @@ namespace we {
               break;
             default:
               // maybe calling errorhandler
-              logger.e(utils.LogTarget.STAGING, 'Bet error');
+              logger.e(utils.LogTarget.RELEASE, 'Bet error');
           }
           return;
         }
         // dealing with success message
         if (result.success) {
-          logger.l(utils.LogTarget.STAGING, 'Bet Result Received', result);
+          logger.l(utils.LogTarget.RELEASE, 'Bet Result Received', result);
           this.dispatchEvent(new egret.Event(core.Event.PLAYER_BET_RESULT, false, false, result));
         }
       }

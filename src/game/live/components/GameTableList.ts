@@ -5,6 +5,7 @@ namespace we {
       // private collection: eui.ArrayCollection;
       public roomIds: string[] = [];
 
+      public holder: ui.HorizontalHolder;
       public slider: ui.ImageSlider;
       public tabs: LiveGameTabbar;
       public tabItems: string[];
@@ -41,11 +42,15 @@ namespace we {
 
       protected destroy() {
         dir.evtHandler.removeEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
-        // console.log('GameTableList :::::', dir.evtHandler.hasEventListener(core.Event.ORIENTATION_UPDATE));
         dir.evtHandler.removeEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChange, this);
         // dir.evtHandler.removeEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
         dir.evtHandler.removeEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this);
-        this.roomList.removeChild(this.slider);
+        if (this.slider) {
+          this.roomList.removeChild(this.slider);
+        }
+        if (this.holder) {
+          this.roomList.removeChild(this.holder);
+        }
       }
 
       protected childrenCreated(): void {
@@ -54,7 +59,12 @@ namespace we {
         dir.evtHandler.dispatch(core.Event.LIVE_PAGE_LOCK, false);
 
         this.contentInitializer.initContent(this);
-        this.roomList.addChildAt(this.slider, 0);
+        if (this.slider) {
+          this.roomList.addChildAt(this.slider, 0);
+        }
+        if (this.holder) {
+          this.roomList.addChildAt(this.holder, 0);
+        }
 
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
         // dir.evtHandler.addEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);

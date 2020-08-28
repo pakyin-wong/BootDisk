@@ -16,6 +16,8 @@ namespace we {
 
       protected _custombet: FunBetCustomBet;
 
+      protected _lastgameResult;
+
       protected mount() {
         super.mount();
         this.initDenom();
@@ -52,6 +54,14 @@ namespace we {
         FunBet.evtHandler.removeEventListener('LOTTERY_FUNBET_UPDATE', this.onFunBetUpdate, this);
         FunBet.evtHandler.removeEventListener('LOTTERY_FUNBET_OVERBETLIMIT', this.onOverBetLimit, this);
         FunBet.evtHandler.removeEventListener('LOTTERY_FUNBET_OVERBALANCE', this.onOverBalance, this);
+      }
+
+      protected onGameStatisticUpdated() {
+        if (this._statistic.loresults && this._statistic.loresults.length > 0) {
+          this._lastgameResult = this._statistic.loresults[this._statistic.loresults.length - 1].Data;
+        } else {
+          this._lastgameResult = {};
+        }
       }
 
       protected onCustomBetSelected() {
@@ -124,7 +134,6 @@ namespace we {
       protected setResultRelatedComponentsEnabled(enable: boolean) {
         this._betResult.visible = enable;
         this._betResult.update(this._gameData);
-        this._roundInfo.update(this._gameData);
       }
 
       protected set betLayerEnabled(enabled: boolean) {
@@ -152,9 +161,12 @@ namespace we {
           case core.GameState.DEAL:
           case core.GameState.FINISH:
             this._roundInfo.currentState = 'drawing';
+            this._roundInfo.update(this._gameData);
             break;
           default:
             this._roundInfo.currentState = 'normal';
+            this._lastgameResult.gameroundid = this._gameData.gameroundid;
+            this._roundInfo.update(this._lastgameResult);
             break;
         }
       }

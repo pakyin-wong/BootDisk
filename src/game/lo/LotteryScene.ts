@@ -24,10 +24,16 @@ namespace we {
       protected _txt_trad: ui.RunTimeLabel;
       protected _txt_fun: ui.RunTimeLabel;
 
+      protected _tableId;
+      protected _tableInfo;
+      protected _statistic;
+      protected _gamebar: LotteryGameBar;
+
       constructor(data: any) {
         super();
         this.skinName = utils.getSkinByClassname('LotteryScene');
         this._data = data;
+        this._tableId = data.tableid;
 
         /* create dummy sub scene */
         this._subScene = new core.BaseScene();
@@ -37,6 +43,8 @@ namespace we {
 
       protected mount() {
         super.mount();
+
+        this._gamebar.tableid = this._tableId;
 
         this._txt_trad.renderText = () => `${i18n.t('lo_switch_trad')}`;
         this._txt_fun.renderText = () => `${i18n.t('lo_switch_fun')}`;

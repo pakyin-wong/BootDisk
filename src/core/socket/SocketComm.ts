@@ -177,6 +177,8 @@ namespace we {
       protected handleReady(player: data.PlayerSession, timestamp: string) {
         // return data with struct data.PlayerSession
 
+        console.log(player);
+
         this.updateTimestamp(timestamp);
         env.playerID = player.playerid;
         env.currency = player.profile.currency;
@@ -594,9 +596,13 @@ namespace we {
             tableInfo.gamestatistic = stats;
             break;
           }
-          case core.GameType.LO:
-          default: {
+          case core.GameType.LO: {
             console.log('lo', 'gameStatistic', gameStatistic);
+            gameStatistic.tableID = tableid;
+            gameStatistic.shoeID = gameStatistic.shoeid;
+            tableInfo.gamestatistic = gameStatistic;
+          }
+          default: {
             // gameStatistic.tableID = tableid;
             // gameStatistic.shoeID = gameStatistic.shoeid;
             // const stats = new we.data.GameStatistic();
@@ -819,7 +825,7 @@ namespace we {
             return { field: value.betcode, amount: value.amount };
           }),
           this.warpServerCallback((data: any) => {
-            if (!data.error) {
+            if (data.error) {
               // TODO: handle error on cancel
             } else {
               dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);

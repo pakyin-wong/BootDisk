@@ -445,7 +445,7 @@ namespace we {
         PairRatio: '庄對閒對比例',
         round: '局',
         rounds: '局',
-        playersqueeze: '玩家咪牌',
+        playersqueeze: '咪牌中',
         allOpen: '全開',
       },
       message: {

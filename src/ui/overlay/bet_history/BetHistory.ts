@@ -274,7 +274,7 @@ namespace we {
       }
       // doing
       protected update(res: any) {
-        logger.l(utils.LogTarget.STAGING, 'getBetHistory', res);
+        logger.l(utils.LogTarget.RELEASE, 'getBetHistory', res);
         if (res.error) {
           // TODO: handle error if bet history is not available
         } else {
