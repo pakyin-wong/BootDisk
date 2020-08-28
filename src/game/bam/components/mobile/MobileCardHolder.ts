@@ -41,7 +41,7 @@ namespace we {
       protected _data;
 
       protected showNextCardTimeoutId: number = -1;
-      protected showNextCardTimeout: number = 2000;
+      protected showNextCardTimeout: number = 1000;
 
       constructor() {
         super();
@@ -157,11 +157,11 @@ namespace we {
 
       protected getNextIndex(cardArrIdx: number) {
         const posIdxArray = [5, 4, 3, 0, 1, 2];
-        const posIdx = posIdxArray.indexOf(cardArrIdx);
+        let posIdx = posIdxArray.indexOf(cardArrIdx);
         if (posIdx > -1) {
           let checked = 0;
           while (checked < 5) {
-            const nextPos = (posIdx + 1) % 6;
+            const nextPos = (++posIdx) % 6;
             const nextIdx = posIdxArray[nextPos];
             const card: eui.Component = this.cardHolderArr[nextIdx];
             if (card.visible && card.touchEnabled) {
