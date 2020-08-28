@@ -97,6 +97,14 @@ namespace we {
           gr.drawRect(0, 0, 2424, 600);
           gr.endFill();
           this._gradientmask.addChild(this._shape);
+        } else {
+          const gr = this._shape.graphics;
+          const matrix = new egret.Matrix();
+          matrix.createGradientBox(1242, 350, Math.PI / 2);
+          gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000], [0, 0.7], [0, 255], matrix);
+          gr.drawRect(0, 0, 1242, 418);
+          gr.endFill();
+          this._gradientmask.addChild(this._shape);
         }
 
         this.createVerticalLayout();
