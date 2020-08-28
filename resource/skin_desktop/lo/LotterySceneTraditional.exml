@@ -3,7 +3,7 @@
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:ro="we.ro.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing"
         xmlns:live="we.live.*">
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x212425" visible="true" />
-	<e:Image id="_bgImg" x="1560" y="104" width="1024" height="575" source="frame-3_jpg" locked="true" />
+	<e:Image id="_bgImg" x="1560" y="104" width="1024" height="575" source="frame-3_jpg" locked="true" visible="false"/>
 	<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" width="2600" height="294" x="0" bottom="0" stroke="0"
 	                   fillColor="0x00000000,0x00000050" />
 	<!--<ro:TableLayer id="_tableLayer" width="1208" height="340" x="692" y="986" skinName="skin_desktop.ro.TableLayerSkin"
