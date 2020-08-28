@@ -14,12 +14,10 @@ namespace we {
       protected _targetTime;
       protected _counterInterval;
 
-
+      protected _drawerPanel: we.lo.LoRightDrawerPanel;
       protected _leftGamePanel: we.lo.LoLeftPanel;
       protected _rightGamePanel: we.lo.LoRightPanel;
       // protected _bigRoadResultPanel: we.ro.ROBigRoadResultPanel;
-
-      protected _drawerPanel: we.lo.LoRightDrawerPanel;
 
       protected _bettingPanel: SSCTraditionalBettingPanel;
 

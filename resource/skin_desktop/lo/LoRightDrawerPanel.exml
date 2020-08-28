@@ -525,113 +525,6 @@
                         <e:Rect width="100%" height="44" x="0" y="278" fillColor="0x091b31" />
                         <e:ViewStack id="chartStack" width="100%" height="100%" x="0" y="0" selectedIndex="0">
                                 <e:Group id="chart1Page" width="100%" height="100%" name="Group">
-                                        <e:Group width="423" height="29" x="0" y="284" anchorOffsetX="0">
-                                                <e:RadioButton id="chart1Btn1" height="29" value="0" selected="true"
-                                                               groupName="chart1Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:RadioButton id="chart1Btn2" height="29" value="1" selected="false"
-                                                               groupName="chart1Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:RadioButton id="chart1Btn3" height="29" value="2" selected="false"
-                                                               groupName="chart1Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:RadioButton id="chart1Btn4" height="29" value="3" selected="false"
-                                                               groupName="chart1Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:RadioButton id="chart1Btn5" height="29" value="4" selected="true"
-                                                               groupName="chart1Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:RadioButton id="chart1Btn6" height="29" value="5" selected="true"
-                                                               groupName="chart1Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:layout>
-                                                        <e:HorizontalLayout gap="0" />
-                                                </e:layout>
-                                        </e:Group>
                                         <e:Rect x="0" y="0" width="187" height="278" fillColor="0x061323"
                                                 fillAlpha="0.9" />
                                         <ui:RunTimeLabel id="luckyTimeTitle" text="Best Time" x="0" y="200" width="187"
@@ -691,113 +584,6 @@
                                                          alpha="0.7" scaleX="1" scaleY="1" />
                                 </e:Group>
                                 <e:Group id="chart2Page" width="100%" height="100%" name="Group">
-                                        <e:Group width="423" height="29" x="0" y="284" anchorOffsetX="0">
-                                                <e:RadioButton id="chart2Btn1" height="29" value="0" selected="true"
-                                                               groupName="chart2Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:RadioButton id="chart2Btn2" height="29" value="1" selected="false"
-                                                               groupName="chart2Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:RadioButton id="chart2Btn3" height="29" value="2" selected="false"
-                                                               groupName="chart2Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:RadioButton id="chart2Btn4" height="29" value="3" selected="false"
-                                                               groupName="chart2Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:RadioButton id="chart2Btn5" height="29" value="4" selected="true"
-                                                               groupName="chart2Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:RadioButton id="chart2Btn6" height="29" value="5" selected="true"
-                                                               groupName="chart2Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:layout>
-                                                        <e:HorizontalLayout gap="0" />
-                                                </e:layout>
-                                        </e:Group>
                                         <e:Rect x="0" y="0" width="187" height="278" fillColor="0x061323"
                                                 fillAlpha="0.9" />
                                         <ui:RunTimeLabel id="luckyGameTitle" text="Best Game" x="0" y="200" width="187"
@@ -858,113 +644,6 @@
                                                          alpha="0.7" scaleX="1" scaleY="1" />
                                 </e:Group>
                                 <e:Group id="chart3Page" width="100%" height="100%" name="Group">
-                                        <e:Group width="423" height="29" x="0" y="284" anchorOffsetX="0">
-                                                <e:RadioButton id="chart3Btn1" height="29" value="0" selected="true"
-                                                               groupName="chart3Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:RadioButton id="chart3Btn2" height="29" value="1" selected="false"
-                                                               groupName="chart3Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:RadioButton id="chart3Btn3" height="29" value="2" selected="false"
-                                                               groupName="chart3Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:RadioButton id="chart3Btn4" height="29" value="3" selected="false"
-                                                               groupName="chart3Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:RadioButton id="chart3Btn5" height="29" value="4" selected="true"
-                                                               groupName="chart3Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:RadioButton id="chart3Btn6" height="29" value="5" selected="true"
-                                                               groupName="chart3Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:layout>
-                                                        <e:HorizontalLayout gap="0" />
-                                                </e:layout>
-                                        </e:Group>
                                         <ui:RunTimeLabel id="favBetTxt1" text="全5中1" x="0" y="25" width="148"
                                                          height="20" verticalAlign="middle" textAlign="right" size="20"
                                                          alpha="0.7" scaleX="1" scaleY="1" />
@@ -1003,113 +682,6 @@
                                                          scaleX="1" scaleY="1" width="106" />
                                 </e:Group>
                                 <e:Group id="chart4Page" width="100%" height="100%" name="Group">
-                                        <e:Group width="423" height="29" x="0" y="284" anchorOffsetX="0">
-                                                <e:RadioButton id="chart4Btn1" height="29" value="0" selected="true"
-                                                               groupName="chart4Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:RadioButton id="chart4Btn2" height="29" value="1" selected="false"
-                                                               groupName="chart4Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:RadioButton id="chart4Btn3" height="29" value="2" selected="false"
-                                                               groupName="chart4Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:RadioButton id="chart4Btn4" height="29" value="3" selected="false"
-                                                               groupName="chart4Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:RadioButton id="chart4Btn5" height="29" value="4" selected="true"
-                                                               groupName="chart4Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:RadioButton id="chart4Btn6" height="29" value="5" selected="true"
-                                                               groupName="chart4Group" width="104" touchEnabled="true"
-                                                               touchChildren="false">
-                                                        <e:skinName>
-                                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                                        <e:Label id="labelDisplayUp"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xcccccc" includeIn="up"
-                                                                                 size="20" />
-                                                                        <e:Label id="labelDisplayDown"
-                                                                                 horizontalCenter="0" verticalCenter="0"
-                                                                                 textColor="0xffffff"
-                                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                                 size="20" />
-                                                                </e:Skin>
-                                                        </e:skinName>
-                                                </e:RadioButton>
-                                                <e:layout>
-                                                        <e:HorizontalLayout gap="0" />
-                                                </e:layout>
-                                        </e:Group>
                                         <ui:RunTimeLabel id="favGameTxtPercent1" text="100%" y="154" width="125"
                                                          height="28" verticalAlign="middle" textAlign="center" size="28"
                                                          alpha="0.7" scaleX="1" scaleY="1" x="0" />
@@ -1157,6 +729,101 @@
                                                          scaleX="1" scaleY="1" width="125" x="500" />
                                 </e:Group>
                         </e:ViewStack>
+                        <e:Group width="423" height="29" x="0" y="284" anchorOffsetX="0">
+                                <e:RadioButton id="chartPeriodBtn1" height="29" value="0" selected="true"
+                                               groupName="chart1Group" width="104" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chartPeriodBtn2" height="29" value="1" selected="false"
+                                               groupName="chart1Group" width="104" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chartPeriodBtn3" height="29" value="2" selected="false"
+                                               groupName="chart1Group" width="104" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chartPeriodBtn4" height="29" value="3" selected="false"
+                                               groupName="chart1Group" width="104" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chartPeriodBtn5" height="29" value="4" selected="true"
+                                               groupName="chart1Group" width="104" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:RadioButton id="chartPeriodBtn6" height="29" value="5" selected="true"
+                                               groupName="chart1Group" width="104" touchEnabled="true"
+                                               touchChildren="false">
+                                        <e:skinName>
+                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
+                                                                 size="20" />
+                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
+                                                                 verticalCenter="0" textColor="0xffffff"
+                                                                 includeIn="down,upAndSelected,downAndSelected"
+                                                                 size="20" />
+                                                </e:Skin>
+                                        </e:skinName>
+                                </e:RadioButton>
+                                <e:layout>
+                                        <e:HorizontalLayout gap="0" />
+                                </e:layout>
+                        </e:Group>
                         <e:Group width="100%" height="33" x="0" y="327" anchorOffsetX="0">
                                 <e:RadioButton id="chart1Btn" height="33" value="0" selected="true"
                                                groupName="chartGroup" width="156" touchEnabled="true"

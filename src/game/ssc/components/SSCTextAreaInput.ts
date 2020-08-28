@@ -166,7 +166,7 @@ namespace we {
         let temp = '';
 
         this._data = '';
-        if (isUpdateTextField) this._textArea.text = '';
+        if (isUpdateTextField) { this._textArea.text = ''; }
         let count = 0;
 
         for (let i = 0; i < datas.length; i++) {
@@ -217,10 +217,10 @@ namespace we {
         // set textArea & set _data
         for (let i = 0; i < finalDatas.length; i++) {
           if (i === finalDatas.length - 1) {
-            if (isUpdateTextField) this._textArea.text += finalDatas[i];
+            if (isUpdateTextField) { this._textArea.text += finalDatas[i]; }
             this._data += finalDatas[i];
           } else {
-            if (isUpdateTextField) this._textArea.text += finalDatas[i] + ', ';
+            if (isUpdateTextField) { this._textArea.text += finalDatas[i] + ', '; }
             this._data += finalDatas[i] + '|';
           }
         }

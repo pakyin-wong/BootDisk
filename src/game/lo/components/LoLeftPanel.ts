@@ -368,7 +368,7 @@ namespace we {
         this.dtBigRoad.dispose();
         this.sizeBigRoad.dispose();
         this.oddBigRoad.dispose();
-        egret.Tween.removeTweens(this.activeLine);
+        // egret.Tween.removeTweens(this.activeLine);
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }

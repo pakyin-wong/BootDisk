@@ -7,38 +7,14 @@ namespace we {
       protected txtPageSelect: ui.RunTimeLabel;
 
       protected chartStack: eui.ViewStack;
-      protected chart1Index: number;
-      protected chart2Index: number;
-      protected chart3Index: number;
-      protected chart4Index: number;
+      protected chartPeriodIndex: number;
 
-      protected chart1Btn1: eui.RadioButton;
-      protected chart1Btn2: eui.RadioButton;
-      protected chart1Btn3: eui.RadioButton;
-      protected chart1Btn4: eui.RadioButton;
-      protected chart1Btn5: eui.RadioButton;
-      protected chart1Btn6: eui.RadioButton;
-
-      protected chart2Btn1: eui.RadioButton;
-      protected chart2Btn2: eui.RadioButton;
-      protected chart2Btn3: eui.RadioButton;
-      protected chart2Btn4: eui.RadioButton;
-      protected chart2Btn5: eui.RadioButton;
-      protected chart2Btn6: eui.RadioButton;
-
-      protected chart3Btn1: eui.RadioButton;
-      protected chart3Btn2: eui.RadioButton;
-      protected chart3Btn3: eui.RadioButton;
-      protected chart3Btn4: eui.RadioButton;
-      protected chart3Btn5: eui.RadioButton;
-      protected chart3Btn6: eui.RadioButton;
-
-      protected chart4Btn1: eui.RadioButton;
-      protected chart4Btn2: eui.RadioButton;
-      protected chart4Btn3: eui.RadioButton;
-      protected chart4Btn4: eui.RadioButton;
-      protected chart4Btn5: eui.RadioButton;
-      protected chart4Btn6: eui.RadioButton;
+      protected chartPeriodBtn1: eui.RadioButton;
+      protected chartPeriodBtn2: eui.RadioButton;
+      protected chartPeriodBtn3: eui.RadioButton;
+      protected chartPeriodBtn4: eui.RadioButton;
+      protected chartPeriodBtn5: eui.RadioButton;
+      protected chartPeriodBtn6: eui.RadioButton;
 
       protected _bestTimePieChart: we.di.InteractivePieChart;
       protected _bestGamePieChart: we.di.InteractivePieChart;
@@ -147,42 +123,22 @@ namespace we {
       protected favGameTxtValue5: ui.RunTimeLabel;
 
       protected chartPeriodNames: string[] = ['day', 'pday', 'week', 'pweek', 'month', 'pmonth'];
+      protected chartTypeNames: string[] = ['lucky_time', 'lucky_game', 'fav_bet', "fav_game"];
 
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'LoRightPanel');
       }
 
       public changeLang() {
-        this.chart1Btn1['labelDisplayDown']['text'] = this.chart1Btn1['labelDisplayUp']['text'] = 'Day';
-        this.chart1Btn2['labelDisplayDown']['text'] = this.chart1Btn2['labelDisplayUp']['text'] = 'pDay';
-        this.chart1Btn3['labelDisplayDown']['text'] = this.chart1Btn3['labelDisplayUp']['text'] = 'Week';
-        this.chart1Btn4['labelDisplayDown']['text'] = this.chart1Btn4['labelDisplayUp']['text'] = 'pWeek';
-        this.chart1Btn5['labelDisplayDown']['text'] = this.chart1Btn5['labelDisplayUp']['text'] = 'Mon';
-        this.chart1Btn6['labelDisplayDown']['text'] = this.chart1Btn6['labelDisplayUp']['text'] = 'pMon';
-
-        this.chart2Btn1['labelDisplayDown']['text'] = this.chart2Btn1['labelDisplayUp']['text'] = 'Day';
-        this.chart2Btn2['labelDisplayDown']['text'] = this.chart2Btn2['labelDisplayUp']['text'] = 'pDay';
-        this.chart2Btn3['labelDisplayDown']['text'] = this.chart2Btn3['labelDisplayUp']['text'] = 'Week';
-        this.chart2Btn4['labelDisplayDown']['text'] = this.chart2Btn4['labelDisplayUp']['text'] = 'pWeek';
-        this.chart2Btn5['labelDisplayDown']['text'] = this.chart2Btn5['labelDisplayUp']['text'] = 'Mon';
-        this.chart2Btn6['labelDisplayDown']['text'] = this.chart2Btn6['labelDisplayUp']['text'] = 'pMon';
-
-        this.chart3Btn1['labelDisplayDown']['text'] = this.chart3Btn1['labelDisplayUp']['text'] = 'Day';
-        this.chart3Btn2['labelDisplayDown']['text'] = this.chart3Btn2['labelDisplayUp']['text'] = 'pDay';
-        this.chart3Btn3['labelDisplayDown']['text'] = this.chart3Btn3['labelDisplayUp']['text'] = 'Week';
-        this.chart3Btn4['labelDisplayDown']['text'] = this.chart3Btn4['labelDisplayUp']['text'] = 'pWeek';
-        this.chart3Btn5['labelDisplayDown']['text'] = this.chart3Btn5['labelDisplayUp']['text'] = 'Mon';
-        this.chart3Btn6['labelDisplayDown']['text'] = this.chart3Btn6['labelDisplayUp']['text'] = 'pMon';
-
-        this.chart4Btn1['labelDisplayDown']['text'] = this.chart4Btn1['labelDisplayUp']['text'] = 'Day';
-        this.chart4Btn2['labelDisplayDown']['text'] = this.chart4Btn2['labelDisplayUp']['text'] = 'pDay';
-        this.chart4Btn3['labelDisplayDown']['text'] = this.chart4Btn3['labelDisplayUp']['text'] = 'Week';
-        this.chart4Btn4['labelDisplayDown']['text'] = this.chart4Btn4['labelDisplayUp']['text'] = 'pWeek';
-        this.chart4Btn5['labelDisplayDown']['text'] = this.chart4Btn5['labelDisplayUp']['text'] = 'Mon';
-        this.chart4Btn6['labelDisplayDown']['text'] = this.chart4Btn6['labelDisplayUp']['text'] = 'pMon';
+        this.chartPeriodBtn1['labelDisplayDown']['text'] = this.chartPeriodBtn1['labelDisplayUp']['text'] = 'Day';
+        this.chartPeriodBtn2['labelDisplayDown']['text'] = this.chartPeriodBtn2['labelDisplayUp']['text'] = 'pDay';
+        this.chartPeriodBtn3['labelDisplayDown']['text'] = this.chartPeriodBtn3['labelDisplayUp']['text'] = 'Week';
+        this.chartPeriodBtn4['labelDisplayDown']['text'] = this.chartPeriodBtn4['labelDisplayUp']['text'] = 'pWeek';
+        this.chartPeriodBtn5['labelDisplayDown']['text'] = this.chartPeriodBtn5['labelDisplayUp']['text'] = 'Mon';
+        this.chartPeriodBtn6['labelDisplayDown']['text'] = this.chartPeriodBtn6['labelDisplayUp']['text'] = 'pMon';
       }
       protected init() {
-        this.chart1Index = this.chart2Index = this.chart3Index = this.chart4Index = 0;
+        this.chartPeriodIndex = 0;
 
         const arrColRoadTypes = new eui.ArrayCollection([
           ui.NewDropdownItem(0, () => `lucky time`),
@@ -294,92 +250,63 @@ namespace we {
         const page4Group = this.chartStack.getChildAt(3) as eui.Group;
         page4Group.addChildAt(this._favGameBarChart, 0);
 
-        this.chart1Btn1.addEventListener(eui.UIEvent.CHANGE, this.onChart1IndexChange, this);
-        this.chart1Btn2.addEventListener(eui.UIEvent.CHANGE, this.onChart1IndexChange, this);
-        this.chart1Btn3.addEventListener(eui.UIEvent.CHANGE, this.onChart1IndexChange, this);
-        this.chart1Btn4.addEventListener(eui.UIEvent.CHANGE, this.onChart1IndexChange, this);
-        this.chart1Btn5.addEventListener(eui.UIEvent.CHANGE, this.onChart1IndexChange, this);
-        this.chart1Btn6.addEventListener(eui.UIEvent.CHANGE, this.onChart1IndexChange, this);
-
-        this.chart2Btn1.addEventListener(eui.UIEvent.CHANGE, this.onChart2IndexChange, this);
-        this.chart2Btn2.addEventListener(eui.UIEvent.CHANGE, this.onChart2IndexChange, this);
-        this.chart2Btn3.addEventListener(eui.UIEvent.CHANGE, this.onChart2IndexChange, this);
-        this.chart2Btn4.addEventListener(eui.UIEvent.CHANGE, this.onChart2IndexChange, this);
-        this.chart2Btn5.addEventListener(eui.UIEvent.CHANGE, this.onChart2IndexChange, this);
-        this.chart2Btn6.addEventListener(eui.UIEvent.CHANGE, this.onChart2IndexChange, this);
-
-        this.chart3Btn1.addEventListener(eui.UIEvent.CHANGE, this.onChart3IndexChange, this);
-        this.chart3Btn2.addEventListener(eui.UIEvent.CHANGE, this.onChart3IndexChange, this);
-        this.chart3Btn3.addEventListener(eui.UIEvent.CHANGE, this.onChart3IndexChange, this);
-        this.chart3Btn4.addEventListener(eui.UIEvent.CHANGE, this.onChart3IndexChange, this);
-        this.chart3Btn5.addEventListener(eui.UIEvent.CHANGE, this.onChart3IndexChange, this);
-        this.chart3Btn6.addEventListener(eui.UIEvent.CHANGE, this.onChart3IndexChange, this);
-
-        this.chart4Btn1.addEventListener(eui.UIEvent.CHANGE, this.onChart4IndexChange, this);
-        this.chart4Btn2.addEventListener(eui.UIEvent.CHANGE, this.onChart4IndexChange, this);
-        this.chart4Btn3.addEventListener(eui.UIEvent.CHANGE, this.onChart4IndexChange, this);
-        this.chart4Btn4.addEventListener(eui.UIEvent.CHANGE, this.onChart4IndexChange, this);
-        this.chart4Btn5.addEventListener(eui.UIEvent.CHANGE, this.onChart4IndexChange, this);
-        this.chart4Btn6.addEventListener(eui.UIEvent.CHANGE, this.onChart4IndexChange, this);
+        this.chartPeriodBtn1.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+        this.chartPeriodBtn2.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+        this.chartPeriodBtn3.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+        this.chartPeriodBtn4.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+        this.chartPeriodBtn5.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+        this.chartPeriodBtn6.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
       }
 
-      protected onChart1IndexChange(e: eui.UIEvent) {
+      protected onChartPeriodIndexChange(e: eui.UIEvent) {
         const radio: eui.RadioButton = e.target;
-        this.chart1Change(radio.value);
+        this.chartPeriodChange(radio.value);
       }
-      protected chart1Change(i: number) {
-        this.chart1Index = i - 0;
+      protected chartPeriodChange(i: number) {
+        this.chartPeriodIndex = i - 0;
         if (this.tableInfo.gamestatistic) {
-          const d = this.tableInfo.gamestatistic.loChart.lucky_time[this.chartPeriodNames[this.chart1Index]];
-          const ranks = [];
+          //chart1
+          let chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[0]];
+          let d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
+          let ranks = [];
           d.forEach(element => {
             ranks.push(element.value);
           });
-
           this._bestTimePieChart.setRanksAndAnimate(ranks, -1);
-        }
-      }
-      protected onChart2IndexChange(e: eui.UIEvent) {
-        const radio: eui.RadioButton = e.target;
-        this.chart2Change(radio.value);
-      }
-      protected chart2Change(i: number) {
-        this.chart2Index = i - 0;
-        if (this.tableInfo.gamestatistic) {
-          const d = this.tableInfo.gamestatistic.loChart.lucky_game[this.chartPeriodNames[this.chart2Index]];
-          d.forEach(element => {});
-          // this._bestGamePieChart.setRanksAndAnimate([80, 50, 30, 20, 10]);
-        }
-      }
-      protected onChart3IndexChange(e: eui.UIEvent) {
-        const radio: eui.RadioButton = e.target;
-        this.chart3Change(radio.value);
-      }
-      protected chart3Change(i: number) {
-        this.chart3Index = i - 0;
-        if (this.tableInfo.gamestatistic) {
-          const d = this.tableInfo.gamestatistic.loChart.fav_bet[this.chartPeriodNames[this.chart3Index]];
-          d.forEach(element => {});
-          // this._favBetBarChart.setRanksAndAnimate([80, 50, 30, 20, 10]);
-        }
-      }
-      protected onChart4IndexChange(e: eui.UIEvent) {
-        const radio: eui.RadioButton = e.target;
-        this.chart4Change(radio.value);
-      }
-      protected chart4Change(i: number) {
-        this.chart4Index = i - 0;
-        if (this.tableInfo.gamestatistic) {
-          const d = this.tableInfo.gamestatistic.loChart.fav_game[this.chartPeriodNames[this.chart4Index]];
-          d.forEach(element => {});
-          // this._favGameBarChart.setRanksAndAnimate([80, 50, 30, 20, 10]);
+
+          //chart2
+          chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[1]];
+          d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
+          ranks = [];
+          d.forEach(element => {
+            ranks.push(element.value);
+          });
+          // this._bestGamePieChart.setRanksAndAnimate(ranks, -1);
+
+          //chart3
+          chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[2]];
+          d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
+          ranks = [];
+          d.forEach(element => {
+            ranks.push(element.value);
+          });
+          // this._favBetBarChart.setRanksAndAnimate(ranks, -1);
+
+          //chart4
+          chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[3]];
+          d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
+          ranks = [];
+          d.forEach(element => {
+            ranks.push(element.value);
+          });
+          // this._favGameBarChart.setRanksAndAnimate(ranks, -1);
         }
       }
 
       private onChartTypesSelect(e) {
-        const roadTypeIndex = e.data;
-        this.panelPageSelect && this.panelPageSelect.dropdown.select(roadTypeIndex);
-        this.chartStack.selectedIndex = roadTypeIndex;
+        const chartTypeIndex = e.data;
+        this.panelPageSelect && this.panelPageSelect.dropdown.select(chartTypeIndex);
+        this.chartStack.selectedIndex = chartTypeIndex;
       }
 
       public update() {
@@ -394,10 +321,7 @@ namespace we {
             const history = this.tableInfo.gamestatistic.loHistory;
             const chart = this.tableInfo.gamestatistic.loChart;
 
-            this.chart1Change(this.chart1Index);
-            this.chart2Change(this.chart2Index);
-            this.chart3Change(this.chart3Index);
-            this.chart4Change(this.chart4Index);
+            this.chartPeriodChange(this.chartPeriodIndex);
 
             this.changeLang();
           }
