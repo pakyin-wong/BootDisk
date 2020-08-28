@@ -161,7 +161,7 @@ namespace we {
         if (posIdx > -1) {
           let checked = 0;
           while (checked < 5) {
-            const nextPos = (++posIdx) % 6;
+            const nextPos = ++posIdx % 6;
             const nextIdx = posIdxArray[nextPos];
             const card: eui.Component = this.cardHolderArr[nextIdx];
             if (card.visible && card.touchEnabled) {
