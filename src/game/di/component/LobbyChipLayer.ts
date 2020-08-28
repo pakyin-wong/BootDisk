@@ -51,10 +51,10 @@ namespace we {
         switch (fieldType) {
           case 'odd':
           case 'even':
-            return this.checkLimit(val, betDetail, betLimit.limits.di.ODD_EVEN.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'di', 'ODD_EVEN'));
           case 'big':
           case 'small':
-            return this.checkLimit(val, betDetail, betLimit.limits.di.BIG_SMALL.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'di', 'BIG_SMALL'));
         }
       }
     }

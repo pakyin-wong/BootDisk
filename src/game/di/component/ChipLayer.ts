@@ -255,39 +255,39 @@ namespace we {
         switch (fieldType) {
           case 'odd':
           case 'even':
-            return this.checkLimit(val, betDetail, betLimit.limits.di.ODD_EVEN.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'di', 'ODD_EVEN'));
           case 'big':
           case 'small':
-            return this.checkLimit(val, betDetail, betLimit.limits.di.BIG_SMALL.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'di', 'BIG_SMALL'));
           case 'sum':
             const num = betDetail.field.split('_')[1];
             let limit = 0;
             if (num === '4' || num === '17') {
-              limit = betLimit.limits.di.SUM_4_17.maxlimit;
+              limit = utils.getBetLimit(betLimit, 'di', 'SUM_4_17');
             } else if (num === '5' || num === '16') {
-              limit = betLimit.limits.di.SUM_5_16.maxlimit;
+              limit = utils.getBetLimit(betLimit, 'di', 'SUM_5_16');
             } else if (num === '6' || num === '15') {
-              limit = betLimit.limits.di.SUM_6_15.maxlimit;
+              limit = utils.getBetLimit(betLimit, 'di', 'SUM_6_15');
             } else if (num === '7' || num === '14') {
-              limit = betLimit.limits.di.SUM_7_14.maxlimit;
+              limit = utils.getBetLimit(betLimit, 'di', 'SUM_7_14');
             } else if (num === '8' || num === '13') {
-              limit = betLimit.limits.di.SUM_8_13.maxlimit;
+              limit = utils.getBetLimit(betLimit, 'di', 'SUM_8_13');
             } else if (num === '9' || num === '10' || num === '11' || num === '12') {
-              limit = betLimit.limits.di.SUM_9_10_11_12.maxlimit;
+              limit = utils.getBetLimit(betLimit, 'di', 'SUM_9_10_11_12');
             }
             return this.checkLimit(val, betDetail, limit);
           case 'combine':
-            return this.checkLimit(val, betDetail, betLimit.limits.di.COMBINE.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'di', 'COMBINE'));
           case 'double':
-            return this.checkLimit(val, betDetail, betLimit.limits.di.DOUBLE.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'di', 'DOUBLE'));
           case 'triple':
             if (betDetail.field === 'TRIPLE_ALL') {
-              return this.checkLimit(val, betDetail, betLimit.limits.di.TRIPLE_ALL.maxlimit);
+              return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'di', 'TRIPLE_ALL'));
             } else {
-              return this.checkLimit(val, betDetail, betLimit.limits.di.TRIPLE.maxlimit);
+              return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'di', 'TRIPLE'));
             }
           case 'specific':
-            return this.checkLimit(val, betDetail, betLimit.limits.di.SPECIFIC_1.maxlimit);
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'di', 'SPECIFIC_1'));
         }
       }
 
