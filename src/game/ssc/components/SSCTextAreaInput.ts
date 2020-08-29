@@ -60,7 +60,7 @@ namespace we {
         const inputText = this._textArea.text;
         this.validateTextArea(inputText);
 
-        if (this._data !== [] && this._data !== '' && this._data !== null && this.isValidate) {
+        if (this._data !== [] && this._data !== null && this.isValidate) {
           this.dispatchEventWith('lo_trad_textareaupdate', false, { index: this._index, data: this._data });
         }
       }

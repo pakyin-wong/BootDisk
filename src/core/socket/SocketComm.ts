@@ -177,6 +177,8 @@ namespace we {
       protected handleReady(player: data.PlayerSession, timestamp: string) {
         // return data with struct data.PlayerSession
 
+        console.log(player);
+
         this.updateTimestamp(timestamp);
         env.playerID = player.playerid;
         env.currency = player.profile.currency;
@@ -608,7 +610,6 @@ namespace we {
             break;
           }
           default: {
-            console.log('lo', 'gameStatistic', gameStatistic);
             // gameStatistic.tableID = tableid;
             // gameStatistic.shoeID = gameStatistic.shoeid;
             // const stats = new we.data.GameStatistic();
@@ -785,12 +786,12 @@ namespace we {
             {
               count: 4, // number of continues show
               data: [
-                'INTEREST1SPECIAL_0', // 全五中一 - 0
-                '45DT2_DRAGON', // 千萬 - 龍
-                'THOUSIZEPARITY2_ODD', // 千位 - 單
-                'HUNSIZEPARITY2_EVEN', // 百位 - 雙
-                'TENSIZEPARITY2_BIG', // 十位 - 大
-                'SINSIZEPARITY2_SMALL', // 個位 - 小
+                'INTEREST1SPECIAL_0', // ???? - 0
+                '45DT2_DRAGON', // ?? - ?
+                'THOUSIZEPARITY2_ODD', // ?? - ?
+                'HUNSIZEPARITY2_EVEN', // ?? - ?
+                'TENSIZEPARITY2_BIG', // ?? - ?
+                'SINSIZEPARITY2_SMALL', // ?? - ?
               ],
             },
           ],

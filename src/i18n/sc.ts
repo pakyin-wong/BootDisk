@@ -84,6 +84,12 @@ namespace we {
       overlaypanel_bethistory_remark_win: '嬴',
       overlaypanel_bethistory_remark_lose: '输',
       overlaypanel_bethistory_remark_ties: '和',
+      overlaypanel_bethistory_limit: '每贡显示项目：',
+      overlaypanel_bethistory_total: '现在显示：%now% 项 共 %total% 项记录',
+      overlaypanel_bethistory_record_round: '局数',
+      overlaypanel_bethistory_record_bettype: '投注项目',
+      overlaypanel_bethistory_record_result: '游戏结果',
+      overlaypanel_bethistory_record_replay: '重播',
 
       overlaypanel_bethistory_baresult_banker: '庄',
       overlaypanel_bethistory_baresult_player: '闲',
@@ -757,6 +763,18 @@ namespace we {
           ODD: '奇',
           EVEN: '偶',
           CLEAR: '清',
+        },
+        ui: {
+          gamemode: '玩法',
+          betitem: '投注项目',
+          betmode: '模式',
+          notecount: '注数',
+          multiplier: '倍数',
+          betamount: '金额',
+          action: '操作',
+        },
+        description: {
+          checkbox: '请至少选择$min$位位数，您当前选择了$count$个位置\n，系统将自动生成$combination$个方案',
         },
       },
     };

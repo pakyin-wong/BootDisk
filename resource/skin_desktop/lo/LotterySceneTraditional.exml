@@ -2,8 +2,8 @@
 <e:Skin class="skin_desktop.LotterySceneTraditional" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:ro="we.ro.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing"
         xmlns:live="we.live.*">
-	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
-	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_jpg" x="0" locked="true" />
+	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x212425" visible="true" />
+	<e:Image id="_bgImg" x="1560" y="104" width="1024" height="575" source="frame-3_jpg" locked="true" visible="false"/>
 	<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" width="2600" height="294" x="0" bottom="0" stroke="0"
 	                   fillColor="0x00000000,0x00000050" />
 	<!--<ro:TableLayer id="_tableLayer" width="1208" height="340" x="692" y="986" skinName="skin_desktop.ro.TableLayerSkin"
@@ -46,7 +46,7 @@
 		            skinName="skin_desktop.GameBar" visible="false" />
 	</e:Group>
 	<ro:GameResultMessage id="_resultMessage" width="0" height="0" horizontalCenter="0" verticalCenter="0" />
-	<ui:InGameMessage id="_message" x="1300.5" y="865.86" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
+	<ui:InGameMessage id="_message" x="1300" y="680" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
 	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_playerelement_png"
 	                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />
 	<!--<ro:TableInfoPanel width="324" height="672" x="0" y="90" id="_tableInfoWindow" isPoppable="true"

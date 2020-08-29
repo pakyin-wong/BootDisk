@@ -53,6 +53,10 @@ namespace we {
         //   // this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP,this.bettingPanel.showConfirm,this);
         //   this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this);
         // }
+        if (this._btnInstantBet) {
+          this._btnInstantBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.placeBet, this.bettingPanel);
+        }
+
         if (this._btnAddBetFields) {
           this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.addNotes, this.bettingPanel);
           // this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addBetfield, this);
@@ -65,6 +69,30 @@ namespace we {
         }
         if (this._noteDropDown) {
           this._noteDropDown.addEventListener('DROPDOWN_ITEM_CHANGE', this.onUnitSelect, this);
+        }
+      }
+
+      protected removeListeners() {
+        // if (this._btnAddBetFields) {
+        //   // this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP,this.bettingPanel.showConfirm,this);
+        //   this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this);
+        // }
+        if (this._btnInstantBet) {
+          this._btnInstantBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.placeBet, this.bettingPanel);
+        }
+
+        if (this._btnAddBetFields) {
+          this._btnAddBetFields.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.addNotes, this.bettingPanel);
+          // this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addBetfield, this);
+        }
+        if (this._btnAddMultiplier) {
+          this._btnAddMultiplier.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.addMultiplier, this);
+        }
+        if (this._btnMinusMultiplier) {
+          this._btnMinusMultiplier.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.minusMultiplier, this);
+        }
+        if (this._noteDropDown) {
+          this._noteDropDown.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onUnitSelect, this);
         }
       }
 
@@ -132,6 +160,11 @@ namespace we {
           this.bettingPanel.isBetCodeValidate = true;
         }
         this.bettingPanel.validateBetButtons();
+      }
+
+      public onExit() {
+        super.onExit();
+        this.removeListeners();
       }
     }
   }
