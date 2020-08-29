@@ -9,13 +9,15 @@
 namespace we {
   export namespace lo {
     export class LotterySceneTraditional extends core.DesktopBaseGameScene {
+      protected _roadmapControl: we.lo.LoRoadmapControl;
       protected _counter: eui.Label;
       protected _targetTime;
       protected _counterInterval;
 
-      protected _roadmapControl: we.ro.RORoadmapControl;
+      protected _lobbyPanel: we.lo.LoLobbyRoadPanel;
+      protected _drawerPanel: we.lo.LoRightDrawerPanel;
       protected _leftGamePanel: we.lo.LoLeftPanel;
-      protected _rightGamePanel: we.ro.RoRightPanel;
+      protected _rightGamePanel: we.lo.LoRightPanel;
       // protected _bigRoadResultPanel: we.ro.ROBigRoadResultPanel;
 
       protected _bettingPanel: SSCTraditionalBettingPanel;
@@ -242,31 +244,23 @@ namespace we {
         this.initRoadMap();
 
         if (this._leftGamePanel) {
-          // this._leftGamePanel.setTableInfo(this._tableInfo);
+          this._leftGamePanel.setTableInfo(this._tableInfo);
         }
-        if (this._leftGamePanel && this._rightGamePanel) {
-          // for testing
-          // this._roadmapControl.setTableInfo(this._tableInfo);
-        } // for testing
-
+        if (this._rightGamePanel) {
+          this._rightGamePanel.setTableInfo(this._tableInfo);
+        }
+        if (this._drawerPanel) {
+          this._drawerPanel.setTableInfo(this._tableInfo);
+        }
+        this._roadmapControl.setTableInfo(this._tableInfo);
         // this._chipLayer.type = we.core.BettingTableType.NORMAL;
         // this._tableLayer.type = we.core.BettingTableType.NORMAL;
       }
 
       protected initRoadMap() {
-        /*this._roadmapControl = new we.ro.RORoadmapControl(this._tableId);
+        this._roadmapControl = new LoRoadmapControl(this._tableId);
         // if (this._leftGamePanel) {// for testing
-        this._roadmapControl.setRoads(
-          this._leftGamePanel.beadRoad,
-          this._leftGamePanel.colorBigRoad,
-          this._leftGamePanel.sizeBigRoad,
-          this._leftGamePanel.oddBigRoad,
-          this._leftGamePanel,
-          this._rightGamePanel,
-          this._bigRoadResultPanel
-        );
-        // }// for testing
-*/
+        this._roadmapControl.setRoads(this._leftGamePanel, this._rightGamePanel);
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
@@ -294,6 +288,10 @@ namespace we {
 
       protected onRoadDataUpdate(evt: egret.Event) {
         // this._roadmapControl.updateRoadData();
+        this._leftGamePanel.update();
+        this._rightGamePanel.update();
+        this._drawerPanel.update();
+        this._lobbyPanel.updateRoadData(this.tableInfo.roadmap);
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {

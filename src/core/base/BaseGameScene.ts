@@ -477,6 +477,7 @@ namespace we {
       }
 
       protected checkRoundCountWithoutBet() {
+        return;
         if (this.tableInfo.totalBet > 0) {
           this._gameRoundCountWithoutBet = 0;
         } else {
