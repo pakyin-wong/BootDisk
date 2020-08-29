@@ -35,16 +35,19 @@ namespace we {
           // this._rightGamePanel.initRaceTrack(this._chipLayer, this._tableLayer);
         } // for testing
       }
+
       protected addEventListeners() {
         super.addEventListeners();
 
         dir.evtHandler.addEventListener('on_lottery_traditional_bet', this.onConfirmPressed, this);
+        dir.evtHandler.addEventListener('ON_LOTTERY_TRAD_INSUFFICIENTBALANCE', this.onBetFail, this);
       }
 
       protected removeEventListeners() {
         super.removeEventListeners();
 
         dir.evtHandler.removeEventListener('on_lottery_traditional_bet', this.onConfirmPressed, this);
+        dir.evtHandler.removeEventListener('ON_LOTTERY_TRAD_INSUFFICIENTBALANCE', this.onBetFail, this);
       }
 
       protected initBettingTable() {
@@ -56,6 +59,10 @@ namespace we {
         }
 
         this._counter = this._bettingPanel._timer;
+
+        if (this._tableInfo){ 
+          this._bettingPanel.updateBetTableInfo(this._tableInfo);
+        }
       }
 
       public onExit() {
@@ -72,6 +79,9 @@ namespace we {
         this._bettingPanel = null;
         this.removeChildren();
       }
+      protected setupTableInfo() {
+        super.setupTableInfo();
+      }
 
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('LotterySceneTraditional');
@@ -81,13 +91,59 @@ namespace we {
         dir.sceneCtr.goto('lobby', { page: 'lottery', tab: 'all' });
       }
 
+      protected onBetResultReceived(evt: egret.Event) {
+        const result: data.PlayerBetResult = evt.data;
+        if (result && result.success) {
+          this.onBetConfirmed();
+        } else {
+          this.onBetFail();
+        }
+      }
+
+      protected onBetFail() {
+        this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('baccarat.betFail'));
+      }
+
+      protected onInsufficientBalance() {
+        this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.insufficientBalance'));
+      }
+
+      public onBetConfirmed() {
+        this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
+        // this._chipLayer.resetUnconfirmedBet();
+      }
       // public getTableLayer() {
       //   return this._tableLayer;
       // }
 
+      protected setResultRelatedComponentsEnabled(enable: boolean) {
+        if (this._gameData) this._bettingPanel.updateBetInfo(this._gameData);
+      }
+
       protected setStateIdle() {
         this.setBetRelatedComponentsEnabled(false);
         this.setResultRelatedComponentsEnabled(false);
+      }
+
+      protected setStatePeekPlayer(isInit: boolean = false) {
+        if (this._previousState !== we.core.GameState.PEEK_PLAYER || isInit) {
+          this.setBetRelatedComponentsEnabled(false);
+          this.setResultRelatedComponentsEnabled(true);
+
+          // if (this._betDetails) {
+          //   this._chipLayer.updateBetFields(this._betDetails);
+          // }
+        }
+      }
+
+      protected setStatePeek(isInit: boolean = false) {
+        if (this._previousState !== we.core.GameState.PEEK || isInit) {
+          this.setBetRelatedComponentsEnabled(false);
+          this.setResultRelatedComponentsEnabled(true);
+          // if (this._betDetails) {
+          //   this._chipLayer.updateBetFields(this._betDetails);
+          // }
+        }
       }
 
       protected setStateBet() {
@@ -105,8 +161,84 @@ namespace we {
           //   }
         }
       }
+      protected setStatePeekBanker(isInit: boolean = false) {
+        if (this._previousState !== we.core.GameState.PEEK_BANKER || isInit) {
+          this.setBetRelatedComponentsEnabled(false);
+          this.setResultRelatedComponentsEnabled(true);
+
+          // if (this._betDetails) {
+          //   this._chipLayer.updateBetFields(this._betDetails);
+          // }
+        }
+      }
+
+      protected setStateDeal(isInit: boolean = false) {
+        // console.log('this._tableId', this._tableId);
+        // console.log('env.tableinfo[this._tableid]', env.tableInfos[this._tableId]);
+        if (this._previousState !== we.core.GameState.DEAL || isInit) {
+          this.setBetRelatedComponentsEnabled(false);
+          this.setResultRelatedComponentsEnabled(true);
+
+          // if (this._betDetails) {
+          //   this._chipLayer.updateBetFields(this._betDetails);
+          // }
+        }
+      }
+
+      protected onBetDetailUpdateInFinishState() {
+        // this._chipLayer.showWinEffect(this._betDetails);
+        // if (this._betDetails && this._chipLayer) {
+        //   if (this._resultMessage) {
+        //     this.checkResultMessage();
+        //   }
+        // }
+      }
+
       protected initChildren() {
-        super.initChildren();
+        // super.initChildren();
+        // this._leftGamePanel.setTableInfo(this._tableInfo);
+        // this._rightGamePanel.setTableInfo(this._tableInfo);
+        // this._originBetRelatedGroupY = this._betRelatedGroup.y;
+
+        // if (this._tableInfoWindow) {
+        //   this._tableInfoWindow.setToggler(this._lblRoomInfo);
+        //   this._tableInfoWindow.setValue(this._tableInfo);
+        //   if (!env.isFirstTimeInfoPanel) {
+        //     this._tableInfoWindow.x = 6;
+        //     this._tableInfoWindow.y = 93;
+        //     env.isFirstTimeInfoPanel = true;
+        //   }
+        // }
+
+        if (this._panelDismissToggleBtn) {
+          this._panelDismissToggleBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
+        }
+
+        ui.EdgeDismissableAddon.isDismiss = false;
+        this.addChild(this._video);
+        this.setChildIndex(this._video, 0);
+        // this.playVideo();
+        const aspect = 16 / 9;
+        const ratio = this.stage.stageWidth / this.stage.stageHeight;
+        this._video.x = 1560;
+        this._video.y = 104;
+        this._video.width = 1024;
+        this._video.height = 575;
+        // this._video.$anchorOffsetX = this._video.width * 0.5;
+        // this._video.$anchorOffsetY = this._video.height * 0.5;
+        this._video.play();
+        this.stage.frameRate = 60;
+        this._bgImg.visible = true;
+
+        this._gameBar.targetScene = this;
+
+        if (env.betLimits) {
+          this.initDenom();
+          this.initBettingTable();
+        }
+
+        this._lblRoomNo.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this._tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
+
         this.initRoadMap();
 
         if (this._leftGamePanel) {
@@ -135,6 +267,29 @@ namespace we {
         );
         // }// for testing
 */
+      }
+
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        // super.onTableBetInfoUpdate(evt);
+        if (evt && evt.data) {
+          const betInfo = <data.GameTableBetInfo>evt.data;
+          if (betInfo.tableid === this._tableId) {
+            // this._leftGamePanel.updateTableBetInfo();
+            // this._rightGamePanel.updateTableBetInfo();
+          }
+        }
+      }
+
+      protected updateTableInfoRelatedComponents() {
+        // super.updateTableInfoRelatedComponents();
+        if (this._tableInfoWindow) {
+          this._tableInfoWindow.setValue(this._tableInfo);
+        }
+
+        // this._leftGamePanel.update();
+        // this._rightGamePanel.update();
+
+        this._bettingPanel.updateBetTableInfo(this._tableInfo);
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {

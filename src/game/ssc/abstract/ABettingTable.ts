@@ -62,9 +62,18 @@ namespace we {
         this.inputData[index] = data;
 
         for (let i = 0; i < this.inputData.length; i++) {
-          if (this.inputData[i].length < this._config.input[i].minSelect) {
-            this.onInputInvalidate();
-            return;
+          if (this._config.input[i].type !== InputComponentType.CHECKBOXES) {
+            let minSelectChecking = 0;
+            if (this._config.input[i].type === InputComponentType.BALLS) {
+              minSelectChecking = this._config.input[i].minSelect;
+            } else {
+              minSelectChecking = this._config.input[i].numberPerGroup;
+            }
+
+            if (this.inputData[i].length < minSelectChecking) {
+              this.onInputInvalidate();
+              return;
+            }
           }
         }
 

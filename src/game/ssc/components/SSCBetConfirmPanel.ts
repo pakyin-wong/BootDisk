@@ -69,7 +69,7 @@ namespace we {
           const data = new eui.Group();
           this._datagroup.addChild(data);
           data.width = 725;
-          data.height = 42;
+          data.height = 48;
           data.x = 48;
           data.y = 42 * i;
 

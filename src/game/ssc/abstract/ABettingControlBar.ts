@@ -27,6 +27,14 @@ namespace we {
       //   console.log('_bettingPanel', this.bettingPanel);
       // }
 
+      protected addListeners() {
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
+      }
+
+      protected removeListeners() {
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
+      }
+
       public get unitBet(): number {
         return this._unitBet;
       }
@@ -91,6 +99,10 @@ namespace we {
         const maxWin = config.maxWin;
         this._lblHighestWin.renderText = () => `${i18n.t('lo_trad.highest_win')}${utils.formatNumber(maxWin * 100)}`;
       }
+
+      public updateText() {}
+
+      public onExit() {}
     }
   }
 }

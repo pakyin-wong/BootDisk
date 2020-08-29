@@ -764,6 +764,18 @@ namespace we {
           EVEN: '偶',
           CLEAR: '清',
         },
+        ui: {
+          gamemode: '玩法',
+          betitem: '投注项目',
+          betmode: '模式',
+          notecount: '注数',
+          multiplier: '倍数',
+          betamount: '金额',
+          action: '操作',
+        },
+        description: {
+          checkbox: '请至少选择$min$位位数，您当前选择了$count$个位置\n，系统将自动生成$combination$个方案',
+        },
       },
     };
   }
