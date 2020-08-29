@@ -1171,8 +1171,8 @@ namespace we {
         loHistory: {
           show: [
             {
-              count: 4, // number of continues show
-              data: [
+              Count: 4, // number of continues show
+              Data: [
                 'INTEREST1SPECIAL_0', // 全五中一 - 0
                 '45DT2_DRAGON', // 千萬 - 龍
                 'THOUSIZEPARITY2_ODD', // 千位 - 單
@@ -1182,7 +1182,7 @@ namespace we {
               ],
             },
           ],
-          noshow: [],
+          noShow: [],
           hot: [],
           cold: [],
         },

@@ -183,6 +183,7 @@
 		"resource/skin_desktop/lo/GameBar/LotteryHistoryIR.exml",
 		"resource/skin_desktop/nav/NavDropdown.exml",
 		"resource/skin_desktop/lo/LoLeftPanel.exml",
+		"resource/skin_desktop/lo/LoLobbyRoadPanel.exml",
 		"resource/skin_desktop/lo/LoRightDrawerPanel.exml",
 		"resource/skin_desktop/lo/LoRightPanel.exml",
 		"resource/skin_desktop/lo/LotteryScene.exml",

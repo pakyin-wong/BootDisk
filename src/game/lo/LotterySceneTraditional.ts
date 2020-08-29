@@ -14,6 +14,7 @@ namespace we {
       protected _targetTime;
       protected _counterInterval;
 
+      protected _lobbyPanel: we.lo.LoLobbyRoadPanel;
       protected _drawerPanel: we.lo.LoRightDrawerPanel;
       protected _leftGamePanel: we.lo.LoLeftPanel;
       protected _rightGamePanel: we.lo.LoRightPanel;
@@ -111,7 +112,7 @@ namespace we {
         this.initRoadMap();
 
         if (this._leftGamePanel) {
-          // this._leftGamePanel.setTableInfo(this._tableInfo);
+          this._leftGamePanel.setTableInfo(this._tableInfo);
         }
         if (this._rightGamePanel) {
           this._rightGamePanel.setTableInfo(this._tableInfo);
@@ -131,7 +132,11 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
-        this._roadmapControl.updateRoadData();
+        // this._roadmapControl.updateRoadData();
+        this._leftGamePanel.update();
+        this._rightGamePanel.update();
+        this._drawerPanel.update();
+        this._lobbyPanel.updateRoadData(this.tableInfo.roadmap);
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {

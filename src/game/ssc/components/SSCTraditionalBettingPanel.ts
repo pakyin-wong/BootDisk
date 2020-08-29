@@ -285,7 +285,9 @@ namespace we {
         const config = currentBigTag['type'][Object.keys(currentBigTag['type'])[this.currentSmallTagIndex]];
 
         const bettingTable = new SSCTraditionalBettingTable(config);
-        if (this._bettingControl) { this._bettingControl.updateHighestWin(config); }
+        if (this._bettingControl) {
+          this._bettingControl.updateHighestWin(config);
+        }
         this._currentBettingTable = bettingTable;
         this.initCurrentBettingTable();
         this._currentBettingTable.init();

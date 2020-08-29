@@ -29,11 +29,12 @@ namespace we {
         ]);
         this.bg = new ui.RoundRectShape();
         this.addChild(this.bg);
+        this.initContent();
       }
 
       protected childrenCreated(): void {
         super.childrenCreated();
-        this.initContent();
+        // this.initContent();
       }
 
       protected initContent() {
@@ -78,17 +79,26 @@ namespace we {
 
       public changeLang() {
         // this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
-        this.prefixLabel.text = i18n.t('baccarat.playerPair');
-        this.suffixLabel.text = i18n.t('baccarat.player');
+        if (this.renderType === 0) {
+          this.prefixLabel.text = '連出';
+        } else if (this.renderType === 1) {
+          this.prefixLabel.text = '連不出';
+        } else if (this.renderType === 2) {
+          this.prefixLabel.text = '出';
+        } else if (this.renderType === 3) {
+          this.prefixLabel.text = '不出';
+        }
+        this.suffixLabel.text = '期'; // i18n.t('baccarat.player');
 
         this.countLabel.x = this.prefixLabel.x + this.prefixLabel.textWidth + 8;
         this.suffixLabel.x = this.countLabel.x + this.countLabel.textWidth + 8;
       }
 
       public update(input: any) {
-        const count = input.count;
-        const data = input.data;
+        this.countLabel.text = input.Count + '';
+        const data = input.Data;
         const rslt = [];
+
         data.forEach(element => {
           rslt.push({ item: element });
         });

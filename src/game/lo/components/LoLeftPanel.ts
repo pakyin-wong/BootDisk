@@ -345,17 +345,19 @@ namespace we {
           }
 
           if (this.tableInfo.gamestatistic) {
-            this.gameId = this.tableInfo.gamestatistic.roundId;
+            if (this.gameId !== this.tableInfo.gamestatistic.roundId) {
+              this.gameId = this.tableInfo.gamestatistic.roundId;
 
-            const history = this.tableInfo.gamestatistic.loHistory;
-            const chart = this.tableInfo.gamestatistic.loChart;
+              const history = this.tableInfo.gamestatistic.loHistory;
+              const chart = this.tableInfo.gamestatistic.loChart;
 
-            this.listShow.updateList(history.show);
-            this.listNoShow.updateList(history.noshow);
-            this.listHot.updateList(history.hot);
-            this.listCold.updateList(history.cold);
+              this.listShow.updateList(history.show);
+              this.listNoShow.updateList(history.noShow);
+              this.listHot.updateList(history.hot);
+              this.listCold.updateList(history.cold);
 
-            this.changeLang();
+              this.changeLang();
+            }
           }
         }
       }

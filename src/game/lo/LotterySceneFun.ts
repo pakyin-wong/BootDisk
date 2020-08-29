@@ -28,6 +28,7 @@ namespace we {
         this._betChipSet.selectedChipIndex = 0;
         this.onBetChipChanged();
       }
+      protected onRoadDataUpdate(evt: egret.Event) {}
 
       protected addListeners() {
         super.addListeners();

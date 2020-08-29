@@ -238,14 +238,20 @@ namespace we {
       public _stopTimeout = null;
 
       protected wheelDistance(evt) {
-        if (!evt) { evt = event; }
+        if (!evt) {
+          evt = event;
+        }
         const w = evt.wheelDelta;
         const d = evt.detail;
         if (d) {
-          if (w) { return (w / d / 40) * d > 0 ? 1 : -1; }
-          // Opera
-          else { return -d / 3; } // Firefox;         TODO: do not /3 for OS X
-        } else { return w / 120; } // IE/Safari/Chrome TODO: /3 for Chrome OS X
+          if (w) {
+            return (w / d / 40) * d > 0 ? 1 : -1;
+          } else {
+            return -d / 3;
+          } // Firefox;         TODO: do not /3 for OS X
+        } else {
+          return w / 120;
+        } // IE/Safari/Chrome TODO: /3 for Chrome OS X
       }
 
       private onMouseWheel = this.throttle((event: WheelEvent) => {

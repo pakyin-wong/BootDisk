@@ -16,7 +16,7 @@ namespace we {
       protected chartStack: eui.ViewStack;
 
       protected dtRoadNames: string[] = ['dt1v2', 'dt1v3', 'dt1v4', 'dt1v5', 'dt2v3', 'dt2v4', 'dt2v5', 'dt3v4', 'dt3v5', 'dt4v5'];
-      protected chartTypeNames: string[] = ['lucky_time', 'lucky_game', 'fav_bet', "fav_game"];
+      protected chartTypeNames: string[] = ['lucky_time', 'lucky_game', 'fav_bet', 'fav_game'];
       protected chartPeriodNames: string[] = ['day', 'pday', 'week', 'pweek', 'month', 'pmonth'];
 
       // roadmap
@@ -354,7 +354,7 @@ namespace we {
       protected chartPeriodChange(i: number) {
         this.chartPeriodIndex = i - 0;
         if (this.tableInfo.gamestatistic) {
-          //chart1
+          // chart1
           let chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[0]];
           let d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
           let ranks = [];
@@ -363,7 +363,7 @@ namespace we {
           });
           this._bestTimePieChart.setRanksAndAnimate(ranks, -1);
 
-          //chart2
+          // chart2
           chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[1]];
           d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
           ranks = [];
@@ -372,7 +372,7 @@ namespace we {
           });
           // this._bestGamePieChart.setRanksAndAnimate(ranks, -1);
 
-          //chart3
+          // chart3
           chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[2]];
           d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
           ranks = [];
@@ -381,7 +381,7 @@ namespace we {
           });
           // this._favBetBarChart.setRanksAndAnimate(ranks, -1);
 
-          //chart4
+          // chart4
           chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[3]];
           d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
           ranks = [];
@@ -508,17 +508,19 @@ namespace we {
           }
 
           if (this.tableInfo.gamestatistic) {
-            this.gameId = this.tableInfo.gamestatistic.roundId;
+            if (this.gameId !== this.tableInfo.gamestatistic.roundId) {
+              this.gameId = this.tableInfo.gamestatistic.roundId;
 
-            const history = this.tableInfo.gamestatistic.loHistory;
-            const chart = this.tableInfo.gamestatistic.loChart;
+              const history = this.tableInfo.gamestatistic.loHistory;
+              const chart = this.tableInfo.gamestatistic.loChart;
 
-            this.listShow.updateList(history.show);
-            this.listNoShow.updateList(history.noshow);
-            this.listHot.updateList(history.hot);
-            this.listCold.updateList(history.cold);
+              this.listShow.updateList(history.show);
+              this.listNoShow.updateList(history.noShow);
+              this.listHot.updateList(history.hot);
+              this.listCold.updateList(history.cold);
 
-            this.chartPeriodChange(this.chartPeriodIndex);
+              this.chartPeriodChange(this.chartPeriodIndex);
+            }
           }
 
           this.changeLang();
