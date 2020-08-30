@@ -66,13 +66,11 @@ namespace we {
 
           if(this._btn_next){
             this._btn_next.label.renderText = () => `${i18n.t('overlaypanel_bethistory_btn_next')}`
-            this._btn_next.label.size = 60
             this._btn_next.addEventListener(egret.TouchEvent.TOUCH_TAP,this.nextPage,this)
           }
 
           if(this._btn_prev){
             this._btn_prev.label.renderText = () => `${i18n.t('overlaypanel_bethistory_btn_prev')}`
-            this._btn_next.label.size = 60
             this._btn_prev.addEventListener(egret.TouchEvent.TOUCH_TAP,this.prevPage,this)
           }
 
