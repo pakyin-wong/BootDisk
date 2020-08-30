@@ -83,5 +83,6 @@
 			<ui:RunTimeLabel id="_txt_page" text="00/00" left="0" right="20" top="0" bottom="0" verticalAlign="middle"
 			                 textAlign="center" fontFamily="Barlow" size="28" />
 		</e:Group>
+
 	</e:Group>
 </e:Skin>

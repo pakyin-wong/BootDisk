@@ -84,6 +84,8 @@ namespace we {
       overlaypanel_bethistory_record_bettype: '投注項目',
       overlaypanel_bethistory_record_result: '遊戲結果',
       overlaypanel_bethistory_record_replay: '重播',
+      overlaypanel_bethistory_btn_next: '下一則',
+      overlaypanel_bethistory_btn_prev: '上一則',
 
       overlaypanel_bethistory_baresult_banker: '庄',
       overlaypanel_bethistory_baresult_player: '閒',

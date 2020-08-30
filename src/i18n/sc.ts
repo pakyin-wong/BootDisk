@@ -90,6 +90,8 @@ namespace we {
       overlaypanel_bethistory_record_bettype: '投注项目',
       overlaypanel_bethistory_record_result: '游戏结果',
       overlaypanel_bethistory_record_replay: '重播',
+      overlaypanel_bethistory_btn_next: '下一则',
+      overlaypanel_bethistory_btn_prev: '上一则',
 
       overlaypanel_bethistory_baresult_banker: '庄',
       overlaypanel_bethistory_baresult_player: '闲',
