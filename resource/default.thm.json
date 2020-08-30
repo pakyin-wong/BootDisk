@@ -461,6 +461,7 @@
 		"resource/skin_mobile_portrait/BARoadmapLeftPanel.exml",
 		"resource/skin_mobile_portrait/BARoadmapRightPanel.exml",
 		"resource/skin_mobile_portrait/BetConfirmButtonMobile.exml",
+		"resource/skin_mobile_portrait/BetConfirmVerticalButtonMobile.exml",
 		"resource/skin_mobile_portrait/ControlItem/LiveOverlayItemSkin.exml",
 		"resource/skin_mobile_portrait/di/GameResult/SideBetResultMessage.exml",
 		"resource/skin_mobile_portrait/di/GameScene/MobileTableLayer.exml",

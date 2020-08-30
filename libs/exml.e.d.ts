@@ -1611,6 +1611,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class BetConfirmVerticalButtonMobile extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class LiveOverlayItemSkin extends eui.Skin{
 	}
 }
