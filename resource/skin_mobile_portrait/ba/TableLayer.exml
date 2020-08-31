@@ -12,8 +12,8 @@
 		<e:Label id="_playerTotalPerson" horizontalCenter="90" verticalCenter="90" size="30" />
 	</e:Group>
 	<e:Group id="_bankerGroup" includeIn="Normal" x="591" y="0" width="591" height="232">
-		<ui:BettingGrid id="_bankerImage" width="591" height="232" roundCorner="[0,36,0,0]"
-		                gradientColors="[0xff5b67, 0xad3737]" gradientType="RADIAL" gradientPosition="topLeft" />
+		<!--<e:Image id="_bankerImage" source="m_ba_betarea_banker_png" name="m_ba_betarea_banker_png" width="100%" height="100%" />-->
+		<ui:BettingGrid id="_bankerImage" width="591" height="232" roundCorner="[0,36,0,0]" gradientColors="[0xff5b67, 0xad3737]" gradientType="RADIAL" gradientPosition="topLeft" />	
 		<ui:RunTimeLabel id="_bankerLabel" horizontalCenter="0" size="98" bottom="96" />
 		<e:Label text="0.95:1" horizontalCenter="0" size="48" verticalAlign="top" top="135" alpha="0.7" />
 		<e:Image source="d_ba_betarea_icon_bet_png" horizontalCenter="-100" verticalCenter="90" height="32" width="32" />

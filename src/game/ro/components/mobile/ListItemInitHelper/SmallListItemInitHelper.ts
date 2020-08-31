@@ -12,6 +12,7 @@ namespace we {
         roadmap.roadOffsetY = 8;
         roadmap.roadEmptyColor = 0xc1c1c1;
         roadmap.roadEmptyAlpha = 0.2;
+        roadmap.isSmall = true;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(roadmap, idx);
         return roadmap;

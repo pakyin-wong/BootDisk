@@ -19,6 +19,8 @@ namespace we {
 
       // table name label
       protected _label: ui.RunTimeLabel;
+      protected _label_game: ui.RunTimeLabel;
+      protected _label_ID: eui.Label;
 
       protected _betDetails: data.BetDetail[];
       protected _previousState: number;
@@ -170,7 +172,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         // logger.l(utils.LoggerTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -223,12 +225,18 @@ namespace we {
         if (this._label) {
           this._label.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this.tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
         }
+        if (this._label_game) {
+          this._label_game.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this.tableInfo.gametype])}`;
+        }
+        if (this._label_ID) {
+          this._label_ID.text = ` ${env.getTableNameByID(this._tableId)}`;
+        }
         this.updateGame(true);
       }
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;

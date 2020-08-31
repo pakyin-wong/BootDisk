@@ -44,7 +44,6 @@ namespace we {
         this.updateText();
         this.updateStat();
         this._middlePart.mask = this.viewStackMask;
-        this.viewStack.selectedIndex = 0;
         this.getMiddlePartHeight();
         this.onPanelToggle(this.isFirstTime);
       }

@@ -28,7 +28,7 @@ namespace we {
             },
             this
           );
-          //poster.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bannerClicked, this);
+          // poster.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bannerClicked, this);
           root._posterContainer.addChild(poster);
         }
 

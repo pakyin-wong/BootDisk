@@ -155,7 +155,7 @@ namespace we {
             case we.core.GameType.LW:
               p = new LwResultItem(gameResult);
               break;
-              case we.core.GameType.LO:
+            case we.core.GameType.LO:
               p = new LoResultItem(gameResult);
               break;
             default:

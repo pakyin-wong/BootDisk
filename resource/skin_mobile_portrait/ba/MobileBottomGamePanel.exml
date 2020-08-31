@@ -8,7 +8,7 @@
 			        scaleX="1" scaleY="1" fillColor="0x212425" strokeColor="0x212425"  ellipseWidth="50" ellipseHeight="50"/>-->
 			<ui:RoundRectShape cornerTL_TR_BL_BR="30,30,0,0" width="1242" height="100" x="0" y="0" stroke="0"
 		                   strokeColor="0x212425" fillColor="0x212425" />
-			<e:RadioButton id="roadSheetBtn" label="路紙" x="16" y="20" width="360" height="80" value="0" selected="true"
+			<e:RadioButton id="roadSheetBtn" label="路紙" x="16" y="20" width="360" height="80" value="0" selected="false"
 			               scaleX="1" scaleY="1" visible.off="false">
 				<e:skinName>
 					<e:Skin states="up,down,disabled">

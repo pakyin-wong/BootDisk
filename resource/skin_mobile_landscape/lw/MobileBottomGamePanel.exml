@@ -21,7 +21,7 @@
 			<e:Group id="_topPart" width="284" y="80" scaleX="1" scaleY="1" anchorOffsetX="0" top="0" x="2140" height="100%">
 				<e:Rect id="top_bg" width="100%" height="100%" y="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
 				        scaleY="1" fillColor="0x212425" strokeColor="0x212425" x="0" />
-				<e:RadioButton id="roadSheetBtn" label="歷史記錄/ 即時彩池" x="8" y="52" width="252" height="80" value="0" selected="true"
+				<e:RadioButton id="roadSheetBtn" label="歷史記錄/ 即時彩池" x="8" y="52" width="252" height="80" value="0" selected="false"
 				               scaleX="1" scaleY="1">
 					<e:skinName>
 						<e:Skin states="up,down,disabled">

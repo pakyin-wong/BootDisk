@@ -75,9 +75,8 @@ namespace we {
           return;
         }
         this._chipAnim.animation.stop();
-        this._chipAnim.animation.play('loop',0);
+        this._chipAnim.animation.play('loop', 0);
       }
-
     }
   }
 }
