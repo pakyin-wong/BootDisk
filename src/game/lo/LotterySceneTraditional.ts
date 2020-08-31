@@ -119,7 +119,7 @@ namespace we {
       // }
 
       protected setResultRelatedComponentsEnabled(enable: boolean) {
-        if (this._gameData) this._bettingPanel.updateBetInfo(this._gameData);
+        if (this._gameData) { this._bettingPanel.updateBetInfo(this._gameData); }
       }
 
       protected setStateIdle() {
@@ -266,7 +266,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         // super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
             // this._leftGamePanel.updateTableBetInfo();
             // this._rightGamePanel.updateTableBetInfo();

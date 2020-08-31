@@ -43,6 +43,20 @@ namespace we {
         } else {
           // this._goodRoadLabel.visible = false;
         }
+
+        if (this._bg) {
+          switch (tableInfo.gametype) {
+            case core.GameType.DIL:
+              if (this._bg.fillColor !== '0x1b1f22') {
+                this._bg.fillColor = '0x1b1f22';
+                this._bg.refresh();
+              }
+              break;
+            default:
+              break;
+          }
+        }
+
       }
 
       protected updateBetLimitText(items, idx) {

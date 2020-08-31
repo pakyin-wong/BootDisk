@@ -19,6 +19,8 @@ namespace we {
 
       // table name label
       protected _label: ui.RunTimeLabel;
+      protected _label_game: ui.RunTimeLabel;
+      protected _label_ID: eui.Label;
 
       protected _betDetails: data.BetDetail[];
       protected _previousState: number;
@@ -222,6 +224,12 @@ namespace we {
         this._previousState = this._gameData ? this._gameData.previousstate : null;
         if (this._label) {
           this._label.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this.tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
+        }
+        if (this._label_game) {
+          this._label_game.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this.tableInfo.gametype])}`;
+        }
+        if (this._label_ID) {
+          this._label_ID.text = ` ${env.getTableNameByID(this._tableId)}`;
         }
         this.updateGame(true);
       }

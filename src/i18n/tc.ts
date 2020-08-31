@@ -266,6 +266,7 @@ namespace we {
         tie: '和',
         playerPair: '閒對',
         bankerPair: '庄對',
+        gameRecord: '遊戲記錄',
       },
       dice: {
         recent: '最近',

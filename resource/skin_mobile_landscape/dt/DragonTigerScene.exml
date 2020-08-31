@@ -85,12 +85,11 @@
 		</e:Group>
 		<dt:CardHolder id="_resultDisplay" width="1384" height="152" y="1.5" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
 		               scaleY="1" horizontalCenter="0" />
-			<e:Group width="200" height="200" includeIn="right_hand_mode" y="222" horizontalCenter="0"/>
 	</e:Group>
 	<dt:MobileBottomGamePanel skinName="skin_mobile_landscape.dt.MobileBottomGamePanel" id="_bottomGamePanel" width="2424"
 	                          scaleY="1" scaleX="1" />
 	<e:layout>
-		<e:VerticalLayout gap="-65" />
+		<e:VerticalLayout gap="-35" />
 	</e:layout>
 </e:Group>
 <e:Group id="_betChipSetPanel" width="1566" height="260" scaleY="1" x="367" y="138">
