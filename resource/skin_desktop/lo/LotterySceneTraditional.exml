@@ -3,7 +3,7 @@
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:ro="we.ro.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing"
         xmlns:live="we.live.*">
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x212425" visible="true" />
-	<e:Image id="_bgImg" x="1560" y="104" width="1024" height="575" source="frame-3_jpg" locked="true" visible="false"/>
+	<e:Image id="_bgImg" x="1560" y="104" width="1024" height="575" source="frame-3_jpg" visible="false" locked="true"/>
 	<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" width="2600" height="294" x="0" bottom="0" stroke="0"
 	                   fillColor="0x00000000,0x00000050" />
 	<!--<ro:TableLayer id="_tableLayer" width="1208" height="340" x="692" y="986" skinName="skin_desktop.ro.TableLayerSkin"
@@ -11,6 +11,7 @@
 	<ro:ChipLayer id="_chipLayer" width="1208" height="340" x="692" y="986" skinName="skin_desktop.ro.ChipLayerSkin"
 	              isEdgeDismissable="true" />
 	-->
+	<e:Group id="_videoGroup" x="1560" y="104" width="1024" height="575" />
 	<e:Group id="_bettingPanelGroup" x="16" y="104" />
 	<e:Group id="_betRelatedGroup" x="768.64" y="895.13" visible="false">
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
@@ -29,8 +30,6 @@
 		<ui:BaseAnimationButton id="_undoButton" width="55" height="55" verticalCenter="0" horizontalCenter="467"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true" />
 	</e:Group>
-	<lo:LoLobbyRoadPanel id="_lobbyPanel" width="735" height="270" x="100" y="200" anchorOffsetX="0" anchorOffsetY="0" />
-	<lo:LoRightDrawerPanel id="_drawerPanel" width="835" height="370" x="1000" y="200" anchorOffsetX="0" anchorOffsetY="0" />
 	<lo:LoLeftPanel id="_leftGamePanel" width="1024" height="272" x="1560" y="703" anchorOffsetX="0" anchorOffsetY="0" />
 	<lo:LoRightPanel id="_rightGamePanel" width="1024" height="329" x="1560" y="999" anchorOffsetX="0" anchorOffsetY="0" />
 	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2600" touchEnabled="false"

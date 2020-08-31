@@ -10,6 +10,8 @@ namespace we {
       private isExpanded: boolean;
       protected _topTextLayer: egret.DisplayObjectContainer;
 
+      public isSmall: boolean = false;
+
       public constructor(
         _numRow: number = 3,
         _numCol: number = 10,
@@ -18,7 +20,8 @@ namespace we {
         _xOffset: number,
         _yOffset: number,
         _emptyColor: number = 0xc1c1c1,
-        _emptyAlpha: number = 0.2
+        _emptyAlpha: number = 0.2,
+        _isSmall: boolean = false
       ) {
         super(_numCol, _gridSize, _scale);
         this.xOffset = _xOffset;
@@ -27,6 +30,7 @@ namespace we {
         this.emptyAlpha = _emptyAlpha;
         this.numRow = _numRow;
         this.gridUnit = 1;
+        this.isSmall = _isSmall;
 
         this._topTextLayer = new egret.DisplayObjectContainer();
         this._staticLayer.addChild(this._topTextLayer);
@@ -34,7 +38,7 @@ namespace we {
       }
 
       protected createIcon(size: number): ROBeadRoadIcon {
-        const icon = new ROBeadRoadIcon(size, this.emptyColor, this.emptyAlpha);
+        const icon = new ROBeadRoadIcon(size, this.emptyColor, this.emptyAlpha, this.isSmall);
         return icon;
       }
 

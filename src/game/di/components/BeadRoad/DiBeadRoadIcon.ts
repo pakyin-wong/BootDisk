@@ -96,7 +96,7 @@ namespace we {
         this.sizeText.text = '2';
         this.sizeText.width = iconSize;
         this.sizeText.height = displaySize;
-        this.sizeText.size = iconSize * 0.5;
+        this.sizeText.size = iconSize * 0.45;
         // this.iconText.fontFamily = 'Times New Roman';
 
         this.oddText.textAlign = egret.HorizontalAlign.CENTER;
@@ -105,7 +105,7 @@ namespace we {
         this.oddText.text = '2';
         this.oddText.width = iconSize;
         this.oddText.height = displaySize;
-        this.oddText.size = iconSize * 0.5;
+        this.oddText.size = iconSize * 0.45;
         this.oddText.fontFamily = 'Barlow';
 
         this.totalText.textAlign = egret.HorizontalAlign.CENTER;
@@ -114,7 +114,7 @@ namespace we {
         this.totalText.text = '2';
         this.totalText.width = iconSize;
         this.totalText.height = displaySize;
-        this.totalText.size = iconSize * 0.5;
+        this.totalText.size = iconSize * 0.45;
         // this.iconText.fontFamily = 'Times New Roman';
       }
 

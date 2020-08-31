@@ -180,7 +180,6 @@ namespace we {
         this.quickOpen.horizontalCenter = 0;
         this.addChild(this.quickOpen);
         this.quickOpen.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this.showFinal(), this);
-
       }
 
       protected update() {

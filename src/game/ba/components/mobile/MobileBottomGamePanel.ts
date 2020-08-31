@@ -26,6 +26,18 @@ namespace we {
 
       protected mount() {
         super.mount();
+        this.viewStack.selectedIndex = env.bottomPanelSelectedIdx;
+        switch (env.bottomPanelSelectedIdx.toString()) {
+          case '0':
+            this.roadSheetBtn.selected = true;
+            break;
+          case '1':
+            this.chartBtn.selected = true;
+            break;
+          case '2':
+            this.tableInfoBtn.selected = true;
+            break;
+        }
 
         // this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
       }
@@ -74,6 +86,10 @@ namespace we {
         super.openTableInfo();
         this.tableInfoBtn.selected = true;
         this.viewStack.selectedIndex = this.tableInfoBtn.value;
+      }
+      protected onViewChange(e: eui.UIEvent) {
+        super.onViewChange(e);
+        env.bottomPanelSelectedIdx = this.viewStack.selectedIndex;
       }
     }
   }

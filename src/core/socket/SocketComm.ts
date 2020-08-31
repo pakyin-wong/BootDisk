@@ -605,8 +605,8 @@ namespace we {
             stats.roundId = gameStatistic.roundnumber;
             stats.loHistory = gameStatistic.lohistory;
             stats.loChart = this.mockLoRoadData.loChart; // gameStatistic.lochart;
+            stats.loresults = gameStatistic.loresults;
             tableInfo.gamestatistic = stats;
-
             break;
           }
           default: {
@@ -805,7 +805,7 @@ namespace we {
               {
                 key: 'INTEREST1SPECIAL',
                 value: 15.7,
-              }, // bet code:value
+              },
             ],
             pday: [],
             week: [],
@@ -818,7 +818,7 @@ namespace we {
               {
                 key: '18',
                 value: 5000,
-              }, // game id:value
+              },
             ],
             pday: [],
             week: [],
@@ -831,7 +831,7 @@ namespace we {
               {
                 key: '10:00',
                 value: 15.8,
-              }, // time slot:value
+              },
             ],
             pday: [],
             week: [],
@@ -844,7 +844,7 @@ namespace we {
               {
                 key: '18',
                 value: 5000,
-              }, // game id: value
+              },
             ],
             pday: [],
             week: [],
@@ -877,7 +877,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
           return betDetail;
         });
 

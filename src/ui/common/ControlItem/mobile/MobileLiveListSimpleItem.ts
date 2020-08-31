@@ -6,6 +6,8 @@ namespace we {
       protected _alreadyBetSign: eui.Group;
       protected _goodRoadLabel: ui.GoodRoadLabel;
 
+      protected _bg: ui.RoundRectShape;
+
       protected _roadmapNode: eui.Component;
 
       public constructor(skinName: string = null) {
@@ -99,12 +101,25 @@ namespace we {
           // this._goodRoadLabel.visible = false;
           // this._goodRoadLabel.width = 0;
         }
+
+        if (this._bg) {
+          switch (tableInfo.gametype) {
+            case core.GameType.DIL:
+              if (this._bg.fillColor !== '0x1b1f22') {
+                this._bg.fillColor = '0x1b1f22';
+                this._bg.refresh();
+              }
+              break;
+            default:
+              break;
+          }
+        }
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);
@@ -129,7 +144,7 @@ namespace we {
 
       protected updateBetLimitText(items, idx) {
         if (this._toggler) {
-          this._toggler.renderText = () => ` ${items.length > 0 ? items[idx] : ''}`;
+          this._toggler.renderText = () => ` ${i18n.t('baccarat.betLimitshort')} ${items.length > 0 ? items[idx] : ''}`;
         }
       }
     }

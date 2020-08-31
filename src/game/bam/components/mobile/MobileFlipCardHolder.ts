@@ -15,6 +15,8 @@ namespace we {
       protected rightStartPosition: number;
       protected middlePosition: number;
 
+      protected _mask: egret.Shape;
+
       public constructor() {
         super();
       }
@@ -22,6 +24,7 @@ namespace we {
       protected createChildren() {
         super.createChildren();
         this.skinName = utils.getSkinByClassname('bam.FlipCardHolderSkin');
+        this.createMask();
         this.updatePosition();
         this.isOpen = false;
         this.moveCardIndex = 0;
@@ -47,7 +50,7 @@ namespace we {
         } else {
           this.leftStartPosition = -1289;
           this.rightStartPosition = 1289;
-          this.middlePosition = 189;
+          this.middlePosition = 260;
         }
       }
 
@@ -80,6 +83,7 @@ namespace we {
       public showAndMoveCard(moveIndex: number, value: string) {
         this._flipCard1.visible = true;
         this._flipCard2.visible = true;
+        this._mask.visible = true;
         this.updatePosition();
         if (!this.isOpen) {
           this.changeCurrentCard();
@@ -148,6 +152,23 @@ namespace we {
         // this._flipCard2.visible = false;
         this.currentCard.visible = false;
         this.nextCard.visible = false;
+        this._mask.visible = false;
+      }
+
+      protected createMask() {
+        this._mask = new egret.Shape();
+        const gr = this._mask.graphics;
+        const matrix = new egret.Matrix();
+        const _maskHeight = env.orientation === 'landscape' ? 456 : 1170;
+        matrix.createGradientBox(this.width, _maskHeight, Math.PI / 2, 0, 0);
+        gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000], [0, 0.6], [0, 255], matrix);
+        gr.drawRect(0, 0, this.width, _maskHeight);
+        gr.endFill();
+        this.addChildAt(this._mask, 0);
+        this._mask.x = 0;
+        this._mask.y = this.height - _maskHeight;
+        this._mask.visible = false;
+        this._mask.touchEnabled = false;
       }
     }
   }

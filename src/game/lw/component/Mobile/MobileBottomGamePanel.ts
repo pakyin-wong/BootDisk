@@ -26,6 +26,21 @@ namespace we {
 
       protected mount() {
         super.mount();
+        if (env.orientation === 'landscape') {
+          env.bottomPanelSelectedIdx = env.bottomPanelSelectedIdx <= 1 ? 0 : 2;
+        }
+        this.viewStack.selectedIndex = env.bottomPanelSelectedIdx;
+        switch (env.bottomPanelSelectedIdx.toString()) {
+          case '0':
+            this.roadSheetBtn.selected = true;
+            break;
+          case '1':
+            this.chartBtn.selected = true;
+            break;
+          case '2':
+            this.tableInfoBtn.selected = true;
+            break;
+        }
 
         // this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
       }
@@ -51,7 +66,7 @@ namespace we {
       public updateText() {
         super.updateText();
 
-        this.roadSheetBtn.label = i18n.t('mobile_game_panel_road_sheet');
+        this.roadSheetBtn.label = i18n.t('luckywheel.gameRecord');
         this.tableInfoBtn.label = i18n.t('mobile_game_panel_table_info');
         if (env.orientation === 'portrait') {
           this.chartBtn.label = i18n.t('luckywheel.pool');
@@ -68,6 +83,10 @@ namespace we {
         super.destroy();
         this._roadmapGroup.removeChildren();
         this.removeListeners();
+      }
+      protected onViewChange(e: eui.UIEvent) {
+        super.onViewChange(e);
+        env.bottomPanelSelectedIdx = this.viewStack.selectedIndex;
       }
     }
   }
