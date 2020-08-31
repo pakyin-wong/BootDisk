@@ -4,7 +4,7 @@
         xmlns:lo="we.lo.*">
 	<e:Group id="_contentContainer" width="100%" height="410" x="0" y="0">
 		<e:Image width="96" height="96" x="20" y="14" />
-		<ui:RoundRectShape fillColor="0x434343" cornerTL_TR_BL_BR="12,12,12,12" strokeColor="0x434343" stroke="2" width="100%"
+		<ui:RoundRectShape fillColor="0x434343" cornerTL_TR_BL_BR="12,12,12,12" strokeColor="0x434343" stroke="2" width="786"
 		                   height="410" x="0" y="0" />
 		<e:Group id="_rdContainer" sortableChildren="true" right="20" top="19">
 			<e:Label id="_tf_round" text="00000000000" x="0" y="0" alpha="0.7" height="36" verticalAlign="middle"

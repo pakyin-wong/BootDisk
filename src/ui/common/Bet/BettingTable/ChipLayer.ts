@@ -546,8 +546,9 @@ namespace we {
 
       protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
         const totalUncfmAmount = this.getTotalUncfmBetAmount();
+        const totalCfmAmount = this.getTotalCfmBetAmount();
 
-        if (betLimit.minlimit > totalUncfmAmount) {
+        if (betLimit.minlimit > totalUncfmAmount+totalCfmAmount) {
           return true;
         }
 

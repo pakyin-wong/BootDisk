@@ -521,21 +521,21 @@ namespace we {
       protected road1Change(i: number) {
         this.road1Index = i - 0;
         if (this.tableInfo.roadmap) {
-          this.sizeBigRoad.parseRoadData(this.tableInfo.roadmap.inGame['size' + (this.road1Index + 1)]);
+          this.sizeBigRoad.parseRoadData(this.tableInfo.roadmap.sideBar['size' + (this.road1Index + 1)]);
         }
       }
 
       protected road2Change(i: number) {
         this.road2Index = i - 0;
         if (this.tableInfo.roadmap) {
-          this.oddBigRoad.parseRoadData(this.tableInfo.roadmap.inGame['odd' + (this.road2Index + 1)]);
+          this.oddBigRoad.parseRoadData(this.tableInfo.roadmap.sideBar['odd' + (this.road2Index + 1)]);
         }
       }
 
       protected road3Change(i: number) {
         this.road3Index = i - 0;
         if (this.tableInfo.roadmap) {
-          this.dtBigRoad.parseRoadData(this.tableInfo.roadmap.inGame[this.dtRoadNames[this.road3Index]]);
+          this.dtBigRoad.parseRoadData(this.tableInfo.roadmap.sideBar[this.dtRoadNames[this.road3Index]]);
         }
       }
       protected onAnalysisChange(e: eui.UIEvent) {
