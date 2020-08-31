@@ -101,7 +101,6 @@ namespace we {
         this.analysisBtn.label.renderText = () => 'Analysis';
         this.chartBtn.label.renderText = () => 'Chart';
 
-
         this.roadmapBtn.label.top = 0;
         this.roadmapBtn.label.bottom = 0;
         this.roadmapBtn.label.left = 8;
@@ -122,7 +121,6 @@ namespace we {
         this.chartBtn.label.width = 134 - 16;
         this.chartBtn.label.targetWidth = 134 - 16;
         this.chartBtn.label.size = 24;
-
 
         this.road1Btn['labelDisplayDown']['text'] = this.road1Btn['labelDisplayUp']['text'] = 'B/S';
         this.road2Btn['labelDisplayDown']['text'] = this.road2Btn['labelDisplayUp']['text'] = 'O/E';
@@ -366,7 +364,6 @@ namespace we {
         this.chartPeriodBtn5.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
         this.chartPeriodBtn6.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
 
-
         this.panelHideBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelHide, this);
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
@@ -524,21 +521,21 @@ namespace we {
       protected road1Change(i: number) {
         this.road1Index = i - 0;
         if (this.tableInfo.roadmap) {
-          this.sizeBigRoad.parseRoadData(this.tableInfo.roadmap.inGame['size' + (this.road1Index + 1)]);
+          this.sizeBigRoad.parseRoadData(this.tableInfo.roadmap.sideBar['size' + (this.road1Index + 1)]);
         }
       }
 
       protected road2Change(i: number) {
         this.road2Index = i - 0;
         if (this.tableInfo.roadmap) {
-          this.oddBigRoad.parseRoadData(this.tableInfo.roadmap.inGame['odd' + (this.road2Index + 1)]);
+          this.oddBigRoad.parseRoadData(this.tableInfo.roadmap.sideBar['odd' + (this.road2Index + 1)]);
         }
       }
 
       protected road3Change(i: number) {
         this.road3Index = i - 0;
         if (this.tableInfo.roadmap) {
-          this.dtBigRoad.parseRoadData(this.tableInfo.roadmap.inGame[this.dtRoadNames[this.road3Index]]);
+          this.dtBigRoad.parseRoadData(this.tableInfo.roadmap.sideBar[this.dtRoadNames[this.road3Index]]);
         }
       }
       protected onAnalysisChange(e: eui.UIEvent) {

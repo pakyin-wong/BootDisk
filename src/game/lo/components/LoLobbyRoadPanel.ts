@@ -273,28 +273,28 @@ namespace we {
       }
 
       protected road1Change(i: number) {
-        this.road1Index = i;
+        this.road1Index = i - 0;
         if (this.roadmapData) {
           if (this.sizeBigRoad) {
-            this.sizeBigRoad.parseRoadData(this.roadmapData.inGame['size' + (this.road1Index + 1)]);
+            this.sizeBigRoad.parseRoadData(this.roadmapData.lobbyUnPro['size' + (this.road1Index + 1)]);
           }
         }
       }
 
       protected road2Change(i: number) {
-        this.road2Index = i;
+        this.road2Index = i - 0;
         if (this.roadmapData) {
           if (this.oddBigRoad) {
-            this.oddBigRoad.parseRoadData(this.roadmapData.inGame['odd' + (this.road2Index + 1)]);
+            this.oddBigRoad.parseRoadData(this.roadmapData.lobbyUnPro['odd' + (this.road2Index + 1)]);
           }
         }
       }
 
       protected road3Change(i: number) {
-        this.road3Index = i;
+        this.road3Index = i - 0;
         if (this.roadmapData) {
           if (this.dtBigRoad) {
-            this.dtBigRoad.parseRoadData(this.roadmapData.inGame[this.dtRoadNames[this.road3Index]]);
+            this.dtBigRoad.parseRoadData(this.roadmapData.lobbyUnPro[this.dtRoadNames[this.road3Index]]);
           }
         }
       }
