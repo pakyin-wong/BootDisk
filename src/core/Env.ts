@@ -16,7 +16,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.8.2';
+      public version: string = '0.8.3';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -113,6 +113,10 @@ namespace we {
       public isFirstTimeInfoPanel = false;
       // check if mobilebottomGamePanel is open
       public isBottomPanelOpen = true;
+
+      // Lottery
+      public loDenominationList = [2, 20, 200];
+      public loDeniminationIdx = 0;
 
       public init() {
         this.mobileValidGameType = [

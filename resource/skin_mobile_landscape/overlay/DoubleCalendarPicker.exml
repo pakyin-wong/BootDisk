@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_landscape.DoubleCalendarPicker" width="1402" height="1050" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_landscape.DoubleCalendarPicker" width="1402" height="1200" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
 		<e:Rect strokeColor="0x3b4f6c" ellipseHeight="80" ellipseWidth="80" fillColor="0x253343" strokeWeight="2" left="0"
@@ -27,13 +27,13 @@
 		<ui:BaseButton id="_btn_clean" width="270" height="130" x="8" y="921"
 		               skinName="skin_mobile_portrait.OverlayPanelButton" />
 		-->
-		<ui:RoundRectButton id="_btn_confirm" cornerTL_TR_BL_BR="65,65,65,65" width="433" height="130" x="756" y="914"
+		<ui:RoundRectButton id="_btn_confirm" cornerTL_TR_BL_BR="65,65,65,65" width="433" height="130" x="756" y="1040"
 		                    stroke="2" strokeIn="0" strokeColor="0x5f6973" fillAlpha="0" fillAlpha_hover="1"
 		                    strokeAlpha_hover="0" fillColor="0x1b416e" />
-		<ui:RoundRectButton id="_btn_clean" cornerTL_TR_BL_BR="65,65,65,65" width="433" height="130" x="275" y="914"
+		<ui:RoundRectButton id="_btn_clean" cornerTL_TR_BL_BR="65,65,65,65" width="433" height="130" x="275" y="1040"
 		                    stroke="2" strokeIn="0" strokeColor="0x5f6973" fillAlpha="0" fillAlpha_hover="1"
 		                    strokeAlpha_hover="0" fillColor="0x1b416e" />
 		<e:Label id="_txt_current" text="" x="64" y="67" width="418" height="60" textAlign="center" verticalAlign="middle"
-		         fontFamily="Barlow" size="28" visible="false" />
+		         size="28" visible="false" />
 	</e:Group>
 </e:Skin>

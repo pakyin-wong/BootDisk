@@ -5,45 +5,19 @@ namespace we {
 
       protected _playerAskLabel: ui.RunTimeLabel;
       protected _bankerAskLabel: ui.RunTimeLabel;
-      protected _playerCount;
-      protected _bankerCount;
-      protected _tieCount;
-      protected _playerPairCount;
-      protected _bankerPairCount;
-      protected _remainingCount;
-      protected _normalTotal;
-      protected _pairTotal;
-      protected _playerPercentage;
-      protected _bankerPercentage;
-      protected _tiePercentage;
-      protected _playerPairPercentage;
-      protected _bankerPairPercentage;
-      protected _remainingPercentage;
-      protected _normalChart: ui.SimpleChart;
-      protected _pairChart: ui.SimpleChart;
-
-      protected _shoePlayerCount;
-      protected _shoeBankerCount;
-      protected _shoeTieCount;
-      protected _shoePlayerPairCount;
-      protected _shoeBankerPairCount;
-      protected _shoeRemainingCount;
-      protected _shoeNormalTotal;
-      protected _shoePairTotal;
-      protected _shoePlayerPercentage;
-      protected _shoeBankerPercentage;
-      protected _shoeTiePercentage;
-      protected _shoePlayerPairPercentage;
-      protected _shoeBankerPairPercentage;
-      protected _shoeRemainingPercentage;
-      protected _shoeNormalChart: ui.SimpleChart;
-      protected _shoePairChart: ui.SimpleChart;
 
       protected _iconBankerBead: BABeadRoadIcon;
       protected _iconPlayerBead: BABeadRoadIcon;
       protected _bankerBeadGroup: eui.Group;
       protected _playerBeadGroup: eui.Group;
       protected _analysisGroup: eui.Group;
+
+      // statisticChartPanels
+      public _normalChartPanel: ba.StatisticChart;
+      public _normalPairChartPanel: ba.StatisticChart;
+      public _shoeChartPanel: ba.StatisticChart;
+      public _shoePairChartPanel: ba.StatisticChart;
+
       public advancedRoad: we.ui.IAdvancedRoad;
 
       public iconBankerBigEye: BABigEyeRoadIcon;
@@ -143,7 +117,7 @@ namespace we {
         if (evt.target === this._iconBankerBead) {
           evt.stopPropagation();
           if (this.advancedRoad && this.advancedRoad instanceof we.ba.AdvancedRoad) {
-            (<we.ba.AdvancedRoad>this.advancedRoad).askBankerRoad();
+            (<we.ba.AdvancedRoad> this.advancedRoad).askBankerRoad();
           }
         }
       }
@@ -152,7 +126,7 @@ namespace we {
         if (evt.target === this._iconPlayerBead) {
           evt.stopPropagation();
           if (this.advancedRoad && this.advancedRoad instanceof we.ba.AdvancedRoad) {
-            (<we.ba.AdvancedRoad>this.advancedRoad).askPlayerRoad();
+            (<we.ba.AdvancedRoad> this.advancedRoad).askPlayerRoad();
           }
         }
       }
@@ -176,94 +150,47 @@ namespace we {
           return;
         }
         if (env && env.tableInfos && env.tableInfos[this._tableId] && env.tableInfos[this._tableId].gamestatistic) {
-          const bankerCount = env.tableInfos[this._tableId].gamestatistic.bankerCount;
-          const playerCount = env.tableInfos[this._tableId].gamestatistic.playerCount;
-          const tieCount = env.tableInfos[this._tableId].gamestatistic.tieCount;
-          const totalCount = env.tableInfos[this._tableId].gamestatistic.totalCount;
-          const bankerPairCount = env.tableInfos[this._tableId].gamestatistic.bankerPairCount;
-          const playerPairCount = env.tableInfos[this._tableId].gamestatistic.playerPairCount;
-          const remainingCount = totalCount - bankerPairCount - playerPairCount;
+          const normalInfo = we.utils.stat.ba.getStatInfo(false, env.tableInfos[this._tableId].gamestatistic);
 
-          this._bankerCount.text = bankerCount;
-          this._playerCount.text = playerCount;
-          this._tieCount.text = tieCount;
-          this._normalTotal.text = totalCount;
-          this._bankerPairCount.text = bankerPairCount;
-          this._playerPairCount.text = playerPairCount;
-          this._remainingCount.text = remainingCount;
-          this._pairTotal.text = totalCount;
+          this._normalChartPanel.firstCount = normalInfo.bankerCount;
+          this._normalChartPanel.secondCount = normalInfo.playerCount;
+          this._normalChartPanel.thirdCount = normalInfo.tieCount;
+          this._normalChartPanel.firstPercentage = normalInfo.bankerPercentage;
+          this._normalChartPanel.secondPercentage = normalInfo.playerPercentage;
+          this._normalChartPanel.thirdPercentage = normalInfo.tiePercentage;
+          this._normalChartPanel.total = normalInfo.totalCount;
+          this._normalChartPanel.update();
 
-          const bankerPercentage = bankerCount / totalCount;
-          const playerPercentage = playerCount / totalCount;
-          const tiePercentage = tieCount / totalCount;
+          this._normalPairChartPanel.firstCount = normalInfo.bankerPairCount;
+          this._normalPairChartPanel.secondCount = normalInfo.playerPairCount;
+          this._normalPairChartPanel.thirdCount = normalInfo.remainingCount;
+          this._normalPairChartPanel.firstPercentage = normalInfo.bankerPairPercentage;
+          this._normalPairChartPanel.secondPercentage = normalInfo.playerPairPercentage;
+          this._normalPairChartPanel.thirdPercentage = normalInfo.remainingPercentage;
+          this._normalPairChartPanel.total = normalInfo.totalCount;
+          this._normalPairChartPanel.update();
 
-          this._bankerPercentage.text = Math.round(bankerPercentage * 100);
-          this._playerPercentage.text = Math.round(playerPercentage * 100);
-          this._tiePercentage.text = Math.round(tiePercentage * 100);
+          const shoeInfo = we.utils.stat.ba.getStatInfo(true, env.tableInfos[this._tableId].gamestatistic);
 
-          // console.log('normalChart', bankerPercentage, playerPercentage);
-          this._normalChart.redAngle = bankerPercentage * 360;
-          this._normalChart.blueAngle = playerPercentage * 360;
-          this._normalChart.drawChart();
+          this._shoeChartPanel.firstCount = shoeInfo.bankerCount;
+          this._shoeChartPanel.secondCount = shoeInfo.playerCount;
+          this._shoeChartPanel.thirdCount = shoeInfo.tieCount;
+          this._shoeChartPanel.firstPercentage = shoeInfo.bankerPercentage;
+          this._shoeChartPanel.secondPercentage = shoeInfo.playerPercentage;
+          this._shoeChartPanel.thirdPercentage = shoeInfo.tiePercentage;
+          this._shoeChartPanel.total = shoeInfo.totalCount;
 
-          const bankerPairPercentage = bankerPairCount / totalCount;
-          const playerPairPercentage = playerPairCount / totalCount;
-          const remainingPercentage = remainingCount / totalCount;
+          this._shoeChartPanel.update();
 
-          this._bankerPairPercentage.text = Math.round(bankerPercentage * 100);
-          this._playerPairPercentage.text = Math.round(playerPercentage * 100);
-          this._remainingPercentage.text = Math.round(remainingPercentage * 100);
-
-          this._pairChart.redAngle = (bankerPairCount / totalCount) * 360;
-          this._pairChart.blueAngle = (playerPairCount / totalCount) * 360;
-          this._pairChart.drawChart();
-
-          this.updateShoe();
+          this._shoePairChartPanel.firstCount = shoeInfo.bankerPairCount;
+          this._shoePairChartPanel.secondCount = shoeInfo.playerPairCount;
+          this._shoePairChartPanel.thirdCount = shoeInfo.remainingCount;
+          this._shoePairChartPanel.firstPercentage = shoeInfo.bankerPairPercentage;
+          this._shoePairChartPanel.secondPercentage = shoeInfo.playerPairPercentage;
+          this._shoePairChartPanel.thirdPercentage = shoeInfo.remainingPercentage;
+          this._shoePairChartPanel.total = shoeInfo.totalCount;
+          this._shoePairChartPanel.update();
         }
-      }
-
-      private updateShoe() {
-        const bankerCount = env.tableInfos[this._tableId].gamestatistic.shoeBankerCount;
-        const playerCount = env.tableInfos[this._tableId].gamestatistic.shoePlayerCount;
-        const tieCount = env.tableInfos[this._tableId].gamestatistic.shoeTieCount;
-        const totalCount = env.tableInfos[this._tableId].gamestatistic.shoeTotalCount;
-        const bankerPairCount = env.tableInfos[this._tableId].gamestatistic.shoeBankerPairCount;
-        const playerPairCount = env.tableInfos[this._tableId].gamestatistic.shoePlayerPairCount;
-        const remainingCount = totalCount - bankerPairCount - playerPairCount;
-
-        this._shoeBankerCount.text = bankerCount;
-        this._shoePlayerCount.text = playerCount;
-        this._shoeTieCount.text = tieCount;
-        this._shoeNormalTotal.text = totalCount;
-        this._shoeBankerPairCount.text = bankerPairCount;
-        this._shoePlayerPairCount.text = playerPairCount;
-        this._shoeRemainingCount.text = remainingCount;
-        this._shoePairTotal.text = totalCount;
-
-        const bankerPercentage = bankerCount / totalCount;
-        const playerPercentage = playerCount / totalCount;
-        const tiePercentage = tieCount / totalCount;
-
-        this._shoeBankerPercentage.text = Math.round(bankerPercentage * 100);
-        this._shoePlayerPercentage.text = Math.round(playerPercentage * 100);
-        this._shoeTiePercentage.text = Math.round(tiePercentage * 100);
-
-        // console.log('normalChart', bankerPercentage, playerPercentage);
-        this._shoeNormalChart.redAngle = bankerPercentage * 360;
-        this._shoeNormalChart.blueAngle = playerPercentage * 360;
-        this._shoeNormalChart.drawChart();
-
-        const bankerPairPercentage = bankerPairCount / totalCount;
-        const playerPairPercentage = playerPairCount / totalCount;
-        const remainingPercentage = remainingCount / totalCount;
-
-        this._shoeBankerPairPercentage.text = Math.round(bankerPercentage * 100);
-        this._shoePlayerPairPercentage.text = Math.round(playerPercentage * 100);
-        this._shoeRemainingPercentage.text = Math.round(remainingPercentage * 100);
-
-        this._shoePairChart.redAngle = (bankerPairCount / totalCount) * 360;
-        this._shoePairChart.blueAngle = (playerPairCount / totalCount) * 360;
-        this._shoePairChart.drawChart();
       }
     }
   }

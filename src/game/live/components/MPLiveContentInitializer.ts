@@ -22,10 +22,37 @@ namespace we {
         const offsetForTableList = -208;
 
         // init image slider
-        root.slider = new we.ui.ImageSlider();
-        root.slider.height = 1242;
-        root.slider.width = 1242;
-        root.slider.configSlides(dir.liveResources.liveHeroBanners);
+        // root.slider = new we.ui.ImageSlider();
+        // root.slider.height = 1242;
+        // root.slider.width = 1242;
+        // root.slider.configSlides(dir.liveResources.liveHeroBanners);
+        root.holder = new we.ui.HorizontalHolder();
+        root.holder.slideHeight = 1242;
+        root.holder.slideWidth = 1242;
+        root.holder.isAuto = true;
+        root.holder.isLoop = true;
+        root.holder.isBullet = true;
+        root.holder.height = 1242;
+        root.holder.width = 1242;
+        root.holder.bulletGapValue = 20;
+        root.holder.bulletBottom = 50;
+        root.holder.bulletHorizontalCenter = 0;
+        dir.liveResources.liveHeroBanners.forEach(element => {
+          // root.holder.addChild(element)
+          const image = new eui.Image();
+          if (element.image) {
+            image.source = element.image;
+          }
+          root.holder.addChild(image);
+        });
+
+        const shape: egret.Shape = new egret.Shape();
+        const gr: egret.Graphics = shape.graphics;
+        GradientFill.beginGradientFill(gr, root.roomList.width, 160, ['0x12121200', '0x121212'], 0);
+        gr.drawRect(0, 0, root.roomList.width, 160);
+        shape.y = root.holder.height - 160;
+        // root.roomList.addChildAt(shape, 0);
+        root.addChild(shape);
 
         // init room grids
         root.roomList.width = root.stage.stageWidth;
@@ -69,13 +96,13 @@ namespace we {
 
         root.scroller.viewport = root.roomList;
 
-        const shape: egret.Shape = new egret.Shape();
-        const gr: egret.Graphics = shape.graphics;
-        GradientFill.beginGradientFill(gr, root.roomList.width, 160, ['0x12121200', '0x121212'], 0);
-        gr.drawRect(0, 0, root.roomList.width, 160);
-        shape.y = root.slider.height - 160;
-        // root.roomList.addChildAt(shape, 0);
-        root.slider.addChild(shape);
+        // const shape: egret.Shape = new egret.Shape();
+        // const gr: egret.Graphics = shape.graphics;
+        // GradientFill.beginGradientFill(gr, root.roomList.width, 160, ['0x12121200', '0x121212'], 0);
+        // gr.drawRect(0, 0, root.roomList.width, 160);
+        // shape.y = root.holder.height - 160;
+        // // root.roomList.addChildAt(shape, 0);
+        // root.addChild(shape);
 
         const gridSwitch: MobileLobbyGridLayoutSwitch = new MobileLobbyGridLayoutSwitch();
         gridSwitch.x = 1088;

@@ -21,10 +21,19 @@ namespace we {
       protected _btn_trad: ui.RoundRectButton;
       protected _btn_fun: ui.RoundRectButton;
 
+      protected _txt_trad: ui.RunTimeLabel;
+      protected _txt_fun: ui.RunTimeLabel;
+
+      protected _tableId;
+      protected _tableInfo;
+      protected _statistic;
+      protected _gamebar: LotteryGameBar;
+
       constructor(data: any) {
         super();
         this.skinName = utils.getSkinByClassname('LotteryScene');
         this._data = data;
+        this._tableId = data.tableid;
 
         /* create dummy sub scene */
         this._subScene = new core.BaseScene();
@@ -34,7 +43,13 @@ namespace we {
 
       protected mount() {
         super.mount();
-        this.setMode(Mode.Traditional);
+
+        this._gamebar.tableid = this._tableId;
+
+        this._txt_trad.renderText = () => `${i18n.t('lo_switch_trad')}`;
+        this._txt_fun.renderText = () => `${i18n.t('lo_switch_fun')}`;
+
+        this.setMode(Mode.Fun);
         utils.addButtonListener(this._btn_trad, this.onClickedTrad, this);
         utils.addButtonListener(this._btn_fun, this.onClickedFun, this);
       }

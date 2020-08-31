@@ -111,6 +111,8 @@ There are few steps needed to be taken before publish
 - [Zeplin Template](https://app.zeplin.io/project/5d8d9c1ec2f4dd026286ee4e/dashboard)
 - [Frontend MQTT Library (PlayerClient)](https://github.com/PGITAb/fe-lib-player-client-js)
 
+- [latest asset list](https://docs.google.com/spreadsheets/d/1-kT-mfBLu7lkK-mcTi7YuMfCMwaJ7NvgL70-m7fXaZw/edit#gid=0)
+
 - [Localization](https://docs.google.com/spreadsheets/d/1G_UuP8YY-f9LVLlT8l7_3n31NbQ2p6L5-2AWhQdbJKk/edit?ts=5eb92386#gid=945429433)
 - [發送現場驗證](https://docs.google.com/document/d/1t95ChIAEF8qaDjjNGctLC8_rrXgayfzQqnIPao6MXSg/edit?ts=5e995758)
 - [bet area button rules (rebet & double)](https://docs.google.com/document/d/138UwHLBXfloAOWvXo-21BHkUjwdByYcl8ZtbCtN48BI/edit?ts=5e995d51)

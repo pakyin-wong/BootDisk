@@ -81,7 +81,11 @@ namespace we {
         if (this._colorChange && this.progressIndicator.progress < 5000 / this.countdownValue) {
           this.countdownLabel.textColor = 0xff0000;
         } else if (this._colorChange && this.progressIndicator.progress >= 5000 / this.countdownValue) {
-          this.countdownLabel.textColor = 0xffffff;
+          if (env.isMobile) {
+            this.countdownLabel.textColor = 0x15d688;
+          } else {
+            this.countdownLabel.textColor = 0xffffff;
+          }
         }
       }
 

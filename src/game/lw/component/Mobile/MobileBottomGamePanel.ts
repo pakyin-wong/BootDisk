@@ -6,10 +6,10 @@ namespace we {
 
       // table info panel
       public _tableInfoPanel: ba.TableInfoPanel;
-      public _betLimitDropDownBtn: ui.RunTimeLabel;
+      // public _betLimitDropDownBtn: ui.RunTimeLabel;
 
       // statisticChartPanel
-      public _statisticChartPanel: ba.StatisticChartPanel;
+      public _statisticChartPanel: lw.StatisticChartPanel;
 
       // viewStack and radioBtn
       protected roadSheetBtn: eui.RadioButton;
@@ -27,7 +27,7 @@ namespace we {
       protected mount() {
         super.mount();
 
-        this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
+        // this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
       }
 
       protected addListeners() {
@@ -56,6 +56,12 @@ namespace we {
         if (env.orientation === 'portrait') {
           this.chartBtn.label = i18n.t('luckywheel.pool');
         }
+      }
+
+      public openTableInfo() {
+        super.openTableInfo();
+        this.tableInfoBtn.selected = true;
+        this.viewStack.selectedIndex = this.tableInfoBtn.value;
       }
 
       public destroy() {

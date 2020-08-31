@@ -54,7 +54,7 @@
 				</e:RadioButton>
 				<ui:RunTimeLabel id="_gameInfoLabel" text="Label" x="-401.72" y="26" size="42" bold="true" visible="false" />
 			</e:Group>
-			<e:ViewStack id="viewStack" height="308" x="0" y="0" selectedIndex="1" scaleX="1" scaleY="1" top="0"
+			<e:ViewStack id="viewStack" height="308" x="0" y="0" selectedIndex="3" scaleX="1" scaleY="1" top="0"
 			             anchorOffsetX="0" width="2086" includeIn="on">
 				<e:Group id="_historyGroup" name="Group" left="0" right="0" height="100%" width="2086" includeIn="on">
 				<e:Rect id="history_bg" width="100%" y="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
@@ -63,11 +63,17 @@
 					                              width="50%" height="100%" scaleX="1" scaleY="1" left="996" />
 				</e:Group>
 				<e:Group id="_chartGroup" width="100%" height="100%" name="Group">
-					<di:StatisticChartPanel id="_chartPanel" skinName="skin_mobile_landscape.di.StatisticChartPanel"
-					                        width="2086" height="100%" scaleX="1" scaleY="1" />
+				        <e:Rect id="_bg" width="100%" y="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
+				        fillColor="0x212425" strokeColor="0x212425" x="0" height="100%" />
+					<dil:History id="_historyPanel1" skinName="skin_mobile_landscape.dil.HistorySkin"
+					                        width="1040" height="100%" scaleX="1" scaleY="1" x="0"/>
+					<e:Rect width="4" y="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
+				        fillColor="0x333333" strokeColor="0x333333" x="1040" height="100%" />
+					<dil:History id="_historyPanel2" skinName="skin_mobile_landscape.dil.HistorySkin"
+					                        width="1040" height="100%" scaleX="1" scaleY="1" x="1046"/>
 				</e:Group>
 				<e:Group id="_infoGroup" width="100%" height="100%" name="Group">
-					<di:TableInfoPanel id="_tableInfoPanel" skinName="skin_mobile_landscape.dil.TableInfoPanel" width="2086"
+					<dil:TableInfoPanel id="_tableInfoPanel" skinName="skin_mobile_landscape.dil.TableInfoPanel" width="2086"
 					                   height="100%" scaleX="1" scaleY="1" />
 				</e:Group>
 			</e:ViewStack>

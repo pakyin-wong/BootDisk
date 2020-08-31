@@ -18,6 +18,7 @@ namespace we {
       protected _verticalGroup: eui.Group;
 
       private _common_listpanel: ui.BaseImageButton;
+      protected _originBetRelatedGroupY: number;
 
       constructor(data: any) {
         super(data);
@@ -63,11 +64,18 @@ namespace we {
           egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
         }
         this._dtGameID.renderText = () => `${this._tableInfo.tableid}`;
+        // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.dt.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
-            (<we.dt.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
+            (<we.dt.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
+            (<we.dt.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
           }
+        }
+        if (this._resultDisplay && env.orientation === 'portrait') {
+          egret.Tween.removeTweens(this._resultDisplay);
+          egret.Tween.get(this._resultDisplay).to({ y: 232 }, 10);
+          //   egret.Tween.get(this._betRelatedGroup)
+          // .to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
         }
       }
 
@@ -77,14 +85,28 @@ namespace we {
           egret.Tween.get(this._tableLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
           egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
         }
+        if (this._resultDisplay && env.orientation === 'portrait') {
+          egret.Tween.removeTweens(this._resultDisplay);
+          egret.Tween.get(this._resultDisplay).to({ y: 40 }, 400);
+          //   egret.Tween.get(this._betRelatedGroup)
+          // .to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
+        }
       }
-
+      protected setBetRelatedComponentsEnabled(enable: boolean) {
+        super.setBetRelatedComponentsEnabled(enable);
+        // if (this._betRelatedGroup && env.orientation === 'portrait') {
+        if (this._betRelatedGroup) {
+          egret.Tween.removeTweens(this._betRelatedGroup);
+          egret.Tween.get(this._betRelatedGroup).to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
+        }
+      }
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
 
         this._roadmapControl.setTableInfo(this._tableInfo);
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
+        this._originBetRelatedGroupY = this._betRelatedGroup.y;
 
         if (this._bottomGamePanel._tableInfoPanel) {
           this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
@@ -97,9 +119,9 @@ namespace we {
 
         this.changeHandMode();
 
-        if (this._bottomGamePanel._betLimitDropDownBtn) {
-          this.initBottomBetLimitSelector();
-        }
+        // if (this._bottomGamePanel._betLimitDropDownBtn) {
+        //   this.initBottomBetLimitSelector();
+        // }
 
         this._dtGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
 
@@ -108,36 +130,36 @@ namespace we {
         this.setChipPanelPos();
       }
 
-      protected initBottomBetLimitSelector() {
-        const betLimitList = env.betLimits;
-        const betLimitItems = betLimitList.map(data => {
-          return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
-        });
-        const dropdownSource = betLimitList.map((data, index) => {
-          return ui.NewDropdownItem(index, () => `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`);
-        });
-        const selectedIndex = env.currentSelectedBetLimitIndex;
-        utils.DropdownCreator.new({
-          toggler: this._bottomGamePanel._betLimitDropDownBtn,
-          review: this._bottomGamePanel._betLimitDropDownBtn,
-          arrCol: new eui.ArrayCollection(dropdownSource),
-          title: () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`,
-          selected: 0,
-        });
-        this.updateBetLimit(selectedIndex);
-        this._bottomGamePanel._betLimitDropDownBtn.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
-      }
+      // protected initBottomBetLimitSelector() {
+      //   const betLimitList = env.betLimits;
+      //   const betLimitItems = betLimitList.map(data => {
+      //     return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
+      //   });
+      //   const dropdownSource = betLimitList.map((data, index) => {
+      //     return ui.NewDropdownItem(index, () => `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`);
+      //   });
+      //   const selectedIndex = env.currentSelectedBetLimitIndex;
+      //   utils.DropdownCreator.new({
+      //     toggler: this._bottomGamePanel._betLimitDropDownBtn,
+      //     review: this._bottomGamePanel._betLimitDropDownBtn,
+      //     arrCol: new eui.ArrayCollection(dropdownSource),
+      //     title: () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`,
+      //     selected: 0,
+      //   });
+      //   this.updateBetLimit(selectedIndex);
+      //   this._bottomGamePanel._betLimitDropDownBtn.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
+      // }
 
-      protected updateBetLimit(selectedIndex) {
-        super.updateBetLimit(selectedIndex);
-        const bottomBetLimitList = env.betLimits;
-        const bottomBetLimitItems = bottomBetLimitList.map(data => {
-          return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
-        });
-        if (this._bottomGamePanel._betLimitDropDownBtn) {
-          this._bottomGamePanel._betLimitDropDownBtn.renderText = () => ` ${bottomBetLimitItems.length > 0 ? bottomBetLimitItems[selectedIndex] : ''}`;
-        }
-      }
+      // protected updateBetLimit(selectedIndex) {
+      //   super.updateBetLimit(selectedIndex);
+      //   const bottomBetLimitList = env.betLimits;
+      //   const bottomBetLimitItems = bottomBetLimitList.map(data => {
+      //     return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
+      //   });
+      //   if (this._bottomGamePanel._betLimitDropDownBtn) {
+      //     this._bottomGamePanel._betLimitDropDownBtn.renderText = () => ` ${bottomBetLimitItems.length > 0 ? bottomBetLimitItems[selectedIndex] : ''}`;
+      //   }
+      // }
 
       protected addEventListeners() {
         super.addEventListeners();
@@ -213,11 +235,11 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
             // update the scene
-            (<we.dt.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
-            (<we.dt.TableLayer>this._tableLayer).totalPerson = evt.data.count;
+            (<we.dt.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
+            (<we.dt.TableLayer> this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }

@@ -100,5 +100,24 @@ namespace we {
       const result = JSON.parse(JSON.stringify(obj));
       return result;
     }
+
+    export function disableTouchforChildren(root: egret.DisplayObjectContainer, checker: (obj: egret.DisplayObject) => boolean) {
+      for (const child of root.$children) {
+        if (child.$children) {
+          disableTouchforChildren(child as egret.DisplayObjectContainer, checker);
+        } else if (checker(child)) {
+          child.touchEnabled = false;
+        }
+      }
+    }
+
+    export function getBetLimit(betLimitSet: data.BetLimitSet, game: string, fieldType: string) {
+      const limits = betLimitSet.limits;
+      if (limits[game] && limits[game][fieldType]) {
+        return limits[game][fieldType].maxlimit;
+      }
+
+      return betLimitSet.maxlimit;
+    }
   }
 }

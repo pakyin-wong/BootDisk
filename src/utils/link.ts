@@ -7,7 +7,7 @@ namespace we {
       queryParamArray.forEach(function (queryParam) {
         // split the query parameter over '='
         const item = queryParam.split('=');
-        data[item[0]] = decodeURIComponent(item[1]);
+        data[item[0].toLowerCase()] = decodeURIComponent(item[1]);
       });
       return data;
     }

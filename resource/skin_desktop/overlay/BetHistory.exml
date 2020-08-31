@@ -1,81 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.BetHistorySkin" width="2140" height="1147" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.BetHistorySkin" width="1784" height="1128" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
 		<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x14181e" ellipseHeight="48" ellipseWidth="48"
 		        strokeColor="0x333c4a" strokeWeight="2" locked="true" />
 		<e:Image id="close" width="48" height="48" right="44" top="44" source="d-lobby-button-close-none_png" />
-		<ui:RunTimeLabel id="_txt_title" text="Label" x="95" y="40" width="220" height="71" verticalAlign="middle"
+		<ui:RunTimeLabel id="_txt_title" text="Label" x="50" y="40" width="220" height="71" verticalAlign="middle"
 		                 textColor="0xc59466" size="48" bold="true" targetWidth="220" />
-		<ui:RunTimeLabel id="_txt_date" text="d" y="58" height="36" size="24" alpha="0.7" verticalAlign="middle" right="664" />
+		<ui:RunTimeLabel id="_txt_date" text="d" y="58" height="36" size="24" alpha="0.7" verticalAlign="middle"  x="1117"/>
 		<!--<ui:RoundRectShape cornerTL_TR_BL_BR="10,10,0,0" width="137" height="60" x="1512" y="147" stroke="2"
 		                       strokeColor="0x00ff00" fillColor="0x0000ff" strokeIn="2" strokeInColor="0xff0000" />
 		<ui:RoundRectShape cornerTL_TR_BL_BR="30,30,30,30" width="300" height="60" x="1712" y="147" stroke="2"
 		                   strokeColor="0x000000" fillColor="0x23282e" strokeIn="2" strokeInColor="0x3a3f48" />
 		-->
-		<ui:RoundRectButton id="_btn_today" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="1512" y="47" stroke="2"
+		<ui:RoundRectButton id="_btn_today" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="1201" y="47" stroke="2"
 		                    fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x1B416E"
 		                    fillAlpha_click="1" stroke_active="0" fillColor_active="0x1B416E" fillAlpha_active="1" />
-		<ui:RoundRectButton id="_btn_week" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="1669" y="47" stroke="2"
+		<ui:RoundRectButton id="_btn_week" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="1358" y="47" stroke="2"
 		                    fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x1B416E"
 		                    fillAlpha_click="1" stroke_active="0" fillColor_active="0x1B416E" fillAlpha_active="1" />
-		<ui:RoundRectButton id="_btn_custom" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="1826" y="47"
+		<ui:RoundRectButton id="_btn_custom" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="1516" y="47"
 		                    stroke="2" fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x1B416E"
 		                    fillAlpha_click="1" stroke_active="0" fillColor_active="0x1B416E" fillAlpha_active="1" />
-		<ui:RunTimeLabel id="_txt_record_id" text="Label" x="95" y="168" width="191" height="29" size="20"
+		<ui:RunTimeLabel id="_txt_record_id" text="Label" x="50" y="168" width="191" height="29" size="20"
 		                 verticalAlign="middle" targetWidth="191" />
-		<ui:RunTimeLabel id="_txt_record_date" text="Label" x="286" y="168" width="248" size="20" verticalAlign="middle"
+		<ui:RunTimeLabel id="_txt_record_date" text="Label" x="279" y="168" width="248" size="20" verticalAlign="middle"
 		                 height="29" targetWidth="248" />
-		<ui:RunTimeLabel id="_txt_record_game" text="Label" x="534" y="168" width="123" height="29" size="20"
+		<ui:RunTimeLabel id="_txt_record_game" text="Label" x="562" y="168" width="123" height="29" size="20"
 		                 verticalAlign="middle" targetWidth="123" />
-		<ui:RunTimeLabel id="_txt_record_round" text="Label" x="657" y="168" width="129" height="29" size="20"
-		                 verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="129" />
-		<ui:RunTimeLabel id="_txt_record_replay" text="Label" x="786" y="168" width="79" size="20" verticalAlign="middle"
-		                 height="29" scaleX="1" scaleY="1" targetWidth="79" />
-		<ui:RunTimeLabel id="_txt_record_remake" text="Label" x="865" y="168" width="86" height="29" size="20"
+		<ui:RunTimeLabel id="_txt_record_round" text="Label" width="129" height="29" size="20"
+		                 verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="129"  visible="false"/>
+		<ui:RunTimeLabel id="_txt_record_replay" text="Label" width="79" size="20" verticalAlign="middle"
+		                 height="29" scaleX="1" scaleY="1" targetWidth="79"  visible="false"/>
+		<ui:RunTimeLabel id="_txt_record_remake" text="Label" x="830" y="168" width="86" height="29" size="20"
 		                 verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="86" />
-		<ui:RunTimeLabel id="_txt_record_bettype" text="Label" x="951" y="168" width="129" height="29" size="20"
-		                 verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="129" />
-		<ui:RunTimeLabel id="_txt_record_betamount" text="Label" x="1080" y="168" width="147" size="20" verticalAlign="middle"
+		<ui:RunTimeLabel id="_txt_record_bettype" text="Label" width="129" height="29" size="20"
+		                 verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="129"  visible="false"/>
+		<ui:RunTimeLabel id="_txt_record_betamount" text="Label" x="948" y="168" width="147" size="20" verticalAlign="middle"
 		                 height="29" scaleX="1" scaleY="1" targetWidth="147" />
-		<ui:RunTimeLabel id="_txt_record_win" text="Label" x="1227" y="168" width="159" height="29" size="20"
+		<ui:RunTimeLabel id="_txt_record_win" text="Label" x="1187" y="168" width="159" height="29" size="20"
 		                 verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="159" />
-		<ui:RunTimeLabel id="_txt_record_orgbalance" text="Label" x="1386" y="168" width="176" height="29" size="20"
-		                 verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="176" />
-		<ui:RunTimeLabel id="_txt_record_finbalance" text="Label" x="1562" y="168" width="129" size="20"
+		<ui:RunTimeLabel id="_txt_record_orgbalance" text="Label" width="176" height="29" size="20"
+		                 verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="176"  visible="false"/>
+		<ui:RunTimeLabel id="_txt_record_finbalance" text="Label" x="1446" y="168" width="129" size="20"
 		                 verticalAlign="middle" height="29" scaleX="1" scaleY="1" targetWidth="188" anchorOffsetX="0" />
-		<ui:RunTimeLabel id="_txt_record_result" text="Label" x="1692" y="168" width="209.66" height="29" size="20"
-		                 verticalAlign="middle" scaleX="1" scaleY="1" textAlign="center" targetWidth="390" anchorOffsetX="0" />
-		<e:DataGroup id="_datagroup" width="2140" height="837" y="221" />
-		<ui:RunTimeLabel id="_txt_search" text="Label" x="653" y="58" height="36" verticalAlign="middle" size="24" width="96"
+		<ui:RunTimeLabel id="_txt_record_result" text="Label" width="209.66" height="29" size="20"
+		                 verticalAlign="middle" scaleX="1" scaleY="1" textAlign="center" targetWidth="390" anchorOffsetX="0"  visible="false"/>
+		<e:Label id="_txt_limit" text="Label" x="50" bottom="27" size="26" height="37" verticalAlign="middle"/>
+		<e:Group id="_btn_limit" y="1064" right="1479">
+			<ui:RunTimeLabel id="_tf_limit" text="Label" height="37" verticalAlign="middle" size="26" y="0" right="36"/>
+			<e:Image width="16" height="10" source="d_lobby_btn_dropup_popover_png" y="14" right="0"/>
+		</e:Group>
+		<e:Label id="_txt_total" text="" x="338" bottom="27" size="26" height="37" verticalAlign="middle" alpha="0.7"/>
+
+		<ui:Scroller height="807" bottom="100" left="0" right="0">
+		<e:List id="_datagroup"/>
+		</ui:Scroller>
+		<e:Rect height="2" left="0" right="0" fillColor="0x333c4a" bottom="98"/>
+		<ui:RunTimeLabel id="_txt_search" text="Label" x="618" y="58" height="36" verticalAlign="middle" size="24" width="96"
 		                 alpha="0.7" targetWidth="96" />
-		<ui:BaseImageButton id="_btn_search" width="48" height="48" x="604" y="54" currentState="search_icon"
+		<ui:BaseImageButton id="_btn_search" width="48" height="48" x="569.5" y="54" currentState="search_icon"
 		                    skinName="skin_desktop.ImageButtonSkinNav" />
-		<e:EditableText id="_tf_search" height="36" text="" x="653" y="58" verticalAlign="middle" size="24" />
+		<e:EditableText id="_tf_search" height="36" text="" x="618" y="58" verticalAlign="middle" size="24" />
 		<!--<ui:BaseButton id="_btn_searchType" width="210" height="60" x="358" y="47"
 		                   skinName="skin_desktop.OverlayPanelButton" active="true" />
 		-->
-		<ui:RoundRectButton id="_btn_searchType" cornerTL_TR_BL_BR="30,30,30,30" width="210" height="60" x="358" y="47"
+		<ui:RoundRectButton id="_btn_searchType" cornerTL_TR_BL_BR="30,30,30,30" width="210" height="60" x="302" y="47"
 		                    stroke="0" strokeIn="0" fillAlpha="1" fillColor="0x1b416e" />
 
-		<e:Image source="d_lobby_button_down_normal_png" width="35" height="35" y="59" x="514" touchEnabled="false" />
+		<e:Image source="d_lobby_button_down_normal_png" width="35" height="35" y="59" x="462" touchEnabled="false" />
 
-		<ui:Panel id="_ddm_searchType" width="370" maxHeight="300" x="348" y="117" skinName="skin_desktop.NavDropdown" />
-		<ui:BaseAnimationButton id="_btn_prev" width="46" height="46" x="973" y="1077" dbClass="lobby_ui"
+		<ui:Panel id="_ddm_searchType" width="370" maxHeight="300" x="220" y="117" skinName="skin_desktop.NavDropdown" />
+		<ui:BaseAnimationButton id="_btn_prev" width="46" height="46" dbClass="lobby_ui"
 		                        dbDisplay="d_lobby_betrecord_icon_prev"
-								tooltipText="'overlay.tooltip.bethistory.prev'" tooltipPosition="'above'" />
-		<ui:BaseAnimationButton id="_btn_next" width="46" height="46" x="1135" y="1077" dbClass="lobby_ui"
+								tooltipText="'overlay.tooltip.bethistory.prev'" tooltipPosition="'above'"  right="118" bottom="25"/>
+		<ui:BaseAnimationButton id="_btn_next" width="46" height="46" dbClass="lobby_ui"
 		                        dbDisplay="d_lobby_betrecord_icon_next"
-								tooltipText="'overlay.tooltip.bethistory.next'" tooltipPosition="'above'" />
-		<e:Group id="_btn_page" width="90" height="46" x="1029" y="1077">
-			<ui:RunTimeLabel id="_txt_page" text="00/00" left="0" top="0" bottom="0"
-			                 fontFamily="Barlow" size="28"  verticalAlign="middle" width="100%" textAlign="center"/>
+								tooltipText="'overlay.tooltip.bethistory.next'" tooltipPosition="'above'"  right="48" bottom="25"/>
+		<e:Group id="_btn_page" height="46" right="188" bottom="25">
+			<ui:RunTimeLabel id="_txt_page" text="00/00"
+			                 fontFamily="Barlow" size="28"  verticalAlign="middle" textAlign="right" height="46" right="38"/>
+			<e:Image width="16" height="10" source="d_lobby_btn_dropup_popover_png" right="0" verticalCenter="0"/>
 		</e:Group>
 
 		<overlay:DoubleCalendarPicker skinName="skin_desktop.DoubleCalendarPicker" id="_datepicker" width="1207" height="718"
 		                              horizontalCenter="0" verticalCenter="0" />
-		<e:Group width="174" x="986" bottom="90">
+		<e:Group width="174" bottom="74" right="181">
 			<ui:Panel id="_ddm_page" width="174" x="0" skinName="skin_desktop.NavDropdown" maxHeight="400" scaleX="1" scaleY="1" bottom="0" isDropdownFullWidth="true"/>
+		</e:Group>
+		<e:Group width="174" bottom="74" x="164">
+			<ui:Panel id="_ddm_limit" width="174" x="0" skinName="skin_desktop.NavDropdown" maxHeight="400" scaleX="1" scaleY="1" bottom="0" isDropdownFullWidth="true"/>
 		</e:Group>
 	</e:Group>
 </e:Skin>

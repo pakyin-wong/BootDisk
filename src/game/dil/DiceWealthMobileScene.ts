@@ -54,50 +54,50 @@ namespace we {
 
       protected setStateIdle(isInit: boolean) {
         super.setStateIdle(isInit);
-        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
+        (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearLuckyNumbers();
       }
 
       protected setStateBet(isInit: boolean) {
         super.setStateBet(isInit);
         this._dilGameID.renderText = () => `${this._tableInfo.tableid}`;
         this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
-        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
+        (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearLuckyNumbers();
       }
 
       protected setStateDeal(isInit: boolean) {
         super.setStateDeal(isInit);
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
-          (<we.dil.MobileChipLayer>this._chipLayer).showLuckyNumber();
-          (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer);
+          (<we.dil.MobileChipLayer> this._chipLayer).showLuckyNumber();
+          (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer);
         }
       }
 
       protected setStateFinish(isInit: boolean = false) {
         super.setStateFinish(isInit);
         if (isInit && this._previousState !== we.core.GameState.FINISH) {
-          (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer);
+          (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer);
         }
-        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
-        (<we.dil.MobileChipLayer>this._chipLayer).showWinningNumber();
+        (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.dil.MobileChipLayer> this._chipLayer).showWinningNumber();
       }
 
       protected setStateRefund(isInit: boolean = false) {
         super.setStateRefund(isInit);
-        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
+        (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearLuckyNumbers();
       }
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
-        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
+        (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearLuckyNumbers();
       }
 
       protected setStateUnknown(isInit: boolean = false) {
         super.setStateUnknown(isInit);
-        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
+        (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearLuckyNumbers();
       }
 
       protected initChildren() {
@@ -108,9 +108,9 @@ namespace we {
           this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
         }
-        if (this._bottomGamePanel._betLimitDropDownBtn) {
-          this.initBottomBetLimitSelector();
-        }
+        // if (this._bottomGamePanel._betLimitDropDownBtn) {
+        //   this.initBottomBetLimitSelector();
+        // }
         this.createVerticalLayout();
         this.changeHandMode();
         this._dilGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
@@ -119,40 +119,40 @@ namespace we {
         this.setChipPanelPos();
       }
 
-      protected initBottomBetLimitSelector() {
-        const betLimitList = env.betLimits;
-        const betLimitItems = betLimitList.map(data => {
-          return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
-        });
-        const dropdownSource = betLimitList.map((data, index) => {
-          return ui.NewDropdownItem(index, () => `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`);
-        });
+      // protected initBottomBetLimitSelector() {
+      //   const betLimitList = env.betLimits;
+      //   const betLimitItems = betLimitList.map(data => {
+      //     return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
+      //   });
+      //   const dropdownSource = betLimitList.map((data, index) => {
+      //     return ui.NewDropdownItem(index, () => `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`);
+      //   });
 
-        const selectedIndex = env.currentSelectedBetLimitIndex;
+      //   const selectedIndex = env.currentSelectedBetLimitIndex;
 
-        utils.DropdownCreator.new({
-          toggler: this._bottomGamePanel._betLimitDropDownBtn,
-          review: this._bottomGamePanel._betLimitDropDownBtn,
-          arrCol: new eui.ArrayCollection(dropdownSource),
-          title: () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`,
-          selected: 0,
-        });
+      //   utils.DropdownCreator.new({
+      //     toggler: this._bottomGamePanel._betLimitDropDownBtn,
+      //     review: this._bottomGamePanel._betLimitDropDownBtn,
+      //     arrCol: new eui.ArrayCollection(dropdownSource),
+      //     title: () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`,
+      //     selected: 0,
+      //   });
 
-        this.updateBetLimit(selectedIndex);
+      //   this.updateBetLimit(selectedIndex);
 
-        this._bottomGamePanel._betLimitDropDownBtn.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
-      }
+      //   this._bottomGamePanel._betLimitDropDownBtn.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
+      // }
 
-      protected updateBetLimit(selectedIndex) {
-        super.updateBetLimit(selectedIndex);
-        const bottomBetLimitList = env.betLimits;
-        const bottomBetLimitItems = bottomBetLimitList.map(data => {
-          return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
-        });
-        if (this._bottomGamePanel._betLimitDropDownBtn) {
-          this._bottomGamePanel._betLimitDropDownBtn.renderText = () => ` ${bottomBetLimitItems.length > 0 ? bottomBetLimitItems[selectedIndex] : ''}`;
-        }
-      }
+      // protected updateBetLimit(selectedIndex) {
+      //   super.updateBetLimit(selectedIndex);
+      //   const bottomBetLimitList = env.betLimits;
+      //   const bottomBetLimitItems = bottomBetLimitList.map(data => {
+      //     return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
+      //   });
+      //   if (this._bottomGamePanel._betLimitDropDownBtn) {
+      //     this._bottomGamePanel._betLimitDropDownBtn.renderText = () => ` ${bottomBetLimitItems.length > 0 ? bottomBetLimitItems[selectedIndex] : ''}`;
+      //   }
+      // }
 
       protected addEventListeners() {
         super.addEventListeners();
@@ -218,7 +218,7 @@ namespace we {
       }
 
       public checkResultMessage(resultData = null) {
-        (<any>this._gameData).hasBet = this.hasBet();
+        (<any> this._gameData).hasBet = this.hasBet();
         super.checkResultMessage(resultData);
       }
 

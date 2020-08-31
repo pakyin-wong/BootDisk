@@ -2,6 +2,7 @@ namespace we {
   export namespace data {
     export class GameStatistic {
       public tableid: string;
+      public roundId: string;
 
       public bankerCount: number; // Baccarat / DragonTiger
       public playerCount: number; // Baccarat / DragonTiger
@@ -17,6 +18,9 @@ namespace we {
       public shoeTotalCount: number; // Baccarat
       public hotNumbers: number[]; // Roulette / Dice
       public coldNumbers: number[]; // Roulette / Dice
+      public loHistory: any; // lottery
+      public loChart: any; // lottery
+
       // public history: // DIL
       public diOdd: {
         even: number;
@@ -61,7 +65,7 @@ namespace we {
       };
       public dilHistory: {
         round_10: number[];
-        round_20: number[];
+        round_50: number[];
       };
     }
   }

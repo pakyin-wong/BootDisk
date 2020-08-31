@@ -61,7 +61,7 @@
 			<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="684"
 			          verticalCenter="0" x.right_hand_mode="684" skinName="skin_mobile_portrait.BetConfirmButtonSkin"
 			          x.left_hand_mode="5" />
-			<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="684"
+			<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="684" colorChange="true"
 			                   verticalCenter="0" x.right_hand_mode="684" x.left_hand_mode="0" />
 			<e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0"
 			         touchEnabled="false" touchChildren="false">
@@ -85,6 +85,7 @@
 		</e:Group>
 		<dt:CardHolder id="_resultDisplay" width="1384" height="152" y="1.5" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
 		               scaleY="1" horizontalCenter="0" />
+			<e:Group width="200" height="200" includeIn="right_hand_mode" y="222" horizontalCenter="0"/>
 	</e:Group>
 	<dt:MobileBottomGamePanel skinName="skin_mobile_landscape.dt.MobileBottomGamePanel" id="_bottomGamePanel" width="2424"
 	                          scaleY="1" scaleX="1" />
@@ -114,10 +115,10 @@
 			<e:HorizontalLayout verticalAlign="middle" />
 		</e:layout>
 	</e:Group>
-	<e:Group height="48" y="73" right="0">
-		<ui:RunTimeLabel id="_totalBet" text="0" y="0" height="100%" right="0" anchorOffsetX="0" textAlign="right" />
+	<e:Group height="48" y="73" right="15">
+		<ui:RunTimeLabel id="_totalBet" text="0" y="0" height="100%" right="0" anchorOffsetX="0" textAlign="right"  size="36" fontFamily="Barlow"/>
 		<ui:RunTimeLabel id="_totalBetText" text="bet AMOUNT vfghj" y="0" height="100%" right="0" anchorOffsetX="0"
-		                 textAlign="right" />
+		                 textAlign="right"  alpha=".7" size="36"/>
 		<e:layout>
 			<e:HorizontalLayout horizontalAlign="right" gap="20" />
 		</e:layout>
@@ -138,11 +139,11 @@
 <ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
                   infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
                   errorBg="d_ba_gamerecord_bankerelement_png" y="288" horizontalCenter="0" />
-<e:Group width="700" x="161" y="22">
-	<ui:RunTimeLabel id="_dtGameIDText" text="Game ID :" bottom="0" left="0" />
-	<ui:RunTimeLabel id="_dtGameID" text="ID" bottom="0" left="0" />
-	<e:layout>
-		<e:HorizontalLayout/>
-	</e:layout>
-</e:Group>
+	<e:Group y="24" x="200" >
+		<ui:RunTimeLabel id="_dtGameIDText" text="Game ID :" bottom="0" left="0"  alpha=".7" height="56" verticalAlign="top" size="26"/>
+		<ui:RunTimeLabel id="_dtGameID" text="ID0000000000000001" bottom="0" left="0"  height="56" verticalAlign="top" fontFamily="Barlow" size="26"/>
+		<e:layout>
+			<e:HorizontalLayout/>
+		</e:layout>
+	</e:Group>
 </e:Skin>

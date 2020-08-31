@@ -9,7 +9,7 @@ namespace we {
 
       // table info panel
       public _tableInfoPanel: ro.TableInfoPanel;
-      public _betLimitDropDownBtn: ui.RunTimeLabel;
+      // public _betLimitDropDownBtn: ui.RunTimeLabel;
 
       // statisticChartPanel
       public _statisticChartPanel: ro.StatisticChartPanel;
@@ -38,7 +38,7 @@ namespace we {
         super.mount();
         this.initHistoryRoad();
 
-        this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
+        // this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
       }
 
       protected initHistoryRoad() {
@@ -100,6 +100,12 @@ namespace we {
         this.chartBtn.label = i18n.t('mobile_game_panel_statistic_chart');
         this.tableInfoBtn.label = i18n.t('mobile_game_panel_table_info');
         this._gameInfoLabel.text = i18n.t('mobile_panel_game_Info');
+      }
+
+      public openTableInfo() {
+        super.openTableInfo();
+        this.tableInfoBtn.selected = true;
+        this.viewStack.selectedIndex = this.tableInfoBtn.value;
       }
     }
   }

@@ -53,6 +53,10 @@ namespace we {
         this.success_text.renderText = () => `${i18n.t('live_verification_success_text')}`;
         this.confirmBtn.label.renderText = () => `${i18n.t('live_verification_send')}`;
 
+        if (env.isMobile) {
+          this.confirmBtn.label.size = 60;
+        }
+
         this.createArray();
         this.addListeners();
         this.resetAll();
