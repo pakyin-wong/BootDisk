@@ -17,11 +17,16 @@ namespace we {
       protected _custombet: FunBetCustomBet;
 
       protected _lastgameResult;
+      protected _drawerPanel: lo.LoRightDrawerPanel;
 
       protected mount() {
         super.mount();
         this.initDenom();
         FunBet.reset();
+
+        if (this._drawerPanel) {
+          this._drawerPanel.setTableInfo(this._tableInfo);
+        }
       }
 
       protected initDenom() {
@@ -29,6 +34,9 @@ namespace we {
         this._betChipSet.init(5, this._denominationList);
         this._betChipSet.selectedChipIndex = 0;
         this.onBetChipChanged();
+      }
+      protected onRoadDataUpdate(evt: egret.Event) {
+        this._drawerPanel.update();
       }
 
       protected addListeners() {

@@ -805,7 +805,7 @@ namespace we {
               {
                 key: 'INTEREST1SPECIAL',
                 value: 15.7,
-              }, // bet code:value
+              },
             ],
             pday: [],
             week: [],
@@ -818,7 +818,7 @@ namespace we {
               {
                 key: '18',
                 value: 5000,
-              }, // game id:value
+              },
             ],
             pday: [],
             week: [],
@@ -831,7 +831,7 @@ namespace we {
               {
                 key: '10:00',
                 value: 15.8,
-              }, // time slot:value
+              },
             ],
             pday: [],
             week: [],
@@ -844,7 +844,7 @@ namespace we {
               {
                 key: '18',
                 value: 5000,
-              }, // game id: value
+              },
             ],
             pday: [],
             week: [],
