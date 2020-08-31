@@ -33,8 +33,8 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
           }
         }
       }
@@ -93,9 +93,11 @@ namespace we {
       }
 
       protected onBaModeToggle(evt: eui.UIEvent) {
-        this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
-        this._tableLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
-        this._chipLayer.cancelBet();
+        if (this._switchBaMode) {
+          this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
+          this._tableLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
+          this._chipLayer.cancelBet();
+        }
       }
 
       protected initRoadMap() {
@@ -210,7 +212,9 @@ namespace we {
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
-        this._switchBaMode.enabled = enable;
+        if (this._switchBaMode) {
+          this._switchBaMode.enabled = enable;
+        }
       }
     }
   }

@@ -29,9 +29,15 @@ namespace we {
 
       protected _totalLabel: eui.Label;
 
+      protected _thirdColor : number = 0x1f86c;
+
       public constructor(skin) {
         super('ba.StatisticChart', false);
         this.orientationDependent = false;
+      }
+
+      public set thirdColor(value: number){
+        this._thirdColor = value;
       }
 
       public get title(): ui.RunTimeLabel {
@@ -63,6 +69,7 @@ namespace we {
 
         this.chart.firstAngle = this.firstPercentage * 360;
         this.chart.secondAngle = this.secondPercentage * 360;
+        this.chart.thirdColor = this._thirdColor;
         this.chart.drawChart(this.isGrey);
       }
     }

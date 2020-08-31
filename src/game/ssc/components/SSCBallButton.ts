@@ -17,21 +17,27 @@ namespace we {
       constructor(betValue: string) {
         super();
         this._betValue = betValue;
+      }
 
+      protected mount() {
         this.initComponents();
+        super.mount();
       }
 
       public initComponents() {
-        this.touchEnabled = true;
-        this.touchChildren = true;
-
-        // const roundRectButton = new ui.RoundRectButton();
-        this.height = 50;
-        if (this._betValue.length > 1) {
+        const text: string = this.isNumeric(this._betValue) ? this._betValue : `${i18n.t('lo_trad.inputs.' + this._betValue)}`;
+        if (text.length > 1) {
           this.width = 150;
         } else {
           this.width = 50;
         }
+
+        this.height = 50;
+        this.touchEnabled = true;
+        this.touchChildren = true;
+
+        // const roundRectButton = new ui.RoundRectButton();
+
         this.cornerTL_TR_BL_BR = '25,25,25,25';
 
         this.fillAlpha = 0;
@@ -63,15 +69,25 @@ namespace we {
         // shape.width = shape.height = 50;
 
         this._lblValue = new ui.RunTimeLabel();
-        // if (this._betValue.length > 1) {
-        //   this._lblValue.width = 150;
-        // } else {
-        //   this._lblValue.width = 50;
-        // }
+
+        // const textGrp = new eui.Group();
+        // textGrp.width = textGrp.height = 50;
+        // textGrp.touchChildren = false;
+        // textGrp.touchThrough = true;
+        // textGrp.touchEnabled = false;
+        // this.addChildAt(textGrp, 1);
+        // textGrp.horizontalCenter = 0;
+        // textGrp.verticalCenter = 0;
+
+        if (text.length > 1) {
+          this._lblValue.width = 150;
+        } else {
+          this._lblValue.width = 50;
+        }
         this._lblValue.height = 50;
         this._lblValue.size = 34;
         this._lblValue.alpha = 0.7;
-        this._lblValue.renderText = () => (this.isNumeric(this._betValue) ? this._betValue : `${i18n.t('lo_trad.inputs.' + this._betValue)}`);
+        this._lblValue.renderText = () => text;
         this._lblValue.textAlign = 'center';
         this._lblValue.verticalAlign = 'middle';
         this._lblValue.touchEnabled = false;

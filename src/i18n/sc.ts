@@ -90,6 +90,8 @@ namespace we {
       overlaypanel_bethistory_record_bettype: '投注项目',
       overlaypanel_bethistory_record_result: '游戏结果',
       overlaypanel_bethistory_record_replay: '重播',
+      overlaypanel_bethistory_btn_next: '下一则',
+      overlaypanel_bethistory_btn_prev: '上一则',
 
       overlaypanel_bethistory_baresult_banker: '庄',
       overlaypanel_bethistory_baresult_player: '闲',
@@ -763,6 +765,18 @@ namespace we {
           ODD: '奇',
           EVEN: '偶',
           CLEAR: '清',
+        },
+        ui: {
+          gamemode: '玩法',
+          betitem: '投注项目',
+          betmode: '模式',
+          notecount: '注数',
+          multiplier: '倍数',
+          betamount: '金额',
+          action: '操作',
+        },
+        description: {
+          checkbox: '请至少选择$min$位位数，您当前选择了$count$个位置\n，系统将自动生成$combination$个方案',
         },
       },
     };

@@ -84,6 +84,8 @@ namespace we {
       overlaypanel_bethistory_record_bettype: 'Bet type',
       overlaypanel_bethistory_record_result: 'Game Result',
       overlaypanel_bethistory_record_replay: 'Replay',
+      overlaypanel_bethistory_btn_next: 'Next',
+      overlaypanel_bethistory_btn_prev: 'Previous',
 
       overlaypanel_bethistory_baresult_banker: 'B',
       overlaypanel_bethistory_baresult_player: 'P',
@@ -696,6 +698,25 @@ namespace we {
           EVEN: 'EVEN',
           CLEAR: 'CLEAR',
         },
+        gamemode: 'gamemode',
+        betitem: 'betitem',
+        betmode: 'betmode',
+        notecount: 'notecount',
+        multiplier: 'multiplier',
+        betamount: 'betamount',
+        action: 'action',
+      },
+      ui: {
+        gamemode: 'gamemode',
+        betitem: 'betitem',
+        betmode: 'betmode',
+        notecount: 'notecount',
+        multiplier: 'multiplier',
+        betamount: 'betamount',
+        action: 'action',
+      },
+      description: {
+        checkbox: 'At least $min$ options should be selected，\n you are selecting $count$ options\n，system will auto generate $combination$ combinations',
       },
     };
   }

@@ -25,7 +25,7 @@ namespace we {
       }
 
       public set proportion(value: number) {
-        console.log('update', value);
+        // console.log('update', value);
         this._proportion = value;
         this.draw();
       }

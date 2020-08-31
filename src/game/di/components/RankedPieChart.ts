@@ -44,6 +44,7 @@ namespace we {
           logger.e(utils.LogTarget.DEBUG, 'Error in RankedPieChart: the length of colorSettings doesnt match the length of the ranks');
           return;
         }
+
         if (!this.firstStarted) {
           // only show start animation for once
           this.firstStarted = true;
@@ -58,24 +59,30 @@ namespace we {
         }
         this.previousTargetRanks = this.targetRanks; // store the last targetRanks to current ranks
         this.targetRanks = ranks; // set targetRanks to new ranksCopy
-        const funcChange = function (): void {
-          const tempRanks = [];
-          if (!this.previousTargetRanks) {
-            this.previousTargetRanks = this.targetRanks;
-          }
-          for (let i = 0; i < this.targetRanks.length; i++) {
-            tempRanks[i] = (this.targetRanks[i] * (this.percentTransit / 100) + this.previousTargetRanks[i] * ((100 - this.percentTransit) / 100)) * (this.percentStart / 100);
-          }
-          tempRanks[this.targetRanks.length] = 100 - this.percentStart;
-          this.renderRanks(tempRanks, this.colorSettings, this.emptyRadius);
-        };
-        const funcCompleted = function (): void {
+        if (duration >= 0) {
+          const funcChange = function (): void {
+            const tempRanks = [];
+            if (!this.previousTargetRanks) {
+              this.previousTargetRanks = this.targetRanks;
+            }
+            for (let i = 0; i < this.targetRanks.length; i++) {
+              tempRanks[i] = (this.targetRanks[i] * (this.percentTransit / 100) + this.previousTargetRanks[i] * ((100 - this.percentTransit) / 100)) * (this.percentStart / 100);
+            }
+            tempRanks[this.targetRanks.length] = 100 - this.percentStart;
+            this.renderRanks(tempRanks, this.colorSettings, this.emptyRadius);
+          };
+          const funcCompleted = function (): void {
+            this.renderRanks(ranks, this.colorSettings, this.emptyRadius);
+          };
+          egret.Tween.removeTweens(this);
+          egret.Tween.get(this, { onChange: funcChange, onChangeObj: this })
+            .to({ percentStart: 100, percentTransit: 100 }, duration, egret.Ease.quintIn)
+            .call(funcCompleted, this);
+        } else {
+          this.percentStart = 100;
+          this.percentTransit = 100;
           this.renderRanks(ranks, this.colorSettings, this.emptyRadius);
-        };
-        egret.Tween.removeTweens(this);
-        egret.Tween.get(this, { onChange: funcChange, onChangeObj: this })
-          .to({ percentStart: 100, percentTransit: 100 }, duration, egret.Ease.quintIn)
-          .call(funcCompleted, this);
+        }
       }
 
       public dispose() {
