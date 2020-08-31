@@ -8,9 +8,18 @@ namespace we {
       protected _counter: eui.Label;
       protected _targetTime;
       protected _counterInterval;
+      protected _gameRoundId: any;
+      protected _roadPanel: LoLobbyRoadPanel;
+      protected _roadmapNode: eui.Component;
 
       public constructor(skinName: string = null) {
         super(skinName);
+        this._roadPanel = new LoLobbyRoadPanel();
+      }
+
+      protected initChildren() {
+        super.initChildren();
+        this._roadmapNode.addChild(this._roadPanel);
       }
 
       protected addEventListeners() {
@@ -27,6 +36,13 @@ namespace we {
       public setData(tableinfo: data.TableInfo) {
         super.setData(tableinfo);
         this._tf_round.text = this._gameData.gameroundid;
+      }
+
+      protected onRoadDataUpdate(evt: egret.Event) {
+        if (this._gameRoundId !== this.tableInfo.roundid) {
+          this._gameRoundId = this.tableInfo.roundid;
+          this._roadPanel.updateRoadData(this.tableInfo.roadmap);
+        }
       }
 
       protected updateCountdownTimer() {

@@ -13,9 +13,6 @@ namespace we {
       protected _counter: eui.Label;
       protected _targetTime;
       protected _counterInterval;
-
-      protected _lobbyPanel: we.lo.LoLobbyRoadPanel;
-      protected _drawerPanel: we.lo.LoRightDrawerPanel;
       protected _leftGamePanel: we.lo.LoLeftPanel;
       protected _rightGamePanel: we.lo.LoRightPanel;
       // protected _bigRoadResultPanel: we.ro.ROBigRoadResultPanel;
@@ -62,7 +59,7 @@ namespace we {
 
         this._counter = this._bettingPanel._timer;
 
-        if (this._tableInfo){ 
+        if (this._tableInfo) {
           this._bettingPanel.updateBetTableInfo(this._tableInfo);
         }
       }
@@ -119,7 +116,9 @@ namespace we {
       // }
 
       protected setResultRelatedComponentsEnabled(enable: boolean) {
-        if (this._gameData) this._bettingPanel.updateBetInfo(this._gameData);
+        if (this._gameData) {
+          this._bettingPanel.updateBetInfo(this._gameData);
+        }
       }
 
       protected setStateIdle() {
@@ -249,9 +248,6 @@ namespace we {
         if (this._rightGamePanel) {
           this._rightGamePanel.setTableInfo(this._tableInfo);
         }
-        if (this._drawerPanel) {
-          this._drawerPanel.setTableInfo(this._tableInfo);
-        }
         this._roadmapControl.setTableInfo(this._tableInfo);
         // this._chipLayer.type = we.core.BettingTableType.NORMAL;
         // this._tableLayer.type = we.core.BettingTableType.NORMAL;
@@ -266,7 +262,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         // super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
             // this._leftGamePanel.updateTableBetInfo();
             // this._rightGamePanel.updateTableBetInfo();
@@ -290,8 +286,6 @@ namespace we {
         // this._roadmapControl.updateRoadData();
         this._leftGamePanel.update();
         this._rightGamePanel.update();
-        this._drawerPanel.update();
-        this._lobbyPanel.updateRoadData(this.tableInfo.roadmap);
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {

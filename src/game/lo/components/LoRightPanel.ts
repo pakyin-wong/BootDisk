@@ -5,6 +5,7 @@ namespace we {
       protected panelPageSelect: ui.Panel;
       protected btnPageSelect: egret.DisplayObject;
       protected txtPageSelect: ui.RunTimeLabel;
+      protected overlay: eui.Group;
 
       protected chartStack: eui.ViewStack;
       protected chartPeriodIndex: number;
@@ -175,7 +176,6 @@ namespace we {
         );
         this._bestTimePieChart.x = 295;
         this._bestTimePieChart.y = 192;
-        this._bestTimePieChart.setRanksAndAnimate([10, 10, 10, 10, 10, 10, 10, 10, 10, 10]);
         // add road to page stack 1
         const page1Group = this.chartStack.getChildAt(0) as eui.Group;
         page1Group.addChild(this._bestTimePieChart);
@@ -200,7 +200,6 @@ namespace we {
         );
         this._bestGamePieChart.x = 295;
         this._bestGamePieChart.y = 192;
-        this._bestGamePieChart.setRanksAndAnimate([10, 10, 10, 10, 10, 10, 10, 10, 10, 10]);
         this.addChild(this._bestGamePieChart);
         // add road to page stack 2
         const page2Group = this.chartStack.getChildAt(1) as eui.Group;
@@ -222,7 +221,6 @@ namespace we {
         );
         this._favBetBarChart.x = 175;
         this._favBetBarChart.y = 81;
-        this._favBetBarChart.setRanksAndAnimate([8.2, 18.4, 14.5, 9.5, 6.9, 7]);
         this.addChild(this._favBetBarChart);
         // add road to page stack 3
         const page3Group = this.chartStack.getChildAt(2) as eui.Group;
@@ -244,7 +242,6 @@ namespace we {
           198,
           4
         );
-        this._favGameBarChart.setRanksAndAnimate([80, 50, 30, 20, 10]);
         this.addChild(this._favGameBarChart);
         // add road to page stack 4
         const page4Group = this.chartStack.getChildAt(3) as eui.Group;
@@ -269,10 +266,14 @@ namespace we {
           let chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[0]];
           let d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
           let ranks = [];
-          d.forEach(element => {
-            ranks.push(element.value);
-          });
-          this._bestTimePieChart.setRanksAndAnimate(ranks, -1);
+          if (d.length > 0) {
+            d.forEach(element => {
+              ranks.push(element.value);
+            });
+            this._bestTimePieChart.setRanksAndAnimate(ranks, -1);
+            this.luckyTimeTitleValue.text = d[0].key + "";
+          }
+
 
           // chart2
           chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[1]];
@@ -281,7 +282,7 @@ namespace we {
           d.forEach(element => {
             ranks.push(element.value);
           });
-          // this._bestGamePieChart.setRanksAndAnimate(ranks, -1);
+          this._bestGamePieChart.setRanksAndAnimate(ranks, -1);
 
           // chart3
           chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[2]];
@@ -290,7 +291,7 @@ namespace we {
           d.forEach(element => {
             ranks.push(element.value);
           });
-          // this._favBetBarChart.setRanksAndAnimate(ranks, -1);
+          this._favBetBarChart.setRanksAndAnimate(ranks, -1);
 
           // chart4
           chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[3]];
@@ -299,14 +300,29 @@ namespace we {
           d.forEach(element => {
             ranks.push(element.value);
           });
-          // this._favGameBarChart.setRanksAndAnimate(ranks, -1);
+          this._favGameBarChart.setRanksAndAnimate(ranks, -1);
         }
+        this.checkChartData();
       }
 
       private onChartTypesSelect(e) {
         const chartTypeIndex = e.data;
         this.panelPageSelect && this.panelPageSelect.dropdown.select(chartTypeIndex);
         this.chartStack.selectedIndex = chartTypeIndex;
+
+        this.checkChartData();
+      }
+
+      // check chart data and show overlay if no data
+      private checkChartData() {
+        this.overlay.visible = true;
+        if (this.tableInfo) {
+          const chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[this.chartStack.selectedIndex]];
+          const d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
+          if (d.length > 0) {
+            this.overlay.visible = false;
+          }
+        }
       }
 
       public update() {

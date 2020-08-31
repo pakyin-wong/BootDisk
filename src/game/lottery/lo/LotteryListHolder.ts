@@ -105,6 +105,20 @@ namespace we {
           }
         }
       }
+
+      public onTouchTapWhole(evt: egret.Event) {
+        if (evt.currentTarget !== evt.target) {
+          if (evt.target.hasEventListener(egret.TouchEvent.TOUCH_TAP) || evt.target.hasEventListener(eui.UIEvent.CHANGE)) {
+            return;
+          }
+        }
+        const target = this._displayItem.getActionButton();
+        if (evt.target === target || this.isFocus) {
+          return;
+        }
+        dir.socket.enterTable(this.itemData);
+        this.gotoScene();
+      }
     }
   }
 }

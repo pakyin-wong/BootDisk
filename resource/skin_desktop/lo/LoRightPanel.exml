@@ -15,84 +15,84 @@
                                          lineSpacing="0" anchorOffsetY="0" />
                         <ui:RoundRectShape id="luckyTimeIcon1" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
                                            x="452" y="88" stroke="0" fillColor="0xeef700" />
-                        <ui:RunTimeLabel id="luckyTimeTxt1" text="10:00" x="484" y="88" width="135" height="24"
+                        <ui:RunTimeLabel id="luckyTimeTxt1" text="-" x="484" y="88" width="135" height="24"
                                          verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="luckyTimeTxtValue1" text="10.98%" y="88" height="24" verticalAlign="middle"
+                        <ui:RunTimeLabel id="luckyTimeTxtValue1" text="-" y="88" height="24" verticalAlign="middle"
                                          textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
                                          x="608" />
                         <ui:RoundRectShape id="luckyTimeIcon2" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
                                            x="452" y="136" stroke="0" fillColor="0x7cffa0" />
-                        <ui:RunTimeLabel id="luckyTimeTxt2" text="10:00" x="484" y="136" width="135" height="24"
+                        <ui:RunTimeLabel id="luckyTimeTxt2" text="-" x="484" y="136" width="135" height="24"
                                          verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="luckyTimeTxtValue2" text="10.98%" y="136" height="24"
-                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
-                                         scaleY="1" width="106" x="608" />
+                        <ui:RunTimeLabel id="luckyTimeTxtValue2" text="-" y="136" height="24" verticalAlign="middle"
+                                         textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
+                                         x="608" />
                         <ui:RoundRectShape id="luckyTimeIcon3" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
                                            x="452" y="184" stroke="0" fillColor="0x37fbf1" />
-                        <ui:RunTimeLabel id="luckyTimeTxt3" text="10:00" x="484" y="184" width="135" height="24"
+                        <ui:RunTimeLabel id="luckyTimeTxt3" text="-" x="484" y="184" width="135" height="24"
                                          verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="luckyTimeTxtValue3" text="10.98%" y="184" height="24"
-                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
-                                         scaleY="1" width="106" x="608" />
+                        <ui:RunTimeLabel id="luckyTimeTxtValue3" text="-" y="184" height="24" verticalAlign="middle"
+                                         textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
+                                         x="608" />
                         <ui:RoundRectShape id="luckyTimeIcon4" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
                                            x="452" y="232" stroke="0" fillColor="0x27abdd" />
-                        <ui:RunTimeLabel id="luckyTimeTxt4" text="10:00" x="484" y="232" width="135" height="24"
+                        <ui:RunTimeLabel id="luckyTimeTxt4" text="-" x="484" y="232" width="135" height="24"
                                          verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="luckyTimeTxtValue4" text="10.98%" y="232" height="24"
-                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
-                                         scaleY="1" width="106" x="608" />
+                        <ui:RunTimeLabel id="luckyTimeTxtValue4" text="-" y="232" height="24" verticalAlign="middle"
+                                         textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
+                                         x="608" />
                         <ui:RoundRectShape id="luckyTimeIcon5" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
                                            x="452" y="280" stroke="0" fillColor="0x0a4481" />
-                        <ui:RunTimeLabel id="luckyTimeTxt5" text="10:00" x="484" y="280" width="135" height="24"
+                        <ui:RunTimeLabel id="luckyTimeTxt5" text="-" x="484" y="280" width="135" height="24"
                                          verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="luckyTimeTxtValue5" text="10.98%" y="280" height="24"
-                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
-                                         scaleY="1" width="106" x="608" />
+                        <ui:RunTimeLabel id="luckyTimeTxtValue5" text="-" y="280" height="24" verticalAlign="middle"
+                                         textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
+                                         x="608" />
                         <ui:RoundRectShape id="luckyTimeIcon6" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
                                            x="740" y="88" stroke="0" fillColor="0x5832e5" />
-                        <ui:RunTimeLabel id="luckyTimeTxt6" text="10:00" x="772" y="88" width="135" height="24"
+                        <ui:RunTimeLabel id="luckyTimeTxt6" text="-" x="772" y="88" width="135" height="24"
                                          verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="luckyTimeTxtValue6" text="10.98%" y="88" height="24" verticalAlign="middle"
+                        <ui:RunTimeLabel id="luckyTimeTxtValue6" text="-" y="88" height="24" verticalAlign="middle"
                                          textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
                                          x="896" />
                         <ui:RoundRectShape id="luckyTimeIcon7" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
                                            x="740" y="136" stroke="0" fillColor="0x8633e7" />
-                        <ui:RunTimeLabel id="luckyTimeTxt7" text="10:00" x="772" y="136" width="135" height="24"
+                        <ui:RunTimeLabel id="luckyTimeTxt7" text="-" x="772" y="136" width="135" height="24"
                                          verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="luckyTimeTxtValue7" text="10.98%" y="136" height="24"
-                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
-                                         scaleY="1" width="106" x="896" />
+                        <ui:RunTimeLabel id="luckyTimeTxtValue7" text="-" y="136" height="24" verticalAlign="middle"
+                                         textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
+                                         x="896" />
                         <ui:RoundRectShape id="luckyTimeIcon8" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
                                            x="740" y="184" stroke="0" fillColor="0xe033e7" />
-                        <ui:RunTimeLabel id="luckyTimeTxt8" text="10:00" x="772" y="184" width="135" height="24"
+                        <ui:RunTimeLabel id="luckyTimeTxt8" text="-" x="772" y="184" width="135" height="24"
                                          verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="luckyTimeTxtValue8" text="10.98%" y="184" height="24"
-                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
-                                         scaleY="1" width="106" x="896" />
+                        <ui:RunTimeLabel id="luckyTimeTxtValue8" text="-" y="184" height="24" verticalAlign="middle"
+                                         textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
+                                         x="896" />
                         <ui:RoundRectShape id="luckyTimeIcon9" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
                                            x="740" y="232" stroke="0" fillColor="0xca0d59" />
-                        <ui:RunTimeLabel id="luckyTimeTxt9" text="10:00" x="772" y="232" width="135" height="24"
+                        <ui:RunTimeLabel id="luckyTimeTxt9" text="-" x="772" y="232" width="135" height="24"
                                          verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="luckyTimeTxtValue9" text="10.98%" y="232" height="24"
-                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
-                                         scaleY="1" width="106" x="896" />
+                        <ui:RunTimeLabel id="luckyTimeTxtValue9" text="-" y="232" height="24" verticalAlign="middle"
+                                         textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
+                                         x="896" />
                         <ui:RoundRectShape id="luckyTimeIcon10" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
                                            x="740" y="280" stroke="0" fillColor="0xff9000" />
-                        <ui:RunTimeLabel id="luckyTimeTxt10" text="10:00" x="772" y="280" width="135" height="24"
+                        <ui:RunTimeLabel id="luckyTimeTxt10" text="-" x="772" y="280" width="135" height="24"
                                          verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="luckyTimeTxtValue10" text="10.98%" y="280" height="24"
-                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
-                                         scaleY="1" width="106" x="896" />
+                        <ui:RunTimeLabel id="luckyTimeTxtValue10" text="-" y="280" height="24" verticalAlign="middle"
+                                         textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
+                                         x="896" />
                 </e:Group>
                 <e:Group id="chart2Page" width="100%" height="100%" name="Group">
                         <ui:RunTimeLabel id="luckyGameTitle" text="Best Game" x="22" y="87" width="150" height="24"
@@ -102,171 +102,179 @@
                                          lineSpacing="0" anchorOffsetY="0" />
                         <ui:RoundRectShape id="luckyGameIcon1" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
                                            x="452" y="88" stroke="0" fillColor="0xeef700" />
-                        <ui:RunTimeLabel id="luckyGameTxt1" text="10:00" x="484" y="88" width="135" height="24"
+                        <ui:RunTimeLabel id="luckyGameTxt1" text="-" x="484" y="88" width="135" height="24"
                                          verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="luckyGameTxtValue1" text="10.98%" y="88" height="24" verticalAlign="middle"
+                        <ui:RunTimeLabel id="luckyGameTxtValue1" text="-" y="88" height="24" verticalAlign="middle"
                                          textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
                                          x="608" />
                         <ui:RoundRectShape id="luckyGameIcon2" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
                                            x="452" y="136" stroke="0" fillColor="0x7cffa0" />
-                        <ui:RunTimeLabel id="luckyGameTxt2" text="10:00" x="484" y="136" width="135" height="24"
+                        <ui:RunTimeLabel id="luckyGameTxt2" text="-" x="484" y="136" width="135" height="24"
                                          verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="luckyGameTxtValue2" text="10.98%" y="136" height="24"
-                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
-                                         scaleY="1" width="106" x="608" />
+                        <ui:RunTimeLabel id="luckyGameTxtValue2" text="-" y="136" height="24" verticalAlign="middle"
+                                         textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
+                                         x="608" />
                         <ui:RoundRectShape id="luckyGameIcon3" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
                                            x="452" y="184" stroke="0" fillColor="0x37fbf1" />
-                        <ui:RunTimeLabel id="luckyGameTxt3" text="10:00" x="484" y="184" width="135" height="24"
+                        <ui:RunTimeLabel id="luckyGameTxt3" text="-" x="484" y="184" width="135" height="24"
                                          verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="luckyGameTxtValue3" text="10.98%" y="184" height="24"
-                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
-                                         scaleY="1" width="106" x="608" />
+                        <ui:RunTimeLabel id="luckyGameTxtValue3" text="-" y="184" height="24" verticalAlign="middle"
+                                         textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
+                                         x="608" />
                         <ui:RoundRectShape id="luckyGameIcon4" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
                                            x="452" y="232" stroke="0" fillColor="0x27abdd" />
-                        <ui:RunTimeLabel id="luckyGameTxt4" text="10:00" x="484" y="232" width="135" height="24"
+                        <ui:RunTimeLabel id="luckyGameTxt4" text="-" x="484" y="232" width="135" height="24"
                                          verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="luckyGameTxtValue4" text="10.98%" y="232" height="24"
-                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
-                                         scaleY="1" width="106" x="608" />
+                        <ui:RunTimeLabel id="luckyGameTxtValue4" text="-" y="232" height="24" verticalAlign="middle"
+                                         textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
+                                         x="608" />
                         <ui:RoundRectShape id="luckyGameIcon5" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
                                            x="452" y="280" stroke="0" fillColor="0x0a4481" />
-                        <ui:RunTimeLabel id="luckyGameTxt5" text="10:00" x="484" y="280" width="135" height="24"
+                        <ui:RunTimeLabel id="luckyGameTxt5" text="-" x="484" y="280" width="135" height="24"
                                          verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="luckyGameTxtValue5" text="10.98%" y="280" height="24"
-                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
-                                         scaleY="1" width="106" x="608" />
+                        <ui:RunTimeLabel id="luckyGameTxtValue5" text="-" y="280" height="24" verticalAlign="middle"
+                                         textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
+                                         x="608" />
                         <ui:RoundRectShape id="luckyGameIcon6" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
                                            x="740" y="88" stroke="0" fillColor="0x5832e5" />
-                        <ui:RunTimeLabel id="luckyGameTxt6" text="10:00" x="772" y="88" width="135" height="24"
+                        <ui:RunTimeLabel id="luckyGameTxt6" text="-" x="772" y="88" width="135" height="24"
                                          verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="luckyGameTxtValue6" text="10.98%" y="88" height="24" verticalAlign="middle"
+                        <ui:RunTimeLabel id="luckyGameTxtValue6" text="-" y="88" height="24" verticalAlign="middle"
                                          textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
                                          x="896" />
                         <ui:RoundRectShape id="luckyGameIcon7" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
                                            x="740" y="136" stroke="0" fillColor="0x8633e7" />
-                        <ui:RunTimeLabel id="luckyGameTxt7" text="10:00" x="772" y="136" width="135" height="24"
+                        <ui:RunTimeLabel id="luckyGameTxt7" text="-" x="772" y="136" width="135" height="24"
                                          verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="luckyGameTxtValue7" text="10.98%" y="136" height="24"
-                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
-                                         scaleY="1" width="106" x="896" />
+                        <ui:RunTimeLabel id="luckyGameTxtValue7" text="-" y="136" height="24" verticalAlign="middle"
+                                         textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
+                                         x="896" />
                         <ui:RoundRectShape id="luckyGameIcon8" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
                                            x="740" y="184" stroke="0" fillColor="0xe033e7" />
-                        <ui:RunTimeLabel id="luckyGameTxt8" text="10:00" x="772" y="184" width="135" height="24"
+                        <ui:RunTimeLabel id="luckyGameTxt8" text="-" x="772" y="184" width="135" height="24"
                                          verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="luckyGameTxtValue8" text="10.98%" y="184" height="24"
-                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
-                                         scaleY="1" width="106" x="896" />
+                        <ui:RunTimeLabel id="luckyGameTxtValue8" text="-" y="184" height="24" verticalAlign="middle"
+                                         textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
+                                         x="896" />
                         <ui:RoundRectShape id="luckyGameIcon9" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
                                            x="740" y="232" stroke="0" fillColor="0xca0d59" />
-                        <ui:RunTimeLabel id="luckyGameTxt9" text="10:00" x="772" y="232" width="135" height="24"
+                        <ui:RunTimeLabel id="luckyGameTxt9" text="-" x="772" y="232" width="135" height="24"
                                          verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="luckyGameTxtValue9" text="10.98%" y="232" height="24"
-                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
-                                         scaleY="1" width="106" x="896" />
+                        <ui:RunTimeLabel id="luckyGameTxtValue9" text="-" y="232" height="24" verticalAlign="middle"
+                                         textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
+                                         x="896" />
                         <ui:RoundRectShape id="luckyGameIcon10" cornerTL_TR_BL_BR="4,4,4,4" width="20" height="20"
                                            x="740" y="280" stroke="0" fillColor="0xff9000" />
-                        <ui:RunTimeLabel id="luckyGameTxt10" text="10:00" x="772" y="280" width="135" height="24"
+                        <ui:RunTimeLabel id="luckyGameTxt10" text="-" x="772" y="280" width="135" height="24"
                                          verticalAlign="middle" textAlign="left" size="24" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="luckyGameTxtValue10" text="10.98%" y="280" height="24"
-                                         verticalAlign="middle" textAlign="right" size="24" alpha="0.7" scaleX="1"
-                                         scaleY="1" width="106" x="896" />
+                        <ui:RunTimeLabel id="luckyGameTxtValue10" text="-" y="280" height="24" verticalAlign="middle"
+                                         textAlign="right" size="24" alpha="0.7" scaleX="1" scaleY="1" width="106"
+                                         x="896" />
                 </e:Group>
                 <e:Group id="chart3Page" width="100%" height="100%" name="Group">
-                        <ui:RunTimeLabel id="favBetTxt1" text="全5中1" x="2" y="80" width="149" height="20"
+                        <ui:RunTimeLabel id="favBetTxt1" text="-" x="2" y="80" width="149" height="20"
                                          verticalAlign="middle" textAlign="right" size="20" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="favBetTxtValue1" text="10.98%" x="967" y="80" height="20"
+                        <ui:RunTimeLabel id="favBetTxtValue1" text="-" x="967" y="80" height="20" verticalAlign="middle"
+                                         textAlign="left" size="20" alpha="0.7" scaleX="1" scaleY="1" width="106" />
+                        <ui:RunTimeLabel id="favBetTxt2" text="-" x="2" y="122" width="149" height="20"
+                                         verticalAlign="middle" textAlign="right" size="20" alpha="0.7" scaleX="1"
+                                         scaleY="1" />
+                        <ui:RunTimeLabel id="favBetTxtValue2" text="-" x="967" y="122" height="20"
                                          verticalAlign="middle" textAlign="left" size="20" alpha="0.7" scaleX="1"
                                          scaleY="1" width="106" />
-                        <ui:RunTimeLabel id="favBetTxt2" text="全5中1" x="2" y="122" width="149" height="20"
+                        <ui:RunTimeLabel id="favBetTxt3" text="-" x="2" y="164" width="149" height="20"
                                          verticalAlign="middle" textAlign="right" size="20" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="favBetTxtValue2" text="10.98%" x="967" y="122" height="20"
+                        <ui:RunTimeLabel id="favBetTxtValue3" text="-" x="967" y="164" height="20"
                                          verticalAlign="middle" textAlign="left" size="20" alpha="0.7" scaleX="1"
                                          scaleY="1" width="106" />
-                        <ui:RunTimeLabel id="favBetTxt3" text="全5中1" x="2" y="164" width="149" height="20"
+                        <ui:RunTimeLabel id="favBetTxt4" text="-" x="2" y="206" width="149" height="20"
                                          verticalAlign="middle" textAlign="right" size="20" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="favBetTxtValue3" text="10.98%" x="967" y="164" height="20"
+                        <ui:RunTimeLabel id="favBetTxtValue4" text="-" x="967" y="206" height="20"
                                          verticalAlign="middle" textAlign="left" size="20" alpha="0.7" scaleX="1"
                                          scaleY="1" width="106" />
-                        <ui:RunTimeLabel id="favBetTxt4" text="全5中1" x="2" y="206" width="149" height="20"
+                        <ui:RunTimeLabel id="favBetTxt5" text="-" x="2" y="248" width="149" height="20"
                                          verticalAlign="middle" textAlign="right" size="20" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="favBetTxtValue4" text="10.98%" x="967" y="206" height="20"
+                        <ui:RunTimeLabel id="favBetTxtValue5" text="-" x="967" y="248" height="20"
                                          verticalAlign="middle" textAlign="left" size="20" alpha="0.7" scaleX="1"
                                          scaleY="1" width="106" />
-                        <ui:RunTimeLabel id="favBetTxt5" text="全5中1" x="2" y="248" width="149" height="20"
+                        <ui:RunTimeLabel id="favBetTxt6" text="-" x="2" y="290" width="149" height="20"
                                          verticalAlign="middle" textAlign="right" size="20" alpha="0.7" scaleX="1"
                                          scaleY="1" />
-                        <ui:RunTimeLabel id="favBetTxtValue5" text="10.98%" x="967" y="248" height="20"
-                                         verticalAlign="middle" textAlign="left" size="20" alpha="0.7" scaleX="1"
-                                         scaleY="1" width="106" />
-                        <ui:RunTimeLabel id="favBetTxt6" text="全5中1" x="2" y="290" width="149" height="20"
-                                         verticalAlign="middle" textAlign="right" size="20" alpha="0.7" scaleX="1"
-                                         scaleY="1" />
-                        <ui:RunTimeLabel id="favBetTxtValue6" text="10.98%" x="967" y="290" height="20"
+                        <ui:RunTimeLabel id="favBetTxtValue6" text="-" x="967" y="290" height="20"
                                          verticalAlign="middle" textAlign="left" size="20" alpha="0.7" scaleX="1"
                                          scaleY="1" width="106" />
                 </e:Group>
                 <e:Group id="chart4Page" width="100%" height="100%" name="Group">
-                        <ui:RunTimeLabel id="favGameTxtPercent1" text="100%" y="214" width="180" height="32"
+                        <ui:RunTimeLabel id="favGameTxtPercent1" text="-" y="214" width="180" height="32"
                                          verticalAlign="middle" textAlign="center" size="32" alpha="0.7" scaleX="1"
                                          scaleY="1" x="18" />
-                        <ui:RunTimeLabel id="favGameTxt1" text="全5中1" y="274" width="180" height="22"
+                        <ui:RunTimeLabel id="favGameTxt1" text="-" y="274" width="180" height="22"
                                          verticalAlign="middle" textAlign="center" size="22" alpha="0.7" scaleX="1"
                                          scaleY="1" x="18" />
-                        <ui:RunTimeLabel id="favGameTxtValue1" text="50000" y="298" height="22" verticalAlign="middle"
+                        <ui:RunTimeLabel id="favGameTxtValue1" text="-" y="298" height="22" verticalAlign="middle"
                                          textAlign="center" size="22" alpha="0.7" scaleX="1" scaleY="1" width="180"
                                          x="18" />
-                        <ui:RunTimeLabel id="favGameTxtPercent2" text="100%" y="214" width="180" height="32"
+                        <ui:RunTimeLabel id="favGameTxtPercent2" text="-" y="214" width="180" height="32"
                                          verticalAlign="middle" textAlign="center" size="32" alpha="0.7" scaleX="1"
                                          scaleY="1" x="220" />
-                        <ui:RunTimeLabel id="favGameTxt2" text="全5中1" y="274" width="180" height="22"
+                        <ui:RunTimeLabel id="favGameTxt2" text="-" y="274" width="180" height="22"
                                          verticalAlign="middle" textAlign="center" size="22" alpha="0.7" scaleX="1"
                                          scaleY="1" x="220" />
-                        <ui:RunTimeLabel id="favGameTxtValue2" text="50000" y="298" height="22" verticalAlign="middle"
+                        <ui:RunTimeLabel id="favGameTxtValue2" text="-" y="298" height="22" verticalAlign="middle"
                                          textAlign="center" size="22" alpha="0.7" scaleX="1" scaleY="1" width="180"
                                          x="220" />
-                        <ui:RunTimeLabel id="favGameTxtPercent3" text="100%" y="214" width="180" height="32"
+                        <ui:RunTimeLabel id="favGameTxtPercent3" text="-" y="214" width="180" height="32"
                                          verticalAlign="middle" textAlign="center" size="32" alpha="0.7" scaleX="1"
                                          scaleY="1" x="422" />
-                        <ui:RunTimeLabel id="favGameTxt3" text="全5中1" y="274" width="180" height="22"
+                        <ui:RunTimeLabel id="favGameTxt3" text="-" y="274" width="180" height="22"
                                          verticalAlign="middle" textAlign="center" size="22" alpha="0.7" scaleX="1"
                                          scaleY="1" x="422" />
-                        <ui:RunTimeLabel id="favGameTxtValue3" text="50000" y="298" height="22" verticalAlign="middle"
+                        <ui:RunTimeLabel id="favGameTxtValue3" text="-" y="298" height="22" verticalAlign="middle"
                                          textAlign="center" size="22" alpha="0.7" scaleX="1" scaleY="1" width="180"
                                          x="422" />
-                        <ui:RunTimeLabel id="favGameTxtPercent4" text="100%" y="214" width="180" height="32"
+                        <ui:RunTimeLabel id="favGameTxtPercent4" text="-" y="214" width="180" height="32"
                                          verticalAlign="middle" textAlign="center" size="32" alpha="0.7" scaleX="1"
                                          scaleY="1" x="624" />
-                        <ui:RunTimeLabel id="favGameTxt4" text="全5中1" y="274" width="180" height="22"
+                        <ui:RunTimeLabel id="favGameTxt4" text="-" y="274" width="180" height="22"
                                          verticalAlign="middle" textAlign="center" size="22" alpha="0.7" scaleX="1"
                                          scaleY="1" x="624" />
-                        <ui:RunTimeLabel id="favGameTxtValue4" text="50000" y="298" height="22" verticalAlign="middle"
+                        <ui:RunTimeLabel id="favGameTxtValue4" text="-" y="298" height="22" verticalAlign="middle"
                                          textAlign="center" size="22" alpha="0.7" scaleX="1" scaleY="1" width="180"
                                          x="624" />
-                        <ui:RunTimeLabel id="favGameTxtPercent5" text="100%" y="214" width="180" height="32"
+                        <ui:RunTimeLabel id="favGameTxtPercent5" text="-" y="214" width="180" height="32"
                                          verticalAlign="middle" textAlign="center" size="32" alpha="0.7" scaleX="1"
                                          scaleY="1" x="826" />
-                        <ui:RunTimeLabel id="favGameTxt5" text="全5中1" y="274" width="180" height="22"
+                        <ui:RunTimeLabel id="favGameTxt5" text="-" y="274" width="180" height="22"
                                          verticalAlign="middle" textAlign="center" size="22" alpha="0.7" scaleX="1"
                                          scaleY="1" x="826" />
-                        <ui:RunTimeLabel id="favGameTxtValue5" text="50000" y="298" height="22" verticalAlign="middle"
+                        <ui:RunTimeLabel id="favGameTxtValue5" text="-" y="298" height="22" verticalAlign="middle"
                                          textAlign="center" size="22" alpha="0.7" scaleX="1" scaleY="1" width="180"
                                          x="826" />
                 </e:Group>
         </e:ViewStack>
+        <e:Group id="overlay" width="100%" height="270" x="0" y="59">
+                <e:Rect width="100%" height="100%" fillColor="0x061323" />
+                <ui:RunTimeLabel id="overlayTitle" text="暫無數據" width="180" height="22" verticalAlign="middle"
+                                 textAlign="center" size="24" alpha="0.7" scaleX="1" scaleY="1" horizontalCenter="0"
+                                 verticalCenter="-15" />
+                <ui:RunTimeLabel id="overlayText" text="請投注後重新刷新" height="22" verticalAlign="middle" textAlign="center"
+                                 size="20" alpha="0.7" scaleX="1" scaleY="1" width="180" horizontalCenter="0"
+                                 verticalCenter="17" />
+        </e:Group>
         <e:Group height="29" x="622" y="13" anchorOffsetX="0">
                 <e:RadioButton id="chartPeriodBtn1" height="29" value="0" selected="true" groupName="chart1Group"
                                width="64" touchEnabled="true" touchChildren="false">
