@@ -261,13 +261,18 @@ namespace we {
       }
       protected chartPeriodChange(i: number) {
         this.chartPeriodIndex = i - 0;
+        let count = 0;
         if (this.tableInfo.gamestatistic) {
           // chart1
           let chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[0]];
           let d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
           let ranks = [];
+          count = 0;
           if (d.length > 0) {
             d.forEach(element => {
+              count++;
+              this['luckyTimeTxt' + count].text = element.key;
+              this['luckyTimeTxtValue' + count].text = element.value;
               ranks.push(element.value);
             });
             this._bestTimePieChart.setRanksAndAnimate(ranks, -1);
@@ -278,28 +283,43 @@ namespace we {
           chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[1]];
           d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
           ranks = [];
-          d.forEach(element => {
-            ranks.push(element.value);
-          });
-          this._bestGamePieChart.setRanksAndAnimate(ranks, -1);
+          count = 0;
+          if (d.length > 0) {
+            d.forEach(element => {
+              count++;
+              this['luckyGameTxt' + count].text = element.key;
+              this['luckyGameTxtValue' + count].text = element.value;
+              ranks.push(element.value);
+            });
+            this._bestGamePieChart.setRanksAndAnimate(ranks, -1);
+            this.luckyGameTitleValue.text = d[0].key + '';
+          }
 
           // chart3
           chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[2]];
           d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
           ranks = [];
-          d.forEach(element => {
-            ranks.push(element.value);
-          });
-          this._favBetBarChart.setRanksAndAnimate(ranks, -1);
+          count = 0;
+          if (d.length > 0) {
+            d.forEach(element => {
+              count++;
+              ranks.push(element.value);
+            });
+            this._favBetBarChart.setRanksAndAnimate(ranks, -1);
+          }
 
           // chart4
           chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[3]];
           d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
           ranks = [];
-          d.forEach(element => {
-            ranks.push(element.value);
-          });
-          this._favGameBarChart.setRanksAndAnimate(ranks, -1);
+          count = 0;
+          if (d.length > 0) {
+            d.forEach(element => {
+              count++;
+              ranks.push(element.value);
+            });
+            this._favGameBarChart.setRanksAndAnimate(ranks, -1);
+          }
         }
         this.checkChartData();
       }
