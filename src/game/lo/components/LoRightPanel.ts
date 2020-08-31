@@ -271,9 +271,8 @@ namespace we {
               ranks.push(element.value);
             });
             this._bestTimePieChart.setRanksAndAnimate(ranks, -1);
-            this.luckyTimeTitleValue.text = d[0].key + "";
+            this.luckyTimeTitleValue.text = d[0].key + '';
           }
-
 
           // chart2
           chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[1]];
