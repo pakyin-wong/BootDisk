@@ -979,7 +979,7 @@ namespace we {
             ],
             combinationDataId: 1,
             pattern: '^1^2OPTIONALINPUTFREE_$1',
-            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            noteCountFunc: NoteCountFunc.Any.SeparatorNoteCount,
             maxWin: 180,
           },
           DirectionSum: {
@@ -1012,7 +1012,7 @@ namespace we {
             ],
             combinationDataId: 1,
             pattern: '^1^2TWOGROUPFREEINPUT_$1',
-            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            noteCountFunc: NoteCountFunc.Any.SeparatorNoteCount,
             maxWin: 90,
           },
           GroupSum: {
@@ -1053,7 +1053,7 @@ namespace we {
             ],
             combinationDataId: 1,
             pattern: '^1^2^3OPTIONALINPUTFREE_$1',
-            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            noteCountFunc: NoteCountFunc.Any.SeparatorNoteCount,
             maxWin: 1800,
           },
           DirectionSum: {
@@ -1094,7 +1094,7 @@ namespace we {
             input: [InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3), InputComponentDefinition.textArea('', 3)],
             combinationDataId: 1,
             pattern: '^1^2^3THREECOMBINEFREE_$1',
-            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            noteCountFunc: NoteCountFunc.Any.SeparatorNoteCount,
             maxWin: 600,
           },
           GroupSum: {
@@ -1135,7 +1135,7 @@ namespace we {
             ],
             combinationDataId: 1,
             pattern: '^1^2^3^4OPTIONALFREEINPUT_$1',
-            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            noteCountFunc: NoteCountFunc.Any.SeparatorNoteCount,
             maxWin: 18000,
           },
           Group24: {
@@ -1146,7 +1146,7 @@ namespace we {
             ],
             combinationDataId: 1,
             pattern: '^1^2^3^4FOUR24FREE_$1',
-            noteCountFunc: NoteCountFunc.FourStar.Group24,
+            noteCountFunc: NoteCountFunc.AnyFour.Group24,
             maxWin: 750,
           },
           Group12: {
@@ -1158,7 +1158,7 @@ namespace we {
             ],
             combinationDataId: 1,
             pattern: '^1^2^3^4FOUR12FREE_$1_$2',
-            noteCountFunc: NoteCountFunc.FourStar.Group12,
+            noteCountFunc: NoteCountFunc.AnyFour.Group12,
             maxWin: 1500,
           },
           Group6: {
@@ -1169,7 +1169,7 @@ namespace we {
             ],
             combinationDataId: 1,
             pattern: '^1^2^3^4FOUR6FREE_$1',
-            noteCountFunc: NoteCountFunc.FourStar.Group6,
+            noteCountFunc: NoteCountFunc.AnyFour.Group6,
             maxWin: 3000,
           },
           Group4: {
@@ -1181,7 +1181,7 @@ namespace we {
             ],
             combinationDataId: 1,
             pattern: '^1^2^3^4FOUR6FREE_$1_$2',
-            noteCountFunc: NoteCountFunc.FourStar.Group4,
+            noteCountFunc: NoteCountFunc.AnyFour.Group4,
             maxWin: 4500,
           },
         },

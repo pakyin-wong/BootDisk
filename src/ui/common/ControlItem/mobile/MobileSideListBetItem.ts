@@ -77,16 +77,16 @@ namespace we {
           'percentHeight',
         ];
         for (const att of properties) {
-          if (this._tableLayer) {
+          if (this._tableLayer && !isNaN(this._tableLayerNode[att])) {
             this._tableLayer[att] = this._tableLayerNode[att];
           }
-          if (this._chipLayer) {
+          if (this._chipLayer && !isNaN(this._chipLayerNode[att])) {
             this._chipLayer[att] = this._chipLayerNode[att];
           }
-          if (this._resultMessage) {
+          if (this._resultMessage && !isNaN(this._resultMessageNode[att])) {
             this._resultMessage[att] = this._resultMessageNode[att];
           }
-          if (this._cardHolder) {
+          if (this._cardHolder && !isNaN(this._resultDisplayNode[att])) {
             this._cardHolder[att] = this._resultDisplayNode[att];
           }
         }

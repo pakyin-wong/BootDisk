@@ -134,6 +134,16 @@ namespace we {
         return tradNoteDataArray;
       }
 
+      protected getBetModeArray(notes: TradNoteData[]) {
+        const betmodearray = [];
+        notes.forEach(data => {
+          const result: any = data.field.split(/@/g);
+          const betmode = parseInt(result[1], 10) / 100;
+          betmodearray.push(betmode);
+        });
+        return betmodearray;
+      }
+
       protected placeBet(evt: egret.Event) {
         dir.evtHandler.removeEventListener('onLotteryConfirmBet', this.placeBet, this);
         const notes = evt.data;
@@ -160,7 +170,8 @@ namespace we {
         //
         const betDetailArray: data.BetCommand[] = [];
         for (let i = 0; i < notes.length; i++) {
-          const field = notes[i].field + '#' + notes[i].multiplier;
+          // const field = notes[i].field + '#' + notes[i].multiplier; // after lotterycommand update
+          const field = notes[i].field;
           const amount = parseInt(notes[i].field.split('@')[1], 10) * notes[i].count;
           betDetailArray.push({ amount, field });
         }
@@ -170,6 +181,18 @@ namespace we {
 
       public confirmBet() {
         const notes = this._noteControl.notes;
+        let totalBetAmount = 0;
+        const betmodearray = this.getBetModeArray(notes);
+
+        notes.map((e, i) => {
+          totalBetAmount += e.count * e.multiplier * betmodearray[i];
+        });
+
+        if (totalBetAmount > env.balance) {
+          dir.evtHandler.dispatchEvent(new egret.Event('ON_LOTTERY_TRAD_INSUFFICIENTBALANCE'));
+          return;
+        }
+
         dir.evtHandler.addEventListener('onLotteryConfirmBet', this.placeBet, this);
         // this.placeBet(notes);
         dir.evtHandler.createOverlay({
@@ -180,6 +203,19 @@ namespace we {
 
       public instantBet() {
         const notes = this.generateNoteData();
+
+        let totalBetAmount = 0;
+        const betmodearray = this.getBetModeArray(notes);
+
+        notes.map((e, i) => {
+          totalBetAmount += e.count * e.multiplier * betmodearray[i];
+        });
+
+        if (totalBetAmount > env.balance) {
+          dir.evtHandler.dispatchEvent(new egret.Event('ON_LOTTERY_TRAD_INSUFFICIENTBALANCE'));
+          return;
+        }
+
         dir.evtHandler.addEventListener('onLotteryConfirmBet', this.placeBet, this);
         // this.placeBet(notes);
         dir.evtHandler.createOverlay({
@@ -196,18 +232,10 @@ namespace we {
         }
 
         this._noteControl.addNotes(notes);
-        // const tempbetdails = [
-        //   {
-        //     field: '34OptionalFree_564_708@200',
-        //     count: 9,
-        //     multiplier: 1,
-        //   },
-        // ];
       }
 
       public validateBetLimit() {
         // temp list of betlimits, need to receive from server
-        // const tempMap = we.lo.tempBetLimitsMap;
         if (this._currentBettingTable.betFields.length === 0) {
           return;
         }
@@ -227,7 +255,6 @@ namespace we {
       }
 
       public generateCurrentBetRoundBetDetail(): data.LotteryBetCommand[] {
-        // let lotteryBetCommandArray : data.LotteryBetCommand[] = [];
         const lotteryBetCommand: data.LotteryBetCommand = { roundid: this._currentGameRound, multiplier: 1, stopChaseIfWon: false };
 
         return [lotteryBetCommand];
@@ -246,6 +273,14 @@ namespace we {
         this._isStateBet = enable;
         this.validateBetButtons();
       }
+
+      public updateBetInfo(data) {
+        if (this._noteControl) {
+          this._noteControl.updateBalance();
+        }
+      }
+
+      public updateBetTableInfo(info) {}
 
       public validateBetButtons() {
         if (!this._bettingControl || !this._noteControl) {
@@ -278,6 +313,12 @@ namespace we {
       }
 
       public onExit() {
+        if (this._noteControl) {
+          this._noteControl.onExit();
+        }
+        if (this._bettingControl) {
+          this._bettingControl.onExit();
+        }
         this.destroy();
       }
     }

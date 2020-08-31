@@ -41,6 +41,8 @@ namespace we {
       protected finalImgSrc: string;
       protected initedComponents: boolean; // flag that the children are created
 
+      protected quickOpen: eui.Rect;
+
       constructor(w?: number, h?: number) {
         super();
         if (w) {
@@ -57,10 +59,16 @@ namespace we {
 
       public set cardWidth(value: number) {
         this._cardWidth = +value;
+        if (this.quickOpen) {
+          this.quickOpen.width = this._cardWidth * 0.6;
+        }
       }
 
       public set cardHeight(value: number) {
         this._cardHeight = +value;
+        if (this.quickOpen) {
+          this.quickOpen.height = this._cardHeight * 0.6;
+        }
       }
 
       protected mount() {
@@ -163,6 +171,15 @@ namespace we {
 
         this.initedComponents = true;
         this.setCardImage(this.backImgSrc, this.faceImgSrc, this.finalImgSrc);
+
+        this.quickOpen = new eui.Rect();
+        this.quickOpen.width = this._cardWidth * 0.6;
+        this.quickOpen.height = this._cardHeight * 0.6;
+        this.quickOpen.alpha = 0;
+        this.quickOpen.verticalCenter = 0;
+        this.quickOpen.horizontalCenter = 0;
+        this.addChild(this.quickOpen);
+        this.quickOpen.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this.showFinal(), this);
       }
 
       protected update() {

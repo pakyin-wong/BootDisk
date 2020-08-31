@@ -65,6 +65,7 @@ namespace we {
         }
         if (this._quickBetGroup) {
           this._quickBetGroup.y = this._originalQuickBetPanelY;
+          this._quickBetGroup.height = 0;
         }
       }
 

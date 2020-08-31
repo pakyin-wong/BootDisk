@@ -16,18 +16,22 @@ namespace we {
       // }
       public bettingPanel: ABettingPanel;
 
+      protected addListeners() {
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
+      }
+
+      protected removeListeners() {
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
+      }
+
       public init() {
         this._notes = [];
-        this._lblBalance.renderText = () => `餘額 $${dir.meterCtr.getLocal('balance')}`;
+        // this._lblBalance.renderText = () => `餘額 $${env.balance? env.balance : ' - '}`;
         // if (env.isMobile) {
         //   this._balanceGame.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
         //   this._balanceText.renderText = () => `${i18n.t('nav.bet_balance')}`;
         //   dir.meterCtr.register('balance', this._balanceGame);
         // }
-        dir.meterCtr.register('balance', this._lblBalance);
-        if (!isNaN(env.balance)) {
-          dir.meterCtr.rackTo('balance', env.balance, 0);
-        }
         // this._lblBalance.renderText = () => `餘額 $${this._balance}`;
         // dir.meterCtr.register('balance', this._lblBalance);
         // if (!isNaN(env.balance)) {
@@ -82,6 +86,10 @@ namespace we {
 
       public updateNoteControlPanel() {}
 
+      public updateBalance() {
+        this._lblBalance.renderText = () => `${i18n.t('nav.bet_balance')} $${env.balance ? utils.formatNumber(env.balance, true) : ' - '}`;
+      }
+
       public setConfirmBetButton(enable: boolean) {
         if (!this._notes) {
           return;
@@ -99,6 +107,10 @@ namespace we {
           this._btnConfirmBet.enabled = false;
         }
       }
+
+      public onExit() {}
+
+      public updateText() {}
     }
   }
 }

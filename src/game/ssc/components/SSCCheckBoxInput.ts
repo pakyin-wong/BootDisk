@@ -55,7 +55,10 @@ namespace we {
           this.checkBoxArray[i].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchCheckBox, this);
         }
 
+        this._data = [];
+
         if (this._description && this._config.minSelect) {
+          this.updateDescription();
         }
         this.addEventListener('INIT_CHECKBOXES', this.onInitAllCheckBox, this);
         // this.updateData();
@@ -75,6 +78,23 @@ namespace we {
         for (let i = 0; i < this.checkBoxArray.length; i++) {
           (this.checkBoxArray[i].getChildAt(1) as ui.RunTimeLabel).renderText = () => `${i18n.t('lo_trad.inputTitle.' + this._config.title[i])}`;
         }
+
+        // this.updateDescription();
+      }
+
+      public updateDescription() {
+        let boxCount = 0;
+        this.checkBoxValueArray.map(e => {
+          boxCount += e === true ? 1 : 0;
+        });
+        let text: string = `${i18n.t('lo_trad.description.checkbox')}`;
+        let searchText: string = '$count$';
+        text = text.replace(searchText, boxCount.toString());
+        searchText = '$combination$';
+        text = text.replace(searchText, this._data.length.toString());
+        searchText = '$min$';
+        text = text.replace(searchText, this._config.minSelect.toString());
+        this._description.renderText = () => `${text}`;
       }
 
       public onInitAllCheckBox(e: egret.Event) {
@@ -103,6 +123,8 @@ namespace we {
             we.lo.InputComponentFactory.findNextCombination(inputs, this._data, sample, i, 1, (i + 1).toString());
           }
         }
+
+        this.updateDescription();
 
         this.dispatchEventWith(egret.Event.CHANGE, false, { index: this._index, data: this._data });
       }

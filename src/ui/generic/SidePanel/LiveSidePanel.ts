@@ -257,6 +257,17 @@ namespace we {
             }
           });
         }
+
+        // TODO: update the side panel to support lo games, for now filter out all the lo games
+        tableList = tableList.filter(tableid => {
+          const tableInfo = env.tableInfos[tableid];
+          if (tableInfo) {
+            return tableInfo.gametype != we.core.GameType.LO;
+          } else {
+            return false;
+          }
+        });
+
         this.allTableList.setTableList(tableList);
       }
 

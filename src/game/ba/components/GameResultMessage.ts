@@ -47,10 +47,10 @@ namespace we {
 
       protected createAniamtionObject() {
         super.createAniamtionObject();
-        if (env.isMobile = true) {
-          if (env.orientation === "portrait") {
-            this._display.scaleX = 830/this._display.width;
-            this._display.scaleY = 300/this._display.height;
+        if ((env.isMobile = true)) {
+          if (env.orientation === 'portrait') {
+            this._display.scaleX = 830 / this._display.width;
+            this._display.scaleY = 300 / this._display.height;
           }
         }
       }

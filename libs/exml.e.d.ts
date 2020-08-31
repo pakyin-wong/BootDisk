@@ -607,6 +607,18 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class LoLobbyRoadPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LoRightDrawerPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LoRightPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class LotteryScene extends eui.Skin{
 	}
 }
@@ -1596,6 +1608,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class BetConfirmButtonMobile extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class BetConfirmVerticalButtonMobile extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

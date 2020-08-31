@@ -92,10 +92,11 @@ namespace we {
       public init(visibleDenomNum: number, denomList: number[]) {
         this._visibleDenomNum = visibleDenomNum;
         this._denomList = denomList;
-        this._selectedChipIndex = env.currentChipSelectedIndex;
+        // this._selectedChipIndex = env.currentChipSelectedIndex;
         this.setChipSet(denomList);
         this._renderItems();
-        this._onChipSelected(this._selectedChipIndex);
+        this.syncChip();
+        // this._onChipSelected(env.currentChipSelectedIndex);
       }
 
       public resetFormat(denomNum: any) {
@@ -190,6 +191,7 @@ namespace we {
 
       private syncChip() {
         // check if the page is correct
+        if (this._selectedChipIndex === env.currentChipSelectedIndex) return;
         const index = env.currentChipSelectedIndex;
         if (!(index - this._startIndex < this._visibleDenomNum && index - this._startIndex > 0)) {
           // update _startIndex
@@ -203,12 +205,15 @@ namespace we {
       }
 
       private setChip(index: number) {
-        this._chipList[this._selectedChipIndex].type = we.core.ChipType.PERSPECTIVE;
+        if (this._selectedChipIndex === index) return;
+
+        if (this._selectedChipIndex > -1) {
+          this._chipList[this._selectedChipIndex].type = we.core.ChipType.PERSPECTIVE;
+        }
         // this._chipList[this._selectedChipIndex].draw();
 
         this._chipList[index].type = we.core.ChipType.FLAT;
         // this._chipList[index].draw();
-
         this._selectedChipIndex = index;
       }
 

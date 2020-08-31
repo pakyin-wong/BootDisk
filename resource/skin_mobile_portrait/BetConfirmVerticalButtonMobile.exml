@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<e:Skin class="skin_mobile_portrait.BetConfirmVerticalButtonMobile" states="up,down,disabled" minHeight="50" minWidth="100"
+        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" width="120" height="300" xmlns:ui="we.ui.*" >
+    <w:Config id="16e8d1f2d86" />
+    <ui:RoundRectButton width="120" height="300" stroke="0" cornerTL_TR_BL_BR="60,60,60,60" fillColor="0x101D24" fillAlpha="1"/>
+    <e:Label id="labelDisplay" top="8" bottom="8" left="8" right="8" size="20" textColor="0xFFFFFF"
+             verticalAlign="middle" textAlign="center"  />
+    <e:Image source="d_lobby_panel_betcontrol_btn_confirm_icon_png" horizontalCenter="0" y="180" />
+    <e:Image id="iconDisplay" horizontalCenter="0" verticalCenter="0" />
+</e:Skin>

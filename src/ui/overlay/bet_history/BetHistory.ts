@@ -32,6 +32,12 @@ namespace we {
       protected _ddm_page: ui.Panel;
       protected _txt_page: ui.RunTimeLabel;
 
+      protected _txt_limit: eui.Label;
+      protected _btn_limit: egret.DisplayObject;
+      protected _ddm_limit: ui.Panel;
+      protected _tf_limit: ui.RunTimeLabel;
+      protected _txt_total: eui.Label;
+
       protected _btn_prev: ui.BaseAnimationButton;
       protected _btn_next: ui.BaseAnimationButton;
 
@@ -42,7 +48,7 @@ namespace we {
       protected _page: number = 1;
       protected _starttime: number;
       protected _endtime: number;
-      protected _limit: number = 11;
+      protected _limit: number = 10;
       protected _type: number = -1;
 
       protected _datepicker: DoubleCalendarPicker;
@@ -96,6 +102,16 @@ namespace we {
           this._ddm_page.dropdown.data.replaceAll([ui.NewDropdownItem(1, () => `1/1`)]);
           this._ddm_page.dropdown.select(1);
         }
+        if (this._ddm_limit) {
+          this._txt_limit.text = i18n.t('overlaypanel_bethistory_limit');
+          this._ddm_limit.isDropdown = true;
+          this._ddm_limit.isPoppable = true;
+          this._ddm_limit.dismissOnClickOutside = true;
+          this._ddm_limit.setToggler(this._btn_limit);
+          this._ddm_limit.dropdown.review = this._tf_limit;
+          this._ddm_limit.dropdown.data.replaceAll([ui.NewDropdownItem(10, () => `10`), ui.NewDropdownItem(50, () => `50`), ui.NewDropdownItem(100, () => `100`)]);
+          this._ddm_limit.dropdown.select(10);
+        }
         this._datagroup.dataProvider = this._dataColl;
         this._datagroup.itemRenderer = betHistory.BetHistoryItem;
         this._tf_search.prompt = '';
@@ -120,6 +136,7 @@ namespace we {
         this._btn_next.$addListener('CLICKED', this.onClickNext, this);
         this._btn_prev.$addListener('CLICKED', this.onClickPrev, this);
         this._ddm_page && this._ddm_page.$addListener('DROPDOWN_ITEM_CHANGE', this.onPageChange, this);
+        this._ddm_limit && this._ddm_limit.$addListener('DROPDOWN_ITEM_CHANGE', this.onLimitChange, this);
         this._ddm_searchType && this._ddm_searchType.$addListener('DROPDOWN_ITEM_CHANGE', this.onTypeChange, this);
         this._datepicker.$addListener('PICKED_DATE', this.searchCustomDate, this);
       }
@@ -133,6 +150,7 @@ namespace we {
         this._btn_next.removeEventListener('CLICKED', this.onClickNext, this);
         this._btn_prev.removeEventListener('CLICKED', this.onClickPrev, this);
         this._ddm_page && this._ddm_page.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onPageChange, this);
+        this._ddm_limit && this._ddm_limit.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onLimitChange, this);
         this._ddm_searchType && this._ddm_searchType.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onTypeChange, this);
         this._datepicker.removeEventListener('PICKED_DATE', this.searchCustomDate, this);
       }
@@ -240,6 +258,7 @@ namespace we {
           this.total = Math.ceil(res.total / this._limit);
           this._page = Math.floor(res.offset / this._limit) + 1;
           this._ddm_page && this._ddm_page.dropdown.select(this._page);
+
           res.history.forEach((element, i) => {
             if (i % 2 === 1) {
               element.colorIndex = 1;
@@ -248,11 +267,23 @@ namespace we {
             }
           });
           this._dataColl.replaceAll(res.history);
+
+          if (this._txt_total) {
+            const s = res.offset + 1;
+            const e = Math.min(res.offset + this._limit, res.total);
+            this._txt_total.text = i18n.t('overlaypanel_bethistory_total').replace('%now%', `${s}-${e}`).replace('%total%', res.total);
+          }
         }
       }
 
       protected onPageChange(e) {
         this._page = e.data;
+        this.search();
+      }
+
+      protected onLimitChange(e) {
+        this._limit = e.data;
+        this._page = 1;
         this.search();
       }
 

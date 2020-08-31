@@ -14,12 +14,12 @@ namespace we {
       protected _bankerCard2Group: eui.Group;
       protected _bankerCard3Group: eui.Group;
 
-      protected _playerCard1QuickOpen: eui.Rect;
-      protected _playerCard2QuickOpen: eui.Rect;
-      protected _playerCard3QuickOpen: eui.Rect;
-      protected _bankerCard1QuickOpen: eui.Rect;
-      protected _bankerCard2QuickOpen: eui.Rect;
-      protected _bankerCard3QuickOpen: eui.Rect;
+      // protected _playerCard1QuickOpen: eui.Rect;
+      // protected _playerCard2QuickOpen: eui.Rect;
+      // protected _playerCard3QuickOpen: eui.Rect;
+      // protected _bankerCard1QuickOpen: eui.Rect;
+      // protected _bankerCard2QuickOpen: eui.Rect;
+      // protected _bankerCard3QuickOpen: eui.Rect;
 
       protected _cardPositionPeekX: number[] = [287, 492, 122, 327];
       protected _cardPositionPeekPlayerX: number[] = [385, 590];
@@ -28,12 +28,12 @@ namespace we {
       protected mount() {
         super.mount();
 
-        this._playerCard1QuickOpen.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this._playerCard1.showFinal(), this);
-        this._playerCard2QuickOpen.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this._playerCard2.showFinal(), this);
-        this._playerCard3QuickOpen.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this._playerCard3.showFinal(), this);
-        this._bankerCard1QuickOpen.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this._bankerCard1.showFinal(), this);
-        this._bankerCard2QuickOpen.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this._bankerCard2.showFinal(), this);
-        this._bankerCard3QuickOpen.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this._bankerCard3.showFinal(), this);
+        // this._playerCard1QuickOpen.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this._playerCard1.showFinal(), this);
+        // this._playerCard2QuickOpen.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this._playerCard2.showFinal(), this);
+        // this._playerCard3QuickOpen.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this._playerCard3.showFinal(), this);
+        // this._bankerCard1QuickOpen.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this._bankerCard1.showFinal(), this);
+        // this._bankerCard2QuickOpen.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this._bankerCard2.showFinal(), this);
+        // this._bankerCard3QuickOpen.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this._bankerCard3.showFinal(), this);
       }
 
       protected setBgVisible(player: boolean, banker: boolean) {
