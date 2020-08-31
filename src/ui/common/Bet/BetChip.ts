@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
     export class BetChip extends core.BaseEUI implements eui.UIComponent, IBetChip {
-      protected chipImageMapping = ['Lv1_Blue', 'Lv1_Yellow', 'Lv1_Orange', 'Lv1_Light_Red', 'Lv1_Purple', 'Lv1_Magentas_Dark', 'Lv1_Green', 'Lv1_Blue_Dark', 'Lv1_Green_Dark', 'Lv1_Gray_Light'];
+      protected chipImageMapping = ['Lv1_Blue', 'Lv1_Yellow', 'Lv1_Orange', 'Lv1_Light_Red', 'Lv1_Purple', 'Lv1_Magentas_Dark', 'Lv1_Green', 'Lv1_Blue_Dark', 'Lv1_GreenDark', 'Lv1_Gray_Light'];
       protected _value: number;
       protected _chipImage: eui.Image;
       protected _chipValueLabel: eui.Label;
