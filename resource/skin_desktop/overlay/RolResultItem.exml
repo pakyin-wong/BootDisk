@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.RolResultItem" width="490" height="76" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" >
-	<e:Group id="_ballContainer" width="40" height="40" horizontalCenter="0" verticalCenter="0"/>
-	<e:Label id="_oddLabel" width="200" height="40" x="300" verticalCenter="0" textAlign="left" />
+<e:Skin class="skin_desktop.RolResultItem" height="76" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" >
+	<e:Group id="_ballContainer" width="40" height="40" x="0" y="18"/>
+	<e:Label id="_oddLabel" width="200" height="40" x="75" textAlign="left" y="18"/>
 </e:Skin>

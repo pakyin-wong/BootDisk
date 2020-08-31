@@ -20,11 +20,7 @@ namespace we {
         this.shape = new egret.Shape();
         this.graphic = this.shape.graphics;
         this.addChild(this.shape);
-        this.setChartStyles([
-          [[0x2552fc, 0x5ad9ff], [1, 1], [0, 255], 0],
-          [[0xe4e85c, 0x1fe479], [1, 1], [0, 255], 0],
-          [[0xfc2424, 0xfa936e], [1, 1], [0, 255], 0],
-        ]);
+        this.setChartStyles([[[0x2552fc, 0x5ad9ff], [1, 1], [0, 255], 0], [[0xe4e85c, 0x1fe479], [1, 1], [0, 255], 0], [[0xfc2424, 0xfa936e], [1, 1], [0, 255], 0]]);
       }
 
       public setChartStyles(colorSettings: any, startHeight: number = 200, barWidth: number = 100, barGap: number = 5) {
@@ -117,11 +113,12 @@ namespace we {
             // const gradientAngle: number = startAngle + (Math.PI); //from start angle to center
             // const gradientAngle: number = endAngle + (Math.PI);//from end angle to center
             matrix.createGradientBox(this.barWidth, hLeft, gradientAngle, x1, y1);
-            this.graphic.beginGradientFill(egret.GradientType.LINEAR, setting[0], setting[1], setting[2], matrix);
             this.graphic.moveTo(x1, y1);
+            this.graphic.beginGradientFill(egret.GradientType.LINEAR, setting[0], setting[1], setting[2], matrix);
             this.graphic.lineTo(x1, this.startHeight);
             this.graphic.lineTo(x2, this.startHeight);
             this.graphic.lineTo(x2, y2);
+            this.graphic.lineTo(x1, y1);
             this.graphic.endFill();
             lastX = x2 + this.barGap;
           }

@@ -69,7 +69,7 @@ namespace we {
           const data = new eui.Group();
           this._datagroup.addChild(data);
           data.width = 725;
-          data.height = 42;
+          data.height = 48;
           data.x = 48;
           data.y = 42 * i;
 
@@ -130,7 +130,7 @@ namespace we {
             OutputDataString += `${i18n.t('lo_trad.inputs.' + DataStringArray[0].trim().toUpperCase())}`;
           }
         }
-        
+
         for (let i = 1; i < DataStringArray.length; i++) {
           if (this.isNumeric(parseInt(DataStringArray[i], 10))) {
             OutputDataString += ` | ${DataStringArray[i]}`;

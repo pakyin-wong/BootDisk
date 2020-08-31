@@ -53,6 +53,13 @@
 							<e:HorizontalLayout/>
 						</e:layout>
 		</e:Group>
+		<e:Group bottom="-2029" left="0" width="700" x="0" y="2125" scaleX="1" scaleY="1">
+			<ui:RunTimeLabel id="_baGameIDText" text="Game ID :" bottom="0" left="0" left.left_hand_mode="15" bottom.left_hand_mode="94"/>
+			<ui:RunTimeLabel id="_baGameID" text="ID" bottom="0" left="0"/>
+			<e:layout>
+			<e:HorizontalLayout/>
+			</e:layout>
+		</e:Group>
 	</e:Group>
 	<ui:BaseImageButton id="_common_listpanel" width="104" height="104" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
 	                    scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
@@ -141,9 +148,9 @@
 	         right.right_hand_mode="10" left.left_hand_mode="10" top.left_hand_mode="190" top.right_hand_mode="190">
 		<e:Rect id="_roundPanel" width="128" height="834" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
 		        fillColor="0x444444" />
-		<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="684"
-		          x.right_hand_mode="124" skinName="skin_mobile_portrait.BetConfirmButtonMobile" x.left_hand_mode="130"
-		          rotation="90" y="740" />
+		<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="120" anchorOffsetY="0" height="300"
+		          x.right_hand_mode="5.82" skinName="skin_mobile_portrait.BetConfirmVerticalButtonMobile" x.left_hand_mode="5"
+		          y="740"  y.left_hand_mode="736.97"/>
 		<ui:CountdownTimer id="_timer" width="256" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" y="740" colorChange="true"
 		                   horizontalCenter="0" rotation="90" currentState="vertical" width.right_hand_mode="300"
 		                   anchorOffsetX.right_hand_mode="0" horizontalCenter.right_hand_mode="0" x.left_hand_mode="130"
@@ -171,16 +178,8 @@
 		                    x.right_hand_mode="28" x.left_hand_mode="350" horizontalCenter="0" />
 	</e:Group>
 </e:Group>
-<e:Rect strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x212425" left="0"
-        right="0" top="2095" bottom="0" />
+
 <di:MobileBottomGamePanel skinName="skin_mobile_portrait.di.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"
                           x="0" scaleY="1" scaleX="1" bottom="55" locked="true" />
-<e:Group bottom="0" left="0" width="700">
-	<ui:RunTimeLabel id="_baGameIDText" text="Game ID :" bottom="0" left="0" left.left_hand_mode="15"
-	                 bottom.left_hand_mode="94" />
-	<ui:RunTimeLabel id="_baGameID" text="ID" bottom="0" left="0" />
-	<e:layout>
-		<e:HorizontalLayout/>
-	</e:layout>
-</e:Group>
+
 </e:Skin>

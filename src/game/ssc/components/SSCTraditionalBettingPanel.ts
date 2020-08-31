@@ -3,8 +3,6 @@ namespace we {
   export namespace lo {
     export class SSCTraditionalBettingPanel extends ABettingPanel {
       // control by scene
-      public _lblCurrentRound: ui.RunTimeLabel;
-
       protected _buttonGroup: eui.Group;
 
       protected _bigTagsGroup: eui.Group;
@@ -33,6 +31,30 @@ namespace we {
 
       private _winInstructGroup: eui.Group;
       private _lblwinInstruct: ui.RunTimeLabel;
+
+      private _lblCurrentRound: ui.RunTimeLabel;
+      private _lblCurrentRoundState: ui.RunTimeLabel;
+
+      private _lblPrevRound: ui.RunTimeLabel;
+      private _lblLastRound: ui.RunTimeLabel;
+
+      private _lblResultBall0: ui.RunTimeLabel;
+      private _lblResultBall1: ui.RunTimeLabel;
+      private _lblResultBall2: ui.RunTimeLabel;
+      private _lblResultBall3: ui.RunTimeLabel;
+      private _lblResultBall4: ui.RunTimeLabel;
+
+      private _lblLastBall0: ui.RunTimeLabel;
+      private _lblLastBall1: ui.RunTimeLabel;
+      private _lblLastBall2: ui.RunTimeLabel;
+      private _lblLastBall3: ui.RunTimeLabel;
+      private _lblLastBall4: ui.RunTimeLabel;
+
+      private _lblPrevBall0: ui.RunTimeLabel;
+      private _lblPrevBall1: ui.RunTimeLabel;
+      private _lblPrevBall2: ui.RunTimeLabel;
+      private _lblPrevBall3: ui.RunTimeLabel;
+      private _lblPrevBall4: ui.RunTimeLabel;
 
       constructor(skin: string = null) {
         super(skin);
@@ -245,7 +267,7 @@ namespace we {
         for (let i = 0; i < this.smallTagsArray.length; i++) {
           const lbl = this.smallTagsArray[i].getChildAt(0) as ui.RunTimeLabel;
           lbl.alpha = 0.7;
-          lbl.textFlow = <egret.ITextElement[]>[
+          lbl.textFlow = <egret.ITextElement[]> [
             {
               text: lbl.text,
               style: { bold: false, underline: false },
@@ -253,7 +275,7 @@ namespace we {
           ];
           if (i === this.currentSmallTagIndex) {
             lbl.alpha = 1;
-            lbl.textFlow = <egret.ITextElement[]>[
+            lbl.textFlow = <egret.ITextElement[]> [
               {
                 text: lbl.text,
                 style: { bold: true, underline: true },
@@ -278,6 +300,61 @@ namespace we {
         }
       }
 
+      public updateBetInfo(data) {
+        super.updateBetInfo(data);
+        this._lblCurrentRound.renderText = () => `${data.gameroundid}`;
+        switch (data.state) {
+          case core.GameState.DEAL:
+          case core.GameState.FINISH:
+            this._lblCurrentRoundState.renderText = () => `${data.gameroundid + i18n.t('lo_fun_drawingRound')}`;
+            this._lblResultBall0.renderText = () => (data.ball1 >= 0 ? `${data.ball1}` : '-');
+            this._lblResultBall1.renderText = () => (data.ball2 >= 0 ? `${data.ball2}` : '-');
+            this._lblResultBall2.renderText = () => (data.ball3 >= 0 ? `${data.ball3}` : '-');
+            this._lblResultBall3.renderText = () => (data.ball4 >= 0 ? `${data.ball4}` : '-');
+            this._lblResultBall4.renderText = () => (data.ball5 >= 0 ? `${data.ball5}` : '-');
+            break;
+          default:
+            this._lblCurrentRoundState.renderText = () => `${i18n.t('lo_fun_lastRound')}`;
+        }
+      }
+
+      public updateBetTableInfo(info) {
+        super.updateBetTableInfo(info);
+        if (info.gamestatistic.loresults) {
+          const data = info.gamestatistic.loresults;
+          let index = data.length - 1;
+
+          this._lblCurrentRoundState.renderText = () => `${data[index].Roundnumber + i18n.t('lo_fun_drawingRound')}`;
+          this._lblResultBall0.renderText = () => (data[index].Data.ball1 >= 0 ? `${data[index].Data.ball1}` : '-');
+          this._lblResultBall1.renderText = () => (data[index].Data.ball2 >= 0 ? `${data[index].Data.ball2}` : '-');
+          this._lblResultBall2.renderText = () => (data[index].Data.ball3 >= 0 ? `${data[index].Data.ball3}` : '-');
+          this._lblResultBall3.renderText = () => (data[index].Data.ball4 >= 0 ? `${data[index].Data.ball4}` : '-');
+          this._lblResultBall4.renderText = () => (data[index].Data.ball5 >= 0 ? `${data[index].Data.ball5}` : '-');
+
+          if (data.length >= 2) {
+            index = data.length - 2;
+
+            this._lblLastRound.renderText = () => `${data[index].Roundnumber}`;
+            this._lblLastBall0.renderText = () => (data[index].Data.ball1 >= 0 ? `${data[index].Data.ball1}` : '-');
+            console.log(data[index].Data.ball1);
+            this._lblLastBall1.renderText = () => (data[index].Data.ball2 >= 0 ? `${data[index].Data.ball2}` : '-');
+            this._lblLastBall2.renderText = () => (data[index].Data.ball3 >= 0 ? `${data[index].Data.ball3}` : '-');
+            this._lblLastBall3.renderText = () => (data[index].Data.ball4 >= 0 ? `${data[index].Data.ball4}` : '-');
+            this._lblLastBall4.renderText = () => (data[index].Data.ball5 >= 0 ? `${data[index].Data.ball5}` : '-');
+          }
+          if (data.length >= 3) {
+            index = data.length - 3;
+
+            this._lblPrevRound.renderText = () => `${data[index].Roundnumber}`;
+            this._lblPrevBall0.renderText = () => (data[index].Data.ball1 >= 0 ? `${data[index].Data.ball1}` : '-');
+            this._lblPrevBall1.renderText = () => (data[index].Data.ball2 >= 0 ? `${data[index].Data.ball2}` : '-');
+            this._lblPrevBall2.renderText = () => (data[index].Data.ball3 >= 0 ? `${data[index].Data.ball3}` : '-');
+            this._lblPrevBall3.renderText = () => (data[index].Data.ball4 >= 0 ? `${data[index].Data.ball4}` : '-');
+            this._lblPrevBall4.renderText = () => (data[index].Data.ball5 >= 0 ? `${data[index].Data.ball5}` : '-');
+          }
+        }
+      }
+
       protected createBetTable() {
         this.clearCurrentBettingTable();
 
@@ -285,7 +362,9 @@ namespace we {
         const config = currentBigTag['type'][Object.keys(currentBigTag['type'])[this.currentSmallTagIndex]];
 
         const bettingTable = new SSCTraditionalBettingTable(config);
-        if (this._bettingControl) this._bettingControl.updateHighestWin(config);
+        if (this._bettingControl) {
+          this._bettingControl.updateHighestWin(config);
+        }
         this._currentBettingTable = bettingTable;
         this.initCurrentBettingTable();
         this._currentBettingTable.init();

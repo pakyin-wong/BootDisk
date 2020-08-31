@@ -60,7 +60,7 @@ namespace we {
         const inputText = this._textArea.text;
         this.validateTextArea(inputText);
 
-        if (this._data !== [] && this._data !== '' && this._data !== null && this.isValidate) {
+        if (this._data !== [] && this._data !== null && this.isValidate) {
           this.dispatchEventWith('lo_trad_textareaupdate', false, { index: this._index, data: this._data });
         }
       }
@@ -166,7 +166,9 @@ namespace we {
         let temp = '';
 
         this._data = '';
-        if (isUpdateTextField) this._textArea.text = '';
+        if (isUpdateTextField) {
+          this._textArea.text = '';
+        }
         let count = 0;
 
         for (let i = 0; i < datas.length; i++) {
@@ -217,10 +219,14 @@ namespace we {
         // set textArea & set _data
         for (let i = 0; i < finalDatas.length; i++) {
           if (i === finalDatas.length - 1) {
-            if (isUpdateTextField) this._textArea.text += finalDatas[i];
+            if (isUpdateTextField) {
+              this._textArea.text += finalDatas[i];
+            }
             this._data += finalDatas[i];
           } else {
-            if (isUpdateTextField) this._textArea.text += finalDatas[i] + ', ';
+            if (isUpdateTextField) {
+              this._textArea.text += finalDatas[i] + ', ';
+            }
             this._data += finalDatas[i] + '|';
           }
         }

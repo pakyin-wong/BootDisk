@@ -1,23 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.BetHistoryItem" width="2140" height="76" currentState="normal" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*"  states="normal,hover" >
-	<e:Rect id="_txt_record_bgcolor" width="2140" height="76" x="0" y="0"/>
-	<!--<e:Rect id="_txt_hover_color" includeIn="hover" left="0" right="0" top="0" bottom="0" fillColor="0x4077ab"/>-->
-	<ui:RoundRectShape includeIn="hover" cornerTL_TR_BL_BR="0,0,0,0" width="2140" height="76" x="0" y="0" stroke="0"
-		    strokeColor="0x4077ab" fillColor="0x13304c,0x4077ab,90" />
-	<e:Group left="0" right="0" top="0" bottom="0" alpha="0.8" alpha.hover="1">
-		<e:Label id="_txt_record_id" text="Label" x="95" y="0" width="171" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_date" text="Label" x="286" y="0" width="228" size="20" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_game" text="Label" x="534" y="0" width="103" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_round" text="Label" x="657" y="0" width="109" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_remark" text="Label" x="865" y="0" width="66" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_bettype" text="Label" x="951" y="0" width="109" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_betamount" text="Label" x="1080" y="0" width="127" size="20" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_win" text="Label" x="1227" y="0" width="139" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_orgbalance" text="Label" x="1386" y="0" width="156" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_finbalance" text="Label" x="1562" y="0" width="88" size="20" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-		<e:Image id="_btn_replay" width="37" height="37" x="786" y="20" scaleX="1" scaleY="1"
-			source.hover="d_lobby_panel_button_play_hover_png" source.normal="d_lobby_panel_button_play_normal_png"
-			tooltipText="'overlay.tooltip.bethistory.replay'" tooltipPosition="'above'" />
-		<e:Group id="_record_result" width="490" height="76" x="1650" y="0" scaleX="1" scaleY="1"/>
+<e:Skin class="skin_desktop.BetHistoryItem" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*"    states="up,down" >
+	<e:Rect id="_txt_record_bgcolor" width="1780" height="76" x="0" y="0" height.down="286"/>
+
+
+
+
+
+
+
+
+
+
+	<e:Group id="_hoverGroup" x="48" y="0" 
+>
+		<e:Label id="_txt_record_id" text="Label" x="0" y="0" width="171" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_date" text="Label" x="229" y="0" width="228" size="20" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_game" text="Label" x="512" y="0" width="103" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_remark" text="Label" x="780" y="0" width="66" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_betamount" text="Label" x="898" y="0" width="127" size="20" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_win" text="Label" x="1137" y="0" width="139" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_finbalance" text="Label" x="1398" y="0" width="88" size="20" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Image x="1646" width="30" height="30" source="d_lobby_button_next_hover_png" y="23" visible.down="false"/>
+		<e:Image width="16" height="10" x="1653" y="33" source="d_lobby_btn_dropdown_png" visible.up="false"/>
 	</e:Group>
+
+
+
+
+	<e:Group x="48" y="0" visible.up="false">
+		<e:Rect width="1686" height="2" x="0" y="0" fillColor="0x353535" y.down="76"/>
+		<e:Label id="_txt_round" text="Label" size="24" verticalAlign="middle" height="66" width="104" y.down="79" y="0" />
+		<e:Label id="_txt_bettype" text="Label" size="24" verticalAlign="middle" height="66" width="104" y.down="145" y="0" />
+		<e:Label id="_txt_result" text="Label" size="24" verticalAlign="middle" height="66" width="104" y.down="211" y="0" />
+		<e:Label id="_txt_record_round" text="Label" y="0" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y.down="79"/>
+		<e:Label id="_txt_record_bettype" text="Label" y="0" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y.down="145"/>
+		<e:Label id="_txt_record_orgbalance" text="Label" y="0" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" visible="false"/>
+		<e:Group x="152" y="0" height="76" y.down="210">
+			<e:Group id="_record_result" scaleX="1" scaleY="1" x="0" y="0"/>
+			<ui:RoundRectButton id="_btn_replay" width="122" height="44" scaleX="1" scaleY="1" fillAlpha="0" strokeColor="0x979797" cornerTL_TR_BL_BR="22,22,22,22" x="0" y="0">
+				<e:Skin width="122" height="44">
+				<e:Group left="0" right="0" top="0" bottom="0">
+					<e:Image width="12" height="15" source="d_lobby_button_triangle_next_png" scaleX="1" scaleY="1"/>
+					<ui:RunTimeLabel id="_label" text="重播" size="20" height="29" scaleX="1" scaleY="1" verticalAlign="middle"/>
+					<e:layout>
+					<e:HorizontalLayout verticalAlign="middle" horizontalAlign="center"/>
+					</e:layout>
+				</e:Group>
+				</e:Skin>
+			</ui:RoundRectButton>
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="middle" gap="36"/>
+			</e:layout>
+		</e:Group>
+	</e:Group>
+	<!--<e:Rect id="_txt_hover_color" includeIn="hover" left="0" right="0" top="0" bottom="0" fillColor="0x4077ab"/>-->
+
 </e:Skin>

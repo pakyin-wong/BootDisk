@@ -73,50 +73,13 @@ namespace we {
       public init() {
         super.init();
         // runtimelabel rendertext
-        this._lblGameMode.renderText = () => `玩法`;
-        this._lblBetItem.renderText = () => `投注項目`;
-        this._lblBetMode.renderText = () => `模式`;
-        this._lblNoteCount.renderText = () => `注數`;
-        this._lblMultiplier.renderText = () => `倍數`;
-        this._lblTotalBet.renderText = () => `金額`;
-        this._lblControl.renderText = () => `操作`;
-        this._lblBalance.renderText = () => `餘額 $${this._balance}`;
-
-        this._lbltotalBetCount.renderText = () => `${this._totalBetCount}`;
-        this._lbltotalBetAmount.renderText = () => `${this._totalBetAmount}`;
+        this.updateText();
         this.addListeners();
-        // const tempNotes: TradNoteData[] = [
-        //   {
-        //     field: '12OptionalFree_1_2@200',
-        //     count: 1,
-        //     multiplier: 1,
-        //   },
-        //   {
-        //     field: '13OptionalFree_1_12@200',
-        //     count: 2,
-        //     multiplier: 1,
-        //   },
-        //   {
-        //     field: '23OptionalFree_2_12@200',
-        //     count: 2,
-        //     multiplier: 1,
-        //   },
-        // ];
-
-        // this.notes = tempNotes;
-        // console.log('this.notes', this.notes);
-        // const itemArray = this.generateStringFromNote(this.notes);
-        // this._dataColl = new eui.ArrayCollection();
-        // this._dataColl.source = itemArray;
-        // this._datagroup.dataProvider = this._dataColl;
-        // this._datagroup.itemRenderer = lo.SSCBetNoteItem;
-        // this.updateNoteControlPanel();
-        // this.computeTotalNoteAmount();
-
-        // SSCBetNoteItem.PANEL = this;
       }
 
       protected addListeners() {
+        super.addListeners();
+
         dir.evtHandler.addEventListener(we.core.Event.SSC_DELETE_ONE_NOTE, this.deleteOneNote, this);
         this._btnDelectAll.addEventListener(egret.TouchEvent.TOUCH_TAP, this.clearAllNotes, this);
         this._btnConfirmBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this.bettingPanel);
@@ -124,9 +87,25 @@ namespace we {
       }
 
       protected removeListeners() {
+        super.removeListeners();
+
         this._btnDelectAll.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.clearAllNotes, this);
         dir.evtHandler.removeEventListener(we.core.Event.SSC_DELETE_ONE_NOTE, this.deleteOneNote, this);
         this._btnConfirmBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this.bettingPanel);
+      }
+
+      public updateText() {
+        this._lblGameMode.renderText = () => `${i18n.t('lo_trad.ui.gamemode')}`;
+        this._lblBetItem.renderText = () => `${i18n.t('lo_trad.ui.betitem')}`;
+        this._lblBetMode.renderText = () => `${i18n.t('lo_trad.ui.betmode')}`;
+        this._lblNoteCount.renderText = () => `${i18n.t('lo_trad.ui.notecount')}`;
+        this._lblMultiplier.renderText = () => `${i18n.t('lo_trad.ui.multiplier')}`;
+        this._lblTotalBet.renderText = () => `${i18n.t('lo_trad.ui.betamount')}`;
+        this._lblControl.renderText = () => `${i18n.t('lo_trad.ui.action')}`;
+        this._lblBalance.renderText = () => `${i18n.t('nav.bet_balance')} $${env.balance ? utils.formatNumber(env.balance, true) : ' - '}`;
+
+        this._lbltotalBetCount.renderText = () => `${this._totalBetCount}`;
+        this._lbltotalBetAmount.renderText = () => `${this._totalBetAmount}`;
       }
 
       protected deleteOneNote(evt: egret.Event) {
@@ -237,6 +216,10 @@ namespace we {
         }
       }
 
+      public onExit() {
+        super.onExit();
+        this.removeListeners();
+      }
       // protected addTotalBetCount(count: number) {
       //   this._totalBetCount += count;
       //   this._lbltotalBetCount.renderText = () => `total count ${this._totalBetCount}`;

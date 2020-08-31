@@ -93,9 +93,11 @@ namespace we {
       }
 
       protected onBaModeToggle(evt: eui.UIEvent) {
-        this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
-        this._tableLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
-        this._chipLayer.cancelBet();
+        if (this._switchBaMode) {
+          this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
+          this._tableLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
+          this._chipLayer.cancelBet();
+        }
       }
 
       protected initRoadMap() {
@@ -208,9 +210,11 @@ namespace we {
         }
       }
 
-            protected setBetRelatedComponentsEnabled(enable: boolean) {
-              super.setBetRelatedComponentsEnabled(enable);
-              this._switchBaMode.enabled = enable;
+      protected setBetRelatedComponentsEnabled(enable: boolean) {
+        super.setBetRelatedComponentsEnabled(enable);
+        if (this._switchBaMode) {
+          this._switchBaMode.enabled = enable;
+        }
       }
     }
   }

@@ -264,7 +264,7 @@ namespace we {
       }
 
       public updateResult(gameData: data.GameData, chipLayer?: ui.ChipLayer) {
-        this.gameData = <bam.GameData>gameData;
+        this.gameData = <bam.GameData> gameData;
         this._chipLayer = chipLayer;
 
         this.updateCardArr();
@@ -368,10 +368,7 @@ namespace we {
         let allowed = false;
         if (this._chipLayer && this._chipLayer.getConfirmedBetDetails()) {
           this._chipLayer.getConfirmedBetDetails().map(value => {
-            if (
-              value.field === we.ba.BetField.BANKER  ||
-              value.field === we.ba.BetField.SUPER_SIX_BANKER
-            ) {
+            if (value.field === we.ba.BetField.BANKER || value.field === we.ba.BetField.SUPER_SIX_BANKER) {
               if (value.amount > 0) {
                 allowed = true;
               }
