@@ -6,8 +6,8 @@
 		                   strokeIn="1" strokeColor="0x000000" strokeInColor="0x3a3f48" fillColor="0xffffff"  horizontalCenter="0"/>
 		<!--<e:Rect height="115" y="0" right="0" left="0" fillColor="0x23282e" strokeAlpha="1" ellipseWidth="24"
 		        ellipseHeight="24" strokeWeight="3" anchorOffsetY="0" strokeColor="0x3a3f48" />-->
-		<ui:RoundRectShape cornerTL_TR_BL_BR="12,12,0,0" height="104" width="100%" stroke="0"
-		                   strokeIn="0" fillColor="0x23282e" />
+		<ui:RoundRectShape cornerTL_TR_BL_BR="12,12,0,0" height="104" width="1138" stroke="0"
+		                   strokeIn="0" fillColor="0x23282e"  horizontalCenter="0"/>
 		<ui:CountdownTimer id="_timer" width="86" height="86" x="12" y="7" skinName="skin_mobile.CountdownTimerRoundSkin" />
 		<e:Group x="110" y="24">
 			<ui:RunTimeLabel id="_label_game" textAlign="left" size="48" text="百家樂" />
