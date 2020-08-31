@@ -1,9 +1,69 @@
 {
   "file": "ba.png",
   "frames": {
-    "m_ba_betarea_banker_png": {
+    "m_bam_instruction_large_crad_HL_png": {
       "x": 1,
       "y": 1,
+      "w": 396.5,
+      "h": 609.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 396.5,
+      "sourceH": 609.5
+    },
+    "m_bam_instruction_large_crad_png": {
+      "x": 399.5,
+      "y": 1,
+      "w": 398,
+      "h": 608,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 398,
+      "sourceH": 608
+    },
+    "m_bam_instruction_swtich_crad_group_png": {
+      "x": 1,
+      "y": 612.5,
+      "w": 510.5,
+      "h": 559,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 510.5,
+      "sourceH": 559
+    },
+    "m_bam_instruction_crad_group_png": {
+      "x": 799.5,
+      "y": 1,
+      "w": 476.5,
+      "h": 531.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 476.5,
+      "sourceH": 531.5
+    },
+    "m_bam_instruction_card_group_landscape_2_png": {
+      "x": 799.5,
+      "y": 534.5,
+      "w": 405.5,
+      "h": 338.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 405.5,
+      "sourceH": 338.5
+    },
+    "m_bam_instruction_card_group_landscape_1_png": {
+      "x": 1,
+      "y": 1173.5,
+      "w": 363.5,
+      "h": 305,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 363.5,
+      "sourceH": 305
+    },
+    "m_ba_betarea_banker_png": {
+      "x": 366.5,
+      "y": 1173.5,
       "w": 295.5,
       "h": 116,
       "offX": 0,
@@ -12,8 +72,8 @@
       "sourceH": 116
     },
     "m_ba_betarea_player_png": {
-      "x": 1,
-      "y": 119,
+      "x": 366.5,
+      "y": 1291.5,
       "w": 295.5,
       "h": 116,
       "offX": 0,
@@ -22,8 +82,8 @@
       "sourceH": 116
     },
     "m_ba_betarea_supersix_tie_horizontal_hover_png": {
-      "x": 1,
-      "y": 237,
+      "x": 513.5,
+      "y": 611,
       "w": 280,
       "h": 100,
       "offX": 0,
@@ -32,8 +92,8 @@
       "sourceH": 100
     },
     "m_ba_betarea_supersix_tie_horizontal_png": {
-      "x": 283,
-      "y": 237,
+      "x": 513.5,
+      "y": 713,
       "w": 280,
       "h": 100,
       "offX": 0,
@@ -42,8 +102,8 @@
       "sourceH": 100
     },
     "m_ba_betarea_bankerpair_png": {
-      "x": 298.5,
-      "y": 1,
+      "x": 513.5,
+      "y": 815,
       "w": 197,
       "h": 116,
       "offX": 0,
@@ -52,8 +112,8 @@
       "sourceH": 116
     },
     "m_ba_betarea_playerpair_png": {
-      "x": 298.5,
-      "y": 119,
+      "x": 513.5,
+      "y": 933,
       "w": 197,
       "h": 116,
       "offX": 0,
@@ -62,8 +122,8 @@
       "sourceH": 116
     },
     "m_ba_betarea_tie_png": {
-      "x": 1,
-      "y": 339,
+      "x": 513.5,
+      "y": 1051,
       "w": 197,
       "h": 116,
       "offX": 0,
@@ -72,8 +132,8 @@
       "sourceH": 116
     },
     "m_ba_betarea_banker_horizontal_hover_png": {
-      "x": 200,
-      "y": 339,
+      "x": 664,
+      "y": 1169,
       "w": 192,
       "h": 100,
       "offX": 0,
@@ -82,8 +142,8 @@
       "sourceH": 100
     },
     "m_ba_betarea_banker_horizontal_png": {
-      "x": 1,
-      "y": 457,
+      "x": 664,
+      "y": 1271,
       "w": 192,
       "h": 100,
       "offX": 0,
@@ -92,8 +152,8 @@
       "sourceH": 100
     },
     "m_ba_betarea_player_horizontal_hover_png": {
-      "x": 195,
-      "y": 457,
+      "x": 664,
+      "y": 1373,
       "w": 192,
       "h": 100,
       "offX": 0,
@@ -102,8 +162,8 @@
       "sourceH": 100
     },
     "m_ba_betarea_player_horizontal_png": {
-      "x": 1,
-      "y": 559,
+      "x": 712.5,
+      "y": 875,
       "w": 192,
       "h": 100,
       "offX": 0,
@@ -111,9 +171,19 @@
       "sourceW": 192,
       "sourceH": 100
     },
+    "m_bam_instruction_reveal_all_btn_png": {
+      "x": 366.5,
+      "y": 1409.5,
+      "w": 169.5,
+      "h": 60,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 169.5,
+      "sourceH": 60
+    },
     "m_sq_ba_thumb_up_png": {
-      "x": 389,
-      "y": 441,
+      "x": 712.5,
+      "y": 977,
       "w": 104,
       "h": 167.5,
       "offX": 0,
@@ -122,8 +192,8 @@
       "sourceH": 167.5
     },
     "m_ba_betarea_tie_horizontal_hover_png": {
-      "x": 394,
-      "y": 339,
+      "x": 818.5,
+      "y": 977,
       "w": 160,
       "h": 100,
       "offX": 0,
@@ -132,8 +202,8 @@
       "sourceH": 100
     },
     "m_ba_betarea_tie_horizontal_png": {
-      "x": 195,
-      "y": 559,
+      "x": 906.5,
+      "y": 875,
       "w": 160,
       "h": 100,
       "offX": 0,
@@ -142,8 +212,8 @@
       "sourceH": 100
     },
     "m_ba_betarea_bankerpair_horizontal_hover_png": {
-      "x": 565,
-      "y": 1,
+      "x": 1068.5,
+      "y": 875,
       "w": 128,
       "h": 100,
       "offX": 0,
@@ -152,8 +222,8 @@
       "sourceH": 100
     },
     "m_ba_betarea_bankerpair_horizontal_png": {
-      "x": 565,
-      "y": 103,
+      "x": 980.5,
+      "y": 977,
       "w": 128,
       "h": 100,
       "offX": 0,
@@ -162,8 +232,8 @@
       "sourceH": 100
     },
     "m_ba_betarea_playerpair_horizontal_hover_png": {
-      "x": 565,
-      "y": 205,
+      "x": 1110.5,
+      "y": 977,
       "w": 128,
       "h": 100,
       "offX": 0,
@@ -172,8 +242,8 @@
       "sourceH": 100
     },
     "m_ba_betarea_playerpair_horizontal_png": {
-      "x": 565,
-      "y": 307,
+      "x": 858,
+      "y": 1079,
       "w": 128,
       "h": 100,
       "offX": 0,
@@ -181,9 +251,29 @@
       "sourceW": 128,
       "sourceH": 100
     },
+    "m_bam_touch_icon_png": {
+      "x": 988,
+      "y": 1079,
+      "w": 105.5,
+      "h": 82,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 105.5,
+      "sourceH": 82
+    },
+    "m_bam_panel_btn_bg_Inactive_png": {
+      "x": 538,
+      "y": 1409.5,
+      "w": 100,
+      "h": 68,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 100,
+      "sourceH": 68
+    },
     "m_ba_goodroad_infobg_banker_png": {
-      "x": 497.5,
-      "y": 1,
+      "x": 1207,
+      "y": 534.5,
       "w": 58,
       "h": 26,
       "offX": 0,
@@ -192,8 +282,8 @@
       "sourceH": 26
     },
     "m_ba_goodroad_infobg_player_png": {
-      "x": 497.5,
-      "y": 29,
+      "x": 1207,
+      "y": 562.5,
       "w": 58,
       "h": 26,
       "offX": 0,
@@ -202,8 +292,8 @@
       "sourceH": 26
     },
     "m_ba_result_poker_banker_png": {
-      "x": 357,
-      "y": 559,
+      "x": 1240.5,
+      "y": 590.5,
       "w": 29,
       "h": 37,
       "offX": 0,
@@ -212,8 +302,8 @@
       "sourceH": 37
     },
     "m_ba_result_poker_player_png": {
-      "x": 357,
-      "y": 598,
+      "x": 1207,
+      "y": 590.5,
       "w": 29,
       "h": 37,
       "offX": 0,
@@ -222,8 +312,18 @@
       "sourceH": 37
     },
     "d_ba_navbar_icon_hoverelement_png": {
-      "x": 388,
-      "y": 610.5,
+      "x": 1240.5,
+      "y": 629.5,
+      "w": 26,
+      "h": 26,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 26,
+      "sourceH": 26
+    },
+    "m_bam_button_close_none_png": {
+      "x": 1207,
+      "y": 629.5,
       "w": 26,
       "h": 26,
       "offX": 0,
@@ -232,8 +332,8 @@
       "sourceH": 26
     },
     "d_ba_navbar_icon_video_png": {
-      "x": 200,
-      "y": 441,
+      "x": 640,
+      "y": 1409.5,
       "w": 18,
       "h": 14,
       "offX": 0,
@@ -242,8 +342,8 @@
       "sourceH": 14
     },
     "m_ba_goodroad_info_state_banker_png": {
-      "x": 357,
-      "y": 638.5,
+      "x": 712.5,
+      "y": 1146.5,
       "w": 17,
       "h": 17,
       "offX": 0,
@@ -252,8 +352,8 @@
       "sourceH": 17
     },
     "m_ba_goodroad_info_state_player_png": {
-      "x": 376,
-      "y": 638.5,
+      "x": 731.5,
+      "y": 1146.5,
       "w": 17,
       "h": 17,
       "offX": 0,
@@ -262,8 +362,8 @@
       "sourceH": 17
     },
     "m_common_betarea_icon_totalbet_png": {
-      "x": 395,
-      "y": 638.5,
+      "x": 750.5,
+      "y": 1146.5,
       "w": 16,
       "h": 16,
       "offX": 0,
@@ -272,8 +372,8 @@
       "sourceH": 16
     },
     "m_common_betarea_icon_totalperson_png": {
-      "x": 413,
-      "y": 638.5,
+      "x": 768.5,
+      "y": 1146.5,
       "w": 16,
       "h": 16,
       "offX": 0,
@@ -282,8 +382,8 @@
       "sourceH": 16
     },
     "d_ba_navbar_icon_setting_png": {
-      "x": 220,
-      "y": 441,
+      "x": 786.5,
+      "y": 1146.5,
       "w": 14,
       "h": 14,
       "offX": 0,
@@ -292,8 +392,8 @@
       "sourceH": 14
     },
     "d_ba_navbar_icon_sound_png": {
-      "x": 236,
-      "y": 441,
+      "x": 802.5,
+      "y": 1146.5,
       "w": 14,
       "h": 14,
       "offX": 0,
@@ -302,8 +402,8 @@
       "sourceH": 14
     },
     "d_ba_navbar_icon_stat_png": {
-      "x": 252,
-      "y": 441,
+      "x": 640,
+      "y": 1425.5,
       "w": 14,
       "h": 14,
       "offX": 0,
@@ -312,8 +412,8 @@
       "sourceH": 14
     },
     "m_ba_goodroad_info_line_banker_png": {
-      "x": 695,
-      "y": 1,
+      "x": 640,
+      "y": 1441.5,
       "w": 13.5,
       "h": 13.5,
       "offX": 0,
@@ -322,8 +422,8 @@
       "sourceH": 13.5
     },
     "m_ba_goodroad_info_line_player_png": {
-      "x": 695,
-      "y": 16.5,
+      "x": 640,
+      "y": 1457,
       "w": 13.5,
       "h": 13.5,
       "offX": 0,
@@ -332,8 +432,8 @@
       "sourceH": 13.5
     },
     "m_ba_goodroad_info_ring_banker_png": {
-      "x": 695,
-      "y": 32,
+      "x": 1240.5,
+      "y": 657.5,
       "w": 13.5,
       "h": 13.5,
       "offX": 0,
@@ -342,8 +442,8 @@
       "sourceH": 13.5
     },
     "m_ba_goodroad_info_ring_player_png": {
-      "x": 695,
-      "y": 47.5,
+      "x": 1256,
+      "y": 657.5,
       "w": 13.5,
       "h": 13.5,
       "offX": 0,
@@ -352,8 +452,8 @@
       "sourceH": 13.5
     },
     "m_ba_goodroad_info_round_banker_png": {
-      "x": 695,
-      "y": 63,
+      "x": 1207,
+      "y": 657.5,
       "w": 13.5,
       "h": 13.5,
       "offX": 0,
@@ -362,8 +462,8 @@
       "sourceH": 13.5
     },
     "m_ba_goodroad_info_round_player_png": {
-      "x": 695,
-      "y": 78.5,
+      "x": 1222.5,
+      "y": 657.5,
       "w": 13.5,
       "h": 13.5,
       "offX": 0,
@@ -372,8 +472,8 @@
       "sourceH": 13.5
     },
     "d_ba_roadmap_bar_bankerpairstate_png": {
-      "x": 695,
-      "y": 94,
+      "x": 1240.5,
+      "y": 673,
       "w": 11,
       "h": 11,
       "offX": 0,
@@ -382,8 +482,8 @@
       "sourceH": 11
     },
     "d_ba_roadmap_bar_playerpairstate_png": {
-      "x": 695,
-      "y": 107,
+      "x": 1253.5,
+      "y": 673,
       "w": 11,
       "h": 11,
       "offX": 0,
