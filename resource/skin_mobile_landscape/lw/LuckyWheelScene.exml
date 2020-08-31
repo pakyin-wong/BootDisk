@@ -6,6 +6,8 @@
 	<e:Image id="_bgImg" top="0" bottom="0" x="0" width="1242" source="m_lw_ver_bg_jpg" locked="true" />
 	<e:Group id="_verticalGroup" width="2424" x="0" bottom="0">
 		<e:Group id="_verticalTop" width="2424" x="0">
+			<e:Group id="_gradientmask" width="2424" height="319" y="436" y.right_hand_mode="374" y.left_hand_mode="374"/>
+
 			<!--<e:Group id="_betChipSetPanel" width="1182" height="560" scaleY="1" x="681" y="0" y.right_hand_mode="0">
 			<e:Group id="_betPanelGroup" horizontalCenter="0" left="0" right="0" top="0" bottom="0" x.right_hand_mode="0"
 			         y.right_hand_mode="0" width.right_hand_mode="100%" height.right_hand_mode="560">

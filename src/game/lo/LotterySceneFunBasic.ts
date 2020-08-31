@@ -119,7 +119,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             this.setupTableInfo(tableInfo);
             this.updateGame();
@@ -171,7 +171,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {}
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         if (tableInfo.tableid === this._tableId) {
           logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
           this._betDetails = tableInfo.bets;

@@ -20,6 +20,7 @@ namespace we {
       protected _undoLabel: ui.RunTimeLabel;
 
       protected _veritcalTop: eui.Group;
+      protected _verticalGroup: eui.Group;
 
       private _videoBtn: egret.DisplayObject;
 
@@ -174,6 +175,9 @@ namespace we {
       }
 
       public updateResultDisplayVisible(bottomGamePanelisOpen: boolean) {
+        if (!this._bottomGamePanel._bottomResultDisplayContainer) {
+          return;
+        }
         if (env.orientation === 'landscape') {
           if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.BET) {
             this._resultDisplay.visible = !bottomGamePanelisOpen;
@@ -181,6 +185,47 @@ namespace we {
           }
         }
       }
+
+      public updateTableLayerPosition(bottomGamePanelisOpen: boolean) {
+        if (env.orientation === 'landscape') {
+          const vlayout = new eui.VerticalLayout();
+          if (this._tableLayer) {
+            switch (env.tableInfos[this._tableId].gametype) {
+              case core.GameType.BAC:
+              case core.GameType.BAS:
+              case core.GameType.BAI:
+                console.log('this._aaaaa', this._tableLayer);
+                if (bottomGamePanelisOpen === true) {
+                  vlayout.gap = -65;
+                  // this._tableLayer.y -= 24;
+                  // this._chipLayer.y -= 24;
+                } else {
+                  vlayout.gap = -40;
+                  // this._tableLayer.y += 24;
+                  // this._chipLayer.y += 24;
+                }
+                this._verticalGroup.layout = vlayout;
+                break;
+              case core.GameType.LW:
+                if (bottomGamePanelisOpen === true) {
+                  vlayout.gap = -20;
+                  // this._tableLayer.y -= 24;
+                  // this._chipLayer.y -= 24;
+                } else {
+                  vlayout.gap = -60;
+                  // this._tableLayer.y += 24;
+                  // this._chipLayer.y += 24;
+                }
+                this._verticalGroup.layout = vlayout;
+                break;
+              default:
+                break;
+            }
+            // this._verticalGroup.layout = vlayout;
+          }
+        }
+      }
+
       protected initDenom() {
         this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
@@ -327,7 +372,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             if (this._totalBet) {
               const totalBet = betInfo.gameroundid === this._gameData.gameroundid ? betInfo.total : 0;

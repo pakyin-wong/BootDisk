@@ -207,7 +207,7 @@ namespace we {
       private setChip(index: number) {
         if (this._selectedChipIndex === index) return;
 
-        if (this._selectedChipIndex>-1) {
+        if (this._selectedChipIndex > -1) {
           this._chipList[this._selectedChipIndex].type = we.core.ChipType.PERSPECTIVE;
         }
         // this._chipList[this._selectedChipIndex].draw();
@@ -215,7 +215,6 @@ namespace we {
         this._chipList[index].type = we.core.ChipType.FLAT;
         // this._chipList[index].draw();
         this._selectedChipIndex = index;
-
       }
 
       public set selectedChipIndex(index) {
