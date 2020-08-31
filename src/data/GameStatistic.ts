@@ -20,6 +20,7 @@ namespace we {
       public coldNumbers: number[]; // Roulette / Dice
       public loHistory: any; // lottery
       public loChart: any; // lottery
+      public loresults: any; // lottery
 
       // public history: // DIL
       public diOdd: {
