@@ -245,7 +245,7 @@ namespace we {
 
         // this._video.$anchorOffsetX = this._video.width * 0.5;
         // this._video.$anchorOffsetY = this._video.height * 0.5;
-        // this.stage.frameRate = 60;
+        this.stage.frameRate = 60;
         // this._bgImg.visible = false;
         this._video.play();
 
