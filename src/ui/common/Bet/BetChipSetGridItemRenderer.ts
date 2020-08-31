@@ -71,6 +71,7 @@ namespace we {
         // update chip face
         this._isSelected = value;
         const type = this.selected ? we.core.ChipType.FLAT : we.core.ChipType.PERSPECTIVE;
+        this._betChip.highlight = this.selected ? true : false;
         this._betChip.type = type;
         this.invalidateState();
       }

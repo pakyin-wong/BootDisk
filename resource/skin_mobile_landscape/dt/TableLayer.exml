@@ -5,8 +5,8 @@
 		<e:Group id="_dragonGroup" x="0" y="0" width="472" height="200">
 			<e:Image id="_dragonImage" name="m_dt_betarea_dragon_horizontal_png" width="100%" height="100%"
 			         source="m_dt_betarea_dragon_horizontal_png" />
-			<ui:RunTimeLabel id="_dragonLabel" verticalCenter="-40" horizontalCenter="0" size="98" bold="true" />
-			<e:Label text="1:1" verticalCenter="40" horizontalCenter="0" size="48" />
+			<ui:RunTimeLabel id="_dragonLabel" verticalCenter="-40" horizontalCenter="0" size="72" />
+			<e:Label text="1:1" verticalCenter="40" horizontalCenter="0" size="38" alpha="0.7" fontFamily="Barlow"/>
 			<e:Image source="d_ba_betarea_icon_bet_png" horizontalCenter="-120" width="32" height="32"  y="165"/>
 			<e:Label id="_dragonTotalAmount" size="30" x="156" y="165"/>
 			<e:Image source="d_ba_betarea_icon_person_png" width="32" height="32"  x="258" y="165"/>
@@ -15,14 +15,14 @@
 		<e:Group id="_tieGroup" includeIn="Normal" x="415" y="0" width="408" height="200">
 			<e:Image id="_tieImage" name="m_dt_betarea_tie_horizontal_png" width="100%" height="100%"
 			         source="m_dt_betarea_tie_horizontal_png" />
-			<ui:RunTimeLabel id="_tieLabel" verticalCenter="-40" horizontalCenter="0" size="98" bold="true" />
-			<e:Label text="8:1" verticalCenter="40" horizontalCenter="0" size="48" />
+			<ui:RunTimeLabel id="_tieLabel" verticalCenter="-40" horizontalCenter="0" size="72"/>
+			<e:Label text="8:1" verticalCenter="40" horizontalCenter="0" size="38" alpha="0.7"  fontFamily="Barlow"/>
 		</e:Group>
 		<e:Group id="_tigerGroup" x="767" y="0" width="472" height="200">
 			<e:Image id="_tigerImage" name="m_dt_betarea_tiger_horizontal_png" width="100%" height="100%"
 			         source="m_dt_betarea_tiger_horizontal_png"  anchorOffsetX="0" x="-2" y="2"/>
-			<ui:RunTimeLabel id="_tigerLabel" verticalCenter="-40" horizontalCenter="0" size="98" bold="true" />
-			<e:Label text="1:1" verticalCenter="40" horizontalCenter="0" size="48" />
+			<ui:RunTimeLabel id="_tigerLabel" verticalCenter="-40" horizontalCenter="0" size="72" />
+			<e:Label text="1:1" verticalCenter="40" horizontalCenter="0" size="38" alpha="0.7" fontFamily="Barlow"/>
 			<e:Image source="d_ba_betarea_icon_bet_png" horizontalCenter="-120" width="32" height="32"  y="165"/>
 			<e:Label id="_tigerTotalAmount" horizontalCenter="-80" size="30" horizontalCenter.Normal="-75"  y="165"/>
 			<e:Image source="d_ba_betarea_icon_person_png" horizontalCenter="40" width="32" height="32"  y="165"/>

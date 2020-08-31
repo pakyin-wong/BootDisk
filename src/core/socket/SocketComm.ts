@@ -210,21 +210,21 @@ namespace we {
         env.profileimage = player.profile.settings.profileimage
           ? player.profile.settings.profileimage
           : player.profile.profileimageurl === ''
-          ? Object.keys(env.icons)[0]
-          : player.profile.profileimageurl;
+            ? Object.keys(env.icons)[0]
+            : player.profile.profileimageurl;
         logger.l(utils.LogTarget.RELEASE, 'PlayerClient::handleReady() ' + player.profile.betlimits);
 
         env.betLimits = player.profile.betlimits
           ? player.profile.betlimits
           : [
-              {
-                currency: Currency.RMB,
-                maxlimit: 1000,
-                minlimit: 10,
-                chips: [1, 5, 20, 100, 500],
-                // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
-              },
-            ];
+            {
+              currency: Currency.RMB,
+              maxlimit: 1000,
+              minlimit: 10,
+              chips: [1, 5, 20, 100, 500],
+              // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
+            },
+          ];
 
         if (!Array.isArray(env.betLimits)) {
           env.betLimits = [env.betLimits];
@@ -599,14 +599,14 @@ namespace we {
           case core.GameType.LO: {
             gameStatistic.tableID = tableid;
             gameStatistic.shoeID = gameStatistic.shoeid;
-            tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockLoRoadData);
+            tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
 
             const stats = new we.data.GameStatistic();
             stats.roundId = gameStatistic.roundnumber;
             stats.loHistory = gameStatistic.lohistory;
             stats.loChart = this.mockLoRoadData.loChart; // gameStatistic.lochart;
+            stats.loresults = gameStatistic.loresults;
             tableInfo.gamestatistic = stats;
-
             break;
           }
           default: {
@@ -805,7 +805,7 @@ namespace we {
               {
                 key: 'INTEREST1SPECIAL',
                 value: 15.7,
-              }, // bet code:value
+              },
             ],
             pday: [],
             week: [],
@@ -818,7 +818,7 @@ namespace we {
               {
                 key: '18',
                 value: 5000,
-              }, // game id:value
+              },
             ],
             pday: [],
             week: [],
@@ -831,7 +831,7 @@ namespace we {
               {
                 key: '10:00',
                 value: 15.8,
-              }, // time slot:value
+              },
             ],
             pday: [],
             week: [],
@@ -844,7 +844,7 @@ namespace we {
               {
                 key: '18',
                 value: 5000,
-              }, // game id: value
+              },
             ],
             pday: [],
             week: [],
@@ -1030,7 +1030,7 @@ namespace we {
         this.client.sendVerifyInfo(id, pattern, this.warpServerCallback(callback.bind(thisArg)));
       }
 
-      public getTableHistory() {}
+      public getTableHistory() { }
 
       protected onBetTableListUpdate(tableList: data.GameTableList, timestamp: string) {
         this.updateTimestamp(timestamp);

@@ -132,9 +132,10 @@ namespace we {
       }
 
       protected flippedCardCheck() {
-        this.cardHolderArr[this._flipIndex].touchEnabled = false;
-        this.cardHolderArr[this._flipIndex].setCard(utils.formatCard(this.cardArr[this._flipIndex]));
-
+        if (this.cardHolderArr[this._flipIndex]) {
+          this.cardHolderArr[this._flipIndex].touchEnabled = false;
+          this.cardHolderArr[this._flipIndex].setCard(utils.formatCard(this.cardArr[this._flipIndex]));
+        }
         this.checkOpenAllBtn();
 
         this.calculatePoint();

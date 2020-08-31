@@ -14,6 +14,8 @@ namespace we {
       public roadEmptyAlpha: number = 1;
       public roadScale: number = 1;
 
+      public isSmall: boolean = false;
+
       protected beadRoadGrid: egret.Shape;
 
       public constructor() {
@@ -27,7 +29,7 @@ namespace we {
       }
 
       protected init() {
-        this.beadRoad = new ROBeadRoad(this.roadRow, this.roadCol, this.roadGridSize, 1, this.roadOffsetX, this.roadOffsetY, this.roadEmptyColor, this.roadEmptyAlpha);
+        this.beadRoad = new ROBeadRoad(this.roadRow, this.roadCol, this.roadGridSize, 1, this.roadOffsetX, this.roadOffsetY, this.roadEmptyColor, this.roadEmptyAlpha, this.isSmall);
         this.beadRoad.x = this.roadIndentX;
         this.beadRoad.y = this.roadIndentY;
         this.beadRoad.scaleX = this.beadRoad.scaleY = this.roadScale;

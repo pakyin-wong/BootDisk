@@ -15,7 +15,9 @@
 		<e:Image width="33" height="33" x="828" y="33" source="d_ba_roadmap_bar_bankerpairstate_png"/>
 		<e:Image width="33" height="33" x="925" y="33" source="d_ba_roadmap_bar_playerpairstate_png"/>
 		<e:Image width="34" height="34" x="1115" y="32" source="d_ba_goodroad_info_state_total_png"/>
-		<e:Image id="switchModeButton" width="72" height="72" x="504" y="457" source="d_ba_swaproadmap_button_element_png" scaleX="1" scaleY="1"/>
+		<!--<e:Image id="switchModeButton" width="72" height="72" x="504" y="457" source="d_ba_swaproadmap_button_element_png" scaleX="1" scaleY="1"/>-->
+		<ui:BaseAnimationButton id="switchModeButton" width="72" height="72" x="504" y="440" scaleX="1.3" scaleY="1.3"
+                 dbClass="baccarat_ui" dbDisplay="d_ba_roadmap_btn_swap" tooltipText="'baccarat.tooltip.swapRoadmap'" tooltipPosition="'above'" />
 		<e:Image id="iconBankerBead" width="116" height="52" x="15" y="23" source="d_ba_roadmap_topbar_textbg_banker_png" anchorOffsetX="0" />
 		<e:Image id="iconPlayerBead" width="116" height="52" x="247" y="23" source="d_ba_roadmap_topbar_textbg_player_png" />
 		<ui:RunTimeLabel id="playerButtonLabel" text="Ask P" x="247" y="23.5" textAlign="center" anchorOffsetX="0" width="116" size="28" height="52" verticalAlign="middle" touchEnabled="false" textKey="baccarat.askPlayer" />
