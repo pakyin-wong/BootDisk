@@ -12,11 +12,11 @@
 		</e:layout>
 	</e:Group>
 	<e:Group verticalCenter="0" x="200" y="10">
-		<e:Label id="b5" width="36" height="36" x="0" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
-		<e:Label id="b4" width="36" height="36" x="58" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
-		<e:Label id="b3" width="36" height="36" x="116" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
-		<e:Label id="b2" width="36" height="36" x="174" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
 		<e:Label id="b1" width="36" height="36" x="232" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b2" width="36" height="36" x="174" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b3" width="36" height="36" x="116" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b4" width="36" height="36" x="58" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b5" width="36" height="36" x="0" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
 		<e:layout>
 		<e:HorizontalLayout gap="10"/>
 		</e:layout>

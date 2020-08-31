@@ -14,7 +14,21 @@ namespace we {
           const poster = new eui.Image();
           poster['link'] = link;
           poster.source = image;
-          poster.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bannerClicked, this);
+          poster.addEventListener(
+            egret.TouchEvent.TOUCH_TAP,
+            () => {
+              logger.l(utils.LogTarget.DEBUG, 'psoter click', i, link);
+              if (i === 0) {
+                dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
+              } else if (i === 3) {
+                dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
+              } else {
+                dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
+              }
+            },
+            this
+          );
+          //poster.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bannerClicked, this);
           root._posterContainer.addChild(poster);
         }
 

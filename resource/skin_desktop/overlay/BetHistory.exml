@@ -70,7 +70,7 @@
 
 		<e:Image source="d_lobby_button_down_normal_png" width="35" height="35" y="59" x="462" touchEnabled="false" />
 
-		<ui:Panel id="_ddm_searchType" width="370" maxHeight="300" x="220" y="117" skinName="skin_desktop.NavDropdown" />
+		<ui:Panel id="_ddm_searchType" width="370" maxHeight="300" x="220" y="117" skinName="skin_desktop.NavDropdown" isDropdownFullWidth="true"/>
 		<ui:BaseAnimationButton id="_btn_prev" width="46" height="46" dbClass="lobby_ui"
 		                        dbDisplay="d_lobby_betrecord_icon_prev"
 								tooltipText="'overlay.tooltip.bethistory.prev'" tooltipPosition="'above'"  right="118" bottom="25"/>
