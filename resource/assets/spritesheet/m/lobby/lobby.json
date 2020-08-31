@@ -1191,6 +1191,16 @@
       "sourceW": 39.5,
       "sourceH": 39.5
     },
+    "d_lobby_panel_betcontrol_btn_confirm_icon_png": {
+      "x": 807,
+      "y": 1223,
+      "w": 34.5,
+      "h": 24,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 34.5,
+      "sourceH": 24
+    },
     "m_lobby_submenu_icon_baccarat_png": {
       "x": 1661,
       "y": 1195.5,

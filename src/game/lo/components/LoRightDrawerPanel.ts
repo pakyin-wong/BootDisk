@@ -101,7 +101,6 @@ namespace we {
         this.analysisBtn.label.renderText = () => 'Analysis';
         this.chartBtn.label.renderText = () => 'Chart';
 
-
         this.roadmapBtn.label.top = 0;
         this.roadmapBtn.label.bottom = 0;
         this.roadmapBtn.label.left = 8;
@@ -122,7 +121,6 @@ namespace we {
         this.chartBtn.label.width = 134 - 16;
         this.chartBtn.label.targetWidth = 134 - 16;
         this.chartBtn.label.size = 24;
-
 
         this.road1Btn['labelDisplayDown']['text'] = this.road1Btn['labelDisplayUp']['text'] = 'B/S';
         this.road2Btn['labelDisplayDown']['text'] = this.road2Btn['labelDisplayUp']['text'] = 'O/E';
@@ -365,7 +363,6 @@ namespace we {
         this.chartPeriodBtn4.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
         this.chartPeriodBtn5.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
         this.chartPeriodBtn6.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
-
 
         this.panelHideBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelHide, this);
 
