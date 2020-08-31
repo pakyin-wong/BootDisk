@@ -32,10 +32,8 @@ namespace we {
 
         this._value = env.betLimits[env.currentSelectedBetLimitIndex].chips[env.currentChipSelectedIndex];
         this._type = core.ChipType.FLAT;
-        console.log('this._chipAnim.x,y', [this._chipAnim.x, this._chipAnim.y]);
         this.setChipValueSlot();
         this.setChipSelectSlot();
-        // this.setChipDeselectSlot();
         this.draw();
         dir.evtHandler.addEventListener(core.Event.BET_DENOMINATION_CHANGE, this.updateSelectedChip, this);
       }
@@ -64,45 +62,20 @@ namespace we {
         this.setValue(this._value, this._index, we.core.ChipType.FLAT);
         this.setChipValueSlot();
         this.setChipSelectSlot();
-        // this.setChipDeselectSlot();
         this.draw();
       }
 
       public setSelectedChip(value: number, index: number) {
         this.highlight = true;
         this.setValue(value, index, we.core.ChipType.FLAT);
-        // this.setValue(value, index, we.core.ChipType.PERSPECTIVE);
-        // console.log('getChipSource', this.getChipSource(we.core.ChipType.PERSPECTIVE));
-        // this.draw();
       }
 
       public draw(noAnim: boolean = false) {
         if (!this._chipAnim) {
           return;
         }
-
-        if (this._prevType === this._type) {
-          return;
-        }
-
-        if (this._prevType === null || noAnim) {
-          switch (this._type) {
-            case we.core.ChipType.FLAT:
-              (async () => {
-                if (!this._chipAnim) {
-                  return;
-                }
-                this._chipAnim.animation.stop();
-                // const p2 = we.utils.waitDragonBone(this._chipAnim);
-                this._chipAnim.animation.play('loop',0);
-                // await p2;
-              })();
-              break;
-            default:
-            break;
-          }
-          return;
-        }
+        this._chipAnim.animation.stop();
+        this._chipAnim.animation.play('loop',0);
       }
 
     }
