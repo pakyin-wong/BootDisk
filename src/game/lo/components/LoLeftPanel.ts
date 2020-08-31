@@ -345,8 +345,8 @@ namespace we {
           }
 
           if (this.tableInfo.gamestatistic) {
-            if (this.gameId !== this.tableInfo.gamestatistic.roundId) {
-              this.gameId = this.tableInfo.gamestatistic.roundId;
+            if (this.gameId !== this.tableInfo.roundid) {
+              this.gameId = this.tableInfo.roundid;
 
               const history = this.tableInfo.gamestatistic.loHistory;
               const chart = this.tableInfo.gamestatistic.loChart;
