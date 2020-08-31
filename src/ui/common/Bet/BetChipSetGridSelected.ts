@@ -58,25 +58,6 @@ namespace we {
         chipSlot.display = group;
       }
 
-      // protected setChipDeselectSlot() {
-      //   if (!(this._chipAnim && (this._index || this._index === 0) && (this._value || this._value === 0))) {
-      //     return null;
-      //   }
-
-      //   const chip = new eui.Image();
-      //   chip.source = this.getChipSource(we.core.ChipType.PERSPECTIVE);
-      //   chip.horizontalCenter = 0;
-      //   chip.verticalCenter = 0;
-
-      //   const group = new eui.Group();
-      //   group.width = 0;
-      //   group.height = 0;
-      //   group.addChild(chip);
-
-      //   const chipSlot = this._chipAnim.armature.getSlot('chips_deselect');
-      //   chipSlot.display = group;
-      // }
-
       protected updateSelectedChip() {
         this._value = env.betLimits[env.currentSelectedBetLimitIndex].chips[env.currentChipSelectedIndex];
         this._index = env.currentChipSelectedIndex;
@@ -87,16 +68,6 @@ namespace we {
         this.draw();
       }
 
-      // protected updateSelectedChip() {
-      //   this._value = env.betLimits[env.currentSelectedBetLimitIndex].chips[env.currentChipSelectedIndex];
-
-      //   this.highlight = true;
-      //   // this.setValue(value, env.currentChipSelectedIndex, we.core.ChipType.FLAT);
-      //   this.setValue(this._value, env.currentChipSelectedIndex, we.core.ChipType.PERSPECTIVE);
-      //   console.log('getChipSource', this.getChipSource(we.core.ChipType.PERSPECTIVE));
-      //   this.draw();
-      // }
-
       public setSelectedChip(value: number, index: number) {
         this.highlight = true;
         this.setValue(value, index, we.core.ChipType.FLAT);
@@ -104,6 +75,36 @@ namespace we {
         // console.log('getChipSource', this.getChipSource(we.core.ChipType.PERSPECTIVE));
         // this.draw();
       }
+
+      public draw(noAnim: boolean = false) {
+        if (!this._chipAnim) {
+          return;
+        }
+
+        if (this._prevType === this._type) {
+          return;
+        }
+
+        if (this._prevType === null || noAnim) {
+          switch (this._type) {
+            case we.core.ChipType.FLAT:
+              (async () => {
+                if (!this._chipAnim) {
+                  return;
+                }
+                this._chipAnim.animation.stop();
+                // const p2 = we.utils.waitDragonBone(this._chipAnim);
+                this._chipAnim.animation.play('loop',0);
+                // await p2;
+              })();
+              break;
+            default:
+            break;
+          }
+          return;
+        }
+      }
+
     }
   }
 }
