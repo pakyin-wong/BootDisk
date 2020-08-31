@@ -23,7 +23,7 @@ namespace we {
       protected _bettingPanel: SSCTraditionalBettingPanel;
 
       private _bettingPanelGroup: eui.Group;
-
+      private _videoGroup : eui.Group;
       constructor(data: any) {
         super(data);
       }
@@ -62,7 +62,7 @@ namespace we {
 
         this._counter = this._bettingPanel._timer;
 
-        if (this._tableInfo){ 
+        if (this._tableInfo) {
           this._bettingPanel.updateBetTableInfo(this._tableInfo);
         }
       }
@@ -211,26 +211,43 @@ namespace we {
         //     env.isFirstTimeInfoPanel = true;
         //   }
         // }
-
         if (this._panelDismissToggleBtn) {
           this._panelDismissToggleBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
         }
+        // this._video = dir.videoPool.get();
+        // this._video.setBrowser(env.UAInfo.browser.name);
+        // this._video.load('ws://hk.webflv.com:8000/live/33.flv');
+        // dir.audioCtr.video = this._video;
 
         ui.EdgeDismissableAddon.isDismiss = false;
-        this.addChild(this._video);
-        this.setChildIndex(this._video, 0);
+
         // this.playVideo();
         const aspect = 16 / 9;
         const ratio = this.stage.stageWidth / this.stage.stageHeight;
+
         this._video.x = 1560;
         this._video.y = 104;
         this._video.width = 1024;
         this._video.height = 575;
+
+        if(this._videoGroup)
+        {
+          this._video.x = 0;
+          this._video.y = 0;
+          this._videoGroup.x = 1560;
+          this._videoGroup.y = 104;
+          this._videoGroup.width = 1024;
+          this._videoGroup.height = 575;
+          this._videoGroup.addChildAt(this._video,0);
+        }else{
+          this.addChildAt(this._video,0);
+        }
+
         // this._video.$anchorOffsetX = this._video.width * 0.5;
         // this._video.$anchorOffsetY = this._video.height * 0.5;
+        // this.stage.frameRate = 60;
+        // this._bgImg.visible = false;
         this._video.play();
-        this.stage.frameRate = 60;
-        this._bgImg.visible = true;
 
         this._gameBar.targetScene = this;
 
