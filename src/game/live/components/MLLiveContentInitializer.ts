@@ -27,11 +27,34 @@ namespace we {
         root.holder.bulletBottom = 50;
         root.holder.bulletHorizontalCenter = 0;
         dir.liveResources.liveHeroBanners.forEach(element => {
+          const _group = new eui.Group();
+          _group.height = root.holder.height;
+          _group.width = root.holder.width;
           const image = new eui.Image();
+          const _mask = new egret.Shape();
+          _mask.graphics.beginFill(0xffffff, 1);
+          _mask.graphics.drawRoundRect(0, 0, root.holder.height, root.holder.width, 100, 100);
+          _mask.graphics.endFill();
+          _group.addChild(_mask);
+          _mask.visible = false;
           if (element.image) {
             image.source = element.image;
+            image.height = root.holder.height;
+            image.width = root.holder.width;
+            image.fillMode = "cover";
+            // image.mask = _mask;
+            _group.mask = _mask;
+            _mask.visible = true;
+          } else {
+
           }
-          root.holder.addChild(image);
+          // _group.mask = _mask
+          _group.addChild(image);
+          root.holder.addChild(_group);
+          // _group.addChild(_mask);
+          // image.mask = _mask;
+          // root.holder.addChild(image);
+          // root.holder.addChild(_mask);
         });
 
         root.roomList.layout = root.roomListRefer.layout;
