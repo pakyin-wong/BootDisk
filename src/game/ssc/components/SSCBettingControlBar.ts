@@ -54,11 +54,11 @@ namespace we {
         //   this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this);
         // }
         if (this._btnInstantBet) {
-          this._btnInstantBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.placeBet, this.bettingPanel);
+          this._btnInstantBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.placeBet, this);
         }
 
         if (this._btnAddBetFields) {
-          this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.addNotes, this.bettingPanel);
+          this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.addNotes, this);
           // this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addBetfield, this);
         }
         if (this._btnAddMultiplier) {
