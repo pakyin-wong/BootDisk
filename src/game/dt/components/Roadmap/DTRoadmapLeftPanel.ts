@@ -18,6 +18,19 @@ namespace we {
         const gridSize = 43;
         const numColumn = 16;
 
+        const slot = this.switchModeButton._display.armature.getSlot('d_ba_roadmap_btn_swap_number');
+        this.modeLabel = new eui.Label;
+        this.modeLabel.fontFamily = 'Barlow';
+        this.modeLabel.size = 22;
+        this.modeLabel.text = '9';
+        this.modeLabel.bold = true;
+        this.modeLabel.textColor = 0xffffff;
+        this.modeLayer = new eui.Group;
+        this.modeLayer.addChild(this.modeLabel);
+        this.modeLayer.anchorOffsetX = this.modeLabel.width * 0.5;
+        this.modeLayer.anchorOffsetY = this.modeLabel.height * 0.5;
+        slot.display = this.modeLayer;
+
         this.beadRoad = new DTBeadRoad(numColumn, gridSize, 1, true);
         this.beadRoad.x = 0;
         this.beadRoad.y = 44;
