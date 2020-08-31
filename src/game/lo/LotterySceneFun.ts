@@ -67,9 +67,11 @@ namespace we {
       protected onGameStatisticUpdated() {
         if (this._statistic.loresults && this._statistic.loresults.length > 0) {
           this._lastgameResult = this._statistic.loresults[this._statistic.loresults.length - 1].Data;
+          // this._lastgameResult = this._statistic.loresults[0].Data;
         } else {
           this._lastgameResult = {};
         }
+        this.updateResultDisplay();
       }
 
       protected onCustomBetSelected() {
@@ -162,7 +164,11 @@ namespace we {
       public updateGame() {
         super.updateGame();
 
-        if (!this._gameData) {
+        this.updateResultDisplay();
+      }
+
+      protected updateResultDisplay() {
+        if (!this._gameData || !this._roundInfo) {
           return;
         }
         switch (this._gameData.state) {

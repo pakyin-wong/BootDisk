@@ -10,7 +10,7 @@ namespace we {
       protected _holderState: number = 0;
       public content: eui.Group;
 
-      protected _betChip: BetChip;
+      protected _betChip: AnimBetChip;
       protected _betChipHeight: number = 56;
       protected _betChipWidth: number = 70;
       protected _labelSize: number = 30;
@@ -24,7 +24,7 @@ namespace we {
 
       public constructor() {
         super();
-        this._betChip = new BetChip();
+        this._betChip = new AnimBetChip();
         this.once(eui.UIEvent.ADDED_TO_STAGE, this.setSize, this);
         this.addChild(this._betChip);
         mouse.setButtonMode(this._betChip, true);
@@ -71,6 +71,7 @@ namespace we {
         // update chip face
         this._isSelected = value;
         const type = this.selected ? we.core.ChipType.FLAT : we.core.ChipType.PERSPECTIVE;
+        this._betChip.highlight = this.selected ? true : false;
         this._betChip.type = type;
         this.invalidateState();
       }

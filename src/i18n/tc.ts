@@ -84,6 +84,8 @@ namespace we {
       overlaypanel_bethistory_record_bettype: '投注項目',
       overlaypanel_bethistory_record_result: '遊戲結果',
       overlaypanel_bethistory_record_replay: '重播',
+      overlaypanel_bethistory_btn_next: '下一則',
+      overlaypanel_bethistory_btn_prev: '上一則',
 
       overlaypanel_bethistory_baresult_banker: '庄',
       overlaypanel_bethistory_baresult_player: '閒',
@@ -216,7 +218,7 @@ namespace we {
       },
       live: {
         gametype: {
-          allGame: '全部遊戲',
+          allGame: '真人遊戲',
           bacarrat: '百家樂',
           dragontiger: '龍虎',
           luckywheel: '幸運輪',
@@ -264,6 +266,7 @@ namespace we {
         tie: '和',
         playerPair: '閒對',
         bankerPair: '庄對',
+        gameRecord: '遊戲記錄',
       },
       dice: {
         recent: '最近',
@@ -392,7 +395,7 @@ namespace we {
         insufficientBalance: '餘額不足',
         exceedBetUpperLimit: '超過投注上限',
         exceedBetLowerLimit: '低過投注下限',
-        startBet: '開始下注',
+        startBet: '投注開始',
         stopBet: '停止下注',
       },
       sidePanel: {

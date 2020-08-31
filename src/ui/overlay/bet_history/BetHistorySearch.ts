@@ -129,7 +129,7 @@ namespace we {
         }
 
         protected onClickResult(e) {
-          this._detail.dataChanged(this._dataColl.source[e.itemIndex]);
+          this._detail.dataChanged(this._dataColl.source, e.itemIndex);
           this._detail.show();
         }
 

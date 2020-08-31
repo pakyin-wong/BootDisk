@@ -10,6 +10,9 @@ namespace we {
       protected _verticalGroup: eui.Group;
       private _common_listpanel: ui.BaseImageButton;
 
+      protected _gradientmask: eui.Group;
+      protected _shape: egret.Shape = new egret.Shape();
+
       constructor(data: any) {
         super(data);
       }
@@ -81,9 +84,29 @@ namespace we {
         if (this._bottomGamePanel._statisticChartPanel) {
           this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
         }
-        // if (this._bottomGamePanel._betLimitDropDownBtn) {
-        //   this.initBottomBetLimitSelector();
-        // }
+
+        if (this._bottomGamePanel._betLimitDropDownBtn) {
+          this.initBottomBetLimitSelector();
+        }
+
+        if (env.orientation === 'landscape') {
+          const gr = this._shape.graphics;
+          const matrix = new egret.Matrix();
+          matrix.createGradientBox(2424, 600, Math.PI / 2);
+          gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000], [0, 0.7], [0, 255], matrix);
+          gr.drawRect(0, 0, 2424, 600);
+          gr.endFill();
+          this._gradientmask.addChild(this._shape);
+        } else {
+          const gr = this._shape.graphics;
+          const matrix = new egret.Matrix();
+          matrix.createGradientBox(1242, 350, Math.PI / 2);
+          gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000], [0, 0.7], [0, 255], matrix);
+          gr.drawRect(0, 0, 1242, 418);
+          gr.endFill();
+          this._gradientmask.addChild(this._shape);
+        }
+
         this.createVerticalLayout();
         this.changeHandMode();
         this._lwGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
@@ -201,9 +224,9 @@ namespace we {
         }
         */
 
-        console.log('checkResultMessage', this._gameData);
+        // console.log('checkResultMessage', this._gameData);
 
-        const resultNo = (<lw.GameData> this._gameData).value; // a string type
+        const resultNo = (<lw.GameData>this._gameData).value; // a string type
         (this._tableLayer as lw.TableLayer).flashFields(`LW_${parseInt(resultNo, 10) - 1}`);
         // const lwGameResultMessage = new lw.GameResultMessage();
         // lwGameResultMessage.type = null;

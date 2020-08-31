@@ -16,7 +16,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.8.2';
+      public version: string = '0.8.4';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -88,6 +88,7 @@ namespace we {
       private _tableInfoArray: data.TableInfo[] = [];
       private _tableInfos: { [key: string]: data.TableInfo } = {};
       public _currTableId: string;
+      public _currGameType: number;
 
       // array of table id
       public allTableList: string[] = [];
@@ -113,6 +114,7 @@ namespace we {
       public isFirstTimeInfoPanel = false;
       // check if mobilebottomGamePanel is open
       public isBottomPanelOpen = true;
+      public bottomPanelSelectedIdx: number = 0;
 
       // Lottery
       public loDenominationList = [2, 20, 200];
@@ -284,6 +286,7 @@ namespace we {
       public gotoScene(tableId: string) {
         const gameType = env.tableInfos[tableId].gametype;
         this._currTableId = tableId;
+        this._currGameType = gameType;
         switch (gameType) {
           case core.GameType.BAC:
           case core.GameType.BAS:

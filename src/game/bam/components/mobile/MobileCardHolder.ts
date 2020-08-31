@@ -102,7 +102,7 @@ namespace we {
 
       public updateResult(gameData: data.GameData, chipLayer?: ui.ChipLayer) {
         // TODO: update card using the gameData
-        this.gameData = <bam.GameData> gameData;
+        this.gameData = <bam.GameData>gameData;
         this._chipLayer = chipLayer;
 
         this.updateCardArr();
@@ -132,9 +132,10 @@ namespace we {
       }
 
       protected flippedCardCheck() {
-        this.cardHolderArr[this._flipIndex].touchEnabled = false;
-        this.cardHolderArr[this._flipIndex].setCard(utils.formatCard(this.cardArr[this._flipIndex]));
-
+        if (this.cardHolderArr[this._flipIndex]) {
+          this.cardHolderArr[this._flipIndex].touchEnabled = false;
+          this.cardHolderArr[this._flipIndex].setCard(utils.formatCard(this.cardArr[this._flipIndex]));
+        }
         this.checkOpenAllBtn();
 
         this.calculatePoint();

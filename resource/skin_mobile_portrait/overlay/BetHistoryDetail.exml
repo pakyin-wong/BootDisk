@@ -34,5 +34,9 @@
 		<e:Image width="24" height="32" x="924" y="721" source="m_common_setting_playerreportlist_detail_result_replay_icon_png"/>
 		<e:Image id="_btn_replay" width="300" height="100" x="846" y="689" scaleX="1" scaleY="1" source="m_common_setting_playerreportlist_detail_result_replay_box_png" scale9Grid="51,51,1,1"/>
 		<e:Group id="_record_result" width="1069" height="165" x="85" y="400" scaleX="1" scaleY="1"/>
+		<ui:RoundRectButton id="_btn_prev" x="59" y="1963" width="536" height="130" fillColor="0x1b416e" useColorFilter="true"
+                                            stroke="0" cornerTL_TR_BL_BR="75,75,75,75" labelSize="60" />
+		<ui:RoundRectButton id="_btn_next" x="647" y="1963" width="536" height="130" fillColor="0x1b416e" useColorFilter="true"
+                                            stroke="0" cornerTL_TR_BL_BR="75,75,75,75" labelSize="60" />
 	</e:Group>
 </e:Skin>

@@ -2,7 +2,7 @@ namespace we {
   export namespace ui {
     export abstract class BetChipSet extends core.BaseEUI {
       protected _denomList: number[];
-      protected _selectedChipIndex: number = 10;
+      protected _selectedChipIndex: number = -1;
       // protected _chipContainer: eui.Group;
       protected _chipScale: number = 1;
 

@@ -30,9 +30,9 @@ namespace we {
 
       /** Step 1: Preload Loading Scene Resource */
       private async preloadRes() {
-        console.log('start preload');
+        // console.log('start preload');
         await RES.loadGroup(core.res.Loading);
-        console.log('preload finish');
+        // console.log('preload finish');
         this.next();
       }
 
@@ -250,7 +250,7 @@ namespace we {
           // this._progressbar.value = event.itemsLoaded;
           const progress = Math.floor((event.itemsLoaded * 100) / event.itemsTotal) / 100;
           this._progressbar2.proportion = progress;
-          console.log('progress', progress);
+          // console.log('progress', progress);
           // this._progressbar2.proportion =
         }
       }

@@ -6,7 +6,10 @@ namespace we {
       protected totalBetLabel: ui.RunTimeLabel;
       protected gameId: string;
       protected totalBet: number;
-      protected switchModeButton: eui.Component;
+      protected switchModeButton: ui.BaseAnimationButton;
+
+      protected modeLabel: eui.Label;
+      protected modeLayer: eui.Group;
 
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'BARoadmapLeftPanel');
@@ -21,10 +24,22 @@ namespace we {
         this.gameId = '';
         this.totalBet = 0;
         // this.gameIdText.alpha = 0.7;
-        // this.gameIdLabel.alpha = 0.7;
 
         const gridSize = 43;
         const numColumn = 16;
+
+        const slot = this.switchModeButton._display.armature.getSlot('d_ba_roadmap_btn_swap_number');
+        this.modeLabel = new eui.Label();
+        this.modeLabel.fontFamily = 'Barlow';
+        this.modeLabel.size = 22;
+        this.modeLabel.text = '9';
+        this.modeLabel.bold = true;
+        this.modeLabel.textColor = 0xffffff;
+        this.modeLayer = new eui.Group();
+        this.modeLayer.addChild(this.modeLabel);
+        this.modeLayer.anchorOffsetX = this.modeLabel.width * 0.5;
+        this.modeLayer.anchorOffsetY = this.modeLabel.height * 0.5;
+        slot.display = this.modeLayer;
 
         this.beadRoad = new BABeadRoad(numColumn, gridSize, 1, true);
         this.beadRoad.x = 0;
@@ -43,6 +58,15 @@ namespace we {
 
       protected onSwitchModeClick(e: egret.TouchEvent) {
         this.beadRoad.Mode = ++this.beadRoad.Mode % 2;
+        if (this.beadRoad.Mode === 1) {
+          this.modeLabel.size = 18;
+          this.modeLabel.text = i18n.t('baccarat.bankerShort');
+          this.modeLayer.anchorOffsetX = this.modeLabel.width * 0.55;
+        } else {
+          this.modeLabel.size = 22;
+          this.modeLabel.text = '9';
+          this.modeLayer.anchorOffsetX = this.modeLabel.width * 0.5;
+        }
       }
 
       public update() {

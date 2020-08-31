@@ -84,6 +84,8 @@ namespace we {
       overlaypanel_bethistory_record_bettype: 'Bet type',
       overlaypanel_bethistory_record_result: 'Game Result',
       overlaypanel_bethistory_record_replay: 'Replay',
+      overlaypanel_bethistory_btn_next: 'Next',
+      overlaypanel_bethistory_btn_prev: 'Previous',
 
       overlaypanel_bethistory_baresult_banker: 'B',
       overlaypanel_bethistory_baresult_player: 'P',
@@ -264,6 +266,7 @@ namespace we {
         tie: 'Tie',
         playerPair: 'Player Pair',
         bankerPair: 'Banker Pair',
+        gameRecord: 'Game Record',
       },
       dice: {
         recent: 'Recent',

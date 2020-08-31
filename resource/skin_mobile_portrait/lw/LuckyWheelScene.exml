@@ -6,6 +6,8 @@
 	<e:Image id="_bgImg" top="0" bottom="0" x="0" width="1242" source="m_lw_ver_bg_jpg" />
 	<e:Group id="_verticalGroup" width="1242" x="0" bottom="0">
 		<e:Group id="_verticalTop" width="1242" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
+			<e:Group id="_gradientmask" width="1242" height="319" y="468" y.right_hand_mode="374" y.left_hand_mode="374"/>
+
 			<lw:TableLayer id="_tableLayer" height="263" y="400" isEdgeDismissable="true"
 			               skinName="skin_mobile_portrait.lw.TableLayerSkin" scaleX="1" scaleY="1" left="0" right="0" />
 			<lw:ChipLayer id="_chipLayer" height="261" y="400" isEdgeDismissable="true"
