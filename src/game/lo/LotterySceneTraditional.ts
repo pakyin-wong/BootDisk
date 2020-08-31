@@ -62,7 +62,7 @@ namespace we {
 
         this._counter = this._bettingPanel._timer;
 
-        if (this._tableInfo){ 
+        if (this._tableInfo) {
           this._bettingPanel.updateBetTableInfo(this._tableInfo);
         }
       }

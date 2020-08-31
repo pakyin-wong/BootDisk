@@ -63,7 +63,7 @@ namespace we {
       }
 
       public updateLuckyNumbers(gameData: data.GameData, chipLayer: ui.ChipLayer) {
-        this.gameData = <dil.GameData> gameData;
+        this.gameData = <dil.GameData>gameData;
         this.removeChildren();
 
         if (!(this.gameData && this.gameData.luckynumber)) {
