@@ -7,7 +7,7 @@ namespace we {
       private _visibleDenomNum = 0;
       private _leftNav: eui.Label;
       private _rightNav: eui.Label;
-      private _chipList: Array<IBetChip & core.BaseEUI> = [];
+      private _chipList: (IBetChip & core.BaseEUI)[] = [];
       protected _chipContainer: eui.Component;
       protected _chipScale: number = 1;
 
@@ -191,7 +191,9 @@ namespace we {
 
       private syncChip() {
         // check if the page is correct
-        if (this._selectedChipIndex === env.currentChipSelectedIndex) { return; }
+        if (this._selectedChipIndex === env.currentChipSelectedIndex) {
+          return;
+        }
         const index = env.currentChipSelectedIndex;
         if (!(index - this._startIndex < this._visibleDenomNum && index - this._startIndex > 0)) {
           // update _startIndex
@@ -205,7 +207,9 @@ namespace we {
       }
 
       private setChip(index: number) {
-        if (this._selectedChipIndex === index) { return; }
+        if (this._selectedChipIndex === index) {
+          return;
+        }
 
         if (this._selectedChipIndex > -1) {
           this._chipList[this._selectedChipIndex].type = we.core.ChipType.PERSPECTIVE;

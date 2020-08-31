@@ -56,7 +56,6 @@ namespace we {
               break;
           }
         }
-
       }
 
       protected updateBetLimitText(items, idx) {
