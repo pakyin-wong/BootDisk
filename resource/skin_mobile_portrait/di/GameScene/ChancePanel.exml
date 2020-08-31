@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.di.ChancePanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<e:Group x="56" y="46">
+		<ui:RoundRectShape stroke="0" width="360" height="188" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x1f3246" />
+		<e:Image id="_line1" width="300" height="24" x="30" y="28" source="d_sic_history_chart_line-2_png" />
+		<e:Image width="78" height="78" x="36" y="81" source="d_sic_history_lv2_dice-1_png" />
+		<e:Group right="31" bottom="38">
+			<e:Label id="_dice1Label" text="45" x="28.5" y="-47" size="72" textAlign="center" scaleX="1" scaleY="1" />
+			<e:Label text="%" x="80" y="-34" size="50" textAlign="left" scaleX="1" scaleY="1" />
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="bottom" gap="2" horizontalAlign="right" />
+			</e:layout>
+		</e:Group>
+	</e:Group>
+	<e:Group x="441" y="46">
+		<ui:RoundRectShape stroke="0" width="360" height="188" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x1f3246" />
+		<e:Image id="_line2" width="300" height="24" x="30" y="28" source="d_sic_history_chart_line-2_png" />
+		<e:Image width="78" height="78" x="36" y="81" source="d_sic_history_lv2_dice-2_png" />
+		<e:Group right="31" bottom="38">
+			<e:Label id="_dice2Label" text="45" x="28.5" y="-47" size="72" textAlign="center" scaleX="1" scaleY="1" />
+			<e:Label text="%" x="80" y="-34" size="50" textAlign="left" scaleX="1" scaleY="1" />
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="bottom" gap="2" horizontalAlign="right" />
+			</e:layout>
+		</e:Group>
+	</e:Group>
+	<e:Group x="826" y="46">
+		<ui:RoundRectShape stroke="0" width="360" height="188" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x1f3246" />
+		<e:Image id="_line3" width="300" height="24" x="30" y="28" source="d_sic_history_chart_line-2_png" />
+		<e:Image width="78" height="78" x="36" y="81" source="d_sic_history_lv2_dice-3_png" />
+		<e:Group  right="31" bottom="38">
+			<e:Label id="_dice3Label" text="45" x="28.5" y="-47" size="72" textAlign="center" scaleX="1" scaleY="1" />
+			<e:Label text="%" x="80" y="-34" size="50" textAlign="left" scaleX="1" scaleY="1" />
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="bottom" gap="2" horizontalAlign="right" />
+			</e:layout>
+		</e:Group>
+	</e:Group>
+	<e:Group x="56" y="249">
+		<ui:RoundRectShape stroke="0" width="360" height="188" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x1f3246" />
+		<e:Image id="_line4" width="300" height="24" x="30" y="28" source="d_sic_history_chart_line-2_png" />
+		<e:Image width="78" height="78" x="36" y="81" source="d_sic_history_lv2_dice-4_png" />
+		<e:Group  right="31" bottom="38">
+			<e:Label id="_dice4Label" text="45" x="28.5" y="-47" size="72" textAlign="center" scaleX="1" scaleY="1" />
+			<e:Label text="%" x="80" y="-34" size="50" textAlign="left" scaleX="1" scaleY="1" />
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="bottom" gap="2" horizontalAlign="right" />
+			</e:layout>
+		</e:Group>
+	</e:Group>
+	<e:Group x="441" y="249">
+		<ui:RoundRectShape stroke="0" width="360" height="188" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x1f3246" />
+		<e:Image id="_line5" width="300" height="24" x="30" y="28" source="d_sic_history_chart_line-2_png" />
+		<e:Image width="78" height="78" x="36" y="81" source="d_sic_history_lv2_dice-5_png" />
+		<e:Group  right="31" bottom="38">
+			<e:Label id="_dice5Label" text="45" x="28.5" y="-47" size="72" textAlign="center" scaleX="1" scaleY="1" />
+			<e:Label text="%" x="80" y="-34" size="50" textAlign="left" scaleX="1" scaleY="1" />
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="bottom" gap="2" horizontalAlign="right" />
+			</e:layout>
+		</e:Group>
+	</e:Group>
+	<e:Group x="826" y="249">
+		<ui:RoundRectShape stroke="0" width="360" height="188" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x1f3246" />
+		<e:Image id="_line6" width="300" height="24" x="30" y="28" source="d_sic_history_chart_line-2_png" />
+		<e:Image width="78" height="78" x="36" y="81" source="d_sic_history_lv2_dice-6_png" />
+		<e:Group  right="31" bottom="38">
+			<e:Label id="_dice6Label" text="45" x="28.5" y="-47" size="72" textAlign="center" scaleX="1" scaleY="1" />
+			<e:Label text="%" x="80" y="-34" size="50" textAlign="left" scaleX="1" scaleY="1" />
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="bottom" gap="2" horizontalAlign="right" />
+			</e:layout>
+		</e:Group>
+	</e:Group>
+</e:Skin>
