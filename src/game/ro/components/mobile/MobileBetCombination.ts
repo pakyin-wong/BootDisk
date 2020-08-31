@@ -120,7 +120,7 @@ namespace we {
             this._container.addChild(this._existitems[count]);
             this._existitems[count].currentState = this._edit ? 'edit' : 'normal';
             count++;
-            if (count >= 12) break;
+            if (count >= 12) { break; }
             // }
           }
         }
