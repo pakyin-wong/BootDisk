@@ -159,7 +159,7 @@ namespace we {
         this._mask = new egret.Shape();
         const gr = this._mask.graphics;
         const matrix = new egret.Matrix();
-        let _maskHeight = env.orientation === 'landscape' ? 456 : 1170;
+        const _maskHeight = env.orientation === 'landscape' ? 456 : 1170;
         matrix.createGradientBox(this.width, _maskHeight, Math.PI / 2, 0, 0);
         gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000], [0, 0.6], [0, 255], matrix);
         gr.drawRect(0, 0, this.width, _maskHeight);

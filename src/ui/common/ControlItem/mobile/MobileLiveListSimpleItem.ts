@@ -6,6 +6,8 @@ namespace we {
       protected _alreadyBetSign: eui.Group;
       protected _goodRoadLabel: ui.GoodRoadLabel;
 
+      protected _bg: ui.RoundRectShape;
+
       protected _roadmapNode: eui.Component;
 
       public constructor(skinName: string = null) {
@@ -98,6 +100,19 @@ namespace we {
         } else {
           // this._goodRoadLabel.visible = false;
           // this._goodRoadLabel.width = 0;
+        }
+
+        if (this._bg) {
+          switch (tableInfo.gametype) {
+            case core.GameType.DIL:
+              if (this._bg.fillColor !== '0x1b1f22') {
+                this._bg.fillColor = '0x1b1f22';
+                this._bg.refresh();
+              }
+              break;
+            default:
+              break;
+          }
         }
       }
 

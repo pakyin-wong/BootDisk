@@ -18,7 +18,7 @@ namespace we {
 
       public isSmall: boolean = false;
 
-      public constructor(size: number = 30, emptyColor: number = 0xc1c1c1, emptyAlpha: number = 0.2 , _isSmall: boolean = false) {
+      public constructor(size: number = 30, emptyColor: number = 0xc1c1c1, emptyAlpha: number = 0.2, _isSmall: boolean = false) {
         super(size);
         this.emptyColor = emptyColor;
         this.emptyAlpha = emptyAlpha;

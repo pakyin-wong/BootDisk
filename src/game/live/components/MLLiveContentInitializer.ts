@@ -41,12 +41,11 @@ namespace we {
             image.source = element.image;
             image.height = root.holder.height;
             image.width = root.holder.width;
-            image.fillMode = "cover";
+            image.fillMode = 'cover';
             // image.mask = _mask;
             _group.mask = _mask;
             _mask.visible = true;
           } else {
-
           }
           // _group.mask = _mask
           _group.addChild(image);

@@ -109,12 +109,18 @@ namespace we {
             this.isPanelOpen = env.isBottomPanelOpen;
             egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
             this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
+
+            this._gameScene.updateTableLayerPosition(env.isBottomPanelOpen);
+
             break;
           case false:
             env.isBottomPanelOpen = true;
             this.isPanelOpen = env.isBottomPanelOpen;
             egret.Tween.get(this._middlePart).to({ height: this._middlePartHeight }, 250);
             this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
+
+            this._gameScene.updateTableLayerPosition(env.isBottomPanelOpen);
+
             break;
         }
         this.dispatchEvent(new egret.Event('TOGGLE'));

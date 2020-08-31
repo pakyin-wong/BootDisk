@@ -10,7 +10,7 @@ namespace we {
       private isExpanded: boolean;
       protected _topTextLayer: egret.DisplayObjectContainer;
 
-      public isSmall:boolean = false;
+      public isSmall: boolean = false;
 
       public constructor(
         _numRow: number = 3,

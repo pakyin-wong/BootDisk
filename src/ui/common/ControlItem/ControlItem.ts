@@ -188,14 +188,14 @@ namespace we {
         }
       }
 
-      protected onMatchGoodRoadUpdate() { }
+      protected onMatchGoodRoadUpdate() {}
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         // logger.l(utils.LoggerTarget.DEBUG, 'LiveBaListSimpleItem::onTableBetInfoUpdate');
       }
 
       // item clicked
-      protected onTouchTap(evt: egret.Event) { }
+      protected onTouchTap(evt: egret.Event) {}
 
       protected onBetDetailUpdateInBetState() {
         if (this._betDetails && this._chipLayer) {
@@ -249,7 +249,7 @@ namespace we {
         }
       }
 
-      protected onRoadDataUpdate(evt: egret.Event) { }
+      protected onRoadDataUpdate(evt: egret.Event) {}
 
       public updateGame(isInit: boolean = false) {
         if (!this._gameData) {
