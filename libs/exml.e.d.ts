@@ -1630,6 +1630,10 @@ declare module skin_mobile_portrait.di{
 	class SideBetResultMessage extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait.di{
+	class ChancePanel extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait{
 	class DiceScene extends eui.Skin{
 	}
@@ -1668,6 +1672,10 @@ declare module skin_mobile_portrait.di{
 }
 declare module skin_mobile_portrait.di{
 	class MobileTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.di{
+	class PiePanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.di{
