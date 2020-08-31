@@ -21,9 +21,18 @@ namespace we {
 
       protected getAmountBackground(hasbet): any {
         if (hasbet) {
-          return 'd_sic_game result_bg_03_png';
+          if (env.isMobile) {
+            return 'm_sb_panel_gamelist_result_win_png';
+          } else {
+            return 'd_sic_game result_bg_03_png';
+          }
+        } else {
+          if (env.isMobile) {
+            return 'm_sb_panel_gamelist_result_lose_png';
+          } else {
+            return 'd_sic_game result_bg_04_png';
+          }
         }
-        return 'd_sic_game result_bg_04_png';
       }
 
       public showResult(gameType: core.GameType, resultData: any) {

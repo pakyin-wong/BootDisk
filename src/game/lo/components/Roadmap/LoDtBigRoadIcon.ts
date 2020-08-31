@@ -10,13 +10,13 @@ namespace we {
           if (this.value.v !== undefined) {
             if (this.value.v === 0) {
               // green = tie
-              this._iconText.text = i18n.t('roulette.zeroShort');
+              this._iconText.text = i18n.t('dragontiger.tie');
             } else if (this.value.v === 2) {
               // tiger = red
-              this._iconText.text = i18n.t('roulette.blackShort');
+              this._iconText.text = i18n.t('dragontiger.tiger');
             } else {
               // dragon = blue
-              this._iconText.text = i18n.t('roulette.redShort');
+              this._iconText.text = i18n.t('dragontiger.dragon');
             }
           }
         }

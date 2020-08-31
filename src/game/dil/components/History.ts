@@ -1,7 +1,7 @@
 namespace we {
   export namespace dil {
     export class History extends core.BaseEUI {
-      protected _roundNumber: eui.Label;
+      public _roundNumber: eui.Label;
 
       protected _sum3Percent: ui.Label;
       protected _sum4Percent: ui.Label;
@@ -45,14 +45,23 @@ namespace we {
         this._roundNumber.text = '10';
       }
       public updateStat(data: we.data.GameStatistic) {
-        if (!data || !data.dilHistory || !data.dilHistory.round_10) {
+        if (!data || !data.dilHistory || !data.dilHistory.round_10 || !data.dilHistory.round_50) {
           return;
         }
-        const percentages = we.utils.stat.toPercentages(data.dilHistory.round_10);
-        for (let i = 3; i < 19; i++) {
-          this[`_sum${i}Percent`].text = `${percentages[i - 3]}%`;
-          (<ui.ProgressBar>this[`_sum${i}`]).proportion = percentages[i - 3] / 100;
-          (<ui.ProgressBar>this[`_sum${i}`]).draw();
+        const percentages_10 = we.utils.stat.toPercentages(data.dilHistory.round_10);
+        const percentages_50 = we.utils.stat.toPercentages(data.dilHistory.round_50);
+        if (this._roundNumber.text === '10') {
+          for (let i = 3; i < 19; i++) {
+            this[`_sum${i}Percent`].text = `${percentages_10[i - 3]}`;
+            (<ui.ProgressBar> this[`_sum${i}`]).proportion = percentages_10[i - 3] / 100;
+            (<ui.ProgressBar> this[`_sum${i}`]).draw();
+          }
+        } else {
+          for (let i = 3; i < 19; i++) {
+            this[`_sum${i}Percent`].text = `${percentages_50[i - 3]}`;
+            (<ui.ProgressBar> this[`_sum${i}`]).proportion = percentages_50[i - 3] / 100;
+            (<ui.ProgressBar> this[`_sum${i}`]).draw();
+          }
         }
       }
     }

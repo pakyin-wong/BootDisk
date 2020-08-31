@@ -12,12 +12,22 @@ namespace we {
 
       protected _gameInfoLabel: ui.RunTimeLabel;
 
-      protected viewStack: eui.ViewStack;
+      public viewStack: eui.ViewStack;
       protected viewStackMask: eui.Rect;
       protected _middlePart: eui.Group;
       protected _middlePartHeight: number;
 
       protected _gameScene: core.MobileBaseGameScene;
+
+      // table info panel
+      public _tableInfoPanel: ui.TableInfoPanel;
+      public _betLimitDropDownBtn: ui.RunTimeLabel;
+
+      public isPanelOpen: boolean = false;
+
+      // landscape bottom game result
+      public _bottomResultDisplayContainer: eui.Group;
+      public _bottomResultDisplay: ui.IResultDisplay;
 
       public constructor(skin?: string) {
         super();
@@ -29,6 +39,7 @@ namespace we {
 
       protected mount() {
         super.mount();
+        this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
         this.addListeners();
         this.updateText();
         this.updateStat();
@@ -61,6 +72,17 @@ namespace we {
         this._gameInfoLabel.text = i18n.t('mobile_panel_game_Info');
       }
 
+      public manualOpen() {
+        if (!env.isBottomPanelOpen) {
+          this.currentState = 'on';
+          egret.Tween.removeTweens(this._middlePart);
+          env.isBottomPanelOpen = true;
+          this.isPanelOpen = env.isBottomPanelOpen;
+          egret.Tween.get(this._middlePart).to({ height: this._middlePartHeight }, 250);
+          this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
+        }
+      }
+
       public manualClose() {
         if (env.isBottomPanelOpen) {
           this.currentState = 'off';
@@ -85,11 +107,15 @@ namespace we {
         switch (env.isBottomPanelOpen) {
           case true:
             env.isBottomPanelOpen = false;
+            this.isPanelOpen = env.isBottomPanelOpen;
             egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
+            this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
             break;
           case false:
             env.isBottomPanelOpen = true;
+            this.isPanelOpen = env.isBottomPanelOpen;
             egret.Tween.get(this._middlePart).to({ height: this._middlePartHeight }, 250);
+            this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
             break;
         }
         this.dispatchEvent(new egret.Event('TOGGLE'));
@@ -134,6 +160,10 @@ namespace we {
       protected getMiddlePartHeight() {
         this.currentState = 'on';
         this._middlePartHeight = this._middlePart.height;
+      }
+
+      public openTableInfo() {
+        this.manualOpen();
       }
     }
   }

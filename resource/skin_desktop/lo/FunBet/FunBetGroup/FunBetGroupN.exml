@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.lo.FunBetGroupN" currentState="normal" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing"  states="total,normal" >
+	<e:Image width="258" height="450" source="d_lottery_ent_penal_betarea_betpenal_bg_green_png"/>
+	<e:Image width="258" height="48" source="d_lottery_ent_penal_betarea_betpenal_bg_green_title_png"/>
+	<e:Group id="items" y="56" horizontalCenter="0">
+		<lo:FunBetItem x="56" y="108" scaleX="1" scaleY="1" skinName="skin_desktop.lo.FunBetItemN" field="BIG" skinName.total="skin_desktop.lo.FunBetItemTotal"/>
+		<lo:FunBetItem x="111" y="202" scaleX="1" scaleY="1" skinName="skin_desktop.lo.FunBetItemN" field="SMALL" skinName.total="skin_desktop.lo.FunBetItemTotal"/>
+		<lo:FunBetItem x="58" y="204" scaleX="1" scaleY="1" skinName="skin_desktop.lo.FunBetItemN" field="ODD" skinName.total="skin_desktop.lo.FunBetItemTotal"/>
+		<lo:FunBetItem x="70" y="279" scaleX="1" scaleY="1" skinName="skin_desktop.lo.FunBetItemN" field="EVEN" skinName.total="skin_desktop.lo.FunBetItemTotal"/>
+		<e:layout>
+			<e:VerticalLayout gap="8" horizontalAlign="center"/>
+		</e:layout>
+	</e:Group>
+	<ui:RunTimeLabel id="title" text="Label" y="11" textColor="0x00b8c3" size="20" height="29" verticalAlign="middle" left="0" right="0" textAlign="center"/>
+        
+</e:Skin>

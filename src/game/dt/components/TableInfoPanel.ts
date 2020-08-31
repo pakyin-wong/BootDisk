@@ -11,6 +11,9 @@ namespace we {
       protected pTigerMax: eui.Label;
       protected pTigerOdd: eui.Label;
 
+      protected pTieMax: eui.Label;
+      protected pTieOdd: eui.Label;
+
       protected _mask: egret.Shape;
 
       protected childrenCreated(): void {
@@ -31,9 +34,6 @@ namespace we {
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onExit, this);
         mouse.setButtonMode(this.close, true);
       }
-
-      protected pTieMax: eui.Label;
-      protected pTieOdd: eui.Label;
 
       // <<<<<<< HEAD
       public changeLang() {

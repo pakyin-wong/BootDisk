@@ -31,13 +31,31 @@ namespace we {
         this._betChipStackMapping[di.BetField.EVEN] = this._even_betChipStack;
       }
 
-      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
-        for (const key of Object.keys(fieldAmounts)) {
-          if (fieldAmounts[key] > betLimit.maxlimit) {
-            return true;
-          }
+      // protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+      //   for (const key of Object.keys(fieldAmounts)) {
+      //     if (fieldAmounts[key] === 0) {
+      //       continue;
+      //     }
+      //     if (fieldAmounts[key] < betLimit.minlimit) {
+      //       return true;
+      //     }
+      //   }
+      //   return false;
+      // }
+
+      protected isExceedUpperBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail: data.BetDetail) {
+        const val = this.getAllValue(fieldAmounts, betDetail.field) + betDetail.amount;
+
+        const fieldType = betDetail.field.split('_')[0].toLowerCase();
+
+        switch (fieldType) {
+          case 'odd':
+          case 'even':
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'di', 'ODD_EVEN'));
+          case 'big':
+          case 'small':
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'di', 'BIG_SMALL'));
         }
-        return false;
       }
     }
   }

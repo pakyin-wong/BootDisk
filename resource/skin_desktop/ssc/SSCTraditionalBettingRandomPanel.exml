@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.lo.SSCTraditionalBettingRandomPanel" width="586" height="80" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*">
+    <e:Group id="_buttonGroup" width="586" height="80">
+            <e:Group width="144" height="50" touchChildren="true">
+            	<ui:RoundRectButton id="_btnRandomOne" width="144" height="50" cornerTL_TR_BL_BR="25,25,25,25"
+                        stroke="2" strokeColor="0x1b416e" fillAlpha="0" strokeAlpha="1"
+                        stroke_disabled="2" strokeColor_disabled="0x1b416e" fillAlpha_disabled="0" strokeAlpha_disabled="1"
+                        stroke_hover="2" strokeAlpha_hover="1" strokeColor_hover="0x4c586e" fillAlpha_hover="0.4" fillColor_hover="0x5f6973"
+                        stroke_click="2" fillAlpha_click="1" fillColor_click="0x1b416e" strokeColor_click="0x1b416e" strokeAlpha_click="1"
+                        stroke_active="2" strokeColor_active="0x1b416e" fillAlpha_active="1" fillColor_active="0x1b416e" strokeAlpha_active="1"/>
+                <ui:RunTimeLabel id="_lblRandomOne" text="機選一注" size="20" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
+            </e:Group>
+            <e:Group width="144" height="50" touchChildren="true">
+            	<ui:RoundRectButton id="_btnRandomFive" width="144" height="50" cornerTL_TR_BL_BR="25,25,25,25"
+                        stroke="2" strokeColor="0x1b416e" fillAlpha="0" strokeAlpha="1"
+                        stroke_disabled="2" strokeColor_disabled="0x1b416e" fillAlpha_disabled="0" strokeAlpha_disabled="1"
+                        stroke_hover="2" strokeAlpha_hover="1" strokeColor_hover="0x4c586e" fillAlpha_hover="0.4" fillColor_hover="0x5f6973"
+                        stroke_click="2" fillAlpha_click="1" fillColor_click="0x1b416e" strokeColor_click="0x1b416e" strokeAlpha_click="1"
+                        stroke_active="2" strokeColor_active="0x1b416e" fillAlpha_active="1" fillColor_active="0x1b416e" strokeAlpha_active="1"/>
+                <ui:RunTimeLabel id="_lblRandomFive" text="機選五注" size="20" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
+            </e:Group>
+            <e:Group width="118" height="50" touchChildren="true">
+            	<ui:RoundRectButton id="_btnAllClear" width="118" height="50" cornerTL_TR_BL_BR="25,25,25,25"
+                        stroke="2" strokeColor="0x1b416e" fillAlpha="0" strokeAlpha="1"
+                        stroke_disabled="2" strokeColor_disabled="0x1b416e" fillAlpha_disabled="0" strokeAlpha_disabled="1"
+                        stroke_hover="2" strokeAlpha_hover="1" strokeColor_hover="0x4c586e" fillAlpha_hover="0.4" fillColor_hover="0x5f6973"
+                        stroke_click="2" fillAlpha_click="1" fillColor_click="0x1b416e" strokeColor_click="0x1b416e" strokeAlpha_click="1"
+                        stroke_active="2" strokeColor_active="0x1b416e" fillAlpha_active="1" fillColor_active="0x1b416e" strokeAlpha_active="1"/>
+                        <ui:RunTimeLabel id="_lblAllClear" text="添加" size="20" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
+            </e:Group>
+    <e:layout>
+        <e:HorizontalLayout paddingRight="44" verticalAlign="middle" horizontalAlign="right" gap="12"/>
+    </e:layout>
+    </e:Group>
+</e:Skin>

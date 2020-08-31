@@ -77,7 +77,7 @@ namespace we {
                 this.beadResultPanel.setCardResult(gameData);
 
                 this.beadResultPanel.visible = true;
-                this.beadResultPanel.x = e.data.mouseX - 30;
+                this.beadResultPanel.x = e.data.mouseX;
                 this.beadResultPanel.y = e.data.mouseY - this.beadResultPanel.height - 10;
               } else {
                 this.beadResultPanel.visible = false;

@@ -40,6 +40,9 @@ namespace we {
 
       protected _data;
 
+      protected showNextCardTimeoutId: number = -1;
+      protected showNextCardTimeout: number = 1000;
+
       constructor() {
         super();
       }
@@ -99,7 +102,7 @@ namespace we {
 
       public updateResult(gameData: data.GameData, chipLayer?: ui.ChipLayer) {
         // TODO: update card using the gameData
-        this.gameData = <bam.GameData>gameData;
+        this.gameData = <bam.GameData> gameData;
         this._chipLayer = chipLayer;
 
         this.updateCardArr();
@@ -135,6 +138,39 @@ namespace we {
         this.checkOpenAllBtn();
 
         this.calculatePoint();
+
+        if (this.showNextCardTimeoutId > -1) {
+          clearTimeout(this.showNextCardTimeoutId);
+        }
+
+        this.showNextCardTimeoutId = setTimeout(() => {
+          this.showNextCard();
+        }, this.showNextCardTimeout);
+      }
+
+      protected showNextCard() {
+        const nextIdx = this.getNextIndex(this._flipIndex);
+        if (nextIdx > -1) {
+          this.selectCardByIdx(nextIdx);
+        }
+      }
+
+      protected getNextIndex(cardArrIdx: number) {
+        const posIdxArray = [5, 4, 3, 0, 1, 2];
+        let posIdx = posIdxArray.indexOf(cardArrIdx);
+        if (posIdx > -1) {
+          let checked = 0;
+          while (checked < 5) {
+            const nextPos = ++posIdx % 6;
+            const nextIdx = posIdxArray[nextPos];
+            const card: eui.Component = this.cardHolderArr[nextIdx];
+            if (card.visible && card.touchEnabled) {
+              return nextIdx;
+            }
+            checked++;
+          }
+        }
+        return -1;
       }
 
       protected checkOpenAllBtn() {
@@ -260,13 +296,12 @@ namespace we {
         }
       }
 
-      protected openFlipCard(evt: eui.UIEvent) {
-        const selectedCard: eui.Component = evt.target;
-        this._highlightCard.x = selectedCard.x;
-        this._highlightCard.y = selectedCard.y;
-        this._highlightCard.rotation = selectedCard.rotation;
-        this._highlightCard.visible = true;
+      protected selectCardByIdx(idx: number) {
+        this.selectCard(this.cardHolderArr[idx]);
+      }
 
+      protected selectCard(card: ui.Card) {
+        const selectedCard = card;
         switch (selectedCard.name) {
           case 'card1Banker':
             this._flipIndex = 0;
@@ -292,9 +327,24 @@ namespace we {
             this._flipIndex = 5;
             this._moveIndex = 0;
             break;
+          default:
+            logger.e(utils.LogTarget.PROD, 'BAM Unknown Card');
+        }
+        this._highlightCard.x = selectedCard.x;
+        this._highlightCard.y = selectedCard.y;
+        this._highlightCard.rotation = selectedCard.rotation;
+        this._highlightCard.visible = true;
+
+        if (this.showNextCardTimeoutId > -1) {
+          clearTimeout(this.showNextCardTimeoutId);
         }
 
         this._resultCard.showAndMoveCard(this._moveIndex, this.cardArr[this._flipIndex]);
+      }
+
+      protected openFlipCard(evt: eui.UIEvent) {
+        const selectedCard: ui.Card = evt.target;
+        this.selectCard(selectedCard);
       }
 
       public setPeekState() {
@@ -310,7 +360,9 @@ namespace we {
         }
 
         this.cardHolderArr[2].visible = false;
+        this._openAllBanker.x = 1827;
         this.cardHolderArr[5].visible = false;
+        this._openAllPlayer.x = 314;
 
         if (this._data == null) {
           this.reset();
@@ -335,7 +387,9 @@ namespace we {
         this.cardHolderArr[4].setCard(utils.formatCard(this.cardArr[4]));
 
         this.cardHolderArr[5].visible = true;
+        this._openAllPlayer.x = 120;
         this.cardHolderArr[2].visible = false;
+        this._openAllBanker.x = 1827;
         this._highlightCard.visible = false;
         this._resultCard.closeFlipPanel();
         this.setCardsFlipAllowed(5, 1);
@@ -355,6 +409,7 @@ namespace we {
         this.cardHolderArr[4].setCard(utils.formatCard(this.cardArr[4]));
 
         this.cardHolderArr[2].visible = true;
+        this._openAllBanker.x = 2020;
         if (this.cardArr[5]) {
           this.cardHolderArr[5].visible = true;
           this.cardHolderArr[5].setCard(utils.formatCard(this.cardArr[5]));
@@ -434,6 +489,25 @@ namespace we {
       }
 
       protected setCardsFlipAllowed(playCardno: number, bankCardno: number) {
+        let initSelectedIdx = -1;
+
+        if (this.isBankerFlipAllowed()) {
+          for (let i: number = bankCardno; i >= 0; i--) {
+            this.cardHolderArr[i].filters = [this.enableFilter];
+            this._openAllBanker.visible = false;
+            if (!this.cardHolderArr[i].isOpen) {
+              this.cardHolderArr[i].touchEnabled = true;
+              this._openAllBanker.visible = true;
+              initSelectedIdx = i;
+            } else {
+              this.cardHolderArr[i].touchEnabled = false;
+            }
+          }
+        } else {
+          this.disableCard('banker');
+          this._openAllBanker.visible = false;
+        }
+
         if (this.isPlayerFlipAllowed()) {
           for (let i: number = 3; i <= playCardno; i++) {
             this.cardHolderArr[i].filters = [this.enableFilter];
@@ -441,6 +515,7 @@ namespace we {
             if (!this.cardHolderArr[i].isOpen) {
               this.cardHolderArr[i].touchEnabled = true;
               this._openAllPlayer.visible = true;
+              initSelectedIdx = i;
             } else {
               this.cardHolderArr[i].touchEnabled = false;
             }
@@ -449,20 +524,9 @@ namespace we {
           this.disableCard('player');
           this._openAllPlayer.visible = false;
         }
-        if (this.isBankerFlipAllowed()) {
-          for (let i: number = 0; i <= bankCardno; i++) {
-            this.cardHolderArr[i].filters = [this.enableFilter];
-            this._openAllBanker.visible = false;
-            if (!this.cardHolderArr[i].isOpen) {
-              this.cardHolderArr[i].touchEnabled = true;
-              this._openAllBanker.visible = true;
-            } else {
-              this.cardHolderArr[i].touchEnabled = false;
-            }
-          }
-        } else {
-          this.disableCard('banker');
-          this._openAllBanker.visible = false;
+
+        if (initSelectedIdx > -1) {
+          this.selectCardByIdx(initSelectedIdx);
         }
       }
 

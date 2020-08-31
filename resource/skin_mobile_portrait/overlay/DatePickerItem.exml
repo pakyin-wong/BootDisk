@@ -2,5 +2,5 @@
 <e:Skin class="skin_mobile_portrait.DatePickerItem" width="136" height="136" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*"  states="enabled,disabled,single,begin,end,multi"  width.multi="136" height.multi="136">
 	<e:Rect width="110" height="110" includeIn="single,begin,end,multi" horizontalCenter="0" verticalCenter="0" ellipseHeight="110" ellipseWidth="110" fillColor="0x46bffd" fillColor.begin="0x46bffd" fillColor.end="0x46bffd" ellipseWidth.multi="0" ellipseHeight.multi="0" width.multi="136"/>
 	<e:Rect width.begin="68" width.single="35" width.disabled="35" width.enabled="35" height="110" includeIn="begin,end" verticalCenter="0" right.begin="0" right.single="0" right.disabled="0" right.enabled="0" fillColor="0x46bffd" width.end="68" x.end="0" y.end="0" width.multi="35" right.multi="0"/>
-	<ui:RunTimeLabel id="_text" text="00" left="0" right="0" top="0" bottom="0" textAlign="center" verticalAlign="middle" size="50" alpha.disabled="0.7" fontFamily="Barlow"/>
+	<ui:RunTimeLabel id="_text" text="00" left="0" right="0" top="0" bottom="0" textAlign="center" verticalAlign="middle" size="50" alpha.disabled="0.7"/>
 </e:Skin>

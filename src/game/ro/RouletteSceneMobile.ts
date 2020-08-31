@@ -375,46 +375,46 @@ namespace we {
         this._betArea.mask = null;
         this._mask.visible = false;
 
-        const resultNo = (<ro.GameData>this._gameData).value;
+        const resultNo = (<ro.GameData> this._gameData).value;
         (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
 
         super.checkResultMessage(resultData);
       }
 
-      protected initBottomBetLimitSelector() {
-        const betLimitList = env.betLimits;
-        const betLimitItems = betLimitList.map(data => {
-          return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
-        });
-        const dropdownSource = betLimitList.map((data, index) => {
-          return ui.NewDropdownItem(index, () => `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`);
-        });
+      // protected initBottomBetLimitSelector() {
+      //   const betLimitList = env.betLimits;
+      //   const betLimitItems = betLimitList.map(data => {
+      //     return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
+      //   });
+      //   const dropdownSource = betLimitList.map((data, index) => {
+      //     return ui.NewDropdownItem(index, () => `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`);
+      //   });
 
-        const selectedIndex = env.currentSelectedBetLimitIndex;
+      //   const selectedIndex = env.currentSelectedBetLimitIndex;
 
-        utils.DropdownCreator.new({
-          toggler: this._bottomGamePanel._betLimitDropDownBtn,
-          review: this._bottomGamePanel._betLimitDropDownBtn,
-          arrCol: new eui.ArrayCollection(dropdownSource),
-          title: () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`,
-          selected: 0,
-        });
+      //   utils.DropdownCreator.new({
+      //     toggler: this._bottomGamePanel._betLimitDropDownBtn,
+      //     review: this._bottomGamePanel._betLimitDropDownBtn,
+      //     arrCol: new eui.ArrayCollection(dropdownSource),
+      //     title: () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`,
+      //     selected: 0,
+      //   });
 
-        this.updateBetLimit(selectedIndex);
+      //   this.updateBetLimit(selectedIndex);
 
-        this._bottomGamePanel._betLimitDropDownBtn.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
-      }
+      //   this._bottomGamePanel._betLimitDropDownBtn.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
+      // }
 
-      protected updateBetLimit(selectedIndex) {
-        super.updateBetLimit(selectedIndex);
-        const bottomBetLimitList = env.betLimits;
-        const bottomBetLimitItems = bottomBetLimitList.map(data => {
-          return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
-        });
-        if (this._bottomGamePanel._betLimitDropDownBtn) {
-          this._bottomGamePanel._betLimitDropDownBtn.renderText = () => ` ${bottomBetLimitItems.length > 0 ? bottomBetLimitItems[selectedIndex] : ''}`;
-        }
-      }
+      // protected updateBetLimit(selectedIndex) {
+      //   super.updateBetLimit(selectedIndex);
+      //   const bottomBetLimitList = env.betLimits;
+      //   const bottomBetLimitItems = bottomBetLimitList.map(data => {
+      //     return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
+      //   });
+      //   if (this._bottomGamePanel._betLimitDropDownBtn) {
+      //     this._bottomGamePanel._betLimitDropDownBtn.renderText = () => ` ${bottomBetLimitItems.length > 0 ? bottomBetLimitItems[selectedIndex] : ''}`;
+      //   }
+      // }
 
       protected setStateIdle(isInit: boolean = false) {
         super.setStateIdle(isInit);
@@ -459,6 +459,7 @@ namespace we {
       protected updateTableInfoRelatedComponents() {
         super.updateTableInfoRelatedComponents();
         this._baGameID.renderText = () => `${this._tableInfo.tableid}`;
+        // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
       }
     }
   }

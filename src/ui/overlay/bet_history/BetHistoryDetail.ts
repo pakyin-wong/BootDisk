@@ -29,8 +29,12 @@ namespace we {
         protected _record_orgbalance: eui.Label;
         protected _record_finbalance: eui.Label;
 
-        private _btn_replay: egret.DisplayObject;
-        private _record_result: egret.DisplayObjectContainer;
+        protected _btn_prev: ui.RoundRectButton;
+        protected _btn_next: ui.RoundRectButton;
+        protected _btn_replay: egret.DisplayObject;
+        protected _record_result: egret.DisplayObjectContainer;
+        protected _source : any;
+        protected _index : number;
 
         private data;
 
@@ -60,7 +64,27 @@ namespace we {
           this._txt_record_finbalance.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_finbalance')}`;
           this._txt_record_result.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_resuit')}`;
 
+          if(this._btn_next){
+            this._btn_next.label.renderText = () => `${i18n.t('overlaypanel_bethistory_btn_next')}`
+            this._btn_next.addEventListener(egret.TouchEvent.TOUCH_TAP,this.nextPage,this)
+          }
+
+          if(this._btn_prev){
+            this._btn_prev.label.renderText = () => `${i18n.t('overlaypanel_bethistory_btn_prev')}`
+            this._btn_prev.addEventListener(egret.TouchEvent.TOUCH_TAP,this.prevPage,this)
+          }
+
           this._btn_replay.$addListener(egret.TouchEvent.TOUCH_TAP, this.onClickReplay, this);
+        }
+
+        protected nextPage(){
+          this.dataChanged(this._source, this._index + 1)
+          this.show();
+        }
+
+        protected prevPage(){
+          this.dataChanged(this._source, this._index - 1)
+          this.show()
         }
 
         protected destroy() {
@@ -68,8 +92,17 @@ namespace we {
           this._btn_replay.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickReplay, this);
         }
 
-        public dataChanged(d): void {
-          this.data = d;
+        public dataChanged(source, index ): void {
+          this._source = source
+          this._index = index
+          this.data = source[index];
+
+          if(this._btn_next){
+            this._btn_next.visible = this._index + 1 < this._source.length;
+          }
+          if(this._btn_prev){
+            this._btn_prev.visible = this._index -1 >= 0;          
+          }
 
           this._record_id.text = this.data.betid;
           this._record_date.text = utils.formatTime((this.data.datetime / Math.pow(10, 9)).toFixed(0));
@@ -99,7 +132,7 @@ namespace we {
           if (amt > 0) {
             this._record_win_s.text = this._record_win_l.text = `+${utils.formatNumber(this.data.winamount, true)}`;
           } else {
-            this._record_win_s.text = this._record_win_l.text = `-${utils.formatNumber(this.data.winamount, true)}`;
+            this._record_win_s.text = this._record_win_l.text = `${utils.formatNumber(this.data.winamount, true)}`;
           }
         }
 

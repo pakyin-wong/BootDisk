@@ -16,6 +16,7 @@ namespace we {
 
       protected _tableId: string;
       protected _tableInfo: data.TableInfo;
+      protected _statistic;
       protected _betDetails: data.BetDetail[];
       protected _previousState: number;
       protected _gameData: we.data.GameData;
@@ -30,6 +31,8 @@ namespace we {
         super(data);
         this._tableId = data.tableid;
         this.setupTableInfo(env.tableInfos[this._tableId]);
+        this._statistic = this._tableInfo.gamestatistic;
+        this.onGameStatisticUpdated();
         this.setSkinName();
       }
 
@@ -49,7 +52,7 @@ namespace we {
 
         this.initVideo();
         this.initText();
-
+        this.updateGame();
         this.addListeners();
       }
 
@@ -68,7 +71,7 @@ namespace we {
       protected initVideo() {
         this._video = dir.videoPool.get();
         this._video.setBrowser(env.UAInfo.browser.name);
-        this._video.load('https://www.webflv.com:8443/live/test.flv');
+        this._video.load('ws://hk.webflv.com:8000/live/33.flv');
         dir.audioCtr.video = this._video;
         const aspect = 16 / 9;
         const ratio = this.stage.stageWidth / this.stage.stageHeight;
@@ -90,11 +93,11 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
 
         dir.evtHandler.addEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
-        dir.evtHandler.addEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
         dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.addEventListener(core.Event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
         // dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
+        FunBet.evtHandler.addEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
         utils.addButtonListener(this._btnBack, this.backToLobby, this);
       }
 
@@ -102,11 +105,11 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
 
         dir.evtHandler.removeEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
-        dir.evtHandler.removeEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
         dir.evtHandler.removeEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.removeEventListener(core.Event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
         // dir.evtHandler.removeEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
+        FunBet.evtHandler.removeEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
         utils.removeButtonListener(this._btnBack, this.backToLobby, this);
       }
 
@@ -116,7 +119,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             this.setupTableInfo(tableInfo);
             this.updateGame();
@@ -124,14 +127,23 @@ namespace we {
         }
       }
 
-      protected onRoadDataUpdate(evt: egret.Event) {}
+      protected onRoadDataUpdate(evt: egret.Event) {
+        if (evt.data.tableid === this._tableId) {
+          this._statistic = evt.data.gamestatistic;
+          this.onGameStatisticUpdated();
+          this.updateGame();
+        }
+      }
+
+      protected onGameStatisticUpdated() {}
 
       protected onBetResultReceived(evt: egret.Event) {
         const result: data.PlayerBetResult = evt.data;
-        if (result.success) {
+
+        if (result && result.success) {
           this.onBetConfirmed();
         } else {
-          this.onBetFail();
+          this.onBetFail(result);
         }
       }
 
@@ -139,14 +151,27 @@ namespace we {
         this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
       }
 
-      protected onBetFail() {
-        this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('baccarat.betFail'));
+      protected onBetFail(result) {
+        if (result && result.error) {
+          switch (result.error.id) {
+            case '4002':
+              this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.insufficientBalance'));
+              break;
+            default:
+              this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('baccarat.betFail'));
+              logger.e(utils.LogTarget.RELEASE, 'Bet error');
+              break;
+          }
+        } else {
+          this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('baccarat.betFail'));
+          logger.e(utils.LogTarget.RELEASE, 'Bet error');
+        }
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {}
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         if (tableInfo.tableid === this._tableId) {
           logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
           this._betDetails = tableInfo.bets;
@@ -173,8 +198,6 @@ namespace we {
       protected setResultRelatedComponentsEnabled(enable: boolean) {}
 
       public updateGame() {
-        console.log(this._gameData);
-
         if (!this._gameData) {
           return;
         }

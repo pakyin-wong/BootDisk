@@ -16,6 +16,7 @@ namespace we {
       gametype_ROL: '財神輪盤',
       gametype_DT: '龍虎',
       gametype_LW: '幸運輪',
+      gametype_LO: '時時彩',
 
       sidegamelist_title: '遊戲列表',
       sidegamelist_tab_bet: '已下注',
@@ -61,7 +62,7 @@ namespace we {
       overlaypanel_bethistory_week: '本週',
       overlaypanel_bethistory_customperiod: '自訂',
       overlaypanel_bethistory_searchrecord: '搜尋記錄',
-      overlaypanel_bethistory_recordtab_title: '记录详情',
+      overlaypanel_bethistory_recordtab_title: '記錄詳情',
       overlaypanel_bethistory_recordtab_id: '投注編號',
       overlaypanel_bethistory_recordtab_date: '日期時間',
       overlaypanel_bethistory_recordtab_game: '遊戲',
@@ -77,6 +78,14 @@ namespace we {
       overlaypanel_bethistory_remark_win: '嬴',
       overlaypanel_bethistory_remark_lose: '輸',
       overlaypanel_bethistory_remark_ties: '和',
+      overlaypanel_bethistory_limit: '每貢顯示項目：',
+      overlaypanel_bethistory_total: '現在顯示：%now% 項 共 %total% 項記錄',
+      overlaypanel_bethistory_record_round: '局數',
+      overlaypanel_bethistory_record_bettype: '投注項目',
+      overlaypanel_bethistory_record_result: '遊戲結果',
+      overlaypanel_bethistory_record_replay: '重播',
+      overlaypanel_bethistory_btn_next: '下一則',
+      overlaypanel_bethistory_btn_prev: '上一則',
 
       overlaypanel_bethistory_baresult_banker: '庄',
       overlaypanel_bethistory_baresult_player: '閒',
@@ -114,8 +123,10 @@ namespace we {
 
       mobile_notification_quick_bet_button_label: '即時投注',
       mobile_notification_close_button_label: '關閉',
+      mobile_notification_next_button_label: '下一頁',
 
       mobile_quick_bet_button_label: '快速投注',
+      mobile_quick_bet_button_add_label: '加注',
       mobile_enter_table_button_label: '進入遊戲',
 
       mobile_game_panel_bet_hint_label: '提示：點擊下注區進行追注或進入遊戲',
@@ -382,16 +393,23 @@ namespace we {
       game: {
         insufficientBalance: '餘額不足',
         exceedBetUpperLimit: '超過投注上限',
-        exceedBetLowerLimit: '超過投注下限',
+        exceedBetLowerLimit: '低過投注下限',
         startBet: '開始下注',
         stopBet: '停止下注',
       },
       sidePanel: {
+        changeChip: '切換籌碼',
         betted: '已下注項目',
         goodroad: '好路',
         allgames: '全部遊戲',
       },
       baccarat: {
+        statisticChart: {
+          bankerPlayerTie: '庄閒和比例(100局)',
+          bankerPlayerTiePair: '庄閒和对比例 (100局)',
+          shoeBankerPlayerTie: '庄閒和比例(本靴)',
+          shoeBankerPlayerTiePair: '庄閒和對比例(本靴)',
+        },
         playerPair: '閒對',
         bankerPair: '庄對',
         player: '閒',
@@ -413,6 +431,7 @@ namespace we {
         totalbet: '總投注',
         totalcount: '總數',
         betSuccess: '下注成功',
+        betFail: '下注失敗',
         addNewGoodRoad: '新增好路',
         newGoodRoadName: '我的好路',
         removeGoodRoad: '刪除路紙？',
@@ -422,11 +441,13 @@ namespace we {
         clickToSeeVideo: '點擊播放本局視頻',
         askBanker: '庄問路',
         askPlayer: '閒問路',
+        statType100: '100局',
+        statTypeShoe: '本靴',
         BankerPlayerRatio: '庄閒和比例',
         PairRatio: '庄對閒對比例',
         round: '局',
         rounds: '局',
-        playersqueeze: '玩家咪牌',
+        playersqueeze: '咪牌中',
         allOpen: '全開',
       },
       message: {
@@ -465,6 +486,31 @@ namespace we {
           },
         },
       },
+
+      lo_round: '%round% 期',
+      lo_switch_fun: '娛樂',
+      lo_switch_trad: '傳統',
+
+      lo_history_round: '%round% 期',
+
+      lo_fun_custombet: '自訂',
+      lo_fun_bettingRound: '本期投注',
+      lo_fun_round: '期',
+      lo_fun_drawingRound: '期開獎中',
+      lo_fun_lastRound: '上期開期號碼',
+
+      lo_fun_overlay_title: '投票確認',
+      lo_fun_overlay_table: '彩種名稱',
+      lo_fun_overlay_round: '投注期數',
+      lo_fun_overlay_bet: '玩法投注',
+      lo_fun_overlay_rate: '賠率',
+      lo_fun_overlay_amt: '單注金額',
+      lo_fun_overlay_total: '總注數',
+      lo_fun_overlay_count: '注',
+      lo_fun_overlay_totalAmt: '總投注額',
+      lo_fun_overlay_confirm: '確定',
+      lo_fun_overlay_cancel: '取消',
+      lo_fun_overlay_betPrefix: '娛樂｜',
 
       lo_fun_betlayer_tab_fun: '娛樂',
       lo_fun_betlayer_tab_num: '數字',
@@ -512,6 +558,158 @@ namespace we {
       lo_fun_betfield_total_SMALL: '總小',
       lo_fun_betfield_total_ODD: '總單',
       lo_fun_betfield_total_EVEN: '總雙',
+
+      lo_trad: {
+        highest_win: '單倍最高金額：',
+        erase_non_number: '清除錯誤或重複項',
+        all_clear: '全清',
+        upload_document: '上傳文件',
+        bigTag: {
+          FiveStar: '五星',
+          FourStar: '四星',
+          FirstThree: '前三',
+          TwoStar: '二星',
+          StaticTow: '定位膽',
+          NotPos: '不定位',
+          SizeParity: '大小單雙',
+          Interest: '趣味',
+          DragonTiger: '龍虎',
+          AnyTwo: '任選二',
+          AnyThree: '任選三',
+          AnyFour: '任選四',
+        },
+        smallTag: {
+          DirectionSelection: '直選複式', // FiveStar
+          DirectMenu: '直選單式',
+          DirectCombination: '直選組合',
+          Group120: '組選120',
+          Group60: '組選60',
+          Group30: '組選30',
+          Group20: '組選20',
+          Group10: '組選10',
+          Group5: '組選5',
+
+          Group24: '組選24', // FourStar
+          Group12: '組選12',
+          Group6: '組選6',
+          Group4: '組選4',
+
+          DirectionSum: '直选和值', // Three Star
+          Three3: '組三',
+          Three6: '組六',
+          Three3Tow: '組三膽拖',
+          Three6Tow: '組六膽拖',
+          GroupCombine: '混合組選',
+          GroupSum: '組选和值',
+
+          DirectionSelectionLastTwo: '直選後二複式', // Two Star
+          DirectMenuLastTwo: '直選後二單式',
+          DirectionalSumLastTwo: '直選後二和值',
+          DirectionSelectionFirstTwo: '直選前二複式',
+          DirectMenuFirstTwo: '直選前二單式',
+          DirectionalSumFirstTwo: '直選前二和值',
+          GroupDirectionalSelectionLastTwo: '組選後二複式',
+          GroupDirectionalMenuLastTwo: '組選後二單式',
+          GroupSumLastTwo: '組選後二和值',
+          GroupDirectionalSelectionFirstTwo: '組選前二複式',
+          GroupDirectionalMenuFirstTwo: '組選前二單式',
+          GroupSumFirstTwo: '組選前二和值',
+
+          StaticTow: '定位膽',
+
+          AnyLastThreeOne: '後三一碼不定位', // NotPos
+          AnyLastThreeTwo: '後三二碼不定位',
+          AnyFirstThreeOne: '前三一碼不定位',
+          AnyFirstThreeTwo: '前三二碼不定位',
+          AnyFiveOne: '五星一碼不定位',
+          AnyFiveTwo: '五星二碼不定位',
+          AnyFiveThree: '五星三碼不定位',
+
+          LastSizeParity: '後二大小單雙', // SizeParity
+          FrontSizeParity: '前二大小單雙',
+          TenThousandSizeParity: '萬位大小單雙',
+          ThousandSizeParity: '千位大小單雙',
+          HundredSizeParity: '百位大小單雙',
+          TenSizeParity: '十位大小單雙',
+          SingleSizeParity: '個位大小單雙',
+
+          Interest1: '一帆風順', // Interest
+          Interest2: '好事成雙',
+          Interest3: '三星報喜',
+          Interest4: '四季發財',
+
+          TenThosandThosand: '萬千',
+          TenThousandHundred: '萬百',
+          TenThousandTen: '萬十',
+          TenThousandUnit: '萬個',
+          ThousandHundred: '千百',
+          ThousandTen: '千十',
+          ThousandUnit: '千個',
+          HundredTen: '百十',
+          HundredUnit: '百個',
+          TenUnit: '十個',
+
+          GroupSelection: '組選複式',
+          GroupMenu: '組選單式',
+
+          GroupThree: '組三復式',
+          GroupSix: '組六複式',
+          MixGroup: '混合組選',
+        },
+        inputTitle: {
+          TenThousand: '第一球｜萬位',
+          Thousand: '第二球｜千位',
+          Hundred: '第三球｜百位',
+          Ten: '第四球｜十位',
+          Unit: '第五球｜個位',
+
+          Single: '單號',
+          Double: '二重號',
+          Triple: '三重號',
+          Quadruple: '四重號',
+
+          DirectionSum: '直選和值',
+          Three3: '組三',
+          Three6: '組六',
+          Bravery: '膽碼',
+          Tow: '拖碼',
+
+          Sum: '和值',
+          Group: '組選',
+
+          Any: '任選',
+        },
+        inputs: {
+          DRAGON: '龍',
+          TIGER: '虎',
+          TIE: '和',
+
+          ODD: '單',
+          EVEN: '雙',
+          BIG: '大',
+          SMALL: '小',
+        },
+        option: {
+          ALL: '全',
+          BIG: '大',
+          SMALL: '小',
+          ODD: '奇',
+          EVEN: '偶',
+          CLEAR: '清',
+        },
+        ui: {
+          gamemode: '玩法',
+          betitem: '投注項目',
+          betmode: '模式',
+          notecount: '注數',
+          multiplier: '倍數',
+          betamount: '金額',
+          action: '操作',
+        },
+        description: {
+          checkbox: '請至少選擇$min$位位數，您當前選擇了$count$個位置\n，系統將自動生成$combination$個方案',
+        },
+      },
     };
   }
 }

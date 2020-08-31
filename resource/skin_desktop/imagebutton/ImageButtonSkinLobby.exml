@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.ImageButtonSkinLobby" width="28" height="28" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*"
-        states="lobby_mode_01,lobby_mode_02,lobby_mode_03,lobby_confirm_button,lobby_betcontrol_close,lobby_betcontrol_previous,lobby_quick_bet_notification,lobby_notify_btn_action,lobby_notify_btn_hide"
+        states="lobby_mode_01,lobby_mode_02,lobby_mode_03,lobby_confirm_button,lobby_betcontrol_close,lobby_betcontrol_previous,lobby_quick_bet_notification,lobby_notify_btn_action,lobby_notify_btn_hide,quickbet_previous"
         width.lobby_confirm_button="28" height.lobby_confirm_button="28">
-    <e:Image id="_background" left="0" right="0" top="0" bottom="0"
+    <e:Image id="_background" left="0" right="0" top="0" bottom="0" touchEnabled="false"
              source.lobby_mode_01="d_lobby_icon_view_01_normal_png"
              source.lobby_mode_02="d_lobby_icon_view_02_normal_png"
              source.lobby_mode_03="d_lobby_icon_view_03_normal_png"
@@ -11,7 +11,8 @@
              source.lobby_betcontrol_previous="d_lobby_panel_betcontrol_btn_previous_normal_png"
              source.lobby_quick_bet_notification="d_lobby_quick_bet_notification_follow_normal_png"
              source.lobby_notify_btn_action="d_lobby_notify_btn_action_png"
-             source.lobby_notify_btn_hide="d_lobby_notify_btn_hide_png" touchEnabled="false" />
+             source.lobby_notify_btn_hide="d_lobby_notify_btn_hide_png"
+             source.quickbet_previous="d_lobby_betcontrol_btn_previous_png" />
     <ui:RoundRectButton left="-3" right="0" top="0" bottom="0" cornerTL_TR_BL_BR="25,25,25,25" width="90" height="52"
                         stroke="0" strokeIn="0" fillColor="00aa5e" fillAlpha="1" fillAlpha_hover="0.7"
                         includeIn="lobby_confirm_button" />
