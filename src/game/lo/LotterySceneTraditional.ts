@@ -307,10 +307,12 @@ namespace we {
 
       protected onRoadDataUpdate(evt: egret.Event) {
         // this._roadmapControl.updateRoadData();
-        this._leftGamePanel.update();
-        this._rightGamePanel.update();
-        this._drawerPanel.update();
-        this._lobbyPanel.updateRoadData(this.tableInfo.roadmap);
+        if (evt.data.tableid === this._tableId) {
+          this._leftGamePanel.update();
+          this._rightGamePanel.update();
+          this._drawerPanel.update();
+          this._lobbyPanel.updateRoadData(this.tableInfo.roadmap);
+        }
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
