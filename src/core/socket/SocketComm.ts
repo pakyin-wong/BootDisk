@@ -605,8 +605,8 @@ namespace we {
             stats.roundId = gameStatistic.roundnumber;
             stats.loHistory = gameStatistic.lohistory;
             stats.loChart = this.mockLoRoadData.loChart; // gameStatistic.lochart;
+            stats.loresults = gameStatistic.loresults;
             tableInfo.gamestatistic = stats;
-
             break;
           }
           default: {
