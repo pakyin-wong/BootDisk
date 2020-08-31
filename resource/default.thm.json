@@ -233,6 +233,7 @@
 		"resource/skin_desktop/SwitchBtn.exml",
 		"resource/skin_desktop/overlay/GameSetting.exml",
 		"resource/skin_desktop/overlay/LiveVerification.exml",
+		"resource/skin_desktop/overlay/LoResultItem.exml",
 		"resource/skin_desktop/overlay/LwResultItem.exml",
 		"resource/skin_desktop/overlay/MemberReport.exml",
 		"resource/skin_desktop/overlay/MessageDialog.exml",

@@ -785,6 +785,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class LoResultItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class LwResultItem extends eui.Skin{
 	}
 }
