@@ -272,7 +272,7 @@ namespace we {
           },
         },
         gametype: {
-          allGame: '全部游戏',
+          allGame: '真人游戏',
           bacarrat: '百家乐',
           dragontiger: '龙虎',
           luckywheel: '幸运轮',
@@ -458,7 +458,7 @@ namespace we {
         insufficientBalance: '余额不足',
         exceedBetUpperLimit: '超过投注上限',
         exceedBetLowerLimit: '低过投注下限',
-        startBet: '开始下注',
+        startBet: '投注开始',
         stopBet: '停止下注',
       },
       sidePanel: {
