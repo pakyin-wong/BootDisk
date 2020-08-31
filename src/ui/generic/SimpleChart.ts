@@ -26,15 +26,15 @@ namespace we {
         this._secondAngle = value;
       }
 
-      public set firstColor(value: number){
+      public set firstColor(value: number) {
         this._firstColor = value;
       }
 
-      public set secondColor(value: number){
+      public set secondColor(value: number) {
         this._secondColor = value;
       }
 
-      public set thirdColor(value: number){
+      public set thirdColor(value: number) {
         this._thirdColor = value;
       }
 

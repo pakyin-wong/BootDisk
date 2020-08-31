@@ -29,13 +29,13 @@ namespace we {
         const numColumn = 16;
 
         const slot = this.switchModeButton._display.armature.getSlot('d_ba_roadmap_btn_swap_number');
-        this.modeLabel = new eui.Label;
+        this.modeLabel = new eui.Label();
         this.modeLabel.fontFamily = 'Barlow';
         this.modeLabel.size = 22;
         this.modeLabel.text = '9';
         this.modeLabel.bold = true;
         this.modeLabel.textColor = 0xffffff;
-        this.modeLayer = new eui.Group;
+        this.modeLayer = new eui.Group();
         this.modeLayer.addChild(this.modeLabel);
         this.modeLayer.anchorOffsetX = this.modeLabel.width * 0.5;
         this.modeLayer.anchorOffsetY = this.modeLabel.height * 0.5;
@@ -58,12 +58,11 @@ namespace we {
 
       protected onSwitchModeClick(e: egret.TouchEvent) {
         this.beadRoad.Mode = ++this.beadRoad.Mode % 2;
-        if(this.beadRoad.Mode === 1)
-        {
+        if (this.beadRoad.Mode === 1) {
           this.modeLabel.size = 18;
           this.modeLabel.text = i18n.t('baccarat.bankerShort');
           this.modeLayer.anchorOffsetX = this.modeLabel.width * 0.55;
-        }else{
+        } else {
           this.modeLabel.size = 22;
           this.modeLabel.text = '9';
           this.modeLayer.anchorOffsetX = this.modeLabel.width * 0.5;

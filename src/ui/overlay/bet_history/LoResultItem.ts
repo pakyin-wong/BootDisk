@@ -15,12 +15,12 @@ namespace we {
         }
 
         protected mount() {
-            let balls = this._gameResult.a1.split(',');
-        this.b1.text = balls[0] >= 0 ? `${balls[0]}` : `-`;
-        this.b2.text = balls[1] >= 0 ? `${balls[1]}` : `-`;
-        this.b3.text = balls[2] >= 0 ? `${balls[2]}` : `-`;
-        this.b4.text = balls[3] >= 0 ? `${balls[3]}` : `-`;
-        this.b5.text = balls[4] >= 0 ? `${balls[4]}` : `-`;
+          const balls = this._gameResult.a1.split(',');
+          this.b1.text = balls[0] >= 0 ? `${balls[0]}` : `-`;
+          this.b2.text = balls[1] >= 0 ? `${balls[1]}` : `-`;
+          this.b3.text = balls[2] >= 0 ? `${balls[2]}` : `-`;
+          this.b4.text = balls[3] >= 0 ? `${balls[3]}` : `-`;
+          this.b5.text = balls[4] >= 0 ? `${balls[4]}` : `-`;
         }
       }
     }

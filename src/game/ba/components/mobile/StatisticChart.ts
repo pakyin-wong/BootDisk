@@ -29,14 +29,14 @@ namespace we {
 
       protected _totalLabel: eui.Label;
 
-      protected _thirdColor : number = 0x1f86c;
+      protected _thirdColor: number = 0x1f86c;
 
       public constructor(skin) {
         super('ba.StatisticChart', false);
         this.orientationDependent = false;
       }
 
-      public set thirdColor(value: number){
+      public set thirdColor(value: number) {
         this._thirdColor = value;
       }
 
