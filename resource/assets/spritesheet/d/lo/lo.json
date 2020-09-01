@@ -241,16 +241,6 @@
       "sourceW": 240,
       "sourceH": 20
     },
-    "d_lottery_ent_penal_betarea_betpenal_five_bet_active_png": {
-      "x": 35,
-      "y": 1986,
-      "w": 43,
-      "h": 214,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 43,
-      "sourceH": 214
-    },
     "d_lottery_penal_infopenal_line copy_png": {
       "x": 2578,
       "y": 1346,
@@ -273,7 +263,7 @@
     },
     "d_lottery_result_number_draw_bg_png": {
       "x": 35,
-      "y": 2204,
+      "y": 1986,
       "w": 98,
       "h": 98,
       "offX": 0,
@@ -283,7 +273,7 @@
     },
     "d_lottery_result_number_enable_bg_png": {
       "x": 35,
-      "y": 2306,
+      "y": 2088,
       "w": 98,
       "h": 98,
       "offX": 0,
@@ -293,7 +283,7 @@
     },
     "d_lottery_penal_infobar_gamelogo_png": {
       "x": 35,
-      "y": 2408,
+      "y": 2190,
       "w": 89,
       "h": 89,
       "offX": 0,
@@ -302,8 +292,8 @@
       "sourceH": 89
     },
     "d_lottery_trad_penal_video_gamelogo_png": {
-      "x": 128,
-      "y": 2408,
+      "x": 35,
+      "y": 2283,
       "w": 88,
       "h": 88,
       "offX": 0,
@@ -402,8 +392,8 @@
       "sourceH": 52
     },
     "d_lottery_trad_penal_betarea_bet_btn_blue_active_png": {
-      "x": 82,
-      "y": 1986,
+      "x": 35,
+      "y": 2375,
       "w": 53,
       "h": 52,
       "offX": 0,
@@ -412,8 +402,8 @@
       "sourceH": 52
     },
     "d_lottery_trad_penal_betarea_bet_btn_blue_enable_png": {
-      "x": 82,
-      "y": 2042,
+      "x": 35,
+      "y": 2431,
       "w": 53,
       "h": 52,
       "offX": 0,
@@ -422,8 +412,8 @@
       "sourceH": 52
     },
     "d_lottery_trad_penal_betarea_bet_btn_blue_hover_png": {
-      "x": 82,
-      "y": 2098,
+      "x": 92,
+      "y": 2375,
       "w": 53,
       "h": 52,
       "offX": 0,
@@ -432,8 +422,8 @@
       "sourceH": 52
     },
     "d_lottery_trad_penal_betarea_bet_btn_green_active_png": {
-      "x": 137,
-      "y": 2154,
+      "x": 127,
+      "y": 2283,
       "w": 53,
       "h": 52,
       "offX": 0,
@@ -442,8 +432,8 @@
       "sourceH": 52
     },
     "d_lottery_trad_penal_betarea_bet_btn_green_enable_png": {
-      "x": 139,
-      "y": 1986,
+      "x": 92,
+      "y": 2431,
       "w": 53,
       "h": 52,
       "offX": 0,
@@ -452,8 +442,8 @@
       "sourceH": 52
     },
     "d_lottery_trad_penal_betarea_bet_btn_green_hover_png": {
-      "x": 139,
-      "y": 2042,
+      "x": 128,
+      "y": 2190,
       "w": 53,
       "h": 52,
       "offX": 0,
@@ -462,8 +452,8 @@
       "sourceH": 52
     },
     "d_lottery_trad_penal_betarea_bet_btn_greenline_active_png": {
-      "x": 139,
-      "y": 2098,
+      "x": 149,
+      "y": 2339,
       "w": 53,
       "h": 52,
       "offX": 0,
@@ -472,8 +462,8 @@
       "sourceH": 52
     },
     "d_lottery_trad_penal_betarea_bet_btn_greenline_enable_png": {
-      "x": 137,
-      "y": 2210,
+      "x": 184,
+      "y": 2246,
       "w": 53,
       "h": 52,
       "offX": 0,
@@ -482,8 +472,8 @@
       "sourceH": 52
     },
     "d_lottery_trad_penal_betarea_bet_btn_greenline_hover_png": {
-      "x": 137,
-      "y": 2266,
+      "x": 149,
+      "y": 2395,
       "w": 53,
       "h": 52,
       "offX": 0,
@@ -492,8 +482,8 @@
       "sourceH": 52
     },
     "d_lottery_trad_penal_betarea_bet_btn_inactive_png": {
-      "x": 137,
-      "y": 2322,
+      "x": 149,
+      "y": 2451,
       "w": 53,
       "h": 52,
       "offX": 0,
@@ -502,17 +492,7 @@
       "sourceH": 52
     },
     "d_lottery_trad_penal_betarea_btn_wininfo_active_png": {
-      "x": 194,
-      "y": 2154,
-      "w": 53,
-      "h": 52,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 53,
-      "sourceH": 52
-    },
-    "d_lottery_trad_penal_betarea_btn_wininfo_enable_png": {
-      "x": 196,
+      "x": 137,
       "y": 1986,
       "w": 53,
       "h": 52,
@@ -521,8 +501,8 @@
       "sourceW": 53,
       "sourceH": 52
     },
-    "d_lottery_trad_penal_betarea_btn_wininfo_hover_png": {
-      "x": 196,
+    "d_lottery_trad_penal_betarea_btn_wininfo_enable_png": {
+      "x": 137,
       "y": 2042,
       "w": 53,
       "h": 52,
@@ -531,9 +511,19 @@
       "sourceW": 53,
       "sourceH": 52
     },
-    "d_lottery_ent_wininfo_bg_png": {
-      "x": 196,
+    "d_lottery_trad_penal_betarea_btn_wininfo_hover_png": {
+      "x": 137,
       "y": 2098,
+      "w": 53,
+      "h": 52,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 53,
+      "sourceH": 52
+    },
+    "d_lottery_ent_wininfo_bg_png": {
+      "x": 185,
+      "y": 2154,
       "w": 52,
       "h": 35,
       "offX": 0,
@@ -542,8 +532,8 @@
       "sourceH": 35
     },
     "d_lottery_penal_infobar_lastdraw_bg_png": {
-      "x": 194,
-      "y": 2210,
+      "x": 185,
+      "y": 2193,
       "w": 52,
       "h": 35,
       "offX": 0,
@@ -553,7 +543,7 @@
     },
     "d_lottery_penal_infobar_number_bg_png": {
       "x": 194,
-      "y": 2249,
+      "y": 1986,
       "w": 52,
       "h": 52,
       "offX": 0,
@@ -563,7 +553,7 @@
     },
     "d_lottery_trad_penal_betarea_bet_btn_number_active_png": {
       "x": 194,
-      "y": 2305,
+      "y": 2042,
       "w": 52,
       "h": 52,
       "offX": 0,
@@ -572,8 +562,8 @@
       "sourceH": 52
     },
     "d_lottery_trad_penal_betarea_bet_btn_number_enable_png": {
-      "x": 220,
-      "y": 2361,
+      "x": 194,
+      "y": 2098,
       "w": 52,
       "h": 52,
       "offX": 0,
@@ -582,8 +572,8 @@
       "sourceH": 52
     },
     "d_lottery_trad_penal_betarea_bet_btn_number_hover_png": {
-      "x": 220,
-      "y": 2417,
+      "x": 206,
+      "y": 2302,
       "w": 52,
       "h": 52,
       "offX": 0,
@@ -592,8 +582,8 @@
       "sourceH": 52
     },
     "d_lottery_trad_penal_betarea_btn_rate_bg_left_png": {
-      "x": 250,
-      "y": 2210,
+      "x": 241,
+      "y": 2154,
       "w": 51,
       "h": 50,
       "offX": 0,
@@ -602,8 +592,8 @@
       "sourceH": 50
     },
     "d_lottery_trad_penal_betarea_btn_rate_bg_right_png": {
-      "x": 251,
-      "y": 2137,
+      "x": 241,
+      "y": 2208,
       "w": 51,
       "h": 50,
       "offX": 0,
@@ -612,8 +602,8 @@
       "sourceH": 50
     },
     "d_lottery_ent_penal_infopenal_subtag_bg_png": {
-      "x": 82,
-      "y": 2154,
+      "x": 2525,
+      "y": 1402,
       "w": 44,
       "h": 44,
       "offX": 0,
@@ -621,79 +611,9 @@
       "sourceW": 44,
       "sourceH": 44
     },
-    "d_lottery_ent_penal_betarea_betpenal_bg_blue_png": {
-      "x": 220,
-      "y": 2473,
-      "w": 43,
-      "h": 43,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 43,
-      "sourceH": 43
-    },
-    "d_lottery_ent_penal_betarea_betpenal_bg_blue_title_png": {
-      "x": 267,
-      "y": 2473,
-      "w": 43,
-      "h": 43,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 43,
-      "sourceH": 43
-    },
-    "d_lottery_ent_penal_betarea_betpenal_bg_green_png": {
-      "x": 2525,
-      "y": 1402,
-      "w": 43,
-      "h": 43,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 43,
-      "sourceH": 43
-    },
-    "d_lottery_ent_penal_betarea_betpenal_bg_green_title_png": {
-      "x": 250,
-      "y": 2264,
-      "w": 43,
-      "h": 43,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 43,
-      "sourceH": 43
-    },
-    "d_lottery_ent_penal_betarea_betpenal_bg_purple_png": {
-      "x": 250,
-      "y": 2311,
-      "w": 43,
-      "h": 43,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 43,
-      "sourceH": 43
-    },
-    "d_lottery_ent_penal_betarea_betpenal_bg_purple_title_png": {
-      "x": 276,
-      "y": 2358,
-      "w": 43,
-      "h": 43,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 43,
-      "sourceH": 43
-    },
-    "d_lottery_ent_penal_betarea_betpenal_five_bet_hover_png": {
-      "x": 276,
-      "y": 2405,
-      "w": 43,
-      "h": 43,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 43,
-      "sourceH": 43
-    },
     "d_lottery_navbar_btn_bg_active_png": {
-      "x": 314,
-      "y": 2452,
+      "x": 206,
+      "y": 2358,
       "w": 43,
       "h": 42,
       "offX": 0,
@@ -702,8 +622,8 @@
       "sourceH": 42
     },
     "d_lottery_penal_infobar_bg_png": {
-      "x": 297,
-      "y": 2264,
+      "x": 206,
+      "y": 2404,
       "w": 43,
       "h": 43,
       "offX": 0,
@@ -712,8 +632,8 @@
       "sourceH": 43
     },
     "d_lottery_trad_penal_raodmap_btn_bg_png": {
-      "x": 297,
-      "y": 2311,
+      "x": 206,
+      "y": 2451,
       "w": 43,
       "h": 42,
       "offX": 0,
@@ -722,8 +642,8 @@
       "sourceH": 42
     },
     "d_lottery_ent_penal_infopenal_roadmap_grid_png": {
-      "x": 305,
-      "y": 2191,
+      "x": 253,
+      "y": 2358,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -732,8 +652,8 @@
       "sourceH": 40
     },
     "d_lottery_penal_gamelist_gamepenal_gamelogo_png": {
-      "x": 323,
-      "y": 2357,
+      "x": 262,
+      "y": 2262,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -742,8 +662,8 @@
       "sourceH": 40
     },
     "d_lottery_penal_trend_grid_dim_jpg": {
-      "x": 323,
-      "y": 2401,
+      "x": 262,
+      "y": 2306,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -752,8 +672,8 @@
       "sourceH": 40
     },
     "d_lottery_penal_trend_grid_normal_jpg": {
-      "x": 361,
-      "y": 2445,
+      "x": 253,
+      "y": 2402,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -762,8 +682,8 @@
       "sourceH": 40
     },
     "d_lottery_trad_penal_raodmap_btn_dropdown_png": {
-      "x": 344,
-      "y": 2235,
+      "x": 253,
+      "y": 2446,
       "w": 37,
       "h": 36,
       "offX": 0,
@@ -772,8 +692,8 @@
       "sourceH": 36
     },
     "d_lottery_navbar_icon_history_png": {
-      "x": 344,
-      "y": 2275,
+      "x": 294,
+      "y": 2446,
       "w": 36,
       "h": 36,
       "offX": 0,
@@ -782,8 +702,8 @@
       "sourceH": 36
     },
     "d_lottery_navbar_icon_record_png": {
-      "x": 344,
-      "y": 2315,
+      "x": 297,
+      "y": 2350,
       "w": 36,
       "h": 36,
       "offX": 0,
@@ -792,8 +712,8 @@
       "sourceH": 36
     },
     "d_lottery_navbar_icon_trend_png": {
-      "x": 367,
-      "y": 2355,
+      "x": 297,
+      "y": 2390,
       "w": 36,
       "h": 36,
       "offX": 0,
@@ -802,8 +722,8 @@
       "sourceH": 36
     },
     "d_lottery_trad_penal_raodmap_grid_normal_png": {
-      "x": 367,
-      "y": 2395,
+      "x": 334,
+      "y": 2430,
       "w": 36,
       "h": 36,
       "offX": 0,
@@ -812,8 +732,8 @@
       "sourceH": 36
     },
     "d_lottery_trad_penal_raodmap_grid_underleft_png": {
-      "x": 384,
-      "y": 2275,
+      "x": 334,
+      "y": 2470,
       "w": 36,
       "h": 36,
       "offX": 0,
@@ -822,8 +742,8 @@
       "sourceH": 36
     },
     "d_lottery_trad_penal_raodmap_grid_underright_png": {
-      "x": 384,
-      "y": 2315,
+      "x": 250,
+      "y": 1986,
       "w": 36,
       "h": 36,
       "offX": 0,
@@ -832,8 +752,8 @@
       "sourceH": 36
     },
     "d_lottery_trad_penal_raodmap_btn_bg_acvtive_png": {
-      "x": 252,
-      "y": 2098,
+      "x": 250,
+      "y": 2026,
       "w": 35,
       "h": 34,
       "offX": 0,
@@ -842,8 +762,8 @@
       "sourceH": 34
     },
     "d_lottery_ent_penal_infopenal_btn_bg_mini_png": {
-      "x": 405,
-      "y": 2435,
+      "x": 128,
+      "y": 2246,
       "w": 33,
       "h": 33,
       "offX": 0,
@@ -852,8 +772,8 @@
       "sourceH": 33
     },
     "d_lottery_trad_penal_video_redline_png": {
-      "x": 323,
-      "y": 2445,
+      "x": 297,
+      "y": 2430,
       "w": 33,
       "h": 3,
       "offX": 0,
@@ -862,8 +782,8 @@
       "sourceH": 3
     },
     "d_lottery_penal_trend_temperature_blue_png": {
-      "x": 405,
-      "y": 2472,
+      "x": 35,
+      "y": 2487,
       "w": 32,
       "h": 32,
       "offX": 0,
@@ -872,8 +792,8 @@
       "sourceH": 32
     },
     "d_lottery_penal_trend_temperature_red_png": {
-      "x": 441,
-      "y": 2472,
+      "x": 137,
+      "y": 2154,
       "w": 32,
       "h": 32,
       "offX": 0,
@@ -882,8 +802,8 @@
       "sourceH": 32
     },
     "d_lottery_penal_trend_temperature_yellow_png": {
-      "x": 407,
-      "y": 2355,
+      "x": 71,
+      "y": 2487,
       "w": 32,
       "h": 32,
       "offX": 0,
@@ -892,8 +812,8 @@
       "sourceH": 32
     },
     "d_lottery_trad_penal_betarea_bet_line_png": {
-      "x": 2058,
-      "y": 1562,
+      "x": 297,
+      "y": 2437,
       "w": 32,
       "h": 3,
       "offX": 0,
@@ -902,8 +822,8 @@
       "sourceH": 3
     },
     "d_lottery_trad_penal_betarea_history_number_bg_png": {
-      "x": 407,
-      "y": 2391,
+      "x": 107,
+      "y": 2487,
       "w": 32,
       "h": 32,
       "offX": 0,
@@ -912,8 +832,8 @@
       "sourceH": 32
     },
     "d_lottery_trad_penal_raodmap_element_green_png": {
-      "x": 442,
-      "y": 2427,
+      "x": 253,
+      "y": 2486,
       "w": 32,
       "h": 32,
       "offX": 0,
@@ -922,8 +842,8 @@
       "sourceH": 32
     },
     "d_lottery_trad_penal_betarea_border_png": {
-      "x": 477,
-      "y": 2463,
+      "x": 289,
+      "y": 2486,
       "w": 31,
       "h": 31,
       "offX": 0,
@@ -932,8 +852,8 @@
       "sourceH": 31
     },
     "d_lottery_btn_checkbox_selected_hover_png": {
-      "x": 361,
-      "y": 2489,
+      "x": 250,
+      "y": 2064,
       "w": 30,
       "h": 30,
       "offX": 0,
@@ -942,8 +862,8 @@
       "sourceH": 30
     },
     "d_lottery_btn_checkbox_selected_png": {
-      "x": 253,
-      "y": 1986,
+      "x": 250,
+      "y": 2098,
       "w": 30,
       "h": 30,
       "offX": 0,
@@ -952,8 +872,8 @@
       "sourceH": 30
     },
     "d_lottery_btn_checkbox_uncheck_hover_png": {
-      "x": 253,
-      "y": 2020,
+      "x": 284,
+      "y": 2064,
       "w": 30,
       "h": 30,
       "offX": 0,
@@ -962,8 +882,8 @@
       "sourceH": 30
     },
     "d_lottery_btn_checkbox_uncheck_png": {
-      "x": 253,
-      "y": 2054,
+      "x": 289,
+      "y": 2026,
       "w": 30,
       "h": 30,
       "offX": 0,
@@ -972,7 +892,7 @@
       "sourceH": 30
     },
     "d_lottery_trad_penal_betarea_btn_gamemode_active_png": {
-      "x": 287,
+      "x": 290,
       "y": 1986,
       "w": 30,
       "h": 30,
@@ -982,8 +902,8 @@
       "sourceH": 30
     },
     "d_lottery_trad_penal_betarea_btn_gamemode_enable_png": {
-      "x": 287,
-      "y": 2020,
+      "x": 284,
+      "y": 2098,
       "w": 30,
       "h": 30,
       "offX": 0,
@@ -992,8 +912,8 @@
       "sourceH": 30
     },
     "d_lottery_trad_penal_betarea_btn_gamemode_hover_png": {
-      "x": 287,
-      "y": 2054,
+      "x": 296,
+      "y": 2132,
       "w": 30,
       "h": 30,
       "offX": 0,
@@ -1002,8 +922,8 @@
       "sourceH": 30
     },
     "d_lottery_trad_penal_betarea_btn_subgamemode_bg_png": {
-      "x": 291,
-      "y": 2088,
+      "x": 318,
+      "y": 2060,
       "w": 30,
       "h": 30,
       "offX": 0,
@@ -1012,7 +932,7 @@
       "sourceH": 30
     },
     "d_lottery_ent_penal_betarea_tag_btn_active_png": {
-      "x": 2094,
+      "x": 2058,
       "y": 1538,
       "w": 29,
       "h": 29,
@@ -1022,7 +942,7 @@
       "sourceH": 29
     },
     "d_lottery_ent_penal_betarea_tag_btn_hover_png": {
-      "x": 2127,
+      "x": 2091,
       "y": 1538,
       "w": 29,
       "h": 29,
@@ -1032,7 +952,7 @@
       "sourceH": 29
     },
     "d_lottery_ent_penal_betarea_tag_btn_left_active_png": {
-      "x": 2160,
+      "x": 2124,
       "y": 1538,
       "w": 29,
       "h": 29,
@@ -1042,7 +962,7 @@
       "sourceH": 29
     },
     "d_lottery_ent_penal_betarea_tag_btn_left_hover_png": {
-      "x": 2193,
+      "x": 2157,
       "y": 1538,
       "w": 29,
       "h": 29,
@@ -1052,7 +972,7 @@
       "sourceH": 29
     },
     "d_lottery_ent_penal_infopenal_bg_png": {
-      "x": 2226,
+      "x": 2190,
       "y": 1538,
       "w": 29,
       "h": 29,
@@ -1062,7 +982,7 @@
       "sourceH": 29
     },
     "d_lottery_ent_penal_infopenal_mini_bg_png": {
-      "x": 2259,
+      "x": 2223,
       "y": 1538,
       "w": 29,
       "h": 29,
@@ -1072,8 +992,8 @@
       "sourceH": 29
     },
     "d_lottery_trad_penal_betarea_bet_bg_png": {
-      "x": 306,
-      "y": 2122,
+      "x": 2256,
+      "y": 1538,
       "w": 29,
       "h": 29,
       "offX": 0,
@@ -1082,8 +1002,8 @@
       "sourceH": 29
     },
     "d_lottery_trad_penal_cart_btn_cencalall_enable_png": {
-      "x": 306,
-      "y": 2155,
+      "x": 318,
+      "y": 2094,
       "w": 29,
       "h": 29,
       "offX": 0,
@@ -1092,8 +1012,8 @@
       "sourceH": 29
     },
     "d_lottery_trad_penal_cart_btn_cencalall_hover_png": {
-      "x": 321,
-      "y": 1986,
+      "x": 323,
+      "y": 2020,
       "w": 29,
       "h": 29,
       "offX": 0,
@@ -1102,67 +1022,7 @@
       "sourceH": 29
     },
     "d_lottery_ent_penal_infopenal_analysis_penal_bg_png": {
-      "x": 321,
-      "y": 2019,
-      "w": 27,
-      "h": 27,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 27,
-      "sourceH": 27
-    },
-    "d_lottery_trad_penal_analysis_penal_bg_png": {
-      "x": 321,
-      "y": 2050,
-      "w": 27,
-      "h": 27,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 27,
-      "sourceH": 27
-    },
-    "d_lottery_trad_penal_betarea_btn_subgamemode_line_png": {
-      "x": 130,
-      "y": 2154,
-      "w": 3,
-      "h": 27,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 3,
-      "sourceH": 27
-    },
-    "d_lottery_trad_penal_raodmap_border_png": {
-      "x": 325,
-      "y": 2081,
-      "w": 27,
-      "h": 27,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 27,
-      "sourceH": 27
-    },
-    "d_lottery_trad_penal_video_btn_fullscreen_enable_png": {
-      "x": 352,
-      "y": 2019,
-      "w": 27,
-      "h": 27,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 27,
-      "sourceH": 27
-    },
-    "d_lottery_trad_penal_video_btn_fullscreen_hover_png": {
-      "x": 352,
-      "y": 2050,
-      "w": 27,
-      "h": 27,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 27,
-      "sourceH": 27
-    },
-    "d_lottery_trad_penal_video_btn_refresh_enable_png": {
-      "x": 354,
+      "x": 324,
       "y": 1986,
       "w": 27,
       "h": 27,
@@ -1171,9 +1031,69 @@
       "sourceW": 27,
       "sourceH": 27
     },
+    "d_lottery_trad_penal_analysis_penal_bg_png": {
+      "x": 355,
+      "y": 1986,
+      "w": 27,
+      "h": 27,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 27,
+      "sourceH": 27
+    },
+    "d_lottery_trad_penal_betarea_btn_subgamemode_line_png": {
+      "x": 2598,
+      "y": 1431,
+      "w": 3,
+      "h": 27,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 3,
+      "sourceH": 27
+    },
+    "d_lottery_trad_penal_raodmap_border_png": {
+      "x": 296,
+      "y": 2166,
+      "w": 27,
+      "h": 27,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 27,
+      "sourceH": 27
+    },
+    "d_lottery_trad_penal_video_btn_fullscreen_enable_png": {
+      "x": 296,
+      "y": 2197,
+      "w": 27,
+      "h": 27,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 27,
+      "sourceH": 27
+    },
+    "d_lottery_trad_penal_video_btn_fullscreen_hover_png": {
+      "x": 296,
+      "y": 2228,
+      "w": 27,
+      "h": 27,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 27,
+      "sourceH": 27
+    },
+    "d_lottery_trad_penal_video_btn_refresh_enable_png": {
+      "x": 306,
+      "y": 2259,
+      "w": 27,
+      "h": 27,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 27,
+      "sourceH": 27
+    },
     "d_lottery_trad_penal_video_btn_refresh_hover_png": {
-      "x": 339,
-      "y": 2112,
+      "x": 306,
+      "y": 2290,
       "w": 27,
       "h": 27,
       "offX": 0,
@@ -1182,8 +1102,8 @@
       "sourceH": 27
     },
     "d_lottery_penal_trend_icon_info_png": {
-      "x": 137,
-      "y": 2378,
+      "x": 327,
+      "y": 2166,
       "w": 26,
       "h": 26,
       "offX": 0,
@@ -1192,8 +1112,8 @@
       "sourceH": 26
     },
     "d_lottery_trad_penal_cart_btn_cencal_png": {
-      "x": 167,
-      "y": 2378,
+      "x": 330,
+      "y": 2127,
       "w": 26,
       "h": 26,
       "offX": 0,
@@ -1212,8 +1132,8 @@
       "sourceH": 25
     },
     "d_lottery_trad_penal_analysis_bg_png": {
-      "x": 305,
-      "y": 2235,
+      "x": 306,
+      "y": 2321,
       "w": 25,
       "h": 25,
       "offX": 0,
@@ -1232,8 +1152,8 @@
       "sourceH": 25
     },
     "d_lottery_trad_penal_chart_bg_png": {
-      "x": 356,
-      "y": 2081,
+      "x": 335,
+      "y": 2321,
       "w": 25,
       "h": 25,
       "offX": 0,
@@ -1242,8 +1162,8 @@
       "sourceH": 25
     },
     "d_lottery_trad_penal_chart_top_bg_png": {
-      "x": 339,
-      "y": 2143,
+      "x": 351,
+      "y": 2094,
       "w": 25,
       "h": 25,
       "offX": 0,
@@ -1252,8 +1172,8 @@
       "sourceH": 25
     },
     "d_lottery_trad_penal_raodmap_top_bg_png": {
-      "x": 349,
-      "y": 2172,
+      "x": 352,
+      "y": 2053,
       "w": 25,
       "h": 25,
       "offX": 0,
@@ -1262,8 +1182,8 @@
       "sourceH": 25
     },
     "d_lottery_ent_penal_infopenal_btn_mini_png": {
-      "x": 368,
-      "y": 2143,
+      "x": 356,
+      "y": 2017,
       "w": 24,
       "h": 24,
       "offX": 0,
@@ -1272,8 +1192,8 @@
       "sourceH": 24
     },
     "d_lottery_ent_penal_infopenal_subtag_btn_left_png": {
-      "x": 370,
-      "y": 2110,
+      "x": 327,
+      "y": 2196,
       "w": 24,
       "h": 24,
       "offX": 0,
@@ -1282,8 +1202,8 @@
       "sourceH": 24
     },
     "d_lottery_ent_penal_infopenal_subtag_btn_right_png": {
-      "x": 349,
-      "y": 2201,
+      "x": 327,
+      "y": 2224,
       "w": 24,
       "h": 24,
       "offX": 0,
@@ -1292,8 +1212,8 @@
       "sourceH": 24
     },
     "d_lottery_penal_infobar_lastdraw_icon_png": {
-      "x": 377,
-      "y": 2201,
+      "x": 337,
+      "y": 2252,
       "w": 24,
       "h": 24,
       "offX": 0,
@@ -1302,8 +1222,8 @@
       "sourceH": 24
     },
     "d_lottery_trad_penal_betarea_btn_subgamemode_icon_rule_png": {
-      "x": 378,
-      "y": 2171,
+      "x": 337,
+      "y": 2280,
       "w": 24,
       "h": 24,
       "offX": 0,
@@ -1312,8 +1232,8 @@
       "sourceH": 24
     },
     "d_lottery_penal_gamelist_gamepenal_roadmap_element_blue_png": {
-      "x": 396,
-      "y": 2138,
+      "x": 206,
+      "y": 2497,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -1322,8 +1242,8 @@
       "sourceH": 22
     },
     "d_lottery_penal_gamelist_gamepenal_roadmap_element_green_png": {
-      "x": 385,
-      "y": 2229,
+      "x": 355,
+      "y": 2196,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -1332,8 +1252,8 @@
       "sourceH": 22
     },
     "d_lottery_penal_gamelist_gamepenal_roadmap_element_red_png": {
-      "x": 405,
-      "y": 2199,
+      "x": 355,
+      "y": 2222,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -1342,8 +1262,8 @@
       "sourceH": 22
     },
     "d_lottery_trad_penal_chart_luckytimengame_color_10_png": {
-      "x": 406,
-      "y": 2164,
+      "x": 357,
+      "y": 2157,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -1352,8 +1272,8 @@
       "sourceH": 22
     },
     "d_lottery_trad_penal_chart_luckytimengame_color_1_png": {
-      "x": 411,
-      "y": 2225,
+      "x": 360,
+      "y": 2123,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -1362,8 +1282,8 @@
       "sourceH": 22
     },
     "d_lottery_trad_penal_chart_luckytimengame_color_2_png": {
-      "x": 431,
-      "y": 2190,
+      "x": 380,
+      "y": 2082,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -1372,8 +1292,8 @@
       "sourceH": 22
     },
     "d_lottery_trad_penal_chart_luckytimengame_color_3_png": {
-      "x": 383,
-      "y": 2017,
+      "x": 381,
+      "y": 2045,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -1382,8 +1302,8 @@
       "sourceH": 22
     },
     "d_lottery_trad_penal_chart_luckytimengame_color_4_png": {
-      "x": 385,
-      "y": 1986,
+      "x": 384,
+      "y": 2017,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -1392,8 +1312,8 @@
       "sourceH": 22
     },
     "d_lottery_trad_penal_chart_luckytimengame_color_5_png": {
-      "x": 383,
-      "y": 2043,
+      "x": 386,
+      "y": 1986,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -1402,8 +1322,8 @@
       "sourceH": 22
     },
     "d_lottery_trad_penal_chart_luckytimengame_color_6_png": {
-      "x": 385,
-      "y": 2069,
+      "x": 337,
+      "y": 2350,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -1412,8 +1332,8 @@
       "sourceH": 22
     },
     "d_lottery_trad_penal_chart_luckytimengame_color_7_png": {
-      "x": 398,
-      "y": 2095,
+      "x": 337,
+      "y": 2376,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -1422,8 +1342,8 @@
       "sourceH": 22
     },
     "d_lottery_trad_penal_chart_luckytimengame_color_8_png": {
-      "x": 422,
-      "y": 2121,
+      "x": 337,
+      "y": 2402,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -1432,8 +1352,8 @@
       "sourceH": 22
     },
     "d_lottery_trad_penal_chart_luckytimengame_color_9_png": {
-      "x": 432,
-      "y": 2147,
+      "x": 363,
+      "y": 2350,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -1452,26 +1372,6 @@
       "sourceH": 20
     },
     "d_lottery_ent_penal_betarea_betpenal_ent_bet_hover_blue_png": {
-      "x": 2058,
-      "y": 1538,
-      "w": 20,
-      "h": 20,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 20,
-      "sourceH": 20
-    },
-    "d_lottery_ent_penal_betarea_betpenal_ent_bet_hover_purple_png": {
-      "x": 411,
-      "y": 2251,
-      "w": 20,
-      "h": 20,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 20,
-      "sourceH": 20
-    },
-    "d_lottery_penal_gamelist_gamepenal_roadmap_grid_jpg": {
       "x": 2342,
       "y": 1490,
       "w": 20,
@@ -1481,27 +1381,7 @@
       "sourceW": 20,
       "sourceH": 20
     },
-    "d_lottery_penal_trend_number_bg_png": {
-      "x": 477,
-      "y": 2498,
-      "w": 20,
-      "h": 20,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 20,
-      "sourceH": 20
-    },
-    "d_lottery_trad_penal_betarea_btn_rate_bg_center_png": {
-      "x": 314,
-      "y": 2498,
-      "w": 20,
-      "h": 20,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 20,
-      "sourceH": 20
-    },
-    "d_lottery_trad_penal_betarea_btn_rate_icon_add_png": {
+    "d_lottery_ent_penal_betarea_betpenal_ent_bet_hover_purple_png": {
       "x": 2378,
       "y": 1546,
       "w": 20,
@@ -1511,9 +1391,49 @@
       "sourceW": 20,
       "sourceH": 20
     },
+    "d_lottery_penal_gamelist_gamepenal_roadmap_grid_jpg": {
+      "x": 2402,
+      "y": 1546,
+      "w": 20,
+      "h": 20,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 20,
+      "sourceH": 20
+    },
+    "d_lottery_penal_trend_number_bg_png": {
+      "x": 2426,
+      "y": 1546,
+      "w": 20,
+      "h": 20,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 20,
+      "sourceH": 20
+    },
+    "d_lottery_trad_penal_betarea_btn_rate_bg_center_png": {
+      "x": 2450,
+      "y": 1546,
+      "w": 20,
+      "h": 20,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 20,
+      "sourceH": 20
+    },
+    "d_lottery_trad_penal_betarea_btn_rate_icon_add_png": {
+      "x": 2474,
+      "y": 1546,
+      "w": 20,
+      "h": 20,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 20,
+      "sourceH": 20
+    },
     "d_lottery_trad_penal_betarea_btn_rate_icon_reduce_png": {
-      "x": 501,
-      "y": 2498,
+      "x": 2498,
+      "y": 1546,
       "w": 20,
       "h": 20,
       "offX": 0,
@@ -1522,8 +1442,8 @@
       "sourceH": 20
     },
     "d_lottery_ent_penal_infopenal_analysis_penal_tag_bg_png": {
-      "x": 128,
-      "y": 2500,
+      "x": 2522,
+      "y": 1548,
       "w": 19,
       "h": 19,
       "offX": 0,
@@ -1532,8 +1452,8 @@
       "sourceH": 19
     },
     "d_lottery_penal_infobar_time_bg_png": {
-      "x": 197,
-      "y": 2361,
+      "x": 2545,
+      "y": 1548,
       "w": 19,
       "h": 19,
       "offX": 0,
@@ -1542,8 +1462,8 @@
       "sourceH": 19
     },
     "d_lottery_trad_penal_betarea_bet_textbox_png": {
-      "x": 338,
-      "y": 2498,
+      "x": 364,
+      "y": 2308,
       "w": 19,
       "h": 19,
       "offX": 0,
@@ -1552,8 +1472,8 @@
       "sourceH": 19
     },
     "d_lottery_ent_penal_infopenal_chart_gamemode_bar_bg_png": {
-      "x": 385,
-      "y": 2255,
+      "x": 241,
+      "y": 2262,
       "w": 17,
       "h": 16,
       "offX": 0,
@@ -1562,8 +1482,8 @@
       "sourceH": 16
     },
     "d_lottery_ent_penal_infopenal_chart_luckytimengame_color_10_png": {
-      "x": 276,
-      "y": 2452,
+      "x": 232,
+      "y": 2497,
       "w": 17,
       "h": 17,
       "offX": 0,
@@ -1572,8 +1492,8 @@
       "sourceH": 17
     },
     "d_lottery_ent_penal_infopenal_chart_luckytimengame_color_1_png": {
-      "x": 2584,
-      "y": 1431,
+      "x": 127,
+      "y": 2339,
       "w": 17,
       "h": 17,
       "offX": 0,
@@ -1582,8 +1502,8 @@
       "sourceH": 17
     },
     "d_lottery_ent_penal_infopenal_chart_luckytimengame_color_2_png": {
-      "x": 35,
-      "y": 2501,
+      "x": 184,
+      "y": 2302,
       "w": 17,
       "h": 17,
       "offX": 0,
@@ -1592,8 +1512,8 @@
       "sourceH": 17
     },
     "d_lottery_ent_penal_infopenal_chart_luckytimengame_color_3_png": {
-      "x": 2584,
-      "y": 1452,
+      "x": 250,
+      "y": 2132,
       "w": 17,
       "h": 17,
       "offX": 0,
@@ -1602,8 +1522,8 @@
       "sourceH": 17
     },
     "d_lottery_ent_penal_infopenal_chart_luckytimengame_color_4_png": {
-      "x": 56,
-      "y": 2501,
+      "x": 2584,
+      "y": 1462,
       "w": 17,
       "h": 17,
       "offX": 0,
@@ -1612,8 +1532,8 @@
       "sourceH": 17
     },
     "d_lottery_ent_penal_infopenal_chart_luckytimengame_color_5_png": {
-      "x": 2584,
-      "y": 1473,
+      "x": 271,
+      "y": 2132,
       "w": 17,
       "h": 17,
       "offX": 0,
@@ -1622,8 +1542,8 @@
       "sourceH": 17
     },
     "d_lottery_ent_penal_infopenal_chart_luckytimengame_color_6_png": {
-      "x": 77,
-      "y": 2501,
+      "x": 2584,
+      "y": 1483,
       "w": 17,
       "h": 17,
       "offX": 0,
@@ -1633,7 +1553,7 @@
     },
     "d_lottery_ent_penal_infopenal_chart_luckytimengame_color_7_png": {
       "x": 2584,
-      "y": 1494,
+      "y": 1504,
       "w": 17,
       "h": 17,
       "offX": 0,
@@ -1642,8 +1562,8 @@
       "sourceH": 17
     },
     "d_lottery_ent_penal_infopenal_chart_luckytimengame_color_8_png": {
-      "x": 98,
-      "y": 2501,
+      "x": 2584,
+      "y": 1525,
       "w": 17,
       "h": 17,
       "offX": 0,
@@ -1652,8 +1572,8 @@
       "sourceH": 17
     },
     "d_lottery_ent_penal_infopenal_chart_luckytimengame_color_9_png": {
-      "x": 2584,
-      "y": 1515,
+      "x": 363,
+      "y": 2376,
       "w": 17,
       "h": 17,
       "offX": 0,
@@ -1662,8 +1582,8 @@
       "sourceH": 17
     },
     "d_lottery_penal_gamelist_gamepenal_time_bg_png": {
-      "x": 2402,
-      "y": 1548,
+      "x": 363,
+      "y": 2397,
       "w": 17,
       "h": 17,
       "offX": 0,
@@ -1672,8 +1592,8 @@
       "sourceH": 17
     },
     "d_lottery_trad_penal_raodmap_btn_icon_dropdown_png": {
-      "x": 151,
-      "y": 2500,
+      "x": 365,
+      "y": 2248,
       "w": 17,
       "h": 17,
       "offX": 0,
@@ -1692,8 +1612,8 @@
       "sourceH": 11
     },
     "d_lottery_penal_betarea_betpenal_bet_box_green_png": {
-      "x": 291,
-      "y": 2122,
+      "x": 380,
+      "y": 2108,
       "w": 11,
       "h": 11,
       "offX": 0,
@@ -1702,8 +1622,8 @@
       "sourceH": 11
     },
     "d_lottery_penal_betarea_betpenal_bet_box_purple_png": {
-      "x": 395,
-      "y": 2508,
+      "x": 127,
+      "y": 2360,
       "w": 11,
       "h": 11,
       "offX": 0,
@@ -1722,16 +1642,6 @@
       "sourceH": 11
     },
     "d_lottery_trad_penal_betarea_bet_btn_number_select_enable_png": {
-      "x": 410,
-      "y": 2508,
-      "w": 11,
-      "h": 11,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 11,
-      "sourceH": 11
-    },
-    "d_lottery_trad_penal_betarea_bet_btn_number_select_hover_png": {
       "x": 2563,
       "y": 1376,
       "w": 11,
@@ -1741,9 +1651,19 @@
       "sourceW": 11,
       "sourceH": 11
     },
+    "d_lottery_trad_penal_betarea_bet_btn_number_select_hover_png": {
+      "x": 2525,
+      "y": 1450,
+      "w": 11,
+      "h": 11,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 11,
+      "sourceH": 11
+    },
     "d_lottery_trad_penal_video_icon_live_png": {
-      "x": 2584,
-      "y": 1346,
+      "x": 185,
+      "y": 2232,
       "w": 10,
       "h": 10,
       "offX": 0,
@@ -1772,8 +1692,8 @@
       "sourceH": 20
     },
     "d_lottery_trad_penal_analysis_tag_bg_png": {
-      "x": 128,
-      "y": 2500,
+      "x": 2522,
+      "y": 1548,
       "w": 19,
       "h": 19,
       "offX": 0,
@@ -1782,8 +1702,8 @@
       "sourceH": 19
     },
     "d_lottery_trad_penal_chart_gamemode_bar_bg_png": {
-      "x": 385,
-      "y": 2255,
+      "x": 241,
+      "y": 2262,
       "w": 17,
       "h": 16,
       "offX": 0,
@@ -1792,8 +1712,8 @@
       "sourceH": 16
     },
     "d_lottery_trad_penal_raodmap_element_blue copy_png": {
-      "x": 405,
-      "y": 2472,
+      "x": 35,
+      "y": 2487,
       "w": 32,
       "h": 32,
       "offX": 0,
@@ -1802,8 +1722,8 @@
       "sourceH": 32
     },
     "d_lottery_trad_penal_raodmap_element_red_png": {
-      "x": 441,
-      "y": 2472,
+      "x": 137,
+      "y": 2154,
       "w": 32,
       "h": 32,
       "offX": 0,
@@ -1812,8 +1732,8 @@
       "sourceH": 32
     },
     "d_lottery_trad_penal_betarea_btn_dropdown_bg_png": {
-      "x": 82,
-      "y": 1986,
+      "x": 35,
+      "y": 2375,
       "w": 53,
       "h": 52,
       "offX": 0,
@@ -1822,8 +1742,8 @@
       "sourceH": 52
     },
     "d_lottery_trad_penal_video_border_png": {
-      "x": 325,
-      "y": 2081,
+      "x": 296,
+      "y": 2166,
       "w": 27,
       "h": 27,
       "offX": 0,

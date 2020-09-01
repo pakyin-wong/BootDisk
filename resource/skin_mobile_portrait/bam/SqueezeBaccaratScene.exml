@@ -113,8 +113,8 @@
 	                          anchorOffsetY="0" visible="false" />
 	<bam:MobileCardHolder id="_resultDisplay" width="1242" height="380" y="710" horizontalCenter="0" anchorOffsetX="0" anchorOffsetY="0" x="415" scaleX="1" scaleY="1" y.left_hand_mode="550" horizontalCenter.right_hand_mode="0" y.right_hand_mode="550"/>
 
-	<bam:MobileFlipCardHolder id="_resultCard" width="1094" height="1472" y="595" anchorOffsetX="0"
-			               anchorOffsetY="0" x="75" scaleX="1" scaleY="1"  y.left_hand_mode="750" y.right_hand_mode="745"/>
+	<bam:MobileFlipCardHolder id="_resultCard" width="1242" height="1472" y="595" anchorOffsetX="0"
+			               anchorOffsetY="0" x="0" scaleX="1" scaleY="1"  y.left_hand_mode="750" y.right_hand_mode="745"/>
 
 
 

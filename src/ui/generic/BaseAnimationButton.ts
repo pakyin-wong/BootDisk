@@ -23,7 +23,7 @@ namespace we {
       protected _dbClass: string = null;
       protected _dbDisplay: string = null;
       protected _group: eui.Group;
-      protected _display: dragonBones.EgretArmatureDisplay = null;
+      public _display: dragonBones.EgretArmatureDisplay = null;
 
       // class attributes
       public pressScaleOffset: number = 0.9;

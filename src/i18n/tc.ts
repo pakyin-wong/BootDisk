@@ -218,7 +218,7 @@ namespace we {
       },
       live: {
         gametype: {
-          allGame: '全部遊戲',
+          allGame: '真人遊戲',
           bacarrat: '百家樂',
           dragontiger: '龍虎',
           luckywheel: '幸運輪',
@@ -266,6 +266,7 @@ namespace we {
         tie: '和',
         playerPair: '閒對',
         bankerPair: '庄對',
+        gameRecord: '遊戲記錄',
       },
       dice: {
         recent: '最近',
@@ -394,7 +395,7 @@ namespace we {
         insufficientBalance: '餘額不足',
         exceedBetUpperLimit: '超過投注上限',
         exceedBetLowerLimit: '低過投注下限',
-        startBet: '開始下注',
+        startBet: '投注開始',
         stopBet: '停止下注',
       },
       sidePanel: {

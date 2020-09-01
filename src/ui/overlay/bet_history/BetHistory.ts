@@ -278,6 +278,8 @@ namespace we {
         if (res.error) {
           // TODO: handle error if bet history is not available
         } else {
+          console.log(res);
+
           this.total = Math.ceil(res.total / this._limit);
           this._page = Math.floor(res.offset / this._limit) + 1;
           this._ddm_page && this._ddm_page.dropdown.select(this._page);

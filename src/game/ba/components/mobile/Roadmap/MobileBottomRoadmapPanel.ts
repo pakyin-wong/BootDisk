@@ -30,7 +30,9 @@ namespace we {
 
       protected totalCount: number;
 
-      protected switchModeButton: eui.Component;
+      protected switchModeButton: ui.BaseAnimationButton;
+      protected modeLabel: eui.Label;
+      protected modeLayer: eui.Group;
 
       protected roadsContainer: egret.DisplayObjectContainer;
 
@@ -94,9 +96,10 @@ namespace we {
             this.addChild(this.iconPlayerCockroach);
 
             this.roadsContainer = new egret.DisplayObjectContainer();
-            this.roadsContainer.x = 0;
+            this.roadsContainer.x = 16;
             this.roadsContainer.y = 0;
             this.addChild(this.roadsContainer);
+            this.roadsContainer.scaleX = 0.968;
 
             this.bigRoad = new BABigRoad(18, gridSizeR);
             this.bigRoad.x = 584;
@@ -117,6 +120,12 @@ namespace we {
             this.cockroachRoad.x = 584 + gridSizeR * 9;
             this.cockroachRoad.y = 98 + 6 * gridSizeR + 6 * (gridSizeR / 2);
             this.roadsContainer.addChild(this.cockroachRoad);
+
+            this.switchModeButton.touchEnabled = true;
+            this.switchModeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchModeClick, this);
+            this.switchModeButton.x = 510;
+            this.switchModeButton.y = 462;
+            this.addChild(this.switchModeButton);
 
             break;
 
@@ -153,14 +162,27 @@ namespace we {
             this.cockroachRoad.y = 3 * gridSizeF;
             this.roadsContainer.addChild(this.cockroachRoad);
 
+            this.switchModeButton.touchEnabled = true;
+            this.switchModeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchModeClick, this);
+            this.switchModeButton.x = 301;
+            this.switchModeButton.y = 215;
+            this.addChild(this.switchModeButton);
+
             break;
         }
 
-        this.switchModeButton.touchEnabled = true;
-        this.switchModeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchModeClick, this);
-        this.switchModeButton.x = 510;
-        this.switchModeButton.y = 462;
-        this.addChild(this.switchModeButton);
+        const slot = this.switchModeButton._display.armature.getSlot('d_ba_roadmap_btn_swap_number');
+        this.modeLabel = new eui.Label();
+        this.modeLabel.fontFamily = 'Barlow';
+        this.modeLabel.size = 22;
+        this.modeLabel.text = '9';
+        this.modeLabel.bold = true;
+        this.modeLabel.textColor = 0xffffff;
+        this.modeLayer = new eui.Group();
+        this.modeLayer.addChild(this.modeLabel);
+        this.modeLayer.anchorOffsetX = this.modeLabel.width * 0.5;
+        this.modeLayer.anchorOffsetY = this.modeLabel.height * 0.5;
+        slot.display = this.modeLayer;
       }
 
       public setPredictIcons(b1: any, b2: any, b3: any, p1: any, p2: any, p3: any) {
@@ -202,6 +224,15 @@ namespace we {
 
       protected onSwitchModeClick(e: egret.TouchEvent) {
         this.beadRoad.Mode = ++this.beadRoad.Mode % 2;
+        if (this.beadRoad.Mode === 1) {
+          this.modeLabel.size = 18;
+          this.modeLabel.text = i18n.t('baccarat.bankerShort');
+          this.modeLayer.anchorOffsetX = this.modeLabel.width * 0.55;
+        } else {
+          this.modeLabel.size = 22;
+          this.modeLabel.text = '9';
+          this.modeLayer.anchorOffsetX = this.modeLabel.width * 0.5;
+        }
       }
 
       public destroy() {

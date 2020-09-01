@@ -17,7 +17,7 @@ namespace we {
 
       protected _maxWidth: number = 120;
 
-      public set maxWidth (value: number){
+      public set maxWidth(value: number) {
         this._maxWidth = value;
       }
 

@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
     export class BetChip extends core.BaseEUI implements eui.UIComponent, IBetChip {
-      protected chipImageMapping = ['Lv1_Blue', 'Lv1_Yellow', 'Lv1_Orange', 'Lv1_Light_Red', 'Lv1_Purple', 'Lv1_Magentas_Dark', 'Lv1_Green', 'Lv1_Blue_Dark', 'Lv1_Green_Dark', 'Lv1_Gray_Light'];
+      protected chipImageMapping = ['Lv1_Blue', 'Lv1_Yellow', 'Lv1_Orange', 'Lv1_Light_Red', 'Lv1_Purple', 'Lv1_Magentas_Dark', 'Lv1_Green', 'Lv1_Blue_Dark', 'Lv1_GreenDark', 'Lv1_Gray_Light'];
       protected _value: number;
       protected _chipImage: eui.Image;
       protected _chipValueLabel: eui.Label;
@@ -59,14 +59,15 @@ namespace we {
         if (value) {
           this._glowImage = new eui.Image();
           this._glowImage.source = env.isMobile ? 'd_lobby_panel_betcontrol_chips_select_png' : 'd_lobby_panel_betcontrol_chips_select_png';
-          this._glowImage.bottom = this._chipImage.bottom - 6;
-          this._glowImage.top = this._chipImage.top - 6;
-          this._glowImage.left = this._chipImage.left - 6;
-          this._glowImage.right = this._chipImage.right - 6;
+          this._glowImage.bottom = this._chipImage.bottom - 12;
+          this._glowImage.top = this._chipImage.top - 12;
+          this._glowImage.left = this._chipImage.left - 12;
+          this._glowImage.right = this._chipImage.right - 12;
           this._glowImage.verticalCenter = this._chipImage.verticalCenter;
           this._glowImage.horizontalCenter = this._chipImage.horizontalCenter;
-          this._glowImage.height = this._chipImage.width;
+          this._glowImage.height = this._chipImage.height;
           this._glowImage.width = this._chipImage.width;
+
           this._glowImage.touchEnabled = false;
           this.addChild(this._glowImage);
         } else {

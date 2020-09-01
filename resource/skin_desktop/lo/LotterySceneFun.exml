@@ -11,7 +11,7 @@
 	<lo:FunBetRoundInfo id="_roundInfo" x="775" y="94" skinName="skin_desktop.lo.FunBetRoundInfo" />
 	<e:Label id="_counter" text="00:00:00" y="98" horizontalCenter="0" height="96" verticalAlign="middle" size="80"
 	         textColor="0x4adc84" bold="true" fontFamily="Barlow" />
-	<lo:LoRightDrawerPanel id="_gamePanel" width="835" height="370" x="1763" y="413" anchorOffsetX="0" anchorOffsetY="0" />
+	<lo:LoRightDrawerPanel id="_drawerPanel" width="835" height="370" x="1763" y="413" anchorOffsetX="0" anchorOffsetY="0" />
 	<lo:FunBetLayer id="_betLayer" width="2568" height="533" x="16" y="1284" />
 	<!--<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030"
 	            visible="false" />

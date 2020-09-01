@@ -81,7 +81,7 @@ namespace we {
         }
         if (this._resultDisplay && env.orientation === 'portrait') {
           egret.Tween.removeTweens(this._resultDisplay);
-          egret.Tween.get(this._resultDisplay).to({ y: 232 }, 10);
+          egret.Tween.get(this._resultDisplay).to({ y: 232, alpha: 0 }, 10);
         }
       }
 
@@ -93,7 +93,7 @@ namespace we {
         }
         if (this._resultDisplay && env.orientation === 'portrait') {
           egret.Tween.removeTweens(this._resultDisplay);
-          egret.Tween.get(this._resultDisplay).to({ y: 40 }, 400);
+          egret.Tween.get(this._resultDisplay).to({ y: 40, alpha: 1 }, 400);
           //   egret.Tween.get(this._betRelatedGroup)
           // .to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
         }

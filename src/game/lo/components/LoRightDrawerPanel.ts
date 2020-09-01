@@ -2,10 +2,13 @@ namespace we {
   export namespace lo {
     export class LoRightDrawerPanel extends core.BaseGamePanel {
       protected activeLine: egret.Shape;
+      protected panelHideBtn: ui.RoundRectShape;
+      protected panelHideImage: eui.Image;
 
       protected roadmapBtn: ui.RoundRectButton;
       protected analysisBtn: ui.RoundRectButton;
       protected chartBtn: ui.RoundRectButton;
+      protected overlay: eui.Group;
 
       protected gameId: string;
       protected gameIdLabel: ui.RunTimeLabel;
@@ -97,6 +100,27 @@ namespace we {
         this.roadmapBtn.label.renderText = () => 'Roadmap'; // `${i18n.t('baccarat.noCommission')}`;
         this.analysisBtn.label.renderText = () => 'Analysis';
         this.chartBtn.label.renderText = () => 'Chart';
+
+        this.roadmapBtn.label.top = 0;
+        this.roadmapBtn.label.bottom = 0;
+        this.roadmapBtn.label.left = 8;
+        this.roadmapBtn.label.width = 134 - 16;
+        this.roadmapBtn.label.targetWidth = 134 - 16;
+        this.roadmapBtn.label.size = 24;
+
+        this.analysisBtn.label.top = 0;
+        this.analysisBtn.label.bottom = 0;
+        this.analysisBtn.label.left = 8;
+        this.analysisBtn.label.width = 134 - 16;
+        this.analysisBtn.label.targetWidth = 134 - 16;
+        this.analysisBtn.label.size = 24;
+
+        this.chartBtn.label.top = 0;
+        this.chartBtn.label.bottom = 0;
+        this.chartBtn.label.left = 8;
+        this.chartBtn.label.width = 134 - 16;
+        this.chartBtn.label.targetWidth = 134 - 16;
+        this.chartBtn.label.size = 24;
 
         this.road1Btn['labelDisplayDown']['text'] = this.road1Btn['labelDisplayUp']['text'] = 'B/S';
         this.road2Btn['labelDisplayDown']['text'] = this.road2Btn['labelDisplayUp']['text'] = 'O/E';
@@ -256,7 +280,6 @@ namespace we {
         );
         this._bestTimePieChart.x = 94;
         this._bestTimePieChart.y = 100;
-        this._bestTimePieChart.setRanksAndAnimate([10, 10, 10, 10, 10, 10, 10, 10, 10, 10]);
         // add to chart stack 1
         const chat1Group = this.chartStack.getChildAt(0) as eui.Group;
         chat1Group.addChild(this._bestTimePieChart);
@@ -281,7 +304,6 @@ namespace we {
         );
         this._bestGamePieChart.x = 94;
         this._bestGamePieChart.y = 100;
-        this._bestGamePieChart.setRanksAndAnimate([10, 10, 10, 10, 10, 10, 10, 10, 10, 10]);
         this.addChild(this._bestGamePieChart);
         // add road to page stack 2
         const page2Group = this.chartStack.getChildAt(1) as eui.Group;
@@ -303,7 +325,6 @@ namespace we {
         );
         this._favBetBarChart.x = 164;
         this._favBetBarChart.y = 26;
-        this._favBetBarChart.setRanksAndAnimate([8.2, 18.4, 14.5, 9.5, 6.9, 7]);
         this.addChild(this._favBetBarChart);
         // add road to page stack 3
         const page3Group = this.chartStack.getChildAt(2) as eui.Group;
@@ -343,8 +364,22 @@ namespace we {
         this.chartPeriodBtn5.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
         this.chartPeriodBtn6.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
 
+        this.panelHideBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelHide, this);
+
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.changeLang();
+      }
+
+      protected onPanelHide(e: egret.TouchEvent) {
+        if (this.x === 1763) {
+          this.x = 2388;
+          this.panelHideBtn.visible = false;
+          this.panelHideImage.visible = false;
+        } else {
+          this.x = 1763;
+          this.panelHideBtn.visible = true;
+          this.panelHideImage.visible = true;
+        }
       }
 
       protected onChartPeriodIndexChange(e: eui.UIEvent) {
@@ -370,7 +405,7 @@ namespace we {
           d.forEach(element => {
             ranks.push(element.value);
           });
-          // this._bestGamePieChart.setRanksAndAnimate(ranks, -1);
+          this._bestGamePieChart.setRanksAndAnimate(ranks, -1);
 
           // chart3
           chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[2]];
@@ -379,7 +414,7 @@ namespace we {
           d.forEach(element => {
             ranks.push(element.value);
           });
-          // this._favBetBarChart.setRanksAndAnimate(ranks, -1);
+          this._favBetBarChart.setRanksAndAnimate(ranks, -1);
 
           // chart4
           chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[3]];
@@ -388,13 +423,27 @@ namespace we {
           d.forEach(element => {
             ranks.push(element.value);
           });
-          // this._favGameBarChart.setRanksAndAnimate(ranks, -1);
+          this._favGameBarChart.setRanksAndAnimate(ranks, -1);
         }
+        this.checkChartData();
       }
 
       private onChartTypeChange(e: eui.UIEvent) {
         const chartTypeIndex = e.target.value;
         this.chartStack.selectedIndex = chartTypeIndex;
+        this.checkChartData();
+      }
+
+      // check chart data and show overlay if no data
+      private checkChartData() {
+        this.overlay.visible = true;
+        if (this.tableInfo) {
+          const chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[this.chartStack.selectedIndex]];
+          const d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
+          if (d.length > 0) {
+            this.overlay.visible = false;
+          }
+        }
       }
 
       protected onDTNextBtnClick(e: egret.TouchEvent) {
@@ -429,15 +478,9 @@ namespace we {
         this.analysisBtn.active = false;
         this.chartBtn.active = false;
 
-        // select the first button
-        if (this.pageStack.selectedIndex === 0) {
-          this.setDTPageNum(0);
-          this.road1Btn1.selected = true;
-          this.road2Btn1.selected = true;
-          this.road3Btn1.selected = true;
-        } else {
-          this.analysisBtn1.selected = true;
-        }
+        this.x = 1763;
+        this.panelHideBtn.visible = true;
+        this.panelHideImage.visible = true;
       }
 
       protected onPageChangeAnalysis() {
@@ -445,6 +488,10 @@ namespace we {
         this.roadmapBtn.active = false;
         this.analysisBtn.active = true;
         this.chartBtn.active = false;
+
+        this.x = 1763;
+        this.panelHideBtn.visible = true;
+        this.panelHideImage.visible = true;
       }
 
       protected onPageChangeChart() {
@@ -452,6 +499,10 @@ namespace we {
         this.roadmapBtn.active = false;
         this.analysisBtn.active = false;
         this.chartBtn.active = true;
+
+        this.x = 1763;
+        this.panelHideBtn.visible = true;
+        this.panelHideImage.visible = true;
       }
 
       protected onRoad1IndexChange(e: eui.UIEvent) {
@@ -470,21 +521,21 @@ namespace we {
       protected road1Change(i: number) {
         this.road1Index = i - 0;
         if (this.tableInfo.roadmap) {
-          this.sizeBigRoad.parseRoadData(this.tableInfo.roadmap.inGame['size' + (this.road1Index + 1)]);
+          this.sizeBigRoad.parseRoadData(this.tableInfo.roadmap.sideBar['size' + (this.road1Index + 1)]);
         }
       }
 
       protected road2Change(i: number) {
         this.road2Index = i - 0;
         if (this.tableInfo.roadmap) {
-          this.oddBigRoad.parseRoadData(this.tableInfo.roadmap.inGame['odd' + (this.road2Index + 1)]);
+          this.oddBigRoad.parseRoadData(this.tableInfo.roadmap.sideBar['odd' + (this.road2Index + 1)]);
         }
       }
 
       protected road3Change(i: number) {
         this.road3Index = i - 0;
         if (this.tableInfo.roadmap) {
-          this.dtBigRoad.parseRoadData(this.tableInfo.roadmap.inGame[this.dtRoadNames[this.road3Index]]);
+          this.dtBigRoad.parseRoadData(this.tableInfo.roadmap.sideBar[this.dtRoadNames[this.road3Index]]);
         }
       }
       protected onAnalysisChange(e: eui.UIEvent) {
@@ -508,8 +559,8 @@ namespace we {
           }
 
           if (this.tableInfo.gamestatistic) {
-            if (this.gameId !== this.tableInfo.gamestatistic.roundId) {
-              this.gameId = this.tableInfo.gamestatistic.roundId;
+            if (this.gameId !== this.tableInfo.roundid) {
+              this.gameId = this.tableInfo.roundid;
 
               const history = this.tableInfo.gamestatistic.loHistory;
               const chart = this.tableInfo.gamestatistic.loChart;

@@ -54,7 +54,7 @@ namespace we {
         //   this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this);
         // }
         if (this._btnInstantBet) {
-          this._btnInstantBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.placeBet, this.bettingPanel);
+          this._btnInstantBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.placeBet, this);
         }
 
         if (this._btnAddBetFields) {
@@ -78,7 +78,7 @@ namespace we {
         //   this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this);
         // }
         if (this._btnInstantBet) {
-          this._btnInstantBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.placeBet, this.bettingPanel);
+          this._btnInstantBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.placeBet, this);
         }
 
         if (this._btnAddBetFields) {
