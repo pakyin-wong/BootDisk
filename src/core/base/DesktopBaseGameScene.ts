@@ -55,7 +55,7 @@ namespace we {
         super.setBetRelatedComponentsEnabled(enable);
         if (this._betRelatedGroup) {
           egret.Tween.removeTweens(this._betRelatedGroup);
-          egret.Tween.get(this._betRelatedGroup).to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
+          egret.Tween.get(this._betRelatedGroup).to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 100, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
         }
       }
 
