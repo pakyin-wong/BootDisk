@@ -668,6 +668,12 @@ namespace we {
               if (this._timer.bg_color) {
                 this._timer.bg_color.alpha = 0;
               }
+              this._repeatButton.touchEnabled = false;
+              this._doubleButton.touchEnabled = false;
+              this._cancelButton.touchEnabled = false;
+              this._repeatButton.alpha = 0.5;
+              this._doubleButton.alpha = 0.5;
+              this._cancelButton.alpha = 0.5;
               this._undoStack.clearStack();
               dir.socket.bet(this._tableId, bets, this.onBetReturned.bind(this));
             }
