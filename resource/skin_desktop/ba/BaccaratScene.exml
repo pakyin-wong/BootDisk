@@ -49,7 +49,7 @@
 	</e:Group>
 	<ba:GameResultMessage id="_resultMessage" x="0" y="676" width="1" height="1" horizontalCenter="0" />
 	<ui:InGameMessage id="_message" x="1300" y="912" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
-	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_playerelement_png"
+	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_chipvalue_png"
 	                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />
 	<ba:TableInfoPanel width="434" height="566" x="0" y="90" id="_tableInfoWindow" isPoppable="true"
 	                   isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true"
