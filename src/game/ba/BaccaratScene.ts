@@ -56,7 +56,6 @@ namespace we {
               // remove existing tooltip
               clearTimeout(this.hideTooltipTimeout);
               dir.tooltipCtr.removeTooltips();
-              dir.tooltipCtr.displayTooltip(stageX, stageY, 'hello');
               this.hideTooltipTimeout = setTimeout(() => {
                 dir.tooltipCtr.removeTooltips();
               }, 2000);
