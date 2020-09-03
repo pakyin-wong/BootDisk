@@ -28,7 +28,7 @@ namespace we {
           this.progressIndicator.visible = this._progressIndicatorVisible;
         }
         if (this.bg_color) {
-          this.bg_flash();
+          // this.bg_flash();
         }
       }
 
@@ -104,7 +104,12 @@ namespace we {
       }
       public bg_flash() {
         this.bg_color.alpha = .7;
+        this.removebg_flash();
+        egret.Tween.get(this.bg_color,{loop:true}).to({ alpha : 0  } , 200)
         // while not time is out and uncfmBet >0 , do flashing
+      }
+      public removebg_flash(){
+        egret.Tween.removeTweens(this.bg_color);
       }
     }
   }
