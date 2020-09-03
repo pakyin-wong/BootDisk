@@ -30,6 +30,14 @@ namespace we {
         this._gradientColors = we.utils.stringToNumberArray(value);
       }
 
+      public set gradientRatio(value: string) {
+        this._gradientRatio = we.utils.stringToNumberArray(value);
+      }
+
+      public set gradientAlphas(value: string) {
+        this._gradientAlphas = we.utils.stringToNumberArray(value);
+      }
+
       public set gradientType(value: string) {
         this._gradientType = value;
       }
@@ -50,8 +58,9 @@ namespace we {
         switch (this._gradientPosition) {
           case 'topRight':
             this._matrix = new egret.Matrix();
-            this._matrix.createGradientBox(this.width, this.width, 0, this.width / 2, -this.width / 2);
-            this._gradientRatio = [0, 200];
+            // this._matrix.createGradientBox(this.width, this.height * 2, 0, this.width / 2, -this.height);
+            this._matrix.createGradientBox(this.width * 2, this.height * 2, 0, 0, -this.height);
+            // this._gradientRatio = [0, 200];
             break;
           case 'topLeft':
             this._matrix = new egret.Matrix();

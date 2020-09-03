@@ -549,7 +549,7 @@ namespace we {
         const totalUncfmAmount = this.getTotalUncfmBetAmount();
         const totalCfmAmount = this.getTotalCfmBetAmount();
 
-        if (betLimit.minlimit > totalUncfmAmount+totalCfmAmount) {
+        if (betLimit.minlimit > totalUncfmAmount + totalCfmAmount) {
           return true;
         }
 
