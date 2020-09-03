@@ -73,7 +73,7 @@ namespace we {
         // this._video.height = this.stage.stageHeight;
         // this._video.load('wss://hk.webflv.com:8000/live/33.flv');
         // this._video.load('//210.61.148.50:8000/live/test.flv');
-        this._video.load('https://www.webflv.com:8443/live/test.flv');
+        this._video.load('https://gcp.weinfra247.com:443/live/720.flv');
 
         dir.audioCtr.video = this._video;
         this.touchEnabled = true;
