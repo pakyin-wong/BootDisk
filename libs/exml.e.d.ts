@@ -1388,7 +1388,7 @@ declare module skin_mobile_landscape{
 	class MessageDialog extends eui.Skin{
 	}
 }
-declare module skin_mobile_portrait{
+declare module skin_mobile_landscape{
 	class MobileQuickBet extends eui.Skin{
 	}
 }
@@ -2064,6 +2064,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class MessageDialog extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class MobileQuickBet extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
