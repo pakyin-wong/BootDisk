@@ -63,12 +63,12 @@ namespace we {
           egret.Tween.get(this._tableLayer).to({ scaleX: 1, scaleY: 1 }, 250);
           egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
         }
-        this._dtGameID.renderText = () => `${this._tableInfo.tableid}`;
+        this._dtGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.dt.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
-            (<we.dt.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
+            (<we.dt.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
+            (<we.dt.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
           }
         }
         if (this._resultDisplay && env.orientation === 'portrait') {
@@ -235,11 +235,11 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             // update the scene
-            (<we.dt.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-            (<we.dt.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+            (<we.dt.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+            (<we.dt.TableLayer>this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }

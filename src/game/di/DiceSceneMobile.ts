@@ -331,7 +331,7 @@ namespace we {
         this._betAreaLock = false;
         this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = true;
         this.diState = 'normal';
-        this._baGameID.renderText = () => `${this._tableInfo.tableid}`;
+        this._baGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
       }
 
