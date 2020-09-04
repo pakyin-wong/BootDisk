@@ -7,6 +7,8 @@ namespace we {
       private stage: egret.Stage;
       private activeTooltip: eui.Group = null;
 
+      private toolTipPosition: any;
+
       constructor(stage: egret.Stage) {
         logger.l(utils.LogTarget.DEBUG, 'TooltipCtr is created');
         this.stage = stage;
@@ -48,25 +50,55 @@ namespace we {
         egret.Tween.get(this.activeTooltip).to({ alpha: 1, scaleX: 1, scaleY: 1, x: showX }, 150, egret.Ease.sineIn);
       }
 
+      private removeAfterTwoSeconds() {
+         setTimeout(  ()=>{if(this.activeTooltip){this.removeTooltips()} },2000)
+      }
+
       public displayTooltip(x, y, message) {
         this._initTooltip(message);
         this._showTooltip(x, y);
       }
 
-      public removeTooltips() {
+      public async removeTooltips() {
         if (this.activeTooltip) {
           egret.Tween.removeTweens(this.activeTooltip);
+          await new Promise((resolve, reject) => {
+            switch (this.toolTipPosition) {
+              case 'below': {
+                egret.Tween.get(this.activeTooltip)
+                  .to({ y: this.activeTooltip.y - (this.activeTooltip.height + 8 ) , alpha: 0 }, 100)
+                  .call(resolve)
+                break;
+              }
+              case 'above': {
+                egret.Tween.get(this.activeTooltip)
+                  .to({ y: this.activeTooltip.y + (this.activeTooltip.height + 8 ) , alpha: 0 }, 100)
+                  .call(resolve)
+                break;
+              }
+              case 'before': {
+                egret.Tween.get(this.activeTooltip)
+                  .to({ x: this.activeTooltip.x + (this.activeTooltip.width + 8 ) , alpha: 0 }, 100)
+                  .call(resolve)
+                break;
+              }
+              default:
+                break;
+            }
+          })
         }
-        dir.layerCtr.tooltip.removeChildren();
-        this.activeTooltip = null;
+          dir.layerCtr.tooltip.removeChildren();
+          this.activeTooltip = null;
       }
 
       private onShowTooltip({ data: { displayObject, x, y } }) {
-        const coord = (<egret.DisplayObject> displayObject).localToGlobal(0, 0);
+        const coord = (<egret.DisplayObject>displayObject).localToGlobal(0, 0);
         // init first to get tooltip width
         this._initTooltip(displayObject.tooltipText.replace(/'/g, ''));
         let showX = 0;
         let showY = 0;
+        let position = displayObject.tooltipPosition.replace(/'/g, '');
+        this.toolTipPosition = position;        
         switch (displayObject.tooltipPosition.replace(/'/g, '')) {
           case 'below': {
             showX = coord.x + displayObject.width / 2 - this.activeTooltip.width / 2;
@@ -87,6 +119,7 @@ namespace we {
             break;
         }
         this._showTooltip(showX, showY);
+        this.removeAfterTwoSeconds();
       }
 
       public addListeners() {
