@@ -24,7 +24,8 @@ namespace we {
 
       private _lblAdd;
       private _lblInstantBet;
-
+      private _lblBetDes;
+      private _betDesGrp;
       // constructor(skin, orientationDependent) {
       //   super(skin, orientationDependent);
       constructor() {
@@ -70,6 +71,10 @@ namespace we {
         if (this._noteDropDown) {
           this._noteDropDown.addEventListener('DROPDOWN_ITEM_CHANGE', this.onUnitSelect, this);
         }
+
+        if (this._btnBetDescription) {
+          this._btnBetDescription.addEventListener(egret.TouchEvent.TOUCH_TAP, this.showBetDescription, this);
+        }
       }
 
       protected removeListeners() {
@@ -94,6 +99,9 @@ namespace we {
         if (this._noteDropDown) {
           this._noteDropDown.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onUnitSelect, this);
         }
+        if (this._btnBetDescription) {
+          this._btnBetDescription.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.showBetDescription, this);
+        }
       }
 
       // protected addBetfield() {
@@ -116,6 +124,27 @@ namespace we {
         this._noteDropDown.dropdown.review = this._lblNoteDropDown;
         this._noteDropDown.dropdown.data.replaceAll(_arrCol_note.source);
         this._noteDropDown.dropdown.select(this._unitBet);
+      }
+
+      protected showBetDescription(e) {
+        const config = SelectionMapping[Object.keys(SelectionMapping)[this.bettingPanel.currentBigTagIndex]];
+
+        const bigTag = config.name;
+        const smallTag = config['type'][Object.keys(config['type'])[this.bettingPanel.currentSmallTagIndex]].name;
+
+        this._lblBetDes.renderText = () => `${i18n.t('lo_trad.bigTag.' + bigTag)}${i18n.t('lo_trad.smallTag.' + smallTag)}\n${i18n.t('lo_trad.betDescription.' + bigTag + '.' + smallTag)}`;
+        this._betDesGrp.visible = true;
+        this._btnBetDescription.addEventListener(egret.TouchEvent.TOUCH_END, this.listenClose, this);
+      }
+
+      protected hideBetDescription(e) {
+        this.stage.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.hideBetDescription, this);
+        this._betDesGrp.visible = false;
+      }
+
+      protected listenClose(e) {
+        this._btnBetDescription.removeEventListener(egret.TouchEvent.TOUCH_END, this.listenClose, this);
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.hideBetDescription, this);
       }
 
       protected onUnitSelect(e) {

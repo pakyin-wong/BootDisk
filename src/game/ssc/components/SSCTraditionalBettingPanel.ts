@@ -82,7 +82,7 @@ namespace we {
       // Big Tags Related
       protected createBigTags() {
         this.bigTagsArray = [];
-        this.currentBigTagIndex = 0;
+        this._currentBigTagIndex = 0;
         this.bigTagNames = [];
 
         for (let i = 0; i < Object.keys(SelectionMapping).length; i++) {
@@ -161,7 +161,7 @@ namespace we {
           // img.source = ImageMapping.BIGTAG_NORMAL;
           this.bigTagsArray[i].active = false;
 
-          if (i === this.currentBigTagIndex) {
+          if (i === this._currentBigTagIndex) {
             this.bigTagsArray[i].active = true;
             // img.source = ImageMapping.BIGTAG_ACTIVE;
           }
@@ -171,10 +171,10 @@ namespace we {
       protected onBigTagClicked(e: egret.TouchEvent) {
         for (let i = 0; i < this.bigTagsArray.length; i++) {
           if (e.target === this.bigTagsArray[i]) {
-            if (i === this.currentBigTagIndex) {
+            if (i === this._currentBigTagIndex) {
               return;
             }
-            this.currentBigTagIndex = i;
+            this._currentBigTagIndex = i;
             break;
           }
         }
@@ -188,7 +188,7 @@ namespace we {
         // this.clearSmallTags();
         this.smallTagsArray = [];
         this.smallTagNames = [];
-        const currentBigTag = SelectionMapping[Object.keys(SelectionMapping)[this.currentBigTagIndex]];
+        const currentBigTag = SelectionMapping[Object.keys(SelectionMapping)[this._currentBigTagIndex]];
         const smallTagsHeight = 57;
         const lastRowItemIndex = -1;
         const offset = 0;
@@ -254,10 +254,10 @@ namespace we {
       protected onSmallTagClicked(e: egret.TouchEvent) {
         for (let i = 0; i < this.smallTagsArray.length; i++) {
           if (e.target === this.smallTagsArray[i]) {
-            if (i === this.currentSmallTagIndex) {
+            if (i === this._currentSmallTagIndex) {
               return;
             }
-            this.currentSmallTagIndex = i;
+            this._currentSmallTagIndex = i;
           }
         }
         this.setActiveSmallTag();
@@ -267,15 +267,15 @@ namespace we {
         for (let i = 0; i < this.smallTagsArray.length; i++) {
           const lbl = this.smallTagsArray[i].getChildAt(0) as ui.RunTimeLabel;
           lbl.alpha = 0.7;
-          lbl.textFlow = <egret.ITextElement[]> [
+          lbl.textFlow = <egret.ITextElement[]>[
             {
               text: lbl.text,
               style: { bold: false, underline: false },
             },
           ];
-          if (i === this.currentSmallTagIndex) {
+          if (i === this._currentSmallTagIndex) {
             lbl.alpha = 1;
-            lbl.textFlow = <egret.ITextElement[]> [
+            lbl.textFlow = <egret.ITextElement[]>[
               {
                 text: lbl.text,
                 style: { bold: true, underline: true },
@@ -336,7 +336,6 @@ namespace we {
 
             this._lblLastRound.renderText = () => `${data[index].Roundnumber}`;
             this._lblLastBall0.renderText = () => (data[index].Data.ball1 >= 0 ? `${data[index].Data.ball1}` : '-');
-            console.log(data[index].Data.ball1);
             this._lblLastBall1.renderText = () => (data[index].Data.ball2 >= 0 ? `${data[index].Data.ball2}` : '-');
             this._lblLastBall2.renderText = () => (data[index].Data.ball3 >= 0 ? `${data[index].Data.ball3}` : '-');
             this._lblLastBall3.renderText = () => (data[index].Data.ball4 >= 0 ? `${data[index].Data.ball4}` : '-');
@@ -358,8 +357,8 @@ namespace we {
       protected createBetTable() {
         this.clearCurrentBettingTable();
 
-        const currentBigTag = SelectionMapping[Object.keys(SelectionMapping)[this.currentBigTagIndex]];
-        const config = currentBigTag['type'][Object.keys(currentBigTag['type'])[this.currentSmallTagIndex]];
+        const currentBigTag = SelectionMapping[Object.keys(SelectionMapping)[this._currentBigTagIndex]];
+        const config = currentBigTag['type'][Object.keys(currentBigTag['type'])[this._currentSmallTagIndex]];
 
         const bettingTable = new SSCTraditionalBettingTable(config);
         if (this._bettingControl) {
@@ -388,7 +387,7 @@ namespace we {
       }
 
       protected clearSmallTags() {
-        this.currentSmallTagIndex = 0;
+        this._currentSmallTagIndex = 0;
         this._smallTagsGroup.removeChildren();
       }
     }

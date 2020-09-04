@@ -2,8 +2,8 @@
 namespace we {
   export namespace lo {
     export abstract class ABettingPanel extends core.BaseEUI implements IBettingPanel {
-      protected currentBigTagIndex: number = 0;
-      protected currentSmallTagIndex: number = 0;
+      protected _currentBigTagIndex: number = 0;
+      protected _currentSmallTagIndex: number = 0;
 
       public _currentBettingTable: ABettingTable;
       protected _bettingControl: ABettingControlBar;
@@ -15,6 +15,14 @@ namespace we {
       private _isBetLimitValidate: boolean = false; // validate betlimit from server
 
       public _timer: eui.Label;
+
+      public get currentBigTagIndex() {
+        return this._currentBigTagIndex;
+      }
+
+      public get currentSmallTagIndex() {
+        return this._currentSmallTagIndex;
+      }
 
       public set isStateBet(value) {
         this._isStateBet = value;
@@ -124,8 +132,8 @@ namespace we {
           tradNoteData.field = finalbetFields[i];
           tradNoteData.count = this._currentBettingTable.noteCount[i];
           tradNoteData.multiplier = this._bettingControl.multiplier;
-          const betMode = SelectionMapping[Object.keys(SelectionMapping)[this.currentBigTagIndex]];
-          const betMethod = betMode['type'][Object.keys(betMode['type'])[this.currentSmallTagIndex]];
+          const betMode = SelectionMapping[Object.keys(SelectionMapping)[this._currentBigTagIndex]];
+          const betMethod = betMode['type'][Object.keys(betMode['type'])[this._currentSmallTagIndex]];
           tradNoteData.betmode = betMode.name;
           tradNoteData.betmethod = betMethod.name;
           tradNoteDataArray.push(tradNoteData);
@@ -266,6 +274,7 @@ namespace we {
 
       public chaseBet() {
         // TODO
+        
       }
 
       // SceneControl
