@@ -20,7 +20,7 @@ namespace we {
       private _start;
       private _end;
 
-      public range = 7;
+      public range = 6;
 
       constructor() {
         super();
