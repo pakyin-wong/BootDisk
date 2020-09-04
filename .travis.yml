@@ -65,7 +65,7 @@ script: |-
     
 
 deploy:
-  # upload to ecr
+  ##upload to ecr
   - provider: script
     script: >-
       $(AWS_ACCESS_KEY_ID=$AWS_ECR_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$AWS_ECR_SECRET_ACCESS_KEY $ECR_LOGIN)
