@@ -761,11 +761,27 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class BetHistory_v2 extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BetHistorySkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
+	class BetHistoryItem_v2 extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BetHistoryItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BetHistoryItemLottery_v2 extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BetHistoryItemLottery extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -1388,7 +1404,7 @@ declare module skin_mobile_landscape{
 	class MessageDialog extends eui.Skin{
 	}
 }
-declare module skin_mobile_portrait{
+declare module skin_mobile_landscape{
 	class MobileQuickBet extends eui.Skin{
 	}
 }
@@ -2064,6 +2080,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class MessageDialog extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class MobileQuickBet extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

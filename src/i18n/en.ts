@@ -86,13 +86,17 @@ namespace we {
       overlaypanel_bethistory_record_replay: 'Replay',
       overlaypanel_bethistory_btn_next: 'Next',
       overlaypanel_bethistory_btn_prev: 'Previous',
+      overlaypanel_bethistory_searchtype_all: 'All',
+
+      overlaypanel_bethistorylottery_record_round: 'Round',
+      overlaypanel_bethistorylottery_record_bettype: 'Type',
+      overlaypanel_bethistorylottery_record_betgroup: 'Group',
+      overlaypanel_bethistorylottery_record_betfield: 'Field',
 
       overlaypanel_bethistory_baresult_banker: 'B',
       overlaypanel_bethistory_baresult_player: 'P',
       overlaypanel_bethistory_dtresult_dragon: 'D',
       overlaypanel_bethistory_dtresult_tiger: 'T',
-
-      overlaypanel_bethistory_searchtype_all: 'All',
 
       overlaypanel_gameSet_showGoodRoadHint: 'Show GoodRoad Hint',
       overlaypanel_gameSet_autoBet: 'Auto Bet Confirm',
@@ -511,13 +515,18 @@ namespace we {
       lo_fun_overlay_totalAmt: 'Total',
       lo_fun_overlay_confirm: 'Confirm',
       lo_fun_overlay_cancel: 'Cancel',
+      lo_fun_overlay_betPrefix: 'ENT｜',
 
       lo_fun_betlayer_tab_fun: 'Entertainment',
       lo_fun_betlayer_tab_num: 'Number',
       lo_fun_betlayer_tab_dt: 'Dragon Tiger',
       lo_fun_betlayer_tab_five1: 'All five in one',
 
-      lo_fun_overlay_betPrefix: 'ENT｜',
+      lo_fun_bettype_n: 'B/S/Odd/Even',
+      lo_fun_bettype_n3: 'F/M/L Three',
+      lo_fun_bettype_num: 'Number',
+      lo_fun_bettype_dt: 'Dragon Tiger',
+      lo_fun_bettype_five1: 'All five in one',
 
       lo_fun_betgroup_MILSIZEPARITY2: 'First｜Million',
       lo_fun_betgroup_THOUSIZEPARITY2: 'Second｜Thousand',

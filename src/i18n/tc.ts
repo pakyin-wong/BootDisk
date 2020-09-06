@@ -86,13 +86,17 @@ namespace we {
       overlaypanel_bethistory_record_replay: '重播',
       overlaypanel_bethistory_btn_next: '下一則',
       overlaypanel_bethistory_btn_prev: '上一則',
+      overlaypanel_bethistory_searchtype_all: '全部遊戲',
+
+      overlaypanel_bethistorylottery_record_round: '獎期',
+      overlaypanel_bethistorylottery_record_bettype: '類型',
+      overlaypanel_bethistorylottery_record_betgroup: '玩法',
+      overlaypanel_bethistorylottery_record_betfield: '投注項目',
 
       overlaypanel_bethistory_baresult_banker: '庄',
       overlaypanel_bethistory_baresult_player: '閒',
       overlaypanel_bethistory_dtresult_dragon: '龍',
       overlaypanel_bethistory_dtresult_tiger: '虎',
-
-      overlaypanel_bethistory_searchtype_all: '全部遊戲',
 
       overlaypanel_gameSet_showGoodRoadHint: '顯示好路提示',
       overlaypanel_gameSet_autoBet: '自動確認投注',
@@ -517,6 +521,12 @@ namespace we {
       lo_fun_betlayer_tab_num: '數字',
       lo_fun_betlayer_tab_dt: '龍虎和',
       lo_fun_betlayer_tab_five1: '全五中一',
+
+      lo_fun_bettype_n: '大細單雙',
+      lo_fun_bettype_n3: '前三中三後三',
+      lo_fun_bettype_num: '數字',
+      lo_fun_bettype_dt: '龍虎和',
+      lo_fun_bettype_five1: '全五中一',
 
       lo_fun_betgroup_MILSIZEPARITY2: '第一球｜萬位',
       lo_fun_betgroup_THOUSIZEPARITY2: '第二球｜千位',
