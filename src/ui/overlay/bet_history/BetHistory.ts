@@ -198,7 +198,7 @@ namespace we {
           .subtract(1, 'day')
           .unix();
         this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
-        // this._btn_today.active = true;
+        //this._btn_today.active = true;
         this.search();
       }
 
@@ -223,14 +223,15 @@ namespace we {
       }
 
       protected searchCustomDate(e: egret.Event) {
+        this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
+        this._btn_custom.active = true;
+
         if (!e.data || (this._starttime === e.data.starttime && this._endtime === e.data.endtime)) {
           return;
         }
 
         this._starttime = e.data.starttime;
         this._endtime = e.data.endtime;
-        this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
-        this._btn_custom.active = true;
         this.search();
       }
 
