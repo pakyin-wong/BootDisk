@@ -55,9 +55,8 @@ namespace we {
 
       protected _searchDelay: number;
 
-      constructor() {
-        super('BetHistorySkin');
-
+      constructor(skin: string = 'BetHistorySkin') {
+        super(skin);
         this._dataColl = new eui.ArrayCollection();
       }
 
@@ -113,7 +112,15 @@ namespace we {
           this._ddm_limit.dropdown.select(10);
         }
         this._datagroup.dataProvider = this._dataColl;
-        this._datagroup.itemRenderer = betHistory.BetHistoryItem;
+        // this._datagroup.itemRenderer = betHistory.BetHistoryItem;
+        this._datagroup.itemRendererFunction = data => {
+          switch (data.gametype) {
+            case GameType.LO:
+              return betHistory.BetHistoryItemLottery;
+            default:
+              return betHistory.BetHistoryItem;
+          }
+        };
         this._tf_search.prompt = '';
         mouse.setButtonMode(this._tf_search, true);
         this.updatePlaceHolder();
@@ -279,8 +286,6 @@ namespace we {
         if (res.error) {
           // TODO: handle error if bet history is not available
         } else {
-          console.log(res);
-
           this.total = Math.ceil(res.total / this._limit);
           this._page = Math.floor(res.offset / this._limit) + 1;
           this._ddm_page && this._ddm_page.dropdown.select(this._page);
@@ -299,7 +304,7 @@ namespace we {
             const e = Math.min(res.offset + this._limit, res.total);
             this._txt_total.text = i18n
               .t('overlaypanel_bethistory_total')
-              .replace('%now%', `${s}-${e}`)
+              .replace('%now%', res.total > 0 ? `${s}-${e}` : `0`)
               .replace('%total%', res.total);
           }
         }

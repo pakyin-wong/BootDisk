@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.BetHistory_v2" width="2140" height="1128" currentState="all" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*" states="all,live,lottery" >
+	<e:Group id="content" left="0" right="0" top="0" bottom="0">
+		<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x14181e" ellipseHeight="48" ellipseWidth="48"
+		        strokeColor="0x333c4a" strokeWeight="2" locked="true" />
+		<e:Image id="close" width="48" height="48" right="32" top="32" source="d-lobby-button-close-none_png" />
+		<ui:RunTimeLabel id="_txt_title" text="遊玩記錄" x="50" y="40" width="220" height="71" verticalAlign="middle"
+		                 textColor="0xc59466" size="48" bold="true" targetWidth="220" />
+		<e:Group id="main_select_bar" x="302" y="47" touchThrough="true">
+			<ui:RoundRectShape id="main_select_bar_bg" width="690" height="60" x="0" y="0" fillColor="0x5f6973" cornerTL_TR_BL_BR="30,30,30,30" stroke="0" alpha="0.2"/>
+			<ui:RoundRectShape id="main_select_bar_hl" width="180" height="60" x="0" y="0" fillColor="0x1b416e" cornerTL_TR_BL_BR="30,30,30,30" stroke="0" x.live="170" x.lottery="340"/>
+			<e:Label id="_main_select_all" text="遊戲總覽" x="0" y="0" width="180" height="60" verticalAlign="middle" textAlign="center" size="24" alpha="0.7" alpha.all="1"/>
+			<e:Label id="_main_select_live" text="現場遊戲" x="170" y="0" width="180" height="60" verticalAlign="middle" textAlign="center" size="24" alpha="0.7" alpha.live="1"/>
+			<e:Label id="_main_select_lottery" text="彩票遊戲" x="340" y="0" width="180" height="60" verticalAlign="middle" textAlign="center" size="24" alpha="0.7" alpha.lottery="1"/>
+			<e:Label id="_main_select_egame" text="電子遊戲" x="510" y="0" width="180" height="60" verticalAlign="middle" textAlign="center" size="24" alpha="0.7"/>
+		</e:Group>
+		<!--<ui:RoundRectShape cornerTL_TR_BL_BR="10,10,0,0" width="137" height="60" x="1512" y="147" stroke="2"
+		                       strokeColor="0x00ff00" fillColor="0x0000ff" strokeIn="2" strokeInColor="0xff0000" />
+		<ui:RoundRectShape cornerTL_TR_BL_BR="30,30,30,30" width="300" height="60" x="1712" y="147" stroke="2"
+		                   strokeColor="0x000000" fillColor="0x23282e" strokeIn="2" strokeInColor="0x3a3f48" />
+		-->
+		<e:Group id="date_select_bar" x="1487" y="47" touchThrough="true">
+			<ui:RunTimeLabel id="_txt_date" text="日期" y="11" height="36" size="24" alpha="0.7" verticalAlign="middle" x="0"/>
+			<ui:RoundRectButton id="_btn_today" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="84" y="0" stroke="2" fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x1B416E" fillAlpha_click="1" stroke_active="0" fillColor_active="0x1B416E" fillAlpha_active="1"/>
+			<ui:RoundRectButton id="_btn_week" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="241" y="0" stroke="2" fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x1B416E" fillAlpha_click="1" stroke_active="0" fillColor_active="0x1B416E" fillAlpha_active="1"/>
+			<ui:RoundRectButton id="_btn_custom" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="399" y="0" stroke="2" fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x1B416E" fillAlpha_click="1" stroke_active="0" fillColor_active="0x1B416E" fillAlpha_active="1"/>
+		</e:Group>
+		<e:Group id="search_bar" x="1045.5" y="54.5">
+			<ui:RunTimeLabel id="_txt_search" text="搜索記錄" x="48.5" y="3.5" height="36" verticalAlign="middle" size="24" alpha="0.7" targetWidth="96"/>
+			<ui:BaseImageButton id="_btn_search" width="48" height="48" x="0" y="0" currentState="search_icon" skinName="skin_desktop.ImageButtonSkinNav"/>
+			<e:EditableText id="_tf_search" height="36" text="" x="48.5" y="3.5" verticalAlign="middle" size="24"/>
+		</e:Group>
+		<ui:RunTimeLabel id="_txt_record_id" text="投注編號" x="50" y="148" height="29" size="20"
+		                 verticalAlign="middle" targetWidth="191" />
+		<ui:RunTimeLabel id="_txt_record_date" text="日期時間" x="343" y="148" size="20" verticalAlign="middle"
+		                 height="29" targetWidth="248" />
+		<ui:RunTimeLabel id="_txt_record_game" text="遊戲" x="692" y="148" height="29" size="20"
+		                 verticalAlign="middle" targetWidth="123" />
+		<ui:RunTimeLabel id="_txt_record_round" text="Label" width="129" height="29" size="20"
+		                 verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="129"  visible="false"/>
+		<ui:RunTimeLabel id="_txt_record_replay" text="Label" width="79" size="20" verticalAlign="middle"
+		                 height="29" scaleX="1" scaleY="1" targetWidth="79"  visible="false"/>
+		<ui:RunTimeLabel id="_txt_record_remake" text="嬴輸" x="1551" y="148" height="29" size="20"
+		                 verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="86" />
+		<ui:RunTimeLabel id="_txt_record_bettype" text="Label" width="129" height="29" size="20"
+		                 verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="129"  visible="false"/>
+		<ui:RunTimeLabel id="_txt_record_betamount" text="投注額" x="1042" y="148" size="20" verticalAlign="middle"
+		                 height="29" scaleX="1" scaleY="1" targetWidth="147" />
+		<ui:RunTimeLabel id="_txt_record_win" text="派彩" x="1281" y="148" height="29" size="20"
+		                 verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="159" />
+		<ui:RunTimeLabel id="_txt_record_orgbalance" text="Label" width="176" height="29" size="20"
+		                 verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="176"  visible="false"/>
+		<ui:RunTimeLabel id="_txt_record_finbalance" text="本局餘額" x="1726" y="148" size="20"
+		                 verticalAlign="middle" height="29" scaleX="1" scaleY="1" targetWidth="188" anchorOffsetX="0" />
+		<ui:RunTimeLabel id="_txt_record_result" text="Label" width="209.66" height="29" size="20"
+		                 verticalAlign="middle" scaleX="1" scaleY="1" textAlign="center" targetWidth="390" anchorOffsetX="0"  visible="false"/>
+		<ui:Scroller height="863" y="197" width="2136" horizontalCenter="0">
+			<e:List id="_datagroup"/>
+		</ui:Scroller>
+
+		<!--<ui:BaseButton id="_btn_searchType" width="210" height="60" x="358" y="47"
+		                   skinName="skin_desktop.OverlayPanelButton" active="true" />
+		-->
+
+
+		<e:Group id="footer" x="0" y="1060" height="68">
+			<e:Rect height="2" fillColor="0x333c4a" y="0" x="0" width="2140"/>
+			<e:Label id="_txt_limit" text="每頁顯示項目: " x="50" size="22" height="31" verticalAlign="middle" bottom="19"/>
+			<e:Group id="_btn_limit" right="1863" bottom="19">
+				<ui:RunTimeLabel id="_tf_limit" text="100" height="31" verticalAlign="middle" size="26" y="0" right="36"/>
+				<e:Image width="16" height="10" source="d_lobby_btn_dropup_popover_png" right="0" verticalCenter="0"/>
+			</e:Group>
+			<e:Label id="_txt_total" text="現在顯示: 0-0 項 共 0 項記錄" x="292" size="26" height="37" verticalAlign="middle" alpha="0.7" bottom="18"/>
+			<ui:BaseAnimationButton id="_btn_prev" width="40" height="40" dbClass="lobby_ui" dbDisplay="d_lobby_betrecord_icon_prev" tooltipText="'overlay.tooltip.bethistory.prev'" tooltipPosition="'above'" right="112" bottom="14"/>
+			<ui:BaseAnimationButton id="_btn_next" width="40" height="40" dbClass="lobby_ui" dbDisplay="d_lobby_betrecord_icon_next" tooltipText="'overlay.tooltip.bethistory.next'" tooltipPosition="'above'" right="52" bottom="14"/>
+			<e:Group id="_btn_page" height="30" right="178" bottom="19">
+				<ui:RunTimeLabel id="_txt_page" text="00/00" fontFamily="Barlow" size="24" verticalAlign="middle" textAlign="right" height="29" right="38" verticalCenter="0"/>
+				<e:Image width="16" height="10" source="d_lobby_btn_dropup_popover_png" right="0" verticalCenter="0"/>
+			</e:Group>
+		</e:Group>
+
+		<overlay:DoubleCalendarPicker skinName="skin_desktop.DoubleCalendarPicker" id="_datepicker" width="1207" height="718"
+		                              horizontalCenter="0" verticalCenter="0" />
+		<e:Group width="150" bottom="64" right="168">
+			<ui:Panel id="_ddm_page" width="150" x="0" skinName="skin_desktop.NavDropdown" maxHeight="400" scaleX="1" scaleY="1" bottom="0" isDropdownFullWidth="true"/>
+		</e:Group>
+		<e:Group width="150" bottom="64" x="128">
+			<ui:Panel id="_ddm_limit" width="150" x="0" skinName="skin_desktop.NavDropdown" maxHeight="400" scaleX="1" scaleY="1" bottom="0" isDropdownFullWidth="true"/>
+		</e:Group>
+	</e:Group>
+</e:Skin>

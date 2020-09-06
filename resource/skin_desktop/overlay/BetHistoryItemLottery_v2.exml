@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.BetHistoryItemLottery_v2" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*"    states="up,down" >
+	<e:Rect id="_txt_record_bgcolor" width="2136" height="76" x="0" y="0" height.down="286"/>
+
+	<e:Group id="_hoverGroup"  width="2136" x="0" height="76" y="0">
+		<e:Label id="_txt_record_id" text="Label" x="48" y="0" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" width="158"/>
+		<e:Label id="_txt_record_round" text="Label" y="0" height="76" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="246"/>
+		<e:Label id="_txt_record_date" text="Label" x="424" y="0" size="20" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_game" text="Label" x="677" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+		<e:Group id="_record_result" scaleX="1" scaleY="1" x="836" y="0" width="380" height="76">
+			<e:layout>
+				<e:VerticalLayout horizontalAlign="center" verticalAlign="middle" gap="0"/>
+			</e:layout>
+		</e:Group>
+    	<e:Image id="_btn_replay" width="37" height="37" x="1258" y="20" source="d_lobby_panel_button_play_normal_png"/>
+		<e:Label id="_txt_record_betamount" text="Label" x="1374" y="0" size="20" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_win" text="Label" x="1523" y="0" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_remark" text="Label" x="1707" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_finbalance" text="Label" x="1842" y="0" size="20" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Image x="2024" width="30" height="30" source="d_lobby_button_next_hover_png" y="23" visible.down="false"/>
+		<e:Image width="16" height="10" x="2031" y="33" source="d_lobby_btn_dropdown_png" visible.up="false"/>
+	</e:Group>
+
+	<e:Group visible.up="false" width="2136" y="0" x="0" height="0" height.down="286">
+		<e:Rect width="2040" height="1" x="48" y="0" fillColor="0x353535" y.down="76"/>
+		<e:Label id="_txt_bettype" text="Label" size="24" verticalAlign="middle" height="66" y.down="83" y="0"  x="48"/>
+		<e:Label id="_txt_record_bettype" text="Label" y="0" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y.down="83"/>
+		<e:Label id="_txt_betgroup" text="Label" size="24" verticalAlign="middle" height="66" y="0" y.down="149" x="48"/>
+		<e:Label id="_txt_record_betgroup" text="Label" y="0" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y.down="149"/>
+		<e:Label id="_txt_betfield" text="Label" size="24" verticalAlign="middle" height="66" x="48" y="0" y.down="215"/>
+		<e:Label id="_txt_record_betfield" text="Label" y="0" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y.down="215"/>
+		<e:Label id="_txt_record_orgbalance" text="Label" y="0" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" visible="false"/>
+	</e:Group>
+</e:Skin>
