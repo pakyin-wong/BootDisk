@@ -131,6 +131,7 @@ namespace we {
         }
 
         this._lblRoomNo.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this._tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
+        this.changeBtnState(false);
 
         // if (this._tableInfoWindow) {
         //   this._tableInfoWindow.setToggler(this._lblRoomInfo);
@@ -199,6 +200,7 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
         if (this._chipLayer) {
+          this._chipLayer.addEventListener('onUnconfirmBet', this.changeBtnState, this);
           this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
           this._chipLayer.addEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         }
@@ -250,6 +252,7 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
         if (this._chipLayer) {
+          this._chipLayer.removeEventListener('onUnconfirmBet', this.changeBtnState, this);
           this._chipLayer.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
           this._chipLayer.removeEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         }
@@ -544,6 +547,7 @@ namespace we {
             this.checkResultMessage();
           }
         }
+        this.changeBtnState(false);
       }
 
       protected setStateRefund(isInit: boolean = false) {
@@ -665,6 +669,7 @@ namespace we {
             if (this._chipLayer.validateBet()) {
               const bets = this._chipLayer.getUnconfirmedBetDetails();
               this._chipLayer.resetUnconfirmedBet(); // Waiting to change to push to waitingforconfirmedbet
+              this.changeBtnState(false);
               this._undoStack.clearStack();
               dir.socket.bet(this._tableId, bets, this.onBetReturned.bind(this));
             }
@@ -700,10 +705,30 @@ namespace we {
         }
       }
 
+      protected changeBtnState(isEnable: boolean = true) {
+        this._undoButton.touchEnabled = isEnable;
+        this._doubleButton.touchEnabled = isEnable;
+        this._cancelButton.touchEnabled = isEnable;
+        this._confirmButton.touchEnabled = isEnable;
+        this._undoButton.alpha = isEnable ? 1 : 0.5;
+        this._doubleButton.alpha = isEnable ? 1 : 0.5;
+        this._cancelButton.alpha = isEnable ? 1 : 0.5;
+        this._confirmButton.alpha = isEnable ? 1 : 0.3;
+        if (this._timer.bg_color) {
+          this._timer.bg_color.alpha = isEnable ? 0.7 : 0;
+          if (isEnable) {
+            this._timer.bg_flash();
+          } else {
+            this._timer.removebg_flash();
+          }
+        }
+      }
+
       protected onCancelPressed(evt: egret.Event) {
         if (this._chipLayer) {
           this._chipLayer.cancelBet();
           this._undoStack.clearStack();
+          this.changeBtnState(false);
         }
       }
 
@@ -722,6 +747,9 @@ namespace we {
       protected onUndoPressed() {
         if (this._chipLayer) {
           this._undoStack.popAndUndo();
+          if (!this._chipLayer.getTotalUncfmBetAmount()) {
+            this.changeBtnState(false);
+          }
         }
       }
 
