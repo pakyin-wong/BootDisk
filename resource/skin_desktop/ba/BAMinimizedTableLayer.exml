@@ -6,7 +6,7 @@
             <ui:RoundRectShape cornerTL_TR_BL_BR="14,0,0,0" width.Normal="234" width.SuperSix="195" height="43" stroke="0" fillColor="0xad3737,0xce454a" />
 			<e:Group width="100%" height="100%">
 				<ui:RunTimeLabel id="_bankerLabel" size="25" verticalAlign="middle" height="100%" y="0" scaleX="1" scaleY="1"/>
-				<ui:RunTimeLabel id="_bankerBetLabel" size="25" verticalAlign="middle" height="100%" y="0" scaleX="1" scaleY="1"/>
+				<e:Label id="_bankerBetLabel" size="25" verticalAlign="middle" height="100%" y="0" scaleX="1" scaleY="1"/>
 				<e:layout>
 					<e:HorizontalLayout gap="15" paddingLeft="15"/>
 				</e:layout>
@@ -16,7 +16,7 @@
             <ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" width="234" height="43" stroke="0" fillColor="0x315acc,0x2f82ee"/>
 			<e:Group width="100%" height="100%">
 				<ui:RunTimeLabel id="_playerLabel" size="25" verticalAlign="middle" height="100%" y="0" scaleX="1" scaleY="1"/>
-				<ui:RunTimeLabel id="_playerBetLabel" size="25" verticalAlign="middle" height="100%" y="0" scaleX="1" scaleY="1"/>
+				<e:Label id="_playerBetLabel" size="25" verticalAlign="middle" height="100%" y="0" scaleX="1" scaleY="1"/>
 				<e:layout>
 					<e:HorizontalLayout gap="15" paddingLeft="15"/>
 				</e:layout>
@@ -26,7 +26,7 @@
             <ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" width.Normal="234" width.SuperSix="195" height="43" stroke="0" fillColor="0x174b1e,0x174b1e" scaleX.Normal="1" scaleY.Normal="1"/>
 			<e:Group width="100%" height="100%">
 				<ui:RunTimeLabel id="_tieLabel" size="25" verticalAlign="middle" height="100%" y="0" scaleX="1" scaleY="1"/>
-				<ui:RunTimeLabel id="_tieBetLabel" size="25" verticalAlign="middle" height="100%" y="0" scaleX="1" scaleY="1"/>
+				<e:Label id="_tieBetLabel" size="25" verticalAlign="middle" height="100%" y="0" scaleX="1" scaleY="1"/>
 				<e:layout>
 					<e:HorizontalLayout gap="15" paddingLeft="15"/>
 				</e:layout>
@@ -36,7 +36,7 @@
 			<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" width="234" height="43" stroke="0" fillColor="0x163757,0x163757"/>
 			<e:Group width="100%" height="100%">
 				<ui:RunTimeLabel id="_playerPairLabel" size="25" verticalAlign="middle" height="100%" y="0" scaleX="1" scaleY="1"/>
-				<ui:RunTimeLabel id="_playerPairBetLabel" size="25" verticalAlign="middle" height="100%" y="0" scaleX="1" scaleY="1"/>
+				<e:Label id="_playerPairBetLabel" size="25" verticalAlign="middle" height="100%" y="0" scaleX="1" scaleY="1"/>
 				<e:layout>
 					<e:HorizontalLayout gap="15" paddingLeft="15"/>
 				</e:layout>
@@ -46,7 +46,7 @@
 			<ui:RoundRectShape cornerTL_TR_BL_BR="0,14,0,0" width="234" height="43" stroke="0" fillColor="0x5a2322,0x5a2322" y.Normal="0" scaleX.Normal="1" scaleY.Normal="1"/>
 			<e:Group width="100%" height="100%">
 				<ui:RunTimeLabel id="_bankerPairLabel" size="25" verticalAlign="middle" height="100%" y="0" scaleX="1" scaleY="1"/>
-				<ui:RunTimeLabel id="_bankerPairBetLabel" size="25" verticalAlign="middle" height="100%" y="0" scaleX="1" scaleY="1"/>
+				<e:Label id="_bankerPairBetLabel" size="25" verticalAlign="middle" height="100%" y="0" scaleX="1" scaleY="1"/>
 				<e:layout>
 					<e:HorizontalLayout gap="15" paddingLeft="15"/>
 				</e:layout>

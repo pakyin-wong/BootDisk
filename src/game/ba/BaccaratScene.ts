@@ -47,10 +47,13 @@ namespace we {
         this.initRoadMap();
         const test = this._timer.countdownValue;
         this._roadmapControl.setTableInfo(this._tableInfo);
-        this._minimizedTableLayer.tableInfo = this._tableInfo;
-        this._minimizedTableLayer.tableId = this._tableId;
-        console.log('this tableinfo', this._tableInfo);
-        console.log('tableid',this._tableId)
+        if (this._minimizedTableLayer){
+          this._minimizedTableLayer.tableInfo = this._tableInfo;
+          this._minimizedTableLayer.tableId = this._tableId;
+          console.log('this tableinfo', this._tableInfo);
+          console.log('tableid',this._tableId)
+          // this._minimizedTableLayer.updateBetLabel(this.tableInfo);
+        }
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._chipLayer.addEventListener(
           egret.TouchEvent.TOUCH_TAP,
@@ -216,6 +219,17 @@ namespace we {
         super.setBetRelatedComponentsEnabled(enable);
         if (this._switchBaMode) {
           this._switchBaMode.enabled = enable;
+        }
+      }
+
+
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
+        if (evt && evt.data) {
+          const betInfo = <data.GameTableBetInfo> evt.data;
+          if (betInfo.tableid === this._tableId) {
+           this._minimizedTableLayer.updateBetLabel(betInfo)
+          }
         }
       }
     }
