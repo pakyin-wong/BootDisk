@@ -12,7 +12,8 @@ namespace we {
       protected _rightGamePanel: BARoadmapRightPanel;
       protected _beadRoadResultPanel: BaBeadRoadResultPanel;
 
-      protected _switchBaMode: eui.ToggleSwitch;
+      // protected _switchBaMode: eui.ToggleSwitch;
+      protected _switchBaMode: ui.BaseButton;
       protected _lblBaMode: ui.RunTimeLabel;
       protected _goodRoadLabel: ui.GoodRoadLabel;
 
@@ -33,8 +34,8 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
-            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
           }
         }
       }
@@ -65,9 +66,15 @@ namespace we {
           false
         );
 
+        // if (this._switchBaMode) {
+        //   this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
+        //   this._switchBaMode.addEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
+        // }
+
         if (this._switchBaMode) {
-          this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
-          this._switchBaMode.addEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
+          this._switchBaMode.active = false;
+          this._chipLayer.currentState = this._switchBaMode.active ? 'SuperSix' : 'Normal';
+          this._switchBaMode.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBaModeToggle, this);
         }
 
         if (this._lblBaMode) {
@@ -93,9 +100,15 @@ namespace we {
       }
 
       protected onBaModeToggle(evt: eui.UIEvent) {
+        // if (this._switchBaMode) {
+        //   this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
+        //   this._tableLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
+        //   this._chipLayer.cancelBet();
+        // }
         if (this._switchBaMode) {
-          this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
-          this._tableLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
+          this._switchBaMode.active = !this._switchBaMode.active;
+          this._chipLayer.currentState = this._switchBaMode.active ? 'SuperSix' : 'Normal';
+          this._tableLayer.currentState = this._switchBaMode.active ? 'SuperSix' : 'Normal';
           this._chipLayer.cancelBet();
         }
       }
@@ -160,7 +173,8 @@ namespace we {
           case core.GameType.BAI:
           case core.GameType.BAS:
           case core.GameType.BAM: {
-            (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.selected);
+            // (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.selected);
+            (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.active);
             switch (this._gameData.wintype) {
               case ba.WinType.BANKER: {
                 subject = 'banker';

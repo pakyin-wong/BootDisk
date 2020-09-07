@@ -119,7 +119,11 @@ namespace we {
             .to({ y: this._originaly - this._offsetY, scaleX: this._hoverScale, scaleY: this._hoverScale }, this._tweenInterval1)
             .call(resolve)
         );
-        const p2 = new Promise(resolve => egret.Tween.get(this._quickBetGroup).to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1).call(resolve));
+        const p2 = new Promise(resolve =>
+          egret.Tween.get(this._quickBetGroup)
+            .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
+            .call(resolve)
+        );
       }
 
       protected hideQuickBetGroup() {

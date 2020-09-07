@@ -45,12 +45,12 @@
 		<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" right="2294" />
 		<ui:BaseAnimationButton id="_btnBack" dbClass="common_ui" dbDisplay="d_common_icon_back" width="30" height="30" x="35" y="17" tooltipText="'nav.tooltip.back'" />
 		<e:Image id="_lblRoomInfo" width="24" height="24" x="272" y="19" source="d_ba_navbar_icon_info_png" tooltipText="'nav.tooltip.roominfo'" />
-		<ui:GameBar width="251" height="52" x="1894" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
+		<ui:GameBar width="251" height="52" x="1874" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_desktop.GameBar" />
 	</e:Group>
 	<ba:GameResultMessage id="_resultMessage" x="0" y="676" width="1" height="1" horizontalCenter="0" />
 	<ui:InGameMessage id="_message" x="1300" y="912" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
-	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_playerelement_png"
+	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_chipvalue_png"
 	                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />
 	<ba:TableInfoPanel width="434" height="566" x="0" y="90" id="_tableInfoWindow" isPoppable="true"
 	                   isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true"
@@ -58,10 +58,12 @@
 	<ui:BaseAnimationButton id="_panelDismissToggleBtn" dbClass="common_ui" dbDisplay="d_common_hide_ui" width="30"
 	                        height="30" x="2526" y="949" dismissPosY="1222" dismissPosX="2526" isEdgeDismissable="true"
 							tooltipText="'live.tooltip.fullscreen'" tooltipPosition="'before'" />
-	<ui:Group x="1913" y="949" anchorOffsetX="0" width="596" dismissPosY="1222" dismissPosX="1913" isEdgeDismissable="true">
+	<ui:Group x="1911" y="959" anchorOffsetX="0" width="596" dismissPosY="1222" dismissPosX="1913" isEdgeDismissable="true">
 		<e:Group height="50" x="0" anchorOffsetX="0" anchorOffsetY="0" y="0">
+			<ui:BaseButton id="_switchBaMode" x="88" y="0" skinName="skin_desktop.SwitchBtn"/>
 			<ui:RunTimeLabel id="_lblBaMode" x="13" y="26" scaleX="1" scaleY="1" />
-			<e:ToggleSwitch id="_switchBaMode" label="免佣" x="88" y="28" scaleX="1" scaleY="1" skinName="skins.ToggleSwitchSkin" />
+			<!--<e:ToggleSwitch id="_switchBaMode" label="免佣" x="88" y="28" scaleX="1" scaleY="1" skinName="skins.ToggleSwitchSkin" />-->
+
 			<e:layout>
 				<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle" />
 			</e:layout>

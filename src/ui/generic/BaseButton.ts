@@ -61,17 +61,17 @@ namespace we {
 
       private onRollout() {
         this._hover = false;
-        this._click = false;
+        // this._click = false;
         this.update();
       }
 
       private onTouchDown() {
-        this._click = true;
+        this._click = !this._active;
         this.update();
       }
 
       private onTouchUp() {
-        this._click = false;
+        // this._click = false;
         this.update();
       }
 

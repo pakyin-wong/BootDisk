@@ -550,7 +550,7 @@ namespace we {
             this.checkResultMessage();
           }
         }
-          this.changeBtnState(false);
+        this.changeBtnState(false);
       }
 
       protected setStateRefund(isInit: boolean = false) {
@@ -718,8 +718,8 @@ namespace we {
         this._cancelButton.alpha = isEnable ? 1 : 0.5;
         this._confirmButton.alpha = isEnable ? 1 : 0.3;
         if (this._timer.bg_color) {
-          this._timer.bg_color.alpha = isEnable ? .7 : 0;
-          if (isEnable) { 
+          this._timer.bg_color.alpha = isEnable ? 0.7 : 0;
+          if (isEnable) {
             this._timer.bg_flash();
           } else {
             this._timer.removebg_flash();

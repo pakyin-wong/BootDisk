@@ -103,12 +103,12 @@ namespace we {
         this.removeEventListener(egret.Event.ENTER_FRAME, this.updateRemainingTime, this);
       }
       public bg_flash() {
-        this.bg_color.alpha = .7;
+        this.bg_color.alpha = 0.7;
         this.removebg_flash();
-        egret.Tween.get(this.bg_color,{loop:true}).to({ alpha : 0  } , 200)
+        egret.Tween.get(this.bg_color, { loop: true }).to({ alpha: 0 }, 200);
         // while not time is out and uncfmBet >0 , do flashing
       }
-      public removebg_flash(){
+      public removebg_flash() {
         egret.Tween.removeTweens(this.bg_color);
       }
     }
