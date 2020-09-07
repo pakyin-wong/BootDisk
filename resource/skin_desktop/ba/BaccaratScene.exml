@@ -12,6 +12,7 @@
 		<ba:CardHolder id="_resultDisplay" width="412" height="152" y="11" horizontalCenter="1" anchorOffsetX="0"
 		               anchorOffsetY="0" />
 	</ui:Group>
+	<ba:MinimizedTableLayer id="_minimizedTableLayer" skinName="skin_desktop.ba.BAMinimizedTableLayerSkin" x="513" y="350"/>
 	<ui:Group id="_betRelatedGroup" x="769" y="939" isEdgeDismissable="true">
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" chipScale="0.9" />

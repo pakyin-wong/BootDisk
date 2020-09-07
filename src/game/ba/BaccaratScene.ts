@@ -11,6 +11,7 @@ namespace we {
       protected _leftGamePanel: BARoadmapLeftPanel;
       protected _rightGamePanel: BARoadmapRightPanel;
       protected _beadRoadResultPanel: BaBeadRoadResultPanel;
+      protected _minimizedTableLayer: MinimizedTableLayer;
 
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
@@ -33,8 +34,8 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
           }
         }
       }
@@ -45,9 +46,11 @@ namespace we {
         super.initChildren();
         this.initRoadMap();
         const test = this._timer.countdownValue;
-        console.log('test  this._timer.countdownValue', this._timer.countdownValue);
         this._roadmapControl.setTableInfo(this._tableInfo);
-
+        this._minimizedTableLayer.tableInfo = this._tableInfo;
+        this._minimizedTableLayer.tableId = this._tableId;
+        console.log('this tableinfo', this._tableInfo);
+        console.log('tableid',this._tableId)
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._chipLayer.addEventListener(
           egret.TouchEvent.TOUCH_TAP,
