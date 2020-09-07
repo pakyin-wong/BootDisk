@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.lo.SSCTraditionalChaseBetTopMultiplePanel" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="660" height="80">
+<e:Skin class="skin_desktop.lo.SSCTraditionalChaseBetTopProfitPanel" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="660" height="80">
     <e:Group id="_continuousChase" width="660" height="60">
         <e:Group width="299" height="60">
             <ui:RunTimeLabel id="_lblLowestProfitRateTitle" text="最低收益率 (%)" size="24" alpha="0.7"/>

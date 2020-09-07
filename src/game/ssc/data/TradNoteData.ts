@@ -8,5 +8,14 @@ namespace we {
       public betmode: string; // bigtag name
       public betmethod: string; // small tag name
     }
+
+    export class ChaseBetNoteData{
+      public index : number;
+      // public noteData: TradNoteData[];
+      public totalBetAmount : number;
+      public round : string;
+      public roundEndTime : string;
+      public isActive : boolean;
+    }
   }
 }
