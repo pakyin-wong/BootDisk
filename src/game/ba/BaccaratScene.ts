@@ -38,6 +38,9 @@ namespace we {
             (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
           }
         }
+        if (this._minimizedTableLayer){
+          this._minimizedTableLayer.updateBetLabel(true)
+        }
       }
 
       private hideTooltipTimeout;
@@ -47,11 +50,11 @@ namespace we {
         this.initRoadMap();
         const test = this._timer.countdownValue;
         this._roadmapControl.setTableInfo(this._tableInfo);
-        if (this._minimizedTableLayer){
+        if (this._minimizedTableLayer) {
           this._minimizedTableLayer.tableInfo = this._tableInfo;
           this._minimizedTableLayer.tableId = this._tableId;
           console.log('this tableinfo', this._tableInfo);
-          console.log('tableid',this._tableId)
+          console.log('tableid', this._tableId);
           // this._minimizedTableLayer.updateBetLabel(this.tableInfo);
         }
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
@@ -101,6 +104,7 @@ namespace we {
         if (this._switchBaMode) {
           this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
           this._tableLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
+          this._minimizedTableLayer.currentState  = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
           this._chipLayer.cancelBet();
         }
       }
@@ -222,13 +226,12 @@ namespace we {
         }
       }
 
-
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
-           this._minimizedTableLayer.updateBetLabel(betInfo)
+            this._minimizedTableLayer.updateBetLabel(false ,betInfo);
           }
         }
       }
