@@ -56,6 +56,10 @@ namespace we {
       overlaypanel_customroad_default: 'Restore Default',
 
       overlaypanel_bethistory_title: 'Bet Record',
+      overlaypanel_bethistory_tab_all: 'All',
+      overlaypanel_bethistory_tab_live: 'Live',
+      overlaypanel_bethistory_tab_lottery: 'Lottery',
+      overlaypanel_bethistory_tab_egame: 'Egame',
       overlaypanel_bethistory_date: 'Dates',
       overlaypanel_bethistory_today: 'Today',
       overlaypanel_bethistory_yesterday: 'Yesterday',
@@ -87,6 +91,9 @@ namespace we {
       overlaypanel_bethistory_btn_next: 'Next',
       overlaypanel_bethistory_btn_prev: 'Previous',
       overlaypanel_bethistory_searchtype_all: 'All',
+
+      overlaypanel_bethistorylottery_tab_single: 'Single',
+      overlaypanel_bethistorylottery_tab_multi: 'Multi',
 
       overlaypanel_bethistorylottery_record_round: 'Round',
       overlaypanel_bethistorylottery_record_bettype: 'Type',
@@ -229,6 +236,7 @@ namespace we {
           roulette: 'Roulette',
           dice: 'SicBo',
           other: 'Others',
+          special: 'Special',
         },
       },
       tableInfo: {
