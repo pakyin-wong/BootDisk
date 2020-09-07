@@ -9,7 +9,7 @@ namespace we {
       protected _prevType: we.core.ChipType;
       protected _highlight: boolean;
       protected _index: number;
-      protected _labelSize: number = 30;
+      protected _labelSize: number = 28;
       protected _chipScale: number = 1;
       protected _valueLabel: eui.Label;
       protected _labelGroup: eui.Group;
@@ -62,8 +62,11 @@ namespace we {
           return null;
         }
         this._valueLabel = new eui.Label();
-        this._valueLabel.text = utils.numberToFaceValue(this._value);
+        this._valueLabel.text = utils.formatNumber(this._value,false);
+        // this._valueLabel.text = utils.numberToFaceValue(this._value);
         this._valueLabel.fontFamily = 'Barlow';
+        this._valueLabel.bold = true;
+        this._valueLabel.scaleX = 0.7;
 
         this._valueLabel.size = this._labelSize;
         this._valueLabel.textColor = this._index < 5 ? 0x000000 : 0xf4f0b2;
@@ -71,6 +74,8 @@ namespace we {
         this._valueLabel.textAlign = egret.HorizontalAlign.CENTER;
         this._valueLabel.verticalCenter = 0;
         this._valueLabel.horizontalCenter = 0;
+
+        this._valueLabel.textColor = utils.getChipLabelColor(this._value);
 
         this._labelGroup = new eui.Group();
         this._labelGroup.width = 0;
@@ -290,14 +295,17 @@ namespace we {
 
       protected getChipSource(type: we.core.ChipType = this._type): string {
         let filename: string;
+        const chipImageStr = utils.getChipImage(this._value);
 
         switch (type) {
           case we.core.ChipType.FLAT:
-            filename = `${this.chipImageMapping[this._index]}_png`;
+            // filename = `${this.chipImageMapping[this._index]}_png`;
+            filename = `${chipImageStr}_png`;
             console.log('filenameFLAT', filename);
             break;
           case we.core.ChipType.PERSPECTIVE:
-            filename = `${this.chipImageMapping[this._index]}_B_png`;
+            // filename = `${this.chipImageMapping[this._index]}_B_png`;
+            filename = `${chipImageStr}_B_png`;
             console.log('filenamePERSPECTIVE', filename);
             break;
           default:
