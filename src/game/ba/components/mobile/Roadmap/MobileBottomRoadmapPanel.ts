@@ -235,8 +235,8 @@ namespace we {
           this.modeLayer.anchorOffsetX = this.modeLabel.width * 0.5;
         }
       }
-      
-      protected initOrientationDependentComponent(){
+
+      protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
         this.update();
       }
