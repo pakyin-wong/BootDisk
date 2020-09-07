@@ -47,14 +47,34 @@ namespace we {
         this._bankerPairBetLabel.text = '0';
       }
       public updateBetLabel(betInfo) {
-              console.log('betInfo.betinfo',betInfo.betinfo)
-              console.log('betInfo..betinfoamount',betInfo.betinfo.amount)
-              console.log('type of betInfo.betinfo.amount',typeof(betInfo.betinfo.amount))
-              for (let prop in betInfo.betinfo.amount) {
-                  console.log('prop',prop);
-                  console.log('type of prop',typeof(prop))
-              }
+        for (let prop in betInfo.amount) {
+            switch (prop) {
+                case "PLAYER":
+                this._playerBetLabel.text = betInfo.amount.PLAYER/100;
+                break;
+                case "BANKER":
+                this._bankerBetLabel.text = betInfo.amount.BANKER/100;
+                break;
+                case "BANKER_PAIR":
+                this._bankerPairBetLabel.text = betInfo.amount.BANKER_PAIR/100;
+                break;
+                case "PLAYER_PAIR":
+                this._playerPairBetLabel.text = betInfo.amount.PLAYER_PAIR/100;
+                break;
+                case "TIE":
+                this._tieBetLabel.text = betInfo.amount.TIE/100;
+                break;
+                default:
+                this._bankerBetLabel.text = '0';
+                this._playerBetLabel.text = '0';
+                this._tieBetLabel.text = '0';
+                this._playerPairBetLabel.text = '0';
+                this._bankerPairBetLabel.text = '0';
+                break;
+            }
+        }
       }
+      
     }
   }
 }
