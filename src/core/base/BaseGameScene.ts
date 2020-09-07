@@ -143,8 +143,7 @@ namespace we {
       }
 
       protected initDenom() {
-        // const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
-        const denominationList = [10, 20, 50, 100, 500, 1000, 2000];
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         console.log(`................env.betLimits ${JSON.stringify(env.betLimits)}`);
         console.log(`................this.getSelectedBetLimitIndex() ${JSON.stringify(this.getSelectedBetLimitIndex())}`);
         console.log(`................denom list ${JSON.stringify(denominationList)}`);
