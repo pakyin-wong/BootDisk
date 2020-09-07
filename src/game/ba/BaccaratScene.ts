@@ -50,13 +50,7 @@ namespace we {
         this.initRoadMap();
         const test = this._timer.countdownValue;
         this._roadmapControl.setTableInfo(this._tableInfo);
-        // if (this._minimizedTableLayer) {
-        //   this._minimizedTableLayer.tableInfo = this._tableInfo;
-        //   this._minimizedTableLayer.tableId = this._tableId;
-        //   console.log('this tableinfo', this._tableInfo);
-        //   console.log('tableid', this._tableId);
-        //   // this._minimizedTableLayer.updateBetLabel(this.tableInfo);
-        // }
+
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._chipLayer.addEventListener(
           egret.TouchEvent.TOUCH_TAP,
@@ -104,7 +98,9 @@ namespace we {
         if (this._switchBaMode) {
           this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
           this._tableLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
-          this._minimizedTableLayer.currentState  = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
+          if(this._minimizedTableLayer) {
+            this._minimizedTableLayer.currentState  = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
+          }
           this._chipLayer.cancelBet();
         }
       }
@@ -230,7 +226,7 @@ namespace we {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
           const betInfo = <data.GameTableBetInfo>evt.data;
-          if (betInfo.tableid === this._tableId) {
+          if (betInfo.tableid === this._tableId && this._minimizedTableLayer) {
             this._minimizedTableLayer.updateBetLabel(false ,betInfo);
           }
         }
