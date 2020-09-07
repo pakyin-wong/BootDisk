@@ -490,8 +490,8 @@ namespace we {
               // i18n.t(''),
               '您已3局未下注，2局后踢出',
               {
-                // dismiss: { text: i18n.t('') },
-                dismiss: { text: 'cancelBet' },
+                dismiss: { text: i18n.t('nav.menu.confirm') },
+                // dismiss: { text: 'cancelBet' },
               },
             ],
           });
