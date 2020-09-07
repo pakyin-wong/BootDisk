@@ -253,9 +253,14 @@ namespace we {
       // Roadmap & Statistic update
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
-        this._roadmapControl.updateRoadData();
-        // this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
-        (this._tableLayer as di.MobileTableLayer).updateText(this._tableInfo);
+        if (evt && evt.data) {
+          const stat = <data.TableInfo>evt.data;
+          if (stat.tableid === this._tableId) {
+            this._roadmapControl.updateRoadData();
+            // this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
+            (this._tableLayer as di.MobileTableLayer).updateText(this._tableInfo);
+          }
+        }
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {

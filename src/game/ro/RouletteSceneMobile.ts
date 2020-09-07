@@ -362,7 +362,12 @@ namespace we {
 
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
-        this._roadmapControl.updateRoadData();
+        if (evt && evt.data) {
+          const stat = <data.TableInfo>evt.data;
+          if (stat.tableid === this._tableId) {
+            this._roadmapControl.updateRoadData();
+          }
+        }
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
@@ -375,7 +380,7 @@ namespace we {
         this._betArea.mask = null;
         this._mask.visible = false;
 
-        const resultNo = (<ro.GameData> this._gameData).value;
+        const resultNo = (<ro.GameData>this._gameData).value;
         (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
 
         super.checkResultMessage(resultData);
