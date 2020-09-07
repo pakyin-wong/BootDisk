@@ -17,10 +17,10 @@ namespace we {
       protected _superSixBankerBetLabel;
       protected _superSixLabel;
       protected _superSixBetLabel;
+      public _bankerPairGroupRoundRectShape;
 
       constructor() {
         super();
-        // console.log('ttesteeette');
       }
 
       protected mount() {

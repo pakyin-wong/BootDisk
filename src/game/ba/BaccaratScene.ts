@@ -38,8 +38,8 @@ namespace we {
             (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
           }
         }
-        if (this._minimizedTableLayer){
-          this._minimizedTableLayer.updateBetLabel(true)
+        if (this._minimizedTableLayer) {
+          this._minimizedTableLayer.updateBetLabel(true);
         }
       }
 
@@ -98,8 +98,8 @@ namespace we {
         if (this._switchBaMode) {
           this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
           this._tableLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
-          if(this._minimizedTableLayer) {
-            this._minimizedTableLayer.currentState  = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
+          if (this._minimizedTableLayer) {
+            this._minimizedTableLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
           }
           this._chipLayer.cancelBet();
         }
@@ -227,7 +227,7 @@ namespace we {
         if (evt && evt.data) {
           const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId && this._minimizedTableLayer) {
-            this._minimizedTableLayer.updateBetLabel(false ,betInfo);
+            this._minimizedTableLayer.updateBetLabel(false, betInfo);
           }
         }
       }
