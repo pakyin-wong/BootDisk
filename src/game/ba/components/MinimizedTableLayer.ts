@@ -23,18 +23,18 @@ namespace we {
         super();
         // console.log('ttesteeette');
       }
-      public get tableInfo() {
-        return this._tableInfo;
-      }
-      public set tableInfo(val: any) {
-        this._tableInfo = val;
-      }
-      public get tableId() {
-        return this._tableId;
-      }
-      public set tableId(val: any) {
-        this._tableId = val;
-      }
+      // public get tableInfo() {
+      //   return this._tableInfo;
+      // }
+      // public set tableInfo(val: any) {
+      //   this._tableInfo = val;
+      // }
+      // public get tableId() {
+      //   return this._tableId;
+      // }
+      // public set tableId(val: any) {
+      //   this._tableId = val;
+      // }
       protected mount() {
         super.mount();
         this._playerLabel.renderText = () => i18n.t('baccarat.player');
