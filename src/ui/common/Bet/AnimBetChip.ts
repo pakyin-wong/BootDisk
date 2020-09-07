@@ -2,7 +2,7 @@ namespace we {
   export namespace ui {
     export class AnimBetChip extends core.BaseEUI implements eui.UIComponent, IBetChip {
       // protected chipImageMapping = ['Lv1_Blue', 'Lv1_Yellow', 'Lv1_Orange', 'Lv1_Light_Red', 'Lv1_Purple', 'Lv1_Magentas_Dark', 'Lv1_Green', 'Lv1_Blue_Dark', 'Lv1_Green_Dark', 'Lv1_Gray_Light'];
-      protected chipImageMapping = ['Lv1_Yellow', 'Lv1_Light_Red', 'Lv1_Blue', 'Lv1_Green', 'Lv1_Blue_Dark', 'Lv2_Purple_Light', 'Lv2_Green', 'Lv2_Blue_Light', 'Lv2_Red', 'Lv2_Mud'];
+      protected chipImageMapping = [ 'Lv1_Yellow', 'Lv1_Light_Red', 'Lv1_Blue', 'Lv1_Green', 'Lv1_Blue_Dark', 'Lv2_Purple_Light', 'Lv2_Green', 'Lv2_Blue_Light', 'Lv2_Red', 'Lv2_Mud','Lv1_Gray_Light'];
       protected _value: number;
       protected _chipAnim: dragonBones.EgretArmatureDisplay;
       protected _type: we.core.ChipType;
@@ -66,7 +66,7 @@ namespace we {
         this._valueLabel.fontFamily = 'Barlow';
 
         this._valueLabel.size = this._labelSize;
-        this._valueLabel.textColor = 0x000000;
+        this._valueLabel.textColor = this._index < 5 ? 0x000000 : 0xf4f0b2;
         this._valueLabel.verticalAlign = egret.VerticalAlign.MIDDLE;
         this._valueLabel.textAlign = egret.HorizontalAlign.CENTER;
         this._valueLabel.verticalCenter = 0;

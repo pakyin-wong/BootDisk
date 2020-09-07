@@ -262,7 +262,6 @@ namespace we {
           return;
         }
         const denomMap = { [100]: 0 };
-        // let chipIndex = 1;
         let chipIndex = 0;
         env.betLimits.map(limit => {
           limit.chips.map(chipValue => {

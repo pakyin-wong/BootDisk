@@ -144,9 +144,6 @@ namespace we {
 
       protected initDenom() {
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
-        console.log(`................env.betLimits ${JSON.stringify(env.betLimits)}`);
-        console.log(`................this.getSelectedBetLimitIndex() ${JSON.stringify(this.getSelectedBetLimitIndex())}`);
-        console.log(`................denom list ${JSON.stringify(denominationList)}`);
 
         if (this._betChipSet) {
           this._betChipSet.init(5, denominationList);
