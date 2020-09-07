@@ -8,6 +8,7 @@
 		<e:Group id="_contentContainerStatic" left="0" right="0" top="0" bottom="0">
 			<e:Image id="_dealerImage" width="350" height="450" x="0" y="0" />
 			<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" size="24" fontFamily="Barlow" x="22" y="362" />
+			<ui:BaseAnimationButton id="_favouriteButton" dbClass="common_ui" dbDisplay="d_common_icon_news_Group" width="44" height="42"  left="290" top="30"/>
 			<e:Group id="_alreadyBetSign" right="5" bottom="40" visible="false">
 				<e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0"
 				         width="100" height="30" />

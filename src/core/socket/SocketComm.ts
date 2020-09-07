@@ -363,6 +363,9 @@ namespace we {
         if (env.betTableList.indexOf(tableid) > -1) {
           this.filterAndDispatch(env.betTableList, core.Event.BET_TABLE_LIST_UPDATE);
         }
+        if (env.favouriteTableList.indexOf(tableid) > -1) {
+          this.filterAndDispatch(env.favouriteTableList, core.Event.FAVOURITE_TABLE_LIST_UPDATE);
+        }
       }
 
       protected onGameStatusUpdate(gameStatus: any, timestamp: string) {

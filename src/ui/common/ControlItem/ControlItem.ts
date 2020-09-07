@@ -11,6 +11,7 @@ namespace we {
 
       protected _confirmButton: eui.Button;
       protected _cancelButton: ui.BaseImageButton;
+      protected _favouriteButton: ui.BaseAnimationButton;
       protected _resultMessage: ui.IGameResultMessage & eui.Component;
       protected _message: ui.InGameMessage;
       protected _dropdown: live.BetLimitDropdown;
@@ -120,6 +121,7 @@ namespace we {
 
         this._confirmButton && this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this._cancelButton && this._cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
+        this._favouriteButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onFavouritePressed, this, true);
       }
 
       public insufficientBalance() {
@@ -153,6 +155,7 @@ namespace we {
 
         this._confirmButton && this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this._cancelButton && this._cancelButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
+        this._favouriteButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onFavouritePressed, this, true);
         this._timer && this._timer.stop();
       }
 
@@ -521,6 +524,11 @@ namespace we {
           }
         }
       }
+
+      protected onFavouritePressed(evt: egret.Event) {
+         //this._tableId
+      }
+
 
       protected onBetReturned(result) {
         if (!result) {
