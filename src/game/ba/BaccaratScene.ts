@@ -144,18 +144,19 @@ namespace we {
         this._roadmapControl.updateRoadData();
       }
 
-      // protected onTableBetInfoUpdate(evt: egret.Event) {
-      //   super.onTableBetInfoUpdate(evt);
-      //   if (evt && evt.data) {
-      //     const betInfo = <data.GameTableBetInfo> evt.data;
-      //     if (betInfo.tableid === this._tableId) {
-      //       // update the scene
-      //       (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-      //       (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
-      //       this._leftGamePanel.totalBet = evt.data.total;
-      //     }
-      //   }
-      // }
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
+        if (!evt || !evt.data) {
+          return;
+        }
+        const betInfo = <data.GameTableBetInfo> evt.data;
+        if (betInfo.tableid === this._tableId) {
+          // update the scene
+          (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
+          (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+      
+        }
+      }
 
       public checkResultMessage() {
         if (this._gameData.wintype == 0) {
