@@ -40,7 +40,9 @@ namespace we {
       }
 
       protected onSelectAll() {
-        if (this._mainTab == 'all') { return; }
+        if (this._mainTab == 'all') {
+          return;
+        }
         this._mainTab = 'all';
         this.currentState = 'all';
         this._type = -1;
@@ -49,7 +51,9 @@ namespace we {
       }
 
       protected onSelectLive() {
-        if (this._mainTab == 'live') { return; }
+        if (this._mainTab == 'live') {
+          return;
+        }
         this._mainTab = 'live';
         this.currentState = 'live';
         this._type = GameType.BAC;
@@ -58,7 +62,9 @@ namespace we {
       }
 
       protected onSelectLottery() {
-        if (this._mainTab == 'lottery') { return; }
+        if (this._mainTab == 'lottery') {
+          return;
+        }
         this._mainTab = 'lottery';
         this.currentState = 'lottery';
         this._type = GameType.LO;

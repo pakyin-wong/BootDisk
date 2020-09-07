@@ -47,8 +47,8 @@ namespace we {
           // update the scene
           (<we.dt.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
           (<we.dt.TableLayer> this._tableLayer).totalPerson = evt.data.count;
-          //this._leftGamePanel.totalBet = evt.data.total;
-        }        
+          // this._leftGamePanel.totalBet = evt.data.total;
+        }
       }
 
       protected setStateBet(isInit: boolean) {
