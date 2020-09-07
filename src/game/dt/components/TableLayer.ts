@@ -68,7 +68,7 @@ namespace we {
         if (this._totalAmountMapping) {
           Object.keys(amounts).map(value => {
             if (this._totalAmountMapping[value]) {
-              this._totalAmountMapping[value].text = amounts[value];
+              this._totalAmountMapping[value].text = amounts[value] / 100;
             }
           });
         }

@@ -16,7 +16,7 @@
 		<e:Button id="_confirmButton" label="" y="3" anchorOffsetX="0" width="155" anchorOffsetY="0" height="64"
 		          horizontalCenter="114" skinName="skins_desktop.BetConfirmButtonSkin" />
 		<ui:CountdownTimer id="_timer" width="160" height="64" y="3" horizontalCenter="115" skinName="skin_desktop.CountdownTimerSkin"
-						   tooltipText="'live.tooltip.confirmBet'" tooltipPosition="'above'" />
+						   tooltipText="'live.tooltip.confirmBet'" tooltipPosition="'above'" touchEnabled="false"/>
 		<ui:BaseAnimationButton id="_undoButton" width="55" height="55" verticalCenter="0" horizontalCenter="243"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true"
 								tooltipText="'live.tooltip.undo'" tooltipPosition="'above'" />

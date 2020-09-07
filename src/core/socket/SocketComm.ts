@@ -210,21 +210,21 @@ namespace we {
         env.profileimage = player.profile.settings.profileimage
           ? player.profile.settings.profileimage
           : player.profile.profileimageurl === ''
-            ? Object.keys(env.icons)[0]
-            : player.profile.profileimageurl;
+          ? Object.keys(env.icons)[0]
+          : player.profile.profileimageurl;
         logger.l(utils.LogTarget.RELEASE, 'PlayerClient::handleReady() ' + player.profile.betlimits);
 
         env.betLimits = player.profile.betlimits
           ? player.profile.betlimits
           : [
-            {
-              currency: Currency.RMB,
-              maxlimit: 1000,
-              minlimit: 10,
-              chips: [1, 5, 20, 100, 500],
-              // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
-            },
-          ];
+              {
+                currency: Currency.RMB,
+                maxlimit: 1000,
+                minlimit: 10,
+                chips: [1, 5, 20, 100, 500],
+                // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
+              },
+            ];
 
         if (!Array.isArray(env.betLimits)) {
           env.betLimits = [env.betLimits];
@@ -1030,7 +1030,7 @@ namespace we {
         this.client.sendVerifyInfo(id, pattern, this.warpServerCallback(callback.bind(thisArg)));
       }
 
-      public getTableHistory() { }
+      public getTableHistory() {}
 
       protected onBetTableListUpdate(tableList: data.GameTableList, timestamp: string) {
         this.updateTimestamp(timestamp);

@@ -132,6 +132,7 @@ namespace we {
       }
 
       public updateBetChipUncfmBet(fieldName, amount) {
+        this.dispatchEvent(new egret.Event('onUnconfirmBet'));
         if (this._betChipStackMapping[fieldName]) {
           this._betChipStackMapping[fieldName].uncfmBet = amount * this.getRate(fieldName);
           this._betChipStackMapping[fieldName].draw();
@@ -548,7 +549,7 @@ namespace we {
         const totalUncfmAmount = this.getTotalUncfmBetAmount();
         const totalCfmAmount = this.getTotalCfmBetAmount();
 
-        if (betLimit.minlimit > totalUncfmAmount+totalCfmAmount) {
+        if (betLimit.minlimit > totalUncfmAmount + totalCfmAmount) {
           return true;
         }
 
