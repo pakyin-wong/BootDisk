@@ -198,7 +198,7 @@ namespace we {
           .subtract(1, 'day')
           .unix();
         this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
-        //this._btn_today.active = true;
+        // this._btn_today.active = true;
         this.search();
       }
 

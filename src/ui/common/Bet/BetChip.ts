@@ -1,7 +1,8 @@
 namespace we {
   export namespace ui {
     export class BetChip extends core.BaseEUI implements eui.UIComponent, IBetChip {
-      protected chipImageMapping = ['Lv1_Blue', 'Lv1_Yellow', 'Lv1_Orange', 'Lv1_Light_Red', 'Lv1_Purple', 'Lv1_Magentas_Dark', 'Lv1_Green', 'Lv1_Blue_Dark', 'Lv1_GreenDark', 'Lv1_Gray_Light'];
+      // protected chipImageMapping = ['Lv1_Blue', 'Lv1_Yellow', 'Lv1_Orange', 'Lv1_Light_Red', 'Lv1_Purple', 'Lv1_Magentas_Dark', 'Lv1_Green', 'Lv1_Blue_Dark', 'Lv1_GreenDark', 'Lv1_Gray_Light'];
+      protected chipImageMapping = ['Lv1_Yellow', 'Lv1_Light_Red', 'Lv1_Blue', 'Lv1_Green', 'Lv1_Blue_Dark', 'Lv2_Purple_Light', 'Lv2_Green', 'Lv2_Blue_Light', 'Lv2_Red', 'Lv2_Mud'];
       protected _value: number;
       protected _chipImage: eui.Image;
       protected _chipValueLabel: eui.Label;
@@ -12,7 +13,7 @@ namespace we {
 
       protected _index: number;
 
-      protected _labelSize: number = 30;
+      protected _labelSize: number = 28;
 
       public aspectRatio: number = 0.7;
 
@@ -139,16 +140,22 @@ namespace we {
         switch (this._type) {
           case we.core.ChipType.FLAT:
             this._chipImage.source = this.getChipSource(this._type);
-            this._chipValueLabel.text = utils.numberToFaceValue(this._value);
+            this._chipValueLabel.text = utils.formatNumber(this._value, false);
+            // this._chipValueLabel.text = utils.numberToFaceValue(this._value);
             // this._chipValueLabel.verticalCenter = this.height * -0.025;
             this._chipValueLabel.verticalCenter = 0;
             this._chipValueLabel.scaleY = 1;
+            this._chipValueLabel.scaleX = 0.7;
+            this._chipValueLabel.bold = true;
             this.height = this.width;
             break;
           case we.core.ChipType.PERSPECTIVE:
             this._chipImage.source = this.getChipSource(this._type);
-            this._chipValueLabel.text = utils.numberToFaceValue(this._value);
+            this._chipValueLabel.text = utils.formatNumber(this._value, false);
+            // this._chipValueLabel.text = utils.numberToFaceValue(this._value);
             this._chipValueLabel.scaleY = 0.65;
+            this._chipValueLabel.scaleX = 0.7;
+            this._chipValueLabel.bold = true;
             this.height = this.width * this.aspectRatio;
             this._chipValueLabel.verticalCenter = this.height * -0.1;
             break;
@@ -181,16 +188,19 @@ namespace we {
 
       protected getChipSource(type: we.core.ChipType = this._type): string {
         let filename: string;
+        const chipImageStr = utils.getChipImage(this._value);
 
         switch (type) {
           case we.core.ChipType.FLAT:
             if (this._index != null) {
-              filename = `${this.chipImageMapping[this._index]}_png`;
+              // filename = `${this.chipImageMapping[this._index]}_png`;
+              filename = `${chipImageStr}_png`;
             }
             break;
           case we.core.ChipType.PERSPECTIVE:
             if (this._index != null) {
-              filename = `${this.chipImageMapping[this._index]}_B_png`;
+              // filename = `${this.chipImageMapping[this._index]}_B_png`;
+              filename = `${chipImageStr}_B_png`;
             }
             break;
           case we.core.ChipType.BETTING:
