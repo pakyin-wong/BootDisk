@@ -140,7 +140,7 @@ namespace we {
         switch (this._type) {
           case we.core.ChipType.FLAT:
             this._chipImage.source = this.getChipSource(this._type);
-            this._chipValueLabel.text = utils.formatNumber(this._value,false);
+            this._chipValueLabel.text = utils.formatNumber(this._value, false);
             // this._chipValueLabel.text = utils.numberToFaceValue(this._value);
             // this._chipValueLabel.verticalCenter = this.height * -0.025;
             this._chipValueLabel.verticalCenter = 0;
@@ -151,7 +151,7 @@ namespace we {
             break;
           case we.core.ChipType.PERSPECTIVE:
             this._chipImage.source = this.getChipSource(this._type);
-            this._chipValueLabel.text = utils.formatNumber(this._value,false);
+            this._chipValueLabel.text = utils.formatNumber(this._value, false);
             // this._chipValueLabel.text = utils.numberToFaceValue(this._value);
             this._chipValueLabel.scaleY = 0.65;
             this._chipValueLabel.scaleX = 0.7;

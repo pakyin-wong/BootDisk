@@ -35,11 +35,10 @@ namespace we {
 
     export function getChipLabelColor(val: number) {
       if (val < 100000) {
-        return 0x000000B3;
+        return 0x000000b3;
       } else {
         return 0xf4f0b2ff;
       }
     }
-
   }
 }

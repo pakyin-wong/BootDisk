@@ -73,7 +73,7 @@ namespace we {
       // public soundEffect = 1;
 
       public betLimits: data.BetLimitSet[];
-      public wholeDenomList: number[];
+      // public wholeDenomList: (value: number) => number;
       public goodRoadData: data.GoodRoadMapData;
       public isMobile: boolean = false;
       public orientation: string = egret.OrientationMode.LANDSCAPE;
@@ -262,7 +262,7 @@ namespace we {
           return;
         }
         const denomMap = { [100]: 0 };
-        let chipIndex = 0;
+        let chipIndex = 1;
         env.betLimits.map(limit => {
           limit.chips.map(chipValue => {
             if (!denomMap[chipValue]) {

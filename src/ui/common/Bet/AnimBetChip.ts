@@ -2,7 +2,7 @@ namespace we {
   export namespace ui {
     export class AnimBetChip extends core.BaseEUI implements eui.UIComponent, IBetChip {
       // protected chipImageMapping = ['Lv1_Blue', 'Lv1_Yellow', 'Lv1_Orange', 'Lv1_Light_Red', 'Lv1_Purple', 'Lv1_Magentas_Dark', 'Lv1_Green', 'Lv1_Blue_Dark', 'Lv1_Green_Dark', 'Lv1_Gray_Light'];
-      protected chipImageMapping = [ 'Lv1_Yellow', 'Lv1_Light_Red', 'Lv1_Blue', 'Lv1_Green', 'Lv1_Blue_Dark', 'Lv2_Purple_Light', 'Lv2_Green', 'Lv2_Blue_Light', 'Lv2_Red', 'Lv2_Mud','Lv1_Gray_Light'];
+      protected chipImageMapping = ['Lv1_Yellow', 'Lv1_Light_Red', 'Lv1_Blue', 'Lv1_Green', 'Lv1_Blue_Dark', 'Lv2_Purple_Light', 'Lv2_Green', 'Lv2_Blue_Light', 'Lv2_Red', 'Lv2_Mud', 'Lv1_Gray_Light'];
       protected _value: number;
       protected _chipAnim: dragonBones.EgretArmatureDisplay;
       protected _type: we.core.ChipType;
@@ -62,7 +62,7 @@ namespace we {
           return null;
         }
         this._valueLabel = new eui.Label();
-        this._valueLabel.text = utils.formatNumber(this._value,false);
+        this._valueLabel.text = utils.formatNumber(this._value, false);
         // this._valueLabel.text = utils.numberToFaceValue(this._value);
         this._valueLabel.fontFamily = 'Barlow';
         this._valueLabel.bold = true;
