@@ -9,6 +9,8 @@ namespace we {
 
       private toolTipPosition: any;
 
+      private timeoutIntervalId: number = -1;
+
       constructor(stage: egret.Stage) {
         logger.l(utils.LogTarget.DEBUG, 'TooltipCtr is created');
         this.stage = stage;
@@ -51,7 +53,15 @@ namespace we {
       }
 
       private removeAfterTwoSeconds() {
-         setTimeout(  ()=>{if(this.activeTooltip){this.removeTooltips()} },2000)
+        if (this.timeoutIntervalId > -1) {
+          clearTimeout(this.timeoutIntervalId);
+          this.timeoutIntervalId = -1;
+        }
+        this.timeoutIntervalId = setTimeout(() => {
+          if (this.activeTooltip) {
+            this.removeTooltips();
+          }
+        }, 2000);
       }
 
       public displayTooltip(x, y, message) {
@@ -66,29 +76,29 @@ namespace we {
             switch (this.toolTipPosition) {
               case 'below': {
                 egret.Tween.get(this.activeTooltip)
-                  .to({ y: this.activeTooltip.y - (this.activeTooltip.height + 8 ) , alpha: 0 }, 100)
-                  .call(resolve)
+                  .to({ y: this.activeTooltip.y - (this.activeTooltip.height + 8), alpha: 0 }, 100)
+                  .call(resolve);
                 break;
               }
               case 'above': {
                 egret.Tween.get(this.activeTooltip)
-                  .to({ y: this.activeTooltip.y + (this.activeTooltip.height + 8 ) , alpha: 0 }, 100)
-                  .call(resolve)
+                  .to({ y: this.activeTooltip.y + (this.activeTooltip.height + 8), alpha: 0 }, 100)
+                  .call(resolve);
                 break;
               }
               case 'before': {
                 egret.Tween.get(this.activeTooltip)
-                  .to({ x: this.activeTooltip.x + (this.activeTooltip.width + 8 ) , alpha: 0 }, 100)
-                  .call(resolve)
+                  .to({ x: this.activeTooltip.x + (this.activeTooltip.width + 8), alpha: 0 }, 100)
+                  .call(resolve);
                 break;
               }
               default:
                 break;
             }
-          })
+          });
         }
-          dir.layerCtr.tooltip.removeChildren();
-          this.activeTooltip = null;
+        dir.layerCtr.tooltip.removeChildren();
+        this.activeTooltip = null;
       }
 
       private onShowTooltip({ data: { displayObject, x, y } }) {
@@ -97,8 +107,8 @@ namespace we {
         this._initTooltip(displayObject.tooltipText.replace(/'/g, ''));
         let showX = 0;
         let showY = 0;
-        let position = displayObject.tooltipPosition.replace(/'/g, '');
-        this.toolTipPosition = position;        
+        const position = displayObject.tooltipPosition.replace(/'/g, '');
+        this.toolTipPosition = position;
         switch (displayObject.tooltipPosition.replace(/'/g, '')) {
           case 'below': {
             showX = coord.x + displayObject.width / 2 - this.activeTooltip.width / 2;
