@@ -12,10 +12,10 @@
                 <e:Label id="bankerSum" text="" x="53" y="8" fontFamily="Barlow" textAlign="center" horizontalCenter="0"
                          verticalCenter="0" />
         </e:Group>
-        <ui:Card id="card3Banker" width="44" height="64" horizontalCenter="153" y="62"  rotation="90"/>
+        <ui:Card id="card3Banker" width="44" height="64" horizontalCenter="153" y="105"  rotation="270"/>
         <ui:Card id="card2Banker" width="44" height="64" horizontalCenter="95" y="42" />
         <ui:Card id="card1Banker" width="44" height="64" horizontalCenter="46" y="42" />
-        <ui:Card id="card3Player" width="44" height="64" horizontalCenter="-154" y="62"  rotation="90"/>
+        <ui:Card id="card3Player" width="44" height="64" horizontalCenter="-154" y="105"  rotation="270"/>
         <ui:Card id="card2Player" width="44" height="64" horizontalCenter="-46" y="42" />
         <ui:Card id="card1Player" width="44" height="64" horizontalCenter="-95" y="42" />
 </e:Skin>

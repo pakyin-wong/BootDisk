@@ -62,6 +62,10 @@ namespace we {
       overlaypanel_customroad_default: '还原预设',
 
       overlaypanel_bethistory_title: '投注记录',
+      overlaypanel_bethistory_tab_all: '游戏总览',
+      overlaypanel_bethistory_tab_live: '真人游戏',
+      overlaypanel_bethistory_tab_lottery: '彩票游戏',
+      overlaypanel_bethistory_tab_egame: '电子游戏',
       overlaypanel_bethistory_date: '日期',
       overlaypanel_bethistory_today: '今日',
       overlaypanel_bethistory_yesterday: '昨天',
@@ -93,6 +97,9 @@ namespace we {
       overlaypanel_bethistory_btn_next: '下一则',
       overlaypanel_bethistory_btn_prev: '上一则',
       overlaypanel_bethistory_searchtype_all: '全部游戏',
+
+      overlaypanel_bethistorylottery_tab_single: '投注记录',
+      overlaypanel_bethistorylottery_tab_multi: '追号记录',
 
       overlaypanel_bethistorylottery_record_round: '奖期',
       overlaypanel_bethistorylottery_record_bettype: '类型',
@@ -284,6 +291,7 @@ namespace we {
           roulette: '轮盘',
           dice: '骰宝',
           other: '其他',
+          special: '特别游戏',
         },
       },
       tableInfo: {

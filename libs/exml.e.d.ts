@@ -757,10 +757,6 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class BaResultItem extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class BetHistory_v2 extends eui.Skin{
 	}
 }
@@ -785,11 +781,19 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class CustomRoad extends eui.Skin{
+	class BetHistorySubMenuItemRenderer extends eui.Skin{
 	}
 }
 declare module skin_desktop{
 	class DatePickerItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DoubleCalendarPicker extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BaResultItem extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -801,7 +805,23 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class DoubleCalendarPicker extends eui.Skin{
+	class LoResultItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LwResultItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class RolResultItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class RoResultItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class CustomRoad extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -810,14 +830,6 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class LiveVerification extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class LoResultItem extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class LwResultItem extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -842,14 +854,6 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class PlayerProfileIconItem extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class RolResultItem extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class RoResultItem extends eui.Skin{
 	}
 }
 declare module skin_desktop{
