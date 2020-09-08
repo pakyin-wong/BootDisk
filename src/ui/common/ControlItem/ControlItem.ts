@@ -200,6 +200,9 @@ namespace we {
       protected onBetDetailUpdateInBetState() {
         if (this._betDetails && this._chipLayer) {
           this._chipLayer.updateBetFields(this._betDetails);
+          if (this._message) {
+            this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
+          }
         }
       }
       protected onBetDetailUpdateInFinishState() {

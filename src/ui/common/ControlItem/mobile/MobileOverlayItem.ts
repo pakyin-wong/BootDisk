@@ -33,8 +33,8 @@ namespace we {
         super(skinName);
         // this._skinKey = skinName;
         this._betChipSetPanel.visible = false;
-
         this._betChipSet.alpha = 1;
+        this._betMessageEnable = true;
       }
 
       public get closeButton() {
