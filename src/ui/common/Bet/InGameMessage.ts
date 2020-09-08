@@ -4,10 +4,12 @@ namespace we {
       public static readonly INFO: string = 'INFO';
       public static readonly SUCCESS: string = 'SUCCESS';
       public static readonly ERROR: string = 'ERROR';
+      public static readonly EXPIRED: string = 'EXPIRED';
 
       public _infoBg: string;
       public _successBg: string;
       public _errorBg: string;
+      public _expiredBg: string;
 
       private _content: eui.Group;
       private _bg: eui.Image;
@@ -48,6 +50,14 @@ namespace we {
         return this._errorBg;
       }
 
+      set expiredBg(value: string) {
+        this._expiredBg = value;
+      }
+
+      get expiredBg(): string {
+        return this._expiredBg;
+      }
+
       public showMessage(type: string, message: string) {
         if (this._bg) {
           this.setBackground(type);
@@ -66,12 +76,18 @@ namespace we {
           case InGameMessage.ERROR:
             this._bg.source = this.errorBg;
             break;
+          case InGameMessage.EXPIRED:
+            this._bg.source = this.expiredBg;
+            break;
         }
       }
 
       protected start(type: string, message: string) {
         egret.Tween.removeTweens(this);
         this._isAnimating = true;
+        if (type = InGameMessage.EXPIRED) {
+          this.duration = 5000;
+        }
         const tween = egret.Tween.get(this)
           .call(() => {
             this.startAnimation(type);
@@ -93,6 +109,7 @@ namespace we {
         switch (type) {
           case InGameMessage.INFO:
           case InGameMessage.SUCCESS:
+          case InGameMessage.EXPIRED:
             const move = egret.Tween.get(this._content);
             move.to({ y: 0, alpha: 1 }, 200, egret.Ease.quadOut);
             break;
