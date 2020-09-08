@@ -30,8 +30,8 @@ namespace we {
           this.contentInitializer = new live.DLiveContentInitializer();
         }
 
-        if (env.allTableList) {
-          this.roomIds = env.allTableList.filter(tableid => {
+        if (env.favouriteTableList) {
+          this.roomIds = env.favouriteTableList.filter(tableid => {
             const tableInfo = env.tableInfos[tableid];
             return tableInfo && tableInfo.displayReady;
           });
@@ -41,7 +41,7 @@ namespace we {
       }
 
       protected destroy() {
-        dir.evtHandler.removeEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
+        dir.evtHandler.removeEventListener(core.Event.FAVOURITE_TABLE_LIST_UPDATE, this.handleTableList, this);
         dir.evtHandler.removeEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChange, this);
         // dir.evtHandler.removeEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
         dir.evtHandler.removeEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this);
@@ -66,7 +66,7 @@ namespace we {
           this.roomList.addChildAt(this.holder, 0);
         }
 
-        dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
+        dir.evtHandler.addEventListener(core.Event.FAVOURITE_TABLE_LIST_UPDATE, this.handleTableList, this);
         // dir.evtHandler.addEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
         dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this, false, -1);
       }

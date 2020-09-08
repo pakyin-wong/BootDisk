@@ -288,13 +288,20 @@ namespace we {
           return;
         }
         egret.Tween.removeTweens(this._quickbetButton);
+        egret.Tween.removeTweens(this._favouriteButton);
         if (show) {
           egret.Tween.get(this._quickbetButton)
             .set({ visible: true })
             .to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
+          egret.Tween.get(this._favouriteButton)
+            .set({ visible: true })
+            .to({ alpha: 1 }, this._tweenInterval1);
         } else {
           egret.Tween.get(this._quickbetButton)
             .to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250)
+            .set({ visible: false });
+          egret.Tween.get(this._favouriteButton)
+            .to({ alpha: 0 }, 250)
             .set({ visible: false });
         }
       }

@@ -121,7 +121,9 @@ namespace we {
 
         this._confirmButton && this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this._cancelButton && this._cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
-        this._favouriteButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onFavouritePressed, this, true);
+        if (this._favouriteButton) {
+          this._favouriteButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onFavouritePressed, this, true);
+        }
       }
 
       public insufficientBalance() {
@@ -155,7 +157,9 @@ namespace we {
 
         this._confirmButton && this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this._cancelButton && this._cancelButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
-        this._favouriteButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onFavouritePressed, this, true);
+        if (this._favouriteButton) {
+          this._favouriteButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onFavouritePressed, this, true);
+        }
         this._timer && this._timer.stop();
       }
 
@@ -526,9 +530,9 @@ namespace we {
       }
 
       protected onFavouritePressed(evt: egret.Event) {
-         //this._tableId
+        // this._tableId
+          dir.socket.updateSetting('favourite', '0');
       }
-
 
       protected onBetReturned(result) {
         if (!result) {
