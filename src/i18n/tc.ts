@@ -433,7 +433,7 @@ namespace we {
         betLimitshort: '限紅',
         baccarat: '百家樂',
         gameroundid: '遊戲編號',
-        totalbet: '總投注',
+        totalbet: '總下注',
         totalcount: '總數',
         betSuccess: '下注成功',
         betFail: '下注失敗',
