@@ -83,6 +83,8 @@ namespace we {
         dir.evtHandler.addEventListener(we.core.Event.SSC_DELETE_ONE_NOTE, this.deleteOneNote, this);
         this._btnDelectAll.addEventListener(egret.TouchEvent.TOUCH_TAP, this.clearAllNotes, this);
         this._btnConfirmBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this.bettingPanel);
+        this._btnChaseBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.chaseBet, this.bettingPanel);
+
         // this._btnAddDataTEMP.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addTempData, this);
       }
 
@@ -92,6 +94,7 @@ namespace we {
         this._btnDelectAll.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.clearAllNotes, this);
         dir.evtHandler.removeEventListener(we.core.Event.SSC_DELETE_ONE_NOTE, this.deleteOneNote, this);
         this._btnConfirmBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this.bettingPanel);
+        this._btnChaseBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.chaseBet, this.bettingPanel);
       }
 
       public updateText() {

@@ -1,88 +1,114 @@
 // TypeScript file
 namespace we {
   export namespace lo {
+    export enum SSCChaseType {
+      SAMEMULTIPLE = 0,
+      PROFIT = 1,
+      DOUBLE = 2,
+    }
 
-    export const tempChaseBetInfo = [{
-            round:'20200907001',
-            winratio:'90000',
-            roundEndTime:'20200909145500'
-          },{            
-            round:'20200907002',
-            winratio:'90000',
-            roundEndTime:'20200909145500'
-          },{            
-            round:'20200907003',
-            winratio:'90000',
-            roundEndTime:'20200909145500'
-          },{            
-            round:'20200907004',
-            winratio:'90000',
-            roundEndTime:'20200909145500'
-          },{            
-            round:'20200907005',
-            winratio:'90000',
-            roundEndTime:'20200909145500'
-          },{            
-            round:'20200907006',
-            winratio:'90000',
-            roundEndTime:'20200909145500'
-          },{            
-            round:'20200907001',
-            winratio:'90000',
-            roundEndTime:'20200909145500'
-          },{            
-            round:'20200907001',
-            winratio:'90000',
-            roundEndTime:'20200909145500'
-          },{            
-            round:'20200907001',
-            winratio:'90000',
-            roundEndTime:'20200909145500'
-          },{            
-            round:'20200907001',
-            winratio:'90000',
-            roundEndTime:'20200909145500'
-          },{            
-            round:'20200907001',
-            winratio:'90000',
-            roundEndTime:'20200909145500'
-          },{            
-            round:'20200907001',
-            winratio:'90000',
-            roundEndTime:'20200909145500'
-          },{            
-            round:'20200907001',
-            winratio:'90000',
-            roundEndTime:'20200909145500'
-          },{            
-            round:'20200907001',
-            winratio:'90000',
-            roundEndTime:'20200909145500'
-          },{            
-            round:'20200907001',
-            winratio:'90000',
-            roundEndTime:'20200909145500'
-          },{            
-            round:'20200907001',
-            winratio:'90000',
-            roundEndTime:'20200909145500'
-          },{            
-            round:'20200907001',
-            winratio:'90000',
-            roundEndTime:'20200909145500'
-          },{            
-            round:'20200907001',
-            winratio:'90000',
-            roundEndTime:'20200909145500'
-          },{            
-            round:'20200907001',
-            winratio:'90000',
-            roundEndTime:'20200909145500'
-          },{            
-            round:'20200907001',
-            winratio:'90000',
-            roundEndTime:'20200909145500'
-          },]
+    export const tempChaseBetInfo = [
+      {
+        round: '20200907001',
+        winratio: '90000',
+        roundEndTime: '20200909145500',
+      },
+      {
+        round: '20200907002',
+        winratio: '90000',
+        roundEndTime: '20200909145500',
+      },
+      {
+        round: '20200907003',
+        winratio: '90000',
+        roundEndTime: '20200909145500',
+      },
+      {
+        round: '20200907004',
+        winratio: '90000',
+        roundEndTime: '20200909145500',
+      },
+      {
+        round: '20200907005',
+        winratio: '90000',
+        roundEndTime: '20200909145500',
+      },
+      {
+        round: '20200907006',
+        winratio: '90000',
+        roundEndTime: '20200909145500',
+      },
+      {
+        round: '20200907001',
+        winratio: '90000',
+        roundEndTime: '20200909145500',
+      },
+      {
+        round: '20200907001',
+        winratio: '90000',
+        roundEndTime: '20200909145500',
+      },
+      {
+        round: '20200907001',
+        winratio: '90000',
+        roundEndTime: '20200909145500',
+      },
+      {
+        round: '20200907001',
+        winratio: '90000',
+        roundEndTime: '20200909145500',
+      },
+      {
+        round: '20200907001',
+        winratio: '90000',
+        roundEndTime: '20200909145500',
+      },
+      {
+        round: '20200907001',
+        winratio: '90000',
+        roundEndTime: '20200909145500',
+      },
+      {
+        round: '20200907001',
+        winratio: '90000',
+        roundEndTime: '20200909145500',
+      },
+      {
+        round: '20200907001',
+        winratio: '90000',
+        roundEndTime: '20200909145500',
+      },
+      {
+        round: '20200907001',
+        winratio: '90000',
+        roundEndTime: '20200909145500',
+      },
+      {
+        round: '20200907001',
+        winratio: '90000',
+        roundEndTime: '20200909145500',
+      },
+      {
+        round: '20200907001',
+        winratio: '90000',
+        roundEndTime: '20200909145500',
+      },
+      {
+        round: '20200907001',
+        winratio: '90000',
+        roundEndTime: '20200909145500',
+      },
+      {
+        round: '20200907001',
+        winratio: '90000',
+        roundEndTime: '20200909145500',
+      },
+      {
+        round: '20200907001',
+        winratio: '90000',
+        roundEndTime: '20200909145500',
+      },
+    ];
 
     export enum InputComponentType {
       BALLS,

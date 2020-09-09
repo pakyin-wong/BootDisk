@@ -16,32 +16,32 @@ namespace we {
 
         const num = checknum.length;
         let numString = '';
-        switch(num){
+        switch (num) {
           case 1:
             numString = 'ONE';
-          break;
+            break;
           case 2:
             numString = 'TWO';
-          break;
+            break;
           case 3:
             numString = 'THREE';
-          break;
+            break;
           case 4:
             numString = 'FOUR';
-          break;
+            break;
           case 5:
             numString = 'FIVE';
-          break;
+            break;
         }
 
         if (checkfree.search(/(free)/g) === -1) {
           // Any
           const betcode = checkfree;
 
-          return `${i18n.t('lo_trad.betfield.'+betcode.toUpperCase())+'_'+numString}`
+          return `${i18n.t('lo_trad.betfield.' + betcode.toUpperCase()) + '_' + numString}`;
         }
 
-        return ;
+        return;
       }
     }
   }

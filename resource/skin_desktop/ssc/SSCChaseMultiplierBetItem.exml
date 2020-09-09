@@ -5,7 +5,7 @@
 	<e:Group left="0" right="0" top="0" bottom="0" alpha="0.8" alpha.hover="1">
 		<e:Label id="_txtIndex" text="Label" x="91" y="0" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
 		<e:Group id="_roundGroup" x="371" height="76">
-            <e:Image source="checkbox_unselect_png" width="28" height="28"/>
+            <e:Image id="_activeButton" source="checkbox_unselect_png" width="28" height="28"/>
             <e:Label id="_txtRoundNumber" text="Label" x="316" y="0"  size="20" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
             <e:layout>
                 <e:HorizontalLayout verticalAlign="middle"/>

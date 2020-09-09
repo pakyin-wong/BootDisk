@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.lo.SSCTraditionalChaseBetPanel" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="1800" height="907">
+<e:Skin class="skin_desktop.SSCTraditionalChaseBetPanel" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="1800" height="907">
     <ui:RoundRectShape cornerTL_TR_BL_BR="25,25,25,25" width="1800" height="907" x="0" y="0" stroke="1" strokeColor="0x214a72" fillColor="0x151c26"/>
-    <e:Image id="_close" top="44" right="44" source="m_common_icon_close_png" touchEnabled="true"/>
+    <e:Image id="close" top="44" right="44" source="m_common_icon_close_png" touchEnabled="true"/>
     <e:Group id="_topPart" width="1500" height="140">
-        <ui:RunTimeLabel x="44" y="40" id="_lblChaseBetTitle" text="追號" textColor="0xc59466" size="48"/>
-        <e:Group id="_btnChaseType" width="210" height="60" x="211" y="47">
+        <ui:RunTimeLabel x="44" verticalCenter="0" id="_lblChaseBetTitle" text="追號" textColor="0xc59466" size="48"/>
+        <e:Group id="_btnChaseType" verticalCenter="0" width="210" x="211" y="47">
             <e:Rect fillAlpha="1" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50" ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" fillColor="0x1b416e"/>
             <e:Image id="_arrow" source="d_lobby_button_down_normal_png" width="40" height="40" verticalCenter="0" x="150"/>
-            <ui:RunTimeLabel id="_lblChaseType" text="同倍追號" size="24" horizontalCenter="-20" verticalCenter="0"/>
+            <ui:RunTimeLabel id="_lblBtnChaseType" text="同倍追號" size="24" horizontalCenter="-20" verticalCenter="0"/>
         </e:Group>
-        <e:Group id="_chaseTopPanelGroup" right="112"/>
-        <ui:Panel id="_chaseTypeDropDown" width="170" x="380" y="80" skinName="skin_desktop.NavDropdown" maxHeight="200"  height="40"/>
+        <e:Group id="_chaseTopPanelGroup" verticalCenter="0" right="0"/>
+        <ui:Panel id="_chaseTypeDropDown" verticalCenter="0" width="170" x="380" y="80" skinName="skin_desktop.NavDropdown" maxHeight="200"  height="40"/>
     </e:Group>
     <e:Group id="_content" width="1800" height="608" y="140">
         <e:Scroller id="_scroller" y="68" scrollPolicyH="off" scrollPolicyV="on" width="1800" height="532">
-            <e:Group id="_datagroup"/>
+            <e:List id="_datagroup"/>
         </e:Scroller>
     </e:Group>
     <e:Group id="_bottomPart" bottom="0" width="1800" height="148">

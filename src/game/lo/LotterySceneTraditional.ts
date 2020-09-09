@@ -61,6 +61,7 @@ namespace we {
 
         if (this._tableInfo) {
           this._bettingPanel.updateBetTableInfo(this._tableInfo);
+          this._bettingPanel.updateRoundDetailInfo(this._tableInfo.betInfo);
         }
       }
 
@@ -278,8 +279,9 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         // super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
+            this._bettingPanel.updateRoundDetailInfo(this._tableInfo.betInfo);
             // this._leftGamePanel.updateTableBetInfo();
             // this._rightGamePanel.updateTableBetInfo();
           }
@@ -322,9 +324,12 @@ namespace we {
       }
 
       protected onConfirmPressed(e: egret.Event) {
-        const { bets, roundBets } = e.data;
-        // dir.socket.tradLotteryBet(this._tableId, bets, roundBets); //TODO
-        dir.socket.bet(this._tableId, bets, this.onBetReturned.bind(this));
+        const { bets, rounds } = e.data;
+        if (rounds.length > 0) {
+          dir.socket.lotteryContinuousBet(this._tableId, bets, rounds, this.onBetReturned.bind(this));
+        } else {
+          dir.socket.bet(this._tableId, bets, this.onBetReturned.bind(this));
+        }
       }
 
       public checkResultMessage(resultData = null) {

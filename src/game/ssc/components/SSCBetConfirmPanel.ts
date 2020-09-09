@@ -58,7 +58,7 @@ namespace we {
       }
 
       private onConfirmPressed(e) {
-        dir.evtHandler.dispatchEventWith('onLotteryConfirmBet', false, this._noteData);
+        dir.evtHandler.dispatchEventWith('onLotteryConfirmBet', false, { noteData: this._noteData, roundData: [] });
         this.destroy();
       }
 
