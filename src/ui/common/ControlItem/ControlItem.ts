@@ -532,7 +532,7 @@ namespace we {
       }
 
       protected onFavouritePressed(evt: egret.Event) {
-        if(env.favouriteTableList.indexOf(this._tableId) >= 0)
+        if(env.favouriteTableList.indexOf(this._tableId) > -1)
         {
           env.favouriteTableList.splice(env.favouriteTableList.indexOf(this._tableId));
         }else{
