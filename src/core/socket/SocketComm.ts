@@ -213,7 +213,8 @@ namespace we {
           ? Object.keys(env.icons)[0]
           : player.profile.profileimageurl;
         logger.l(utils.LogTarget.RELEASE, 'PlayerClient::handleReady() ' + player.profile.betlimits);
-
+        console.log('player.profile.betlimits',player.profile.betlimits)
+        
         env.betLimits = player.profile.betlimits
           ? player.profile.betlimits
           : [
@@ -229,7 +230,10 @@ namespace we {
         if (!Array.isArray(env.betLimits)) {
           env.betLimits = [env.betLimits];
         }
-
+        console.log('player.profile.currentSelectedBetLimitIndexplayer.profile.currentSelectedBetLimitIndexplayer.profile.currentSelectedBetLimitIndex',player.profile.currentSelectedBetLimitIndex)
+        env.currentSelectedBetLimitIndex = player.profile.currentSelectedBetLimitIndex
+          ? player.profile.currentSelectedBetLimitIndex
+          : 0;
         /*
         let denominationList = [];
         for (const betLimit of env.betLimits) {

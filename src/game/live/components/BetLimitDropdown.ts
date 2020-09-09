@@ -56,10 +56,9 @@ namespace we {
         env.currentSelectedBetLimitIndex = this.selectedIndex;
         dir.evtHandler.dispatch(core.Event.BET_LIMIT_CHANGE);
          console.log('onChanged:::env.betLimits', env.betLimits);
-         let betlimits = [env.betLimits];
-         console.log('betlimitsbetlimitsbetlimits',betlimits)
-         console.log('ttype betlimitsbetlimitsbetlimits',typeof(betlimits))
-        //  dir.socket.updateSetting('betlimits','env.betLimits')
+
+         dir.socket.updateSetting('currentSelectedBetLimitIndex',this.selectedIndex.toString())
+         console.log(' this.selectedIndex; this.selectedIndex; this.selectedIndex; this.selectedIndex; this.selectedIndex;', this.selectedIndex)
       }
 
       protected runtimeGenerateScroller() {
