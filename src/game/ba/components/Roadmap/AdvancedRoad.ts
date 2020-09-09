@@ -25,9 +25,20 @@ namespace we {
 
       protected totalCount: number;
 
+      protected roadsContainerDisplay: egret.Bitmap;
+      protected roadsContainerRT: egret.RenderTexture;
+
       public constructor(skin?: string) {
         super(skin);
         this.init();
+      }
+
+      protected clearOrientationDependentComponent() {
+        this.stage.removeEventListener(egret.Event.RESIZE, this.render, this);
+      }
+
+      protected initOrientationDependentComponent() {
+        this.stage.addEventListener(egret.Event.RESIZE, this.render, this);
       }
 
       public set tableInfo(value: data.TableInfo) {
@@ -50,6 +61,14 @@ namespace we {
         this.roadsContainer.scaleX = 584 / 672;
         this.roadsContainer.scaleY = 450 / 504;
         this.addChild(this.roadsContainer);
+        this.roadsContainer.visible = false;
+
+        this.roadsContainerRT = new egret.RenderTexture();
+        this.roadsContainerDisplay = new egret.Bitmap();
+        this.roadsContainerDisplay.texture = this.roadsContainerRT;
+        this.roadsContainerDisplay.scaleX = 584 / 672;
+        this.roadsContainerDisplay.scaleY = 450 / 504;
+        this.addChild(this.roadsContainerDisplay);
 
         this.beadRoad = new BABeadRoad(16, gridSize * 2, 1, false);
         this.beadRoad.x = 0;
@@ -89,6 +108,7 @@ namespace we {
         this._roadmapControl.setRoads(this.beadRoad, this.bigRoad, this.bigEyeRoad, this.smallRoad, this.cockroachRoad, [16, 33, 66, 34, 32], null, null, false);
 
         this.changeLang();
+        this.render();
       }
 
       public changeLang() {
@@ -127,7 +147,14 @@ namespace we {
             // this.totalCount = this.tableInfo.gamestatistic.totalCount;
             // this.changeLang();
           }
+          this.render();
         }
+      }
+
+      public render() {
+        this.roadsContainer.visible = true;
+        this.roadsContainerRT.drawToTexture(this.roadsContainer, this.roadsContainer.getBounds(), 1);
+        this.roadsContainer.visible = false;
       }
 
       public destroy() {
