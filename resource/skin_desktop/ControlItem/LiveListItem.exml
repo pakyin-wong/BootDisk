@@ -26,7 +26,6 @@
 			<e:Image id="_dealerImage" width="100%" height="249" x="0" y="0" />
 			<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" x="20" y="198" />
 			<e:Component id="_roadmapNode" width="100%" height="139" y="249"  visible="false"/>
-			<ui:BaseAnimationButton id="_favouriteButton" dbClass="common_ui" dbDisplay="d_common_icon_refresh" width="44" height="42"  right="10" top="10" visible="false"/>
 		</e:Group>
 		<e:Group id="_contentContainerDynamic" left="0" right="0" top="0" bottom="0">
 			<e:Component id="_quickbetButtonNode" alpha="0" horizontalCenter="0" y="350" width="148" height="42" visible="false" />
@@ -44,6 +43,7 @@
 				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="22" />
 			</e:Group>
 			<ui:CountdownTimer id="_timer" width="80" height="80" x="20" y="20" skinName="skin_desktop.CountdownTimerRoundSkin" />
+						<ui:BaseAnimationButton id="_favouriteButton" dbClass="common_ui" dbDisplay="d_common_icon_refresh" width="44" height="42"  right="10" top="10" visible="false"/>
 		</e:Group>
 	</e:Group>
 	<e:Component id="_chipLayerNode" width="100%" skinName="skin_desktop.ba.LiveListItemChipLayerSkin" anchorOffsetY="0"

@@ -53,7 +53,7 @@ namespace we {
 
       constructor() {
         super();
-        this.touchChildren = false;
+        // this.touchChildren = false;
         this.buttonEnabled = true;
       }
 
