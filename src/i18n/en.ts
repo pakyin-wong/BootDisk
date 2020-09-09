@@ -169,6 +169,17 @@ namespace we {
         },
       },
       nav: {
+        tooltip: {
+          menu: 'Menu',
+          back: 'Back to lobby',
+          refresh: 'Refresh',
+          profile: 'Profile',
+          roominfo: 'Room Info',
+          betlimit: 'Bet Limit',
+          d_lobby_viewmode_icon_tiny: 'Tiny View',
+          d_lobby_viewmode_icon_general: 'Normal View',
+          d_lobby_viewmode_icon_pro: 'Professional View',
+        },
         bet_balance: 'Balance',
         menu: {
           title: 'Settings',
