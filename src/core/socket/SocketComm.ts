@@ -230,10 +230,8 @@ namespace we {
         if (!Array.isArray(env.betLimits)) {
           env.betLimits = [env.betLimits];
         }
-        console.log('player.profile.currentSelectedBetLimitIndexplayer.profile.currentSelectedBetLimitIndexplayer.profile.currentSelectedBetLimitIndex',player.profile.currentSelectedBetLimitIndex)
-        env.currentSelectedBetLimitIndex = player.profile.currentSelectedBetLimitIndex
-          ? player.profile.currentSelectedBetLimitIndex
-          : 0;
+        console.log('player.profile.currentSelectedBetLimitIndexplayer.profile.currentSelectedBetLimitIndexplayer.profile.currentSelectedBetLimitIndex', player.profile.currentSelectedBetLimitIndex);
+        env.currentSelectedBetLimitIndex = player.profile.settings.currentSelectedBetLimitIndex ? player.profile.settings.currentSelectedBetLimitIndex : 0;
         /*
         let denominationList = [];
         for (const betLimit of env.betLimits) {
