@@ -85,8 +85,25 @@ namespace we {
       protected start(type: string, message: string) {
         egret.Tween.removeTweens(this);
         this._isAnimating = true;
-        if (type = InGameMessage.EXPIRED) {
-          this.duration = 5000;
+        if (type === InGameMessage.EXPIRED) {
+          const tween = egret.Tween.get(this)
+          .call(() => {
+            this.startAnimation(type);
+            this.visible = false;
+            this._label.visible = false;
+            this._label.text = message;
+          })
+          .wait(this.duration)
+          .call(() => {
+            this.startAnimation(type);
+            this.visible = true;
+            this._label.visible = true;
+            this._label.text = message;
+          })
+          .wait(this.duration)
+          .call(() => {
+            this.endAnimation(type);
+          });
         }
         const tween = egret.Tween.get(this)
           .call(() => {

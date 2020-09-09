@@ -469,14 +469,33 @@ namespace we {
           }
 
           if (this._message && !isInit) {
-            this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
+            // ==================================================
+              if (this._gameRoundCountWithoutBet === 1) { 
+                // this.showTwoMessage();
+                if (this._expiredMessage) {
+                  this._message.showMessage(ui.InGameMessage.INFO,i18n.t('game.startBet'));
+                  this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, '您已3局未下注，2局后踢出');
+                }
+              } else {
+                this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
+              }
+
           }
           this._undoStack.clearStack();
         }
         // update the countdownTimer
         this.updateCountdownTimer();
       }
-
+      // protected async showTwoMessage() {
+      //   //===
+      //   await new Promise( async resolve => {
+      //     await this._message.showMessage(ui.InGameMessage.INFO,'-------');
+      //     await this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED,'+++++++');
+      //     resolve();
+      //   });
+      //   console.log('testinginginging')
+      //   //== =
+      // }
       protected checkRoundCountWithoutBet() {
         if (this.tableInfo.totalBet > 0) {
           this._gameRoundCountWithoutBet = 0;
@@ -497,9 +516,10 @@ namespace we {
                 },
               ],
             });
-          } else {
-            this.showInGameMessage();
-          }
+          } 
+          // else {
+          //   this.showInGameMessage();
+          // }
         }
 
         if (this._gameRoundCountWithoutBet >= 5) {
