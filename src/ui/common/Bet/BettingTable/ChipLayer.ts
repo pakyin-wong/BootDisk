@@ -169,6 +169,9 @@ namespace we {
       }
 
       public addRolloverListeners() {
+        if(env.isMobile){
+          return;
+        }
         Object.keys(this._mouseAreaMapping).forEach(value => {
           if (this._mouseAreaMapping[value]) {
             this._mouseAreaMapping[value].addEventListener(mouse.MouseEvent.ROLL_OVER, this.onGridRolloverEvent, this);
@@ -177,6 +180,9 @@ namespace we {
       }
 
       public removeRolloverListeners() {
+        if(env.isMobile){
+          return;
+        }
         Object.keys(this._mouseAreaMapping).forEach(value => {
           if (this._mouseAreaMapping[value]) {
             this._mouseAreaMapping[value].removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onGridRolloverEvent, this);
@@ -185,6 +191,9 @@ namespace we {
       }
 
       public addRolloutListeners() {
+        if(env.isMobile){
+          return;
+        }
         Object.keys(this._mouseAreaMapping).forEach(value => {
           if (this._mouseAreaMapping[value]) {
             this._mouseAreaMapping[value].addEventListener(mouse.MouseEvent.ROLL_OUT, this.onGridRolloutEvent, this);
@@ -193,6 +202,9 @@ namespace we {
       }
 
       public removeRolloutListeners() {
+        if(env.isMobile){
+          return;
+        }
         Object.keys(this._mouseAreaMapping).forEach(value => {
           if (this._mouseAreaMapping[value]) {
             this._mouseAreaMapping[value].removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onGridRolloutEvent, this);

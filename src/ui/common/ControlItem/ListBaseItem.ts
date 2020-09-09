@@ -75,7 +75,7 @@ namespace we {
         shape.graphics.drawRoundRect(0, 0, this.width, this.height, 16, 16);
         shape.graphics.endFill();
 
-        this._contentContainer.addChild(shape);
+        this._contentContainer.addChildAt(shape, 0);
         this._contentContainer.mask = shape;
       }
 

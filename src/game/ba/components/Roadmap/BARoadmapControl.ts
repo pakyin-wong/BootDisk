@@ -45,9 +45,10 @@ namespace we {
         if (this.targetPanel) {
           this.targetPanel.iconBankerBead.touchEnabled = true;
           this.targetPanel.iconBankerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
-
+          mouse.setButtonMode(this.targetPanel.iconBankerBead, true);
           this.targetPanel.iconPlayerBead.touchEnabled = true;
           this.targetPanel.iconPlayerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
+          mouse.setButtonMode(this.targetPanel.iconPlayerBead, true);
         }
         // dark/light mode
         // dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
