@@ -3,10 +3,23 @@ namespace we {
     export class ClampWidthLabel extends eui.Label {
       protected _targetWidth: number = -1;
       protected _explicitScaleX: number = 1;
+      protected _explicitScaleY: number = 1;
+      protected _explicitSize: number = null;
       protected _targetScaleX: number = 1;
+
+      protected _retina: boolean = true;
 
       constructor() {
         super();
+      }
+
+      public childrenCreated() {
+        super.childrenCreated();
+        this.scaleX = this.$getScaleX();
+        this.scaleY = this.$getScaleY();
+        if (!this._explicitSize) {
+          this.size = null;
+        }
       }
 
       public $setText(val) {
@@ -31,6 +44,17 @@ namespace we {
 
       public get targetWidth() {
         return this.$getTargetWidth();
+      }
+
+      public get retina(): boolean {
+        return this._retina;
+      }
+
+      public set retina(val: boolean) {
+        if (val && !this._retina) {
+          // switch to retina, scale half and size double
+        }
+        this._retina = val;
       }
 
       protected updateTargetScaleX() {
@@ -61,6 +85,24 @@ namespace we {
         }
       }
 
+      // public get size(): number {
+      //   return this.$getSize();
+      // }
+
+      // public set size(val: number) {
+      //   this.$setSize(val);
+      // }
+
+      // public $getSize(): number {
+      //   return this._explicitSize | RunTimeLabel.default_size;
+      // }
+
+      public $setSize(val: number): boolean {
+        this._explicitSize = val || RunTimeLabel.default_size;
+        const size = this._explicitSize * (this._retina ? 1.25 : 1);
+        return super.$setSize(size);
+      }
+
       public $getScaleX() {
         // const val = super.$getScaleX;
         return this._explicitScaleX;
@@ -68,8 +110,19 @@ namespace we {
 
       public $setScaleX(val) {
         this._explicitScaleX = val || 1;
-        const scaleX = this._targetScaleX * this._explicitScaleX;
+        const scaleX = this._targetScaleX * this._explicitScaleX * (this._retina ? 0.8 : 1);
         super.$setScaleX(scaleX);
+      }
+
+      public $getScaleY() {
+        // const val = super.$getScaleX;
+        return this._explicitScaleY;
+      }
+
+      public $setScaleY(val) {
+        this._explicitScaleY = val || 1;
+        const scaleY = this._explicitScaleY * (this._retina ? 0.8 : 1);
+        super.$setScaleY(scaleY);
       }
     }
   }
