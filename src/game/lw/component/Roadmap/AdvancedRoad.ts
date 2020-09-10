@@ -1,11 +1,11 @@
 namespace we {
   export namespace lw {
-    export class AdvancedRoad extends core.BaseEUI implements we.ui.IAdvancedRoad {
-      protected _tableInfo: data.TableInfo;
+    export class AdvancedRoad extends ui.AdvancedRoad {
+      // protected _tableInfo: data.TableInfo;
       public beadRoad: we.lw.LwBeadRoad;
       protected _roadmapControl: we.lw.LwRoadmapControl;
 
-      protected roadsContainer: egret.DisplayObjectContainer;
+      // protected roadsContainer: egret.DisplayObjectContainer;
 
       protected totalCount: number;
 
@@ -15,19 +15,19 @@ namespace we {
         super(skin);
       }
 
-      public set tableInfo(value: data.TableInfo) {
-        this._tableInfo = value;
-      }
+      // public set tableInfo(value: data.TableInfo) {
+      //   this._tableInfo = value;
+      // }
 
-      public get tableInfo() {
-        return this._tableInfo;
-      }
+      // public get tableInfo() {
+      //   return this._tableInfo;
+      // }
 
-      protected mount() {
-        this.init();
-      }
+      // protected mount() {
+      //   this.init();
+      // }
 
-      protected init() {
+      protected initRoad() {
         const gridSize = 21;
         this.totalCount = 0;
 
@@ -37,6 +37,13 @@ namespace we {
         this.roadsContainer.scaleX = 584 / 602;
         this.roadsContainer.scaleY = 450 / 430;
         this.addChild(this.roadsContainer);
+
+        this.roadsContainerRT = new egret.RenderTexture();
+        this.roadsContainerDisplay = new egret.Bitmap();
+        this.roadsContainerDisplay.scaleX = 584 / 602;
+        this.roadsContainerDisplay.scaleY = 450 / 430;
+        this.roadsContainerDisplay.texture = this.roadsContainerRT;
+        this.addChild(this.roadsContainerDisplay);
 
         this.beadRoad = new we.lw.LwBeadRoad(10, 14, 43, 43);
         this.beadRoad.x = 0;
@@ -61,11 +68,12 @@ namespace we {
             this._roadmapControl.updateRoadData();
           }
         }
+        super.update();
       }
 
-      public destroy() {
-        super.destroy();
-      }
+      // public destroy() {
+      //   super.destroy();
+      // }
     }
   }
 }
