@@ -240,7 +240,7 @@ namespace we {
           live: '真人游戏',
           lottery: '彩票游戏',
           egame: '电子游戏',
-          favorite: '我的最爱',
+          favourite: '我的最爱',
         },
         categoryPromotion: '精选推介',
         categoryBaccarat: '百家乐',

@@ -206,7 +206,7 @@ namespace we {
           live: '真人遊戲',
           lottery: '彩票遊戲',
           egame: '電子遊戲',
-          favorite: '我的最愛',
+          favourite: '我的最愛',
         },
         categoryPromotion: '精選推介',
         categoryBaccarat: '百家樂',

@@ -5,7 +5,7 @@ namespace we {
       protected _header: eui.Group;
       private _page: eui.Component;
       private _list: eui.TabBar;
-      private _items: string[] = ['lobby', 'live', 'lottery', 'egame', 'favorite'];
+      private _items: string[] = ['lobby', 'live', 'lottery', 'egame', 'favourite'];
 
       private _common_listpanel: ui.BaseImageButton;
 

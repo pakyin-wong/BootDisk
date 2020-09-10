@@ -8,7 +8,6 @@
 		<e:Group id="_contentContainerStatic" left="0" right="0" top="0" bottom="0">
 			<e:Image id="_dealerImage" width="350" height="450" x="0" y="0" />
 			<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" size="24" fontFamily="Barlow" x="22" y="362" />
-			<ui:BaseAnimationButton id="_favouriteButton" dbClass="common_ui" dbDisplay="d_common_icon_refresh" width="44" height="42"  left="295" top="10" visible="false"/>
 			<e:Group id="_alreadyBetSign" right="5" bottom="40" visible="false">
 				<e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0"
 				         width="100" height="30" />
@@ -49,6 +48,7 @@
 			                        skinName="skin_desktop.ImageButtonSkinLobby" />
 			-->
 		</e:Group>
+		<ui:BaseAnimationButton id="_favouriteButton" dbClass="common_ui" dbDisplay="d_common_icon_refresh" width="44" height="42"  left="295" top="10" visible="false"/>
 		<e:Component id="_tableLayerNode" width="350" left="0" top="0" visible="false" name="AdvancedTableLayerNode" />
 	</e:Group>
 	<e:Component id="_chipLayerNode" width="350" anchorOffsetY="0" y="0" left="0" alpha="0" visible="false"

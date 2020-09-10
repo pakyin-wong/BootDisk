@@ -229,7 +229,7 @@ namespace we {
         }
         this._betDetails = this._tableInfo.bets;
         this._gameData = this._tableInfo.data;
-        
+
         this._previousState = this._gameData ? this._gameData.previousstate : null;
         if (this._label) {
           this._label.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this.tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
@@ -532,14 +532,14 @@ namespace we {
       }
 
       protected onFavouritePressed(evt: egret.Event) {
-        if(env.favouriteTableList.indexOf(this._tableId) > -1)
-        {
+        if (env.favouriteTableList.indexOf(this._tableId) > -1) {
           env.favouriteTableList.splice(env.favouriteTableList.indexOf(this._tableId));
-        }else{
+        } else {
           env.favouriteTableList.push(this._tableId);
         }
 
         dir.socket.updateSetting('favouriteTableList', JSON.stringify(env.favouriteTableList));
+
       }
 
       protected onBetReturned(result) {

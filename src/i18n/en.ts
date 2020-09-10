@@ -206,7 +206,7 @@ namespace we {
           live: 'Live',
           lottery: 'Lottery',
           egame: 'EGame',
-          favorite: 'Favorite',
+          favourite: 'Favourite',
         },
         categoryPromotion: 'Promoted',
         categoryBaccarat: 'Baccarat',

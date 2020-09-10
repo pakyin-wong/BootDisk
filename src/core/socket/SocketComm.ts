@@ -184,7 +184,12 @@ namespace we {
         env.currency = player.profile.currency;
         // env.nickname = player.profile.nickname;
         env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
-        env.favouriteTableList = player.profile.settings.favouriteTableList ? player.profile.settings.favouriteTableList : env.favouriteTableList;
+
+        // console.log("dasndu wqhoed wqo = " + player.profile.settings.favouriteTableList);
+        
+        // env.favouriteTableList = player.profile.settings.favouriteTableList ? JSON.parse(player.profile.settings.favouriteTableList) : env.favouriteTableList;
+        env.favouriteTableList = env.favouriteTableList;
+
         // env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
         // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
         // env.icons = player.profile.settings.icons ? player.profile.settings.icons : player.profile.icons;
