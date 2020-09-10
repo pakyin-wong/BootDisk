@@ -473,8 +473,8 @@ namespace we {
               if (this._gameRoundCountWithoutBet === 1) { 
                 // this.showTwoMessage();
                 if (this._expiredMessage) {
-                  this._message.showMessage(ui.InGameMessage.INFO,i18n.t('game.startBet'));
-                  this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, '您已3局未下注，2局后踢出');
+                  this._message.showMessage(ui.InGameMessage.INFO,i18n.t('game.startBet'),this.showTwoMessage.call(this));
+                  // this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, '您已3局未下注，2局后踢出');
                 }
               } else {
                 this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
@@ -486,16 +486,9 @@ namespace we {
         // update the countdownTimer
         this.updateCountdownTimer();
       }
-      // protected async showTwoMessage() {
-      //   //===
-      //   await new Promise( async resolve => {
-      //     await this._message.showMessage(ui.InGameMessage.INFO,'-------');
-      //     await this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED,'+++++++');
-      //     resolve();
-      //   });
-      //   console.log('testinginginging')
-      //   //== =
-      // }
+      protected showTwoMessage() {
+        this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, '您已3局未下注，2局后踢出');
+      }
       protected checkRoundCountWithoutBet() {
         if (this.tableInfo.totalBet > 0) {
           this._gameRoundCountWithoutBet = 0;

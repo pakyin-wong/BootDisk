@@ -19,6 +19,10 @@ namespace we {
 
       public duration: number = 3000;
 
+      protected _nextMessage: ui.InGameMessage;
+      protected _nextText: string;
+      protected _nextType:any;
+
       public constructor() {
         super();
         this.visible = false;
@@ -58,11 +62,11 @@ namespace we {
         return this._expiredBg;
       }
 
-      public showMessage(type: string, message: string) {
+      public showMessage(type: string, message: string,callback?:()=>void) {
         if (this._bg) {
           this.setBackground(type);
         }
-        this.start(type, message);
+        this.start(type, message,callback);
       }
 
       protected setBackground(type: string) {
@@ -82,7 +86,7 @@ namespace we {
         }
       }
 
-      protected start(type: string, message: string) {
+      protected start(type: string, message: string,callback?:()=>void) {
         egret.Tween.removeTweens(this);
         this._isAnimating = true;
         if (type === InGameMessage.EXPIRED) {
@@ -105,17 +109,25 @@ namespace we {
             this.endAnimation(type);
           });
         }
-        const tween = egret.Tween.get(this)
-          .call(() => {
-            this.startAnimation(type);
-            this.visible = true;
-            this._label.visible = true;
-            this._label.text = message;
-          })
-          .wait(this.duration)
-          .call(() => {
-            this.endAnimation(type);
-          });
+          const tween = egret.Tween.get(this)
+            .call(() => {
+              this.startAnimation(type);
+              this.visible = true;
+              this._label.visible = true;
+              this._label.text = message;
+            })
+            .wait(this.duration)
+            .call(() => {
+              this.endAnimation(type);
+            }).wait(200)
+            .call(() => {
+              if (callback){
+                callback()
+              } else {
+                console.log('ss')
+              }
+            });
+    
       }
 
       protected startAnimation(type: string) {
