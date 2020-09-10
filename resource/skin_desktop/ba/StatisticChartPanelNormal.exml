@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.ba.StatisticChartPanelNormal" width="240" height="160" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<e:Group id="_content">
 	<ui:RoundRectShape cornerTL_TR_BL_BR="10,10,10,10" width="240" height="160" stroke="0" fillColor="0x212425" />
 	<e:Group x="14" y="10">
 		<ui:RunTimeLabel text="庄閒和比例" x="24" y="12" height="27" size="20" textAlign="left" verticalAlign="middle" bold="true"
@@ -63,12 +64,13 @@
 	<e:Group x="150" y="70">
 		<ui:SimpleChart id="chart" width="70" height="70" radius="35" lineWidth="8" />
 		<e:Group verticalCenter="0" horizontalCenter="0">
-			<e:Label id="_totalLabel" text="40" size="36"  fontFamily="Barlow"/>
+			<e:Label id="_totalLabel" text="40" size="36"  fontFamily="Barlow" width="60" textAlign="center"/>
 			<e:Label text="局" size="12" />
 			<e:layout>
 				<e:VerticalLayout gap="0" verticalAlign="middle" horizontalAlign="center"/>
 			</e:layout>
 
 		</e:Group>
+	</e:Group>
 	</e:Group>
 </e:Skin>
