@@ -213,8 +213,7 @@ namespace we {
           ? Object.keys(env.icons)[0]
           : player.profile.profileimageurl;
         logger.l(utils.LogTarget.RELEASE, 'PlayerClient::handleReady() ' + player.profile.betlimits);
-        console.log('player.profile.betlimits',player.profile.betlimits)
-        
+
         env.betLimits = player.profile.betlimits
           ? player.profile.betlimits
           : [
@@ -230,8 +229,9 @@ namespace we {
         if (!Array.isArray(env.betLimits)) {
           env.betLimits = [env.betLimits];
         }
-        console.log('player.profile.currentSelectedBetLimitIndexplayer.profile.currentSelectedBetLimitIndexplayer.profile.currentSelectedBetLimitIndex', player.profile.currentSelectedBetLimitIndex);
         env.currentSelectedBetLimitIndex = player.profile.settings.currentSelectedBetLimitIndex ? player.profile.settings.currentSelectedBetLimitIndex : 0;
+        env.language = player.profile.settings.language ? player.profile.settings.language : 'sc';
+        we.i18n.setLang(env.language?env.language:'sc', true);
         /*
         let denominationList = [];
         for (const betLimit of env.betLimits) {
@@ -879,7 +879,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
           return betDetail;
         });
 

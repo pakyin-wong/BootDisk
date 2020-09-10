@@ -124,6 +124,7 @@ class Main extends eui.UILayer {
     this.showVersionNumber();
     // step 3: create loading scene
     dir.sceneCtr.goto('loading');
+    we.i18n.setLang(env.language?env.language:'sc', true);
     // egret.sys.resizeContext
     // egret.updateAllScreens();
     egret.updateAllScreens = () => {
@@ -171,7 +172,11 @@ class Main extends eui.UILayer {
       await RES.loadConfig(`resource/${env.isMobile ? 'mobile' : 'desktop'}${prodStr}.res.json`, 'resource/');
       await this.loadTheme();
 
-      fontMgr.loadFonts([{ res: 'Barlow-Regular_otf', name: 'Barlow' }, { res: 'BarlowCondensed-SemiBold_otf', name: 'BarlowCondensed' }, { res: 'NeonOne_otf', name: 'NeonOne' }]);
+      fontMgr.loadFonts([
+        { res: 'Barlow-Regular_otf', name: 'Barlow' },
+        { res: 'BarlowCondensed-SemiBold_otf', name: 'BarlowCondensed' },
+        { res: 'NeonOne_otf', name: 'NeonOne' },
+      ]);
 
       // await RES.loadGroup(we.core.res.EgretBasic);
     } catch (err) {
