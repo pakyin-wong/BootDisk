@@ -50,7 +50,7 @@ namespace we {
         this._textLayer = new egret.DisplayObjectContainer();
         this._dynamicLayer = new egret.DisplayObjectContainer();
 
-        this._staticLayer.cacheAsBitmap = true;
+        this._staticLayer.cacheAsBitmap = false;
 
         this.addChild(this._staticLayer);
         this._staticLayer.addChild(this.grid);
