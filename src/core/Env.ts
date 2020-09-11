@@ -75,6 +75,7 @@ namespace we {
       public betLimits: data.BetLimitSet[];
       public wholeDenomList: number[];
       public goodRoadData: data.GoodRoadMapData;
+      public playerLotteryStat: any;
       public isMobile: boolean = false;
       public orientation: string = egret.OrientationMode.LANDSCAPE;
       public leftHandMode: boolean = false;
