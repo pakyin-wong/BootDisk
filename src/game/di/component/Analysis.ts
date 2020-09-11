@@ -1,18 +1,18 @@
 namespace we {
   export namespace di {
-    export class Analysis extends core.BaseEUI implements we.ui.IAnalysis {
-      protected _tableId;
+    export class Analysis extends ui.Analysis {
+      // protected _tableId;
       protected _diPie: di.DiPie;
       protected _diChance: di.DiChance;
-      public advancedRoad: we.ui.IAdvancedRoad;
+      // public advancedRoad: we.ui.IAdvancedRoad;
 
-      public set tableId(value: string) {
-        this._tableId = value;
-      }
+      // public set tableId(value: string) {
+      //   this._tableId = value;
+      // }
 
-      public get tableId() {
-        return this._tableId;
-      }
+      // public get tableId() {
+      //   return this._tableId;
+      // }
 
       constructor() {
         super(env.isMobile ? null : 'di.Analysis');
@@ -51,6 +51,8 @@ namespace we {
             this._diChance.setMaxWidth(80);
           }
         }
+
+        super.updateRoad();
       }
     }
   }

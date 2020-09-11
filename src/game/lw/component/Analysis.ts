@@ -1,7 +1,7 @@
 namespace we {
   export namespace lw {
-    export class Analysis extends core.BaseEUI implements we.ui.IAnalysis {
-      protected _tableId;
+    export class Analysis extends ui.Analysis {
+      // protected _tableId;
 
       protected _lblPool: ui.RunTimeLabel;
       public _progress0: lw.RightPanelBar;
@@ -19,21 +19,21 @@ namespace we {
       public _lbl_lwValue5: ui.RunTimeLabel;
       public _lbl_lwValue6: ui.RunTimeLabel;
 
-      public advancedRoad: we.ui.IAdvancedRoad;
+      // public advancedRoad: we.ui.IAdvancedRoad;
 
-      public set tableId(value: string) {
-        this._tableId = value;
-      }
+      // public set tableId(value: string) {
+      //   this._tableId = value;
+      // }
 
-      public get tableId() {
-        return this._tableId;
-      }
+      // public get tableId() {
+      //   return this._tableId;
+      // }
 
       constructor() {
         super(env.isMobile ? null : 'lw.Analysis');
       }
 
-      public mount() {
+      protected init() {
         this._lblPool.renderText = () => i18n.t('luckywheel.pool');
 
         this._progress0.setProgress(0.05);
@@ -50,9 +50,22 @@ namespace we {
         for (let i = 0; i < 7; i += 1) {
           this[`_lbl_lwValue${i}`].text = data.amount[`LW_${i}`] || 0;
         }
+        super.updateTableBetInfo();
       }
 
       public updateRoad() {}
+
+      public render() {
+        if (this._content) {
+          this._content.visible = true;
+          this._content.validateNow();
+          const rect = new egret.Rectangle(0, 0, this._content.width, this._content.height);
+          this.containerRT.drawToTexture(this._content, rect, 1);
+          this._content.visible = false;
+          this.containerDisplay.visible = true;
+        }
+      }
+
     }
   }
 }
