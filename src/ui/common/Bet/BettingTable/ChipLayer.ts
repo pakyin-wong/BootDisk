@@ -18,12 +18,14 @@ namespace we {
 
       protected _uncfmBetDetails: data.BetDetail[];
       protected _cfmBetDetails: data.BetDetail[];
+      protected _doubleBetDetails: data.BetDetail[];
 
       public onConfirmPressed: (e: egret.Event) => void;
 
       constructor(skinName?: string) {
         super(skinName);
         this._cfmBetDetails = [];
+        this._doubleBetDetails = [];
         this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
       }
 
@@ -311,6 +313,7 @@ namespace we {
 
       public updateBetFields(betDetails: data.BetDetail[]) {
         this._cfmBetDetails = betDetails;
+        this._doubleBetDetails = this._cfmBetDetails;
 
         // update the already bet amount of each bet field
         this._cfmBetDetails.map((value, index) => {
@@ -432,19 +435,18 @@ namespace we {
         if (!validDoubleBet) {
           return;
         }
-        this._cfmBetDetails.map(value => {
-          const addedAmount = value.amount * 2;
-          console.log(`.............${JSON.stringify(this._cfmBetDetails)}`);
-          console.log(`.............${addedAmount}`);
-          console.log(`.............${JSON.stringify(value.field)}`);
+        this._doubleBetDetails.map(value => {
+          value.amount = value.amount * 2;
+          const addedAmount = value.amount;
+          const betField = value.field;
           if (addedAmount > 0) {
             if (this._betChipStackMapping[value.field]) {
-              this._betChipStackMapping[value.field].uncfmBet += addedAmount * this.getRate(value.field);
+              this._betChipStackMapping[value.field].uncfmBet = addedAmount * this.getRate(value.field) - this._betChipStackMapping[value.field].cfmBet;
               this._betChipStackMapping[value.field].draw();
             }
             for (const detail of this._uncfmBetDetails) {
               if (detail.field === value.field) {
-                detail.amount += addedAmount;
+                detail.amount = addedAmount - this._betChipStackMapping[value.field].cfmBet;
                 break;
               }
             }
@@ -617,7 +619,11 @@ namespace we {
 
       public resetConfirmedBet() {
         this._cfmBetDetails = new Array();
+        this._doubleBetDetails = new Array();
         Object.keys(this._cfmBetDetails).map(value => {
+          this._cfmBetDetails.push({ field: value, amount: 0 });
+        });
+        Object.keys(this._doubleBetDetails).map(value => {
           this._cfmBetDetails.push({ field: value, amount: 0 });
         });
         if (this._betChipStackMapping) {

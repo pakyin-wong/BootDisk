@@ -711,8 +711,6 @@ namespace we {
         this._undoButton.touchEnabled = isEnable;
         this._cancelButton.touchEnabled = isEnable;
         this._confirmButton.touchEnabled = isEnable;
-
-        console.log(`..............${JSON.stringify(this._chipLayer.getTotalCfmBetAmount())}`);
         this._doubleButton.alpha = this._chipLayer.getTotalCfmBetAmount() ? 1 : 0.3;
         this._doubleButton.touchEnabled = this._chipLayer.getTotalCfmBetAmount() ? true : false;
         this._undoButton.alpha = isEnable ? 1 : 0.5;
