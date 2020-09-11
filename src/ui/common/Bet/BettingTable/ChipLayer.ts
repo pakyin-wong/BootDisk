@@ -171,7 +171,7 @@ namespace we {
       }
 
       public addRolloverListeners() {
-        if(env.isMobile){
+        if (env.isMobile) {
           return;
         }
         Object.keys(this._mouseAreaMapping).forEach(value => {
@@ -182,7 +182,7 @@ namespace we {
       }
 
       public removeRolloverListeners() {
-        if(env.isMobile){
+        if (env.isMobile) {
           return;
         }
         Object.keys(this._mouseAreaMapping).forEach(value => {
@@ -193,7 +193,7 @@ namespace we {
       }
 
       public addRolloutListeners() {
-        if(env.isMobile){
+        if (env.isMobile) {
           return;
         }
         Object.keys(this._mouseAreaMapping).forEach(value => {
@@ -204,7 +204,7 @@ namespace we {
       }
 
       public removeRolloutListeners() {
-        if(env.isMobile){
+        if (env.isMobile) {
           return;
         }
         Object.keys(this._mouseAreaMapping).forEach(value => {
@@ -425,33 +425,54 @@ namespace we {
       }
 
       public doubleBetFields() {
-        const validDoubleBet = this._cfmBetDetails.reduce((acc, cur) => {
-          if (cur.amount === 0) {
-            return acc && true;
-          }
-          const betDetail = { field: cur.field, amount: cur.amount };
-          return this.validateBetAction(betDetail) ? acc && true : false;
-        }, true);
-        if (!validDoubleBet) {
-          return;
-        }
-        this._doubleBetDetails.map(value => {
-          value.amount = value.amount * 2;
-          const addedAmount = value.amount;
-          const betField = value.field;
-          if (addedAmount > 0) {
-            if (this._betChipStackMapping[value.field]) {
-              this._betChipStackMapping[value.field].uncfmBet = addedAmount * this.getRate(value.field) - this._betChipStackMapping[value.field].cfmBet;
-              this._betChipStackMapping[value.field].draw();
-            }
-            for (const detail of this._uncfmBetDetails) {
-              if (detail.field === value.field) {
-                detail.amount = addedAmount - this._betChipStackMapping[value.field].cfmBet;
-                break;
-              }
-            }
+        let reactMax = true;
+
+        const betfields = this._doubleBetDetails.map(detail => {
+          const uncfmBetDetail = this.getUncfmBetByField(detail.field);
+          let amount = uncfmBetDetail?uncfmBetDetail.amount + detail.amount:detail.amount;
+          // double the bet amounts
+          const betDetail = { field: detail.field, amount: amount };
+          if (this.validateBetAction(betDetail)) {
+            this.addBetToBetField(detail.field, betDetail.amount);
+            this.updateBetChipUncfmBet(detail.field, this.getUncfmBetByField(detail.field).amount);
+            reactMax = false;
           }
         });
+
+        if (reactMax) {
+          const data = { exceedLower: false };
+          this.dispatchEvent(new egret.Event(core.Event.EXCEED_BET_LIMIT, false, false, data));
+        }
+
+
+
+        // const validDoubleBet = this._cfmBetDetails.reduce((acc, cur) => {
+        //   if (cur.amount === 0) {
+        //     return acc && true;
+        //   }
+        //   const betDetail = { field: cur.field, amount: cur.amount };
+        //   return this.validateBetAction(betDetail) ? acc && true : false;
+        // }, true);
+        // if (!validDoubleBet) {
+        //   return;
+        // }
+        // this._doubleBetDetails.map(value => {
+        //   value.amount = value.amount * 2;
+        //   const addedAmount = value.amount;
+        //   const betField = value.field;
+        //   if (addedAmount > 0) {
+        //     if (this._betChipStackMapping[value.field]) {
+        //       this._betChipStackMapping[value.field].uncfmBet = addedAmount * this.getRate(value.field) - this._betChipStackMapping[value.field].cfmBet;
+        //       this._betChipStackMapping[value.field].draw();
+        //     }
+        //     for (const detail of this._uncfmBetDetails) {
+        //       if (detail.field === value.field) {
+        //         detail.amount = addedAmount - this._betChipStackMapping[value.field].cfmBet;
+        //         break;
+        //       }
+        //     }
+        //   }
+        // });
       }
 
       public onRepeatPressed() {
