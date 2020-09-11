@@ -92,7 +92,7 @@ namespace we {
           evt.stopPropagation();
           return;
         }
-        if (evt.target === this._toggler || evt.target === this) {
+        if (evt.target === this._toggler || evt.target.parent === this._favouriteButton || evt.target === this) {
           evt.stopPropagation();
           return;
         }
