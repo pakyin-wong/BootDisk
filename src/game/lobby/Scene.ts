@@ -108,9 +108,15 @@ namespace we {
         if (!this.label.bold) {
           this.label.bold = true;
           this.label.minWidth = this.label.textWidth;
+          if(env.isMobile){
+            this.label.parent.width = this.label.textWidth;
+          }
           this.label.bold = false;
         } else {
           this.label.minWidth = this.label.textWidth;
+          if(env.isMobile){
+            this.label.parent.width = this.label.textWidth;
+          }
         }
       }
     }

@@ -10,7 +10,7 @@
         <e:Image height="120" width="1201"  verticalCenter="0" x="612" source="m_lobby_header_submenu_bg_png"/>
         <e:TabBar id="_list" height="120" width="1019" x="703" verticalCenter="0">
             <e:layout>
-                <e:HorizontalLayout horizontalAlign="justify" verticalAlign="middle" />
+                <e:HorizontalLayout  gap="99" verticalAlign="middle" />
             </e:layout>
         </e:TabBar>
     </e:Group>
