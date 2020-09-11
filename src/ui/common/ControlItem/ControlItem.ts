@@ -538,8 +538,9 @@ namespace we {
           env.favouriteTableList.push(this._tableId);
         }
 
+        console.log("Pass player setting = " + JSON.stringify(env.favouriteTableList));
+        
         dir.socket.updateSetting('favouriteTableList', JSON.stringify(env.favouriteTableList));
-
       }
 
       protected onBetReturned(result) {

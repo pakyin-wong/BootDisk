@@ -186,7 +186,8 @@ namespace we {
         env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
 
         // console.log("dasndu wqhoed wqo = " + player.profile.settings.favouriteTableList);
-        
+        console.log('player.profile.settings.favouriteTableList = ' + player.profile.settings.favouriteTableList);
+
         // env.favouriteTableList = player.profile.settings.favouriteTableList ? JSON.parse(player.profile.settings.favouriteTableList) : env.favouriteTableList;
         env.favouriteTableList = env.favouriteTableList;
 
