@@ -20,9 +20,9 @@ namespace we {
         this._skinKey = 'LobbyScene';
         this.skinName = utils.getSkinByClassname(this._skinKey);
         if(env.isMobile){
-          this._items = ['lobby', 'live', 'lottery', 'egame', 'favorite']
+          this._items = ['lobby', 'live', 'lottery', 'egame', 'favourite']
         }else{
-          this._items = ['live', 'lottery', 'egame', 'favorite']
+          this._items = ['live', 'lottery', 'egame', 'favourite']
         }
       }
 
