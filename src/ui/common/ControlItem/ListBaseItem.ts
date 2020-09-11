@@ -75,7 +75,7 @@ namespace we {
         shape.graphics.drawRoundRect(0, 0, this.width, this.height, 16, 16);
         shape.graphics.endFill();
 
-        this._contentContainer.addChild(shape);
+        this._contentContainer.addChildAt(shape, 0);
         this._contentContainer.mask = shape;
       }
 
@@ -92,7 +92,7 @@ namespace we {
           evt.stopPropagation();
           return;
         }
-        if (evt.target === this._toggler || evt.target === this) {
+        if (evt.target === this._toggler || evt.target.parent === this._favouriteButton || evt.target === this) {
           evt.stopPropagation();
           return;
         }

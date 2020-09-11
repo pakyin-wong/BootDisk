@@ -32,7 +32,9 @@
 		<ui:ClampWidthLabel id="_record_orgbalance" text="Label" x="1359" y="840" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="430" targetWidth="430"/>
 		<ui:ClampWidthLabel id="_record_finbalance" text="Label" x="1359" y="1006" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="430" targetWidth="430"/>
 		<e:Image width="24" height="32" x="133.5" y="1052" source="m_common_setting_playerreportlist_detail_result_replay_icon_png"/>
-		<e:Image id="_btn_replay" width="300" height="100" x="75" y="1019" scaleX="1" scaleY="1" source="m_common_setting_playerreportlist_detail_result_replay_box_png" scale9Grid="51,51,1,1"/>
+		<!--<e:Image id="_btn_replay" width="300" height="100" x="75" y="1019" scaleX="1" scaleY="1" source="m_common_setting_playerreportlist_detail_result_replay_box_png" scale9Grid="51,51,1,1"/>-->
+		<ui:RoundRectButton id="_btn_replay" width="300" height="100" x="75" y="1019" fillAlpha="0" strokeColor="0xb1835b"
+                            stroke="1" cornerTL_TR_BL_BR="50,50,50,50" />
 		<e:Group id="_record_result" width="1002" height="160" x="85" y="400" scaleX="1" scaleY="1"/>
 	</e:Group>
 </e:Skin>
