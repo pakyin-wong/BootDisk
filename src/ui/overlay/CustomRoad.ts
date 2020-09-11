@@ -8,6 +8,7 @@ namespace we {
       protected _editRoadPanel: ba.GoodRoadEditItem;
       protected _cover: eui.Rect;
       protected _defaultButton: ui.RoundRectButton;
+      protected _selectAllButton: ui.ToggleButton;
 
       constructor() {
         super('CustomRoad');
@@ -32,7 +33,7 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.GOOD_ROAD_REMOVE, this.onRoadRemove, this);
 
         this._editRoadPanel.addEventListener('close', this.onEditPanelClosed, this);
-
+        this._selectAllButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.selectAll,this);
         // get the Good Road Data from server or env if it exist
         dir.evtHandler.addEventListener(core.Event.GOOD_ROAD_DATA_UPDATE, this.onRoadDataUpdated, this);
         if (!env.goodRoadData) {
@@ -74,13 +75,19 @@ namespace we {
         if (dir.evtHandler.hasEventListener(core.Event.GOOD_ROAD_DATA_UPDATE)) {
           dir.evtHandler.removeEventListener(core.Event.GOOD_ROAD_DATA_UPDATE, this.onRoadDataUpdated, this);
         }
-
+        
+        if (this._selectAllButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)){
+          this._selectAllButton.removeEventListener(egret.TouchEvent.TOUCH_TAP,this.selectAll,this);
+        }
         this._editRoadPanel.removeEventListener('close', this.onEditPanelClosed, this);
       }
 
       protected onRoadDataUpdated(e: egret.Event) {
         this._cover.visible = false;
         this.renderFromGoodRoadData();
+      }
+      protected selectAll(){
+        console.log('selectAll')
       }
 
       protected onRoadAdd(e: egret.Event) {

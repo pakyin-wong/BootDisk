@@ -5,8 +5,13 @@
 		<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x14181e" ellipseHeight="48" ellipseWidth="48"
 		        strokeColor="0x333c4a" strokeWeight="2" />
 		<e:Image id="close" width="96" height="96" right="26" top="68" source="d-lobby-button-close-none_png" />
-		<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="55" width="1000" height="119" verticalAlign="middle"
-		                 textColor="0xc59466" size="80" bold="true" scaleX="1" scaleY="1" />
+		<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="55" width="487.88" height="119" verticalAlign="middle"
+		                 textColor="0xc59466" size="80" bold="true" scaleX="1" scaleY="1"  anchorOffsetX="0"/>
+		<ui:ToggleButton id="_selectAllButton" resNameOn="d_lobby_panel_button_checkboxes_active_png"
+		                 hoverResNameOn="d_lobby_panel_button_checkboxes_active_png"
+		                 resNameOff="d_lobby_panel_button_checkboxes_normal_png"
+		                 hoverResNameOff="d_lobby_panel_button_checkboxes_hover_png" y="58" width="22" height="22"
+		                 anchorOffsetX="0" x="635" />	
 		<!--<ui:BaseImageButton id="_defaultButton" y="75" anchorOffsetX="0" width="320" anchorOffsetY="0" height="90"
 		                        currentState="b_reset" skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" x="745" />
 		-->
