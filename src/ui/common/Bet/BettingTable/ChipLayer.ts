@@ -433,7 +433,10 @@ namespace we {
           return;
         }
         this._cfmBetDetails.map(value => {
-          const addedAmount = value.amount;
+          const addedAmount = value.amount * 2;
+          console.log(`.............${JSON.stringify(this._cfmBetDetails)}`);
+          console.log(`.............${addedAmount}`);
+          console.log(`.............${JSON.stringify(value.field)}`);
           if (addedAmount > 0) {
             if (this._betChipStackMapping[value.field]) {
               this._betChipStackMapping[value.field].uncfmBet += addedAmount * this.getRate(value.field);
