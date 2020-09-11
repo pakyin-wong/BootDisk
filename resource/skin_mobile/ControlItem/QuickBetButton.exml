@@ -3,7 +3,7 @@
         xmlns:ui="we.ui.*"  xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
         <e:Group width="350" height="100">
             <e:Group verticalCenter="0" horizontalCenter="0">
-                <e:Image source="flash_png" />
+                <e:Image source="flash_png" width="40" height="64" />
                 <ui:RunTimeLabel id="_label" size="50"  verticalAlign="middle" textAlign="center"/>
                 <e:layout >
                     <e:HorizontalLayout gap="10" verticalAlign="middle" />

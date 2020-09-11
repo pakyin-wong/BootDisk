@@ -493,8 +493,8 @@ namespace we {
               // i18n.t(''),
               '您已3局未下注，2局后踢出',
               {
-                // dismiss: { text: i18n.t('') },
-                dismiss: { text: 'cancelBet' },
+                dismiss: { text: i18n.t('nav.menu.confirm') },
+                // dismiss: { text: 'cancelBet' },
               },
             ],
           });
@@ -672,6 +672,8 @@ namespace we {
               this.changeBtnState(false);
               this._undoStack.clearStack();
               dir.socket.bet(this._tableId, bets, this.onBetReturned.bind(this));
+              this._doubleButton.touchEnabled = true;
+              this._doubleButton.alpha = 1;
             }
           }
         }
@@ -707,11 +709,11 @@ namespace we {
 
       protected changeBtnState(isEnable: boolean = true) {
         this._undoButton.touchEnabled = isEnable;
-        this._doubleButton.touchEnabled = isEnable;
         this._cancelButton.touchEnabled = isEnable;
         this._confirmButton.touchEnabled = isEnable;
+        this._doubleButton.alpha = this._chipLayer.getTotalCfmBetAmount() ? 1 : 0.3;
+        this._doubleButton.touchEnabled = this._chipLayer.getTotalCfmBetAmount() ? true : false;
         this._undoButton.alpha = isEnable ? 1 : 0.5;
-        this._doubleButton.alpha = isEnable ? 1 : 0.5;
         this._cancelButton.alpha = isEnable ? 1 : 0.5;
         this._confirmButton.alpha = isEnable ? 1 : 0.3;
         if (this._timer.bg_color) {
@@ -741,6 +743,7 @@ namespace we {
       protected onDoublePressed() {
         if (this._chipLayer) {
           this._chipLayer.onDoublePressed();
+          this.changeBtnState(true);
         }
       }
 

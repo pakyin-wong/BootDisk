@@ -169,6 +169,17 @@ namespace we {
         },
       },
       nav: {
+        tooltip: {
+          menu: '選單',
+          back: '返回大堂',
+          refresh: '刷新餘額',
+          profile: '賬戶資訊',
+          roominfo: '遊戲資訊',
+          betlimit: '限紅設定',
+          d_lobby_viewmode_icon_tiny: '簡易版',
+          d_lobby_viewmode_icon_general: '普通版',
+          d_lobby_viewmode_icon_pro: '專業版',
+        },
         bet_balance: '餘額',
         menu: {
           title: '設定',
@@ -213,7 +224,7 @@ namespace we {
       },
       lobby: {
         header: {
-          lobby: '精選推介',
+          lobby: '首頁',
           live: '真人遊戲',
           lottery: '彩票遊戲',
           egame: '電子遊戲',

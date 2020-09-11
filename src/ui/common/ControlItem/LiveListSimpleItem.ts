@@ -46,6 +46,7 @@ namespace we {
       protected initChildren() {
         this.generateRoadmap();
         super.initChildren();
+        this._betMessageEnable = false;
       }
 
       protected generateTableLayer() {

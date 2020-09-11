@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.lw.Analysis" width="278" height="450" xmlns:e="http://ns.egret.com/eui" 
+<e:Skin class="skin_desktop.lw.Analysis" width="278" height="450" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:lw="we.lw.*">
 	<e:Group id="_content"  width="278" height="450">
 	<e:Rect fillColor="0x23282f" width="100%" height="100%" alpha="0.4" />
@@ -7,13 +7,6 @@
 		<e:Rect width="100%" height="100%" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x061323" fillAlpha="0.8"
 	        locked="true" />
 	<ui:RunTimeLabel id="_lblPool" x="13" y="14" size="20" verticalAlign="middle" text="即時彩池" alpha=".7" />
-	<lw:RightPanelBar id="_progress0" width="228" height="10" y="71" x="13" source="d_lw_betpool_barchart_east_png" />
-	<lw:RightPanelBar id="_progress1" width="228" height="10" y="126" x="13" source="d_lw_betpool_barchart_south_png" />
-	<lw:RightPanelBar id="_progress2" width="228" height="10" y="181" x="13" source="d_lw_betpool_barchart_west_png" />
-	<lw:RightPanelBar id="_progress3" width="228" height="10" y="236" x="13" source="d_lw_betpool_barchart_north_png" />
-	<lw:RightPanelBar id="_progress4" width="228" height="10" y="291" x="13" source="d_lw_betpool_barchart_white_png" />
-	<lw:RightPanelBar id="_progress5" width="228" height="10" y="346" x="13" source="d_lw_betpool_barchart_gold_png" />
-	<lw:RightPanelBar id="_progress6" width="228" height="10" y="401" x="13" source="d_lw_betpool_barchart_gold_png" />
 	<ui:RunTimeLabel id="_lbl_lwTitle0" x="13" y="40" size="20" height="26" verticalAlign="middle" text="東" />
 	<ui:RunTimeLabel id="_lbl_lwTitle1" x="13" y="95" size="20" height="26" verticalAlign="middle" text="南" />
 	<ui:RunTimeLabel id="_lbl_lwTitle2" x="13" y="150" size="20" height="26" verticalAlign="middle" text="西" />
