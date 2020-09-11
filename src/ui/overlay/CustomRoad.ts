@@ -105,10 +105,14 @@ namespace we {
               // activebutton.setInitButtonState(1)
               element.item.setRoadEnabled(false)
             )
+            this.onAllRoadModify(element)
           });
+          // this.onAllRoadModify();
+          // this.onRoadModify()
         } else {
           return;
         }
+        
         // console.log('selectAll')
         // console.log('this.roomList',this.roomList)
         // console.log('this.roomList.$children',this.roomList.$children)
@@ -136,8 +140,13 @@ namespace we {
           this._cover.visible = true;
         }
       }
+      protected onAllRoadModify(holder: ba.GoodRoadListHolder) {
+        console.log('<ba.GoodRoadListHolder>',holder);
+        console.log('<ba.GoodRoadListHolder> holder._roadId',holder._roadId)
+      }
       protected onRoadModify(e: egret.Event) {
         if (e.data.roadType === 1) {
+          console.log('e.data,',e.data)
           // default
           const roadsEnabled = [];
           const defaults: data.GoodRoadMapItemData[] = env.goodRoadData.default.slice();
@@ -149,10 +158,11 @@ namespace we {
               roadsEnabled.push(element.id);
             }
           });
-
+          console.log('roadsEnabled11111111111111111',roadsEnabled)
           dir.socket.updateDefaultGoodRoad(roadsEnabled);
         } else if (e.data.roadType === 2) {
           // custom
+          console.log('roadType22222222222222')
           dir.socket.updateCustomGoodRoad(e.data.id, e.data);
         }
       }

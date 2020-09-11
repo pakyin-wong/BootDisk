@@ -470,16 +470,15 @@ namespace we {
 
           if (this._message && !isInit) {
             // ==================================================
-              if (this._gameRoundCountWithoutBet === 1) { 
-                // this.showTwoMessage();
-                if (this._expiredMessage) {
-                  this._message.showMessage(ui.InGameMessage.INFO,i18n.t('game.startBet'),this.showTwoMessage.call(this));
-                  // this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, '您已3局未下注，2局后踢出');
-                }
-              } else {
-                this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
+            if (this._gameRoundCountWithoutBet === 1) {
+              // this.showTwoMessage();
+              if (this._expiredMessage) {
+                this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'), this.showTwoMessage.call(this));
+                // this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, '您已3局未下注，2局后踢出');
               }
-
+            } else {
+              this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
+            }
           }
           this._undoStack.clearStack();
         }
@@ -509,7 +508,7 @@ namespace we {
                 },
               ],
             });
-          } 
+          }
           // else {
           //   this.showInGameMessage();
           // }

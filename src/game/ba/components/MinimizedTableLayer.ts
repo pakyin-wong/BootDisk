@@ -1,8 +1,6 @@
 namespace we {
   export namespace ba {
     export class MinimizedTableLayer extends core.BaseEUI {
-
-
       protected _bankerLabel;
       protected _bankerBetLabel;
       protected _playerLabel;
@@ -41,8 +39,7 @@ namespace we {
         this._superSixBankerBetLabel.text = '0';
       }
 
-      public updateBetLabel(isinit:boolean , betInfo?:any ) {
-
+      public updateBetLabel(isinit: boolean, betInfo?: any) {
         if (isinit === true) {
           this._bankerBetLabel.text = '0';
           this._playerBetLabel.text = '0';
@@ -50,8 +47,8 @@ namespace we {
           this._playerPairBetLabel.text = '0';
           this._bankerPairBetLabel.text = '0';
           this._superSixBetLabel.text = '0';
-          this._superSixBankerBetLabel.text = '0';   
-          return       
+          this._superSixBankerBetLabel.text = '0';
+          return;
         }
         for (const prop in betInfo.amount) {
           switch (prop) {
@@ -74,7 +71,7 @@ namespace we {
               this._superSixBetLabel.text = betInfo.amount.SUPER_SIX / 100;
               break;
             case 'SUPER_SIX_BANKER':
-              this._superSixBankerBetLabel.text =  betInfo.amount.SUPER_SIX_BANKER / 100;
+              this._superSixBankerBetLabel.text = betInfo.amount.SUPER_SIX_BANKER / 100;
               break;
             default:
               this._bankerBetLabel.text = '0';
