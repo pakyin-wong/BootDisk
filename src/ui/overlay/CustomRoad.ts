@@ -98,10 +98,8 @@ namespace we {
         if (customRoadHolderList.length > 0) {
           if (this._selectAllButton._buttonState === 0 ){
             this.setAllRoadEnable(true)
-            console.log('env.goodRoadData',env.goodRoadData)
           } else if(this._selectAllButton._buttonState === 1) {
             this.setAllRoadEnable(false)
-            console.log('env.goodRoadData',env.goodRoadData)
           }
           customRoadHolderList.forEach(holder => {
             const element = <ba.GoodRoadListHolder>holder;
@@ -127,11 +125,12 @@ namespace we {
         let allDefaultGoadRoad = allGoadRoad.default;
         let allCustomGoadRoad = allGoadRoad.custom;
         if(setEnable === true) {
-
           allDefaultGoadRoad.forEach(element => {
             element.enabled = true;
             defaultarray.push(element.id)
           });
+          dir.socket.updateDefaultGoodRoad(defaultarray);
+
           allCustomGoadRoad.forEach(element=> {
             let customid
             let customdata
@@ -140,7 +139,6 @@ namespace we {
             customdata.enabled = true;
             customarray.push([customid,customdata])
           })
-          dir.socket.updateDefaultGoodRoad(defaultarray);
           customarray.forEach(element => {
             dir.socket.updateCustomGoodRoad(element[0], element[1]);
           });
@@ -158,8 +156,10 @@ namespace we {
           customarray.forEach(element => {
             dir.socket.updateCustomGoodRoad(element[0], element[1]);
           });
-          // defaultarray =[];
+          // defaultarray = [];
           allDefaultGoadRoad.forEach(element => {
+            // if (element.id === "r1") {
+            // }
             element.enabled = false;
           });
           dir.socket.updateDefaultGoodRoad(defaultarray);
@@ -201,7 +201,6 @@ namespace we {
               roadsEnabled.push(element.id);
             }
           });
-          console.log('roadsEnabled',roadsEnabled)
           dir.socket.updateDefaultGoodRoad(roadsEnabled);
           
         } else if (e.data.roadType === 2) {
