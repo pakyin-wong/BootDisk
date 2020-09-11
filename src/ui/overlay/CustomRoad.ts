@@ -120,19 +120,39 @@ namespace we {
 
       protected setAllRoadEnable(setEnable:boolean){
         // this.onAllRoadModify()
-        let defaultarray = [];
+        let defaultarray = [];//[id,id,id,id...]
+        let customarray = [];//[[id,data],[id,data],...]
         if(setEnable === true) {
           //send all road to bkend
           let allGoadRoad = env.goodRoadData;//GoodRoadMapData {custom: Array[1], default: Array[10]}
-          let alldefaultGoadRoad = allGoadRoad.default;
-          alldefaultGoadRoad.forEach(element => {
+          let allDefaultGoadRoad = allGoadRoad.default;
+          allDefaultGoadRoad.forEach(element => {
             defaultarray.push(element.id)
           });
+          let allCustomGoadRoad = allGoadRoad.custom;
+          allCustomGoadRoad.forEach(element=> {
+            let customid
+            let customdata
+            customid = element.id;
+            customdata = element;
+            customdata.enable = true;
+            customarray.push([customid,customdata])
+          })
+          // GoodRoadMapItemData
+          //   enabled:false
+          //   id:"BOBG7QGNS225G82K9V30"
+          //   name:"我的好路"
+          //   pattern:"bbbbbppp"
+          //   type:2
           console.log('defaultarray',defaultarray)
+          console.log('customarray',customarray)
           // dir.socket.updateDefaultGoodRoad(defaultarray);
 
         } else {
-          //send empty
+          //send Default empty , all custom
+
+
+          // dir.socket.updateDefaultGoodRoad(defaultarray);
         }
       }
       protected onAllRoadModify(holder: ba.GoodRoadListHolder) {
