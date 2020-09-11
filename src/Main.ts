@@ -64,7 +64,7 @@ class Main extends eui.UILayer {
     data = we.utils.getQueryParams(query);
     const isMobile = data.ismobile ? data.ismobile : 0;
 
-    if (type !== 'mobile') {
+    if (type === 'mobile') {
       // if (true) {
       env.isMobile = true;
       // this.updateMobileHitTest();
@@ -101,7 +101,7 @@ class Main extends eui.UILayer {
     we.i18n.setLang('sc', true);
     await this.initRes();
     env.initialized = true;
-    if (type === 'mobile') {
+    if (type !== 'mobile') {
       const opt = {
         ba: 8,
         dt: 8,

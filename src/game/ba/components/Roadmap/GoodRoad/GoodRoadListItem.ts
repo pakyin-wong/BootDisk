@@ -23,6 +23,9 @@ namespace we {
         this.skinName = utils.getSkinByClassname('GoodRoadListItem');
       }
 
+      public get activeButton(){
+        return this._activeButton;
+      }
       protected mount() {
         this.touchEnabled = true;
 

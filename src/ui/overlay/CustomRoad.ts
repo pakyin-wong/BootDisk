@@ -48,6 +48,10 @@ namespace we {
         this._defaultButton.label.alpha = 0.7;
 
         this._defaultButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDefaultClicked, this);
+
+        if(this._selectAllButton){
+          this._selectAllButton.setInitButtonState(1);
+        }
       }
 
       protected onDefaultClicked(e: egret.TouchEvent) {
@@ -88,6 +92,11 @@ namespace we {
       }
       protected selectAll(){
         console.log('selectAll')
+        console.log('this.roomList',this.roomList)
+        console.log('this.roomList.$children',this.roomList.$children)
+        console.log('this.roomList.$children[0]',this.roomList.$children[0])
+        let test =<ba.GoodRoadListItem> this.roomList.$children[0]
+        console.log('this.roomList.$children[0].activeButton',test.activeButton)
       }
 
       protected onRoadAdd(e: egret.Event) {
