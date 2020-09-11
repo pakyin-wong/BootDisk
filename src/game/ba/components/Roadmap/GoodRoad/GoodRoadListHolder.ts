@@ -20,7 +20,9 @@ namespace we {
         this.touchEnabled = true;
         this.mount();
       }
-
+      public get item() {
+        return this._item;
+      }
       private async mount() {
         // this.width = 293;
         // this.height = 225;

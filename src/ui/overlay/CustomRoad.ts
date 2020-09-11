@@ -91,12 +91,25 @@ namespace we {
         this.renderFromGoodRoadData();
       }
       protected selectAll(){
-        console.log('selectAll')
-        console.log('this.roomList',this.roomList)
-        console.log('this.roomList.$children',this.roomList.$children)
-        console.log('this.roomList.$children[0]',this.roomList.$children[0])
-        let test =<ba.GoodRoadListItem> this.roomList.$children[0]
-        console.log('this.roomList.$children[0].activeButton',test.activeButton)
+        let customRoadHolderList = this.roomList.$children
+        if (customRoadHolderList.length > 0) {
+          //get activeButton
+          customRoadHolderList.forEach(holder  => {
+            let element = <ba.GoodRoadListHolder> holder;
+            let activebutton = element.item.activeButton;
+            activebutton.setInitButtonState(0)
+            // console.log(`element.item ::::`,element.item.activeButton)
+          });
+        } else {
+          return;
+        }
+        // console.log('selectAll')
+        // console.log('this.roomList',this.roomList)
+        // console.log('this.roomList.$children',this.roomList.$children)
+        // console.log('this.roomList.$children[0]',this.roomList.$children[0])
+        // let test =<ba.GoodRoadListHolder> this.roomList.$children[0]
+        // console.log('this.roomList.$children[0] test.item)',test.item)
+        // console.log('this.roomList.$children[0] test.item.activeButton)',test.item.activeButton)
       }
 
       protected onRoadAdd(e: egret.Event) {

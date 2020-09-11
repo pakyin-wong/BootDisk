@@ -123,9 +123,7 @@ namespace we {
             .call(() => {
               if (callback){
                 callback()
-              } else {
-                console.log('ss')
-              }
+              } 
             });
     
       }
