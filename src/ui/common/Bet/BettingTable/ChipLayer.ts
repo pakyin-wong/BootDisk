@@ -18,12 +18,14 @@ namespace we {
 
       protected _uncfmBetDetails: data.BetDetail[];
       protected _cfmBetDetails: data.BetDetail[];
+      protected _doubleBetDetails: data.BetDetail[];
 
       public onConfirmPressed: (e: egret.Event) => void;
 
       constructor(skinName?: string) {
         super(skinName);
         this._cfmBetDetails = [];
+        this._doubleBetDetails = [];
         this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
       }
 
@@ -132,6 +134,7 @@ namespace we {
       }
 
       public updateBetChipUncfmBet(fieldName, amount) {
+        this.dispatchEvent(new egret.Event('onUnconfirmBet'));
         if (this._betChipStackMapping[fieldName]) {
           this._betChipStackMapping[fieldName].uncfmBet = amount * this.getRate(fieldName);
           this._betChipStackMapping[fieldName].draw();
@@ -168,6 +171,9 @@ namespace we {
       }
 
       public addRolloverListeners() {
+        if (env.isMobile) {
+          return;
+        }
         Object.keys(this._mouseAreaMapping).forEach(value => {
           if (this._mouseAreaMapping[value]) {
             this._mouseAreaMapping[value].addEventListener(mouse.MouseEvent.ROLL_OVER, this.onGridRolloverEvent, this);
@@ -176,6 +182,9 @@ namespace we {
       }
 
       public removeRolloverListeners() {
+        if (env.isMobile) {
+          return;
+        }
         Object.keys(this._mouseAreaMapping).forEach(value => {
           if (this._mouseAreaMapping[value]) {
             this._mouseAreaMapping[value].removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onGridRolloverEvent, this);
@@ -184,6 +193,9 @@ namespace we {
       }
 
       public addRolloutListeners() {
+        if (env.isMobile) {
+          return;
+        }
         Object.keys(this._mouseAreaMapping).forEach(value => {
           if (this._mouseAreaMapping[value]) {
             this._mouseAreaMapping[value].addEventListener(mouse.MouseEvent.ROLL_OUT, this.onGridRolloutEvent, this);
@@ -192,6 +204,9 @@ namespace we {
       }
 
       public removeRolloutListeners() {
+        if (env.isMobile) {
+          return;
+        }
         Object.keys(this._mouseAreaMapping).forEach(value => {
           if (this._mouseAreaMapping[value]) {
             this._mouseAreaMapping[value].removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onGridRolloutEvent, this);
@@ -298,6 +313,7 @@ namespace we {
 
       public updateBetFields(betDetails: data.BetDetail[]) {
         this._cfmBetDetails = betDetails;
+        this._doubleBetDetails = this._cfmBetDetails;
 
         // update the already bet amount of each bet field
         this._cfmBetDetails.map((value, index) => {
@@ -409,31 +425,54 @@ namespace we {
       }
 
       public doubleBetFields() {
-        const validDoubleBet = this._cfmBetDetails.reduce((acc, cur) => {
-          if (cur.amount === 0) {
-            return acc && true;
-          }
-          const betDetail = { field: cur.field, amount: cur.amount };
-          return this.validateBetAction(betDetail) ? acc && true : false;
-        }, true);
-        if (!validDoubleBet) {
-          return;
-        }
-        this._cfmBetDetails.map(value => {
-          const addedAmount = value.amount;
-          if (addedAmount > 0) {
-            if (this._betChipStackMapping[value.field]) {
-              this._betChipStackMapping[value.field].uncfmBet += addedAmount * this.getRate(value.field);
-              this._betChipStackMapping[value.field].draw();
-            }
-            for (const detail of this._uncfmBetDetails) {
-              if (detail.field === value.field) {
-                detail.amount += addedAmount;
-                break;
-              }
-            }
+        let reactMax = true;
+
+        const betfields = this._doubleBetDetails.map(detail => {
+          const uncfmBetDetail = this.getUncfmBetByField(detail.field);
+          let amount = uncfmBetDetail?uncfmBetDetail.amount + detail.amount:detail.amount;
+          // double the bet amounts
+          const betDetail = { field: detail.field, amount: amount };
+          if (this.validateBetAction(betDetail)) {
+            this.addBetToBetField(detail.field, betDetail.amount);
+            this.updateBetChipUncfmBet(detail.field, this.getUncfmBetByField(detail.field).amount);
+            reactMax = false;
           }
         });
+
+        if (reactMax) {
+          const data = { exceedLower: false };
+          this.dispatchEvent(new egret.Event(core.Event.EXCEED_BET_LIMIT, false, false, data));
+        }
+
+
+
+        // const validDoubleBet = this._cfmBetDetails.reduce((acc, cur) => {
+        //   if (cur.amount === 0) {
+        //     return acc && true;
+        //   }
+        //   const betDetail = { field: cur.field, amount: cur.amount };
+        //   return this.validateBetAction(betDetail) ? acc && true : false;
+        // }, true);
+        // if (!validDoubleBet) {
+        //   return;
+        // }
+        // this._doubleBetDetails.map(value => {
+        //   value.amount = value.amount * 2;
+        //   const addedAmount = value.amount;
+        //   const betField = value.field;
+        //   if (addedAmount > 0) {
+        //     if (this._betChipStackMapping[value.field]) {
+        //       this._betChipStackMapping[value.field].uncfmBet = addedAmount * this.getRate(value.field) - this._betChipStackMapping[value.field].cfmBet;
+        //       this._betChipStackMapping[value.field].draw();
+        //     }
+        //     for (const detail of this._uncfmBetDetails) {
+        //       if (detail.field === value.field) {
+        //         detail.amount = addedAmount - this._betChipStackMapping[value.field].cfmBet;
+        //         break;
+        //       }
+        //     }
+        //   }
+        // });
       }
 
       public onRepeatPressed() {
@@ -548,7 +587,7 @@ namespace we {
         const totalUncfmAmount = this.getTotalUncfmBetAmount();
         const totalCfmAmount = this.getTotalCfmBetAmount();
 
-        if (betLimit.minlimit > totalUncfmAmount+totalCfmAmount) {
+        if (betLimit.minlimit > totalUncfmAmount + totalCfmAmount) {
           return true;
         }
 
@@ -601,7 +640,11 @@ namespace we {
 
       public resetConfirmedBet() {
         this._cfmBetDetails = new Array();
+        this._doubleBetDetails = new Array();
         Object.keys(this._cfmBetDetails).map(value => {
+          this._cfmBetDetails.push({ field: value, amount: 0 });
+        });
+        Object.keys(this._doubleBetDetails).map(value => {
           this._cfmBetDetails.push({ field: value, amount: 0 });
         });
         if (this._betChipStackMapping) {

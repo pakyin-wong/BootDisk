@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_landscape.LiveGameTabbar" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
 	<ui:RunTimeLabel id="review" text="全部遊戲" x="60" y="72" size="48" height="71" verticalAlign="middle"/>
-	<e:Image id="trigger" width="104" height="104" x="2277" y="568" source="m-lobby-btn-filter-v_png"/>
+	<e:Image id="trigger" width="104" height="104" x="2277" y="568" source="m-lobby-btn-filter-h_png"/>
 
 </e:Skin>

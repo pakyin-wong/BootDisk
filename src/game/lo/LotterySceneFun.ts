@@ -36,7 +36,12 @@ namespace we {
         this.onBetChipChanged();
       }
       protected onRoadDataUpdate(evt: egret.Event) {
-        this._drawerPanel.update();
+        if (evt && evt.data) {
+          const stat = <data.TableInfo>evt.data;
+          if (stat.tableid === this._tableId) {
+            this._drawerPanel.update();
+          }
+        }
       }
 
       protected addListeners() {

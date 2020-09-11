@@ -5,10 +5,12 @@ namespace we {
       protected panelPageSelect: ui.Panel;
       protected btnPageSelect: egret.DisplayObject;
       protected txtPageSelect: ui.RunTimeLabel;
-      protected overlay: eui.Group;
+      protected noDataOverlay: eui.Group;
+      protected loadingOverlay: eui.Group;
 
       protected chartStack: eui.ViewStack;
       protected chartPeriodIndex: number;
+      protected chartTypeIndex: number;
 
       protected chartPeriodBtn1: eui.RadioButton;
       protected chartPeriodBtn2: eui.RadioButton;
@@ -125,6 +127,7 @@ namespace we {
 
       protected chartPeriodNames: string[] = ['day', 'pday', 'week', 'pweek', 'month', 'pmonth'];
       protected chartTypeNames: string[] = ['lucky_time', 'lucky_game', 'fav_bet', 'fav_game'];
+      protected chartTypeMapping: number[] = [2, 3, 0, 1];
 
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'LoRightPanel');
@@ -140,6 +143,8 @@ namespace we {
       }
       protected init() {
         this.chartPeriodIndex = 0;
+        this.chartTypeIndex = 0;
+        this.loadingOverlay.visible = true;
 
         const arrColRoadTypes = new eui.ArrayCollection([
           ui.NewDropdownItem(0, () => `lucky time`),
@@ -253,21 +258,35 @@ namespace we {
         this.chartPeriodBtn4.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
         this.chartPeriodBtn5.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
         this.chartPeriodBtn6.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+
+        const filter = { operatorID: 'IBC-sjfbshd', timeFilter: '', typeFilter: 2 }; // typeFilter 0: favourite bet, 1: favourite game, 2: lucky time, 3: lucky game
+        dir.evtHandler.addEventListener(core.Event.PLAYER_LOTTERY_STAT, this.onPlayerLotteryStatisticUpdate, this);
+        dir.socket.getPlayerLotteryStatistic(filter);
+
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
 
       protected onChartPeriodIndexChange(e: eui.UIEvent) {
         const radio: eui.RadioButton = e.target;
-        this.chartPeriodChange(radio.value);
+        this.chartPeriodIndex = radio.value - 0;
+        this.readPlayerLotteryResult();
       }
-      protected chartPeriodChange(i: number) {
-        this.chartPeriodIndex = i - 0;
+
+      protected readPlayerLotteryResult() {
+        this.noDataOverlay.visible = true;
+        const chartData = env.playerLotteryStat;
+        let d = [];
+        let ranks = [];
         let count = 0;
-        if (this.tableInfo.gamestatistic) {
+        let i = 0;
+        if (this.chartTypeIndex === 0) {
           // chart1
-          let chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[0]];
-          let d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
-          let ranks = [];
-          count = 0;
+          d = chartData[this.chartPeriodNames[this.chartPeriodIndex]].dataarrayList;
+          ranks = [];
+          for (i = 0; i < 10; i++) {
+            this['luckyTimeTxt' + (i + 1)].text = '-';
+            this['luckyTimeTxtValue' + (i + 1)].text = '-';
+          }
           if (d.length > 0) {
             d.forEach(element => {
               count++;
@@ -276,14 +295,16 @@ namespace we {
               ranks.push(element.value);
             });
             this._bestTimePieChart.setRanksAndAnimate(ranks, -1);
-            this.luckyTimeTitleValue.text = d[0].key + '';
+            this['luckyTimeTitleValue'].text = d[0].key + '';
           }
-
+        } else if (this.chartTypeIndex === 1) {
           // chart2
-          chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[1]];
-          d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
+          d = chartData[this.chartPeriodNames[this.chartPeriodIndex]].dataarrayList;
           ranks = [];
-          count = 0;
+          for (i = 0; i < 10; i++) {
+            this['luckyGameTxt' + (i + 1)].text = '-';
+            this['luckyGameTxtValue' + (i + 1)].text = '-';
+          }
           if (d.length > 0) {
             d.forEach(element => {
               count++;
@@ -291,57 +312,65 @@ namespace we {
               this['luckyGameTxtValue' + count].text = element.value;
               ranks.push(element.value);
             });
+            this['luckyGameTitleValue'].text = d[0].key;
             this._bestGamePieChart.setRanksAndAnimate(ranks, -1);
-            this.luckyGameTitleValue.text = d[0].key + '';
           }
-
+        } else if (this.chartTypeIndex === 2) {
           // chart3
-          chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[2]];
-          d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
-          ranks = [];
-          count = 0;
+          d = chartData[this.chartPeriodNames[this.chartPeriodIndex]].dataarrayList;
+          ranks = [0, 0, 0, 0, 0, 0];
+          for (i = 0; i < 6; i++) {
+            this['favBetTxt' + (i + 1)].text = '-';
+            this['favBetTxtValue' + (i + 1)].text = '-';
+          }
           if (d.length > 0) {
             d.forEach(element => {
               count++;
-              ranks.push(element.value);
+              this['favBetTxt' + count].text = element.key;
+              this['favBetTxtValue' + count].text = element.value;
+              ranks[count - 1] = element.value;
             });
             this._favBetBarChart.setRanksAndAnimate(ranks, -1);
           }
-
+        } else if (this.chartTypeIndex === 3) {
           // chart4
-          chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[3]];
-          d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
+          d = chartData[this.chartPeriodNames[this.chartPeriodIndex]].dataarrayList;
           ranks = [];
-          count = 0;
+          for (i = 0; i < 5; i++) {
+            this['favGameTxtPercent' + (i + 1)].text = '';
+            this['favGameTxt' + (i + 1)].text = '';
+            this['favGameTxtValue' + (i + 1)].text = '';
+          }
           if (d.length > 0) {
             d.forEach(element => {
               count++;
+              const percent = Math.round((element.value / d[0].value) * 100);
+              this['favGameTxtPercent' + count].text = percent + '%';
+              this['favGameTxt' + count].text = element.key;
+              this['favGameTxtValue' + count].text = element.value;
               ranks.push(element.value);
             });
             this._favGameBarChart.setRanksAndAnimate(ranks, -1);
           }
         }
-        this.checkChartData();
+        if (d.length > 0) {
+          this.noDataOverlay.visible = false;
+        }
       }
 
       private onChartTypesSelect(e) {
-        const chartTypeIndex = e.data;
-        this.panelPageSelect && this.panelPageSelect.dropdown.select(chartTypeIndex);
-        this.chartStack.selectedIndex = chartTypeIndex;
+        this.chartTypeIndex = e.data - 0;
+        this.panelPageSelect && this.panelPageSelect.dropdown.select(this.chartTypeIndex);
+        this.chartStack.selectedIndex = this.chartTypeIndex;
 
-        this.checkChartData();
+        this.loadingOverlay.visible = true;
+        const filter = { operatorID: 'IBC-sjfbshd', timeFilter: '', typeFilter: this.chartTypeMapping[this.chartTypeIndex] };
+        dir.socket.getPlayerLotteryStatistic(filter);
       }
 
-      // check chart data and show overlay if no data
-      private checkChartData() {
-        this.overlay.visible = true;
-        if (this.tableInfo) {
-          const chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[this.chartStack.selectedIndex]];
-          const d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
-          if (d.length > 0) {
-            this.overlay.visible = false;
-          }
-        }
+      private onPlayerLotteryStatisticUpdate(evt: egret.Event) {
+        this.loadingOverlay.visible = false;
+        this.readPlayerLotteryResult();
       }
 
       public update() {
@@ -356,8 +385,6 @@ namespace we {
 
               const history = this.tableInfo.gamestatistic.loHistory;
               const chart = this.tableInfo.gamestatistic.loChart;
-
-              this.chartPeriodChange(this.chartPeriodIndex);
 
               this.changeLang();
             }

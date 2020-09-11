@@ -55,9 +55,8 @@ namespace we {
 
       protected _searchDelay: number;
 
-      constructor() {
-        super('BetHistorySkin');
-
+      constructor(skin: string = 'BetHistorySkin') {
+        super(skin);
         this._dataColl = new eui.ArrayCollection();
       }
 
@@ -113,7 +112,15 @@ namespace we {
           this._ddm_limit.dropdown.select(10);
         }
         this._datagroup.dataProvider = this._dataColl;
-        this._datagroup.itemRenderer = betHistory.BetHistoryItem;
+        // this._datagroup.itemRenderer = betHistory.BetHistoryItem;
+        this._datagroup.itemRendererFunction = data => {
+          switch (data.gametype) {
+            case GameType.LO:
+              return betHistory.BetHistoryItemLottery;
+            default:
+              return betHistory.BetHistoryItem;
+          }
+        };
         this._tf_search.prompt = '';
         mouse.setButtonMode(this._tf_search, true);
         this.updatePlaceHolder();
@@ -139,6 +146,7 @@ namespace we {
         this._ddm_limit && this._ddm_limit.$addListener('DROPDOWN_ITEM_CHANGE', this.onLimitChange, this);
         this._ddm_searchType && this._ddm_searchType.$addListener('DROPDOWN_ITEM_CHANGE', this.onTypeChange, this);
         this._datepicker.$addListener('PICKED_DATE', this.searchCustomDate, this);
+        this._datagroup.addEventListener(egret.Event.CHANGE, this.onSelected, this);
       }
 
       protected removeListeners() {
@@ -153,6 +161,7 @@ namespace we {
         this._ddm_limit && this._ddm_limit.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onLimitChange, this);
         this._ddm_searchType && this._ddm_searchType.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onTypeChange, this);
         this._datepicker.removeEventListener('PICKED_DATE', this.searchCustomDate, this);
+        this._datagroup.removeEventListener(egret.Event.CHANGE, this.onSelected, this);
       }
 
       protected genGameTypeList(): any {
@@ -161,6 +170,10 @@ namespace we {
           isNaN(Number(k)) && list.push(ui.NewDropdownItem(core.GameType[k], () => `${i18n.t('gametype_' + k)}`));
         }
         return list;
+      }
+
+      protected onSelected() {
+        this._datagroup.validateNow();
       }
 
       protected searchToday() {
@@ -216,14 +229,15 @@ namespace we {
       }
 
       protected searchCustomDate(e: egret.Event) {
+        this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
+        this._btn_custom.active = true;
+
         if (!e.data || (this._starttime === e.data.starttime && this._endtime === e.data.endtime)) {
           return;
         }
 
         this._starttime = e.data.starttime;
         this._endtime = e.data.endtime;
-        this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
-        this._btn_custom.active = true;
         this.search();
       }
 
@@ -278,8 +292,6 @@ namespace we {
         if (res.error) {
           // TODO: handle error if bet history is not available
         } else {
-          console.log(res);
-
           this.total = Math.ceil(res.total / this._limit);
           this._page = Math.floor(res.offset / this._limit) + 1;
           this._ddm_page && this._ddm_page.dropdown.select(this._page);
@@ -298,7 +310,7 @@ namespace we {
             const e = Math.min(res.offset + this._limit, res.total);
             this._txt_total.text = i18n
               .t('overlaypanel_bethistory_total')
-              .replace('%now%', `${s}-${e}`)
+              .replace('%now%', res.total > 0 ? `${s}-${e}` : `0`)
               .replace('%total%', res.total);
           }
         }

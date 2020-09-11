@@ -107,11 +107,24 @@ namespace we {
       }
 
       public onTouchTapWhole(evt: egret.Event) {
+        // check if the parent name is "ActionButton"
+        let t = evt.target;
+        if (t.stage) {
+          while (!(t instanceof egret.Stage)) {
+            if (t.name === 'ActionButton') {
+              return;
+            } else {
+              t = t.parent;
+            }
+          }
+        }
+        //
         if (evt.currentTarget !== evt.target) {
           if (evt.target.hasEventListener(egret.TouchEvent.TOUCH_TAP) || evt.target.hasEventListener(eui.UIEvent.CHANGE)) {
             return;
           }
         }
+        //
         const target = this._displayItem.getActionButton();
         if (evt.target === target || this.isFocus) {
           return;

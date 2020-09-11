@@ -122,7 +122,7 @@ namespace we {
           this._titleLabel.text = i18n.t('baccarat.addNewGoodRoad');
         } else if (this.roadType === 1) {
           // default road
-          this._titleLabel.text = i18n.t('goodroad.r' + this.roadName);
+          this._titleLabel.text = i18n.t('goodroad.' + this.roadName);
         } else if (this.roadType === 2) {
           // custom road
           this._titleLabel.text = this.roadName;

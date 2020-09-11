@@ -1,340 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.LoLobbyRoadPanel" width="735" height="270" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.LoLobbyRoadPanel" width="578" height="273" xmlns:e="http://ns.egret.com/eui"
         xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-        <ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" width="735" height="60" x="0" y="0" stroke="0"
-                           fillColor="0x091b31" locked="true" />
-        <e:ViewStack id="roadStack" width="100%" height="100%" x="0" y="0" selectedIndex="0">
-                <e:Group id="road1Page" width="100%" height="100%" name="Group">
-                        <e:Group width="423" height="29" x="366" y="13" anchorOffsetX="0">
-                                <e:RadioButton id="road1Btn1" height="29" value="0" selected="true"
-                                               groupName="road1Group" width="60" touchEnabled="true"
-                                               touchChildren="false">
-                                        <e:skinName>
-                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
-                                                                 size="20" />
-                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xffffff"
-                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                 size="20" />
-                                                </e:Skin>
-                                        </e:skinName>
-                                </e:RadioButton>
-                                <e:RadioButton id="road1Btn2" height="29" value="1" selected="false"
-                                               groupName="road1Group" width="60" touchEnabled="true"
-                                               touchChildren="false">
-                                        <e:skinName>
-                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
-                                                                 size="20" />
-                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xffffff"
-                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                 size="20" />
-                                                </e:Skin>
-                                        </e:skinName>
-                                </e:RadioButton>
-                                <e:RadioButton id="road1Btn3" height="29" value="2" selected="false"
-                                               groupName="road1Group" width="60" touchEnabled="true"
-                                               touchChildren="false">
-                                        <e:skinName>
-                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
-                                                                 size="20" />
-                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xffffff"
-                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                 size="20" />
-                                                </e:Skin>
-                                        </e:skinName>
-                                </e:RadioButton>
-                                <e:RadioButton id="road1Btn4" height="29" value="3" selected="false"
-                                               groupName="road1Group" width="60" touchEnabled="true"
-                                               touchChildren="false">
-                                        <e:skinName>
-                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
-                                                                 size="20" />
-                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xffffff"
-                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                 size="20" />
-                                                </e:Skin>
-                                        </e:skinName>
-                                </e:RadioButton>
-                                <e:RadioButton id="road1Btn5" height="29" value="4" selected="false"
-                                               groupName="road1Group" width="60" touchEnabled="true"
-                                               touchChildren="false">
-                                        <e:skinName>
-                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
-                                                                 size="20" />
-                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xffffff"
-                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                 size="20" />
-                                                </e:Skin>
-                                        </e:skinName>
-                                </e:RadioButton>
-                                <e:layout>
-                                        <e:HorizontalLayout gap="16" />
-                                </e:layout>
+        <e:Rect width="578" height="60" x="0" y="0" fillColor="0x091b31" name="ActionButton" />
+        <e:ViewStack id="roadStack" width="100%" height="100%" x="0" y="0" selectedIndex="0" touchEnabled="false">
+                <e:Group id="road1Page" width="100%" height="100%" name="View" touchEnabled="false">
+                        <e:Group id="road1SelectBtn" width="160" height="40" x="393" y="10">
+                                <ui:RoundRectShape cornerTL_TR_BL_BR="20,20,20,20" height="40" width="160"
+                                                   fillColor="0x1b416e" stroke="0" />
+                                <ui:RunTimeLabel id="road1SelectTxt" text="Label" x="0" y="0" width="90%" height="100%"
+                                                 verticalAlign="middle" textAlign="center" size="20" alpha="0.7"
+                                                 scaleX="1" scaleY="1" />
+                                <e:Image width="10" height="15" x="140" y="15" source="d_lobby_button_triangle_next_png"
+                                         rotation="90" touchEnabled="false" />
                         </e:Group>
+                        <ui:Panel id="road1SelectPanel" width="160" x="393" y="55" skinName="skin_desktop.NavDropdown"
+                                  maxHeight="200" name="ActionButton" />
                 </e:Group>
-                <e:Group id="road2Page" width="100%" height="100%" name="View">
-                        <e:Group width="423" height="29" x="366" y="13" anchorOffsetX="0">
-                                <e:RadioButton id="road2Btn1" height="29" value="0" selected="true"
-                                               groupName="road2Group" width="60" touchEnabled="true"
-                                               touchChildren="false">
-                                        <e:skinName>
-                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
-                                                                 size="20" />
-                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xffffff"
-                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                 size="20" />
-                                                </e:Skin>
-                                        </e:skinName>
-                                </e:RadioButton>
-                                <e:RadioButton id="road2Btn2" height="29" value="1" selected="false"
-                                               groupName="road2Group" width="60" touchEnabled="true"
-                                               touchChildren="false">
-                                        <e:skinName>
-                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
-                                                                 size="20" />
-                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xffffff"
-                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                 size="20" />
-                                                </e:Skin>
-                                        </e:skinName>
-                                </e:RadioButton>
-                                <e:RadioButton id="road2Btn3" height="29" value="2" selected="false"
-                                               groupName="road2Group" width="60" touchEnabled="true"
-                                               touchChildren="false">
-                                        <e:skinName>
-                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
-                                                                 size="20" />
-                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xffffff"
-                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                 size="20" />
-                                                </e:Skin>
-                                        </e:skinName>
-                                </e:RadioButton>
-                                <e:RadioButton id="road2Btn4" height="29" value="3" selected="false"
-                                               groupName="road2Group" width="60" touchEnabled="true"
-                                               touchChildren="false">
-                                        <e:skinName>
-                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
-                                                                 size="20" />
-                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xffffff"
-                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                 size="20" />
-                                                </e:Skin>
-                                        </e:skinName>
-                                </e:RadioButton>
-                                <e:RadioButton id="road2Btn5" height="29" value="4" selected="false"
-                                               groupName="road2Group" width="60" touchEnabled="true"
-                                               touchChildren="false">
-                                        <e:skinName>
-                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
-                                                                 size="20" />
-                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xffffff"
-                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                 size="20" />
-                                                </e:Skin>
-                                        </e:skinName>
-                                </e:RadioButton>
-                                <e:layout>
-                                        <e:HorizontalLayout gap="16" />
-                                </e:layout>
+                <e:Group id="road2Page" width="100%" height="100%" name="View" touchEnabled="false">
+                        <e:Group id="road2SelectBtn" width="160" height="40" x="393" y="10">
+                                <ui:RoundRectShape cornerTL_TR_BL_BR="20,20,20,20" height="40" width="160"
+                                                   fillColor="0x1b416e" stroke="0" />
+                                <ui:RunTimeLabel id="road2SelectTxt" text="Label" x="0" y="0" width="90%" height="100%"
+                                                 verticalAlign="middle" textAlign="center" size="20" alpha="0.7"
+                                                 scaleX="1" scaleY="1" />
+                                <e:Image width="10" height="15" x="140" y="15" source="d_lobby_button_triangle_next_png"
+                                         rotation="90" touchEnabled="false" />
                         </e:Group>
+                        <ui:Panel id="road2SelectPanel" width="160" x="393" y="55" skinName="skin_desktop.NavDropdown"
+                                  maxHeight="200" name="ActionButton" />
                 </e:Group>
-                <e:Group id="road3Page" width="100%" height="100%" name="View">
-                        <e:Group width="423" height="29" x="366" y="13" anchorOffsetX="0">
-                                <e:RadioButton id="road3Btn1" height="29" value="0" selected="true"
-                                               groupName="road3Group" width="60" touchEnabled="true"
-                                               touchChildren="false">
-                                        <e:skinName>
-                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
-                                                                 size="20" />
-                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xffffff"
-                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                 size="20" />
-                                                </e:Skin>
-                                        </e:skinName>
-                                </e:RadioButton>
-                                <e:RadioButton id="road3Btn2" height="29" value="1" selected="false"
-                                               groupName="road3Group" width="60" touchEnabled="true"
-                                               touchChildren="false">
-                                        <e:skinName>
-                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
-                                                                 size="20" />
-                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xffffff"
-                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                 size="20" />
-                                                </e:Skin>
-                                        </e:skinName>
-                                </e:RadioButton>
-                                <e:RadioButton id="road3Btn3" height="29" value="2" selected="false"
-                                               groupName="road3Group" width="60" touchEnabled="true"
-                                               touchChildren="false">
-                                        <e:skinName>
-                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
-                                                                 size="20" />
-                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xffffff"
-                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                 size="20" />
-                                                </e:Skin>
-                                        </e:skinName>
-                                </e:RadioButton>
-                                <e:RadioButton id="road3Btn4" height="29" value="3" selected="false"
-                                               groupName="road3Group" width="60" touchEnabled="true"
-                                               touchChildren="false">
-                                        <e:skinName>
-                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
-                                                                 size="20" />
-                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xffffff"
-                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                 size="20" />
-                                                </e:Skin>
-                                        </e:skinName>
-                                </e:RadioButton>
-                                <e:RadioButton id="road3Btn5" height="29" value="4" selected="false"
-                                               groupName="road3Group" width="60" touchEnabled="true"
-                                               touchChildren="false">
-                                        <e:skinName>
-                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
-                                                                 size="20" />
-                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xffffff"
-                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                 size="20" />
-                                                </e:Skin>
-                                        </e:skinName>
-                                </e:RadioButton>
-                                <e:RadioButton id="road3Btn6" height="29" value="5" selected="false"
-                                               groupName="road3Group" width="60" touchEnabled="true"
-                                               touchChildren="false">
-                                        <e:skinName>
-                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
-                                                                 size="20" />
-                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xffffff"
-                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                 size="20" />
-                                                </e:Skin>
-                                        </e:skinName>
-                                </e:RadioButton>
-                                <e:RadioButton id="road3Btn7" height="29" value="6" selected="false"
-                                               groupName="road3Group" width="60" touchEnabled="true"
-                                               touchChildren="false">
-                                        <e:skinName>
-                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
-                                                                 size="20" />
-                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xffffff"
-                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                 size="20" />
-                                                </e:Skin>
-                                        </e:skinName>
-                                </e:RadioButton>
-                                <e:RadioButton id="road3Btn8" height="29" value="7" selected="false"
-                                               groupName="road3Group" width="60" touchEnabled="true"
-                                               touchChildren="false">
-                                        <e:skinName>
-                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
-                                                                 size="20" />
-                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xffffff"
-                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                 size="20" />
-                                                </e:Skin>
-                                        </e:skinName>
-                                </e:RadioButton>
-                                <e:RadioButton id="road3Btn9" height="29" value="8" selected="false"
-                                               groupName="road3Group" width="60" touchEnabled="true"
-                                               touchChildren="false">
-                                        <e:skinName>
-                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
-                                                                 size="20" />
-                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xffffff"
-                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                 size="20" />
-                                                </e:Skin>
-                                        </e:skinName>
-                                </e:RadioButton>
-                                <e:RadioButton id="road3Btn10" height="29" value="9" selected="false"
-                                               groupName="road3Group" width="60" touchEnabled="true"
-                                               touchChildren="false">
-                                        <e:skinName>
-                                                <e:Skin states="up,down,upAndSelected,downAndSelected">
-                                                        <e:Label id="labelDisplayUp" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xcccccc" includeIn="up"
-                                                                 size="20" />
-                                                        <e:Label id="labelDisplayDown" horizontalCenter="0"
-                                                                 verticalCenter="0" textColor="0xffffff"
-                                                                 includeIn="down,upAndSelected,downAndSelected"
-                                                                 size="20" />
-                                                </e:Skin>
-                                        </e:skinName>
-                                </e:RadioButton>
-                                <e:layout>
-                                        <e:HorizontalLayout gap="8" />
-                                </e:layout>
+                <e:Group id="road3Page" width="100%" height="100%" name="View" touchEnabled="false">
+                        <e:Group id="road3SelectBtn" width="160" height="40" x="393" y="10">
+                                <ui:RoundRectShape cornerTL_TR_BL_BR="20,20,20,20" height="40" width="160"
+                                                   fillColor="0x1b416e" stroke="0" />
+                                <ui:RunTimeLabel id="road3SelectTxt" text="Label" x="0" y="0" width="90%" height="100%"
+                                                 verticalAlign="middle" textAlign="center" size="20" alpha="0.7"
+                                                 scaleX="1" scaleY="1" />
+                                <e:Image width="10" height="15" x="140" y="15" source="d_lobby_button_triangle_next_png"
+                                         rotation="90" touchEnabled="false" />
                         </e:Group>
-                        <e:Image id="dtNextBtn" source="d_lottery_ent_penal_infopenal_subtag_btn_right_png" x="708"
-                                 y="20" width="20" height="20" />
+                        <ui:Panel id="road3SelectPanel" width="160" x="393" y="55" skinName="skin_desktop.NavDropdown"
+                                  maxHeight="200" name="ActionButton" />
                 </e:Group>
         </e:ViewStack>
-        <ui:RoundRectButton id="roadBtn1" cornerTL_TR_BL_BR="17,17,17,17" width="90" height="34" x="18" y="13"
-                            stroke="0" fillColor="0x343e4f" fillColor_click="0x1b416e" fillAlpha_click="1"
-                            fillColor_active="0x1b416e" labelColor="0xcccccc" labelColor_active="0xffffff" />
-        <ui:RoundRectButton id="roadBtn2" cornerTL_TR_BL_BR="17,17,17,17" width="90" height="34" x="116" y="13"
-                            stroke="0" fillColor="0x343e4f" fillColor_click="0x1b416e" fillAlpha_click="1"
-                            fillColor_active="0x1b416e" labelColor="0xcccccc" labelColor_active="0xffffff" />
-        <ui:RoundRectButton id="roadBtn3" cornerTL_TR_BL_BR="17,17,17,17" width="90" height="34" x="214" y="13"
-                            stroke="0" fillColor="0x343e4f" fillColor_click="0x1b416e" fillAlpha_click="1"
-                            fillColor_active="0x1b416e" labelColor="0xcccccc" labelColor_active="0xffffff" />
+        <e:Group width="300" height="50" x="6" y="13" anchorOffsetX="0" name="ActionButton">
+                <e:RadioButton id="road1Btn" height="29" value="0" selected="true" groupName="road1Group" width="76"
+                               touchEnabled="true" touchChildren="false">
+                        <e:skinName>
+                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0"
+                                                 textColor="0xcccccc" includeIn="up" size="20" />
+                                        <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0"
+                                                 textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected"
+                                                 size="20" />
+                                </e:Skin>
+                        </e:skinName>
+                </e:RadioButton>
+                <e:RadioButton id="road2Btn" height="29" value="1" selected="false" groupName="road1Group" width="76"
+                               touchEnabled="true" touchChildren="false">
+                        <e:skinName>
+                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0"
+                                                 textColor="0xcccccc" includeIn="up" size="20" />
+                                        <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0"
+                                                 textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected"
+                                                 size="20" />
+                                </e:Skin>
+                        </e:skinName>
+                </e:RadioButton>
+                <e:RadioButton id="road3Btn" height="29" value="2" selected="false" groupName="road1Group" width="76"
+                               touchEnabled="true" touchChildren="false">
+                        <e:skinName>
+                                <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0"
+                                                 textColor="0xcccccc" includeIn="up" size="20" />
+                                        <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0"
+                                                 textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected"
+                                                 size="20" />
+                                </e:Skin>
+                        </e:skinName>
+                </e:RadioButton>
+                <e:layout>
+                        <e:HorizontalLayout gap="0" />
+                </e:layout>
+        </e:Group>
 </e:Skin>

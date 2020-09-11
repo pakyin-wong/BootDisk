@@ -1,6 +1,7 @@
 namespace we {
   export namespace ba {
-    export class BARoadmapControl {
+    export class BARoadmapControl extends egret.EventDispatcher {
+      public static CLEAR_PREDICT_EVENT = 'CLEAR_PREDICT';
       protected tableInfo: data.TableInfo;
       protected beadRoad: BABeadRoad;
       protected bigRoad: BABigRoad;
@@ -16,6 +17,7 @@ namespace we {
       protected useParser: boolean = false;
 
       public constructor(tableid: string = null) {
+        super();
         this.tableid = tableid;
       }
 
@@ -45,9 +47,10 @@ namespace we {
         if (this.targetPanel) {
           this.targetPanel.iconBankerBead.touchEnabled = true;
           this.targetPanel.iconBankerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
-
+          mouse.setButtonMode(this.targetPanel.iconBankerBead, true);
           this.targetPanel.iconPlayerBead.touchEnabled = true;
           this.targetPanel.iconPlayerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
+          mouse.setButtonMode(this.targetPanel.iconPlayerBead, true);
         }
         // dark/light mode
         // dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
@@ -167,6 +170,7 @@ namespace we {
         } else {
           this.onDisplayUpdate(null);
         }
+        this.dispatchEventWith(BARoadmapControl.CLEAR_PREDICT_EVENT);
       }
 
       protected onDisplayUpdate(e: egret.Event) {
