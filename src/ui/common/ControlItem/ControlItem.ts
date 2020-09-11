@@ -255,6 +255,13 @@ namespace we {
 
             this.updateGame();
           }
+          if (this._favouriteButton) {
+            if (env.favouriteTableList.indexOf(this._tableId) > -1) {
+              this._favouriteButton.playPromise('idle_off', 0);
+            } else {
+              this._favouriteButton.playPromise('idle_on', 0);
+            }
+          }
         }
       }
 
@@ -533,12 +540,13 @@ namespace we {
 
       protected onFavouritePressed(evt: egret.Event) {
         if (env.favouriteTableList.indexOf(this._tableId) > -1) {
-          env.favouriteTableList.splice(env.favouriteTableList.indexOf(this._tableId));
+          env.favouriteTableList.splice(env.favouriteTableList.indexOf(this._tableId), 1);
+          this._favouriteButton.playPromise('switch_to_off', 0);
         } else {
           env.favouriteTableList.push(this._tableId);
+          this._favouriteButton.playPromise('switch_to_on', 0);
         }
-
-        console.log('Pass player setting = ' + JSON.stringify(env.favouriteTableList));
+        // console.log('Pass player setting = ' + JSON.stringify(env.favouriteTableList));
 
         dir.socket.updateSetting('favouriteTableList', JSON.stringify(env.favouriteTableList));
       }

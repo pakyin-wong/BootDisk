@@ -192,7 +192,7 @@ namespace we {
         this.dispatchEvent(new egret.Event('CLICKED'));
       }
 
-      private playPromise(anim, count) {
+      public playPromise(anim, count) {
         // console.log('BaseAnimationButton', anim);
 
         if (!this._display) {

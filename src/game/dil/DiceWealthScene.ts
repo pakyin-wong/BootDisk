@@ -76,7 +76,7 @@ namespace we {
 
       protected onRoadDataUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const stat = <data.TableInfo> evt.data;
+          const stat = <data.TableInfo>evt.data;
           if (stat.tableid === this._tableId) {
             this._roadmapControl.updateRoadData();
             this._rightGamePanel.updateStat();

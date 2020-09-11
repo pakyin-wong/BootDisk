@@ -1253,6 +1253,14 @@ declare module skin_mobile_landscape.dt{
 	}
 }
 declare module skin_mobile_landscape{
+	class FavouriteGameTableList extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class FavouritePage extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class GameBar extends eui.Skin{
 	}
 }
@@ -1864,6 +1872,10 @@ declare module skin_mobile_portrait.dt{
 }
 declare module skin_mobile_portrait.dt{
 	class TableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class FavouritePage extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

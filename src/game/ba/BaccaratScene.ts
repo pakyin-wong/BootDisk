@@ -143,7 +143,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo> evt.data;
+          const stat = <data.TableInfo>evt.data;
           if (stat.tableid === this._tableId) {
             this._roadmapControl.updateRoadData();
           }
@@ -155,11 +155,11 @@ namespace we {
         if (!evt || !evt.data) {
           return;
         }
-        const betInfo = <data.GameTableBetInfo> evt.data;
+        const betInfo = <data.GameTableBetInfo>evt.data;
         if (betInfo.tableid === this._tableId) {
           // update the scene
-          (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-          (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+          (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+          (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
         }
       }
 

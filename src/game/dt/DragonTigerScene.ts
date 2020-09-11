@@ -42,11 +42,11 @@ namespace we {
         if (!evt || !evt.data) {
           return;
         }
-        const betInfo = <data.GameTableBetInfo> evt.data;
+        const betInfo = <data.GameTableBetInfo>evt.data;
         if (betInfo.tableid === this._tableId) {
           // update the scene
-          (<we.dt.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-          (<we.dt.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+          (<we.dt.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+          (<we.dt.TableLayer>this._tableLayer).totalPerson = evt.data.count;
           // this._leftGamePanel.totalBet = evt.data.total;
         }
       }

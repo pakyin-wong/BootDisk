@@ -169,7 +169,7 @@ namespace we {
       }
 
       public addRolloverListeners() {
-        if(env.isMobile){
+        if (env.isMobile) {
           return;
         }
         Object.keys(this._mouseAreaMapping).forEach(value => {
@@ -180,7 +180,7 @@ namespace we {
       }
 
       public removeRolloverListeners() {
-        if(env.isMobile){
+        if (env.isMobile) {
           return;
         }
         Object.keys(this._mouseAreaMapping).forEach(value => {
@@ -191,7 +191,7 @@ namespace we {
       }
 
       public addRolloutListeners() {
-        if(env.isMobile){
+        if (env.isMobile) {
           return;
         }
         Object.keys(this._mouseAreaMapping).forEach(value => {
@@ -202,7 +202,7 @@ namespace we {
       }
 
       public removeRolloutListeners() {
-        if(env.isMobile){
+        if (env.isMobile) {
           return;
         }
         Object.keys(this._mouseAreaMapping).forEach(value => {

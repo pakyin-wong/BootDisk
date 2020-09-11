@@ -230,7 +230,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const tableBetInfo = <data.GameTableBetInfo> evt.data;
+          const tableBetInfo = <data.GameTableBetInfo>evt.data;
           if (tableBetInfo.tableid === this._tableId) {
             if (this.tableInfo.totalBet > 0) {
               this._alreadyBetSign.visible = true;

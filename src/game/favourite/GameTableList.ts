@@ -12,7 +12,7 @@ namespace we {
       public roomList: ui.TableList;
       public roomListRefer: eui.List;
 
-      private contentInitializer: live.IContentInitializer;
+      private contentInitializer: favourite.IContentInitializer;
 
       constructor(roomList: ui.TableList) {
         super();
@@ -21,13 +21,13 @@ namespace we {
 
         if (env.isMobile) {
           if (env.orientation === egret.OrientationMode.PORTRAIT) {
-            this.contentInitializer = new live.MPLiveContentInitializer();
+            this.contentInitializer = new MPFavouriteContentInitializer();
           } else {
-            this.updateSkin('LiveGameTableList');
-            this.contentInitializer = new live.MLLiveContentInitializer();
+            this.updateSkin('FavouriteGameTableList');
+            this.contentInitializer = new MLFavouriteContentInitializer();
           }
         } else {
-          this.contentInitializer = new live.DLiveContentInitializer();
+          this.contentInitializer = new DFavouriteContentInitializer();
         }
 
         if (env.favouriteTableList) {
@@ -45,30 +45,37 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChange, this);
         // dir.evtHandler.removeEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
         dir.evtHandler.removeEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this);
-        if (this.slider) {
-          this.roomList.removeChild(this.slider);
-        }
-        if (this.holder) {
-          this.roomList.removeChild(this.holder);
-        }
+        // if (this.slider) {
+        //   this.roomList.removeChild(this.slider);
+        // }
+        // if (this.holder) {
+        //   this.roomList.removeChild(this.holder);
+        // }
       }
 
       protected childrenCreated(): void {
         super.childrenCreated();
 
         dir.evtHandler.dispatch(core.Event.LIVE_PAGE_LOCK, false);
-
         this.contentInitializer.initContent(this);
-        if (this.slider) {
-          this.roomList.addChildAt(this.slider, 0);
-        }
-        if (this.holder) {
-          this.roomList.addChildAt(this.holder, 0);
-        }
+        // if (this.slider) {
+        //   this.roomList.addChildAt(this.slider, 0);
+        // }
+        // if (this.holder) {
+        //   this.roomList.addChildAt(this.holder, 0);
+        // }
 
         dir.evtHandler.addEventListener(core.Event.FAVOURITE_TABLE_LIST_UPDATE, this.handleTableList, this);
         // dir.evtHandler.addEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
         dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this, false, -1);
+
+        // if (this.slider) {
+        //   this.slider.visible = false;
+        // }
+
+        if (this.tabs) {
+          this.tabs.visible = false;
+        }
       }
 
       private onDisplayMode(evt: egret.Event) {

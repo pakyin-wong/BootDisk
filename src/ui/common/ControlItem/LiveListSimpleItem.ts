@@ -134,7 +134,7 @@ namespace we {
           return;
         }
         if (evt && evt.data) {
-          const tableBetInfo = <data.GameTableBetInfo> evt.data;
+          const tableBetInfo = <data.GameTableBetInfo>evt.data;
           if (tableBetInfo.tableid === this._tableId) {
             if (this._chipLayer.isAlreadyBet()) {
               this._alreadyBetSign.visible = true;
@@ -165,6 +165,10 @@ namespace we {
 
       public getActionButton(): eui.Component {
         return this._quickbetButton;
+      }
+
+      public getFavouriteButton(): eui.Component {
+        return this._favouriteButton;
       }
 
       public setData(tableInfo: data.TableInfo) {
