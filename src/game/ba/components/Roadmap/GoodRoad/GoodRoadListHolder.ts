@@ -26,6 +26,9 @@ namespace we {
       public get _roadId() {
         return this.roadId;
       }
+      public get _roadType() {
+        return this.roadType;
+      }
       private async mount() {
         // this.width = 293;
         // this.height = 225;
