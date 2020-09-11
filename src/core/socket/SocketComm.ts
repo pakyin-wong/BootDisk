@@ -90,6 +90,19 @@ namespace we {
         }
         // console.dir(value);
       }
+      public getPlayerLotteryStatistic(filter: any) {
+        this.client.getPlayerLotteryStatistic(filter, this.warpServerCallback(this._playerLotteryStatisticCallback));
+        // this.client.getPlayerLotteryStatistic(filter, this._playerLotteryStatisticCallback);
+      }
+
+      private _playerLotteryStatisticCallback(data: any) {
+        if (!data.error) {
+          // if the data is an error, do not update the data
+          env.playerLotteryStat = data;
+          // env.playerLotteryStat = { day: { dataarrayList: [{ key: '10:00', value: 10 }, { key: '11:00', value: 5 }, { key: '12:00', value: 1 }] } };
+          dir.evtHandler.dispatch(core.Event.PLAYER_LOTTERY_STAT);
+        }
+      }
 
       // Good Road
       public getGoodRoad() {
@@ -801,56 +814,64 @@ namespace we {
         },
         loChart: {
           fav_bet: {
-            day: [
-              {
-                key: 'INTEREST1SPECIAL',
-                value: 15.7,
-              },
-            ],
-            pday: [],
-            week: [],
-            pweek: [],
-            month: [],
-            pmonth: [],
+            day: {
+              dataarrayList: [
+                {
+                  key: 'INTEREST1SPECIAL',
+                  value: 15.7,
+                }, // bet code:value
+              ],
+            },
+            pday: { dataarrayList: [] },
+            week: { dataarrayList: [] },
+            pweek: { dataarrayList: [] },
+            month: { dataarrayList: [] },
+            pmonth: { dataarrayList: [] },
           },
           fav_game: {
-            day: [
-              {
-                key: '18',
-                value: 5000,
-              },
-            ],
-            pday: [],
-            week: [],
-            pweek: [],
-            month: [],
-            pmonth: [],
+            day: {
+              dataarrayList: [
+                {
+                  key: '18',
+                  value: 5000,
+                }, // game id:value
+              ],
+            },
+            pday: { dataarrayList: [] },
+            week: { dataarrayList: [] },
+            pweek: { dataarrayList: [] },
+            month: { dataarrayList: [] },
+            pmonth: { dataarrayList: [] },
           },
           lucky_time: {
-            day: [
-              {
-                key: '10:00',
-                value: 15.8,
-              },
-            ],
-            pday: [],
-            week: [],
-            pweek: [],
-            month: [],
-            pmonth: [],
+            day: {
+              dataarrayList: [
+                {
+                  key: '10:00',
+                  value: 15.8,
+                }, // time slot:value
+              ],
+            },
+            pday: { dataarrayList: [] },
+            week: { dataarrayList: [] },
+            pweek: { dataarrayList: [] },
+            month: { dataarrayList: [] },
+            pmonth: { dataarrayList: [] },
           },
           lucky_game: {
-            day: [
-              {
-                key: '18',
-                value: 5000,
-              },
-            ],
-            pday: [],
-            week: [],
-            pweek: [],
-            month: [],
-            pmonth: [],
+            day: {
+              dataarrayList: [
+                {
+                  key: '18',
+                  value: 5000,
+                }, // game id: value
+              ],
+            },
+            pday: { dataarrayList: [] },
+            week: { dataarrayList: [] },
+            pweek: { dataarrayList: [] },
+            month: { dataarrayList: [] },
+            pmonth: { dataarrayList: [] },
           },
         },
       };
