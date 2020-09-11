@@ -54,6 +54,7 @@ namespace we {
 
       overlaypanel_customroad_title: 'Good Road Settings',
       overlaypanel_customroad_default: 'Restore Default',
+      overlaypanel_customroad_selectall: 'Select All',
 
       overlaypanel_bethistory_title: 'Bet Record',
       overlaypanel_bethistory_date: 'Dates',

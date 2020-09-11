@@ -9,6 +9,7 @@ namespace we {
       protected _cover: eui.Rect;
       protected _defaultButton: ui.RoundRectButton;
       protected _selectAllButton: ui.ToggleButton;
+      protected _selectAllLabel: ui.RunTimeLabel;
 
       constructor() {
         super('CustomRoad');
@@ -20,7 +21,7 @@ namespace we {
 
       protected initCustomRoad() {
         this._txt_title.renderText = () => `${i18n.t('overlaypanel_customroad_title')}`;
-
+        this._selectAllLabel.renderText = () => `${i18n.t('overlaypanel_customroad_selectall')}`
         this.collection = new eui.ArrayCollection([]); // road ids
         this.roomList.dataProvider = this.collection;
         this.roomList.itemRenderer = we.ba.GoodRoadListHolder;
