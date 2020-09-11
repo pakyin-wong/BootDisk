@@ -2,9 +2,11 @@
 <e:Skin class="skin_desktop.BARoadmapRightPanel" width="675" height="304" xmlns:e="http://ns.egret.com/eui"
         xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
         <e:Rect id="mask" width="671" height="300" x="2" y="2" strokeWeight="0" ellipseHeight="16" ellipseWidth="16"
-                fillColor="0x7c7c7c" />
-        <e:Rect id="topBar" width="671" height="47" x="2" y="0" fillColor="0x1F242B" strokeWeight="0" ellipseHeight="0"
-                ellipseWidth="0" />
+                fillColor="0x7c7c7c"/>
+        <!--<e:Rect id="topBar" width="671" height="47" x="2" y="0" fillColor="0x1F242B" strokeWeight="0"
+                    ellipseHeight="0" ellipseWidth="0" />--> 
+        <ui:RoundRectShape id="topBar" cornerTL_TR_BL_BR="14,14,0,0" width="671" height="304" x="2" y="0" stroke="0"
+                           fillColor="0x1d242c" strokeIn="2" strokeInColor="0x434343" fillAlpha="0.9" strokeInAlpha="0.9" touchEnabled="false"/>
         <ui:RunTimeLabel id="totalCountLabel" text="0" x="622" y="13" textAlign="left" anchorOffsetX="0" width="50.67"
                          size="24" />
         <ui:RunTimeLabel id="bankerCountLabel" text="0" x="301" y="13" textAlign="left" anchorOffsetX="0" width="61"

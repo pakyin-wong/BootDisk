@@ -217,6 +217,7 @@ namespace we {
             }
             if (this.tableInfo.gamestatistic.totalCount) {
               this.totalCount = this.tableInfo.gamestatistic.totalCount;
+              this.totalCountLabel.text = this.tableInfo.gamestatistic.totalCount.toString();
             }
           }
         }
@@ -233,6 +234,11 @@ namespace we {
           this.modeLabel.text = '9';
           this.modeLayer.anchorOffsetX = this.modeLabel.width * 0.5;
         }
+      }
+
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
+        this.update();
       }
 
       public destroy() {

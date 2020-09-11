@@ -71,7 +71,7 @@ namespace we {
       protected initVideo() {
         this._video = dir.videoPool.get();
         this._video.setBrowser(env.UAInfo.browser.name);
-        this._video.load('https://www.webflv.com:8443/live/test.flv');
+        this._video.load('https://gcp.weinfra247.com:443/live/720.flv');
         dir.audioCtr.video = this._video;
         const aspect = 16 / 9;
         const ratio = this.stage.stageWidth / this.stage.stageHeight;

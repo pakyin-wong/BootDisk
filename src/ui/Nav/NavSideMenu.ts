@@ -108,7 +108,7 @@ namespace we {
 
       protected onClickHistory() {
         dir.evtHandler.createOverlay({
-          class: 'BetHistory',
+          class: env.isMobile ? 'BetHistory' : 'BetHistory_v2',
         });
         logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickHistory`);
       }

@@ -56,7 +56,7 @@ namespace we {
 
         for (const bd in lo.FunBet.betDetails) {
           this._betDetail.push({
-            field: `${lo.FunBet.betDetails[bd].id}@${lo.FunBet.betDetails[bd].amt}`,
+            field: `${lo.FunBet.betDetails[bd].id}@${lo.FunBet.betDetails[bd].amt}#1`,
             amount: lo.FunBet.betDetails[bd].amt,
           });
 

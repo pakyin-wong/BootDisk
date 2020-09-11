@@ -16,7 +16,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.8.7';
+      public version: string = '0.8.10';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -73,7 +73,7 @@ namespace we {
       // public soundEffect = 1;
 
       public betLimits: data.BetLimitSet[];
-      public wholeDenomList: number[];
+      // public wholeDenomList: (value: number) => number;
       public goodRoadData: data.GoodRoadMapData;
       public playerLotteryStat: any;
       public isMobile: boolean = false;
@@ -262,8 +262,8 @@ namespace we {
         if (!env.betLimits) {
           return;
         }
-        const denomMap = {};
-        let chipIndex = 0;
+        const denomMap = { [100]: 0 };
+        let chipIndex = 1;
         env.betLimits.map(limit => {
           limit.chips.map(chipValue => {
             if (!denomMap[chipValue]) {

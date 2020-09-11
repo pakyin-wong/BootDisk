@@ -1,0 +1,10 @@
+{
+    "target": "production",
+    "mode": "comm",
+    "playerID": "BMJCQSLH5S5VDBFBP1A0",
+    "endpoint": "https://uat-rest-gateway.weapi247.com",
+    "rabbitmqhostname": "uat-rabbitmq-mqtt.weapi247.com",
+    "rabbitmqport": "443",
+    "rabbitmqprotocol": "wss",
+    "connectTimeout": 1000000
+}
