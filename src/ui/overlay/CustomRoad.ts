@@ -98,17 +98,19 @@ namespace we {
         if (customRoadHolderList.length > 0) {
           if (this._selectAllButton._buttonState === 0 ){
             this.setAllRoadEnable(true)
-          } else {
+            console.log('env.goodRoadData',env.goodRoadData)
+          } else if(this._selectAllButton._buttonState === 1) {
             this.setAllRoadEnable(false)
+            console.log('env.goodRoadData',env.goodRoadData)
           }
           customRoadHolderList.forEach(holder => {
             const element = <ba.GoodRoadListHolder>holder;
-            this.onAllRoadModify(element)
+            // this.onAllRoadModify(element)
             const activebutton = element.item.activeButton;
             if (this._selectAllButton._buttonState === 0) {
               // activebutton.setInitButtonState(0)
-              element.item.setRoadEnabled(true);
-            } else {
+              // element.item.setRoadEnabled(true);
+            } else if(this._selectAllButton._buttonState === 1) {
               element.item.setRoadEnabled(false);
               // activebutton.setInitButtonState(1)
             }
@@ -119,47 +121,55 @@ namespace we {
       }
 
       protected setAllRoadEnable(setEnable:boolean){
-        // this.onAllRoadModify()
         let defaultarray = [];//[id,id,id,id...]
         let customarray = [];//[[id,data],[id,data],...]
+        let allGoadRoad = env.goodRoadData;//GoodRoadMapData {custom: Array[1], default: Array[10]}
+        let allDefaultGoadRoad = allGoadRoad.default;
+        let allCustomGoadRoad = allGoadRoad.custom;
         if(setEnable === true) {
-          //send all road to bkend
-          let allGoadRoad = env.goodRoadData;//GoodRoadMapData {custom: Array[1], default: Array[10]}
-          let allDefaultGoadRoad = allGoadRoad.default;
+
           allDefaultGoadRoad.forEach(element => {
+            element.enabled = true;
             defaultarray.push(element.id)
           });
-          let allCustomGoadRoad = allGoadRoad.custom;
           allCustomGoadRoad.forEach(element=> {
             let customid
             let customdata
             customid = element.id;
             customdata = element;
-            customdata.enable = true;
+            customdata.enabled = true;
             customarray.push([customid,customdata])
           })
-          // GoodRoadMapItemData
-          //   enabled:false
-          //   id:"BOBG7QGNS225G82K9V30"
-          //   name:"我的好路"
-          //   pattern:"bbbbbppp"
-          //   type:2
-          console.log('defaultarray',defaultarray)
-          console.log('customarray',customarray)
-          // dir.socket.updateDefaultGoodRoad(defaultarray);
+          dir.socket.updateDefaultGoodRoad(defaultarray);
+          customarray.forEach(element => {
+            dir.socket.updateCustomGoodRoad(element[0], element[1]);
+          });
 
         } else {
-          //send Default empty , all custom
-
-
-          // dir.socket.updateDefaultGoodRoad(defaultarray);
+          // let allCustomGoadRoad = allGoadRoad.custom;
+          allCustomGoadRoad.forEach(element=> {
+            let customid
+            let customdata
+            customid = element.id;
+            customdata = element;
+            customdata.enabled = false;
+            customarray.push([customid,customdata])
+          })
+          customarray.forEach(element => {
+            dir.socket.updateCustomGoodRoad(element[0], element[1]);
+          });
+          // defaultarray =[];
+          allDefaultGoadRoad.forEach(element => {
+            element.enabled = false;
+          });
+          dir.socket.updateDefaultGoodRoad(defaultarray);
         }
       }
-      protected onAllRoadModify(holder: ba.GoodRoadListHolder) {
-        console.log('env.goodRoadData',env.goodRoadData)
-        console.log('<ba.GoodRoadListHolder>', holder);
-        console.log('<ba.GoodRoadListHolder> holder._roadId', holder._roadId);
-      }
+      // protected onAllRoadModify(holder: ba.GoodRoadListHolder) {
+      //   console.log('env.goodRoadData',env.goodRoadData)
+      //   console.log('<ba.GoodRoadListHolder>', holder);
+      //   console.log('<ba.GoodRoadListHolder> holder._roadId', holder._roadId);
+      // }
       protected onRoadAdd(e: egret.Event) {
         if (!this._editRoadPanel.isActivated) {
           this._editRoadPanel.show();
@@ -180,7 +190,6 @@ namespace we {
       }
       protected onRoadModify(e: egret.Event) {
         if (e.data.roadType === 1) {
-          console.log('e.data,', e.data);
           // default
           const roadsEnabled = [];
           const defaults: data.GoodRoadMapItemData[] = env.goodRoadData.default.slice();
@@ -192,11 +201,11 @@ namespace we {
               roadsEnabled.push(element.id);
             }
           });
-          console.log('dir.socket.updateDefaultGoodRoad(roadsEnabled);', roadsEnabled);
+          console.log('roadsEnabled',roadsEnabled)
           dir.socket.updateDefaultGoodRoad(roadsEnabled);
+          
         } else if (e.data.roadType === 2) {
           // custom
-          console.log('dir.socket.updateCustomGoodRoad(e.data.id, e.data);',[e.data.id, e.data]);
           dir.socket.updateCustomGoodRoad(e.data.id, e.data);
         }
       }
