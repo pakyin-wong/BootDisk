@@ -19,7 +19,9 @@ namespace we {
         this.touchEnabled = true;
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
       }
-
+      public get _buttonState() {
+        return this.buttonState;
+      }
       public setInitButtonState(s: number) {
         if (s === 0) {
           this.buttonState = 0;

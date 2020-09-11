@@ -97,8 +97,13 @@ namespace we {
           customRoadHolderList.forEach(holder  => {
             let element = <ba.GoodRoadListHolder> holder;
             let activebutton = element.item.activeButton;
-            activebutton.setInitButtonState(0)
-            // console.log(`element.item ::::`,element.item.activeButton)
+            if (this._selectAllButton._buttonState === 0){
+              // activebutton.setInitButtonState(0)
+              element.item.setRoadEnabled(true)
+            } else (
+              // activebutton.setInitButtonState(1)
+              element.item.setRoadEnabled(false)
+            )
           });
         } else {
           return;
