@@ -1,6 +1,7 @@
 namespace we {
   export namespace ba {
-    export class BARoadmapControl {
+    export class BARoadmapControl extends egret.EventDispatcher {
+      public static CLEAR_PREDICT_EVENT = 'CLEAR_PREDICT';
       protected tableInfo: data.TableInfo;
       protected beadRoad: BABeadRoad;
       protected bigRoad: BABigRoad;
@@ -16,6 +17,7 @@ namespace we {
       protected useParser: boolean = false;
 
       public constructor(tableid: string = null) {
+        super();
         this.tableid = tableid;
       }
 
@@ -168,6 +170,7 @@ namespace we {
         } else {
           this.onDisplayUpdate(null);
         }
+        this.dispatchEventWith(BARoadmapControl.CLEAR_PREDICT_EVENT);
       }
 
       protected onDisplayUpdate(e: egret.Event) {
