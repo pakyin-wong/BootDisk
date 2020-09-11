@@ -133,12 +133,17 @@ namespace we {
         if (!this._chipLayer) {
           return;
         }
-        if (this._chipLayer.isAlreadyBet()) {
-          this._alreadyBetSign.visible = true;
-          this._button.label1text = i18n.t('mobile_quick_bet_button_add_label');
-        } else {
-          this._alreadyBetSign.visible = false;
-          this._button.label1text = i18n.t('mobile_quick_bet_button_label');
+        if (evt && evt.data) {
+          const tableBetInfo = <data.GameTableBetInfo> evt.data;
+          if (tableBetInfo.tableid === this._tableId) {
+            if (this._chipLayer.isAlreadyBet()) {
+              this._alreadyBetSign.visible = true;
+              this._button.label1text = i18n.t('mobile_quick_bet_button_add_label');
+            } else {
+              this._alreadyBetSign.visible = false;
+              this._button.label1text = i18n.t('mobile_quick_bet_button_label');
+            }
+          }
         }
       }
 

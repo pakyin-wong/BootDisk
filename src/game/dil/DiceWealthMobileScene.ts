@@ -198,7 +198,12 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
-        this._roadmapControl.updateRoadData();
+        if (evt && evt.data) {
+          const stat = <data.TableInfo> evt.data;
+          if (stat.tableid === this._tableId) {
+            this._roadmapControl.updateRoadData();
+          }
+        }
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {

@@ -74,12 +74,17 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
-        if (this.tableInfo.totalBet > 0) {
-          this._alreadyBetSign.visible = true;
-          // this._alreadyBetSign.x = this._goodRoadLabel.visible ? this._goodRoadLabel.width + 10 : 0;
-          // this._alreadyBetSign.x = this._goodRoadLabel.visible ? this._goodRoadLabel.width + 10 : 0;
-        } else {
-          this._alreadyBetSign.visible = false;
+        if (evt && evt.data) {
+          const tableBetInfo = <data.GameTableBetInfo> evt.data;
+          if (tableBetInfo.tableid === this._tableId) {
+            if (this.tableInfo.totalBet > 0) {
+              this._alreadyBetSign.visible = true;
+              // this._alreadyBetSign.x = this._goodRoadLabel.visible ? this._goodRoadLabel.width + 10 : 0;
+              // this._alreadyBetSign.x = this._goodRoadLabel.visible ? this._goodRoadLabel.width + 10 : 0;
+            } else {
+              this._alreadyBetSign.visible = false;
+            }
+          }
         }
       }
 

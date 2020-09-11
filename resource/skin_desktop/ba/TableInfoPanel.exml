@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.ba.TableInfoPanel" width="434" height="566" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="content" width="100%" x="0" height="100%" y="0">
-		<e:Image id="moveArea" source="popover_png" height="100%" width="100%" x="0" y="0"/>
+		<e:Image id="moveArea" source="popover_png" height="100%" width="100%" x="0" y="0" alpha="0.9"/>
 		<e:Image id="btnDetail" width="20" height="20" y="60" source="m_ba_tag_btn_detail_png" right="30"/>
 		<e:Image id="close" source="m_common_icon_close_png" y="20" touchEnabled="true" width="20" height="20"  right="30"/>
 		<e:Label id="lblTableInfo" text="本檯資訊" x="30" y="20" scaleX="1" scaleY="1" size="20" textColor="0xC59466" anchorOffsetY="0" height="20"/>
@@ -28,26 +28,26 @@
 		<e:Label id="playerPairLabel" text="閒對" y="490" x="30" scaleX="1" scaleY="1" size="20"  anchorOffsetY="0" height="20"/>
 		<e:Label id="superSixLabel" text="超級六 (免佣)" y="524" x="30" scaleX="1" scaleY="1" size="20" anchorOffsetY="0" height="20"/>
 		
-		<ui:RunTimeLabel id="pTableID" text="-" y="60" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" width="146" height="20" anchorOffsetX="0" anchorOffsetY="0" x="215"/>
-		<e:Label id="pRoundID" text="-" y="94" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" width="200" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
-		<e:Label id="pGameID" text="-" y="128" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" width="200" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
-		<e:Label id="pDealer" text="-" y="162" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" width="170" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
-		<e:Label id="pTableBetLimit" text="-" y="196" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" width="170" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
-		<ui:RunTimeLabel id="pBetLimit" text="-" y="230" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" width="146" height="20" anchorOffsetX="0" anchorOffsetY="0" x="215"/>
+		<e:Label id="pTableID" text="-" y="60" textAlign="right" textColor="0xffffff" scaleX="1" scaleY="1" size="20" width="146" height="20" anchorOffsetX="0" anchorOffsetY="0" x="215"/>
+		<e:Label id="pRoundID" text="-" y="94" textAlign="right" textColor="0xffffff" scaleX="1" scaleY="1" size="20" width="200" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
+		<e:Label id="pGameID" text="-" y="128" textAlign="right" textColor="0xffffff" scaleX="1" scaleY="1" size="20" width="200" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
+		<e:Label id="pDealer" text="-" y="162" textAlign="right" textColor="0xffffff" scaleX="1" scaleY="1" size="20" width="170" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
+		<e:Label id="pTableBetLimit" text="-" y="196" textAlign="right" textColor="0xffffff" scaleX="1" scaleY="1" size="20" width="170" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
+		<ui:RunTimeLabel id="pBetLimit" text="-" y="230" textAlign="right" textColor="0xffffff" scaleX="1" scaleY="1" size="20" width="146" height="20" anchorOffsetX="0" anchorOffsetY="0" x="215"/>
 
-		<e:Label id="pBankerMax" text="-" y="320" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pBankerOdd" text="-" y="320" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
-		<e:Label id="pSuperSixBankerMax" text="-" y="354" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pSuperSixBankerOdd" text="-" y="354" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
-		<e:Label id="pTieMax" text="-" y="388" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pTieOdd" text="-" y="388" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
-		<e:Label id="pPlayerMax" text="-" y="422" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pPlayerOdd" text="-" y="422" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
-		<e:Label id="pBankerPairMax" text="-" y="456" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pBankerPairOdd" text="-" y="456" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
-		<e:Label id="pPlayerPairMax" text="-" y="490" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pPlayerPairOdd" text="-" y="490" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
-		<e:Label id="pSuperSixMax" text="-" y="524" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pSuperSixOdd" text="-" y="524" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
+		<e:Label id="pBankerMax" text="-" y="320" textAlign="right" textColor="0xffffff" scaleX="1" scaleY="1" size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Label id="pBankerOdd" text="-" y="320" textAlign="right" textColor="0xffffff" scaleX="1" scaleY="1" size="20" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
+		<e:Label id="pSuperSixBankerMax" text="-" y="354" textAlign="right" textColor="0xffffff" scaleX="1" scaleY="1" size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Label id="pSuperSixBankerOdd" text="-" y="354" textAlign="right" textColor="0xffffff" scaleX="1" scaleY="1" size="20" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
+		<e:Label id="pTieMax" text="-" y="388" textAlign="right" textColor="0xffffff" scaleX="1" scaleY="1" size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Label id="pTieOdd" text="-" y="388" textAlign="right" textColor="0xffffff" scaleX="1" scaleY="1" size="20" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
+		<e:Label id="pPlayerMax" text="-" y="422" textAlign="right" textColor="0xffffff" scaleX="1" scaleY="1" size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Label id="pPlayerOdd" text="-" y="422" textAlign="right" textColor="0xffffff" scaleX="1" scaleY="1" size="20" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
+		<e:Label id="pBankerPairMax" text="-" y="456" textAlign="right" textColor="0xffffff" scaleX="1" scaleY="1" size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Label id="pBankerPairOdd" text="-" y="456" textAlign="right" textColor="0xffffff" scaleX="1" scaleY="1" size="20" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
+		<e:Label id="pPlayerPairMax" text="-" y="490" textAlign="right" textColor="0xffffff" scaleX="1" scaleY="1" size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Label id="pPlayerPairOdd" text="-" y="490" textAlign="right" textColor="0xffffff" scaleX="1" scaleY="1" size="20" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
+		<e:Label id="pSuperSixMax" text="-" y="524" textAlign="right" textColor="0xffffff" scaleX="1" scaleY="1" size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Label id="pSuperSixOdd" text="-" y="524" textAlign="right" textColor="0xffffff" scaleX="1" scaleY="1" size="20" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30"/>
 	</e:Group>
 </e:Skin>

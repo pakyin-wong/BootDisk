@@ -68,10 +68,15 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
-        if (this._chipLayer.isAlreadyBet()) {
-          this._alreadyBetSign.visible = true;
-        } else {
-          this._alreadyBetSign.visible = false;
+        if (evt && evt.data) {
+          const tableBetInfo = <data.GameTableBetInfo> evt.data;
+          if (tableBetInfo.tableid === this._tableId) {
+            if (this._chipLayer.isAlreadyBet()) {
+              this._alreadyBetSign.visible = true;
+            } else {
+              this._alreadyBetSign.visible = false;
+            }
+          }
         }
       }
 
