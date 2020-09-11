@@ -248,7 +248,7 @@ namespace we {
       },
       lobby: {
         header: {
-          lobby: '精选推介',
+          lobby: '首页',
           live: '真人游戏',
           lottery: '彩票游戏',
           egame: '电子游戏',

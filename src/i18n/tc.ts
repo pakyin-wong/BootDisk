@@ -224,7 +224,7 @@ namespace we {
       },
       lobby: {
         header: {
-          lobby: '精選推介',
+          lobby: '首頁',
           live: '真人遊戲',
           lottery: '彩票遊戲',
           egame: '電子遊戲',
