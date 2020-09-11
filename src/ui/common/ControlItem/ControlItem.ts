@@ -11,6 +11,7 @@ namespace we {
 
       protected _confirmButton: eui.Button;
       protected _cancelButton: ui.BaseImageButton;
+      protected _favouriteButton: ui.BaseAnimationButton;
       protected _resultMessage: ui.IGameResultMessage & eui.Component;
       protected _message: ui.InGameMessage;
       protected _dropdown: live.BetLimitDropdown;
@@ -25,6 +26,7 @@ namespace we {
       protected _betDetails: data.BetDetail[];
       protected _previousState: number;
       protected _gameData: we.data.GameData;
+      protected _playerData: we.data.PlayerSession;
       protected _timer: ui.CountdownTimer;
       protected _mouseOutside: boolean = true;
 
@@ -123,6 +125,9 @@ namespace we {
         }
         this._confirmButton && this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this._cancelButton && this._cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
+        if (this._favouriteButton) {
+          this._favouriteButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onFavouritePressed, this, true);
+        }
       }
 
       public insufficientBalance() {
@@ -160,6 +165,9 @@ namespace we {
         }
         this._confirmButton && this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this._cancelButton && this._cancelButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
+        if (this._favouriteButton) {
+          this._favouriteButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onFavouritePressed, this, true);
+        }
         this._timer && this._timer.stop();
       }
 
@@ -179,7 +187,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         // logger.l(utils.LoggerTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -231,6 +239,7 @@ namespace we {
         }
         this._betDetails = this._tableInfo.bets;
         this._gameData = this._tableInfo.data;
+
         this._previousState = this._gameData ? this._gameData.previousstate : null;
         if (this._label) {
           this._label.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this.tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
@@ -246,7 +255,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -255,6 +264,13 @@ namespace we {
             this._gameData = this._tableInfo.data;
 
             this.updateGame();
+          }
+          if (this._favouriteButton) {
+            if (env.favouriteTableList.indexOf(this._tableId) > -1) {
+              this._favouriteButton.playPromise('idle_off', 0);
+            } else {
+              this._favouriteButton.playPromise('idle_on', 0);
+            }
           }
         }
       }
@@ -530,6 +546,19 @@ namespace we {
             }
           }
         }
+      }
+
+      protected onFavouritePressed(evt: egret.Event) {
+        if (env.favouriteTableList.indexOf(this._tableId) > -1) {
+          env.favouriteTableList.splice(env.favouriteTableList.indexOf(this._tableId), 1);
+          this._favouriteButton.playPromise('switch_to_off', 0);
+        } else {
+          env.favouriteTableList.push(this._tableId);
+          this._favouriteButton.playPromise('switch_to_on', 0);
+        }
+        // console.log('Pass player setting = ' + JSON.stringify(env.favouriteTableList));
+
+        dir.socket.updateSetting('favouriteTableList', JSON.stringify(env.favouriteTableList));
       }
 
       protected onBetReturned(result) {

@@ -95,6 +95,7 @@ namespace we {
       public allTableList: string[] = [];
       public goodRoadTableList: string[] = [];
       public betTableList: string[] = [];
+      public favouriteTableList: string[] = [];
 
       private _currTime: number = Date.now();
       private _currTimeLastUpdateTime: number = Date.now();

@@ -135,7 +135,7 @@ namespace we {
           return;
         }
         if (evt && evt.data) {
-          const tableBetInfo = <data.GameTableBetInfo> evt.data;
+          const tableBetInfo = <data.GameTableBetInfo>evt.data;
           if (tableBetInfo.tableid === this._tableId) {
             if (this._chipLayer.isAlreadyBet()) {
               this._alreadyBetSign.visible = true;
@@ -166,6 +166,10 @@ namespace we {
 
       public getActionButton(): eui.Component {
         return this._quickbetButton;
+      }
+
+      public getFavouriteButton(): eui.Component {
+        return this._favouriteButton;
       }
 
       public setData(tableInfo: data.TableInfo) {
@@ -294,13 +298,20 @@ namespace we {
           return;
         }
         egret.Tween.removeTweens(this._quickbetButton);
+        egret.Tween.removeTweens(this._favouriteButton);
         if (show) {
           egret.Tween.get(this._quickbetButton)
             .set({ visible: true })
             .to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
+          egret.Tween.get(this._favouriteButton)
+            .set({ visible: true })
+            .to({ alpha: 1 }, this._tweenInterval1);
         } else {
           egret.Tween.get(this._quickbetButton)
             .to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250)
+            .set({ visible: false });
+          egret.Tween.get(this._favouriteButton)
+            .to({ alpha: 0 }, 250)
             .set({ visible: false });
         }
       }
@@ -308,7 +319,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);

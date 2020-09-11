@@ -5,7 +5,7 @@ namespace we {
       protected _header: eui.Group;
       private _page: eui.Component;
       private _list: eui.TabBar;
-      private _items: string[] ;
+      private _items: string[];
 
       private _common_listpanel: ui.BaseImageButton;
 
@@ -19,10 +19,10 @@ namespace we {
         this.sceneHeaderPlacement = core.BaseScene.HEADER_PLACEMENT_LOBBY;
         this._skinKey = 'LobbyScene';
         this.skinName = utils.getSkinByClassname(this._skinKey);
-        if(env.isMobile){
-          this._items = ['lobby', 'live', 'lottery', 'egame', 'favorite']
-        }else{
-          this._items = ['live', 'lottery', 'egame', 'favorite']
+        if (env.isMobile) {
+          this._items = ['lobby', 'live', 'lottery', 'egame', 'favourite'];
+        } else {
+          this._items = ['live', 'lottery', 'egame', 'favourite'];
         }
       }
 
@@ -108,13 +108,13 @@ namespace we {
         if (!this.label.bold) {
           this.label.bold = true;
           this.label.minWidth = this.label.textWidth;
-          if(env.isMobile){
+          if (env.isMobile) {
             this.label.parent.width = this.label.textWidth;
           }
           this.label.bold = false;
         } else {
           this.label.minWidth = this.label.textWidth;
-          if(env.isMobile){
+          if (env.isMobile) {
             this.label.parent.width = this.label.textWidth;
           }
         }
