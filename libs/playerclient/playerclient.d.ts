@@ -47,6 +47,7 @@ declare class PlayerClient {
     enterTable(tableID: string): void;
     leaveTable(tableID: string): void;
     bet(tableID: string, betArray: BetValueCommand[], callback: Function): void;
+    lotteryContinuousBet(tableID: string, betArray: BetValueCommand[], roundArray: LotteryBetValueCommand[], callback:Function)
     updateSetting(key: string, value: string): void;
     updateSettings(settings: {
         [key: string]: string;
@@ -67,6 +68,7 @@ declare class PlayerClient {
     getBetHistory(filter: object, callback?: (data: object) => void): void;
     getPlayerProfileSummary(callback?: Function): void;
     getPlayerStatistic(filter: object, callback?: Function): void;
+    getPlayerLotteryStatistic(filter: object, callback?: Function): void;
     sendVerifyInfo(tableID: string, pattern: string[], callback?: Function): void;
     private _handleGetTableList;
     private _handleTableInfoUpdate;
@@ -160,6 +162,12 @@ declare enum DTWinType {
 interface BetValueCommand {
     field: string;
     amount: number;
+}
+
+interface LotteryBetValueCommand {
+    round: string;
+    multiplier: number;
+    isStopWon: boolean;
 }
 
 interface LobbyMaterial {
