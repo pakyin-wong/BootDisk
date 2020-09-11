@@ -56,10 +56,12 @@ namespace we {
       }
 
       public render() {
+        // this.roadsContainer.visible = true;
+        // this.roadsContainerRT.drawToTexture(this.roadsContainer, this.roadsContainer.getBounds(), 1);
+        // this.roadsContainer.visible = false;
+        // this.roadsContainerDisplay.visible = true;
+        this.roadsContainerDisplay.visible = false;
         this.roadsContainer.visible = true;
-        this.roadsContainerRT.drawToTexture(this.roadsContainer, this.roadsContainer.getBounds(), 1);
-        this.roadsContainer.visible = false;
-        this.roadsContainerDisplay.visible = true;
       }
 
       public destroy() {

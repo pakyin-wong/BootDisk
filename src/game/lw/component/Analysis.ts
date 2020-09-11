@@ -54,18 +54,6 @@ namespace we {
       }
 
       public updateRoad() {}
-
-      public render() {
-        if (this._content) {
-          this._content.visible = true;
-          this._content.validateNow();
-          const rect = new egret.Rectangle(0, 0, this._content.width, this._content.height);
-          this.containerRT.drawToTexture(this._content, rect, 1);
-          this._content.visible = false;
-          this.containerDisplay.visible = true;
-        }
-      }
-
     }
   }
 }

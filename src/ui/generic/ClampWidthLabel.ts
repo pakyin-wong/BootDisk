@@ -7,7 +7,7 @@ namespace we {
       protected _explicitSize: number = null;
       protected _targetScaleX: number = 1;
 
-      protected _retina: boolean = true;
+      protected _retina: boolean = false;
 
       constructor() {
         super();

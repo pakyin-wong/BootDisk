@@ -55,6 +55,8 @@ namespace we {
         //   // this._profile.Nav = this;
         // }
         /////////////////////
+
+        this.touchEnabled = false;
         if (this._profile) {
           this._profile.setToggler(this._profile_toggle);
           this._profile.dismissOnClickOutside = true;

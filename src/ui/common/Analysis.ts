@@ -18,36 +18,31 @@ namespace we {
 
         this.init();
 
-        if (this._content) {
-          this.containerRT = new egret.RenderTexture();
-          this.containerDisplay = new egret.Bitmap();
-          this.containerDisplay.texture = this.containerRT;
-          this.containerDisplay.x = this._content.x;
-          this.containerDisplay.y = this._content.y;
-          const idx = this.getChildIndex(this._content);
-          this.addChildAt(this.containerDisplay, idx+1);
+        // if (this._content) {
+        //   this.containerRT = new egret.RenderTexture();
+        //   this.containerDisplay = new egret.Bitmap();
+        //   this.containerDisplay.texture = this.containerRT;
+        //   this.containerDisplay.x = this._content.x;
+        //   this.containerDisplay.y = this._content.y;
+        //   const idx = this.getChildIndex(this._content);
+        //   this.addChildAt(this.containerDisplay, idx+1);
 
-          this.render();
-        }
-        /*
-
-        this._oddChart.setParam(230, 70, 500, 300, 0, 30, 10);
-        this._oddChart.draw();
-        this._bigChart.setParam(230, 70, 60, 200, 0, 30, 10);
-        this._bigChart.draw();
-        */
+        //   this.render();
+        // }
       }
 
       protected init() {}
 
       public render() {
-        if (this._content) {
-          this._content.visible = true;
-          this._content.validateNow();
-          this.containerRT.drawToTexture(this._content, this._content.getBounds(), 1);
-          this._content.visible = false;
-          this.containerDisplay.visible = true;
-        }
+        // if (this._content) {
+        //   this._content.visible = true;
+        //   this._content.validateNow();
+        //   this.containerRT.drawToTexture(this._content, this._content.getBounds(), 1);
+        //   this._content.visible = false;
+        //   this.containerDisplay.visible = true;
+        // }
+        if (this.containerDisplay) { this.containerDisplay.visible = false; }
+        if (this._content) { this._content.visible = true; }
       }
 
       public set tableId(value: string) {
@@ -68,12 +63,12 @@ namespace we {
       }
 
       public updateRoad() {
-        if (!this._tableId) {
-          return;
-        }
-        if (this._content) {
-          this.render();
-        }
+        // if (!this._tableId) {
+        //   return;
+        // }
+        // if (this._content) {
+        //   this.render();
+        // }
       }
     }
   }
