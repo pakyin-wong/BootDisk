@@ -272,6 +272,8 @@ namespace we {
         askDragon: 'Ask Dn',
         askTiger: 'Ask Tr',
         DragonTigerTieRatio: 'Dragon Tiger ratio',
+        TieRatio: 'Tie ratio',
+        DealerRatio: 'Dealer DT ratio',
         round: 'round',
         rounds: 'rounds',
       },

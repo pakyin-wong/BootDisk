@@ -316,6 +316,8 @@ namespace we {
         askDragon: '龙问路',
         askTiger: '虎问路',
         DragonTigerTieRatio: '龙虎和比例',
+        TieRatio: '和比例',
+        DealerRatio: '荷官开龙虎比例',
         round: '局',
         rounds: '局',
       },
