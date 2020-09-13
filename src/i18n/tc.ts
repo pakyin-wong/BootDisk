@@ -57,6 +57,10 @@ namespace we {
       overlaypanel_customroad_selectall: '全選',
 
       overlaypanel_bethistory_title: '投註記錄',
+      overlaypanel_bethistory_tab_all: '遊戲總覽',
+      overlaypanel_bethistory_tab_live: '真人遊戲',
+      overlaypanel_bethistory_tab_lottery: '彩票遊戲',
+      overlaypanel_bethistory_tab_egame: '電子遊戲',
       overlaypanel_bethistory_date: '日期',
       overlaypanel_bethistory_today: '今日',
       overlaypanel_bethistory_yesterday: '昨天',
@@ -93,6 +97,9 @@ namespace we {
       overlaypanel_bethistorylottery_record_bettype: '類型',
       overlaypanel_bethistorylottery_record_betgroup: '玩法',
       overlaypanel_bethistorylottery_record_betfield: '投注項目',
+
+      overlaypanel_bethistorylottery_tab_single: '投注記錄',
+      overlaypanel_bethistorylottery_tab_multi: '追號記錄',
 
       overlaypanel_bethistory_baresult_banker: '庄',
       overlaypanel_bethistory_baresult_player: '閒',
@@ -163,6 +170,17 @@ namespace we {
         },
       },
       nav: {
+        tooltip: {
+          menu: '選單',
+          back: '返回大堂',
+          refresh: '刷新餘額',
+          profile: '賬戶資訊',
+          roominfo: '遊戲資訊',
+          betlimit: '限紅設定',
+          d_lobby_viewmode_icon_tiny: '簡易版',
+          d_lobby_viewmode_icon_general: '普通版',
+          d_lobby_viewmode_icon_pro: '專業版',
+        },
         bet_balance: '餘額',
         menu: {
           title: '設定',
@@ -207,11 +225,11 @@ namespace we {
       },
       lobby: {
         header: {
-          lobby: '精選推介',
+          lobby: '首頁',
           live: '真人遊戲',
           lottery: '彩票遊戲',
           egame: '電子遊戲',
-          favorite: '我的最愛',
+          favourite: '我的最愛',
         },
         categoryPromotion: '精選推介',
         categoryBaccarat: '百家樂',
@@ -230,6 +248,7 @@ namespace we {
           roulette: '輪盤',
           dice: '骰寶',
           other: '其他',
+          special: '特別遊戲',
         },
       },
       tableInfo: {

@@ -60,7 +60,7 @@ namespace we {
 
       protected setStateBet(isInit: boolean) {
         super.setStateBet(isInit);
-        this._dilGameID.renderText = () => `${this._tableInfo.tableid}`;
+        this._dilGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
         (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
@@ -198,7 +198,12 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
-        this._roadmapControl.updateRoadData();
+        if (evt && evt.data) {
+          const stat = <data.TableInfo>evt.data;
+          if (stat.tableid === this._tableId) {
+            this._roadmapControl.updateRoadData();
+          }
+        }
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {

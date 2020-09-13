@@ -57,6 +57,10 @@ namespace we {
       overlaypanel_customroad_selectall: 'Select All',
 
       overlaypanel_bethistory_title: 'Bet Record',
+      overlaypanel_bethistory_tab_all: 'All',
+      overlaypanel_bethistory_tab_live: 'Live',
+      overlaypanel_bethistory_tab_lottery: 'Lottery',
+      overlaypanel_bethistory_tab_egame: 'Egame',
       overlaypanel_bethistory_date: 'Dates',
       overlaypanel_bethistory_today: 'Today',
       overlaypanel_bethistory_yesterday: 'Yesterday',
@@ -88,6 +92,9 @@ namespace we {
       overlaypanel_bethistory_btn_next: 'Next',
       overlaypanel_bethistory_btn_prev: 'Previous',
       overlaypanel_bethistory_searchtype_all: 'All',
+
+      overlaypanel_bethistorylottery_tab_single: 'Single',
+      overlaypanel_bethistorylottery_tab_multi: 'Multi',
 
       overlaypanel_bethistorylottery_record_round: 'Round',
       overlaypanel_bethistorylottery_record_bettype: 'Type',
@@ -163,6 +170,17 @@ namespace we {
         },
       },
       nav: {
+        tooltip: {
+          menu: 'Menu',
+          back: 'Back to lobby',
+          refresh: 'Refresh',
+          profile: 'Profile',
+          roominfo: 'Room Info',
+          betlimit: 'Bet Limit',
+          d_lobby_viewmode_icon_tiny: 'Tiny View',
+          d_lobby_viewmode_icon_general: 'Normal View',
+          d_lobby_viewmode_icon_pro: 'Professional View',
+        },
         bet_balance: 'Balance',
         menu: {
           title: 'Settings',
@@ -211,7 +229,7 @@ namespace we {
           live: 'Live',
           lottery: 'Lottery',
           egame: 'EGame',
-          favorite: 'Favorite',
+          favourite: 'Favourite',
         },
         categoryPromotion: 'Promoted',
         categoryBaccarat: 'Baccarat',
@@ -230,6 +248,7 @@ namespace we {
           roulette: 'Roulette',
           dice: 'SicBo',
           other: 'Others',
+          special: 'Special',
         },
       },
       tableInfo: {

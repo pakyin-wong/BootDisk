@@ -1,7 +1,7 @@
 namespace we {
   export namespace di {
-    export class AdvancedRoad extends core.BaseEUI implements we.ui.IAdvancedRoad {
-      protected _tableInfo: data.TableInfo;
+    export class AdvancedRoad extends ui.AdvancedRoad {
+      // protected _tableInfo: data.TableInfo;
 
       public beadRoad: we.di.DiBeadRoad;
       public sizeBigRoad: DiSizeBigRoad;
@@ -10,7 +10,7 @@ namespace we {
 
       public analysis: we.ui.IAnalysis;
 
-      protected roadsContainer: egret.DisplayObjectContainer;
+      // protected roadsContainer: egret.DisplayObjectContainer;
 
       protected totalCount: number;
 
@@ -18,19 +18,19 @@ namespace we {
         super(skin);
       }
 
-      public set tableInfo(value: data.TableInfo) {
-        this._tableInfo = value;
-      }
+      // public set tableInfo(value: data.TableInfo) {
+      //   this._tableInfo = value;
+      // }
 
-      public get tableInfo() {
-        return this._tableInfo;
-      }
+      // public get tableInfo() {
+      //   return this._tableInfo;
+      // }
 
-      protected mount() {
-        this.init();
-      }
+      // protected mount() {
+      //   this.init();
+      // }
 
-      protected init() {
+      protected initRoad() {
         const layout = new eui.VerticalLayout();
         const group = new eui.Group();
         group.layout = layout;
@@ -63,9 +63,17 @@ namespace we {
         this.roadsContainer.addChild(this.sizeBigRoad);
         this.roadsContainer.addChild(this.oddBigRoad);
 
-        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        this.roadsContainerRT = new egret.RenderTexture();
+        this.roadsContainerDisplay = new egret.Bitmap();
+        this.roadsContainerDisplay.texture = this.roadsContainerRT;
+        this.roadsContainerDisplay.scaleX = 584 / 600;
+        this.roadsContainerDisplay.scaleY = 450 / (190 + 12 * 24);
+        this.addChild(this.roadsContainerDisplay);
 
-        this.changeLang();
+
+        // dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+
+        // this.changeLang();
       }
 
       public changeLang() {
@@ -95,6 +103,7 @@ namespace we {
             // this.changeLang();
           }
         }
+        super.update();
       }
 
       // called by BaRoadmapControl

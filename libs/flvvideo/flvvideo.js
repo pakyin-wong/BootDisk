@@ -104,7 +104,7 @@ var egret;
                         const tempCanvas = document.createElement('canvas');
                         tempCanvas.id = 'tempCanvas' + this.videoCanvas.id 
                         tempCanvas.width = 720;//1366;
-                        tempCanvas.height = 480;//768;
+                        tempCanvas.height = 405;//768;
                         tempCanvas.style.display = 'none';
                         document.body.appendChild(tempCanvas);
                         this.tempCanvas = tempCanvas

@@ -1,14 +1,15 @@
 namespace we {
   export namespace ui {
     export class AnimBetChip extends core.BaseEUI implements eui.UIComponent, IBetChip {
-      protected chipImageMapping = ['Lv1_Blue', 'Lv1_Yellow', 'Lv1_Orange', 'Lv1_Light_Red', 'Lv1_Purple', 'Lv1_Magentas_Dark', 'Lv1_Green', 'Lv1_Blue_Dark', 'Lv1_Green_Dark', 'Lv1_Gray_Light'];
+      // protected chipImageMapping = ['Lv1_Blue', 'Lv1_Yellow', 'Lv1_Orange', 'Lv1_Light_Red', 'Lv1_Purple', 'Lv1_Magentas_Dark', 'Lv1_Green', 'Lv1_Blue_Dark', 'Lv1_Green_Dark', 'Lv1_Gray_Light'];
+      protected chipImageMapping = ['Lv1_Yellow', 'Lv1_Light_Red', 'Lv1_Blue', 'Lv1_Green', 'Lv1_Blue_Dark', 'Lv2_Purple_Light', 'Lv2_Green', 'Lv2_Blue_Light', 'Lv2_Red', 'Lv2_Mud', 'Lv1_Gray_Light'];
       protected _value: number;
       protected _chipAnim: dragonBones.EgretArmatureDisplay;
       protected _type: we.core.ChipType;
       protected _prevType: we.core.ChipType;
       protected _highlight: boolean;
       protected _index: number;
-      protected _labelSize: number = 30;
+      protected _labelSize: number = 28;
       protected _chipScale: number = 1;
       protected _valueLabel: eui.Label;
       protected _labelGroup: eui.Group;
@@ -61,15 +62,20 @@ namespace we {
           return null;
         }
         this._valueLabel = new eui.Label();
-        this._valueLabel.text = utils.numberToFaceValue(this._value);
+        this._valueLabel.text = utils.formatNumber(this._value, false);
+        // this._valueLabel.text = utils.numberToFaceValue(this._value);
         this._valueLabel.fontFamily = 'Barlow';
+        this._valueLabel.bold = true;
+        this._valueLabel.scaleX = 0.7;
 
         this._valueLabel.size = this._labelSize;
-        this._valueLabel.textColor = 0x000000;
+        this._valueLabel.textColor = this._index < 5 ? 0x000000 : 0xf4f0b2;
         this._valueLabel.verticalAlign = egret.VerticalAlign.MIDDLE;
         this._valueLabel.textAlign = egret.HorizontalAlign.CENTER;
         this._valueLabel.verticalCenter = 0;
         this._valueLabel.horizontalCenter = 0;
+
+        this._valueLabel.textColor = utils.getChipLabelColor(this._value);
 
         this._labelGroup = new eui.Group();
         this._labelGroup.width = 0;
@@ -289,13 +295,16 @@ namespace we {
 
       protected getChipSource(type: we.core.ChipType = this._type): string {
         let filename: string;
+        const chipImageStr = utils.getChipImage(this._value);
 
         switch (type) {
           case we.core.ChipType.FLAT:
-            filename = `${this.chipImageMapping[this._index]}_png`;
+            // filename = `${this.chipImageMapping[this._index]}_png`;
+            filename = `${chipImageStr}_png`;
             break;
           case we.core.ChipType.PERSPECTIVE:
-            filename = `${this.chipImageMapping[this._index]}_B_png`;
+            // filename = `${this.chipImageMapping[this._index]}_B_png`;
+            filename = `${chipImageStr}_B_png`;
             break;
           default:
             filename = 'd_common_chips_betting_png';

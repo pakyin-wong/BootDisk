@@ -57,15 +57,20 @@ namespace we {
           const target = this._betRelatedGroup.$children[0];
           if (target instanceof eui.Group) {
             egret.Tween.removeTweens(target);
-            egret.Tween.get(target).to({ y: enable ? 0 : 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
+            egret.Tween.get(target).to({ y: enable ? 0 : 100, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
           }
         }
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
-        this._leftGamePanel.updateStat();
-        this._rightGamePanel.updateStat();
+        if (evt && evt.data) {
+          const stat = <data.TableInfo>evt.data;
+          if (stat.tableid === this._tableId) {
+            this._leftGamePanel.updateStat();
+            this._rightGamePanel.updateStat();
+          }
+        }
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
