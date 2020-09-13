@@ -40,6 +40,7 @@
 		"resource/skin_desktop/ba/Analysis.exml",
 		"resource/skin_desktop/ba/BaBeadRoadResultCardHolder.exml",
 		"resource/skin_desktop/ba/BABeadRoadResultPanel.exml",
+		"resource/skin_desktop/ba/BAMinimizedTableLayer.exml",
 		"resource/skin_desktop/ba/TableLayer.exml",
 		"resource/skin_desktop/ba/ChipLayer.exml",
 		"resource/skin_desktop/ba/BetConfirmButton.exml",

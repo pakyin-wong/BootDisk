@@ -4,10 +4,12 @@ namespace we {
       public static readonly INFO: string = 'INFO';
       public static readonly SUCCESS: string = 'SUCCESS';
       public static readonly ERROR: string = 'ERROR';
+      public static readonly EXPIRED: string = 'EXPIRED';
 
       public _infoBg: string;
       public _successBg: string;
       public _errorBg: string;
+      public _expiredBg: string;
 
       private _content: eui.Group;
       private _bg: eui.Image;
@@ -16,6 +18,10 @@ namespace we {
       private _isAnimating: boolean;
 
       public duration: number = 3000;
+
+      protected _nextMessage: ui.InGameMessage;
+      protected _nextText: string;
+      protected _nextType:any;
 
       public constructor() {
         super();
@@ -48,11 +54,19 @@ namespace we {
         return this._errorBg;
       }
 
-      public showMessage(type: string, message: string) {
+      set expiredBg(value: string) {
+        this._expiredBg = value;
+      }
+
+      get expiredBg(): string {
+        return this._expiredBg;
+      }
+
+      public showMessage(type: string, message: string,callback?:()=>void) {
         if (this._bg) {
           this.setBackground(type);
         }
-        this.start(type, message);
+        this.start(type, message,callback);
       }
 
       protected setBackground(type: string) {
@@ -66,13 +80,24 @@ namespace we {
           case InGameMessage.ERROR:
             this._bg.source = this.errorBg;
             break;
+          case InGameMessage.EXPIRED:
+            this._bg.source = this.expiredBg;
+            break;
         }
       }
 
-      protected start(type: string, message: string) {
+      protected start(type: string, message: string,callback?:()=>void) {
         egret.Tween.removeTweens(this);
         this._isAnimating = true;
-        const tween = egret.Tween.get(this)
+        if (type === InGameMessage.EXPIRED) {
+          const tween = egret.Tween.get(this)
+          .call(() => {
+            this.startAnimation(type);
+            this.visible = false;
+            this._label.visible = false;
+            this._label.text = message;
+          })
+          .wait(this.duration)
           .call(() => {
             this.startAnimation(type);
             this.visible = true;
@@ -83,6 +108,24 @@ namespace we {
           .call(() => {
             this.endAnimation(type);
           });
+        }
+          const tween = egret.Tween.get(this)
+            .call(() => {
+              this.startAnimation(type);
+              this.visible = true;
+              this._label.visible = true;
+              this._label.text = message;
+            })
+            .wait(this.duration)
+            .call(() => {
+              this.endAnimation(type);
+            }).wait(200)
+            .call(() => {
+              if (callback){
+                callback()
+              } 
+            });
+    
       }
 
       protected startAnimation(type: string) {
@@ -93,6 +136,7 @@ namespace we {
         switch (type) {
           case InGameMessage.INFO:
           case InGameMessage.SUCCESS:
+          case InGameMessage.EXPIRED:
             const move = egret.Tween.get(this._content);
             move.to({ y: 0, alpha: 1 }, 200, egret.Ease.quadOut);
             break;

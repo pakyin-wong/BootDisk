@@ -20,7 +20,15 @@ namespace we {
         this.touchEnabled = true;
         this.mount();
       }
-
+      public get item() {
+        return this._item;
+      }
+      public get _roadId() {
+        return this.roadId;
+      }
+      public get _roadType() {
+        return this.roadType;
+      }
       private async mount() {
         // this.width = 293;
         // this.height = 225;
@@ -72,7 +80,7 @@ namespace we {
           dir.evtHandler.dispatch(core.Event.GOOD_ROAD_REMOVE, { id: this.roadId });
         }
       }
-      private onItemEnableChanged(e: egret.Event) {
+      public onItemEnableChanged(e: egret.Event) {
         if (this.roadType === 1) {
           // default
           dir.evtHandler.dispatch(core.Event.GOOD_ROAD_MODIFY, { id: this.roadId, enabled: e.data, roadType: 1 });

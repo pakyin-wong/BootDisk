@@ -12,6 +12,7 @@ namespace we {
       protected _resultDisplay: ui.IResultDisplay;
       protected _resultMessage: ui.IGameResultMessage;
       protected _message: ui.InGameMessage;
+      protected _expiredMessage: ui.InGameMessage;
       protected _dropdown: live.BetLimitDropdown;
 
       protected _undoStack: we.utils.UndoStack = new we.utils.UndoStack();
@@ -471,14 +472,25 @@ namespace we {
           }
 
           if (this._message && !isInit) {
-            this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
+            // ==================================================
+            if (this._gameRoundCountWithoutBet === 1) {
+              // this.showTwoMessage();
+              if (this._expiredMessage) {
+                this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'), this.showTwoMessage.call(this));
+                // this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, '您已3局未下注，2局后踢出');
+              }
+            } else {
+              this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
+            }
           }
           this._undoStack.clearStack();
         }
         // update the countdownTimer
         this.updateCountdownTimer();
       }
-
+      protected showTwoMessage() {
+        this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, '您已3局未下注，2局后踢出');
+      }
       protected checkRoundCountWithoutBet() {
         if (this.tableInfo.totalBet > 0) {
           this._gameRoundCountWithoutBet = 0;
@@ -487,17 +499,36 @@ namespace we {
         }
 
         if (this._gameRoundCountWithoutBet === 3) {
-          dir.evtHandler.showMessage({
-            class: 'MessageDialog',
-            args: [
-              // i18n.t(''),
-              '您已3局未下注，2局后踢出',
-              {
-                dismiss: { text: i18n.t('nav.menu.confirm') },
-                // dismiss: { text: 'cancelBet' },
-              },
-            ],
-          });
+// <<<<<<< HEAD
+          if (env.isMobile) {
+            dir.evtHandler.showMessage({
+              class: 'MessageDialog',
+              args: [
+                // i18n.t(''),
+                '您已3局未下注，2局后踢出',
+                {
+                  // dismiss: { text: i18n.t('') },
+                  dismiss: { text: 'cancelBet' },
+                },
+              ],
+            });
+          }
+          else {
+            this.showInGameMessage();
+          }
+// =======
+//           dir.evtHandler.showMessage({
+//             class: 'MessageDialog',
+//             args: [
+//               // i18n.t(''),
+//               '您已3局未下注，2局后踢出',
+//               {
+//                 dismiss: { text: i18n.t('nav.menu.confirm') },
+//                 // dismiss: { text: 'cancelBet' },
+//               },
+//             ],
+//           });
+// >>>>>>> develop
         }
 
         if (this._gameRoundCountWithoutBet >= 5) {
@@ -505,6 +536,12 @@ namespace we {
         }
       }
 
+      protected showInGameMessage() {
+        if (this._expiredMessage) {
+          this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, '您已3局未下注，2局后踢出');
+          // this._message.showMessage(ui.InGameMessage.EXPIRED,i18n.t(''));
+        }
+      }
       protected setStateDeal(isInit: boolean = false) {
         // console.log('this._tableId', this._tableId);
         // console.log('env.tableinfo[this._tableid]', env.tableInfos[this._tableId]);
