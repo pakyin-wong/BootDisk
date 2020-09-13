@@ -11,6 +11,7 @@ namespace we {
       protected _leftGamePanel: BARoadmapLeftPanel;
       protected _rightGamePanel: BARoadmapRightPanel;
       protected _beadRoadResultPanel: BaBeadRoadResultPanel;
+      protected _minimizedTableLayer: MinimizedTableLayer;
 
       // protected _switchBaMode: eui.ToggleSwitch;
       protected _switchBaMode: ui.BaseButton;
@@ -38,6 +39,9 @@ namespace we {
             (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
           }
         }
+        if (this._minimizedTableLayer) {
+          this._minimizedTableLayer.updateBetLabel(true);
+        }
       }
 
       private hideTooltipTimeout;
@@ -46,7 +50,6 @@ namespace we {
         super.initChildren();
         this.initRoadMap();
         const test = this._timer.countdownValue;
-        console.log('test  this._timer.countdownValue', this._timer.countdownValue);
         this._roadmapControl.setTableInfo(this._tableInfo);
 
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
@@ -109,6 +112,9 @@ namespace we {
           this._switchBaMode.active = !this._switchBaMode.active;
           this._chipLayer.currentState = this._switchBaMode.active ? 'SuperSix' : 'Normal';
           this._tableLayer.currentState = this._switchBaMode.active ? 'SuperSix' : 'Normal';
+          if (this._minimizedTableLayer) {
+            this._minimizedTableLayer.currentState = this._switchBaMode.active ? 'SuperSix' : 'Normal';
+          }
           this._chipLayer.cancelBet();
         }
       }
@@ -160,6 +166,9 @@ namespace we {
           // update the scene
           (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
           (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
+          if (this._minimizedTableLayer) {
+            this._minimizedTableLayer.updateBetLabel(false, betInfo);
+          }
         }
       }
 
@@ -235,6 +244,7 @@ namespace we {
           this._switchBaMode.enabled = enable;
         }
       }
+
     }
   }
 }

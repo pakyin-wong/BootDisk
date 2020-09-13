@@ -5,9 +5,22 @@
 		<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x14181e" ellipseHeight="48" ellipseWidth="48"
 		        strokeColor="0x333c4a" strokeWeight="2" locked="true" />
 		<e:Image id="close" width="48" height="48" right="44" top="44" source="d-lobby-button-close-none_png" />
-		<ui:RunTimeLabel id="_txt_title" text="Good Road Settings" x="48" y="27" width="519.27" height="71"
-		                 verticalAlign="middle" textColor="0xc59466" size="48" fontFamily="NotoSansCJKtc-Medium"
-		                 anchorOffsetX="0" />
+		<e:Group x="48" y="27">
+			<ui:RunTimeLabel id="_txt_title" text="Good Road Settings" x="0" y="0" height="71" verticalAlign="middle" textColor="0xc59466" size="48" fontFamily="NotoSansCJKtc-Medium" anchorOffsetX="0" scaleX="1" scaleY="1"/>
+			<e:Group x="491" y="33" scaleX="1" scaleY="1" height="68">
+				<ui:RunTimeLabel id="_selectAllLabel" text="Select All" textAlign="center" anchorOffsetX="0" width="110" size="22" height="22" verticalAlign="middle" touchEnabled="false" x="33" y="12" scaleX="1" scaleY="1"/>
+				<ui:ToggleButton id="_selectAllButton" resNameOn="d_lobby_panel_button_checkboxes_active_png" hoverResNameOn="d_lobby_panel_button_checkboxes_active_png" resNameOff="d_lobby_panel_button_checkboxes_normal_png" hoverResNameOff="d_lobby_panel_button_checkboxes_hover_png" y="18" width="22" height="22" anchorOffsetX="0" x="151" scaleX="1" scaleY="1"/>
+				<e:layout>
+				<e:HorizontalLayout verticalAlign="middle" paddingTop="16"/>
+				</e:layout>
+			</e:Group>
+			<e:layout>
+				<e:HorizontalLayout/>
+			</e:layout>
+		</e:Group>
+
+
+				 
 		<!--<ui:BaseImageButton id="_defaultButton" y="38" anchorOffsetX="0" width="300" anchorOffsetY="0" height="70"
 		                        currentState="b_cancel" x="469.81" skinName="ImageButtonSkinDialog" />
 		-->
