@@ -17,6 +17,8 @@ namespace we {
         categoryorders: string;
         panelpositions: string;
         settings: any;
+        currentSelectedBetLimitIndex: number;
+        language: string;
       };
     }
   }

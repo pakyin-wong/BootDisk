@@ -60,6 +60,7 @@ namespace we {
 
       overlaypanel_customroad_title: '好路设定',
       overlaypanel_customroad_default: '还原预设',
+      overlaypanel_customroad_selectall: '全选',
 
       overlaypanel_bethistory_title: '投注记录',
       overlaypanel_bethistory_tab_all: '游戏总览',
@@ -508,7 +509,7 @@ namespace we {
         betLimitshort: '限红',
         baccarat: '百家樂',
         gameroundid: '遊戏编号',
-        totalbet: '总投注',
+        totalbet: '总投下注',
         totalcount: '总数',
         betSuccess: '下注成功',
         betFail: '下注失败',

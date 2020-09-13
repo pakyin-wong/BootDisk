@@ -301,12 +301,10 @@ namespace we {
           case we.core.ChipType.FLAT:
             // filename = `${this.chipImageMapping[this._index]}_png`;
             filename = `${chipImageStr}_png`;
-            console.log('filenameFLAT', filename);
             break;
           case we.core.ChipType.PERSPECTIVE:
             // filename = `${this.chipImageMapping[this._index]}_B_png`;
             filename = `${chipImageStr}_B_png`;
-            console.log('filenamePERSPECTIVE', filename);
             break;
           default:
             filename = 'd_common_chips_betting_png';

@@ -244,7 +244,9 @@ namespace we {
         if (!Array.isArray(env.betLimits)) {
           env.betLimits = [env.betLimits];
         }
-
+        env.currentSelectedBetLimitIndex = player.profile.settings.currentSelectedBetLimitIndex ? player.profile.settings.currentSelectedBetLimitIndex : 0;
+        env.language = player.profile.settings.language ? player.profile.settings.language : 'sc';
+        we.i18n.setLang(env.language ? env.language : 'sc', true);
         /*
         let denominationList = [];
         for (const betLimit of env.betLimits) {

@@ -60,6 +60,10 @@ declare module skin_desktop{
 	class BaccaratScene extends eui.Skin{
 	}
 }
+declare module skin_desktop.ba{
+	class BAMinimizedTableLayerSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class BARoadmapLeftPanel extends eui.Skin{
 	}

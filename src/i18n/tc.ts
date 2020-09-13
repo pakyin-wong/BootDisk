@@ -54,6 +54,7 @@ namespace we {
 
       overlaypanel_customroad_title: '好路設定',
       overlaypanel_customroad_default: '還原預設',
+      overlaypanel_customroad_selectall: '全選',
 
       overlaypanel_bethistory_title: '投註記錄',
       overlaypanel_bethistory_tab_all: '遊戲總覽',
@@ -452,7 +453,7 @@ namespace we {
         betLimitshort: '限紅',
         baccarat: '百家樂',
         gameroundid: '遊戲編號',
-        totalbet: '總投注',
+        totalbet: '總下注',
         totalcount: '總數',
         betSuccess: '下注成功',
         betFail: '下注失敗',
