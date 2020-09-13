@@ -11,6 +11,7 @@
 	<dl:ChipLayer id="_chipLayer" width="1312" height="340" x="644" y="988" skinName="skin_desktop.dil.ChipLayerSkin"
 	              isEdgeDismissable="true" />
 	<e:Group id="_betRelatedGroup" x="768.64" y="769.37">
+	<e:Group>
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" chipScale="0.9" />
 		<e:Button id="_confirmButton" label="" y="3" anchorOffsetX="0" width="155" anchorOffsetY="0" height="64"
@@ -29,6 +30,7 @@
 		<ui:BaseAnimationButton id="_repeatButton" width="55" height="55" verticalCenter="0" horizontalCenter="467"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_rebet" useColorFilter="true"
 								tooltipText="'live.tooltip.repeat'" tooltipPosition="'above'" />
+	</e:Group>
 	</e:Group>
 	<dl:LeftPanel id="_leftGamePanel" width="580" height="341" x="16" y="988" anchorOffsetX="0" anchorOffsetY="0" />
 	<dl:RightPanel id="_rightGamePanel" width="580" height="341" x="2004" y="988" anchorOffsetX="0" anchorOffsetY="0" />

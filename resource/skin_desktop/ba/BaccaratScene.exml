@@ -14,6 +14,7 @@
 		               anchorOffsetY="0" />
 	</ui:Group>
 	<ui:Group id="_betRelatedGroup" x="769" y="939" isEdgeDismissable="true">
+	<ui:Group>
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" chipScale="0.9" />
 		<e:Button id="_confirmButton" label="" y="5" anchorOffsetX="0" width="174" anchorOffsetY="0" height="60"
@@ -32,6 +33,7 @@
 		<ui:BaseAnimationButton id="_repeatButton" width="55" height="55" verticalCenter="0" horizontalCenter="467"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_rebet" useColorFilter="true"
 								tooltipText="'live.tooltip.repeat'" tooltipPosition="'above'" />
+	</ui:Group>
 	</ui:Group>
 	<ba:BARoadmapLeftPanel id="_leftGamePanel" width="692" height="304" x="16" y="1024" dismissPosX="16" dismissPosY="1298"
 	                       anchorOffsetX="0" anchorOffsetY="0" isEdgeDismissable="true" />

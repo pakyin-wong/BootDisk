@@ -54,8 +54,11 @@ namespace we {
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
         if (this._betRelatedGroup) {
-          egret.Tween.removeTweens(this._betRelatedGroup);
-          egret.Tween.get(this._betRelatedGroup).to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
+          const target = this._betRelatedGroup.$children[0];
+          if (target instanceof eui.Group) {
+            egret.Tween.removeTweens(target);
+            egret.Tween.get(target).to({ y: enable ? 0 : 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
+          }
         }
       }
 
