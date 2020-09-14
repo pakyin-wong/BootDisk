@@ -35,7 +35,7 @@ namespace we {
 
         this._editRoadPanel.addEventListener('close', this.onEditPanelClosed, this);
         // this._selectAllButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.selectAll, this);
-                this._selectAllButton.addEventListener('onToggle', this.selectAll, this);
+        this._selectAllButton.addEventListener('onToggle', this.selectAll, this);
         // get the Good Road Data from server or env if it exist
         dir.evtHandler.addEventListener(core.Event.GOOD_ROAD_DATA_UPDATE, this.onRoadDataUpdated, this);
         if (!env.goodRoadData) {
@@ -84,7 +84,7 @@ namespace we {
 
         if (this._selectAllButton.hasEventListener('onToggle')) {
           // this._selectAllButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.selectAll, this);
-             this._selectAllButton.removeEventListener('onToggle', this.selectAll, this);
+          this._selectAllButton.removeEventListener('onToggle', this.selectAll, this);
         }
         this._editRoadPanel.removeEventListener('close', this.onEditPanelClosed, this);
       }
@@ -96,10 +96,10 @@ namespace we {
       protected selectAll() {
         const customRoadHolderList = this.roomList.$children;
         if (customRoadHolderList.length > 0) {
-          if (this._selectAllButton._buttonState === 0 ){
-            this.setAllRoadEnable(true)
-          } else if(this._selectAllButton._buttonState === 1) {
-            this.setAllRoadEnable(false)
+          if (this._selectAllButton._buttonState === 0) {
+            this.setAllRoadEnable(true);
+          } else if (this._selectAllButton._buttonState === 1) {
+            this.setAllRoadEnable(false);
           }
           customRoadHolderList.forEach(holder => {
             const element = <ba.GoodRoadListHolder>holder;
@@ -108,7 +108,7 @@ namespace we {
             if (this._selectAllButton._buttonState === 0) {
               // activebutton.setInitButtonState(0)
               // element.item.setRoadEnabled(true);
-            } else if(this._selectAllButton._buttonState === 1) {
+            } else if (this._selectAllButton._buttonState === 1) {
               element.item.setRoadEnabled(false);
               // activebutton.setInitButtonState(1)
             }
@@ -118,41 +118,40 @@ namespace we {
         }
       }
 
-      protected setAllRoadEnable(setEnable:boolean){
-        let defaultarray = [];//[id,id,id,id...]
-        let customarray = [];//[[id,data],[id,data],...]
-        let allGoadRoad = env.goodRoadData;//GoodRoadMapData {custom: Array[1], default: Array[10]}
-        let allDefaultGoadRoad = allGoadRoad.default;
-        let allCustomGoadRoad = allGoadRoad.custom;
-        if(setEnable === true) {
+      protected setAllRoadEnable(setEnable: boolean) {
+        const defaultarray = []; // [id,id,id,id...]
+        const customarray = []; // [[id,data],[id,data],...]
+        const allGoadRoad = env.goodRoadData; // GoodRoadMapData {custom: Array[1], default: Array[10]}
+        const allDefaultGoadRoad = allGoadRoad.default;
+        const allCustomGoadRoad = allGoadRoad.custom;
+        if (setEnable === true) {
           allDefaultGoadRoad.forEach(element => {
             element.enabled = true;
-            defaultarray.push(element.id)
+            defaultarray.push(element.id);
           });
           dir.socket.updateDefaultGoodRoad(defaultarray);
 
-          allCustomGoadRoad.forEach(element=> {
-            let customid
-            let customdata
+          allCustomGoadRoad.forEach(element => {
+            let customid;
+            let customdata;
             customid = element.id;
             customdata = element;
             customdata.enabled = true;
-            customarray.push([customid,customdata])
-          })
+            customarray.push([customid, customdata]);
+          });
           customarray.forEach(element => {
             dir.socket.updateCustomGoodRoad(element[0], element[1]);
           });
-
         } else {
           // let allCustomGoadRoad = allGoadRoad.custom;
-          allCustomGoadRoad.forEach(element=> {
-            let customid
-            let customdata
+          allCustomGoadRoad.forEach(element => {
+            let customid;
+            let customdata;
             customid = element.id;
             customdata = element;
             customdata.enabled = false;
-            customarray.push([customid,customdata])
-          })
+            customarray.push([customid, customdata]);
+          });
           customarray.forEach(element => {
             dir.socket.updateCustomGoodRoad(element[0], element[1]);
           });
@@ -202,7 +201,6 @@ namespace we {
             }
           });
           dir.socket.updateDefaultGoodRoad(roadsEnabled);
-          
         } else if (e.data.roadType === 2) {
           // custom
           dir.socket.updateCustomGoodRoad(e.data.id, e.data);

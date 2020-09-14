@@ -41,8 +41,12 @@ namespace we {
         //   this._content.visible = false;
         //   this.containerDisplay.visible = true;
         // }
-        if (this.containerDisplay) { this.containerDisplay.visible = false; }
-        if (this._content) { this._content.visible = true; }
+        if (this.containerDisplay) {
+          this.containerDisplay.visible = false;
+        }
+        if (this._content) {
+          this._content.visible = true;
+        }
       }
 
       public set tableId(value: string) {

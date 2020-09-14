@@ -499,7 +499,7 @@ namespace we {
         }
 
         if (this._gameRoundCountWithoutBet === 3) {
-// <<<<<<< HEAD
+          // <<<<<<< HEAD
           if (env.isMobile) {
             dir.evtHandler.showMessage({
               class: 'MessageDialog',
@@ -512,23 +512,22 @@ namespace we {
                 },
               ],
             });
-          }
-          else {
+          } else {
             this.showInGameMessage();
           }
-// =======
-//           dir.evtHandler.showMessage({
-//             class: 'MessageDialog',
-//             args: [
-//               // i18n.t(''),
-//               '您已3局未下注，2局后踢出',
-//               {
-//                 dismiss: { text: i18n.t('nav.menu.confirm') },
-//                 // dismiss: { text: 'cancelBet' },
-//               },
-//             ],
-//           });
-// >>>>>>> develop
+          // =======
+          //           dir.evtHandler.showMessage({
+          //             class: 'MessageDialog',
+          //             args: [
+          //               // i18n.t(''),
+          //               '您已3局未下注，2局后踢出',
+          //               {
+          //                 dismiss: { text: i18n.t('nav.menu.confirm') },
+          //                 // dismiss: { text: 'cancelBet' },
+          //               },
+          //             ],
+          //           });
+          // >>>>>>> develop
         }
 
         if (this._gameRoundCountWithoutBet >= 5) {
