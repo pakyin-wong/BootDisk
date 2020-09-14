@@ -182,7 +182,7 @@ var mouse;
                 var r = checkContainer(point, stageObj, egret.getQualifiedClassName(stageObj));
 
                 if (debugPath && r) {
-                    console.log('>>>', r[0])
+                    // console.log('>>>', r[0])
                     r = r[1]
                 }
 

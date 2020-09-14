@@ -109,6 +109,42 @@ namespace we {
         this.client.getRoadmap(this.warpServerCallback(this._goodRoadUpdateCallback));
       }
 
+      protected async wait(id: string, data: any) {
+        return new Promise((resolve, reject) => {
+          function callback() {
+            resolve();
+          }
+          this.client.updateCustomRoadmap(id, data, callback);
+        });
+      }
+
+      public async batchUpdateCustomGoodRoad(updateItem: any[]) {
+        // [[id: string, data: any],[id,data],[id,data],...] only last input update env.
+        if (!updateItem) {
+          return;
+        }
+        if (updateItem.length === 1) {
+          this.client.updateCustomRoadmap(updateItem[0], updateItem[1], this.warpServerCallback(this._goodRoadUpdateCallback));
+        } else {
+          for (let i = 0; i < updateItem.length; i++) {
+            if (i === updateItem.length - 1) {
+              console.log('  await this.client.updateCustomRoadmap(updateItem[i][0], updateItem[i][1], this.warpServerCallback(this._goodRoadUpdateCallback));', [
+                i,
+                updateItem[i][0],
+                updateItem[i][1],
+              ]);
+              await this.client.updateCustomRoadmap(updateItem[i][0], updateItem[i][1], this.warpServerCallback(this._goodRoadUpdateCallback));
+            } else {
+              console.log(' await this.wait(updateItem[i][0], updateItem[i][1]);', [i, updateItem[i][0], updateItem[i][1]]);
+              await this.wait(updateItem[i][0], updateItem[i][1]);
+            }
+          }
+        }
+        // await wait(id, data);
+        // await wait()
+        // await this.client.updateCustomRoadmap(id, data, this.warpServerCallback(this._batchGoodRoadUpdateCallback));
+      }
+
       public updateCustomGoodRoad(id: string, data: any) {
         this.client.updateCustomRoadmap(id, data, this.warpServerCallback(this._goodRoadUpdateCallback));
       }
@@ -129,7 +165,18 @@ namespace we {
         this.client.resetRoadmap(this.warpServerCallback(this._goodRoadUpdateCallback));
       }
 
+      private _batchGoodRoadUpdateCallback(data: any) {
+        return new Promise((resolve, reject) => {
+          if (!data.error) {
+            // if the data is an error, do not update the data
+            env.goodRoadData = ba.GoodRoadParser.CreateGoodRoadMapDataFromObject(data);
+          }
+          dir.evtHandler.dispatch(core.Event.GOOD_ROAD_DATA_UPDATE);
+          resolve();
+        });
+      }
       private _goodRoadUpdateCallback(data: any) {
+        console.log('_goodRoadUpdateCallback', data);
         if (!data.error) {
           // if the data is an error, do not update the data
           env.goodRoadData = ba.GoodRoadParser.CreateGoodRoadMapDataFromObject(data);

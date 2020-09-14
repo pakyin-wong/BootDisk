@@ -139,9 +139,8 @@ namespace we {
             customdata.enabled = true;
             customarray.push([customid, customdata]);
           });
-          customarray.forEach(element => {
-            dir.socket.updateCustomGoodRoad(element[0], element[1]);
-          });
+          console.log('customarray true', customarray);
+          dir.socket.batchUpdateCustomGoodRoad(customarray);
         } else {
           // let allCustomGoadRoad = allGoadRoad.custom;
           allCustomGoadRoad.forEach(element => {
@@ -152,23 +151,15 @@ namespace we {
             customdata.enabled = false;
             customarray.push([customid, customdata]);
           });
-          customarray.forEach(element => {
-            dir.socket.updateCustomGoodRoad(element[0], element[1]);
-          });
-          // defaultarray = [];
+          console.log('customarray false', customarray);
+          dir.socket.batchUpdateCustomGoodRoad(customarray);
           allDefaultGoadRoad.forEach(element => {
-            // if (element.id === "r1") {
-            // }
             element.enabled = false;
           });
           dir.socket.updateDefaultGoodRoad(defaultarray);
         }
       }
-      // protected onAllRoadModify(holder: ba.GoodRoadListHolder) {
-      //   console.log('env.goodRoadData',env.goodRoadData)
-      //   console.log('<ba.GoodRoadListHolder>', holder);
-      //   console.log('<ba.GoodRoadListHolder> holder._roadId', holder._roadId);
-      // }
+
       protected onRoadAdd(e: egret.Event) {
         if (!this._editRoadPanel.isActivated) {
           this._editRoadPanel.show();
