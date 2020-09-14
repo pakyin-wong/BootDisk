@@ -455,6 +455,18 @@ declare module skin_desktop.dt{
 	}
 }
 declare module skin_desktop.dt{
+	class StatisticChartPanelDealer extends eui.Skin{
+	}
+}
+declare module skin_desktop.dt{
+	class StatisticChartPanelNormal extends eui.Skin{
+	}
+}
+declare module skin_desktop.dt{
+	class StatisticChartPanelTie extends eui.Skin{
+	}
+}
+declare module skin_desktop.dt{
 	class TableInfoPanel extends eui.Skin{
 	}
 }

@@ -244,7 +244,6 @@ namespace we {
           this._switchBaMode.enabled = enable;
         }
       }
-
     }
   }
 }

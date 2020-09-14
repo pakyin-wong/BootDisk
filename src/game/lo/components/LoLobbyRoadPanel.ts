@@ -134,7 +134,7 @@ namespace we {
         this.road2Change(this.road2Index);
         this.road3Change(this.road3Index);
 
-        //dropdown 1
+        // dropdown 1
         let arrColRoadTypes = new eui.ArrayCollection([
           ui.NewDropdownItem(0, () => `Ball 1`),
           ui.NewDropdownItem(1, () => `Ball 2`),
@@ -151,7 +151,7 @@ namespace we {
         this.road1SelectPanel.dropdown.select(0);
         this.road1SelectPanel.addEventListener('DROPDOWN_ITEM_CHANGE', this.onRoad1IndexSelect, this);
 
-        //dropdown 2
+        // dropdown 2
         arrColRoadTypes = new eui.ArrayCollection([
           ui.NewDropdownItem(0, () => `Ball 1`),
           ui.NewDropdownItem(1, () => `Ball 2`),
@@ -168,7 +168,7 @@ namespace we {
         this.road2SelectPanel.dropdown.select(0);
         this.road2SelectPanel.addEventListener('DROPDOWN_ITEM_CHANGE', this.onRoad2IndexSelect, this);
 
-        //dropdown 3
+        // dropdown 3
         arrColRoadTypes = new eui.ArrayCollection([
           ui.NewDropdownItem(0, () => `1 VS 2`),
           ui.NewDropdownItem(1, () => `1 VS 3`),
