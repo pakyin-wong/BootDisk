@@ -52,17 +52,17 @@ namespace we {
         egret.Tween.get(this.activeTooltip).to({ alpha: 1, scaleX: 1, scaleY: 1, x: showX }, 150, egret.Ease.sineIn);
       }
 
-      private removeAfterTwoSeconds() {
-        if (this.timeoutIntervalId > -1) {
-          clearTimeout(this.timeoutIntervalId);
-          this.timeoutIntervalId = -1;
-        }
-        this.timeoutIntervalId = setTimeout(() => {
-          if (this.activeTooltip) {
-            this.removeTooltips();
-          }
-        }, 2000);
-      }
+      // private removeAfterTwoSeconds() {
+      //   if (this.timeoutIntervalId > -1) {
+      //     clearTimeout(this.timeoutIntervalId);
+      //     this.timeoutIntervalId = -1;
+      //   }
+      //   this.timeoutIntervalId = setTimeout(() => {
+      //     if (this.activeTooltip) {
+      //       this.removeTooltips();
+      //     }
+      //   }, 2000);
+      // }
 
       public displayTooltip(x, y, message) {
         this._initTooltip(message);
@@ -102,7 +102,7 @@ namespace we {
       }
 
       private onShowTooltip({ data: { displayObject, x, y } }) {
-        const coord = (<egret.DisplayObject> displayObject).localToGlobal(0, 0);
+        const coord = (<egret.DisplayObject>displayObject).localToGlobal(0, 0);
         // init first to get tooltip width
         this._initTooltip(displayObject.tooltipText.replace(/'/g, ''));
         let showX = 0;
@@ -129,7 +129,7 @@ namespace we {
             break;
         }
         this._showTooltip(showX, showY);
-        this.removeAfterTwoSeconds();
+        // this.removeAfterTwoSeconds();
       }
 
       public addListeners() {

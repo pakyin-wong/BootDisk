@@ -53,7 +53,7 @@
 							</e:layout>
 						</e:TabBar>
 						</e:Scroller>
-						<ui:Scroller left="0" right="0" x="0" scaleX="1" scaleY="1" top="90" bottom="0">
+						<ui:Scroller left="0" right="0" x="0" scaleX="1" scaleY="1" top="90" bottom="0" bottom.landscape="1140">
 						<ui:TableList id="_allTableList"/>
 						</ui:Scroller>
 					</e:Group>

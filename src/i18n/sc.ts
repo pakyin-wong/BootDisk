@@ -60,6 +60,7 @@ namespace we {
 
       overlaypanel_customroad_title: '好路设定',
       overlaypanel_customroad_default: '还原预设',
+      overlaypanel_customroad_selectall: '全选',
 
       overlaypanel_bethistory_title: '投注记录',
       overlaypanel_bethistory_tab_all: '游戏总览',
@@ -248,11 +249,11 @@ namespace we {
       },
       lobby: {
         header: {
-          lobby: '精选推介',
+          lobby: '首页',
           live: '真人游戏',
           lottery: '彩票游戏',
           egame: '电子游戏',
-          favorite: '我的最爱',
+          favourite: '我的最爱',
         },
         categoryPromotion: '精选推介',
         categoryBaccarat: '百家乐',
@@ -315,6 +316,8 @@ namespace we {
         askDragon: '龙问路',
         askTiger: '虎问路',
         DragonTigerTieRatio: '龙虎和比例',
+        TieRatio: '和比例',
+        DealerRatio: '荷官开龙虎比例',
         round: '局',
         rounds: '局',
       },
@@ -508,7 +511,7 @@ namespace we {
         betLimitshort: '限红',
         baccarat: '百家樂',
         gameroundid: '遊戏编号',
-        totalbet: '总投注',
+        totalbet: '总投下注',
         totalcount: '总数',
         betSuccess: '下注成功',
         betFail: '下注失败',

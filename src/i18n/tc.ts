@@ -54,6 +54,7 @@ namespace we {
 
       overlaypanel_customroad_title: '好路設定',
       overlaypanel_customroad_default: '還原預設',
+      overlaypanel_customroad_selectall: '全選',
 
       overlaypanel_bethistory_title: '投註記錄',
       overlaypanel_bethistory_tab_all: '遊戲總覽',
@@ -175,6 +176,17 @@ namespace we {
         },
       },
       nav: {
+        tooltip: {
+          menu: '選單',
+          back: '返回大堂',
+          refresh: '刷新餘額',
+          profile: '賬戶資訊',
+          roominfo: '遊戲資訊',
+          betlimit: '限紅設定',
+          d_lobby_viewmode_icon_tiny: '簡易版',
+          d_lobby_viewmode_icon_general: '普通版',
+          d_lobby_viewmode_icon_pro: '專業版',
+        },
         bet_balance: '餘額',
         menu: {
           title: '設定',
@@ -219,11 +231,11 @@ namespace we {
       },
       lobby: {
         header: {
-          lobby: '精選推介',
+          lobby: '首頁',
           live: '真人遊戲',
           lottery: '彩票遊戲',
           egame: '電子遊戲',
-          favorite: '我的最愛',
+          favourite: '我的最愛',
         },
         categoryPromotion: '精選推介',
         categoryBaccarat: '百家樂',
@@ -266,6 +278,8 @@ namespace we {
         askDragon: '龍問路',
         askTiger: '虎問路',
         DragonTigerTieRatio: '龍虎和比例',
+        TieRatio: '和比例',
+        DealerRatio: '荷官開龍虎比例',
         round: '局',
         rounds: '局',
       },
@@ -447,7 +461,7 @@ namespace we {
         betLimitshort: '限紅',
         baccarat: '百家樂',
         gameroundid: '遊戲編號',
-        totalbet: '總投注',
+        totalbet: '總下注',
         totalcount: '總數',
         betSuccess: '下注成功',
         betFail: '下注失敗',

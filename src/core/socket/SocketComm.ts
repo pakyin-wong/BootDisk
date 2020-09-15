@@ -90,6 +90,19 @@ namespace we {
         }
         // console.dir(value);
       }
+      public getPlayerLotteryStatistic(filter: any) {
+        this.client.getPlayerLotteryStatistic(filter, this.warpServerCallback(this._playerLotteryStatisticCallback));
+        // this.client.getPlayerLotteryStatistic(filter, this._playerLotteryStatisticCallback);
+      }
+
+      private _playerLotteryStatisticCallback(data: any) {
+        if (!data.error) {
+          // if the data is an error, do not update the data
+          env.playerLotteryStat = data;
+          // env.playerLotteryStat = { day: { dataarrayList: [{ key: '10:00', value: 10 }, { key: '11:00', value: 5 }, { key: '12:00', value: 1 }] } };
+          dir.evtHandler.dispatch(core.Event.PLAYER_LOTTERY_STAT);
+        }
+      }
 
       // Good Road
       public getGoodRoad() {
@@ -184,6 +197,8 @@ namespace we {
         env.currency = player.profile.currency;
         // env.nickname = player.profile.nickname;
         env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
+        env.favouriteTableList = player.profile.settings.favouriteTableList ? JSON.parse(player.profile.settings.favouriteTableList) : env.favouriteTableList;
+
         // env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
         // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
         // env.icons = player.profile.settings.icons ? player.profile.settings.icons : player.profile.icons;
@@ -229,7 +244,9 @@ namespace we {
         if (!Array.isArray(env.betLimits)) {
           env.betLimits = [env.betLimits];
         }
-
+        env.currentSelectedBetLimitIndex = player.profile.settings.currentSelectedBetLimitIndex ? player.profile.settings.currentSelectedBetLimitIndex : 0;
+        env.language = player.profile.settings.language ? player.profile.settings.language : 'sc';
+        we.i18n.setLang(env.language ? env.language : 'sc', true);
         /*
         let denominationList = [];
         for (const betLimit of env.betLimits) {
@@ -362,6 +379,9 @@ namespace we {
         }
         if (env.betTableList.indexOf(tableid) > -1) {
           this.filterAndDispatch(env.betTableList, core.Event.BET_TABLE_LIST_UPDATE);
+        }
+        if (env.favouriteTableList.indexOf(tableid) > -1) {
+          this.filterAndDispatch(env.favouriteTableList, core.Event.FAVOURITE_TABLE_LIST_UPDATE);
         }
       }
 
@@ -801,56 +821,64 @@ namespace we {
         },
         loChart: {
           fav_bet: {
-            day: [
-              {
-                key: 'INTEREST1SPECIAL',
-                value: 15.7,
-              },
-            ],
-            pday: [],
-            week: [],
-            pweek: [],
-            month: [],
-            pmonth: [],
+            day: {
+              dataarrayList: [
+                {
+                  key: 'INTEREST1SPECIAL',
+                  value: 15.7,
+                }, // bet code:value
+              ],
+            },
+            pday: { dataarrayList: [] },
+            week: { dataarrayList: [] },
+            pweek: { dataarrayList: [] },
+            month: { dataarrayList: [] },
+            pmonth: { dataarrayList: [] },
           },
           fav_game: {
-            day: [
-              {
-                key: '18',
-                value: 5000,
-              },
-            ],
-            pday: [],
-            week: [],
-            pweek: [],
-            month: [],
-            pmonth: [],
+            day: {
+              dataarrayList: [
+                {
+                  key: '18',
+                  value: 5000,
+                }, // game id:value
+              ],
+            },
+            pday: { dataarrayList: [] },
+            week: { dataarrayList: [] },
+            pweek: { dataarrayList: [] },
+            month: { dataarrayList: [] },
+            pmonth: { dataarrayList: [] },
           },
           lucky_time: {
-            day: [
-              {
-                key: '10:00',
-                value: 15.8,
-              },
-            ],
-            pday: [],
-            week: [],
-            pweek: [],
-            month: [],
-            pmonth: [],
+            day: {
+              dataarrayList: [
+                {
+                  key: '10:00',
+                  value: 15.8,
+                }, // time slot:value
+              ],
+            },
+            pday: { dataarrayList: [] },
+            week: { dataarrayList: [] },
+            pweek: { dataarrayList: [] },
+            month: { dataarrayList: [] },
+            pmonth: { dataarrayList: [] },
           },
           lucky_game: {
-            day: [
-              {
-                key: '18',
-                value: 5000,
-              },
-            ],
-            pday: [],
-            week: [],
-            pweek: [],
-            month: [],
-            pmonth: [],
+            day: {
+              dataarrayList: [
+                {
+                  key: '18',
+                  value: 5000,
+                }, // game id: value
+              ],
+            },
+            pday: { dataarrayList: [] },
+            week: { dataarrayList: [] },
+            pweek: { dataarrayList: [] },
+            month: { dataarrayList: [] },
+            pmonth: { dataarrayList: [] },
           },
         },
       };
@@ -877,7 +905,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
           return betDetail;
         });
 

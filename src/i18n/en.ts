@@ -54,6 +54,7 @@ namespace we {
 
       overlaypanel_customroad_title: 'Good Road Settings',
       overlaypanel_customroad_default: 'Restore Default',
+      overlaypanel_customroad_selectall: 'Select All',
 
       overlaypanel_bethistory_title: 'Bet Record',
       overlaypanel_bethistory_tab_all: 'All',
@@ -169,6 +170,17 @@ namespace we {
         },
       },
       nav: {
+        tooltip: {
+          menu: 'Menu',
+          back: 'Back to lobby',
+          refresh: 'Refresh',
+          profile: 'Profile',
+          roominfo: 'Room Info',
+          betlimit: 'Bet Limit',
+          d_lobby_viewmode_icon_tiny: 'Tiny View',
+          d_lobby_viewmode_icon_general: 'Normal View',
+          d_lobby_viewmode_icon_pro: 'Professional View',
+        },
         bet_balance: 'Balance',
         menu: {
           title: 'Settings',
@@ -217,7 +229,7 @@ namespace we {
           live: 'Live',
           lottery: 'Lottery',
           egame: 'EGame',
-          favorite: 'Favorite',
+          favourite: 'Favourite',
         },
         categoryPromotion: 'Promoted',
         categoryBaccarat: 'Baccarat',
@@ -260,6 +272,8 @@ namespace we {
         askDragon: 'Ask Dn',
         askTiger: 'Ask Tr',
         DragonTigerTieRatio: 'Dragon Tiger ratio',
+        TieRatio: 'Tie ratio',
+        DealerRatio: 'Dealer DT ratio',
         round: 'round',
         rounds: 'rounds',
       },

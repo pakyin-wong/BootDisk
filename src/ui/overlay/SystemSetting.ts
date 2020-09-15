@@ -166,6 +166,7 @@ namespace we {
       private onLangSelect(e) {
         i18n.setLang(e.data);
         this._ddm_currLang && this._ddm_currLang.dropdown.select(env.language);
+        dir.socket.updateSetting('language', env.language);
       }
 
       private onFxSelect(e) {

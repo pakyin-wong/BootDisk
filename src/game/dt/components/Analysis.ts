@@ -4,22 +4,7 @@ namespace we {
       protected _tableId;
       protected _playerAskLabel;
       protected _bankerAskLabel;
-      protected _playerCount;
-      protected _bankerCount;
-      protected _tieCount;
-      protected _playerPairCount;
-      protected _bankerPairCount;
-      protected _remainingCount;
-      protected _normalTotal;
-      protected _pairTotal;
-      protected _playerPercentage;
-      protected _bankerPercentage;
-      protected _tiePercentage;
-      protected _playerPairPercentage;
-      protected _bankerPairPercentage;
-      protected _remainingPercentage;
-      protected _normalChart: ui.SimpleChart;
-      protected _pairChart: ui.SimpleChart;
+
       protected _iconBankerBead: we.ba.BABeadRoadIcon;
       protected _iconPlayerBead: we.ba.BABeadRoadIcon;
 
@@ -32,6 +17,11 @@ namespace we {
       public iconPlayerSmall: we.ba.BASmallRoadIcon;
       public iconBankerCockroach: we.ba.BACockroachRoadIcon;
       public iconPlayerCockroach: we.ba.BACockroachRoadIcon;
+
+      // statisticChartPanels
+      public _normalChartPanel: ba.StatisticChart;
+      public _tieChartPanel: ba.StatisticChart;
+      public _dealerChartPanel: ba.StatisticChart;
 
       public advancedRoad: we.ui.IAdvancedRoad;
 
@@ -123,7 +113,7 @@ namespace we {
         if (evt.target === this._iconBankerBead) {
           evt.stopPropagation();
           if (this.advancedRoad && this.advancedRoad instanceof we.dt.AdvancedRoad) {
-            (<we.dt.AdvancedRoad> this.advancedRoad).askBankerRoad();
+            (<we.dt.AdvancedRoad>this.advancedRoad).askBankerRoad();
           }
         }
       }
@@ -132,7 +122,7 @@ namespace we {
         if (evt.target === this._iconPlayerBead) {
           evt.stopPropagation();
           if (this.advancedRoad && this.advancedRoad instanceof we.dt.AdvancedRoad) {
-            (<we.dt.AdvancedRoad> this.advancedRoad).askPlayerRoad();
+            (<we.dt.AdvancedRoad>this.advancedRoad).askPlayerRoad();
           }
         }
       }
@@ -151,49 +141,40 @@ namespace we {
           return;
         }
         if (env && env.tableInfos && env.tableInfos[this._tableId] && env.tableInfos[this._tableId].gamestatistic) {
-          /*
-          const bankerCount = env.tableInfos[this._tableId].gamestatistic.bankerCount;
-          const playerCount = env.tableInfos[this._tableId].gamestatistic.playerCount;
-          const tieCount = env.tableInfos[this._tableId].gamestatistic.tieCount;
-          const totalCount = env.tableInfos[this._tableId].gamestatistic.totalCount;
-          const bankerPairCount = env.tableInfos[this._tableId].gamestatistic.bankerPairCount;
-          const playerPairCount = env.tableInfos[this._tableId].gamestatistic.playerPairCount;
-          const remainingCount = totalCount - bankerPairCount - playerPairCount;
+          const normalInfo = we.utils.stat.ba.getStatInfo(false, env.tableInfos[this._tableId].gamestatistic);
 
-          this._bankerCount.text = bankerCount;
-          this._playerCount.text = playerCount;
-          this._tieCount.text = tieCount;
-          this._normalTotal.text = totalCount;
-          this._bankerPairCount.text = bankerPairCount;
-          this._playerPairCount.text = playerPairCount;
-          this._remainingCount.text = remainingCount;
-          this._pairTotal.text = totalCount;
+          this._normalChartPanel.firstCount = normalInfo.bankerCount;
+          this._normalChartPanel.secondCount = normalInfo.playerCount;
+          this._normalChartPanel.thirdCount = normalInfo.tieCount;
+          this._normalChartPanel.firstPercentage = normalInfo.bankerPercentage;
+          this._normalChartPanel.secondPercentage = normalInfo.playerPercentage;
+          this._normalChartPanel.thirdPercentage = normalInfo.tiePercentage;
+          this._normalChartPanel.total = normalInfo.totalCount;
+          this._normalChartPanel.update();
 
-          const bankerPercentage = bankerCount / totalCount;
-          const playerPercentage = playerCount / totalCount;
-          const tiePercentage = tieCount / totalCount;
+          const tieInfo = we.utils.stat.ba.getStatInfo(true, env.tableInfos[this._tableId].gamestatistic);
 
-          this._bankerPercentage.text = Math.round(bankerPercentage * 100);
-          this._playerPercentage.text = Math.round(playerPercentage * 100);
-          this._tiePercentage.text = Math.round(tiePercentage * 100);
+          this._tieChartPanel.firstCount = tieInfo.bankerCount;
+          this._tieChartPanel.secondCount = tieInfo.playerCount;
+          this._tieChartPanel.thirdCount = tieInfo.tieCount;
+          this._tieChartPanel.firstPercentage = tieInfo.bankerPercentage;
+          this._tieChartPanel.secondPercentage = tieInfo.playerPercentage;
+          this._tieChartPanel.thirdPercentage = tieInfo.tiePercentage;
+          this._tieChartPanel.total = tieInfo.totalCount;
 
-          // console.log('normalChart', bankerPercentage, playerPercentage);
-          this._normalChart.redAngle = bankerPercentage * 360;
-          this._normalChart.blueAngle = playerPercentage * 360;
-          this._normalChart.drawChart();
+          this._tieChartPanel.update();
 
-          const bankerPairPercentage = bankerPairCount / totalCount;
-          const playerPairPercentage = playerPairCount / totalCount;
-          const remainingPercentage = remainingCount / totalCount;
+          const dealerInfo = we.utils.stat.ba.getStatInfo(true, env.tableInfos[this._tableId].gamestatistic);
 
-          this._bankerPairPercentage.text = Math.round(bankerPercentage * 100);
-          this._playerPairPercentage.text = Math.round(playerPercentage * 100);
-          this._remainingPercentage.text = Math.round(remainingPercentage * 100);
+          this._dealerChartPanel.firstCount = dealerInfo.bankerCount;
+          this._dealerChartPanel.secondCount = dealerInfo.playerCount;
+          this._dealerChartPanel.thirdCount = dealerInfo.tieCount;
+          this._dealerChartPanel.firstPercentage = dealerInfo.bankerPercentage;
+          this._dealerChartPanel.secondPercentage = dealerInfo.playerPercentage;
+          this._dealerChartPanel.thirdPercentage = dealerInfo.tiePercentage;
+          this._dealerChartPanel.total = dealerInfo.totalCount;
 
-          this._pairChart.redAngle = (bankerPairCount / totalCount) * 360;
-          this._pairChart.blueAngle = (playerPairCount / totalCount) * 360;
-          this._pairChart.drawChart();
-          */
+          this._dealerChartPanel.update();
         }
       }
     }

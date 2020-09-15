@@ -60,6 +60,10 @@ declare module skin_desktop{
 	class BaccaratScene extends eui.Skin{
 	}
 }
+declare module skin_desktop.ba{
+	class BAMinimizedTableLayerSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class BARoadmapLeftPanel extends eui.Skin{
 	}
@@ -1253,6 +1257,14 @@ declare module skin_mobile_landscape.dt{
 	}
 }
 declare module skin_mobile_landscape{
+	class FavouriteGameTableList extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class FavouritePage extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class GameBar extends eui.Skin{
 	}
 }
@@ -1864,6 +1876,10 @@ declare module skin_mobile_portrait.dt{
 }
 declare module skin_mobile_portrait.dt{
 	class TableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class FavouritePage extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
