@@ -270,7 +270,10 @@ namespace we {
           //     await this.playPromise('release', 1);
           //   }
           // this.playPromise('mouse_out', 1);
-        } else {
+        } else if(this._isUpdate){
+          this.playPromise('refresh', 0);
+        } 
+        else {
           if(this._active){
             this.playPromise('switch_to_off', 0);
           }else{

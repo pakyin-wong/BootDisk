@@ -64,7 +64,7 @@ namespace we {
         logger.l(utils.LogTarget.DEBUG, `onClickVideo`);
       }
 
-      protected onClickSound() {
+      protected onClickSound(e) {
         dir.evtHandler.createOverlay({
           class: 'SoundSetting',
           dismissOnClickOutside: true,
