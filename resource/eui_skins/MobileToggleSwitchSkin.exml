@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skins.MobileToggleSwitchSkin" states="up,down,disabled,upAndSelected,downAndSelected,disabledAndSelected" currentState="up" xmlns:e="http://ns.egret.com/eui" width.down="104" height.down="104" width.up="104" height.up="104" width.upAndSelected="104" height.upAndSelected="104" width.downAndSelected="104" height.downAndSelected="104" width.disabledAndSelected="104" height.disabledAndSelected="104">
+<e:Skin class="skins.MobileToggleSwitchSkin" states="up,down,disabled,upAndSelected,downAndSelected,disabledAndSelected" currentState="up" xmlns:e="http://ns.egret.com/eui" width.down="104" height.down="104" width.up="104" height.up="104" width.upAndSelected="104" height.upAndSelected="104"  xmlns:ui="we.ui.*" width.downAndSelected="104" height.downAndSelected="104" width.disabledAndSelected="104" height.disabledAndSelected="104">
     <e:Image source="on_png"
              source.up="off_png"
              source.down="off_png"
@@ -12,4 +12,5 @@
              verticalCenter="0" visible.down="false" visible.up="false" visible.upAndSelected="false" visible.downAndSelected="false" visible.disabledAndSelected="false" visible.disabled="false"/>
 	<e:Rect width="104" height="104" includeIn="upAndSelected" x="0" y="0" fillColor="0x00f4ff" fillAlpha="0.8" ellipseWidth="104"/>
 	<e:Rect width="104" height="104" includeIn="down,up,disabled,downAndSelected" x="0" y="0" fillColor="0x444444" fillAlpha="0.8" strokeAlpha="0.8" ellipseWidth="104"/>
+    <ui:RunTimeLabel id="toggleSwitchText" size="33"  text="免佣"  horizontalCenter="0" verticalCenter="0"/>
 </e:Skin>

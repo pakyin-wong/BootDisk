@@ -17,7 +17,7 @@
 			<e:Group height="104" anchorOffsetX="0" anchorOffsetY="0" y="238" width="104" y.right_hand_mode="238"
 			         x.right_hand_mode="2262" x="2262" x.left_hand_mode="2262">
 				<ui:RunTimeLabel id="_lblBaMode" scaleX="1" scaleY="1"  horizontalCenter="0" verticalCenter="0"/>
-				<e:ToggleSwitch id="_switchBaMode" label="免佣" x="4" y="0" scaleX="1" scaleY="1" width="104" height="104"
+				<e:ToggleSwitch id="_switchBaMode" x="4" y="0" scaleX="1" scaleY="1" width="104" height="104"
 				                skinName="skins.MobileToggleSwitchSkin" />
 				<e:layout>
 					<e:BasicLayout/>
