@@ -236,7 +236,7 @@ var mouse;
                         // e.selectTarget(r)
                         // console.log('mouse | down', r)
                 }
-            }, 25);
+            }, 800);
             stageObj.$screen.webTouchHandler.canvas.addEventListener("mousemove", canvasMouseHandler);
             stageObj.$screen.webTouchHandler.canvas.addEventListener("mouseleave", canvasMouseHandler);
             stageObj.$screen.webTouchHandler.canvas.addEventListener("mousedown", canvasMouseHandler);
