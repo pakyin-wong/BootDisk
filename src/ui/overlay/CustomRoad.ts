@@ -129,7 +129,6 @@ namespace we {
             element.enabled = true;
             defaultarray.push(element.id);
           });
-          dir.socket.updateDefaultGoodRoad(defaultarray);
 
           allCustomGoadRoad.forEach(element => {
             let customid;
@@ -140,9 +139,13 @@ namespace we {
             customarray.push([customid, customdata]);
           });
           console.log('customarray true', customarray);
-          dir.socket.batchUpdateCustomGoodRoad(customarray);
+          // dir.socket.updateDefaultGoodRoad(defaultarray);
+          dir.socket.batchUpdateAllGoodRoad(defaultarray,customarray);
         } else {
-          // let allCustomGoadRoad = allGoadRoad.custom;
+          allDefaultGoadRoad.forEach(element => {
+            element.enabled = false;
+          });
+
           allCustomGoadRoad.forEach(element => {
             let customid;
             let customdata;
@@ -152,11 +155,8 @@ namespace we {
             customarray.push([customid, customdata]);
           });
           console.log('customarray false', customarray);
-          dir.socket.batchUpdateCustomGoodRoad(customarray);
-          allDefaultGoadRoad.forEach(element => {
-            element.enabled = false;
-          });
-          dir.socket.updateDefaultGoodRoad(defaultarray);
+          // dir.socket.updateDefaultGoodRoad(defaultarray);
+          dir.socket.batchUpdateAllGoodRoad(defaultarray,customarray);
         }
       }
 
