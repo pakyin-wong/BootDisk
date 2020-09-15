@@ -145,12 +145,14 @@ namespace we {
 
       mobile_dropdown_confirm: '確定',
 
+      video_setting: '視頻開關',
       video_setting_auto: '自動',
       video_setting_cam: '鏡頭',
       video_setting_qua: '畫質',
       video_setting_closer: '近鏡',
       video_setting_far: '遠鏡',
       video_setting_close: '關閉',
+      video_setting_toggle: '視頻開閉',
       video_setting_bluray: '藍光',
       video_setting_highQua: '超清',
       video_setting_standQua: '標清',
