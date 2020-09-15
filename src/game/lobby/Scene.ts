@@ -6,6 +6,7 @@ namespace we {
       private _page: eui.Component;
       private _list: eui.TabBar;
       private _items: string[];
+      private _logo: eui.Image;
 
       private _common_listpanel: ui.BaseImageButton;
 
@@ -29,6 +30,9 @@ namespace we {
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
         this._list.useVirtualLayout = false;
+        if (!env.isMobile) {
+          this._list.requireSelection = false;
+        }
         this._list.itemRenderer = LobbyTabListItemRenderer;
         this._list.dataProvider = new eui.ArrayCollection(this._items);
         if (this._selectedIdx >= 0) {
@@ -39,6 +43,9 @@ namespace we {
         this._list.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.handleTap, this);
         if (env.isMobile) {
           dir.monitor._sideGameList.setToggler(this._common_listpanel);
+        } else {
+          this._logo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.home, this);
+          mouse.setButtonMode(this._logo, true);
         }
       }
 
@@ -46,11 +53,14 @@ namespace we {
         super.clearOrientationDependentComponent();
 
         this._list.removeEventListener(eui.ItemTapEvent.ITEM_TAP, this.handleTap, this);
+        if (!env.isMobile) {
+          this._logo.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.home, this);
+        }
       }
 
       public onEnter() {
         dir.socket.getTableList();
-        let itemIdx = 0;
+        let itemIdx = env.isMobile ? 0 : -1;
         if (this._data) {
           const initPage = this._data ? this._data.page : null;
           if (initPage) {
@@ -60,7 +70,8 @@ namespace we {
           }
         }
         this._selectedIdx = itemIdx;
-        this.loadPage(this._items[itemIdx], this._data);
+        const pageStr = itemIdx > -1 ? this._items[itemIdx] : 'lobby';
+        this.loadPage(pageStr, this._data);
       }
 
       public async onFadeEnter() {}
@@ -75,6 +86,12 @@ namespace we {
       private handleTap(event: eui.ItemTapEvent) {
         this._selectedIdx = this._list.selectedIndex;
         this.loadPage(this._list.selectedItem);
+      }
+
+      private home(e: egret.TouchEvent) {
+        this._selectedIdx = -1;
+        this._list.selectedIndex = -1;
+        this.loadPage('lobby');
       }
 
       private async loadPage(name: string, data: any = null) {
