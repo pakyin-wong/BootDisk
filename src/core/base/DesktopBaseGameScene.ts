@@ -8,7 +8,7 @@ namespace we {
       protected _tableInfoWindow: ui.TableInfoPanel;
       protected _originBetRelatedGroupY: number;
 
-      protected _panelDismissToggleBtn: ui.BaseAnimationButton;
+      protected _panelDismissToggleBtn: ui.AnimatedToggleButton;
 
       constructor(data: any) {
         super(data);
@@ -32,12 +32,15 @@ namespace we {
         }
 
         if (this._panelDismissToggleBtn) {
-          this._panelDismissToggleBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
+          this._panelDismissToggleBtn.active = env.isAutoDismiss;
+          this._panelDismissToggleBtn.addEventListener('CLICKED', this.onPanelToggle, this);
         }
       }
 
       protected onPanelToggle(evt: egret.TouchEvent) {
-        env.isAutoDismiss = !env.isAutoDismiss;
+        console.log(this._panelDismissToggleBtn.active);
+        env.isAutoDismiss = this._panelDismissToggleBtn.active;
+        // env.isAutoDismiss = !env.isAutoDismiss;
       }
 
       protected updateTableInfoRelatedComponents() {
@@ -58,7 +61,7 @@ namespace we {
             egret.Tween.get(target).to({ y: enable ? 0 : 100, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
           }
         }
-        if (env.isAutoDismiss && ui.EdgeDismissableAddon.isDismiss === enable) {
+        if ((env.isAutoDismiss || enable) && ui.EdgeDismissableAddon.isDismiss === enable) {
           // console.log(ui.EdgeDismissableAddon.isDismiss);
           ui.EdgeDismissableAddon.toggle();
         }
