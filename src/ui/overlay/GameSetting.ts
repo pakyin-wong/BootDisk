@@ -11,6 +11,8 @@ namespace we {
 
       private _btn_sendLiveVer: ui.RoundRectButton;
 
+      protected _btn_autoBet: eui.Component;
+      protected _btn_showHint: eui.Component;
       constructor() {
         super('GameSetting');
       }
@@ -29,10 +31,10 @@ namespace we {
         }
 
         this.switch_showHint.active = env.showGoodRoadHint;
-        if (!env.isMobile) {
-          this._txt_autoBet.renderText = () => `${i18n.t('overlaypanel_gameSet_autoBet')}`;
-          this.switch_autoBet.active = env.autoConfirmBet;
-        }
+        // if (!env.isMobile) {
+        this._txt_autoBet.renderText = () => `${i18n.t('overlaypanel_gameSet_autoBet')}`;
+        this.switch_autoBet.active = env.autoConfirmBet;
+        // }
         this.addListeners();
       }
 
@@ -47,6 +49,9 @@ namespace we {
 
         if (!env.isMobile) {
           utils.addButtonListener(this.switch_autoBet, this.onSwitchAutoBet, this);
+        } else {
+          utils.addButtonListener(this._btn_autoBet,this.onSwitchAutoBet, this);
+          // this.switch_autoBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchAutoBet, this);
         }
       }
 
@@ -56,6 +61,9 @@ namespace we {
 
         if (!env.isMobile) {
           this.switch_autoBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchAutoBet, this);
+        } else {
+          this._btn_autoBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchAutoBet, this);
+          // this.switch_autoBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchAutoBet, this);
         }
       }
 
