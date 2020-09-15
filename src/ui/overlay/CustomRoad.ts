@@ -140,7 +140,7 @@ namespace we {
           });
           console.log('customarray true', customarray);
           // dir.socket.updateDefaultGoodRoad(defaultarray);
-          dir.socket.batchUpdateAllGoodRoad(defaultarray,customarray);
+          dir.socket.batchUpdateAllGoodRoad(defaultarray, customarray);
         } else {
           allDefaultGoadRoad.forEach(element => {
             element.enabled = false;
@@ -156,7 +156,7 @@ namespace we {
           });
           console.log('customarray false', customarray);
           // dir.socket.updateDefaultGoodRoad(defaultarray);
-          dir.socket.batchUpdateAllGoodRoad(defaultarray,customarray);
+          dir.socket.batchUpdateAllGoodRoad(defaultarray, customarray);
         }
       }
 

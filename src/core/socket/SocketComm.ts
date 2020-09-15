@@ -112,7 +112,7 @@ namespace we {
       protected async asyncUpdateCustomGoodRoad(id: string, data: any) {
         return new Promise((resolve, reject) => {
           function callback(data) {
-            console.log('data', data);
+            console.log('asyncUpdateCustomGoodRoad', data);
             resolve();
           }
           this.client.updateCustomRoadmap(id, data, callback);
@@ -122,40 +122,44 @@ namespace we {
       protected async asyncUpdateDefaultGoodRoad(ids: string[]) {
         return new Promise((resolve, reject) => {
           function callback(data) {
-            console.log('data', data);
+            console.log('asyncUpdateDefaultGoodRoad', data);
             resolve();
           }
           this.client.updateDefaultRoadmap(ids, callback);
         });
       }
 
-      public async batchUpdateAllGoodRoad(updatedefaultItem: any[],updatecustomItem: any[]) {
+      public async batchUpdateAllGoodRoad(updatedefaultItem: any[], updatecustomItem: any[]) {
         // [[id,id,id,id],[id: string, data: any],[id,data],[id,data],...] only last input update env.
-        
-          if (!updatedefaultItem) {
-            return;
-          }
-          if (updatecustomItem.length === 0) { // if custom goodroad not exist ,just update default goodroad
-            this.client.updateDefaultRoadmap(updatedefaultItem,this.warpServerCallback(this._goodRoadUpdateCallback))
-          } else if (updatecustomItem.length > 0)  { // if custom goodroad exist
-            await this.asyncUpdateDefaultGoodRoad(updatedefaultItem);
-            if(updatecustomItem.length === 1 ){
-              this.client.updateCustomRoadmap(updatecustomItem[0], updatecustomItem[1], this.warpServerCallback(this._goodRoadUpdateCallback));
-            } else {
-              for (let i = 0; i < updatecustomItem.length; i++) { // if more than one, call update custom goodroad in the last loop
-                if (i === updatecustomItem.length - 1) {
-                  console.log('last', [i, updatecustomItem[i][0], updatecustomItem[i][1]]);
-                  await this.client.updateCustomRoadmap(updatecustomItem[i][0], updatecustomItem[i][1], this.warpServerCallback(this._goodRoadUpdateCallback));
-                } else {
-                  console.log('wait ', [i, updatecustomItem[i][0], updatecustomItem[i][1]]);
-                  await this.asyncUpdateCustomGoodRoad(updatecustomItem[i][0], updatecustomItem[i][1]);
-                }
-              }              
+
+        if (!updatedefaultItem) {
+          return;
+        }
+        if (updatecustomItem.length === 0) {
+          // if custom goodroad not exist ,just update default goodroad
+          this.client.updateDefaultRoadmap(updatedefaultItem, this.warpServerCallback(this._goodRoadUpdateCallback));
+        } else if (updatecustomItem.length > 0) {
+          // if custom goodroad exist
+          // console.log('await this.asyncUpdateDefaultGoodRoad(updatedefaultItem);', updatedefaultItem);
+          await this.asyncUpdateDefaultGoodRoad(updatedefaultItem);
+          if (updatecustomItem.length === 1) {
+            this.client.updateCustomRoadmap(updatecustomItem[0], updatecustomItem[1], this.warpServerCallback(this._goodRoadUpdateCallback));
+          } else {
+            for (let i = 0; i < updatecustomItem.length; i++) {
+              // if more than one, call update custom goodroad in the last loop
+              if (i === updatecustomItem.length - 1) {
+                // console.log('last', [i, updatecustomItem[i][0], updatecustomItem[i][1]]);
+                await this.client.updateCustomRoadmap(updatecustomItem[i][0], updatecustomItem[i][1], this.warpServerCallback(this._goodRoadUpdateCallback));
+              } else {
+                // console.log('wait ', [i, updatecustomItem[i][0], updatecustomItem[i][1]]);
+                await this.asyncUpdateCustomGoodRoad(updatecustomItem[i][0], updatecustomItem[i][1]);
+              }
             }
-          }       
-          // await wait(id, data);
-          // await wait()
-          // await this.client.updateCustomRoadmap(id, data, this.warpServerCallback(this._batchGoodRoadUpdateCallback));
+          }
+        }
+        // await wait(id, data);
+        // await wait()
+        // await this.client.updateCustomRoadmap(id, data, this.warpServerCallback(this._batchGoodRoadUpdateCallback));
       }
 
       public updateCustomGoodRoad(id: string, data: any) {

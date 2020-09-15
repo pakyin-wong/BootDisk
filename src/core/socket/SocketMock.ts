@@ -801,7 +801,7 @@ namespace we {
       public retryPlayerClient(functionName: string, args: any[]) {
         logger.l(utils.LogTarget.DEBUG, 'retryPlayerClient', functionName, args);
       }
-      public async batchUpdateAllGoodRoad(updatedefaultItem: any[],updatecustomItem: any[]) {
+      public async batchUpdateAllGoodRoad(updatedefaultItem: any[], updatecustomItem: any[]) {
         // this.mockGoodRoadMapData.custom.forEach(element => {
         //   if (element.id === id) {
         //     element.enabled = data.enabled;

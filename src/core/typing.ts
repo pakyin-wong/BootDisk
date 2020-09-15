@@ -14,7 +14,7 @@ namespace we {
       getLobbyMaterial(callback: (res: any) => void); // res: LobbyMaterial to any, since it could be error
       updateSetting(key: string, value: string);
       getGoodRoad();
-      batchUpdateAllGoodRoad(updatedefaultItem: any[],updatecustomItem: any[]);
+      batchUpdateAllGoodRoad(updatedefaultItem: any[], updatecustomItem: any[]);
       updateCustomGoodRoad(id: string, data: any);
       updateDefaultGoodRoad(ids: string[]);
       createGoodRoad(name: string, pattern: string);
