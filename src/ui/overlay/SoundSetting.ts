@@ -12,7 +12,6 @@ namespace we {
       private _txt_currLang: ui.RunTimeLabel;
       private _ddm_currLang: ui.Panel;
 
-      private _txt_bgm: ui.RunTimeLabel;
       private _slider_bgm: ui.Slider;
       private _btn_presetBgm: egret.DisplayObject;
       private _txt_presetBgm: ui.RunTimeLabel;
@@ -30,10 +29,17 @@ namespace we {
         this._txt_title.renderText = () => `${i18n.t('nav.menu.soundSet')}`;
         this._txt_liveRecord.renderText = () => `${i18n.t('nav.system.liveRecord')}`;
         this._txt_soundfx.renderText = () => `${i18n.t('nav.system.soundfx')}`;
-        this._txt_bgm.renderText = () => `${i18n.t('nav.system.bgm')}`;
+        this._txt_presetBgm.renderText = () => `${i18n.t('nav.system.bgm')}`;
 
-        const _arrCol_currLang = new eui.ArrayCollection([ui.NewDropdownItem('sc', () => `简体中文`), ui.NewDropdownItem('tc', () => `繁體中文`), ui.NewDropdownItem('en', () => `English`)]);
-        const _arrCol_presetBgm = new eui.ArrayCollection([ui.NewDropdownItem('01', () => `${i18n.t('nav.audio.bgm')} 01`)]);
+        const _arrCol_currLang = new eui.ArrayCollection([
+          ui.NewDropdownItem('sc', () => `简体中文`),
+          ui.NewDropdownItem('tc', () => `繁體中文`),
+          ui.NewDropdownItem('en', () => `English`)]);
+        const _arrCol_presetBgm = new eui.ArrayCollection([
+          ui.NewDropdownItem('1', () => `${i18n.t('nav.system.bgm')} 01`),
+          ui.NewDropdownItem('2', () => `${i18n.t('nav.system.bgm')} 02`),
+          ui.NewDropdownItem('3', () => `${i18n.t('nav.system.bgm')} 03`),
+        ]);
 
         if (this._ddm_currLang) {
           this._ddm_currLang.isDropdown = true;
@@ -51,7 +57,7 @@ namespace we {
           this._ddm_presetBgm.setToggler(this._btn_presetBgm);
           this._ddm_presetBgm.dropdown.review = this._txt_presetBgm;
           this._ddm_presetBgm.dropdown.data.replaceAll(_arrCol_presetBgm.source);
-          this._ddm_presetBgm.dropdown.select('01');
+          this._ddm_presetBgm.dropdown.select(env.bgm.toString());
         }
         utils.DropdownCreator.new({
           toggler: this._btn_currLang,
@@ -65,7 +71,7 @@ namespace we {
           review: this._txt_presetBgm,
           arrCol: _arrCol_presetBgm,
           title: () => ``,
-          selected: '01',
+          selected: env.bgm,
         });
 
         this._slider_liveRecord.value = dir.audioCtr.volumeLive;
