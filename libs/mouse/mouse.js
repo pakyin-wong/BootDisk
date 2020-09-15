@@ -236,7 +236,7 @@ var mouse;
                         // e.selectTarget(r)
                         // console.log('mouse | down', r)
                 }
-            }, 800);
+            }, 500);
             stageObj.$screen.webTouchHandler.canvas.addEventListener("mousemove", canvasMouseHandler);
             stageObj.$screen.webTouchHandler.canvas.addEventListener("mouseleave", canvasMouseHandler);
             stageObj.$screen.webTouchHandler.canvas.addEventListener("mousedown", canvasMouseHandler);
@@ -288,6 +288,7 @@ var mouse;
                 return rs;
             }
             var target = stageObj.$hitTest(x,y);
+            console.log(x,y);
             if (target != null) {
                 detectRollOver(target);
                 targetList.push(target);
@@ -316,6 +317,20 @@ var mouse;
             egret.DisplayObjectContainer.prototype.$hitTest = $hitTest;
         };
 
+        var time = Date.now();
+        var throttle = (callback, timeout) => {
+            return function() {
+                var context = this;
+                var args = arguments;
+                const currTime = Date.now();
+                const dt = currTime - time;
+                if (dt>timeout) {
+                    callback.apply(this, arguments);
+                    time = currTime;
+                }
+            }
+        };
+
         var mouseX = NaN;
         var mouseY = NaN;
         
@@ -334,7 +349,7 @@ var mouse;
             return getLocation.call(this, event);
         };
         var onTouchEnd = egret.sys.TouchHandler.prototype.onTouchEnd;
-        egret.sys.TouchHandler.prototype.onTouchEnd = function (x, y, touchPointID) {
+        egret.sys.TouchHandler.prototype.onTouchEnd = throttle(function (x, y, touchPointID) {
             onTouchEnd.call(this, x, y, touchPointID);
             if (!onDrag) {
                 mouseX = x;
@@ -344,7 +359,7 @@ var mouse;
                 }
                 check(mouseX, mouseY);
             }
-        };
+        },100);
 
         document.querySelector('canvas').addEventListener('mouseleave', function() {
             check(NaN,NaN);
