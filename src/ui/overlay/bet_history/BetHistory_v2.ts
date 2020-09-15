@@ -104,7 +104,6 @@ namespace we {
       }
 
       protected onLiveTabbed() {
-        console.log(this._live_submenu.selectedItem);
         this._type = this._live_submenu.selectedItem.val;
         this._dataColl.removeAll();
         this.search();

@@ -97,6 +97,12 @@ namespace we {
       overlaypanel_bethistorylottery_record_bettype: '類型',
       overlaypanel_bethistorylottery_record_betgroup: '玩法',
       overlaypanel_bethistorylottery_record_betfield: '投注項目',
+      
+      overlaypanel_bethistorylottery_continuousbet_round: '獎期',
+      overlaypanel_bethistorylottery_continuousbet_rate: '倍數',
+      overlaypanel_bethistorylottery_continuousbet_status: '狀態',
+      overlaypanel_bethistorylottery_continuousbet_cancel: '撤單',
+      overlaypanel_bethistorylottery_continuousbet_allcancel: '一鍵撤單',
 
       overlaypanel_bethistorylottery_tab_single: '投注記錄',
       overlaypanel_bethistorylottery_tab_multi: '追號記錄',
