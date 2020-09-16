@@ -50,7 +50,7 @@ namespace we {
         if (!env.isMobile) {
           utils.addButtonListener(this.switch_autoBet, this.onSwitchAutoBet, this);
         } else {
-          utils.addButtonListener(this._btn_autoBet,this.onSwitchAutoBet, this);
+          utils.addButtonListener(this._btn_autoBet, this.onSwitchAutoBet, this);
           // this.switch_autoBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchAutoBet, this);
         }
       }
