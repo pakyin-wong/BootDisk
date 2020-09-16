@@ -2,7 +2,7 @@ namespace we {
   export namespace ui {
     export class RoundRectButton extends core.BaseEUI implements IButton {
       private _roundRectShape: RoundRectShape;
-      private _label: RunTimeLabel;
+      public _label: RunTimeLabel;
       private _enabled: boolean = false;
       private _hover: boolean = false;
       private _active: boolean = false;
@@ -85,14 +85,13 @@ namespace we {
       public strokeInAlpha_hover: number = -2;
       public labelSize: number = 24;
 
+      public value: number = 0;
+
       protected mount() {
         this._roundRectShape = new RoundRectShape();
         this.addChildAt(this._roundRectShape, 0);
         if (this.cornerTL_TR_BL_BR !== '') {
-          const corners = this.cornerTL_TR_BL_BR
-            .split(' ')
-            .join('')
-            .split(',');
+          const corners = this.cornerTL_TR_BL_BR.split(' ').join('').split(',');
           this.cornerTL = parseInt(corners[0], 10);
           this.cornerTR = parseInt(corners[1], 10);
           this.cornerBL = parseInt(corners[2], 10);

@@ -17,9 +17,9 @@ namespace we {
       protected pageRadioBtn1: eui.RadioButton;
       protected pageRadioBtn2: eui.RadioButton;
 
-      protected roadRadioBtn1: eui.RadioButton;
-      protected roadRadioBtn2: eui.RadioButton;
-      protected roadRadioBtn3: eui.RadioButton;
+      protected roadRadioBtn1: ui.RoundRectButton;
+      protected roadRadioBtn2: ui.RoundRectButton;
+      protected roadRadioBtn3: ui.RoundRectButton;
 
       protected activeLine: egret.Shape;
 
@@ -45,12 +45,12 @@ namespace we {
         this.pageRadioBtn1['labelDisplayDown']['text'] = this.pageRadioBtn1['labelDisplayUp']['text'] = i18n.t('dice.history');
         this.pageRadioBtn2['labelDisplayDown']['text'] = this.pageRadioBtn2['labelDisplayUp']['text'] = i18n.t('dice.roadmap');
 
-        this.roadRadioBtn1['labelDisplayDown']['text'] = this.roadRadioBtn1['labelDisplayUp']['text'] = i18n.t('dice.roadBig') + '/' + i18n.t('roulette.roadSmall');
-        this.roadRadioBtn2['labelDisplayDown']['text'] = this.roadRadioBtn2['labelDisplayUp']['text'] = i18n.t('dice.roadOdd') + '/' + i18n.t('roulette.roadEven');
-        this.roadRadioBtn3['labelDisplayDown']['text'] = this.roadRadioBtn3['labelDisplayUp']['text'] = i18n.t('dice.total');
+        this.roadRadioBtn1._label.renderText = () => i18n.t('dice.roadBig') + ' / ' + i18n.t('roulette.roadSmall');
+        this.roadRadioBtn2._label.renderText = () => i18n.t('dice.roadOdd') + ' / ' + i18n.t('roulette.roadEven');
+        this.roadRadioBtn3._label.renderText = () => i18n.t('dice.total');
 
-        this.beadRadioBtn1['labelDisplayDown']['text'] = this.beadRadioBtn1['labelDisplayUp']['text'] = i18n.t('dice.roadBig') + '/' + i18n.t('roulette.roadSmall');
-        this.beadRadioBtn2['labelDisplayDown']['text'] = this.beadRadioBtn2['labelDisplayUp']['text'] = i18n.t('dice.roadOdd') + '/' + i18n.t('roulette.roadEven');
+        this.beadRadioBtn1['labelDisplayDown']['text'] = this.beadRadioBtn1['labelDisplayUp']['text'] = i18n.t('dice.roadBig') + ' / ' + i18n.t('roulette.roadSmall');
+        this.beadRadioBtn2['labelDisplayDown']['text'] = this.beadRadioBtn1['labelDisplayUp']['text'] = i18n.t('dice.roadOdd') + ' / ' + i18n.t('roulette.roadEven');
 
         this.updateActiveLine(false);
       }
@@ -147,9 +147,9 @@ namespace we {
         this.pageRadioBtn1.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.pageRadioBtn2.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
 
-        this.roadRadioBtn1.addEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
-        this.roadRadioBtn2.addEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
-        this.roadRadioBtn3.addEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
+        this.roadRadioBtn1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoadChange, this);
+        this.roadRadioBtn2.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoadChange, this);
+        this.roadRadioBtn3.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoadChange, this);
 
         this.beadRadioBtn1.addEventListener(eui.UIEvent.CHANGE, this.onBeadChange, this);
         this.beadRadioBtn2.addEventListener(eui.UIEvent.CHANGE, this.onBeadChange, this);
@@ -211,8 +211,10 @@ namespace we {
       }
 
       protected onRoadChange(e: eui.UIEvent) {
-        const radio: eui.RadioButton = e.target;
+        const radio: ui.RoundRectButton = e.target;
         this.roadStack.selectedIndex = radio.value;
+        this.roadRadioBtn1.active = this.roadRadioBtn2.active = this.roadRadioBtn3.active = false;
+        radio.active = true;
       }
 
       protected onViewChange(e: eui.UIEvent) {
