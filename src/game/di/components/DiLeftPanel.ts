@@ -50,7 +50,7 @@ namespace we {
         this.roadRadioBtn3._label.renderText = () => i18n.t('dice.total');
 
         this.beadRadioBtn1['labelDisplayDown']['text'] = this.beadRadioBtn1['labelDisplayUp']['text'] = i18n.t('dice.roadBig') + ' / ' + i18n.t('roulette.roadSmall');
-        this.beadRadioBtn2['labelDisplayDown']['text'] = this.beadRadioBtn1['labelDisplayUp']['text'] = i18n.t('dice.roadOdd') + ' / ' + i18n.t('roulette.roadEven');
+        this.beadRadioBtn2['labelDisplayDown']['text'] = this.beadRadioBtn2['labelDisplayUp']['text'] = i18n.t('dice.roadOdd') + ' / ' + i18n.t('roulette.roadEven');
 
         this.updateActiveLine(false);
       }
