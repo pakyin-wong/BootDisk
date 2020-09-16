@@ -154,7 +154,6 @@ namespace we {
             customdata.enabled = false;
             customarray.push([customid, customdata]);
           });
-          console.log('customarray false', customarray);
           // dir.socket.updateDefaultGoodRoad(defaultarray);
           dir.socket.batchUpdateAllGoodRoad(defaultarray, customarray);
         }
