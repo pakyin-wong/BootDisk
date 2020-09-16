@@ -34,12 +34,14 @@ namespace we {
         if (this._panelDismissToggleBtn) {
           this._panelDismissToggleBtn.active = env.isAutoDismiss;
           this._panelDismissToggleBtn.addEventListener('CLICKED', this.onPanelToggle, this);
+          this._panelDismissToggleBtn['tooltipText'] = env.isAutoDismiss ? 'live.tooltip.autoFullscreenToggleOff' : 'live.tooltip.autoFullscreenToggleOn';
         }
       }
 
       protected onPanelToggle(evt: egret.TouchEvent) {
         console.log(this._panelDismissToggleBtn.active);
         env.isAutoDismiss = this._panelDismissToggleBtn.active;
+        this._panelDismissToggleBtn['tooltipText'] = env.isAutoDismiss ? 'live.tooltip.autoFullscreenToggleOff' : 'live.tooltip.autoFullscreenToggleOn';
         // env.isAutoDismiss = !env.isAutoDismiss;
       }
 

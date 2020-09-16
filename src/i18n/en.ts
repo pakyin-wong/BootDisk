@@ -240,6 +240,28 @@ namespace we {
         categoryFavorite: 'My Favorites',
       },
       live: {
+        tooltip: {
+          confirmBet: 'Confirm Bet',
+          repeat: 'Repeat',
+          cancel: 'Cancel',
+          double: 'Double',
+          undo: 'Undo',
+          fullscreen: 'Fullscreen',
+          autoFullscreenToggleOn: 'Turn on auto hide',
+          autoFullscreenToggleOff: 'Auto hide panel when bet is over',
+          roadmapBankerRound: 'Banker',
+          roadmapPlayerRound: 'Player',
+          roadmapTierRound: 'Tie',
+          roadmapBankerPairRound: 'Banker Pair',
+          roadmapPlayerPairRound: 'Player Pair',
+          roadmapTotalRound: 'Total',
+          toggleUp: 'Show record',
+          toggleDown: 'Hide record',
+          ro: {
+            spreadAdd: 'Increment spread',
+            spreadDeduct: 'Decrement spread',
+          },
+        },
         gametype: {
           allGame: 'All Game',
           bacarrat: 'Baccarat',
