@@ -134,6 +134,16 @@ namespace we {
         this._ddm_presetBgm && this._ddm_presetBgm.dropdown.select(env.bgm);
       }
 
+      private updateSoundAnim(){
+        if(env.bgm === 0 && dir.audioCtr.volumeLive === 0 && dir.audioCtr.volumeBGM === 0 && dir.audioCtr.volumeFX === 0)
+        {
+          //setting btn = off
+        }
+        else {
+          //setting btn play refresh and turn to on
+        }
+      }
+
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
         this.init_menu();
