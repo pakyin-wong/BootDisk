@@ -21,6 +21,9 @@ namespace we {
 
       private _bettingPanelGroup: eui.Group;
       private _videoGroup: eui.Group;
+      private _chaseGroup: eui.Group;
+      private _chasePanel;
+
       constructor(data: any) {
         super(data);
       }
@@ -39,14 +42,17 @@ namespace we {
         super.addEventListeners();
 
         dir.evtHandler.addEventListener('on_lottery_traditional_bet', this.onConfirmPressed, this);
-        dir.evtHandler.addEventListener('ON_LOTTERY_TRAD_INSUFFICIENTBALANCE', this.onBetFail, this);
+        dir.evtHandler.addEventListener('ON_LOTTERY_TRAD_INSUFFICIENTBALANCE', this.onInsufficientBalance, this);
+
+        dir.evtHandler.addEventListener('LO_TRAD_ON_CREATE_CHASEBETPANEL', this.onCreateChaseBetPanel, this);
       }
 
       protected removeEventListeners() {
         super.removeEventListeners();
 
         dir.evtHandler.removeEventListener('on_lottery_traditional_bet', this.onConfirmPressed, this);
-        dir.evtHandler.removeEventListener('ON_LOTTERY_TRAD_INSUFFICIENTBALANCE', this.onBetFail, this);
+        dir.evtHandler.removeEventListener('ON_LOTTERY_TRAD_INSUFFICIENTBALANCE', this.onInsufficientBalance, this);
+        dir.evtHandler.removeEventListener('LO_TRAD_ON_CREATE_CHASEBETPANEL', this.onCreateChaseBetPanel, this);
       }
 
       protected initBettingTable() {
@@ -336,6 +342,30 @@ namespace we {
         // const resultNo = (<ro.GameData>this._gameData).value;
         // (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
         super.checkResultMessage(resultData);
+      }
+
+      protected onCreateChaseBetPanel(e) {
+        const { args } = e.data;
+
+        this._chasePanel = new we.lo.SSCChaseBetPanel(args[0], args[1], args[2]);
+        this._chaseGroup.visible = true;
+        this._chaseGroup.touchThrough = false;
+        this._chaseGroup.touchChildren = true;
+        this._chaseGroup.touchEnabled = true;
+        this._chaseGroup.addChild(this._chasePanel);
+        this._chasePanel.verticalCenter = 0;
+        this._chasePanel.horizontalCenter = 0;
+
+        dir.evtHandler.once('LO_TRAD_ON_EXIT_CHASEBETPANEL', this.onRemoveChaseBetPanel, this);
+      }
+
+      protected onRemoveChaseBetPanel(e) {
+        this._chaseGroup.visible = false;
+        this._chaseGroup.touchThrough = true;
+        this._chaseGroup.touchChildren = false;
+        this._chaseGroup.touchEnabled = false;
+        this._chaseGroup.removeChild(this._chasePanel);
+        this._chasePanel = null;
       }
 
       protected playResultSoundEffect(totalWin) {

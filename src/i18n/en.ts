@@ -719,6 +719,27 @@ namespace we {
       description: {
         checkbox: 'At least $min$ options should be selected，\n you are selecting $count$ options\n，system will auto generate $combination$ combinations',
       },
+      betfield: {
+        FIVEOPTIONAL: {},
+      },
+      chase: {
+        chaseBet: '追號',
+        PROFIT: '利潤率追號',
+        SAMEMULTIPLE: '同倍追號',
+        DOUBLE: '翻倍追號',
+
+        roundendtime: '預計開獎時間',
+        reward: '獎金',
+        expectedWin: '預期盈利金額',
+        expectedWinRatio: '預期盈利率',
+        index: '序號',
+        chaseround: '追號期數',
+
+        round: '期數',
+        totalbet: '追號方案總金額 (元)',
+        roundend: '本期投注截止',
+        stopwin: '中獎後停止追號',
+      },
     };
   }
 }

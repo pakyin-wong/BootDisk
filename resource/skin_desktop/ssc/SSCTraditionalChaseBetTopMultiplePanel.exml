@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.lo.SSCTraditionalChaseBetTopMultiplePanel" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="1203" height="60">
-    <e:Group id="_continuousChase" width="1203" height="60">
+<e:Skin class="skin_desktop.lo.SSCTraditionalChaseBetTopMultiplePanel" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="1121" height="60">
+    <e:Group id="_continuousChase" width="1121" height="60">
         <e:Group width="464" height="60">
             <ui:RunTimeLabel id="_lblStartMulti" text="起始倍數" size="24" alpha="0.7"/>
             <e:Group width="120" height="60">
                 <ui:RoundRectShape cornerTL_TR_BL_BR="8,8,8,8" width="120" height="60" x="0" y="0" stroke="1" strokeColor="0x214a72" fillColor="0x151c26"/>
-                <ui:RunTimeLabel id="_lblMinMultiplier" text="0" size="24" horizontalCenter="0" verticalCenter="0" alpha="0.7"/>
+                <!--<ui:RunTimeLabel id="_lblMinMultiplier" text="0" size="24" horizontalCenter="0" verticalCenter="0" alpha="0.7"/>-->
+                <e:EditableText id="_etextMinMultiplier" restrict="0-9" multiline="false" textAlign="center" text="0" size="24" horizontalCenter="0" verticalCenter="0" alpha="0.7" verticalAlign="middle"/>
             </e:Group>     
             <ui:RunTimeLabel id="_lblTo" text="隔" size="24" alpha="0.7"/>
             <e:Group width="120" height="60">
                 <ui:RoundRectShape cornerTL_TR_BL_BR="8,8,8,8" width="120" height="60" x="0" y="0" stroke="1" strokeColor="0x214a72" fillColor="0x151c26"/>
-                <ui:RunTimeLabel id="_lblMaxMultiplier" text="0" size="24" horizontalCenter="0" verticalCenter="0" alpha="0.7"/>
+                <!--<ui:RunTimeLabel id="_lblMaxMultiplier" text="0" size="24" horizontalCenter="0" verticalCenter="0" alpha="0.7"/>-->
+                <e:EditableText id="_etextRoundSeparate" restrict="0-9" multiline="false" textAlign="center" text="0" size="24" horizontalCenter="0" verticalCenter="0" alpha="0.7" verticalAlign="middle"/>
             </e:Group>    
             <ui:RunTimeLabel id="_lblGameRound" text="期" size="24" alpha="0.7"/>
             <e:layout>
                 <e:HorizontalLayout verticalAlign="middle" gap="20"/>
             </e:layout>        
         </e:Group>
-        <e:Group width="415" height="60">
+        <e:Group width="510" height="60">
             <ui:RunTimeLabel id="_lblMultiplierTitle" text="倍數" size="24" alpha="0.7"/>
             <e:Group id="_btnMultiplierGroup" width="165" height="50" touchChildren="true">
                 <e:Group id="_btnMinusMultiplier" width="50" height="50">
@@ -42,7 +44,8 @@
                 <ui:RunTimeLabel id="_lblChaseRoundTitle" text="追號期數" size="24" alpha="0.7"/>
                 <e:Group width="120" height="60">
                     <ui:RoundRectShape cornerTL_TR_BL_BR="8,8,8,8" width="120" height="60" x="0" y="0" stroke="1" strokeColor="0x214a72" fillColor="0x151c26"/>
-                    <ui:RunTimeLabel id="_lblChaseRound" text="0" size="24" horizontalCenter="0" verticalCenter="0" alpha="0.7"/>
+                    <!--<ui:RunTimeLabel id="_lblChaseRound" text="0" size="24" horizontalCenter="0" verticalCenter="0" alpha="0.7"/>-->
+                    <e:EditableText id="_etextChaseRound" restrict="0-9" multiline="false" text="0" size="24" horizontalCenter="0" verticalCenter="0" alpha="0.7" verticalAlign="middle"/>
                 </e:Group> 
                 <e:layout>
                     <e:HorizontalLayout paddingLeft="22" verticalAlign="middle" gap="20"/>

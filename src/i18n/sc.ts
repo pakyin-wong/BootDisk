@@ -795,6 +795,32 @@ namespace we {
           },
           FourStar: {},
         },
+        betfield: {
+          FIVEOPTIONAL: {},
+        },
+        chase: {
+          chaseBet: '追號',
+          PROFIT: '利潤率追號',
+          SAMEMULTIPLE: '同倍追號',
+          DOUBLE: '翻倍追號',
+
+          roundendtime: '預計開獎時間',
+          reward: '獎金',
+          expectedWin: '預期盈利金額',
+          expectedWinRatio: '預期盈利率',
+          index: '序號',
+          chaseround: '追號期數',
+
+          round: '期數',
+          totalbet: '追號方案總金額 (元)',
+          roundend: '本期投注截止',
+          stopwin: '中獎後停止追號',
+          confirmbet: '確認追號投注',
+          lowestProfitRate: '最低收益率 (%)',
+
+          profitmsg_0: '利润率追号不支持混选\n请确保您的投注都为同一玩法类型\n且元角模式保持一致',
+          profitmsg_1: '您设置的参数无法达到盈利，请重新设置',
+        },
       },
     };
   }

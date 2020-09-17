@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.SSCBetConfirmPanel" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*" xmlns:ui="we.ui.*">
+<e:Skin class="skin_desktop.SSCChaseBetConfirmPanel" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*" xmlns:ui="we.ui.*">
     <e:Rect x="0" y="0" width="2600" height="1340" alpha="0.4" fillColor="0x000000"/>
     <e:Group id="_panel" width="820" height="683" horizontalCenter="0" verticalCenter="0">
         <ui:RoundRectShape cornerTL_TR_BL_BR="13,13,13,13" x="0" y="0" width="820" height="683" stroke="1" fillColor="0x112c4c" strokeColor="0x214a72"/>
-        <ui:RunTimeLabel id="_lblBetConfirm" x="47" y="26" textColor="0xce925e" text="投注確認" fontFamily="Microsoft YaHei"/>
+        <ui:RunTimeLabel id="_lblBetConfirm" x="47" y="26" textColor="0xce925e" text="追號投注確認" fontFamily="Microsoft YaHei"/>
         <ui:RunTimeLabel id="_lblLotteryName" x="48" y="107" text="彩種名稱" fontFamily="Microsoft YaHei" size="24" alpha="0.7"/>
         <ui:RunTimeLabel id="_lblLotteryNameText" x="188" y="107" text="WG 時時彩" fontFamily="Microsoft YaHei" size="24" alpha="0.7"/>
         <e:Rect x="49" y="163" width="724" height="1" alpha="0.2" fillColor="0x979797"/>
         <ui:RunTimeLabel id="_lblTitleRoundNumber" x="501" y="107" text="投注期數" fontFamily="Microsoft YaHei" size="24" alpha="0.7"/>
-        <ui:RunTimeLabel id="_lblRoundNumber" x="545" y="107" text="20200606203期" fontFamily="Microsoft YaHei" size="24" alpha="0.7"/>
+        <ui:RunTimeLabel id="_lblRoundNumber" x="620" y="107" text="20200606203期" fontFamily="Microsoft YaHei" size="24" alpha="0.7"/>
         <ui:RunTimeLabel id="_lblBetModeTitle" x="48" y="186" text="玩法投注" fontFamily="Microsoft YaHei" size="24" alpha="0.7"/>
         <ui:RunTimeLabel id="_lblWinRatioTitle" x="460" y="186" text="賠率" fontFamily="Microsoft YaHei" size="24" alpha="0.7"/>
         <ui:RunTimeLabel id="_lblSingleBetAmountTitle" x="677" y="186" text="單注金額" fontFamily="Microsoft YaHei" size="24" alpha="0.7"/>
@@ -16,16 +16,18 @@
             <e:Group id="_datagroup"/>
         </e:Scroller>
         <e:Rect x="49" y="422" width="724" height="1" alpha="0.2" fillColor="0x979797"/>
-        <ui:RunTimeLabel id="_lblTotalNoteAmountTitle" x="457" y="445" text="總注數" fontFamily="Microsoft YaHei" size="24" alpha="0.7"/>
-        <e:Group id="_totalNoteGroup" right="47" top="439">
+        <ui:RunTimeLabel id="_lblChaseRoundTitle" x="457" y="431.98" text="追號期數" fontFamily="Microsoft YaHei" size="24" alpha="0.7"/>
+        <ui:RunTimeLabel id="_lblChaseRoundCount" x="708" y="431.98" text="15 期" fontFamily="Microsoft YaHei" size="24" textAlign="right"/>
+        <ui:RunTimeLabel id="_lblTotalNoteAmountTitle" x="457" y="483.98" text="總注數" fontFamily="Microsoft YaHei" size="24" alpha="0.7"/>
+        <e:Group id="_totalNoteGroup" right="47" top="476">
             <ui:RunTimeLabel id="_lblTotalNoteAmount" text="n" fontFamily="Microsoft YaHei" size="40" textColor="0x33bb7e" textAlign="right"/>
             <ui:RunTimeLabel id="_lblNoteText" text="注" fontFamily="Microsoft YaHei" size="24" textAlign="right"/>
             <e:layout>
                 <e:HorizontalLayout verticalAlign="bottom" gap="5"/>
             </e:layout>
         </e:Group>
-        <ui:RunTimeLabel id="_lblTotalBetAmountTitle" x="457" y="497" text="總投注額" fontFamily="Microsoft YaHei" size="24" alpha="0.7"/>
-        <ui:RunTimeLabel id="_lblTotalBetAmount" x="628" y="491" text="$200.00" fontFamily="Microsoft YaHei" size="40" textColor="0xe4493a" textAlign="right"/>
+        <ui:RunTimeLabel id="_lblTotalBetAmountTitle" x="457" y="535.98" text="總投注額" fontFamily="Microsoft YaHei" size="24" alpha="0.7"/>
+        <ui:RunTimeLabel id="_lblTotalBetAmount" x="628" y="529.98" text="$200.00" fontFamily="Microsoft YaHei" size="40" textColor="0xe4493a" textAlign="right"/>
         <e:Group width="224" height="68" touchChildren="true" x="171" y="580">
             <ui:RoundRectButton id="close" cornerTL_TR_BL_BR="34,34,34,34" width="224" height="68" 
                         stroke="2" strokeColor="0x5F7273" fillAlpha="0" strokeAlpha="0.5"

@@ -2,33 +2,36 @@
 namespace we {
   export namespace overlay {
     export class SSCBetConfirmPanel extends ui.Panel {
-      private tutorial;
-      private _noteData: we.lo.TradNoteData[];
+      protected tutorial;
+      protected _noteData: we.lo.TradNoteData[];
+      protected _currentRoundNumber: number;
 
-      private _datagroup: eui.Group;
+      protected _datagroup: eui.Group;
 
-      private _lblBetConfirm;
-      private _lblLotteryName;
-      private _lblLotteryNameText;
-      private _lblBetModeTitle;
-      private _lblWinRatioTitle;
-      private _lblSingleBetAmountTitle;
+      protected _lblBetConfirm;
+      protected _lblLotteryName;
+      protected _lblLotteryNameText;
+      protected _lblBetModeTitle;
+      protected _lblWinRatioTitle;
+      protected _lblSingleBetAmountTitle;
 
-      private _lblTotalNoteAmountTitle;
-      private _lblTotalNoteAmount;
-      private _lblNoteText;
+      protected _lblTotalNoteAmountTitle;
+      protected _lblTotalNoteAmount;
+      protected _lblNoteText;
 
-      private _lblTotalBetAmountTitle;
-      private _lblTotalBetAmount;
+      protected _lblTotalBetAmountTitle;
+      protected _lblTotalBetAmount;
 
-      private _lblBtnCancel;
-      private _lblConfirmBet;
+      protected _lblBtnCancel;
+      protected _lblConfirmBet;
 
-      private _btnConfirmBet;
+      protected _btnConfirmBet;
 
-      constructor(data: we.lo.TradNoteData[]) {
-        super('SSCBetConfirmPanel');
+      constructor(data: we.lo.TradNoteData[], currentRoundNumber) {
+        super();
+        this.skinName = 'skin_desktop.SSCBetConfirmPanel';
         this._noteData = data;
+        this._currentRoundNumber = currentRoundNumber;
       }
 
       public mount() {
@@ -50,14 +53,14 @@ namespace we {
       }
 
       protected addEventListeners() {
-        this._btnConfirmBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this);
+        utils.addButtonListener(this._btnConfirmBet, this.onConfirmPressed, this);
       }
 
       protected removeEventListeners() {
-        this._btnConfirmBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this);
+        utils.removeButtonListener(this._btnConfirmBet, this.onConfirmPressed, this);
       }
 
-      private onConfirmPressed(e) {
+      protected onConfirmPressed(e) {
         dir.evtHandler.dispatchEventWith('onLotteryConfirmBet', false, { noteData: this._noteData, roundData: [] });
         this.destroy();
       }
@@ -82,6 +85,10 @@ namespace we {
           lblBetMode.left = 0;
 
           const lblWinRatio = new ui.RunTimeLabel();
+          lblWinRatio.renderText = () => `${this._noteData[i].ratio}`;
+          lblWinRatio.size = 24;
+          data.addChild(lblWinRatio);
+          lblWinRatio.x = 460;
 
           const lblBetAmount = new ui.RunTimeLabel();
           lblBetAmount.renderText = () => `$ ${utils.formatNumber(field[1], true)}`;
@@ -90,7 +97,7 @@ namespace we {
           lblBetAmount.right = 0;
         }
 
-        this.computeTotalCount();
+        this.computeTotalAmount();
         this.computeTotalNoteAmount();
       }
 
@@ -183,7 +190,7 @@ namespace we {
         return betmodearray;
       }
 
-      protected computeTotalNoteAmount() {
+      protected computeTotalAmount() {
         let totalamount = 0;
         if (this._noteData.length === 0) {
         } else {
@@ -197,7 +204,7 @@ namespace we {
         }
       }
 
-      protected computeTotalCount() {
+      protected computeTotalNoteAmount() {
         let totalcount = 0;
         if (this._noteData.length === 0) {
         } else {

@@ -16,6 +16,7 @@ namespace we {
       protected _roundDetailInfo = {};
 
       public _timer: eui.Label;
+      protected _ratioList: any;
 
       public get currentBigTagIndex() {
         return this._currentBigTagIndex;
@@ -135,6 +136,14 @@ namespace we {
           tradNoteData.multiplier = this._bettingControl.multiplier;
           const betMode = SelectionMapping[Object.keys(SelectionMapping)[this._currentBigTagIndex]];
           const betMethod = betMode['type'][Object.keys(betMode['type'])[this._currentSmallTagIndex]];
+          if (this._ratioList) {
+            const ratioKeys = betMethod['ratio'];
+            let ratio = 0;
+            ratioKeys.map((e, k) => {
+              ratio += this._ratioList[ratioKeys[k]];
+            });
+            tradNoteData.ratio = ratio;
+          }
           tradNoteData.betmode = betMode.name;
           tradNoteData.betmethod = betMethod.name;
           tradNoteDataArray.push(tradNoteData);
@@ -153,8 +162,7 @@ namespace we {
         return betmodearray;
       }
 
-      protected placeBet(evt: egret.Event) {
-        dir.evtHandler.removeEventListener('onLotteryConfirmBet', this.placeBet, this);
+      public placeBet(evt: egret.Event) {
         const notes = evt.data.noteData;
         const rounds = evt.data.roundData;
 
@@ -202,7 +210,7 @@ namespace we {
           return;
         }
 
-        dir.evtHandler.addEventListener('onLotteryConfirmBet', this.placeBet, this);
+        dir.evtHandler.once('onLotteryConfirmBet', this.placeBet, this);
         // this.placeBet(notes);
         dir.evtHandler.createOverlay({
           class: 'SSCBetConfirmPanel',
@@ -225,7 +233,7 @@ namespace we {
           return;
         }
 
-        dir.evtHandler.addEventListener('onLotteryConfirmBet', this.placeBet, this);
+        dir.evtHandler.once('onLotteryConfirmBet', this.placeBet, this);
         // this.placeBet(notes);
         dir.evtHandler.createOverlay({
           class: 'SSCBetConfirmPanel',
@@ -290,14 +298,16 @@ namespace we {
       public chaseBet() {
         // TODO
         const notes = this._noteControl.notes;
-        if (this._roundDetailInfo === null) {
+
+        if (this._roundDetailInfo === null || notes.length === 0) {
           return;
         }
 
-        dir.evtHandler.createOverlay({
-          class: 'SSCChaseBetPanel',
-          args: [notes, this._roundDetailInfo, this],
-        });
+        dir.evtHandler.dispatch('LO_TRAD_ON_CREATE_CHASEBETPANEL', { args: [notes, this._roundDetailInfo, this] });
+        // dir.evtHandler.createOverlay({
+        //   class: 'SSCChaseBetPanel',
+        //   args: [notes, this._roundDetailInfo, this],
+        // });
 
         dir.evtHandler.addEventListener('onLotteryConfirmBet', this.placeBet, this);
 
@@ -318,7 +328,11 @@ namespace we {
         }
       }
 
-      public updateBetTableInfo(info) {}
+      public updateBetTableInfo(info) {
+        if (info.betInfo.lotteryRatio && this._ratioList === undefined) {
+          this._ratioList = info.betInfo.lotteryRatio;
+        }
+      }
 
       public validateBetButtons() {
         if (!this._bettingControl || !this._noteControl) {

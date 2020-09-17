@@ -223,6 +223,24 @@ namespace we {
         super.onExit();
         this.removeListeners();
       }
+
+      public setConfirmBetButton(enable: boolean) {
+        super.setConfirmBetButton(enable);
+        if (!this._notes) {
+          return;
+        }
+        if (this._notes.length > 0) {
+          this._btnConfirmBet.buttonEnabled = enable;
+          this._btnConfirmBet.enabled = enable;
+          this._btnChaseBet.buttonEnabled = enable;
+          this._btnChaseBet.enabled = enable;
+        } else {
+          this._btnConfirmBet.buttonEnabled = false;
+          this._btnConfirmBet.enabled = false;
+          this._btnChaseBet.buttonEnabled = false;
+          this._btnChaseBet.enabled = false;
+        }
+      }
       // protected addTotalBetCount(count: number) {
       //   this._totalBetCount += count;
       //   this._lbltotalBetCount.renderText = () => `total count ${this._totalBetCount}`;

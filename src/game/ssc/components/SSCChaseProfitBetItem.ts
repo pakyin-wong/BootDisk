@@ -1,7 +1,8 @@
 // TypeScript file
+// TypeScript file
 namespace we {
   export namespace lo {
-    export class SSCChaseMultiplierBetItem extends eui.ItemRenderer {
+    export class SSCChaseProfitBetItem extends eui.ItemRenderer {
       private _txt_record_bgcolor;
       private _txt_hover_color;
       private _txtIndex;
@@ -10,7 +11,9 @@ namespace we {
       private _txtRoundNumber;
       private _txtMultiplier;
       private _txtBetAmount;
-      private _txtRoundEndTime;
+      private _txtReward;
+      private _txtExpectedWin;
+      private _txtExpectedWinRatio;
 
       private _noteData: TradNoteData[];
       // private _multiplier;
@@ -19,7 +22,7 @@ namespace we {
 
       constructor() {
         super();
-        this.skinName = utils.getSkinByClassname('SSCChaseMultiplierBetItem');
+        this.skinName = utils.getSkinByClassname('SSCChaseProfitBetItem');
         this.addListeners();
       }
 
@@ -38,7 +41,10 @@ namespace we {
         this._txtRoundNumber.text = this.data.gameroundid;
         this._txtMultiplier.text = this.data.multiplier;
         this._txtBetAmount.text = '$ ' + utils.formatNumber(this.data.totalBetAmount * 100);
-        this._txtRoundEndTime.text = utils.formatTime(this.data.endtime);
+        this._txtReward.text = '$ ' + utils.formatNumber(this.data.highestWin * 100);
+        this._txtExpectedWin.text = utils.formatNumber(this.data.expectedProfit * 100);
+        this._txtExpectedWinRatio.text = utils.formatNumber(this.data.expectedProfitRatio * 100) + '%';
+
         this._activeButton.visible = true;
 
         if (this.data.index > 1) {

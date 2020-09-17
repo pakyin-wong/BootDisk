@@ -711,10 +711,26 @@ namespace we {
           checkbox: '請至少選擇$min$位位數，您當前選擇了$count$個位置\n，系統將自動生成$combination$個方案',
         },
         betfield: {
-          FIVEOPTIONAL:{
+          FIVEOPTIONAL: {},
+        },
+        chase: {
+          chaseBet: '追號',
+          PROFIT: '利潤率追號',
+          SAMEMULTIPLE: '同倍追號',
+          DOUBLE: '翻倍追號',
 
-          }
-        }
+          roundendtime: '預計開獎時間',
+          reward: '獎金',
+          expectedWin: '預期盈利金額',
+          expectedWinRatio: '預期盈利率',
+          index: '序號',
+          chaseround: '追號期數',
+
+          round: '期數',
+          totalbet: '追號方案總金額 (元)',
+          roundend: '本期投注截止',
+          stopwin: '中獎後停止追號',
+        },
       },
     };
   }
