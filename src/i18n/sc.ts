@@ -47,6 +47,10 @@ namespace we {
         },
       },
 
+      goodroadedit_hint_left: '点击',
+      goodroadedit_hint_center: '或',
+      goodroadedit_hint_right: '开始设置',
+
       overlaypanel_memberreport_title: '会员报表',
       overlaypanel_memberreport_date: '日期',
       overlaypanel_memberreport_today: '今日',

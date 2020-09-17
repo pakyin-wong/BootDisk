@@ -40,6 +40,16 @@ namespace we {
       playerprofile_follower: 'Follower',
       playerprofile_following: 'Following',
       playerprofile_favouriteDealer: 'Favorite Dealer',
+      playerProfile: {
+        tooltip: {
+          nickname: 'Setting Name',
+          refresh: 'Refresh Balance',
+        },
+      },
+
+      goodroadedit_hint_left: 'Press',
+      goodroadedit_hint_center: 'or',
+      goodroadedit_hint_right: 'to set.',
 
       overlaypanel_memberreport_title: 'Member Report',
       overlaypanel_memberreport_date: 'Date',

@@ -138,7 +138,6 @@ namespace we {
             customdata.enabled = true;
             customarray.push([customid, customdata]);
           });
-          console.log('customarray true', customarray);
           // dir.socket.updateDefaultGoodRoad(defaultarray);
           dir.socket.batchUpdateAllGoodRoad(defaultarray, customarray);
         } else {

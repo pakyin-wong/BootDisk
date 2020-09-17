@@ -15,6 +15,9 @@ namespace we {
       private _saveButton: ui.BaseAnimationButton;
       private _bigRoadMask: eui.Rect;
       private _editHint: eui.Group;
+      private _editHintLeft: ui.RunTimeLabel;
+      private _editHintCenter: ui.RunTimeLabel;
+      private _editHintRight: ui.RunTimeLabel;
 
       private roadId: string;
       private roadName: string;
@@ -54,7 +57,9 @@ namespace we {
         this._clearButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClearTap, this);
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-
+        this._editHintLeft.renderText = () => `${i18n.t('goodroadedit_hint_left')}`;
+        this._editHintCenter.renderText = () => `${i18n.t('goodroadedit_hint_center')}`;
+        this._editHintRight.renderText = () => `${i18n.t('goodroadedit_hint_right')}`;
         // this.anchorOffsetX = this.width / 2;
         // this.anchorOffsetY = this.height / 2;
         // this.x += this.anchorOffsetX;
