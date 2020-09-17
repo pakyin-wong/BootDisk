@@ -7,7 +7,7 @@
 	<e:Image id="_bgImg" top="0" bottom="0" source="d_mw_bg_a_jpg" x="0" locked="true" />
 	<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" width="2600" height="294" x="0" bottom="0" stroke="0"
 	                   fillColor="0x00000000,0x00000050" />
-	<ui:Group x="735" y="1020" isEdgeDismissable="true" dismissPosX="735" dismissPosY="1297">
+	<ui:Group x="735" y="1020" isEdgeDismissable="true" dismissPosX="735" dismissPosY="1340">
 		<lw:TableLayerBg id="_tableLayerBg" x="0" y="0" width="1162" height="304"/>
 		<lw:TableLayer id="_tableLayer" width="1170" height="304" skinName="skin_desktop.lw.TableLayerSkin" />
 		<lw:ChipLayer id="_chipLayer" width="1170" height="304" skinName="skin_desktop.lw.ChipLayerSkin" />
