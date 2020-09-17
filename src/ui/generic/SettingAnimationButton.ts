@@ -125,6 +125,11 @@ namespace we {
           this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
           this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
           this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+          if(this._dbDisplay === "d_common_gamesetting_sound"){
+            dir.evtHandler.addEventListener(core.Event.BGM_UPDATE, this.onUpdate, this);
+          }else if(this._dbDisplay === "d_common_gamesetting_video"){
+            dir.evtHandler.addEventListener(core.Event.BGM_UPDATE, this.onUpdate, this);
+          }
           mouse.setButtonMode(this, true);
         } else {
           this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
@@ -132,6 +137,11 @@ namespace we {
           this.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
           this.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
           this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+          if(this._dbDisplay === "d_common_gamesetting_sound"){
+            dir.evtHandler.removeEventListener(core.Event.BGM_UPDATE, this.update, this);
+          }else if(this._dbDisplay === "d_common_gamesetting_video"){
+            dir.evtHandler.addEventListener(core.Event.BGM_UPDATE, this.update, this);
+          }
           mouse.setButtonMode(this, false);
         }
         const oldState = [this._down, this._hover];
@@ -199,6 +209,10 @@ namespace we {
 
       private onClick() {
         this.dispatchEvent(new egret.Event('CLICKED'));
+      }
+
+      private onUpdate(){
+        this._isUpdate = true;
       }
 
       public playPromise(anim, count) {
@@ -280,6 +294,7 @@ namespace we {
             this.playPromise('switch_to_on', 0);
           }
         }
+        this._isUpdate = false;
       }
     }
   }
