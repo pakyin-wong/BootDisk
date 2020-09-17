@@ -116,13 +116,13 @@ namespace we {
         this._bettingControl.noteCount = this._currentBettingTable.totalNoteCount;
       }
 
-      protected betFieldMapping(betFields: string[], isMultiple: boolean = false) {
+      protected betFieldMapping(betFields: string[]) {
         // const unitBet = this._bettingControl ? this._bettingControl.unitBet : 10; // temp workaround when bettingControl not exist
         const unitBet = this._bettingControl.unitBet;
-        const multiplier = this._bettingControl.multiplier;
-        const noteCount = this._bettingControl.noteCount;
+        // const multiplier = this._bettingControl.multiplier;
+        // const noteCount = this._bettingControl.noteCount;
 
-        return betFields.map(betField => `${betField}@${unitBet}#${noteCount}`);
+        return betFields.map(betField => `${betField}@${unitBet}`);
       }
 
       protected generateNoteData(): TradNoteData[] {
