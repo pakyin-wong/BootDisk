@@ -56,7 +56,7 @@ namespace we {
       overlaypanel_customroad_default: '還原預設',
       overlaypanel_customroad_selectall: '全選',
 
-      overlaypanel_bethistory_title: '投註記錄',
+      overlaypanel_bethistory_title: '投注記錄',
       overlaypanel_bethistory_tab_all: '遊戲總覽',
       overlaypanel_bethistory_tab_live: '真人遊戲',
       overlaypanel_bethistory_tab_lottery: '彩票遊戲',
