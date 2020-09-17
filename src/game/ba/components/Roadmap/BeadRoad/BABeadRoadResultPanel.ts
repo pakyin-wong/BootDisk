@@ -37,6 +37,7 @@ namespace we {
         }
 
         this._gameNumLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameRoundID;
+        console.log('this.gameRoundID', this.gameRoundID);
       }
 
       constructor() {
@@ -61,6 +62,7 @@ namespace we {
       */
 
       public setCardResult(rslt: GameData) {
+        console.log('setCardResult',rslt)
         this.gameRoundID = rslt.gameroundid;
         this.winType = rslt.wintype;
         this._cardHolder.updateResult(rslt);
