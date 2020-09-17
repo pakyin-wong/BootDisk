@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.BetHistoryItemLotteryCB" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*"    states="up,down" >
+	<e:Rect id="_txt_record_bgcolor" width="2136" height="76" x="0" y="0" height.down="598"/>
+
+	<e:Group id="_hoverGroup"  width="2136" x="0" height="76" y="0">
+		<e:Label id="_txt_record_id" text="Label" x="48" y="0" height="76" size="24" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_date" text="Label" x="317" y="0" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_game" text="Label" x="640" y="0" height="76" size="24" verticalAlign="middle" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_round" text="Label" y="0" height="76" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="938"/>
+		<e:Label id="_txt_record_totalRound" text="Label" y="0" height="76" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="1220"/>
+		<e:Label id="_txt_record_currRound" text="Label" y="0" height="76" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="1435"/>
+		<e:Label id="_txt_record_betamount" text="Label" x="1645" y="0" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_remark" text="Label" x="1869" y="0" height="76" size="24" verticalAlign="middle" scaleX="1" scaleY="1"/>
+		<e:Image x="2024" width="30" height="30" source="d_lobby_button_next_hover_png" y="23" visible.down="false"/>
+		<e:Image width="16" height="10" x="2031" y="33" source="d_lobby_btn_dropdown_png" visible.up="false"/>
+	</e:Group>
+
+	<e:Group visible.up="false" width="2136" y="0" x="0" height="598" scaleX="0" scaleY="0" scaleX.down="1" scaleY.down="1">
+		<e:Rect width="2040" height="1" x="48" fillColor="0x353535" y="76"/>
+		<e:Label id="_txt_bettype" text="類型" size="20" verticalAlign="middle" height="66" y="83"  x="48"/>
+		<e:Label id="_txt_record_bettype" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y="83"/>
+		<e:Label id="_txt_betgroup" text="玩法" size="20" verticalAlign="middle" height="66" y="149" x="48"/>
+		<e:Label id="_txt_record_betgroup" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y="149"/>
+		<e:Label id="_txt_betfield" text="投注項目" size="20" verticalAlign="middle" height="66" x="48" y="215"/>
+		<e:Label id="_txt_record_betfield" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y="215"/>
+		<e:Label id="_txt_autostop" text="追中即停" size="20" verticalAlign="middle" height="66" y="83" x="582"/>
+		<e:Label id="_txt_record_autostop" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="686" y="83"/>
+		<e:Label id="_txt_cancelled" text="取消期數" size="20" verticalAlign="middle" height="66" y="149" x="582"/>
+		<e:Label id="_txt_record_cancelled" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="686" y="149"/>
+		<e:Label id="_txt_finAmount" text="完成金額" size="20" verticalAlign="middle" height="66" x="582" y="215"/>
+		<e:Label id="_txt_record_finAmount" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="686" y="215"/>
+		<overlay:LoContinuousBetStatus id="_cbstatus" width="700" height="456" y="119" x="1237"/>
+	</e:Group>
+</e:Skin>

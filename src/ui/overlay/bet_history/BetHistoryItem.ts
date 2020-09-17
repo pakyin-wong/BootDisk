@@ -26,14 +26,19 @@ namespace we {
           this.skinName = utils.getSkinByClassname('BetHistoryItem');
         }
 
+        protected mount () {
+          utils.removeButtonListener(this._btn_replay, this.onClickReplay, this);
+        }
+
+        protected destroy() {
+          utils.removeButtonListener(this._btn_replay, this.onClickReplay, this);
+        }
+
         protected childrenCreated(): void {
           super.childrenCreated();
-
-          // this.$addListener(mouse.MouseEvent.ROLL_OVER, this.onHover, this);
-          // this.$addListener(mouse.MouseEvent.ROLL_OUT, this.onRollOut, this);
-          this._btn_replay.$addListener(egret.TouchEvent.TOUCH_TAP, this.onClickReplay, this);
-
-          mouse.setButtonMode(this._btn_replay, true);
+          this.mount();
+          this.addEventListener(egret.Event.ADDED_TO_STAGE, this.mount, this);
+          this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.destroy, this);
         }
 
         protected dataChanged(): void {
@@ -81,14 +86,6 @@ namespace we {
           } else {
             this._txt_record_win.text = `-${utils.formatNumber(this.data.winamount, true)}`;
           }
-        }
-
-        protected onHover() {
-          this.currentState = 'hover';
-        }
-
-        protected onRollOut() {
-          this.currentState = 'normal';
         }
 
         protected onClickReplay(e: egret.Event) {

@@ -98,6 +98,12 @@ namespace we {
       overlaypanel_bethistorylottery_record_betgroup: '玩法',
       overlaypanel_bethistorylottery_record_betfield: '投注項目',
 
+      overlaypanel_bethistorylottery_continuousbet_round: '獎期',
+      overlaypanel_bethistorylottery_continuousbet_rate: '倍數',
+      overlaypanel_bethistorylottery_continuousbet_status: '狀態',
+      overlaypanel_bethistorylottery_continuousbet_cancel: '撤單',
+      overlaypanel_bethistorylottery_continuousbet_allcancel: '一鍵撤單',
+
       overlaypanel_bethistorylottery_tab_single: '投注記錄',
       overlaypanel_bethistorylottery_tab_multi: '追號記錄',
 
@@ -240,6 +246,28 @@ namespace we {
         categoryFavorite: '我的最愛',
       },
       live: {
+        tooltip: {
+          confirmBet: '確認投注',
+          repeat: '重複下注',
+          cancel: '取消',
+          double: '雙倍',
+          undo: '還原',
+          fullscreen: '視頻全瑩幕',
+          autoFullscreenToggleOn: '開啟自動隱藏界面',
+          autoFullscreenToggleOff: '投注結東後, 界面將自動隱藏',
+          roadmapBankerRound: '莊局數',
+          roadmapPlayerRound: '閒局數',
+          roadmapTierRound: '和局數',
+          roadmapBankerPairRound: '莊對局數',
+          roadmapPlayerPairRound: '閒對局數',
+          roadmapTotalRound: '總局數',
+          toggleUp: '展開記錄',
+          toggleDown: '收起記錄',
+          ro: {
+            spreadAdd: '增加散佈',
+            spreadDeduct: '減少散佈',
+          },
+        },
         gametype: {
           allGame: '真人遊戲',
           bacarrat: '百家樂',
@@ -455,7 +483,7 @@ namespace we {
         betLimitshort: '限紅',
         baccarat: '百家樂',
         gameroundid: '遊戲編號',
-        totalbet: '總下注',
+        totalbet: '總投注',
         totalcount: '總數',
         betSuccess: '下注成功',
         betFail: '下注失敗',

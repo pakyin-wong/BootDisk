@@ -163,32 +163,32 @@ namespace we {
       }
 
       /* internal button lifecycle methods */
-      private onRollover() {
+      protected onRollover() {
         const oldState = [this._down, this._hover];
         this._hover = true;
         this.update(oldState);
       }
 
-      private onRollout() {
+      protected onRollout() {
         const oldState = [this._down, this._hover];
         this._down = false;
         this._hover = false;
         this.update(oldState);
       }
 
-      private onTouchDown() {
+      protected onTouchDown() {
         const oldState = [this._down, this._hover];
         this._down = true;
         this.update(oldState);
       }
 
-      private onTouchUp() {
+      protected onTouchUp() {
         const oldState = [this._down, this._hover];
         this._down = false;
         this.update(oldState);
       }
 
-      private onClick() {
+      protected onClick() {
         this.dispatchEvent(new egret.Event('CLICKED'));
       }
 
@@ -215,8 +215,8 @@ namespace we {
         });
       }
 
-      private prevProm: Promise<any> = Promise.resolve();
-      private async update([oldDown, oldHover]: boolean[]) {
+      protected prevProm: Promise<any> = Promise.resolve();
+      protected async update([oldDown, oldHover]: boolean[]) {
         if (!this._display) {
           return;
         }
