@@ -19,8 +19,8 @@ namespace we {
       public cornerBR: number = 8;
 
       // state - default
-      public fillColor: string = '0xff0000';
-      public fillAlpha: number = 1;
+      public fillColor: string = '0x000000';
+      public fillAlpha: number = 0;
       public stroke: number = 1;
       public strokeColor: number = 0x00ff00;
       public strokeAlpha: number = 1;

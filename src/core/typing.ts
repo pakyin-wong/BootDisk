@@ -28,6 +28,7 @@ namespace we {
       getBalance();
       getPlayerProfileSummary(callback: (data: any) => void);
       getPlayerStatistic(filter: any, callback: (data: any) => void);
+      getPlayerLotteryStatistic(filter: any);
     }
 
     export interface ILobbyRoad {

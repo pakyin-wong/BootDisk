@@ -54,8 +54,13 @@ namespace we {
 
       overlaypanel_customroad_title: 'Good Road Settings',
       overlaypanel_customroad_default: 'Restore Default',
+      overlaypanel_customroad_selectall: 'Select All',
 
       overlaypanel_bethistory_title: 'Bet Record',
+      overlaypanel_bethistory_tab_all: 'All',
+      overlaypanel_bethistory_tab_live: 'Live',
+      overlaypanel_bethistory_tab_lottery: 'Lottery',
+      overlaypanel_bethistory_tab_egame: 'Egame',
       overlaypanel_bethistory_date: 'Dates',
       overlaypanel_bethistory_today: 'Today',
       overlaypanel_bethistory_yesterday: 'Yesterday',
@@ -86,13 +91,20 @@ namespace we {
       overlaypanel_bethistory_record_replay: 'Replay',
       overlaypanel_bethistory_btn_next: 'Next',
       overlaypanel_bethistory_btn_prev: 'Previous',
+      overlaypanel_bethistory_searchtype_all: 'All',
+
+      overlaypanel_bethistorylottery_tab_single: 'Single',
+      overlaypanel_bethistorylottery_tab_multi: 'Multi',
+
+      overlaypanel_bethistorylottery_record_round: 'Round',
+      overlaypanel_bethistorylottery_record_bettype: 'Type',
+      overlaypanel_bethistorylottery_record_betgroup: 'Group',
+      overlaypanel_bethistorylottery_record_betfield: 'Field',
 
       overlaypanel_bethistory_baresult_banker: 'B',
       overlaypanel_bethistory_baresult_player: 'P',
       overlaypanel_bethistory_dtresult_dragon: 'D',
       overlaypanel_bethistory_dtresult_tiger: 'T',
-
-      overlaypanel_bethistory_searchtype_all: 'All',
 
       overlaypanel_gameSet_showGoodRoadHint: 'Show GoodRoad Hint',
       overlaypanel_gameSet_autoBet: 'Auto Bet Confirm',
@@ -158,6 +170,17 @@ namespace we {
         },
       },
       nav: {
+        tooltip: {
+          menu: 'Menu',
+          back: 'Back to lobby',
+          refresh: 'Refresh',
+          profile: 'Profile',
+          roominfo: 'Room Info',
+          betlimit: 'Bet Limit',
+          d_lobby_viewmode_icon_tiny: 'Tiny View',
+          d_lobby_viewmode_icon_general: 'Normal View',
+          d_lobby_viewmode_icon_pro: 'Professional View',
+        },
         bet_balance: 'Balance',
         menu: {
           title: 'Settings',
@@ -206,7 +229,7 @@ namespace we {
           live: 'Live',
           lottery: 'Lottery',
           egame: 'EGame',
-          favorite: 'Favorite',
+          favourite: 'Favourite',
         },
         categoryPromotion: 'Promoted',
         categoryBaccarat: 'Baccarat',
@@ -217,6 +240,28 @@ namespace we {
         categoryFavorite: 'My Favorites',
       },
       live: {
+        tooltip: {
+          confirmBet: 'Confirm Bet',
+          repeat: 'Repeat',
+          cancel: 'Cancel',
+          double: 'Double',
+          undo: 'Undo',
+          fullscreen: 'Fullscreen',
+          autoFullscreenToggleOn: 'Turn on auto hide',
+          autoFullscreenToggleOff: 'Auto hide panel when bet is over',
+          roadmapBankerRound: 'Banker',
+          roadmapPlayerRound: 'Player',
+          roadmapTierRound: 'Tie',
+          roadmapBankerPairRound: 'Banker Pair',
+          roadmapPlayerPairRound: 'Player Pair',
+          roadmapTotalRound: 'Total',
+          toggleUp: 'Show record',
+          toggleDown: 'Hide record',
+          ro: {
+            spreadAdd: 'Increment spread',
+            spreadDeduct: 'Decrement spread',
+          },
+        },
         gametype: {
           allGame: 'All Game',
           bacarrat: 'Baccarat',
@@ -225,6 +270,7 @@ namespace we {
           roulette: 'Roulette',
           dice: 'SicBo',
           other: 'Others',
+          special: 'Special',
         },
       },
       tableInfo: {
@@ -248,6 +294,8 @@ namespace we {
         askDragon: 'Ask Dn',
         askTiger: 'Ask Tr',
         DragonTigerTieRatio: 'Dragon Tiger ratio',
+        TieRatio: 'Tie ratio',
+        DealerRatio: 'Dealer DT ratio',
         round: 'round',
         rounds: 'rounds',
       },
@@ -511,13 +559,18 @@ namespace we {
       lo_fun_overlay_totalAmt: 'Total',
       lo_fun_overlay_confirm: 'Confirm',
       lo_fun_overlay_cancel: 'Cancel',
+      lo_fun_overlay_betPrefix: 'ENT｜',
 
       lo_fun_betlayer_tab_fun: 'Entertainment',
       lo_fun_betlayer_tab_num: 'Number',
       lo_fun_betlayer_tab_dt: 'Dragon Tiger',
       lo_fun_betlayer_tab_five1: 'All five in one',
 
-      lo_fun_overlay_betPrefix: 'ENT｜',
+      lo_fun_bettype_n: 'B/S/Odd/Even',
+      lo_fun_bettype_n3: 'F/M/L Three',
+      lo_fun_bettype_num: 'Number',
+      lo_fun_bettype_dt: 'Dragon Tiger',
+      lo_fun_bettype_five1: 'All five in one',
 
       lo_fun_betgroup_MILSIZEPARITY2: 'First｜Million',
       lo_fun_betgroup_THOUSIZEPARITY2: 'Second｜Thousand',

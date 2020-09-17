@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.ro.Analysis" width="278" height="450" xmlns:e="http://ns.egret.com/eui" xmlns:ro="we.ro.*"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+        <e:Group id="_content">
         <e:Rect fillColor="0x23282f" width="100%" height="100%" alpha="0.4" />
         <e:Group x="16" y="13" width="250" height="120">
                 <e:Rect width="100%" height="100%" fillColor="0x212425" />
@@ -54,4 +55,5 @@
                 <e:Rect width="100%" height="100%" fillColor="0x212425" />
                 <ro:BarChart id="_bigChart" skinName="skin_desktop.ro.LobbyBigBarChart" />
         </e:Group>
+        </e:Group>        
 </e:Skin>

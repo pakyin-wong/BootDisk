@@ -2,6 +2,11 @@ namespace we {
   export namespace ba {
     export class StatisticChart extends core.BaseEUI {
       public tableId: string;
+
+      protected _content: eui.Group;
+      protected containerDisplay: egret.Bitmap;
+      protected containerRT: egret.RenderTexture;
+
       protected _title: ui.RunTimeLabel;
       protected _icon: eui.Group;
       protected _icon_pair: eui.Group;
@@ -52,6 +57,11 @@ namespace we {
 
       protected mount() {
         super.mount();
+        this.containerRT = new egret.RenderTexture();
+        this.containerDisplay = new egret.Bitmap();
+        this.containerDisplay.texture = this.containerRT;
+        this.addChild(this.containerDisplay);
+
         this.update();
       }
 
@@ -71,6 +81,16 @@ namespace we {
         this.chart.secondAngle = this.secondPercentage * 360;
         this.chart.thirdColor = this._thirdColor;
         this.chart.drawChart(this.isGrey);
+
+        this.render();
+      }
+
+      public render() {
+        this._content.visible = true;
+        this._content.validateNow();
+        this.containerRT.drawToTexture(this._content, this._content.getBounds(), 1);
+        this._content.visible = false;
+        this.containerDisplay.visible = true;
       }
     }
   }

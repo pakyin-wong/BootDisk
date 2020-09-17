@@ -144,7 +144,7 @@ namespace we {
       }
 
       public updateLuckyNumbers(gameData: data.GameData, chipLayer: ui.ChipLayer) {
-        this.gameData = <rol.GameData> gameData;
+        this.gameData = <rol.GameData>gameData;
         this.removeChildren();
 
         if (!(this.gameData && this.gameData.luckynumber)) {

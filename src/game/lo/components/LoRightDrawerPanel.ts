@@ -8,7 +8,8 @@ namespace we {
       protected roadmapBtn: ui.RoundRectButton;
       protected analysisBtn: ui.RoundRectButton;
       protected chartBtn: ui.RoundRectButton;
-      protected overlay: eui.Group;
+      protected noDataOverlay: eui.Group;
+      protected loadingOverlay: eui.Group;
 
       protected gameId: string;
       protected gameIdLabel: ui.RunTimeLabel;
@@ -21,6 +22,7 @@ namespace we {
       protected dtRoadNames: string[] = ['dt1v2', 'dt1v3', 'dt1v4', 'dt1v5', 'dt2v3', 'dt2v4', 'dt2v5', 'dt3v4', 'dt3v5', 'dt4v5'];
       protected chartTypeNames: string[] = ['lucky_time', 'lucky_game', 'fav_bet', 'fav_game'];
       protected chartPeriodNames: string[] = ['day', 'pday', 'week', 'pweek', 'month', 'pmonth'];
+      protected chartTypeMapping: number[] = [2, 3, 0, 1];
 
       // roadmap
       public dtBigRoad: LoDtBigRoad;
@@ -74,6 +76,7 @@ namespace we {
 
       // chart
       protected chartPeriodIndex: number;
+      protected chartTypeIndex: number;
 
       protected chart1Btn: eui.RadioButton;
       protected chart2Btn: eui.RadioButton;
@@ -259,6 +262,8 @@ namespace we {
 
         ///////////////////////// Chart
         this.chartPeriodIndex = 0;
+        this.chartTypeIndex = 0;
+        this.loadingOverlay.visible = true;
 
         this._bestTimePieChart = new we.di.InteractivePieChart();
         this._bestTimePieChart.setChartStyles(
@@ -366,6 +371,10 @@ namespace we {
 
         this.panelHideBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelHide, this);
 
+        const filter = { operatorID: 'IBC-sjfbshd', timeFilter: '', typeFilter: 2 }; // typeFilter 0: favourite bet, 1: favourite game, 2: lucky time, 3: lucky game
+        dir.evtHandler.addEventListener(core.Event.PLAYER_LOTTERY_STAT, this.onPlayerLotteryStatisticUpdate, this);
+        dir.socket.getPlayerLotteryStatistic(filter);
+
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.changeLang();
       }
@@ -384,66 +393,99 @@ namespace we {
 
       protected onChartPeriodIndexChange(e: eui.UIEvent) {
         const radio: eui.RadioButton = e.target;
-        this.chartPeriodChange(radio.value);
+        this.chartPeriodIndex = radio.value - 0;
+        this.readPlayerLotteryResult();
       }
-      protected chartPeriodChange(i: number) {
-        this.chartPeriodIndex = i - 0;
-        if (this.tableInfo.gamestatistic) {
+
+      protected readPlayerLotteryResult() {
+        this.noDataOverlay.visible = true;
+        const chartData = env.playerLotteryStat;
+        let d = [];
+        let ranks = [];
+        let count = 0;
+        let i = 0;
+        if (this.chartTypeIndex === 0) {
           // chart1
-          let chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[0]];
-          let d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
-          let ranks = [];
-          d.forEach(element => {
-            ranks.push(element.value);
-          });
-          this._bestTimePieChart.setRanksAndAnimate(ranks, -1);
-
+          d = chartData[this.chartPeriodNames[this.chartPeriodIndex]].dataarrayList;
+          ranks = [];
+          for (i = 0; i < 10; i++) {
+            this['luckyTimeTxt' + (i + 1)].text = '-';
+          }
+          if (d.length > 0) {
+            d.forEach(element => {
+              count++;
+              this['luckyTimeTxt' + count].text = element.key;
+              ranks.push(element.value);
+            });
+            this._bestTimePieChart.setRanksAndAnimate(ranks, -1);
+            this['luckyTimeTitleValue'].text = d[0].key + '';
+          }
+        } else if (this.chartTypeIndex === 1) {
           // chart2
-          chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[1]];
-          d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
+          d = chartData[this.chartPeriodNames[this.chartPeriodIndex]].dataarrayList;
           ranks = [];
-          d.forEach(element => {
-            ranks.push(element.value);
-          });
-          this._bestGamePieChart.setRanksAndAnimate(ranks, -1);
-
+          for (i = 0; i < 10; i++) {
+            this['luckyGameTxt' + (i + 1)].text = '-';
+          }
+          if (d.length > 0) {
+            d.forEach(element => {
+              count++;
+              this['luckyGameTxt' + count].text = element.key;
+              ranks.push(element.value);
+            });
+            this['luckyGameTitleValue'].text = d[0].key;
+            this._bestGamePieChart.setRanksAndAnimate(ranks, -1);
+          }
+        } else if (this.chartTypeIndex === 2) {
           // chart3
-          chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[2]];
-          d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
-          ranks = [];
-          d.forEach(element => {
-            ranks.push(element.value);
-          });
-          this._favBetBarChart.setRanksAndAnimate(ranks, -1);
-
+          d = chartData[this.chartPeriodNames[this.chartPeriodIndex]].dataarrayList;
+          ranks = [0, 0, 0, 0, 0, 0];
+          for (i = 0; i < 6; i++) {
+            this['favBetTxt' + (i + 1)].text = '-';
+            this['favBetTxtValue' + (i + 1)].text = '-';
+          }
+          if (d.length > 0) {
+            d.forEach(element => {
+              count++;
+              this['favBetTxt' + count].text = element.key;
+              this['favBetTxtValue' + count].text = element.value;
+              ranks[count - 1] = element.value;
+            });
+            this._favBetBarChart.setRanksAndAnimate(ranks, -1);
+          }
+        } else if (this.chartTypeIndex === 3) {
           // chart4
-          chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[3]];
-          d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
+          d = chartData[this.chartPeriodNames[this.chartPeriodIndex]].dataarrayList;
           ranks = [];
-          d.forEach(element => {
-            ranks.push(element.value);
-          });
-          this._favGameBarChart.setRanksAndAnimate(ranks, -1);
+          for (i = 0; i < 5; i++) {
+            this['favGameTxtPercent' + (i + 1)].text = '';
+            this['favGameTxt' + (i + 1)].text = '';
+            this['favGameTxtValue' + (i + 1)].text = '';
+          }
+          if (d.length > 0) {
+            d.forEach(element => {
+              count++;
+              const percent = Math.round((element.value / d[0].value) * 100);
+              this['favGameTxtPercent' + count].text = percent + '%';
+              this['favGameTxt' + count].text = element.key;
+              this['favGameTxtValue' + count].text = element.value;
+              ranks.push(element.value);
+            });
+            this._favGameBarChart.setRanksAndAnimate(ranks, -1);
+          }
         }
-        this.checkChartData();
+        if (d.length > 0) {
+          this.noDataOverlay.visible = false;
+        }
       }
 
       private onChartTypeChange(e: eui.UIEvent) {
-        const chartTypeIndex = e.target.value;
-        this.chartStack.selectedIndex = chartTypeIndex;
-        this.checkChartData();
-      }
+        this.chartTypeIndex = e.target.value - 0;
+        this.chartStack.selectedIndex = this.chartTypeIndex;
 
-      // check chart data and show overlay if no data
-      private checkChartData() {
-        this.overlay.visible = true;
-        if (this.tableInfo) {
-          const chatType = this.tableInfo.gamestatistic.loChart[this.chartTypeNames[this.chartStack.selectedIndex]];
-          const d = chatType[this.chartPeriodNames[this.chartPeriodIndex]];
-          if (d.length > 0) {
-            this.overlay.visible = false;
-          }
-        }
+        this.loadingOverlay.visible = true;
+        const filter = { operatorID: 'IBC-sjfbshd', timeFilter: '', typeFilter: this.chartTypeMapping[this.chartTypeIndex] };
+        dir.socket.getPlayerLotteryStatistic(filter);
       }
 
       protected onDTNextBtnClick(e: egret.TouchEvent) {
@@ -547,6 +589,12 @@ namespace we {
         this.listHot.resetPosition();
         this.listCold.resetPosition();
       }
+
+      private onPlayerLotteryStatisticUpdate(evt: egret.Event) {
+        this.loadingOverlay.visible = false;
+        this.readPlayerLotteryResult();
+      }
+
       public update() {
         if (this.tableInfo) {
           if (this.tableInfo.betInfo) {
@@ -561,16 +609,12 @@ namespace we {
           if (this.tableInfo.gamestatistic) {
             if (this.gameId !== this.tableInfo.roundid) {
               this.gameId = this.tableInfo.roundid;
-
               const history = this.tableInfo.gamestatistic.loHistory;
-              const chart = this.tableInfo.gamestatistic.loChart;
 
               this.listShow.updateList(history.show);
               this.listNoShow.updateList(history.noShow);
               this.listHot.updateList(history.hot);
               this.listCold.updateList(history.cold);
-
-              this.chartPeriodChange(this.chartPeriodIndex);
             }
           }
 

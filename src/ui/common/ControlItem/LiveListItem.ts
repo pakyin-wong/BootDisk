@@ -41,7 +41,7 @@ namespace we {
         RoundRect.drawRoundRect(shape.graphics, 0, 0, this.width, this.dealerImage.height, { tl: 8, tr: 8, bl: 0, br: 0 });
         shape.graphics.endFill();
 
-        this._contentContainer.addChild(shape);
+        this._contentContainer.addChildAt(shape, 0);
         // this._contentContainer.mask = shape;
         this.dealerImage.mask = shape;
       }

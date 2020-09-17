@@ -12,6 +12,7 @@ namespace we {
       protected _resultDisplay: ui.IResultDisplay;
       protected _resultMessage: ui.IGameResultMessage;
       protected _message: ui.InGameMessage;
+      protected _expiredMessage: ui.InGameMessage;
       protected _dropdown: live.BetLimitDropdown;
 
       protected _undoStack: we.utils.UndoStack = new we.utils.UndoStack();
@@ -73,7 +74,7 @@ namespace we {
         // this._video.height = this.stage.stageHeight;
         // this._video.load('wss://hk.webflv.com:8000/live/33.flv');
         // this._video.load('//210.61.148.50:8000/live/test.flv');
-        this._video.load('https://www.webflv.com:8443/live/test.flv');
+        this._video.load('https://gcp.weinfra247.com:443/live/720.flv');
 
         dir.audioCtr.video = this._video;
         this.touchEnabled = true;
@@ -131,6 +132,7 @@ namespace we {
         }
 
         this._lblRoomNo.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this._tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
+        this.changeBtnState(false);
 
         // if (this._tableInfoWindow) {
         //   this._tableInfoWindow.setToggler(this._lblRoomInfo);
@@ -199,6 +201,7 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
         if (this._chipLayer) {
+          this._chipLayer.addEventListener('onUnconfirmBet', this.changeBtnState, this);
           this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
           this._chipLayer.addEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         }
@@ -250,6 +253,7 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
         if (this._chipLayer) {
+          this._chipLayer.removeEventListener('onUnconfirmBet', this.changeBtnState, this);
           this._chipLayer.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
           this._chipLayer.removeEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         }
@@ -288,7 +292,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -328,7 +332,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -468,14 +472,25 @@ namespace we {
           }
 
           if (this._message && !isInit) {
-            this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
+            // ==================================================
+            if (this._gameRoundCountWithoutBet === 1) {
+              // this.showTwoMessage();
+              if (this._expiredMessage) {
+                this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'), this.showTwoMessage.call(this));
+                // this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, '您已3局未下注，2局后踢出');
+              }
+            } else {
+              this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
+            }
           }
           this._undoStack.clearStack();
         }
         // update the countdownTimer
         this.updateCountdownTimer();
       }
-
+      protected showTwoMessage() {
+        this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, '您已3局未下注，2局后踢出');
+      }
       protected checkRoundCountWithoutBet() {
         if (this.tableInfo.totalBet > 0) {
           this._gameRoundCountWithoutBet = 0;
@@ -484,17 +499,36 @@ namespace we {
         }
 
         if (this._gameRoundCountWithoutBet === 3) {
-          dir.evtHandler.showMessage({
-            class: 'MessageDialog',
-            args: [
-              // i18n.t(''),
-              '您已3局未下注，2局后踢出',
-              {
-                // dismiss: { text: i18n.t('') },
-                dismiss: { text: 'cancelBet' },
-              },
-            ],
-          });
+// <<<<<<< HEAD
+          if (env.isMobile) {
+            dir.evtHandler.showMessage({
+              class: 'MessageDialog',
+              args: [
+                // i18n.t(''),
+                '您已3局未下注，2局后踢出',
+                {
+                  // dismiss: { text: i18n.t('') },
+                  dismiss: { text: 'cancelBet' },
+                },
+              ],
+            });
+          }
+          else {
+            this.showInGameMessage();
+          }
+// =======
+//           dir.evtHandler.showMessage({
+//             class: 'MessageDialog',
+//             args: [
+//               // i18n.t(''),
+//               '您已3局未下注，2局后踢出',
+//               {
+//                 dismiss: { text: i18n.t('nav.menu.confirm') },
+//                 // dismiss: { text: 'cancelBet' },
+//               },
+//             ],
+//           });
+// >>>>>>> develop
         }
 
         if (this._gameRoundCountWithoutBet >= 5) {
@@ -502,6 +536,12 @@ namespace we {
         }
       }
 
+      protected showInGameMessage() {
+        if (this._expiredMessage) {
+          this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, '您已3局未下注，2局后踢出');
+          // this._message.showMessage(ui.InGameMessage.EXPIRED,i18n.t(''));
+        }
+      }
       protected setStateDeal(isInit: boolean = false) {
         // console.log('this._tableId', this._tableId);
         // console.log('env.tableinfo[this._tableid]', env.tableInfos[this._tableId]);
@@ -544,6 +584,7 @@ namespace we {
             this.checkResultMessage();
           }
         }
+        this.changeBtnState(false);
       }
 
       protected setStateRefund(isInit: boolean = false) {
@@ -665,8 +706,11 @@ namespace we {
             if (this._chipLayer.validateBet()) {
               const bets = this._chipLayer.getUnconfirmedBetDetails();
               this._chipLayer.resetUnconfirmedBet(); // Waiting to change to push to waitingforconfirmedbet
+              this.changeBtnState(false);
               this._undoStack.clearStack();
               dir.socket.bet(this._tableId, bets, this.onBetReturned.bind(this));
+              this._doubleButton.touchEnabled = true;
+              this._doubleButton.alpha = 1;
             }
           }
         }
@@ -700,10 +744,30 @@ namespace we {
         }
       }
 
+      protected changeBtnState(isEnable: boolean = true) {
+        this._undoButton.touchEnabled = isEnable;
+        this._cancelButton.touchEnabled = isEnable;
+        this._confirmButton.touchEnabled = isEnable;
+        this._doubleButton.alpha = this._chipLayer.getTotalCfmBetAmount() ? 1 : 0.3;
+        this._doubleButton.touchEnabled = this._chipLayer.getTotalCfmBetAmount() ? true : false;
+        this._undoButton.alpha = isEnable ? 1 : 0.5;
+        this._cancelButton.alpha = isEnable ? 1 : 0.5;
+        this._confirmButton.alpha = isEnable ? 1 : 0.3;
+        if (this._timer.bg_color) {
+          this._timer.bg_color.alpha = isEnable ? 0.7 : 0;
+          if (isEnable) {
+            this._timer.bg_flash();
+          } else {
+            this._timer.removebg_flash();
+          }
+        }
+      }
+
       protected onCancelPressed(evt: egret.Event) {
         if (this._chipLayer) {
           this._chipLayer.cancelBet();
           this._undoStack.clearStack();
+          this.changeBtnState(false);
         }
       }
 
@@ -716,12 +780,16 @@ namespace we {
       protected onDoublePressed() {
         if (this._chipLayer) {
           this._chipLayer.onDoublePressed();
+          this.changeBtnState(true);
         }
       }
 
       protected onUndoPressed() {
         if (this._chipLayer) {
           this._undoStack.popAndUndo();
+          if (!this._chipLayer.getTotalUncfmBetAmount()) {
+            this.changeBtnState(false);
+          }
         }
       }
 

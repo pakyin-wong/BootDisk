@@ -11,6 +11,8 @@ namespace we {
       private _colorChange: boolean = false;
       private _progressIndicatorVisible = true;
 
+      public bg_color: ui.RoundRectShape;
+
       public constructor() {
         super();
         // this.once(eui.UIEvent.REMOVED_FROM_STAGE, () => this.stop(), this);
@@ -24,6 +26,9 @@ namespace we {
         super.childrenCreated();
         if (this.progressIndicator) {
           this.progressIndicator.visible = this._progressIndicatorVisible;
+        }
+        if (this.bg_color) {
+          // this.bg_flash();
         }
       }
 
@@ -96,6 +101,15 @@ namespace we {
 
       public stop() {
         this.removeEventListener(egret.Event.ENTER_FRAME, this.updateRemainingTime, this);
+      }
+      public bg_flash() {
+        this.bg_color.alpha = 0.7;
+        this.removebg_flash();
+        egret.Tween.get(this.bg_color, { loop: true }).to({ alpha: 0 }, 200);
+        // while not time is out and uncfmBet >0 , do flashing
+      }
+      public removebg_flash() {
+        egret.Tween.removeTweens(this.bg_color);
       }
     }
   }

@@ -11,8 +11,10 @@ namespace we {
       protected _leftGamePanel: BARoadmapLeftPanel;
       protected _rightGamePanel: BARoadmapRightPanel;
       protected _beadRoadResultPanel: BaBeadRoadResultPanel;
+      protected _minimizedTableLayer: MinimizedTableLayer;
 
-      protected _switchBaMode: eui.ToggleSwitch;
+      // protected _switchBaMode: eui.ToggleSwitch;
+      protected _switchBaMode: ui.BaseButton;
       protected _lblBaMode: ui.RunTimeLabel;
       protected _goodRoadLabel: ui.GoodRoadLabel;
 
@@ -33,9 +35,12 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
           }
+        }
+        if (this._minimizedTableLayer) {
+          this._minimizedTableLayer.updateBetLabel(true);
         }
       }
 
@@ -45,7 +50,6 @@ namespace we {
         super.initChildren();
         this.initRoadMap();
         const test = this._timer.countdownValue;
-        console.log('test  this._timer.countdownValue', this._timer.countdownValue);
         this._roadmapControl.setTableInfo(this._tableInfo);
 
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
@@ -56,7 +60,7 @@ namespace we {
               // remove existing tooltip
               clearTimeout(this.hideTooltipTimeout);
               dir.tooltipCtr.removeTooltips();
-              dir.tooltipCtr.displayTooltip(stageX, stageY, 'hello');
+              dir.tooltipCtr.displayTooltip(stageX, stageY, '请等候下一局');
               this.hideTooltipTimeout = setTimeout(() => {
                 dir.tooltipCtr.removeTooltips();
               }, 2000);
@@ -65,9 +69,15 @@ namespace we {
           false
         );
 
+        // if (this._switchBaMode) {
+        //   this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
+        //   this._switchBaMode.addEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
+        // }
+
         if (this._switchBaMode) {
-          this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
-          this._switchBaMode.addEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
+          this._switchBaMode.active = false;
+          this._chipLayer.currentState = this._switchBaMode.active ? 'SuperSix' : 'Normal';
+          this._switchBaMode.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBaModeToggle, this);
         }
 
         if (this._lblBaMode) {
@@ -93,9 +103,18 @@ namespace we {
       }
 
       protected onBaModeToggle(evt: eui.UIEvent) {
+        // if (this._switchBaMode) {
+        //   this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
+        //   this._tableLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
+        //   this._chipLayer.cancelBet();
+        // }
         if (this._switchBaMode) {
-          this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
-          this._tableLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
+          this._switchBaMode.active = !this._switchBaMode.active;
+          this._chipLayer.currentState = this._switchBaMode.active ? 'SuperSix' : 'Normal';
+          this._tableLayer.currentState = this._switchBaMode.active ? 'SuperSix' : 'Normal';
+          if (this._minimizedTableLayer) {
+            this._minimizedTableLayer.currentState = this._switchBaMode.active ? 'SuperSix' : 'Normal';
+          }
           this._chipLayer.cancelBet();
         }
       }
@@ -129,21 +148,29 @@ namespace we {
 
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
-        this._roadmapControl.updateRoadData();
+        if (evt && evt.data) {
+          const stat = <data.TableInfo>evt.data;
+          if (stat.tableid === this._tableId) {
+            this._roadmapControl.updateRoadData();
+          }
+        }
       }
 
-      // protected onTableBetInfoUpdate(evt: egret.Event) {
-      //   super.onTableBetInfoUpdate(evt);
-      //   if (evt && evt.data) {
-      //     const betInfo = <data.GameTableBetInfo> evt.data;
-      //     if (betInfo.tableid === this._tableId) {
-      //       // update the scene
-      //       (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-      //       (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
-      //       this._leftGamePanel.totalBet = evt.data.total;
-      //     }
-      //   }
-      // }
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
+        if (!evt || !evt.data) {
+          return;
+        }
+        const betInfo = <data.GameTableBetInfo>evt.data;
+        if (betInfo.tableid === this._tableId) {
+          // update the scene
+          (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+          (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
+          if (this._minimizedTableLayer) {
+            this._minimizedTableLayer.updateBetLabel(false, betInfo);
+          }
+        }
+      }
 
       public checkResultMessage() {
         if (this._gameData.wintype == 0) {
@@ -160,7 +187,8 @@ namespace we {
           case core.GameType.BAI:
           case core.GameType.BAS:
           case core.GameType.BAM: {
-            (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.selected);
+            // (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.selected);
+            (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.active);
             switch (this._gameData.wintype) {
               case ba.WinType.BANKER: {
                 subject = 'banker';
@@ -216,6 +244,7 @@ namespace we {
           this._switchBaMode.enabled = enable;
         }
       }
+
     }
   }
 }

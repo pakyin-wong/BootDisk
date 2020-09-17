@@ -171,7 +171,7 @@ namespace we {
 
       protected renderGrid() {
         const bgColors = [0xfafafa, 0x17181a];
-        const gridColors = [0xafafaf, 0x555555];
+        const gridColors = [0xafafaf, 0x1f2022];
 
         const size = (this.gridSize / this.gridUnit) * this.scale;
         this.grid.graphics.clear();

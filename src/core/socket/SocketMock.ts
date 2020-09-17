@@ -79,6 +79,28 @@ namespace we {
 
       public getBalance() {}
 
+      public getPlayerLotteryStatistic(filter: any) {
+        // 0: favourite bet, 1: favourite game, 2: lucky time, 3: lucky game
+        this._playerLotteryStatisticCallback({
+          day: {
+            dataarrayList: [
+              {
+                key: 'INTEREST1SPECIAL',
+                value: 15.7,
+              },
+            ],
+          },
+        });
+      }
+
+      private _playerLotteryStatisticCallback(data: any) {
+        if (!data.error) {
+          // if the data is an error, do not update the data
+          env.playerLotteryStat = data;
+          dir.evtHandler.dispatch(core.Event.PLAYER_LOTTERY_STAT);
+        }
+      }
+
       public getPlayerStatistic(filter: any, callback: (data: any) => void) {
         const data = new we.data.PlayerStatistic();
         const tempbet = 10100;
@@ -675,8 +697,8 @@ namespace we {
           {
             currency: Currency.RMB,
             maxlimit: 100000,
-            minlimit: 100,
-            chips: [100, 500, 2000, 10000, 50000],
+            minlimit: 1000,
+            chips: [1000, 2000, 5000, 10000, 50000, 100000, 200000, 500000, 1000000, 2000000],
             limits: {},
             // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
           },
@@ -1265,56 +1287,64 @@ namespace we {
         },
         loChart: {
           fav_bet: {
-            day: [
-              {
-                key: 'INTEREST1SPECIAL',
-                value: 15.7,
-              }, // bet code:value
-            ],
-            pday: [],
-            week: [],
-            pweek: [],
-            month: [],
-            pmonth: [],
+            day: {
+              dataarrayList: [
+                {
+                  key: 'INTEREST1SPECIAL',
+                  value: 15.7,
+                }, // bet code:value
+              ],
+            },
+            pday: { dataarrayList: [] },
+            week: { dataarrayList: [] },
+            pweek: { dataarrayList: [] },
+            month: { dataarrayList: [] },
+            pmonth: { dataarrayList: [] },
           },
           fav_game: {
-            day: [
-              {
-                key: '18',
-                value: 5000,
-              }, // game id:value
-            ],
-            pday: [],
-            week: [],
-            pweek: [],
-            month: [],
-            pmonth: [],
+            day: {
+              dataarrayList: [
+                {
+                  key: '18',
+                  value: 5000,
+                }, // game id:value
+              ],
+            },
+            pday: { dataarrayList: [] },
+            week: { dataarrayList: [] },
+            pweek: { dataarrayList: [] },
+            month: { dataarrayList: [] },
+            pmonth: { dataarrayList: [] },
           },
           lucky_time: {
-            day: [
-              {
-                key: '10:00',
-                value: 15.8,
-              }, // time slot:value
-            ],
-            pday: [],
-            week: [],
-            pweek: [],
-            month: [],
-            pmonth: [],
+            day: {
+              dataarrayList: [
+                {
+                  key: '10:00',
+                  value: 15.8,
+                }, // time slot:value
+              ],
+            },
+            pday: { dataarrayList: [] },
+            week: { dataarrayList: [] },
+            pweek: { dataarrayList: [] },
+            month: { dataarrayList: [] },
+            pmonth: { dataarrayList: [] },
           },
           lucky_game: {
-            day: [
-              {
-                key: '18',
-                value: 5000,
-              }, // game id: value
-            ],
-            pday: [],
-            week: [],
-            pweek: [],
-            month: [],
-            pmonth: [],
+            day: {
+              dataarrayList: [
+                {
+                  key: '18',
+                  value: 5000,
+                }, // game id: value
+              ],
+            },
+            pday: { dataarrayList: [] },
+            week: { dataarrayList: [] },
+            pweek: { dataarrayList: [] },
+            month: { dataarrayList: [] },
+            pmonth: { dataarrayList: [] },
           },
         },
       };

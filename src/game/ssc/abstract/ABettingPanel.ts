@@ -120,8 +120,9 @@ namespace we {
         // const unitBet = this._bettingControl ? this._bettingControl.unitBet : 10; // temp workaround when bettingControl not exist
         const unitBet = this._bettingControl.unitBet;
         const multiplier = this._bettingControl.multiplier;
+        const noteCount = this._bettingControl.noteCount;
 
-        return betFields.map(betField => `${betField}@${unitBet}`);
+        return betFields.map(betField => `${betField}@${unitBet}#${noteCount}`);
       }
 
       protected generateNoteData(): TradNoteData[] {

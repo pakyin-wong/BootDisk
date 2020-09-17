@@ -152,7 +152,7 @@
                     renderMode: "webgl",
                     audioType: 0,
                     antialias: true,
-                    retina: true,
+                    retina: false,
                     calculateCanvasScaleFactor: function (context) {
                         var backingStore = context.backingStorePixelRatio ||
                             context.webkitBackingStorePixelRatio ||
@@ -161,6 +161,7 @@
                             context.oBackingStorePixelRatio ||
                             context.backingStorePixelRatio || 1;
                         return (window.devicePixelRatio || 1) / backingStore;
+                        // return Math.max(window.devicePixelRatio, 2) / backingStore;
                     },
                     screenAdapter
                 });

@@ -1,7 +1,7 @@
 namespace we {
   export namespace dt {
-    export class AdvancedRoad extends core.BaseEUI implements we.ui.IAdvancedRoad {
-      protected _tableInfo: data.TableInfo;
+    export class AdvancedRoad extends ui.AdvancedRoad {
+      // protected _tableInfo: data.TableInfo;
       public bigRoad: we.ba.BABigRoad;
       public bigEyeRoad: we.ba.BABigEyeRoad;
       public smallRoad: we.ba.BASmallRoad;
@@ -18,7 +18,7 @@ namespace we {
       protected playerButtonLabel: ui.RunTimeLabel;
       protected bankerButtonLabel: ui.RunTimeLabel;
 
-      protected roadsContainer: egret.DisplayObjectContainer;
+      // protected roadsContainer: egret.DisplayObjectContainer;
 
       protected totalCount: number;
 
@@ -28,19 +28,7 @@ namespace we {
         super(skin);
       }
 
-      public set tableInfo(value: data.TableInfo) {
-        this._tableInfo = value;
-      }
-
-      public get tableInfo() {
-        return this._tableInfo;
-      }
-
-      protected mount() {
-        this.init();
-      }
-
-      protected init() {
+      protected initRoad() {
         const gridSize = 21;
         this.totalCount = 0;
 
@@ -50,6 +38,13 @@ namespace we {
         this.roadsContainer.scaleX = 584 / 672;
         this.roadsContainer.scaleY = 450 / 504;
         this.addChild(this.roadsContainer);
+
+        this.roadsContainerRT = new egret.RenderTexture();
+        this.roadsContainerDisplay = new egret.Bitmap();
+        this.roadsContainerDisplay.texture = this.roadsContainerRT;
+        this.roadsContainerDisplay.scaleX = 584 / 672;
+        this.roadsContainerDisplay.scaleY = 450 / 504;
+        this.addChild(this.roadsContainerDisplay);
 
         this.beadRoad = new we.dt.DTBeadRoad(16, gridSize * 2, 1, false);
         this.beadRoad.x = 0;
@@ -83,9 +78,9 @@ namespace we {
         this.cockroachRoad.initRoadData();
         this.roadsContainer.addChild(this.cockroachRoad);
 
-        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        // dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
 
-        this.changeLang();
+        // this.changeLang();
 
         this._roadmapControl = new we.dt.DTRoadmapControl();
         this._roadmapControl.setRoads(this.beadRoad, this.bigRoad, this.bigEyeRoad, this.smallRoad, this.cockroachRoad, [16, 33, 66, 34, 32], null, null, false);
@@ -100,14 +95,26 @@ namespace we {
       public askBankerRoad() {
         if (this._roadmapControl) {
           this._roadmapControl.onBankerClick(null);
+          this.roadsContainer.visible = true;
+          this.roadsContainerDisplay.visible = false;
+          this._roadmapControl.addEventListener(DTRoadmapControl.CLEAR_PREDICT_EVENT, this.clearPredict, this);
         }
       }
 
       public askPlayerRoad() {
         if (this._roadmapControl) {
           this._roadmapControl.onPlayerClick(null);
+          this.roadsContainer.visible = true;
+          this.roadsContainerDisplay.visible = false;
+          this._roadmapControl.addEventListener(DTRoadmapControl.CLEAR_PREDICT_EVENT, this.clearPredict, this);
         }
       }
+
+      protected clearPredict() {
+        this.roadsContainer.visible = false;
+        this.roadsContainerDisplay.visible = true;
+      }
+
 
       // render text by tableInfo
       public update() {
@@ -130,6 +137,7 @@ namespace we {
             // this.changeLang();
           }
         }
+        super.update();
       }
 
       // called by BaRoadmapControl
@@ -154,9 +162,9 @@ namespace we {
         this.smallRoad.dispose();
         this.cockroachRoad.dispose();
 
-        if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
-          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        }
+        // if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
+        //   dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        // }
       }
     }
   }

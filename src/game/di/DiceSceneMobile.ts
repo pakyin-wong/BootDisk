@@ -253,9 +253,14 @@ namespace we {
       // Roadmap & Statistic update
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
-        this._roadmapControl.updateRoadData();
-        // this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
-        (this._tableLayer as di.MobileTableLayer).updateText(this._tableInfo);
+        if (evt && evt.data) {
+          const stat = <data.TableInfo>evt.data;
+          if (stat.tableid === this._tableId) {
+            this._roadmapControl.updateRoadData();
+            // this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
+            (this._tableLayer as di.MobileTableLayer).updateText(this._tableInfo);
+          }
+        }
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
@@ -331,7 +336,7 @@ namespace we {
         this._betAreaLock = false;
         this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = true;
         this.diState = 'normal';
-        this._baGameID.renderText = () => `${this._tableInfo.tableid}`;
+        this._baGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
       }
 

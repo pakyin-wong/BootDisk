@@ -1,7 +1,7 @@
 namespace we {
   export namespace ro {
-    export class AdvancedRoad extends core.BaseEUI implements we.ui.IAdvancedRoad {
-      protected _tableInfo: data.TableInfo;
+    export class AdvancedRoad extends ui.AdvancedRoad {
+      // protected _tableInfo: data.TableInfo;
       public beadRoad: ROBeadRoad;
       public colorBigRoad: ROColorBigRoad;
       public sizeBigRoad: ROSizeBigRoad;
@@ -17,7 +17,7 @@ namespace we {
       protected playerButtonLabel: ui.RunTimeLabel;
       protected bankerButtonLabel: ui.RunTimeLabel;
 
-      protected roadsContainer: egret.DisplayObjectContainer;
+      // protected roadsContainer: egret.DisplayObjectContainer;
 
       protected totalCount: number;
 
@@ -27,19 +27,19 @@ namespace we {
         super(skin);
       }
 
-      public set tableInfo(value: data.TableInfo) {
-        this._tableInfo = value;
-      }
+      // public set tableInfo(value: data.TableInfo) {
+      //   this._tableInfo = value;
+      // }
 
-      public get tableInfo() {
-        return this._tableInfo;
-      }
+      // public get tableInfo() {
+      //   return this._tableInfo;
+      // }
 
-      protected mount() {
-        this.init();
-      }
+      // protected mount() {
+      //   this.init();
+      // }
 
-      protected init() {
+      protected initRoad() {
         const gridSize = 26;
         this.totalCount = 0;
 
@@ -53,6 +53,13 @@ namespace we {
         // this.roadsContainer.scaleX = 584 / 520;
         // this.roadsContainer.scaleY = 450 / 396;
         this.addChild(this.roadsContainer);
+
+        this.roadsContainerRT = new egret.RenderTexture();
+        this.roadsContainerDisplay = new egret.Bitmap();
+        this.roadsContainerDisplay.x = 4;
+        this.roadsContainerDisplay.y = 4;
+        this.roadsContainerDisplay.texture = this.roadsContainerRT;
+        this.addChild(this.roadsContainerDisplay);
 
         const beadBorder = new ui.RoundRectShape();
         beadBorder.setRoundRectStyle(576, 157, { tl: 0, tr: 10, bl: 0, br: 0 }, '0xffffff', 1, 1, 0xdfdfdf);
@@ -85,9 +92,9 @@ namespace we {
         this.sizeBigRoad.initRoadData();
         this.roadsContainer.addChild(this.sizeBigRoad);
 
-        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        // dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
 
-        this.changeLang();
+        // this.changeLang();
       }
 
       public changeLang() {
@@ -117,6 +124,7 @@ namespace we {
             // this.changeLang();
           }
         }
+        super.update();
       }
 
       // called by BaRoadmapControl
@@ -133,13 +141,13 @@ namespace we {
         this.update();
       }*/
 
-      public destroy() {
-        super.destroy();
+      // public destroy() {
+      //   super.destroy();
 
-        if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
-          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        }
-      }
+      //   if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
+      //     dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+      //   }
+      // }
     }
   }
 }

@@ -68,10 +68,15 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
-        if (this._chipLayer.isAlreadyBet()) {
-          this._alreadyBetSign.visible = true;
-        } else {
-          this._alreadyBetSign.visible = false;
+        if (evt && evt.data) {
+          const tableBetInfo = <data.GameTableBetInfo>evt.data;
+          if (tableBetInfo.tableid === this._tableId) {
+            if (this._chipLayer.isAlreadyBet()) {
+              this._alreadyBetSign.visible = true;
+            } else {
+              this._alreadyBetSign.visible = false;
+            }
+          }
         }
       }
 
@@ -117,7 +122,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateSideBarRoadData(tableInfo.roadmap);

@@ -54,8 +54,13 @@ namespace we {
 
       overlaypanel_customroad_title: '好路設定',
       overlaypanel_customroad_default: '還原預設',
+      overlaypanel_customroad_selectall: '全選',
 
       overlaypanel_bethistory_title: '投註記錄',
+      overlaypanel_bethistory_tab_all: '遊戲總覽',
+      overlaypanel_bethistory_tab_live: '真人遊戲',
+      overlaypanel_bethistory_tab_lottery: '彩票遊戲',
+      overlaypanel_bethistory_tab_egame: '電子遊戲',
       overlaypanel_bethistory_date: '日期',
       overlaypanel_bethistory_today: '今日',
       overlaypanel_bethistory_yesterday: '昨天',
@@ -86,13 +91,26 @@ namespace we {
       overlaypanel_bethistory_record_replay: '重播',
       overlaypanel_bethistory_btn_next: '下一則',
       overlaypanel_bethistory_btn_prev: '上一則',
+      overlaypanel_bethistory_searchtype_all: '全部遊戲',
+
+      overlaypanel_bethistorylottery_record_round: '獎期',
+      overlaypanel_bethistorylottery_record_bettype: '類型',
+      overlaypanel_bethistorylottery_record_betgroup: '玩法',
+      overlaypanel_bethistorylottery_record_betfield: '投注項目',
+
+      overlaypanel_bethistorylottery_continuousbet_round: '獎期',
+      overlaypanel_bethistorylottery_continuousbet_rate: '倍數',
+      overlaypanel_bethistorylottery_continuousbet_status: '狀態',
+      overlaypanel_bethistorylottery_continuousbet_cancel: '撤單',
+      overlaypanel_bethistorylottery_continuousbet_allcancel: '一鍵撤單',
+
+      overlaypanel_bethistorylottery_tab_single: '投注記錄',
+      overlaypanel_bethistorylottery_tab_multi: '追號記錄',
 
       overlaypanel_bethistory_baresult_banker: '庄',
       overlaypanel_bethistory_baresult_player: '閒',
       overlaypanel_bethistory_dtresult_dragon: '龍',
       overlaypanel_bethistory_dtresult_tiger: '虎',
-
-      overlaypanel_bethistory_searchtype_all: '全部遊戲',
 
       overlaypanel_gameSet_showGoodRoadHint: '顯示好路提示',
       overlaypanel_gameSet_autoBet: '自動確認投注',
@@ -158,6 +176,17 @@ namespace we {
         },
       },
       nav: {
+        tooltip: {
+          menu: '選單',
+          back: '返回大堂',
+          refresh: '刷新餘額',
+          profile: '賬戶資訊',
+          roominfo: '遊戲資訊',
+          betlimit: '限紅設定',
+          d_lobby_viewmode_icon_tiny: '簡易版',
+          d_lobby_viewmode_icon_general: '普通版',
+          d_lobby_viewmode_icon_pro: '專業版',
+        },
         bet_balance: '餘額',
         menu: {
           title: '設定',
@@ -202,11 +231,11 @@ namespace we {
       },
       lobby: {
         header: {
-          lobby: '精選推介',
+          lobby: '首頁',
           live: '真人遊戲',
           lottery: '彩票遊戲',
           egame: '電子遊戲',
-          favorite: '我的最愛',
+          favourite: '我的最愛',
         },
         categoryPromotion: '精選推介',
         categoryBaccarat: '百家樂',
@@ -217,6 +246,28 @@ namespace we {
         categoryFavorite: '我的最愛',
       },
       live: {
+        tooltip: {
+          confirmBet: '確認投注',
+          repeat: '重複下注',
+          cancel: '取消',
+          double: '雙倍',
+          undo: '還原',
+          fullscreen: '視頻全瑩幕',
+          autoFullscreenToggleOn: '開啟自動隱藏界面',
+          autoFullscreenToggleOff: '投注結東後, 界面將自動隱藏',
+          roadmapBankerRound: '莊局數',
+          roadmapPlayerRound: '閒局數',
+          roadmapTierRound: '和局數',
+          roadmapBankerPairRound: '莊對局數',
+          roadmapPlayerPairRound: '閒對局數',
+          roadmapTotalRound: '總局數',
+          toggleUp: '展開記錄',
+          toggleDown: '收起記錄',
+          ro: {
+            spreadAdd: '增加散佈',
+            spreadDeduct: '減少散佈',
+          },
+        },
         gametype: {
           allGame: '真人遊戲',
           bacarrat: '百家樂',
@@ -225,6 +276,7 @@ namespace we {
           roulette: '輪盤',
           dice: '骰寶',
           other: '其他',
+          special: '特別遊戲',
         },
       },
       tableInfo: {
@@ -248,6 +300,8 @@ namespace we {
         askDragon: '龍問路',
         askTiger: '虎問路',
         DragonTigerTieRatio: '龍虎和比例',
+        TieRatio: '和比例',
+        DealerRatio: '荷官開龍虎比例',
         round: '局',
         rounds: '局',
       },
@@ -517,6 +571,12 @@ namespace we {
       lo_fun_betlayer_tab_num: '數字',
       lo_fun_betlayer_tab_dt: '龍虎和',
       lo_fun_betlayer_tab_five1: '全五中一',
+
+      lo_fun_bettype_n: '大細單雙',
+      lo_fun_bettype_n3: '前三中三後三',
+      lo_fun_bettype_num: '數字',
+      lo_fun_bettype_dt: '龍虎和',
+      lo_fun_bettype_five1: '全五中一',
 
       lo_fun_betgroup_MILSIZEPARITY2: '第一球｜萬位',
       lo_fun_betgroup_THOUSIZEPARITY2: '第二球｜千位',

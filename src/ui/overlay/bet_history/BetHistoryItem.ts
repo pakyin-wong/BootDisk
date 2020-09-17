@@ -2,38 +2,43 @@ namespace we {
   export namespace overlay {
     export namespace betHistory {
       export class BetHistoryItem extends eui.ItemRenderer {
-        private _txt_record_id: eui.Label;
-        private _txt_record_date: eui.Label;
-        private _txt_record_game: eui.Label;
-        private _txt_record_round: eui.Label;
-        private _txt_record_remark: eui.Label;
-        private _txt_record_bettype: eui.Label;
-        private _txt_record_betamount: eui.Label;
-        private _txt_record_win: eui.Label;
-        private _txt_record_orgbalance: eui.Label;
-        private _txt_record_finbalance: eui.Label;
-        private _record_result: egret.DisplayObjectContainer;
-        private _btn_replay: egret.DisplayObject;
-        private _txt_record_bgcolor: eui.Rect;
-        private _txt_hover_color: eui.Rect;
+        protected _txt_record_id: eui.Label;
+        protected _txt_record_date: eui.Label;
+        protected _txt_record_game: eui.Label;
+        protected _txt_record_round: eui.Label;
+        protected _txt_record_remark: eui.Label;
+        protected _txt_record_bettype: eui.Label;
+        protected _txt_record_betamount: eui.Label;
+        protected _txt_record_win: eui.Label;
+        protected _txt_record_orgbalance: eui.Label;
+        protected _txt_record_finbalance: eui.Label;
+        protected _record_result: egret.DisplayObjectContainer;
+        protected _btn_replay: egret.DisplayObject;
+        protected _txt_record_bgcolor: eui.Rect;
+        protected _txt_hover_color: eui.Rect;
 
-        private _txt_round: eui.Label;
-        private _txt_bettype: eui.Label;
-        private _txt_result: eui.Label;
+        protected _txt_round: eui.Label;
+        protected _txt_bettype: eui.Label;
+        protected _txt_result: eui.Label;
 
         public constructor() {
           super();
           this.skinName = utils.getSkinByClassname('BetHistoryItem');
         }
 
+        protected mount () {
+          utils.removeButtonListener(this._btn_replay, this.onClickReplay, this);
+        }
+
+        protected destroy() {
+          utils.removeButtonListener(this._btn_replay, this.onClickReplay, this);
+        }
+
         protected childrenCreated(): void {
           super.childrenCreated();
-
-          // this.$addListener(mouse.MouseEvent.ROLL_OVER, this.onHover, this);
-          // this.$addListener(mouse.MouseEvent.ROLL_OUT, this.onRollOut, this);
-          this._btn_replay.$addListener(egret.TouchEvent.TOUCH_TAP, this.onClickReplay, this);
-
-          mouse.setButtonMode(this._btn_replay, true);
+          this.mount();
+          this.addEventListener(egret.Event.ADDED_TO_STAGE, this.mount, this);
+          this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.destroy, this);
         }
 
         protected dataChanged(): void {
@@ -43,7 +48,6 @@ namespace we {
           this._btn_replay['label'] && (this._btn_replay['label'].text = i18n.t('overlaypanel_bethistory_record_replay'));
 
           this._txt_record_id.text = this.data.betid;
-          // this._txt_record_date.text = utils.formatTime((this.data.datetime / Math.pow(10, 9)).toFixed(0));
           this._txt_record_date.text = utils.formatTime(this.data.datetime.toFixed(0));
           this._txt_record_game.text = `${i18n.t('gametype_' + we.core.GameType[this.data.gametype])} ${this.data.tablename}`;
           if (env.isMobile) {
@@ -82,14 +86,6 @@ namespace we {
           } else {
             this._txt_record_win.text = `-${utils.formatNumber(this.data.winamount, true)}`;
           }
-        }
-
-        protected onHover() {
-          this.currentState = 'hover';
-        }
-
-        protected onRollOut() {
-          this.currentState = 'normal';
         }
 
         protected onClickReplay(e: egret.Event) {
