@@ -107,6 +107,21 @@ namespace we {
       }
       */
 
+      protected fillShape(){
+          if (this._gradientColor === null) {
+            this._shape.graphics.beginFill(this._color, 1);
+          } else {
+            const fillcolor = this._gradientColor
+              .toString()
+              .split(' ')
+              .join('')
+              .split(',');
+            const matrix = new egret.Matrix();
+            matrix.createGradientBox(1012, 260);
+            this._shape.graphics.beginGradientFill(egret.GradientType.LINEAR, [fillcolor[0], fillcolor[1]], [1, 1], [0, 255], matrix);
+          }
+      }
+
       protected $draw(direction: string) {
         // draw the base
         this._shape.graphics.clear();
@@ -122,18 +137,7 @@ namespace we {
         }
 
         if (length >= this._roundCorner[7]) {
-          if (this._gradientColor === null) {
-            this._shape.graphics.beginFill(this._color, 1);
-          } else {
-            const fillcolor = this._gradientColor
-              .toString()
-              .split(' ')
-              .join('')
-              .split(',');
-            const matrix = new egret.Matrix();
-            matrix.createGradientBox(1012, 260);
-            this._shape.graphics.beginGradientFill(egret.GradientType.LINEAR, [fillcolor[0], fillcolor[1]], [1, 1], [0, 255], matrix);
-          }
+          this.fillShape();
           let points;
           if (this._direction === 'vertical') {
             points = utils.roundRectPoints(this.width, length, this._roundCorner, 0, this.height - length);
@@ -178,7 +182,7 @@ namespace we {
             bottomLeftPoints = [new egret.Point(0, this._roundCorner[0]), new egret.Point(0, control1X)];
           }
 
-          this._shape.graphics.beginFill(this._color, 1);
+          this.fillShape();
           this._shape.graphics.moveTo(topLeftPoints[0].x, topLeftPoints[0].y);
           this._shape.graphics.curveTo(topLeftPoints[1].x, topLeftPoints[1].y, topLeftPoints[2].x, topLeftPoints[2].y);
           this._shape.graphics.lineTo(topRightPoints[0].x, topRightPoints[0].y);
