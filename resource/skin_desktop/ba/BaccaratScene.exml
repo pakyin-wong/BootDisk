@@ -60,7 +60,7 @@
 	<ba:TableInfoPanel width="434" height="566" x="0" y="90" id="_tableInfoWindow" isPoppable="true"
 	                   isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true"
 	                   anchorOffsetY="0" skinName="skin_desktop.ba.TableInfoPanel" />
-	<ui:BaseAnimationButton id="_panelDismissToggleBtn" dbClass="common_ui" dbDisplay="d_common_hide_ui" width="30"
+	<ui:AnimatedToggleButton id="_panelDismissToggleBtn" dbClass="common_ui" dbDisplay="d_common_hide_ui" width="30"
 	                        height="30" x="2526" y="949" dismissPosY="1222" dismissPosX="2526" isEdgeDismissable="true"
 							tooltipText="'live.tooltip.fullscreen'" tooltipPosition="'before'" />
 	<ui:Group x="1911" y="959" anchorOffsetX="0" width="596" dismissPosY="1222" dismissPosX="1913" isEdgeDismissable="true">
