@@ -12,6 +12,7 @@ namespace we {
       private _txt_currLang: ui.RunTimeLabel;
       private _ddm_currLang: ui.Panel;
 
+      private _txt_bgm: ui.RunTimeLabel;
       private _slider_bgm: ui.Slider;
       private _btn_presetBgm: egret.DisplayObject;
       private _txt_presetBgm: ui.RunTimeLabel;
@@ -29,12 +30,10 @@ namespace we {
         this._txt_title.renderText = () => `${i18n.t('nav.menu.soundSet')}`;
         this._txt_liveRecord.renderText = () => `${i18n.t('nav.system.liveRecord')}`;
         this._txt_soundfx.renderText = () => `${i18n.t('nav.system.soundfx')}`;
+        this._txt_bgm.renderText = () => `${i18n.t('nav.system.bgm')}`;
         this._txt_presetBgm.renderText = () => `${i18n.t('nav.system.bgm')}`;
 
-        const _arrCol_currLang = new eui.ArrayCollection([
-          ui.NewDropdownItem('sc', () => `简体中文`),
-          ui.NewDropdownItem('tc', () => `繁體中文`),
-          ui.NewDropdownItem('en', () => `English`)]);
+        const _arrCol_currLang = new eui.ArrayCollection([ui.NewDropdownItem('sc', () => `简体中文`), ui.NewDropdownItem('tc', () => `繁體中文`), ui.NewDropdownItem('en', () => `English`)]);
         const _arrCol_presetBgm = new eui.ArrayCollection([
           ui.NewDropdownItem('1', () => `${i18n.t('nav.system.bgm')} 01`),
           ui.NewDropdownItem('2', () => `${i18n.t('nav.system.bgm')} 02`),

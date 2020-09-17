@@ -97,7 +97,7 @@ namespace we {
       overlaypanel_bethistorylottery_record_bettype: '類型',
       overlaypanel_bethistorylottery_record_betgroup: '玩法',
       overlaypanel_bethistorylottery_record_betfield: '投注項目',
-      
+
       overlaypanel_bethistorylottery_continuousbet_round: '獎期',
       overlaypanel_bethistorylottery_continuousbet_rate: '倍數',
       overlaypanel_bethistorylottery_continuousbet_status: '狀態',
@@ -206,6 +206,7 @@ namespace we {
           confirm: '確定',
           cancel: '取消',
           gameSet: '遊戲設定',
+          soundSet: '聲音設定'
         },
         system: {
           title: '系統設定',
