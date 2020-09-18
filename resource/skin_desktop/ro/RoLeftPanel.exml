@@ -3,9 +3,9 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
         <ui:RoundRectShape id="bg" cornerTL_TR_BL_BR="14,14,14,14" width="668" height="340" x="0" y="0" stroke="0"
                            fillColor="0x061323" fillAlpha="0.88" />
-        <ui:RoundRectShape id="bottomBar" cornerTL_TR_BL_BR="0,0,14,14" width="668" height="50" stroke="0" x="1" y="290"
+        <ui:RoundRectShape id="bottomBar" cornerTL_TR_BL_BR="0,0,14,14" width="666" height="50" stroke="0" x="1" y="290"
                            fillColor="0x1f242b" />
-        <ui:RoundRectShape id="topBar" cornerTL_TR_BL_BR="14,14,0,0" width="668" height="41" stroke="0" x="1" y="1"
+        <ui:RoundRectShape id="topBar" cornerTL_TR_BL_BR="14,14,0,0" width="667" height="41" stroke="0" x="1" y="1"
                            fillColor="0x1f242b" fillAlpha="0.8" />
         <ui:RunTimeLabel id="gameIdLabel" text="ID00000000000000" y="10" textAlign="left" anchorOffsetX="0" width="410"
                          size="22" left="17" targetWidth="410" />
@@ -145,6 +145,6 @@
 </e:ViewStack>
 <ui:BaseImageButton id="toggleUpDownButton" x="625" y="314" skinName="skin_desktop.ImageButtonSkinGoodRoad"
                     currentState="b_up" visible="false" />
-<ui:RoundRectShape id="border" cornerTL_TR_BL_BR="14,14,14,14" width="666" height="338" stroke="2" x="1" y="1"
-                   strokeColor="0x3a3f48" fillAlpha="-1" locked="true" />
+<ui:RoundRectShape id="border" cornerTL_TR_BL_BR="14,14,14,14" width="665" height="338" stroke="2" x="1" y="1"
+                   strokeColor="0x3a3f48" fillAlpha="-1" />
 </e:Skin>
