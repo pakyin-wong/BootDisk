@@ -474,7 +474,7 @@ namespace we {
         playerShort: '閒',
         tie: '和',
         tieShort: '和',
-        superSix: '超級六',
+        superSix: '超級6',
         banker: '庄',
         bankerShort: '庄',
         tableInfo: '本檯資訊',

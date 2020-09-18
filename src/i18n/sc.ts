@@ -503,7 +503,7 @@ namespace we {
         playerShort: '闲',
         tie: '和',
         tieShort: '和',
-        superSix: '超级六',
+        superSix: '超级6',
         banker: '庄',
         bankerShort: '庄',
         tableInfo: '本台资讯',
