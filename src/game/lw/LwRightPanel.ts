@@ -44,19 +44,16 @@ namespace we {
         this.addChild(this._horizontalBarChart);
       }
 
-      /*newly added*/
       public updateBarChart() {
         if (this._betInfo) {
-          console.log(`.......amount......${JSON.stringify(this._betInfo.amount)}`);
           let amount = this._betInfo.amount;
-          amount = Object.keys(amount).map((key) =>amount[key]);
+          amount = Object.keys(amount).map(key => amount[key]);
           this._horizontalBarChart.setRanksAndAnimate(amount);
           for (let i = 0; i < 7; i += 1) {
             this[`_lbl_lwValue${i}`].text = this._betInfo.amount[`LW_${i}`] || 0;
           }
         }
       }
-      /*newly added*/
 
       public updateTableBetInfo() {
         this._betInfo = this.tableInfo.betInfo;
@@ -65,11 +62,9 @@ namespace we {
         // for (let i = 0; i < 7; i += 1) {
         //   this[`_lbl_lwValue${i}`].text = this.tableInfo.betInfo.amount[`LW_${i}`] || 0;
         // }
-        /*newly added*/
         // if (this.tableInfo.betInfo.amount && this._horizontalBarChart) {
         //   this._horizontalBarChart.setRanksAndAnimate(this.tableInfo.betInfo.amount);
         // }
-        /*newly added*/
         logger.l(utils.LogTarget.DEBUG, JSON.stringify(this.tableInfo.betInfo.count));
         logger.l(utils.LogTarget.DEBUG, JSON.stringify(this.tableInfo.betInfo.amount));
       }

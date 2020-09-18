@@ -11,26 +11,28 @@
 		<ro:ChipLayer id="_chipLayer" width="1208" height="340" skinName="skin_desktop.ro.ChipLayerSkin" />
 	</ui:Group>
 	<ui:Group id="_betRelatedGroup" x="769" y="895" isEdgeDismissable="true">
-	<ui:Group>
-		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
-		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" chipScale="0.9" />
-		<e:Button id="_confirmButton" label="" y="3" anchorOffsetX="0" width="155" anchorOffsetY="0" height="64"
-		          horizontalCenter="114" skinName="skins_desktop.BetConfirmButtonSkin" />
-		<ui:CountdownTimer id="_timer" width="160" height="64" y="3" horizontalCenter="115" skinName="skin_desktop.CountdownTimerSkin"
-						   tooltipText="'live.tooltip.confirmBet'" tooltipPosition="'above'" touchEnabled="false"/>
-		<ui:BaseAnimationButton id="_undoButton" width="55" height="55" verticalCenter="0" horizontalCenter="243"
-		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true"
-								tooltipText="'live.tooltip.undo'" tooltipPosition="'above'" />
-		<ui:BaseAnimationButton id="_cancelButton" width="55" height="55" verticalCenter="0" horizontalCenter="318"
-		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_clear" useColorFilter="true"
-								tooltipText="'live.tooltip.cancel'" tooltipPosition="'above'" />
-		<ui:BaseAnimationButton id="_doubleButton" width="55" height="55" verticalCenter="0" horizontalCenter="393"
-		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_double" useColorFilter="true"
-								tooltipText="'live.tooltip.double'" tooltipPosition="'above'" />
-		<ui:BaseAnimationButton id="_repeatButton" width="55" height="55" verticalCenter="0" horizontalCenter="467"
-		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_rebet" useColorFilter="true"
-								tooltipText="'live.tooltip.repeat'" tooltipPosition="'above'" />
-	</ui:Group>
+		<ui:Group>
+			<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
+			<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31"
+			                         chipScale="0.9" />
+			<e:Button id="_confirmButton" label="" y="3" anchorOffsetX="0" width="155" anchorOffsetY="0" height="64"
+			          horizontalCenter="114" skinName="skins_desktop.BetConfirmButtonSkin" />
+			<ui:CountdownTimer id="_timer" width="160" height="64" y="3" horizontalCenter="115"
+			                   skinName="skin_desktop.CountdownTimerSkin" tooltipText="'live.tooltip.confirmBet'"
+			                   tooltipPosition="'above'" touchEnabled="false" />
+			<ui:BaseAnimationButton id="_undoButton" width="55" height="55" verticalCenter="0" horizontalCenter="243"
+			                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true"
+			                        tooltipText="'live.tooltip.undo'" tooltipPosition="'above'" />
+			<ui:BaseAnimationButton id="_cancelButton" width="55" height="55" verticalCenter="0" horizontalCenter="318"
+			                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_clear" useColorFilter="true"
+			                        tooltipText="'live.tooltip.cancel'" tooltipPosition="'above'" />
+			<ui:BaseAnimationButton id="_repeatButton" width="55" height="55" verticalCenter="0" horizontalCenter="393"
+			                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_rebet" useColorFilter="true"
+			                        tooltipText="'live.tooltip.repeat'" tooltipPosition="'above'" />
+			<ui:BaseAnimationButton id="_doubleButton" width="55" height="55" verticalCenter="0" horizontalCenter="467"
+			                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_double" useColorFilter="true"
+			                        tooltipText="'live.tooltip.double'" tooltipPosition="'above'" />
+		</ui:Group>
 	</ui:Group>
 	<ro:RoLeftPanel id="_leftGamePanel" width="668" height="340" x="16" y="988" anchorOffsetX="0" anchorOffsetY="0"
 	                dismissPosX="16" dismissPosY="1298" isEdgeDismissable="true" />
@@ -50,15 +52,15 @@
 	</e:Group>
 	<ro:GameResultMessage id="_resultMessage" width="0" height="0" horizontalCenter="0" verticalCenter="0" />
 	<ui:InGameMessage id="_message" x="1300" y="787" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
-	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_chipvalue_png"
-	                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png"  />
+	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_chipvalue_png" successBg="d_ba_gamerecord_tieelement_png"
+	                  errorBg="d_ba_gamerecord_bankerelement_png" />
 	<ro:TableInfoPanel width="434" height="672" x="0" y="90" id="_tableInfoWindow" isPoppable="true"
 	                   isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true"
 	                   anchorOffsetY="0" skinName="skin_desktop.ro.TableInfoPanel" />
 	<ro:ROBigRoadResultPanel id="_bigRoadResultPanel" width="368" height="242" x="18" y="644" anchorOffsetX="0"
 	                         anchorOffsetY="0" visible="false" />
 	<ui:AnimatedToggleButton id="_panelDismissToggleBtn" dbClass="common_ui" dbDisplay="d_common_hide_ui" width="30"
-	                        height="30" x="2526" y="915" dismissPosY="1222" dismissPosX="2526" isEdgeDismissable="true"
-							tooltipText="'live.tooltip.fullscreen'" tooltipPosition="'before'" />
+	                         height="30" x="2526" y="915" dismissPosY="1222" dismissPosX="2526" isEdgeDismissable="true"
+	                         tooltipText="'live.tooltip.fullscreen'" tooltipPosition="'before'" />
 </e:Skin>
 
