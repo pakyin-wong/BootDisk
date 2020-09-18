@@ -47,9 +47,9 @@
 		            skinName="skin_desktop.GameBar" />
 	</e:Group>
 	<dl:GameResultMessage id="_resultMessage" x="1300" y="640" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" />
-	<ui:InGameMessage id="_message" x="1291.38" y="732.53" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
-	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_playerelement_png"
-	                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />
+	<ui:InGameMessage id="_message" x="1291.38" y="772" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
+	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_chipvalue_png"
+	                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png"  />
 	<di:TableInfoPanel width="434" x="0" y="91" id="_tableInfoWindow" isPoppable="true" isEdgeDismissable="true"
 	                   dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" anchorOffsetY="0"
 	                   skinName="skin_desktop.di.TableInfoPanel"  height="598"/>
