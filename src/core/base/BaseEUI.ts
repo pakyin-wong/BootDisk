@@ -117,6 +117,16 @@ namespace we {
       public dismissPosX: number = NaN;
       public dismissPosY: number = NaN;
 
+      public $setX(val: number): boolean {
+        if (this.edgeDismissableAddon) this.edgeDismissableAddon.objPosX = val;
+        return super.$setX(val);
+      }
+
+      public $setY(val: number): boolean {
+        if (this.edgeDismissableAddon) this.edgeDismissableAddon.objPosY = val;
+        return super.$setY(val);
+      }
+
       public set isEdgeDismissable(value: boolean) {
         this._isEdgeDismissable = value;
         this.edgeDismissableAddon.active = value;

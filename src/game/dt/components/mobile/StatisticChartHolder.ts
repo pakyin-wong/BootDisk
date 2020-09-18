@@ -1,5 +1,5 @@
 namespace we {
-  export namespace ba {
+  export namespace dt {
     export class StatisticChartHolder extends ui.Panel {
       protected _statisticChart1: StatisticChart;
       protected _statisticChart2: StatisticChart;

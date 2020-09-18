@@ -287,7 +287,7 @@ namespace we {
               return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'di', 'TRIPLE'));
             }
           case 'specific':
-            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'di', 'SPECIFIC_1'));
+            return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'di', 'SPECIFIC_3'));
         }
       }
 

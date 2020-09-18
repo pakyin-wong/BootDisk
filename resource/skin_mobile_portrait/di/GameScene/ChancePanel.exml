@@ -3,7 +3,8 @@
         xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group x="56" y="46">
 		<ui:RoundRectShape stroke="0" width="360" height="188" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x1f3246" />
-		<e:Image id="_line1" width="300" height="24" x="30" y="28" source="d_sic_history_chart_line-2_png" />
+		<ui:BettingGrid id="_line1" width="300" height="24" x="30" y="28" gradientColors="[0x5273ef, 0x52d7ff]"
+		                gradientType="LINEAR" gradientPosition="topLeft" roundCorner="[11.3,11.3,11.3,11.3]"/>
 		<e:Image width="78" height="78" x="36" y="81" source="d_sic_history_lv2_dice-1_png" />
 		<e:Group right="31" bottom="38">
 			<e:Label id="_dice1Label" text="45" x="28.5" y="-47" size="72" textAlign="center" scaleX="1" scaleY="1" />
@@ -15,7 +16,8 @@
 	</e:Group>
 	<e:Group x="441" y="46">
 		<ui:RoundRectShape stroke="0" width="360" height="188" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x1f3246" />
-		<e:Image id="_line2" width="300" height="24" x="30" y="28" source="d_sic_history_chart_line-2_png" />
+		<ui:BettingGrid id="_line2" width="300" height="24" x="30" y="28" gradientColors="[0x5273ef, 0x52d7ff]"
+		                gradientType="LINEAR" gradientPosition="topLeft" roundCorner="[11.3,11.3,11.3,11.3]"/>
 		<e:Image width="78" height="78" x="36" y="81" source="d_sic_history_lv2_dice-2_png" />
 		<e:Group right="31" bottom="38">
 			<e:Label id="_dice2Label" text="45" x="28.5" y="-47" size="72" textAlign="center" scaleX="1" scaleY="1" />
@@ -27,7 +29,8 @@
 	</e:Group>
 	<e:Group x="826" y="46">
 		<ui:RoundRectShape stroke="0" width="360" height="188" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x1f3246" />
-		<e:Image id="_line3" width="300" height="24" x="30" y="28" source="d_sic_history_chart_line-2_png" />
+		<ui:BettingGrid id="_line3" width="300" height="24" x="30" y="28" gradientColors="[0x5273ef, 0x52d7ff]"
+		                gradientType="LINEAR" gradientPosition="topLeft" roundCorner="[11.3,11.3,11.3,11.3]"/>
 		<e:Image width="78" height="78" x="36" y="81" source="d_sic_history_lv2_dice-3_png" />
 		<e:Group  right="31" bottom="38">
 			<e:Label id="_dice3Label" text="45" x="28.5" y="-47" size="72" textAlign="center" scaleX="1" scaleY="1" />
@@ -39,7 +42,8 @@
 	</e:Group>
 	<e:Group x="56" y="249">
 		<ui:RoundRectShape stroke="0" width="360" height="188" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x1f3246" />
-		<e:Image id="_line4" width="300" height="24" x="30" y="28" source="d_sic_history_chart_line-2_png" />
+		<ui:BettingGrid id="_line4" width="300" height="24" x="30" y="28" gradientColors="[0x5273ef, 0x52d7ff]"
+		                gradientType="LINEAR" gradientPosition="topLeft" roundCorner="[11.3,11.3,11.3,11.3]"/>
 		<e:Image width="78" height="78" x="36" y="81" source="d_sic_history_lv2_dice-4_png" />
 		<e:Group  right="31" bottom="38">
 			<e:Label id="_dice4Label" text="45" x="28.5" y="-47" size="72" textAlign="center" scaleX="1" scaleY="1" />
@@ -51,7 +55,8 @@
 	</e:Group>
 	<e:Group x="441" y="249">
 		<ui:RoundRectShape stroke="0" width="360" height="188" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x1f3246" />
-		<e:Image id="_line5" width="300" height="24" x="30" y="28" source="d_sic_history_chart_line-2_png" />
+		<ui:BettingGrid id="_line5" width="300" height="24" x="30" y="28" gradientColors="[0x5273ef, 0x52d7ff]"
+		                gradientType="LINEAR" gradientPosition="topLeft" roundCorner="[11.3,11.3,11.3,11.3]"/>
 		<e:Image width="78" height="78" x="36" y="81" source="d_sic_history_lv2_dice-5_png" />
 		<e:Group  right="31" bottom="38">
 			<e:Label id="_dice5Label" text="45" x="28.5" y="-47" size="72" textAlign="center" scaleX="1" scaleY="1" />
@@ -63,7 +68,8 @@
 	</e:Group>
 	<e:Group x="826" y="249">
 		<ui:RoundRectShape stroke="0" width="360" height="188" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x1f3246" />
-		<e:Image id="_line6" width="300" height="24" x="30" y="28" source="d_sic_history_chart_line-2_png" />
+		<ui:BettingGrid id="_line6" width="300" height="24" x="30" y="28" gradientColors="[0x5273ef, 0x52d7ff]"
+		                gradientType="LINEAR" gradientPosition="topLeft" roundCorner="[11.3,11.3,11.3,11.3]"/>
 		<e:Image width="78" height="78" x="36" y="81" source="d_sic_history_lv2_dice-6_png" />
 		<e:Group  right="31" bottom="38">
 			<e:Label id="_dice6Label" text="45" x="28.5" y="-47" size="72" textAlign="center" scaleX="1" scaleY="1" />
