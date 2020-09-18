@@ -22,6 +22,9 @@ namespace we {
       protected _lblTotalBetAmountTitle;
       protected _lblTotalBetAmount;
 
+      protected _lblRoundNumber;
+      protected _lblTitleRoundNumber;
+
       protected _lblBtnCancel;
       protected _lblConfirmBet;
 
@@ -54,10 +57,19 @@ namespace we {
 
       protected addEventListeners() {
         utils.addButtonListener(this._btnConfirmBet, this.onConfirmPressed, this);
+        dir.evtHandler.addEventListener('LO_TRAD_CHECK_CURRENT_ROUND_NUMBER', this.checkRound, this);
       }
 
       protected removeEventListeners() {
         utils.removeButtonListener(this._btnConfirmBet, this.onConfirmPressed, this);
+        dir.evtHandler.removeEventListener('LO_TRAD_CHECK_CURRENT_ROUND_NUMBER', this.checkRound, this);
+      }
+
+      protected checkRound(e){
+        let round = e.data;
+        if(this._currentRoundNumber !== round){
+            this.destroy();
+        }
       }
 
       protected onConfirmPressed(e) {
@@ -85,10 +97,10 @@ namespace we {
           lblBetMode.left = 0;
 
           const lblWinRatio = new ui.RunTimeLabel();
-          lblWinRatio.renderText = () => `${this._noteData[i].ratio}`;
+          lblWinRatio.renderText = () => `${utils.formatNumber(this._noteData[i].ratio)}`;
           lblWinRatio.size = 24;
           data.addChild(lblWinRatio);
-          lblWinRatio.x = 460;
+          lblWinRatio.x = 400;
 
           const lblBetAmount = new ui.RunTimeLabel();
           lblBetAmount.renderText = () => `$ ${utils.formatNumber(field[1], true)}`;
@@ -99,6 +111,7 @@ namespace we {
 
         this.computeTotalAmount();
         this.computeTotalNoteAmount();
+        this._lblRoundNumber.renderText = () => `${this._currentRoundNumber + '期'}`;
       }
 
       protected generateStringFromField(field: string): string[] {
@@ -228,7 +241,7 @@ namespace we {
 
         this._lblTotalBetAmountTitle.renderText = () => `${'總投注額'}`;
         // this._lblTotalBetAmount;
-
+        this._lblTitleRoundNumber.renderText = () => `${'投注期數'}`;
         this._lblBtnCancel.renderText = () => `${'取消'}`;
         this._lblConfirmBet.renderText = () => `${'確認購買'}`;
       }

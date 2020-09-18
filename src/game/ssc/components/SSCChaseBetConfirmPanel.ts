@@ -53,11 +53,11 @@ namespace we {
       }
 
       protected addEventListeners() {
-        utils.addButtonListener(this._btnConfirmBet, this.onConfirmPressed, this);
+        super.addEventListeners();
       }
 
       protected removeEventListeners() {
-        utils.removeButtonListener(this._btnConfirmBet, this.onConfirmPressed, this);
+        super.removeEventListeners();
       }
 
       protected onConfirmPressed(e) {

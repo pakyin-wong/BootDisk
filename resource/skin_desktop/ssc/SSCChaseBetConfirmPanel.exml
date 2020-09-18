@@ -12,9 +12,9 @@
         <ui:RunTimeLabel id="_lblBetModeTitle" x="48" y="186" text="玩法投注" fontFamily="Microsoft YaHei" size="24" alpha="0.7"/>
         <ui:RunTimeLabel id="_lblWinRatioTitle" x="460" y="186" text="賠率" fontFamily="Microsoft YaHei" size="24" alpha="0.7"/>
         <ui:RunTimeLabel id="_lblSingleBetAmountTitle" x="677" y="186" text="單注金額" fontFamily="Microsoft YaHei" size="24" alpha="0.7"/>
-        <e:Scroller id="_scroller" scrollPolicyV="on" scrollPolicyH="off" width="820" height="168" x="0" y="234">
+        <ui:Scroller id="_scroller" scrollPolicyV="on" scrollPolicyH="off" width="820" height="168" x="0" y="234">
             <e:Group id="_datagroup"/>
-        </e:Scroller>
+        </ui:Scroller>
         <e:Rect x="49" y="422" width="724" height="1" alpha="0.2" fillColor="0x979797"/>
         <ui:RunTimeLabel id="_lblChaseRoundTitle" x="457" y="431.98" text="追號期數" fontFamily="Microsoft YaHei" size="24" alpha="0.7"/>
         <ui:RunTimeLabel id="_lblChaseRoundCount" x="708" y="431.98" text="15 期" fontFamily="Microsoft YaHei" size="24" textAlign="right"/>

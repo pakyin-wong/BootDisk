@@ -63,6 +63,7 @@ namespace we {
       protected init() {
         switch (this._currentChaseType) {
           case SSCChaseType.SAMEMULTIPLE:
+            this._lblMultiplier.text = this._multiplier;
             break;
           case SSCChaseType.PROFIT:
             this._etextChaseRound.text = this._chaseRound;
@@ -186,6 +187,7 @@ namespace we {
             if (e.target === this._btnMinusMultiplier) {
               this._separateMultiplier--;
             }
+
             this.updateDouble();
             break;
         }

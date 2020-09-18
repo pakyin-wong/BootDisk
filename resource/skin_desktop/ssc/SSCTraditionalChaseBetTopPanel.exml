@@ -42,9 +42,9 @@
         <e:Group touchChildren="true">
             <ui:RunTimeLabel id="_lbTitleMultiplier" text="倍數" textColor="0xffffff" size="24"/>
             <e:Group id="_btnMultiplierGroup" width="165" height="50" touchChildren="true">
-                <e:Group width="50" height="50">
+                <e:Group width="50" height="50" touchChildren="true">
                     <ui:RoundRectButton id="_btnMinusMultiplier" cornerTL_TR_BL_BR="25,0,25,0" width="50" height="50" 
-                        fillAlpha="1"  fillColor="0x0000FF" stroke="0"/>
+                        fillAlpha="1"  fillColor="0x1b416e" stroke="0"/>
                     <ui:RunTimeLabel id="_lblMultiplierMinus" text="-" size="48" verticalAlign="middle" x="21" y="0" touchEnabled="false"/>
                 </e:Group>
                 <e:Group id="_multiplierGroup" width="65" height="50" touchEnabled="false">
@@ -53,7 +53,7 @@
                 </e:Group>
                 <e:Group width="50" height="50" touchChildren="true">
                     <ui:RoundRectButton id="_btnAddMultiplier" cornerTL_TR_BL_BR="0,25,0,25" width="50" height="50" 
-                        fillAlpha="1"  fillColor="0x0000FF"  stroke="0"/>
+                        fillAlpha="1"  fillColor="0x1b416e"  stroke="0"/>
                     <ui:RunTimeLabel id="_lblMultiplierAdd" text="+" size="48" verticalAlign="middle" x="9" y="0" touchEnabled="false"/>
                 </e:Group>
                 <e:layout>

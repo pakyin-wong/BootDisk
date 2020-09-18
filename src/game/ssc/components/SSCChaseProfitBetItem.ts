@@ -42,8 +42,8 @@ namespace we {
         this._txtMultiplier.text = this.data.multiplier;
         this._txtBetAmount.text = '$ ' + utils.formatNumber(this.data.totalBetAmount * 100);
         this._txtReward.text = '$ ' + utils.formatNumber(this.data.highestWin * 100);
-        this._txtExpectedWin.text = utils.formatNumber(this.data.expectedProfit * 100);
-        this._txtExpectedWinRatio.text = utils.formatNumber(this.data.expectedProfitRatio * 100) + '%';
+        this._txtExpectedWin.text = this.data.isActive ? utils.formatNumber(this.data.expectedProfit * 100) :' - ';
+        this._txtExpectedWinRatio.text = this.data.isActive ? utils.formatNumber(this.data.expectedProfitRatio * 100) + '%':' - ';
 
         this._activeButton.visible = true;
 

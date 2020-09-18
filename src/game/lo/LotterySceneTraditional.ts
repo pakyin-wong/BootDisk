@@ -43,7 +43,6 @@ namespace we {
 
         dir.evtHandler.addEventListener('on_lottery_traditional_bet', this.onConfirmPressed, this);
         dir.evtHandler.addEventListener('ON_LOTTERY_TRAD_INSUFFICIENTBALANCE', this.onInsufficientBalance, this);
-
         dir.evtHandler.addEventListener('LO_TRAD_ON_CREATE_CHASEBETPANEL', this.onCreateChaseBetPanel, this);
       }
 
@@ -85,10 +84,29 @@ namespace we {
         this._bettingPanel = null;
         this.removeChildren();
       }
+
       protected setupTableInfo() {
         super.setupTableInfo();
       }
 
+      protected changeBtnState(isEnable: boolean = true) {
+        // this._undoButton.touchEnabled = isEnable;
+        // this._cancelButton.touchEnabled = isEnable;
+        // this._confirmButton.touchEnabled = isEnable;
+        // this._doubleButton.alpha = this._chipLayer.getTotalCfmBetAmount() ? 1 : 0.3;
+        // this._doubleButton.touchEnabled = this._chipLayer.getTotalCfmBetAmount() ? true : false;
+        // this._undoButton.alpha = isEnable ? 1 : 0.5;
+        // this._cancelButton.alpha = isEnable ? 1 : 0.5;
+        // this._confirmButton.alpha = isEnable ? 1 : 0.3;
+        // if (this._timer.bg_color) {
+        //   this._timer.bg_color.alpha = isEnable ? 0.7 : 0;
+        //   if (isEnable) {
+        //     this._timer.bg_flash();
+        //   } else {
+        //     this._timer.removebg_flash();
+        //   }
+        // }
+      }
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('LotterySceneTraditional');
       }
@@ -125,6 +143,9 @@ namespace we {
       protected setResultRelatedComponentsEnabled(enable: boolean) {
         if (this._gameData) {
           this._bettingPanel.updateBetInfo(this._gameData);
+          if(this._gameData.gameroundid){
+            dir.evtHandler.dispatch('LO_TRAD_CHECK_CURRENT_ROUND_NUMBER', this._gameData.gameroundid);
+          }
         }
       }
 
@@ -327,6 +348,7 @@ namespace we {
         // }
         // }// for testing
         this._bettingPanel.setBetRelatedComponentsEnabled(enable);
+        dir.evtHandler.dispatch('LO_TRAD_ON_BETSTATEUPDATE', enable);
       }
 
       protected onConfirmPressed(e: egret.Event) {

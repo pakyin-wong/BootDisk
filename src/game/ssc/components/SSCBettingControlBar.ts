@@ -162,7 +162,7 @@ namespace we {
         }
 
         if (this._lblTotalBet) {
-          this._lblTotalBet.text = `${this._totalBetAmount / 100} 元`;
+          this._lblTotalBet.text = `${this._totalBetAmount / 100}`;
         }
       }
 

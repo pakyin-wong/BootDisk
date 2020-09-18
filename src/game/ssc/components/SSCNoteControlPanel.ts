@@ -39,7 +39,7 @@ namespace we {
       protected _lbltotalBetAmount: ui.RunTimeLabel;
       protected _lbltotalBetCount: ui.RunTimeLabel;
 
-      protected _scroller: eui.Scroller;
+      protected _scroller: ui.Scroller;
       protected _datagroup: eui.DataGroup;
       protected _dataColl: eui.ArrayCollection;
 

@@ -13,12 +13,12 @@
             <e:Image id="close" top="44" right="44" source="m_common_icon_close_png" touchEnabled="true"/>
         </e:Group>
         <e:Group id="_content" width="1800" height="608" y="140">
-            <e:Scroller id="_scroller" x="0" y="68"  width="1800" height="532"> 
+            <ui:Scroller id="_scroller" x="0" y="68"  width="1800" height="532"> 
                 <e:List id="_datagroup"/>
-            </e:Scroller>
+            </ui:Scroller>
             <ui:RunTimeLabel id="_profitMsg" visible="false" touchEnabled="false" top="100" size="36" horizontalCenter="0" textAlign="center"/>
         </e:Group>
-	    <ui:Panel id="_chaseTypeDropDown" width="210" x="212" y="142" skinName="skin_desktop.NavDropdown" maxHeight="200" height="92" anchorOffsetY="0" anchorOffsetX="0"/>
+	    <ui:Panel id="_chaseTypeDropDown" width="210" x="212" y="92" skinName="skin_desktop.NavDropdown" maxHeight="200" height="114" anchorOffsetY="0" anchorOffsetX="0"/>
     </e:Group>
     <e:Group id="_bottomPart" bottom="0" width="1800" height="148">
         <e:Group id="_leftPart" width="1100" height="140">

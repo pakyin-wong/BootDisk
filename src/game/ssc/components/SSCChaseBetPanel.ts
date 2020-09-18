@@ -28,7 +28,7 @@ namespace we {
       private _scroller: eui.Scroller;
 
       private _stopChaseIfWinCheckBox;
-      private _btnConfirmBet;
+      private _btnConfirmBet: ui.RoundRectButton;
 
       private _listTitlePanel: lo.SSCTraditionalChaseBetListTitle;
 
@@ -159,7 +159,8 @@ namespace we {
         dir.evtHandler.addEventListener('LO_TRAD_ON_UPDATE_ROUNDDETAILS', this.updateRoundDetails, this);
         this._scroller.addEventListener(eui.UIEvent.CHANGE, this.updateScrollV, this);
         utils.addButtonListener(this._isStopChaseIfWonGroup, this.onPressedStopChaseIfWon, this);
-        utils.addButtonListener(this.close,this.destroy,this);
+        utils.addButtonListener(this.close, this.destroy, this);
+        dir.evtHandler.addEventListener('LO_TRAD_ON_BETSTATEUPDATE', this.updateState, this);
       }
 
       protected removeListeners() {
@@ -172,7 +173,8 @@ namespace we {
         dir.evtHandler.removeEventListener('LO_TRAD_ON_UPDATE_ROUNDDETAILS', this.updateRoundDetails, this);
         this._scroller.removeEventListener(eui.UIEvent.CHANGE, this.updateScrollV, this);
         utils.removeButtonListener(this._isStopChaseIfWonGroup, this.onPressedStopChaseIfWon, this);
-        utils.removeButtonListener(this.close,this.destroy,this);
+        utils.removeButtonListener(this.close, this.destroy, this);
+        dir.evtHandler.removeEventListener('LO_TRAD_ON_BETSTATEUPDATE', this.updateState, this);
       }
 
       protected onChaseTypeChange(e) {
@@ -456,10 +458,10 @@ namespace we {
           }
         });
 
-        let betAmount = this.computeTotalCountValue(this._noteData);
+        const betAmount = this.computeTotalCountValue(this._noteData);
         let totalBetAmount = 0;
-        
-        for(let i = 0;i < roundData.length;i++){
+
+        for (let i = 0; i < roundData.length; i++) {
           totalBetAmount += betAmount * roundData[i].multiplier;
         }
 
@@ -477,7 +479,7 @@ namespace we {
         });
       }
 
-      protected computeTotalCountValue(noteData){
+      protected computeTotalCountValue(noteData) {
         let totalcount = 0;
         const betmodearray = this.getBetModeArrayValue(noteData);
         noteData.map((e, i) => {
@@ -485,9 +487,6 @@ namespace we {
         });
         return totalcount;
       }
-
-
-
 
       protected getBetModeArrayValue(notes: we.lo.TradNoteData[]) {
         const betmodearray = [];
@@ -524,6 +523,13 @@ namespace we {
         this._separateMultiplier = multiplier;
 
         this.remappingData();
+      }
+
+      protected updateState(e) {
+        const enable = e.data;
+
+        this._btnConfirmBet.buttonEnabled = enable;
+        this._btnConfirmBet.active = enable;
       }
 
       public destroy(e = null) {
