@@ -288,7 +288,7 @@ var mouse;
                 return rs;
             }
             var target = stageObj.$hitTest(x,y);
-            console.log(x,y);
+            // console.log(x,y);
             if (target != null) {
                 detectRollOver(target);
                 targetList.push(target);

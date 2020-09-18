@@ -273,6 +273,8 @@ namespace we {
           double: '双倍',
           undo: '还原',
           fullscreen: '视频全莹幕',
+          autoFullscreenToggleOn: '开启自动隐藏界面',
+          autoFullscreenToggleOff: '投注结东后, 界面将自动隐藏',
           roadmapBankerRound: '庄局数',
           roadmapPlayerRound: '閒局数',
           roadmapTierRound: '和局数',

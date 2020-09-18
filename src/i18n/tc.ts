@@ -249,6 +249,28 @@ namespace we {
         categoryFavorite: '我的最愛',
       },
       live: {
+        tooltip: {
+          confirmBet: '確認投注',
+          repeat: '重複下注',
+          cancel: '取消',
+          double: '雙倍',
+          undo: '還原',
+          fullscreen: '視頻全瑩幕',
+          autoFullscreenToggleOn: '開啟自動隱藏界面',
+          autoFullscreenToggleOff: '投注結東後, 界面將自動隱藏',
+          roadmapBankerRound: '莊局數',
+          roadmapPlayerRound: '閒局數',
+          roadmapTierRound: '和局數',
+          roadmapBankerPairRound: '莊對局數',
+          roadmapPlayerPairRound: '閒對局數',
+          roadmapTotalRound: '總局數',
+          toggleUp: '展開記錄',
+          toggleDown: '收起記錄',
+          ro: {
+            spreadAdd: '增加散佈',
+            spreadDeduct: '減少散佈',
+          },
+        },
         gametype: {
           allGame: '真人遊戲',
           bacarrat: '百家樂',
