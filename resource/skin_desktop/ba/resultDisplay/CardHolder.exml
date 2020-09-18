@@ -3,12 +3,12 @@
         height="190">
         <e:Rect width="2" height="100%" fillColor="0x00ffff" horizontalCenter="0" visible="false" />
         <e:Group horizontalCenter="-67">
-                <e:Rect width="86" height="32" fillAlpha="0.3" ellipseWidth="35" ellipseHeight="35"  x="0"/>
+                <e:Rect width="86" height="32" fillAlpha="0.3" ellipseWidth="40" ellipseHeight="40"  x="0"/>
                 <e:Label id="playerSum" text="" x="53" fontFamily="Barlow" textAlign="center" horizontalCenter="0"
                          verticalCenter="-15"  size="32"/>
         </e:Group>
         <e:Group horizontalCenter="67">
-                <e:Rect width="86" height="32" fillAlpha="0.3" ellipseWidth="35" ellipseHeight="35" />
+                <e:Rect width="86" height="32" fillAlpha="0.3" ellipseWidth="40" ellipseHeight="40" />
                 <e:Label id="bankerSum" text="" x="53" fontFamily="Barlow" textAlign="center" horizontalCenter="0"
                          verticalCenter="-15"  size="32"/>
         </e:Group>

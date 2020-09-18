@@ -30,6 +30,14 @@ namespace we {
         // this.skinName = utils.getSkinByClassname('InGameMessageSkin');
       }
 
+      get bg() {
+        return this._bg;
+      }
+
+      get label() {
+        return this._label;
+      }
+
       set infoBg(value: string) {
         this._infoBg = value;
       }
