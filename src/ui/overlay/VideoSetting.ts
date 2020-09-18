@@ -17,10 +17,12 @@ namespace we {
       private _ddm_camera: ui.Panel;
 
       protected targetScene: core.BaseGameScene;
+      private videoAnimBtn: ui.SettingAnimationButton;
 
-      constructor(targetScene) {
+      constructor(targetScene, videoAnimBtn) {
         super('VideoSetting');
         this.targetScene = targetScene;
+        this.videoAnimBtn = videoAnimBtn;
       }
 
       protected mount() {
@@ -115,20 +117,30 @@ namespace we {
 
       private onQualitySelect(e) {
         this._ddm_quality && this._ddm_quality.dropdown.select(e.data);
+        this.checkChange();
       }
 
       private onCameraChange(e) {
         this._ddm_camera && this._ddm_camera.dropdown.select(e.data);
+        this.checkChange();
       }
 
       private onSwitchVideo() {
         if (this.targetScene.isVideoStopped) {
           this.targetScene.playVideo();
           this.switch_video.active = true;
+          env.videoOpen = true;
+          this.videoAnimBtn.dispatchEvent(new egret.Event('SWITCH_TO_ON'));
         } else {
           this.targetScene.stopVideo();
           this.switch_video.active = false;
+          env.videoOpen = false;
+          this.videoAnimBtn.dispatchEvent(new egret.Event('SWITCH_TO_OFF'));
         }
+      }
+
+      protected checkChange() {
+        this.videoAnimBtn.dispatchEvent(new egret.Event('SETTING_UPDATE'));
       }
 
       protected initOrientationDependentComponent() {

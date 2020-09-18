@@ -26,7 +26,7 @@ namespace we {
           this.skinName = utils.getSkinByClassname('BetHistoryItem');
         }
 
-        protected mount () {
+        protected mount() {
           utils.removeButtonListener(this._btn_replay, this.onClickReplay, this);
         }
 

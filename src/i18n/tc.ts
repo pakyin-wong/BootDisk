@@ -204,6 +204,7 @@ namespace we {
           confirm: '確定',
           cancel: '取消',
           gameSet: '遊戲設定',
+          soundSet: '聲音設定',
         },
         system: {
           title: '系統設定',
