@@ -2,7 +2,7 @@
 <e:Skin class="skin_desktop.SSCChaseBetConfirmPanel" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*" xmlns:ui="we.ui.*">
     <e:Rect x="0" y="0" width="2600" height="1340" alpha="0.4" fillColor="0x000000"/>
     <e:Group id="_panel" width="820" height="683" horizontalCenter="0" verticalCenter="0">
-        <ui:RoundRectShape cornerTL_TR_BL_BR="13,13,13,13" x="0" y="0" width="820" height="683" stroke="1" fillColor="0x112c4c" strokeColor="0x214a72"/>
+        <ui:RoundRectShape cornerTL_TR_BL_BR="13,13,13,13" x="0" y="0" width="820" height="683" stroke="1" fillColor="0x1b416e" strokeColor="0x214a72"/>
         <ui:RunTimeLabel id="_lblBetConfirm" x="47" y="26" textColor="0xce925e" text="追號投注確認" fontFamily="Microsoft YaHei"/>
         <ui:RunTimeLabel id="_lblLotteryName" x="48" y="107" text="彩種名稱" fontFamily="Microsoft YaHei" size="24" alpha="0.7"/>
         <ui:RunTimeLabel id="_lblLotteryNameText" x="188" y="107" text="WG 時時彩" fontFamily="Microsoft YaHei" size="24" alpha="0.7"/>
@@ -44,6 +44,22 @@
                     stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x00c46d"
                     stroke_active="2" strokeColor_active="0x007842" fillAlpha_active="1" fillColor_active="0x007842" strokeAlpha_active="1"/>
             <ui:RunTimeLabel id="_lblConfirmBet" text="確認購買" size="20" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
+        </e:Group>
+    </e:Group>
+    <e:Group id="_errorMsgGrp" top="0" bottom="0" left="0" right="0" touchChildren="false" touchEnabled="false" touchThrough="true" visible="false">
+        <e:Rect top="0" bottom="0" left="0" right="0" alpha="0.5" fillColor="0x000000"/>
+        <e:Group width="480" height="240" verticalCenter="0" horizontalCenter="0">
+            <ui:RoundRectShape cornerTL_TR_BL_BR="13,13,13,13" top="20" horizontalCenter="0" width="480" height="220" stroke="1" fillColor="0x1b416e" strokeColor="0x214a72"/>
+            <ui:RunTimeLabel id="_lblErrorMsg" text="Round has been expired.\n Please re-selecting bet items." width="480" height="120" size="24" horizontalCenter="0" top="20" touchEnabled="false" textAlign="center" verticalAlign="middle"/>
+            <e:Group width="180" height="68" touchChildren="true" horizontalCenter="0" bottom="20">
+                <ui:RoundRectButton id="_btnErrorCancel" width="180" height="68" cornerTL_TR_BL_BR="34,34,34,34"
+                        stroke="2" strokeColor="0x0f9d5d" fillAlpha="0" strokeAlpha="1"
+                        stroke_disabled="2" strokeColor_disabled="0x5f6973" fillAlpha_disabled="0" strokeAlpha_disabled="1"
+                        stroke_hover="2" strokeAlpha_hover="1" strokeColor_hover="0x00c46d" fillAlpha_hover="0.2" fillColor_hover="0x00c46d"
+                        stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x00c46d"
+                        stroke_active="2" strokeColor_active="0x007842" fillAlpha_active="1" fillColor_active="0x007842" strokeAlpha_active="1"/>
+                <ui:RunTimeLabel id="_lblErrorCancel" text="OK" size="20" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
+            </e:Group>
         </e:Group>
     </e:Group>
 </e:Skin>

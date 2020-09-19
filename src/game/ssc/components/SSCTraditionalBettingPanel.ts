@@ -8,8 +8,8 @@ namespace we {
       protected _bigTagsGroup: eui.Group;
       protected _smallTagsGroup: eui.Group;
 
-      protected bigTagsArray: any[];
-      protected smallTagsArray: any[];
+      protected bigTagsArray: any[] = [];
+      protected smallTagsArray: any[] = [];
 
       protected bigTagNames: ui.RunTimeLabel[];
       protected smallTagNames: ui.RunTimeLabel[];
@@ -143,15 +143,12 @@ namespace we {
           this._bigTagsGroup.touchChildren = true;
           bigTagGroup.x = i * bigTagGroup.width;
           bigTagGroup.y = 0;
-          bigTag.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBigTagClicked, this);
+          utils.addButtonListener(bigTag, this.onBigTagClicked, this);
+          // bigTag.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBigTagClicked, this);
         }
 
         this.setActiveBigTag();
         this.createSmallTags();
-      }
-
-      protected generateNoteData(): TradNoteData[] {
-        return super.generateNoteData();
       }
 
       protected setActiveBigTag() {
@@ -168,7 +165,7 @@ namespace we {
         }
       }
 
-      protected onBigTagClicked(e: egret.TouchEvent) {
+      protected onBigTagClicked(e) {
         for (let i = 0; i < this.bigTagsArray.length; i++) {
           if (e.target === this.bigTagsArray[i]) {
             if (i === this._currentBigTagIndex) {
@@ -219,7 +216,8 @@ namespace we {
           this.smallTagsArray.push(smallTag);
           smallTag.x = 24 + offset + i * smallTag.width;
           smallTag.y = 0;
-          smallTag.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSmallTagClicked, this);
+          utils.addButtonListener(smallTag, this.onSmallTagClicked, this);
+          // smallTag.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSmallTagClicked, this);
 
           // if (currentBigTag['seperateLine']) {
           //   for (let k = 0; k < currentBigTag['seperateLine'].length; k++) {
@@ -251,7 +249,7 @@ namespace we {
         this.setActiveSmallTag();
       }
 
-      protected onSmallTagClicked(e: egret.TouchEvent) {
+      protected onSmallTagClicked(e) {
         for (let i = 0; i < this.smallTagsArray.length; i++) {
           if (e.target === this.smallTagsArray[i]) {
             if (i === this._currentSmallTagIndex) {
@@ -388,7 +386,25 @@ namespace we {
 
       protected clearSmallTags() {
         this._currentSmallTagIndex = 0;
+        if(this.smallTagsArray.length > 0){
+          for (let i = 0; i < this.smallTagsArray.length; i++) {
+            utils.removeButtonListener(this.smallTagsArray[i], this.onSmallTagClicked, this);
+          }
+        }
+
         this._smallTagsGroup.removeChildren();
+      }
+
+      protected removeEventListeners() {
+        super.removeEventListeners();
+
+        for (let i = 0; i < this.bigTagsArray.length; i++) {
+          utils.removeButtonListener(this.bigTagsArray[i], this.onBigTagClicked, this);
+        }
+
+        for (let i = 0; i < this.smallTagsArray.length; i++) {
+          utils.removeButtonListener(this.smallTagsArray[i], this.onSmallTagClicked, this);
+        }
       }
     }
   }

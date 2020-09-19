@@ -29,6 +29,8 @@ namespace we {
       protected _lblConfirmBet;
 
       protected _btnConfirmBet;
+      protected _errorMsgGrp;
+      protected _btnErrorCancel;
 
       constructor(data: we.lo.TradNoteData[], currentRoundNumber) {
         super();
@@ -65,11 +67,25 @@ namespace we {
         dir.evtHandler.removeEventListener('LO_TRAD_CHECK_CURRENT_ROUND_NUMBER', this.checkRound, this);
       }
 
-      protected checkRound(e){
-        let round = e.data;
-        if(this._currentRoundNumber !== round){
-            this.destroy();
+      protected checkRound(e) {
+        const round = e.data;
+        if (this._currentRoundNumber !== round) {
+          this.showErrorMsg();
         }
+      }
+
+      protected showErrorMsg() {
+        this._errorMsgGrp.visible = true;
+        this._errorMsgGrp.touchEnabled = true;
+        this._errorMsgGrp.touchThrough = false;
+        this._errorMsgGrp.touchChildren = true;
+        utils.addButtonListener(this._btnErrorCancel, this.onCancelPressed, this);
+      }
+
+      protected onCancelPressed(e) {
+        utils.removeButtonListener(this._btnErrorCancel, this.onCancelPressed, this);
+        // dir.evtHandler.dispatchEventWith('onLotteryConfirmBet', false, { noteData: this._noteData, roundData: [] });
+        this.destroy();
       }
 
       protected onConfirmPressed(e) {

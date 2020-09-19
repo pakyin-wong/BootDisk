@@ -62,8 +62,8 @@ namespace we {
 
       protected onConfirmPressed(e) {
         dir.evtHandler.dispatchEventWith('onLotteryConfirmBet', false, { noteData: this._noteData, roundData: this._roundData });
-        this.destroy();
         this._betPanel.destroy();
+        this.destroy();
       }
 
       protected dataMapping() {
@@ -106,10 +106,7 @@ namespace we {
       }
 
       protected destroy() {
-        this.removeEventListeners();
-
         super.destroy();
-        this.foreclosed();
       }
     }
   }

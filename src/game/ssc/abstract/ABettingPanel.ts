@@ -215,7 +215,7 @@ namespace we {
         // this.placeBet(notes);
         dir.evtHandler.createOverlay({
           class: 'SSCBetConfirmPanel',
-          args: [notes],
+          args: [notes, this._currentGameRound],
         });
       }
 
@@ -238,7 +238,7 @@ namespace we {
         // this.placeBet(notes);
         dir.evtHandler.createOverlay({
           class: 'SSCBetConfirmPanel',
-          args: [notes],
+          args: [notes, this._currentGameRound],
         });
       }
 
@@ -330,6 +330,7 @@ namespace we {
       }
 
       public updateBetTableInfo(info) {
+        this._currentGameRound = info.betInfo.gameroundid;
         if (info.betInfo.lotteryRatio && this._ratioList === undefined) {
           this._ratioList = info.betInfo.lotteryRatio;
         }
