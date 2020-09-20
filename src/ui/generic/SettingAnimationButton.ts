@@ -16,6 +16,7 @@ namespace we {
         } else if (this._dbDisplay === 'd_common_gamesetting_video') {
           this.checkVideoEnable();
         }
+        this.isSetting = true;
         this.addEventListeners();
       }
 
@@ -53,8 +54,6 @@ namespace we {
       }
 
       protected checkVideoEnable() {
-        console.log('dwnquiehwq = ' + env.videoOpen);
-
         if (this._enabled) {
           if (!env.videoOpen) {
             this.playPromise('idle_off', 1);

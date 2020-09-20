@@ -5,7 +5,7 @@ namespace we {
     export const debounce = (callback, time, _this) => {
       let timeout;
       return function () {
-        let args = arguments;
+        const args = arguments;
         if (timeout) {
           clearTimeout(timeout);
         }
