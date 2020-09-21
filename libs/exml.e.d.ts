@@ -1898,6 +1898,14 @@ declare module skin_mobile_portrait.dt{
 	class SideListTableLayerSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile.dt{
+	class StatisticChart extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dt{
+	class StatisticChartHolder extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait.dt{
 	class StatisticChartPanel extends eui.Skin{
 	}

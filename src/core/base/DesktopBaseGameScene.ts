@@ -8,7 +8,7 @@ namespace we {
       protected _tableInfoWindow: ui.TableInfoPanel;
       protected _originBetRelatedGroupY: number;
 
-      protected _panelDismissToggleBtn: ui.BaseAnimationButton;
+      protected _panelDismissToggleBtn: ui.AnimatedToggleButton;
 
       constructor(data: any) {
         super(data);
@@ -32,14 +32,17 @@ namespace we {
         }
 
         if (this._panelDismissToggleBtn) {
-          this._panelDismissToggleBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
+          this._panelDismissToggleBtn.active = env.isAutoDismiss;
+          this._panelDismissToggleBtn.addEventListener('CLICKED', this.onPanelToggle, this);
+          this._panelDismissToggleBtn['tooltipText'] = env.isAutoDismiss ? 'live.tooltip.autoFullscreenToggleOff' : 'live.tooltip.autoFullscreenToggleOn';
         }
-
-        ui.EdgeDismissableAddon.isDismiss = false;
       }
 
       protected onPanelToggle(evt: egret.TouchEvent) {
-        ui.EdgeDismissableAddon.toggle();
+        console.log(this._panelDismissToggleBtn.active);
+        env.isAutoDismiss = this._panelDismissToggleBtn.active;
+        this._panelDismissToggleBtn['tooltipText'] = env.isAutoDismiss ? 'live.tooltip.autoFullscreenToggleOff' : 'live.tooltip.autoFullscreenToggleOn';
+        // env.isAutoDismiss = !env.isAutoDismiss;
       }
 
       protected updateTableInfoRelatedComponents() {
@@ -59,6 +62,10 @@ namespace we {
             egret.Tween.removeTweens(target);
             egret.Tween.get(target).to({ y: enable ? 0 : 100, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
           }
+        }
+        if ((env.isAutoDismiss || enable) && ui.EdgeDismissableAddon.isDismiss === enable) {
+          // console.log(ui.EdgeDismissableAddon.isDismiss);
+          ui.EdgeDismissableAddon.toggle();
         }
       }
 
@@ -82,6 +89,20 @@ namespace we {
             this._rightGamePanel.updateTableBetInfo();
           }
         }
+      }
+
+      public updateGame(isInit: boolean = false) {
+        if (isInit && env.isAutoDismiss) {
+          switch (this._gameData.state) {
+            case core.GameState.BET:
+              ui.EdgeDismissableAddon.isDismiss = false;
+              break;
+            default:
+              ui.EdgeDismissableAddon.isDismiss = true;
+              break;
+          }
+        }
+        super.updateGame(isInit);
       }
     }
   }
