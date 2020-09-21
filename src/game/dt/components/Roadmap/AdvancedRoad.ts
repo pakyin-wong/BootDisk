@@ -115,7 +115,6 @@ namespace we {
         this.roadsContainerDisplay.visible = true;
       }
 
-
       // render text by tableInfo
       public update() {
         if (this.tableInfo) {

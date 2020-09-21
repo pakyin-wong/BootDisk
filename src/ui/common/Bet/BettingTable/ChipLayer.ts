@@ -429,9 +429,9 @@ namespace we {
 
         const betfields = this._doubleBetDetails.map(detail => {
           const uncfmBetDetail = this.getUncfmBetByField(detail.field);
-          let amount = uncfmBetDetail?uncfmBetDetail.amount + detail.amount:detail.amount;
+          const amount = uncfmBetDetail ? uncfmBetDetail.amount + detail.amount : detail.amount;
           // double the bet amounts
-          const betDetail = { field: detail.field, amount: amount };
+          const betDetail = { field: detail.field, amount };
           if (this.validateBetAction(betDetail)) {
             this.addBetToBetField(detail.field, betDetail.amount);
             this.updateBetChipUncfmBet(detail.field, this.getUncfmBetByField(detail.field).amount);
@@ -443,8 +443,6 @@ namespace we {
           const data = { exceedLower: false };
           this.dispatchEvent(new egret.Event(core.Event.EXCEED_BET_LIMIT, false, false, data));
         }
-
-
 
         // const validDoubleBet = this._cfmBetDetails.reduce((acc, cur) => {
         //   if (cur.amount === 0) {
