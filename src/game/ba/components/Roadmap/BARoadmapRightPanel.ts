@@ -53,7 +53,7 @@ namespace we {
 
         this.playerButtonLabel.bold = true;
         this.bankerButtonLabel.bold = true;
-        
+
         this.iconBanker = new BASmallRoadIcon(24);
         this.iconBanker.x = 277;
         this.iconBanker.y = 14;
@@ -137,6 +137,7 @@ namespace we {
         this.roadsContainer.addChild(this.cockroachRoad);
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
         this.changeLang();
       }
 
@@ -186,6 +187,12 @@ namespace we {
         this.update();
       }
 
+      protected onModeUpdate() {
+        this.iconBanker.updateDisplay();
+        this.iconPlayer.updateDisplay();
+        this.iconTie.updateDisplay();
+      }
+
       public destroy() {
         super.destroy();
 
@@ -193,7 +200,9 @@ namespace we {
         this.bigEyeRoad.dispose();
         this.smallRoad.dispose();
         this.cockroachRoad.dispose();
-
+        if (dir.evtHandler.hasEventListener(we.core.Event.MODE_UPDATE)) {
+          dir.evtHandler.removeEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
+        }
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }

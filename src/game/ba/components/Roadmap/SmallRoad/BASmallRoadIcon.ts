@@ -61,22 +61,25 @@ namespace we {
 
         // const gradientColors = [[0xee2e2e, 0xee2e2e], [0x3531ec, 0x3531ec], [0xdd6666, 0xaa0000], [0x6666dd, 0x000066]];
 
-        const colors = [0xdb0011, 0x0167cc, 0xc2263e, 0x0c5ec3];
+        const colors = [0xdb0011, 0x0167cc, 0x10b04b, 0x991f31, 0x0b4b9c, 0x2E8E42];
 
         const iconSize = this.size;
         const circleRadius = (this.size / 2) * 0.8;
         const offset = (iconSize - circleRadius * 2) / 2;
 
-        const useDarkMode = this.darkModeNumber === 0 ? 0 : 2;
+        const useDarkMode = this.darkModeNumber === 0 ? 0 : 3;
         let colorIdx = 0;
 
-        if (value.v === 'b' || value.v === 'p') {
+        if (value.v === 'b' || value.v === 'p' || value.v === 't') {
           switch (value.v) {
             case 'b':
               colorIdx = 0 + useDarkMode;
               break;
             case 'p':
               colorIdx = 1 + useDarkMode;
+              break;
+            case 't':
+              colorIdx = 2 + useDarkMode;
               break;
           }
           // const fillMatrix = new egret.Matrix();

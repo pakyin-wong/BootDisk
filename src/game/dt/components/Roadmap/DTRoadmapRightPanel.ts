@@ -36,7 +36,7 @@ namespace we {
         this.addChild(this.iconTie);
 
         this.iconPlayerBigEye = new ba.BABigEyeRoadIcon(16);
-        this.iconPlayerBigEye.x = 77;
+        this.iconPlayerBigEye.x = 210;
         this.iconPlayerBigEye.y = 16;
         this.iconPlayerBigEye.setByObject({ v: 'p' });
         this.addChild(this.iconPlayerBigEye);
@@ -54,7 +54,7 @@ namespace we {
         this.addChild(this.iconPlayerCockroach);
 
         this.iconBankerBigEye = new ba.BABigEyeRoadIcon(16);
-        this.iconBankerBigEye.x = 210;
+        this.iconBankerBigEye.x = 77;
         this.iconBankerBigEye.y = 16;
         this.iconBankerBigEye.setByObject({ v: 'b' });
         this.addChild(this.iconBankerBigEye);
@@ -100,6 +100,7 @@ namespace we {
         this.roadsContainer.addChild(this.cockroachRoad);
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
         this.changeLang();
       }
 
@@ -122,10 +123,17 @@ namespace we {
         }
       }
 
-      // public destroy() {
-      //   super.destroy();
-      //   dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-      // }
+      protected onModeUpdate() {
+        super.onModeUpdate();
+      }
+
+      public destroy() {
+        super.destroy();
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        if (dir.evtHandler.hasEventListener(we.core.Event.MODE_UPDATE)) {
+          dir.evtHandler.removeEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
+        }
+      }
     }
   }
 }
