@@ -51,6 +51,7 @@ namespace we {
         this.cornerBL = cornerRadius.bl;
         this.cornerBR = cornerRadius.br;
         this.fillColor = fillColor;
+        this.fillAlpha = fillAlpha;
         this.stroke = stroke;
         this.strokeColor = strokeColor;
         this.strokeAlpha = strokeAlpha;
