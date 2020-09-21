@@ -27,6 +27,14 @@ namespace we {
         }
       }
 
+      public get data() {
+        return this._data;
+      }
+
+      public set data(val) {
+        this._data = val;
+        console.log('valvalval', val);
+      }
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
         this._list.useVirtualLayout = false;
@@ -38,6 +46,7 @@ namespace we {
         if (this._selectedIdx >= 0) {
           this._list.selectedIndex = this._selectedIdx;
           this.loadPage(this._items[this._selectedIdx], this._data);
+          console.log('this.loadPage(this._items[this._selectedIdx], this._data);', this._data);
         }
 
         this._list.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.handleTap, this);
@@ -104,6 +113,9 @@ namespace we {
         }
         this._page.removeChildren();
         const page: core.BasePage = new we[name].Page(data);
+        console.log('page.Scene', page.Scene);
+        console.log('this,m', this);
+        page.Scene = this;
         this._page.addChild(page);
         page.onEnter();
       }

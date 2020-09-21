@@ -3,6 +3,14 @@ namespace we {
     export class BasePage extends BaseEUI {
       protected _data: any;
 
+      protected _Scene;
+
+      public get Scene(){
+        return this._Scene;
+      }
+      public set Scene(val) {
+        this._Scene = val;
+      }
       public constructor(skin: string = null, data: any = null) {
         super(skin);
         this._data = data;

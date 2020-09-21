@@ -12,7 +12,17 @@ namespace we {
       public roomList: ui.TableList;
       public roomListRefer: eui.List;
 
+      protected _page: live.Page;
+
       private contentInitializer: IContentInitializer;
+
+      public get page(){
+        return this._page;
+      }
+
+      public set page(val){
+        this._page = val;
+      }
 
       constructor(roomList: ui.TableList) {
         super();
@@ -96,6 +106,7 @@ namespace we {
         const scrollV = this.scroller.viewport.scrollV;
 
         env.currentTab = Object.keys(core.LiveGameTab)[this.tabs.selectedIndex];
+        this._page.updateCurrentPageAndTab(env.currentPage,env.currentTab)
 
         this.roomList.setGameFiltersByTabIndex(this.tabs.selectedIndex);
         this.roomList.setTableList(this.roomIds, true);
