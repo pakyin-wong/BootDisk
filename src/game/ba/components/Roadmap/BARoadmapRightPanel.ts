@@ -35,6 +35,10 @@ namespace we {
       protected playerButtonLabel: ui.RunTimeLabel;
       protected bankerButtonLabel: ui.RunTimeLabel;
 
+      protected iconBanker: BASmallRoadIcon;
+      protected iconPlayer: BASmallRoadIcon;
+      protected iconTie: BASmallRoadIcon;
+
       protected roadsContainer: egret.DisplayObjectContainer;
 
       protected totalCount: number;
@@ -47,8 +51,29 @@ namespace we {
         const gridSize = 21;
         this.totalCount = 0;
 
+        this.playerButtonLabel.bold = true;
+        this.bankerButtonLabel.bold = true;
+        
+        this.iconBanker = new BASmallRoadIcon(24);
+        this.iconBanker.x = 277;
+        this.iconBanker.y = 14;
+        this.iconBanker.setByObject({ v: 'b' });
+        this.addChild(this.iconBanker);
+
+        this.iconPlayer = new BASmallRoadIcon(24);
+        this.iconPlayer.x = 336;
+        this.iconPlayer.y = 14;
+        this.iconPlayer.setByObject({ v: 'p' });
+        this.addChild(this.iconPlayer);
+
+        this.iconTie = new BASmallRoadIcon(24);
+        this.iconTie.x = 395;
+        this.iconTie.y = 14;
+        this.iconTie.setByObject({ v: 't' });
+        this.addChild(this.iconTie);
+
         this.iconPlayerBigEye = new BABigEyeRoadIcon(16);
-        this.iconPlayerBigEye.x = 77;
+        this.iconPlayerBigEye.x = 210;
         this.iconPlayerBigEye.y = 16;
         this.iconPlayerBigEye.setByObject({ v: 'p' });
         this.addChild(this.iconPlayerBigEye);
@@ -66,7 +91,7 @@ namespace we {
         this.addChild(this.iconPlayerCockroach);
 
         this.iconBankerBigEye = new BABigEyeRoadIcon(16);
-        this.iconBankerBigEye.x = 210;
+        this.iconBankerBigEye.x = 77;
         this.iconBankerBigEye.y = 16;
         this.iconBankerBigEye.setByObject({ v: 'b' });
         this.addChild(this.iconBankerBigEye);

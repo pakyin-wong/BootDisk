@@ -14,6 +14,27 @@ namespace we {
         const gridSize = 21;
         this.totalCount = 0;
 
+        this.playerButtonLabel.bold = true;
+        this.bankerButtonLabel.bold = true;
+
+        this.iconBanker = new ba.BASmallRoadIcon(24);
+        this.iconBanker.x = 277;
+        this.iconBanker.y = 14;
+        this.iconBanker.setByObject({ v: 'b' });
+        this.addChild(this.iconBanker);
+
+        this.iconPlayer = new ba.BASmallRoadIcon(24);
+        this.iconPlayer.x = 336;
+        this.iconPlayer.y = 14;
+        this.iconPlayer.setByObject({ v: 'p' });
+        this.addChild(this.iconPlayer);
+
+        this.iconTie = new ba.BASmallRoadIcon(24);
+        this.iconTie.x = 395;
+        this.iconTie.y = 14;
+        this.iconTie.setByObject({ v: 't' });
+        this.addChild(this.iconTie);
+
         this.iconPlayerBigEye = new ba.BABigEyeRoadIcon(16);
         this.iconPlayerBigEye.x = 77;
         this.iconPlayerBigEye.y = 16;
