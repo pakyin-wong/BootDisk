@@ -1,47 +1,76 @@
 namespace we {
   export namespace ui {
     export class BetChipSetHorizontal extends BetChipSet {
-      private _navWidth = 40;
+      private _navWidth = 50;
+      private _navScaleX = 0.4;
+      private _navSize = 60;
       private _containerPadding = 5;
       private _startIndex = 0;
       private _visibleDenomNum = 0;
       private _leftNav: eui.Label;
       private _rightNav: eui.Label;
-      private _chipList: (IBetChip & core.BaseEUI)[] = [];
+      private _chipList: Array<IBetChip & core.BaseEUI> = [];
       protected _chipContainer: eui.Component;
       protected _chipScale: number = 1;
 
       public constructor() {
         super();
         this._leftNav = new eui.Label();
+        this._leftNav.size = this._navSize;
         this._leftNav.text = '<';
         this._leftNav.left = 0;
+        this._leftNav.scaleX = this._navScaleX;
         this._leftNav.verticalCenter = 0;
         this._leftNav.addEventListener(egret.TouchEvent.TOUCH_TAP, this._navigate.bind(this, -1), this);
         this._rightNav = new eui.Label();
+        this._rightNav.size = this._navSize;
         this._rightNav.text = '>';
         this._rightNav.right = 0;
+        this._rightNav.scaleX = this._navScaleX;
         this._rightNav.verticalCenter = 0;
         this._rightNav.addEventListener(egret.TouchEvent.TOUCH_TAP, this._navigate.bind(this, 1), this);
 
         this._chipContainer = new eui.Component();
         this._chipContainer.top = 0;
         this._chipContainer.bottom = 0;
-        this._chipContainer.left = this._navWidth;
-        this._chipContainer.right = this._navWidth;
+        this._chipContainer.left = this._navWidth * this._navScaleX;
+        this._chipContainer.right = this._navWidth * this._navScaleX;
         this.addChild(this._leftNav);
         this.addChild(this._chipContainer);
         this.addChild(this._rightNav);
+        this._leftNav.percentHeight = 100;
+        this._leftNav.verticalAlign = 'middle';
+        this._rightNav.percentHeight = 100;
+        this._rightNav.verticalAlign = 'middle';
         this._visibleDenomNum = 5; // default value
       }
 
       public set navWidth(value: number) {
         this._navWidth = value;
-        this._chipContainer.left = this._navWidth;
-        this._chipContainer.right = this._navWidth;
+        this._chipContainer.left = this._navWidth * this._navScaleX;
+        this._chipContainer.right = this._navWidth * this._navScaleX;
       }
       public get navWidth(): number {
         return this._navWidth;
+      }
+      public set navScaleX(value: number) {
+        this._navScaleX = value;
+        this._chipContainer.left = this._navWidth * this._navScaleX;
+        this._chipContainer.right = this._navWidth * this._navScaleX;
+        this._leftNav.scaleX = value;
+        this._rightNav.scaleX = value;
+      }
+      public get navScaleX(): number {
+        return this._navScaleX;
+      }
+
+      public set navSize(value: number) {
+        this._navSize = value;
+        this._leftNav.size = value;
+        this._rightNav.size = value;
+      }
+      public get navSize(): number {
+        return this._navSize;
       }
 
       public $setChipScale(val: number) {
@@ -147,7 +176,7 @@ namespace we {
         }
         this._chipContainer.removeChildren();
         let childpos = this._containerPadding;
-        const childInterval = (this.width - this._navWidth * 2) / this._visibleDenomNum;
+        const childInterval = (this.width - this._navWidth * 2 * this._navScaleX) / this._visibleDenomNum;
         for (let i = 0; i < this._visibleDenomNum; i += 1) {
           const child: eui.Component & IBetChip = this._chipList[this._startIndex + i];
           this._chipContainer.addChild(child);
