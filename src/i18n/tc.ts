@@ -97,7 +97,7 @@ namespace we {
       overlaypanel_bethistorylottery_record_bettype: '類型',
       overlaypanel_bethistorylottery_record_betgroup: '玩法',
       overlaypanel_bethistorylottery_record_betfield: '投注項目',
-      
+
       overlaypanel_bethistorylottery_continuousbet_round: '獎期',
       overlaypanel_bethistorylottery_continuousbet_rate: '倍數',
       overlaypanel_bethistorylottery_continuousbet_status: '狀態',
@@ -229,6 +229,8 @@ namespace we {
           },
         },
       },
+      gamegroup_tab_live: '真人遊戲',
+      gamegroup_tab_lottery: '彩票遊戲',
       lobby: {
         header: {
           lobby: '首頁',
@@ -247,7 +249,7 @@ namespace we {
       },
       live: {
         gametype: {
-          allGame: '真人遊戲',
+          allGame: '全部',
           bacarrat: '百家樂',
           dragontiger: '龍虎',
           luckywheel: '幸運輪',
@@ -255,6 +257,12 @@ namespace we {
           dice: '骰寶',
           other: '其他',
           special: '特別遊戲',
+        },
+      },
+      lottery: {
+        gametype: {
+          allLotteryGame: '全部',
+          lottery: '時時彩',
         },
       },
       tableInfo: {

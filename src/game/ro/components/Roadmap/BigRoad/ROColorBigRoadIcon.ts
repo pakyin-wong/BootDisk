@@ -132,11 +132,7 @@ namespace we {
         const value = this.value;
 
         const colors = [0xee2e2e, 0x333333, 0x10b04b];
-        const gradientColors = [
-          [0xb82828, 0x781919],
-          [0x2b2b2b, 0x000000],
-          [0x249336, 0x10662b],
-        ];
+        const gradientColors = [[0xb82828, 0x781919], [0x2b2b2b, 0x000000], [0x249336, 0x10662b]];
         const iconSize = this.size;
         const circleRadius = (this.size / 2) * 0.9;
         const lineWidth = 1;

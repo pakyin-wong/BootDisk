@@ -292,7 +292,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -332,7 +332,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -499,7 +499,7 @@ namespace we {
         }
 
         if (this._gameRoundCountWithoutBet === 3) {
-// <<<<<<< HEAD
+          // <<<<<<< HEAD
           if (env.isMobile) {
             dir.evtHandler.showMessage({
               class: 'MessageDialog',
@@ -512,23 +512,22 @@ namespace we {
                 },
               ],
             });
-          }
-          else {
+          } else {
             this.showInGameMessage();
           }
-// =======
-//           dir.evtHandler.showMessage({
-//             class: 'MessageDialog',
-//             args: [
-//               // i18n.t(''),
-//               '您已3局未下注，2局后踢出',
-//               {
-//                 dismiss: { text: i18n.t('nav.menu.confirm') },
-//                 // dismiss: { text: 'cancelBet' },
-//               },
-//             ],
-//           });
-// >>>>>>> develop
+          // =======
+          //           dir.evtHandler.showMessage({
+          //             class: 'MessageDialog',
+          //             args: [
+          //               // i18n.t(''),
+          //               '您已3局未下注，2局后踢出',
+          //               {
+          //                 dismiss: { text: i18n.t('nav.menu.confirm') },
+          //                 // dismiss: { text: 'cancelBet' },
+          //               },
+          //             ],
+          //           });
+          // >>>>>>> develop
         }
 
         if (this._gameRoundCountWithoutBet >= 5) {

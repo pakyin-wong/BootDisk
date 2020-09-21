@@ -197,21 +197,21 @@ namespace we {
         // const colors = [0xee2e2e, 0x3531ec, 0x10b04b, 0xaa0000, 0x0000aa, 0x009900];
         const colors = [0xdc0012, 0x0167cc, 0x19a634, 0xc3002b, 0x004ca9, 0x008f25];
         const gradientColors = [
-// <<<<<<< HEAD
-//           [0xee2e2e, 0xee2e2e],
-//           [0x3531ec, 0x3531ec],
-//           [0x10b04b, 0x10b04b],
-//           [0xdd6666, 0xaa0000],
-//           [0x6666dd, 0x000066],
-//           [0x66aa66, 0x003300],
-// =======
+          // <<<<<<< HEAD
+          //           [0xee2e2e, 0xee2e2e],
+          //           [0x3531ec, 0x3531ec],
+          //           [0x10b04b, 0x10b04b],
+          //           [0xdd6666, 0xaa0000],
+          //           [0x6666dd, 0x000066],
+          //           [0x66aa66, 0x003300],
+          // =======
           [0xdc0012, 0xdc0012],
           [0x0167cc, 0x0167cc],
           [0x19a634, 0x19a634],
           [0xc3002b, 0xc3002b],
           [0x004ca9, 0x004ca9],
           [0x008f25, 0x008f25],
-// >>>>>>> develop
+          // >>>>>>> develop
         ];
 
         const iconSize = this.size;

@@ -263,6 +263,8 @@ namespace we {
         categoryOtherGame: '其他游戏',
         categoryFavorite: '我的最爱',
       },
+      gamegroup_tab_live: '真人游戏',
+      gamegroup_tab_lottery: '彩票游戏',
       live: {
         tooltip: {
           confirmBet: '确认投注',
@@ -285,7 +287,7 @@ namespace we {
           },
         },
         gametype: {
-          allGame: '真人游戏',
+          allGame: '全部',
           bacarrat: '百家乐',
           dragontiger: '龙虎',
           luckywheel: '幸运轮',
@@ -293,6 +295,12 @@ namespace we {
           dice: '骰宝',
           other: '其他',
           special: '特别游戏',
+        },
+      },
+      lottery: {
+        gametype: {
+          allLotteryGame: '全部',
+          lottery: '时时彩',
         },
       },
       tableInfo: {

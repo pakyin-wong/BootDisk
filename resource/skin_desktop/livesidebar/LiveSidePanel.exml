@@ -1,26 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="LiveSidePanelSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"
-        xmlns:ui="we.ui.*">
-    <e:Group left="0" right="0">
+        xmlns:ui="we.ui.*" >
+    <e:Group>
         <!--<e:Image id="_bg" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" bottom="0" top="0" left="1"
                      right="-1" source="d_common_panel_gamelist_bg_png" />
         -->
-        <e:Rect id="_bg" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" bottom="0" top="0" left="1"
-                right="-1" ellipseHeight="100" ellipseWidth="100" fillColor="0x000000" fillAlpha="0.7" touchEnabled="false" />
-        <ui:Scroller id="_scroller" collapseOnStart="true" isCollapsible="true" iscollapseAnimate="true" right="4"
-                     left="4" y="75">
-            <e:Group anchorOffsetX="0" anchorOffsetY="0" width="389" height="1150"></e:Group>
-        </ui:Scroller>
-        <e:Group id="_tabBarGroup" y="10" right="13">
-            <!--<e:Rect id="_smallBg" right="0" top="0" left="0" bottom="0" ellipseHeight="65" ellipseWidth="65" touchEnabled="false" alpha="0.702"/>-->
-            <e:List id="_tabbar" anchorOffsetX="0" anchorOffsetY="0" itemRendererSkinName="ImageTabItemWithBadgeSkin"
-                    scaleX="1" scaleY="1" bottom="15" top="15" left="15" right="15">
-                <e:layout>
-                    <e:HorizontalLayout gap="20" />
-                </e:layout>
-            </e:List>
-        </e:Group>
-        <ui:RunTimeLabel id="_label" text="" size="23.7" y="30"  x="20"/>
-        <ui:SidePanelAllGameDropdown id="_dropdown" y="18" skinName="SidePanelAllGameDropdownSkin"  x="20"/>
+        <e:Rect id="_bg" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" bottom="0" top="0" left="0"
+                right="0" ellipseHeight="56" ellipseWidth="56" fillColor="0x000000" fillAlpha="0.7" touchEnabled="false" />
+			<e:Group id="_tweenGroup" right="0" scaleY="0" touchThrough="true" scaleX="0">
+				<e:Rect width="338" height="1" x="20" y="66" fillColor="0x746e6f"/>
+				<e:ViewStack id="_viewStack" height="0" y="67" scaleX="1" scaleY="1" left="4" right="4" width="371" x="4">
+				<e:Group id="betted" width="100%" height="100%" name="betted" scaleX="1" scaleY="1">
+					<ui:Scroller id="_bettedScroller" scaleX="1" scaleY="1" left="0" right="0" top="17" bottom="0"/>
+				</e:Group>
+				<e:Group id="goodroad" width="100%" height="100%" name="goodroad" scaleX="1" scaleY="1">
+					<ui:Scroller id="_goodroadScroller" scaleX="1" scaleY="1" left="0" right="0" top="17" bottom="0"/>
+				</e:Group>
+				<e:Group id="allgames" width="100%" height="100%" name="allgames" scaleX="1" scaleY="1">
+					<ui:Scroller id="_allgamesScroller" scaleX="1" scaleY="1" left="0" right="0" top="53" bottom="0"/>
+					<ui:SidePanelGameDropdown id="_subdropdown" skinName="SidePanelGameDropdown" x="14" y="0" scaleX="1" scaleY="1"/>
+				</e:Group>
+				</e:ViewStack>
+				<ui:RunTimeLabel id="_label" text="" size="24" y="7" x="10" height="55" verticalAlign="middle" scaleX="1" scaleY="1"/>
+				<ui:SidePanelGameGroupDropdown id="_dropdown" y="7" skinName="SidePanelGameGroupDropdown" x="10" scaleX="1" scaleY="1"/>
+			</e:Group>
+			<e:Group id="_tabBarGroup" right="0">
+				<e:List id="_tabbar" itemRendererSkinName="ImageTabItemWithBadgeSkin" bottom="12" top="12" height="32" right="0">
+				<e:layout>
+					<e:HorizontalLayout gap="20" paddingLeft="20" paddingRight="20"/>
+				</e:layout>
+				</e:List>
+			</e:Group>
     </e:Group>
 </e:Skin>
