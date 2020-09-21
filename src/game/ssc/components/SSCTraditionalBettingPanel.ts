@@ -386,7 +386,7 @@ namespace we {
 
       protected clearSmallTags() {
         this._currentSmallTagIndex = 0;
-        if(this.smallTagsArray.length > 0){
+        if (this.smallTagsArray.length > 0) {
           for (let i = 0; i < this.smallTagsArray.length; i++) {
             utils.removeButtonListener(this.smallTagsArray[i], this.onSmallTagClicked, this);
           }

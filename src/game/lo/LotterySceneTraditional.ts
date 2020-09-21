@@ -143,7 +143,7 @@ namespace we {
       protected setResultRelatedComponentsEnabled(enable: boolean) {
         if (this._gameData) {
           this._bettingPanel.updateBetInfo(this._gameData);
-          if(this._gameData.gameroundid){
+          if (this._gameData.gameroundid) {
             dir.evtHandler.dispatch('LO_TRAD_CHECK_CURRENT_ROUND_NUMBER', this._gameData.gameroundid);
           }
         }

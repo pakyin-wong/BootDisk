@@ -136,7 +136,7 @@ namespace we {
         const bigTag = config.name;
         const smallTag = config['type'][Object.keys(config['type'])[this.bettingPanel.currentSmallTagIndex]].name;
 
-        this._lblBetDes.renderText = () => `${i18n.t('lo_trad.bigTag.' + bigTag)}${i18n.t('lo_trad.smallTag.' + smallTag)}\n${i18n.t('lo_trad.betDescription.' + bigTag + '.' + smallTag)}`;
+        this._lblBetDes.renderText = () => `${i18n.t('lo_trad.bigTag.' + bigTag)} | ${i18n.t('lo_trad.smallTag.' + smallTag)}\n${i18n.t('lo_trad.betDescription.' + bigTag + '.' + smallTag)}`;
         this._betDesGrp.visible = true;
         this._btnBetDescription.once(mouse.MouseEvent.ROLL_OUT, this.hideBetDescription, this);
       }

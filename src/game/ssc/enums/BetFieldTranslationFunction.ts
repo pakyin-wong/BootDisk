@@ -2,46 +2,24 @@
 namespace we {
   export namespace lo {
     export namespace BetFieldTranslationFunction {
-      export function betfieldtranslate(betfield: string): string {
+      export function tradbetfieldtranslate(betfield: string): any {
         // string 12345Optional
         // string ????optionalFree
-        const reg = /[^0-9]/g;
+        const reg = /\d+[0-9]/g;
         const checknum = betfield.split(reg)[0];
-        const checkfree = betfield.split(reg)[1];
-        // console.log(output);
-        if (isNaN(parseInt(checknum, 10))) {
-          // use whole word for i18n
-          return i18n.t('lo_trad.betfield.' + `${betfield.toUpperCase()}`);
-        }
+        const nonNumberBetCode = betfield.split(reg)[1];
 
-        const num = checknum.length;
         let numString = '';
-        switch (num) {
-          case 1:
-            numString = 'ONE';
-            break;
-          case 2:
-            numString = 'TWO';
-            break;
-          case 3:
-            numString = 'THREE';
-            break;
-          case 4:
-            numString = 'FOUR';
-            break;
-          case 5:
-            numString = 'FIVE';
-            break;
+
+        for (let i = 0; i < checknum.length; i++) {
+          if (i === checknum.length - 1) {
+            numString += i18n.t('lo_trad.ballresultpos.p' + checknum[i]);
+          } else {
+            numString += `${i18n.t('lo_trad.ballresultpos.p' + checknum[i])} ,`;
+          }
         }
 
-        if (checkfree.search(/(free)/g) === -1) {
-          // Any
-          const betcode = checkfree;
-
-          return `${i18n.t('lo_trad.betfield.' + betcode.toUpperCase()) + '_' + numString}`;
-        }
-
-        return;
+        return { selectType: numString, betCode: nonNumberBetCode };
       }
     }
   }
