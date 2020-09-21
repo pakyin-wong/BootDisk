@@ -206,6 +206,10 @@ namespace we {
           throw new Error('Animation missing armature: ' + this._dbClass);
         }
 
+        if (this.isSetting && (anim === 'idle' || anim === 'disable' || anim === 'release' || anim === 'mouse_out' || anim === 'mouse_in' || anim === 'press')) {
+          return;
+        }
+
         return new Promise(resolve => {
           const listener = () => {
             this._display.armature.eventDispatcher.removeDBEventListener(dragonBones.EventObject.COMPLETE, listener, this);
