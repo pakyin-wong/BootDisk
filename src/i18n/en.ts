@@ -223,6 +223,8 @@ namespace we {
           },
         },
       },
+      gamegroup_tab_live: 'Live',
+      gamegroup_tab_lottery: 'Lottery',
       lobby: {
         header: {
           lobby: 'Promoted',
@@ -263,7 +265,7 @@ namespace we {
           },
         },
         gametype: {
-          allGame: 'All Game',
+          allGame: 'All',
           bacarrat: 'Baccarat',
           dragontiger: 'DT',
           luckywheel: 'Wheel',
@@ -271,6 +273,12 @@ namespace we {
           dice: 'SicBo',
           other: 'Others',
           special: 'Special',
+        },
+      },
+      lottery: {
+        gametype: {
+          allLotteryGame: 'All',
+          lottery: 'Lottery',
         },
       },
       tableInfo: {

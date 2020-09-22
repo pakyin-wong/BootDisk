@@ -6,16 +6,18 @@ namespace we {
       }
       public showResult(gameType: core.GameType, resultData: any) {
         this._dbClass = 'sicbo';
-        super.showResult(gameType, resultData);
+        super.showResult(gameType, resultData); 
       }
 
       protected startAnim(gameType: core.GameType, resultData: any) {
         const { gameData, winAmount } = resultData;
-        const { dice1, dice2, dice3, size, odd } = <di.GameData>gameData;
+        const { dice1, dice2, dice3, size, odd, tie } = <di.GameData> gameData;
 
         const diceresult = [dice1, dice2, dice3];
         console.log('diceresult', diceresult);
-        const isIdentical = diceresult.every(v => v === diceresult[0]);
+        console.log('size', size);
+        console.log('tie x', tie);
+        const isIdentical = tie === 1;
         console.log('isIdentical', isIdentical);
         console.log('this._display.armature', this._display.armature);
         console.log('gameData', gameData);
@@ -31,6 +33,7 @@ namespace we {
 
         const total = isNaN((gameData as di.GameData).total) ? dice1 + dice2 + dice3 : (gameData as di.GameData).total;
 
+        console.log('total', total)
         let anim = 'ani_result_';
         let txtSlot = null;
         let isWin = false;
@@ -48,10 +51,10 @@ namespace we {
         if (isNaN(winAmount)) {
           anim += 'no_bets';
           console.log('no_bets');
-          // if (isIdentical) {
-          //   anim += '_identical';
-          //   console.log('_identical');
-          // }
+          if (isIdentical) {
+            anim += '_identical';
+            console.log('_identical');
+          }
           // if (!isIdentical) {
           //   console.log('not _identical');
           // }
@@ -59,10 +62,10 @@ namespace we {
           anim += 'loss';
           txtSlot = 'credit_loss';
           console.log('loss');
-          // if (isIdentical) {
-          //   anim += '_identical';
-          //   console.log('_identical');
-          // }
+          if (isIdentical) {
+            anim += '_identical';
+            console.log('_identical');
+          }
           // if (!isIdentical) {
           //   console.log('not _identical');
           // }
@@ -71,10 +74,10 @@ namespace we {
           txtSlot = 'credit_win';
           console.log('win');
           isWin = true;
-          // if (isIdentical) {
-          //   anim += '_identical';
-          //   console.log('_identical');
-          // }
+          if (isIdentical) {
+            anim += '_identical';
+            console.log('_identical');
+          }
           // if (!isIdentical) {
           //   console.log('not _identical');
           // }
@@ -112,12 +115,24 @@ namespace we {
           [isWin ? 'blue_txt_win' : 'blue_txt_loss', 40, odd === 1 ? '單' : '雙'],
         ];
 
-        for (const [slotName, fontSize, text] of array) {
-          const slot = this._display.armature.getSlot(<string>slotName);
+        if(isIdentical){
+          const slot = this._display.armature.getSlot('green_txt');
           const r = new eui.Label();
           r.fontFamily = 'Barlow';
-          r.size = <number>fontSize;
-          r.text = <string>text;
+          r.size = 40;
+          r.text = '圍';
+          r.textColor = 0xffffff;
+          r.anchorOffsetX = r.width / 2;
+          r.anchorOffsetY = r.height / 2;
+          slot.display = r;
+        }
+
+        for (const [slotName, fontSize, text] of array) {
+          const slot = this._display.armature.getSlot(<string> slotName);
+          const r = new eui.Label();
+          r.fontFamily = 'Barlow';
+          r.size = <number> fontSize;
+          r.text = <string> text;
           if (fontSize === 60) {
             const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(3, 45, 0x111111, 0.1, 10, 10, 20, egret.BitmapFilterQuality.LOW);
             r.filters = [shadowFilter];

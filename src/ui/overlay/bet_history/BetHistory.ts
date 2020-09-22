@@ -304,6 +304,7 @@ namespace we {
             }
           });
           this._dataColl.replaceAll(res.history);
+          this._datagroup.scrollV = 0;
 
           if (this._txt_total) {
             const s = res.offset + 1;
@@ -329,6 +330,7 @@ namespace we {
 
       protected onTypeChange(e) {
         this._type = e.data;
+        this._page = 1;
         this.search();
       }
 

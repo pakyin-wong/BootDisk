@@ -24,11 +24,11 @@ namespace we {
         this._gr = this._shape.graphics;
 
         this.refresh();
-        this.addEventListener(eui.UIEvent.RESIZE,this.refresh,this)
+        this.addEventListener(eui.UIEvent.RESIZE, this.refresh, this);
       }
 
       protected destroy() {
-        this.removeEventListener(eui.UIEvent.RESIZE,this.refresh,this)
+        this.removeEventListener(eui.UIEvent.RESIZE, this.refresh, this);
       }
 
       public setRoundRectStyle(
