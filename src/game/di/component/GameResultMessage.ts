@@ -6,7 +6,7 @@ namespace we {
       }
       public showResult(gameType: core.GameType, resultData: any) {
         this._dbClass = 'sicbo';
-        super.showResult(gameType, resultData); 
+        super.showResult(gameType, resultData);
       }
 
       protected startAnim(gameType: core.GameType, resultData: any) {
@@ -33,7 +33,7 @@ namespace we {
 
         const total = isNaN((gameData as di.GameData).total) ? dice1 + dice2 + dice3 : (gameData as di.GameData).total;
 
-        console.log('total', total)
+        console.log('total', total);
         let anim = 'ani_result_';
         let txtSlot = null;
         let isWin = false;
@@ -115,7 +115,7 @@ namespace we {
           [isWin ? 'blue_txt_win' : 'blue_txt_loss', 40, odd === 1 ? '單' : '雙'],
         ];
 
-        if(isIdentical){
+        if (isIdentical) {
           const slot = this._display.armature.getSlot('green_txt');
           const r = new eui.Label();
           r.fontFamily = 'Barlow';
