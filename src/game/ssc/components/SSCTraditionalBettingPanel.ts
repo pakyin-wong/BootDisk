@@ -300,7 +300,7 @@ namespace we {
 
       public updateBetInfo(data) {
         super.updateBetInfo(data);
-        this._lblCurrentRound.renderText = () => `${data.gameroundid}`;
+        this._lblCurrentRound.renderText = () => `${data.gameroundid.split('_')[1]}`;
         switch (data.state) {
           case core.GameState.DEAL:
           case core.GameState.FINISH:
@@ -322,7 +322,7 @@ namespace we {
           const data = info.gamestatistic.loresults;
           let index = data.length - 1;
 
-          this._lblCurrentRoundState.renderText = () => `${data[index].Roundnumber + i18n.t('lo_fun_drawingRound')}`;
+          this._lblCurrentRoundState.renderText = () => `${data[index].Roundnumber.split('_')[1] + i18n.t('lo_fun_drawingRound')}`;
           this._lblResultBall0.renderText = () => (data[index].Data.ball1 >= 0 ? `${data[index].Data.ball1}` : '-');
           this._lblResultBall1.renderText = () => (data[index].Data.ball2 >= 0 ? `${data[index].Data.ball2}` : '-');
           this._lblResultBall2.renderText = () => (data[index].Data.ball3 >= 0 ? `${data[index].Data.ball3}` : '-');
@@ -332,7 +332,7 @@ namespace we {
           if (data.length >= 2) {
             index = data.length - 2;
 
-            this._lblLastRound.renderText = () => `${data[index].Roundnumber}`;
+            this._lblLastRound.renderText = () => `${data[index].Roundnumber.split('_')[1]}`;
             this._lblLastBall0.renderText = () => (data[index].Data.ball1 >= 0 ? `${data[index].Data.ball1}` : '-');
             this._lblLastBall1.renderText = () => (data[index].Data.ball2 >= 0 ? `${data[index].Data.ball2}` : '-');
             this._lblLastBall2.renderText = () => (data[index].Data.ball3 >= 0 ? `${data[index].Data.ball3}` : '-');
@@ -342,7 +342,7 @@ namespace we {
           if (data.length >= 3) {
             index = data.length - 3;
 
-            this._lblPrevRound.renderText = () => `${data[index].Roundnumber}`;
+            this._lblPrevRound.renderText = () => `${data[index].Roundnumber.split('_')[1]}`;
             this._lblPrevBall0.renderText = () => (data[index].Data.ball1 >= 0 ? `${data[index].Data.ball1}` : '-');
             this._lblPrevBall1.renderText = () => (data[index].Data.ball2 >= 0 ? `${data[index].Data.ball2}` : '-');
             this._lblPrevBall2.renderText = () => (data[index].Data.ball3 >= 0 ? `${data[index].Data.ball3}` : '-');

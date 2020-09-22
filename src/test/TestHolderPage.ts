@@ -20,7 +20,7 @@ namespace we {
         let string = '12345optional';
         string = '1234optionalfree';
 
-        we.lo.BetFieldTranslationFunction.betfieldtranslate(string);
+        // we.lo.BetFieldTranslationFunction.tradbetfieldtranslate(string);
         // const a = ['Dragon|Tiger|Tie'];
 
         // const b = we.lo.DataMapping.DragonTigerMapping(a, '12DT_$1');
