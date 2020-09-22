@@ -15,29 +15,6 @@ namespace we {
       protected gameId: string;
       protected gameIdLabel: ui.RunTimeLabel;
 
-      protected road1Btn1: eui.RadioButton;
-      protected road1Btn2: eui.RadioButton;
-      protected road1Btn3: eui.RadioButton;
-      protected road1Btn4: eui.RadioButton;
-      protected road1Btn5: eui.RadioButton;
-
-      protected road2Btn1: eui.RadioButton;
-      protected road2Btn2: eui.RadioButton;
-      protected road2Btn3: eui.RadioButton;
-      protected road2Btn4: eui.RadioButton;
-      protected road2Btn5: eui.RadioButton;
-
-      protected road3Btn1: eui.RadioButton;
-      protected road3Btn2: eui.RadioButton;
-      protected road3Btn3: eui.RadioButton;
-      protected road3Btn4: eui.RadioButton;
-      protected road3Btn5: eui.RadioButton;
-      protected road3Btn6: eui.RadioButton;
-      protected road3Btn7: eui.RadioButton;
-      protected road3Btn8: eui.RadioButton;
-      protected road3Btn9: eui.RadioButton;
-      protected road3Btn10: eui.RadioButton;
-
       protected analysisBtn1: eui.RadioButton;
       protected analysisBtn2: eui.RadioButton;
       protected analysisBtn3: eui.RadioButton;
@@ -52,8 +29,9 @@ namespace we {
 
       protected _radioButtons: eui.RadioButton[];
 
-      protected dtPageNum: number;
-      protected dtNextBtn: eui.Image;
+      protected road3PageNum: number;
+      protected road3NextBtn: eui.Image;
+      protected road3BackBtn: eui.Image;
 
       protected road1Index: number;
       protected road2Index: number;
@@ -76,28 +54,21 @@ namespace we {
 
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
 
-        this.road1Btn1['labelDisplayDown']['text'] = this.road1Btn1['labelDisplayUp']['text'] = '1st Ball';
-        this.road1Btn2['labelDisplayDown']['text'] = this.road1Btn2['labelDisplayUp']['text'] = '2nd Ball';
-        this.road1Btn3['labelDisplayDown']['text'] = this.road1Btn3['labelDisplayUp']['text'] = '3rd Ball';
-        this.road1Btn4['labelDisplayDown']['text'] = this.road1Btn4['labelDisplayUp']['text'] = '4th Ball';
-        this.road1Btn5['labelDisplayDown']['text'] = this.road1Btn5['labelDisplayUp']['text'] = '5th Ball';
+        for (let i = 1; i <= 5; i++) {
+          this['road1Btn' + i]['labelDisplayDown']['text'] = this['road1Btn' + i]['labelDisplayUp']['text'] = 'Ball ' + i;
+        }
 
-        this.road2Btn1['labelDisplayDown']['text'] = this.road2Btn1['labelDisplayUp']['text'] = '1st Ball';
-        this.road2Btn2['labelDisplayDown']['text'] = this.road2Btn2['labelDisplayUp']['text'] = '2nd Ball';
-        this.road2Btn3['labelDisplayDown']['text'] = this.road2Btn3['labelDisplayUp']['text'] = '3rd Ball';
-        this.road2Btn4['labelDisplayDown']['text'] = this.road2Btn4['labelDisplayUp']['text'] = '4th Ball';
-        this.road2Btn5['labelDisplayDown']['text'] = this.road2Btn5['labelDisplayUp']['text'] = '5th Ball';
+        for (let i = 1; i <= 5; i++) {
+          this['road2Btn' + i]['labelDisplayDown']['text'] = this['road2Btn' + i]['labelDisplayUp']['text'] = 'Ball ' + i;
+        }
 
-        this.road3Btn1['labelDisplayDown']['text'] = this.road3Btn1['labelDisplayUp']['text'] = '1 VS 2';
-        this.road3Btn2['labelDisplayDown']['text'] = this.road3Btn2['labelDisplayUp']['text'] = '1 VS 3';
-        this.road3Btn3['labelDisplayDown']['text'] = this.road3Btn3['labelDisplayUp']['text'] = '1 VS 4';
-        this.road3Btn4['labelDisplayDown']['text'] = this.road3Btn4['labelDisplayUp']['text'] = '1 VS 5';
-        this.road3Btn5['labelDisplayDown']['text'] = this.road3Btn5['labelDisplayUp']['text'] = '2 VS 3';
-        this.road3Btn6['labelDisplayDown']['text'] = this.road3Btn6['labelDisplayUp']['text'] = '2 VS 4';
-        this.road3Btn7['labelDisplayDown']['text'] = this.road3Btn7['labelDisplayUp']['text'] = '2 VS 5';
-        this.road3Btn8['labelDisplayDown']['text'] = this.road3Btn8['labelDisplayUp']['text'] = '3 VS 4';
-        this.road3Btn9['labelDisplayDown']['text'] = this.road3Btn9['labelDisplayUp']['text'] = '3 VS 5';
-        this.road3Btn10['labelDisplayDown']['text'] = this.road3Btn10['labelDisplayUp']['text'] = '4 VS 5';
+        let c = 0;
+        for (let i = 1; i < 5; i++) {
+          for (let j = i + 1; j <= 5; j++) {
+            c++;
+            this['road3Btn' + c]['labelDisplayDown']['text'] = this['road3Btn' + c]['labelDisplayUp']['text'] = i + ' VS ' + j;
+          }
+        }
 
         this.analysisBtn1['labelDisplayDown']['text'] = this.analysisBtn1['labelDisplayUp']['text'] = 'Show';
         this.analysisBtn2['labelDisplayDown']['text'] = this.analysisBtn2['labelDisplayUp']['text'] = 'NoShow';
@@ -162,28 +133,17 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         // this.pageRadioBtn1.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
 
-        this.road1Btn1.addEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
-        this.road1Btn2.addEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
-        this.road1Btn3.addEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
-        this.road1Btn4.addEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
-        this.road1Btn5.addEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
+        for (let i = 1; i <= 5; i++) {
+          this['road1Btn' + i].addEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
+        }
 
-        this.road2Btn1.addEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
-        this.road2Btn2.addEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
-        this.road2Btn3.addEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
-        this.road2Btn4.addEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
-        this.road2Btn5.addEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
+        for (let i = 1; i <= 5; i++) {
+          this['road2Btn' + i].addEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
+        }
 
-        this.road3Btn1.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn2.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn3.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn4.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn5.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn6.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn7.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn8.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn9.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn10.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
+        for (let i = 1; i <= 10; i++) {
+          this['road3Btn' + i].addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
+        }
 
         const analysis1Group = this.analysisStack.getChildAt(0) as eui.Group;
         this.listShow = new LoAnalysisScrollList(1, 3, 1024, 211, 22);
@@ -231,39 +191,56 @@ namespace we {
         this._btn_roadmap.addEventListener('CLICKED', this.onPageChangeRoadmap, this);
         this._btn_analysis.addEventListener('CLICKED', this.onPageChangeAnalysis, this);
 
-        this.dtNextBtn.touchEnabled = true;
-        this.dtNextBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDTNextBtnClick, this);
+        this.road3NextBtn.touchEnabled = true;
+        this.road3NextBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoad3NextBtnClick, this);
 
-        this.setDTPageNum(0);
+        this.road3BackBtn.touchEnabled = true;
+        this.road3BackBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoad3BackBtnClick, this);
+
+        this.setRoad3PageNum(0);
 
         this.changeLang();
       }
 
-      protected onDTNextBtnClick(e: egret.TouchEvent) {
-        this.setDTPageNum(++this.dtPageNum % 2);
-        if (this.dtPageNum === 0) {
-          this.dtNextBtn.source = 'd_lottery_ent_penal_infopenal_subtag_btn_right_png';
-        } else {
-          this.dtNextBtn.source = 'd_lottery_ent_penal_infopenal_subtag_btn_left_png';
+      protected onRoad3NextBtnClick(e: egret.TouchEvent) {
+        if (this.road3PageNum === 0) {
+          this.setRoad3PageNum(++this.road3PageNum);
         }
       }
 
-      protected setDTPageNum(n: number) {
-        this.dtPageNum = n;
-        this.road3Btn1.includeInLayout = this.road3Btn2.includeInLayout = this.road3Btn3.includeInLayout = this.road3Btn4.includeInLayout = this.road3Btn5.includeInLayout = this.dtPageNum === 0;
-        this.road3Btn6.includeInLayout = this.road3Btn7.includeInLayout = this.road3Btn8.includeInLayout = this.road3Btn9.includeInLayout = this.road3Btn10.includeInLayout = this.dtPageNum !== 0;
-        this.road3Btn1.visible = this.road3Btn2.visible = this.road3Btn3.visible = this.road3Btn4.visible = this.road3Btn5.visible = this.dtPageNum === 0;
-        this.road3Btn6.visible = this.road3Btn7.visible = this.road3Btn8.visible = this.road3Btn9.visible = this.road3Btn10.visible = this.dtPageNum !== 0;
+      protected onRoad3BackBtnClick(e: egret.TouchEvent) {
+        if (this.road3PageNum > 0) {
+          this.setRoad3PageNum(--this.road3PageNum);
+        }
       }
 
-      private onRoadTypesSelect(e) {
+      protected setRoad3PageNum(n: number) {
+        this.road3PageNum = n;
+        if (this.road3PageNum == 0) {
+          this.road3NextBtn.visible = true;
+          this.road3BackBtn.visible = false;
+        } else {
+          this.road3NextBtn.visible = false;
+          this.road3BackBtn.visible = true;
+        }
+
+        const itemPerPage = 5;
+        const numBtn = 10;
+        for (let i = 0; i < numBtn; i++) {
+          const page = Math.floor(i / itemPerPage);
+          // check if same page
+          this['road3Btn' + (i + 1)].includeInLayout = this['road3Btn' + (i + 1)].visible = page === n;
+        }
+      }
+
+      protected onRoadTypesSelect(e) {
         const roadTypeIndex = e.data;
         this.panelRoadSelect && this.panelRoadSelect.dropdown.select(roadTypeIndex);
         this.roadStack.selectedIndex = roadTypeIndex;
 
-        this.road1Btn1.selected = true;
-        this.road2Btn1.selected = true;
-        this.road3Btn1.selected = true;
+        this['road1Btn1'].selected = true;
+        this['road2Btn1'].selected = true;
+        this['road3Btn1'].selected = true;
       }
 
       protected onPageChangeRoadmap() {
@@ -273,10 +250,10 @@ namespace we {
 
         // select the first button
         if (this.pageStack.selectedIndex === 0) {
-          this.setDTPageNum(0);
-          this.road1Btn1.selected = true;
-          this.road2Btn1.selected = true;
-          this.road3Btn1.selected = true;
+          this.setRoad3PageNum(0);
+          this['road1Btn1'].selected = true;
+          this['road2Btn1'].selected = true;
+          this['road3Btn1'].selected = true;
         } else {
           this.analysisBtn1.selected = true;
         }
@@ -371,11 +348,37 @@ namespace we {
         this.sizeBigRoad.dispose();
         this.oddBigRoad.dispose();
         // egret.Tween.removeTweens(this.activeLine);
+
+        if (this['road1Btn1'].hasEventListener(eui.UIEvent.CHANGE)) {
+
+          this.panelRoadSelect.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onRoadTypesSelect, this);
+          this.analysisBtn1.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+          this.analysisBtn2.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+          this.analysisBtn3.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+          this.analysisBtn4.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+
+
+          for (let i = 1; i <= 5; i++) {
+            this['road1Btn' + i].removeEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
+          }
+
+          for (let i = 1; i <= 5; i++) {
+            this['road2Btn' + i].removeEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
+          }
+
+          for (let i = 1; i <= 10; i++) {
+            this['road3Btn' + i].removeEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
+          }
+
+          this._btn_roadmap.removeEventListener('CLICKED', this.onPageChangeRoadmap, this);
+          this._btn_analysis.removeEventListener('CLICKED', this.onPageChangeAnalysis, this);
+          this.road3NextBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoad3NextBtnClick, this);
+          this.road3BackBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoad3BackBtnClick, this);
+        }
+
+
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        }
-        if (this.dtNextBtn.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
-          this.dtNextBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onDTNextBtnClick, this);
         }
       }
     }
