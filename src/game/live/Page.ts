@@ -21,17 +21,28 @@ namespace we {
 
       protected clearOrientationDependentComponent() {
         super.clearOrientationDependentComponent();
+        dir.evtHandler.removeEventListener(core.Event.LIVE_TABLE_INDEX_UPDATE,this.updateIndex,this)
       }
-
-      protected initOrientationDependentComponent() {
-        super.initOrientationDependentComponent();
+      protected initComponents(){
         this._gameTableList = new GameTableList(this._roomList);
         this._gameTableList.percentWidth = 100;
         this._gameTableList.percentHeight = 100;
         this._gameTableList.page = this;
+        dir.evtHandler.addEventListener(core.Event.LIVE_TABLE_INDEX_UPDATE,this.updateIndex,this)
         this.addChild(this._gameTableList);
       }
-
+      // protected initOrientationDependentComponent() {
+      //   super.initOrientationDependentComponent();
+      //   this._gameTableList = new GameTableList(this._roomList);
+      //   this._gameTableList.percentWidth = 100;
+      //   this._gameTableList.percentHeight = 100;
+      //   this._gameTableList.page = this;
+      //   dir.evtHandler.addEventListener(core.Event.LIVE_TABLE_INDEX_UPDATE,this.updateIndex,this)
+      //   this.addChild(this._gameTableList);
+      // }
+      protected updateIndex(){
+        this.updateCurrentPageAndTab(env.currentPage, env.currentTab);
+      }
       public i = 0;
 
       public onEnter() {
@@ -63,6 +74,7 @@ namespace we {
 
       public destroy() {
         super.destroy();
+        dir.evtHandler.removeEventListener(core.Event.LIVE_TABLE_INDEX_UPDATE,this.updateIndex,this)
         this.removeChildren();
       }
 

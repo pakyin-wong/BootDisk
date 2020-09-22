@@ -16,11 +16,11 @@ namespace we {
 
       private contentInitializer: IContentInitializer;
 
-      public get page(){
+      public get page() {
         return this._page;
       }
 
-      public set page(val){
+      public set page(val) {
         this._page = val;
       }
 
@@ -106,7 +106,8 @@ namespace we {
         const scrollV = this.scroller.viewport.scrollV;
 
         env.currentTab = Object.keys(core.LiveGameTab)[this.tabs.selectedIndex];
-        this._page.updateCurrentPageAndTab(env.currentPage,env.currentTab)
+        dir.evtHandler.dispatch(core.Event.LIVE_TABLE_INDEX_UPDATE);
+        // this._page.updateCurrentPageAndTab(env.currentPage, env.currentTab); // dispatch event
 
         this.roomList.setGameFiltersByTabIndex(this.tabs.selectedIndex);
         this.roomList.setTableList(this.roomIds, true);
@@ -134,6 +135,8 @@ namespace we {
         this.tabs.tabBar && this.tabs.tabBar.addEventListener('REORDER', this.onSelectedIndexSorted, this);
         this.tabs.addEventListener('CHANGE', this.onSelectedIndexChanged, this);
       }
+
+      protected;
     }
   }
 }

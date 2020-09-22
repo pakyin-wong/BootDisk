@@ -5,7 +5,7 @@ namespace we {
 
       protected _Scene;
 
-      public get Scene(){
+      public get Scene() {
         return this._Scene;
       }
       public set Scene(val) {
