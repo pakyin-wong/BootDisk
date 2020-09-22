@@ -47,7 +47,8 @@ declare class PlayerClient {
     enterTable(tableID: string): void;
     leaveTable(tableID: string): void;
     bet(tableID: string, betArray: BetValueCommand[], callback: Function): void;
-    lotteryContinuousBet(tableID: string, betArray: BetValueCommand[], roundArray: LotteryBetValueCommand[], callback:Function)
+    lotteryContinuousBet(tableID: string, betArray: BetValueCommand[], roundArray: LotteryBetValueCommand[], callback:Function): void;
+    cancelBet(tableID: string, betID: string, gametype: string, callback: Function): void;
     updateSetting(key: string, value: string): void;
     updateSettings(settings: {
         [key: string]: string;
@@ -66,6 +67,9 @@ declare class PlayerClient {
     getBetTemplate(callback?: Function): void;
     removeBetTemplate(id: string, callback?: Function): void;
     getBetHistory(filter: object, callback?: (data: object) => void): void;
+    getLotteryContinuousBetDetail(betid: string, callback?: Function): void;
+    getLotteryContinuousBetHistory(filter: object, callback?: Function): void;
+    getLotteryBetDetail(filter: object, callback?: Function): void;
     getPlayerProfileSummary(callback?: Function): void;
     getPlayerStatistic(filter: object, callback?: Function): void;
     getPlayerLotteryStatistic(filter: object, callback?: Function): void;

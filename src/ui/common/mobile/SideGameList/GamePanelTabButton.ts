@@ -132,7 +132,7 @@ namespace we {
 
       public updateLabelKey(key) {
         this.labelKey = key;
-        if(this._focus) {
+        if (this._focus) {
           this._label.renderText = () => i18n.t(this.labelKey);
           this.validateNow();
           egret.Tween.removeTweens(this);
