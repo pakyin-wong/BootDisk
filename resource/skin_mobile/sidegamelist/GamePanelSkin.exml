@@ -32,7 +32,7 @@
 
 
         <e:ViewStack id="_viewStack" left="0" right="0"
-                     selectedIndex="2" y.landscape="202" height.landscape="790" top="200" bottom="0">
+                     selectedIndex="0" y.landscape="202" height.landscape="790" top="200" bottom="0">
 					<e:Group left="0" right="0" top="0" bottom="0" x="0" y="-200" scaleX="1" scaleY="1">
 						<e:Group height="110" left="0" right="0">
 						<ui:RunTimeLabel id="_lblBetHint" text="Label" horizontalCenter="0" verticalCenter="0" textAlign="center" verticalAlign="middle" size="42"/>

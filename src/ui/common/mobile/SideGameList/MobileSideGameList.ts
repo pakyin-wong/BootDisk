@@ -37,7 +37,13 @@ namespace we {
 
       protected initOrientationDependentComponent() {
         // this._txt_title.renderText = () => `${i18n.t('sidegamelist_title')}`;
-        this._lblBetHint.renderText = () => i18n.t('mobile_game_panel_bet_hint_label');
+        this._betTableList.setTableList(this._betList);
+        const count = this._betList.length;
+        if ( count === 0 ) {
+          this._lblBetHint.renderText = () => i18n.t('mobile_game_panel_bet_hint_label2');
+        } else {
+          this._lblBetHint.renderText = () => i18n.t('mobile_game_panel_bet_hint_label');
+        }
 
         this.initTabs();
         this.initPage();
@@ -287,6 +293,11 @@ namespace we {
         // item.count = count;
         // this._tabArrayCollection.replaceItemAt(item, idx);
         this._btnAlreadyBet.setBadge(count);
+        if ( count === 0 ) {
+          this._lblBetHint.renderText = () => i18n.t('mobile_game_panel_bet_hint_label2');
+        } else {
+          this._lblBetHint.renderText = () => i18n.t('mobile_game_panel_bet_hint_label');
+        }
       }
       protected setGoodRoadList() {
         this._goodRoadTableList.setTableList(this._goodRoadList);

@@ -158,6 +158,7 @@ namespace we {
       mobile_enter_table_button_label: '進入遊戲',
 
       mobile_game_panel_bet_hint_label: '提示：點擊下注區進行追注或進入遊戲',
+      mobile_game_panel_bet_hint_label2: '暫沒有資訊',
 
       mobile_dropdown_confirm: '確定',
 

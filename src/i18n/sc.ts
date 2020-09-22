@@ -163,6 +163,7 @@ namespace we {
       mobile_enter_table_button_label: '进入游戏',
 
       mobile_game_panel_bet_hint_label: '提示：点击下注区进行追注或进入游戏',
+      mobile_game_panel_bet_hint_label2: '暂没有资讯',
 
       mobile_dropdown_confirm: '确定',
 

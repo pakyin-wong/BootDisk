@@ -152,6 +152,7 @@ namespace we {
       mobile_enter_table_button_label: 'Enter',
 
       mobile_game_panel_bet_hint_label: 'Hint: Press to add bet or enter room',
+      mobile_game_panel_bet_hint_label2: 'No Information',
 
       mobile_dropdown_confirm: 'Confirm',
 
