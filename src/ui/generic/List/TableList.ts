@@ -103,6 +103,10 @@ namespace we {
           case core.LotteryTab.all:
             this.gameFilters = [core.GameType.LO];
             break;
+
+          case core.LotteryTab.lo:
+            this.gameFilters = [core.GameType.LO];
+            break;
         }
       }
 

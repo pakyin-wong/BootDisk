@@ -102,7 +102,7 @@ namespace we {
             this.setAllRoadEnable(false);
           }
           customRoadHolderList.forEach(holder => {
-            const element = <ba.GoodRoadListHolder>holder;
+            const element = <ba.GoodRoadListHolder> holder;
             // this.onAllRoadModify(element)
             const activebutton = element.item.activeButton;
             if (this._selectAllButton._buttonState === 0) {
