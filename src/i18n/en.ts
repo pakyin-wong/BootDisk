@@ -54,6 +54,7 @@ namespace we {
 
       overlaypanel_customroad_title: 'Good Road Settings',
       overlaypanel_customroad_default: 'Restore Default',
+      overlaypanel_customroad_selectall: 'Select All',
 
       overlaypanel_bethistory_title: 'Bet Record',
       overlaypanel_bethistory_tab_all: 'All',
@@ -222,13 +223,15 @@ namespace we {
           },
         },
       },
+      gamegroup_tab_live: 'Live',
+      gamegroup_tab_lottery: 'Lottery',
       lobby: {
         header: {
           lobby: 'Promoted',
           live: 'Live',
           lottery: 'Lottery',
           egame: 'EGame',
-          favorite: 'Favorite',
+          favourite: 'Favourite',
         },
         categoryPromotion: 'Promoted',
         categoryBaccarat: 'Baccarat',
@@ -239,8 +242,30 @@ namespace we {
         categoryFavorite: 'My Favorites',
       },
       live: {
+        tooltip: {
+          confirmBet: 'Confirm Bet',
+          repeat: 'Repeat',
+          cancel: 'Cancel',
+          double: 'Double',
+          undo: 'Undo',
+          fullscreen: 'Fullscreen',
+          autoFullscreenToggleOn: 'Turn on auto hide',
+          autoFullscreenToggleOff: 'Auto hide panel when bet is over',
+          roadmapBankerRound: 'Banker',
+          roadmapPlayerRound: 'Player',
+          roadmapTierRound: 'Tie',
+          roadmapBankerPairRound: 'Banker Pair',
+          roadmapPlayerPairRound: 'Player Pair',
+          roadmapTotalRound: 'Total',
+          toggleUp: 'Show record',
+          toggleDown: 'Hide record',
+          ro: {
+            spreadAdd: 'Increment spread',
+            spreadDeduct: 'Decrement spread',
+          },
+        },
         gametype: {
-          allGame: 'All Game',
+          allGame: 'All',
           bacarrat: 'Baccarat',
           dragontiger: 'DT',
           luckywheel: 'Wheel',
@@ -248,6 +273,12 @@ namespace we {
           dice: 'SicBo',
           other: 'Others',
           special: 'Special',
+        },
+      },
+      lottery: {
+        gametype: {
+          allLotteryGame: 'All',
+          lottery: 'Lottery',
         },
       },
       tableInfo: {
@@ -271,6 +302,8 @@ namespace we {
         askDragon: 'Ask Dn',
         askTiger: 'Ask Tr',
         DragonTigerTieRatio: 'Dragon Tiger ratio',
+        TieRatio: 'Tie ratio',
+        DealerRatio: 'Dealer DT ratio',
         round: 'round',
         rounds: 'rounds',
       },

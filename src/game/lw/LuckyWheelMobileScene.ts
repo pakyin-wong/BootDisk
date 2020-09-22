@@ -58,7 +58,7 @@ namespace we {
           egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
           this._tableLayer.alpha = this._chipLayer.alpha = 1;
         }
-        this._lwGameID.renderText = () => `${this._tableInfo.tableid}`;
+        this._lwGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
       }
 

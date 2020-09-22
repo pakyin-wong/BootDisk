@@ -197,6 +197,8 @@ namespace we {
         env.currency = player.profile.currency;
         // env.nickname = player.profile.nickname;
         env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
+        env.favouriteTableList = player.profile.settings.favouriteTableList ? JSON.parse(player.profile.settings.favouriteTableList) : env.favouriteTableList;
+
         // env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
         // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
         // env.icons = player.profile.settings.icons ? player.profile.settings.icons : player.profile.icons;
@@ -242,7 +244,9 @@ namespace we {
         if (!Array.isArray(env.betLimits)) {
           env.betLimits = [env.betLimits];
         }
-
+        env.currentSelectedBetLimitIndex = player.profile.settings.currentSelectedBetLimitIndex ? player.profile.settings.currentSelectedBetLimitIndex : 0;
+        env.language = player.profile.settings.language ? player.profile.settings.language : 'sc';
+        we.i18n.setLang(env.language ? env.language : 'sc', true);
         /*
         let denominationList = [];
         for (const betLimit of env.betLimits) {
@@ -375,6 +379,9 @@ namespace we {
         }
         if (env.betTableList.indexOf(tableid) > -1) {
           this.filterAndDispatch(env.betTableList, core.Event.BET_TABLE_LIST_UPDATE);
+        }
+        if (env.favouriteTableList.indexOf(tableid) > -1) {
+          this.filterAndDispatch(env.favouriteTableList, core.Event.FAVOURITE_TABLE_LIST_UPDATE);
         }
       }
 

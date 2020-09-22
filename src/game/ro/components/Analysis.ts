@@ -1,7 +1,6 @@
 namespace we {
   export namespace ro {
-    export class Analysis extends core.BaseEUI implements we.ui.IAnalysis {
-      protected _tableId;
+    export class Analysis extends ui.Analysis {
       protected _colorChart: ro.BarChart;
       protected _oddChart: ro.BarChart;
       protected _bigChart: ro.BarChart;
@@ -22,23 +21,24 @@ namespace we {
       protected _coldNumber4Img: eui.Image;
       protected _coldNumber4Text: eui.Label;
 
-      public advancedRoad: we.ui.IAdvancedRoad;
-
       constructor() {
         super(env.isMobile ? null : 'ro.Analysis');
       }
 
-      protected mount() {
-        super.mount();
+      // protected mount() {
+      //   super.mount();
+      //   this.updateBarChart();
+      //   /*
+
+      //   this._oddChart.setParam(230, 70, 500, 300, 0, 30, 10);
+      //   this._oddChart.draw();
+      //   this._bigChart.setParam(230, 70, 60, 200, 0, 30, 10);
+      //   this._bigChart.draw();
+      //   */
+      // }
+
+      protected init() {
         this.updateBarChart();
-
-        /*
-
-        this._oddChart.setParam(230, 70, 500, 300, 0, 30, 10);
-        this._oddChart.draw();
-        this._bigChart.setParam(230, 70, 60, 200, 0, 30, 10);
-        this._bigChart.draw();
-        */
       }
 
       protected updateBarChart() {
@@ -64,13 +64,13 @@ namespace we {
         }
       }
 
-      public set tableId(value: string) {
-        this._tableId = value;
-      }
+      // public set tableId(value: string) {
+      //   this._tableId = value;
+      // }
 
-      public get tableId() {
-        return this._tableId;
-      }
+      // public get tableId() {
+      //   return this._tableId;
+      // }
 
       public updateTableBetInfo() {}
 
@@ -104,6 +104,7 @@ namespace we {
           }
         }
         this.updateBarChart();
+        super.updateRoad();
       }
 
       public getNumberSource(value: number) {

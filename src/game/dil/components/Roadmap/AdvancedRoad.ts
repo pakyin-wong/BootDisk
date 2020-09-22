@@ -1,7 +1,7 @@
 namespace we {
   export namespace dil {
-    export class AdvancedRoad extends core.BaseEUI implements we.ui.IAdvancedRoad {
-      protected _tableInfo: data.TableInfo;
+    export class AdvancedRoad extends ui.AdvancedRoad {
+      // protected _tableInfo: data.TableInfo;
 
       public beadRoad: we.dil.DilBeadRoad;
 
@@ -15,19 +15,19 @@ namespace we {
         super(skin);
       }
 
-      public set tableInfo(value: data.TableInfo) {
-        this._tableInfo = value;
-      }
+      // public set tableInfo(value: data.TableInfo) {
+      //   this._tableInfo = value;
+      // }
 
-      public get tableInfo() {
-        return this._tableInfo;
-      }
+      // public get tableInfo() {
+      //   return this._tableInfo;
+      // }
 
-      protected mount() {
-        this.init();
-      }
+      // protected mount() {
+      //   this.init();
+      // }
 
-      protected init() {
+      protected initRoad() {
         const roundRect = new we.ui.RoundRectShape();
         roundRect.x = roundRect.y = 2;
         roundRect.cornerTL_TR_BL_BR = '8,8,8,8';
@@ -39,17 +39,27 @@ namespace we {
         roundRect.height = 246;
         this.addChild(roundRect);
 
+        this.roadsContainer = new egret.DisplayObjectContainer();
+        this.roadsContainer.x = 16;
+        this.roadsContainer.y = 16;
+        this.addChild(this.roadsContainer);
+
+        this.roadsContainerRT = new egret.RenderTexture();
+        this.roadsContainerDisplay = new egret.Bitmap();
+        this.roadsContainerDisplay.texture = this.roadsContainerRT;
+        this.roadsContainerDisplay.x = 16;
+        this.roadsContainerDisplay.y = 16;
+        this.addChild(this.roadsContainerDisplay);
+
         this.beadRoad = new DilBeadRoad(3, 12, 56, 1, 12, 18, 0x262a2b, 1);
-        this.beadRoad.x = 16;
-        this.beadRoad.y = 16;
-        // this.beadRoad.scaleX = 1;
-        // this.beadRoad.expandRoad(false);
+        this.beadRoad.x = 0;
+        this.beadRoad.y = 0;
         this.beadRoad.initRoadData();
-        this.addChild(this.beadRoad);
+        this.roadsContainer.addChild(this.beadRoad);
 
-        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        // dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
 
-        this.changeLang();
+        // this.changeLang();
       }
 
       public changeLang() {}
@@ -75,6 +85,7 @@ namespace we {
             // this.changeLang();
           }
         }
+        super.update();
       }
 
       // called by BaRoadmapControl
@@ -96,9 +107,9 @@ namespace we {
 
         this.beadRoad.dispose();
 
-        if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
-          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        }
+        // if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
+        //   dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        // }
       }
     }
   }

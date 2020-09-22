@@ -24,6 +24,11 @@ namespace we {
         this._gr = this._shape.graphics;
 
         this.refresh();
+        this.addEventListener(eui.UIEvent.RESIZE, this.refresh, this);
+      }
+
+      protected destroy() {
+        this.removeEventListener(eui.UIEvent.RESIZE, this.refresh, this);
       }
 
       public setRoundRectStyle(
@@ -107,6 +112,7 @@ namespace we {
       }
 
       public async refresh() {
+        this.validateNow();
         if (this.cornerTL_TR_BL_BR !== '') {
           const corners = this.cornerTL_TR_BL_BR
             .split(' ')

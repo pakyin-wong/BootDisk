@@ -64,7 +64,7 @@ class Main extends eui.UILayer {
     data = we.utils.getQueryParams(query);
     const isMobile = data.ismobile ? data.ismobile : 0;
 
-    if (type === 'mobile' || isMobile) {
+    if (type === 'mobile') {
       // if (true) {
       env.isMobile = true;
       // this.updateMobileHitTest();
@@ -124,6 +124,7 @@ class Main extends eui.UILayer {
     this.showVersionNumber();
     // step 3: create loading scene
     dir.sceneCtr.goto('loading');
+    // we.i18n.setLang(env.language?env.language:'sc', true);
     // egret.sys.resizeContext
     // egret.updateAllScreens();
     egret.updateAllScreens = () => {

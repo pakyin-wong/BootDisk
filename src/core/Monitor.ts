@@ -68,8 +68,8 @@ namespace we {
           dir.layerCtr.notification.addChild(this._notificationController);
         } else {
           this._liveSidePanel = new ui.LiveSidePanel();
-          this._liveSidePanel.right = 20;
-          this._liveSidePanel.y = 80;
+          this._liveSidePanel.right = 25;
+          this._liveSidePanel.y = 110;
 
           const child = this._nav.getChildByName('background');
           let idx = 2;

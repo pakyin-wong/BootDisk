@@ -161,6 +161,7 @@
                             context.oBackingStorePixelRatio ||
                             context.backingStorePixelRatio || 1;
                         return (window.devicePixelRatio || 1) / backingStore;
+                        // return Math.max(window.devicePixelRatio, 2) / backingStore;
                     },
                     screenAdapter
                 });

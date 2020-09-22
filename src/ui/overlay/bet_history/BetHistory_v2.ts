@@ -88,6 +88,7 @@ namespace we {
         this._mainTab = 'all';
         this.currentState = 'all';
         this._type = -1;
+        this._page = 1;
         this._dataColl.removeAll();
         this.search();
       }
@@ -99,13 +100,14 @@ namespace we {
         this._mainTab = 'live';
         this.currentState = 'live';
         this._type = this._live_submenu.selectedItem.val;
+        this._page = 1;
         this._dataColl.removeAll();
         this.search();
       }
 
       protected onLiveTabbed() {
-        console.log(this._live_submenu.selectedItem);
         this._type = this._live_submenu.selectedItem.val;
+        this._page = 1;
         this._dataColl.removeAll();
         this.search();
       }
@@ -119,6 +121,7 @@ namespace we {
         this._mainTab = 'lottery';
         this.currentState = 'lottery';
         this._type = GameType.LO;
+        this._page = 1;
         this._dataColl.removeAll();
         this.search();
       }

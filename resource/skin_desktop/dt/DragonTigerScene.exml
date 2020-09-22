@@ -6,7 +6,7 @@
 	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_jpg" x="0" locked="true" />
 	<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" width="2600" height="294" x="0" bottom="0" stroke="0"
 	                   fillColor="0x00000000,0x00000050" />
-	<ui:Group x="723" y="1020" isEdgeDismissable="true" dismissPosX="723" dismissPosY="1298">
+	<ui:Group x="723" y="1020" isEdgeDismissable="true" dismissPosX="723" dismissPosY="1340">
 		<dt:TableLayer id="_tableLayer" width="1146" height="304" skinName="skin_desktop.dt.TableLayerSkin" />
 		<dt:ChipLayer id="_chipLayer" width="1146" height="304" isEdgeDismissable="true"
 		              skinName="skin_desktop.dt.ChipLayerSkin" />
@@ -14,6 +14,7 @@
 		               anchorOffsetY="0" />
 	</ui:Group>
 	<ui:Group id="_betRelatedGroup" x="768" y="939" isEdgeDismissable="true">
+	<ui:Group>
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" chipScale="0.9" />
 		<e:Button id="_confirmButton" label="" y="3" anchorOffsetX="0" width="155" anchorOffsetY="0" height="64"
@@ -32,6 +33,7 @@
 		<ui:BaseAnimationButton id="_repeatButton" width="55" height="55" verticalCenter="0" horizontalCenter="467"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_rebet" useColorFilter="true"
 								tooltipText="'live.tooltip.repeat'" tooltipPosition="'above'" />
+	</ui:Group>
 	</ui:Group>
 	<dt:DTRoadmapLeftPanel id="_leftGamePanel" width="692" height="304" x="14" y="1020" anchorOffsetX="0" anchorOffsetY="0"
 	                       dismissPosX="14" dismissPosY="1298" isEdgeDismissable="true" />
@@ -58,7 +60,7 @@
 	                   anchorOffsetY="0" skinName="skin_desktop.dt.TableInfoPanel" />
 	<dt:DTBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="242" x="18" y="644" anchorOffsetX="0"
 	                          anchorOffsetY="0" visible="false" />
-	<ui:BaseAnimationButton id="_panelDismissToggleBtn" dbClass="common_ui" dbDisplay="d_common_hide_ui" width="30"
+	<ui:AnimatedToggleButton id="_panelDismissToggleBtn" dbClass="common_ui" dbDisplay="d_common_hide_ui" width="30"
 	                        height="30" x="2526" y="949" dismissPosY="1222" dismissPosX="2526" isEdgeDismissable="true" />
 </e:Skin>
 

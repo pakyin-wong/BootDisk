@@ -60,6 +60,7 @@ namespace we {
 
       overlaypanel_customroad_title: '好路设定',
       overlaypanel_customroad_default: '还原预设',
+      overlaypanel_customroad_selectall: '全选',
 
       overlaypanel_bethistory_title: '投注记录',
       overlaypanel_bethistory_tab_all: '游戏总览',
@@ -252,7 +253,7 @@ namespace we {
           live: '真人游戏',
           lottery: '彩票游戏',
           egame: '电子游戏',
-          favorite: '我的最爱',
+          favourite: '我的最爱',
         },
         categoryPromotion: '精选推介',
         categoryBaccarat: '百家乐',
@@ -262,6 +263,8 @@ namespace we {
         categoryOtherGame: '其他游戏',
         categoryFavorite: '我的最爱',
       },
+      gamegroup_tab_live: '真人游戏',
+      gamegroup_tab_lottery: '彩票游戏',
       live: {
         tooltip: {
           confirmBet: '确认投注',
@@ -270,6 +273,8 @@ namespace we {
           double: '双倍',
           undo: '还原',
           fullscreen: '视频全莹幕',
+          autoFullscreenToggleOn: '开启自动隐藏界面',
+          autoFullscreenToggleOff: '投注结东后, 界面将自动隐藏',
           roadmapBankerRound: '庄局数',
           roadmapPlayerRound: '閒局数',
           roadmapTierRound: '和局数',
@@ -284,7 +289,7 @@ namespace we {
           },
         },
         gametype: {
-          allGame: '真人游戏',
+          allGame: '全部',
           bacarrat: '百家乐',
           dragontiger: '龙虎',
           luckywheel: '幸运轮',
@@ -292,6 +297,12 @@ namespace we {
           dice: '骰宝',
           other: '其他',
           special: '特别游戏',
+        },
+      },
+      lottery: {
+        gametype: {
+          allLotteryGame: '全部',
+          lottery: '时时彩',
         },
       },
       tableInfo: {
@@ -315,6 +326,8 @@ namespace we {
         askDragon: '龙问路',
         askTiger: '虎问路',
         DragonTigerTieRatio: '龙虎和比例',
+        TieRatio: '和比例',
+        DealerRatio: '荷官开龙虎比例',
         round: '局',
         rounds: '局',
       },

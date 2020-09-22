@@ -6,18 +6,18 @@
 		<ui:BetChipStack id="_dragonBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"
 		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="80"
-		                 betSumBackgroundHeight="30" betSumLabelFontSize="40" chipLabelOffset="-3" chipLabelSize="20"/>
+		                 betSumBackgroundHeight="30" betSumLabelFontSize="38" chipLabelOffset="-3" chipLabelSize="20"/>
 	</e:Group>
 	<e:Group id="_tieGroup" includeIn="Normal" x="113" y="0" width="113" height="110">
 		<ui:BetChipStack id="_tieBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"
 		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="80"
-		                 betSumBackgroundHeight="30" betSumLabelFontSize="40" chipLabelOffset="-3" chipLabelSize="20"/>
+		                 betSumBackgroundHeight="30" betSumLabelFontSize="38" chipLabelOffset="-3" chipLabelSize="20"/>
 	</e:Group>
 	<e:Group id="_tigerGroup" x="226" y="0" width="113" height="110">
 		<ui:BetChipStack id="_tigerBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"
 		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="80"
-		                 betSumBackgroundHeight="30" betSumLabelFontSize="40" chipLabelOffset="-3" chipLabelSize="20"/>
+		                 betSumBackgroundHeight="30" betSumLabelFontSize="38" chipLabelOffset="-3" chipLabelSize="20"/>
 	</e:Group>
 </e:Skin>

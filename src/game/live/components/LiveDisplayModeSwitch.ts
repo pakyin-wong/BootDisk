@@ -2,7 +2,8 @@ namespace we {
   export namespace live {
     export class LiveDisplayModeSwitch extends ALobbyGridLayoutSwitch {
       private container: eui.Group;
-      private buttonNames = ['d_lobby_viewmode_icon_tiny', 'd_lobby_viewmode_icon_general', 'd_lobby_viewmode_icon_pro'];
+      // private buttonNames = ['d_lobby_viewmode_icon_tiny', 'd_lobby_viewmode_icon_general', 'd_lobby_viewmode_icon_pro'];
+      private buttonNames = ['d_lobby_viewmode_icon_pro', 'd_lobby_viewmode_icon_general', 'd_lobby_viewmode_icon_tiny'];
       private buttons: we.ui.BaseAnimationButton[] = [];
       private selectedIndex: number;
 

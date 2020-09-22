@@ -151,6 +151,8 @@ There are few steps needed to be taken before publish
 
 - [GOW Sicbo Desktop Requirement](https://docs.google.com/document/u/1/d/1A-H_QTX6NlgbiEQRVfVMERfuytIxxMnMZ_fgCviLv8k/mobilebasic)
 
+- [Bet Limit](https://docs.google.com/document/d/1I1tJby52fk6CTiBFVHtl4de1atBuXtvS/edit)
+
 ## Live Game Asset
 - [22/7 lobby icon dragonbones](https://drive.google.com/file/d/1hNu8nOQOhl1ce6IF36V9_bvCKTNeCxen/view?usp=sharing)
 - [22/7 common icon dragonbones](https://drive.google.com/file/d/1f2cXQTwD5lSjyd6RfJIZMLMB-_1gbUqQ/view?usp=sharing)

@@ -16,7 +16,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.8.10';
+      public version: string = '0.9.2';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -95,6 +95,7 @@ namespace we {
       public allTableList: string[] = [];
       public goodRoadTableList: string[] = [];
       public betTableList: string[] = [];
+      public favouriteTableList: string[] = [];
 
       private _currTime: number = Date.now();
       private _currTimeLastUpdateTime: number = Date.now();
@@ -116,6 +117,8 @@ namespace we {
       // check if mobilebottomGamePanel is open
       public isBottomPanelOpen = true;
       public bottomPanelSelectedIdx: number = 0;
+
+      public isAutoDismiss: boolean = true;
 
       // Lottery
       public loDenominationList = [2, 20, 200];

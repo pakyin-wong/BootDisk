@@ -60,6 +60,10 @@ declare module skin_desktop{
 	class BaccaratScene extends eui.Skin{
 	}
 }
+declare module skin_desktop.ba{
+	class BAMinimizedTableLayerSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class BARoadmapLeftPanel extends eui.Skin{
 	}
@@ -394,9 +398,15 @@ declare class DropdownSkin extends eui.Skin{
 }
 declare class RoundDropdownSkin extends eui.Skin{
 }
-declare class SidePanelAllGameDropdownItemSkin extends eui.Skin{
+declare class SidePanelBetLimitDropdownItemSkin extends eui.Skin{
 }
-declare class SidePanelAllGameDropdownSkin extends eui.Skin{
+declare class SidePanelGameDropdown extends eui.Skin{
+}
+declare module skin_desktop{
+	class SidePanelGameDropDownIR extends eui.Skin{
+	}
+}
+declare class SidePanelGameGroupDropdown extends eui.Skin{
 }
 declare module skin_desktop{
 	class DropdownItem extends eui.Skin{
@@ -452,6 +462,18 @@ declare module skin_desktop.dt{
 }
 declare module skin_desktop.dt{
 	class SideListTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dt{
+	class StatisticChartPanelDealer extends eui.Skin{
+	}
+}
+declare module skin_desktop.dt{
+	class StatisticChartPanelNormal extends eui.Skin{
+	}
+}
+declare module skin_desktop.dt{
+	class StatisticChartPanelTie extends eui.Skin{
 	}
 }
 declare module skin_desktop.dt{
@@ -789,6 +811,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class BetHistoryItemLotteryCB extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BetHistorySubMenuItemRenderer extends eui.Skin{
 	}
 }
@@ -798,6 +824,14 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class DoubleCalendarPicker extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LoContinuousBetStatus extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LoContinuousBetStatusIR extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -1266,6 +1300,14 @@ declare module skin_mobile_landscape.dt{
 }
 declare module skin_mobile_landscape.dt{
 	class TableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class FavouriteGameTableList extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class FavouritePage extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{
@@ -1818,6 +1860,8 @@ declare module skin_mobile_portrait{
 	class SidePanelAllGameDropdownItemSkin extends eui.Skin{
 	}
 }
+declare class SidePanelAllGameDropdownSkin extends eui.Skin{
+}
 declare module skin_mobile_portrait{
 	class DropdownItem extends eui.Skin{
 	}
@@ -1870,6 +1914,14 @@ declare module skin_mobile_portrait.dt{
 	class SideListTableLayerSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile.dt{
+	class StatisticChart extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dt{
+	class StatisticChartHolder extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait.dt{
 	class StatisticChartPanel extends eui.Skin{
 	}
@@ -1880,6 +1932,10 @@ declare module skin_mobile_portrait.dt{
 }
 declare module skin_mobile_portrait.dt{
 	class TableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class FavouritePage extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

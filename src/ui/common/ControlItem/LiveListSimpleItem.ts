@@ -46,6 +46,7 @@ namespace we {
       protected initChildren() {
         this.generateRoadmap();
         super.initChildren();
+        this._betMessageEnable = false;
       }
 
       protected generateTableLayer() {
@@ -165,6 +166,10 @@ namespace we {
 
       public getActionButton(): eui.Component {
         return this._quickbetButton;
+      }
+
+      public getFavouriteButton(): eui.Component {
+        return this._favouriteButton;
       }
 
       public setData(tableInfo: data.TableInfo) {
@@ -293,14 +298,27 @@ namespace we {
           return;
         }
         egret.Tween.removeTweens(this._quickbetButton);
+        if (this._favouriteButton) {
+          egret.Tween.removeTweens(this._favouriteButton);
+        }
         if (show) {
           egret.Tween.get(this._quickbetButton)
             .set({ visible: true })
             .to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
+          if (this._favouriteButton) {
+            egret.Tween.get(this._favouriteButton)
+              .set({ visible: true })
+              .to({ alpha: 1 }, this._tweenInterval1);
+          }
         } else {
           egret.Tween.get(this._quickbetButton)
             .to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250)
             .set({ visible: false });
+          if (this._favouriteButton) {
+            egret.Tween.get(this._favouriteButton)
+              .to({ alpha: 0 }, 250)
+              .set({ visible: false });
+          }
         }
       }
 

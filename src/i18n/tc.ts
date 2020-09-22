@@ -54,6 +54,7 @@ namespace we {
 
       overlaypanel_customroad_title: '好路設定',
       overlaypanel_customroad_default: '還原預設',
+      overlaypanel_customroad_selectall: '全選',
 
       overlaypanel_bethistory_title: '投註記錄',
       overlaypanel_bethistory_tab_all: '遊戲總覽',
@@ -96,6 +97,12 @@ namespace we {
       overlaypanel_bethistorylottery_record_bettype: '類型',
       overlaypanel_bethistorylottery_record_betgroup: '玩法',
       overlaypanel_bethistorylottery_record_betfield: '投注項目',
+
+      overlaypanel_bethistorylottery_continuousbet_round: '獎期',
+      overlaypanel_bethistorylottery_continuousbet_rate: '倍數',
+      overlaypanel_bethistorylottery_continuousbet_status: '狀態',
+      overlaypanel_bethistorylottery_continuousbet_cancel: '撤單',
+      overlaypanel_bethistorylottery_continuousbet_allcancel: '一鍵撤單',
 
       overlaypanel_bethistorylottery_tab_single: '投注記錄',
       overlaypanel_bethistorylottery_tab_multi: '追號記錄',
@@ -222,13 +229,15 @@ namespace we {
           },
         },
       },
+      gamegroup_tab_live: '真人遊戲',
+      gamegroup_tab_lottery: '彩票遊戲',
       lobby: {
         header: {
           lobby: '首頁',
           live: '真人遊戲',
           lottery: '彩票遊戲',
           egame: '電子遊戲',
-          favorite: '我的最愛',
+          favourite: '我的最愛',
         },
         categoryPromotion: '精選推介',
         categoryBaccarat: '百家樂',
@@ -239,8 +248,30 @@ namespace we {
         categoryFavorite: '我的最愛',
       },
       live: {
+        tooltip: {
+          confirmBet: '確認投注',
+          repeat: '重複下注',
+          cancel: '取消',
+          double: '雙倍',
+          undo: '還原',
+          fullscreen: '視頻全瑩幕',
+          autoFullscreenToggleOn: '開啟自動隱藏界面',
+          autoFullscreenToggleOff: '投注結東後, 界面將自動隱藏',
+          roadmapBankerRound: '莊局數',
+          roadmapPlayerRound: '閒局數',
+          roadmapTierRound: '和局數',
+          roadmapBankerPairRound: '莊對局數',
+          roadmapPlayerPairRound: '閒對局數',
+          roadmapTotalRound: '總局數',
+          toggleUp: '展開記錄',
+          toggleDown: '收起記錄',
+          ro: {
+            spreadAdd: '增加散佈',
+            spreadDeduct: '減少散佈',
+          },
+        },
         gametype: {
-          allGame: '真人遊戲',
+          allGame: '全部',
           bacarrat: '百家樂',
           dragontiger: '龍虎',
           luckywheel: '幸運輪',
@@ -248,6 +279,12 @@ namespace we {
           dice: '骰寶',
           other: '其他',
           special: '特別遊戲',
+        },
+      },
+      lottery: {
+        gametype: {
+          allLotteryGame: '全部',
+          lottery: '時時彩',
         },
       },
       tableInfo: {
@@ -271,6 +308,8 @@ namespace we {
         askDragon: '龍問路',
         askTiger: '虎問路',
         DragonTigerTieRatio: '龍虎和比例',
+        TieRatio: '和比例',
+        DealerRatio: '荷官開龍虎比例',
         round: '局',
         rounds: '局',
       },

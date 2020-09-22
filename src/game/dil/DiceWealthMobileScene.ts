@@ -60,7 +60,7 @@ namespace we {
 
       protected setStateBet(isInit: boolean) {
         super.setStateBet(isInit);
-        this._dilGameID.renderText = () => `${this._tableInfo.tableid}`;
+        this._dilGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
         (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
         (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearLuckyNumbers();
