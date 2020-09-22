@@ -29,8 +29,9 @@ namespace we {
       public sizeBigRoad: LoSizeBigRoad;
       public oddBigRoad: LoOddBigRoad;
 
-      protected dtPageNum: number;
-      protected dtNextBtn: eui.Image;
+      protected road3PageNum: number;
+      protected road3NextBtn: eui.Image;
+      protected road3BackBtn: eui.Image;
 
       protected road1Index: number;
       protected road2Index: number;
@@ -39,29 +40,6 @@ namespace we {
       protected road1Btn: eui.RadioButton;
       protected road2Btn: eui.RadioButton;
       protected road3Btn: eui.RadioButton;
-
-      protected road1Btn1: eui.RadioButton;
-      protected road1Btn2: eui.RadioButton;
-      protected road1Btn3: eui.RadioButton;
-      protected road1Btn4: eui.RadioButton;
-      protected road1Btn5: eui.RadioButton;
-
-      protected road2Btn1: eui.RadioButton;
-      protected road2Btn2: eui.RadioButton;
-      protected road2Btn3: eui.RadioButton;
-      protected road2Btn4: eui.RadioButton;
-      protected road2Btn5: eui.RadioButton;
-
-      protected road3Btn1: eui.RadioButton;
-      protected road3Btn2: eui.RadioButton;
-      protected road3Btn3: eui.RadioButton;
-      protected road3Btn4: eui.RadioButton;
-      protected road3Btn5: eui.RadioButton;
-      protected road3Btn6: eui.RadioButton;
-      protected road3Btn7: eui.RadioButton;
-      protected road3Btn8: eui.RadioButton;
-      protected road3Btn9: eui.RadioButton;
-      protected road3Btn10: eui.RadioButton;
 
       // analysis
       protected analysisBtn1: eui.RadioButton;
@@ -129,28 +107,21 @@ namespace we {
         this.road2Btn['labelDisplayDown']['text'] = this.road2Btn['labelDisplayUp']['text'] = 'O/E';
         this.road3Btn['labelDisplayDown']['text'] = this.road3Btn['labelDisplayUp']['text'] = 'DT';
 
-        this.road1Btn1['labelDisplayDown']['text'] = this.road1Btn1['labelDisplayUp']['text'] = '1st Ball';
-        this.road1Btn2['labelDisplayDown']['text'] = this.road1Btn2['labelDisplayUp']['text'] = '2nd Ball';
-        this.road1Btn3['labelDisplayDown']['text'] = this.road1Btn3['labelDisplayUp']['text'] = '3rd Ball';
-        this.road1Btn4['labelDisplayDown']['text'] = this.road1Btn4['labelDisplayUp']['text'] = '4th Ball';
-        this.road1Btn5['labelDisplayDown']['text'] = this.road1Btn5['labelDisplayUp']['text'] = '5th Ball';
+        for (let i = 1; i <= 5; i++) {
+          this['road1Btn' + i]['labelDisplayDown']['text'] = this['road1Btn' + i]['labelDisplayUp']['text'] = 'Ball ' + i;
+        }
 
-        this.road2Btn1['labelDisplayDown']['text'] = this.road2Btn1['labelDisplayUp']['text'] = '1st Ball';
-        this.road2Btn2['labelDisplayDown']['text'] = this.road2Btn2['labelDisplayUp']['text'] = '2nd Ball';
-        this.road2Btn3['labelDisplayDown']['text'] = this.road2Btn3['labelDisplayUp']['text'] = '3rd Ball';
-        this.road2Btn4['labelDisplayDown']['text'] = this.road2Btn4['labelDisplayUp']['text'] = '4th Ball';
-        this.road2Btn5['labelDisplayDown']['text'] = this.road2Btn5['labelDisplayUp']['text'] = '5th Ball';
+        for (let i = 1; i <= 5; i++) {
+          this['road2Btn' + i]['labelDisplayDown']['text'] = this['road2Btn' + i]['labelDisplayUp']['text'] = 'Ball ' + i;
+        }
 
-        this.road3Btn1['labelDisplayDown']['text'] = this.road3Btn1['labelDisplayUp']['text'] = '1 VS 2';
-        this.road3Btn2['labelDisplayDown']['text'] = this.road3Btn2['labelDisplayUp']['text'] = '1 VS 3';
-        this.road3Btn3['labelDisplayDown']['text'] = this.road3Btn3['labelDisplayUp']['text'] = '1 VS 4';
-        this.road3Btn4['labelDisplayDown']['text'] = this.road3Btn4['labelDisplayUp']['text'] = '1 VS 5';
-        this.road3Btn5['labelDisplayDown']['text'] = this.road3Btn5['labelDisplayUp']['text'] = '2 VS 3';
-        this.road3Btn6['labelDisplayDown']['text'] = this.road3Btn6['labelDisplayUp']['text'] = '2 VS 4';
-        this.road3Btn7['labelDisplayDown']['text'] = this.road3Btn7['labelDisplayUp']['text'] = '2 VS 5';
-        this.road3Btn8['labelDisplayDown']['text'] = this.road3Btn8['labelDisplayUp']['text'] = '3 VS 4';
-        this.road3Btn9['labelDisplayDown']['text'] = this.road3Btn9['labelDisplayUp']['text'] = '3 VS 5';
-        this.road3Btn10['labelDisplayDown']['text'] = this.road3Btn10['labelDisplayUp']['text'] = '4 VS 5';
+        let c = 0;
+        for (let i = 1; i < 5; i++) {
+          for (let j = i + 1; j <= 5; j++) {
+            c++;
+            this['road3Btn' + c]['labelDisplayDown']['text'] = this['road3Btn' + c]['labelDisplayUp']['text'] = i + ' VS ' + j;
+          }
+        }
 
         this.analysisBtn1['labelDisplayDown']['text'] = this.analysisBtn1['labelDisplayUp']['text'] = 'Show';
         this.analysisBtn2['labelDisplayDown']['text'] = this.analysisBtn2['labelDisplayUp']['text'] = 'NoShow';
@@ -206,33 +177,25 @@ namespace we {
         this.road2Btn.addEventListener(eui.UIEvent.CHANGE, this.onRoadTypeChange, this);
         this.road3Btn.addEventListener(eui.UIEvent.CHANGE, this.onRoadTypeChange, this);
 
-        this.road1Btn1.addEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
-        this.road1Btn2.addEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
-        this.road1Btn3.addEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
-        this.road1Btn4.addEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
-        this.road1Btn5.addEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
+        for (let i = 1; i <= 5; i++) {
+          this['road1Btn' + i].addEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
+        }
 
-        this.road2Btn1.addEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
-        this.road2Btn2.addEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
-        this.road2Btn3.addEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
-        this.road2Btn4.addEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
-        this.road2Btn5.addEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
+        for (let i = 1; i <= 5; i++) {
+          this['road2Btn' + i].addEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
+        }
 
-        this.road3Btn1.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn2.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn3.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn4.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn5.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn6.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn7.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn8.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn9.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn10.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
+        for (let i = 1; i <= 10; i++) {
+          this['road3Btn' + i].addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
+        }
 
-        this.setDTPageNum(0);
+        this.setRoad3PageNum(0);
 
-        this.dtNextBtn.touchEnabled = true;
-        this.dtNextBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDTNextBtnClick, this);
+        this.road3NextBtn.touchEnabled = true;
+        this.road3NextBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoad3NextBtnClick, this);
+
+        this.road3BackBtn.touchEnabled = true;
+        this.road3BackBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoad3BackBtnClick, this);
 
         /////////////////////// Analysis
         const analysis1Group = this.analysisStack.getChildAt(0) as eui.Group;
@@ -375,6 +338,8 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.PLAYER_LOTTERY_STAT, this.onPlayerLotteryStatisticUpdate, this);
         dir.socket.getPlayerLotteryStatistic(filter);
 
+        this.onPageChangeRoadmap();
+
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.changeLang();
       }
@@ -479,7 +444,7 @@ namespace we {
         }
       }
 
-      private onChartTypeChange(e: eui.UIEvent) {
+      protected onChartTypeChange(e: eui.UIEvent) {
         this.chartTypeIndex = e.target.value - 0;
         this.chartStack.selectedIndex = this.chartTypeIndex;
 
@@ -488,31 +453,43 @@ namespace we {
         dir.socket.getPlayerLotteryStatistic(filter);
       }
 
-      protected onDTNextBtnClick(e: egret.TouchEvent) {
-        this.setDTPageNum(++this.dtPageNum % 2);
-        if (this.dtPageNum === 0) {
-          this.dtNextBtn.source = 'd_lottery_ent_penal_infopenal_subtag_btn_right_png';
-        } else {
-          this.dtNextBtn.source = 'd_lottery_ent_penal_infopenal_subtag_btn_left_png';
+      protected onRoad3NextBtnClick(e: egret.TouchEvent) {
+        if (this.road3PageNum === 0) {
+          this.setRoad3PageNum(++this.road3PageNum);
         }
       }
-      private onRoadTypeChange(e) {
+
+      protected onRoad3BackBtnClick(e: egret.TouchEvent) {
+        if (this.road3PageNum > 0) {
+          this.setRoad3PageNum(--this.road3PageNum);
+        }
+      }
+      protected onRoadTypeChange(e) {
         const roadTypeIndex = e.target.value;
         this.roadStack.selectedIndex = roadTypeIndex;
 
-        this.road1Btn1.selected = true;
-        this.road2Btn1.selected = true;
-        this.road3Btn1.selected = true;
+        this["road1Btn1"].selected = true;
+        this["road2Btn1"].selected = true;
+        this["road3Btn1"].selected = true;
       }
 
-      protected setDTPageNum(n: number) {
-        this.dtPageNum = n;
-        this.road3Btn5.includeInLayout = this.road3Btn6.includeInLayout = this.dtPageNum === 0;
-        this.road3Btn1.includeInLayout = this.road3Btn2.includeInLayout = this.road3Btn3.includeInLayout = this.road3Btn4.includeInLayout = this.road3Btn5.includeInLayout;
-        this.road3Btn10.includeInLayout = this.dtPageNum !== 0;
-        this.road3Btn7.includeInLayout = this.road3Btn8.includeInLayout = this.road3Btn9.includeInLayout = this.road3Btn10.includeInLayout;
-        this.road3Btn1.visible = this.road3Btn2.visible = this.road3Btn3.visible = this.road3Btn4.visible = this.road3Btn5.visible = this.road3Btn6.visible = this.dtPageNum === 0;
-        this.road3Btn7.visible = this.road3Btn8.visible = this.road3Btn9.visible = this.road3Btn10.visible = this.dtPageNum !== 0;
+      protected setRoad3PageNum(n: number) {
+        this.road3PageNum = n;
+        if (this.road3PageNum == 0) {
+          this.road3NextBtn.visible = true;
+          this.road3BackBtn.visible = false;
+        } else {
+          this.road3NextBtn.visible = false;
+          this.road3BackBtn.visible = true;
+        }
+
+        const itemPerPage = 6;
+        const numBtn = 10;
+        for (let i = 0; i < numBtn; i++) {
+          const page = Math.floor(i / itemPerPage);
+          // check if same page
+          this['road3Btn' + (i + 1)].includeInLayout = this['road3Btn' + (i + 1)].visible = page === n;
+        }
       }
       protected onPageChangeRoadmap() {
         this.pageStack.selectedIndex = 0;
@@ -590,7 +567,7 @@ namespace we {
         this.listCold.resetPosition();
       }
 
-      private onPlayerLotteryStatisticUpdate(evt: egret.Event) {
+      protected onPlayerLotteryStatisticUpdate(evt: egret.Event) {
         this.loadingOverlay.visible = false;
         this.readPlayerLotteryResult();
       }
@@ -624,6 +601,56 @@ namespace we {
 
       public destroy() {
         super.destroy();
+        if (this['road1Btn1'].hasEventListener(eui.UIEvent.CHANGE)) {
+          this.roadmapBtn.removeEventListener('CLICKED', this.onPageChangeRoadmap, this);
+          this.analysisBtn.removeEventListener('CLICKED', this.onPageChangeAnalysis, this);
+          this.chartBtn.removeEventListener('CLICKED', this.onPageChangeChart, this);
+
+          this.road1Btn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadTypeChange, this);
+          this.road2Btn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadTypeChange, this);
+          this.road3Btn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadTypeChange, this);
+
+          this.road3NextBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoad3NextBtnClick, this);
+          this.road3BackBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoad3BackBtnClick, this);
+
+
+
+          for (let i = 1; i <= 5; i++) {
+            this['road1Btn' + i].removeEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
+          }
+
+          for (let i = 1; i <= 5; i++) {
+            this['road2Btn' + i].removeEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
+          }
+
+          for (let i = 1; i <= 10; i++) {
+            this['road3Btn' + i].removeEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
+          }
+
+          this.analysisBtn1.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+          this.analysisBtn2.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+          this.analysisBtn3.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+          this.analysisBtn4.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+
+
+          this.chart1Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
+          this.chart2Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
+          this.chart3Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
+          this.chart4Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
+
+          this.chartPeriodBtn1.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+          this.chartPeriodBtn2.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+          this.chartPeriodBtn3.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+          this.chartPeriodBtn4.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+          this.chartPeriodBtn5.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+          this.chartPeriodBtn6.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+
+          this.panelHideBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelHide, this);
+          dir.evtHandler.removeEventListener(core.Event.PLAYER_LOTTERY_STAT, this.onPlayerLotteryStatisticUpdate, this);
+          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        }
+
+
       }
     }
   }

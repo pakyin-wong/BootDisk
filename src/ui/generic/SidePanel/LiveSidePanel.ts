@@ -161,7 +161,7 @@ namespace we {
             case we.core.GameType.DT:
               return dt.SideListItemHolder;
             case we.core.GameType.LO:
-              return ro.SideListItemHolder;
+              return lo.SideListItemHolder;
             default:
               throw new Error('Invalid Game Type');
           }

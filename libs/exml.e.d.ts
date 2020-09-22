@@ -197,6 +197,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class LotterySideListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class SideListBetItemSkin extends eui.Skin{
 	}
 }
@@ -619,6 +623,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class LoSidePanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class LotteryScene extends eui.Skin{
 	}
 }
@@ -870,6 +878,14 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class QuickBetAnimButtonSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class RcLeftPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class RcRightDrawerPanel extends eui.Skin{
 	}
 }
 declare module skin_desktop.ro{
