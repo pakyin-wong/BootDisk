@@ -203,7 +203,7 @@ namespace we {
             case we.core.GameType.DT:
               return dt.MobileSideListItemHolder;
             case we.core.GameType.LO:
-              return ro.MobileSideListItemHolder;              
+              return ro.MobileSideListItemHolder;
             default:
               throw new Error('Invalid Game Type');
           }

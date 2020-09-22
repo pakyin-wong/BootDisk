@@ -468,9 +468,9 @@ namespace we {
         const roadTypeIndex = e.target.value;
         this.roadStack.selectedIndex = roadTypeIndex;
 
-        this["road1Btn1"].selected = true;
-        this["road2Btn1"].selected = true;
-        this["road3Btn1"].selected = true;
+        this['road1Btn1'].selected = true;
+        this['road2Btn1'].selected = true;
+        this['road3Btn1'].selected = true;
       }
 
       protected setRoad3PageNum(n: number) {
@@ -613,8 +613,6 @@ namespace we {
           this.road3NextBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoad3NextBtnClick, this);
           this.road3BackBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoad3BackBtnClick, this);
 
-
-
           for (let i = 1; i <= 5; i++) {
             this['road1Btn' + i].removeEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
           }
@@ -632,7 +630,6 @@ namespace we {
           this.analysisBtn3.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
           this.analysisBtn4.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
 
-
           this.chart1Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
           this.chart2Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
           this.chart3Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
@@ -649,8 +646,6 @@ namespace we {
           dir.evtHandler.removeEventListener(core.Event.PLAYER_LOTTERY_STAT, this.onPlayerLotteryStatisticUpdate, this);
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }
-
-
       }
     }
   }

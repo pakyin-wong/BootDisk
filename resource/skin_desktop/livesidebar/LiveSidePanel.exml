@@ -7,7 +7,7 @@
         -->
         <e:Rect id="_bg" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" bottom="0" top="0" left="0"
                 right="0" ellipseHeight="56" ellipseWidth="56" fillColor="0x000000" fillAlpha="0.7" touchEnabled="false" />
-			<e:Group id="_tweenGroup" right="0" scaleY="0" touchThrough="true" scaleX="0">
+			<e:Group id="_tweenGroup" right="0" scaleY="0" touchThrough="true" scaleX="0" alpha="0" visible="false">
 				<e:Rect width="338" height="1" x="20" y="66" fillColor="0x746e6f"/>
 				<e:ViewStack id="_viewStack" height="0" y="67" scaleX="1" scaleY="1" left="4" right="4" width="371" x="4">
 				<e:Group id="betted" width="100%" height="100%" name="betted" scaleX="1" scaleY="1">
