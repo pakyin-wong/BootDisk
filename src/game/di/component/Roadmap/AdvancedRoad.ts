@@ -70,7 +70,6 @@ namespace we {
         this.roadsContainerDisplay.scaleY = 450 / (190 + 12 * 24);
         this.addChild(this.roadsContainerDisplay);
 
-
         // dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
 
         // this.changeLang();

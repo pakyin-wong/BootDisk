@@ -61,7 +61,7 @@ namespace we {
 
         // const gradientColors = [[0xee2e2e, 0xee2e2e], [0x3531ec, 0x3531ec], [0xdd6666, 0xaa0000], [0x6666dd, 0x000066]];
 
-        const colors = [0xdb0011, 0x0167cc, 0x10b04b, 0x991f31, 0x0b4b9c, 0x2E8E42];
+        const colors = [0xdb0011, 0x0167cc, 0x10b04b, 0x991f31, 0x0b4b9c, 0x2e8e42];
 
         const iconSize = this.size;
         const circleRadius = (this.size / 2) * 0.8;

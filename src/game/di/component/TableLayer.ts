@@ -286,19 +286,20 @@ namespace we {
           tweenPromises.push(promise);
         })();
         (() => {
-          for (let i=1; i<7; i++){
-          const promise = new Promise(resolve => {
-            egret.Tween.get(this[`_specific_${i}_dice`])
-              .to(
-                {
-                  scaleX: collapsed ? 0.858 : 1,
-                },
-                125
-              )
-              .call(resolve);
-          });
-          tweenPromises.push(promise);
-        }})();
+          for (let i = 1; i < 7; i++) {
+            const promise = new Promise(resolve => {
+              egret.Tween.get(this[`_specific_${i}_dice`])
+                .to(
+                  {
+                    scaleX: collapsed ? 0.858 : 1,
+                  },
+                  125
+                )
+                .call(resolve);
+            });
+            tweenPromises.push(promise);
+          }
+        })();
         (() => {
           const promise = new Promise(resolve => {
             egret.Tween.get(this._specific_odd_group)
@@ -359,7 +360,7 @@ namespace we {
           tweenPromises.push(promise);
         })();
         // draw border corner radius
-        let shape: egret.Shape = <egret.Shape>this.getChildByName('corner');
+        let shape: egret.Shape = <egret.Shape> this.getChildByName('corner');
         if (shape) {
           this.removeChild(shape);
         }

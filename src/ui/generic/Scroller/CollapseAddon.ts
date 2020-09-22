@@ -50,7 +50,7 @@ namespace we {
 
       protected getExpandedHeight(): number {
         if (this.target instanceof Scroller) {
-          const scroller = <Scroller>this.target;
+          const scroller = <Scroller> this.target;
           const height = Math.min(scroller.viewport.contentHeight, scroller.maxHeight);
           return height;
         } else {
@@ -100,7 +100,7 @@ namespace we {
         }
         let scroller;
         if (this.target instanceof Scroller) {
-          scroller = <Scroller>this.target;
+          scroller = <Scroller> this.target;
           scroller.viewport.scrollV = 0;
         }
         egret.Tween.removeTweens(this.target);
@@ -114,9 +114,7 @@ namespace we {
         }
         this._isAnimating = true;
         await new Promise((resolve, reject) => {
-          egret.Tween.get(this.target)
-            .to({ height: targetHeight }, this.duration)
-            .call(resolve);
+          egret.Tween.get(this.target).to({ height: targetHeight }, this.duration).call(resolve);
         });
         this._isAnimating = false;
 
@@ -144,9 +142,7 @@ namespace we {
 
         this._isAnimating = true;
         await new Promise((resolve, reject) => {
-          egret.Tween.get(this.target)
-            .to({ height: 0 }, 200)
-            .call(resolve);
+          egret.Tween.get(this.target).to({ height: 0 }, 200).call(resolve);
         });
         this._isAnimating = false;
       }

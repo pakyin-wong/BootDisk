@@ -24,11 +24,11 @@ namespace we {
         this._gr = this._shape.graphics;
 
         this.refresh();
-        this.addEventListener(eui.UIEvent.RESIZE,this.refresh,this)
+        this.addEventListener(eui.UIEvent.RESIZE, this.refresh, this);
       }
 
       protected destroy() {
-        this.removeEventListener(eui.UIEvent.RESIZE,this.refresh,this)
+        this.removeEventListener(eui.UIEvent.RESIZE, this.refresh, this);
       }
 
       public setRoundRectStyle(
@@ -63,10 +63,7 @@ namespace we {
           if (fillAlpha >= 0) {
             fillColor = fillColor.toString();
             if (fillColor.indexOf(',') > 0) {
-              const parms = fillColor
-                .split(' ')
-                .join('')
-                .split(',');
+              const parms = fillColor.split(' ').join('').split(',');
               if (parms.length === 2) {
                 GradientFill.beginGradientFill(this._gr, width, height, [parms[0], parms[1]]);
               } else if (parms.length === 3) {
@@ -114,10 +111,7 @@ namespace we {
       public async refresh() {
         this.validateNow();
         if (this.cornerTL_TR_BL_BR !== '') {
-          const corners = this.cornerTL_TR_BL_BR
-            .split(' ')
-            .join('')
-            .split(',');
+          const corners = this.cornerTL_TR_BL_BR.split(' ').join('').split(',');
           this.cornerTL = parseInt(corners[0], 10);
           this.cornerTR = parseInt(corners[1], 10);
           this.cornerBL = parseInt(corners[2], 10);

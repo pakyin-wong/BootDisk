@@ -28,39 +28,39 @@ namespace we {
       // dice1 -6
       public setDiceValues(dices: number[]) {
         const maxDice: number = Math.max.apply(null, dices);
-        const color: string[] = new Array(dices.length)
-        //require simplification
-                  let total = 0
-        for (let i = 0; i < dices.length; i++){
+        const color: string[] = new Array(dices.length);
+        // require simplification
+        let total = 0;
+        for (let i = 0; i < dices.length; i++) {
           let count = 0;
-          for (let j = 0; j < dices.length; j++){
-            if(i===j){
+          for (let j = 0; j < dices.length; j++) {
+            if (i === j) {
               continue;
-            }       
-            if(count >= 3){
+            }
+            if (count >= 3) {
               break;
             }
-            if(dices[i] >= dices[j]){
+            if (dices[i] >= dices[j]) {
               count++;
             }
           }
-          if(count >= 3){
-          color[i] = 'red' 
-          total++
-          }else{
-          color[i] = 'blue';          
+          if (count >= 3) {
+            color[i] = 'red';
+            total++;
+          } else {
+            color[i] = 'blue';
           }
-                    if(total >= 3){
-                      break;
-                    }
+          if (total >= 3) {
+            break;
+          }
         }
 
         for (let i = 0; i < dices.length; i++) {
           this['_dice' + (i + 1) + 'Label'].text = dices[i];
-          if(color[i] === 'red'){
-            this['_line' + (i + 1)].gradientColors='[0xeb632c,0xfdc071]'
+          if (color[i] === 'red') {
+            this['_line' + (i + 1)].gradientColors = '[0xeb632c,0xfdc071]';
           }
-          this['_line' + (i + 1)].width = 10 + (this._maxWidth * dices[i]) / maxDice;          
+          this['_line' + (i + 1)].width = 10 + (this._maxWidth * dices[i]) / maxDice;
         }
       }
     }

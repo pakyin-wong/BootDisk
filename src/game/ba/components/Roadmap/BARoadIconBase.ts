@@ -38,7 +38,7 @@ namespace we {
         // this._iconText = new egret.BitmapText();
       }
 
-      protected initGraphics() { }
+      protected initGraphics() {}
 
       public setByObject(value: any) {
         this.value = value;
@@ -51,7 +51,7 @@ namespace we {
         this._iconShape.graphics.clear();
       }
 
-      public reset() { }
+      public reset() {}
 
       public animate() {
         egret.Tween.removeTweens(this);

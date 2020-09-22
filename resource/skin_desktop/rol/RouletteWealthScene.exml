@@ -10,27 +10,27 @@
 		<ro:TableLayer id="_tableLayer" width="1208" height="340" skinName="skin_desktop.ro.TableLayerSkin" />
 		<rol:ChipLayer id="_chipLayer" width="1208" height="340" skinName="skin_desktop.ro.ChipLayerSkin" />
 	</ui:Group>
-	<ui:Group id="_betRelatedGroup" x="769" y="895">
+	<ui:Group id="_betRelatedGroup" x="769" y="895" isEdgeDismissable="true">
 	<ui:Group>
-		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
-		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" chipScale="0.9" />
-		<e:Rect width="1" height="54" fillColor="0x000000" alpha="0.3" verticalCenter="0" x="525" />
-		<e:Button id="_confirmButton" label="" y="5" anchorOffsetX="0" width="174" anchorOffsetY="0" height="60"
-		          horizontalCenter="114" skinName="skins_desktop.BetConfirmButtonSkin" />
-		<ui:CountdownTimer id="_timer" width="180" height="60" y="6" horizontalCenter="115"
-		                   skinName="skin_desktop.CountdownTimerSkin" touchEnabled="false"/>
-		<ui:BaseAnimationButton id="_undoButton" width="55" height="55" verticalCenter="0" horizontalCenter="243"
+		<e:Rect id="_roundPanel" width="1039" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
+		<e:Rect width="1" height="54" fillAlpha="0.3" fillColor="0x000000" verticalCenter="0" right="460"/>
+		<ui:BetChipSetHorizontal id="_betChipSet" width="548" height="64" y="3" anchorOffsetX="0" anchorOffsetY="0" x="15" />
+		<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="150" anchorOffsetY="0" height="64"
+		          skinName="skins_desktop.BetConfirmButtonSkin"  right="293" verticalCenter="0"/>
+		<ui:CountdownTimer id="_timer" width="150" height="64" colorChange="true" skinName="skin_desktop.CountdownTimerSkin"
+						   tooltipText="'live.tooltip.confirmBet'" tooltipPosition="'above'"  touchEnabled="false" right="293" verticalCenter="0"/>
+		<ui:BaseAnimationButton id="_undoButton" width="55" height="55" verticalCenter="0"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true"
-								tooltipText="'live.tooltip.undo'" tooltipPosition="'above'" />
-		<ui:BaseAnimationButton id="_cancelButton" width="55" height="55" verticalCenter="0" horizontalCenter="318"
+								tooltipText="'live.tooltip.undo'" tooltipPosition="'above'"  right="220"/>
+		<ui:BaseAnimationButton id="_cancelButton" width="55" height="55" verticalCenter="0"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_clear" useColorFilter="true"
-								tooltipText="'live.tooltip.cancel'" tooltipPosition="'above'" />
-		<ui:BaseAnimationButton id="_repeatButton" width="55" height="55" verticalCenter="0" horizontalCenter="393"
-		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_rebet" useColorFilter="true"
-								tooltipText="'live.tooltip.repeat'" tooltipPosition="'above'" />
-		<ui:BaseAnimationButton id="_doubleButton" width="55" height="55" verticalCenter="0" horizontalCenter="467"
+								tooltipText="'live.tooltip.cancel'" tooltipPosition="'above'"  right="154"/>
+		<ui:BaseAnimationButton id="_doubleButton" width="55" height="55" verticalCenter="0"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_double" useColorFilter="true"
-								tooltipText="'live.tooltip.double'" tooltipPosition="'above'" />
+								tooltipText="'live.tooltip.double'" tooltipPosition="'above'"  right="22"/>
+		<ui:BaseAnimationButton id="_repeatButton" width="55" height="55" verticalCenter="0"
+		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_rebet" useColorFilter="true"
+								tooltipText="'live.tooltip.repeat'" tooltipPosition="'above'"  right="88"/>
 	</ui:Group>
 	</ui:Group>
 	<rol:RolLeftPanel id="_leftGamePanel" width="668" height="340" x="16" y="988" anchorOffsetX="0" anchorOffsetY="0"

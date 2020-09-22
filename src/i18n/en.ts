@@ -200,7 +200,7 @@ namespace we {
           confirm: 'Confirm',
           cancel: 'Cancel',
           gameSet: 'Game Setting',
-          soundSet: 'Sound Setting'
+          soundSet: 'Sound Setting',
         },
         system: {
           title: 'System',
