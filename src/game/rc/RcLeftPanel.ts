@@ -1,7 +1,6 @@
 namespace we {
   export namespace rc {
     export class RcLeftPanel extends lo.LoLeftPanel {
-
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'RcLeftPanel');
       }
@@ -36,7 +35,6 @@ namespace we {
         // this.updateActiveLine(false);
       }
 
-
       protected init() {
         super.init();
 
@@ -52,8 +50,6 @@ namespace we {
           this['road3Btn' + i].addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
         }
       }
-
-
 
       protected setRoad3PageNum(n: number) {
         this.road3PageNum = n;
@@ -77,7 +73,7 @@ namespace we {
       public destroy() {
         super.destroy();
 
-        if (this["road1Btn6"].hasEventListener(eui.UIEvent.CHANGE)) {
+        if (this['road1Btn6'].hasEventListener(eui.UIEvent.CHANGE)) {
           for (let i = 6; i <= 10; i++) {
             this['road1Btn' + i].removeEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
           }
