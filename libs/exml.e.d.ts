@@ -2432,3 +2432,11 @@ declare module skin_mobile{
 	class GamePanelSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile{
+	class SidePanelDropdown extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class SidePanelDropdownIR extends eui.Skin{
+	}
+}

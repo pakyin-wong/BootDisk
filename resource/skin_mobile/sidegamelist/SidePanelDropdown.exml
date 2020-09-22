@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.SidePanelDropdown" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"
+        xmlns:ui="we.ui.*">
+		<e:Group id="content" left="0" right="0" top="0" bottom="0">
+			<e:Rect width="788" fillColor="0x1c1d1e" ellipseWidth="48" ellipseHeight="48" top="0" bottom="0"/>
+    		<ui:Scroller id="dropdownScroller" scaleX="1" scaleY="1" top="0" bottom="0" left="0" right="0" maxHeight="400"/>
+		</e:Group>
+</e:Skin>

@@ -8,7 +8,13 @@
         <e:Image id="_image" source="m_lobby_panel_gamelist_tag_icon_allgame_dim_png" x="21" y="45" width="60"
                  height="60" source.already_bet="m_lobby_panel_gamelist_tag_icon_betted_dim_png"
                  source.good_road="m_lobby_panel_gamelist_tag_icon_goodroad_dim_png" />
-        <ui:RunTimeLabel id="_label" text="" x="52" y="23" size="42" />
+			<e:Group id="_extends" x="67" y="32">
+				<ui:RunTimeLabel id="_label" text="" size="42" scaleX="1" scaleY="1"/>
+				<e:Image x="126" y="78" source.all_game="m_common_panel_icon_dropdown_active_png" rotation.all_game="180"/>
+				<e:layout>
+					<e:HorizontalLayout verticalAlign="middle" gap="15"/>
+				</e:layout>
+			</e:Group>
         <e:layout>
             <e:HorizontalLayout verticalAlign="middle" gap="15" />
         </e:layout>

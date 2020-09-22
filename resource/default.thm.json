@@ -162,7 +162,6 @@
 		"resource/skin_desktop/LiveGameTabbar.exml",
 		"resource/skin_desktop/LivePage.exml",
 		"resource/skin_desktop/livesidebar/ImageTabItemWithBadge.exml",
-		"resource/skin_mobile_portrait/dropdown/SidePanelAllGameDropdownSkin.exml",
 		"resource/skin_desktop/livesidebar/LiveSidePanel.exml",
 		"resource/skin_desktop/livesidebar/SidePanel.exml",
 		"resource/skin_desktop/livesidebar/TabItemWithBadge.exml",
@@ -663,7 +662,9 @@
 		"resource/skin_mobile/MobileSideGameListItemRenderer.exml",
 		"resource/skin_mobile/ro/MobileBetCombinationCreateItem.exml",
 		"resource/skin_mobile/ro/MobileBetCombinationItem.exml",
-		"resource/skin_mobile/sidegamelist/GamePanelSkin.exml"
+		"resource/skin_mobile/sidegamelist/SidePanelDropdown.exml",
+		"resource/skin_mobile/sidegamelist/GamePanelSkin.exml",
+		"resource/skin_mobile/sidegamelist/SidePanelDropdownIR.exml"
 	],
 	"path": "resource/default.thm.json"
 }
