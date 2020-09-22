@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.SidePanelDropdownIR" currentState="normal" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" height="120" states="normal,hover,selected,selected-hover"  width="788">
+	<e:Rect id="_underline" height="2" fillColor="0xffffff" left="0" right="0" alpha="0.1"/>
+	<e:Label id="_imgCheck" width="26" height="26" verticalCenter="0" includeIn="selected,selected-hover" left="42" text="✔" size="28" textColor="0x53a9ff" verticalAlign="middle" textAlign="center"/>
+	<ui:RunTimeLabel id="review" text="Label" minWidth="" alpha.normal="0.7" verticalAlign="middle" size="48" textAlign="left" top="24" bottom="24" left="100" right="20" multiline="false" textColor.selected="0x53a9ff" textColor.selected-hover="0x53a9ff"/>
+</e:Skin>

@@ -140,7 +140,9 @@ namespace we {
             });
           }
         }
-        if (!isSkip) this.cancelAnim = null;
+        if (!isSkip) {
+          this.cancelAnim = null;
+        }
 
         return Promise.resolve();
       }
@@ -196,7 +198,9 @@ namespace we {
             });
           }
         }
-        if (!isSkip) this.cancelAnim = null;
+        if (!isSkip) {
+          this.cancelAnim = null;
+        }
         return Promise.resolve();
       }
     }

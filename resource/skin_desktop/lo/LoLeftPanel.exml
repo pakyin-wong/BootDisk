@@ -370,8 +370,11 @@
                                                         <e:HorizontalLayout gap="24" />
                                                 </e:layout>
                                         </e:Group>
-                                        <e:Image id="dtNextBtn"
+                                        <e:Image id="road3NextBtn"
                                                  source="d_lottery_ent_penal_infopenal_subtag_btn_right_png" x="1000"
+                                                 y="18" width="20" height="20" />
+                                        <e:Image id="road3BackBtn"
+                                                 source="d_lottery_ent_penal_infopenal_subtag_btn_left_png" x="572"
                                                  y="18" width="20" height="20" />
                                 </e:Group>
                         </e:ViewStack>
