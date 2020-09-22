@@ -64,23 +64,23 @@ namespace we {
       }
 
       public set navHeight(value: number) {
-        this._navWidth = value;
+        this._navHeight = value;
         this._chipContainer.left = this._navWidth + this._navPadding * 2;
         this._chipContainer.right = this._navWidth + this._navPadding * 2;
         this.updateNav();
       }
       public get navHeight(): number {
-        return this._navWidth;
+        return this._navHeight;
       }
 
       public set navPadding(value: number) {
-        this._navWidth = value;
+        this._navPadding = value;
         this._chipContainer.left = this._navWidth + this._navPadding * 2;
         this._chipContainer.right = this._navWidth + this._navPadding * 2;
         this.updateNav();
       }
       public get navPadding(): number {
-        return this._navWidth;
+        return this._navPadding;
       }
 
       protected updateNav() {
@@ -102,6 +102,7 @@ namespace we {
         super.$setChipScale(val);
         for (const chip of this._chipList) {
           chip.scaleX = val;
+          chip.scaleY = val;
         }
       }
 
