@@ -10,6 +10,19 @@
 		<e:Rect id="_bigRoadMask" width="903" height="543" x="56" y="201" anchorOffsetX="0" anchorOffsetY="0"
 		        ellipseHeight="40" ellipseWidth="40" alpha="0" />
 		<ba:GoodRoadmapEdit id="_bigRoad" width="903" height="543" y="201" x="56"  gridSize="90" gridLine="3"/>
+		<e:Group id="_editHint" width="450" height="60" horizontalCenter="0" verticalCenter="0">
+				<ui:RoundRectShape cornerTL_TR_BL_BR="6,6,6,6" width="450" height="60" stroke="0" fillColor="0x202730" fillAlpha="0.5" />
+				<e:Group width="450" height="60" horizontalCenter="0" verticalCenter="0">
+					<ui:RunTimeLabel id="_editHintLeft" textAlign="left" text="Press" size="35" targetWidth="100"/>
+					<e:Image source="m_ba_goodroad_info_ring_banker_png" />
+					<ui:RunTimeLabel id="_editHintCenter" textAlign="left" text="or" size="35"  targetWidth="50"/>
+					<e:Image source="m_ba_goodroad_info_ring_player_png" />
+					<ui:RunTimeLabel id="_editHintRight" textAlign="left" text="to set." size="35"  targetWidth="120"/>
+					<e:layout>
+						<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle" />
+					</e:layout>
+				</e:Group>
+		</e:Group>
 		<ui:BaseImageButton id="_clearButton" currentState="b_clear" y="74" width="60" height="60" anchorOffsetX="0" x="715"
 		                    skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" />
 		<e:Image id="close" width="98" height="98" x="852.5" y="57.5" source="d-lobby-button-close-none_png" />

@@ -4,7 +4,7 @@ namespace we {
       private _txt_title: ui.RunTimeLabel;
 
       protected _txt_videoSec: ui.RunTimeLabel;
-      protected switch_video: ui.BaseButton;
+      protected switch_videoSec: ui.BaseButton;
 
       protected _txt_qualitySec: ui.RunTimeLabel;
       private _btn_quality: egret.DisplayObject;
@@ -18,6 +18,8 @@ namespace we {
 
       protected targetScene: core.BaseGameScene;
       private videoAnimBtn: ui.SettingAnimationButton;
+
+      protected _btn_videoSec: eui.Component;
 
       constructor(targetScene, videoAnimBtn) {
         super('VideoSetting');
@@ -71,7 +73,7 @@ namespace we {
           selected: '01',
         });
 
-        this.switch_video.active = !this.targetScene.isVideoStopped;
+        this.switch_videoSec.active = !this.targetScene.isVideoStopped;
 
         this.addListeners();
       }
@@ -94,7 +96,7 @@ namespace we {
       // }
 
       protected addListeners() {
-        utils.addButtonListener(this.switch_video, this.onSwitchVideo, this);
+        utils.addButtonListener(this._btn_videoSec, this.onSwitchVideo, this);
         if (env.isMobile) {
           this._btn_quality.addEventListener('DROPDOWN_ITEM_CHANGE', this.onQualitySelect, this);
           this._btn_camera.addEventListener('DROPDOWN_ITEM_CHANGE', this.onCameraChange, this);
@@ -105,7 +107,7 @@ namespace we {
       }
 
       protected removeListeners() {
-        this.switch_video.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchVideo, this);
+        this._btn_videoSec.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchVideo, this);
         if (env.isMobile) {
           this._btn_quality.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onQualitySelect, this);
           this._btn_camera.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onCameraChange, this);
@@ -128,12 +130,12 @@ namespace we {
       private onSwitchVideo() {
         if (this.targetScene.isVideoStopped) {
           this.targetScene.playVideo();
-          this.switch_video.active = true;
+          this.switch_videoSec.active = true;
           env.videoOpen = true;
           this.videoAnimBtn.dispatchEvent(new egret.Event('SWITCH_TO_ON'));
         } else {
           this.targetScene.stopVideo();
-          this.switch_video.active = false;
+          this.switch_videoSec.active = false;
           env.videoOpen = false;
           this.videoAnimBtn.dispatchEvent(new egret.Event('SWITCH_TO_OFF'));
         }

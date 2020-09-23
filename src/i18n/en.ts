@@ -40,6 +40,16 @@ namespace we {
       playerprofile_follower: 'Follower',
       playerprofile_following: 'Following',
       playerprofile_favouriteDealer: 'Favorite Dealer',
+      playerProfile: {
+        tooltip: {
+          nickname: 'Setting Name',
+          refresh: 'Refresh Balance',
+        },
+      },
+
+      goodroadedit_hint_left: 'Press',
+      goodroadedit_hint_center: 'or',
+      goodroadedit_hint_right: 'to set.',
 
       overlaypanel_memberreport_title: 'Member Report',
       overlaypanel_memberreport_date: 'Date',
@@ -142,6 +152,7 @@ namespace we {
       mobile_enter_table_button_label: 'Enter',
 
       mobile_game_panel_bet_hint_label: 'Hint: Press to add bet or enter room',
+      mobile_game_panel_bet_hint_label2: 'No Information',
 
       mobile_dropdown_confirm: 'Confirm',
 
