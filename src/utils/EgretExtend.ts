@@ -66,7 +66,9 @@ namespace we {
 
     egret['web'].WebPlayer.prototype.updateScreenSize = function () {
       const canvas = this.canvas;
-      if (canvas['userTyping']) { return; }
+      if (canvas['userTyping']) {
+        return;
+      }
       const option = this.playerOption;
       const screenRect = this.container.getBoundingClientRect();
       let top = 0;

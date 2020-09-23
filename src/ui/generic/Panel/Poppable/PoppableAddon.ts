@@ -105,8 +105,11 @@ namespace we {
           return;
         }
         this.isShow = true;
+        this.target.dispatchEvent(new egret.Event('POPPER_SHOW'));
+
         this.isFocusItem && this.target.stage['inFocusItems'].push(this.target);
         this.inFocusIdx = this.target.stage['inFocusItems'].length;
+
         await this.onShow(skipAnimation);
         if (this.target.stage) {
           this.target.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
@@ -126,6 +129,8 @@ namespace we {
           this.target.stage.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
         }
         this.isShow = false;
+        this.target.dispatchEvent(new egret.Event('POPPER_HIDE'));
+
         await this.onHide(skipAnimation);
       }
       protected async onShow(skipAnimation: boolean = false) {

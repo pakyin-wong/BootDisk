@@ -232,6 +232,8 @@ namespace we {
           },
         },
       },
+      gamegroup_tab_live: '真人遊戲',
+      gamegroup_tab_lottery: '彩票遊戲',
       lobby: {
         header: {
           lobby: '首頁',
@@ -272,7 +274,7 @@ namespace we {
           },
         },
         gametype: {
-          allGame: '真人遊戲',
+          allGame: '全部',
           bacarrat: '百家樂',
           dragontiger: '龍虎',
           luckywheel: '幸運輪',
@@ -280,6 +282,12 @@ namespace we {
           dice: '骰寶',
           other: '其他',
           special: '特別遊戲',
+        },
+      },
+      lottery: {
+        gametype: {
+          allLotteryGame: '全部',
+          lottery: '時時彩',
         },
       },
       tableInfo: {

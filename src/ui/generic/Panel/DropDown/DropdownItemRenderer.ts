@@ -8,7 +8,9 @@ namespace we {
     }
 
     export class DropdownItemRenderer extends eui.ItemRenderer {
-      protected _imgCheck: eui.Image;
+      protected _imgCheck: egret.DisplayObject;
+      protected _underline: egret.DisplayObject;
+
       protected review: ui.RunTimeLabel;
       // protected _isSelected: boolean = false;
       protected _isHover: boolean = false;
@@ -68,6 +70,9 @@ namespace we {
         this.review.width = width + 20;
         if (this._imgCheck) {
           this._imgCheck.visible = false;
+        }
+        if (this._underline) {
+          this._underline.visible = this.itemIndex != 0;
         }
 
         this.update();

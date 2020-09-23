@@ -30,12 +30,16 @@ namespace we {
       }
 
       public $setX(val: number): boolean {
-        if (this.edgeDismissableAddon) { this.edgeDismissableAddon.objPosX = val; }
+        if (this.edgeDismissableAddon) {
+          this.edgeDismissableAddon.objPosX = val;
+        }
         return super.$setX(val);
       }
 
       public $setY(val: number): boolean {
-        if (this.edgeDismissableAddon) { this.edgeDismissableAddon.objPosY = val; }
+        if (this.edgeDismissableAddon) {
+          this.edgeDismissableAddon.objPosY = val;
+        }
         return super.$setY(val);
       }
 

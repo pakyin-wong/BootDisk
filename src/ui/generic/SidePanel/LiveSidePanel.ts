@@ -2,18 +2,19 @@
 namespace we {
   export namespace ui {
     export class LiveSidePanel extends SidePanel {
+      protected _bettedScroller: ui.Scroller;
+      protected _goodroadScroller: ui.Scroller;
+      protected _allgamesScroller: ui.Scroller;
+
       protected betTableList: TableList;
       protected goodRoadTableList: TableList;
       protected allTableList: TableList;
 
-      protected _dropdown: SidePanelAllGameDropdown;
+      protected _dropdown: SidePanelGameGroupDropdown;
+      protected _subdropdown: SidePanelGameDropdown;
       protected _label: ui.RunTimeLabel;
 
       protected allGameList: string[];
-
-      protected filter: core.GameType;
-
-      protected _bg: eui.Rect;
 
       constructor() {
         super();
@@ -22,37 +23,19 @@ namespace we {
 
       protected mount() {
         super.mount();
-        this._dropdown.visible = false;
         this.addEventListeners();
       }
 
       protected initTabs() {
-        const group = <eui.Group> this._scroller.viewport;
-
-        this._viewStack = new eui.ViewStack();
-        this._viewStack.width = group.width;
-        this._viewStack.height = group.height;
-        group.addChild(this._viewStack);
-
         // create bet table list
-        const betTableGroup = new eui.Group();
-        betTableGroup.name = 'betted';
-        this._viewStack.addChild(betTableGroup);
-        betTableGroup.width = group.width;
-        betTableGroup.height = group.height;
-        let scroller = new Scroller();
-        scroller.width = group.width;
-        scroller.height = group.height;
-        betTableGroup.addChild(scroller);
         this.betTableList = new TableList();
         this.betTableList.isFreezeScrolling = true;
         this.betTableList.extendHeight = 500;
         this.betTableList.isAnimateItemTransition = true;
-        // this.betTableList.itemRenderer = SideListBetItemHolder;
+        this.betTableList.layout = this.getLayout();
         this.betTableList.itemRendererFunction = item => {
           const tableInfo = env.tableInfos[item];
           switch (tableInfo.gametype) {
-            //  switch (0) {
             case we.core.GameType.BAC:
             case we.core.GameType.BAI:
             case we.core.GameType.BAS:
@@ -75,28 +58,17 @@ namespace we {
               throw new Error('Invalid Game Type');
           }
         };
-        this.betTableList.layout = this.getLayout();
-        scroller.viewport = this.betTableList;
+        this._bettedScroller.viewport = this.betTableList;
 
         // create good road list
-        const goodRoadTableGroup = new eui.Group();
-        goodRoadTableGroup.name = 'goodroad';
-        this._viewStack.addChild(goodRoadTableGroup);
-        goodRoadTableGroup.width = group.width;
-        goodRoadTableGroup.height = group.height;
-        scroller = new Scroller();
-        scroller.width = group.width;
-        scroller.height = group.height;
-        goodRoadTableGroup.addChild(scroller);
         this.goodRoadTableList = new TableList();
         this.goodRoadTableList.isFreezeScrolling = true;
         this.goodRoadTableList.extendHeight = 500;
         this.goodRoadTableList.isAnimateItemTransition = true;
-        // this.goodRoadTableList.itemRenderer = SideListItemHolder;
+        this.goodRoadTableList.layout = this.getLayout();
         this.goodRoadTableList.itemRendererFunction = item => {
           const tableInfo = env.tableInfos[item];
           switch (tableInfo.gametype) {
-            //  switch (0) {
             case we.core.GameType.BAC:
             case we.core.GameType.BAI:
             case we.core.GameType.BAS:
@@ -107,7 +79,6 @@ namespace we {
               return ro.SideListItemHolder;
             case we.core.GameType.DI:
               return di.SideListItemHolder;
-
             case we.core.GameType.DIL:
               return dil.SideListItemHolder;
             case we.core.GameType.LW:
@@ -115,35 +86,22 @@ namespace we {
             case we.core.GameType.DT:
               return dt.SideListItemHolder;
             case we.core.GameType.LO:
-              return ro.SideListItemHolder;
+              return lo.SideListItemHolder;
             default:
               throw new Error('Invalid Game Type');
           }
         };
-
-        this.goodRoadTableList.layout = this.getLayout();
-        scroller.viewport = this.goodRoadTableList;
+        this._goodroadScroller.viewport = this.goodRoadTableList;
 
         // create all game list
-        const allTableGroup = new eui.Group();
-        allTableGroup.name = 'allgames';
-        this._viewStack.addChild(allTableGroup);
-        allTableGroup.width = group.width;
-        allTableGroup.height = group.height;
-        scroller = new Scroller();
-        scroller.width = group.width;
-        scroller.height = group.height;
-        allTableGroup.addChild(scroller);
         this.allTableList = new TableList();
         this.allTableList.isFreezeScrolling = true;
         this.allTableList.extendHeight = 500;
         this.allTableList.isAnimateItemTransition = true;
-        // this.allTableList.itemRenderer = SideListItemHolder;
-
+        this.allTableList.layout = this.getLayout();
         this.allTableList.itemRendererFunction = item => {
           const tableInfo = env.tableInfos[item];
           switch (tableInfo.gametype) {
-            //  switch (0) {
             case we.core.GameType.BAC:
             case we.core.GameType.BAI:
             case we.core.GameType.BAS:
@@ -161,31 +119,22 @@ namespace we {
             case we.core.GameType.DT:
               return dt.SideListItemHolder;
             case we.core.GameType.LO:
-              return ro.SideListItemHolder;
+              return lo.SideListItemHolder;
             default:
               throw new Error('Invalid Game Type');
           }
         };
-
-        this.allTableList.layout = this.getLayout();
-        allTableGroup.addChild(this.allTableList);
-        scroller.viewport = this.allTableList;
+        this._allgamesScroller.viewport = this.allTableList;
 
         this._tabbar.dataProvider = this._viewStack;
         this._tabbar.validateNow();
-        let tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(0);
-        // tabItem.badgeBg.source = 'd_common_panel_gamelist_notifydot_green_png';
-
-        tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(1);
-        // tabItem.badgeBg.source = 'd_common_panel_gamelist_notifydot_png';
       }
 
       protected getLayout() {
         const layout = new eui.VerticalLayout();
-        layout.paddingTop = 30;
-        layout.paddingLeft = 20;
-        layout.paddingBottom = 20;
-        layout.gap = 18;
+        layout.paddingLeft = 16;
+        layout.paddingBottom = 16;
+        layout.gap = 12;
         layout.useVirtualLayout = true;
         return layout;
       }
@@ -198,7 +147,8 @@ namespace we {
         // listen to bet list update
         dir.evtHandler.addEventListener(core.Event.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
 
-        this._dropdown.addEventListener(eui.UIEvent.CHANGE, this.onFilterChanged, this);
+        this._dropdown.addEventListener(eui.UIEvent.CHANGE, this.onGroupChanged, this);
+        this._subdropdown.addEventListener(eui.UIEvent.CHANGE, this.onFilterChanged, this);
       }
 
       protected destroy() {
@@ -210,64 +160,22 @@ namespace we {
         // listen to bet list update
         dir.evtHandler.removeEventListener(core.Event.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
 
-        this._dropdown.removeEventListener(eui.UIEvent.CHANGE, this.onFilterChanged, this);
+        this._dropdown.removeEventListener(eui.UIEvent.CHANGE, this.onGroupChanged, this);
+        this._subdropdown.removeEventListener(eui.UIEvent.CHANGE, this.onFilterChanged, this);
+      }
+
+      protected onGroupChanged(evt: egret.Event) {
+        this._subdropdown.gamegroup = evt.data;
       }
 
       protected onFilterChanged(evt: egret.Event) {
-        // const selectedIdx = this._dropdown.selectedIndex - 1;
-
-        // if (selectedIdx < 0) {
-        //   this.filter = null;
-        // } else {
-        //   this.filter = <core.GameType>selectedIdx;
-        // }
-        // this.setAllTableList(this.filter);
-
-        this.allTableList.setGameFiltersByTabIndex(this._dropdown.selectedIndex);
+        this.allTableList.setGameFilters(evt.data);
         this.allTableList.setTableList(this.allGameList, true);
-
-        // const count = this.allTableList.tableCount;
-        // const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(2);
-        // if (tabItem) {
-        //   tabItem.onBadgeUpdate(count);
-        // }
       }
 
       protected onTableListUpdate(evt: egret.Event) {
         const tableList = evt.data;
         this.allGameList = tableList;
-        // this.allTableList.setTableList(tableList);
-        this.setAllTableList(this.filter);
-        // const count = this.allTableList.tableCount;
-        // const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(2);
-        // if (tabItem) {
-        //   tabItem.onBadgeUpdate(count);
-        // }
-      }
-
-      protected setAllTableList(filter: core.GameType = null) {
-        let tableList = this.allGameList;
-        if (filter) {
-          tableList = tableList.filter(tableid => {
-            const tableInfo = env.tableInfos[tableid];
-            if (tableInfo) {
-              return tableInfo.gametype == filter;
-            } else {
-              return false;
-            }
-          });
-        }
-
-        // TODO: update the side panel to support lo games, for now filter out all the lo games
-        tableList = tableList.filter(tableid => {
-          const tableInfo = env.tableInfos[tableid];
-          if (tableInfo) {
-            return tableInfo.gametype != we.core.GameType.LO;
-          } else {
-            return false;
-          }
-        });
-
         this.allTableList.setTableList(tableList);
       }
 
@@ -275,7 +183,7 @@ namespace we {
         const tableList = evt.data;
         this.goodRoadTableList.setTableList(tableList);
         const count = tableList.length;
-        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(1);
+        const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(1);
         if (tabItem) {
           tabItem.onBadgeUpdate('goodroad', count);
         }
@@ -285,39 +193,20 @@ namespace we {
         const tableList = evt.data;
         this.betTableList.setTableList(tableList);
         const count = tableList.length;
-        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(0);
+        const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(0);
         if (tabItem) {
           tabItem.onBadgeUpdate('bet', count);
         }
       }
 
-      protected onCollapse() {
-        super.onCollapse();
-        this._dropdown.visible = false;
-      }
-
       protected onClearSelection() {
-        if (!this._dropdown.isCollapsed()) {
-          // ============================================
-          this._dropdown.toggle();
-          //  egret.Tween.removeTweens(this._dropdown);
-          //   egret.Tween.get(this._dropdown)
-          //   .to({ height: 0 }, 200)
-          // ============================================
-        }
         super.onClearSelection();
-        egret.Tween.removeTweens(this._bg);
-        egret.Tween.get(this._bg).to({ width: 140, height: 40, ellipseHeight: 100, ellipseWidth: 100 }, 200);
-        // egret.Tween.get(this._bg).to({ alpha: 0 }, 200);
+        this._dropdown.hide();
+        this._subdropdown.hide();
       }
 
       protected onSelected() {
         super.onSelected();
-        this.width = 397;
-        // if (this._bg.alpha < 1) {
-        egret.Tween.removeTweens(this._bg);
-        egret.Tween.get(this._bg).to({ width: this._scroller.width, height: this.height, ellipseHeight: 20, ellipseWidth: 20 }, 200);
-        // }
         switch (this._viewStack.selectedIndex) {
           case 0:
           case 1:
