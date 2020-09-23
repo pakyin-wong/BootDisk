@@ -143,7 +143,7 @@ namespace we {
           // console.log('await this.asyncUpdateDefaultGoodRoad(updatedefaultItem);', updatedefaultItem);
           await this.asyncUpdateDefaultGoodRoad(updatedefaultItem);
           if (updatecustomItem.length === 1) {
-            this.client.updateCustomRoadmap(updatecustomItem[0], updatecustomItem[1], this.warpServerCallback(this._goodRoadUpdateCallback));
+            this.client.updateCustomRoadmap(updatecustomItem[0][0], updatecustomItem[0][1], this.warpServerCallback(this._goodRoadUpdateCallback));
           } else {
             for (let i = 0; i < updatecustomItem.length; i++) {
               // if more than one, call update custom goodroad in the last loop
