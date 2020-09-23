@@ -23,6 +23,8 @@ namespace we {
       protected _baGameID: ui.RunTimeLabel;
 
       private _common_listpanel: ui.BaseImageButton;
+      
+      protected _originBetRelatedGroupY: number;
 
       protected parser: ba.BARoadParser;
 
@@ -165,7 +167,14 @@ namespace we {
       // public backToLobby() {
       //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
       // }
-
+      protected setBetRelatedComponentsEnabled(enable: boolean) {
+        super.setBetRelatedComponentsEnabled(enable);
+        // if (this._betRelatedGroup && env.orientation === 'portrait') {
+        if (this._betRelatedGroup && env,orientation === 'landscape') {
+          egret.Tween.removeTweens(this._betRelatedGroup);
+          egret.Tween.get(this._betRelatedGroup).to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
+        }
+      }
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
@@ -263,13 +272,13 @@ namespace we {
         }
       }
 
-      protected setBetRelatedComponentsEnabled(enable: boolean) {
-        super.setBetRelatedComponentsEnabled(enable);
-        // animate table
+      // protected setBetRelatedComponentsEnabled(enable: boolean) {
+      //   super.setBetRelatedComponentsEnabled(enable);
+      //   // animate table
 
-        // (this._tableLayer as di.TableLayer).animateToState(!enable);
-        // (this._chipLayer as di.ChipLayer).animateToState(!enable);
-      }
+      //   // (this._tableLayer as di.TableLayer).animateToState(!enable);
+      //   // (this._chipLayer as di.ChipLayer).animateToState(!enable);
+      // }
 
       public checkResultMessage() {
         let totalWin: number = NaN;

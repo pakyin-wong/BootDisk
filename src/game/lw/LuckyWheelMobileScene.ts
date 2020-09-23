@@ -10,6 +10,8 @@ namespace we {
       protected _verticalGroup: eui.Group;
       private _common_listpanel: ui.BaseImageButton;
 
+      protected _originBetRelatedGroupY: number;
+
       protected _gradientmask: eui.Group;
       protected _shape: egret.Shape = new egret.Shape();
 
@@ -71,6 +73,15 @@ namespace we {
         }
       }
 
+      protected setBetRelatedComponentsEnabled(enable: boolean) {
+        super.setBetRelatedComponentsEnabled(enable);
+        // if (this._betRelatedGroup && env.orientation === 'portrait') {
+        if (this._betRelatedGroup) {
+          egret.Tween.removeTweens(this._betRelatedGroup);
+          egret.Tween.get(this._betRelatedGroup).to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
+        }
+      }
+      
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
