@@ -6,6 +6,7 @@ namespace we {
       private _tabSource;
       private _tabArrayCollection: eui.ArrayCollection;
       private _viewStack: eui.ViewStack;
+      private _dmm: ui.Panel;
 
       private _btnAlreadyBet: ui.GamePanelTabButton;
       private _btnGoodRoad: ui.GamePanelTabButton;
@@ -22,9 +23,9 @@ namespace we {
 
       // protected fixedTab: string[] = ['allGame', 'bet', 'goodroad'];
       protected _pageIds: string = 'allGame';
+      protected _group;
 
       protected _txt_title: RunTimeLabel;
-      protected _selected: number = -2;
 
       constructor() {
         super('GamePanelSkin');
@@ -37,12 +38,19 @@ namespace we {
 
       protected initOrientationDependentComponent() {
         // this._txt_title.renderText = () => `${i18n.t('sidegamelist_title')}`;
-        this._lblBetHint.renderText = () => i18n.t('mobile_game_panel_bet_hint_label');
+        this._betTableList.setTableList(this._betList);
+        const count = this._betList.length;
+        if (count === 0) {
+          this._lblBetHint.renderText = () => i18n.t('mobile_game_panel_bet_hint_label2');
+        } else {
+          this._lblBetHint.renderText = () => i18n.t('mobile_game_panel_bet_hint_label');
+        }
 
         this.initTabs();
         this.initPage();
+        this.initDmm();
 
-        this.setTab(this._selected);
+        this.setGroup('live');
         this.addEventListeners();
 
         this.poppableAddon.updateContentPos();
@@ -54,6 +62,19 @@ namespace we {
       protected clearOrientationDependentComponent() {
         super.clearOrientationDependentComponent();
         this.removeEventListeners();
+      }
+
+      protected initDmm() {
+        this._dmm.isDropdown = true;
+        this._dmm.isPoppable = true;
+        this._dmm.dismissOnClickOutside = true;
+        this._dmm.dropdown.itemSkin = 'SidePanelDropdownIR';
+        this._dmm.dropdown.review = new RunTimeLabel();
+        const gameListItems = utils.EnumHelpers.values(core.GameGroupTab).map(game => {
+          return ui.NewDropdownItem(game, () => i18n.t(`gamegroup_tab_${game}`));
+        });
+        this._dmm.dropdown.data.replaceAll(gameListItems);
+        this._dmm.dropdown.select(this._group);
       }
 
       protected arrangeComponents() {
@@ -82,6 +103,7 @@ namespace we {
         utils.addButtonListener(this._btnAllGame, this.onClickAllGame, this);
 
         this._tabs.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.updateView, this);
+        this._dmm.addEventListener('DROPDOWN_ITEM_CHANGE', this.onGroupChanged, this);
       }
 
       protected removeEventListeners() {
@@ -98,6 +120,8 @@ namespace we {
         utils.removeButtonListener(this._btnAllGame, this.onClickAllGame, this);
 
         this._tabs.removeEventListener(eui.ItemTapEvent.ITEM_TAP, this.updateView, this);
+        this._dmm.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onGroupChanged, this);
+        this._dmm.removeToggler();
       }
 
       protected initPage() {
@@ -184,6 +208,8 @@ namespace we {
               return lw.MobileSideListItemHolder;
             case we.core.GameType.DT:
               return dt.MobileSideListItemHolder;
+            case we.core.GameType.LO:
+              return ro.MobileSideListItemHolder;
             default:
               throw new Error('Invalid Game Type');
           }
@@ -194,29 +220,8 @@ namespace we {
       }
 
       protected initTabs() {
-        // const tabList = [...this.fixedTab, ...utils.EnumHelpers.values(core.LiveGameTab)];
-        const tabList = utils.EnumHelpers.values(core.LiveGameTab);
-
-        this._tabSource = tabList.map(tab => {
-          switch (tab) {
-            // case 'bet':
-            // case 'goodroad':
-            //   return {
-            //     tab,
-            //     text: `sidegamelist_tab_${tab}`,
-            //     count: 0,
-            //   };
-
-            default:
-              return {
-                tab,
-                text: `live.gametype.${tab}`,
-              };
-          }
-        });
-
         this._tabs.itemRenderer = MobileSideGameListItemRenderer;
-        this._tabArrayCollection = new eui.ArrayCollection(this._tabSource);
+        this._tabArrayCollection = new eui.ArrayCollection();
         this._tabs.dataProvider = this._tabArrayCollection;
         this._tabs.requireSelection = true;
       }
@@ -232,12 +237,7 @@ namespace we {
       }
 
       protected updateView() {
-        if (!this._tabs) {
-          return;
-        }
-
-        this._selected = this._tabs.selectedIndex;
-        // const type: string = this._tabs.selectedItem.tab;
+        this._dmm.removeToggler();
 
         switch (this._pageIds) {
           case 'bet':
@@ -248,20 +248,49 @@ namespace we {
             this._viewStack.selectedIndex = 1;
             break;
 
-          // case 'allGame':
-          //   this.setAllTableList(-1);
-          //   this._viewStack.selectedIndex = 0;
-          //   break;
-
           default:
-            this.setAllTableList(this._tabs.selectedIndex);
             this._viewStack.selectedIndex = 2;
+            this._allTableList.setGameFilters(this._tabSource[this._tabs.selectedIndex]);
+            this._allTableList.setTableList(this._allGameList, true);
+            this._dmm.setToggler(this._btnAllGame);
             break;
         }
 
         this._btnAlreadyBet.focus = this._pageIds === 'bet';
         this._btnAllGame.focus = this._pageIds === 'allGame';
         this._btnGoodRoad.focus = this._pageIds === 'goodroad';
+      }
+
+      protected onGroupChanged(e) {
+        this.setGroup(e.data);
+      }
+
+      protected setGroup(s) {
+        if (s == this._group) {
+          return;
+        }
+        switch (s) {
+          case 'live':
+            this._group = s;
+            this._tabSource = utils.EnumHelpers.values(core.LiveGameTab);
+            this._btnAllGame.updateLabelKey(`gamegroup_tab_${s}`);
+            break;
+          case 'lottery':
+            this._group = s;
+            this._tabSource = utils.EnumHelpers.values(core.LotteryTab);
+            this._btnAllGame.updateLabelKey(`gamegroup_tab_${s}`);
+            break;
+        }
+
+        this._tabArrayCollection.replaceAll(
+          this._tabSource.map(tab => {
+            return {
+              tab,
+              text: `${this._group}.gametype.${tab}`,
+            };
+          })
+        );
+        this.setTab(0);
       }
 
       protected setTab(idx: number) {
@@ -275,26 +304,19 @@ namespace we {
         this.updateView();
       }
 
-      protected setAllTableList(filterIdx = -1) {
-        this._allTableList.setGameFiltersByTabIndex(filterIdx);
-        this._allTableList.setTableList(this._allGameList, true);
-      }
       protected setBetList() {
         this._betTableList.setTableList(this._betList);
         const count = this._betList.length;
-        // const item = this._tabSource.find(i => i.tab === 'bet');
-        // const idx = this._tabSource.indexOf(item);
-        // item.count = count;
-        // this._tabArrayCollection.replaceItemAt(item, idx);
         this._btnAlreadyBet.setBadge(count);
+        if (count === 0) {
+          this._lblBetHint.renderText = () => i18n.t('mobile_game_panel_bet_hint_label2');
+        } else {
+          this._lblBetHint.renderText = () => i18n.t('mobile_game_panel_bet_hint_label');
+        }
       }
       protected setGoodRoadList() {
         this._goodRoadTableList.setTableList(this._goodRoadList);
         const count = this._goodRoadList.length;
-        // const item = this._tabSource.find(i => i.tab === 'goodroad');
-        // const idx = this._tabSource.indexOf(item);
-        // item.count = count;
-        // this._tabArrayCollection.replaceItemAt(item, idx);
         this._btnGoodRoad.setBadge(count);
       }
 

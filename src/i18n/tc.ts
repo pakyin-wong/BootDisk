@@ -40,6 +40,16 @@ namespace we {
       playerprofile_follower: '追隨者',
       playerprofile_following: '追隨中',
       playerprofile_favouriteDealer: '最愛荷官',
+      playerProfile: {
+        tooltip: {
+          nickname: '設定名稱',
+          refresh: '刷新餘額',
+        },
+      },
+
+      goodroadedit_hint_left: '點擊',
+      goodroadedit_hint_center: '或',
+      goodroadedit_hint_right: '開始設置',
 
       overlaypanel_memberreport_title: '會員報表',
       overlaypanel_memberreport_date: '日期',
@@ -56,7 +66,7 @@ namespace we {
       overlaypanel_customroad_default: '還原預設',
       overlaypanel_customroad_selectall: '全選',
 
-      overlaypanel_bethistory_title: '投註記錄',
+      overlaypanel_bethistory_title: '投注記錄',
       overlaypanel_bethistory_tab_all: '遊戲總覽',
       overlaypanel_bethistory_tab_live: '真人遊戲',
       overlaypanel_bethistory_tab_lottery: '彩票遊戲',
@@ -148,6 +158,7 @@ namespace we {
       mobile_enter_table_button_label: '進入遊戲',
 
       mobile_game_panel_bet_hint_label: '提示：點擊下注區進行追注或進入遊戲',
+      mobile_game_panel_bet_hint_label2: '暫沒有資訊',
 
       mobile_dropdown_confirm: '確定',
 

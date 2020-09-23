@@ -6,12 +6,12 @@ namespace we {
       }
       public showResult(gameType: core.GameType, resultData: any) {
         this._dbClass = 'sicbo';
-        super.showResult(gameType, resultData); 
+        super.showResult(gameType, resultData);
       }
 
       protected startAnim(gameType: core.GameType, resultData: any) {
         const { gameData, winAmount } = resultData;
-        const { dice1, dice2, dice3, size, odd, tie } = <di.GameData> gameData;
+        const { dice1, dice2, dice3, size, odd, tie } = <di.GameData>gameData;
 
         const diceresult = [dice1, dice2, dice3];
         console.log('diceresult', diceresult);
@@ -33,7 +33,7 @@ namespace we {
 
         const total = isNaN((gameData as di.GameData).total) ? dice1 + dice2 + dice3 : (gameData as di.GameData).total;
 
-        console.log('total', total)
+        console.log('total', total);
         let anim = 'ani_result_';
         let txtSlot = null;
         let isWin = false;
@@ -115,7 +115,7 @@ namespace we {
           [isWin ? 'blue_txt_win' : 'blue_txt_loss', 40, odd === 1 ? '單' : '雙'],
         ];
 
-        if(isIdentical){
+        if (isIdentical) {
           const slot = this._display.armature.getSlot('green_txt');
           const r = new eui.Label();
           r.fontFamily = 'Barlow';
@@ -128,11 +128,11 @@ namespace we {
         }
 
         for (const [slotName, fontSize, text] of array) {
-          const slot = this._display.armature.getSlot(<string> slotName);
+          const slot = this._display.armature.getSlot(<string>slotName);
           const r = new eui.Label();
           r.fontFamily = 'Barlow';
-          r.size = <number> fontSize;
-          r.text = <string> text;
+          r.size = <number>fontSize;
+          r.text = <string>text;
           if (fontSize === 60) {
             const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(3, 45, 0x111111, 0.1, 10, 10, 20, egret.BitmapFilterQuality.LOW);
             r.filters = [shadowFilter];

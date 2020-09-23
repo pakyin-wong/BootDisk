@@ -43,7 +43,7 @@
 				             verticalAlign="middle" alpha="0.7" />
 				-->
 				<ui:RunTimeLabel id="pTableID" text="輪盤01" y="34" textAlign="right" size="40" width="216" height="66"
-				                    verticalAlign="middle" alpha="0.7" fontFamily="Barlow" right="97"/>
+				                    verticalAlign="middle" alpha="0.7" fontFamily="Barlow" x="112"/>
 				<e:Label id="pRoundID" text="6-38" y="109" textAlign="right" scaleX="1" scaleY="1" size="42" x="110" width="292"
 				         height="88" verticalAlign="middle" alpha="0.7"  fontFamily="Barlow"/>
 				<!--<e:Label id="pGameID" text="110326855429" y="197" textAlign="right" size="42" x="110" width="292" height="88"
