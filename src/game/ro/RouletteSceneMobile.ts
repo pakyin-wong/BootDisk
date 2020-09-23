@@ -99,6 +99,7 @@ namespace we {
         this._roadmapControl.setTableInfo(this._tableInfo);
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
+       this._originBetRelatedGroupY = this._betRelatedGroup.y;
 
         this._mask = new egret.Shape();
         const gr = this._mask.graphics;

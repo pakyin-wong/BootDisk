@@ -88,6 +88,7 @@ namespace we {
         this._roadmapControl.setTableInfo(this._tableInfo);
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
+        this._originBetRelatedGroupY = this._betRelatedGroup.y;
         if (this._bottomGamePanel._tableInfoPanel) {
           this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);

@@ -170,7 +170,7 @@ namespace we {
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
         // if (this._betRelatedGroup && env.orientation === 'portrait') {
-        if (this._betRelatedGroup && env,orientation === 'landscape') {
+        if (this._betRelatedGroup) {
           egret.Tween.removeTweens(this._betRelatedGroup);
           egret.Tween.get(this._betRelatedGroup).to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
         }
@@ -191,6 +191,7 @@ namespace we {
 
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
+        this._originBetRelatedGroupY = this._betRelatedGroup.y;
 
         if (this._gameData.state === core.GameState.DEAL || this._gameData.state === core.GameState.FINISH) {
           this._betAreaLock = true;
