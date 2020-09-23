@@ -132,7 +132,8 @@ namespace we {
 
       protected getLayout() {
         const layout = new eui.VerticalLayout();
-        layout.paddingLeft = 16;
+        layout.paddingLeft = 20;
+        layout.paddingRight = 20;
         layout.paddingBottom = 16;
         layout.gap = 12;
         layout.useVirtualLayout = true;
@@ -201,8 +202,10 @@ namespace we {
 
       protected onClearSelection() {
         super.onClearSelection();
+        this._dropdown.visible = false;
         this._dropdown.hide();
         this._subdropdown.hide();
+        egret.Tween.get(this).to({ width: 185, height: 56 }, 200);
       }
 
       protected onSelected() {
@@ -219,6 +222,7 @@ namespace we {
             this._dropdown.visible = true;
             break;
         }
+        egret.Tween.get(this).to({ width: 385, height: 1220 }, 200);
       }
     }
   }

@@ -8,7 +8,7 @@
 		</e:layout>
 	</e:Group>
 	<e:Group id="_toggler" x="0" y="5" width="343">
-		<ui:RunTimeLabel id="_label" text="全部" textAlign="right" verticalAlign="middle" size="22" x="0" height="33"/>
+		<ui:RunTimeLabel id="_label" text="全部" textAlign="right" verticalAlign="middle" size="22" x="17" height="33"/>
 	</e:Group>
 	<ui:Panel id="_dmm" y="38">
 		<e:Skin>
