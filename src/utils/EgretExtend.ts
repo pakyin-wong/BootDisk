@@ -66,7 +66,9 @@ namespace we {
 
     egret['web'].WebPlayer.prototype.updateScreenSize = function () {
       const canvas = this.canvas;
-      if (canvas['userTyping']) return;
+      if (canvas['userTyping']) {
+        return;
+      }
       const option = this.playerOption;
       const screenRect = this.container.getBoundingClientRect();
       let top = 0;
@@ -96,7 +98,7 @@ namespace we {
       const displayWidth = stageSize.displayWidth;
       const displayHeight = stageSize.displayHeight;
 
-      egret.sys.DisplayList.$canvasScaleFactor = Math.min(2,Math.max(1, 2600.0 / displayWidth));
+      egret.sys.DisplayList.$canvasScaleFactor = Math.min(2, Math.max(1, 2600.0 / displayWidth));
 
       canvas.style[egret['web'].getPrefixStyleName('transformOrigin')] = '0% 0% 0px';
       if (canvas.width != stageWidth) {

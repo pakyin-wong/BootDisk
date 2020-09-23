@@ -124,12 +124,11 @@ namespace we {
         const allGoadRoad = env.goodRoadData; // GoodRoadMapData {custom: Array[1], default: Array[10]}
         const allDefaultGoadRoad = allGoadRoad.default;
         const allCustomGoadRoad = allGoadRoad.custom;
-        if (setEnable === true) {
+        if (setEnable) {
           allDefaultGoadRoad.forEach(element => {
             element.enabled = true;
             defaultarray.push(element.id);
           });
-
           allCustomGoadRoad.forEach(element => {
             let customid;
             let customdata;
@@ -144,7 +143,6 @@ namespace we {
           allDefaultGoadRoad.forEach(element => {
             element.enabled = false;
           });
-
           allCustomGoadRoad.forEach(element => {
             let customid;
             let customdata;

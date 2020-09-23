@@ -102,7 +102,7 @@ namespace we {
             this.roadsContainer.scaleX = 0.968;
 
             this.bigRoad = new BABigRoad(18, gridSizeR);
-            this.bigRoad.scaleX =1.01
+            this.bigRoad.scaleX = 1.01;
             this.bigRoad.x = 584 + 12;
             this.bigRoad.y = 98;
             this.roadsContainer.addChild(this.bigRoad);

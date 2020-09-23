@@ -75,7 +75,7 @@ namespace we {
                 gameData.bankerpoint = rslt.bv;
                 gameData.playerpoint = rslt.pv;
                 gameData.wintype = rslt.result;
-                gameData.gameroundid = e.data.gameRoundID;
+                gameData.gameroundid = e.data.gameRoundID; // rslt.gameRoundID;
 
                 this.beadResultPanel.setCardResult(gameData);
 

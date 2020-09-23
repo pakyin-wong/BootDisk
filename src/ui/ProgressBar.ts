@@ -107,19 +107,19 @@ namespace we {
       }
       */
 
-      protected fillShape(){
-          if (this._gradientColor === null) {
-            this._shape.graphics.beginFill(this._color, 1);
-          } else {
-            const fillcolor = this._gradientColor
-              .toString()
-              .split(' ')
-              .join('')
-              .split(',');
-            const matrix = new egret.Matrix();
-            matrix.createGradientBox(1012, 260);
-            this._shape.graphics.beginGradientFill(egret.GradientType.LINEAR, [fillcolor[0], fillcolor[1]], [1, 1], [0, 255], matrix);
-          }
+      protected fillShape() {
+        if (this._gradientColor === null) {
+          this._shape.graphics.beginFill(this._color, 1);
+        } else {
+          const fillcolor = this._gradientColor
+            .toString()
+            .split(' ')
+            .join('')
+            .split(',');
+          const matrix = new egret.Matrix();
+          matrix.createGradientBox(1012, 260);
+          this._shape.graphics.beginGradientFill(egret.GradientType.LINEAR, [fillcolor[0], fillcolor[1]], [1, 1], [0, 255], matrix);
+        }
       }
 
       protected $draw(direction: string) {
@@ -137,11 +137,14 @@ namespace we {
         }
 
         if (length >= this._roundCorner[7]) {
-
           if (this._gradientColor === null) {
             this._shape.graphics.beginFill(this._color, 1);
           } else {
-            const fillcolor = this._gradientColor.toString().split(' ').join('').split(',');
+            const fillcolor = this._gradientColor
+              .toString()
+              .split(' ')
+              .join('')
+              .split(',');
             const matrix = new egret.Matrix();
             matrix.createGradientBox(1012, 260);
             this._shape.graphics.beginGradientFill(egret.GradientType.LINEAR, [fillcolor[0], fillcolor[1]], [1, 1], [0, 255], matrix);

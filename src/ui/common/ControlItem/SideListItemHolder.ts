@@ -46,6 +46,9 @@ namespace we {
           case we.core.GameType.DT:
             generalGameType = 'dt';
             break;
+          case we.core.GameType.LO:
+            generalGameType = 'lo';
+            break;
           default:
             throw new Error('Invalid Game Type');
         }

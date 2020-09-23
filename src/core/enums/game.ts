@@ -41,6 +41,12 @@ namespace we {
       lobby = 'lobby',
       live = 'live',
     }
+
+    export enum GameGroupTab {
+      live = 'live',
+      lottery = 'lottery',
+    }
+
     export enum LiveGameTab {
       all = 'allGame',
       ba = 'bacarrat',
@@ -53,7 +59,8 @@ namespace we {
     }
 
     export enum LotteryTab {
-      all = 'lottery',
+      all = 'allLotteryGame',
+      lo = 'lottery',
     }
 
     export const TableFilter = {
