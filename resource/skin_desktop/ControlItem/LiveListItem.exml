@@ -43,7 +43,7 @@
 				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="22" />
 			</e:Group>
 			<ui:CountdownTimer id="_timer" width="80" height="80" x="20" y="20" skinName="skin_desktop.CountdownTimerRoundSkin" />
-			<ui:SettingAnimationButton id="_favouriteButton" dbClass="lobby_ui" dbDisplay="d_lobby_icon_fav" width="44" height="42"  right="10" top="10" visible="false"/>
+			<ui:AnimatedToggleButton id="_favouriteButton" dbClass="lobby_ui" dbDisplay="d_lobby_icon_fav" width="44" height="42"  right="10" top="10" visible="false"/>
 		</e:Group>
 	</e:Group>
 	<e:Component id="_chipLayerNode" width="100%" skinName="skin_desktop.ba.LiveListItemChipLayerSkin" anchorOffsetY="0"

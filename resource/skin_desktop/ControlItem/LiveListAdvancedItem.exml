@@ -50,7 +50,7 @@
 		</e:Group>
 		<e:Component id="_tableLayerNode" width="350" left="0" top="0" visible="false" name="AdvancedTableLayerNode" />
 	</e:Group>
-			<ui:SettingAnimationButton id="_favouriteButton" dbClass="lobby_ui" dbDisplay="d_lobby_icon_fav" width="44" height="42"  left="295" top="30" visible="false"/>
+			<ui:AnimatedToggleButton id="_favouriteButton" dbClass="lobby_ui" dbDisplay="d_lobby_icon_fav" width="44" height="42"  left="295" top="30" visible="false"/>
 	<e:Component id="_chipLayerNode" width="350" anchorOffsetY="0" y="0" left="0" alpha="0" visible="false"
 	             name="AdvancedChipLayerNode" />
 </e:Skin>
