@@ -95,7 +95,9 @@ namespace we {
 
         const scrollV = this.scroller.viewport.scrollV;
 
+        const currentTab = Object.keys(core.LiveGameTab)[this.tabs.selectedIndex];
         env.currentTab = Object.keys(core.LiveGameTab)[this.tabs.selectedIndex];
+        this.dispatchEventWith(core.Event.LIVE_TABLE_INDEX_UPDATE, false, currentTab);
 
         this.roomList.setGameFiltersByTabIndex(this.tabs.selectedIndex);
         this.roomList.setTableList(this.roomIds, true);

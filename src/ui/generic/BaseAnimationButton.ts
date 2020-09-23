@@ -18,6 +18,7 @@ namespace we {
 
       // determine button is a single choice switch button
       public isSwitch: boolean = false;
+      public isSetting: boolean = false;
 
       // components
       protected _dbClass: string = null;
@@ -205,6 +206,10 @@ namespace we {
           throw new Error('Animation missing armature: ' + this._dbClass);
         }
 
+        if (this.isSetting && (anim === 'idle' || anim === 'disable' || anim === 'release' || anim === 'mouse_out' || anim === 'mouse_in' || anim === 'press')) {
+          return;
+        }
+
         return new Promise(resolve => {
           const listener = () => {
             this._display.armature.eventDispatcher.removeDBEventListener(dragonBones.EventObject.COMPLETE, listener, this);
@@ -218,6 +223,10 @@ namespace we {
       protected prevProm: Promise<any> = Promise.resolve();
       protected async update([oldDown, oldHover]: boolean[]) {
         if (!this._display) {
+          return;
+        }
+
+        if (this.isSetting) {
           return;
         }
 

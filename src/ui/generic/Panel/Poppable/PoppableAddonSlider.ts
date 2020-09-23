@@ -20,14 +20,18 @@ namespace we {
           content.$x = -1 * content.width;
 
           await new Promise((resolve, reject) => {
-            egret.Tween.get(content).to({ $x: this._contentPos.x }, 200).call(resolve);
+            egret.Tween.get(content)
+              .to({ $x: this._contentPos.x }, 200)
+              .call(resolve);
           });
         } else {
           // Set attributes for animating
           content.$y = content.height;
 
           await new Promise((resolve, reject) => {
-            egret.Tween.get(content).to({ $y: this._contentPos.y }, 500).call(resolve);
+            egret.Tween.get(content)
+              .to({ $y: this._contentPos.y }, 500)
+              .call(resolve);
           });
         }
       }

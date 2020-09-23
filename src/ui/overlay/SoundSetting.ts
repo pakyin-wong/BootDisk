@@ -18,8 +18,13 @@ namespace we {
       private _txt_presetBgm: ui.RunTimeLabel;
       private _ddm_presetBgm: ui.Panel;
 
-      constructor() {
+      private soundAnimBtn: ui.SettingAnimationButton;
+
+      private _isOn: boolean;
+
+      constructor(soundAnimBtn) {
         super('SoundSetting');
+        this.soundAnimBtn = soundAnimBtn;
       }
 
       protected mount() {
@@ -77,6 +82,12 @@ namespace we {
         this._slider_soundfx.value = dir.audioCtr.volumeFX;
         this._slider_bgm.value = dir.audioCtr.volumeBGM;
 
+        if (env.bgm === 0 && dir.audioCtr.volumeLive === 0 && dir.audioCtr.volumeBGM === 0 && dir.audioCtr.volumeFX === 0) {
+          this._isOn = false;
+        } else {
+          this._isOn = true;
+        }
+
         this.addListeners();
       }
 
@@ -89,6 +100,14 @@ namespace we {
         this._slider_liveRecord.addEventListener(ui.Slider.PROGRESS, this.onLiveRecordAdjust, this);
         this._slider_soundfx.addEventListener(ui.Slider.PROGRESS, this.onSoundFxAdjust, this);
         this._slider_bgm.addEventListener(ui.Slider.PROGRESS, this.onBGMAdjust, this);
+
+        this._slider_liveRecord.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.checkChange, this);
+        this._slider_soundfx.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.checkChange, this);
+        this._slider_bgm.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.checkChange, this);
+
+        this._slider_liveRecord.addEventListener(egret.TouchEvent.TOUCH_END, this.checkChange, this);
+        this._slider_soundfx.addEventListener(egret.TouchEvent.TOUCH_END, this.checkChange, this);
+        this._slider_bgm.addEventListener(egret.TouchEvent.TOUCH_END, this.checkChange, this);
 
         if (env.isMobile) {
           this._btn_currLang.addEventListener('DROPDOWN_ITEM_CHANGE', this.onLangSelect, this);
@@ -116,27 +135,44 @@ namespace we {
       private onLiveRecordAdjust(e) {
         dir.audioCtr.volumeLive = e.data;
         this._slider_liveRecord.value = dir.audioCtr.volumeLive;
+        utils.debounce(this.checkChange, 200, this);
       }
 
       private onSoundFxAdjust(e) {
         dir.audioCtr.volumeFX = e.data;
         this._slider_soundfx.value = dir.audioCtr.volumeFX;
+        utils.debounce(this.checkChange, 200, this);
       }
 
       private onBGMAdjust(e) {
         dir.audioCtr.volumeBGM = e.data;
         this._slider_bgm.value = dir.audioCtr.volumeBGM;
+        utils.debounce(this.checkChange, 200, this);
       }
 
       private onLangSelect(e) {
         i18n.setLang(e.data);
         this._ddm_currLang && this._ddm_currLang.dropdown.select(env.language);
+        this.checkChange();
       }
 
       private onBgmSelect(e) {
         env.bgm = e.data;
         dir.evtHandler.dispatch(core.Event.BGM_UPDATE, e.data);
         this._ddm_presetBgm && this._ddm_presetBgm.dropdown.select(env.bgm);
+        this.checkChange();
+      }
+
+      protected checkChange() {
+        if (dir.audioCtr.volumeLive === 0 && dir.audioCtr.volumeBGM === 0 && dir.audioCtr.volumeFX === 0 && this._isOn) {
+          this.soundAnimBtn.dispatchEvent(new egret.Event('SWITCH_TO_OFF'));
+          this._isOn = false;
+        } else if ((dir.audioCtr.volumeLive > 0 || dir.audioCtr.volumeBGM > 0 || dir.audioCtr.volumeFX > 0) && !this._isOn) {
+          this.soundAnimBtn.dispatchEvent(new egret.Event('SWITCH_TO_ON'));
+          this._isOn = true;
+        } else {
+          this.soundAnimBtn.dispatchEvent(new egret.Event('SETTING_UPDATE'));
+        }
       }
 
       protected initOrientationDependentComponent() {

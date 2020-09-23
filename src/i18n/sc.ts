@@ -47,6 +47,10 @@ namespace we {
         },
       },
 
+      goodroadedit_hint_left: '点击',
+      goodroadedit_hint_center: '或',
+      goodroadedit_hint_right: '开始设置',
+
       overlaypanel_memberreport_title: '会员报表',
       overlaypanel_memberreport_date: '日期',
       overlaypanel_memberreport_today: '今日',
@@ -159,6 +163,7 @@ namespace we {
       mobile_enter_table_button_label: '进入游戏',
 
       mobile_game_panel_bet_hint_label: '提示：点击下注区进行追注或进入游戏',
+      mobile_game_panel_bet_hint_label2: '暂没有资讯',
 
       mobile_dropdown_confirm: '确定',
 
