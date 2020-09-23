@@ -350,13 +350,11 @@ namespace we {
         // egret.Tween.removeTweens(this.activeLine);
 
         if (this['road1Btn1'].hasEventListener(eui.UIEvent.CHANGE)) {
-
           this.panelRoadSelect.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onRoadTypesSelect, this);
           this.analysisBtn1.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
           this.analysisBtn2.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
           this.analysisBtn3.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
           this.analysisBtn4.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
-
 
           for (let i = 1; i <= 5; i++) {
             this['road1Btn' + i].removeEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
@@ -375,7 +373,6 @@ namespace we {
           this.road3NextBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoad3NextBtnClick, this);
           this.road3BackBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoad3BackBtnClick, this);
         }
-
 
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);

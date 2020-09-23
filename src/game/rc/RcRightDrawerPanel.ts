@@ -1,7 +1,6 @@
 namespace we {
   export namespace rc {
     export class RcRightDrawerPanel extends lo.LoRightDrawerPanel {
-
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'RcRightDrawerPanel');
       }
@@ -72,7 +71,6 @@ namespace we {
 
       protected init() {
         super.init();
-
       }
 
       public destroy() {
