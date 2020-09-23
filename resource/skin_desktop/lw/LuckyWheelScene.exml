@@ -7,7 +7,7 @@
 	<e:Image id="_bgImg" top="0" bottom="0" source="d_mw_bg_a_jpg" x="0" locked="true" />
 	<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" width="2600" height="294" x="0" bottom="0" stroke="0"
 	                   fillColor="0x00000000,0x00000050" />
-	<ui:Group x="750" isEdgeDismissable="true" dismissPosX="735" dismissPosY="1297" bottom="12">
+	<ui:Group x="750" isEdgeDismissable="true" dismissPosX="750" dismissPosY="1297" y="1024">
 		<ui:RoundRectShape id="_tableLayerBg" cornerTL_TR_BL_BR="14,14,14,14" width="1162" height="304" stroke="2"
 		                   strokeColor="0x3a3f48" fillColor="0x131313" fillAlpha="0.7" />
 		<!--<lw:TableLayerBg id="_tableLayerBg" x="0" y="0" width="1162" height="304" />
@@ -39,9 +39,9 @@
 	</ui:Group>
 	</ui:Group>
 	<lw:LwLeftPanel id="_leftGamePanel" width="717" height="304" x="16" anchorOffsetX="0" anchorOffsetY="0"
-	                dismissPosX="16" dismissPosY="1298" isEdgeDismissable="true" bottom="12" />
+	                dismissPosX="16" dismissPosY="1298" isEdgeDismissable="true"  y="1024"/>
 	<lw:LwRightPanel id="_rightGamePanel" width="657" height="304" dismissPosX="1927" dismissPosY="1298"
-	                 isEdgeDismissable="true" x="1927" bottom="12" />
+	                 isEdgeDismissable="true" x="1927"  y="1024"/>
 	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2600" touchEnabled="false"
 	         touchChildren="true" touchThrough="true">
 		<e:Rect width="1" height="60" x="308" y="18" fillAlpha="0.3" />
