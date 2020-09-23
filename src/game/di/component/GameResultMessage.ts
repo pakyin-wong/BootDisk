@@ -11,16 +11,11 @@ namespace we {
 
       protected startAnim(gameType: core.GameType, resultData: any) {
         const { gameData, winAmount } = resultData;
+        // const { dice1, dice2, dice3, size, odd } = <di.GameData> gameData;
         const { dice1, dice2, dice3, size, odd, tie } = <di.GameData>gameData;
 
         const diceresult = [dice1, dice2, dice3];
-        console.log('diceresult', diceresult);
-        console.log('size', size);
-        console.log('tie x', tie);
         const isIdentical = tie === 1;
-        console.log('isIdentical', isIdentical);
-        console.log('this._display.armature', this._display.armature);
-        console.log('gameData', gameData);
         this._display.armature.eventDispatcher.addDBEventListener(
           dragonBones.EventObject.COMPLETE,
           () => {

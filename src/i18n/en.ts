@@ -156,12 +156,14 @@ namespace we {
 
       mobile_dropdown_confirm: 'Confirm',
 
+      video_setting: 'Video Setting',
       video_setting_auto: 'Automatic',
       video_setting_cam: 'Camera',
       video_setting_qua: 'Quality',
       video_setting_closer: 'Close mirror',
       video_setting_far: 'Far mirror',
       video_setting_close: 'Close',
+      video_setting_toggle: 'Video turn on',
       video_setting_bluray: 'Blu-ray',
       video_setting_highQua: 'Super clear',
       video_setting_standQua: 'Standard Definition',
@@ -209,6 +211,7 @@ namespace we {
           confirm: 'Confirm',
           cancel: 'Cancel',
           gameSet: 'Game Setting',
+          soundSet: 'Sound Setting',
         },
         system: {
           title: 'System',

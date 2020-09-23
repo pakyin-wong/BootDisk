@@ -75,9 +75,8 @@ namespace we {
 
       protected getBetChipSet(): BetChipSet & eui.Component {
         const betChipSet = new BetChipSetHorizontal();
-        betChipSet.chipScale = 0.8;
-        betChipSet.navWidth = 20;
-        betChipSet.containerPadding = 6;
+        betChipSet.chipScale = 0.85;
+        betChipSet.containerPadding = 8;
         return betChipSet;
       }
 
@@ -305,18 +304,20 @@ namespace we {
           egret.Tween.get(this._quickbetButton)
             .set({ visible: true })
             .to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
-          if (this._favouriteButton)
+          if (this._favouriteButton) {
             egret.Tween.get(this._favouriteButton)
               .set({ visible: true })
               .to({ alpha: 1 }, this._tweenInterval1);
+          }
         } else {
           egret.Tween.get(this._quickbetButton)
             .to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250)
             .set({ visible: false });
-          if (this._favouriteButton)
+          if (this._favouriteButton) {
             egret.Tween.get(this._favouriteButton)
               .to({ alpha: 0 }, 250)
               .set({ visible: false });
+          }
         }
       }
 

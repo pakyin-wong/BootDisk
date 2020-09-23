@@ -32,13 +32,13 @@ namespace we {
       }
 
       protected init_menu() {
-        this._txt_title.renderText = () => `${i18n.t('nav.menu.videoSet')}`;
-        this._txt_videoSec.renderText = () => `${i18n.t('nav.video.toggle')}`;
-        this._txt_qualitySec.renderText = () => `${i18n.t('nav.video.quality')}`;
-        this._txt_cameraSec.renderText = () => `${i18n.t('nav.video.camera')}`;
+        this._txt_title.renderText = () => `${i18n.t('video_setting')}`;
+        this._txt_videoSec.renderText = () => `${i18n.t('video_setting_toggle')}`;
+        this._txt_qualitySec.renderText = () => `${i18n.t('video_setting_qua')}`;
+        this._txt_cameraSec.renderText = () => `${i18n.t('video_setting_cam')}`;
 
-        const _arrCol_quality = new eui.ArrayCollection([ui.NewDropdownItem('01', () => `Auto`)]);
-        const _arrCol_camera = new eui.ArrayCollection([ui.NewDropdownItem('01', () => `Auto`)]);
+        const _arrCol_quality = new eui.ArrayCollection([ui.NewDropdownItem('01', () => `${i18n.t('video_setting_auto')}`)]);
+        const _arrCol_camera = new eui.ArrayCollection([ui.NewDropdownItem('01', () => `${i18n.t('video_setting_auto')}`)]);
 
         if (this._ddm_quality) {
           this._ddm_quality.isDropdown = true;
