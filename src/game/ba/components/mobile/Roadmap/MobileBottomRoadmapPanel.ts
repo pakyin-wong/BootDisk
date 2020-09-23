@@ -102,22 +102,26 @@ namespace we {
             this.roadsContainer.scaleX = 0.968;
 
             this.bigRoad = new BABigRoad(18, gridSizeR);
+            this.bigRoad.scaleX =1.01
             this.bigRoad.x = 584 + 12;
             this.bigRoad.y = 98;
             this.roadsContainer.addChild(this.bigRoad);
 
             this.bigEyeRoad = new BABigEyeRoad(18 * 2, gridSizeR);
+            this.bigEyeRoad.scaleX = 1.01;
             this.bigEyeRoad.x = 584 + 12;
             this.bigEyeRoad.y = 98 + 6 * gridSizeR;
             this.roadsContainer.addChild(this.bigEyeRoad);
 
             this.smallRoad = new BASmallRoad(9 * 2, gridSizeR);
+            this.smallRoad.scaleX = 1.005;
             this.smallRoad.x = 584 + 12;
             this.smallRoad.y = 98 + 6 * gridSizeR + 6 * (gridSizeR / 2);
             this.roadsContainer.addChild(this.smallRoad);
 
             this.cockroachRoad = new BACockroachRoad(9 * 2, gridSizeR);
-            this.cockroachRoad.x = 584 + 12 + gridSizeR * 9;
+            this.cockroachRoad.scaleX = 1.005;
+            this.cockroachRoad.x = 584 + 15 + gridSizeR * 9;
             this.cockroachRoad.y = 98 + 6 * gridSizeR + 6 * (gridSizeR / 2);
             this.roadsContainer.addChild(this.cockroachRoad);
 
