@@ -1412,6 +1412,8 @@ namespace we {
         // return promise.resolve with BetResult
       }
 
+      public lotteryContinuousBet(tableID: string, betDetails: data.BetDetail[], roundBetDetails: data.LotteryBetCommand[], callback: (result) => void) {}
+
       private onGoodRoadMatch() {
         // random get a ba table
         const baTables = this.tables.filter(tableinfo => {

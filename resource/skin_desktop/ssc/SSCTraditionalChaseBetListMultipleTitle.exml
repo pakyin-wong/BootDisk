@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.lo.SSCTraditionalChaseBetListMultipleTitle" width="1800" height="68" xmlns:e="http://ns.egret.com/eui">
+	<e:Label id="_txtTitleIndex" text="Label" x="91" y="0" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+    <e:Label id="_txtTitleRoundNumber" text="Label" x="371"  y="0"  size="20" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+    <e:Label id="_txtTitleMultiplier" text="Label" x="774" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+	<e:Label id="_txtTitleBetAmount" text="Label" x="1096" y="0" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+	<e:Label id="_txtTitleRoundEndTime" text="Label" x="1463" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+</e:Skin>

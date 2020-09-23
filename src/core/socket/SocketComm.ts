@@ -1075,6 +1075,30 @@ namespace we {
         logger.l(utils.LogTarget.RELEASE, `Table ${tableID} Placed bet`, betDetails);
       }
 
+      public lotteryContinuousBet(tableID: string, betDetails: data.BetDetail[], roundBetDetails: data.LotteryBetCommand[], callback: (result) => void) {
+        const betCommands: data.BetCommand[] = betDetails
+          .filter(data => {
+            return data.amount > 0;
+          })
+          .map(data => {
+            return {
+              field: data.field,
+              amount: data.amount,
+            };
+          });
+
+        const roundBetCommands: data.LotteryBetCommand[] = roundBetDetails.map(data => {
+          return {
+            round: data.round,
+            multiplier: data.multiplier,
+            isStopWon: data.isStopWon,
+          };
+        });
+
+        this.client.lotteryContinuousBet(tableID, betCommands, roundBetDetails, callback);
+        logger.l(utils.LogTarget.RELEASE, `Table ${tableID} Placed bet`, betDetails, roundBetDetails);
+      }
+
       public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {
         /*
         console.log(
