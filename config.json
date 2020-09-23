@@ -1,7 +1,7 @@
 {
-    "target": "development",
+    "target": "local",
     "mode": "",
-    "playerID": "BNC9O6DH5S5JNQTG8PR1",
+    "playerID": "BT1JBSAHE4OLKNA2QSEG",
     "endpoint": "https://dev-rest-gateway.weapi247.com",
     "rabbitmqhostname": "burly-seastar.rmq.cloudamqp.com",
     "rabbitmqvirtualhost": "/",

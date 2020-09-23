@@ -11,7 +11,7 @@ namespace we {
 
       protected startAnim(gameType: core.GameType, resultData: any) {
         const { gameData, winAmount } = resultData;
-        const { dice1, dice2, dice3, size, odd, tie } = <di.GameData> gameData;
+        const { dice1, dice2, dice3, size, odd, tie } = <di.GameData>gameData;
 
         const diceresult = [dice1, dice2, dice3];
         console.log('diceresult', diceresult);
@@ -128,11 +128,11 @@ namespace we {
         }
 
         for (const [slotName, fontSize, text] of array) {
-          const slot = this._display.armature.getSlot(<string> slotName);
+          const slot = this._display.armature.getSlot(<string>slotName);
           const r = new eui.Label();
           r.fontFamily = 'Barlow';
-          r.size = <number> fontSize;
-          r.text = <string> text;
+          r.size = <number>fontSize;
+          r.text = <string>text;
           if (fontSize === 60) {
             const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(3, 45, 0x111111, 0.1, 10, 10, 20, egret.BitmapFilterQuality.LOW);
             r.filters = [shadowFilter];

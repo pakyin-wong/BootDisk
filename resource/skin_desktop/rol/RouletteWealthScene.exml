@@ -21,16 +21,16 @@
 		                   skinName="skin_desktop.CountdownTimerSkin" touchEnabled="false"/>
 		<ui:BaseAnimationButton id="_undoButton" width="55" height="55" verticalCenter="0" horizontalCenter="243"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true"
-								tooltipText="'live.tooltip.undo'" tooltipPosition="'above'" />
+								tooltipText="'mobile_ba_undo'" tooltipPosition="'above'" />
 		<ui:BaseAnimationButton id="_cancelButton" width="55" height="55" verticalCenter="0" horizontalCenter="318"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_clear" useColorFilter="true"
-								tooltipText="'live.tooltip.cancel'" tooltipPosition="'above'" />
+								tooltipText="'mobile_ba_cancel'" tooltipPosition="'above'" />
 		<ui:BaseAnimationButton id="_doubleButton" width="55" height="55" verticalCenter="0" horizontalCenter="393"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_double" useColorFilter="true"
-								tooltipText="'live.tooltip.double'" tooltipPosition="'above'" />
+								tooltipText="'mobile_ba_double'" tooltipPosition="'above'" />
 		<ui:BaseAnimationButton id="_repeatButton" width="55" height="55" verticalCenter="0" horizontalCenter="467"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_rebet" useColorFilter="true"
-								tooltipText="'live.tooltip.repeat'" tooltipPosition="'above'" />
+								tooltipText="'mobile_ba_repeat'" tooltipPosition="'above'" />
 	</ui:Group>
 	</ui:Group>
 	<rol:RolLeftPanel id="_leftGamePanel" width="668" height="340" x="16" y="988" anchorOffsetX="0" anchorOffsetY="0"

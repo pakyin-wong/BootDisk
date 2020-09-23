@@ -55,10 +55,8 @@ namespace we {
       protected onChanged(evt: eui.UIEvent) {
         env.currentSelectedBetLimitIndex = this.selectedIndex;
         dir.evtHandler.dispatch(core.Event.BET_LIMIT_CHANGE);
-        console.log('onChanged:::env.betLimits', env.betLimits);
 
         dir.socket.updateSetting('currentSelectedBetLimitIndex', this.selectedIndex.toString());
-        console.log(' this.selectedIndex; this.selectedIndex; this.selectedIndex; this.selectedIndex; this.selectedIndex;', this.selectedIndex);
       }
 
       protected runtimeGenerateScroller() {

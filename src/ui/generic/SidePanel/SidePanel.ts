@@ -47,7 +47,7 @@ namespace we {
         egret.Tween.get(this._tweenGroup)
           .to({ scaleY: 0 }, 200)
           .set({ visible: false })
-          .to({ scaleX: 0, alpha: 0}, 200);
+          .to({ scaleX: 0, alpha: 0 }, 200);
         egret.Tween.get(this._tabBarGroup)
           .wait(200)
           .to({ y: 0 }, 200);
@@ -78,7 +78,7 @@ namespace we {
           egret.Tween.get(this._tweenGroup)
             .to({ scaleX: 1 }, 200)
             .set({ visible: true })
-            .to({ scaleY: 1, alpha: 1}, 200);
+            .to({ scaleY: 1, alpha: 1 }, 200);
           egret.Tween.get(this._tabBarGroup)
             .wait(200)
             .to({ y: 8 }, 200);

@@ -26,7 +26,7 @@ namespace we {
 
       protected gridCorners: any = { tl: 0, tr: 0, bl: 0, br: 0 }; // the corner radius for the grid background
 
-      public constructor(_numCol: number, _gridSize: number, _scale: number, _gridLine: number = 1) {
+      public constructor(_numCol: number, _gridSize: number, _scale: number, _gridLine: number = 2) {
         super();
         this.scale = _scale;
         this.gridSize = _gridSize;
