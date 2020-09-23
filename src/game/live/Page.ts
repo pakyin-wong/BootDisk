@@ -21,14 +21,13 @@ namespace we {
 
       protected clearOrientationDependentComponent() {
         super.clearOrientationDependentComponent();
-        dir.evtHandler.removeEventListener(core.Event.LIVE_TABLE_INDEX_UPDATE,this.updateIndex,this)
+        this._gameTableList.removeEventListener(core.Event.LIVE_TABLE_INDEX_UPDATE, this.updateIndex, this);
       }
-      protected initComponents(){
+      protected initComponents() {
         this._gameTableList = new GameTableList(this._roomList);
         this._gameTableList.percentWidth = 100;
         this._gameTableList.percentHeight = 100;
-        this._gameTableList.page = this;
-        dir.evtHandler.addEventListener(core.Event.LIVE_TABLE_INDEX_UPDATE,this.updateIndex,this)
+        this._gameTableList.addEventListener(core.Event.LIVE_TABLE_INDEX_UPDATE, this.updateIndex, this);
         this.addChild(this._gameTableList);
       }
       // protected initOrientationDependentComponent() {
@@ -40,8 +39,9 @@ namespace we {
       //   dir.evtHandler.addEventListener(core.Event.LIVE_TABLE_INDEX_UPDATE,this.updateIndex,this)
       //   this.addChild(this._gameTableList);
       // }
-      protected updateIndex(){
-        this.updateCurrentPageAndTab(env.currentPage, env.currentTab);
+      protected updateIndex(e: egret.Event) {
+        const data = e.data;
+        this.updateCurrentPageAndTab('live', data);
       }
       public i = 0;
 
@@ -74,7 +74,7 @@ namespace we {
 
       public destroy() {
         super.destroy();
-        dir.evtHandler.removeEventListener(core.Event.LIVE_TABLE_INDEX_UPDATE,this.updateIndex,this)
+        dir.evtHandler.removeEventListener(core.Event.LIVE_TABLE_INDEX_UPDATE, this.updateIndex, this);
         this.removeChildren();
       }
 

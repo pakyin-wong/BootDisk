@@ -12,17 +12,7 @@ namespace we {
       public roomList: ui.TableList;
       public roomListRefer: eui.List;
 
-      protected _page: live.Page;
-
       private contentInitializer: IContentInitializer;
-
-      public get page() {
-        return this._page;
-      }
-
-      public set page(val) {
-        this._page = val;
-      }
 
       constructor(roomList: ui.TableList) {
         super();
@@ -105,9 +95,9 @@ namespace we {
 
         const scrollV = this.scroller.viewport.scrollV;
 
+        const currentTab = Object.keys(core.LiveGameTab)[this.tabs.selectedIndex];
         env.currentTab = Object.keys(core.LiveGameTab)[this.tabs.selectedIndex];
-        dir.evtHandler.dispatch(core.Event.LIVE_TABLE_INDEX_UPDATE);
-        // this._page.updateCurrentPageAndTab(env.currentPage, env.currentTab); // dispatch event
+        this.dispatchEventWith(core.Event.LIVE_TABLE_INDEX_UPDATE, false, currentTab);
 
         this.roomList.setGameFiltersByTabIndex(this.tabs.selectedIndex);
         this.roomList.setTableList(this.roomIds, true);
@@ -135,8 +125,6 @@ namespace we {
         this.tabs.tabBar && this.tabs.tabBar.addEventListener('REORDER', this.onSelectedIndexSorted, this);
         this.tabs.addEventListener('CHANGE', this.onSelectedIndexChanged, this);
       }
-
-      protected;
     }
   }
 }
