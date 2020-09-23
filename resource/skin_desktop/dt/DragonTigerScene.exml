@@ -27,7 +27,7 @@
 								tooltipText="'mobile_ba_undo'" tooltipPosition="'above'"  right="220"/>
 		<ui:BaseAnimationButton id="_cancelButton" width="55" height="55" verticalCenter="0"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_clear" useColorFilter="true"
-								tooltipText="'mobile_ba_cancel'" tooltipPosition="'above'"  right="154"/>
+								tooltipText="'mobile_ba_clear'" tooltipPosition="'above'"  right="154"/>
 		<ui:BaseAnimationButton id="_doubleButton" width="55" height="55" verticalCenter="0"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_double" useColorFilter="true"
 								tooltipText="'mobile_ba_double'" tooltipPosition="'above'"  right="22"/>
