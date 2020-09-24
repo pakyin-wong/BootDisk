@@ -15,11 +15,11 @@
 		<!--<ui:BaseImageButton id="_defaultButton" y="75" anchorOffsetX="0" width="320" anchorOffsetY="0" height="90"
 		                        currentState="b_reset" skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" x="745" />
 		-->
-		<e:Group x="413" y="103">
-			<ui:RunTimeLabel id="_selectAllLabel" text="Select All" textAlign="center" anchorOffsetX="0" width="110" size="22" height="22" verticalAlign="middle" touchEnabled="false" x="33" y="12" scaleX="1" scaleY="1"/>
-			<ui:ToggleButton id="_selectAllButton" resNameOn="d_lobby_panel_button_checkboxes_active_png" hoverResNameOn="d_lobby_panel_button_checkboxes_active_png" resNameOff="d_lobby_panel_button_checkboxes_normal_png" hoverResNameOff="d_lobby_panel_button_checkboxes_hover_png" y="18" width="22" height="22" anchorOffsetX="0" x="151" scaleX="1" scaleY="1"/>
+		<e:Group x="379" y="112">
+			<ui:RunTimeLabel id="_selectAllLabel" text="Select All" textAlign="center" anchorOffsetX="0" width="110" size="35" verticalAlign="middle" touchEnabled="false" x="33" y="12" scaleX="1" scaleY="1"/>
+			<ui:ToggleButton id="_selectAllButton" resNameOn="m_common_setting_goodroad_roadmap_checkboxes_active_png" hoverResNameOn="m_common_setting_goodroad_roadmap_checkboxes_active_png" resNameOff="m_common_setting_goodroad_roadmap_checkboxes_png" hoverResNameOff="m_lobby_panel_button_checkboxes_hover_png" y="18" width="22" height="22" anchorOffsetX="0" x="151" scaleX="1" scaleY="1"/>
 			<e:layout>
-				<e:HorizontalLayout/>
+				<e:HorizontalLayout verticalAlign="middle"/>
 			</e:layout>
 		</e:Group>
 		<ui:RoundRectButton id="_defaultButton" cornerTL_TR_BL_BR="45,45,45,45" width="320" height="90" x="745" y="75"

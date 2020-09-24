@@ -94,18 +94,6 @@ namespace we {
         if (!this._notes) {
           return;
         }
-        if (this._notes.length > 0) {
-          if (enable === true) {
-            this._btnConfirmBet.buttonEnabled = true;
-            this._btnConfirmBet.enabled = true;
-          } else {
-            this._btnConfirmBet.buttonEnabled = false;
-            this._btnConfirmBet.enabled = false;
-          }
-        } else {
-          this._btnConfirmBet.buttonEnabled = false;
-          this._btnConfirmBet.enabled = false;
-        }
       }
 
       public onExit() {}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.SSCChaseProfitBetItem" width="1800" height="76" currentState="normal" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*"  states="normal,hover" >
+	<e:Rect id="_txt_record_bgcolor" width="1800" x="0" y="0" height="76"/>
+	<e:Rect id="_txt_hover_color" includeIn="hover" left="0" right="0" top="0" bottom="0" fillColor="0x4077ab" width="1800" height="76"/>
+	<e:Group left="0" right="0" top="0" bottom="0" alpha="0.8" alpha.hover="1">
+		<e:Label id="_txtIndex" text="Label" x="91" y="0" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Group id="_roundGroup" x="263" height="76">
+            <e:Image id="_activeButton" source="checkbox_unselect_png" width="28" height="28"/>
+            <e:Label id="_txtRoundNumber" text="Label" x="316" y="0"  size="20" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+            <e:layout>
+                <e:HorizontalLayout verticalAlign="middle"/>
+            </e:layout>
+        </e:Group>
+        <e:Label id="_txtMultiplier" text="Label" x="564" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+		<e:Label id="_txtBetAmount" text="Label" x="752" y="0" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_txtReward" text="Label" x="970" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+		<e:Label id="_txtExpectedWin" text="Label" x="1247" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+		<e:Label id="_txtExpectedWinRatio" text="Label" x="1554" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+    </e:Group>
+</e:Skin>

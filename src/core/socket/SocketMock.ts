@@ -802,7 +802,16 @@ namespace we {
       public retryPlayerClient(functionName: string, args: any[]) {
         logger.l(utils.LogTarget.DEBUG, 'retryPlayerClient', functionName, args);
       }
-
+      public async batchUpdateAllGoodRoad(updatedefaultItem: any[], updatecustomItem: any[]) {
+        // this.mockGoodRoadMapData.custom.forEach(element => {
+        //   if (element.id === id) {
+        //     element.enabled = data.enabled;
+        //     element.name = data.name;
+        //     element.pattern = data.pattern;
+        //   }
+        // });
+        // await this._goodRoadUpdateCallback(this.mockGoodRoadMapData);
+      }
       public updateCustomGoodRoad(id: string, data: any) {
         this.mockGoodRoadMapData.custom.forEach(element => {
           if (element.id === id) {
@@ -1402,6 +1411,8 @@ namespace we {
 
         // return promise.resolve with BetResult
       }
+
+      public lotteryContinuousBet(tableID: string, betDetails: data.BetDetail[], roundBetDetails: data.LotteryBetCommand[], callback: (result) => void) {}
 
       private onGoodRoadMatch() {
         // random get a ba table

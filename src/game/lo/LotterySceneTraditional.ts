@@ -21,6 +21,9 @@ namespace we {
 
       private _bettingPanelGroup: eui.Group;
       private _videoGroup: eui.Group;
+      private _chaseGroup: eui.Group;
+      private _chasePanel;
+
       constructor(data: any) {
         super(data);
       }
@@ -39,14 +42,16 @@ namespace we {
         super.addEventListeners();
 
         dir.evtHandler.addEventListener('on_lottery_traditional_bet', this.onConfirmPressed, this);
-        dir.evtHandler.addEventListener('ON_LOTTERY_TRAD_INSUFFICIENTBALANCE', this.onBetFail, this);
+        dir.evtHandler.addEventListener('ON_LOTTERY_TRAD_INSUFFICIENTBALANCE', this.onInsufficientBalance, this);
+        dir.evtHandler.addEventListener('LO_TRAD_ON_CREATE_CHASEBETPANEL', this.onCreateChaseBetPanel, this);
       }
 
       protected removeEventListeners() {
         super.removeEventListeners();
 
         dir.evtHandler.removeEventListener('on_lottery_traditional_bet', this.onConfirmPressed, this);
-        dir.evtHandler.removeEventListener('ON_LOTTERY_TRAD_INSUFFICIENTBALANCE', this.onBetFail, this);
+        dir.evtHandler.removeEventListener('ON_LOTTERY_TRAD_INSUFFICIENTBALANCE', this.onInsufficientBalance, this);
+        dir.evtHandler.removeEventListener('LO_TRAD_ON_CREATE_CHASEBETPANEL', this.onCreateChaseBetPanel, this);
       }
 
       protected initBettingTable() {
@@ -61,6 +66,7 @@ namespace we {
 
         if (this._tableInfo) {
           this._bettingPanel.updateBetTableInfo(this._tableInfo);
+          this._bettingPanel.updateRoundDetailInfo(this._tableInfo.betInfo);
         }
       }
 
@@ -78,10 +84,29 @@ namespace we {
         this._bettingPanel = null;
         this.removeChildren();
       }
+
       protected setupTableInfo() {
         super.setupTableInfo();
       }
 
+      protected changeBtnState(isEnable: boolean = true) {
+        // this._undoButton.touchEnabled = isEnable;
+        // this._cancelButton.touchEnabled = isEnable;
+        // this._confirmButton.touchEnabled = isEnable;
+        // this._doubleButton.alpha = this._chipLayer.getTotalCfmBetAmount() ? 1 : 0.3;
+        // this._doubleButton.touchEnabled = this._chipLayer.getTotalCfmBetAmount() ? true : false;
+        // this._undoButton.alpha = isEnable ? 1 : 0.5;
+        // this._cancelButton.alpha = isEnable ? 1 : 0.5;
+        // this._confirmButton.alpha = isEnable ? 1 : 0.3;
+        // if (this._timer.bg_color) {
+        //   this._timer.bg_color.alpha = isEnable ? 0.7 : 0;
+        //   if (isEnable) {
+        //     this._timer.bg_flash();
+        //   } else {
+        //     this._timer.removebg_flash();
+        //   }
+        // }
+      }
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('LotterySceneTraditional');
       }
@@ -118,6 +143,9 @@ namespace we {
       protected setResultRelatedComponentsEnabled(enable: boolean) {
         if (this._gameData) {
           this._bettingPanel.updateBetInfo(this._gameData);
+          if (this._gameData.gameroundid) {
+            dir.evtHandler.dispatch('LO_TRAD_CHECK_CURRENT_ROUND_NUMBER', this._gameData.gameroundid);
+          }
         }
       }
 
@@ -280,6 +308,7 @@ namespace we {
         if (evt && evt.data) {
           const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
+            this._bettingPanel.updateRoundDetailInfo(this._tableInfo.betInfo);
             // this._leftGamePanel.updateTableBetInfo();
             // this._rightGamePanel.updateTableBetInfo();
           }
@@ -319,18 +348,46 @@ namespace we {
         // }
         // }// for testing
         this._bettingPanel.setBetRelatedComponentsEnabled(enable);
+        dir.evtHandler.dispatch('LO_TRAD_ON_BETSTATEUPDATE', enable);
       }
 
       protected onConfirmPressed(e: egret.Event) {
-        const { bets, roundBets } = e.data;
-        // dir.socket.tradLotteryBet(this._tableId, bets, roundBets); //TODO
-        dir.socket.bet(this._tableId, bets, this.onBetReturned.bind(this));
+        const { bets, rounds } = e.data;
+        if (rounds.length > 0) {
+          dir.socket.lotteryContinuousBet(this._tableId, bets, rounds, this.onBetReturned.bind(this));
+        } else {
+          dir.socket.bet(this._tableId, bets, this.onBetReturned.bind(this));
+        }
       }
 
       public checkResultMessage(resultData = null) {
         // const resultNo = (<ro.GameData>this._gameData).value;
         // (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
         super.checkResultMessage(resultData);
+      }
+
+      protected onCreateChaseBetPanel(e) {
+        const { args } = e.data;
+
+        this._chasePanel = new we.lo.SSCChaseBetPanel(args[0], args[1], args[2]);
+        this._chaseGroup.visible = true;
+        this._chaseGroup.touchThrough = false;
+        this._chaseGroup.touchChildren = true;
+        this._chaseGroup.touchEnabled = true;
+        this._chaseGroup.addChild(this._chasePanel);
+        this._chasePanel.verticalCenter = 0;
+        this._chasePanel.horizontalCenter = 0;
+
+        dir.evtHandler.once('LO_TRAD_ON_EXIT_CHASEBETPANEL', this.onRemoveChaseBetPanel, this);
+      }
+
+      protected onRemoveChaseBetPanel(e) {
+        this._chaseGroup.visible = false;
+        this._chaseGroup.touchThrough = true;
+        this._chaseGroup.touchChildren = false;
+        this._chaseGroup.touchEnabled = false;
+        this._chaseGroup.removeChild(this._chasePanel);
+        this._chasePanel = null;
       }
 
       protected playResultSoundEffect(totalWin) {

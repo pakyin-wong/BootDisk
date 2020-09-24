@@ -7,6 +7,7 @@ namespace we {
       public multiplier: number;
       public betmode: string; // bigtag name
       public betmethod: string; // small tag name
+      public ratio: number; // betAmount / 100 * ratio / 100 = highestWin
     }
   }
 }

@@ -51,8 +51,8 @@ namespace we {
 
         switch (env.orientation) {
           case 'portrait':
-            const gridSizeL = 73;
-            const gridSizeR = 38;
+            const gridSizeL = 74;
+            const gridSizeR = 37;
 
             this.beadRoad = new BABeadRoad(numColumn, gridSizeL, 1, true);
             this.beadRoad.x = 0;
@@ -102,29 +102,33 @@ namespace we {
             this.roadsContainer.scaleX = 0.968;
 
             this.bigRoad = new BABigRoad(18, gridSizeR);
-            this.bigRoad.x = 584;
+            this.bigRoad.scaleX = 1.01;
+            this.bigRoad.x = 584 + 12;
             this.bigRoad.y = 98;
             this.roadsContainer.addChild(this.bigRoad);
 
             this.bigEyeRoad = new BABigEyeRoad(18 * 2, gridSizeR);
-            this.bigEyeRoad.x = 584;
+            this.bigEyeRoad.scaleX = 1.01;
+            this.bigEyeRoad.x = 584 + 12;
             this.bigEyeRoad.y = 98 + 6 * gridSizeR;
             this.roadsContainer.addChild(this.bigEyeRoad);
 
             this.smallRoad = new BASmallRoad(9 * 2, gridSizeR);
-            this.smallRoad.x = 584;
+            this.smallRoad.scaleX = 1.005;
+            this.smallRoad.x = 584 + 12;
             this.smallRoad.y = 98 + 6 * gridSizeR + 6 * (gridSizeR / 2);
             this.roadsContainer.addChild(this.smallRoad);
 
             this.cockroachRoad = new BACockroachRoad(9 * 2, gridSizeR);
-            this.cockroachRoad.x = 584 + gridSizeR * 9;
+            this.cockroachRoad.scaleX = 1.005;
+            this.cockroachRoad.x = 584 + 15 + gridSizeR * 9;
             this.cockroachRoad.y = 98 + 6 * gridSizeR + 6 * (gridSizeR / 2);
             this.roadsContainer.addChild(this.cockroachRoad);
 
             this.switchModeButton.touchEnabled = true;
             this.switchModeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchModeClick, this);
-            this.switchModeButton.x = 510;
-            this.switchModeButton.y = 462;
+            this.switchModeButton.x = 518;
+            this.switchModeButton.y = 472;
             this.addChild(this.switchModeButton);
 
             break;

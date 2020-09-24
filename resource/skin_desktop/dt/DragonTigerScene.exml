@@ -24,16 +24,16 @@
 						   tooltipText="'live.tooltip.confirmBet'" tooltipPosition="'above'"  touchEnabled="false" right="293" verticalCenter="0"/>
 		<ui:BaseAnimationButton id="_undoButton" width="55" height="55" verticalCenter="0"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true"
-								tooltipText="'live.tooltip.undo'" tooltipPosition="'above'"  right="220"/>
+								tooltipText="'mobile_ba_undo'" tooltipPosition="'above'"  right="220"/>
 		<ui:BaseAnimationButton id="_cancelButton" width="55" height="55" verticalCenter="0"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_clear" useColorFilter="true"
-								tooltipText="'live.tooltip.cancel'" tooltipPosition="'above'"  right="154"/>
+								tooltipText="'mobile_ba_clear'" tooltipPosition="'above'"  right="154"/>
 		<ui:BaseAnimationButton id="_doubleButton" width="55" height="55" verticalCenter="0"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_double" useColorFilter="true"
-								tooltipText="'live.tooltip.double'" tooltipPosition="'above'"  right="22"/>
+								tooltipText="'mobile_ba_double'" tooltipPosition="'above'"  right="22"/>
 		<ui:BaseAnimationButton id="_repeatButton" width="55" height="55" verticalCenter="0"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_rebet" useColorFilter="true"
-								tooltipText="'live.tooltip.repeat'" tooltipPosition="'above'"  right="88"/>
+								tooltipText="'mobile_ba_repeat'" tooltipPosition="'above'"  right="88"/>
 	</ui:Group>
 	</ui:Group>
 	<dt:DTRoadmapLeftPanel id="_leftGamePanel" width="692" height="304" x="14" y="1020" anchorOffsetX="0" anchorOffsetY="0"

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.lo.SSCTraditionalChaseBetListProfitTitle" width="1800" height="68" xmlns:e="http://ns.egret.com/eui">
+    <e:Label id="_txtTitleIndex" text="Label" x="91" y="0" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+    <e:Label id="_txtTitleRoundNumber" text="Label" x="263"  y="0"  size="20" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+    <e:Label id="_txtTitleMultiplier" text="Label" x="564" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+	<e:Label id="_txtTitleBetAmount" text="Label" x="752" y="0" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+	<e:Label id="_txtTitleReward" text="Label" x="970" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+	<e:Label id="_txtTitleExpectedWin" text="Label" x="1247" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+	<e:Label id="_txtTitleExpectedWinRatio" text="Label" x="1554" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+    <!--<e:Label id="_txtTitleRoundEndTime" text="Label" x="1463" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>-->
+</e:Skin>

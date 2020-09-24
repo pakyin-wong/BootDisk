@@ -38,7 +38,7 @@
 		                                hoverResName="d_lobby_quick_bet_notification_follow_hover_png" alpha="0"
 		                                horizontalCenter="0" y="180" width="148" height="42" label1text="快速投注" label2text="X" />
 		-->
-		<ui:BaseAnimationButton id="_favouriteButton" dbClass="common_ui" dbDisplay="d_common_gamesetting_video" width="44" height="42"  right="10" bottom="40" visible="false"/>
+		<ui:AnimatedToggleButton id="_favouriteButton" dbClass="lobby_ui" dbDisplay="d_lobby_icon_fav" width="44" height="42"  right="10" bottom="40" visible="false"/>
 	</e:Group>
 	<e:Component id="_chipLayerNode" width="100%" skinName="skin_desktop.ba.LiveListItemChipLayerSkin" anchorOffsetY="0"
 	             y="0" left="0" alpha="0" name="NormalChipLayerNode"  visible="false"/>

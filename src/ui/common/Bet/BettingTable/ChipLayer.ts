@@ -552,6 +552,10 @@ namespace we {
         let exceedBetLimit = false;
         if (checkLowerLimit) {
           exceedBetLimit = this.isExceedLowerBetLimit(fieldAmounts, betLimit);
+          if (exceedBetLimit) {
+            this.resetUnconfirmedBet();
+            this.dispatchEvent(new egret.Event('onUnconfirmBet'));
+          }
         } else {
           exceedBetLimit = this.isExceedUpperBetLimit(fieldAmounts, betLimit, betDetail);
         }
@@ -582,15 +586,27 @@ namespace we {
       protected abstract isExceedUpperBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail: data.BetDetail);
 
       protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
-        const totalUncfmAmount = this.getTotalUncfmBetAmount();
-        const totalCfmAmount = this.getTotalCfmBetAmount();
-
-        if (betLimit.minlimit > totalUncfmAmount + totalCfmAmount) {
-          return true;
+        for (const key of Object.keys(fieldAmounts)) {
+          if (fieldAmounts[key] === 0) {
+            continue;
+          }
+          if (fieldAmounts[key] < betLimit.minlimit) {
+            return true;
+          }
         }
-
         return false;
       }
+
+      // protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+      //   const totalUncfmAmount = this.getTotalUncfmBetAmount();
+      //   const totalCfmAmount = this.getTotalCfmBetAmount();
+
+      //   if (betLimit.minlimit > totalUncfmAmount + totalCfmAmount) {
+      //     return true;
+      //   }
+
+      //   return false;
+      // }
 
       protected checkLimit(checkBet, betDetail, maxlimit) {
         if (checkBet > maxlimit) {

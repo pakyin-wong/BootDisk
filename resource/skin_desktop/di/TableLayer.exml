@@ -4,36 +4,36 @@
         xmlns:di="we.di.*">
 	<!--<e:Image width="100%" height="100%" x="0" y="0" source="d_sic_panel_open_png" fillMode="scale" locked="true" />
 	-->
-	<ui:BettingGrid width="1386" height="473" roundCorner="[25,25,25,25]" gradientColors="[0x298be5, 0x00204c]"
+	<ui:BettingGrid width="1386" height="473" roundCorner="[25,25,25,25]" gradientColors="[0x298be5, 0x0B3D76]"
 	                gradientRatio="[0,255]" gradientAlphas="[1,1]" gradientType="RADIAL" gradientPosition="fromTopCenter" />
 	<e:Group id="_bigrow_1" height="151" width="1386" y="1">
 		<di:Row1 width="100%" height="100%" />
 		<e:Group id="_small_group" width="150" height="100%" x="1">
 			<e:Group horizontalCenter="0" verticalCenter="0">
 				<e:Group>
-					<e:Label fontFamily="Barlow" text="4-10" size="15" />
-					<e:Rect width="2" height="19" fillColor="0x257dbb" />
-					<e:Label fontFamily="Barlow" text="41%" size="15" />
+					<e:Label fontFamily="Barlow" text="4-10" size="22"  textColor="0xd8d8d8"/>
+					<e:Rect width="2" height="20" fillColor="0x257dbb" />
+					<e:Label fontFamily="Barlow" text="41%" size="22"  textColor="0xd8d8d8"/>
 					<e:layout>
 						<e:HorizontalLayout gap="6" horizontalAlign="center" />
 					</e:layout>
 				</e:Group>
 				<!--<ui:RunTimeLabel fontFamily="Barlow" id="_small_label" size="40" i18n="dice.small" />
 				-->
-				<ui:RunTimeLabel fontFamily="Barlow" id="_small_label" size="55" bold="true"  textColor="0x6697c4"/>
+				<ui:RunTimeLabel id="_small_label" size="55" bold="true"  textColor="0x6697c4"/>
 				<e:layout>
-					<e:VerticalLayout gap="8" horizontalAlign="center" />
+					<e:VerticalLayout gap="12" horizontalAlign="center" />
 				</e:layout>
 			</e:Group>
 		</e:Group>
 		<e:Group id="_odd_group" width="151" height="100%" x="152">
 			<e:Group horizontalCenter="0" verticalCenter="0">
-				<e:Label fontFamily="Barlow" text="54%" size="15" />
+				<e:Label fontFamily="Barlow" text="54%" size="22"  textColor="0xd8d8d8"/>
 				<!--<ui:RunTimeLabel fontFamily="Barlow" id="_odd_label" size="40" i18n="dice.odd" />
 				-->
-				<ui:RunTimeLabel fontFamily="Barlow" id="_odd_label" size="55" bold="true"  textColor="0x6697c4"/>
+				<ui:RunTimeLabel id="_odd_label" size="55" bold="true"  textColor="0x6697c4"/>
 				<e:layout>
-					<e:VerticalLayout gap="8" horizontalAlign="center" />
+					<e:VerticalLayout gap="12" horizontalAlign="center" />
 				</e:layout>
 			</e:Group>
 		</e:Group>
@@ -199,25 +199,25 @@
 		<e:Group id="_even_group" width="153" height="100%" x="1081">
 			<e:Group horizontalCenter="0" verticalCenter="0">
 				<e:Group>
-					<e:Label fontFamily="Barlow" text="46%" size="15" />
+					<e:Label fontFamily="Barlow" text="46%" size="22"  textColor="0xd8d8d8"/>
 					<e:layout>
 						<e:HorizontalLayout gap="6" horizontalAlign="center" />
 					</e:layout>
 				</e:Group>
 				<!--<ui:RunTimeLabel fontFamily="Barlow" id="_even_label" size="40" i18n="dice.even" />
 				-->
-				<ui:RunTimeLabel fontFamily="Barlow" id="_even_label" size="55" bold="true" textColor="0xdc4c36" />
+				<ui:RunTimeLabel id="_even_label" size="55" bold="true" textColor="0xdc4c36" />
 				<e:layout>
-					<e:VerticalLayout gap="8" horizontalAlign="center" />
+					<e:VerticalLayout gap="12" horizontalAlign="center" />
 				</e:layout>
 			</e:Group>
 		</e:Group>
 		<e:Group id="_big_group" width="151" height="100%" x="1233">
 			<e:Group horizontalCenter="0" verticalCenter="0">
 				<e:Group>
-					<e:Label fontFamily="Barlow" text="11-17" size="15" />
-					<e:Rect width="2" height="19" fillColor="0x257dbb" />
-					<e:Label fontFamily="Barlow" text="59%" size="15" />
+					<e:Label fontFamily="Barlow" text="11-17" size="22"  textColor="0xd8d8d8"/>
+					<e:Rect width="2" height="20" fillColor="0x257dbb" />
+					<e:Label fontFamily="Barlow" text="59%" size="22"  textColor="0xd8d8d8"/>
 					<e:layout>
 						<e:HorizontalLayout gap="6" horizontalAlign="center" />
 					</e:layout>
@@ -226,7 +226,7 @@
 				-->
 				<ui:RunTimeLabel id="_big_label" size="55" bold="true" textColor="0xdc4c36" />
 				<e:layout>
-					<e:VerticalLayout gap="8" horizontalAlign="center" />
+					<e:VerticalLayout gap="12" horizontalAlign="center" />
 				</e:layout>
 			</e:Group>
 		</e:Group>
@@ -425,8 +425,8 @@
 			<e:Group>
 				<!--<ui:RunTimeLabel fontFamily="Barlow" id="_single_label" size="15" left="0" i18n="dice.single" />
 				-->
-				<ui:RunTimeLabel fontFamily="Barlow" id="_single_label" size="15" left="0" />
-				<e:Label fontFamily="Barlow" text="1:1" size="15" right="0" />
+				<ui:RunTimeLabel id="_single_label" size="15" left="0" />
+				<e:Label fontFamily="Barlow" text="1:1" size="18" right="0"  textColor="0xd8d8d8"/>
 				<e:layout>
 					<e:HorizontalLayout gap="2" />
 				</e:layout>
@@ -435,8 +435,8 @@
 				<e:Group>
 					<!--<ui:RunTimeLabel fontFamily="Barlow" id="_double_label" size="15" i18n="dice.double" />
 					-->
-					<ui:RunTimeLabel fontFamily="Barlow" id="_double_label" size="15" />
-					<e:Label fontFamily="Barlow" text="2:1" size="15" />
+					<ui:RunTimeLabel id="_double_label" size="15" />
+					<e:Label fontFamily="Barlow" text="2:1" size="18"  textColor="0xd8d8d8"/>
 					<e:layout>
 						<e:HorizontalLayout gap="2" />
 					</e:layout>
@@ -444,8 +444,8 @@
 				<e:Group>
 					<!--<ui:RunTimeLabel fontFamily="Barlow" id="_triple_label" size="15" i18n="dice.triple" />
 					-->
-					<ui:RunTimeLabel fontFamily="Barlow" id="_triple_label" size="15" />
-					<e:Label fontFamily="Barlow" text="12:1" size="15" />
+					<ui:RunTimeLabel id="_triple_label" size="15" />
+					<e:Label fontFamily="Barlow" text="12:1" size="18"  textColor="0xd8d8d8"/>
 					<e:layout>
 						<e:HorizontalLayout gap="2" />
 					</e:layout>
@@ -483,89 +483,89 @@
 		</e:layout>
 	</e:Group>
 	<e:Group id="_label_group_1" height="27" width="1386" y="151">
-		<e:Rect fillColor="0x000000" fillAlpha="0.5" width="100%" height="100%" locked="true" />
+		<e:Rect fillColor="0x000000" fillAlpha="0.1" width="100%" height="100%"  locked="true"/>
 		<!--<e:Rect width="1" height="100%" left="0" top="0" fillColor="0x417DB9" anchorOffsetX="0" anchorOffsetY="0" />
 		<e:Rect width="1" height="100%" right="0" top="0" fillColor="0x417DB9" anchorOffsetX="0" anchorOffsetY="0" />
 		-->
 		<di:Row1Odd width="100%" height="100%" />
 		<e:Group width="302" height="27" x="2">
-			<e:Label fontFamily="Barlow" text="1:1" size="12" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="1:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="127" height="27" x="305">
-			<e:Label fontFamily="Barlow" text="10:1" size="12" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="10:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="136" height="27" x="433">
-			<e:Label fontFamily="Barlow" text="180:1" size="12" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="180:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="248" height="27" x="569">
-			<e:Label fontFamily="Barlow" text="30:1" size="12" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="30:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="136" height="27" x="819">
-			<e:Label fontFamily="Barlow" text="180:1" size="12" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="180:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="127" height="27" x="955">
-			<e:Label fontFamily="Barlow" text="10:1" size="12" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="10:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="302" height="27" x="1083">
-			<e:Label fontFamily="Barlow" text="1:1" size="12" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="1:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 	</e:Group>
 	<e:Group id="_label_group_2" height="27" width="1386" y="245">
-		<e:Rect fillColor="0x000000" fillAlpha="0.5" width="100%" height="100%" locked="true" />
+		<e:Rect fillColor="0x000000" fillAlpha="0.1" width="100%" height="100%"  locked="true"/>
 		<!--<e:Rect width="1" height="100%" left="0" top="0" fillColor="0x417DB9" anchorOffsetX="0" anchorOffsetY="0" />
 		<e:Rect width="1" height="100%" right="0" top="0" fillColor="0x417DB9" anchorOffsetX="0" anchorOffsetY="0" />
 		-->
 		<di:Row2Odd width="100%" height="100%" />
 		<e:Group width="96" height="27" x="2">
-			<e:Label fontFamily="Barlow" size="12" text="60:1" verticalCenter="0" horizontalCenter="0" />
+			<e:Label fontFamily="Barlow" size="18" text="60:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="98" height="27" x="99">
-			<e:Label fontFamily="Barlow" size="12" text="30:1" verticalCenter="0" horizontalCenter="0" />
+			<e:Label fontFamily="Barlow" size="18" text="30:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="199">
-			<e:Label fontFamily="Barlow" size="12" text="18:1" verticalCenter="0" horizontalCenter="0" />
+			<e:Label fontFamily="Barlow" size="18" text="18:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="298">
-			<e:Label fontFamily="Barlow" size="12" text="12:1" verticalCenter="0" horizontalCenter="0" />
+			<e:Label fontFamily="Barlow" size="18" text="12:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="397">
-			<e:Label fontFamily="Barlow" size="12" text="8:1" verticalCenter="0" horizontalCenter="0" />
+			<e:Label fontFamily="Barlow" size="18" text="8:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="496">
-			<e:Label fontFamily="Barlow" size="12" text="7:1" verticalCenter="0" horizontalCenter="0" />
+			<e:Label fontFamily="Barlow" size="18" text="7:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="595">
-			<e:Label fontFamily="Barlow" size="12" text="6:1" verticalCenter="0" horizontalCenter="0" />
+			<e:Label fontFamily="Barlow" size="18" text="6:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="694">
-			<e:Label fontFamily="Barlow" size="12" text="6:1" verticalCenter="0" horizontalCenter="0" />
+			<e:Label fontFamily="Barlow" size="18" text="6:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="793">
-			<e:Label fontFamily="Barlow" size="12" text="7:1" verticalCenter="0" horizontalCenter="0" />
+			<e:Label fontFamily="Barlow" size="18" text="7:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="892">
-			<e:Label fontFamily="Barlow" size="12" text="8:1" verticalCenter="0" horizontalCenter="0" />
+			<e:Label fontFamily="Barlow" size="18" text="8:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="991">
-			<e:Label fontFamily="Barlow" size="12" text="12:1" verticalCenter="0" horizontalCenter="0" />
+			<e:Label fontFamily="Barlow" size="18" text="12:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="1090">
-			<e:Label fontFamily="Barlow" size="12" text="18:1" verticalCenter="0" horizontalCenter="0" />
+			<e:Label fontFamily="Barlow" size="18" text="18:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="1189">
-			<e:Label fontFamily="Barlow" size="12" text="30:1" verticalCenter="0" horizontalCenter="0" />
+			<e:Label fontFamily="Barlow" size="18" text="30:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="96" height="27" x="1288">
-			<e:Label fontFamily="Barlow" size="12" text="60:1" verticalCenter="0" horizontalCenter="0" />
+			<e:Label fontFamily="Barlow" size="18" text="60:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 	</e:Group>
 	<e:Group id="_label_group_3" width="1386" height="26" x="0" y="383">
-		<e:Rect fillColor="0x000000" fillAlpha="0.5" width="100%" height="100%" locked="true" />
+		<e:Rect fillColor="0x000000" fillAlpha="0.1" width="100%" height="100%"  locked="true"/>
 		<!--<e:Rect width="1" height="100%" left="0" top="0" fillColor="0x417DB9" anchorOffsetX="0" anchorOffsetY="0" />
 		<e:Rect width="1" height="100%" right="0" top="0" fillColor="0x417DB9" anchorOffsetX="0" anchorOffsetY="0" />
 		-->
 		<di:Row3Odd width="100%" height="100%" />
-		<e:Label fontFamily="Barlow" text="5:1" size="12" horizontalCenter="0" verticalCenter="0" />
+		<e:Label fontFamily="Barlow" text="5:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
 	</e:Group>
 	<di:Corner width="24" height="24" left="0" top="0" rotation="0" anchorOffsetX="0" anchorOffsetY="0" visible="false" />
 	<di:Corner width="24" height="24" right="0" top="0" rotation="90" anchorOffsetX="0" anchorOffsetY="0" visible="false" />
