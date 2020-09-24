@@ -8,7 +8,7 @@ namespace we {
 
       protected initDisplayItem() {
         super.initDisplayItem();
-
+        
         if (!this.tableInfo || this._displayItem) {
           return;
         }
