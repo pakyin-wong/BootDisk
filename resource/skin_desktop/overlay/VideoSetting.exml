@@ -4,33 +4,34 @@
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
 		<e:Image source="popover_png" left="0" top="0" right="0" bottom="0" />
 		<e:Image id="close" width="0" height="0" />
-		<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="26" fontFamily="NotoSansCJKtc" textColor="0xce925e"
-		                 width="360" height="45"  verticalAlign="middle" textAlign="left" bold="true"/>
-
+		<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="26" textColor="0xce925e" width="360" height="45"
+		                 verticalAlign="middle" textAlign="left" bold="true" />
 		<!-- Video on/off row -->
-		<ui:RunTimeLabel id="_txt_videoSec" text="Label" x="48" y="107" size="24" fontFamily="NotoSansCJKtc" width="360" height="36" verticalAlign="middle" textAlign="left"/>
-		<ui:BaseButton id="switch_video" width="51" height="31" x="397" y="112" skinName="skin_desktop.SwitchBtn"/>
-
+		<e:Group id="_btn_videoSec" x="48" y="107" height="36" touchChildren="false">
+			<ui:RunTimeLabel id="_txt_videoSec" text="Label" size="24" fontFamily="NotoSansCJKtc" width="360" height="36" verticalAlign="middle" textAlign="left"/>
+			<ui:BaseButton id="switch_videoSec" width="51" height="31" skinName="skin_desktop.SwitchBtn" verticalCenter="0" x="342"/>
+		</e:Group>
 		<!-- Quality row -->
-		<ui:RunTimeLabel id="_txt_qualitySec" text="Label" x="48" y="183" size="24" fontFamily="NotoSansCJKtc" width="360" height="36" verticalAlign="middle" textAlign="left"/>
-
+		<ui:RunTimeLabel id="_txt_qualitySec" text="Label" x="48" y="183" size="24" width="360" height="36"
+		                 verticalAlign="middle" textAlign="left" />
 		<!-- Camera row -->
-		<ui:RunTimeLabel id="_txt_cameraSec" text="Label" x="48" y="325" size="24" fontFamily="NotoSansCJKtc" width="360" height="36" verticalAlign="middle" textAlign="left"/>
-
+		<ui:RunTimeLabel id="_txt_cameraSec" text="Label" x="48" y="325" size="24" width="360" height="36"
+		                 verticalAlign="middle" textAlign="left" />
 		<!-- Dropdowns -->
 		<e:Group id="_btn_quality" width="396" height="50" x="48" y="235">
 			<e:Rect fillColor="0xFFFFFF" fillAlpha="0" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50"
 			        ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
-			<ui:RunTimeLabel id="_txt_quality" text="Label" width="155" height="36" verticalAlign="middle" horizontalCenter="0" verticalCenter="0"
-			        textAlign="center" fontFamily="NotoSansCJKtc" size="24" alpha="0.7" scaleX="1" scaleY="1" />
+			<ui:RunTimeLabel id="_txt_quality" text="Label" width="155" height="36" verticalAlign="middle" horizontalCenter="0"
+			                 verticalCenter="0" textAlign="center" size="24" alpha="0.7" scaleX="1" scaleY="1" />
+			<e:Image x="340" y="9" source="d_lobby_button_down_normal_png" width="30" height="30" />
 		</e:Group>
 		<e:Group id="_btn_camera" width="396" height="50" x="48" y="377">
 			<e:Rect fillColor="0xFFFFFF" fillAlpha="0" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50"
 			        ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
-			<ui:RunTimeLabel id="_txt_camera" text="Label" width="155" height="36" verticalAlign="middle" horizontalCenter="0" verticalCenter="0"
-			        textAlign="center" fontFamily="NotoSansCJKtc" size="24" alpha="0.7" scaleX="1" scaleY="1" />
+			<ui:RunTimeLabel id="_txt_camera" text="Label" width="155" height="36" verticalAlign="middle" horizontalCenter="0"
+			                 verticalCenter="0" textAlign="center" size="24" alpha="0.7" scaleX="1" scaleY="1" />
+			<e:Image x="340" y="9" source="d_lobby_button_down_normal_png" width="30" height="30" />
 		</e:Group>
-
 		<ui:Panel id="_ddm_quality" width="396" x="48" y="285" skinName="skin_desktop.NavDropdown" maxHeight="200" />
 		<ui:Panel id="_ddm_camera" width="396" x="48" y="427" skinName="skin_desktop.NavDropdown" maxHeight="200" />
 	</e:Group>

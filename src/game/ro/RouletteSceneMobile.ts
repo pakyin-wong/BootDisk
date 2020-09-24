@@ -464,6 +464,10 @@ namespace we {
       protected updateTableInfoRelatedComponents() {
         super.updateTableInfoRelatedComponents();
         this._baGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
+
+        if (this._bottomGamePanel._tableInfoPanel) {
+          this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
+        }
         // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
       }
     }

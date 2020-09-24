@@ -315,6 +315,13 @@ namespace we {
       //     this._bottomGamePanel._betLimitDropDownBtn.renderText = () => ` ${bottomBetLimitItems.length > 0 ? bottomBetLimitItems[selectedIndex] : ''}`;
       //   }
       // }
+      protected updateTableInfoRelatedComponents() {
+        super.updateTableInfoRelatedComponents();
+
+        if (this._bottomGamePanel._tableInfoPanel) {
+          this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
+        }
+      }
 
       protected setStateIdle(isInit: boolean = false) {
         super.setStateIdle(isInit);

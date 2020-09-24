@@ -75,13 +75,8 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            // <<<<<<< HEAD
-            //             (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
-            //             (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
-            // =======
             (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
             (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
-            // >>>>>>> develop
           }
         }
         if (this._resultDisplay && env.orientation === 'portrait') {
@@ -288,24 +283,6 @@ namespace we {
         if (this._bottomGamePanel._tableInfoPanel) {
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
         }
-
-        /*
-        if (this._bottomGamePanel.normalChartPanel) {
-          this._bottomGamePanel.normalChartPanel.tableId = this._tableId;
-        }
-
-        if (this._bottomGamePanel.normalPairChartPanel) {
-          this._bottomGamePanel.normalPairChartPanel.tableId = this._tableId;
-        }
-
-        if (this._bottomGamePanel.shoeChartPanel) {
-          this._bottomGamePanel.shoeChartPanel.tableId = this._tableId;
-        }
-
-        if (this._bottomGamePanel.shoePairChartPanel) {
-          this._bottomGamePanel.shoePairChartPanel.tableId = this._tableId;
-        }
-        */
       }
 
       protected onMatchGoodRoadUpdate() {

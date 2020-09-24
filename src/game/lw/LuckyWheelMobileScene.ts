@@ -9,6 +9,7 @@ namespace we {
       protected _lblBaMode: ui.RunTimeLabel;
       protected _verticalGroup: eui.Group;
       private _common_listpanel: ui.BaseImageButton;
+      protected _originBetRelatedGroupY: number;
 
       protected _gradientmask: eui.Group;
       protected _shape: egret.Shape = new egret.Shape();
@@ -70,13 +71,22 @@ namespace we {
           this._tableLayer.alpha = this._chipLayer.alpha = 0.7;
         }
       }
-
+      protected setBetRelatedComponentsEnabled(enable: boolean) {
+        super.setBetRelatedComponentsEnabled(enable);
+        // if (this._betRelatedGroup && env.orientation === 'portrait') {
+        if (this._betRelatedGroup) {
+          egret.Tween.removeTweens(this._betRelatedGroup);
+          egret.Tween.get(this._betRelatedGroup).to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
+        }
+      }
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
         this._roadmapControl.setTableInfo(this._tableInfo);
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
+        this._originBetRelatedGroupY = this._betRelatedGroup.y;
+
         if (this._bottomGamePanel._tableInfoPanel) {
           this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);

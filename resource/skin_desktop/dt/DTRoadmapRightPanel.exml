@@ -11,17 +11,18 @@
                          size="24" />
         <ui:RunTimeLabel id="tieCountLabel" text="0" x="418.5" y="13" textAlign="left" anchorOffsetX="0" width="61"
                          size="24" />
-        <e:Image width="20" height="20" x="277" y="14" source="d_ba_roadmap_bar_bankerstate_png" />
-        <e:Image width="20" height="20" x="597.84" y="14" source="d_ba_goodroad_info_state_total_png" />
+        <!--<e:Image width="20" height="20" x="277" y="14" source="d_ba_roadmap_bar_bankerstate_png" />
         <e:Image width="20" height="20" x="336" y="14" source="d_ba_roadmap_bar_playerstate_png" />
         <e:Image width="20" height="20" x="395" y="14" source="d_ba_roadmap_bar_tierstate_png" />
+        -->
+        <e:Image width="20" height="20" x="597.84" y="14" source="d_ba_goodroad_info_state_total_png" />
         <ui:RunTimeLabel id="totalCountLabel" text="0" x="622" y="13" textAlign="left" anchorOffsetX="0" width="50.67"
                          size="24" />
         <e:Image id="iconBankerBead" width="66" height="30" x="142" y="9" source="d_ba_roadmap_topbar_textbg_banker_png"
                  anchorOffsetX="0" />
         <e:Image id="iconPlayerBead" width="66" height="30" x="9" y="9" source="d_ba_roadmap_topbar_textbg_player_png" />
-        <ui:RunTimeLabel id="playerButtonLabel" text="Ask Dn" x="9" y="11" textAlign="center" anchorOffsetX="0"
+        <ui:RunTimeLabel id="playerButtonLabel" text="Ask Dn" x="9" y="10" textAlign="center" anchorOffsetX="0"
                          width="66" size="16" height="28" verticalAlign="middle" touchEnabled="false" />
-        <ui:RunTimeLabel id="bankerButtonLabel" text="Ask Tr" x="142" y="11" textAlign="center" anchorOffsetX="0"
+        <ui:RunTimeLabel id="bankerButtonLabel" text="Ask Tr" x="142" y="10" textAlign="center" anchorOffsetX="0"
                          width="66" size="16" verticalAlign="middle" height="28" touchEnabled="false" />
 </e:Skin>

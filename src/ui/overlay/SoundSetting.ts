@@ -18,8 +18,13 @@ namespace we {
       private _txt_presetBgm: ui.RunTimeLabel;
       private _ddm_presetBgm: ui.Panel;
 
-      constructor() {
+      private soundAnimBtn: ui.SettingAnimationButton;
+
+      private _isOn: boolean;
+
+      constructor(soundAnimBtn) {
         super('SoundSetting');
+        this.soundAnimBtn = soundAnimBtn;
       }
 
       protected mount() {
@@ -31,9 +36,14 @@ namespace we {
         this._txt_liveRecord.renderText = () => `${i18n.t('nav.system.liveRecord')}`;
         this._txt_soundfx.renderText = () => `${i18n.t('nav.system.soundfx')}`;
         this._txt_bgm.renderText = () => `${i18n.t('nav.system.bgm')}`;
+        this._txt_presetBgm.renderText = () => `${i18n.t('nav.system.bgm')}`;
 
         const _arrCol_currLang = new eui.ArrayCollection([ui.NewDropdownItem('sc', () => `简体中文`), ui.NewDropdownItem('tc', () => `繁體中文`), ui.NewDropdownItem('en', () => `English`)]);
-        const _arrCol_presetBgm = new eui.ArrayCollection([ui.NewDropdownItem('01', () => `${i18n.t('nav.audio.bgm')} 01`)]);
+        const _arrCol_presetBgm = new eui.ArrayCollection([
+          ui.NewDropdownItem('1', () => `${i18n.t('nav.system.bgm')} 01`),
+          ui.NewDropdownItem('2', () => `${i18n.t('nav.system.bgm')} 02`),
+          ui.NewDropdownItem('3', () => `${i18n.t('nav.system.bgm')} 03`),
+        ]);
 
         if (this._ddm_currLang) {
           this._ddm_currLang.isDropdown = true;
@@ -51,7 +61,7 @@ namespace we {
           this._ddm_presetBgm.setToggler(this._btn_presetBgm);
           this._ddm_presetBgm.dropdown.review = this._txt_presetBgm;
           this._ddm_presetBgm.dropdown.data.replaceAll(_arrCol_presetBgm.source);
-          this._ddm_presetBgm.dropdown.select('01');
+          this._ddm_presetBgm.dropdown.select(env.bgm.toString());
         }
         utils.DropdownCreator.new({
           toggler: this._btn_currLang,
@@ -65,12 +75,18 @@ namespace we {
           review: this._txt_presetBgm,
           arrCol: _arrCol_presetBgm,
           title: () => ``,
-          selected: '01',
+          selected: env.bgm,
         });
 
         this._slider_liveRecord.value = dir.audioCtr.volumeLive;
         this._slider_soundfx.value = dir.audioCtr.volumeFX;
         this._slider_bgm.value = dir.audioCtr.volumeBGM;
+
+        if (env.bgm === 0 && dir.audioCtr.volumeLive === 0 && dir.audioCtr.volumeBGM === 0 && dir.audioCtr.volumeFX === 0) {
+          this._isOn = false;
+        } else {
+          this._isOn = true;
+        }
 
         this.addListeners();
       }
@@ -84,6 +100,14 @@ namespace we {
         this._slider_liveRecord.addEventListener(ui.Slider.PROGRESS, this.onLiveRecordAdjust, this);
         this._slider_soundfx.addEventListener(ui.Slider.PROGRESS, this.onSoundFxAdjust, this);
         this._slider_bgm.addEventListener(ui.Slider.PROGRESS, this.onBGMAdjust, this);
+
+        this._slider_liveRecord.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.checkChange, this);
+        this._slider_soundfx.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.checkChange, this);
+        this._slider_bgm.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.checkChange, this);
+
+        this._slider_liveRecord.addEventListener(egret.TouchEvent.TOUCH_END, this.checkChange, this);
+        this._slider_soundfx.addEventListener(egret.TouchEvent.TOUCH_END, this.checkChange, this);
+        this._slider_bgm.addEventListener(egret.TouchEvent.TOUCH_END, this.checkChange, this);
 
         if (env.isMobile) {
           this._btn_currLang.addEventListener('DROPDOWN_ITEM_CHANGE', this.onLangSelect, this);
@@ -111,27 +135,44 @@ namespace we {
       private onLiveRecordAdjust(e) {
         dir.audioCtr.volumeLive = e.data;
         this._slider_liveRecord.value = dir.audioCtr.volumeLive;
+        utils.debounce(this.checkChange, 200, this);
       }
 
       private onSoundFxAdjust(e) {
         dir.audioCtr.volumeFX = e.data;
         this._slider_soundfx.value = dir.audioCtr.volumeFX;
+        utils.debounce(this.checkChange, 200, this);
       }
 
       private onBGMAdjust(e) {
         dir.audioCtr.volumeBGM = e.data;
         this._slider_bgm.value = dir.audioCtr.volumeBGM;
+        utils.debounce(this.checkChange, 200, this);
       }
 
       private onLangSelect(e) {
         i18n.setLang(e.data);
         this._ddm_currLang && this._ddm_currLang.dropdown.select(env.language);
+        this.checkChange();
       }
 
       private onBgmSelect(e) {
         env.bgm = e.data;
         dir.evtHandler.dispatch(core.Event.BGM_UPDATE, e.data);
         this._ddm_presetBgm && this._ddm_presetBgm.dropdown.select(env.bgm);
+        this.checkChange();
+      }
+
+      protected checkChange() {
+        if (dir.audioCtr.volumeLive === 0 && dir.audioCtr.volumeBGM === 0 && dir.audioCtr.volumeFX === 0 && this._isOn) {
+          this.soundAnimBtn.dispatchEvent(new egret.Event('SWITCH_TO_OFF'));
+          this._isOn = false;
+        } else if ((dir.audioCtr.volumeLive > 0 || dir.audioCtr.volumeBGM > 0 || dir.audioCtr.volumeFX > 0) && !this._isOn) {
+          this.soundAnimBtn.dispatchEvent(new egret.Event('SWITCH_TO_ON'));
+          this._isOn = true;
+        } else {
+          this.soundAnimBtn.dispatchEvent(new egret.Event('SETTING_UPDATE'));
+        }
       }
 
       protected initOrientationDependentComponent() {
