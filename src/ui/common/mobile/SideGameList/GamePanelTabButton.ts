@@ -61,7 +61,6 @@ namespace we {
           egret.Tween.removeTweens(this);
           egret.Tween.get(this).to({ width: this._content.measuredWidth + 40 }, this.tweenDuration);
           this._image.source = `${this.imageKey}_png`;
-          console.log('this._image.source',this.imageKey)
         } else {
           if (this._extends.parent) {
             this._content.removeChild(this._extends);
@@ -124,21 +123,25 @@ namespace we {
           if (value > 0) {
             this.setBadgeVisible(true);
             this._label.renderText = () => `${i18n.t(this.labelKey)} (${value})`;
-            console.log('with value');
+             console.log('!this.focus this.width = this._content.width;',this._content.width)
           } else {
             this.setBadgeVisible(false);
             this._label.renderText = () => `${i18n.t(this.labelKey)}`;
-            console.log('without value');
+            console.log('!this.focus this.width = this._content.width;111111111111',this._content.width)
           }
         } else {
            if (value > 0) {
             // this.setBadgeVisible(true);
             this.validateNow();
             this._label.renderText = () => `${i18n.t(this.labelKey)} (${value})`;
+            console.log('this.focus this.width = this._content.width;',this._content.width)
+            this._setFocus(true);
           } else {
             // this.setBadgeVisible(false);
             this.validateNow();
             this._label.renderText = () => `${i18n.t(this.labelKey)}`;
+            console.log('this.focus this.width = this._content.width;',this._content.width)
+            this._setFocus(true);
           }
         }
       }
