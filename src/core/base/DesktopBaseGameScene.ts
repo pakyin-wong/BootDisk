@@ -76,7 +76,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo> evt.data;
+          const stat = <data.TableInfo>evt.data;
           if (stat.tableid === this._tableId) {
             this._leftGamePanel.updateStat();
             this._rightGamePanel.updateStat();
@@ -87,7 +87,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             this._leftGamePanel.updateTableBetInfo();
             this._rightGamePanel.updateTableBetInfo();

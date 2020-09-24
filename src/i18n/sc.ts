@@ -66,7 +66,7 @@ namespace we {
       overlaypanel_customroad_default: '还原预设',
       overlaypanel_customroad_selectall: '全选',
 
-      overlaypanel_bethistory_title: '投注记录',
+      overlaypanel_bethistory_title: '游戏记录',
       overlaypanel_bethistory_tab_all: '游戏总览',
       overlaypanel_bethistory_tab_live: '真人游戏',
       overlaypanel_bethistory_tab_lottery: '彩票游戏',
@@ -83,7 +83,7 @@ namespace we {
       overlaypanel_bethistory_recordtab_game: '游戏',
       overlaypanel_bethistory_recordtab_round: '局数',
       overlaypanel_bethistory_recordtab_replay: '重播',
-      overlaypanel_bethistory_recordtab_remark: '备注',
+      overlaypanel_bethistory_recordtab_remark: '输嬴',
       overlaypanel_bethistory_recordtab_bettype: '投注项目',
       overlaypanel_bethistory_recordtab_betamount: '投注额',
       overlaypanel_bethistory_recordtab_win: '派彩',
@@ -106,7 +106,7 @@ namespace we {
       overlaypanel_bethistorylottery_tab_single: '投注记录',
       overlaypanel_bethistorylottery_tab_multi: '追号记录',
 
-      overlaypanel_bethistorylottery_record_round: '奖期',
+      overlaypanel_bethistorylottery_record_round: '投注编号',
       overlaypanel_bethistorylottery_record_bettype: '类型',
       overlaypanel_bethistorylottery_record_betgroup: '玩法',
       overlaypanel_bethistorylottery_record_betfield: '投注项目',
