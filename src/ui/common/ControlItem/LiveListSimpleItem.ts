@@ -12,6 +12,8 @@ namespace we {
       protected _betChipSetNode: eui.Component;
       protected _button: ui.LobbyQuickBetAnimButton;
 
+      protected _quickBetBtnGroup: eui.Group;
+
       protected _arrangeProperties = [
         'x',
         'y',
@@ -109,10 +111,10 @@ namespace we {
       // set the position of the children components
       protected arrangeComponents() {
         for (const att of this._arrangeProperties) {
-          if (this._tableLayer) {
+          if (this._tableLayer && att !== 'height') {
             this._tableLayer[att] = this._tableLayerNode[att];
           }
-          if (this._chipLayer) {
+          if (this._chipLayer && att !== 'height') {
             this._chipLayer[att] = this._chipLayerNode[att];
           }
           if (this._roadmapNode && this._bigRoad) {
@@ -212,7 +214,7 @@ namespace we {
       protected runtimeGenerateTableLayer() {
         this.generateTableLayer();
         for (const att of this._arrangeProperties) {
-          if (this._tableLayer) {
+          if (this._tableLayer && att !== 'height') {
             this._tableLayer[att] = this._tableLayerNode[att];
           }
         }
@@ -230,6 +232,8 @@ namespace we {
         if (!this._chipLayer) {
           this.runtimeGenerateChipLayer();
         }
+        if (this._quickBetBtnGroup) this._quickBetBtnGroup.y = this._tableLayer.height - 7;
+
         // create a
 
         super.showQuickBetGroup();

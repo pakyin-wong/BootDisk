@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.dt.LiveListItemTableLayerSkin" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="Normal">
-	<e:Group id="_dragonGroup" x="0" y="0" width="193" height="177">
-		<e:Image id="_dragonImage" width="193" height="177" source="d_common_quickbet_betarea_general_dragon_png"
-		         name="d_common_quickbet_betarea_general_dragon_hover_png" />
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="Normal" height="110">
+	<e:Group id="_dragonGroup" x="0" y="0" width="193" height="110">
+		<e:Image id="_dragonImage" width="193" source="d_common_quickbet_betarea_general_dragon_png"
+		         name="d_common_quickbet_betarea_general_dragon_hover_png"  top="0" bottom="0"/>
 		<ui:RunTimeLabel id="_dragonLabel" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_tieGroup" includeIn="Normal" x="193" y="0" width="193" height="177">
+	<e:Group id="_tieGroup" includeIn="Normal" x="193" y="0" width="193" height="110">
 		<e:Image id="_tieImage" source="d_common_quickbet_betarea_general_tie_png"
-		         name="d_common_quickbet_betarea_general_tie_hover_png" width="193" height="177" />
+		         name="d_common_quickbet_betarea_general_tie_hover_png" width="193"  top="0" bottom="0"/>
 		<ui:RunTimeLabel id="_tieLabel" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_tigerGroup" x="386" y="0" width="193" height="177">
+	<e:Group id="_tigerGroup" x="386" y="0" width="193" height="110">
 		<e:Image id="_tigerImage" source="d_common_quickbet_betarea_general_tiger_png"
-		         name="d_common_quickbet_betarea_general_tiger_hover_png" width="193" height="177" />
+		         name="d_common_quickbet_betarea_general_tiger_hover_png" width="193"  bottom="0" top="0"/>
 		<ui:RunTimeLabel id="_tigerLabel" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
 </e:Skin>

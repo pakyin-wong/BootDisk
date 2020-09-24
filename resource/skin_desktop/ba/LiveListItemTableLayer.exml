@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.ba.LiveListItemTableLayerSkin" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" xmlns:ui="we.ui.*" states="Normal,SuperSix">
+        xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" xmlns:ui="we.ui.*" states="Normal,SuperSix" height="177">
 	<e:Group id="_playerGroup" x="0" y="0" width="289" height="96">
 		<ui:BettingGrid id="_playerImage" width="289" height="96" 
 		                gradientColors="[0x2e95ff, 0x305acc]" gradientType="RADIAL" gradientPosition="topRight" />
