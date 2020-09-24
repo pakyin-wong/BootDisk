@@ -15,7 +15,7 @@ namespace we {
 
       public constructor(size: number) {
         super();
-        this.darkModeNumber = 0;
+        this.darkModeNumber = env.mode === 1 ? 1 : 0;
         this.size = size;
         this._iconShape = new egret.Shape();
         this.addChild(this._iconShape);
@@ -34,6 +34,7 @@ namespace we {
         this._iconText.x = this._offsetX;
         this._iconText.y = this._offsetY;
 
+        dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
         // this._iconText = new egret.BitmapText();
       }
 
@@ -54,16 +55,7 @@ namespace we {
 
       public animate() {
         egret.Tween.removeTweens(this);
-        egret.Tween.get(this)
-          .to({ alpha: 0.2 }, 300)
-          .to({ alpha: 1 }, 300)
-          .wait(400)
-          .to({ alpha: 0.2 }, 300)
-          .to({ alpha: 1 }, 300)
-          .wait(400)
-          .to({ alpha: 0.2 }, 300)
-          .to({ alpha: 1 }, 300)
-          .wait(400);
+        egret.Tween.get(this).to({ alpha: 0.2 }, 300).to({ alpha: 1 }, 300).wait(400).to({ alpha: 0.2 }, 300).to({ alpha: 1 }, 300).wait(400).to({ alpha: 0.2 }, 300).to({ alpha: 1 }, 300).wait(400);
 
         if (this._iconShape) {
           egret.Tween.removeTweens(this._iconShape);
@@ -76,16 +68,7 @@ namespace we {
       }
 
       protected tweenObj(tweener: egret.Tween) {
-        tweener
-          .to({ alpha: 0.2 }, 300)
-          .to({ alpha: 1 }, 300)
-          .wait(400)
-          .to({ alpha: 0.2 }, 300)
-          .to({ alpha: 1 }, 300)
-          .wait(400)
-          .to({ alpha: 0.2 }, 300)
-          .to({ alpha: 1 }, 300)
-          .wait(400);
+        tweener.to({ alpha: 0.2 }, 300).to({ alpha: 1 }, 300).wait(400).to({ alpha: 0.2 }, 300).to({ alpha: 1 }, 300).wait(400).to({ alpha: 0.2 }, 300).to({ alpha: 1 }, 300).wait(400);
       }
 
       public stopAnimate() {
@@ -101,6 +84,9 @@ namespace we {
 
       public dispose() {
         this.stopAnimate();
+        if (dir.evtHandler.hasEventListener(we.core.Event.MODE_UPDATE)) {
+          dir.evtHandler.removeEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
+        }
       }
 
       public set DarkMode(n: number) {
@@ -112,6 +98,10 @@ namespace we {
 
       public get DarkMode(): number {
         return this.darkModeNumber;
+      }
+
+      protected onModeUpdate(e: egret.Event) {
+        this.darkModeNumber = env.mode === 1 ? 1 : 0;
       }
 
       public addToLayer(shapeLayer: egret.DisplayObjectContainer, textLayer: egret.DisplayObjectContainer) {

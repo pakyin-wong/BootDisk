@@ -9,11 +9,13 @@ namespace we {
       leaveTable(tableID: string);
       getTableList(filter?: string);
       bet(tableID: string, betDetails: data.BetDetail[], callback: (result) => void);
+      lotteryContinuousBet(tableID: string, betDetails: data.BetDetail[], roundBetDetails: data.LotteryBetCommand[], callback: (result) => void);
       getTableHistory();
       getBetHistory(filter: any, callback: (res: any) => void, thisArg: any);
       getLobbyMaterial(callback: (res: any) => void); // res: LobbyMaterial to any, since it could be error
       updateSetting(key: string, value: string);
       getGoodRoad();
+      batchUpdateAllGoodRoad(updatedefaultItem: any[], updatecustomItem: any[]);
       updateCustomGoodRoad(id: string, data: any);
       updateDefaultGoodRoad(ids: string[]);
       createGoodRoad(name: string, pattern: string);

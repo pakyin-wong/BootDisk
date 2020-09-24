@@ -47,9 +47,13 @@ namespace we {
           this.addGradentMask();
         }
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onExit, this);
+        dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.updateBetLimit, this);
         mouse.setButtonMode(this.close, true);
       }
-
+      public onExit() {
+        super.onExit();
+        dir.evtHandler.removeEventListener(core.Event.BET_LIMIT_CHANGE, this.updateBetLimit, this);
+      }
       protected pSuperSixMax: eui.Label;
       protected pSuperSixOdd: eui.Label;
 
@@ -65,6 +69,23 @@ namespace we {
         this.superSixLabel.text = i18n.t('baccarat.superSix') + ' (' + i18n.t('baccarat.noCommission') + ')';
       }
 
+      protected updateBetLimit() {
+        const config = this.getConfig();
+
+        config.forEach(item => {
+          if (item.data) {
+            if (item.lblMax) {
+              item.lblMax.text = item.data.maxlimit ? utils.numberToFaceValue(item.data.maxlimit) : '-';
+            }
+            item.lblOdd.text = item.data.odd ? item.data.odd : '-';
+          } else {
+            if (item.lblMax) {
+              item.lblMax.text = '-';
+            }
+            item.lblOdd.text = '-';
+          }
+        });
+      }
       private addGradentMask() {
         this._mask = new egret.Shape();
         const gr = this._mask.graphics;

@@ -60,24 +60,7 @@ namespace we {
         this.fillColor_active = '0x00244e,0x034a94,-180';
         this.fillAlpha_active = 1;
 
-        // const shape = new egret.Shape();
-        // shape.graphics.beginFill(0x214a72, 1);
-        // shape.graphics.drawCircle(25, 25, 25);
-        // shape.graphics.endFill();
-        // this.addChild(shape);
-        // shape.x = shape.y = 0;
-        // shape.width = shape.height = 50;
-
         this._lblValue = new ui.RunTimeLabel();
-
-        // const textGrp = new eui.Group();
-        // textGrp.width = textGrp.height = 50;
-        // textGrp.touchChildren = false;
-        // textGrp.touchThrough = true;
-        // textGrp.touchEnabled = false;
-        // this.addChildAt(textGrp, 1);
-        // textGrp.horizontalCenter = 0;
-        // textGrp.verticalCenter = 0;
 
         if (text.length > 1) {
           this._lblValue.width = 150;
@@ -94,18 +77,7 @@ namespace we {
         this.addChildAt(this._lblValue, 1);
         this._lblValue.horizontalCenter = 0;
         this._lblValue.verticalCenter = 0;
-
-        // this._image = new eui.Image();
-        //   this._image.source =
       }
-
-      // public get value() {
-      //   return this._value;
-      // }
-
-      // public setButtonCallback(func) {
-      //   this.this.addEventListener(egret.TouchEvent.TOUCH_TAP, func, this);
-      // }
 
       public get betValue() {
         return this._betValue;

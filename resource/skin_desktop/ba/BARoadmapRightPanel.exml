@@ -2,12 +2,14 @@
 <e:Skin class="skin_desktop.BARoadmapRightPanel" width="675" height="304" xmlns:e="http://ns.egret.com/eui"
         xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
         <e:Rect id="mask" width="671" height="300" x="2" y="2" strokeWeight="0" ellipseHeight="16" ellipseWidth="16"
-                fillColor="0x7c7c7c"/>
+                fillColor="0x7c7c7c" />
         <!--<e:Rect id="topBar" width="671" height="47" x="2" y="0" fillColor="0x1F242B" strokeWeight="0"
-                    ellipseHeight="0" ellipseWidth="0" />--> 
+                    ellipseHeight="0" ellipseWidth="0" />
+        -->
         <ui:RoundRectShape id="topBar" cornerTL_TR_BL_BR="14,14,0,0" width="671" height="304" x="2" y="0" stroke="0"
-                           fillColor="0x1d242c" strokeIn="2" strokeInColor="0x434343" fillAlpha="0.9" strokeInAlpha="0.9" touchEnabled="false"/>
-        <ui:RunTimeLabel id="totalCountLabel" text="0" x="622" y="13" textAlign="left" anchorOffsetX="0" width="50.67"
+                           fillColor="0x1d242c" strokeIn="2" strokeInColor="0x434343" fillAlpha="0.9"
+                           strokeInAlpha="0.9" touchEnabled="false" />
+        <ui:RunTimeLabel id="totalCountLabel" text="0" x="630" y="13" textAlign="left" anchorOffsetX="0" width="40"
                          size="24" />
         <ui:RunTimeLabel id="bankerCountLabel" text="0" x="301" y="13" textAlign="left" anchorOffsetX="0" width="61"
                          size="24" />
@@ -19,23 +21,24 @@
                          width="61" size="24" />
         <ui:RunTimeLabel id="playerPairCountLabel" text="0" x="536.5" y="13" textAlign="left" anchorOffsetX="0"
                          width="61" size="24" />
-        <e:Image width="20" height="20" x="277" y="14" source="d_ba_roadmap_bar_bankerstate_png"
-                tooltipText="'live.tooltip.roadmapBankerRound'" tooltipPosition="'above'" />
+        <!--<e:Image width="20" height="20" x="277" y="14" source="d_ba_roadmap_bar_bankerstate_png"
+                     tooltipText="'live.tooltip.roadmapBankerRound'" tooltipPosition="'above'" />
         <e:Image width="20" height="20" x="336" y="14" source="d_ba_roadmap_bar_playerstate_png"
-                tooltipText="'live.tooltip.roadmapPlayerRound'" tooltipPosition="'above'" />
+                 tooltipText="'live.tooltip.roadmapPlayerRound'" tooltipPosition="'above'" />
         <e:Image width="20" height="20" x="395" y="14" source="d_ba_roadmap_bar_tierstate_png"
-                tooltipText="'live.tooltip.roadmapTierRound'" tooltipPosition="'above'" />
+                 tooltipText="'live.tooltip.roadmapTierRound'" tooltipPosition="'above'" />
+        -->
         <e:Image width="20" height="20" x="454" y="14" source="d_ba_roadmap_bar_bankerpairstate_png"
-                tooltipText="'live.tooltip.roadmapBankerPairRound'" tooltipPosition="'above'" />
+                 tooltipText="'live.tooltip.roadmapBankerPairRound'" tooltipPosition="'above'" />
         <e:Image width="20" height="20" x="513" y="14" source="d_ba_roadmap_bar_playerpairstate_png"
-                tooltipText="'live.tooltip.roadmapPlayerPairRound'" tooltipPosition="'above'" />
-        <e:Image width="20" height="20" x="597.84" y="14" source="d_ba_goodroad_info_state_total_png"
-                tooltipText="'live.tooltip.roadmapTotalRound'" tooltipPosition="'above'" />
+                 tooltipText="'live.tooltip.roadmapPlayerPairRound'" tooltipPosition="'above'" />
+        <e:Image width="20" height="20" x="606" y="14" source="d_ba_goodroad_info_state_total_png"
+                 tooltipText="'live.tooltip.roadmapTotalRound'" tooltipPosition="'above'" />
         <e:Image id="iconBankerBead" width="66" height="30" x="142" y="9" source="d_ba_roadmap_topbar_textbg_banker_png"
                  anchorOffsetX="0" />
         <e:Image id="iconPlayerBead" width="66" height="30" x="9" y="9" source="d_ba_roadmap_topbar_textbg_player_png" />
-        <ui:RunTimeLabel id="playerButtonLabel" text="Ask P" x="9" y="11" textAlign="center" anchorOffsetX="0"
-                         width="66" size="16" height="28" verticalAlign="middle" touchEnabled="false" />
-        <ui:RunTimeLabel id="bankerButtonLabel" text="Ask B" x="142" y="11" textAlign="center" anchorOffsetX="0"
-                         width="66" size="16" verticalAlign="middle" height="28" touchEnabled="false" />
+        <ui:RunTimeLabel id="playerButtonLabel" text="Ask P" x="9" y="10" textAlign="center" anchorOffsetX="0"
+                         width="66" size="16" height="28" verticalAlign="middle" touchEnabled="false" bold="true" />
+        <ui:RunTimeLabel id="bankerButtonLabel" text="Ask B" x="142" y="10" textAlign="center" anchorOffsetX="0"
+                         width="66" size="16" verticalAlign="middle" height="28" touchEnabled="false" bold="true" />
 </e:Skin>

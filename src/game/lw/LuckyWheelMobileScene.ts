@@ -9,7 +9,6 @@ namespace we {
       protected _lblBaMode: ui.RunTimeLabel;
       protected _verticalGroup: eui.Group;
       private _common_listpanel: ui.BaseImageButton;
-
       protected _originBetRelatedGroupY: number;
 
       protected _gradientmask: eui.Group;
@@ -72,7 +71,6 @@ namespace we {
           this._tableLayer.alpha = this._chipLayer.alpha = 0.7;
         }
       }
-
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
         // if (this._betRelatedGroup && env.orientation === 'portrait') {
@@ -81,7 +79,6 @@ namespace we {
           egret.Tween.get(this._betRelatedGroup).to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
         }
       }
-      
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
@@ -207,7 +204,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo> evt.data;
+          const stat = <data.TableInfo>evt.data;
           if (stat.tableid === this._tableId) {
             this._roadmapControl.updateRoadData();
           }
@@ -243,7 +240,7 @@ namespace we {
 
         // console.log('checkResultMessage', this._gameData);
 
-        const resultNo = (<lw.GameData> this._gameData).value; // a string type
+        const resultNo = (<lw.GameData>this._gameData).value; // a string type
         (this._tableLayer as lw.TableLayer).flashFields(`LW_${parseInt(resultNo, 10) - 1}`);
         // const lwGameResultMessage = new lw.GameResultMessage();
         // lwGameResultMessage.type = null;

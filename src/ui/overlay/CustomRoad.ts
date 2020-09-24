@@ -102,7 +102,7 @@ namespace we {
             this.setAllRoadEnable(false);
           }
           customRoadHolderList.forEach(holder => {
-            const element = <ba.GoodRoadListHolder> holder;
+            const element = <ba.GoodRoadListHolder>holder;
             // this.onAllRoadModify(element)
             const activebutton = element.item.activeButton;
             if (this._selectAllButton._buttonState === 0) {
@@ -124,13 +124,11 @@ namespace we {
         const allGoadRoad = env.goodRoadData; // GoodRoadMapData {custom: Array[1], default: Array[10]}
         const allDefaultGoadRoad = allGoadRoad.default;
         const allCustomGoadRoad = allGoadRoad.custom;
-        if (setEnable === true) {
+        if (setEnable) {
           allDefaultGoadRoad.forEach(element => {
             element.enabled = true;
             defaultarray.push(element.id);
           });
-          dir.socket.updateDefaultGoodRoad(defaultarray);
-
           allCustomGoadRoad.forEach(element => {
             let customid;
             let customdata;
@@ -139,11 +137,12 @@ namespace we {
             customdata.enabled = true;
             customarray.push([customid, customdata]);
           });
-          customarray.forEach(element => {
-            dir.socket.updateCustomGoodRoad(element[0], element[1]);
-          });
+          // dir.socket.updateDefaultGoodRoad(defaultarray);
+          dir.socket.batchUpdateAllGoodRoad(defaultarray, customarray);
         } else {
-          // let allCustomGoadRoad = allGoadRoad.custom;
+          allDefaultGoadRoad.forEach(element => {
+            element.enabled = false;
+          });
           allCustomGoadRoad.forEach(element => {
             let customid;
             let customdata;
@@ -152,23 +151,11 @@ namespace we {
             customdata.enabled = false;
             customarray.push([customid, customdata]);
           });
-          customarray.forEach(element => {
-            dir.socket.updateCustomGoodRoad(element[0], element[1]);
-          });
-          // defaultarray = [];
-          allDefaultGoadRoad.forEach(element => {
-            // if (element.id === "r1") {
-            // }
-            element.enabled = false;
-          });
-          dir.socket.updateDefaultGoodRoad(defaultarray);
+          // dir.socket.updateDefaultGoodRoad(defaultarray);
+          dir.socket.batchUpdateAllGoodRoad(defaultarray, customarray);
         }
       }
-      // protected onAllRoadModify(holder: ba.GoodRoadListHolder) {
-      //   console.log('env.goodRoadData',env.goodRoadData)
-      //   console.log('<ba.GoodRoadListHolder>', holder);
-      //   console.log('<ba.GoodRoadListHolder> holder._roadId', holder._roadId);
-      // }
+
       protected onRoadAdd(e: egret.Event) {
         if (!this._editRoadPanel.isActivated) {
           this._editRoadPanel.show();

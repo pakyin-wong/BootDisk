@@ -111,11 +111,7 @@ namespace we {
         if (this._gradientColor === null) {
           this._shape.graphics.beginFill(this._color, 1);
         } else {
-          const fillcolor = this._gradientColor
-            .toString()
-            .split(' ')
-            .join('')
-            .split(',');
+          const fillcolor = this._gradientColor.toString().split(' ').join('').split(',');
           const matrix = new egret.Matrix();
           matrix.createGradientBox(1012, 260);
           this._shape.graphics.beginGradientFill(egret.GradientType.LINEAR, [fillcolor[0], fillcolor[1]], [1, 1], [0, 255], matrix);
@@ -137,7 +133,15 @@ namespace we {
         }
 
         if (length >= this._roundCorner[7]) {
-          this.fillShape();
+          if (this._gradientColor === null) {
+            this._shape.graphics.beginFill(this._color, 1);
+          } else {
+            const fillcolor = this._gradientColor.toString().split(' ').join('').split(',');
+            const matrix = new egret.Matrix();
+            matrix.createGradientBox(1012, 260);
+            this._shape.graphics.beginGradientFill(egret.GradientType.LINEAR, [fillcolor[0], fillcolor[1]], [1, 1], [0, 255], matrix);
+          }
+
           let points;
           if (this._direction === 'vertical') {
             points = utils.roundRectPoints(this.width, length, this._roundCorner, 0, this.height - length);

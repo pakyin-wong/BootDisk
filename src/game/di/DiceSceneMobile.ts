@@ -23,7 +23,7 @@ namespace we {
       protected _baGameID: ui.RunTimeLabel;
 
       private _common_listpanel: ui.BaseImageButton;
-      
+
       protected _originBetRelatedGroupY: number;
 
       protected parser: ba.BARoadParser;
@@ -264,7 +264,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo> evt.data;
+          const stat = <data.TableInfo>evt.data;
           if (stat.tableid === this._tableId) {
             this._roadmapControl.updateRoadData();
             // this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
@@ -325,6 +325,13 @@ namespace we {
       //     this._bottomGamePanel._betLimitDropDownBtn.renderText = () => ` ${bottomBetLimitItems.length > 0 ? bottomBetLimitItems[selectedIndex] : ''}`;
       //   }
       // }
+      protected updateTableInfoRelatedComponents() {
+        super.updateTableInfoRelatedComponents();
+
+        if (this._bottomGamePanel._tableInfoPanel) {
+          this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
+        }
+      }
 
       protected setStateIdle(isInit: boolean = false) {
         super.setStateIdle(isInit);

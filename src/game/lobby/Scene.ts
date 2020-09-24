@@ -27,6 +27,13 @@ namespace we {
         }
       }
 
+      public get data() {
+        return this._data;
+      }
+
+      public set data(val) {
+        this._data = val;
+      }
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
         this._list.useVirtualLayout = false;
@@ -104,6 +111,7 @@ namespace we {
         }
         this._page.removeChildren();
         const page: core.BasePage = new we[name].Page(data);
+        page.Scene = this;
         this._page.addChild(page);
         page.onEnter();
       }

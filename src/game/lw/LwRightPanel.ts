@@ -9,6 +9,7 @@ namespace we {
       public _lbl_lwValue4: ui.RunTimeLabel;
       public _lbl_lwValue5: ui.RunTimeLabel;
       public _lbl_lwValue6: ui.RunTimeLabel;
+      public _betInfo: any;
 
       protected _horizontalBarChart: we.di.HorizontalBarChart;
 
@@ -38,14 +39,32 @@ namespace we {
         );
         this._horizontalBarChart.x = 62;
         this._horizontalBarChart.y = 55;
-        this._horizontalBarChart.setRanksAndAnimate([25080000, 18000060, 50500, 10022000, 800000, 19000010, 20012000]);
+        this.updateBarChart();
+        // this._horizontalBarChart.setRanksAndAnimate([25080000, 18000060, 50500, 10022000, 800000, 19000010, 20012000]);
         this.addChild(this._horizontalBarChart);
       }
 
-      public updateTableBetInfo() {
-        for (let i = 0; i < 7; i += 1) {
-          this[`_lbl_lwValue${i}`].text = this.tableInfo.betInfo.amount[`LW_${i}`] || 0;
+      public updateBarChart() {
+        if (this._betInfo) {
+          let amount = this._betInfo.amount;
+          amount = Object.keys(amount).map(key => amount[key]);
+          this._horizontalBarChart.setRanksAndAnimate(amount);
+          for (let i = 0; i < 7; i += 1) {
+            this[`_lbl_lwValue${i}`].text = this._betInfo.amount[`LW_${i}`] || 0;
+          }
         }
+      }
+
+      public updateTableBetInfo() {
+        this._betInfo = this.tableInfo.betInfo;
+        this.updateBarChart();
+
+        // for (let i = 0; i < 7; i += 1) {
+        //   this[`_lbl_lwValue${i}`].text = this.tableInfo.betInfo.amount[`LW_${i}`] || 0;
+        // }
+        // if (this.tableInfo.betInfo.amount && this._horizontalBarChart) {
+        //   this._horizontalBarChart.setRanksAndAnimate(this.tableInfo.betInfo.amount);
+        // }
         logger.l(utils.LogTarget.DEBUG, JSON.stringify(this.tableInfo.betInfo.count));
         logger.l(utils.LogTarget.DEBUG, JSON.stringify(this.tableInfo.betInfo.amount));
       }
