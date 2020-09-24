@@ -4,8 +4,6 @@ namespace we {
       protected gameRoundID: string;
       protected _gameLabel: ui.RunTimeLabel;
       protected _gameNumLabel: ui.RunTimeLabel;
-      protected _roundLabel: ui.RunTimeLabel;
-      protected _roundNumLabel: ui.RunTimeLabel;
       protected _gameInfoLabel: ui.RunTimeLabel;
       protected _beadRoadIcon: ROBeadRoadIcon;
 
@@ -20,7 +18,7 @@ namespace we {
         this._beadRoadIcon.y = 80;
         this.addChild(this._beadRoadIcon);
 
-        this._gameInfoLabel.visible = false;
+        // this._gameInfoLabel.visible = false;
       }
 
       public changeLang() {

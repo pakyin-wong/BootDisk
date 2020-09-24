@@ -10,6 +10,7 @@ namespace we {
       protected createChildren() {
         super.createChildren();
         this.skinName = utils.getSkinByClassname('DTBeadRoadResultPanel');
+        this._gameInfoLabel.renderText = () => `${i18n.t('baccarat.clickToSeeVideo')}`;
       }
 
       public changeLang() {
@@ -27,8 +28,6 @@ namespace we {
         if (this._gameLabel) {
           this._gameLabel.text = i18n.t('overlaypanel_bethistory_recordtab_round');
           this._gameNumLabel.text = this.gameRoundID;
-          this._roundLabel.text = i18n.t('baccarat.gameroundid');
-          this._roundNumLabel.text = "2-001";
         } else {
           this._gameLabel.text = `${i18n.t('overlaypanel_bethistory_recordtab_round') + this.gameRoundID}`;
         }

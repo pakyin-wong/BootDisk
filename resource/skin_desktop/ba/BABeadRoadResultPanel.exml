@@ -5,20 +5,11 @@
                            fillColor="0x181B1F" fillAlpha="0.9" stroke="0" />
         <e:Image id="_winBg" width="320" height="32" x="24" y="42" anchorOffsetX="0"
                  source="d_ba_roadmap_record_result_banker_png" />
-        <e:Group width="65%" y="12" left="15">
+        <e:Group  y="12" left="15">
                 <ui:RunTimeLabel id="_gameLabel" text="GameId" x="16" y="12" textAlign="left" anchorOffsetX="0"
-                                 size="18" anchorOffsetY="0" height="23" scaleX="1" scaleY="1" alpha=".7" targetWidth="70"/>
+                                 size="18" anchorOffsetY="0" height="23" scaleX="1" scaleY="1" alpha=".7" />
                 <ui:RunTimeLabel id="_gameNumLabel" text="1234567890" x="16" y="12" anchorOffsetX="0" size="18"
-                                 anchorOffsetY="0" height="23" scaleX="1" scaleY="1" targetWidth="150"/>
-                <e:layout>
-                        <e:HorizontalLayout gap="4" verticalAlign="middle" />
-                </e:layout>
-        </e:Group>
-        <e:Group width="30%" y="12" right="15">
-                <ui:RunTimeLabel id="_roundLabel" text="GameId" x="16" y="12" textAlign="left" anchorOffsetX="0"
-                                 size="18" anchorOffsetY="0" height="23" scaleX="1" scaleY="1" alpha=".7" targetWidth="70"/>
-                <ui:RunTimeLabel id="_roundNumLabel" text="2-001" x="16" y="12" anchorOffsetX="0" size="18"
-                                 anchorOffsetY="0" height="23" scaleX="1" scaleY="1" targetWidth="50"/>
+                                 anchorOffsetY="0" height="23" scaleX="1" scaleY="1" />
                 <e:layout>
                         <e:HorizontalLayout gap="4" verticalAlign="middle" />
                 </e:layout>

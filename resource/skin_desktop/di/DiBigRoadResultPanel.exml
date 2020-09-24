@@ -7,9 +7,9 @@
                  source="d_sic_lobby_bg_2_png" />
         <e:Group y="12" left="15">
                 <ui:RunTimeLabel id="_gameLabel" text="GameId" x="16" y="12" textAlign="left" anchorOffsetX="0"
-                                 size="18" anchorOffsetY="0" height="23" scaleX="1" scaleY="1" alpha=".7" targetWidth="70"/>
+                                 size="18" anchorOffsetY="0" height="23" scaleX="1" scaleY="1" alpha=".7" />
                 <ui:RunTimeLabel id="_gameNumLabel" text="1234567890" x="16" y="12" anchorOffsetX="0" size="18"
-                                 anchorOffsetY="0" height="23" scaleX="1" scaleY="1" targetWidth="250"/>
+                                 anchorOffsetY="0" height="23" scaleX="1" scaleY="1" />
                 <e:layout>
                         <e:HorizontalLayout gap="4" verticalAlign="middle" />
                 </e:layout>

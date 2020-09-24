@@ -10,29 +10,19 @@
         <!--<ui:RunTimeLabel id="_gameNumLabel" text="GameId 1234567890" x="16" y="12" textAlign="left"
                              anchorOffsetX="0" width="346" size="18" anchorOffsetY="0" height="23" />
         -->
-        <e:Group width="65%" y="12" left="15">
+        <e:Group y="12" left="15">
                 <ui:RunTimeLabel id="_gameLabel" text="GameId" x="16" y="12" textAlign="left" anchorOffsetX="0"
                                  size="18" anchorOffsetY="0" height="23" scaleX="1" scaleY="1" alpha=".7"
-                                 targetWidth="70" />
+                                 />
                 <ui:RunTimeLabel id="_gameNumLabel" text="1234567890" x="16" y="12" anchorOffsetX="0" size="18"
-                                 anchorOffsetY="0" height="23" scaleX="1" scaleY="1" targetWidth="150" />
-                <e:layout>
-                        <e:HorizontalLayout gap="4" verticalAlign="middle" />
-                </e:layout>
-        </e:Group>
-        <e:Group width="35%" y="12" right="15">
-                <ui:RunTimeLabel id="_roundLabel" text="GameId" x="16" y="12" textAlign="left" anchorOffsetX="0"
-                                 size="18" anchorOffsetY="0" height="23" scaleX="1" scaleY="1" alpha=".7"
-                                 targetWidth="70" />
-                <ui:RunTimeLabel id="_roundNumLabel" text="2-001" x="16" y="12" anchorOffsetX="0" size="18"
-                                 anchorOffsetY="0" height="23" scaleX="1" scaleY="1" targetWidth="50" />
+                                 anchorOffsetY="0" height="23" scaleX="1" scaleY="1" />
                 <e:layout>
                         <e:HorizontalLayout gap="4" verticalAlign="middle" />
                 </e:layout>
         </e:Group>
         <ui:RunTimeLabel id="_winLabel" text="Banker Win" x="0" y="49" anchorOffsetX="0" width="100%" size="20"
                          textAlign="center" />
-        <ui:RunTimeLabel id="_gameInfoLabel" text="click to see video of this round" x="16" y="198" textAlign="left"
+        <ui:RunTimeLabel id="_gameInfoLabel" text="click to see video of this round" x="16" y="205" textAlign="left"
                          anchorOffsetX="0" width="316" size="16" anchorOffsetY="0" height="18" />
         <dt:DTBeadRoadResultCardHolder id="_cardHolder" width="320" height="105" x="24" y="84" anchorOffsetX="0"
                                        anchorOffsetY="0" />
