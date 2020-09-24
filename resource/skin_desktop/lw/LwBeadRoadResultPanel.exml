@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.lw.LwBeadRoadResultPanel" width="368" height="242" xmlns:e="http://ns.egret.com/eui"
         xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-        <e:Rect id="mask" width="100%" height="100%" x="2" y="0" strokeWeight="0" ellipseHeight="16" ellipseWidth="16"
-                fillColor="0x7c7c7c" />
-        <e:Rect id="bg" width="100%" height="100%" x="0" y="0" fillColor="0x1F242B" strokeWeight="0" ellipseHeight="0"
-                ellipseWidth="0" anchorOffsetY="0" />
-        <ui:RunTimeLabel id="_gameNumLabel" text="GameId 1234567890" x="16" y="12" textAlign="left" anchorOffsetX="0"
-                         width="346" size="18" anchorOffsetY="0" height="23" />
+        <!--<e:Rect id="mask" width="100%" height="100%" x="2" y="0" strokeWeight="0" ellipseHeight="16" ellipseWidth="16"
+                fillColor="0x7c7c7c" />-->
+        <ui:RoundRectShape name="bg" cornerTL_TR_BL_BR="12,12,12,12" width="368" height="241" fillColor="0x181B1F" fillAlpha="0.9"
+                           stroke="0" />
+        <!--<ui:RunTimeLabel id="_gameNumLabel" text="GameId 1234567890" x="16" y="12" textAlign="left"
+                             anchorOffsetX="0" width="346" size="18" anchorOffsetY="0" height="23" />
+        -->
+        <e:Group width="65%" y="12" left="15">
+                <ui:RunTimeLabel id="_gameLabel" text="GameId" x="16" y="12" textAlign="left" anchorOffsetX="0"
+                                 size="18" anchorOffsetY="0" height="23" scaleX="1" scaleY="1" alpha=".7"
+                                 targetWidth="70" />
+                <ui:RunTimeLabel id="_gameNumLabel" text="1234567890" x="16" y="12" anchorOffsetX="0" size="18"
+                                 anchorOffsetY="0" height="23" scaleX="1" scaleY="1" targetWidth="150" />
+                <e:layout>
+                        <e:HorizontalLayout gap="4" verticalAlign="middle" />
+                </e:layout>
+        </e:Group>
+        <e:Group width="35%" y="12" right="15">
+                <ui:RunTimeLabel id="_roundLabel" text="GameId" x="16" y="12" textAlign="left" anchorOffsetX="0"
+                                 size="18" anchorOffsetY="0" height="23" scaleX="1" scaleY="1" alpha=".7"
+                                 targetWidth="70" />
+                <ui:RunTimeLabel id="_roundNumLabel" text="2-001" x="16" y="12" anchorOffsetX="0" size="18"
+                                 anchorOffsetY="0" height="23" scaleX="1" scaleY="1" targetWidth="50" />
+                <e:layout>
+                        <e:HorizontalLayout gap="4" verticalAlign="middle" />
+                </e:layout>
+        </e:Group>
         <ui:RunTimeLabel id="_gameInfoLabel" text="click to see video of this round" x="16" y="198" textAlign="left"
                          anchorOffsetX="0" width="316" size="16" anchorOffsetY="0" height="18" />
 </e:Skin>

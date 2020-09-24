@@ -5,7 +5,10 @@ namespace we {
       protected winType: number;
 
       protected _winBg: eui.Image;
+      protected _gameLabel: ui.RunTimeLabel;
       protected _gameNumLabel: ui.RunTimeLabel;
+      protected _roundLabel: ui.RunTimeLabel;
+      protected _roundNumLabel: ui.RunTimeLabel;
       protected _winLabel: ui.RunTimeLabel;
       protected _gameInfoLabel: ui.RunTimeLabel;
       protected _cardHolder: ba.BaBeadRoadResultCardHolder;
@@ -15,8 +18,6 @@ namespace we {
         this.skinName = utils.getSkinByClassname('BABeadRoadResultPanelSkin');
         this._gameInfoLabel.renderText = () => `${i18n.t('baccarat.clickToSeeVideo')}`;
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-
-        this._gameInfoLabel.visible = false;
       }
 
       protected destroy() {
@@ -36,7 +37,14 @@ namespace we {
           this._winBg.source = 'd_ba_roadmap_record_result_tie_png';
         }
 
-        this._gameNumLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameRoundID;
+        if (this._gameLabel) {
+          this._gameLabel.text = i18n.t('overlaypanel_bethistory_recordtab_round');
+          this._gameNumLabel.text = this.gameRoundID;
+          this._roundLabel.text = i18n.t('baccarat.gameroundid');
+          this._roundNumLabel.text = "2-001";
+        } else {
+          this._gameLabel.text = `${i18n.t('overlaypanel_bethistory_recordtab_round') + this.gameRoundID}`;
+        }
       }
 
       constructor() {
