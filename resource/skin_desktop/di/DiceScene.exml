@@ -10,26 +10,27 @@
 		<di:TableLayer id="_tableLayer" width="1386" height="482" skinName="skin_desktop.di.TableLayerSkin" />
 		<di:ChipLayer id="_chipLayer" width="1386" height="482" skinName="skin_desktop.di.ChipLayerSkin" touchEnabled="false" />
 	</ui:Group>
-	<ui:Group id="_betRelatedGroup" x="768.64" y="769.37" isEdgeDismissable="true">
+	<ui:Group id="_betRelatedGroup" x="768" y="769" isEdgeDismissable="true">
 	<ui:Group>
-		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
-		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" chipScale="0.9" />
-		<e:Button id="_confirmButton" label="" y="3" anchorOffsetX="0" width="155" anchorOffsetY="0" height="64"
-		          horizontalCenter="114" skinName="skins_desktop.BetConfirmButtonSkin" />
-		<ui:CountdownTimer id="_timer" width="160" height="64" y="3" horizontalCenter="115"
-		                   skinName="skin_desktop.CountdownTimerSkin" touchEnabled="false"/>
-		<ui:BaseAnimationButton id="_undoButton" width="55" height="55" verticalCenter="0" horizontalCenter="243"
+		<e:Rect id="_roundPanel" width="1039" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
+		<e:Rect width="1" height="54" fillAlpha="0.3" fillColor="0x000000" verticalCenter="0" right="460"/>
+		<ui:BetChipSetHorizontal id="_betChipSet" width="548" height="64" y="3" anchorOffsetX="0" anchorOffsetY="0" x="15" />
+		<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="150" anchorOffsetY="0" height="64"
+		          skinName="skins_desktop.BetConfirmButtonSkin"  right="293" verticalCenter="0"/>
+		<ui:CountdownTimer id="_timer" width="150" height="64" colorChange="true" skinName="skin_desktop.CountdownTimerSkin"
+						   tooltipText="'live.tooltip.confirmBet'" tooltipPosition="'above'"  touchEnabled="false" right="293" verticalCenter="0"/>
+		<ui:BaseAnimationButton id="_undoButton" width="55" height="55" verticalCenter="0"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true"
-								tooltipText="'live.tooltip.undo'" tooltipPosition="'above'" />
-		<ui:BaseAnimationButton id="_cancelButton" width="55" height="55" verticalCenter="0" horizontalCenter="318"
+								tooltipText="'mobile_ba_undo'" tooltipPosition="'above'"  right="220"/>
+		<ui:BaseAnimationButton id="_cancelButton" width="55" height="55" verticalCenter="0"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_clear" useColorFilter="true"
-								tooltipText="'live.tooltip.cancel'" tooltipPosition="'above'" />
-		<ui:BaseAnimationButton id="_doubleButton" width="55" height="55" verticalCenter="0" horizontalCenter="393"
+								tooltipText="'mobile_ba_clear'" tooltipPosition="'above'"  right="154"/>
+		<ui:BaseAnimationButton id="_doubleButton" width="55" height="55" verticalCenter="0"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_double" useColorFilter="true"
-								tooltipText="'live.tooltip.double'" tooltipPosition="'above'" />
-		<ui:BaseAnimationButton id="_repeatButton" width="55" height="55" verticalCenter="0" horizontalCenter="467"
+								tooltipText="'mobile_ba_double'" tooltipPosition="'above'"  right="22"/>
+		<ui:BaseAnimationButton id="_repeatButton" width="55" height="55" verticalCenter="0"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_rebet" useColorFilter="true"
-								tooltipText="'live.tooltip.repeat'" tooltipPosition="'above'" />
+								tooltipText="'mobile_ba_repeat'" tooltipPosition="'above'"  right="88"/>
 	</ui:Group>
 	</ui:Group>
 	<di:DiLeftPanel id="_leftGamePanel" width="580" height="341" x="16" y="987" anchorOffsetX="0" anchorOffsetY="0"
@@ -49,15 +50,15 @@
 		            skinName="skin_desktop.GameBar" />
 	</e:Group>
 	<di:GameResultMessage id="_resultMessage" x="1300" y="640" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" />
-	<ui:InGameMessage id="_message" x="1291.38" y="732.53" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
-	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_playerelement_png"
-	                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />
+	<ui:InGameMessage id="_message" x="1291.38" y="661.37" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
+	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_chipvalue_png" successBg="d_ba_gamerecord_tieelement_png"
+	                  errorBg="d_ba_gamerecord_bankerelement_png" />
 	<di:TableInfoPanel width="434" x="0" y="91" id="_tableInfoWindow" isPoppable="true" isEdgeDismissable="true"
 	                   dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" anchorOffsetY="0"
 	                   skinName="skin_desktop.di.TableInfoPanel" />
 	<di:DiBigRoadResultPanel id="_bigRoadResultPanel" width="368" height="242" x="18.49" y="644" anchorOffsetX="0"
 	                         anchorOffsetY="0" visible="false" />
 	<ui:AnimatedToggleButton id="_panelDismissToggleBtn" dbClass="common_ui" dbDisplay="d_common_hide_ui" width="30"
-	                        height="30" x="2526" y="925" dismissPosY="1222" dismissPosX="2526" isEdgeDismissable="true" />
+	                         height="30" x="2526" y="925" dismissPosY="1222" dismissPosX="2526" isEdgeDismissable="true" />
 </e:Skin>
 

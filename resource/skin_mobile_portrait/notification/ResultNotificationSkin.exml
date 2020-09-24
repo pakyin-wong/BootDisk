@@ -27,7 +27,7 @@
         <e:Image id="_DIresultImage3" height="100%" includeIn="DI" x="0" y="0" width="38" />
     </e:Group>
     
-    <ui:RunTimeLabel id="_lblName" text="百家樂 02" x="102" size="40" touchEnabled="false" verticalCenter="0" />
+    <ui:RunTimeLabel id="_lblName" targetWidth="176" text="百家樂 02" x="102" size="40" touchEnabled="false" verticalCenter="0" />
     <e:Rect width="3" height="50" fillColor="0xd8d8d8" alpha="0.2" verticalCenter="0" x="298" />
     <ui:BaseImageButton id="_btnDismiss" width="122" height="39" x="250"
                         skinName="skin_mobile_portrait.ImageButtonSkinLobby" currentState="lobby_notify_btn_hide"

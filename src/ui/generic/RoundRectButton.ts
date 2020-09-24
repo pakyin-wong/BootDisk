@@ -2,7 +2,7 @@ namespace we {
   export namespace ui {
     export class RoundRectButton extends core.BaseEUI implements IButton {
       private _roundRectShape: RoundRectShape;
-      private _label: RunTimeLabel;
+      public _label: RunTimeLabel;
       private _enabled: boolean = false;
       private _hover: boolean = false;
       private _active: boolean = false;
@@ -84,6 +84,8 @@ namespace we {
       public strokeInColor_hover: number = -2;
       public strokeInAlpha_hover: number = -2;
       public labelSize: number = 24;
+
+      public value: number = 0;
 
       protected mount() {
         this._roundRectShape = new RoundRectShape();

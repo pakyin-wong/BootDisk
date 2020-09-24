@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.lo.SSCTraditionalChaseBetTopMultiplePanel" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="660" height="80">
+<e:Skin class="skin_desktop.lo.SSCTraditionalChaseBetTopProfitPanel" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="660" height="80">
     <e:Group id="_continuousChase" width="660" height="60">
         <e:Group width="299" height="60">
             <ui:RunTimeLabel id="_lblLowestProfitRateTitle" text="最低收益率 (%)" size="24" alpha="0.7"/>
             <e:Group width="120" height="60">
                 <ui:RoundRectShape cornerTL_TR_BL_BR="8,8,8,8" width="120" height="60" x="0" y="0" stroke="1" strokeColor="0x214a72" fillColor="0x151c26"/>
-                <ui:RunTimeLabel id="_lblLowestProfitRate" text="0" size="24" horizontalCenter="0" verticalCenter="0" alpha="0.7"/>
+                <e:EditableText id="_etextLowestProfitRate" restrict="0-9" multiline="false" text="10" size="24" horizontalCenter="0" verticalCenter="0" verticalAlign="middle" alpha="0.7" textAlign="center"/>
+                <!--<ui:RunTimeLabel id="_lblLowestProfitRate" text="0" size="24" horizontalCenter="0" verticalCenter="0" alpha="0.7"/>-->
             </e:Group>
             <e:layout>
                 <e:HorizontalLayout verticalAlign="middle"/>
@@ -15,7 +16,8 @@
             <ui:RunTimeLabel id="_lblChaseRoundTitle" text="追號期數" size="24" alpha="0.7"/>
             <e:Group width="120" height="60">
                 <ui:RoundRectShape cornerTL_TR_BL_BR="8,8,8,8" width="120" height="60" x="0" y="0" stroke="1" strokeColor="0x214a72" fillColor="0x151c26"/>
-                <ui:RunTimeLabel id="_lblChaseRound" text="0" size="24" horizontalCenter="0" verticalCenter="0" alpha="0.7"/>
+                <!--<ui:RunTimeLabel id="_lblChaseRound" text="0" size="24" horizontalCenter="0" verticalCenter="0" alpha="0.7"/>-->
+                <e:EditableText id="_etextChaseRound" restrict="0-9" multiline="false" text="0" size="24" horizontalCenter="0" verticalCenter="0" alpha="0.7" verticalAlign="middle" textAlign="center"/>
             </e:Group>
             <e:layout>
                 <e:HorizontalLayout verticalAlign="middle"/>

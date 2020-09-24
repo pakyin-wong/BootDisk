@@ -8,6 +8,7 @@ namespace we {
         this.skinName = 'ImageTabItemWithBadgeSkin';
         this._badge.visible = false;
         mouse.setButtonMode(this, true);
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.dataChanged, this);
       }
 
       protected getCurrentState() {

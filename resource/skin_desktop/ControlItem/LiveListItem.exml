@@ -11,16 +11,16 @@
 			-->
 			<!--<ui:BaseImageButton id="_confirmButton" x="430" y="28" width="132" height="50" currentState="lobby_confirm_button"
 			                    skinName="skin_desktop.ImageButtonSkinLobby" anchorOffsetX="0" />-->
-			<ui:BaseImageButton id="_prevButton" x="360" y="28" width="50" height="50" currentState="quickbet_previous"
+			<ui:BaseImageButton id="_prevButton" x="360" y="32" width="50" height="50" currentState="quickbet_previous"
 			                    skinName="skin_desktop.ImageButtonSkinLobby" anchorOffsetX="0" />
-			<ui:RoundRectButton id="_confirmButton" x="430" y="32" cornerTL_TR_BL_BR="25,25,25,25" width="132" height="50"
+			<ui:RoundRectButton id="_confirmButton" x="430" y="34" cornerTL_TR_BL_BR="25,25,25,25" width="132" height="50"
 			                    stroke="0" strokeIn="0" fillColor="00aa5e" fillAlpha="1" fillAlpha_hover="0.7"
 			                    currentState="lobby_confirm_button" />
-			<e:Image x="480" y="47" width="30" height="20" source="d_lobby_panel_betcontrol_btn_confirm_icon_png" touchEnabled="false" />
+			<e:Image x="480" y="49" width="30" height="20" source="d_lobby_panel_betcontrol_btn_confirm_icon_png" touchEnabled="false" />
 		</e:Group>
 		<e:Component id="_tableLayerNode" width="100%" skinName="skin_desktop.ba.LiveListItemTableLayerSkin" anchorOffsetY="0"
 		             left="0" top="0" touchEnabled="false" touchChildren="false" visible="false" name="NormalTableLayerNode" />
-		<e:Component id="_betChipSetNode" width="310" height="65" anchorOffsetX="0" x="14" scaleX="1" scaleY="1" anchorOffsetY="0" verticalCenter="99"/>
+		<e:Component id="_betChipSetNode" width="334" height="54" anchorOffsetX="0" x="12" scaleX="1" scaleY="1" anchorOffsetY="0" verticalCenter="93"/>
 	</e:Group>
 	<e:Group id="_contentContainer" width="100%" height="388" x="0" y="0">
 		<e:Group id="_contentContainerStatic" left="0" right="0" top="0" bottom="0">
@@ -44,7 +44,7 @@
 				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="22" />
 			</e:Group>
 			<ui:CountdownTimer id="_timer" width="80" height="80" x="20" y="20" skinName="skin_desktop.CountdownTimerRoundSkin" />
-			<ui:BaseAnimationButton id="_favouriteButton" dbClass="common_ui" dbDisplay="d_common_gamesetting_video" width="44" height="42"  right="10" top="10" visible="false"/>
+			<ui:AnimatedToggleButton id="_favouriteButton" dbClass="lobby_ui" dbDisplay="d_lobby_icon_fav" width="44" height="42"  right="10" top="10" visible="false"/>
 		</e:Group>
 	</e:Group>
 	<e:Component id="_chipLayerNode" width="100%" skinName="skin_desktop.ba.LiveListItemChipLayerSkin" anchorOffsetY="0"

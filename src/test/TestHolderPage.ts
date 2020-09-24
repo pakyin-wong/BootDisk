@@ -17,22 +17,26 @@ namespace we {
 
       protected mount() {
         this.removeEventListener(eui.UIEvent.COMPLETE, this.mount, this);
-        const a = ['Dragon|Tiger|Tie'];
+        let string = '12345optional';
+        string = '1234optionalfree';
 
-        const b = we.lo.DataMapping.DragonTigerMapping(a, '12DT_$1');
-        for (let i = 0; i < b.length; i++) {
-          console.log('b' + b[i]);
-        }
+        // we.lo.BetFieldTranslationFunction.tradbetfieldtranslate(string);
+        // const a = ['Dragon|Tiger|Tie'];
+
+        // const b = we.lo.DataMapping.DragonTigerMapping(a, '12DT_$1');
+        // for (let i = 0; i < b.length; i++) {
+        //   console.log('b' + b[i]);
+        // }
         // console.log(we.lo.DataMapping.DragonTigerMapping(a));
 
         // this.testNoteCount();
 
         // this.generateCombination();
         // this.generateBetFields();
-        const temp = new we.lo.SSCTraditionalBettingPanel();
-        temp.x = 0;
-        temp.y = 0;
-        this.addChild(temp);
+        // const temp = new we.lo.SSCTraditionalBettingPanel();
+        // temp.x = 0;
+        // temp.y = 0;
+        // this.addChild(temp);
         // draw the icon faces
         // for (let i = 0; i < 2; i++) {
         //   const face = new egret.DisplayObjectContainer();
