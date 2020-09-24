@@ -159,7 +159,7 @@ namespace we {
       mobile_notification_next_button_label: '下一页',
 
       mobile_quick_bet_button_label: '快速投注',
-      mobile_quick_bet_button_add_label: '加注',
+      mobile_quick_bet_button_add_label: '追注',
       mobile_enter_table_button_label: '进入游戏',
 
       mobile_game_panel_bet_hint_label: '提示：点击下注区进行追注或进入游戏',
