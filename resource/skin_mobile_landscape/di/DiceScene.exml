@@ -156,9 +156,7 @@
     <di:GameResultMessage id="_resultMessage" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
                           horizontalCenter.left_hand_mode="0" top.left_hand_mode="350"
                           horizontalCenter.right_hand_mode="0" top.right_hand_mode="350" />
-    <ui:InGameMessage id="_message" x="311" y="474" skinName="skin_mobile_portrait.InGameMessageSkin"
-                      infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
-                      errorBg="d_ba_gamerecord_bankerelement_png" horizontalCenter="0" verticalCenter="0" />
+
                       	<e:Group y="24" x="200" >
 		<ui:RunTimeLabel id="_diGameIDText" text="Game ID :" bottom="0" left="0"  alpha=".7" height="56" verticalAlign="top" size="26"/>
 		<ui:RunTimeLabel id="_diGameID" text="ID0000000000000001" bottom="0" left="0"  height="56" verticalAlign="top" fontFamily="Barlow" size="26"/>
@@ -166,4 +164,5 @@
 			<e:HorizontalLayout/>
 		</e:layout>
 	</e:Group>
+	<ui:InGameMessage id="_message" x="311" y="474" skinName="skin_mobile_portrait.InGameMessageSkin" infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" horizontalCenter="0" verticalCenter="0"/>
 </e:Skin>

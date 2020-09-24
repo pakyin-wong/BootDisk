@@ -99,14 +99,9 @@
   <!--<e:Image id="_btnBack" width="30" height="30" x="35" y="17" source="d_ba_navbar_chevron_png" includeIn="right_hand_mode"/>-->
 	<!--===========-->
   <ro:GameResultMessage id="_resultMessage" y="333" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" horizontalCenter="0"/>
-  <ui:InGameMessage
-    id="_message"
-    x="901"
-    y="650"
-    infoBg="d_ba_gamerecord_playerelement_png"
-    successBg="d_ba_gamerecord_tieelement_png"
-    errorBg="d_ba_gamerecord_bankerelement_png" skinName="skin_mobile_landscape.InGameMessageSkin"/>
+
   <ro:MobileBottomGamePanel id="_bottomGamePanel" x="0" bottom="0" skinName="skin_mobile_landscape.ro.MobileBottomGamePanel"/>
+	<ui:InGameMessage id="_message" x="901" y="650" infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" skinName="skin_mobile_portrait.InGameMessageSkin"/>
 	<!--===============^-->
   <!--<ro:TableInfoPanel width="600" height="319.7" x="0" y="91" id="_tableInfoWindow" isPoppable="true" isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" anchorOffsetY="0"
   skinName="skin_mobile_portrait.ro.TableInfoPanel" />-->
