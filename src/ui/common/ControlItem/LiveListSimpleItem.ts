@@ -35,6 +35,13 @@ namespace we {
         super(skinName);
       }
 
+      protected initCustomPos() {
+        super.initCustomPos();
+        this._targetQuickbetPanelY = 178;
+        this._offsetLimit = 1000;
+        this._offsetMovement = 900;
+      }
+
       public destroy() {
         super.destroy();
         if (this._bigRoad && this.tableInfo) {
@@ -75,7 +82,7 @@ namespace we {
 
       protected getBetChipSet(): BetChipSet & eui.Component {
         const betChipSet = new BetChipSetHorizontal();
-        betChipSet.chipScale = 0.85;
+        betChipSet.chipScale = 0.75;
         betChipSet.containerPadding = 8;
         return betChipSet;
       }
@@ -223,6 +230,8 @@ namespace we {
         if (!this._chipLayer) {
           this.runtimeGenerateChipLayer();
         }
+        // create a
+
         super.showQuickBetGroup();
         egret.Tween.removeTweens(this._chipLayer);
         const p3 = new Promise(resolve =>
