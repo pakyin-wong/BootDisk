@@ -2,7 +2,10 @@ namespace we {
   export namespace ro {
     export class ROBigRoadResultPanel extends ui.Panel {
       protected gameRoundID: string;
+      protected _gameLabel: ui.RunTimeLabel;
       protected _gameNumLabel: ui.RunTimeLabel;
+      protected _roundLabel: ui.RunTimeLabel;
+      protected _roundNumLabel: ui.RunTimeLabel;
       protected _gameInfoLabel: ui.RunTimeLabel;
       protected _beadRoadIcon: ROBeadRoadIcon;
 
@@ -21,7 +24,12 @@ namespace we {
       }
 
       public changeLang() {
-        this._gameNumLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameRoundID;
+        if (this._gameLabel) {
+          this._gameLabel.text = i18n.t('overlaypanel_bethistory_recordtab_round');
+          this._gameNumLabel.text = this.gameRoundID;
+        } else {
+          this._gameLabel.text = `${i18n.t('overlaypanel_bethistory_recordtab_round') + this.gameRoundID}`;
+        }
       }
 
       constructor() {
