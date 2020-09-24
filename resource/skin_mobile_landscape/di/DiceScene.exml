@@ -96,14 +96,7 @@
 			</e:layout>
     </e:Group>
 
-    <e:Group bottom="0" left="0" width="700">
-        <ui:RunTimeLabel id="_baGameIDText" text="Game ID :" bottom="0" left="0" left.left_hand_mode="15"
-                         bottom.left_hand_mode="94" />
-        <ui:RunTimeLabel id="_baGameID" text="ID" bottom="0" left="0" />
-        <e:layout>
-            <e:HorizontalLayout/>
-        </e:layout>
-    </e:Group>
+
     <e:Group id="_betSet" left="0" right="0" touchThrough="true" y="200" y.right_hand_mode="200" y.left_hand_mode="200">
 
         <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160"
@@ -160,8 +153,8 @@
                       infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
                       errorBg="d_ba_gamerecord_bankerelement_png" horizontalCenter="0" verticalCenter="0" />
                       	<e:Group y="24" x="200" >
-		<ui:RunTimeLabel id="_diGameIDText" text="Game ID :" bottom="0" left="0"  alpha=".7" height="56" verticalAlign="top" size="26"/>
-		<ui:RunTimeLabel id="_diGameID" text="ID0000000000000001" bottom="0" left="0"  height="56" verticalAlign="top" fontFamily="Barlow" size="26"/>
+		<ui:RunTimeLabel id="_baGameIDText" text="Game ID :" bottom="0" left="0"  alpha=".7" height="56" verticalAlign="top" size="26"/>
+		<ui:RunTimeLabel id="_baGameID" text="ID0000000000000001" bottom="0" left="0"  height="56" verticalAlign="top" fontFamily="Barlow" size="26"/>
 		<e:layout>
 			<e:HorizontalLayout/>
 		</e:layout>

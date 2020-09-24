@@ -355,7 +355,8 @@ namespace we {
         double: 'double',
         triple: 'triple',
         triple_: 'triple',
-        TableLayerMsg: 'One Die 1:1 Two Die 2:1 Three Die3:1',
+        TableLayerMsg_P: 'One Die 1:1 Two Die 2:1 Three Die3:1',
+        TableLayerMsg_L: 'One Die 1:1 \nTwo Die 2:1 Three Die3:1',
 
         roadBig: 'Big',
         roadSmall: 'Small',

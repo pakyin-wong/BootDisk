@@ -355,7 +355,8 @@ namespace we {
         double: '双骰',
         triple: '三骰',
         triple_: '围',
-        TableLayerMsg: '单骰1:1 双骰2:1 三骰3:1',
+        TableLayerMsg_P: '单骰1:1 双骰2:1 三骰3:1',
+        TableLayerMsg_L: '单骰1:1 \n双骰2:1 三骰3:1',
 
         roadBig: '大',
         roadSmall: '小',

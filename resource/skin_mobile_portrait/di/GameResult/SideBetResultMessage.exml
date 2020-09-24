@@ -20,7 +20,7 @@
 		</e:Group>
 		<e:Label id="_lblSum" text="Label" horizontalCenter="0" verticalCenter="20" size="24"/>
 	</e:Group>
-	<e:Group id="_winAmountGroup" left="0" top="0" bottom="0" right="0" visible="false">
+	<e:Group id="_winAmountGroup" left="0" top="0" bottom="0" right="0">
 		<e:Image id="_winAmountBackground" verticalCenter="0" horizontalCenter="0" />
 		<e:Label id="_lblWinAmount" text="Label" horizontalCenter="0" verticalCenter="0" size="18"/>
 	</e:Group>
