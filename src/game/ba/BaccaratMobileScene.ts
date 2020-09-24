@@ -283,24 +283,6 @@ namespace we {
         if (this._bottomGamePanel._tableInfoPanel) {
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
         }
-
-        /*
-        if (this._bottomGamePanel.normalChartPanel) {
-          this._bottomGamePanel.normalChartPanel.tableId = this._tableId;
-        }
-
-        if (this._bottomGamePanel.normalPairChartPanel) {
-          this._bottomGamePanel.normalPairChartPanel.tableId = this._tableId;
-        }
-
-        if (this._bottomGamePanel.shoeChartPanel) {
-          this._bottomGamePanel.shoeChartPanel.tableId = this._tableId;
-        }
-
-        if (this._bottomGamePanel.shoePairChartPanel) {
-          this._bottomGamePanel.shoePairChartPanel.tableId = this._tableId;
-        }
-        */
       }
 
       protected onMatchGoodRoadUpdate() {
