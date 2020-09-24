@@ -4,21 +4,20 @@ namespace we {
       protected gameRoundID: string;
       protected _gameLabel: ui.RunTimeLabel;
       protected _gameNumLabel: ui.RunTimeLabel;
-      protected _gameInfoLabel: ui.RunTimeLabel;
+      public _gameInfoLabel: ui.RunTimeLabel;
       protected _beadRoadIcon: LwBeadRoadIcon;
 
       protected createChildren() {
         super.createChildren();
         this.skinName = utils.getSkinByClassname('lw.LwBeadRoadResultPanel');
         this._gameInfoLabel.renderText = () => `${i18n.t('baccarat.clickToSeeVideo')}`;
+        this._gameInfoLabel.visible = false; //true when replay url is available
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
 
         this._beadRoadIcon = new LwBeadRoadIcon(78, 110);
         this._beadRoadIcon.x = 145;
         this._beadRoadIcon.y = 59;
         this.addChild(this._beadRoadIcon);
-
-        this._gameInfoLabel.visible = false;
       }
 
       public changeLang() {

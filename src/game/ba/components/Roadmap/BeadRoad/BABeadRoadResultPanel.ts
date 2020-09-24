@@ -8,13 +8,14 @@ namespace we {
       protected _gameLabel: ui.RunTimeLabel;
       protected _gameNumLabel: ui.RunTimeLabel;
       protected _winLabel: ui.RunTimeLabel;
-      protected _gameInfoLabel: ui.RunTimeLabel;
+      public _gameInfoLabel: ui.RunTimeLabel;
       protected _cardHolder: ba.BaBeadRoadResultCardHolder;
 
       protected createChildren() {
         super.createChildren();
         this.skinName = utils.getSkinByClassname('BABeadRoadResultPanelSkin');
         this._gameInfoLabel.renderText = () => `${i18n.t('baccarat.clickToSeeVideo')}`;
+        this._gameInfoLabel.visible = false; //true when replay url is available
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
 

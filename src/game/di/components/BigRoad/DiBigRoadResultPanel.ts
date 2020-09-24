@@ -4,7 +4,7 @@ namespace we {
       protected gameRoundID: string;
       protected _gameLabel: ui.RunTimeLabel;
       protected _gameNumLabel: ui.RunTimeLabel;
-      protected _gameInfoLabel: ui.RunTimeLabel;
+      public _gameInfoLabel: ui.RunTimeLabel;
       protected dice1: eui.Image;
       protected dice2: eui.Image;
       protected dice3: eui.Image;
@@ -23,9 +23,8 @@ namespace we {
         super.createChildren();
         this.skinName = utils.getSkinByClassname('di.DiBigRoadResultPanelSkin');
         this._gameInfoLabel.renderText = () => `${i18n.t('baccarat.clickToSeeVideo')}`;
+        this._gameInfoLabel.visible = false; //true when replay url is available
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-
-        // this._gameInfoLabel.visible = false;
       }
 
       public changeLang() {
