@@ -22,8 +22,8 @@ namespace we {
         this.parser.addEventListener('onUpdate', this.onParserUpdate, this);
 
         this.bigRoad = new BABigRoad(25, 23);
-        this.bigRoad.scaleX = this.bigRoad.scaleY = 578 / 575;
-        this.bigRoad.setGridCorners({ tl: 0, tr: 0, bl: 8, br: 8 });
+        this.bigRoad.scaleX = this.bigRoad.scaleY = 576 / 575;
+        this.bigRoad.setGridCorners({ tl: 0, tr: 0, bl: 10, br: 10 });
 
         // grid bg rectangle
         this.beadRoadGrid = new egret.Shape();
