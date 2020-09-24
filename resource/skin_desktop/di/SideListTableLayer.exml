@@ -12,10 +12,10 @@
 	</e:Group>
 	<e:Group id="_odd_group" x="0" y="65" width="166" height="55">
 		<ui:BettingGrid id="_odd_image" width="166" height="55" roundCorner="[0,0,0,4]" color="0x163757" />
-		<ui:RunTimeLabel id="_odd_label" verticalCenter="0" horizontalCenter="0" bold="true"/>
+		<ui:RunTimeLabel id="_odd_label" verticalCenter="0" horizontalCenter="0" bold="true" textColor="0x278eff"/>
 	</e:Group>
 	<e:Group id="_even_group" x="166" y="65" width="167" height="55">
 		<ui:BettingGrid id="_even_image" width="167" height="55"  roundCorner="[0,0,4,0]" color="0x5a2322"/>
-		<ui:RunTimeLabel id="_even_label" verticalCenter="0" horizontalCenter="0" bold="true"/>
+		<ui:RunTimeLabel id="_even_label" verticalCenter="0" horizontalCenter="0" bold="true" textColor="0xff6767"/>
 	</e:Group>
 </e:Skin>
