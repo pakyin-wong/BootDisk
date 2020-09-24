@@ -136,6 +136,7 @@ namespace we {
       }
 
       protected updateMemberReport(data) {
+        console.log('member data', data);
         if (data.error) {
           this._txt_betAmount_value.text = '-';
           this._txt_winAmount_value.text = '-';

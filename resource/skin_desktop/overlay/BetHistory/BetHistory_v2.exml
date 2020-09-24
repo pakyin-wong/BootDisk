@@ -26,10 +26,10 @@
 			<ui:RoundRectButton id="_btn_week" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="241" y="0" stroke="2" fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x1B416E" fillAlpha_click="1" stroke_active="0" fillColor_active="0x1B416E" fillAlpha_active="1"/>
 			<ui:RoundRectButton id="_btn_custom" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="399" y="0" stroke="2" fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x1B416E" fillAlpha_click="1" stroke_active="0" fillColor_active="0x1B416E" fillAlpha_active="1"/>
 		</e:Group>
-		<e:Group id="search_bar" x="1045.5" y="54.5">
-			<ui:RunTimeLabel id="_txt_search" text="搜索記錄" x="48.5" y="3.5" height="36" verticalAlign="middle" size="24" alpha="0.7" targetWidth="96"/>
+		<e:Group id="search_bar" x="1045.5" y="54.5" width="216">
+			<ui:RunTimeLabel id="_txt_search" text="搜索記錄" x="48.5" y="3.5" height="36" verticalAlign="middle" size="24" alpha="0.7" targetWidth="151" width="151"/>
 			<ui:BaseImageButton id="_btn_search" width="48" height="48" x="0" y="0" currentState="search_icon" skinName="skin_desktop.ImageButtonSkinNav"/>
-			<e:EditableText id="_tf_search" height="36" text="" x="48.5" y="3.5" verticalAlign="middle" size="24"/>
+			<e:EditableText id="_tf_search" height="36" text="" x="48.5" y="3.5" verticalAlign="middle" size="24" width="151"/>
 		</e:Group>
 		<e:Group id="label_bar" y="148" left="0" right="0" y.live="208" y.lottery="208">
 			<ui:RunTimeLabel id="_txt_record_id" text="投注編號" x="50" y="0" height="29" size="20" verticalAlign="middle" targetWidth="191" x.live="48" x.lottery="48"/>

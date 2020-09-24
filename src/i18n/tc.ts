@@ -76,7 +76,7 @@ namespace we {
       overlaypanel_bethistory_yesterday: '昨天',
       overlaypanel_bethistory_week: '本週',
       overlaypanel_bethistory_customperiod: '自訂',
-      overlaypanel_bethistory_searchrecord: '搜尋記錄',
+      overlaypanel_bethistory_searchrecord: '請輸入投注編號',
       overlaypanel_bethistory_recordtab_title: '記錄詳情',
       overlaypanel_bethistory_recordtab_id: '投注編號',
       overlaypanel_bethistory_recordtab_date: '日期時間',
