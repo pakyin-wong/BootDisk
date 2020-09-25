@@ -6300,209 +6300,219 @@
 			"name": "d_common_panel_info_btn_right_active_png"
 		},
 		{
-			"name": "Base_Dice_22_png",
+			"url": "assets/images/d/dil/gfsb/Base_Dice_2.png",
 			"type": "image",
-			"url": "assets/images/d/dil/gfsb/Base_Dice_2.png"
+			"name": "Base_Dice_22_png"
 		},
 		{
-			"name": "Base_Dice_12_png",
+			"url": "assets/images/d/dil/gfsb/Base_Dice_1.png",
 			"type": "image",
-			"url": "assets/images/d/dil/gfsb/Base_Dice_1.png"
+			"name": "Base_Dice_12_png"
 		},
 		{
-			"name": "Base_Dice_32_png",
+			"url": "assets/images/d/dil/gfsb/Base_Dice_3.png",
 			"type": "image",
-			"url": "assets/images/d/dil/gfsb/Base_Dice_3.png"
+			"name": "Base_Dice_32_png"
 		},
 		{
-			"name": "Base_Dice_42_png",
+			"url": "assets/images/d/dil/gfsb/Base_Dice_4.png",
 			"type": "image",
-			"url": "assets/images/d/dil/gfsb/Base_Dice_4.png"
+			"name": "Base_Dice_42_png"
 		},
 		{
-			"name": "Base_Dice_52_png",
+			"url": "assets/images/d/dil/gfsb/Base_Dice_5.png",
 			"type": "image",
-			"url": "assets/images/d/dil/gfsb/Base_Dice_5.png"
+			"name": "Base_Dice_52_png"
 		},
 		{
-			"name": "Base_Dice_62_png",
+			"url": "assets/images/d/dil/gfsb/Base_Dice_6.png",
 			"type": "image",
-			"url": "assets/images/d/dil/gfsb/Base_Dice_6.png"
+			"name": "Base_Dice_62_png"
 		},
 		{
-			"name": "Base_Dice_13_png",
+			"url": "assets/images/m/dil/gfsb/Base_Dice_1.png",
 			"type": "image",
-			"url": "assets/images/m/dil/gfsb/Base_Dice_1.png"
+			"name": "Base_Dice_13_png"
 		},
 		{
-			"name": "Base_Dice_23_png",
+			"url": "assets/images/m/dil/gfsb/Base_Dice_2.png",
 			"type": "image",
-			"url": "assets/images/m/dil/gfsb/Base_Dice_2.png"
+			"name": "Base_Dice_23_png"
 		},
 		{
-			"name": "Base_Dice_33_png",
+			"url": "assets/images/m/dil/gfsb/Base_Dice_3.png",
 			"type": "image",
-			"url": "assets/images/m/dil/gfsb/Base_Dice_3.png"
+			"name": "Base_Dice_33_png"
 		},
 		{
-			"name": "Base_Dice_43_png",
+			"url": "assets/images/m/dil/gfsb/Base_Dice_4.png",
 			"type": "image",
-			"url": "assets/images/m/dil/gfsb/Base_Dice_4.png"
+			"name": "Base_Dice_43_png"
 		},
 		{
-			"name": "Base_Dice_53_png",
+			"url": "assets/images/m/dil/gfsb/Base_Dice_5.png",
 			"type": "image",
-			"url": "assets/images/m/dil/gfsb/Base_Dice_5.png"
+			"name": "Base_Dice_53_png"
 		},
 		{
-			"name": "Base_Dice_63_png",
+			"url": "assets/images/m/dil/gfsb/Base_Dice_6.png",
 			"type": "image",
-			"url": "assets/images/m/dil/gfsb/Base_Dice_6.png"
+			"name": "Base_Dice_63_png"
 		},
 		{
-			"name": "m_common_slide_bar_active_png",
+			"url": "assets/images/m/loading/m_common_slide_bar_active.png",
 			"type": "image",
-			"url": "assets/images/m/loading/m_common_slide_bar_active.png"
+			"name": "m_common_slide_bar_active_png"
 		},
 		{
-			"name": "m_common_slide_bar_base_png",
+			"url": "assets/images/m/loading/m_common_slide_bar_base.png",
 			"type": "image",
-			"url": "assets/images/m/loading/m_common_slide_bar_base.png"
+			"name": "m_common_slide_bar_base_png"
 		},
 		{
-			"name": "m_bam_instruction_card_group_landscape_1_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_1.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_1.png"
+			"name": "m_bam_instruction_card_group_landscape_1_png"
 		},
 		{
-			"name": "m_bam_instruction_card_group_landscape_2_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_2.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_2.png"
+			"name": "m_bam_instruction_card_group_landscape_2_png"
 		},
 		{
-			"name": "m_bam_button_close_none_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_button_close_none.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_button_close_none.png"
+			"name": "m_bam_button_close_none_png"
 		},
 		{
-			"name": "m_bam_instruction_card_group_landscape_12_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_1.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_1.png"
+			"name": "m_bam_instruction_card_group_landscape_12_png"
 		},
 		{
-			"name": "m_bam_instruction_card_group_landscape_22_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_2.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_2.png"
+			"name": "m_bam_instruction_card_group_landscape_22_png"
 		},
 		{
-			"name": "m_bam_instruction_crad_group_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_crad_group.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_crad_group.png"
+			"name": "m_bam_instruction_crad_group_png"
 		},
 		{
-			"name": "m_bam_instruction_large_crad_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_large_crad.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_large_crad.png"
+			"name": "m_bam_instruction_large_crad_png"
 		},
 		{
-			"name": "m_bam_instruction_large_crad_HL_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_large_crad_HL.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_large_crad_HL.png"
+			"name": "m_bam_instruction_large_crad_HL_png"
 		},
 		{
-			"name": "m_bam_instruction_reveal_all_btn_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_reveal_all_btn.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_reveal_all_btn.png"
+			"name": "m_bam_instruction_reveal_all_btn_png"
 		},
 		{
-			"name": "m_bam_instruction_swtich_crad_group_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_swtich_crad_group.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_swtich_crad_group.png"
+			"name": "m_bam_instruction_swtich_crad_group_png"
 		},
 		{
-			"name": "m_bam_panel_btn_bg_Inactive_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_panel_btn_bg_Inactive.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_panel_btn_bg_Inactive.png"
+			"name": "m_bam_panel_btn_bg_Inactive_png"
 		},
 		{
-			"name": "m_bam_touch_icon_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_touch_icon.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_touch_icon.png"
+			"name": "m_bam_touch_icon_png"
 		},
 		{
-			"name": "m_lw_listpenal_result_money_bg_west_png",
+			"url": "assets/images/m/common/game_panel/lw/resultmessage/m_lw_listpenal_result_money_bg_west.png",
 			"type": "image",
-			"url": "assets/images/m/common/game_panel/lw/resultmessage/m_lw_listpenal_result_money_bg_west.png"
+			"name": "m_lw_listpenal_result_money_bg_west_png"
 		},
 		{
-			"name": "m_bam_button_close_none2_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_button_close_none.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_button_close_none.png"
+			"name": "m_bam_button_close_none2_png"
 		},
 		{
-			"name": "m_bam_instruction_card_group_landscape_13_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_1.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_1.png"
+			"name": "m_bam_instruction_card_group_landscape_13_png"
 		},
 		{
-			"name": "m_bam_instruction_card_group_landscape_23_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_2.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_2.png"
+			"name": "m_bam_instruction_card_group_landscape_23_png"
 		},
 		{
-			"name": "m_bam_instruction_crad_group2_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_crad_group.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_crad_group.png"
+			"name": "m_bam_instruction_crad_group2_png"
 		},
 		{
-			"name": "m_bam_instruction_large_crad2_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_large_crad.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_large_crad.png"
+			"name": "m_bam_instruction_large_crad2_png"
 		},
 		{
-			"name": "m_bam_instruction_large_crad_HL2_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_large_crad_HL.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_large_crad_HL.png"
+			"name": "m_bam_instruction_large_crad_HL2_png"
 		},
 		{
-			"name": "m_bam_instruction_reveal_all_btn2_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_reveal_all_btn.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_reveal_all_btn.png"
+			"name": "m_bam_instruction_reveal_all_btn2_png"
 		},
 		{
-			"name": "m_bam_instruction_swtich_crad_group2_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_swtich_crad_group.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_swtich_crad_group.png"
+			"name": "m_bam_instruction_swtich_crad_group2_png"
 		},
 		{
-			"name": "m_bam_panel_btn_bg_Inactive2_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_panel_btn_bg_Inactive.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_panel_btn_bg_Inactive.png"
+			"name": "m_bam_panel_btn_bg_Inactive2_png"
 		},
 		{
-			"name": "m_bam_touch_icon2_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_touch_icon.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_touch_icon.png"
+			"name": "m_bam_touch_icon2_png"
 		},
 		{
-			"name": "m_lw_listpenal_result_money_bg_west2_png",
+			"url": "assets/images/m/common/game_panel/lw/resultmessage/m_lw_listpenal_result_money_bg_west.png",
 			"type": "image",
-			"url": "assets/images/m/common/game_panel/lw/resultmessage/m_lw_listpenal_result_money_bg_west.png"
+			"name": "m_lw_listpenal_result_money_bg_west2_png"
 		},
 		{
-			"name": "m_ba_btn_info_png",
+			"url": "assets/images/m/common/general/common/m_ba_btn_info.png",
 			"type": "image",
-			"url": "assets/images/m/common/general/common/m_ba_btn_info.png"
+			"name": "m_ba_btn_info_png"
 		},
 		{
-			"name": "d_common_video_verification_icon_correct_png",
+			"url": "assets/nmimages/d/common/ninegrids/d_common_video_verification_icon_correct.png",
 			"type": "image",
-			"url": "assets/nmimages/d/common/ninegrids/d_common_video_verification_icon_correct.png"
+			"name": "d_common_video_verification_icon_correct_png"
 		},
 		{
-			"name": "d_sq_ba_timer_bg_png",
+			"url": "assets/nmimages/d/ba/d_sq_ba_timer_bg.png",
 			"type": "image",
-			"url": "assets/nmimages/d/ba/d_sq_ba_timer_bg.png"
+			"name": "d_sq_ba_timer_bg_png"
+		},
+		{
+			"url": "assets/images/d/common/general/switch/d_common_panel_setting_uicolour_btn.png",
+			"type": "image",
+			"name": "d_common_panel_setting_uicolour_btn_png"
+		},
+		{
+			"url": "assets/images/d/common/general/switch/d_common_panel_setting_uicolour_btn_active.png",
+			"type": "image",
+			"name": "d_common_panel_setting_uicolour_btn_active_png"
 		}
 	]
 }
