@@ -16,7 +16,7 @@
 			</e:Group>
 			<live:BetLimitDropdown id="_dropdown" width="200" x="13" y="388" skinName="BetLimitDropdownSkin"  horizontalAlign="left"/>
 			<e:Component id="_analysisNode" right="0" y="0" width="278" height="441" />
-			<e:Component id="_advancedRoadNode" width="576" height="433" x="347" y="4" />
+			<e:Component id="_advancedRoadNode" width="580" height="441" x="345" y="0" />
 		</e:Group>
 		<e:Group id="_contentContainerDynamic" left="0" right="0" top="0" bottom="0" touchEnabled="false">
 			<ui:CountdownTimer id="_timer" width="80" height="80" x="15" y="15" skinName="skin_desktop.CountdownTimerRoundSkin" />
