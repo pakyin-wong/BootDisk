@@ -2,10 +2,10 @@
 <e:Skin class="skin_mobile_portrait.dil.MobileChipLayerSkin" width="1182" height="324" xmlns:ui="we.ui.*" xmlns:bt="we.ui.bt.*" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Group id="_row1" x="3" y="18">
 		<e:Group id="_sum_3_group" width="140" height="140">
-			<ui:BetChipStack id="_sum_3_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="60" chipHeight="60"
+			<ui:BetChipStack id="_sum_3_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="120" chipHeight="84"
 			                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
-			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="70"
-			                 betSumBackgroundHeight="20" chipLabelOffset="-3" chipLabelSize="20" chipType="2" />
+			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="86"
+			                 betSumBackgroundHeight="60" betSumLabelFontSize="45" chipLabelOffset="-3" chipLabelSize="40" chipType="2" />
 		</e:Group>
 		<e:Group id="_sum_4_group" width="140" height="140">
 			<ui:BetChipStack id="_sum_4_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="60" chipHeight="60"

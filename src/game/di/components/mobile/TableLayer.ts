@@ -159,9 +159,9 @@ namespace we {
         this._odd_label.renderText = () => i18n.t('dice.odd');
         this._even_label.renderText = () => i18n.t('dice.even');
         this._big_label.renderText = () => i18n.t('dice.big');
-        if(env.orientation === 'portrait'){
+        if (env.orientation === 'portrait') {
           this._specific_label.renderText = () => i18n.t('dice.TableLayerMsg_P');
-        }else{
+        } else {
           this._specific_label.renderText = () => i18n.t('dice.TableLayerMsg_L');
         }
         // this._single_label.renderText = () => i18n.t('dice.single');
