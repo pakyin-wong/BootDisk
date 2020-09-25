@@ -190,7 +190,6 @@ namespace we {
           this.grid.graphics.moveTo(0, lineY);
           this.grid.graphics.lineTo(this.numCol * size, lineY);
           lineY += size * this.gridUnit;
-          count++;
         }
         let lineX: number = size * this.gridUnit;
         for (let c = 0; c < this.numCol - this.gridUnit; c += this.gridUnit) {
