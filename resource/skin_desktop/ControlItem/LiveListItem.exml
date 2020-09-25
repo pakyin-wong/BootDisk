@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.LiveListItemSkin" width="578" height="388" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
-	<e:Group id="_quickBetGroup" width="578" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" alpha="0">
-		<e:Group width="100%" x="0" y="169" scaleX="1" scaleY="1">
-			<e:Rect width="100%" height="103" x="0" alpha="0.6" y="0" scaleX="1" scaleY="1" />
+	<w:Config id="174b95ac4d8"/>
+	<e:Group id="_quickBetGroup" width="578" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" alpha="0" >
+		<e:Group id="_quickBetBtnGroup" width="100%" x="0" y="169" scaleX="1" scaleY="1">
+			<e:Rect width="100%" height="94" x="0" alpha="0.6" y="0" scaleX="1" scaleY="1" />
 
 			<!--<ui:BetChipSetHorizontal id="_betChipSet" width="310" height="65" anchorOffsetX="0" x="14" scaleX="1" scaleY="1"
 			                             anchorOffsetY="0" verticalCenter="2" navWidth="20" containerPadding="6" />
@@ -13,27 +14,31 @@
 			<ui:BaseImageButton id="_prevButton" x="354" y="32" width="50" height="50" currentState="quickbet_previous"
 			                    skinName="skin_desktop.ImageButtonSkinLobby" anchorOffsetX="0" />
 			<ui:RoundRectButton id="_confirmButton" x="422" y="34" cornerTL_TR_BL_BR="25,25,25,25" width="150" height="50"
+
 			                    stroke="0" strokeIn="0" fillColor="00aa5e" fillAlpha="1" fillAlpha_hover="0.7"
-			                    currentState="lobby_confirm_button" />
-			<e:Image x="480" y="49" width="30" height="20" source="d_lobby_panel_betcontrol_btn_confirm_icon_png" touchEnabled="false" />
+			                    currentState="lobby_confirm_button"  y="28"/>
+			<e:Image x="479" y="45" width="30" height="20" source="d_lobby_panel_betcontrol_btn_confirm_icon_png" touchEnabled="false" />
+			<e:Component id="_betChipSetNode" width="334" height="54" anchorOffsetX="0" x="10" scaleX="1" scaleY="1" anchorOffsetY="0" bottom="11"/>
 		</e:Group>
-		<e:Component id="_tableLayerNode" width="100%" skinName="skin_desktop.ba.LiveListItemTableLayerSkin" anchorOffsetY="0"
-		             left="0" top="0" touchEnabled="false" touchChildren="false" visible="false" name="NormalTableLayerNode" />
-		<e:Component id="_betChipSetNode" width="334" height="54" anchorOffsetX="0" x="12" scaleX="1" scaleY="1" anchorOffsetY="0" verticalCenter="93"/>
+		<e:Group>
+			<e:Component id="_tableLayerNode" width="100%" anchorOffsetY="0"
+						left="0" top="0" touchEnabled="false" touchChildren="false" name="NormalTableLayerNode" />
+			<e:Rect width="578" fillColor="0x202020" anchorOffsetY="0" ellipseHeight="20" ellipseWidth="20" strokeColor="0x5F6973" strokeWeight="2" y="0" x="0" fillAlpha="0" touchChildren="false" touchEnabled="false" height="100%"/>
+		</e:Group>
 	</e:Group>
 	<e:Group id="_contentContainer" width="100%" height="388" x="0" y="0">
 		<e:Group id="_contentContainerStatic" left="0" right="0" top="0" bottom="0">
 			<e:Image id="_dealerImage" width="100%" height="249" x="0" y="0" />
-			<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" x="20" y="198" />
-			<e:Component id="_roadmapNode" width="100%" height="139" y="249"  visible="false"/>
+			<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left"  text="Baccarat" size="27" x="17" y="213"/>
+			<e:Component id="_roadmapNode" width="100%" height="137" y="249" />
 		</e:Group>
 		<e:Group id="_contentContainerDynamic" left="0" right="0" top="0" bottom="0">
-			<e:Component id="_quickbetButtonNode" alpha="0" horizontalCenter="0" y="350" width="148" height="42" visible="false" />
+			<e:Component id="_quickbetButtonNode" alpha="0" horizontalCenter="0" y="338" width="148" height="38"  visible="false"/>
 			<!--<ui:LobbyQuickBetAnimButton id="_quickbetButton" resName="d_lobby_quick_bet_notification_follow_normal_png"
 			                                hoverResName="d_lobby_quick_bet_notification_follow_hover_png" alpha="0"
 			                                horizontalCenter="0" y="350" width="148" height="42" label1text="快速投注" label2text="X" />
 			-->
-			<live:BetLimitDropdown id="_dropdown" y="201" anchorOffsetX="0" anchorOffsetY="0" skinName="BetLimitDropdownSkin"
+			<live:BetLimitDropdown id="_dropdown" y="204" anchorOffsetX="0" anchorOffsetY="0" skinName="BetLimitDropdownSkin"
 			                       right="1" />
 			<ui:InGameMessage id="_message" anchorOffsetX="152" anchorOffsetY="16" skinName="skin_desktop.InGameMessageSkin"
 			                  width="303" height="32" horizontalCenter="0.5" y="195" infoBg="d_ba_gamerecord_playerelement_png"
@@ -46,6 +51,7 @@
 			<ui:AnimatedToggleButton id="_favouriteButton" dbClass="lobby_ui" dbDisplay="d_lobby_icon_fav" width="44" height="42"  right="10" top="10" visible="false"/>
 		</e:Group>
 	</e:Group>
+	<e:Rect width="578" fillColor="0x202020" anchorOffsetY="0" ellipseHeight="20" ellipseWidth="20" strokeColor="0x5F6973" strokeWeight="2" height="388" y="0" x="0" fillAlpha="0" touchChildren="false" touchEnabled="false"/>
 	<e:Component id="_chipLayerNode" width="100%" skinName="skin_desktop.ba.LiveListItemChipLayerSkin" anchorOffsetY="0"
 	             alpha="0" y="0" left="0" touchEnabled="false" touchChildren="false" visible="false"
 	             name="NormalChipLayerNode" />
