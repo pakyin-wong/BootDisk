@@ -919,7 +919,15 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class RcLobbyRoadPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class RcRightDrawerPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class RcSidePanel extends eui.Skin{
 	}
 }
 declare module skin_desktop.ro{
