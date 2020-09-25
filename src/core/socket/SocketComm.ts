@@ -261,7 +261,15 @@ namespace we {
         env.currency = player.profile.currency;
         // env.nickname = player.profile.nickname;
         env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
-        env.favouriteTableList = player.profile.settings.favouriteTableList ? JSON.parse(player.profile.settings.favouriteTableList) : env.favouriteTableList;
+
+        env.favouriteTableList = env.favouriteTableList ? env.favouriteTableList : [];
+        if (player.profile.settings.favouriteTableList) {
+          try {
+            env.favouriteTableList = JSON.parse(player.profile.settings.favouriteTableList);
+          } catch (err) {
+            env.favouriteTableList = [];
+          }
+        }
 
         // env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
         // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
@@ -969,7 +977,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
           return betDetail;
         });
 
@@ -1065,6 +1073,30 @@ namespace we {
           });
         this.client.bet(tableID, betCommands, callback);
         logger.l(utils.LogTarget.RELEASE, `Table ${tableID} Placed bet`, betDetails);
+      }
+
+      public lotteryContinuousBet(tableID: string, betDetails: data.BetDetail[], roundBetDetails: data.LotteryBetCommand[], callback: (result) => void) {
+        const betCommands: data.BetCommand[] = betDetails
+          .filter(data => {
+            return data.amount > 0;
+          })
+          .map(data => {
+            return {
+              field: data.field,
+              amount: data.amount,
+            };
+          });
+
+        const roundBetCommands: data.LotteryBetCommand[] = roundBetDetails.map(data => {
+          return {
+            round: data.round,
+            multiplier: data.multiplier,
+            isStopWon: data.isStopWon,
+          };
+        });
+
+        this.client.lotteryContinuousBet(tableID, betCommands, roundBetDetails, callback);
+        logger.l(utils.LogTarget.RELEASE, `Table ${tableID} Placed bet`, betDetails, roundBetDetails);
       }
 
       public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {

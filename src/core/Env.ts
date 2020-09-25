@@ -71,6 +71,7 @@ namespace we {
       public bgm = 1;
       // public liveVolume = 1;
       // public soundEffect = 1;
+      public videoOpen: boolean = true;
 
       public betLimits: data.BetLimitSet[];
       // public wholeDenomList: (value: number) => number;

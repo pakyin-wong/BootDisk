@@ -41,7 +41,7 @@
 				    tooltipText="'mobile_ba_undo'" tooltipPosition="'above'" />
 		<ui:BaseAnimationButton id="_removeAllButton" width="46" height="46" x="160.96" y="262"
 		                    dbClass="lobby_ui" dbDisplay="d_lobby_goodroad_panel_addroad_btn_clear"
-				    tooltipText="'mobile_ba_cancel'" tooltipPosition="'above'" />
+				    tooltipText="'mobile_ba_clear'" tooltipPosition="'above'" />
 		<ui:BaseAnimationButton id="_saveButton" width="95" height="46" x="211" y="262"
 		                    dbClass="lobby_ui" dbDisplay="d_lobby_goodroad_panel_addroad_btn_confirm"
 				    tooltipText="'goodroad.tooltip.confirm'" tooltipPosition="'above'" />

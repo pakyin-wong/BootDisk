@@ -47,8 +47,8 @@ namespace we {
       }
 
       protected initCustomPos() {
-        this._targetQuickBetButtonY = 350;
-        this._originalQuickBetButtonY = 300;
+        this._targetQuickBetButtonY = 388;
+        this._originalQuickBetButtonY = 338;
         this._targetQuickbetPanelY = 378;
         this._originalQuickBetPanelY = 100;
         this._offsetLimit = 900;

@@ -31,6 +31,8 @@ namespace we {
       protected _active: boolean = false;
       protected _down: boolean = false;
 
+      protected _externalClickHandling: boolean = false;
+
       public get dbClass() {
         return this._dbClass;
       }
@@ -43,6 +45,23 @@ namespace we {
       }
       public set dbDisplay(value: string) {
         this._dbDisplay = value;
+      }
+
+      public get externalClickHandling() {
+        return this._externalClickHandling;
+      }
+
+      public set externalClickHandling(value: boolean) {
+        this._externalClickHandling = value;
+        // if (value) {
+        //   if (!this.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+        //     this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+        //   }
+        // } else {
+        //   if (this.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+        //     this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+        //   }
+        // }
       }
 
       constructor() {
@@ -166,11 +185,16 @@ namespace we {
       }
 
       protected onClick() {
+        if (!this._externalClickHandling) {
+          this.toggle();
+        }
+        this.dispatchEvent(new egret.Event('CLICKED'));
+      }
+
+      public toggle() {
         this._active = !this._active;
         const switch_suffix = this._active ? '_on' : '_off';
         this.playPromise(`switch_to${switch_suffix}`, 1);
-
-        this.dispatchEvent(new egret.Event('CLICKED'));
       }
 
       public playPromise(anim, count) {

@@ -1,39 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.lw.LiveListItemTableLayerSkin" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="Normal">
-	<e:Group id="_oneCircleGroup" x="20" y="30" width="60" height="100">
-		<e:Image id="_oneCircleImage" width="60" height="100" name="d_lw_listpenal_betarea_bet_east_png" fillMode="scale"
-		         source="d_lw_listpenal_betarea_bet_east_png" />
-		<e:Label horizontalCenter="0" verticalCenter="30" text="1" size="15" textColor="0xffffff" />
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="Normal" width="578" height="177">
+	<e:Rect anchorOffsetY="0" ellipseHeight="20" ellipseWidth="20" strokeColor="0x5F6973" strokeWeight="2" fillAlpha="1" top="0" bottom="0" left="0" right="0" fillColor="0x282828"/>
+	<e:Group id="_oneCircleGroup" x="14" y="46" width="70" height="110">
+		<e:Image id="_oneCircleImage" name="d_lw_listpenal_betarea_bet_east_png" fillMode="scale"
+		         source="d_lw_listpenal_betarea_bet_east_png"  top="0" bottom="0" left="0" right="0"/>
+		<e:Label horizontalCenter="0" text="1" size="20" textColor="0xffffff"  bottom="3"/>
 	</e:Group>
-	<e:Group id="_threeCircleGroup" x="100" y="30" width="60" height="100">
-		<e:Image id="_threeCircleImage" name="d_lw_listpenal_betarea_bet_south_png" width="60" height="100" fillMode="scale"
-		         source="d_lw_listpenal_betarea_bet_south_png" />
-		<e:Label horizontalCenter="0" verticalCenter="30" text="1" size="15" textColor="0xffffff" />
+	<e:Group id="_threeCircleGroup" x="94" y="46" width="70" height="110">
+		<e:Image id="_threeCircleImage" name="d_lw_listpenal_betarea_bet_south_png" fillMode="scale"
+		         source="d_lw_listpenal_betarea_bet_south_png"  top="0" bottom="0" left="0" right="0"/>
+		<e:Label horizontalCenter="0" text="1" size="20" textColor="0xffffff"  bottom="3"/>
 	</e:Group>
-	<e:Group id="_fiveCircleGroup" x="180" y="30" width="60" height="100">
-		<e:Image id="_fiveCircleImage" name="d_lw_listpenal_betarea_bet_west_png" width="60" height="100" fillMode="scale"
-		         source="d_lw_listpenal_betarea_bet_west_png" />
-		<e:Label horizontalCenter="0" verticalCenter="30" text="5" size="15" textColor="0xffffff" />
+	<e:Group id="_fiveCircleGroup" x="174" y="46" width="70" height="110">
+		<e:Image id="_fiveCircleImage" name="d_lw_listpenal_betarea_bet_west_png" fillMode="scale"
+		         source="d_lw_listpenal_betarea_bet_west_png"  top="0" bottom="0" left="0" right="0"/>
+		<e:Label horizontalCenter="0" text="5" size="20" textColor="0xffffff"  bottom="3"/>
 	</e:Group>
-	<e:Group id="_redDragonGroup" x="260" y="30" width="60" height="100">
-		<e:Image id="_redDragonImage" name="d_lw_listpenal_betarea_bet_north_png" width="60" height="100" fillMode="scale"
-		         source="d_lw_listpenal_betarea_bet_north_png" />
-		<e:Label horizontalCenter="0" verticalCenter="30" text="10" size="15" textColor="0xffffff" />
+	<e:Group id="_redDragonGroup" x="254" y="46" width="70" height="110">
+		<e:Image id="_redDragonImage" name="d_lw_listpenal_betarea_bet_north_png" fillMode="scale"
+		         source="d_lw_listpenal_betarea_bet_north_png"  top="0" bottom="0" left="0" right="0"/>
+		<e:Label horizontalCenter="0" text="10" size="20" textColor="0xffffff"  bottom="3"/>
 	</e:Group>
-	<e:Group id="_greenDragonGroup" x="340" y="30" width="60" height="100">
-		<e:Image id="_greenDragonImage" name="d_lw_listpenal_betarea_bet_white_png" width="60" height="100" fillMode="scale"
-		         source="d_lw_listpenal_betarea_bet_white_png" />
-		<e:Label horizontalCenter="0" verticalCenter="30" text="20" size="15" textColor="0xffffff" />
+	<e:Group id="_greenDragonGroup" x="334" y="46" width="70" height="110">
+		<e:Image id="_greenDragonImage" name="d_lw_listpenal_betarea_bet_white_png" fillMode="scale"
+		         source="d_lw_listpenal_betarea_bet_white_png"  top="0" bottom="0" left="0" right="0"/>
+		<e:Label horizontalCenter="0" text="20" size="20" textColor="0xffffff"  bottom="3"/>
 	</e:Group>
-	<e:Group id="_whiteDragonGroup" x="420" y="30" width="60" height="100">
-		<e:Image id="_whiteDragonImage" name="d_lw_listpenal_betarea_bet_red_png" width="60" height="100" fillMode="scale"
-		         source="d_lw_listpenal_betarea_bet_red_png" />
-		<e:Label horizontalCenter="0" verticalCenter="30" text="45" size="15" textColor="0xffffff" />
+	<e:Group id="_whiteDragonGroup" x="414" y="46" width="70" height="110">
+		<e:Image id="_whiteDragonImage" name="d_lw_listpenal_betarea_bet_red_png" fillMode="scale"
+		         source="d_lw_listpenal_betarea_bet_red_png"  top="0" bottom="0" left="0" right="0"/>
+		<e:Label horizontalCenter="0" text="45" size="20" textColor="0xffffff"  bottom="3"/>
 	</e:Group>
-	<e:Group id="_weGroup" x="500" y="30" width="60" height="100">
-		<e:Image id="_weImage" name="d_lw_listpenal_betarea_bet_green_png" width="60" height="100" fillMode="scale"
-		         source="d_lw_listpenal_betarea_bet_green_png" />
-		<e:Label horizontalCenter="0" verticalCenter="30" text="45" size="15" textColor="0xffffff" />
+	<e:Group id="_weGroup" x="494" y="46" width="70" height="110">
+		<e:Image id="_weImage" name="d_lw_listpenal_betarea_bet_green_png" fillMode="scale"
+		         source="d_lw_listpenal_betarea_bet_green_png"  top="0" left="0" bottom="0" right="0"/>
+		<e:Label horizontalCenter="0" text="45" size="20" textColor="0xffffff"  bottom="3"/>
 	</e:Group>
 </e:Skin>

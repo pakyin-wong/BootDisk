@@ -17,12 +17,14 @@ namespace we {
       private _ddm_camera: ui.Panel;
 
       protected targetScene: core.BaseGameScene;
+      private videoAnimBtn: ui.SettingAnimationButton;
 
       protected _btn_videoSec: eui.Component;
 
-      constructor(targetScene) {
+      constructor(targetScene, videoAnimBtn) {
         super('VideoSetting');
         this.targetScene = targetScene;
+        this.videoAnimBtn = videoAnimBtn;
       }
 
       protected mount() {
@@ -30,13 +32,13 @@ namespace we {
       }
 
       protected init_menu() {
-        this._txt_title.renderText = () => `${i18n.t('nav.menu.videoSet')}`;
-        this._txt_videoSec.renderText = () => `${i18n.t('nav.video.toggle')}`;
-        this._txt_qualitySec.renderText = () => `${i18n.t('nav.video.quality')}`;
-        this._txt_cameraSec.renderText = () => `${i18n.t('nav.video.camera')}`;
+        this._txt_title.renderText = () => `${i18n.t('video_setting')}`;
+        this._txt_videoSec.renderText = () => `${i18n.t('video_setting_toggle')}`;
+        this._txt_qualitySec.renderText = () => `${i18n.t('video_setting_qua')}`;
+        this._txt_cameraSec.renderText = () => `${i18n.t('video_setting_cam')}`;
 
-        const _arrCol_quality = new eui.ArrayCollection([ui.NewDropdownItem('01', () => `Auto`)]);
-        const _arrCol_camera = new eui.ArrayCollection([ui.NewDropdownItem('01', () => `Auto`)]);
+        const _arrCol_quality = new eui.ArrayCollection([ui.NewDropdownItem('01', () => `${i18n.t('video_setting_auto')}`)]);
+        const _arrCol_camera = new eui.ArrayCollection([ui.NewDropdownItem('01', () => `${i18n.t('video_setting_auto')}`)]);
 
         if (this._ddm_quality) {
           this._ddm_quality.isDropdown = true;
@@ -117,20 +119,30 @@ namespace we {
 
       private onQualitySelect(e) {
         this._ddm_quality && this._ddm_quality.dropdown.select(e.data);
+        this.checkChange();
       }
 
       private onCameraChange(e) {
         this._ddm_camera && this._ddm_camera.dropdown.select(e.data);
+        this.checkChange();
       }
 
       private onSwitchVideo() {
         if (this.targetScene.isVideoStopped) {
           this.targetScene.playVideo();
           this.switch_videoSec.active = true;
+          env.videoOpen = true;
+          this.videoAnimBtn.dispatchEvent(new egret.Event('SWITCH_TO_ON'));
         } else {
           this.targetScene.stopVideo();
           this.switch_videoSec.active = false;
+          env.videoOpen = false;
+          this.videoAnimBtn.dispatchEvent(new egret.Event('SWITCH_TO_OFF'));
         }
+      }
+
+      protected checkChange() {
+        this.videoAnimBtn.dispatchEvent(new egret.Event('SETTING_UPDATE'));
       }
 
       protected initOrientationDependentComponent() {

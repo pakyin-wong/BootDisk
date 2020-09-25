@@ -5,6 +5,9 @@ namespace we {
       private soundBtn: egret.DisplayObject;
       private gameButton: egret.DisplayObject;
 
+      private soundRoundRect: ui.RoundRectButton;
+      private videoRoundRect: ui.RoundRectButton;
+
       private _targetScene: core.BaseGameScene;
 
       public set targetScene(scene) {
@@ -18,7 +21,7 @@ namespace we {
 
       protected childrenCreated(): void {
         super.childrenCreated();
-        this.mount();
+        // this.mount();
         this.addEventListener(eui.UIEvent.ADDED_TO_STAGE, this.mount, this);
         this.addEventListener(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
       }
@@ -59,7 +62,7 @@ namespace we {
             originX: this.videoButton.localToGlobal(0, 0).x,
             originY: this.videoButton.localToGlobal(0, 0).y,
           },
-          args: [this._targetScene],
+          args: [this._targetScene, this.videoRoundRect['videoAnimBtn']],
         });
         logger.l(utils.LogTarget.DEBUG, `onClickVideo`);
       }
@@ -67,6 +70,7 @@ namespace we {
       protected onClickSound() {
         dir.evtHandler.createOverlay({
           class: 'SoundSetting',
+          args: [this.soundRoundRect['soundAnimBtn']],
           dismissOnClickOutside: true,
           noDimmer: true,
           showOptions: {

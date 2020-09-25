@@ -1074,6 +1074,18 @@ declare module skin_desktop.lo{
 	class SSCBettingControlBar extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class SSCChaseBetConfirmPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class SSCChaseMultiplierBetItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class SSCChaseProfitBetItem extends eui.Skin{
+	}
+}
 declare module skin_desktop.lo{
 	class SSCNoteControlPanel extends eui.Skin{
 	}
@@ -1091,6 +1103,14 @@ declare module skin_desktop.lo{
 	}
 }
 declare module skin_desktop.lo{
+	class SSCTraditionalChaseBetListMultipleTitle extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class SSCTraditionalChaseBetListProfitTitle extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class SSCTraditionalChaseBetPanel extends eui.Skin{
 	}
 }
@@ -1100,6 +1120,10 @@ declare module skin_desktop.lo{
 }
 declare module skin_desktop.lo{
 	class SSCTraditionalChaseBetTopPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class SSCTraditionalChaseBetTopProfitPanel extends eui.Skin{
 	}
 }
 declare module skin_desktop{

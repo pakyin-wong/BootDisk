@@ -43,7 +43,7 @@ namespace we {
       public drawGridBg(width: number, height: number) {
         this.beadRoadGrid.graphics.beginFill(0xffffff, 1);
         this.beadRoadGrid.graphics.lineStyle(1, 0xafafaf, 1, true);
-        RoundRect.drawRoundRect(this.beadRoadGrid.graphics, 0, 0, width, height, { tl: 0, tr: 0, bl: 8, br: 8 });
+        RoundRect.drawRoundRect(this.beadRoadGrid.graphics, 0, 0, width, height, { tl: 0, tr: 0, bl: 10, br: 10 });
         this.beadRoadGrid.graphics.endFill();
       }
 
