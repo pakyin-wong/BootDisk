@@ -17,7 +17,7 @@ namespace we {
       protected _lblBtnFix;
       protected _lblBtnClear;
 
-      private isValidate = false;
+      protected isValidate = false;
 
       constructor(index: number, config: any) {
         super(index, config);
@@ -78,15 +78,15 @@ namespace we {
         this.updateData();
       }
 
-      private loadFileAbort() {
+      protected loadFileAbort() {
         console.log('abort');
       }
 
-      private loadFileError() {
+      protected loadFileError() {
         console.log('error');
       }
 
-      private onUploadChange() {
+      protected onUploadChange() {
         // 获取选择图片
         const uploadText: any = document.getElementById('uploadText');
         const file = uploadText.files[0];
