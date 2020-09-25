@@ -26,8 +26,8 @@
 
 					<ui:RunTimeLabel id="pTableID" text="DT - 01" y="20" textAlign="right" size="44" 
 					                    alpha="0.7"  right="1598"/>
-					<ui:ClampWidthLabel id="pGameID" text="000-000-000000000" y="160" textAlign="right" x="167" size="44"
-					                    targetWidth="440" alpha="0.7"  fontFamily="Barlow"/>
+					<ui:ClampWidthLabel id="pGameID" text="000-000-000000000" y="160" x="250" size="44"
+					                    targetWidth="440" alpha="0.7"  fontFamily="Barlow" textAlign="right" width="361"/>
 					<ui:ClampWidthLabel id="pDealer" text="Mary" textAlign="right" x="749" y="20" size="44" width="440"
 					                    targetWidth="440" alpha="0.7" />
 					<e:Label id="pRoundID" text="-" y="90" textAlign="right" scaleX="1" scaleY="1" size="44" x="165.48" width="440"
