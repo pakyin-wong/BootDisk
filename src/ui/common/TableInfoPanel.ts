@@ -94,7 +94,7 @@ namespace we {
         this.pGameID.text = tableInfo.data.gameroundid;
         this.pRoundID.text = tableInfo.data.round ? tableInfo.data.round : '-';
 
-        if(!env.isMobile){
+        if (!env.isMobile) {
           this.pGameID.targetWidth = 200;
         }
         // if (tableInfo.betInfo) {

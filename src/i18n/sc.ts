@@ -158,7 +158,7 @@ namespace we {
       mobile_notification_close_button_label: '关闭',
       mobile_notification_next_button_label: '下一页',
 
-      mobile_quick_bet_button_label: '快速投注',
+      mobile_quick_bet_button_label: '快速下注',
       mobile_quick_bet_button_add_label: '追注',
       mobile_enter_table_button_label: '进入游戏',
 
