@@ -28,7 +28,12 @@
             <e:Scroller id="_scroller" height="1719" y="432" anchorOffsetY="0" left="0" right="0" x="0" scaleX="1" scaleY="1">
 				<e:List id="_datagroup" />
 	    </e:Scroller>
+                <e:Group id="_noHistoryResult" width="1242" height="200" y="438">
+                <ui:RunTimeLabel id="_txt_noHistoryResult" text="no bet result" height="59" size="65"
+                        verticalAlign="middle" scaleX="1" scaleY="1"  horizontalCenter="0" verticalCenter="0"/>
+                        <!--<e:Rect width="1242" height="200" fillColor="0xfffcfc"/>-->
+                </e:Group>
             <bh:BetHistoryDetail skinName="skin_mobile_portrait.BetHistoryDetail" id="_detail" left="0" right="0" top="0"
-		                     bottom="0" />
+		                     bottom="0"  visible="false"/>
         </e:Group>
 </e:Skin>

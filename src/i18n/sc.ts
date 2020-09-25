@@ -90,6 +90,7 @@ namespace we {
       overlaypanel_bethistory_recordtab_orgbalance: '开局余额',
       overlaypanel_bethistory_recordtab_finbalance: '本局余额',
       overlaypanel_bethistory_recordtab_resuit: '游戏结果',
+      overlaypanel_bethistory_recordtab_noresult: '没有相关结果', 
       overlaypanel_bethistory_remark_win: '嬴',
       overlaypanel_bethistory_remark_lose: '输',
       overlaypanel_bethistory_remark_ties: '和',

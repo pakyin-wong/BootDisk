@@ -90,6 +90,7 @@ namespace we {
       overlaypanel_bethistory_recordtab_orgbalance: 'original Balance',
       overlaypanel_bethistory_recordtab_finbalance: 'final Banlance',
       overlaypanel_bethistory_recordtab_resuit: 'Game Result',
+      overlaypanel_bethistory_recordtab_noresult: 'No Bet Reult', 
       overlaypanel_bethistory_remark_win: 'Win',
       overlaypanel_bethistory_remark_lose: 'Lose',
       overlaypanel_bethistory_remark_ties: 'Ties',
