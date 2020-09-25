@@ -2,7 +2,7 @@ namespace we {
   export namespace lo {
     export class LoRightDrawerPanel extends core.BaseGamePanel {
       protected activeLine: egret.Shape;
-      protected panelHideBtn: ui.RoundRectShape;
+      protected panelHideBtn: ui.RoundRectButton;
       protected panelHideImage: eui.Image;
 
       protected roadmapBtn: ui.RoundRectButton;
@@ -340,6 +340,8 @@ namespace we {
 
         this.onPageChangeRoadmap();
 
+        this.setRoad3PageNum(0);
+
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.changeLang();
       }
@@ -349,6 +351,9 @@ namespace we {
           this.x = 2388;
           this.panelHideBtn.visible = false;
           this.panelHideImage.visible = false;
+          this.roadmapBtn.active = false;
+          this.analysisBtn.active = false;
+          this.chartBtn.active = false;
         } else {
           this.x = 1763;
           this.panelHideBtn.visible = true;
