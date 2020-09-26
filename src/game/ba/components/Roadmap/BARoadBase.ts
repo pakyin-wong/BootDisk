@@ -185,7 +185,7 @@ namespace we {
         // draw grid lines
         this.grid.graphics.lineStyle(this.gridLine * this.scale, gridColors[this.darkModeNumber], 1, true);
         let lineY: number = size * this.gridUnit;
-        let count = 6 / this.gridUnit - 1;
+        const count = 6 / this.gridUnit - 1;
         for (let r = 0; r < count; r++) {
           this.grid.graphics.moveTo(0, lineY);
           this.grid.graphics.lineTo(this.numCol * size, lineY);
