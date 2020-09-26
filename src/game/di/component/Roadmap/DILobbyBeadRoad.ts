@@ -5,12 +5,17 @@ namespace we {
 
       public roadGridSize: number = 40;
       public roadCol: number = 10;
-      public roadRow: number = 3;
+      public roadRow: number = 1;
       public roadIndentX: number = 0;
       public roadIndentY: number = 0;
       public roadOffsetX: number = 0;
       public roadOffsetY: number = 0;
       public roadIconItemYOffset: number = 10;
+      public textPadding: number = 1;
+      public textSize: number = 18;
+      public diceSize: number = 22;
+      public highlightRadius: number = 8;
+      public iconHeight: number = 130;
       public roadIconItemColors: any = [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1];
       public roadScale: number = 1;
 
@@ -27,12 +32,28 @@ namespace we {
       }
 
       protected init() {
-        this.beadRoad = new DiBeadRoad(this.roadRow, this.roadCol, this.roadGridSize, 1, this.roadOffsetX, this.roadOffsetY, this.roadIconItemYOffset, this.roadIconItemColors);
-        this.beadRoad.x = this.roadIndentX;
-        this.beadRoad.y = this.roadIndentY;
+        const options = {
+          paddingX: this.roadIndentX,
+          paddingY: this.roadIndentY,
+          gapX: this.roadOffsetX,
+          gapY: this.roadOffsetY,
+          iconItemColors: this.roadIconItemColors,
+          iconHeight: this.iconHeight,
+          iconItemYOffset: this.roadIconItemYOffset,
+          textPadding: this.textPadding,
+          textSize: this.textSize,
+          diceSize: this.diceSize,
+          highlightRadius: this.highlightRadius,
+          showGrid: true
+        };
+
+        this.beadRoad = new DiBeadRoad(576, this.roadRow, this.roadCol, this.roadGridSize, 1, options);
+        // this.beadRoad.x = this.roadIndentX;
+        // this.beadRoad.y = this.roadIndentY;
         this.beadRoad.scaleX = this.beadRoad.scaleY = this.roadScale;
         this.beadRoad.initRoadData();
         this.beadRoad.setLayout(3);
+        this.beadRoad.setGridCorners({ tl: 0, tr: 0, bl: 10, br: 10 });
         this.beadRoad.expandRoad(false);
 
         // const rdata: any = [];

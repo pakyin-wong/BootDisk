@@ -30,7 +30,20 @@ namespace we {
       protected initRoadMap() {
         switch (env.orientation) {
           case 'portrait':
-            this.beadRoad = new DiBeadRoad(1, 9, 120, 1, 5, 24, 6, [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1]); // in game
+            let options = {
+              paddingX: 4,
+              paddingY: 4,
+              gapX: 8,
+              gapY: 10,
+              iconItemColors: [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1],
+              iconHeight: 130,
+              iconItemYOffset: 6,
+              textPadding: 1,
+              textSize: 18,
+              diceSize: 22,
+              highlightRadius: 8,
+            };
+            this.beadRoad = new DiBeadRoad(1024, 1, 9, 120, 1, options); // in game
             this.beadRoad.x = 29;
             this.beadRoad.y = 16;
             this.beadRoad.scaleX = 689 / 689;
@@ -39,7 +52,20 @@ namespace we {
             this.beadRoadConfig.parent.addChild(this.beadRoad);
             break;
           case 'landscape':
-            this.beadRoad = new DiBeadRoad(1, 8, 70, 1, 15, 24, 12, [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1]); // in game
+            options = {
+              paddingX: 4,
+              paddingY: 4,
+              gapX: 8,
+              gapY: 10,
+              iconItemColors: [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1],
+              iconHeight: 130,
+              iconItemYOffset: 12,
+              textPadding: 1,
+              textSize: 18,
+              diceSize: 22,
+              highlightRadius: 8,
+            };
+            this.beadRoad = new DiBeadRoad(1024, 1, 8, 70, 1, options); // in game
             this.beadRoad.x = 29;
             this.beadRoad.y = 16;
             this.beadRoad.scaleX = 689 / 689;
