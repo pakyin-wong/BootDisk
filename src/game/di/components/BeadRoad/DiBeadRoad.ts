@@ -76,8 +76,8 @@ namespace we {
           // draw line if row is 1
           this.grid.graphics.lineStyle(this.gridLine * this.scale, gridColors[0], 1, true);
           if (this.numRow === 1) {
-            const iconWidth = (this.width - this.firstItemPadding*2 - this.paddingX * 2 - this.gapX * (this.numCol - 1)) / this.numCol;
-            let lineX: number = this.paddingX + iconWidth + this.firstItemPadding*2 + this.gapX * 0.5;
+            const iconWidth = (this.width - this.firstItemPadding * 2 - this.paddingX * 2 - this.gapX * (this.numCol - 1)) / this.numCol;
+            let lineX: number = this.paddingX + iconWidth + this.firstItemPadding * 2 + this.gapX * 0.5;
             for (let i = 0; i < this.numCol - 1; i++) {
               this.grid.graphics.moveTo(lineX, 0);
               this.grid.graphics.lineTo(lineX, this.iconHeight + this.paddingY * 2);
@@ -111,18 +111,18 @@ namespace we {
         // const displaySize = this.gridSize * 0.64;
         // const spacing: number = displaySize + this.iconItemYOffset;
 
-        const iconWidth = (this.width - this.firstItemPadding*2 - this.paddingX * 2 - this.gapX * (this.numCol - 1)) / this.numCol;
+        const iconWidth = (this.width - this.firstItemPadding * 2 - this.paddingX * 2 - this.gapX * (this.numCol - 1)) / this.numCol;
         const iconHeight = this.iconHeight;
 
         this.roadMapIconList = new Array<DiBeadRoadIcon>();
-        let iconX: number = this.paddingX + this.firstItemPadding;
+        const iconX: number = this.paddingX + this.firstItemPadding;
         for (let i = 0; i < n; i++) {
           const icon = this.createIcon(this.gridSize, iconWidth, iconHeight);
           icon.setByObject({});
-          if (i% this.numCol === 0) {
+          if (i % this.numCol === 0) {
             icon.x = this.paddingX + this.firstItemPadding + (iconWidth + this.gapX) * (iconIndex % this.numCol);
           } else {
-            icon.x = this.paddingX + this.firstItemPadding*2 + (iconWidth + this.gapX) * (iconIndex % this.numCol);
+            icon.x = this.paddingX + this.firstItemPadding * 2 + (iconWidth + this.gapX) * (iconIndex % this.numCol);
           }
           icon.y = this.paddingY + (iconHeight + this.gapY) * Math.floor(iconIndex / this.numCol);
           icon.addToLayer(this._staticLayer);
