@@ -42,7 +42,7 @@ namespace we {
         bgShape.y = 2;
 
         const options = {
-          paddingX: 10,
+          paddingX: 2,
           paddingY: 2,
           gapX: 4,
           gapY: 10,
@@ -53,8 +53,9 @@ namespace we {
           textSize: 20,
           diceSize: 26,
           highlightRadius: 8,
+          firstItemPadding: 5,
           showOuterGrid: true,
-          showGrid: true
+          showGrid: true,
         };
 
         this.beadRoad = new DiBeadRoad(580, 1, 13, 46, 1, options); // in game

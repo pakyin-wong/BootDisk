@@ -18,6 +18,7 @@ namespace we {
       public iconHeight: number = 130;
       public roadIconItemColors: any = [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1];
       public roadScale: number = 1;
+      public roadWidth: number = 576;
 
       protected beadRoadGrid: egret.Shape;
 
@@ -44,10 +45,10 @@ namespace we {
           textSize: this.textSize,
           diceSize: this.diceSize,
           highlightRadius: this.highlightRadius,
-          showGrid: true
+          showGrid: true,
         };
 
-        this.beadRoad = new DiBeadRoad(576, this.roadRow, this.roadCol, this.roadGridSize, 1, options);
+        this.beadRoad = new DiBeadRoad(this.roadWidth, this.roadRow, this.roadCol, this.roadGridSize, 1, options);
         // this.beadRoad.x = this.roadIndentX;
         // this.beadRoad.y = this.roadIndentY;
         this.beadRoad.scaleX = this.beadRoad.scaleY = this.roadScale;
