@@ -2,7 +2,7 @@
 <e:Skin class="skin_desktop.RcRightDrawerPanel" width="835" height="370" xmlns:e="http://ns.egret.com/eui"
         xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
         <ui:RoundRectButton cornerTL_TR_BL_BR="16,0,16,0" width="62" height="52" x="0" y="0" stroke="0"
-                            fillColor="0x212425" id="panelHideBtn" />
+                            fillColor="0x212425" id="panelHideBtn" fillAlpha="1" />
         <e:Image id="panelHideImage" source="d_lottery_ent_penal_infopenal_subtag_btn_right_png" x="17" y="17"
                  width="20" height="20" touchEnabled="false" />
         <ui:RoundRectShape cornerTL_TR_BL_BR="14,0,14,0" width="158" height="206" x="52" y="0" stroke="0"
@@ -10,14 +10,11 @@
         <ui:RoundRectShape cornerTL_TR_BL_BR="0,0,14,0" width="625" height="370" x="210" y="0" stroke="0"
                            fillColor="0x212425" fillAlpha="0.9" />
         <ui:RoundRectButton id="roadmapBtn" cornerTL_TR_BL_BR="25,25,25,25" width="134" height="50" x="64" y="12"
-                            stroke="0" fillAlpha="0" fillColor="0x2c5d97" fillAlpha_active="1" fillAlpha_hover="1"
-                            fillAlpha_click="1" />
+                            stroke="0" fillAlpha="0" fillColor="0x2c5d97" fillAlpha_active="1" />
         <ui:RoundRectButton id="analysisBtn" cornerTL_TR_BL_BR="25,25,25,25" width="134" height="50" x="64" y="78"
-                            stroke="0" fillAlpha="0" fillColor="0x2c5d97" fillAlpha_active="1" fillAlpha_hover="1"
-                            fillAlpha_click="1" />
+                            stroke="0" fillAlpha="0" fillColor="0x2c5d97" fillAlpha_active="1" />
         <ui:RoundRectButton id="chartBtn" cornerTL_TR_BL_BR="25,25,25,25" width="134" height="50" x="64" y="144"
-                            stroke="0" fillAlpha="0" fillColor="0x2c5d97" fillAlpha_active="1" fillAlpha_hover="1"
-                            fillAlpha_click="1" />
+                            stroke="0" fillAlpha="0" fillColor="0x2c5d97" fillAlpha_active="1" />
         <e:ViewStack id="pageStack" width="625" height="370" x="210" y="0" selectedIndex="0">
                 <e:Group id="pageRoad" width="625" height="370" name="Group">
                         <e:Rect x="0" y="278" width="625" height="44" fillColor="0x091b31" locked="true" />
@@ -195,7 +192,7 @@
                                                         </e:skinName>
                                                 </e:RadioButton>
                                                 <e:layout>
-                                                        <e:HorizontalLayout gap="60" horizontalAlign="center"
+                                                        <e:HorizontalLayout gap="30" horizontalAlign="center"
                                                                             paddingTop="6" />
                                                 </e:layout>
                                         </e:Group>
@@ -379,7 +376,7 @@
                                                         </e:skinName>
                                                 </e:RadioButton>
                                                 <e:layout>
-                                                        <e:HorizontalLayout gap="60" horizontalAlign="center"
+                                                        <e:HorizontalLayout gap="30" horizontalAlign="center"
                                                                             paddingTop="6" />
                                                 </e:layout>
                                         </e:Group>

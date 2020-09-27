@@ -118,7 +118,13 @@ interface GameTypeMap {
     BAM: 18;
     DIL: 19;
     SLOT: 20;
+    MS: 21;
     RC: 22;
+    F3: 23;
+    E5: 24;
+    L28: 25;
+    SP: 26;
+    BAB: 27;
 }
 declare const GameType: GameTypeMap;
 

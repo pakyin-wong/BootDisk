@@ -12,6 +12,8 @@ namespace we {
       protected _betChipSetNode: eui.Component;
       protected _button: ui.LobbyQuickBetAnimButton;
 
+      protected _quickBetBtnGroup: eui.Group;
+
       protected _arrangeProperties = [
         'x',
         'y',
@@ -33,6 +35,15 @@ namespace we {
 
       public constructor(skinName: string = null) {
         super(skinName);
+      }
+
+      protected initCustomPos() {
+        super.initCustomPos();
+        this._targetQuickBetButtonY = 191;
+        this._originalQuickBetButtonY = 141;
+        this._targetQuickbetPanelY = 178;
+        this._offsetLimit = 1000;
+        this._offsetMovement = 900;
       }
 
       public destroy() {
@@ -75,7 +86,7 @@ namespace we {
 
       protected getBetChipSet(): BetChipSet & eui.Component {
         const betChipSet = new BetChipSetHorizontal();
-        betChipSet.chipScale = 0.85;
+        betChipSet.chipScale = 0.75;
         betChipSet.containerPadding = 8;
         return betChipSet;
       }
@@ -102,10 +113,10 @@ namespace we {
       // set the position of the children components
       protected arrangeComponents() {
         for (const att of this._arrangeProperties) {
-          if (this._tableLayer) {
+          if (this._tableLayer && att !== 'height') {
             this._tableLayer[att] = this._tableLayerNode[att];
           }
-          if (this._chipLayer) {
+          if (this._chipLayer && att !== 'height') {
             this._chipLayer[att] = this._chipLayerNode[att];
           }
           if (this._roadmapNode && this._bigRoad) {
@@ -205,7 +216,7 @@ namespace we {
       protected runtimeGenerateTableLayer() {
         this.generateTableLayer();
         for (const att of this._arrangeProperties) {
-          if (this._tableLayer) {
+          if (this._tableLayer && att !== 'height') {
             this._tableLayer[att] = this._tableLayerNode[att];
           }
         }
@@ -223,6 +234,10 @@ namespace we {
         if (!this._chipLayer) {
           this.runtimeGenerateChipLayer();
         }
+        if (this._quickBetBtnGroup) this._quickBetBtnGroup.y = this._tableLayer.height - 7;
+
+        // create a
+
         super.showQuickBetGroup();
         egret.Tween.removeTweens(this._chipLayer);
         const p3 = new Promise(resolve =>
