@@ -27,7 +27,7 @@ namespace we {
         }
 
         protected mount() {
-          utils.removeButtonListener(this._btn_replay, this.onClickReplay, this);
+          utils.addButtonListener(this._btn_replay, this.onClickReplay, this);
         }
 
         protected destroy() {
@@ -42,14 +42,36 @@ namespace we {
         }
 
         protected dataChanged(): void {
-          this._txt_round && (this._txt_round.text = i18n.t('overlaypanel_bethistory_record_round'));
-          this._txt_bettype && (this._txt_bettype.text = i18n.t('overlaypanel_bethistory_record_bettype'));
-          this._txt_result && (this._txt_result.text = i18n.t('overlaypanel_bethistory_record_result'));
-          this._btn_replay['label'] && (this._btn_replay['label'].text = i18n.t('overlaypanel_bethistory_record_replay'));
+          this.setData(this._txt_round, i18n.t('overlaypanel_bethistory_record_round'));
+          this.setData(this._txt_bettype, i18n.t('overlaypanel_bethistory_record_bettype'));
+          this.setData(this._txt_result, i18n.t('overlaypanel_bethistory_record_result'));
+          this.setData(this._btn_replay['label'], i18n.t('overlaypanel_bethistory_record_replay'));
+          this.setData(this._txt_record_id, this.data.betid);
+          this.setData(this._txt_record_date, utils.formatTime(this.data.datetime.toFixed(0)));
+          this.setData(this._txt_record_game, i18n.t('gametype_' + we.core.GameType[this.data.gametype]) + this.data.tablename?' '+this.data.tablename:'');
+          this.setData(this._txt_record_round, this.data.gameroundid);
+          this.setData(this._txt_record_remark, this.formatRemark(this.data.remark));
+          this.setData(this._txt_record_bettype, this.formatBetType(this.data.gametype, this.data.field));
+          this.setData(this._txt_record_betamount, utils.formatNumber(this.data.betamount, true));
+          this.setData(this._txt_record_orgbalance, utils.formatNumber(this.data.beforebalance, true));
+          this.setData(this._txt_record_finbalance, utils.formatNumber(this.data.afterbalance, true));
 
-          this._txt_record_id.text = this.data.betid;
-          this._txt_record_date.text = utils.formatTime(this.data.datetime.toFixed(0));
-          this._txt_record_game.text = `${i18n.t('gametype_' + we.core.GameType[this.data.gametype])} ${this.data.tablename}`;
+          this.updateBg();
+          this.updateWinText(this.data.remark, this.data.winamount);
+
+          this.createGameResult(this.data.gametype, this.data.result);
+        }
+
+        protected setData(label:eui.Label, txt) {
+          if(label) {
+            label.text = txt;
+          }
+        }
+
+        protected updateBg() {
+          if(!this._txt_record_bgcolor)
+            return;
+
           if (env.isMobile) {
             this._txt_hover_color.visible = false;
             this._txt_record_bgcolor.fillColor = 0x4b535b;
@@ -57,19 +79,12 @@ namespace we {
           } else {
             this._txt_record_bgcolor.fillColor = this.data.colorIndex === 1 ? 0x14181e : 0x1a1f26;
           }
-          this._txt_record_round.text = this.data.gameroundid;
-          this._txt_record_remark.text = this.formatRemark(this.data.remark);
-          this._txt_record_bettype.text = this.formatBetType(this.data.gametype, this.data.field);
-          this._txt_record_betamount.text = utils.formatNumber(this.data.betamount, true);
-          this._txt_record_orgbalance.text = utils.formatNumber(this.data.beforebalance, true);
-          this._txt_record_finbalance.text = utils.formatNumber(this.data.afterbalance, true);
-
-          this.updateWinText(this.data.remark, this.data.winamount);
-
-          this.createGameResult(this.data.gametype, this.data.result);
         }
 
         protected updateWinText(remark, amt) {
+          if(!this._txt_record_win)
+            return;
+
           switch (remark) {
             case -1:
               this._txt_record_win.textColor = 0xff5555;
@@ -124,7 +139,7 @@ namespace we {
         }
 
         private createGameResult(gametype, gameResult) {
-          let p: core.BaseEUI;
+          let p: eui.Component;
 
           switch (gametype) {
             case we.core.GameType.BAC:
@@ -155,7 +170,7 @@ namespace we {
               p = new LoResultItem(gameResult);
               break;
             default:
-              p = new core.BaseEUI();
+              p = new eui.Component();
               break;
           }
 

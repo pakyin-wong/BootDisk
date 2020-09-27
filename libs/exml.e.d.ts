@@ -803,6 +803,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class BetHistoryItemLottery_popup extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BetHistoryItemLottery_v2 extends eui.Skin{
 	}
 }
@@ -827,11 +831,19 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class LoContinuousBetDetails extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class LoContinuousBetStatus extends eui.Skin{
 	}
 }
 declare module skin_desktop{
 	class LoContinuousBetStatusIR extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LoPopupBetDetail extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -1025,6 +1037,8 @@ declare module skin_desktop{
 declare module skin_desktop{
 	class RouletteWealthScene extends eui.Skin{
 	}
+}
+declare class RoundRectButtonSample extends eui.Skin{
 }
 declare module skin_desktop{
 	class ScrollBarVertical extends eui.Skin{

@@ -272,7 +272,9 @@ namespace we {
           if (this._favouriteButton) {
             this._favouriteButton.visible = true;
             const active = env.favouriteTableList.indexOf(this._tableId) > -1;
-            if (this._favouriteButton.active !== active) { this._favouriteButton.active = active; }
+            if (this._favouriteButton.active !== active) {
+              this._favouriteButton.active = active;
+            }
             // if (env.favouriteTableList.indexOf(this._tableId) > -1) {
             //   this._favouriteButton.playPromise('idle_off', 0);
             // } else {

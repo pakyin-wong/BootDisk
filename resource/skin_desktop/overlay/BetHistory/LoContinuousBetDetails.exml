@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.LoContinuousBetDetails" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*" xmlns:bh="we.overlay.betHistory.*">
+	<e:Group id="content">
+		<e:Group id="background" x="0" y="0">
+			<ui:RoundRectShape width="1335" height="730" cornerTL_TR_BL_BR="13,13,13,13" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x0f1721" strokeInColor="0x1d2b3f" strokeIn="1.7" stroke="0.9" strokeColor="0x0f1721"/>
+			<e:Rect width="1239" height="1" y="213" x="46" fillColor="0x333c4a" scaleX="1" scaleY="1"/>
+			<e:Rect width="1" height="515" x="528" y="214" fillColor="0x333c4a"/>
+		</e:Group>
+		<e:Group id="text" left="0" right="0" top="0" bottom="0">
+			<e:Label id="_txt_title" text="追號相關記錄" height="45" x="47.00000000000001" y="26" verticalAlign="middle" textColor="0xd19c65" scaleX="1" scaleY="1"/>
+			<e:Label id="_txt_cbetid" text="追號編號" x="46" y="119" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_txt_date" text="日期時間" x="219" y="119" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_txt_game" text="遊戲" x="460" y="119" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_txt_start" text="起始獎期" x="610" y="119" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_txt_total" text="追號期數" x="774" y="119" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_txt_count" text="追號進度" x="924" y="119" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_txt_betamount" text="總投注額" x="1074" y="119" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_txt_status" text="狀態" x="1224" y="119" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_txt_type" text="類型" x="50" y="231" height="66" verticalAlign="middle" size="20"/>
+			<e:Label id="_txt_group" text="玩法" x="50" y="297" height="66" verticalAlign="middle" size="20"/>
+			<e:Label id="_txt_field" text="投注項目" x="50" y="363" height="66" verticalAlign="middle" size="20"/>
+			<e:Label id="_txt_autostop" text="追中即停" x="50" y="429" height="66" verticalAlign="middle" size="20"/>
+			<e:Label id="_txt_cancelled" text="取消期數" x="50" y="495" height="66" verticalAlign="middle" size="20"/>
+			<e:Label id="_txt_doneAmount" text="完成金額" x="50" y="561" height="66" verticalAlign="middle" size="20"/>
+		</e:Group>
+		<e:Group id="data" left="0" right="0" top="0" bottom="0" alpha="0.7">
+			<e:Label id="_data_cbetid" text="追號編號" x="46" y="157" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_data_date" text="日期時間" x="219" y="157" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_data_game" text="遊戲" x="460" y="157" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_data_start" text="起始獎期" x="610" y="157" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_data_total" text="追號期數" x="774" y="157" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_data_count" text="追號進度" x="924" y="157" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_data_betamount" text="總投注額" x="1074" y="157" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_data_status" text="狀態" x="1224" y="157" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_data_type" text="類型" x="154" y="231" height="66" verticalAlign="middle" size="20"/>
+			<e:Label id="_data_group" text="玩法" x="154" y="297" height="66" verticalAlign="middle" size="20"/>
+			<e:Label id="_data_field" text="投注項目" x="154" y="363" height="66" verticalAlign="middle" size="20"/>
+			<e:Label id="_data_autostop" text="追中即停" x="154" y="429" height="66" verticalAlign="middle" size="20"/>
+			<e:Label id="_data_cancelled" text="取消期數" x="154" y="495" height="66" verticalAlign="middle" size="20"/>
+			<e:Label id="_data_doneAmount" text="完成金額" x="154" y="561" height="66" verticalAlign="middle" size="20"/>
+		</e:Group>
+		<bh:LoContinuousBetStatus id="_cbetStatus" skinName="skin_desktop.LoContinuousBetStatus" x="585" y="244" scaleX="1" scaleY="1"/>
+		<e:Image id="close" width="48" height="48" source="d-lobby-button-close-none_png" x="1251" y="25" scaleX="1" scaleY="1"/>
+	</e:Group>
+
+</e:Skin>
