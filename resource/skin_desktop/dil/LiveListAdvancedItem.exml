@@ -32,7 +32,7 @@
 	</e:Group>
 	<e:Group id="_quickBetGroup" width="350" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" alpha="0" touchEnabled="false"
 	         touchChildren="false">
-		<e:Group width="100%" x="0" y="110" scaleX="1" scaleY="1">
+		<e:Group width="100%" x="0" scaleX="1" scaleY="1" bottom="0">
 			<ui:RoundRectShape cornerTL_TR_BL_BR="15,15,15,15" width="350" height="103" x="0" y="0" stroke="0"
                            fillColor="0x000000" fillAlpha="0.8" />
 			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" x="136" y="20"
@@ -49,8 +49,8 @@
 			                        skinName="skin_desktop.ImageButtonSkinLobby" />
 			-->
 		</e:Group>
-		<e:Component id="_tableLayerNode" width="350" left="0" top="0" visible="false" name="AdvancedTableLayerNode" />
+		<e:Component id="_tableLayerNode" width="350" left="0" name="AdvancedTableLayerNode"  bottom="100" height="3"/>
+		<e:Component id="_chipLayerNode" width="350" anchorOffsetY="0" left="0" alpha="0" name="AdvancedChipLayerNode" x="0" scaleX="1" scaleY="1" bottom="100" height="0"/>
 	</e:Group>
-	<e:Component id="_chipLayerNode" width="350" anchorOffsetY="0" y="0" left="0" alpha="0" visible="false"
-	             name="AdvancedChipLayerNode" />
+
 </e:Skin>
