@@ -39,7 +39,7 @@ namespace we {
           this._txt_record_betfield.text = betinfo['field'];
 
           this._betid = this.data.betid;
-          
+
           this._btn_cbet && (this._btn_cbet.label.text = i18n.t('overlaypanel_bethistorylottery_record_continuousbetdetail'));
           this._btn_cbet && (this._btn_cbet.visible = this.data.result.a2 == '1');
           this._tab_cbet && (this._tab_cbet.visible = this.data.result.a2 == '1');

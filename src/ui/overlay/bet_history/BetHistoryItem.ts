@@ -48,7 +48,7 @@ namespace we {
           this.setData(this._btn_replay['label'], i18n.t('overlaypanel_bethistory_record_replay'));
           this.setData(this._txt_record_id, this.data.betid);
           this.setData(this._txt_record_date, utils.formatTime(this.data.datetime.toFixed(0)));
-          this.setData(this._txt_record_game, i18n.t('gametype_' + we.core.GameType[this.data.gametype]) + this.data.tablename?' '+this.data.tablename:'');
+          this.setData(this._txt_record_game, i18n.t('gametype_' + we.core.GameType[this.data.gametype]) + (this.data.tablename ? ' ' + this.data.tablename : ''));
           this.setData(this._txt_record_round, this.data.gameroundid);
           this.setData(this._txt_record_remark, this.formatRemark(this.data.remark));
           this.setData(this._txt_record_bettype, this.formatBetType(this.data.gametype, this.data.field));
@@ -62,15 +62,14 @@ namespace we {
           this.createGameResult(this.data.gametype, this.data.result);
         }
 
-        protected setData(label:eui.Label, txt) {
-          if(label) {
+        protected setData(label: eui.Label, txt) {
+          if (label) {
             label.text = txt;
           }
         }
 
         protected updateBg() {
-          if(!this._txt_record_bgcolor)
-            return;
+          if (!this._txt_record_bgcolor) { return; }
 
           if (env.isMobile) {
             this._txt_hover_color.visible = false;
@@ -82,8 +81,7 @@ namespace we {
         }
 
         protected updateWinText(remark, amt) {
-          if(!this._txt_record_win)
-            return;
+          if (!this._txt_record_win) { return; }
 
           switch (remark) {
             case -1:

@@ -60,7 +60,25 @@ namespace we {
         dir.evtHandler.dispatch('BETHISTORY_SHOW_POPUP_BET_DETAIL', this._id);
       }
 
-      protected onBtnCancel() {}
+      protected onBtnCancel() {
+        dir.evtHandler.showMessage({
+          class: 'MessageDialog',
+          args: [
+            i18n.t('baccarat.removeGoodRoad'),
+            {
+              dismiss: {
+                text: i18n.t('baccarat.cancelRemoveGoodRoad'),
+              },
+              action: {
+                text: i18n.t('baccarat.confirmRemoveGoodRoad'),
+                onClick: () => {
+                  this.dispatchEvent(new egret.Event('onBinTap'));
+                },
+              },
+            },
+          ],
+        });
+      }
     }
   }
 }
