@@ -195,7 +195,7 @@ namespace we {
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         this.generateChipLayer();
         for (const att of this._arrangeProperties) {
-          if (this._chipLayer && att !== 'height') {
+          if (this._chipLayer && att !== 'height' && att !== 'scaleX') {
             this._chipLayer[att] = this._chipLayerNode[att];
           }
         }
@@ -216,7 +216,7 @@ namespace we {
       protected runtimeGenerateTableLayer() {
         this.generateTableLayer();
         for (const att of this._arrangeProperties) {
-          if (this._tableLayer && att !== 'height') {
+          if (this._tableLayer && att !== 'height' && att !== 'scaleX') {
             this._tableLayer[att] = this._tableLayerNode[att];
           }
         }
