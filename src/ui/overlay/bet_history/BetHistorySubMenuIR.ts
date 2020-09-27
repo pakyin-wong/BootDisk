@@ -10,7 +10,6 @@ namespace we {
 
       protected dataChanged(): void {
         mouse.setButtonMode(this, true);
-        console.log(this.data);
         this._label.text = this.data.label;
       }
     }

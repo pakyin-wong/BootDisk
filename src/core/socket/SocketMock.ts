@@ -1607,6 +1607,13 @@ namespace we {
           history: tempData,
         });
       }
+
+      public getLotteryContinuousBetDetail(betid: string, callback: (res: any) => void, thisArg: any) {}
+
+      public getLotteryContinuousBetHistory(filter: any, callback: (res: any) => void, thisArg: any) {}
+
+      public getLotteryBetDetail(filter: any, callback: (res: any) => void, thisArg: any) {}
+
       public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {
         const betCombination = new we.data.BetCombination();
         betCombination.title = title;
