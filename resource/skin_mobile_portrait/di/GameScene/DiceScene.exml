@@ -145,7 +145,7 @@
 	-->
 	<e:Group id="_betRelatedGroup" x.right_hand_mode="1074" y="181" scaleX="1" scaleY="1" width="128"
 	         right.right_hand_mode="10" left.left_hand_mode="10" top.left_hand_mode="190" top.right_hand_mode="190">
-		<e:Rect id="_roundPanel" width="128" height="834" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
+		<e:Rect id="_roundPanel" width="128" height="1028" fillAlpha="1" ellipseHeight="150" ellipseWidth="150"
 		        fillColor="0x444444" />
 		<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="120" anchorOffsetY="0" height="300"
 		          x.right_hand_mode="5.82" skinName="skin_mobile_portrait.BetConfirmVerticalButtonMobile" x.left_hand_mode="5"

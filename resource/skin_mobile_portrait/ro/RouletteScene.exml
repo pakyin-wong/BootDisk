@@ -80,7 +80,7 @@
       <ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" betChipWidth="250" betChipHeight="208" scaleY="1" labelSize="48" width="855" height="871" numChipsInRow="3" right.left="0" y="35"/>
     </e:Group>
     <e:Group id="_betRelatedGroup" x="1074" y="181" scaleX="1" scaleY="1" width="128" x.left="21">
-      <e:Rect id="_roundPanel" width="128" height="834" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"/>
+      <e:Rect id="_roundPanel" width="128" height="926" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"/>
       <e:Button id="_confirmButton" label="" anchorOffsetX="0" width="256" anchorOffsetY="0" height="120" horizontalCenter="0" y="675" skinName="skin_mobile_portrait.BetConfirmButtonMobile" rotation="90"/>
       <ui:CountdownTimer id="_timer" width="256" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" y="675" horizontalCenter="0" rotation="90" currentState="vertical" colorChange="true"/>
 			<ui:RunTimeLabel id="_repeatLabel" text="再次下注" y="154" left="0" right="0" textAlign="center" verticalAlign="middle" size="32" height="47"/>
