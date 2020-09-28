@@ -57,12 +57,16 @@ namespace we {
       //   super(skin, orientationDependent);
       constructor() {
         super();
-        this.skinName = 'skin_desktop.lo.SSCNoteControlPanel';
+        this.initSkin();
         // TradNoteData {
         //   public field: string; // field consist of several information: Bet type, bet per note and bet detail
         //   public count: number; // number of note corresponding to the field
         //   public multiplier: number;
         // }
+      }
+
+      protected initSkin() {
+        this.skinName = 'skin_desktop.lo.SSCNoteControlPanel';
       }
 
       protected childrenCreated() {

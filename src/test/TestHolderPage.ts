@@ -145,8 +145,8 @@ namespace we {
               singleDataCheckArray.push(combinedData[i]);
             }
           }
-            // duplication checking in whole valid data
-          
+          // duplication checking in whole valid data
+
           wholeCheck = singleDataCheckArray.filter((v, i, a) => a.indexOf(v) === i);
         } else {
           wholeCheck = combinedData;
@@ -171,24 +171,24 @@ namespace we {
               }
             }
           }
-           finalDatas.push(tempData);
+          finalDatas.push(tempData);
         }
 
         let output = '';
         let data = '';
-        
+
         // set textArea & set _data
         for (let i = 0; i < finalDatas.length; i++) {
           if (i === finalDatas.length - 1) {
             if (isUpdateTextField) {
               output += finalDatas[i];
             }
-            data += finalDatas[i] ;
+            data += finalDatas[i];
           } else {
             if (isUpdateTextField) {
-              output += finalDatas[i]+', ';
+              output += finalDatas[i] + ', ';
             }
-            data += finalDatas[i]+';';
+            data += finalDatas[i] + ';';
           }
         }
 

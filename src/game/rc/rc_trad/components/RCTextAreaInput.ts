@@ -1,7 +1,7 @@
 // TypeScript file
 namespace we {
   export namespace rc {
-    export class RCTypeTextAreaInput extends we.lo.SSCTextAreaInput {
+    export class RCTextAreaInput extends we.lo.SSCTextAreaInput {
       protected validateTextArea(text: string, isUpdateTextField = false) {
         // remove except numbers
         this.duplicatedDatas = [];
@@ -34,7 +34,7 @@ namespace we {
         let tempDigitData = '';
         const validateDoubleDigit = [];
 
-         for (let i = 0; i < validateText.length; i++) {
+        for (let i = 0; i < validateText.length; i++) {
           if ((i + 1) % 2 === 0) {
             tempDigitData += validateText[i];
             if (parseInt(tempDigitData, 10) >= minNum && parseInt(tempDigitData, 10) <= maxNum) {
@@ -59,7 +59,7 @@ namespace we {
         }
         // duplication checking for data ARRAY
 
-        let finalDatas = [];
+        const finalDatas = [];
         let wholeCheck = [];
         const singleDataCheckArray = [];
         const isUnique = this._config.isUnique;
@@ -72,8 +72,8 @@ namespace we {
               singleDataCheckArray.push(combinedData[i]);
             }
           }
-            // duplication checking in whole valid data
-          
+          // duplication checking in whole valid data
+
           wholeCheck = singleDataCheckArray.filter((v, i, a) => a.indexOf(v) === i);
         } else {
           wholeCheck = combinedData;
@@ -99,7 +99,7 @@ namespace we {
               }
             }
           }
-           finalDatas.push(tempData);
+          finalDatas.push(tempData);
         }
 
         // set textArea & set _data
@@ -111,9 +111,9 @@ namespace we {
             this._data += finalDatas[i];
           } else {
             if (isUpdateTextField) {
-              this._textArea.text += finalDatas[i]+', ';
+              this._textArea.text += finalDatas[i] + ', ';
             }
-            this._data += finalDatas[i]+';';
+            this._data += finalDatas[i] + ';';
           }
         }
 

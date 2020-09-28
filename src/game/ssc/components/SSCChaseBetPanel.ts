@@ -56,7 +56,8 @@ namespace we {
       private _counterInterval;
 
       constructor(noteData, roundData, bettingPanel) {
-        super('SSCTraditionalChaseBetPanel');
+        super();
+        this.initSkin();
         this._noteData = noteData;
         // this._tableInfo = tableInfo;
         this._roundDetails = roundData;
@@ -64,6 +65,11 @@ namespace we {
         // this.skinName = 'skin_desktop.lo.SSCChaseBetPanelSkin';
         // this.init();
       }
+
+      protected initSkin() {
+        this.skinName = 'skin_desktop.SSCTraditionalChaseBetPanel';
+      }
+
       protected mount() {
         super.mount();
         this.init();

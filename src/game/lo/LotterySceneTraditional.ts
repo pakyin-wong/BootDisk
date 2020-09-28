@@ -17,12 +17,12 @@ namespace we {
       protected _rightGamePanel: we.lo.LoRightPanel;
       // protected _bigRoadResultPanel: we.ro.ROBigRoadResultPanel;
 
-      protected _bettingPanel: SSCTraditionalBettingPanel;
+      protected _bettingPanel: ABettingPanel;
 
-      private _bettingPanelGroup: eui.Group;
-      private _videoGroup: eui.Group;
-      private _chaseGroup: eui.Group;
-      private _chasePanel;
+      protected _bettingPanelGroup: eui.Group;
+      protected _videoGroup: eui.Group;
+      protected _chaseGroup: eui.Group;
+      protected _chasePanel;
 
       constructor(data: any) {
         super(data);
@@ -306,7 +306,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         // super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             this._bettingPanel.updateRoundDetailInfo(this._tableInfo.betInfo);
             // this._leftGamePanel.updateTableBetInfo();

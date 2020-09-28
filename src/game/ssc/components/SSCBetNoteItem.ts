@@ -32,9 +32,13 @@ namespace we {
 
       constructor() {
         super();
-        this.skinName = utils.getSkinByClassname('SSCBetNoteItem');
+        this.initSkin();
         this.addListeners();
         // console.log('PANEL', SSCBetNoteItem.PANEL);
+      }
+
+      protected initSkin() {
+        this.skinName = 'skin_desktop.SSCBetNoteItem';
       }
       // TradNoteData {
       //   public field: string; // field consist of several information: Bet type, bet per note and bet detail

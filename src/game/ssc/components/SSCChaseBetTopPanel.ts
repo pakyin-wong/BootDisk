@@ -37,6 +37,10 @@ namespace we {
         super();
         this._chaseBetPanel = panel;
         this._currentChaseType = chaseType;
+        this.initSkin();
+      }
+
+      protected initSkin() {
         switch (this._currentChaseType) {
           case SSCChaseType.SAMEMULTIPLE:
             this.skinName = 'skin_desktop.lo.SSCTraditionalChaseBetTopPanel';
@@ -203,9 +207,13 @@ namespace we {
 
         min = parseInt(this._etextMinMultiplier.text, 10);
 
-        if (min < 1) { min = 1; }
+        if (min < 1) {
+          min = 1;
+        }
 
-        if (min > 20) { min = 20; }
+        if (min > 20) {
+          min = 20;
+        }
 
         this._etextMinMultiplier.text = min;
         this._chaseBetPanel._minMultiplier = min;
@@ -219,9 +227,13 @@ namespace we {
           this._etextRoundSeparate.text = sep;
         }
         sep = parseInt(this._etextRoundSeparate.text, 10);
-        if (sep < 1) { sep = 1; }
+        if (sep < 1) {
+          sep = 1;
+        }
 
-        if (sep > 20) { sep = 20; }
+        if (sep > 20) {
+          sep = 20;
+        }
 
         this._etextRoundSeparate.text = sep;
         this._chaseBetPanel._separteRound = sep;
@@ -235,9 +247,13 @@ namespace we {
           this._etextChaseRound.text = chaseRound;
         }
         chaseRound = parseInt(this._etextChaseRound.text, 10);
-        if (chaseRound < 1) { chaseRound = 1; }
+        if (chaseRound < 1) {
+          chaseRound = 1;
+        }
 
-        if (chaseRound > 20) { chaseRound = 20; }
+        if (chaseRound > 20) {
+          chaseRound = 20;
+        }
 
         this._etextChaseRound.text = chaseRound;
 
@@ -252,7 +268,9 @@ namespace we {
         }
 
         rate = parseInt(this._etextLowestProfitRate.text, 10);
-        if (rate <= 0) { rate = 1; }
+        if (rate <= 0) {
+          rate = 1;
+        }
 
         this._etextLowestProfitRate.text = rate;
 

@@ -8,6 +8,10 @@ namespace we {
 
       constructor() {
         super();
+        this.initSkin();
+      }
+
+      protected initSkin() {
         this.skinName = 'skin_desktop.lo.SSCTraditionalBettingRandomPanel';
       }
 

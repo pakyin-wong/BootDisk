@@ -32,32 +32,36 @@ namespace we {
       private _winInstructGroup: eui.Group;
       private _lblwinInstruct: ui.RunTimeLabel;
 
-      private _lblCurrentRound: ui.RunTimeLabel;
-      private _lblCurrentRoundState: ui.RunTimeLabel;
+      protected _lblCurrentRound: ui.RunTimeLabel;
+      protected _lblCurrentRoundState: ui.RunTimeLabel;
 
-      private _lblPrevRound: ui.RunTimeLabel;
-      private _lblLastRound: ui.RunTimeLabel;
+      protected _lblPrevRound: ui.RunTimeLabel;
+      protected _lblLastRound: ui.RunTimeLabel;
 
-      private _lblResultBall0: ui.RunTimeLabel;
-      private _lblResultBall1: ui.RunTimeLabel;
-      private _lblResultBall2: ui.RunTimeLabel;
-      private _lblResultBall3: ui.RunTimeLabel;
-      private _lblResultBall4: ui.RunTimeLabel;
+      protected _lblResultBall0: ui.RunTimeLabel;
+      protected _lblResultBall1: ui.RunTimeLabel;
+      protected _lblResultBall2: ui.RunTimeLabel;
+      protected _lblResultBall3: ui.RunTimeLabel;
+      protected _lblResultBall4: ui.RunTimeLabel;
 
-      private _lblLastBall0: ui.RunTimeLabel;
-      private _lblLastBall1: ui.RunTimeLabel;
-      private _lblLastBall2: ui.RunTimeLabel;
-      private _lblLastBall3: ui.RunTimeLabel;
-      private _lblLastBall4: ui.RunTimeLabel;
+      protected _lblLastBall0: ui.RunTimeLabel;
+      protected _lblLastBall1: ui.RunTimeLabel;
+      protected _lblLastBall2: ui.RunTimeLabel;
+      protected _lblLastBall3: ui.RunTimeLabel;
+      protected _lblLastBall4: ui.RunTimeLabel;
 
-      private _lblPrevBall0: ui.RunTimeLabel;
-      private _lblPrevBall1: ui.RunTimeLabel;
-      private _lblPrevBall2: ui.RunTimeLabel;
-      private _lblPrevBall3: ui.RunTimeLabel;
-      private _lblPrevBall4: ui.RunTimeLabel;
+      protected _lblPrevBall0: ui.RunTimeLabel;
+      protected _lblPrevBall1: ui.RunTimeLabel;
+      protected _lblPrevBall2: ui.RunTimeLabel;
+      protected _lblPrevBall3: ui.RunTimeLabel;
+      protected _lblPrevBall4: ui.RunTimeLabel;
 
       constructor(skin: string = null) {
         super(skin);
+        this.initSkin();
+      }
+
+      protected initSkin() {
         this.skinName = 'skin_desktop.lo.SSCTraditionalBettingPanel';
       }
 
@@ -265,7 +269,7 @@ namespace we {
         for (let i = 0; i < this.smallTagsArray.length; i++) {
           const lbl = this.smallTagsArray[i].getChildAt(0) as ui.RunTimeLabel;
           lbl.alpha = 0.7;
-          lbl.textFlow = <egret.ITextElement[]> [
+          lbl.textFlow = <egret.ITextElement[]>[
             {
               text: lbl.text,
               style: { bold: false, underline: false },
@@ -273,7 +277,7 @@ namespace we {
           ];
           if (i === this._currentSmallTagIndex) {
             lbl.alpha = 1;
-            lbl.textFlow = <egret.ITextElement[]> [
+            lbl.textFlow = <egret.ITextElement[]>[
               {
                 text: lbl.text,
                 style: { bold: true, underline: true },

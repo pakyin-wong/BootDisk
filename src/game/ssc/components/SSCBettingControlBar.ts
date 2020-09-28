@@ -30,6 +30,10 @@ namespace we {
       //   super(skin, orientationDependent);
       constructor() {
         super();
+        this.initSkin();
+      }
+
+      protected initSkin() {
         this.skinName = 'skin_desktop.lo.SSCBettingControlBar';
       }
 

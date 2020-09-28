@@ -21,6 +21,10 @@ namespace we {
 
       constructor(index: number, config: any) {
         super(index, config);
+        this.initSkin();
+      }
+
+      protected initSkin() {
         this.skinName = 'skin_desktop.lo.SSCTextAreaInput';
       }
 
