@@ -91,7 +91,7 @@ namespace we {
             case we.core.GameType.LO:
               return lo.SideListItemHolder;
             case we.core.GameType.RC:
-              return lo.SideListItemHolder;
+              return rc.SideListItemHolder;
             default:
               throw new Error('Invalid Game Type');
           }
@@ -126,7 +126,7 @@ namespace we {
             case we.core.GameType.LO:
               return lo.SideListItemHolder;
             case we.core.GameType.RC:
-              return lo.SideListItemHolder;
+              return rc.SideListItemHolder;
             default:
               throw new Error('Invalid Game Type');
           }
