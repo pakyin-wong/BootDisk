@@ -2,6 +2,9 @@ namespace we {
   export namespace core {
     export class BaseEUI extends eui.Component implements ui.IDismissable {
       public static tapHistory: any[] = [];
+
+      public customKey: string;
+
       protected _skinKey: string;
       protected _orientationDependent: boolean;
       constructor(skin: string = null, orientationDependent: boolean = true) {

@@ -31,7 +31,7 @@
 			</e:layout>
 		</e:Group>
 
-		<e:Group x="737" y="47">
+		<e:Group id="_result" x="737" y="47">
 			<e:Label id="b1" width="50" height="50" x="232" y="0" textColor="0xdea167" size="40" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
 			<e:Label id="b2" width="50" height="50" x="174" y="0" textColor="0xdea167" size="40" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
 			<e:Label id="b3" width="50" height="50" x="116" y="0" textColor="0xdea167" size="40" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.rc.FunBetGroupDT" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing" >
+	<e:Image width="344" height="214" source="d_lottery_ent_penal_betarea_betpenal_bg_green_png"/>
+	<e:Image width="344" height="48" source="d_lottery_ent_penal_betarea_betpenal_bg_green_title_png"/>
+	<e:Group id="items" left="0" right="0" top="0" bottom="0">
+		<lo:FunBetItem skinName="skin_desktop.lo.FunBetItemDT" x="63" y="51" scaleX="1" scaleY="1" currentState="DRAGON" field="DRAGON" customKey="rc"/>
+		<lo:FunBetItem skinName="skin_desktop.lo.FunBetItemDT" x="203" y="51" scaleX="1" scaleY="1" currentState="TIGER" field="TIGER" customKey="rc"/>
+	</e:Group>
+	<ui:RunTimeLabel id="title" text="Label" y="11" textColor="0x00b8c3" size="20" height="29" verticalAlign="middle" left="0" right="0" textAlign="center"/>
+</e:Skin>
