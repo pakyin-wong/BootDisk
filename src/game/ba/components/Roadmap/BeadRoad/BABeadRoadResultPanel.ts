@@ -15,7 +15,7 @@ namespace we {
         super.createChildren();
         this.skinName = utils.getSkinByClassname('BABeadRoadResultPanelSkin');
         this._gameInfoLabel.renderText = () => `${i18n.t('baccarat.clickToSeeVideo')}`;
-        this._gameInfoLabel.visible = false; //true when replay url is available
+        this._gameInfoLabel.visible = false; // true when replay url is available
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
 

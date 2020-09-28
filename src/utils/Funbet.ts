@@ -1,6 +1,6 @@
 namespace we {
   export namespace utils {
-    export function Funbet(id) {
+    export function GetFunBet(id) {
       switch (id) {
         case 'rc':
           return rc.FunBet;

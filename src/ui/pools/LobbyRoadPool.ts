@@ -20,7 +20,9 @@ namespace we {
           case 'lw':
             return lw.LwLobbyBeadRoad;
           case 'lo':
-            return ro.ROLobbyBeadRoad;
+            return lo.LoLobbyRoadPanel;
+          case 'rc':
+            return rc.RcLobbyRoadPanel;
           default:
             throw new Error('invalid game type');
         }

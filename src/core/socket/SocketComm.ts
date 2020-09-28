@@ -688,6 +688,7 @@ namespace we {
             tableInfo.gamestatistic = stats;
             break;
           }
+          case core.GameType.RC:
           case core.GameType.LO: {
             gameStatistic.tableID = tableid;
             gameStatistic.shoeID = gameStatistic.shoeid;

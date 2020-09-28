@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.rc.FunBetGroupNum3" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing" >
+	<e:Image width="484" height="450" source="d_lottery_ent_penal_betarea_betpenal_bg_green_png"/>
+	<e:Image width="484" height="48" source="d_lottery_ent_penal_betarea_betpenal_bg_green_title_png"/>
+	<e:Group id="items" y="65" x="1">
+		<lo:FunBetItem x="78" y="60" scaleX="1" scaleY="1" skinName="skin_desktop.lo.FunBetItemNum" field="0" customKey="rc"/>
+		<lo:FunBetItem x="88" y="70" scaleX="1" scaleY="1" skinName="skin_desktop.lo.FunBetItemNum" field="1" customKey="rc"/>
+		<lo:FunBetItem x="98" y="80" scaleX="1" scaleY="1" skinName="skin_desktop.lo.FunBetItemNum" field="2" customKey="rc"/>
+		<lo:FunBetItem x="108" y="90" scaleX="1" scaleY="1" skinName="skin_desktop.lo.FunBetItemNum" field="3" customKey="rc"/>
+		<lo:FunBetItem x="118" y="100" scaleX="1" scaleY="1" skinName="skin_desktop.lo.FunBetItemNum" field="4" customKey="rc"/>
+		<lo:FunBetItem x="128" y="110" scaleX="1" scaleY="1" skinName="skin_desktop.lo.FunBetItemNum" field="5" customKey="rc"/>
+		<lo:FunBetItem x="138" y="120" scaleX="1" scaleY="1" skinName="skin_desktop.lo.FunBetItemNum" field="6" customKey="rc"/>
+		<lo:FunBetItem x="148" y="130" scaleX="1" scaleY="1" skinName="skin_desktop.lo.FunBetItemNum" field="7" customKey="rc"/>
+		<lo:FunBetItem x="158" y="140" scaleX="1" scaleY="1" skinName="skin_desktop.lo.FunBetItemNum" field="8" customKey="rc"/>
+		<lo:FunBetItem x="168" y="150" scaleX="1" scaleY="1" skinName="skin_desktop.lo.FunBetItemNum" field="9" customKey="rc"/>
+		<e:layout>
+			<e:TileLayout horizontalGap="1" verticalGap="10" orientation="columns" requestedRowCount="5" requestedColumnCount="2"/>
+		</e:layout>
+
+
+
+
+
+
+	</e:Group>
+	<ui:RunTimeLabel id="title" text="Label" y="11" textColor="0x00b8c3" size="20" height="29" verticalAlign="middle" left="0" right="0" textAlign="center"/>
+        
+</e:Skin>

@@ -4,7 +4,7 @@ namespace we {
       public static tapHistory: any[] = [];
 
       public customKey: string;
-      
+
       protected _skinKey: string;
       protected _orientationDependent: boolean;
       constructor(skin: string = null, orientationDependent: boolean = true) {
