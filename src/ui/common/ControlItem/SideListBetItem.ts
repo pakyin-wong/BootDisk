@@ -213,7 +213,7 @@ namespace we {
 
       protected showQuickBetGroup() {
         egret.Tween.removeTweens(this._quickbetButton);
-        egret.Tween.get(this._quickbetButton).to({ alpha: 0 }, 250);
+        egret.Tween.get(this._quickbetButton).to({ alpha: 1 }, 250);
         this._betChipSetGridEnabled = true;
         this._betEnabled = true;
         this._quickbetButton.touchEnabled = false;

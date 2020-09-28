@@ -7,11 +7,12 @@
     <e:Group x="0" y="0" width="100%">
         <e:Group id="_toggler" x="0" y="5" touchEnabled="true" touchThrough="false" touchChildren="false" height="46" width="100%"
             tooltipText="'nav.tooltip.betlimit'" tooltipPosition="'above'">
-            <e:Label id="_label" text="" top="0" bottom="0" textAlign="left" verticalAlign="middle" size="27" left="0"  alpha="0.7" />
+            <e:Label id="_betLimitLabel" text="" top="0" bottom="0" textAlign="left" verticalAlign="middle" size="24" left="0"  fontFamily="barlow" alpha="0.7" />
+            <e:Label id="_label" text="" top="0" bottom="0" textAlign="left" size="30" left="0"  fontFamily="barlow" alpha="0.7" verticalAlign="middle"/>
             <e:Image id="_toggleArrow" x="110" y="12" source="d_lobby_button_down_normal_png" width="30" height="30" />
             <e:layout>
                 <e:HorizontalLayout verticalAlign="middle" paddingLeft="10" paddingRight="10" paddingTop="8"
-                                    paddingBottom="8" horizontalAlign="right" />
+                                    paddingBottom="8" horizontalAlign="right"  gap="4"/>
             </e:layout>
         </e:Group>
         <e:layout>

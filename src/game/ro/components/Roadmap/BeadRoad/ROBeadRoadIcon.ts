@@ -24,7 +24,9 @@ namespace we {
         this.emptyAlpha = emptyAlpha;
 
         this._offsetX = this._iconText.width * 0.48;
-        this._offsetY = this._iconText.height * 0.46;
+        this._offsetY = this._iconText.height * 0.48;
+        this._iconText.scaleX = 0.8;
+        this._iconText.scaleY = 0.8;
         this._iconText.x = this._offsetX;
         this._iconText.y = this._offsetY;
 
@@ -41,8 +43,8 @@ namespace we {
         if (this.isSmall === true) {
           // this._iconText.font = RES.getRes(`${env.isMobile ? 'm' : ''}roadmapfont_fnt`);
           // this._iconText.font = RES.getRes('Barlow-Regular_otf');
-          this._iconText.width = size * 0.3;
-          this._iconText.height = size * 0.3;
+          // this._iconText.width = size * 0.3;
+          // this._iconText.height = size * 0.3;
           this._iconText.textAlign = egret.HorizontalAlign.CENTER;
           this._iconText.verticalAlign = egret.VerticalAlign.MIDDLE;
           this._iconText.anchorOffsetX = this._iconText.width * 0.5;
@@ -209,7 +211,7 @@ namespace we {
           this._iconShape.graphics.drawCircle(iconSize / 2, iconSize / 2, circleRadius - lineWidth);
           this._iconShape.graphics.endFill();
         } else {
-          this._iconShape.graphics.lineStyle(lineWidth, 0x6d7278, 0.5, true);
+          this._iconShape.graphics.lineStyle(lineWidth, 0x6d7278, 0, true);
           this._iconShape.graphics.beginFill(this.emptyColor, this.emptyAlpha);
           this._iconShape.graphics.drawCircle(iconSize / 2, iconSize / 2, circleRadius - lineWidth);
           this._iconShape.graphics.endFill();

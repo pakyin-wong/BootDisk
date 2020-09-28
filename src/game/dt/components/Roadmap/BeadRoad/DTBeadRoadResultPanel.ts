@@ -10,6 +10,8 @@ namespace we {
       protected createChildren() {
         super.createChildren();
         this.skinName = utils.getSkinByClassname('DTBeadRoadResultPanel');
+        this._gameInfoLabel.renderText = () => `${i18n.t('baccarat.clickToSeeVideo')}`;
+        this._gameInfoLabel.visible = false; //true when replay url is available
       }
 
       public changeLang() {
@@ -24,7 +26,12 @@ namespace we {
           this._winBg.source = 'd_ba_roadmap_record_result_tie_png';
         }
 
-        this._gameNumLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameRoundID;
+        if (this._gameLabel) {
+          this._gameLabel.text = i18n.t('overlaypanel_bethistory_recordtab_round');
+          this._gameNumLabel.text = this.gameRoundID;
+        } else {
+          this._gameLabel.text = `${i18n.t('overlaypanel_bethistory_recordtab_round') + this.gameRoundID}`;
+        }
       }
     }
   }
