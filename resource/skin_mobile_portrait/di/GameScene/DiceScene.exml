@@ -180,6 +180,6 @@
 
 <di:MobileBottomGamePanel skinName="skin_mobile_portrait.di.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"
                           x="0" scaleY="1" scaleX="1" bottom="55" locked="true" />
-	<ui:InGameMessage id="_message" x="311" y="474" skinName="skin_mobile_portrait.InGameMessageSkin" infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" horizontalCenter="0" verticalCenter="0" includeIn="right_hand_mode"/>
+	<!--<ui:InGameMessage id="_message" x="311" y="474" skinName="skin_mobile_portrait.InGameMessageSkin" infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" horizontalCenter="0" verticalCenter="0" includeIn="right_hand_mode"/>-->
 
 </e:Skin>

@@ -12,6 +12,7 @@ namespace we {
 
       public constructor(skinName: string = null) {
         super(skinName);
+        this._hoverScale = 1.01;
       }
 
       protected getBetChipSet() {
@@ -103,8 +104,8 @@ namespace we {
       protected initCustomPos() {
         this._targetQuickBetButtonY = 350;
         this._originalQuickBetButtonY = 300;
-        this._targetQuickbetPanelY = 378;
-        this._originalQuickBetPanelY = 100;
+        this._targetQuickbetPanelY = 541;
+        this._originalQuickBetPanelY = 241;
         this._offsetLimit = 900;
         this._offsetMovement = 800;
       }
@@ -183,6 +184,8 @@ namespace we {
       }
 
       protected addRoundCornerMask() {}
+
+      protected tweenChipLayer(isShow: boolean) {}
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);

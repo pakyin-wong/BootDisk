@@ -23,29 +23,6 @@ namespace we {
       protected road2Btn: eui.RadioButton;
       protected road3Btn: eui.RadioButton;
 
-      protected road1Btn1: eui.RadioButton;
-      protected road1Btn2: eui.RadioButton;
-      protected road1Btn3: eui.RadioButton;
-      protected road1Btn4: eui.RadioButton;
-      protected road1Btn5: eui.RadioButton;
-
-      protected road2Btn1: eui.RadioButton;
-      protected road2Btn2: eui.RadioButton;
-      protected road2Btn3: eui.RadioButton;
-      protected road2Btn4: eui.RadioButton;
-      protected road2Btn5: eui.RadioButton;
-
-      protected road3Btn1: eui.RadioButton;
-      protected road3Btn2: eui.RadioButton;
-      protected road3Btn3: eui.RadioButton;
-      protected road3Btn4: eui.RadioButton;
-      protected road3Btn5: eui.RadioButton;
-      protected road3Btn6: eui.RadioButton;
-      protected road3Btn7: eui.RadioButton;
-      protected road3Btn8: eui.RadioButton;
-      protected road3Btn9: eui.RadioButton;
-      protected road3Btn10: eui.RadioButton;
-
       protected gameId: string;
 
       protected activeLine: egret.Shape;
@@ -102,28 +79,21 @@ namespace we {
         this.road2Btn['labelDisplayDown']['text'] = this.road2Btn['labelDisplayUp']['text'] = 'O/E';
         this.road3Btn['labelDisplayDown']['text'] = this.road3Btn['labelDisplayUp']['text'] = 'DT';
 
-        this.road1Btn1['labelDisplayDown']['text'] = this.road1Btn1['labelDisplayUp']['text'] = '1st Ball';
-        this.road1Btn2['labelDisplayDown']['text'] = this.road1Btn2['labelDisplayUp']['text'] = '2nd Ball';
-        this.road1Btn3['labelDisplayDown']['text'] = this.road1Btn3['labelDisplayUp']['text'] = '3rd Ball';
-        this.road1Btn4['labelDisplayDown']['text'] = this.road1Btn4['labelDisplayUp']['text'] = '4th Ball';
-        this.road1Btn5['labelDisplayDown']['text'] = this.road1Btn5['labelDisplayUp']['text'] = '5th Ball';
+        for (let i = 1; i <= 5; i++) {
+          this['road1Btn' + i]['labelDisplayDown']['text'] = this['road1Btn' + i]['labelDisplayUp']['text'] = 'Ball ' + i;
+        }
 
-        this.road2Btn1['labelDisplayDown']['text'] = this.road2Btn1['labelDisplayUp']['text'] = '1st Ball';
-        this.road2Btn2['labelDisplayDown']['text'] = this.road2Btn2['labelDisplayUp']['text'] = '2nd Ball';
-        this.road2Btn3['labelDisplayDown']['text'] = this.road2Btn3['labelDisplayUp']['text'] = '3rd Ball';
-        this.road2Btn4['labelDisplayDown']['text'] = this.road2Btn4['labelDisplayUp']['text'] = '4th Ball';
-        this.road2Btn5['labelDisplayDown']['text'] = this.road2Btn5['labelDisplayUp']['text'] = '5th Ball';
+        for (let i = 1; i <= 5; i++) {
+          this['road2Btn' + i]['labelDisplayDown']['text'] = this['road2Btn' + i]['labelDisplayUp']['text'] = 'Ball ' + i;
+        }
 
-        this.road3Btn1['labelDisplayDown']['text'] = this.road3Btn1['labelDisplayUp']['text'] = '1 VS 2';
-        this.road3Btn2['labelDisplayDown']['text'] = this.road3Btn2['labelDisplayUp']['text'] = '1 VS 3';
-        this.road3Btn3['labelDisplayDown']['text'] = this.road3Btn3['labelDisplayUp']['text'] = '1 VS 4';
-        this.road3Btn4['labelDisplayDown']['text'] = this.road3Btn4['labelDisplayUp']['text'] = '1 VS 5';
-        this.road3Btn5['labelDisplayDown']['text'] = this.road3Btn5['labelDisplayUp']['text'] = '2 VS 3';
-        this.road3Btn6['labelDisplayDown']['text'] = this.road3Btn6['labelDisplayUp']['text'] = '2 VS 4';
-        this.road3Btn7['labelDisplayDown']['text'] = this.road3Btn7['labelDisplayUp']['text'] = '2 VS 5';
-        this.road3Btn8['labelDisplayDown']['text'] = this.road3Btn8['labelDisplayUp']['text'] = '3 VS 4';
-        this.road3Btn9['labelDisplayDown']['text'] = this.road3Btn9['labelDisplayUp']['text'] = '3 VS 5';
-        this.road3Btn10['labelDisplayDown']['text'] = this.road3Btn10['labelDisplayUp']['text'] = '4 VS 5';
+        let c = 0;
+        for (let i = 1; i < 5; i++) {
+          for (let j = i + 1; j <= 5; j++) {
+            c++;
+            this['road3Btn' + c]['labelDisplayDown']['text'] = this['road3Btn' + c]['labelDisplayUp']['text'] = i + ' VS ' + j;
+          }
+        }
         // this.updateActiveLine(false);
       }
       protected childrenCreated() {
@@ -179,28 +149,17 @@ namespace we {
         this.road2Btn.addEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
         this.road3Btn.addEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
 
-        this.road1Btn1.addEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
-        this.road1Btn2.addEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
-        this.road1Btn3.addEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
-        this.road1Btn4.addEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
-        this.road1Btn5.addEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
+        for (let i = 1; i <= 5; i++) {
+          this['road1Btn' + i].addEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
+        }
 
-        this.road2Btn1.addEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
-        this.road2Btn2.addEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
-        this.road2Btn3.addEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
-        this.road2Btn4.addEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
-        this.road2Btn5.addEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
+        for (let i = 1; i <= 5; i++) {
+          this['road2Btn' + i].addEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
+        }
 
-        this.road3Btn1.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn2.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn3.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn4.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn5.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn6.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn7.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn8.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn9.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
-        this.road3Btn10.addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
+        for (let i = 1; i <= 10; i++) {
+          this['road3Btn' + i].addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
+        }
 
         this.road1NextBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.road1NextClick, this);
         this.road1BackBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.road1BackClick, this);
@@ -372,6 +331,31 @@ namespace we {
         // egret.Tween.removeTweens(this.activeLine);
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        }
+
+        if (this.road1Btn.hasEventListener(eui.UIEvent.CHANGE)) {
+          this.road1Btn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
+          this.road2Btn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
+          this.road3Btn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
+
+          for (let i = 1; i <= 5; i++) {
+            this['road1Btn' + i].removeEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
+          }
+
+          for (let i = 1; i <= 5; i++) {
+            this['road2Btn' + i].removeEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
+          }
+
+          for (let i = 1; i <= 10; i++) {
+            this['road3Btn' + i].removeEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
+          }
+
+          this.road1NextBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.road1NextClick, this);
+          this.road1BackBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.road1BackClick, this);
+          this.road2NextBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.road2NextClick, this);
+          this.road2BackBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.road2BackClick, this);
+          this.road3NextBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.road3NextClick, this);
+          this.road3BackBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.road3BackClick, this);
         }
       }
     }

@@ -17,6 +17,27 @@ namespace we {
         node.parent.addChildAt(chipLayer, idx);
         return chipLayer;
       }
+      // let options = {
+      //   paddingX: 15,
+      //   paddingY: 15,
+      //   gapX: 14,
+      //   gapY: 8,
+      //   iconItemColors: [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1],
+      //   iconHeight: 269,
+      //   iconItemYOffset: 14,
+      //   textPadding: 3,
+      //   textSize: 37,
+      //   diceSize: 46,
+      //   highlightRadius: 8,
+      //   showGrid: true,
+      // };
+      // this.beadRoad = new DiBeadRoad(1138, 1, 13, 120, 1, options); // in game
+      // this.beadRoad.x = 29;
+      // this.beadRoad.y = 16;
+      // this.beadRoad.scaleX = 689 / 689;
+      // this.beadRoad.scaleY = 689 / 689;
+      // this.beadRoad.expandRoad(false);
+      // this.beadRoadConfig.parent.addChild(this.beadRoad);
 
       public generateRoadmap(node: eui.Component) {
         const roadmap = new di.DiLobbyBeadRoad();
@@ -24,11 +45,15 @@ namespace we {
         roadmap.roadGridSize = 80;
         roadmap.roadCol = 13;
         roadmap.roadRow = 1;
-        roadmap.roadIndentX = 1;
+        roadmap.roadIndentX = 15;
         roadmap.roadIndentY = 15;
-        roadmap.roadOffsetX = 8;
-        roadmap.roadOffsetY = 2;
-        roadmap.roadIconItemYOffset = 2;
+        roadmap.roadOffsetX = 14;
+        roadmap.roadOffsetY = 8;
+        roadmap.iconHeight = 264;
+        roadmap.textSize = 37;
+        roadmap.diceSize = 46;
+        roadmap.roadWidth = 1138;
+        roadmap.roadIconItemYOffset = 8;
         // --Mobile_Portrait Setting
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(roadmap, idx);

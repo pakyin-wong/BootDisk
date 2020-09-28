@@ -20,7 +20,7 @@ namespace we {
 
       protected mount() {
         this._shape = new egret.Shape();
-        this.addChild(this._shape);
+        this.addChildAt(this._shape, 0);
         this._gr = this._shape.graphics;
 
         this.refresh();

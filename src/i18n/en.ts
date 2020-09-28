@@ -1,6 +1,9 @@
 namespace we {
   export namespace i18n {
     export const en = {
+      yes: 'Yes`',
+      no: 'No',
+
       voice_cantonese: 'Cantonese',
       voice_mandarin: 'Mandarin',
       voice_english: 'English',
@@ -16,7 +19,7 @@ namespace we {
       gametype_ROL: 'ROL',
       gametype_DT: 'DT',
       gametype_LW: 'LW',
-      gametype_LO: 'LO`',
+      gametype_LO: 'LO',
 
       sidegamelist_title: 'Game List',
       sidegamelist_tab_bet: 'Bet',
@@ -104,13 +107,43 @@ namespace we {
       overlaypanel_bethistory_btn_prev: 'Previous',
       overlaypanel_bethistory_searchtype_all: 'All',
 
-      overlaypanel_bethistorylottery_tab_single: 'Single',
-      overlaypanel_bethistorylottery_tab_multi: 'Multi',
-
       overlaypanel_bethistorylottery_record_round: 'Round',
       overlaypanel_bethistorylottery_record_bettype: 'Type',
       overlaypanel_bethistorylottery_record_betgroup: 'Group',
       overlaypanel_bethistorylottery_record_betfield: 'Field',
+      overlaypanel_bethistorylottery_record_continuousbetdetail: 'ConBet Detail',
+
+      overlaypanel_bethistorylottery_continuousbetdetails_title: 'ConBet Detail',
+      overlaypanel_bethistorylottery_continuousbetdetails_cbetid: 'ConBet ID',
+      overlaypanel_bethistorylottery_continuousbetdetails_date: 'Date',
+      overlaypanel_bethistorylottery_continuousbetdetails_game: 'Game',
+      overlaypanel_bethistorylottery_continuousbetdetails_start: 'Start at',
+      overlaypanel_bethistorylottery_continuousbetdetails_total: 'Total Round',
+      overlaypanel_bethistorylottery_continuousbetdetails_count: 'Current Round',
+      overlaypanel_bethistorylottery_continuousbetdetails_betamount: 'Total Bet',
+      overlaypanel_bethistorylottery_continuousbetdetails_status: 'Status',
+      overlaypanel_bethistorylottery_continuousbetdetails_type: 'Bet Type',
+      overlaypanel_bethistorylottery_continuousbetdetails_group: 'Bet Group',
+      overlaypanel_bethistorylottery_continuousbetdetails_field: 'Bet Field',
+      overlaypanel_bethistorylottery_continuousbetdetails_autostop: 'Auto Stop',
+      overlaypanel_bethistorylottery_continuousbetdetails_cancelled: 'Cancelled Round',
+      overlaypanel_bethistorylottery_continuousbetdetails_doneAmount: 'Completed Bet',
+
+      overlaypanel_bethistorylottery_popup_titme: 'Bet Detail',
+      overlaypanel_bethistorylottery_continuousbet_round: 'Round',
+      overlaypanel_bethistorylottery_continuousbet_rate: 'Multiplier',
+      overlaypanel_bethistorylottery_continuousbet_status: 'Status',
+      overlaypanel_bethistorylottery_continuousbet_cancel: 'Cancel',
+      overlaypanel_bethistorylottery_continuousbet_detail: 'Detail',
+      overlaypanel_bethistorylottery_continuousbet_allcancel: 'All Cancel',
+
+      overlaypanel_bethistorylottery_continuousbet_betted: 'Betted',
+      overlaypanel_bethistorylottery_continuousbet_drawing: 'Prcoessing',
+      overlaypanel_bethistorylottery_continuousbet_cancelled: 'Cancelled',
+      overlaypanel_bethistorylottery_continuousbet_completed: 'Completed',
+
+      overlaypanel_bethistorylottery_tab_single: 'Single',
+      overlaypanel_bethistorylottery_tab_multi: 'Conbet',
 
       overlaypanel_bethistory_baresult_banker: 'B',
       overlaypanel_bethistory_baresult_player: 'P',
@@ -294,6 +327,7 @@ namespace we {
         gametype: {
           allLotteryGame: 'All',
           lottery: 'Lottery',
+          race: 'Race',
         },
       },
       tableInfo: {

@@ -9,6 +9,7 @@ namespace we {
       protected _originBetRelatedGroupY: number;
 
       protected _panelDismissToggleBtn: ui.AnimatedToggleButton;
+      protected _forceNoDismiss: boolean = false;
 
       constructor(data: any) {
         super(data);
@@ -67,7 +68,7 @@ namespace we {
             egret.Tween.get(target).to({ y: enable ? 0 : 100, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
           }
         }
-        if ((env.isAutoDismiss || enable) && ui.EdgeDismissableAddon.isDismiss === enable) {
+        if ((env.isAutoDismiss || enable) && ui.EdgeDismissableAddon.isDismiss === enable && !this._forceNoDismiss) {
           // console.log(ui.EdgeDismissableAddon.isDismiss);
           ui.EdgeDismissableAddon.toggle();
         }
@@ -76,7 +77,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo>evt.data;
+          const stat = <data.TableInfo> evt.data;
           if (stat.tableid === this._tableId) {
             this._leftGamePanel.updateStat();
             this._rightGamePanel.updateStat();
@@ -87,7 +88,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
             this._leftGamePanel.updateTableBetInfo();
             this._rightGamePanel.updateTableBetInfo();

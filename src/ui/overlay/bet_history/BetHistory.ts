@@ -234,6 +234,7 @@ namespace we {
       }
 
       protected search() {
+        this._dataColl.removeAll();
         clearTimeout(this._searchDelay);
         const opt = this.searchOpt;
         dir.socket.getBetHistory(opt, this.update, this);

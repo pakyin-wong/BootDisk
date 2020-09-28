@@ -977,7 +977,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
           return betDetail;
         });
 
@@ -1223,6 +1223,15 @@ namespace we {
 
       public getBetHistory(filter, callback: (res: any) => void, thisArg) {
         this.client.getBetHistory(filter, this.warpServerCallback(callback.bind(thisArg)));
+      }
+      public getLotteryContinuousBetHistory(filter: any, callback: (res: any) => void, thisArg: any) {
+        this.client.getLotteryContinuousBetHistory(filter, this.warpServerCallback(callback.bind(thisArg)));
+      }
+      public getLotteryContinuousBetDetail(betid: string, callback: (res: any) => void, thisArg: any) {
+        this.client.getLotteryContinuousBetDetail(betid, this.warpServerCallback(callback.bind(thisArg)));
+      }
+      public getLotteryBetDetail(filter: any, callback: (res: any) => void, thisArg: any) {
+        this.client.getLotteryBetDetail(filter, this.warpServerCallback(callback.bind(thisArg)));
       }
 
       public warpServerCallback(callback: any) {
