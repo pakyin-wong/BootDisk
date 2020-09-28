@@ -39,8 +39,9 @@ namespace we {
             case we.core.GameType.BAC:
             case we.core.GameType.BAI:
             case we.core.GameType.BAS:
-            case we.core.GameType.BAM:
               return ba.SideListBetItemHolder;
+            case we.core.GameType.BAM:
+              return bam.SideListBetItemHolder;
             case we.core.GameType.RO:
             case we.core.GameType.ROL:
               return ro.SideListBetItemHolder;
@@ -138,7 +139,8 @@ namespace we {
 
       protected getLayout() {
         const layout = new eui.VerticalLayout();
-        layout.paddingLeft = 16;
+        layout.paddingLeft = 20;
+        layout.paddingRight = 20;
         layout.paddingBottom = 16;
         layout.gap = 12;
         layout.useVirtualLayout = true;
@@ -189,7 +191,7 @@ namespace we {
         const tableList = evt.data;
         this.goodRoadTableList.setTableList(tableList);
         const count = tableList.length;
-        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(1);
+        const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(1);
         if (tabItem) {
           tabItem.onBadgeUpdate('goodroad', count);
         }
@@ -199,7 +201,7 @@ namespace we {
         const tableList = evt.data;
         this.betTableList.setTableList(tableList);
         const count = tableList.length;
-        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(0);
+        const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(0);
         if (tabItem) {
           tabItem.onBadgeUpdate('bet', count);
         }
@@ -207,8 +209,10 @@ namespace we {
 
       protected onClearSelection() {
         super.onClearSelection();
+        this._dropdown.visible = false;
         this._dropdown.hide();
         this._subdropdown.hide();
+        egret.Tween.get(this).to({ width: 185, height: 56 }, 200);
       }
 
       protected onSelected() {
@@ -225,6 +229,7 @@ namespace we {
             this._dropdown.visible = true;
             break;
         }
+        egret.Tween.get(this).to({ width: 385, height: 1220 }, 200);
       }
     }
   }

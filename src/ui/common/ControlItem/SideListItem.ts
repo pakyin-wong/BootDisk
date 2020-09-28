@@ -153,6 +153,9 @@ namespace we {
       protected showQuickBetGroup() {
         this._betChipSetGridSelected.touchEnabled = true;
         super.showQuickBetGroup();
+        if (this._button) {
+          this._button.visible = false;
+        }
       }
 
       protected hideQuickBetGroup() {

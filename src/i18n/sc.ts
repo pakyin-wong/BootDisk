@@ -36,6 +36,14 @@ namespace we {
       betfield_dragonTiger_tiger: '虎',
       betfield_dragonTiger_tie: '和',
 
+      betfield_lw_0:'東',
+      betfield_lw_1:'南',
+      betfield_lw_2:'西',
+      betfield_lw_3:'北',
+      betfield_lw_4:'白',
+      betfield_lw_5:'中',
+      betfield_lw_6:'發',
+
       playerprofile_title: '账户资讯',
       playerprofile_iconsetting: '设定头像',
       playerprofile_maxWinAmount: '最大嬴钱数目',
