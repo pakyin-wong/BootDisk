@@ -48,6 +48,10 @@ namespace we {
 
       public destroy() {
         super.destroy();
+        this.releaseRoadmap();
+      }
+
+      protected releaseRoadmap() {
         if (this._bigRoad && this.tableInfo) {
           // this._bigRoad.parent.removeChild(this._bigRoad);
           dir.lobbyRoadPool.release(this._bigRoad, this.tableInfo.gametype);
@@ -145,7 +149,7 @@ namespace we {
           return;
         }
         if (evt && evt.data) {
-          const tableBetInfo = <data.GameTableBetInfo> evt.data;
+          const tableBetInfo = <data.GameTableBetInfo>evt.data;
           if (tableBetInfo.tableid === this._tableId) {
             if (this._chipLayer.isAlreadyBet()) {
               this._alreadyBetSign.visible = true;
@@ -195,7 +199,7 @@ namespace we {
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         this.generateChipLayer();
         for (const att of this._arrangeProperties) {
-          if (this._chipLayer) {
+          if (this._chipLayer && att !== 'height' && att !== 'scaleX') {
             this._chipLayer[att] = this._chipLayerNode[att];
           }
         }
@@ -216,7 +220,7 @@ namespace we {
       protected runtimeGenerateTableLayer() {
         this.generateTableLayer();
         for (const att of this._arrangeProperties) {
-          if (this._tableLayer && att !== 'height') {
+          if (this._tableLayer && att !== 'height' && att !== 'scaleX') {
             this._tableLayer[att] = this._tableLayerNode[att];
           }
         }
@@ -241,13 +245,26 @@ namespace we {
         // create a
 
         super.showQuickBetGroup();
+        if (this._chipLayer) {
+          this.tweenChipLayer(true);
+        }
+        // egret.Tween.removeTweens(this._chipLayer);
+        // const p3 = new Promise(resolve =>
+        //   egret.Tween.get(this._chipLayer)
+        //     .set({ visible: true })
+        //     .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
+        //     .call(resolve)
+        // );
+      }
+
+      protected tweenChipLayer(isShow: boolean) {
         egret.Tween.removeTweens(this._chipLayer);
-        const p3 = new Promise(resolve =>
-          egret.Tween.get(this._chipLayer)
-            .set({ visible: true })
-            .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
-            .call(resolve)
-        );
+        const tween = egret.Tween.get(this._chipLayer)
+          .set({ visible: true })
+          .to({ y: isShow ? this._targetQuickbetPanelY : this._originalQuickBetPanelY, alpha: isShow ? 1 : 0 }, this._tweenInterval1);
+        if (!isShow) {
+          tween.set({ visible: false });
+        }
       }
 
       protected hideQuickBetGroup() {
@@ -256,10 +273,11 @@ namespace we {
         }
         super.hideQuickBetGroup();
         if (this._chipLayer) {
-          egret.Tween.removeTweens(this._chipLayer);
-          egret.Tween.get(this._chipLayer)
-            .to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1)
-            .set({ visible: false });
+          this.tweenChipLayer(false);
+          // egret.Tween.removeTweens(this._chipLayer);
+          // egret.Tween.get(this._chipLayer)
+          //   .to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1)
+          //   .set({ visible: false });
         }
       }
 
@@ -341,7 +359,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);

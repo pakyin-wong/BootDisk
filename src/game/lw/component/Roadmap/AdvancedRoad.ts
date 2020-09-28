@@ -38,17 +38,18 @@ namespace we {
         this.roadsContainer.scaleY = 450 / 430;
         this.addChild(this.roadsContainer);
 
-        this.roadsContainerRT = new egret.RenderTexture();
+        // this.roadsContainerRT = new egret.RenderTexture();
         this.roadsContainerDisplay = new egret.Bitmap();
         this.roadsContainerDisplay.scaleX = 584 / 602;
         this.roadsContainerDisplay.scaleY = 450 / 430;
-        this.roadsContainerDisplay.texture = this.roadsContainerRT;
+        // this.roadsContainerDisplay.texture = this.roadsContainerRT;
         this.addChild(this.roadsContainerDisplay);
 
         this.beadRoad = new we.lw.LwBeadRoad(10, 14, 43, 43);
         this.beadRoad.x = 0;
         this.beadRoad.y = 0;
         this.beadRoad.initRoadData();
+        this.beadRoad.setGridCorners({ tl: 0, tr: 12, br: 12, bl: 0 });
         this.roadsContainer.addChild(this.beadRoad);
 
         // dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
