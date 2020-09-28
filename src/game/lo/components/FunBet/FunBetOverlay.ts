@@ -50,18 +50,19 @@ namespace we {
         super.mount();
         this.initTxt();
 
+        const funbet = lo.FunBet;
         const arrCol: eui.ArrayCollection = new eui.ArrayCollection();
         let count = 0;
         let total = 0;
 
-        for (const bd in lo.FunBet.betDetails) {
+        for (const bd in funbet.betDetails) {
           this._betDetail.push({
-            field: `${lo.FunBet.betDetails[bd].id}@${lo.FunBet.betDetails[bd].amt}#1`,
-            amount: lo.FunBet.betDetails[bd].amt,
+            field: `${funbet.betDetails[bd].id}@${funbet.betDetails[bd].amt}#1`,
+            amount: funbet.betDetails[bd].amt,
           });
 
-          arrCol.addItem(lo.FunBet.betDetails[bd]);
-          total += lo.FunBet.betDetails[bd].amt;
+          arrCol.addItem(funbet.betDetails[bd]);
+          total += funbet.betDetails[bd].amt;
           count++;
         }
 

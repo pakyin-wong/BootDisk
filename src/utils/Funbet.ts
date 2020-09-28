@@ -1,8 +1,5 @@
 namespace we {
   export namespace utils {
-    export function getFunBet() {
-      return utils.Funbet(env.sceneId);
-    }
     export function Funbet(id) {
       switch (id) {
         case 'rc':

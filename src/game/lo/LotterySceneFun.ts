@@ -82,13 +82,13 @@ namespace we {
 
       protected onCustomBetSelected() {
         this._custombet.selected = true;
-        FunBet.bet = this._custombet.currentBet;
+        utils.getFunBet().bet = this._custombet.currentBet;
         this._betChipSet.unSelect();
       }
 
       protected onBetChipChanged() {
         this._custombet.selected = false;
-        FunBet.bet = this._denominationList[this._betChipSet.selectedChipIndex];
+        utils.getFunBet().bet = this._denominationList[this._betChipSet.selectedChipIndex];
       }
 
       protected onBetLimitUpdate(evt: egret.Event) {
@@ -99,7 +99,7 @@ namespace we {
       }
 
       protected onFunBetUpdate() {
-        this._confirmButton.enabled = Object.keys(FunBet.betDetails).length > 0;
+        this._confirmButton.enabled = Object.keys(utils.getFunBet().betDetails).length > 0;
       }
 
       protected onOverBetLimit() {
@@ -115,7 +115,7 @@ namespace we {
       }
 
       protected onConfirmPressed() {
-        if (Object.keys(FunBet.betDetails).length > 0 && FunBet.checkAllAvailable()) {
+        if (Object.keys(utils.getFunBet().betDetails).length > 0 && utils.getFunBet().checkAllAvailable()) {
           dir.evtHandler.createOverlay({
             class: 'FunBetOverlay',
             args: [this._tableInfo],
@@ -124,17 +124,17 @@ namespace we {
       }
 
       protected onCancelPressed() {
-        FunBet.reset();
+        utils.getFunBet().reset();
       }
 
       protected onBetResultReceived(evt: egret.Event) {
         super.onBetResultReceived(evt);
-        FunBet.evtHandler.dispatchEvent(new egret.Event('LOTTERY_FUNBET_CLEANSCREEN'));
+        utils.getFunBet().evtHandler.dispatchEvent(new egret.Event('LOTTERY_FUNBET_CLEANSCREEN'));
       }
 
       protected onBetConfirmed() {
         super.onBetConfirmed();
-        FunBet.reset();
+        utils.getFunBet().reset();
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
@@ -142,8 +142,8 @@ namespace we {
         this.betLayerEnabled = enable;
 
         if (!enable) {
-          FunBet.evtHandler.dispatchEvent(new egret.Event('LOTTERY_FUNBET_CLEANSCREEN'));
-          FunBet.reset();
+          utils.getFunBet().evtHandler.dispatchEvent(new egret.Event('LOTTERY_FUNBET_CLEANSCREEN'));
+          utils.getFunBet().reset();
         }
       }
 

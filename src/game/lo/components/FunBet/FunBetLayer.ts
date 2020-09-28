@@ -7,7 +7,9 @@ namespace we {
       private _items: string[] = ['fun', 'num', 'dt', 'five1'];
 
       constructor() {
-        super('lo.FunBetLayer');
+        // super('lo.FunBetLayer');
+        super();
+        this.customKey = 'lo';
       }
 
       protected mount() {
