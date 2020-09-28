@@ -5,6 +5,7 @@ namespace we {
         const tableLayer = new di.LobbyTableLayer();
         if (node.name === 'AdvancedTableLayerNode') {
           tableLayer.skinName = `skin_desktop.di.LiveListAdvancedItemTableLayerSkin`;
+          tableLayer.scaleX = 345 / 350;
         } else {
           tableLayer.skinName = `skin_desktop.di.LiveListItemTableLayerSkin`;
         }
@@ -17,6 +18,7 @@ namespace we {
         const chipLayer = new di.LobbyChipLayer();
         if (node.name === 'AdvancedChipLayerNode') {
           chipLayer.skinName = `skin_desktop.di.LiveListAdvancedItemChipLayerSkin`;
+          chipLayer.scaleX = 345 / 350;
         } else {
           chipLayer.skinName = `skin_desktop.di.LiveListItemChipLayerSkin`;
         }
