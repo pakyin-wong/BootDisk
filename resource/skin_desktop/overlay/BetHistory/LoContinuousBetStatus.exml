@@ -14,5 +14,5 @@
 			</e:layout>
 		</e:DataGroup>
 	</ui:Scroller>
-	<ui:RoundRectButton id="_btn_allCancel" width="148" height="34" x="520" y="422" fillAlpha="0" strokeColor="0x5f6973" stroke="1.2"/>
+	<ui:RoundRectButton id="_btn_allCancel" width="148" height="34" x="520" y="422" fillAlpha="0" strokeColor="0x5f6973" stroke="1.2" skinName="RoundRectButtonSample" labelAutoResize="false" labelSize="20" cornerTL_TR_BL_BR="17,17,17,17"/>
 </e:Skin>

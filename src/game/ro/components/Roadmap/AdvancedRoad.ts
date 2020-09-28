@@ -108,7 +108,7 @@ namespace we {
         if (this.tableInfo) {
           if (!this._roadmapControl) {
             this._roadmapControl = new RORoadmapControl(this._tableInfo.tableid);
-            this._roadmapControl.setRoads(this.beadRoad, this.colorBigRoad, this.oddBigRoad, this.sizeBigRoad, null, null, null);
+            this._roadmapControl.setRoads(this.beadRoad, this.colorBigRoad, this.sizeBigRoad, this.oddBigRoad, null, null, null);
           }
           if (this._roadmapControl) {
             this._roadmapControl.setTableInfo(this._tableInfo);

@@ -6,7 +6,18 @@
 		<e:Label id="_txt_record_id" text="Label" x="48" y="0" height="76" size="24" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" width="158"/>
 		<e:Label id="_txt_record_round" text="Label" y="0" height="76" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="246"/>
 		<e:Label id="_txt_record_date" text="Label" x="424" y="0" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_game" text="Label" x="677" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+
+		<e:Group x="677" y="0">
+			<e:Label id="_txt_record_game" text="Label" x="0" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+			<ui:RoundRectShape id="_tab_cbet" width="30" height="30" cornerTL_TR_BL_BR="5,5,5,5" fillColor="0x1b416e" stroke="0">
+				<e:Skin>
+				<e:Label text="追" left="0" right="0" top="0" bottom="0" size="18" verticalAlign="middle" textAlign="center"/>
+				</e:Skin>
+			</ui:RoundRectShape>
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="middle" gap="11"/>
+			</e:layout>
+		</e:Group>
 		<e:Group id="_record_result" scaleX="1" scaleY="1" x="836" y="0" width="380" height="76">
 			<e:layout>
 				<e:VerticalLayout horizontalAlign="center" verticalAlign="middle" gap="0"/>
@@ -30,5 +41,6 @@
 		<e:Label id="_txt_betfield" text="Label" size="24" verticalAlign="middle" height="66" x="48" y="215"/>
 		<e:Label id="_txt_record_betfield" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y="215"/>
 		<e:Label id="_txt_record_orgbalance" text="Label" y="0" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" visible="false"/>
+		<ui:RoundRectButton id="_btn_cbet" width="186" height="44" x="1848" y="159" cornerTL_TR_BL_BR="22,22,22,22" fillAlpha="0" strokeColor="0xffffff" stroke="2" strokeAlpha="0.7" strokeAlpha_hover="1" skinName="RoundRectButtonSample" labelSize="20" labelAutoResize="false"/>
 	</e:Group>
 </e:Skin>
