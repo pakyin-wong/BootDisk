@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.BetHistoryItemLottery_popup" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" >
+		<e:Group alpha="0.7" width="1026" height="450">
+			<e:Label id="_txt_record_id" text="投注編號" x="46" y="157" scaleX="1" scaleY="1" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_txt_record_round" text="獎期" x="324" y="157" scaleX="1" scaleY="1" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_txt_record_date" text="日期時間" x="572" y="157" scaleX="1" scaleY="1" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_txt_record_game" text="遊戲" x="897" y="157" scaleX="1" scaleY="1" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_txt_record_bettype" text="類型" x="150" y="231" scaleX="1" scaleY="1" height="66" verticalAlign="middle" size="20"/>
+			<e:Label id="_txt_record_betgroup" text="玩法" x="150" y="297" scaleX="1" scaleY="1" height="66" verticalAlign="middle" size="20"/>
+			<e:Label id="_txt_record_betfield" text="投注項目" x="150" y="363" scaleX="1" scaleY="1" height="66" verticalAlign="middle" size="20"/>
+			<e:Label id="_txt_record_remark" text="贏輸" x="478" y="299" scaleX="1" scaleY="1" size="20" height="66" verticalAlign="middle"/>
+			<e:Group x="478" height="76" y="223" scaleX="1" scaleY="1">
+				<e:Group id="_record_result" scaleX="1" scaleY="1" x="0" y="0"/>
+				<ui:RoundRectButton id="_btn_replay" width="122" height="44" scaleX="1" scaleY="1" fillAlpha="0" strokeColor="0x979797" cornerTL_TR_BL_BR="22,22,22,22" x="0" y="0">
+				<e:Skin width="122" height="44">
+					<e:Group left="0" right="0" top="0" bottom="0">
+					<e:Image width="12" height="15" source="d_lobby_button_triangle_next_png" scaleX="1" scaleY="1"/>
+					<ui:RunTimeLabel id="_label" text="重播" size="20" height="29" scaleX="1" scaleY="1" verticalAlign="middle"/>
+					<e:layout>
+						<e:HorizontalLayout verticalAlign="middle" horizontalAlign="center"/>
+					</e:layout>
+					</e:Group>
+				</e:Skin>
+				</ui:RoundRectButton>
+				<e:layout>
+				<e:HorizontalLayout verticalAlign="middle" gap="36"/>
+				</e:layout>
+			</e:Group>
+		</e:Group>        
+        </e:Skin>

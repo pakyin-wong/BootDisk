@@ -15,6 +15,7 @@ namespace we {
       public constructor(skinName: string = null) {
         super(skinName);
         this._roadPanel = new LoLobbyRoadPanel();
+
         // this._roadPanel.scaleX = 786 / 736;
         // this._roadPanel.scaleY = 287 / 270;
       }

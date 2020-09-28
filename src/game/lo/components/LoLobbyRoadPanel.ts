@@ -193,19 +193,19 @@ namespace we {
         this.changeLang();
       }
 
-      private onRoad1IndexSelect(e) {
+      protected onRoad1IndexSelect(e) {
         const roadTypeIndex = e.data;
         this.road1SelectPanel && this.road1SelectPanel.dropdown.select(roadTypeIndex);
         this.road1Change(roadTypeIndex);
       }
 
-      private onRoad2IndexSelect(e) {
+      protected onRoad2IndexSelect(e) {
         const roadTypeIndex = e.data;
         this.road2SelectPanel && this.road2SelectPanel.dropdown.select(roadTypeIndex);
         this.road2Change(roadTypeIndex);
       }
 
-      private onRoad3IndexSelect(e) {
+      protected onRoad3IndexSelect(e) {
         const roadTypeIndex = e.data;
         this.road3SelectPanel && this.road3SelectPanel.dropdown.select(roadTypeIndex);
         this.road3Change(roadTypeIndex);
@@ -255,6 +255,16 @@ namespace we {
         // egret.Tween.removeTweens(this.activeLine);
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        }
+
+        if (this.road1Btn.hasEventListener(eui.UIEvent.CHANGE)) {
+          this.road1Btn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
+          this.road2Btn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
+          this.road3Btn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
+
+          this.road1SelectPanel.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onRoad1IndexSelect, this);
+          this.road2SelectPanel.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onRoad2IndexSelect, this);
+          this.road3SelectPanel.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onRoad3IndexSelect, this);
         }
       }
     }

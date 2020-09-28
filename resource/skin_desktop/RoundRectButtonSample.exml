@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="RoundRectButtonSample" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
+	<ui:RunTimeLabel id="_label" text="" left="0" right="0" top="0" bottom="0" verticalAlign="middle" textAlign="center"/>
+</e:Skin>
