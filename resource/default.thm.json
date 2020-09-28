@@ -273,6 +273,8 @@
 		"resource/skin_desktop/rc/RcLeftPanel.exml",
 		"resource/skin_desktop/rc/RcLobbyRoadPanel.exml",
 		"resource/skin_desktop/rc/RcRightDrawerPanel.exml",
+		"resource/skin_desktop/rc/RcSceneFun.exml",
+		"resource/skin_desktop/rc/RcSceneTraditional.exml",
 		"resource/skin_desktop/rc/RcSidePanel.exml",
 		"resource/skin_desktop/ro/LobbyColorBarChart.exml",
 		"resource/skin_desktop/ro/LobbyOddBarChart.exml",
