@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.CountdownTextbamSkin" width="30" height="27" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<w:Config id="16dcf084172"></w:Config>
+	<ui:RadialProgressIndicator id="progressIndicator" anchorOffsetX="0" anchorOffsetY="0" left="0" top="0" bottom="0"
+	                            right="0" thickness="4" touchEnabled="false" touchChildren="false" />
+	<e:Label id="countdownLabel" text="0" textAlign="center" verticalAlign="middle" width="30" height="27" fontFamily="Barlow" size="25" y="0" x="0" textColor="0x00f6a5" bold="true"/>
+</e:Skin>

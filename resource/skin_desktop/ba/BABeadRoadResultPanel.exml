@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.BABeadRoadResultPanelSkin" width="368" height="241.6" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.BABeadRoadResultPanelSkin" width="368" height="241" xmlns:e="http://ns.egret.com/eui"
         xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-        <ui:RoundRectShape name="popover_bg" cornerTL_TR_BL_BR="12,12,12,12" width="100%" height="100%"
-                           fillColor="0x1B1720" stroke="0" />
+        <ui:RoundRectShape name="popover_bg" cornerTL_TR_BL_BR="12,12,12,12" width="368" height="241"
+                           fillColor="0x181B1F" fillAlpha="0.9" stroke="0" />
         <e:Image id="_winBg" width="320" height="32" x="24" y="42" anchorOffsetX="0"
                  source="d_ba_roadmap_record_result_banker_png" />
-        <ui:RunTimeLabel id="_gameNumLabel" text="GameId 1234567890" x="16" y="12" textAlign="left" anchorOffsetX="0"
-                         width="346" size="18" anchorOffsetY="0" height="23" />
+        <e:Group  y="12" left="15">
+                <ui:RunTimeLabel id="_gameLabel" text="GameId" x="16" y="12" textAlign="left" anchorOffsetX="0"
+                                 size="18" anchorOffsetY="0" height="23" scaleX="1" scaleY="1" alpha=".7" />
+                <ui:RunTimeLabel id="_gameNumLabel" text="1234567890" x="16" y="12" anchorOffsetX="0" size="18"
+                                 anchorOffsetY="0" height="23" scaleX="1" scaleY="1" />
+                <e:layout>
+                        <e:HorizontalLayout gap="4" verticalAlign="middle" />
+                </e:layout>
+        </e:Group>
         <ui:RunTimeLabel id="_winLabel" text="Banker Win" x="0" y="49" anchorOffsetX="0" width="100%" size="20"
                          textAlign="center" />
-        <ui:RunTimeLabel id="_gameInfoLabel" text="click to see video of this round" x="16" y="198" textAlign="left"
+        <ui:RunTimeLabel id="_gameInfoLabel" text="click to see video of this round" x="16" y="205" textAlign="left"
                          anchorOffsetX="0" width="316" size="16" anchorOffsetY="0" height="18" />
         <ba:BaBeadRoadResultCardHolder id="_cardHolder" width="320" height="105" x="24" y="84" anchorOffsetX="0"
                                        anchorOffsetY="0" />

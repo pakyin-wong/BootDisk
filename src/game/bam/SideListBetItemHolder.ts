@@ -1,5 +1,5 @@
 namespace we {
-  export namespace ba {
+  export namespace bam {
     export class SideListBetItemHolder extends ui.TableListItemHolder {
       constructor() {
         super();
@@ -14,7 +14,7 @@ namespace we {
         }
         const BAgametype = this.tableInfo.gametype;
         const listItem = new we.ui.SideListBetItem('SideListBetItemSkin');
-        listItem.itemInitHelper = new we.ba.SideListItemInitHelper();
+        listItem.itemInitHelper = new we.bam.SideListItemInitHelper();
         this._displayItem = listItem;
         this.setDisplayItem(this._displayItem);
       }
