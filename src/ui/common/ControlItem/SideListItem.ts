@@ -30,6 +30,8 @@ namespace we {
         this._betChipSet.init(null, denominationList);
       }
 
+      protected releaseRoadmap() {}
+
       protected checkSkin() {}
 
       protected addEventListeners() {
@@ -151,6 +153,9 @@ namespace we {
       protected showQuickBetGroup() {
         this._betChipSetGridSelected.touchEnabled = true;
         super.showQuickBetGroup();
+        if (this._button) {
+          this._button.visible = false;
+        }
       }
 
       protected hideQuickBetGroup() {

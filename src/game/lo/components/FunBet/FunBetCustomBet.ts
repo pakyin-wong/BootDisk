@@ -57,7 +57,7 @@ namespace we {
         this.checkbetLimit();
 
         if (this._onSelect) {
-          FunBet.bet = this.currentBet;
+          utils.getFunBet().bet = this.currentBet;
         }
       }
 

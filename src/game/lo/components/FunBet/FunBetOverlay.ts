@@ -84,8 +84,6 @@ namespace we {
       }
 
       protected onClickConfirm() {
-        console.log('lo', this._betDetail);
-
         dir.socket.bet(this._tableInfo.tableid, this._betDetail, this.onBetReturned);
       }
 

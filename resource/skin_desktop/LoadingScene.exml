@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.LoadingScene" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-	<ui:ImageSlider id="_bannerSlider" left="0" top="0" right="0" bottom="0" locked="true" touchEnabled="false" />
+	<ui:ImageSlider id="_bannerSlider" left="0" top="0" right="0" bottom="0" touchEnabled="false" />
+		<e:Rect left="0" top="0" right="0" bottom="0" fillColor="0xffffff" fillAlpha="0.4" locked="true" visible="false"/>
 	<e:Image id="logo" width="378" height="108" x="2196" y="26.8" source="d_lobby_navbar_logo_png" locked="true"/>
 	<!--<e:ProgressBar id="_progressbar" width="678" height="22" horizontalCenter="0" y="1194" anchorOffsetY="0"  skinName="skin_desktop.LoadingProgressBar" touchEnabled="false"/>-->
 	<ui:ProgressBar id="_progressbar2" gradientColor="0x855205,0xd9b989"  baseColor="0x505050" width="678" height="22"
                         horizontalCenter="0" y="1194" roundCorner="[10, 10, 10, 10, 10, 10, 10, 10]"
                         touchEnabled="false" direction="horizontal"/>
 	<ui:RunTimeLabel id="_progressMsg" text="" y="1148" textAlign="center"  left="0" right="0" size="24" height="33"/>
-	<e:Rect width="750" height="52" x="925" y="1240" ellipseHeight="50" ellipseWidth="50" fillColor="0x000000" fillAlpha="0.4" locked="true"/>
-	<ui:NavLantern id="_tip" width="704" height="33" x="948" y="1251" alpha="0.8"/>
+	<e:Rect width="750" height="52" x="925" y="1240" ellipseHeight="65" ellipseWidth="65" fillColor="0x000000" fillAlpha="0.4" locked="true"/>
+	<ui:NavLantern id="_tip" width="704" height="33" x="948" y="1254" alpha="0.8"/>
 </e:Skin>

@@ -939,6 +939,14 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class RcSceneFun extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class RcSceneTraditional extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class RcSidePanel extends eui.Skin{
 	}
 }
