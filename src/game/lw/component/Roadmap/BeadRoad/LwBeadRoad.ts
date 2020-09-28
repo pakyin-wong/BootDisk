@@ -114,17 +114,21 @@ namespace we {
 
       // override for base class
       protected renderGrid() {
+        const bgColors = [0xfafafa, 0x17181a];
+        const gridColors = [0xafafaf, 0x1f2022];
+
         const sizeW = (this.cellWidth / this.gridUnit) * this.scale;
         const sizeH = (this.cellHeight / this.gridUnit) * this.scale;
         this.grid.graphics.clear();
 
         // draw bg rectangle
-        // this.grid.graphics.beginFill(this.gridColor, this.gridAlpha);
-        // this.grid.graphics.drawRect(0, 0, this.numCol * sizeW, this.numRow * sizeH);
-        // this.grid.graphics.endFill();
+        this.grid.graphics.beginFill(bgColors[0], 1);
+        this.grid.graphics.lineStyle(this.gridLine * this.scale, gridColors[0], 1, true);
+        RoundRect.drawRoundRect(this.grid.graphics, 0, 0, this.numCol * sizeW, this.numRow * sizeH, this.gridCorners);
+        this.grid.graphics.endFill();
 
         // draw grid lines
-        this.grid.graphics.lineStyle(this.gridLine * this.scale, this.gridBorderColor, 1, true);
+        // this.grid.graphics.lineStyle(this.gridLine * this.scale, this.gridBorderColor, 1, true);
         let lineY: number = sizeH * this.gridUnit;
         for (let r = 1; r < this.numRow; r += this.gridUnit) {
           this.grid.graphics.moveTo(0, lineY);

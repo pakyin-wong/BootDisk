@@ -3,26 +3,26 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="_odd_group" x="0" y="0" width="175" height="60">
 		<ui:BetChipStack id="_odd_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"
-		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
-		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
+		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0" betSumBackgroundWidth="60" betSumBackgroundHeight="20"
+		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="15"
 		                 chipType="2" />
 	</e:Group>
 	<e:Group id="_even_group" x="175" y="0" width="175" height="60">
 		<ui:BetChipStack id="_even_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"
-		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
-		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
+		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0" betSumBackgroundWidth="60" betSumBackgroundHeight="20"
+		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="15"
 		                 chipType="2" />
 	</e:Group>
 	<e:Group id="_red_group" x="0" y="60" width="175" height="60">
 		<ui:BetChipStack id="_red_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"
-		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
-		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
+		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0" betSumBackgroundWidth="60" betSumBackgroundHeight="20"
+		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="15"
 		                 chipType="2" />
 	</e:Group>
 	<e:Group id="_black_group" x="175" y="60" width="175" height="60">
 		<ui:BetChipStack id="_black_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"
-		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
-		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
+		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0" betSumBackgroundWidth="60" betSumBackgroundHeight="20"
+		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="15"
 		                 chipType="2" />
 	</e:Group>
 </e:Skin>

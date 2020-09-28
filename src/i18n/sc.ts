@@ -1,6 +1,9 @@
 namespace we {
   export namespace i18n {
     export const sc = {
+      yes: '是',
+      no: '否',
+
       voice_cantonese: '粤语',
       voice_mandarin: '普通话',
       voice_english: '英语',
@@ -103,13 +106,43 @@ namespace we {
       overlaypanel_bethistory_btn_prev: '上一则',
       overlaypanel_bethistory_searchtype_all: '全部游戏',
 
-      overlaypanel_bethistorylottery_tab_single: '投注记录',
-      overlaypanel_bethistorylottery_tab_multi: '追号记录',
-
       overlaypanel_bethistorylottery_record_round: '奖期',
       overlaypanel_bethistorylottery_record_bettype: '类型',
       overlaypanel_bethistorylottery_record_betgroup: '玩法',
       overlaypanel_bethistorylottery_record_betfield: '投注项目',
+      overlaypanel_bethistorylottery_record_continuousbetdetail: '追号相关纪录',
+
+      overlaypanel_bethistorylottery_continuousbetdetails_title: '追号相关记录',
+      overlaypanel_bethistorylottery_continuousbetdetails_cbetid: '追号编号',
+      overlaypanel_bethistorylottery_continuousbetdetails_date: '日期时间',
+      overlaypanel_bethistorylottery_continuousbetdetails_game: '游戏',
+      overlaypanel_bethistorylottery_continuousbetdetails_start: '起始奖期',
+      overlaypanel_bethistorylottery_continuousbetdetails_total: '追号期数',
+      overlaypanel_bethistorylottery_continuousbetdetails_count: '追号进度',
+      overlaypanel_bethistorylottery_continuousbetdetails_betamount: '总投注额',
+      overlaypanel_bethistorylottery_continuousbetdetails_status: '状态',
+      overlaypanel_bethistorylottery_continuousbetdetails_type: '类型',
+      overlaypanel_bethistorylottery_continuousbetdetails_group: '玩法',
+      overlaypanel_bethistorylottery_continuousbetdetails_field: '投注项目',
+      overlaypanel_bethistorylottery_continuousbetdetails_autostop: '追中即停',
+      overlaypanel_bethistorylottery_continuousbetdetails_cancelled: '取消期数',
+      overlaypanel_bethistorylottery_continuousbetdetails_doneAmount: '完成金额',
+
+      overlaypanel_bethistorylottery_popup_titme: '追号详情',
+      overlaypanel_bethistorylottery_continuousbet_round: '奖期',
+      overlaypanel_bethistorylottery_continuousbet_rate: '倍数',
+      overlaypanel_bethistorylottery_continuousbet_status: '状态',
+      overlaypanel_bethistorylottery_continuousbet_cancel: '撤单',
+      overlaypanel_bethistorylottery_continuousbet_detail: '详情',
+      overlaypanel_bethistorylottery_continuousbet_allcancel: '一键撤单',
+
+      overlaypanel_bethistorylottery_continuousbet_betted: '已投注',
+      overlaypanel_bethistorylottery_continuousbet_drawing: '进行中',
+      overlaypanel_bethistorylottery_continuousbet_cancelled: '已撤单',
+      overlaypanel_bethistorylottery_continuousbet_completed: '已结算',
+
+      overlaypanel_bethistorylottery_tab_single: '投注记录',
+      overlaypanel_bethistorylottery_tab_multi: '追号记录',
 
       overlaypanel_bethistory_baresult_banker: '庄',
       overlaypanel_bethistory_baresult_player: '闲',
@@ -310,6 +343,7 @@ namespace we {
         gametype: {
           allLotteryGame: '全部',
           lottery: '时时彩',
+          race: '北京赛车',
         },
       },
       tableInfo: {
