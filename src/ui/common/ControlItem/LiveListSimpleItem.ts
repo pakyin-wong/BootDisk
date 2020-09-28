@@ -48,6 +48,10 @@ namespace we {
 
       public destroy() {
         super.destroy();
+        this.releaseRoadmap();
+      }
+
+      protected releaseRoadmap() {
         if (this._bigRoad && this.tableInfo) {
           // this._bigRoad.parent.removeChild(this._bigRoad);
           dir.lobbyRoadPool.release(this._bigRoad, this.tableInfo.gametype);

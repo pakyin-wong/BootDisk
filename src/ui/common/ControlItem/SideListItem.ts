@@ -30,6 +30,9 @@ namespace we {
         this._betChipSet.init(null, denominationList);
       }
 
+      protected releaseRoadmap() {
+      }
+
       protected checkSkin() {}
 
       protected addEventListeners() {
