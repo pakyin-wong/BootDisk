@@ -9,6 +9,7 @@ namespace we {
       private _itemMargin: number;
       private _today;
       private _currMonth;
+      private _highlightToday = false;
 
       constructor() {
         super();
@@ -48,6 +49,10 @@ namespace we {
       protected destroy() {
         super.destroy();
         this.removeChildren();
+      }
+
+      set highlightToday(isHighlight: boolean) {
+        this._highlightToday = isHighlight;
       }
 
       protected update() {
@@ -124,9 +129,10 @@ namespace we {
           } else if (curr.isBetween(begin, end)) {
             this.setItemState(d, 'multi');
           } else {
-            this.setItemState(d, 'enabled');
-            if (d == this._today + 1) {
+            if (d == this._today) {
               this.setItemState(this._today, 'today');
+            } else {
+              this.setItemState(d, 'enabled');
             }
           }
         }
@@ -156,7 +162,9 @@ namespace we {
             item.currentState = s;
             break;
           case 'today':
-            item.currentState = s;
+            if (this._highlightToday) {
+              item.currentState = s;
+            }
             item.$addListener(egret.TouchEvent.TOUCH_TAP, this.onClicked, this);
             break;
         }
