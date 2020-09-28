@@ -26,7 +26,7 @@ namespace we {
 
       protected gridCorners: any = { tl: 0, tr: 0, bl: 0, br: 0 }; // the corner radius for the grid background
 
-      public constructor(_numCol: number, _gridSize: number, _scale: number, _gridLine: number = 2) {
+      public constructor(_numCol: number, _gridSize: number, _scale: number, _gridLine: number = 1) {
         super();
         this.scale = _scale;
         this.gridSize = _gridSize;
@@ -172,7 +172,6 @@ namespace we {
       protected renderGrid() {
         const bgColors = [0xfafafa, 0x17181a];
         const gridColors = [0xafafaf, 0x1f2022];
-
         const size = (this.gridSize / this.gridUnit) * this.scale;
         this.grid.graphics.clear();
 
@@ -186,13 +185,14 @@ namespace we {
         // draw grid lines
         this.grid.graphics.lineStyle(this.gridLine * this.scale, gridColors[this.darkModeNumber], 1, true);
         let lineY: number = size * this.gridUnit;
-        for (let r = 0; r < 5; r += this.gridUnit) {
+        const count = 6 / this.gridUnit - 1;
+        for (let r = 0; r < count; r++) {
           this.grid.graphics.moveTo(0, lineY);
           this.grid.graphics.lineTo(this.numCol * size, lineY);
           lineY += size * this.gridUnit;
         }
         let lineX: number = size * this.gridUnit;
-        for (let c = 0; c < this.numCol - 1; c += this.gridUnit) {
+        for (let c = 0; c < this.numCol - this.gridUnit; c += this.gridUnit) {
           this.grid.graphics.moveTo(lineX, 0);
           this.grid.graphics.lineTo(lineX, 6 * size);
           lineX += size * this.gridUnit;
