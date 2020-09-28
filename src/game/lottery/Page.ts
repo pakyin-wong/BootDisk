@@ -57,6 +57,8 @@ namespace we {
           switch (tableInfo.gametype) {
             case we.core.GameType.LO:
               return lo.LotteryListHolder;
+            case we.core.GameType.RC:
+              return lo.LotteryListHolder;
             default:
               throw new Error('Invalid Game Type');
           }

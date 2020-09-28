@@ -238,7 +238,9 @@ namespace we {
         if (!this._chipLayer) {
           this.runtimeGenerateChipLayer();
         }
-        if (this._quickBetBtnGroup) { this._quickBetBtnGroup.y = this._tableLayer.height - 7; }
+        if (this._quickBetBtnGroup) {
+          this._quickBetBtnGroup.y = this._tableLayer.height - 7;
+        }
 
         // create a
 
