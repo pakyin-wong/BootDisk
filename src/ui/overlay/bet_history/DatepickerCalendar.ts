@@ -111,8 +111,8 @@ namespace we {
             }
           } else {
             this.setItemState(d, 'disabled');
-            if (d == this._today + 1) {
-              this.setItemState(this._today, 'today');
+            if (d == this._today) {
+              this.setItemState(this._today, 'today', false);
             }
           }
         }
@@ -130,7 +130,7 @@ namespace we {
             this.setItemState(d, 'multi');
           } else {
             if (d == this._today) {
-              this.setItemState(this._today, 'today');
+              this.setItemState(this._today, 'today', false);
             } else {
               this.setItemState(d, 'enabled');
             }
@@ -138,7 +138,7 @@ namespace we {
         }
       }
 
-      public setItemState(d, s) {
+      public setItemState(d, s, enableClick = true) {
         const item = this._dateItems[d];
         item.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClicked, this);
         mouse.setButtonMode(item, false);
@@ -165,7 +165,9 @@ namespace we {
             if (this._highlightToday) {
               item.currentState = s;
             }
-            item.$addListener(egret.TouchEvent.TOUCH_TAP, this.onClicked, this);
+            if (enableClick) {
+              item.$addListener(egret.TouchEvent.TOUCH_TAP, this.onClicked, this);
+            }
             break;
         }
       }
