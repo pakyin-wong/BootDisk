@@ -45,6 +45,7 @@ namespace we {
         this.beadRoad.x = this.roadIndentX;
         this.beadRoad.y = this.roadIndentY;
         this.beadRoad.scaleX = this.beadRoad.scaleY = this.roadScale;
+        this.beadRoad.setGridCorners({ tl: 0, tr: 0, bl: 10, br: 10 });
 
         // const rdata: any = [];
         // this.beadRoad.parseRoadData(rdata);

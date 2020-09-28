@@ -47,6 +47,9 @@ namespace we {
       }
 
       public updateDisplay() {
+        if (!this._iconText.font) {
+          this._iconText.font = RES.getRes(`${env.isMobile ? 'm' : ''}roadmapfont_fnt`);
+        }
         this._iconText.text = '';
         this._iconShape.graphics.clear();
       }
