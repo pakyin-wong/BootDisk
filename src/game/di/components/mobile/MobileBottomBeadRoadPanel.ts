@@ -30,18 +30,44 @@ namespace we {
       protected initRoadMap() {
         switch (env.orientation) {
           case 'portrait':
-            this.beadRoad = new DiBeadRoad(1, 9, 120, 1, 5, 24, 6, [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1]); // in game
-            this.beadRoad.x = 29;
-            this.beadRoad.y = 16;
+            let options = {
+              paddingX: 16,
+              paddingY: 16,
+              gapX: 22,
+              gapY: 40,
+              iconItemColors: [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1],
+              iconHeight: 380,
+              iconItemYOffset: 14,
+              textPadding: 3,
+              textSize: 48,
+              diceSize: 66,
+              highlightRadius: 8,
+            };
+            this.beadRoad = new DiBeadRoad(1242, 1, 9, 120, 1, options); // in game
+            // this.beadRoad.x = 29;
+            // this.beadRoad.y = 16;
             this.beadRoad.scaleX = 689 / 689;
             this.beadRoad.scaleY = 689 / 689;
             this.beadRoad.expandRoad(false);
             this.beadRoadConfig.parent.addChild(this.beadRoad);
             break;
           case 'landscape':
-            this.beadRoad = new DiBeadRoad(1, 8, 70, 1, 15, 24, 12, [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1]); // in game
-            this.beadRoad.x = 29;
-            this.beadRoad.y = 16;
+            options = {
+              paddingX: 38,
+              paddingY: 16,
+              gapX: 33,
+              gapY: 20,
+              iconItemColors: [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1],
+              iconHeight: 276,
+              iconItemYOffset: 23,
+              textPadding: 2,
+              textSize: 36,
+              diceSize: 34,
+              highlightRadius: 8,
+            };
+            this.beadRoad = new DiBeadRoad(845, 1, 8, 70, 1, options); // in game
+            // this.beadRoad.x = 29;
+            // this.beadRoad.y = 16;
             this.beadRoad.scaleX = 689 / 689;
             this.beadRoad.scaleY = 689 / 689;
             this.beadRoad.expandRoad(false);

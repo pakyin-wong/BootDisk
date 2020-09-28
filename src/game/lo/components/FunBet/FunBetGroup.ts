@@ -19,7 +19,7 @@ namespace we {
         }
 
         const groupKey = this.groupType.replace('%id%', this.groupId);
-        this.title && (this.title.renderText = () => `${i18n.t('lo_fun_betgroup_' + groupKey)}`);
+        this.title && (this.title.renderText = () => `${i18n.t(env.sceneId + '_fun_betgroup_' + groupKey)}`);
       }
 
       protected destroy() {

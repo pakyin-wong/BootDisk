@@ -32,24 +32,31 @@ namespace we {
         const gridSize = 21;
         this.totalCount = 0;
 
-        this.roadsContainer = new egret.DisplayObjectContainer();
-        this.roadsContainer.x = 0;
-        this.roadsContainer.y = 0;
-        this.roadsContainer.scaleX = 584 / 672;
-        this.roadsContainer.scaleY = 450 / 504;
-        this.addChild(this.roadsContainer);
+        const bgShape = new ui.RoundRectShape();
+        bgShape.setRoundRectStyle(580, 437, { tl: 0, tr: 12, bl: 0, br: 12 }, '0xffffff', 1, 0);
+        this.addChild(bgShape);
+        bgShape.x = 0;
+        bgShape.y = 2;
 
-        this.roadsContainerRT = new egret.RenderTexture();
+        this.roadsContainer = new egret.DisplayObjectContainer();
+        this.roadsContainer.scaleX = 576 / 672;
+        this.roadsContainer.scaleY = 433 / 504;
+        this.addChild(this.roadsContainer);
+        this.roadsContainer.x = 2;
+        this.roadsContainer.y = 4;
+
+        // this.roadsContainerRT = new egret.RenderTexture();
         this.roadsContainerDisplay = new egret.Bitmap();
-        this.roadsContainerDisplay.texture = this.roadsContainerRT;
-        this.roadsContainerDisplay.scaleX = 584 / 672;
-        this.roadsContainerDisplay.scaleY = 450 / 504;
+        // this.roadsContainerDisplay.texture = this.roadsContainerRT;
+        this.roadsContainerDisplay.scaleY = 433 / 432;
         this.addChild(this.roadsContainerDisplay);
+        this.roadsContainerDisplay.visible = false;
 
         this.beadRoad = new we.dt.DTBeadRoad(16, gridSize * 2, 1, false);
         this.beadRoad.x = 0;
         this.beadRoad.y = 0;
         this.beadRoad.initRoadData();
+        this.beadRoad.setGridCorners({ tl: 0, tr: 14, br: 0, bl: 0 });
         // this.beadRoad.scaleX = 690 / 689;
         // this.beadRoad.scaleY = 690 / 689;
         this.roadsContainer.addChild(this.beadRoad);
@@ -75,6 +82,7 @@ namespace we {
         this.cockroachRoad = new we.ba.BACockroachRoad(16 * 2, gridSize);
         this.cockroachRoad.x = gridSize * 16;
         this.cockroachRoad.y = 12 * gridSize + 6 * gridSize + 6 * (gridSize / 2);
+        this.cockroachRoad.setGridCorners({ tl: 0, tr: 0, br: 14, bl: 0 });
         this.cockroachRoad.initRoadData();
         this.roadsContainer.addChild(this.cockroachRoad);
 

@@ -16,6 +16,10 @@ namespace we {
           this._bettingPanel.updateRoundDetailInfo(this._tableInfo.betInfo);
         }
       }
+
+      protected setSkinName() {
+        this.skinName = utils.getSkinByClassname('RcSceneTraditional');
+      }
     }
   }
 }

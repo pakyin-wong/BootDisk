@@ -2,6 +2,7 @@ namespace we {
   export namespace core {
     export class SceneCtr {
       private _currScene: BaseScene;
+      private _currid: string;
 
       public constructor() {
         // init dummy scene
@@ -47,6 +48,7 @@ namespace we {
         dir.layerCtr.scene.addChild(_next);
         dir.layerCtr.nav.addChild(_next.sceneHeader);
         this._currScene = _next;
+        this._currid = id;
         logger.l(utils.LogTarget.RELEASE, `enter ${id}`);
         dir.evtHandler.dispatch(core.Event.ENTER_SCENE, id);
         dir.layerCtr.nav.removeChild(_prev.sceneHeader);
@@ -73,6 +75,7 @@ namespace we {
         dir.layerCtr.scene.addChild(_next);
         dir.layerCtr.nav.addChild(_next.sceneHeader);
         this._currScene = _next;
+        this._currid = id;
         logger.l(utils.LogTarget.RELEASE, `enter ${id}`);
         dir.evtHandler.dispatch(core.Event.ENTER_SCENE, id);
         dir.layerCtr.nav.removeChild(_prev.sceneHeader);
@@ -84,6 +87,10 @@ namespace we {
 
       public get currScene() {
         return this._currScene;
+      }
+
+      public get currid() {
+        return this._currid;
       }
     }
   }

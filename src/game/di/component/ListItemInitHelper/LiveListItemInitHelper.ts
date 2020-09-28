@@ -5,6 +5,7 @@ namespace we {
         const tableLayer = new di.LobbyTableLayer();
         if (node.name === 'AdvancedTableLayerNode') {
           tableLayer.skinName = `skin_desktop.di.LiveListAdvancedItemTableLayerSkin`;
+          tableLayer.scaleX = 345 / 350;
         } else {
           tableLayer.skinName = `skin_desktop.di.LiveListItemTableLayerSkin`;
         }
@@ -17,6 +18,7 @@ namespace we {
         const chipLayer = new di.LobbyChipLayer();
         if (node.name === 'AdvancedChipLayerNode') {
           chipLayer.skinName = `skin_desktop.di.LiveListAdvancedItemChipLayerSkin`;
+          chipLayer.scaleX = 345 / 350;
         } else {
           chipLayer.skinName = `skin_desktop.di.LiveListItemChipLayerSkin`;
         }
@@ -29,17 +31,18 @@ namespace we {
         // const bigRoad = new di.DiLobbyBeadRoad();
         const bigRoad = dir.lobbyRoadPool.get(core.GameType.DI);
         bigRoad.roadGridSize = 40;
-        bigRoad.roadCol = 12;
+        bigRoad.roadCol = 14;
         bigRoad.roadRow = 1;
-        bigRoad.roadIndentX = 4;
-        bigRoad.roadIndentY = 2;
-        bigRoad.roadOffsetX = 8;
+        bigRoad.roadIndentX = 3;
+        bigRoad.roadIndentY = 3;
+        bigRoad.roadOffsetX = 6;
         bigRoad.roadOffsetY = 2;
-        bigRoad.roadIconItemYOffset = 2;
+        bigRoad.roadIconItemYOffset = 4;
+        bigRoad.iconHeight = 132;
         bigRoad.roadIconItemColors = [0xee2e2e, 0x6dd400, 0x3e60f8, 0xededed, 1]; // [r_color,g_color,b_color, hightlight_color, hightlight_alpha]
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(bigRoad, idx);
-        bigRoad.drawGridBg(576, 139);
+        bigRoad.drawGridBg(576, 138);
         return bigRoad;
       }
 
