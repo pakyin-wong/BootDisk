@@ -150,6 +150,7 @@ namespace we {
           core.GameType.RO,
           core.GameType.ROL,
           core.GameType.LO,
+          core.GameType.RC,
         ];
 
         dir.evtHandler.addEventListener('LIVE_PAGE_LOCK', this.onLockChanged, this);
@@ -327,6 +328,10 @@ namespace we {
             this._currTableId = '';
             break;
         }
+      }
+
+      public get sceneId(): string {
+        return dir.sceneCtr.currid;
       }
 
       public set nicknameSet(val) {

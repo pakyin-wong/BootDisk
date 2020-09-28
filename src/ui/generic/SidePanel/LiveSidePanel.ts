@@ -54,6 +54,8 @@ namespace we {
               return dt.SideListBetItemHolder;
             case we.core.GameType.LO:
               return ro.SideListBetItemHolder;
+            case we.core.GameType.RC:
+              return ro.SideListBetItemHolder;
             default:
               throw new Error('Invalid Game Type');
           }
@@ -121,6 +123,8 @@ namespace we {
             case we.core.GameType.DT:
               return dt.SideListItemHolder;
             case we.core.GameType.LO:
+              return lo.SideListItemHolder;
+            case we.core.GameType.RC:
               return lo.SideListItemHolder;
             default:
               throw new Error('Invalid Game Type');
