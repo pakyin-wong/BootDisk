@@ -59,6 +59,8 @@ namespace we {
           }
           this._txt_record_round.text = this.data.gameroundid;
           this._txt_record_remark.text = this.formatRemark(this.data.remark);
+          console.log('this.formatBetType(this.data.gametype, this.data.field)', this.formatBetType(this.data.gametype, this.data.field));
+          console.log('this.data.gametype, this.data.field', [this.data.gametype, this.data.field]);
           this._txt_record_bettype.text = this.formatBetType(this.data.gametype, this.data.field);
           this._txt_record_betamount.text = utils.formatNumber(this.data.betamount, true);
           this._txt_record_orgbalance.text = utils.formatNumber(this.data.beforebalance, true);
@@ -117,7 +119,15 @@ namespace we {
 
             case we.core.GameType.DT:
               return i18n.t(`betfield_dragonTiger_${bettype.toLowerCase()}`);
-
+            case we.core.GameType.DI:
+              return i18n.t(`dice.${bettype.toLowerCase()}`);
+            case we.core.GameType.DIL:
+              return bettype;
+            case we.core.GameType.RO:
+            case we.core.GameType.ROL:
+              return i18n.t(`roulette.${bettype.toLowerCase()}`);
+            case we.core.GameType.LW:
+              return i18n.t(`luckywheel.${bettype.toLowerCase()}`);
             default:
               return i18n.t(`betfield_${bettype.toLowerCase()}`);
           }
