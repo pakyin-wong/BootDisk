@@ -22,7 +22,7 @@ namespace we {
       protected mount() {
         super.mount();
         this.initDenom();
-        FunBet.reset();
+        utils.getFunBet().reset();
 
         if (this._drawerPanel) {
           this._drawerPanel.setTableInfo(this._tableInfo);
@@ -51,10 +51,10 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitUpdate, this);
         utils.addButtonListener(this._confirmButton, this.onConfirmPressed, this);
         utils.addButtonListener(this._cancelButton, this.onCancelPressed, this);
-        FunBet.evtHandler.addEventListener('LOTTERY_FUNBET_UPDATE', this.onFunBetUpdate, this);
-        FunBet.evtHandler.addEventListener('LOTTERY_FUNBET_OVERBETLIMIT', this.onOverBetLimit, this);
-        FunBet.evtHandler.addEventListener('LOTTERY_FUNBET_LOWERBETLIMIT', this.onLowBetLimit, this);
-        FunBet.evtHandler.addEventListener('LOTTERY_FUNBET_OVERBALANCE', this.onOverBalance, this);
+        utils.getFunBet().evtHandler.addEventListener('LOTTERY_FUNBET_UPDATE', this.onFunBetUpdate, this);
+        utils.getFunBet().evtHandler.addEventListener('LOTTERY_FUNBET_OVERBETLIMIT', this.onOverBetLimit, this);
+        utils.getFunBet().evtHandler.addEventListener('LOTTERY_FUNBET_LOWERBETLIMIT', this.onLowBetLimit, this);
+        utils.getFunBet().evtHandler.addEventListener('LOTTERY_FUNBET_OVERBALANCE', this.onOverBalance, this);
       }
 
       protected removeListeners() {
@@ -64,9 +64,10 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitUpdate, this);
         utils.removeButtonListener(this._confirmButton, this.onConfirmPressed, this);
         utils.removeButtonListener(this._cancelButton, this.onCancelPressed, this);
-        FunBet.evtHandler.removeEventListener('LOTTERY_FUNBET_UPDATE', this.onFunBetUpdate, this);
-        FunBet.evtHandler.removeEventListener('LOTTERY_FUNBET_OVERBETLIMIT', this.onOverBetLimit, this);
-        FunBet.evtHandler.removeEventListener('LOTTERY_FUNBET_OVERBALANCE', this.onOverBalance, this);
+        utils.getFunBet().evtHandler.removeEventListener('LOTTERY_FUNBET_UPDATE', this.onFunBetUpdate, this);
+        utils.getFunBet().evtHandler.removeEventListener('LOTTERY_FUNBET_OVERBETLIMIT', this.onOverBetLimit, this);
+        utils.getFunBet().evtHandler.removeEventListener('LOTTERY_FUNBET_LOWERBETLIMIT', this.onLowBetLimit, this);
+        utils.getFunBet().evtHandler.removeEventListener('LOTTERY_FUNBET_OVERBALANCE', this.onOverBalance, this);
       }
 
       protected onGameStatisticUpdated() {
