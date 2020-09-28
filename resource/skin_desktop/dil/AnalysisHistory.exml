@@ -3,14 +3,26 @@
         xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal">
         <e:Group x="10" y="18">
                 <ui:RoundRectShape width="148" height="148" stroke="0" fillColor="0x909090" cornerTL_TR_BL_BR="4,4,4,4" />
-                <e:Group verticalCenter="0" horizontalCenter="0">
-                        <ui:RunTimeLabel id="_recentStat" size="20" i18n="dice.recentStat" />
-                        <e:Label id="_roundNumber" size="62"/>
-                        <ui:RunTimeLabel id="_round" size="20" i18n="dice.round" />
-                        <e:layout>
-                                <e:VerticalLayout gap="10" horizontalAlign="center" />
-                        </e:layout>
-                </e:Group>
+                <ui:HorizontalHolder id="_holder" bulletHorizontalCenter="0" bulletGap="30" bulletBottom="0"
+                                     width="100%" height="100%" slideWidth="148" slideHeight="168"
+                                     isTouchEnabled="true" isLoop="false" isAuto="false" name="skipEnterScene">
+                        <e:Group>
+                                <ui:RunTimeLabel size="20" i18n="dice.recentStat" />
+                                <e:Label text="10" size="62" />
+                                <ui:RunTimeLabel size="20" i18n="dice.round" />
+                                <e:layout>
+                                        <e:VerticalLayout gap="10" horizontalAlign="center" />
+                                </e:layout>
+                        </e:Group>
+                        <e:Group>
+                                <ui:RunTimeLabel size="20" i18n="dice.recentStat" />
+                                <e:Label text="50" size="62" />
+                                <ui:RunTimeLabel size="20" i18n="dice.round" />
+                                <e:layout>
+                                        <e:VerticalLayout gap="10" horizontalAlign="center" />
+                                </e:layout>
+                        </e:Group>
+                </ui:HorizontalHolder>
         </e:Group>
         <e:Group x="200" y="10">
                 <e:Group width="30" height="175">
