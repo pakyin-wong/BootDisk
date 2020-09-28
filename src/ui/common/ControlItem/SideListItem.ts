@@ -23,6 +23,8 @@ namespace we {
 
       protected _headerBg: egret.Shape;
 
+      protected _betButtonGroup: eui.Group;
+
       public constructor(skinName: string = null) {
         super(skinName);
         this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
@@ -93,6 +95,12 @@ namespace we {
 
         this.drawHeaderBg(337, 46);
         this.drawBorder(337, 174);
+      }
+
+      protected runtimeGenerateTableLayer() {
+        super.runtimeGenerateTableLayer();
+        this._betButtonGroup.y = this._tableLayer.height - 10;
+        this._quickBetGroup.height = this._quickBetGroup.contentHeight;
       }
 
       public drawHeaderBg(width: number, height: number) {
