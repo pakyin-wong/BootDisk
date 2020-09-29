@@ -6,9 +6,9 @@
 
 	<e:ViewStack id="_viewstack" left="0" right="0" selectedIndex="0" y="56" height="477" scaleY="1">
 		<e:Group left="0" right="0" top="0" bottom="0" x="0" id="funPage" name="fun">
-			<lo:FunBetGroup skinName="skin_desktop.rc.FunBetGroupN3" groupType="BASIC_%id%" groupId="CHAMP" customKey="rc"/>
-			<lo:FunBetGroup skinName="skin_desktop.rc.FunBetGroupN3" groupType="BASIC_%id%" groupId="SECOND" customKey="rc"/>
-			<lo:FunBetGroup skinName="skin_desktop.rc.FunBetGroupN3" groupType="BASIC_%id%" groupId="THIRD" customKey="rc"/>
+			<lo:FunBetGroup skinName="skin_desktop.rc.FunBetGroupN" groupType="BASIC_%id%" groupId="CHAMP" customKey="rc" currentState="n3"/>
+			<lo:FunBetGroup skinName="skin_desktop.rc.FunBetGroupN" groupType="BASIC_%id%" groupId="SECOND" customKey="rc" currentState="n3"/>
+			<lo:FunBetGroup skinName="skin_desktop.rc.FunBetGroupN" groupType="BASIC_%id%" groupId="THIRD" customKey="rc" currentState="n3"/>
 			<lo:FunBetGroup skinName="skin_desktop.rc.FunBetGroupN" groupType="BASIC_%id%" groupId="FORTH" customKey="rc"/>
 			<lo:FunBetGroup skinName="skin_desktop.rc.FunBetGroupN" groupType="BASIC_%id%" groupId="FIFTH" customKey="rc"/>
 			<lo:FunBetGroup skinName="skin_desktop.rc.FunBetGroupN" groupType="BASIC_%id%" groupId="SIXTH" customKey="rc"/>
@@ -23,16 +23,16 @@
 		<e:Group id="numPage" left="0" right="0" top="0" bottom="0" name="num">
 			<ui:Scroller left="0" right="0" top="0" bottom="0">
 			<e:Group>
-				<lo:FunBetGroup x="250" y="11" scaleX="1" scaleY="1" skinName="skin_desktop.rc.FunBetGroupNum3" groupType="FIXPOS%id%" groupId="1" customKey="rc"/>
-				<lo:FunBetGroup x="758" y="11" scaleX="1" scaleY="1" skinName="skin_desktop.rc.FunBetGroupNum3" groupType="FIXPOS%id%" groupId="2" customKey="rc"/>
-				<lo:FunBetGroup x="1266" y="11" scaleX="1" scaleY="1" skinName="skin_desktop.rc.FunBetGroupNum3" groupType="FIXPOS%id%" groupId="3" customKey="rc"/>
-				<lo:FunBetGroup x="1774" y="11" scaleX="1" scaleY="1" skinName="skin_desktop.rc.FunBetGroupNum" groupType="FIXPOS%id%" groupId="4" customKey="rc"/>
-				<lo:FunBetGroup x="2282" y="11" scaleX="1" scaleY="1" skinName="skin_desktop.rc.FunBetGroupNum" groupType="FIXPOS%id%" groupId="5" customKey="rc"/>
-				<lo:FunBetGroup x="2790" y="11" scaleX="1" scaleY="1" skinName="skin_desktop.rc.FunBetGroupNum" groupType="FIXPOS%id%" groupId="6" customKey="rc"/>
-				<lo:FunBetGroup x="3298" y="11" scaleX="1" scaleY="1" skinName="skin_desktop.rc.FunBetGroupNum" groupType="FIXPOS%id%" groupId="7" customKey="rc"/>
-				<lo:FunBetGroup x="3806" y="11" scaleX="1" scaleY="1" skinName="skin_desktop.rc.FunBetGroupNum" groupType="FIXPOS%id%" groupId="8" customKey="rc"/>
-				<lo:FunBetGroup x="4314" y="11" scaleX="1" scaleY="1" skinName="skin_desktop.rc.FunBetGroupNum" groupType="FIXPOS%id%" groupId="9" customKey="rc"/>
-				<lo:FunBetGroup x="4822" y="11" scaleX="1" scaleY="1" skinName="skin_desktop.rc.FunBetGroupNum" groupType="FIXPOS%id%" groupId="10" customKey="rc"/>
+				<lo:FunBetGroup x="250" y="11" scaleX="1" scaleY="1" skinName="skin_desktop.rc.FunBetGroupNum" groupType="%id%FIXPOS2" groupId="1" customKey="rc" currentState="n3"/>
+				<lo:FunBetGroup x="758" y="11" scaleX="1" scaleY="1" skinName="skin_desktop.rc.FunBetGroupNum" groupType="%id%FIXPOS2" groupId="2" customKey="rc" currentState="n3"/>
+				<lo:FunBetGroup x="1266" y="11" scaleX="1" scaleY="1" skinName="skin_desktop.rc.FunBetGroupNum" groupType="%id%FIXPOS2" groupId="3" customKey="rc" currentState="n3"/>
+				<lo:FunBetGroup x="1774" y="11" scaleX="1" scaleY="1" skinName="skin_desktop.rc.FunBetGroupNum" groupType="%id%FIXPOS2" groupId="4" customKey="rc"/>
+				<lo:FunBetGroup x="2282" y="11" scaleX="1" scaleY="1" skinName="skin_desktop.rc.FunBetGroupNum" groupType="%id%FIXPOS2" groupId="5" customKey="rc"/>
+				<lo:FunBetGroup x="2790" y="11" scaleX="1" scaleY="1" skinName="skin_desktop.rc.FunBetGroupNum" groupType="%id%FIXPOS2" groupId="6" customKey="rc"/>
+				<lo:FunBetGroup x="3298" y="11" scaleX="1" scaleY="1" skinName="skin_desktop.rc.FunBetGroupNum" groupType="%id%FIXPOS2" groupId="7" customKey="rc"/>
+				<lo:FunBetGroup x="3806" y="11" scaleX="1" scaleY="1" skinName="skin_desktop.rc.FunBetGroupNum" groupType="%id%FIXPOS2" groupId="8" customKey="rc"/>
+				<lo:FunBetGroup x="4314" y="11" scaleX="1" scaleY="1" skinName="skin_desktop.rc.FunBetGroupNum" groupType="%id%FIXPOS2" groupId="9" customKey="rc"/>
+				<lo:FunBetGroup x="4822" y="11" scaleX="1" scaleY="1" skinName="skin_desktop.rc.FunBetGroupNum" groupType="%id%FIXPOS2" groupId="10" customKey="rc"/>
 				<e:layout>
 				<e:TileLayout paddingLeft="26" paddingTop="11" verticalGap="18" horizontalGap="24" orientation="rows" requestedColumnCount="5" requestedRowCount="2" paddingRight="26"/>
 				</e:layout>
@@ -40,11 +40,11 @@
 			</ui:Scroller>
 		</e:Group>
 		<e:Group id="dtPage" left="0" right="0" top="0" bottom="0" name="dt">
-			<lo:FunBetGroup x="1256" y="428" skinName="skin_desktop.rc.FunBetGroupDT" groupType="DT_%id%" groupId="1V10" customKey="rc"/>
-			<lo:FunBetGroup x="1266" y="438" skinName="skin_desktop.rc.FunBetGroupDT" groupType="DT_%id%" groupId="2V9" customKey="rc"/>
-			<lo:FunBetGroup x="1276" y="448" skinName="skin_desktop.rc.FunBetGroupDT" groupType="DT_%id%" groupId="3V8" customKey="rc"/>
-			<lo:FunBetGroup x="1286" y="458" skinName="skin_desktop.rc.FunBetGroupDT" groupType="DT_%id%" groupId="4V7" customKey="rc"/>
-			<lo:FunBetGroup x="1296" y="468" skinName="skin_desktop.rc.FunBetGroupDT" groupType="DT_%id%" groupId="5V6" customKey="rc"/>
+			<lo:FunBetGroup x="1256" y="428" skinName="skin_desktop.rc.FunBetGroupDT" groupType="DT%id%2" groupId="1V10" customKey="rc"/>
+			<lo:FunBetGroup x="1266" y="438" skinName="skin_desktop.rc.FunBetGroupDT" groupType="DT%id%2" groupId="2V9" customKey="rc"/>
+			<lo:FunBetGroup x="1276" y="448" skinName="skin_desktop.rc.FunBetGroupDT" groupType="DT%id%2" groupId="3V8" customKey="rc"/>
+			<lo:FunBetGroup x="1286" y="458" skinName="skin_desktop.rc.FunBetGroupDT" groupType="DT%id%2" groupId="4V7" customKey="rc"/>
+			<lo:FunBetGroup x="1296" y="468" skinName="skin_desktop.rc.FunBetGroupDT" groupType="DT%id%2" groupId="5V6" customKey="rc"/>
 			<e:layout>
 			<e:TileLayout paddingTop="11" paddingLeft="26" horizontalGap="24" verticalGap="24" orientation="rows" requestedColumnCount="5" requestedRowCount="2"/>
 			</e:layout>
