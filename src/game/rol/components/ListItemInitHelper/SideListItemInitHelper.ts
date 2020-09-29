@@ -23,14 +23,15 @@ namespace we {
         bigRoad.roadGridSize = 30;
         bigRoad.roadCol = 9;
         bigRoad.roadRow = 3;
-        bigRoad.roadIndentX = 3.5;
+        bigRoad.roadIndentX = 3;
         bigRoad.roadIndentY = 2;
-        bigRoad.roadOffsetX = 8;
-        bigRoad.roadOffsetY = 5;
+        bigRoad.roadOffsetX = 7.5;
+        bigRoad.roadOffsetY = 2.5;
         bigRoad.roadEmptyColor = 0xc1c1c1;
         bigRoad.roadEmptyAlpha = 0.2;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(bigRoad, idx);
+        bigRoad.drawGridBg(335, 98);
         return bigRoad;
       }
 

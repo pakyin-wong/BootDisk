@@ -20,8 +20,8 @@
     </e:Group>
     <e:Group id="_contentContainer" width="339" x="0" y="0">
 			<ui:RoundRectShape id="_strokeShape" cornerTL_TR_BL_BR="8,8,8,8" stroke="2" strokeColor="0x000000" fillColor="0x23282e" fillAlpha="1" strokeIn="2" strokeInColor="0x3A3F48" right="0" left="0" top="0" bottom="0" touchEnabled="true" touchChildren="false"/>
-			<e:Group id="_tableLayerGroup" left="1" right="1" touchChildren="false" touchEnabled="false" y="0">
-				<e:Component id="_tableLayerNode" anchorOffsetY="0" height="0" left="2" top="0" name="sidebettingtable" y="0" scaleX="1" scaleY="1" right="2"/>
+			<e:Group id="_tableLayerGroup" left="1" right="1" touchChildren="false" touchEnabled="false" y="-1">
+				<e:Component id="_tableLayerNode" anchorOffsetY="0" left="0" top="0" name="sidebettingtable" scaleX="1" scaleY="1" right="0" bottom="1"/>
 			</e:Group>
         <ui:CountdownTimer id="_timer" width="34" height="34" x="7" y="7" anchorOffsetX="0" anchorOffsetY="0"
                            skinName="skin_desktop.CountdownTimerRoundSmallSkin" />
