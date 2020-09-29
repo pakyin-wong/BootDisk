@@ -49,6 +49,9 @@ namespace we {
         super.showQuickBetGroup();
         this._quickBetGroup.touchEnabled = true;
         this._quickBetGroup.touchChildren = true;
+        if (this._quickbetButton) {
+          this._quickbetButton.visible = false;
+        }
         if (this._quickBetBg) {
           egret.Tween.get(this._quickBetBg).to({ height: this.height + 103 }, 250);
         }
@@ -58,6 +61,9 @@ namespace we {
         super.hideQuickBetGroup();
         this._quickBetGroup.touchEnabled = false;
         this._quickBetGroup.touchChildren = false;
+        if (this._quickbetButton) {
+          this._quickbetButton.visible = true;
+        }
         if (this._quickBetBg) {
           egret.Tween.get(this._quickBetBg).to({ height: this.height }, 250);
         }
