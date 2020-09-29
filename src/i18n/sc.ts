@@ -728,6 +728,16 @@ namespace we {
           AnyTwo: '任选二',
           AnyThree: '任选三',
           AnyFour: '任选四',
+          // rc
+          RCChampion: '猜冠军',
+          RCTop2: '猜前二',
+          RCTop3: '猜前三',
+          RCTop4: '猜前四',
+          RCTop5: '猜前五',
+          RCFixPos: '定位胆',
+          RCSize: '大小',
+          RCParity: '单双',
+          RCDragonTiger: '龙虎',
         },
         smallTag: {
           DirectionSelection: '直选复式', // FiveStar
@@ -806,6 +816,17 @@ namespace we {
           GroupThree: '组三复式',
           GroupSix: '组六复式',
           MixGroup: '混合组选',
+          // rc
+          RCDirectionalSelection: '直选复式',
+          RCDirectionalMenu: '直选单式',
+          RCFirstFiveFixPos: '前五定位胆',
+          RCLastFiveFixPos: '后五定位胆',
+          RCChampion: '冠军',
+          RCSecond: '亚军',
+          RCThird: '季军',
+          RCForth: '第四名',
+          RCFifth: '第五名',
+          RCDT1v10: '1v10',
         },
         inputTitle: {
           TenThousand: '第一球｜万位',
@@ -829,6 +850,20 @@ namespace we {
           Group: '组选',
 
           Any: '任选',
+          // rc
+          RCChampion: '冠军',
+          RCSecond: '亚军',
+          RCThird: '季军',
+          RCForth: '第四名',
+          RCFifth: '第五名',
+
+          RCSixth: '第六名',
+          RCSeventh: '第七名',
+          RCEighth: '第八名',
+          RCNinth: '第九名',
+          RCTenth: '第十名',
+
+          RCDT1vs10: '1VS10',
         },
         inputs: {
           DRAGON: '龙',
@@ -992,6 +1027,46 @@ namespace we {
             Group12: '所选号码与开奖号码的选取位置四个数字相同，单号号码与开\n奖号码相同，且所选二重号在开奖号码中出现2次，顺序不限，即中奖',
             Group6: '所选号码与开奖号码的选取位置四个数字相同，所选二重号在\n开奖号码中出现2次，顺序不限，即中奖',
             Group4: '所选号码与开奖号码的选取位置四个数字相同，单号号码与开\n奖号码相同，且所选三重号在开奖号码中出现3次，顺序不限，即中奖',
+          },
+          RCChampion: {
+            RCDirectionalSelection: '所选号码与当期顺序摇出的10个号码中的第一个号码相同,即为中奖',
+          },
+          RCTop2: {
+            RCDirectionalSelection: '所选号码与当期顺序摇出的10个号码中的前2个号码相同，且顺序一致，即中奖。',
+            RCDirectionalMenu: '所选号码与当期顺序摇出的10个号码中的前2个号码相同，且顺序一致，即中奖。',
+          },
+          RCTop3: {
+            RCDirectionalSelection: '所选号码与当期顺序摇出的10个号码中的前3个号码相同，且顺序一致，即中奖。',
+            RCDirectionalMenu: '所选号码与当期顺序摇出的10个号码中的前3个号码相同，且顺序一致，即中奖。',
+          },
+          RCTop4: {
+            RCDirectionalSelection: '所选号码与当期顺序摇出的10个号码中的前4个号码相同，且顺序一致，即中奖。',
+            RCDirectionalMenu: '所选号码与当期顺序摇出的10个号码中的前4个号码相同，且顺序一致，即中奖。',
+          },
+          RCTop5: {
+            RCDirectionalSelection: '所选号码与当期顺序摇出的10个号码中的前5个号码相同，且顺序一致，即中奖。',
+            RCDirectionalMenu: '所选号码与当期顺序摇出的10个号码中的前5个号码相同，且顺序一致，即中奖。',
+          },
+          RCFixPos: {
+            RCFirstFiveFixPos: '所选号码与相同位置上的开奖号码一致，即中奖。',
+            RCLastFiveFixPos: '所选号码与相同位置上的开奖号码一致，即中奖。',
+          },
+          RCSize: {
+            RCChampion: '选号型态的开奖号码一致，即中奖。',
+            RCSecond: '选号型态的开奖号码一致，即中奖。',
+            RCThird: '选号型态的开奖号码一致，即中奖。',
+            RCForth: '选号型态的开奖号码一致，即中奖。',
+            RCFifth: '选号型态的开奖号码一致，即中奖。',
+          },
+          RCParity: {
+            RCChampion: '选号型态的开奖号码一致，即中奖。',
+            RCSecond: '选号型态的开奖号码一致，即中奖。',
+            RCThird: '选号型态的开奖号码一致，即中奖。',
+            RCForth: '选号型态的开奖号码一致，即中奖。',
+            RCFifth: '选号型态的开奖号码一致，即中奖。',
+          },
+          RCDragonTiger: {
+            RCDT1v10: '所选号码的位置、形态,与开奖号码的位置与形态一致，即中奖。',
           },
         },
         chase: {

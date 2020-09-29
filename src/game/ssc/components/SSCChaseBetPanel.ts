@@ -202,7 +202,7 @@ namespace we {
         // this._lblTotalRoundCount.renderText = () =>`${i18n.t('lo_trad.chase.totalRoundCount')}`;;
         this._lblTotalRoundTitle.renderText = () => `${i18n.t('lo_trad.chase.round')}`;
         // this._lblTotalNoteCount.renderText = () =>`${i18n.t('lo_trad.chase.chaseType')}`;;
-        this._lblTotalNoteTitle.renderText = () => `${i18n.t('lo_trad.ui.noteCount')}`;
+        this._lblTotalNoteTitle.renderText = () => `${i18n.t('lo_trad.ui.notecount')}`;
         // this._lblTotalBet.renderText = () =>`${i18n.t('lo_trad.chase.chaseType')}`;;
         this._lblTotalBetTitle.renderText = () => `${i18n.t('lo_trad.chase.totalbet')}`;
         // this._lblRoundCountDown.renderText = () =>`${i18n.t('lo_trad.chase.chaseType')}`;;

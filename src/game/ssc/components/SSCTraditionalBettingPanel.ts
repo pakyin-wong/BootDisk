@@ -58,6 +58,8 @@ namespace we {
 
       constructor(skin: string = null) {
         super(skin);
+        this._currentKey = 'lo';
+        this._currentMap = we[this._currentKey].SelectionMapping;
         this.initSkin();
       }
 
@@ -89,8 +91,8 @@ namespace we {
         this._currentBigTagIndex = 0;
         this.bigTagNames = [];
 
-        for (let i = 0; i < Object.keys(SelectionMapping).length; i++) {
-          const obj = SelectionMapping[Object.keys(SelectionMapping)[i]];
+        for (let i = 0; i < Object.keys(this._currentMap).length; i++) {
+          const obj = this._currentMap[Object.keys(this._currentMap)[i]];
 
           const bigTagGroup: eui.Group = new eui.Group();
           bigTagGroup.width = 107.7;
@@ -189,7 +191,7 @@ namespace we {
         // this.clearSmallTags();
         this.smallTagsArray = [];
         this.smallTagNames = [];
-        const currentBigTag = SelectionMapping[Object.keys(SelectionMapping)[this._currentBigTagIndex]];
+        const currentBigTag = this._currentMap[Object.keys(this._currentMap)[this._currentBigTagIndex]];
         const smallTagsHeight = 57;
         const lastRowItemIndex = -1;
         const offset = 0;
@@ -322,6 +324,9 @@ namespace we {
 
       public updateBetTableInfo(info) {
         super.updateBetTableInfo(info);
+        if (!info.gamestatistic) {
+          return;
+        }
         if (info.gamestatistic) {
           if (info.gamestatistic.loresults) {
             const data = info.gamestatistic.loresults;
@@ -361,7 +366,7 @@ namespace we {
       protected createBetTable() {
         this.clearCurrentBettingTable();
 
-        const currentBigTag = SelectionMapping[Object.keys(SelectionMapping)[this._currentBigTagIndex]];
+        const currentBigTag = this._currentMap[Object.keys(this._currentMap)[this._currentBigTagIndex]];
         const config = currentBigTag['type'][Object.keys(currentBigTag['type'])[this._currentSmallTagIndex]];
 
         const bettingTable = new SSCTraditionalBettingTable(config);

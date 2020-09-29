@@ -55,7 +55,7 @@ namespace we {
       }
 
       protected initBettingTable() {
-        super.initBettingTable();
+        // super.initBettingTable();
 
         if (!this._bettingPanel) {
           this._bettingPanel = new SSCTraditionalBettingPanel();

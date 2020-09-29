@@ -2,7 +2,7 @@ namespace we {
   export namespace rc {
     export class RcSceneTranditional extends lo.LotterySceneTraditional {
       protected initBettingTable() {
-        super.initBettingTable();
+        // super.initBettingTable();
 
         if (!this._bettingPanel) {
           this._bettingPanel = new RCTraditionalBettingPanel();

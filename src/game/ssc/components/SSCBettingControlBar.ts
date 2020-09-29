@@ -135,7 +135,7 @@ namespace we {
       }
 
       protected showBetDescription(e) {
-        const config = SelectionMapping[Object.keys(SelectionMapping)[this.bettingPanel.currentBigTagIndex]];
+        const config = this.bettingPanel.currentMap[Object.keys(this.bettingPanel.currentMap)[this.bettingPanel.currentBigTagIndex]];
 
         const bigTag = config.name;
         const smallTag = config['type'][Object.keys(config['type'])[this.bettingPanel.currentSmallTagIndex]].name;

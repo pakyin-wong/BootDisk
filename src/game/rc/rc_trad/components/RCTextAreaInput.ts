@@ -2,6 +2,22 @@
 namespace we {
   export namespace rc {
     export class RCTextAreaInput extends we.lo.SSCTextAreaInput {
+      protected updateText() {
+        super.updateText();
+        this._lblInstruction.renderText = () =>
+          `說明\n1. 每一注號碼之間的間隔符支持回車 空格[] 逗號[,] 分號[;]\n2. 文件格式必須是.txt格式，大小不超過200KB。\n3. 將文件拖入文本框即可快速實現文件上傳，大文件拖拽上傳效果更佳。\n4. 導入文本內容後將覆蓋文本框中現有的內容。\n5. 注意：不足2位数的号码要在前面补0，如号码为1，则输入时应为01`;
+      }
+
+      protected updateData() {
+        this._data = '';
+        const inputText = this._textArea.text;
+        this.validateTextArea(inputText);
+
+        if (this._data !== [] && this._data !== null && this.isValidate) {
+          this.dispatchEventWith('lo_trad_textareaupdate', false, { index: this._index, data: this._data });
+        }
+      }
+
       protected validateTextArea(text: string, isUpdateTextField = false) {
         // remove except numbers
         this.duplicatedDatas = [];
@@ -103,21 +119,32 @@ namespace we {
         }
 
         // set textArea & set _data
-        for (let i = 0; i < finalDatas.length; i++) {
-          if (i === finalDatas.length - 1) {
-            if (isUpdateTextField) {
-              this._textArea.text += finalDatas[i];
-            }
-            this._data += finalDatas[i];
-          } else {
-            if (isUpdateTextField) {
-              this._textArea.text += finalDatas[i] + ', ';
-            }
-            this._data += finalDatas[i] + ';';
+        if (finalDatas.length >= 1) {
+          if (isUpdateTextField) {
+            this._textArea.text = '';
           }
+          for (let i = 0; i < finalDatas.length; i++) {
+            if (i === finalDatas.length - 1) {
+              if (isUpdateTextField) {
+                this._textArea.text += wholeCheck[i];
+              }
+              this._data += finalDatas[i];
+            } else {
+              if (isUpdateTextField) {
+                this._textArea.text += wholeCheck[i] + ', ';
+              }
+              this._data += finalDatas[i] + ';';
+            }
+          }
+          this.isValidate = true;
+        } else {
+          this._data = '';
+          if (isUpdateTextField) {
+            this._textArea.text = '';
+          }
+          this.isValidate = false;
         }
 
-        this.isValidate = true;
         // this.updateData();
       }
     }
