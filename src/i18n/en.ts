@@ -142,6 +142,10 @@ namespace we {
       overlaypanel_bethistorylottery_continuousbet_cancelled: 'Cancelled',
       overlaypanel_bethistorylottery_continuousbet_completed: 'Completed',
 
+      overlaypanel_bethistorylottery_cancelbtn_title: 'Confirm to cancel bet?',
+      overlaypanel_bethistorylottery_cancelbtn_yes: 'Confirm',
+      overlaypanel_bethistorylottery_cancelbtn_no: 'No',
+
       overlaypanel_bethistorylottery_tab_single: 'Single',
       overlaypanel_bethistorylottery_tab_multi: 'Conbet',
 

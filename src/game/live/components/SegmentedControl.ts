@@ -5,14 +5,17 @@ namespace we {
       public collection: eui.ArrayCollection;
       private activeLine: eui.Rect;
 
-      protected items: string[];
+      protected items;
 
-      public constructor(items: string[] = []) {
+      public constructor(items: string[] = [], type = 'live') {
         super();
         this.height = 50;
 
         this.items = items.map(value => {
-          return `live.gametype.${value}`;
+          return {
+            key: value,
+            text: `${type}.gametype.${value}`,
+          };
         });
       }
 

@@ -4,7 +4,7 @@ namespace we {
       protected _round: eui.Label;
       protected _rate: eui.Label;
       protected _status: eui.Label;
-      protected _btn_cancel: ui.RoundRectButton;
+      protected _btn_cancel: betHistory.CancelBetbutton;
       protected _btn_detail: egret.DisplayObject;
       protected _txt_detail: eui.Label;
 
@@ -18,12 +18,12 @@ namespace we {
       }
 
       protected mount(): void {
-        utils.addButtonListener(this._btn_cancel, this.onBtnCancel, this);
+        // utils.addButtonListener(this._btn_cancel, this.onBtnCancel, this);
         utils.addButtonListener(this._btn_detail, this.onBtnDetail, this);
       }
 
       protected destroy() {
-        utils.removeButtonListener(this._btn_cancel, this.onBtnCancel, this);
+        // utils.removeButtonListener(this._btn_cancel, this.onBtnCancel, this);
         utils.removeButtonListener(this._btn_detail, this.onBtnDetail, this);
       }
 
@@ -35,6 +35,8 @@ namespace we {
           continuousbetid: this.data.continuousbetid,
           gameroundid: this.data.gameroundid,
         };
+
+        this._btn_cancel.setKey(this.data.continuousbetid, this.data.gameroundid, this.data.tablename);
 
         this._round.text = this.data.gameroundid;
         this._rate.text = this.data.multiplier;
@@ -58,26 +60,6 @@ namespace we {
 
       protected onBtnDetail() {
         dir.evtHandler.dispatch('BETHISTORY_SHOW_POPUP_BET_DETAIL', this._id);
-      }
-
-      protected onBtnCancel() {
-        dir.evtHandler.showMessage({
-          class: 'MessageDialog',
-          args: [
-            i18n.t('baccarat.removeGoodRoad'),
-            {
-              dismiss: {
-                text: i18n.t('baccarat.cancelRemoveGoodRoad'),
-              },
-              action: {
-                text: i18n.t('baccarat.confirmRemoveGoodRoad'),
-                onClick: () => {
-                  this.dispatchEvent(new egret.Event('onBinTap'));
-                },
-              },
-            },
-          ],
-        });
       }
     }
   }
