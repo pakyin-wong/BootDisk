@@ -11,6 +11,14 @@ namespace we {
         this._offsetY = this._iconText.height * 0.46;
       }
 
+      protected initIcon(size:number){
+        super.initIcon(size * 2);
+        this._iconText.anchorOffsetX = this._iconText.width * 0.82;
+        this._iconText.anchorOffsetY = this._iconText.height * 0.82;
+        this._iconText.scaleX = 0.8
+        this._iconText.scaleY = 0.8
+      }
+
       // protected initGraphics() {
       //   this.iconText = new egret.TextField();
 

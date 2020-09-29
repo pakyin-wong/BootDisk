@@ -947,15 +947,7 @@ declare module skin_desktop.rc{
 	}
 }
 declare module skin_desktop.rc{
-	class FunBetGroupN3 extends eui.Skin{
-	}
-}
-declare module skin_desktop.rc{
 	class FunBetGroupNum extends eui.Skin{
-	}
-}
-declare module skin_desktop.rc{
-	class FunBetGroupNum3 extends eui.Skin{
 	}
 }
 declare module skin_desktop.rc{
