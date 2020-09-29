@@ -5,35 +5,36 @@
                 <e:Image source="d_lobby_panel_gamelist_betresult_player_png" width="40" right="0" height="112" y="0" />
                 <e:Image id="_playerPanel" source="d_lobby_panel_gamelist_betresult_playbg_png" width="129" left="0"
                          height="112" y="0" />
-                <e:Label id="playerSum" text="" fontFamily="Barlow" textAlign="center" right="10" y="60" />
-                <ui:RunTimeLabel id="lblPlayerName" text="閒" right="5" y="20" />
-                <ui:Card id="card3Player" width="30" height="40" right="122" rotation="270"  y="60"/>
-                <ui:Card id="card2Player" width="30" height="40" right="82"  y="25"/>
-                <ui:Card id="card1Player" width="30" height="40" right="44"  y="25"/>
+                <e:Label id="playerSum" text="" fontFamily="Barlow" textAlign="center" right="10" y="48"  bold="true"/>
+                <ui:RunTimeLabel id="lblPlayerName" text="閒" right="5" y="13"  bold="true"/>
+                <ui:Card id="card3Player" width="34" height="48" rotation="270" y="73"  x="2"/>
+                <ui:Card id="card2Player" width="34" height="48" right="82" y="25" />
+                <ui:Card id="card1Player" width="34" height="48" right="44" y="25" />
         </e:Group>
         <e:Group id="bankerSumGroup" right="0" width="170" height="100%">
                 <e:Image source="d_lobby_panel_gamelist_betresult_banker_png" width="40" height="112" />
                 <e:Image id="_bankerPanel" source="d_lobby_panel_gamelist_betresult_bankerbg_png" width="130" right="0"
                          height="112" y="0" />
-                <e:Label id="bankerSum" text="" x="10" y="60" fontFamily="Barlow" textAlign="center" />
-                <ui:RunTimeLabel id="lblBankerName" text="莊" x="5" y="20" />
-                <ui:Card id="card3Banker" width="30" height="40" x="121" anchorOffsetX="0"
-                         anchorOffsetY="0" rotation="270"  y="61"/>
-                <ui:Card id="card2Banker" width="30" height="40" x="82" anchorOffsetX="0"
-                         anchorOffsetY="0"  y="25"/>
-                <ui:Card id="card1Banker" width="30" height="40" x="44"  y="25"/>
+                <e:Label id="bankerSum" text="" x="10" y="48" fontFamily="Barlow" textAlign="center"  bold="true"/>
+                <ui:RunTimeLabel id="lblBankerName" text="莊" x="5" y="13"  bold="true"/>
+                <ui:Card id="card3Banker" width="34" height="48" x="120" anchorOffsetX="0" anchorOffsetY="0"
+                         rotation="270" y="73" />
+                <ui:Card id="card2Banker" width="34" height="48" x="82" anchorOffsetX="0" anchorOffsetY="0" y="25" />
+                <ui:Card id="card1Banker" width="34" height="48" x="44" y="25" />
         </e:Group>
         <e:Group id="bamGroup" right="0" width="339" height="41" bottom="0">
-                <e:Rect width="100%" height="100%" strokeAlpha="0"></e:Rect>
+                <ui:RoundRectShape id="topBar" cornerTL_TR_BL_BR="0,0,7,7" width="339" height="41" stroke="0"
+                                   fillColor="0x000000" strokeIn="1" strokeInColor="0x31363F" touchEnabled="false" />
                 <e:Group verticalCenter="0" horizontalCenter="0">
                         <e:Label id="bamLabelDisplay" text="咪牌中" size="25" textColor="0xFFFFFF" textAlign="center"
                                  bold="true" />
                         <!--<e:Label id="bamCountdown" text="8" size="25" textColor="0x00aa5e" textAlign="center"
-                                 bold="true" />-->
+                                     bold="true" />
+                        -->
                         <ui:CountdownTimer id="_timer" width="30" height="27" y="0" horizontalCenter="0"
-                                skinName="skin_desktop.CountdownTextSkin" progressVisible="false" />
+                                           skinName="skin_desktop.CountdownTextbamSkin" progressVisible="false" />
                         <e:layout>
-                                <e:HorizontalLayout/>
+                                <e:HorizontalLayout gap="4" />
                         </e:layout>
                 </e:Group>
         </e:Group>

@@ -10,26 +10,26 @@
                            fillColor="0x000000" fillAlpha="0.5" />
         <ui:RoundRectShape cornerTL_TR_BL_BR="0,0,8,8" width="337" height="122" x="0" y="0" stroke="2"
                            strokeColor="0x000000" fillColor="0x282828" strokeIn="4" strokeInColor="0x3a3f48" />
-        <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" x="136" y="128"
-                                   skinName="skin_desktop.BetChipSkin" tooltipText="'sidePanel.changeChip'" />
+        <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" y="128"
+                                   skinName="skin_desktop.BetChipSkin" tooltipText="'sidePanel.changeChip'"  horizontalCenter="8"/>
         <e:Component id="_tableLayerNode"
-                     anchorOffsetY="0" height="120" left="2" top="0" name="sidebettingtable" visible="false" />
-        <ui:BaseImageButton id="_closeButton" x="12" y="125" width="56" height="60"
+                     anchorOffsetY="0" height="120" left="2" top="0" name="sidebettingtable" />
+        <ui:BaseImageButton id="_closeButton" x="12" y="144" width="56" height="60"
                             currentState="lobby_betcontrol_close" skinName="skin_desktop.ImageButtonSkinLobby" />
-        <ui:BaseImageButton id="_prevButton" x="68" y="125" width="56" height="60"
+        <ui:BaseImageButton id="_prevButton" x="68" y="144" width="56" height="60"
                             currentState="lobby_betcontrol_previous" skinName="skin_desktop.ImageButtonSkinLobby" />
         <!--<ui:BaseImageButton id="_confirmButton" x="235" y="130" width="85" height="50"
                                 currentState="lobby_confirm_button" skinName="skin_desktop.ImageButtonSkinLobby" />
         -->
-        <ui:RoundRectButton id="_confirmButton" x="235" y="130" cornerTL_TR_BL_BR="25,25,25,25" width="90" height="52"
+        <ui:RoundRectButton id="_confirmButton" x="225" y="146" cornerTL_TR_BL_BR="27,27,27,27" width="99" height="54"
                             stroke="0" strokeIn="0" fillColor="00aa5e" fillAlpha="1" fillAlpha_hover="0.7"
                             fillColor_hover="0x0f9d5d" currentState="lobby_confirm_button" />
-        <e:Image x="265" y="145" width="30" height="20" source="d_lobby_panel_betcontrol_btn_confirm_icon_png"  touchEnabled="false"/>
+        <e:Image x="260" y="163" width="30" height="20" source="d_lobby_panel_betcontrol_btn_confirm_icon_png"  touchEnabled="false"/>
     </e:Group>
     <e:Group id="_contentContainer" width="339" height="174" x="0" y="0">
         <ui:CountdownTimer id="_timer" width="34" height="34" x="7" y="7" anchorOffsetX="0" anchorOffsetY="0"
                            skinName="skin_desktop.CountdownTimerRoundSmallSkin" />
-        <ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" y="12" text="" size="23.4"  x="48" />
+        <ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" y="12" text="" size="23.4"  x="47" />
         <e:Image source="d_lobby_button_down_normal_png" x="290" y="45" rotation="270" />
         <e:Component id="_roadmapNode" width="339" height="127" bottom="1" x="1" scaleX="335/337" scaleY="126/127"
                      visible="false" />
