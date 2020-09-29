@@ -5,12 +5,11 @@ namespace we {
       public static EVT_RESET = 'LOTTERY_FUNBET_RESET';
 
       private static GROUP_TYPE = {
-        SIZEPARITY2: '%id%SIZEPARITY2',
-        THREESPECIAL: '%id%THREESPECIAL',
-        SUMSIZEPARITY: 'SUMSIZEPARITY',
-        NUM: '%id%NUM',
-        DT2: '%id%DT2',
-        INTEREST1SPECIAL: 'INTEREST1SPECIAL_%id%',
+        RCBASIC: 'BASIC_%id%',
+        FIXPOS: 'FIXPOS%id%',
+        DT2: 'DT_%id%',
+        SUM12: '12SUM%id%',
+        SUM12NUM: '12SUM_%id%',
       };
 
       public static bet: number = 0;
@@ -90,11 +89,18 @@ namespace we {
       }
 
       public static getBetId(type: string, group: string, field: string): string {
-        let key = type.replace('%id%', group);
-        if (field) {
-          key += `_${field}`;
+        switch (type) {
+          case FunBet.GROUP_TYPE.RCBASIC:
+            return `${group}${field}`;
+          case FunBet.GROUP_TYPE.FIXPOS:
+            return type.replace('%id%', group) + '_' + field;
+          case FunBet.GROUP_TYPE.DT2:
+            return `${field}${group}`;
+          case FunBet.GROUP_TYPE.SUM12:
+            return type.replace('%id%', group);
+          case FunBet.GROUP_TYPE.SUM12NUM:
+            return type.replace('%id%', field);
         }
-        return key;
       }
 
       public static getBetRate(type: string, group: string, field: string): string {
@@ -105,23 +111,20 @@ namespace we {
 
       public static getBetLabel(type: string, group: string, field: string) {
         switch (type) {
-          case FunBet.GROUP_TYPE.NUM:
-            return () => `${field}`;
+          case FunBet.GROUP_TYPE.RCBASIC:
+            return () => `${i18n.t('lo_fun_betfield_n_' + field)}`;
 
-          case FunBet.GROUP_TYPE.INTEREST1SPECIAL:
-            return () => `${group}`;
+          case FunBet.GROUP_TYPE.FIXPOS:
+            return () => `${field}`;
 
           case FunBet.GROUP_TYPE.DT2:
             return () => `${i18n.t('lo_fun_betfield_dt_' + field)}`;
 
-          case FunBet.GROUP_TYPE.THREESPECIAL:
-            return () => `${i18n.t('lo_fun_betfield_n3_' + field)}`;
+          case FunBet.GROUP_TYPE.SUM12:
+            return () => `${i18n.t('lo_fun_betfield_n_' + group)}`;
 
-          case FunBet.GROUP_TYPE.SIZEPARITY2:
-            return () => `${i18n.t('lo_fun_betfield_n_' + field)}`;
-
-          case FunBet.GROUP_TYPE.SUMSIZEPARITY:
-            return () => `${i18n.t('lo_fun_betfield_total_' + field)}`;
+          case FunBet.GROUP_TYPE.SUM12NUM:
+            return () => `${field}`;
         }
       }
 
@@ -130,23 +133,20 @@ namespace we {
         const groupKey = type.replace('%id%', group);
 
         switch (type) {
-          case FunBet.GROUP_TYPE.NUM:
-            return `${prefix}${i18n.t('lo_fun_betgroup_' + groupKey)} - ${field}`;
+          case FunBet.GROUP_TYPE.RCBASIC:
+            return `${prefix}${i18n.t('rc_fun_betgroup_' + groupKey)} - ${i18n.t('lo_fun_betfield_n_' + field)}`;
 
-          case FunBet.GROUP_TYPE.INTEREST1SPECIAL:
-            return `${prefix}${i18n.t('lo_fun_betlayer_tab_five1')} - ${group}`;
+          case FunBet.GROUP_TYPE.FIXPOS:
+            return `${prefix}${i18n.t('rc_fun_betgroup_' + groupKey)} - ${field}`;
 
           case FunBet.GROUP_TYPE.DT2:
-            return `${prefix}${i18n.t('lo_fun_betgroup_' + groupKey)} - ${i18n.t('lo_fun_betfield_dt_' + field)}`;
+            return `${prefix}${i18n.t('rc_fun_betgroup_' + groupKey)} - ${i18n.t('lo_fun_betfield_dt_' + field)}`;
 
-          case FunBet.GROUP_TYPE.THREESPECIAL:
-            return `${prefix}${i18n.t('lo_fun_betgroup_' + groupKey)} - ${i18n.t('lo_fun_betfield_n3_' + field)}`;
+          case FunBet.GROUP_TYPE.SUM12:
+            return `${prefix}${i18n.t('rc_fun_betgroup_sum12')} - ${i18n.t('lo_fun_betfield_n_' + group)}`;
 
-          case FunBet.GROUP_TYPE.SIZEPARITY2:
-            return `${prefix}${i18n.t('lo_fun_betgroup_' + groupKey)} - ${i18n.t('lo_fun_betfield_n_' + field)}`;
-
-          case FunBet.GROUP_TYPE.SUMSIZEPARITY:
-            return `${prefix}${i18n.t('lo_fun_betgroup_' + groupKey)} - ${i18n.t('lo_fun_betfield_total_' + field)}`;
+          case FunBet.GROUP_TYPE.SUM12NUM:
+            return `${prefix}${i18n.t('rc_fun_betgroup_sum12num')} - ${field}`;
         }
       }
     }

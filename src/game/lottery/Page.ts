@@ -58,7 +58,7 @@ namespace we {
             case we.core.GameType.LO:
               return lo.LotteryListHolder;
             case we.core.GameType.RC:
-              return lo.LotteryListHolder;
+              return rc.RcListHolder;
             default:
               throw new Error('Invalid Game Type');
           }

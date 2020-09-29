@@ -57,7 +57,7 @@ namespace we {
         this.checkbetLimit();
 
         if (this._onSelect) {
-          utils.getFunBet().bet = this.currentBet;
+          this.dispatchEvent(new egret.Event('CUSTOMBET_SELECTED'));
         }
       }
 

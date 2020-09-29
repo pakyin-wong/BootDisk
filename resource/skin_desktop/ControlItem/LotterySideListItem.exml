@@ -10,21 +10,21 @@
         <ui:RoundRectShape width="35" height="36" cornerTL_TR_BL_BR="8,8,8,8" x="294.5" y="6" fillColor="0x112239"
                            fillAlpha="0.8" stroke="0" />
         <e:Group id="_timerGroup" x="204" y="5">
-            <e:Label id="_counter1" text="8" width="15" height="36" verticalAlign="middle" size="30"
+            <e:Label id="_counter1" text="0" width="15" height="36" verticalAlign="middle" size="30"
                      textColor="0x4ADC84" bold="true" fontFamily="Barlow" x="204" textAlign="center" />
-            <e:Label id="_counter2" text="8" width="15" height="36" verticalAlign="middle" size="30"
+            <e:Label id="_counter2" text="0" width="15" height="36" verticalAlign="middle" size="30"
                      textColor="0x4ADC84" bold="true" fontFamily="Barlow" x="222.5" textAlign="center" />
             <e:Label text=":" height="36" verticalAlign="middle" size="30" textColor="0x4ADC84" bold="true"
                      fontFamily="Barlow" x="239" width="10" />
-            <e:Label id="_counter3" text="8" width="15" height="36" verticalAlign="middle" size="30"
+            <e:Label id="_counter3" text="0" width="15" height="36" verticalAlign="middle" size="30"
                      textColor="0x4ADC84" bold="true" fontFamily="Barlow" x="250.5" textAlign="center" />
-            <e:Label id="_counter4" text="8" width="15" height="36" verticalAlign="middle" size="30"
+            <e:Label id="_counter4" text="0" width="15" height="36" verticalAlign="middle" size="30"
                      textColor="0x4ADC84" bold="true" fontFamily="Barlow" x="268.5" textAlign="center" />
             <e:Label text=":" height="36" verticalAlign="middle" size="30" textColor="0x4ADC84" bold="true"
                      fontFamily="Barlow" x="284" width="10" />
-            <e:Label id="_counter5" text="8" width="15" height="36" verticalAlign="middle" size="30"
+            <e:Label id="_counter5" text="0" width="15" height="36" verticalAlign="middle" size="30"
                      textColor="0x4ADC84" bold="true" fontFamily="Barlow" x="294" textAlign="center" />
-            <e:Label id="_counter6" text="8" width="15" height="36" verticalAlign="middle" size="30"
+            <e:Label id="_counter6" text="0" width="15" height="36" verticalAlign="middle" size="30"
                      textColor="0x4ADC84" bold="true" fontFamily="Barlow" x="311" textAlign="center" />
             <e:layout>
                 <e:HorizontalLayout gap="2" />

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.LotterySceneFun" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
-        xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*" xmlns:rc="we.rc.*"
-        xmlns:live="we.live.*">
+        xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*" xmlns:live="we.live.*">
 	<ui:TweenConfig id="_betLayerTween" left="0" right="0" top="0" bottom="0">
 		<ui:skinName>
 			<e:Skin states="open,close">
@@ -12,8 +11,8 @@
 	<lo:FunBetRoundInfo id="_roundInfo" x="775" y="94" skinName="skin_desktop.lo.FunBetRoundInfo" />
 	<e:Label id="_counter" text="00:00:00" y="98" horizontalCenter="0" height="96" verticalAlign="middle" size="80"
 	         textColor="0x4adc84" bold="true" fontFamily="Barlow" />
-	<rc:RcRightDrawerPanel id="_drawerPanel" width="835" height="370" x="1763" y="413" anchorOffsetX="0" anchorOffsetY="0" />
-	<lo:FunBetLayer id="_betLayer" width="2568" height="533" x="16" y="1284" />
+	<lo:LoRightDrawerPanel id="_drawerPanel" width="835" height="370" x="1763" y="413" anchorOffsetX="0" anchorOffsetY="0" />
+	<lo:FunBetLayer id="_betLayer" width="2568" height="533" x="16" y="1284"  skinName="skin_desktop.lo.FunBetLayer"/>
 	<!--<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030"
 	            visible="false" />
 	-->
