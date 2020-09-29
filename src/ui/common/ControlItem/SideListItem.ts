@@ -76,9 +76,11 @@ namespace we {
       }
 
       protected hideBetChipPanel() {
-        egret.Tween.get(this._betChipSet).to({ y: this._betChipPanelTargetY - 100, alpha: 0 }, 300).call(()=>{
-          this._betChipSetPanel.visible = false;
-        });
+        egret.Tween.get(this._betChipSet)
+          .to({ y: this._betChipPanelTargetY - 100, alpha: 0 }, 300)
+          .call(() => {
+            this._betChipSetPanel.visible = false;
+          });
         this._betChipSetGridEnabled = false;
       }
 
@@ -108,6 +110,8 @@ namespace we {
       protected generateRoadmap() {
         super.generateRoadmap();
         this._tableLayerTargetY = this._bigRoad.height + 37;
+        this._targetQuickBetButtonY = this._bigRoad.height + 50;
+        this._originalQuickBetButtonY = this._bigRoad.height -10;
       }
 
       protected runtimeGenerateTableLayer() {
@@ -218,7 +222,7 @@ namespace we {
         if (show) {
           egret.Tween.get(this._quickbetButton)
             .set({ visible: true })
-            .to({ y: 120, alpha: 1 }, this._tweenInterval1);
+            .to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
         } else {
           egret.Tween.get(this._quickbetButton)
             .to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250)
