@@ -36,7 +36,7 @@ namespace we {
       playerprofile_title: 'User Information',
       playerprofile_iconsetting: 'Icon Setting',
       playerprofile_maxWinAmount: 'Max Win Amt',
-      playerprofile_maxWinCount: 'Nax Win Cunt',
+      playerprofile_maxWinCount: 'Max Win Cunt',
       playerprofile_follower: 'Follower',
       playerprofile_following: 'Following',
       playerprofile_favouriteDealer: 'Favorite Dealer',
@@ -216,7 +216,7 @@ namespace we {
         system: {
           title: 'System',
           lang: 'Language',
-          liveRecord: 'Live radio',
+          liveRecord: 'Live Radio',
           soundfx: 'Sound Effect',
           bgm: 'Music',
           term: 'Term of Service',
