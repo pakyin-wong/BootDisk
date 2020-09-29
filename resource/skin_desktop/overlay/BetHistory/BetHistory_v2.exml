@@ -6,6 +6,15 @@
 		        strokeColor="0x333c4a" strokeWeight="2" locked="true" />
 		<e:Rect width="1" height="30" x="321" y="141" fillColor="0xffffff" alpha="0.5" visible="false" visible.lottery="true" visible.lotteryC="true"/>
 		<e:Image id="close" width="48" height="48" right="32" top="32" source="d-lobby-button-close-none_png" />
+		<e:Group id="_noHistoryResult" height="283" width="2140" y="404" horizontalCenter="0">
+
+			<e:Image x="1135" y="35.5" width="130" height="130" source="d_lobby_panel_betrecord_empty_icon_png"/>
+			<ui:RunTimeLabel id="_txt_noHistoryResult" text="no bet result" height="59" size="55" verticalAlign="middle" scaleX="1" scaleY="1" horizontalCenter="0" y="182"/>
+			<e:layout>
+				<e:VerticalLayout verticalAlign="middle" gap="16" horizontalAlign="center"/>
+			</e:layout>
+			<!--<e:Rect width="1242" height="200" fillColor="0xfffcfc"/>-->
+		</e:Group>
 		<ui:RunTimeLabel id="_txt_title" text="遊玩記錄" x="50" y="40" width="220" height="71" verticalAlign="middle"
 		                 textColor="0xc59466" size="48" bold="true" targetWidth="220" />
 		<e:Group id="main_select_bar" x="302" y="47" touchThrough="true">

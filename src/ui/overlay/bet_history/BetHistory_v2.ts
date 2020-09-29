@@ -40,6 +40,10 @@ namespace we {
 
       protected _cbet_details: betHistory.LoContinuousBetDetails;
       protected _popupbet_detail: betHistory.LoPopupBetDetail;
+      
+      protected _noHistoryResult: eui.Group;
+      protected label_bar: eui.Group;
+      protected _txt_noHistoryResult:ui.RunTimeLabel;
 
       constructor(skin: string = 'BetHistory_v2') {
         super(skin);
@@ -66,6 +70,8 @@ namespace we {
         this._txt_lcb_count.text = i18n.t(`${key}count`);
         this._txt_lcb_betamount.text = i18n.t(`${key}betamount`);
         this._txt_lcb_status.text = i18n.t(`${key}status`);
+
+        this._txt_noHistoryResult.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_noresult')}`;
 
         // Live game list menu
         const _liveArrCol: eui.ArrayCollection = new eui.ArrayCollection();
@@ -228,6 +234,18 @@ namespace we {
         } else {
           dir.socket.getBetHistory(opt, this.update, this);
         }
+      }
+
+      protected update(res: any) {
+        super.update(res);
+        console.log('resresres',res)
+            if (res.total === 0) {
+              this._noHistoryResult.visible = true;
+              this.label_bar.visible = false;
+            } else {
+              this._noHistoryResult.visible = false;
+              this.label_bar.visible = true;
+            }
       }
     }
   }
