@@ -19,6 +19,7 @@ namespace we {
 
       public generateRoadmap(node: eui.Component) {
         const bigRoad = new ro.ROLobbyBeadRoad();
+        bigRoad.height = 95;
         bigRoad.roadGridSize = 30;
         bigRoad.roadCol = 9;
         bigRoad.roadRow = 3;

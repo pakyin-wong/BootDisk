@@ -123,7 +123,7 @@ namespace we {
           if (this._chipLayer && att !== 'height') {
             this._chipLayer[att] = this._chipLayerNode[att];
           }
-          if (this._roadmapNode && this._bigRoad) {
+          if (this._roadmapNode && this._bigRoad && att !== 'height') {
             this._bigRoad[att] = this._roadmapNode[att];
           }
         }
