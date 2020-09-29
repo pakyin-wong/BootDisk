@@ -47,7 +47,7 @@ namespace we {
         this._tf_round.text = this._tf_drawingRound.text = r.gameroundid;
 
         for (let i = 0; i < this._result.numChildren; i++) {
-          this._result.getChildAt(i)['text'] = r[`ball${i+1}`] >= 0 ? r[`ball${i+1}`] : '-';
+          this._result.getChildAt(i)['text'] = r[`ball${i + 1}`] >= 0 ? r[`ball${i + 1}`] : '-';
         }
         // this.b1.text = r.ball1 >= 0 ? `${r.ball1}` : `-`;
         // this.b2.text = r.ball2 >= 0 ? `${r.ball2}` : `-`;
