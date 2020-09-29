@@ -2,6 +2,7 @@ namespace we {
   export namespace ui {
     export class SideListItem extends LiveListSimpleItem {
       protected _bigRoad: we.ui.ILobbyRoad & eui.Component;
+      protected _betChipSetPanel: eui.Group;
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _betChipSetGridEnabled: boolean = false;
       protected _quickbetEnable: boolean = false;
@@ -17,6 +18,7 @@ namespace we {
       protected _offsetY: number;
       protected _offsetLimit: number;
       protected _offsetMovement: number;
+      protected _betChipPanelTargetY: number;
 
       protected _closeButton: ui.BaseImageButton;
       protected _prevButton: ui.BaseImageButton;
@@ -65,12 +67,13 @@ namespace we {
       }
 
       protected showBetChipPanel() {
-        egret.Tween.get(this._betChipSet).to({ y: 390, alpha: 1 }, 250);
+        this._betChipSet.y = this._betChipPanelTargetY - 100;
+        egret.Tween.get(this._betChipSet).to({ y: this._betChipPanelTargetY, alpha: 1 }, 300);
         this._betChipSetGridEnabled = true;
       }
 
       protected hideBetChipPanel() {
-        egret.Tween.get(this._betChipSet).to({ y: 0, alpha: 0 }, 250);
+        egret.Tween.get(this._betChipSet).to({ y: this._betChipPanelTargetY - 100, alpha: 0 }, 300);
         this._betChipSetGridEnabled = false;
       }
 
@@ -101,6 +104,7 @@ namespace we {
         super.runtimeGenerateTableLayer();
         this._betButtonGroup.y = this._tableLayer.height - 10;
         this._quickBetGroup.height = this._tableLayer.height + 100;
+        this._betChipPanelTargetY = 270 + this._tableLayer.height;
         this.validateNow();
       }
 

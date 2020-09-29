@@ -2,8 +2,8 @@
 <e:Skin class="skin_desktop.SideListItemSkin" width="339" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:baccarat="baccarat.*" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*"
         xmlns:live="we.live.*" minHeight="174">
-    <e:Group id="_betChipSetPanel">
-        <ui:BetChipSetGrid id="_betChipSet" width="339" anchorOffsetX="0" x="0" anchorOffsetY="0" y="0" alpha="0" />
+    <e:Group id="_betChipSetPanel" height="0">
+        <ui:BetChipSetGrid id="_betChipSet" width="339" anchorOffsetX="0" x="0" anchorOffsetY="0" y="0"  alpha="0"/>
     </e:Group>
     <e:Group id="_quickBetGroup" width="339" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" alpha="0" touchChildren="true" touchEnabled="false">
         <e:Group id="_betButtonGroup" touchChildren="true" touchEnabled="false" y="0">
