@@ -5,8 +5,8 @@
     <e:Group id="_betChipSetPanel">
         <ui:BetChipSetGrid id="_betChipSet" width="339" anchorOffsetX="0" x="0" anchorOffsetY="0" y="0" alpha="0" />
     </e:Group>
-    <e:Group id="_quickBetGroup" width="339" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" alpha="0" touchChildren="false" touchEnabled="false">
-        <e:Group id="_betButtonGroup" touchChildren="false" touchEnabled="false" y="0">
+    <e:Group id="_quickBetGroup" width="339" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" alpha="0" touchChildren="true" touchEnabled="false">
+        <e:Group id="_betButtonGroup" touchChildren="true" touchEnabled="false" y="0">
 					<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,8,8" width="337" height="110" x="0" y="0" stroke="0" fillColor="0x000000" fillAlpha="0.5" scaleX="1" scaleY="1"/>
 					<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" y="18" skinName="skin_desktop.BetChipSkin" tooltipText="'sidePanel.changeChip'" horizontalCenter="8" x="138" scaleX="1" scaleY="1"/>
 					<ui:BaseImageButton id="_closeButton" x="12" y="34" width="56" height="60" currentState="lobby_betcontrol_close" skinName="skin_desktop.ImageButtonSkinLobby" scaleX="1" scaleY="1"/>

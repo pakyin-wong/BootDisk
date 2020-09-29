@@ -100,7 +100,8 @@ namespace we {
       protected runtimeGenerateTableLayer() {
         super.runtimeGenerateTableLayer();
         this._betButtonGroup.y = this._tableLayer.height - 10;
-        this._quickBetGroup.height = this._quickBetGroup.contentHeight;
+        this._quickBetGroup.height = this._tableLayer.height + 100;
+        this.validateNow();
       }
 
       public drawHeaderBg(width: number, height: number) {
@@ -215,7 +216,7 @@ namespace we {
         // when rm need update
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateSideBarRoadData(tableInfo.roadmap);
