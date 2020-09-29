@@ -92,7 +92,7 @@ namespace we {
         }
         if (!env.isMobile) {
           this._profile_toggle.addEventListener(egret.TouchEvent.TOUCH_TAP, this.updatePlayerProfileSummary, this);
-        }else{
+        } else {
           utils.addButtonListener(this._profilePrc, this.onClickInfo, this);
         }
         dir.evtHandler.addEventListener(core.Event.ICON_UPDATE, this.updateIconImage, this);
@@ -106,7 +106,7 @@ namespace we {
       private removeListeners() {
         if (!env.isMobile) {
           this._profile_toggle.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.updatePlayerProfileSummary, this);
-        }else{
+        } else {
           this._profilePrc.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickInfo, this);
         }
         dir.evtHandler.removeEventListener(core.Event.ICON_UPDATE, this.updateIconImage, this);
