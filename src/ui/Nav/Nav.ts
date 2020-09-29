@@ -92,6 +92,8 @@ namespace we {
         }
         if (!env.isMobile) {
           this._profile_toggle.addEventListener(egret.TouchEvent.TOUCH_TAP, this.updatePlayerProfileSummary, this);
+        }else{
+          utils.addButtonListener(this._profilePrc, this.onClickInfo, this);
         }
         dir.evtHandler.addEventListener(core.Event.ICON_UPDATE, this.updateIconImage, this);
         dir.evtHandler.addEventListener(core.Event.NICKNAME_UPDATE, this.updateNickname, this);
@@ -104,6 +106,8 @@ namespace we {
       private removeListeners() {
         if (!env.isMobile) {
           this._profile_toggle.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.updatePlayerProfileSummary, this);
+        }else{
+          this._profilePrc.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickInfo, this);
         }
         dir.evtHandler.removeEventListener(core.Event.ICON_UPDATE, this.updateIconImage, this);
         dir.evtHandler.addEventListener(core.Event.NICKNAME_UPDATE, this.updateNickname, this);
@@ -111,6 +115,15 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
         // listen to the event dispatched by some particular scroller and update the background alpha
         dir.evtHandler.removeEventListener(core.Event.UPDATE_NAVBAR_OPACITY, this.onBackgroundOpacityUpdate, this);
+      }
+
+      protected onClickInfo() {
+        dir.evtHandler.createOverlay({
+          class: 'PlayerProfile',
+          args: ['PlayerProfile'],
+        });
+
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickInfo`);
       }
 
       private updateBalance() {
