@@ -151,7 +151,7 @@ namespace we {
       overlaypanel_bethistory_dtresult_dragon: '龍',
       overlaypanel_bethistory_dtresult_tiger: '虎',
 
-      overlaypanel_gameSet_showGoodRoadHint: '顯示好路提示',
+      overlaypanel_gameSet_showGoodRoadHint: '顯示百家樂好路提示',
       overlaypanel_gameSet_autoBet: '自動確認投注',
       overlaypanel_gameSet_sendLiveVerfication: '發送現場驗證',
 

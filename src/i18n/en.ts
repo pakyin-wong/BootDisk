@@ -150,7 +150,7 @@ namespace we {
       overlaypanel_bethistory_dtresult_dragon: 'D',
       overlaypanel_bethistory_dtresult_tiger: 'T',
 
-      overlaypanel_gameSet_showGoodRoadHint: 'Show GoodRoad Hint',
+      overlaypanel_gameSet_showGoodRoadHint: 'Show Baccarat GoodRoad Hint',
       overlaypanel_gameSet_autoBet: 'Auto Bet Confirm',
       overlaypanel_gameSet_sendLiveVerfication: 'Send Live Verfication',
 
