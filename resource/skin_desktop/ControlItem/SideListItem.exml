@@ -20,7 +20,7 @@
     </e:Group>
     <e:Group id="_contentContainer" width="339" x="0" y="0">
 			<ui:RoundRectShape id="_strokeShape" cornerTL_TR_BL_BR="8,8,8,8" stroke="2" strokeColor="0x000000" fillColor="0x23282e" fillAlpha="1" strokeIn="2" strokeInColor="0x3A3F48" right="0" left="0" top="0" bottom="0" touchEnabled="true" touchChildren="false"/>
-			<e:Group id="_tableLayerGroup" left="1" right="1" touchChildren="false" touchEnabled="false" y="-1">
+			<e:Group id="_tableLayerGroup" left="1" right="1" touchChildren="false" touchEnabled="false">
 				<e:Component id="_tableLayerNode" anchorOffsetY="0" left="0" top="0" name="sidebettingtable" scaleX="1" scaleY="1" right="0" bottom="1"/>
 			</e:Group>
         <ui:CountdownTimer id="_timer" width="34" height="34" x="7" y="7" anchorOffsetX="0" anchorOffsetY="0"
@@ -28,8 +28,7 @@
         <ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" y="12" text="" size="23.4"  x="47" />
         <e:Image source="d_lobby_button_down_normal_png" x="290" y="45" rotation="270" />
         <e:Group left="0" right="0">
-            <e:Component id="_roadmapNode" scaleX="335/337" scaleY="126/127"
-                      left="1" right="1" top="46"/>
+            <e:Component id="_roadmapNode" top="46" left="1" right="1"/>
             <ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_desktop.GoodRoadLabelSkin" right="13" bottom="10" />
 			<e:Group id="_alreadyBetSign" right="5" bottom="40" visible="false">
 				<e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0" width="100" height="30"/>

@@ -123,7 +123,7 @@ namespace we {
           if (this._chipLayer && att !== 'height') {
             this._chipLayer[att] = this._chipLayerNode[att];
           }
-          if (this._roadmapNode && this._bigRoad && att !== 'height') {
+          if (this._roadmapNode && this._bigRoad && att !== 'height' && att !== 'scaleX' && att !== 'scaleY') {
             this._bigRoad[att] = this._roadmapNode[att];
           }
         }
@@ -131,7 +131,7 @@ namespace we {
 
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-        if (this._tableInfo.totalBet>0) {
+        if (this._tableInfo.totalBet > 0) {
           this._alreadyBetSign.visible = true;
           if (this._button) this._button.label1text = i18n.t('mobile_quick_bet_button_add_label');
         } else {
