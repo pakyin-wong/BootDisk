@@ -10,6 +10,7 @@ namespace we {
         protected _tf_search: eui.EditableText;
         protected _txt_search: ui.RunTimeLabel;
         protected _txt_noHistoryResult: ui.RunTimeLabel;
+        protected _rect_record: eui.Rect;
 
         protected _datagroup: eui.DataGroup;
         protected _dataColl: eui.ArrayCollection;
@@ -116,8 +117,16 @@ namespace we {
             this._page = Math.floor(res.offset / this._limit) + 1;
             if (res.total === 0) {
               this._noHistoryResult.visible = true;
+              this._rect_record.visible = false;
+              this._txt_record_date.visible = false;
+              this._txt_record_game.visible = false;
+              this._txt_record_win.visible = false;
             } else {
               this._noHistoryResult.visible = false;
+              this._rect_record.visible = true;
+              this._txt_record_date.visible = true;
+              this._txt_record_game.visible = true;
+              this._txt_record_win.visible = true;
             }
             // this._ddm_page && this._ddm_page.dropdown.select(this._page);
             res.history.forEach((element, i) => {
