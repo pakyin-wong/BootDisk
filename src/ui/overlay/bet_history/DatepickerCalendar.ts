@@ -9,7 +9,8 @@ namespace we {
       private _itemMargin: number;
       private _today;
       private _currMonth;
-      private _highlightToday = false;
+      private _highlightToday = false; //determined in doubleDatePicker
+      private _isFirstTime = true;
 
       constructor() {
         super();
@@ -103,10 +104,15 @@ namespace we {
         for (let d = 0; d < this._tday; d++) {
           const curr = moment([this._year, this._month, d + 1]);
           if (curr.isSame(date, 'day')) {
-            this.setItemState(d, 'single');
+            if (this._isFirstTime) {
+              this.setItemState(this._today, 'today', false);
+              this._isFirstTime = false;
+            } else {
+              this.setItemState(d, 'single');
+            }
           } else if (curr.isBetween(begin, end)) {
             this.setItemState(d, 'enabled');
-            if (d == this._today + 1) {
+            if (d == this._today) {
               this.setItemState(this._today, 'today');
             }
           } else {
@@ -130,7 +136,7 @@ namespace we {
             this.setItemState(d, 'multi');
           } else {
             if (d == this._today) {
-              this.setItemState(this._today, 'today', false);
+              this.setItemState(this._today, 'today');
             } else {
               this.setItemState(d, 'enabled');
             }
