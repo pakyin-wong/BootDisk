@@ -6,8 +6,8 @@ namespace we {
 
       private static GROUP_TYPE = {
         RCBASIC: 'BASIC_%id%',
-        FIXPOS: 'FIXPOS%id%',
-        DT2: 'DT_%id%',
+        FIXPOS: '%id%FIXPOS2',
+        DT2: 'DT%id%2',
         SUM12: '12SUM%id%',
         SUM12NUM: '12SUM_%id%',
       };
@@ -95,7 +95,7 @@ namespace we {
           case FunBet.GROUP_TYPE.FIXPOS:
             return type.replace('%id%', group) + '_' + field;
           case FunBet.GROUP_TYPE.DT2:
-            return `${field}${group}`;
+            return type.replace('%id%', group) + '_' + field;
           case FunBet.GROUP_TYPE.SUM12:
             return type.replace('%id%', group);
           case FunBet.GROUP_TYPE.SUM12NUM:
@@ -112,7 +112,7 @@ namespace we {
       public static getBetLabel(type: string, group: string, field: string) {
         switch (type) {
           case FunBet.GROUP_TYPE.RCBASIC:
-            return () => `${i18n.t('lo_fun_betfield_n_' + field)}`;
+            return () => `${i18n.t('rc_fun_betfield_n_' + field)}`;
 
           case FunBet.GROUP_TYPE.FIXPOS:
             return () => `${field}`;
@@ -134,7 +134,7 @@ namespace we {
 
         switch (type) {
           case FunBet.GROUP_TYPE.RCBASIC:
-            return `${prefix}${i18n.t('rc_fun_betgroup_' + groupKey)} - ${i18n.t('lo_fun_betfield_n_' + field)}`;
+            return `${prefix}${i18n.t('rc_fun_betgroup_' + groupKey)} - ${i18n.t('rc_fun_betfield_n_' + field)}`;
 
           case FunBet.GROUP_TYPE.FIXPOS:
             return `${prefix}${i18n.t('rc_fun_betgroup_' + groupKey)} - ${field}`;
