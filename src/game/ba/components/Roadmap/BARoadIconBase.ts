@@ -19,7 +19,13 @@ namespace we {
         this.size = size;
         this._iconShape = new egret.Shape();
         this.addChild(this._iconShape);
+        this.initIcon(size);
 
+        dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
+        // this._iconText = new egret.BitmapText();
+      }
+
+      protected initIcon(size:number){
         this._iconText = new egret.BitmapText();
         this._iconText.font = RES.getRes(`${env.isMobile ? 'm' : ''}roadmapfont_fnt`);
         this._iconText.width = size;
@@ -33,9 +39,6 @@ namespace we {
         this.addChild(this._iconText);
         this._iconText.x = this._offsetX;
         this._iconText.y = this._offsetY;
-
-        dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
-        // this._iconText = new egret.BitmapText();
       }
 
       protected initGraphics() {}
@@ -58,16 +61,7 @@ namespace we {
 
       public animate() {
         egret.Tween.removeTweens(this);
-        egret.Tween.get(this)
-          .to({ alpha: 0.2 }, 300)
-          .to({ alpha: 1 }, 300)
-          .wait(400)
-          .to({ alpha: 0.2 }, 300)
-          .to({ alpha: 1 }, 300)
-          .wait(400)
-          .to({ alpha: 0.2 }, 300)
-          .to({ alpha: 1 }, 300)
-          .wait(400);
+        egret.Tween.get(this).to({ alpha: 0.2 }, 300).to({ alpha: 1 }, 300).wait(400).to({ alpha: 0.2 }, 300).to({ alpha: 1 }, 300).wait(400).to({ alpha: 0.2 }, 300).to({ alpha: 1 }, 300).wait(400);
 
         if (this._iconShape) {
           egret.Tween.removeTweens(this._iconShape);
@@ -80,16 +74,7 @@ namespace we {
       }
 
       protected tweenObj(tweener: egret.Tween) {
-        tweener
-          .to({ alpha: 0.2 }, 300)
-          .to({ alpha: 1 }, 300)
-          .wait(400)
-          .to({ alpha: 0.2 }, 300)
-          .to({ alpha: 1 }, 300)
-          .wait(400)
-          .to({ alpha: 0.2 }, 300)
-          .to({ alpha: 1 }, 300)
-          .wait(400);
+        tweener.to({ alpha: 0.2 }, 300).to({ alpha: 1 }, 300).wait(400).to({ alpha: 0.2 }, 300).to({ alpha: 1 }, 300).wait(400).to({ alpha: 0.2 }, 300).to({ alpha: 1 }, 300).wait(400);
       }
 
       public stopAnimate() {
