@@ -140,10 +140,10 @@ namespace we {
 
       protected showBetChipPanel() {
         if (this._betChipSet) {
-          egret.Tween.get(this._betChipSet).to({ y: 590, alpha: 1 }, 250);
+          egret.Tween.get(this._betChipSet).to({ y: 550, alpha: 1 }, 250);
         }
         if (this._quickBetBg) {
-          egret.Tween.get(this._quickBetBg).to({ height: this.height + this._betChipSet._chipsetList.height }, 250);;
+          egret.Tween.get(this._quickBetBg).to({ height: this.height + 130 + this._betChipSet._chipsetList.height }, 250);
         }
         this._betChipSetGridEnabled = true;
       }
