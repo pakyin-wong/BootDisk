@@ -51,8 +51,8 @@ namespace we {
       protected _raceTrackTableLayer: RaceTrackTableLayer;
       protected _raceTrackControl: RaceTrackControl;
 
-      protected _baGameIDText: ui.RunTimeLabel;
-      protected _baGameID: ui.RunTimeLabel;
+      protected _roGameIDText: ui.RunTimeLabel;
+      protected _roGameID: ui.RunTimeLabel;
 
       protected _mode: string = 'normal';
       protected _originBetRelatedGroupY: number;
@@ -65,7 +65,7 @@ namespace we {
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
 
-        this._baGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        this._roGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
         this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
 
         this.initBottomBetLimitSelector();
@@ -474,7 +474,7 @@ namespace we {
 
       protected updateTableInfoRelatedComponents() {
         super.updateTableInfoRelatedComponents();
-        this._baGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
+        this._roGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
 
         if (this._bottomGamePanel._tableInfoPanel) {
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);

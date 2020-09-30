@@ -27,8 +27,8 @@
 					<ui:RunTimeLabel id="betLimitLabel" text="投注限紅" y="170" x="629" scaleX="1" scaleY="1" size="44" />
 					<ui:RunTimeLabel id="pTableID" text="百家樂01" y="30" textAlign="right" size="44" 
 					                    alpha="0.7"  fontFamily="Barlow" x="359"/>
-					<ui:ClampWidthLabel id="pGameID" text="000-000-000000000" y="170" textAlign="right" x="167" size="44"
-					                    targetWidth="400" alpha="0.7"  fontFamily="Barlow"/>
+					<ui:ClampWidthLabel id="pGameID" text="000-000-000000000" y="170" x="212" size="44"
+					                    targetWidth="400" alpha="0.7"  fontFamily="Barlow" width="400" textAlign="right"/>
 					<ui:ClampWidthLabel id="pDealer" text="Mary" textAlign="right" x="732" y="30" size="44" width="440"
 					                    targetWidth="400" alpha="0.7"  fontFamily="Barlow"/>
 					<e:Label id="pRoundID" text="-" y="100" textAlign="right" scaleX="1" scaleY="1" size="44" x="167" width="440"
