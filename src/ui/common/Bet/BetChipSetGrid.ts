@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
     export class BetChipSetGrid extends BetChipSet {
-      private _chipsetList: ui.List;
+      public _chipsetList: ui.List;
       private _chipsetLayout: eui.AnimTileLayout;
       private _normalGapSize: number = 15;
       private _setSelectedChip: (value: number, index: number) => void;

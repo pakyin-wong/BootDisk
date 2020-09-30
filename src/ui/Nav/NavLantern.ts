@@ -11,7 +11,7 @@ namespace we {
       private _loopInterval;
       private _wait = 5000;
 
-      public fontsize = 22;
+      public fontsize = 28;
       public lineSpacing = 22;
 
       constructor() {
