@@ -88,7 +88,7 @@ namespace we {
       overlaypanel_bethistory_yesterday: '昨天',
       overlaypanel_bethistory_week: '本周',
       overlaypanel_bethistory_customperiod: '自订',
-      overlaypanel_bethistory_searchrecord: '搜寻记录',
+      overlaypanel_bethistory_searchrecord: '请输入投注编号',
       overlaypanel_bethistory_recordtab_title: '记录详情',
       overlaypanel_bethistory_recordtab_id: '投注编号',
       overlaypanel_bethistory_recordtab_date: '日期时间',
@@ -102,6 +102,7 @@ namespace we {
       overlaypanel_bethistory_recordtab_orgbalance: '开局余额',
       overlaypanel_bethistory_recordtab_finbalance: '本局余额',
       overlaypanel_bethistory_recordtab_resuit: '游戏结果',
+      overlaypanel_bethistory_recordtab_noresult: '没有相关结果',
       overlaypanel_bethistory_remark_win: '嬴',
       overlaypanel_bethistory_remark_lose: '输',
       overlaypanel_bethistory_remark_ties: '和',
@@ -172,7 +173,7 @@ namespace we {
         },
       },
 
-      overlaypanel_gameSet_showGoodRoadHint: '显示好路提示',
+      overlaypanel_gameSet_showGoodRoadHint: '显示百家乐好路提示',
       overlaypanel_gameSet_autoBet: '自动确认投注',
       overlaypanel_gameSet_sendLiveVerfication: '发送现场验证',
 

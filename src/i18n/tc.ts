@@ -80,7 +80,7 @@ namespace we {
       overlaypanel_bethistory_yesterday: '昨天',
       overlaypanel_bethistory_week: '本週',
       overlaypanel_bethistory_customperiod: '自訂',
-      overlaypanel_bethistory_searchrecord: '搜尋記錄',
+      overlaypanel_bethistory_searchrecord: '請輸入投注編號',
       overlaypanel_bethistory_recordtab_title: '記錄詳情',
       overlaypanel_bethistory_recordtab_id: '投注編號',
       overlaypanel_bethistory_recordtab_date: '日期時間',
@@ -94,6 +94,7 @@ namespace we {
       overlaypanel_bethistory_recordtab_orgbalance: '開局餘額',
       overlaypanel_bethistory_recordtab_finbalance: '本局餘額',
       overlaypanel_bethistory_recordtab_resuit: '遊戲結果',
+      overlaypanel_bethistory_recordtab_noresult: '沒有相關結果',
       overlaypanel_bethistory_remark_win: '嬴',
       overlaypanel_bethistory_remark_lose: '輸',
       overlaypanel_bethistory_remark_ties: '和',
@@ -155,7 +156,7 @@ namespace we {
       overlaypanel_bethistory_dtresult_dragon: '龍',
       overlaypanel_bethistory_dtresult_tiger: '虎',
 
-      overlaypanel_gameSet_showGoodRoadHint: '顯示好路提示',
+      overlaypanel_gameSet_showGoodRoadHint: '顯示百家樂好路提示',
       overlaypanel_gameSet_autoBet: '自動確認投注',
       overlaypanel_gameSet_sendLiveVerfication: '發送現場驗證',
 

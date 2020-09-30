@@ -15,7 +15,7 @@ namespace we {
       private _rightNav: eui.Image;
       private _leftNavGroup: eui.Group;
       private _rightNavGroup: eui.Group;
-      private _chipList: Array<IBetChip & core.BaseEUI> = [];
+      private _chipList: (IBetChip & core.BaseEUI)[] = [];
       protected _chipContainer: eui.Component;
       protected _chipScale: number = 1;
 

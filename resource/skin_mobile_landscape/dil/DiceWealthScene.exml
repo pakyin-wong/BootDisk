@@ -82,8 +82,8 @@
 <e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2424" touchEnabled="false"
          touchChildren="true" touchThrough="true" height="121">
 <e:Group width="700" x="329" height="30" y="22">
-	<ui:RunTimeLabel id="_dilGameIDText" text="Game ID :" bottom="0" left="0" />
-	<ui:RunTimeLabel id="_dilGameID" text="ID" bottom="0" left="0" />
+	<ui:RunTimeLabel id="_GameIDText" text="Game ID :" bottom="0" left="0" />
+	<ui:RunTimeLabel id="_GameID" text="ID" bottom="0" left="0" />
 	<e:layout>
 		<e:HorizontalLayout/>
 	</e:layout>

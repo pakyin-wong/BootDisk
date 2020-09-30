@@ -299,6 +299,7 @@ namespace we {
         const tableList = evt.data;
         this._allGameList = tableList;
         this.updateView();
+        this.setBetList();
       }
 
       protected setBetList() {

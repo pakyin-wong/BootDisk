@@ -5661,6 +5661,11 @@
 			"url": "assets/images/m/common/general/common/m_ba_btn_info.png",
 			"type": "image",
 			"name": "m_ba_btn_info_png"
+		},
+		{
+			"url": "assets/images/m/common/game_panel/common/m_lobby_panel_betrecord_empty_icon.png",
+			"type": "image",
+			"name": "m_lobby_panel_betrecord_empty_icon_png"
 		}
 	]
 }
