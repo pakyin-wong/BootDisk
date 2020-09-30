@@ -4,13 +4,14 @@ namespace we {
       public static parse(gametype, bettype: string) {
         switch (gametype) {
           case GameType.LO:
-            return this.parseLO(bettype);
+          case GameType.RC:
+            return this.parseBasic(bettype);
           default:
             return {};
         }
       }
-
-      public static parseLO(bettype) {
+      
+      public static parseBasic(bettype) {
         const b = bettype.split('@')[0].split('_');
         switch (b[0]) {
           case 'MILSIZEPARITY2':
@@ -466,6 +467,72 @@ namespace we {
               group: i18n.t(`lo_trad.smallTag.${we.rc.RcTradBetField[`betfield_${b[0]}`]}`),
               field: `lo_fun_betfield_n_${b[1]}`,
             };
+          case "CHAMPSIZE2":
+	        case "SECONDSIZE2":
+          case "THIRDSIZE2":
+          case "FORTHSIZE2":
+          case "FIFTHSIZE2":
+          case "SIXTHSIZE2":
+          case "SEVENTHSIZE2":
+          case "EIGHTHSIZE2":
+          case "NINETHSIZE2":
+          case "TENTHSIZE2":
+          case "CHAMPPARITY2":
+          case "SECONDPARITY2":
+          case "THIRDPARITY2":
+          case "FORTHPARITY2":
+          case "FIFTHPARITY2":
+          case "SIXTHPARITY2":
+          case "SEVENTHPARITY2":
+          case "EIGHTHPARITY2":
+          case "NINETHPARITY2":
+          case "TENTHPARITY2":
+            return {
+                type: i18n.t('lo_fun_bettype_n'),
+                group: i18n.t(`rc_fun_betgroup_BASIC_${b[0].replace(/PARITY2|SIZE2/,'')}`),
+                field: i18n.t(`lo_fun_betfield_n_${b[1]}`),
+            };
+          case "DT1V102":
+          case "DT2V92":
+          case "DT3V82":
+          case "DT4V72":
+          case "DT5V62":
+            return {
+                type: i18n.t('rc_fun_betlayer_tab_dt'),
+              group: i18n.t(`rc_fun_betgroup_${b[0]}`),
+              field: i18n.t(`lo_fun_betfield_dt_${b[1]}`),
+            };
+          case "12SUMBIG":
+          case "12SUMSMALL":
+          case "12SUMODD":
+          case "12SUMEVEN":
+          return {
+                type: i18n.t('rc_fun_betlayer_tab_sum12'),
+              group: i18n.t(`rc_fun_betgroup_sum12`),
+              field: i18n.t(`lo_fun_betfield_n_${b[0].replace(/12SUM/,'')}`),
+            };
+          case "12SUM":
+                    return {
+                type: i18n.t('rc_fun_betlayer_tab_sum12num'),
+              group: i18n.t(`rc_fun_betgroup_sum12num`),
+              field: `${b[1]}`
+            };
+          case "1FIXPOS2":
+          case "2FIXPOS2":
+          case "3FIXPOS2":
+          case "4FIXPOS2":
+          case "5FIXPOS2":
+          case "6FIXPOS2":
+          case "7FIXPOS2":
+          case "8FIXPOS2":
+          case "9FIXPOS2":
+          case "10FIXPOS2":
+          return {
+                type: i18n.t('rc_fun_betlayer_tab_num'),
+              group: i18n.t(`rc_fun_betgroup_${b[0]}`),
+              field: `${b[1]}`
+            };
+
           default:
             return {
               type: '',

@@ -198,7 +198,7 @@ namespace we {
       }
 
       protected hasDuplicates(arr) {
-        return arr.some(function (item) {
+        return arr.some(function(item) {
           return arr.indexOf(item) !== arr.lastIndexOf(item);
         });
       }

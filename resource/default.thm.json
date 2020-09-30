@@ -255,6 +255,7 @@
 		"resource/skin_desktop/overlay/BetHistory/ResultItem/DiResultItem.exml",
 		"resource/skin_desktop/overlay/BetHistory/ResultItem/LoResultItem.exml",
 		"resource/skin_desktop/overlay/BetHistory/ResultItem/LwResultItem.exml",
+		"resource/skin_desktop/overlay/BetHistory/ResultItem/RcResultItem.exml",
 		"resource/skin_desktop/overlay/BetHistory/ResultItem/RolResultItem.exml",
 		"resource/skin_desktop/overlay/BetHistory/ResultItem/RoResultItem.exml",
 		"resource/skin_desktop/overlay/CustomRoad.exml",
