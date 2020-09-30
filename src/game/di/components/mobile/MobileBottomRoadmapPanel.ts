@@ -46,13 +46,13 @@ namespace we {
             this.oddBigRoadConfig.parent.addChild(this.oddRoad);
             break;
           case 'landscape':
-            this.sumRoad = new DiSumBigRoad(18, 45, 1, false);
+            this.sumRoad = new DiSumBigRoad(18, 51, 1, false);
             this.sumBigRoadConfig.parent.addChild(this.sumRoad);
 
-            this.sizeRoad = new DiSizeBigRoad(18, 45, 1, false);
+            this.sizeRoad = new DiSizeBigRoad(18, 51, 1, false);
             this.sizeBigRoadConfig.parent.addChild(this.sizeRoad);
 
-            this.oddRoad = new DiOddBigRoad(18, 45, 1, false);
+            this.oddRoad = new DiOddBigRoad(18, 51, 1, false);
             this.oddBigRoadConfig.parent.addChild(this.oddRoad);
             break;
         }

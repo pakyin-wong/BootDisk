@@ -33,6 +33,6 @@
 		</e:layout>
 	</e:Group>
 	<e:Group id="_footer" visible="false">
-		<ui:RunTimeLabel id="_txt_copyright" text="© 2020 World Entainment 保留一切權利。" scaleX="1" scaleY="1" size="40"/>
+		<ui:RunTimeLabel id="_txt_copyright" text="© 2020 World Entertainment 保留一切權利。" scaleX="1" scaleY="1" size="40"/>
 	</e:Group>
 </e:Skin>

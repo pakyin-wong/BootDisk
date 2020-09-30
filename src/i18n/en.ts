@@ -39,8 +39,8 @@ namespace we {
 
       playerprofile_title: 'User Information',
       playerprofile_iconsetting: 'Icon Setting',
-      playerprofile_maxWinAmount: 'Max Win Amt',
-      playerprofile_maxWinCount: 'Max Win Cunt',
+      playerprofile_maxWinAmount: 'Max gains from winning',
+      playerprofile_maxWinCount: 'Max number of consecutive wins',
       playerprofile_follower: 'Follower',
       playerprofile_following: 'Following',
       playerprofile_favouriteDealer: 'Favorite Dealer',
@@ -91,8 +91,8 @@ namespace we {
       overlaypanel_bethistory_recordtab_bettype: 'Type',
       overlaypanel_bethistory_recordtab_betamount: 'Bet Amt',
       overlaypanel_bethistory_recordtab_win: 'Win Amt',
-      overlaypanel_bethistory_recordtab_orgbalance: 'original Balance',
-      overlaypanel_bethistory_recordtab_finbalance: 'final Banlance',
+      overlaypanel_bethistory_recordtab_orgbalance: 'Original Balance',
+      overlaypanel_bethistory_recordtab_finbalance: 'Final Balance',
       overlaypanel_bethistory_recordtab_resuit: 'Game Result',
       overlaypanel_bethistory_recordtab_noresult: 'No Bet Reult',
       overlaypanel_bethistory_remark_win: 'Win',
@@ -515,7 +515,7 @@ namespace we {
         goodroad: 'Good Road',
         allgames: 'All Game',
         noGoodRoad: 'No Good Road',
-        noBet: 'No Already Bet Table'
+        noBet: 'No Already Bet Table',
       },
       baccarat: {
         statisticChart: {
