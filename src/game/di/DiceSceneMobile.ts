@@ -19,8 +19,8 @@ namespace we {
       protected _panelGroup: eui.Group;
       protected _panelTween: ui.TweenConfig;
 
-      protected _diGameIDText: ui.RunTimeLabel;
-      protected _diGameID: ui.RunTimeLabel;
+      // protected _diGameIDText: ui.RunTimeLabel;
+      // protected _diGameID: ui.RunTimeLabel;
 
       private _common_listpanel: ui.BaseImageButton;
 
@@ -200,7 +200,7 @@ namespace we {
           this.diState = 'small';
         }
 
-        this._diGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        // this._diGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
 
         if (env.isMobile) {
           dir.monitor._sideGameList.setToggler(this._common_listpanel);
@@ -353,7 +353,7 @@ namespace we {
         this._betAreaLock = false;
         this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = true;
         this.diState = 'normal';
-        this._diGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
+        // this._diGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
       }
 

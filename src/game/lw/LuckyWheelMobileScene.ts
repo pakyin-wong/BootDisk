@@ -3,8 +3,8 @@ namespace we {
     export class MobileScene extends core.MobileBaseGameScene {
       protected _roadmapControl: LwRoadmapControl;
       protected _bottomGamePanel: MobileBottomGamePanel;
-      protected _lwGameIDText: ui.RunTimeLabel;
-      protected _lwGameID: ui.RunTimeLabel;
+      // protected _lwGameIDText: ui.RunTimeLabel;
+      // protected _lwGameID: ui.RunTimeLabel;
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
       protected _verticalGroup: eui.Group;
@@ -59,7 +59,7 @@ namespace we {
           egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
           this._tableLayer.alpha = this._chipLayer.alpha = 1;
         }
-        this._lwGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
+        // this._lwGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
       }
 
@@ -118,7 +118,7 @@ namespace we {
 
         this.createVerticalLayout();
         this.changeHandMode();
-        this._lwGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        // this._lwGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
         dir.monitor._sideGameList.setToggler(this._common_listpanel);
         this.setChipPanelPos();
       }

@@ -51,8 +51,8 @@ namespace we {
       protected _raceTrackTableLayer: RaceTrackTableLayer;
       protected _raceTrackControl: RaceTrackControl;
 
-      protected _roGameIDText: ui.RunTimeLabel;
-      protected _roGameID: ui.RunTimeLabel;
+      // protected _roGameIDText: ui.RunTimeLabel;
+      // protected _roGameID: ui.RunTimeLabel;
 
       protected _mode: string = 'normal';
       protected _originBetRelatedGroupY: number;
@@ -65,7 +65,8 @@ namespace we {
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
 
-        this._roGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        // this._roGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        // this._roGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
 
         this.initBottomBetLimitSelector();
@@ -96,6 +97,7 @@ namespace we {
           this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
         }
+        // this._roGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         this._roadmapControl.setTableInfo(this._tableInfo);
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
@@ -474,7 +476,7 @@ namespace we {
 
       protected updateTableInfoRelatedComponents() {
         super.updateTableInfoRelatedComponents();
-        this._roGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
+        // this._roGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
 
         if (this._bottomGamePanel._tableInfoPanel) {
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);

@@ -39,8 +39,8 @@
 			</e:layout>
 		</e:Group>
 		<e:Group x="189" y="18">
-			<ui:RunTimeLabel id="_roGameIDText" text="編號" y="0" height="38" verticalAlign="middle" size="26" textColor="0xf3f3f3" x="0"/>
-			<ui:RunTimeLabel id="_roGameID" text="000000000000" x="197" y="18" height="38" size="26" verticalAlign="middle" fontFamily="Barlow" textColor="0xf3f3f3"/>
+			<ui:RunTimeLabel id="_GameIDText" text="編號" y="0" height="38" verticalAlign="middle" size="26" textColor="0xf3f3f3" x="0"/>
+			<ui:RunTimeLabel id="_GameID" text="000000000000" x="197" y="18" height="38" size="26" verticalAlign="middle" fontFamily="Barlow" textColor="0xf3f3f3"/>
 			<e:layout>
 			<e:HorizontalLayout verticalAlign="middle" gap="8"/>
 			</e:layout>

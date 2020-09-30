@@ -138,8 +138,8 @@
                   infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
                   errorBg="d_ba_gamerecord_bankerelement_png" y="288" horizontalCenter="0" />
 	<e:Group y="24" x="200" >
-		<ui:RunTimeLabel id="_dtGameIDText" text="Game ID :" bottom="0" left="0"  alpha=".7" height="56" verticalAlign="top" size="26"/>
-		<ui:RunTimeLabel id="_dtGameID" text="ID0000000000000001" bottom="0" left="0"  height="56" verticalAlign="top" fontFamily="Barlow" size="26"/>
+		<ui:RunTimeLabel id="_GameIDText" text="Game ID :" bottom="0" left="0"  alpha=".7" height="56" verticalAlign="top" size="26"/>
+		<ui:RunTimeLabel id="_GameID" text="ID0000000000000001" bottom="0" left="0"  height="56" verticalAlign="top" fontFamily="Barlow" size="26"/>
 		<e:layout>
 			<e:HorizontalLayout/>
 		</e:layout>
