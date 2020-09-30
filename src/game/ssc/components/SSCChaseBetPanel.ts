@@ -56,7 +56,8 @@ namespace we {
       private _counterInterval;
 
       constructor(noteData, roundData, bettingPanel) {
-        super('SSCTraditionalChaseBetPanel');
+        super();
+        this.initSkin();
         this._noteData = noteData;
         // this._tableInfo = tableInfo;
         this._roundDetails = roundData;
@@ -64,6 +65,11 @@ namespace we {
         // this.skinName = 'skin_desktop.lo.SSCChaseBetPanelSkin';
         // this.init();
       }
+
+      protected initSkin() {
+        this.skinName = 'skin_desktop.SSCTraditionalChaseBetPanel';
+      }
+
       protected mount() {
         super.mount();
         this.init();
@@ -196,7 +202,7 @@ namespace we {
         // this._lblTotalRoundCount.renderText = () =>`${i18n.t('lo_trad.chase.totalRoundCount')}`;;
         this._lblTotalRoundTitle.renderText = () => `${i18n.t('lo_trad.chase.round')}`;
         // this._lblTotalNoteCount.renderText = () =>`${i18n.t('lo_trad.chase.chaseType')}`;;
-        this._lblTotalNoteTitle.renderText = () => `${i18n.t('lo_trad.ui.noteCount')}`;
+        this._lblTotalNoteTitle.renderText = () => `${i18n.t('lo_trad.ui.notecount')}`;
         // this._lblTotalBet.renderText = () =>`${i18n.t('lo_trad.chase.chaseType')}`;;
         this._lblTotalBetTitle.renderText = () => `${i18n.t('lo_trad.chase.totalbet')}`;
         // this._lblRoundCountDown.renderText = () =>`${i18n.t('lo_trad.chase.chaseType')}`;;

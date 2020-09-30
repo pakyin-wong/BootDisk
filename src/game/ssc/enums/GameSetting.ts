@@ -39,6 +39,9 @@ namespace we {
 
             if (dataType === InputDataType.SEPARATOR) {
               const datas = (data as string).split('|');
+              if (datas[0] === '' || datas[0] === undefined) {
+                return false;
+              }
               return datas.length >= minSelect && datas.length <= maxSelect;
             }
           }, // use to validate the output data of this component
@@ -94,6 +97,31 @@ namespace we {
     }
 
     export namespace Validator {
+      export function normalValidate(data: string | any[], dataType, minSelect, maxSelect) {
+        if (dataType === InputDataType.STRING) {
+          return data.length >= minSelect && data.length <= maxSelect;
+        }
+
+        if (dataType === InputDataType.SEPARATOR) {
+          const datas = (data as string).split('|');
+          if (datas[0] === '' || datas[0] === undefined) {
+            return false;
+          }
+          return datas.length >= minSelect && datas.length <= maxSelect;
+        }
+      }
+
+      export function separateValidate(data: string | any[], dataType, minSelect, maxSelect) {
+        if (dataType === InputDataType.STRING) {
+          return data.length >= minSelect && data.length <= maxSelect;
+        }
+
+        if (dataType === InputDataType.SEPARATOR) {
+          const datas = (data as string).split('|');
+
+          return datas.length >= minSelect && datas.length <= maxSelect;
+        }
+      }
       // check the number of different items inside two data
       export function countDifferent(data1, data2, minDifferentCount) {
         const a = [];

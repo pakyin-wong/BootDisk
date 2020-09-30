@@ -17,12 +17,12 @@ namespace we {
       protected _rightGamePanel: we.lo.LoRightPanel;
       // protected _bigRoadResultPanel: we.ro.ROBigRoadResultPanel;
 
-      protected _bettingPanel: SSCTraditionalBettingPanel;
+      protected _bettingPanel: ABettingPanel;
 
-      private _bettingPanelGroup: eui.Group;
-      private _videoGroup: eui.Group;
-      private _chaseGroup: eui.Group;
-      private _chasePanel;
+      protected _bettingPanelGroup: eui.Group;
+      protected _videoGroup: eui.Group;
+      protected _chaseGroup: eui.Group;
+      protected _chasePanel;
 
       constructor(data: any) {
         super(data);
@@ -55,7 +55,7 @@ namespace we {
       }
 
       protected initBettingTable() {
-        super.initBettingTable();
+        // super.initBettingTable();
 
         if (!this._bettingPanel) {
           this._bettingPanel = new SSCTraditionalBettingPanel();
