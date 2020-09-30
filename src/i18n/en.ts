@@ -39,8 +39,8 @@ namespace we {
 
       playerprofile_title: 'User Information',
       playerprofile_iconsetting: 'Icon Setting',
-      playerprofile_maxWinAmount: 'Max Win Amt',
-      playerprofile_maxWinCount: 'Max Win Cunt',
+      playerprofile_maxWinAmount: 'Max gains from winning',
+      playerprofile_maxWinCount: 'Max number of consecutive wins',
       playerprofile_follower: 'Follower',
       playerprofile_following: 'Following',
       playerprofile_favouriteDealer: 'Favorite Dealer',
