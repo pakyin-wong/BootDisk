@@ -12,9 +12,11 @@
 			<e:ViewStack id="_viewStack" height="0" y="67" scaleX="1" scaleY="1" left="4" right="0" width="371" x="0">
 				<e:Group id="betted" width="100%" height="100%" name="betted" scaleX="1" scaleY="1">
 					<ui:Scroller id="_bettedScroller" scaleX="1" scaleY="1" left="0" right="0" top="17" bottom="0" />
+					<ui:RunTimeLabel i18n="sidePanel.noBet" size="28" id="_noBettedLabel" verticalCenter="0" horizontalCenter="0"  />
 				</e:Group>
 				<e:Group id="goodroad" width="100%" height="100%" name="goodroad" scaleX="1" scaleY="1">
 					<ui:Scroller id="_goodroadScroller" scaleX="1" scaleY="1" left="0" right="0" top="17" bottom="0" />
+					<ui:RunTimeLabel i18n="sidePanel.noGoodRoad" size="28"  id="_noGoodRoadLabel" verticalCenter="0" horizontalCenter="0"  />
 				</e:Group>
 				<e:Group id="allgames" width="100%" height="100%" name="allgames" scaleX="1" scaleY="1">
 					<ui:Scroller id="_allgamesScroller" scaleX="1" scaleY="1" left="0" right="0" top="53" bottom="0" />
