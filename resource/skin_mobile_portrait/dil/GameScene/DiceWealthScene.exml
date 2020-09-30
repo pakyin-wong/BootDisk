@@ -127,11 +127,11 @@
 		</e:Group>
 	</e:Group>
 
-	<dil:GameResultMessage id="_resultMessage" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
-	                      verticalCenter="-520" horizontalCenter="0" />
+
 	<ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
 	                  infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
-	                  errorBg="d_ba_gamerecord_bankerelement_png" y="660" x="312" />
+	                  errorBg="d_ba_gamerecord_bankerelement_png" y="623" x="312" />
 	<dil:LuckyCoinGroup id="_luckyCoinGroup"/>
+	<dil:GameResultMessage id="_resultMessage" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" verticalCenter="-544" horizontalCenter="0"/>
 
 </e:Skin>

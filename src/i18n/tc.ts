@@ -70,7 +70,7 @@ namespace we {
       overlaypanel_customroad_default: '還原預設',
       overlaypanel_customroad_selectall: '全選',
 
-      overlaypanel_bethistory_title: '投注記錄',
+      overlaypanel_bethistory_title: '遊戲記錄',
       overlaypanel_bethistory_tab_all: '遊戲總覽',
       overlaypanel_bethistory_tab_live: '真人遊戲',
       overlaypanel_bethistory_tab_lottery: '彩票遊戲',
@@ -87,7 +87,7 @@ namespace we {
       overlaypanel_bethistory_recordtab_game: '遊戲',
       overlaypanel_bethistory_recordtab_round: '局數',
       overlaypanel_bethistory_recordtab_replay: '重播',
-      overlaypanel_bethistory_recordtab_remark: '備註',
+      overlaypanel_bethistory_recordtab_remark: '輸嬴',
       overlaypanel_bethistory_recordtab_bettype: '投注項目',
       overlaypanel_bethistory_recordtab_betamount: '投注額',
       overlaypanel_bethistory_recordtab_win: '派彩',
@@ -108,7 +108,7 @@ namespace we {
       overlaypanel_bethistory_btn_prev: '上一則',
       overlaypanel_bethistory_searchtype_all: '全部遊戲',
 
-      overlaypanel_bethistorylottery_record_round: '獎期',
+      overlaypanel_bethistorylottery_record_round: '投注編號',
       overlaypanel_bethistorylottery_record_bettype: '類型',
       overlaypanel_bethistorylottery_record_betgroup: '玩法',
       overlaypanel_bethistorylottery_record_betfield: '投注項目',
@@ -187,7 +187,7 @@ namespace we {
       mobile_notification_close_button_label: '關閉',
       mobile_notification_next_button_label: '下一頁',
 
-      mobile_quick_bet_button_label: '快速投注',
+      mobile_quick_bet_button_label: '快速下注',
       mobile_quick_bet_button_add_label: '追注',
       mobile_enter_table_button_label: '進入遊戲',
 
@@ -396,7 +396,8 @@ namespace we {
         double: '雙骰',
         triple: '三骰',
         triple_: '圍',
-        TableLayerMsg: '單骰1:1 雙骰2:1 三骰3:1',
+        TableLayerMsg_P: '單骰1:1 雙骰2:1 三骰3:1',
+        TableLayerMsg_L: '單骰1:1 \n雙骰2:1 三骰3:1',
 
         roadBig: '大',
         roadSmall: '小',
