@@ -994,6 +994,10 @@ declare module skin_desktop{
 	class RcSidePanel extends eui.Skin{
 	}
 }
+declare module skin_desktop.rc{
+	class RCTraditionalBettingPanel extends eui.Skin{
+	}
+}
 declare module skin_desktop.ro{
 	class Analysis extends eui.Skin{
 	}

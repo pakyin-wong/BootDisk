@@ -89,7 +89,7 @@ namespace we {
         if (c.length > this.inFocusIdx && c[c.length - 1] !== this.target) {
           return;
         }
-        if (this.target.close && this.target.close.hitTestPoint(e.stageX, e.stageY)) {
+        if (this.target.close && this.target.close.hitTestPoint(e.stageX, e.stageY, true)) {
           this.target.dispatchEvent(new egret.Event('close'));
           this.hide();
         } else if (this.target.$hitTest(e.stageX, e.stageY)) {
