@@ -36,6 +36,8 @@ namespace we {
         group.layout = layout;
 
         const bgShape = new ui.RoundRectShape();
+        bgShape.width = 580;
+        bgShape.height = 437;
         bgShape.setRoundRectStyle(580, 437, { tl: 0, tr: 12, bl: 0, br: 12 }, '0xffffff', 1, 0);
         this.addChild(bgShape);
         bgShape.x = 0;

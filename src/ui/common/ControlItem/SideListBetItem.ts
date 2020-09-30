@@ -3,6 +3,7 @@ namespace we {
     export class SideListBetItem extends ListBaseItem {
       protected _resultTable: eui.Image;
       protected _bettingGroup: eui.Group;
+      protected _betChipSetGroup: eui.Group;
       protected _resultGroup: eui.Group;
       protected _betEnabled: boolean = false;
       protected _quickbetButton: ui.BaseImageButton;
@@ -15,6 +16,9 @@ namespace we {
       protected _chipLayerNode: eui.Component;
       protected _resultMessageNode: eui.Component;
       protected _resultDisplayNode: eui.Component;
+
+      protected _betChipSetBg: ui.RoundRectShape;
+      protected _arrowPanel: eui.Image;
 
       protected _dimmer: eui.Component;
 
@@ -44,6 +48,7 @@ namespace we {
           this._betChipPanelTargetY = this._tableLayer.height + 156;
           this._targetQuickBetButtonY = this._tableLayer.height + 50;
           this._originalQuickBetButtonY = this._tableLayer.height - 10;
+          this._message.y = 46 + this._tableLayer.height * 0.5;
         }
       }
 
@@ -170,17 +175,28 @@ namespace we {
 
       protected showBetChipPanel() {
         this._betChipSet.visible = true;
-        this._betChipSet.y = this._betChipPanelTargetY - 100;
-        egret.Tween.get(this._betChipSet).to({ y: this._betChipPanelTargetY, alpha: 1 }, 250);
+        this._betChipSetGroup.y = this._betChipPanelTargetY - 100;
+        this._betChipSetGroup.visible = true;
+        egret.Tween.get(this._betChipSetGroup).to({ y: this._betChipPanelTargetY, alpha: 1 }, 300);
+        // this._betChipSet.y = this._betChipPanelTargetY - 100;
+        // egret.Tween.get(this._betChipSet).to({ y: this._betChipPanelTargetY, alpha: 1 }, 250);
+        // if (this._betChipSetBg) {
+        //   egret.Tween.get(this._betChipSetBg).to({ y: this._quickBetGroup.height + this._quickBetGroup.y, height: this._betChipSet.height + 10, alpha: 1 }, 250);
+        //   egret.Tween.get(this._arrowPanel).to({ y: this._quickBetGroup.height + this._quickBetGroup.y - 10, alpha: 1 }, 250);
+        // }
         this._betChipSetGridEnabled = true;
       }
 
       protected hideBetChipPanel() {
-        egret.Tween.get(this._betChipSet)
-          .to({ y: this._betChipPanelTargetY - 100, alpha: 0 }, 250)
+        egret.Tween.get(this._betChipSetGroup)
+          .to({ y: this._betChipPanelTargetY - 100, alpha: 0 }, 300)
           .call(() => {
-            this._betChipSet.visible = false;
+            this._betChipSetGroup.visible = false;
           });
+        // if (this._betChipSetBg) {
+        //   egret.Tween.get(this._betChipSetBg).to({ y: 0, height: this._betChipSet.height, alpha: 0 }, 250);
+        //   egret.Tween.get(this._arrowPanel).to({ y: 0, alpha: 0 }, 250);
+        // }
         this._betChipSetGridEnabled = false;
       }
 

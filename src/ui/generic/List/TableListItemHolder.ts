@@ -47,7 +47,7 @@ namespace we {
       }
 
       protected get list(): TableList {
-        return <TableList>this.parent;
+        return <TableList> this.parent;
       }
 
       public changeState(state: number): boolean {

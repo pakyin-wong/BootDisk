@@ -29,8 +29,8 @@ namespace we {
       protected createChildren() {
         super.createChildren();
         this.skinName = utils.getSkinByClassname(`bam.BetItemCardHolderSkin`);
-        this.lblPlayerName.renderText = () => `${i18n.t('baccarat.player')}`;
-        this.lblBankerName.renderText = () => `${i18n.t('baccarat.banker')}`;
+        this.lblPlayerName.renderText = () => `${i18n.t('baccarat.playerShort')}`;
+        this.lblBankerName.renderText = () => `${i18n.t('baccarat.bankerShort')}`;
       }
 
       public updateResult(gameData) {

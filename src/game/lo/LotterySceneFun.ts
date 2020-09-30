@@ -35,14 +35,6 @@ namespace we {
         this._betChipSet.selectedChipIndex = 0;
         this.onBetChipChanged();
       }
-      protected onRoadDataUpdate(evt: egret.Event) {
-        if (evt && evt.data) {
-          const stat = <data.TableInfo>evt.data;
-          if (stat.tableid === this._tableId) {
-            this._drawerPanel.update();
-          }
-        }
-      }
 
       protected addListeners() {
         super.addListeners();
@@ -68,6 +60,16 @@ namespace we {
         this.funbet.evtHandler.removeEventListener('LOTTERY_FUNBET_OVERBETLIMIT', this.onOverBetLimit, this);
         this.funbet.evtHandler.removeEventListener('LOTTERY_FUNBET_LOWERBETLIMIT', this.onLowBetLimit, this);
         this.funbet.evtHandler.removeEventListener('LOTTERY_FUNBET_OVERBALANCE', this.onOverBalance, this);
+      }
+
+      protected onRoadDataUpdate(evt: egret.Event) {
+        super.onRoadDataUpdate(evt);
+        if (evt && evt.data) {
+          const stat = <data.TableInfo> evt.data;
+          if (stat.tableid === this._tableId) {
+            this._drawerPanel.update();
+          }
+        }
       }
 
       protected onGameStatisticUpdated() {

@@ -12,6 +12,43 @@ namespace we {
       RATIO_DRAGONTIGER: 180,
     };
 
+    export const RcTradBetField = {
+      betfield_CHAMPION:'RCDirectionalSelection',
+      betfield_TOP2:'RCDirectionalSelection',
+      betfield_TOP2INPUT:'RCDirectionalMenu',
+      betfield_TOP3:'RCDirectionalSelection',
+      betfield_TOP3INPUT:'RCDirectionalMenu',
+      betfield_TOP4:'RCDirectionalSelection',
+      betfield_TOP4INPUT:'RCDirectionalMenu',
+      betfield_TOP5:'RCDirectionalSelection',
+      betfield_TOP5INPUT:'RCDirectionalMenu',
+      betfield_1FIXPOS:'RCFirstFiveFixPos',
+      betfield_2FIXPOS:'RCFirstFiveFixPos',
+      betfield_3FIXPOS:'RCFirstFiveFixPos',
+      betfield_4FIXPOS:'RCFirstFiveFixPos',
+      betfield_5FIXPOS:'RCFirstFiveFixPos',
+      betfield_6FIXPOS:'RCLastFiveFixPos',
+      betfield_7FIXPOS:'RCLastFiveFixPos',
+      betfield_8FIXPOS:'RCLastFiveFixPos',
+      betfield_9FIXPOS:'RCLastFiveFixPos',
+      betfield_10FIXPOS:'RCLastFiveFixPos',
+
+      betfield_CHAMPSIZE:'RCChampion',
+      betfield_SECONDSIZE:'RCSecond',
+      betfield_THIRDSIZE:'RCThird',
+      betfield_FORTHSIZE:'RCForth',
+      betfield_FIFTHSIZE:'RCFifth',
+
+      betfield_CHAMPPARITY:'RCChampion',
+      betfield_SECONDPARITY:'RCSecond',
+      betfield_THIRDPARITY:'RCThird',
+      betfield_FORTHPARITY:'RCForth',
+      betfield_FIFTHPARITY:'RCFifth',
+
+      betfield_DT1V10:'RCDT1v10',
+    }
+
+
     export namespace InputComponentDefinition {
       export function textArea(title, numberPerGroup, min, max, isUnique = true) {
         return {
@@ -224,7 +261,7 @@ namespace we {
             pattern: '^1FIXPOS_&1',
             noteCountFunc: NoteCountFunc.FixPos,
             maxWin: 9,
-            ratio: [''],
+            ratio: ['RATIO_FIXPOS'],
           },
           LastFiveFixPos: {
             name: 'RCLastFiveFixPos',
