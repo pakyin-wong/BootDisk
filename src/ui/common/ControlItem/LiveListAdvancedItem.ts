@@ -4,7 +4,7 @@ namespace we {
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _betChipSetGridEnabled: boolean = false;
       protected _closeButton: ui.BaseImageButton;
-      protected _betChipSet : ui.BetChipSetGrid;
+      protected _betChipSet: ui.BetChipSetGrid;
       protected _advancedRoadNode: eui.Component;
       protected _advancedRoad: IAdvancedRoad & eui.Component;
       protected _analysisNode: eui.Component;

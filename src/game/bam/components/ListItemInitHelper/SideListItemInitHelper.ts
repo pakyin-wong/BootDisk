@@ -19,6 +19,7 @@ namespace we {
 
       public generateRoadmap(node: eui.Component) {
         const bigRoad = new ba.BetInfoBigRoad();
+        bigRoad.height = 127;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(bigRoad, idx);
         return bigRoad;

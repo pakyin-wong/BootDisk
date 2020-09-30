@@ -9,7 +9,7 @@ namespace we {
       private _itemMargin: number;
       private _today;
       private _currMonth;
-      private _highlightToday = false; //determined in doubleDatePicker
+      private _highlightToday = false; // determined in doubleDatePicker
       private _isFirstTime = true;
 
       constructor() {
@@ -94,7 +94,17 @@ namespace we {
       }
 
       protected onClicked(e: egret.TouchEvent) {
-        this.dispatchEvent(new egret.Event('PICKED_DATE', false, false, moment().year(this._year).month(this._month).date(e.currentTarget.id)));
+        this.dispatchEvent(
+          new egret.Event(
+            'PICKED_DATE',
+            false,
+            false,
+            moment()
+              .year(this._year)
+              .month(this._month)
+              .date(e.currentTarget.id)
+          )
+        );
       }
 
       public pick(date, range) {

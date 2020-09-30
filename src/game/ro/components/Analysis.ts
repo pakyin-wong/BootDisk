@@ -111,7 +111,6 @@ namespace we {
         if (value !== undefined) {
           switch (ro.RACETRACK_COLOR[value]) {
             case ro.Color.GREEN:
-
               return 'd_ro_history_hotclod_green_ball_extra_large_png';
             case ro.Color.BLACK:
               return 'd_ro_history_hotclod_black_ball_extra_large_png';
