@@ -100,8 +100,11 @@ namespace we {
             maxWin: 81,
             ratio: ['RATIO_TOP2'],
             validateData: (data: any[]) => {
-              if (data[1].split('|').length === 2) {
+              if (data[1].split('|').length === 2 && data[0].split('|').length === 1) {
                 return lo.Validator.countDifferent(data[0].split('|'), data[1].split('|'), 1);
+              }
+              if (data[1].split('|').length === 1 && data[0].split('|').length === 2) {
+                return lo.Validator.countDifferent(data[1].split('|'), data[0].split('|'), 1);
               }
               return true;
             },
