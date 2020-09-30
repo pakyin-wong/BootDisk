@@ -39,6 +39,7 @@ namespace we {
         this.visible = true;
         const { winAmount, gameData } = resultData;
         const [numLeft, numCenter, numRight] = we.ro.getNeighbour(gameData.value, 1);
+        const isWin = !isNaN(winAmount) && winAmount > 0;
 
         const mapping = {};
         mapping[`${we.ro.Color.RED}${we.ro.Color.BLACK}${we.ro.Color.GREEN}`] = 'game_list_betarea_result_black_2_png';
@@ -51,14 +52,13 @@ namespace we {
         this._resultLeftLabel.text = numLeft.toString();
         this._resultLabel.text = numCenter.toString();
         this._resultRightLabel.text = numRight.toString();
-
         if (!isNaN(winAmount)) {
           // has bet
-          this._winAmountBackground.source = this.getAmountBackground(true);
+          this._winAmountBackground.source = this.getAmountBackground(isWin);
           this._winAmountLabel.text = utils.formatNumber(winAmount, true);
         } else {
           // no bet
-          this._winAmountBackground.source = this.getAmountBackground(false);
+          this._winAmountBackground.source = this.getAmountBackground(isWin);
         }
 
         this.start(gameType, gameData, winAmount);

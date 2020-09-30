@@ -1,7 +1,6 @@
 namespace we {
   export namespace dil {
     export class History extends core.BaseEUI {
-      
       public round: number = 10;
 
       protected _roundNumber: eui.Label;
@@ -46,26 +45,26 @@ namespace we {
       }
       protected mount() {
         super.mount();
-        if(this._holder){
+        if (this._holder) {
           this._holder.finishAction = this.finishAction.bind(this);
         }
-        if(this._roundNumber){
+        if (this._roundNumber) {
           this._roundNumber.text = this.round.toString();
         }
       }
-      public finishAction(page: number){
-        if(page===0){
+      public finishAction(page: number) {
+        if (page === 0) {
           this.round = 10;
-        }else{
+        } else {
           this.round = 50;
         }
-        this.updateBar(this._data)
+        this.updateBar(this._data);
       }
       public updateStat(data: we.data.GameStatistic) {
         this._data = data;
         this.updateBar(this._data);
       }
-      protected updateBar(data){
+      protected updateBar(data) {
         if (!data || !data.dilHistory || !data.dilHistory.round_10 || !data.dilHistory.round_50) {
           return;
         }
@@ -74,14 +73,14 @@ namespace we {
         if (this.round === 10) {
           for (let i = 3; i < 19; i++) {
             this[`_sum${i}Percent`].text = `${percentages_10[i - 3]}`;
-            (<ui.ProgressBar> this[`_sum${i}`]).proportion = percentages_10[i - 3] / 100;
-            (<ui.ProgressBar> this[`_sum${i}`]).draw();
+            (<ui.ProgressBar>this[`_sum${i}`]).proportion = percentages_10[i - 3] / 100;
+            (<ui.ProgressBar>this[`_sum${i}`]).draw();
           }
         } else {
           for (let i = 3; i < 19; i++) {
             this[`_sum${i}Percent`].text = `${percentages_50[i - 3]}`;
-            (<ui.ProgressBar> this[`_sum${i}`]).proportion = percentages_50[i - 3] / 100;
-            (<ui.ProgressBar> this[`_sum${i}`]).draw();
+            (<ui.ProgressBar>this[`_sum${i}`]).proportion = percentages_50[i - 3] / 100;
+            (<ui.ProgressBar>this[`_sum${i}`]).draw();
           }
         }
       }

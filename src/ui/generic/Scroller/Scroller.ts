@@ -176,8 +176,8 @@ namespace we {
           // only draggable if click on thumb
           return;
         }
-        (<any> window).addEventListener('mousemove', this.onMouseMove, { passive: false });
-        (<any> window).addEventListener('mouseup', this.onMouseUp, { passive: false });
+        (<any>window).addEventListener('mousemove', this.onMouseMove, { passive: false });
+        (<any>window).addEventListener('mouseup', this.onMouseUp, { passive: false });
         const viewHeight = this.viewport.contentHeight - this.height;
         this._initProgress = this.viewport.scrollV / viewHeight;
       }
@@ -197,8 +197,8 @@ namespace we {
 
       private onMouseUp = (event: MouseEvent) => {
         this.showScrollBar(false);
-        (<any> window).removeEventListener('mousemove', this.onMouseMove, { passive: false });
-        (<any> window).removeEventListener('mouseup', this.onMouseUp, { passive: false });
+        (<any>window).removeEventListener('mousemove', this.onMouseMove, { passive: false });
+        (<any>window).removeEventListener('mouseup', this.onMouseUp, { passive: false });
         this._firstYForMovement = 0;
       }
 
@@ -224,14 +224,14 @@ namespace we {
 
       public disableWheel() {
         // (<any>window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
-        (<any> window).removeEventListener('DOMMouseScroll', this.onMouseWheel, { passive: false });
-        (<any> window).removeEventListener('mousewheel', this.onMouseWheel, { passive: false });
+        (<any>window).removeEventListener('DOMMouseScroll', this.onMouseWheel, { passive: false });
+        (<any>window).removeEventListener('mousewheel', this.onMouseWheel, { passive: false });
       }
 
       public enableWheel() {
         // (<any>window).addEventListener('wheel', this.onMouseWheel, { passive: false });
-        (<any> window).addEventListener('DOMMouseScroll', this.onMouseWheel, { passive: false });
-        (<any> window).addEventListener('mousewheel', this.onMouseWheel, { passive: false });
+        (<any>window).addEventListener('DOMMouseScroll', this.onMouseWheel, { passive: false });
+        (<any>window).addEventListener('mousewheel', this.onMouseWheel, { passive: false });
       }
 
       public enableVScroller() {
@@ -343,11 +343,13 @@ namespace we {
         egret.Tween.removeTweens(this.verticalScrollBar);
         if (isShow) {
           this.verticalScrollBar.visible = true;
-          egret.Tween.get(this.verticalScrollBar).to({alpha:1},300);
+          egret.Tween.get(this.verticalScrollBar).to({ alpha: 1 }, 300);
         } else {
-          egret.Tween.get(this.verticalScrollBar).to({alpha:0},300).call(()=>{
-            this.verticalScrollBar.visible = false;
-          });
+          egret.Tween.get(this.verticalScrollBar)
+            .to({ alpha: 0 }, 300)
+            .call(() => {
+              this.verticalScrollBar.visible = false;
+            });
         }
       }
     }

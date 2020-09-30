@@ -60,6 +60,7 @@ namespace we {
 
         this._calender_prev.setTo(prev.year(), prev.month());
         this._calender_next.setTo(this._current.year(), this._current.month());
+        this._calender_next.highlightToday = true;
 
         this._txt_prev.text = prev.format('YYYY / MM');
         this._txt_next.text = this._current.format('YYYY / MM');

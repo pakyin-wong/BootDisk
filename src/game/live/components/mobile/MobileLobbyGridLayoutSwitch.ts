@@ -1,7 +1,7 @@
 namespace we {
   export namespace live {
     export class MobileLobbyGridLayoutSwitch extends ALobbyGridLayoutSwitch {
-      private buttons = ['lobby_mode_02', 'lobby_mode_01'];
+      private buttons = ['lobby_mode_01', 'lobby_mode_02'];
       private image: we.ui.BaseImageButton;
 
       protected mount() {

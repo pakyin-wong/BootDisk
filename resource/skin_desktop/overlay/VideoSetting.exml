@@ -8,7 +8,7 @@
 		                 verticalAlign="middle" textAlign="left" bold="true" />
 		<!-- Video on/off row -->
 		<e:Group id="_btn_videoSec" x="48" y="107" height="36" touchChildren="false">
-			<ui:RunTimeLabel id="_txt_videoSec" text="Label" size="24" fontFamily="NotoSansCJKtc" width="360" height="36" verticalAlign="middle" textAlign="left"/>
+			<ui:RunTimeLabel id="_txt_videoSec" text="Label" size="24" width="360" height="36" verticalAlign="middle" textAlign="left"/>
 			<ui:BaseButton id="switch_videoSec" width="51" height="31" skinName="skin_desktop.SwitchBtn" verticalCenter="0" x="342"/>
 		</e:Group>
 		<!-- Quality row -->

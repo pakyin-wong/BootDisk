@@ -39,8 +39,8 @@
 			</e:layout>
 		</e:Group>
 		<e:Group x="189" y="18">
-			<ui:RunTimeLabel id="_baGameIDText" text="編號" y="0" height="38" verticalAlign="middle" size="26" textColor="0xf3f3f3" x="0"/>
-			<ui:RunTimeLabel id="_baGameID" text="000000000000" x="197" y="18" height="38" size="26" verticalAlign="middle" fontFamily="Barlow" textColor="0xf3f3f3"/>
+			<ui:RunTimeLabel id="_GameIDText" text="編號" y="0" height="38" verticalAlign="middle" size="26" textColor="0xf3f3f3" x="0"/>
+			<ui:RunTimeLabel id="_GameID" text="000000000000" x="197" y="18" height="38" size="26" verticalAlign="middle" fontFamily="Barlow" textColor="0xf3f3f3"/>
 			<e:layout>
 			<e:HorizontalLayout verticalAlign="middle" gap="8"/>
 			</e:layout>
@@ -99,14 +99,9 @@
   <!--<e:Image id="_btnBack" width="30" height="30" x="35" y="17" source="d_ba_navbar_chevron_png" includeIn="right_hand_mode"/>-->
 	<!--===========-->
   <ro:GameResultMessage id="_resultMessage" y="333" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" horizontalCenter="0"/>
-  <ui:InGameMessage
-    id="_message"
-    x="901"
-    y="650"
-    infoBg="d_ba_gamerecord_playerelement_png"
-    successBg="d_ba_gamerecord_tieelement_png"
-    errorBg="d_ba_gamerecord_bankerelement_png" skinName="skin_mobile_landscape.InGameMessageSkin"/>
+
   <ro:MobileBottomGamePanel id="_bottomGamePanel" x="0" bottom="0" skinName="skin_mobile_landscape.ro.MobileBottomGamePanel"/>
+	<ui:InGameMessage id="_message" x="901" y="650" infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" skinName="skin_mobile_portrait.InGameMessageSkin"/>
 	<!--===============^-->
   <!--<ro:TableInfoPanel width="600" height="319.7" x="0" y="91" id="_tableInfoWindow" isPoppable="true" isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" anchorOffsetY="0"
   skinName="skin_mobile_portrait.ro.TableInfoPanel" />-->

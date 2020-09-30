@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.LiveListAdvancedItemSkin" width="1204" height="441" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
+	<ui:RoundRectShape id="_quickBetBg" cornerTL_TR_BL_BR="15,15,15,15" width="345" height="103" x="0" y="0" stroke="0" fillColor="0x000000" fillAlpha="0.8"/>
 	<e:Group id="_betChipSetPanel">
 		<e:Component id="_betChipSetNode" width="345" anchorOffsetX="0" x="0" anchorOffsetY="0" y="0" alpha="0" />
 	</e:Group>
@@ -33,7 +34,7 @@
 	<e:Group id="_quickBetGroup" width="345" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" alpha="0" touchEnabled="false"
 	         touchChildren="false" height="100">
 		<e:Group width="100%" x="0" scaleX="1" scaleY="1" bottom="0">
-			<ui:RoundRectShape cornerTL_TR_BL_BR="15,15,15,15" width="345" height="103" x="0" y="0" stroke="0" fillColor="0x000000" fillAlpha="0.8"/>
+			<!--<ui:RoundRectShape cornerTL_TR_BL_BR="15,15,15,15" width="345" height="103" x="0" y="0" stroke="0" fillColor="0x000000" fillAlpha="0.8"/>-->
 			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" x="136" y="20" skinName="skin_desktop.BetChipSkin"/>
 			<ui:BaseImageButton id="_closeButton" x="12" y="28" width="56" height="60" currentState="lobby_betcontrol_close" skinName="skin_desktop.ImageButtonSkinLobby"/>
 			<ui:BaseImageButton id="_prevButton" x="68" y="28" width="56" height="60" currentState="lobby_betcontrol_previous" skinName="skin_desktop.ImageButtonSkinLobby"/>

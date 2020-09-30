@@ -20,6 +20,7 @@ namespace we {
       gametype_DT: '龍虎',
       gametype_LW: '幸運輪',
       gametype_LO: '時時彩',
+      gametype_RC: '北京賽車',
 
       sidegamelist_title: '遊戲列表',
       sidegamelist_tab_bet: '已下注',
@@ -69,7 +70,7 @@ namespace we {
       overlaypanel_customroad_default: '還原預設',
       overlaypanel_customroad_selectall: '全選',
 
-      overlaypanel_bethistory_title: '投注記錄',
+      overlaypanel_bethistory_title: '遊戲記錄',
       overlaypanel_bethistory_tab_all: '遊戲總覽',
       overlaypanel_bethistory_tab_live: '真人遊戲',
       overlaypanel_bethistory_tab_lottery: '彩票遊戲',
@@ -79,20 +80,21 @@ namespace we {
       overlaypanel_bethistory_yesterday: '昨天',
       overlaypanel_bethistory_week: '本週',
       overlaypanel_bethistory_customperiod: '自訂',
-      overlaypanel_bethistory_searchrecord: '搜尋記錄',
+      overlaypanel_bethistory_searchrecord: '請輸入投注編號',
       overlaypanel_bethistory_recordtab_title: '記錄詳情',
       overlaypanel_bethistory_recordtab_id: '投注編號',
       overlaypanel_bethistory_recordtab_date: '日期時間',
       overlaypanel_bethistory_recordtab_game: '遊戲',
       overlaypanel_bethistory_recordtab_round: '局數',
       overlaypanel_bethistory_recordtab_replay: '重播',
-      overlaypanel_bethistory_recordtab_remark: '備註',
+      overlaypanel_bethistory_recordtab_remark: '輸嬴',
       overlaypanel_bethistory_recordtab_bettype: '投注項目',
       overlaypanel_bethistory_recordtab_betamount: '投注額',
       overlaypanel_bethistory_recordtab_win: '派彩',
       overlaypanel_bethistory_recordtab_orgbalance: '開局餘額',
       overlaypanel_bethistory_recordtab_finbalance: '本局餘額',
       overlaypanel_bethistory_recordtab_resuit: '遊戲結果',
+      overlaypanel_bethistory_recordtab_noresult: '沒有相關結果',
       overlaypanel_bethistory_remark_win: '嬴',
       overlaypanel_bethistory_remark_lose: '輸',
       overlaypanel_bethistory_remark_ties: '和',
@@ -106,7 +108,7 @@ namespace we {
       overlaypanel_bethistory_btn_prev: '上一則',
       overlaypanel_bethistory_searchtype_all: '全部遊戲',
 
-      overlaypanel_bethistorylottery_record_round: '獎期',
+      overlaypanel_bethistorylottery_record_round: '投注編號',
       overlaypanel_bethistorylottery_record_bettype: '類型',
       overlaypanel_bethistorylottery_record_betgroup: '玩法',
       overlaypanel_bethistorylottery_record_betfield: '投注項目',
@@ -142,6 +144,10 @@ namespace we {
       overlaypanel_bethistorylottery_continuousbet_cancelled: '已撤單',
       overlaypanel_bethistorylottery_continuousbet_completed: '已結算',
 
+      overlaypanel_bethistorylottery_cancelbtn_title: '確定要撤單？',
+      overlaypanel_bethistorylottery_cancelbtn_yes: '確認',
+      overlaypanel_bethistorylottery_cancelbtn_no: '取消',
+
       overlaypanel_bethistorylottery_tab_single: '投注記錄',
       overlaypanel_bethistorylottery_tab_multi: '追號記錄',
 
@@ -150,7 +156,7 @@ namespace we {
       overlaypanel_bethistory_dtresult_dragon: '龍',
       overlaypanel_bethistory_dtresult_tiger: '虎',
 
-      overlaypanel_gameSet_showGoodRoadHint: '顯示好路提示',
+      overlaypanel_gameSet_showGoodRoadHint: '顯示百家樂好路提示',
       overlaypanel_gameSet_autoBet: '自動確認投注',
       overlaypanel_gameSet_sendLiveVerfication: '發送現場驗證',
 
@@ -181,7 +187,7 @@ namespace we {
       mobile_notification_close_button_label: '關閉',
       mobile_notification_next_button_label: '下一頁',
 
-      mobile_quick_bet_button_label: '快速投注',
+      mobile_quick_bet_button_label: '快速下注',
       mobile_quick_bet_button_add_label: '追注',
       mobile_enter_table_button_label: '進入遊戲',
 
@@ -390,7 +396,8 @@ namespace we {
         double: '雙骰',
         triple: '三骰',
         triple_: '圍',
-        TableLayerMsg: '單骰1:1 雙骰2:1 三骰3:1',
+        TableLayerMsg_P: '單骰1:1 雙骰2:1 三骰3:1',
+        TableLayerMsg_L: '單骰1:1 \n雙骰2:1 三骰3:1',
 
         roadBig: '大',
         roadSmall: '小',
@@ -508,6 +515,8 @@ namespace we {
         betted: '已下注項目',
         goodroad: '好路',
         allgames: '全部遊戲',
+        noGoodRoad: '沒有好路',
+        noBet: '沒有已下注遊戲'
       },
       baccarat: {
         statisticChart: {
@@ -691,6 +700,16 @@ namespace we {
           AnyTwo: '任選二',
           AnyThree: '任選三',
           AnyFour: '任選四',
+          // rc
+          RCChampion: '猜冠军',
+          RCTop2: '猜前二',
+          RCTop3: '猜前三',
+          RCTop4: '猜前四',
+          RCTop5: '猜前五',
+          RCFixPos: '定位胆',
+          RCSize: '大小',
+          RCParity: '单双',
+          RCDragonTiger: '龙虎',
         },
         smallTag: {
           DirectionSelection: '直選複式', // FiveStar
@@ -769,6 +788,17 @@ namespace we {
           GroupThree: '組三復式',
           GroupSix: '組六複式',
           MixGroup: '混合組選',
+          // rc
+          RCDirectionalSelection: '直选复式',
+          RCDirectionalMenu: '直选单式',
+          RCFirstFiveFixPos: '前五定位胆',
+          RCLastFiveFixPos: '后五定位胆',
+          RCChampion: '冠军',
+          RCSecond: '亚军',
+          RCThird: '季军',
+          RCForth: '第四名',
+          RCFifth: '第五名',
+          RCDT1v10: '1v10',
         },
         inputTitle: {
           TenThousand: '第一球｜萬位',
@@ -792,6 +822,20 @@ namespace we {
           Group: '組選',
 
           Any: '任選',
+          // rc
+          RCChampion: '冠军',
+          RCSecond: '亚军',
+          RCThird: '季军',
+          RCForth: '第四名',
+          RCFifth: '第五名',
+
+          RCSixth: '第六名',
+          RCSeventh: '第七名',
+          RCEighth: '第八名',
+          RCNinth: '第九名',
+          RCTenth: '第十名',
+
+          RCDT1vs10: '1VS10',
         },
         inputs: {
           DRAGON: '龍',
@@ -956,6 +1000,46 @@ namespace we {
             Group6: '所選號碼與開獎號碼的選取位置四個數字相同，所選二重號在\n開獎號碼中出現2次，順序不限，即中獎',
             Group4: '所選號碼與開獎號碼的選取位置四個數字相同，單號號碼與開\n獎號碼相同，且所選三重號在開獎號碼中出現3次，順序不限，即中獎',
           },
+          RCChampion: {
+            RCDirectionalSelection: '所选号码与当期顺序摇出的10个号码中的第一个号码相同,即为中奖',
+          },
+          RCTop2: {
+            RCDirectionalSelection: '所选号码与当期顺序摇出的10个号码中的前2个号码相同，且顺序一致，即中奖。',
+            RCDirectionalMenu: '所选号码与当期顺序摇出的10个号码中的前2个号码相同，且顺序一致，即中奖。',
+          },
+          RCTop3: {
+            RCDirectionalSelection: '所选号码与当期顺序摇出的10个号码中的前3个号码相同，且顺序一致，即中奖。',
+            RCDirectionalMenu: '所选号码与当期顺序摇出的10个号码中的前3个号码相同，且顺序一致，即中奖。',
+          },
+          RCTop4: {
+            RCDirectionalSelection: '所选号码与当期顺序摇出的10个号码中的前4个号码相同，且顺序一致，即中奖。',
+            RCDirectionalMenu: '所选号码与当期顺序摇出的10个号码中的前4个号码相同，且顺序一致，即中奖。',
+          },
+          RCTop5: {
+            RCDirectionalSelection: '所选号码与当期顺序摇出的10个号码中的前5个号码相同，且顺序一致，即中奖。',
+            RCDirectionalMenu: '所选号码与当期顺序摇出的10个号码中的前5个号码相同，且顺序一致，即中奖。',
+          },
+          RCFixPos: {
+            RCFirstFiveFixPos: '所选号码与相同位置上的开奖号码一致，即中奖。',
+            RCLastFiveFixPos: '所选号码与相同位置上的开奖号码一致，即中奖。',
+          },
+          RCSize: {
+            RCChampion: '选号型态的开奖号码一致，即中奖。',
+            RCSecond: '选号型态的开奖号码一致，即中奖。',
+            RCThird: '选号型态的开奖号码一致，即中奖。',
+            RCForth: '选号型态的开奖号码一致，即中奖。',
+            RCFifth: '选号型态的开奖号码一致，即中奖。',
+          },
+          RCParity: {
+            RCChampion: '选号型态的开奖号码一致，即中奖。',
+            RCSecond: '选号型态的开奖号码一致，即中奖。',
+            RCThird: '选号型态的开奖号码一致，即中奖。',
+            RCForth: '选号型态的开奖号码一致，即中奖。',
+            RCFifth: '选号型态的开奖号码一致，即中奖。',
+          },
+          RCDragonTiger: {
+            RCDT1v10: '所选号码的位置、形态,与开奖号码的位置与形态一致，即中奖。',
+          },
         },
         chase: {
           chaseBet: '追號',
@@ -988,6 +1072,45 @@ namespace we {
           p5: '個',
         },
       },
+
+      rc_fun_betlayer_tab_fun: '娛樂',
+      rc_fun_betlayer_tab_num: '數字',
+      rc_fun_betlayer_tab_dt: '龍虎',
+      rc_fun_betlayer_tab_sum12: '冠亞和',
+      rc_fun_betlayer_tab_sum12num: '冠軍和值',
+
+      rc_fun_betgroup_BASIC_CHAMP: '冠軍',
+      rc_fun_betgroup_BASIC_SECOND: '亞軍',
+      rc_fun_betgroup_BASIC_THIRD: '季軍',
+      rc_fun_betgroup_BASIC_FORTH: '第四名',
+      rc_fun_betgroup_BASIC_FIFTH: '第五名',
+      rc_fun_betgroup_BASIC_SIXTH: '第六名',
+      rc_fun_betgroup_BASIC_SEVENTH: '第七名',
+      rc_fun_betgroup_BASIC_EIGHTH: '第八名',
+      rc_fun_betgroup_BASIC_NINETH: '第九名',
+      rc_fun_betgroup_BASIC_TENTH: '第十名',
+      rc_fun_betgroup_1FIXPOS2: '冠軍',
+      rc_fun_betgroup_2FIXPOS2: '亞軍',
+      rc_fun_betgroup_3FIXPOS2: '季軍',
+      rc_fun_betgroup_4FIXPOS2: '第四名',
+      rc_fun_betgroup_5FIXPOS2: '第五名',
+      rc_fun_betgroup_6FIXPOS2: '第六名',
+      rc_fun_betgroup_7FIXPOS2: '第七名',
+      rc_fun_betgroup_8FIXPOS2: '第八名',
+      rc_fun_betgroup_9FIXPOS2: '第九名',
+      rc_fun_betgroup_10FIXPOS2: '第十名',
+      rc_fun_betgroup_DT1V102: '冠軍',
+      rc_fun_betgroup_DT2V92: '亞軍',
+      rc_fun_betgroup_DT3V82: '季軍',
+      rc_fun_betgroup_DT4V72: '第四名',
+      rc_fun_betgroup_DT5V62: '第五名',
+      rc_fun_betgroup_sum12: '冠亞和',
+      rc_fun_betgroup_sum12num: '冠軍和值',
+
+      rc_fun_betfield_n_SIZE2_BIG: '大',
+      rc_fun_betfield_n_SIZE2_SMALL: '細',
+      rc_fun_betfield_n_PARITY2_ODD: '單',
+      rc_fun_betfield_n_PARITY2_EVEN: '雙',
     };
   }
 }

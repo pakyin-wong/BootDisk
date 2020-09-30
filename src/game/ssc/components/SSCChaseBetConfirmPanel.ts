@@ -35,10 +35,14 @@ namespace we {
       constructor(data: we.lo.TradNoteData[], currentRoundNumber, roundData, betPanel) {
         super(data, currentRoundNumber);
         // super(data,currentRoundNumber);
-        this.skinName = 'skin_desktop.SSCChaseBetConfirmPanel';
+        this.initSkin();
         this._roundCount = roundData.length;
         this._roundData = roundData;
         this._betPanel = betPanel;
+      }
+
+      protected initSkin() {
+        this.skinName = 'skin_desktop.SSCChaseBetConfirmPanel';
       }
 
       public mount() {

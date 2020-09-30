@@ -4,7 +4,7 @@
         <e:Group width="219" height="70">
             <e:Group verticalCenter="0" horizontalCenter="0">
                 <e:Image source="flash_png" />
-                <ui:RunTimeLabel id="_label" size="36" verticalAlign="bottom" textAlign="center"/>
+                <ui:RunTimeLabel id="_label" size="60" verticalAlign="bottom" textAlign="center"/>
                 <e:layout >
                     <e:HorizontalLayout gap="10" verticalAlign="middle" />
                 </e:layout>

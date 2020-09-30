@@ -45,10 +45,10 @@ namespace we {
           logger.l(utils.LogTarget.RELEASE, `scene ${id} defined error`, e);
           return;
         }
-        dir.layerCtr.scene.addChild(_next);
-        dir.layerCtr.nav.addChild(_next.sceneHeader);
         this._currScene = _next;
         this._currid = id;
+        dir.layerCtr.scene.addChild(_next);
+        dir.layerCtr.nav.addChild(_next.sceneHeader);
         logger.l(utils.LogTarget.RELEASE, `enter ${id}`);
         dir.evtHandler.dispatch(core.Event.ENTER_SCENE, id);
         dir.layerCtr.nav.removeChild(_prev.sceneHeader);
@@ -72,10 +72,10 @@ namespace we {
           logger.l(utils.LogTarget.RELEASE, `scene ${id} defined error`);
           return;
         }
-        dir.layerCtr.scene.addChild(_next);
-        dir.layerCtr.nav.addChild(_next.sceneHeader);
         this._currScene = _next;
         this._currid = id;
+        dir.layerCtr.scene.addChild(_next);
+        dir.layerCtr.nav.addChild(_next.sceneHeader);
         logger.l(utils.LogTarget.RELEASE, `enter ${id}`);
         dir.evtHandler.dispatch(core.Event.ENTER_SCENE, id);
         dir.layerCtr.nav.removeChild(_prev.sceneHeader);

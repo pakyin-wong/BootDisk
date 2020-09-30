@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_landscape.dil.TableInfoPanel" width="2086" height="308" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-        <e:Rect id="_bg" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425"/>
+        <e:Rect id="_bg" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" locked="true"/>
     <e:Scroller scrollPolicyH="on" width="2086" height="308">
         <e:Group id="content" left="0" top="0" width="100%" height="100%">
 		    <e:Image id="moveArea" source="popover_png" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7" visible="false"/>
@@ -13,9 +13,11 @@
                 <ui:RunTimeLabel id="tableNoLabel" text="檯號" y="40" x="24" scaleX="1" scaleY="1" size="44"/>
                 <ui:RunTimeLabel id="roundNoLabel" text="局號" y="120" x="24" scaleX="1" scaleY="1" size="44"/>
                 <ui:RunTimeLabel id="gameIdLabel" text="編號" y="200" x="24" scaleX="1" scaleY="1" size="44"/>
-                <e:Label id="pTableID" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="44" right="107.5" width="221" height="44" anchorOffsetX="0" alpha=".7"/>
+                <ui:RunTimeLabel id="pTableID" text="-" y="40" textAlign="right" size="44"
+                                     alpha="0.7"  fontFamily="Barlow" x="325"/>
                 <e:Label id="pRoundID" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44" right="27.5" width="280" anchorOffsetX="0" alpha=".7"/>
-                <e:Label id="pGameID" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" right="27.5" width="280" anchorOffsetX="0" alpha=".7"/>
+                <ui:ClampWidthLabel id="pGameID" text="000-000-000000000" x="147" y="200" textAlign="right" size="44"
+                    targetWidth="350" alpha="0.7"  anchorOffsetX="0" width="350" anchorOffsetY="0" height="46" fontFamily="Barlow"/>
                 <e:Image id="btnDetail" right="28" height="58" x="465" y="36" source="m_ba_tag_btn_detail_png"/>
                 <e:Rect width="1" height="100%" fillColor="0xd8d8d8" fillAlpha="1" right="0"/>
             </e:Group>

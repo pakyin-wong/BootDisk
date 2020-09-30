@@ -44,8 +44,8 @@ namespace we {
         strokeInColor: number = 0x0000ff,
         strokeInAlpha: number = 1
       ) {
-        this.width = width;
-        this.height = height;
+        // this.width = width;
+        // this.height = height;
         this.cornerTL = cornerRadius.tl;
         this.cornerTR = cornerRadius.tr;
         this.cornerBL = cornerRadius.bl;
@@ -64,10 +64,7 @@ namespace we {
           if (fillAlpha >= 0) {
             fillColor = fillColor.toString();
             if (fillColor.indexOf(',') > 0) {
-              const parms = fillColor
-                .split(' ')
-                .join('')
-                .split(',');
+              const parms = fillColor.split(' ').join('').split(',');
               if (parms.length === 2) {
                 GradientFill.beginGradientFill(this._gr, width, height, [parms[0], parms[1]]);
               } else if (parms.length === 3) {
@@ -115,24 +112,21 @@ namespace we {
       public async refresh() {
         this.validateNow();
         if (this.cornerTL_TR_BL_BR !== '') {
-          const corners = this.cornerTL_TR_BL_BR
-            .split(' ')
-            .join('')
-            .split(',');
+          const corners = this.cornerTL_TR_BL_BR.split(' ').join('').split(',');
           this.cornerTL = parseInt(corners[0], 10);
           this.cornerTR = parseInt(corners[1], 10);
           this.cornerBL = parseInt(corners[2], 10);
           this.cornerBR = parseInt(corners[3], 10);
         }
 
-        // support percentage width / height
-        if (!isNaN(this.percentWidth) || !isNaN(this.percentHeight)) {
-          await new Promise(resolve => window.requestAnimationFrame(resolve));
-          // wait width / height calculated
-          this.width = (this as any).layoutBoundsWidth;
-          this.height = (this as any).layoutBoundsHeight;
-          this.percentWidth = this.percentHeight = NaN;
-        }
+        // // support percentage width / height
+        // if (!isNaN(this.percentWidth) || !isNaN(this.percentHeight)) {
+        //   await new Promise(resolve => window.requestAnimationFrame(resolve));
+        //   // wait width / height calculated
+        //   this.width = (this as any).layoutBoundsWidth;
+        //   this.height = (this as any).layoutBoundsHeight;
+        //   this.percentWidth = this.percentHeight = NaN;
+        // }
 
         this.setRoundRectStyle(
           this.width,

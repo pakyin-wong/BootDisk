@@ -127,8 +127,8 @@
 	<ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="241.6" x="18.49" y="644" anchorOffsetX="0"
 	                          anchorOffsetY="0" visible="false" />
 	<e:Group y="24" x="200" >
-		<ui:RunTimeLabel id="_baGameIDText" text="Game ID :" bottom="0" left="0"  alpha=".7" height="56" verticalAlign="top" size="26"/>
-		<ui:RunTimeLabel id="_baGameID" text="ID0000000000000001" bottom="0" left="0"  height="56" verticalAlign="top" fontFamily="Barlow" size="26"/>
+		<ui:RunTimeLabel id="_GameIDText" text="Game ID :" bottom="0" left="0"  alpha=".7" height="56" verticalAlign="top" size="26"/>
+		<ui:RunTimeLabel id="_GameID" text="ID0000000000000001" bottom="0" left="0"  height="56" verticalAlign="top" fontFamily="Barlow" size="26"/>
 		<e:layout>
 			<e:HorizontalLayout/>
 		</e:layout>
