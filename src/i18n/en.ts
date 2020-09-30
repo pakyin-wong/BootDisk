@@ -830,18 +830,18 @@ namespace we {
           Group: 'Group',
 
           Any: 'Any',
-          // rc
-          RCChampion: '冠军',
-          RCSecond: '亚军',
-          RCThird: '季军',
-          RCForth: '第四名',
-          RCFifth: '第五名',
+		      // rc
+          RCChampion: 'Champion',
+          RCSecond: 'Second',
+          RCThird: 'Third',
+          RCForth: 'Forth',
+          RCFifth: 'Fifth',
 
-          RCSixth: '第六名',
-          RCSeventh: '第七名',
-          RCEighth: '第八名',
-          RCNinth: '第九名',
-          RCTenth: '第十名',
+          RCSixth: 'Sixth',
+          RCSeventh: 'Seventh',
+          RCEighth: 'Eighth',
+          RCNinth: 'Ninth',
+          RCTenth: 'Tenth',
 
           RCDT1vs10: '1VS10',
         },
@@ -1070,6 +1070,18 @@ namespace we {
           p4: '十',
           p5: '個',
         },
+        rcballresultpos:{
+          p1:'Champion',
+          p2:'Second',
+          p3:'Third',
+          p4:'Forth',
+          p5:'Fifth',
+          p6:'Sixth',
+          p7:'Seventh',
+          p8:'Eightth',
+          p9:'Ninth',
+          p10:'Tenth',
+        }
       },
 
       rc_fun_betlayer_tab_fun: 'Fun',
