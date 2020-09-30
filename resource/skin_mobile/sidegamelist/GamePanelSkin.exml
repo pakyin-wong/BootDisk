@@ -30,11 +30,11 @@
 		</e:Group>
 		<e:ViewStack id="_viewStack" left="0" right="0" selectedIndex="0" y.landscape="202" height.landscape="790" top="200"
 		             bottom="0">
-			<e:Group left="0" right="0" top="0" bottom="0" x="0" y="-200" scaleX="1" scaleY="1">
-				<ui:Scroller left="0" right="0" top="150" bottom="0">
+			<e:Group left="0" right="0" top="0" bottom="0" scaleX="1" scaleY="1">
+				<ui:Scroller left="0" right="0" top="90" bottom="0" bottom.landscape="1140">
 					<ui:TableList id="_betTableList" />
 				</ui:Scroller>
-				<e:Group id="_noBetGroup" verticalCenter="0" horizontalCenter="0">
+				<e:Group id="_noBetGroup" verticalCenter.portrait="0" horizontalCenter="0" bottom.landscape="1340">
 					<e:Image source="m_lobby_panel_gamelist_tag_icon_betted_dim_png" width="194" height="194" />
 					<ui:RunTimeLabel i18n="sidePanel.noBet" size="64" />
 					<e:layout>
@@ -42,11 +42,11 @@
 					</e:layout>
 				</e:Group>
 			</e:Group>
-			<e:Group left="0" right="0" top="0" bottom="0" x="0" y="-200" scaleX="1" scaleY="1">
-				<ui:Scroller left="0" right="0" top="0" bottom="0">
+			<e:Group left="0" right="0" top="0" bottom="0" scaleX="1" scaleY="1">
+				<ui:Scroller left="0" right="0" top="90" bottom="0" bottom.landscape="1140">
 					<ui:TableList id="_goodRoadTableList" />
 				</ui:Scroller>
-				<e:Group id="_noGoodRoadGroup" verticalCenter="0" horizontalCenter="0">
+				<e:Group id="_noGoodRoadGroup" verticalCenter.portrait="0" horizontalCenter="0" bottom.landscape="1340">
 					<e:Image source="m_lobby_panel_gamelist_tag_icon_goodroad_dim_png" width="194" height="194" />
 					<ui:RunTimeLabel i18n="sidePanel.noGoodRoad" size="64" />
 					<e:layout>
@@ -54,7 +54,7 @@
 					</e:layout>
 				</e:Group>
 			</e:Group>
-			<e:Group left="0" right="0" top="0" bottom="0" x="0" y="-200" scaleX="1" scaleY="1">
+			<e:Group left="0" right="0" top="0" bottom="0" scaleX="1" scaleY="1">
 				<e:Scroller height="80" left="48" right="48">
 					<e:TabBar id="_tabs">
 						<e:layout>
@@ -62,7 +62,7 @@
 						</e:layout>
 					</e:TabBar>
 				</e:Scroller>
-				<ui:Scroller left="0" right="0" x="0" scaleX="1" scaleY="1" top="90" bottom="0" bottom.landscape="1140">
+				<ui:Scroller left="0" right="0" scaleX="1" scaleY="1" top="90" bottom="0" bottom.landscape="1140">
 					<ui:TableList id="_allTableList" />
 				</ui:Scroller>
 			</e:Group>
