@@ -131,9 +131,9 @@
 	<bam:MobileFlipCardHolder id="_resultCard" width="2424" height="900" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
 	                          scaleY="1" y="83" horizontalCenter="0" />
 	<e:Group y="24" x="200">
-		<ui:RunTimeLabel id="_baGameIDText" text="Game ID :" bottom="0" left="0" alpha=".7" height="56" verticalAlign="top"
+		<ui:RunTimeLabel id="_GameIDText" text="Game ID :" bottom="0" left="0" alpha=".7" height="56" verticalAlign="top"
 		                 size="26" />
-		<ui:RunTimeLabel id="_baGameID" text="ID0000000000000001" bottom="0" left="0" height="56" verticalAlign="top"
+		<ui:RunTimeLabel id="_GameID" text="ID0000000000000001" bottom="0" left="0" height="56" verticalAlign="top"
 		                 fontFamily="Barlow" size="26" />
 		<e:layout>
 			<e:HorizontalLayout/>

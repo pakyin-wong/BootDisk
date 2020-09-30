@@ -80,7 +80,7 @@ namespace we {
       overlaypanel_bethistory_yesterday: 'Yesterday',
       overlaypanel_bethistory_week: 'This week',
       overlaypanel_bethistory_customperiod: 'Custom',
-      overlaypanel_bethistory_searchrecord: 'search id',
+      overlaypanel_bethistory_searchrecord: 'please enter bet id',
       overlaypanel_bethistory_recordtab_id: 'ID',
       overlaypanel_bethistory_recordtab_title: 'Record Detail',
       overlaypanel_bethistory_recordtab_date: 'Date',
@@ -94,6 +94,7 @@ namespace we {
       overlaypanel_bethistory_recordtab_orgbalance: 'original Balance',
       overlaypanel_bethistory_recordtab_finbalance: 'final Banlance',
       overlaypanel_bethistory_recordtab_resuit: 'Game Result',
+      overlaypanel_bethistory_recordtab_noresult: 'No Bet Reult',
       overlaypanel_bethistory_remark_win: 'Win',
       overlaypanel_bethistory_remark_lose: 'Lose',
       overlaypanel_bethistory_remark_ties: 'Ties',
@@ -154,7 +155,7 @@ namespace we {
       overlaypanel_bethistory_dtresult_dragon: 'D',
       overlaypanel_bethistory_dtresult_tiger: 'T',
 
-      overlaypanel_gameSet_showGoodRoadHint: 'Show GoodRoad Hint',
+      overlaypanel_gameSet_showGoodRoadHint: 'Show Baccarat GoodRoad Hint',
       overlaypanel_gameSet_autoBet: 'Auto Bet Confirm',
       overlaypanel_gameSet_sendLiveVerfication: 'Send Live Verfication',
 
@@ -512,6 +513,8 @@ namespace we {
         betted: 'Bet',
         goodroad: 'Good Road',
         allgames: 'All Game',
+        noGoodRoad: 'No Good Road',
+        noBet: 'No Already Bet Table'
       },
       baccarat: {
         statisticChart: {

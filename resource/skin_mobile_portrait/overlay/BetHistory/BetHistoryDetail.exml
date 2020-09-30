@@ -25,7 +25,7 @@
 		<ui:ClampWidthLabel id="_record_game" text="Label" x="625" y="1031" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="500" targetWidth="500"/>
 		<ui:ClampWidthLabel id="_record_round" text="Label" x="625" y="1220" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="500" targetWidth="500"/>
 		<ui:ClampWidthLabel id="_record_remark" text="Label" x="625" y="1398" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="500" targetWidth="500"/>
-		<ui:ClampWidthLabel id="_record_bettype" text="Label" x="96" y="1398" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="500" targetWidth="500"/>
+		<ui:RunTimeLabel id="_record_bettype" text="Label" x="96" y="1398" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="500" targetWidth="500"/>
 		<ui:ClampWidthLabel id="_record_betamount" text="Label" x="625" y="1592" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="500" targetWidth="500"/>
 		<ui:ClampWidthLabel id="_record_win_s" text="Label" x="625" y="1775" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="500" targetWidth="500"/>
 		<e:Label id="_record_win_l" text="Label" x="96" y="661" height="144" size="120" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>

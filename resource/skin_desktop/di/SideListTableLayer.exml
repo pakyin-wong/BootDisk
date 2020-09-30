@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.di.SideListTableLayerSkin" currentState="Normal" width="333" height="120"
+<e:Skin class="skin_desktop.di.SideListTableLayerSkin" currentState="Normal" width="337" height="120"
         xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" xmlns:ui="we.ui.*"
         states="Normal">
-	<e:Group id="_small_group" x="0" y="0" width="166" height="65">
-		<ui:BettingGrid id="_small_image" width="166" height="65" gradientColors="[0x2e95ff, 0x305acc]" gradientType="RADIAL" gradientPosition="topRight"/>
+	<e:Group id="_small_group" x="0" y="0" width="168" height="65">
+		<ui:BettingGrid id="_small_image" width="168" height="65" gradientColors="[0x2e95ff, 0x305acc]" gradientType="RADIAL" gradientPosition="topRight"/>
 		<ui:RunTimeLabel id="_small_label" verticalCenter="5" horizontalCenter="0" bold="true"/>
 	</e:Group>
-	<e:Group id="_big_group" x="166" y="0" width="167" height="65">
-		<ui:BettingGrid id="_big_image" width="167" height="65" gradientColors="[0xff5b67, 0xad3737]" gradientType="RADIAL" gradientPosition="topLeft"/>
+	<e:Group id="_big_group" x="168" y="0" width="169" height="65">
+		<ui:BettingGrid id="_big_image" width="169" height="65" gradientColors="[0xff5b67, 0xad3737]" gradientType="RADIAL" gradientPosition="topLeft"/>
 		<ui:RunTimeLabel id="_big_label" verticalCenter="5" horizontalCenter="0" bold="true"/>
 	</e:Group>
-	<e:Group id="_odd_group" x="0" y="65" width="166" height="55">
-		<ui:BettingGrid id="_odd_image" width="166" height="55" roundCorner="[0,0,0,4]" color="0x163757" />
+	<e:Group id="_odd_group" x="0" y="65" width="168" height="55">
+		<ui:BettingGrid id="_odd_image" width="168" height="55" roundCorner="[0,0,0,4]" color="0x163757" />
 		<ui:RunTimeLabel id="_odd_label" verticalCenter="0" horizontalCenter="0" bold="true" textColor="0x278eff"/>
 	</e:Group>
-	<e:Group id="_even_group" x="166" y="65" width="167" height="55">
-		<ui:BettingGrid id="_even_image" width="167" height="55"  roundCorner="[0,0,4,0]" color="0x5a2322"/>
+	<e:Group id="_even_group" x="168" y="65" width="169" height="55">
+		<ui:BettingGrid id="_even_image" width="169" height="55"  roundCorner="[0,0,4,0]" color="0x5a2322"/>
 		<ui:RunTimeLabel id="_even_label" verticalCenter="0" horizontalCenter="0" bold="true" textColor="0xff6767"/>
 	</e:Group>
 </e:Skin>
