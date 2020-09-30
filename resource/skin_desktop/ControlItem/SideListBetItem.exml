@@ -7,7 +7,7 @@
 		<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,8,8" width="339" height="100" x="0" y="0" stroke="2" strokeColor="0x000000"
 		                   fillColor="0x282828" strokeIn="2" strokeInColor="0x3a3f48" />
 		<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" x="143" y="5"
-		                           skinName="skin_desktop.BetChipSkin" />
+		                           skinName="skin_desktop.BetChipSkin" chipScale="1.2" />
 		<ui:BaseImageButton id="_closeButton" x="12" y="20" width="56" height="60" currentState="lobby_betcontrol_close"
 		                    skinName="skin_desktop.ImageButtonSkinLobby" />
 		<ui:BaseImageButton id="_prevButton" x="68" y="20" width="56" height="60" currentState="lobby_betcontrol_previous"
