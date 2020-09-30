@@ -112,6 +112,7 @@ namespace we {
         this._tableLayerTargetY = this._bigRoad.height + 37;
         this._targetQuickBetButtonY = this._bigRoad.height + 50;
         this._originalQuickBetButtonY = this._bigRoad.height - 10;
+        this._message.y = 47 + this._bigRoad.height * 0.5;
       }
 
       protected runtimeGenerateTableLayer() {
@@ -244,7 +245,7 @@ namespace we {
         // when rm need update
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateSideBarRoadData(tableInfo.roadmap);
