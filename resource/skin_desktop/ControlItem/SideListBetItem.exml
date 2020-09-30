@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.SideListBetItemSkin" width="339" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
         xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
-	<e:Group id="_betChipSetPanel" height="0">
-		<ui:BetChipSetGrid id="_betChipSet" width="339" anchorOffsetX="0" x="0" anchorOffsetY="0" y="0" alpha="0" />
-	</e:Group>
 	<e:Group id="_quickBetGroup" width="100%" alpha="0">
-		<!--<e:Rect width="339" height="100" x="0" y="0" fillColor="0x202020" ellipseWidth="5" ellipseHeight="5" />-->
-
-        <ui:RoundRectShape cornerTL_TR_BL_BR="0,0,8,8" width="339" height="100" x="0" y="0" stroke="2"
-                           strokeColor="0x000000" fillColor="0x282828" strokeIn="2" strokeInColor="0x3a3f48" />
-		<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" x="136" y="15"
+		<!--<e:Rect width="339" height="100" x="0" y="0" fillColor="0x202020" ellipseWidth="5" ellipseHeight="5" />
+		-->
+		<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,8,8" width="339" height="100" x="0" y="0" stroke="2" strokeColor="0x000000"
+		                   fillColor="0x282828" strokeIn="2" strokeInColor="0x3a3f48" />
+		<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" x="143" y="5"
 		                           skinName="skin_desktop.BetChipSkin" />
 		<ui:BaseImageButton id="_closeButton" x="12" y="20" width="56" height="60" currentState="lobby_betcontrol_close"
 		                    skinName="skin_desktop.ImageButtonSkinLobby" />
@@ -18,39 +15,52 @@
 		<!--<ui:BaseImageButton id="_confirmButton" right="10" top="30" width="80" height="40"
 		                        currentState="lobby_confirm_button" skinName="skin_desktop.ImageButtonSkinLobby" />
 		-->
-        <ui:RoundRectButton id="_confirmButton" x="235" y="22" cornerTL_TR_BL_BR="25,25,25,25" width="90" height="52"
-                            stroke="0" strokeIn="0" fillColor="00aa5e" fillAlpha="1" fillAlpha_hover="0.7"
-                            fillColor_hover="0x0f9d5d" currentState="lobby_confirm_button" />
-		<e:Image x="265" y="37" width="30" height="20" source="d_lobby_panel_betcontrol_btn_confirm_icon_png"  touchEnabled="false"/>
+		<ui:RoundRectButton id="_confirmButton" x="235" y="22" cornerTL_TR_BL_BR="25,25,25,25" width="90" height="52"
+		                    stroke="0" strokeIn="0" fillColor="00aa5e" fillAlpha="1" fillAlpha_hover="0.7"
+		                    fillColor_hover="0x0f9d5d" currentState="lobby_confirm_button" />
+		<e:Image x="265" y="37" width="30" height="20" source="d_lobby_panel_betcontrol_btn_confirm_icon_png"
+		         touchEnabled="false" />
+	</e:Group>
+	<e:Group id="_betChipSetPanel" width="339" height="0">
+		<ui:RoundRectShape id="_betChipSetBg" cornerTL_TR_BL_BR="8,8,8,8" strokeIn="2" width="339" strokeInColor="0x3b4f6c"
+		                   fillColor="0x1A2026" fillAlpha="1" stroke="1" strokeColor="0x000000" y="110" />
+		<e:Image id="_arrowPanel" source="d_ba_betarea_chipsbg_triangle_png" y="0" horizontalCenter="0" width="25" height="15" />
+		<ui:BetChipSetGrid id="_betChipSet" width="339" anchorOffsetX="0" x="0" anchorOffsetY="0" y="0" alpha="0" />
 	</e:Group>
 	<e:Group id="_contentContainer" x="0" width="100%">
-			<ui:RoundRectShape id="_strokeShape" cornerTL_TR_BL_BR="8,8,8,8" stroke="2" strokeColor="0x000000" fillColor="0x23282e" fillAlpha="1" strokeIn="2" strokeInColor="0x3A3F48" right="0" left="0" top="0" bottom="0" touchEnabled="true" touchChildren="false"/>
+		<ui:RoundRectShape id="_strokeShape" cornerTL_TR_BL_BR="8,8,8,8" stroke="2" strokeColor="0x000000"
+		                   fillColor="0x23282e" fillAlpha="1" strokeIn="2" strokeInColor="0x3A3F48" right="0" left="0" top="0"
+		                   bottom="0" touchEnabled="true" touchChildren="false" />
 		<!--<ui:RoundRectShape cornerTL_TR_BL_BR="10,10,0,0" width="339" height="50" x="0" y="0" stroke="2"
-                           strokeColor="0x000000" fillColor="0x282828" strokeIn="2" strokeInColor="0x3a3f48" />-->
+		                       strokeColor="0x000000" fillColor="0x282828" strokeIn="2" strokeInColor="0x3a3f48" />
+		-->
 		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" y="12" left="56" size="23.4"
 		                 touchEnabled="false" />
 		<e:Image source="d_lobby_button_down_normal_png" x="290" y="45" rotation="270" />
 		<e:Group id="_bettingGroup" width="100%" x="0" touchEnabled="false" touchChildren="true" top="0">
-			<!--<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,4,4" stroke="2"
-                           strokeColor="0x000000" fillColor="0x282828" strokeIn="2" strokeInColor="0x3a3f48"  bottom="0" top="46" right="0" left="0"/>-->
+			<!--<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,4,4" stroke="2" strokeColor="0x000000" fillColor="0x282828"
+			                       strokeIn="2" strokeInColor="0x3a3f48" bottom="0" top="46" right="0" left="0" />
+			-->
 			<ui:CountdownTimer id="_timer" width="37" height="37" x="7" y="7"
 			                   skinName="skin_desktop.CountdownTimerRoundSmallSkin" touchEnabled="false" />
-			<e:Component id="_tableLayerNode" width="337" anchorOffsetY="0" horizontalCenter="0"  bottom="1" top="46"/>
-			<e:Component id="_chipLayerNode" width="337" anchorOffsetY="0" horizontalCenter="0"  bottom="1" top="46"/>
-
+			<e:Component id="_tableLayerNode" width="337" anchorOffsetY="0" horizontalCenter="0" bottom="1" top="46" />
+			<e:Component id="_chipLayerNode" width="337" anchorOffsetY="0" horizontalCenter="0" bottom="1" top="46" />
 			<e:Group id="_quickBetButtonGroup" height="0" left="0" right="0">
 				<ui:BaseImageButton id="_quickbetButton" currentState="lobby_quick_bet_notification"
-									skinName="skin_desktop.ImageButtonSkinLobby" alpha="0" horizontalCenter="0" width="148" y="168"
-									height="42" text="追注" />
+				                    skinName="skin_desktop.ImageButtonSkinLobby" alpha="0" horizontalCenter="0" width="148" y="168"
+				                    height="42" text="追注" />
 			</e:Group>
 			<!--<ui:InGameMessage id="_message" anchorOffsetX="152" anchorOffsetY="16" skinName="skin_desktop.InGameMessageSkin"
-			                  width="303" height="32" horizontalCenter="0.5" y="120" infoBg="d_ba_gamerecord_playerelement_png"
-			                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />-->
+			                      width="303" height="32" horizontalCenter="0.5" y="120"
+			                      infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
+			                      errorBg="d_ba_gamerecord_bankerelement_png" />
+			-->
 		</e:Group>
 		<e:Rect id="_dimmer" left="0" top="46" bottom="0" right="0" fillAlpha="0.7" />
-		<e:Group id="_resultGroup" x="0" width="100%" touchEnabled="false" touchThrough="true" touchChildren="false" bottom="1" top="46">
-			<e:Component id="_resultDisplayNode" width="100%" anchorOffsetY="0" left="0"  visible="false"/>
-			<e:Component id="_resultMessageNode" horizontalCenter="0" verticalCenter="0"  visible="false"/>
+		<e:Group id="_resultGroup" x="0" width="100%" touchEnabled="false" touchThrough="true" touchChildren="false"
+		         bottom="1" top="46">
+			<e:Component id="_resultDisplayNode" width="100%" anchorOffsetY="0" left="0" visible="false" />
+			<e:Component id="_resultMessageNode" horizontalCenter="0" verticalCenter="0" visible="false" />
 		</e:Group>
 	</e:Group>
 </e:Skin>

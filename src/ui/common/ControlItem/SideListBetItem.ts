@@ -16,6 +16,9 @@ namespace we {
       protected _resultMessageNode: eui.Component;
       protected _resultDisplayNode: eui.Component;
 
+      protected _betChipSetBg: ui.RoundRectShape;
+      protected _arrowPanel: eui.Image;
+
       protected _dimmer: eui.Component;
 
       protected _betChipPanelTargetY: number;
@@ -172,6 +175,10 @@ namespace we {
         this._betChipSet.visible = true;
         this._betChipSet.y = this._betChipPanelTargetY - 100;
         egret.Tween.get(this._betChipSet).to({ y: this._betChipPanelTargetY, alpha: 1 }, 250);
+        if (this._betChipSetBg) {
+          egret.Tween.get(this._betChipSetBg).to({ y: this._quickBetGroup.height + this._quickBetGroup.y, height: this._betChipSet.height + 10, alpha: 1 }, 250);
+          egret.Tween.get(this._arrowPanel).to({ y: this._quickBetGroup.height + this._quickBetGroup.y - 10, alpha: 1 }, 250);
+        }
         this._betChipSetGridEnabled = true;
       }
 
@@ -181,6 +188,10 @@ namespace we {
           .call(() => {
             this._betChipSet.visible = false;
           });
+        if (this._betChipSetBg) {
+          egret.Tween.get(this._betChipSetBg).to({ y: 0, height: this._betChipSet.height, alpha: 0 }, 250);
+          egret.Tween.get(this._arrowPanel).to({ y: 0, alpha: 0 }, 250);
+        }
         this._betChipSetGridEnabled = false;
       }
 
