@@ -343,11 +343,13 @@ namespace we {
         egret.Tween.removeTweens(this.verticalScrollBar);
         if (isShow) {
           this.verticalScrollBar.visible = true;
-          egret.Tween.get(this.verticalScrollBar).to({alpha:1},300);
+          egret.Tween.get(this.verticalScrollBar).to({ alpha: 1 }, 300);
         } else {
-          egret.Tween.get(this.verticalScrollBar).to({alpha:0},300).call(()=>{
-            this.verticalScrollBar.visible = false;
-          });
+          egret.Tween.get(this.verticalScrollBar)
+            .to({ alpha: 0 }, 300)
+            .call(() => {
+              this.verticalScrollBar.visible = false;
+            });
         }
       }
     }

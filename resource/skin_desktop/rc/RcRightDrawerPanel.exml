@@ -192,8 +192,8 @@
                                                         </e:skinName>
                                                 </e:RadioButton>
                                                 <e:layout>
-                                                        <e:HorizontalLayout gap="30" horizontalAlign="center"
-                                                                            paddingTop="6" />
+                                                        <e:HorizontalLayout gap="30" horizontalAlign="left"
+                                                                            paddingTop="6" paddingLeft="57" />
                                                 </e:layout>
                                         </e:Group>
                                         <e:Image id="road1NextBtn"
@@ -376,8 +376,8 @@
                                                         </e:skinName>
                                                 </e:RadioButton>
                                                 <e:layout>
-                                                        <e:HorizontalLayout gap="30" horizontalAlign="center"
-                                                                            paddingTop="6" />
+                                                        <e:HorizontalLayout gap="30" horizontalAlign="left"
+                                                                            paddingTop="6" paddingLeft="57" />
                                                 </e:layout>
                                         </e:Group>
                                         <e:Image id="road2NextBtn"

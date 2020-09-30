@@ -21,10 +21,11 @@ namespace we {
       protected mount() {
         super.mount();
         env.currentPage = 'lottery';
-        env.currentTab = 'all';
+        env.currentTab = 'allLotteryGame';
 
         this.initRoomList();
         this.initSlider();
+        this.initExtraContent();
 
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
         this._roomList.addChildAt(this._slider, 0);
@@ -32,6 +33,7 @@ namespace we {
 
       protected destroy() {
         super.destroy();
+        this.removeExtraContent();
         dir.evtHandler.removeEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
         this._roomList.removeChild(this._slider);
       }
@@ -51,14 +53,13 @@ namespace we {
         }
 
         this._roomList.layout = this._roomListRefer.layout;
-        // this._roomList.itemRenderer = live.LiveListHolder;
         this._roomList.itemRendererFunction = item => {
           const tableInfo = env.tableInfos[item];
           switch (tableInfo.gametype) {
             case we.core.GameType.LO:
               return lo.LotteryListHolder;
             case we.core.GameType.RC:
-              return lo.LotteryListHolder;
+              return rc.RcListHolder;
             default:
               throw new Error('Invalid Game Type');
           }
@@ -75,6 +76,38 @@ namespace we {
         this._slider.x = this._sliderRefer.x;
         this._slider.y = this._sliderRefer.y;
         this._slider.configSlides(dir.liveResources.liveHeroBanners);
+      }
+
+      protected initExtraContent() {
+        if (env.isMobile) {
+          if (env.orientation === egret.OrientationMode.PORTRAIT) {
+            //
+          } else {
+            //
+          }
+        } else {
+          DExtraContent.mount(this);
+        }
+      }
+
+      protected removeExtraContent() {
+        if (env.isMobile) {
+          if (env.orientation === egret.OrientationMode.PORTRAIT) {
+            //
+          } else {
+            //
+          }
+        } else {
+          DExtraContent.destroy(this);
+        }
+      }
+
+      public get roomList() {
+        return this._roomList;
+      }
+
+      public get scroller() {
+        return this._scroller;
       }
     }
   }

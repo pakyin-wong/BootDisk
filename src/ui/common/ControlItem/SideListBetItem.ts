@@ -224,7 +224,6 @@ namespace we {
         super.hideQuickBetGroup();
 
         this._quickbetButton.visible = true;
-
       }
 
       protected showQuickBetGroup() {
@@ -239,7 +238,6 @@ namespace we {
         super.showQuickBetGroup();
 
         this._quickbetButton.visible = false;
-
       }
 
       protected addEventListeners() {

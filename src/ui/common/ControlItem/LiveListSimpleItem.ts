@@ -133,29 +133,28 @@ namespace we {
         super.setStateBet(isInit);
         if (this._tableInfo.totalBet > 0) {
           this._alreadyBetSign.visible = true;
-          if (this._button) this._button.label1text = i18n.t('mobile_quick_bet_button_add_label');
+          if (this._button) { this._button.label1text = i18n.t('mobile_quick_bet_button_add_label'); }
         } else {
           this._alreadyBetSign.visible = false;
-          if (this._button) this._button.label1text = i18n.t('mobile_quick_bet_button_label');
+          if (this._button) { this._button.label1text = i18n.t('mobile_quick_bet_button_label'); }
         }
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
         super.onBetDetailUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
-            if (this._tableInfo.totalBet>0) {
+            if (this._tableInfo.totalBet > 0) {
               this._alreadyBetSign.visible = true;
-              if (this._button) this._button.label1text = i18n.t('mobile_quick_bet_button_add_label');
+              if (this._button) { this._button.label1text = i18n.t('mobile_quick_bet_button_add_label'); }
             } else {
               this._alreadyBetSign.visible = false;
-              if (this._button) this._button.label1text = i18n.t('mobile_quick_bet_button_label');
+              if (this._button) { this._button.label1text = i18n.t('mobile_quick_bet_button_label'); }
             }
           }
         }
       }
-
 
       protected addEventListeners() {
         super.addEventListeners();
@@ -354,7 +353,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);

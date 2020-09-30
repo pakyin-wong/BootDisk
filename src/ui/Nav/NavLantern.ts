@@ -11,7 +11,7 @@ namespace we {
       private _loopInterval;
       private _wait = 5000;
 
-      public fontsize = 22;
+      public fontsize = 28;
       public lineSpacing = 22;
 
       constructor() {
@@ -28,7 +28,7 @@ namespace we {
         this._next = new eui.Label();
         this._label.width = this._next.width = this.width;
         this._label.size = this._next.size = this.fontsize;
-        this._label.verticalAlign= this._next.verticalAlign = egret.VerticalAlign.MIDDLE;
+        this._label.verticalAlign = this._next.verticalAlign = egret.VerticalAlign.MIDDLE;
         this._label.lineSpacing = this._next.lineSpacing = this.lineSpacing;
 
         this._mask = new egret.Shape();

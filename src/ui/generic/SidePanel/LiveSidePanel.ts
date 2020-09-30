@@ -91,7 +91,7 @@ namespace we {
             case we.core.GameType.LO:
               return lo.SideListItemHolder;
             case we.core.GameType.RC:
-              return lo.SideListItemHolder;
+              return rc.SideListItemHolder;
             default:
               throw new Error('Invalid Game Type');
           }
@@ -110,23 +110,24 @@ namespace we {
             case we.core.GameType.BAC:
             case we.core.GameType.BAI:
             case we.core.GameType.BAS:
+              return ba.SideListBetItemHolder;
             case we.core.GameType.BAM:
-              return ba.SideListItemHolder;
+              return bam.SideListBetItemHolder;
             case we.core.GameType.RO:
             case we.core.GameType.ROL:
-              return ro.SideListItemHolder;
+              return ro.SideListBetItemHolder;
             case we.core.GameType.DI:
-              return di.SideListItemHolder;
+              return di.SideListBetItemHolder;
             case we.core.GameType.DIL:
-              return dil.SideListItemHolder;
+              return dil.SideListBetItemHolder;
             case we.core.GameType.LW:
-              return lw.SideListItemHolder;
+              return lw.SideListBetItemHolder;
             case we.core.GameType.DT:
-              return dt.SideListItemHolder;
+              return dt.SideListBetItemHolder;
             case we.core.GameType.LO:
               return lo.SideListItemHolder;
             case we.core.GameType.RC:
-              return lo.SideListItemHolder;
+              return rc.SideListItemHolder;
             default:
               throw new Error('Invalid Game Type');
           }
@@ -191,7 +192,7 @@ namespace we {
         const tableList = evt.data;
         this.goodRoadTableList.setTableList(tableList);
         const count = tableList.length;
-        const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(1);
+        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(1);
         if (tabItem) {
           tabItem.onBadgeUpdate('goodroad', count);
         }
@@ -201,7 +202,7 @@ namespace we {
         const tableList = evt.data;
         this.betTableList.setTableList(tableList);
         const count = tableList.length;
-        const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(0);
+        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(0);
         if (tabItem) {
           tabItem.onBadgeUpdate('bet', count);
         }

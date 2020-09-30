@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.ro.SideBetResultMessage" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" width="400"
         height="190">
-	<e:Group id="_racetrackGroup" left="0" right="0" bottom="0" top="0">
+	<e:Group id="_racetrackGroup" left="0" right="0" bottom="0" top="0" visible="false">
                 <e:Image id="_resultImage" verticalCenter="10" horizontalCenter="0" height="140"  width="286"/>
                 <e:Label id="_resultLabel" size="36" text="0" verticalCenter="0" horizontalCenter="-2"  fontFamily="Barlow" textAlign="center" width="40"/>
                 <e:Label id="_resultLeftLabel" size="28" text="0" verticalCenter="10" horizontalCenter="-60"  fontFamily="Barlow" rotation="-18" alpha=".5" textAlign="center" width="40"/>
                 <e:Label id="_resultRightLabel" size="28" text="0" verticalCenter="10" horizontalCenter="60"  fontFamily="Barlow" rotation="18" alpha=".5" textAlign="center" width="40"/>
 	</e:Group>
-	<e:Group id="_winAmountGroup" left="0" top="0" bottom="0" right="0" visible="false">
-		<e:Image id="_winAmountBackground" verticalCenter="0" horizontalCenter="0" />
-		<e:Label id="_winAmountLabel" text="Label" horizontalCenter="0" verticalCenter="0" size="18"/>
+	<e:Group id="_winAmountGroup" left="0" top="0" bottom="0" right="0">
+		<e:Image id="_winAmountBackground" width="318" height="100" verticalCenter="0" horizontalCenter="0" />
+		<e:Label id="_winAmountLabel" text="Label" horizontalCenter="0" verticalCenter="5" size="36" fontFamily="Barlow"/>
 	</e:Group>
 </e:Skin>

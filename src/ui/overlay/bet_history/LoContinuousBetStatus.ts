@@ -43,6 +43,7 @@ namespace we {
         public set data(d) {
           this._arrcol.replaceAll(
             d.roundsList.map(function (i) {
+              i.tablename = d.tablename;
               i.continuousbetid = d.continuousbetid;
               return i;
             })
