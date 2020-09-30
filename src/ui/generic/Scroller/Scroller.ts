@@ -266,7 +266,7 @@ namespace we {
         event.preventDefault();
         try {
           this.scheduleHide();
-          console.log(event);
+          // console.log(event);
           const delta = -this.wheelDistance(event) * 100;
           const viewHeight = this.viewport.contentHeight - this.height;
           this.viewport.scrollV = Math.max(0, Math.min(viewHeight, this.viewport.scrollV + delta));
