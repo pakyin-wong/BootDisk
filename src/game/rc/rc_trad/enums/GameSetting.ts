@@ -261,7 +261,7 @@ namespace we {
             pattern: '^1FIXPOS_&1',
             noteCountFunc: NoteCountFunc.FixPos,
             maxWin: 9,
-            ratio: [''],
+            ratio: ['RATIO_FIXPOS'],
           },
           LastFiveFixPos: {
             name: 'RCLastFiveFixPos',
