@@ -51,30 +51,43 @@ namespace we {
       public dt1v8?: RoadmapCell[];
       public dt1v9?: RoadmapCell[];
       public dt1v10?: RoadmapCell[];
+
       public dt2v6?: RoadmapCell[];
       public dt2v7?: RoadmapCell[];
       public dt2v8?: RoadmapCell[];
       public dt2v9?: RoadmapCell[];
       public dt2v10?: RoadmapCell[];
+
       public dt3v6?: RoadmapCell[];
       public dt3v7?: RoadmapCell[];
+      public dt3v8?: RoadmapCell[];
+      public dt3v9?: RoadmapCell[];
+      public dt3v10?: RoadmapCell[];
+
+      public dt4v6?: RoadmapCell[];
+      public dt4v7?: RoadmapCell[];
       public dt4v8?: RoadmapCell[];
       public dt4v9?: RoadmapCell[];
       public dt4v10?: RoadmapCell[];
+
       public dt5v6?: RoadmapCell[];
       public dt5v7?: RoadmapCell[];
       public dt5v8?: RoadmapCell[];
       public dt5v9?: RoadmapCell[];
       public dt5v10?: RoadmapCell[];
+
       public dt6v7?: RoadmapCell[];
       public dt6v8?: RoadmapCell[];
       public dt6v9?: RoadmapCell[];
       public dt6v10?: RoadmapCell[];
+
       public dt7v8?: RoadmapCell[];
       public dt7v9?: RoadmapCell[];
       public dt7v10?: RoadmapCell[];
+
       public dt8v9?: RoadmapCell[];
       public dt8v10?: RoadmapCell[];
+
       public dt9v10?: RoadmapCell[];
 
 
