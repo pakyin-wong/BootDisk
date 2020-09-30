@@ -125,6 +125,7 @@ namespace we {
         this._tableLayerTargetY = this._bigRoad.height + 37;
         this._targetQuickBetButtonY = this._bigRoad.height + 50;
         this._originalQuickBetButtonY = this._bigRoad.height - 10;
+        this._message.y = 47 + this._bigRoad.height * 0.5;
       }
 
       protected runtimeGenerateTableLayer() {

@@ -32,32 +32,38 @@ namespace we {
       private _winInstructGroup: eui.Group;
       private _lblwinInstruct: ui.RunTimeLabel;
 
-      private _lblCurrentRound: ui.RunTimeLabel;
-      private _lblCurrentRoundState: ui.RunTimeLabel;
+      protected _lblCurrentRound: ui.RunTimeLabel;
+      protected _lblCurrentRoundState: ui.RunTimeLabel;
 
-      private _lblPrevRound: ui.RunTimeLabel;
-      private _lblLastRound: ui.RunTimeLabel;
+      protected _lblPrevRound: ui.RunTimeLabel;
+      protected _lblLastRound: ui.RunTimeLabel;
 
-      private _lblResultBall0: ui.RunTimeLabel;
-      private _lblResultBall1: ui.RunTimeLabel;
-      private _lblResultBall2: ui.RunTimeLabel;
-      private _lblResultBall3: ui.RunTimeLabel;
-      private _lblResultBall4: ui.RunTimeLabel;
+      protected _lblResultBall0: ui.RunTimeLabel;
+      protected _lblResultBall1: ui.RunTimeLabel;
+      protected _lblResultBall2: ui.RunTimeLabel;
+      protected _lblResultBall3: ui.RunTimeLabel;
+      protected _lblResultBall4: ui.RunTimeLabel;
 
-      private _lblLastBall0: ui.RunTimeLabel;
-      private _lblLastBall1: ui.RunTimeLabel;
-      private _lblLastBall2: ui.RunTimeLabel;
-      private _lblLastBall3: ui.RunTimeLabel;
-      private _lblLastBall4: ui.RunTimeLabel;
+      protected _lblLastBall0: ui.RunTimeLabel;
+      protected _lblLastBall1: ui.RunTimeLabel;
+      protected _lblLastBall2: ui.RunTimeLabel;
+      protected _lblLastBall3: ui.RunTimeLabel;
+      protected _lblLastBall4: ui.RunTimeLabel;
 
-      private _lblPrevBall0: ui.RunTimeLabel;
-      private _lblPrevBall1: ui.RunTimeLabel;
-      private _lblPrevBall2: ui.RunTimeLabel;
-      private _lblPrevBall3: ui.RunTimeLabel;
-      private _lblPrevBall4: ui.RunTimeLabel;
+      protected _lblPrevBall0: ui.RunTimeLabel;
+      protected _lblPrevBall1: ui.RunTimeLabel;
+      protected _lblPrevBall2: ui.RunTimeLabel;
+      protected _lblPrevBall3: ui.RunTimeLabel;
+      protected _lblPrevBall4: ui.RunTimeLabel;
 
       constructor(skin: string = null) {
         super(skin);
+        this._currentKey = 'lo';
+        this._currentMap = we[this._currentKey].SelectionMapping;
+        this.initSkin();
+      }
+
+      protected initSkin() {
         this.skinName = 'skin_desktop.lo.SSCTraditionalBettingPanel';
       }
 
@@ -85,8 +91,8 @@ namespace we {
         this._currentBigTagIndex = 0;
         this.bigTagNames = [];
 
-        for (let i = 0; i < Object.keys(SelectionMapping).length; i++) {
-          const obj = SelectionMapping[Object.keys(SelectionMapping)[i]];
+        for (let i = 0; i < Object.keys(this._currentMap).length; i++) {
+          const obj = this._currentMap[Object.keys(this._currentMap)[i]];
 
           const bigTagGroup: eui.Group = new eui.Group();
           bigTagGroup.width = 107.7;
@@ -185,7 +191,7 @@ namespace we {
         // this.clearSmallTags();
         this.smallTagsArray = [];
         this.smallTagNames = [];
-        const currentBigTag = SelectionMapping[Object.keys(SelectionMapping)[this._currentBigTagIndex]];
+        const currentBigTag = this._currentMap[Object.keys(this._currentMap)[this._currentBigTagIndex]];
         const smallTagsHeight = 57;
         const lastRowItemIndex = -1;
         const offset = 0;
@@ -265,7 +271,7 @@ namespace we {
         for (let i = 0; i < this.smallTagsArray.length; i++) {
           const lbl = this.smallTagsArray[i].getChildAt(0) as ui.RunTimeLabel;
           lbl.alpha = 0.7;
-          lbl.textFlow = <egret.ITextElement[]> [
+          lbl.textFlow = <egret.ITextElement[]>[
             {
               text: lbl.text,
               style: { bold: false, underline: false },
@@ -273,7 +279,7 @@ namespace we {
           ];
           if (i === this._currentSmallTagIndex) {
             lbl.alpha = 1;
-            lbl.textFlow = <egret.ITextElement[]> [
+            lbl.textFlow = <egret.ITextElement[]>[
               {
                 text: lbl.text,
                 style: { bold: true, underline: true },
@@ -318,6 +324,9 @@ namespace we {
 
       public updateBetTableInfo(info) {
         super.updateBetTableInfo(info);
+        if (!info.gamestatistic) {
+          return;
+        }
         if (info.gamestatistic) {
           if (info.gamestatistic.loresults) {
             const data = info.gamestatistic.loresults;
@@ -357,7 +366,7 @@ namespace we {
       protected createBetTable() {
         this.clearCurrentBettingTable();
 
-        const currentBigTag = SelectionMapping[Object.keys(SelectionMapping)[this._currentBigTagIndex]];
+        const currentBigTag = this._currentMap[Object.keys(this._currentMap)[this._currentBigTagIndex]];
         const config = currentBigTag['type'][Object.keys(currentBigTag['type'])[this._currentSmallTagIndex]];
 
         const bettingTable = new SSCTraditionalBettingTable(config);

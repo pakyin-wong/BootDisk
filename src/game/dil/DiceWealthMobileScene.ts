@@ -11,8 +11,8 @@ namespace we {
     export class MobileScene extends core.MobileBaseGameScene {
       protected _roadmapControl: DilRoadmapControl;
       protected _bottomGamePanel: MobileBottomGamePanel;
-      protected _dilGameIDText: ui.RunTimeLabel;
-      protected _dilGameID: ui.RunTimeLabel;
+      // protected _dilGameIDText: ui.RunTimeLabel;
+      // protected _dilGameID: ui.RunTimeLabel;
       protected _totalBet: ui.RunTimeLabel;
       protected _totalBetText: ui.RunTimeLabel;
       protected _verticalGroup: eui.Group;
@@ -54,50 +54,50 @@ namespace we {
 
       protected setStateIdle(isInit: boolean) {
         super.setStateIdle(isInit);
-        (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearLuckyNumbers();
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
 
       protected setStateBet(isInit: boolean) {
         super.setStateBet(isInit);
-        this._dilGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
+        // this._dilGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
-        (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearLuckyNumbers();
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
 
       protected setStateDeal(isInit: boolean) {
         super.setStateDeal(isInit);
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
-          (<we.dil.MobileChipLayer> this._chipLayer).showLuckyNumber();
-          (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer);
+          (<we.dil.MobileChipLayer>this._chipLayer).showLuckyNumber();
+          (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer);
         }
       }
 
       protected setStateFinish(isInit: boolean = false) {
         super.setStateFinish(isInit);
         if (isInit && this._previousState !== we.core.GameState.FINISH) {
-          (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer);
+          (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer);
         }
-        (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.dil.MobileChipLayer> this._chipLayer).showWinningNumber();
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.MobileChipLayer>this._chipLayer).showWinningNumber();
       }
 
       protected setStateRefund(isInit: boolean = false) {
         super.setStateRefund(isInit);
-        (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearLuckyNumbers();
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
-        (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearLuckyNumbers();
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
 
       protected setStateUnknown(isInit: boolean = false) {
         super.setStateUnknown(isInit);
-        (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearLuckyNumbers();
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
 
       protected initChildren() {
@@ -113,7 +113,7 @@ namespace we {
         // }
         this.createVerticalLayout();
         this.changeHandMode();
-        this._dilGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        // this._dilGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
         this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
         dir.monitor._sideGameList.setToggler(this._common_listpanel);
         this.setChipPanelPos();
@@ -199,7 +199,7 @@ namespace we {
 
       protected onRoadDataUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const stat = <data.TableInfo> evt.data;
+          const stat = <data.TableInfo>evt.data;
           if (stat.tableid === this._tableId) {
             this._roadmapControl.updateRoadData();
           }
@@ -223,7 +223,7 @@ namespace we {
       }
 
       public checkResultMessage(resultData = null) {
-        (<any> this._gameData).hasBet = this.hasBet();
+        (<any>this._gameData).hasBet = this.hasBet();
         super.checkResultMessage(resultData);
       }
 

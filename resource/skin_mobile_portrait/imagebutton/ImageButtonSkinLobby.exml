@@ -21,7 +21,7 @@
              source.lobby_panel_gamelist_tag_icon_allgame="m_common_btn_panel_quickbet_png"
      source.lobby_notify_btn_hide="m_common_notification_close_icon_png"/>
     <e:Group id="_group" left="0" right="0" top="0" bottom="0">
-        <ui:RunTimeLabel id="_label" text="" fontFamily="NotoSansCJKtc-Regular" size="24" verticalCenter="0" horizontalCenter="0"
+        <ui:RunTimeLabel id="_label" text="" size="24" verticalCenter="0" horizontalCenter="0"
                          size.lobby_notify_btn_action="40" textColor.lobby_notify_btn_action="0x00aa5e" horizontalCenter.lobby_notify_btn_action="20" textAlign.lobby_notify_btn_action="center" width.lobby_notify_btn_action="104" height.lobby_notify_btn_action="65" verticalAlign.lobby_notify_btn_action="middle"/>
         <e:Image includeIn="lobby_mode_01,lobby_mode_02" x="32.5" y="32.5" source="m_lobby_view_icon_1column_png"
                  source.lobby_mode_02="m_lobby_view_icon_2column_png"  horizontalCenter.lobby_mode_01="0" verticalCenter.lobby_mode_01="0" width.lobby_mode_01="100%" height.lobby_mode_01="100%" horizontalCenter.lobby_mode_02="0" verticalCenter.lobby_mode_02="0" width.lobby_mode_02="100%" height.lobby_mode_02="100%"/>

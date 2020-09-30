@@ -22,6 +22,9 @@ namespace we {
       protected _veritcalTop: eui.Group;
       protected _verticalGroup: eui.Group;
 
+      protected _GameID: ui.RunTimeLabel;
+      protected _GameIDText: ui.RunTimeLabel;
+
       private _videoBtn: egret.DisplayObject;
 
       // protected _bottomResultDisplay: ui.IResultDisplay;
@@ -84,6 +87,8 @@ namespace we {
         super.initChildren();
         // mouse.setButtonMode(this._videoBtn, false);
         this._bottomGamePanel.setTableInfo(this._tableInfo);
+        this._GameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        this._GameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         this._bottomGamePanel.gameScene = this;
         if (this._lblBetLimit) {
           this.initBetLimitSelector();
@@ -372,7 +377,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             if (this._totalBet) {
               const totalBet = betInfo.gameroundid === this._gameData.gameroundid ? betInfo.total : 0;
@@ -385,7 +390,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo> evt.data;
+          const stat = <data.TableInfo>evt.data;
           if (stat.tableid === this._tableId) {
             this._bottomGamePanel.updateStat();
           }
@@ -494,6 +499,7 @@ namespace we {
           const totalBet = this.tableInfo.betInfo.gameroundid === this._gameData.gameroundid ? this.tableInfo.betInfo.total : 0;
           this._totalBet.renderText = () => `${totalBet}`;
         }
+        this._GameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
       }
 
       protected changeLang() {

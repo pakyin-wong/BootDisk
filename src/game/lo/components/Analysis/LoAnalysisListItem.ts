@@ -10,6 +10,8 @@ namespace we {
         this.renderType = renderType;
 
         this.bg = new ui.RoundRectShape();
+        this.bg.width = 130;
+        this.bg.height = 34;
         this.bg.setRoundRectStyle(130, 34, { tl: 8, tr: 8, bl: 8, br: 8 }, '0x0d3057', 1, 0);
 
         this.label = new ui.RunTimeLabel();
@@ -97,7 +99,7 @@ namespace we {
         return str.indexOf(suffix, str.length - suffix.length) !== -1;
       }
 
-      protected destroy() {}
+      protected destroy() { }
     }
   }
 }

@@ -46,7 +46,7 @@
 	         touchChildren="true">
 		<ui:RoundRectButton id="_quickBetButton" verticalCenter="0" left="200" width="350" height="100"
 		                    cornerTL_TR_BL_BR="50,50,50,50" skinName="skin_mobile.QuickBetButtonSkin" stroke="0" strokeIn="0"
-		                    fillColor="00AA5E" fillAlpha="1" fillAlpha_hover="0.7" />
+		                    fillColor="00AA5E" fillAlpha="1" fillAlpha_hover="0.7" labelSize="48" />
 		<ui:RoundRectButton id="_enterTableButton" verticalCenter="0" right="200" width="350" height="100"
 		                    cornerTL_TR_BL_BR="50,50,50,50" stroke="0" strokeIn="0" fillColor="00AA5E" fillAlpha="1"
 		                    fillAlpha_hover="0.7" labelSize="50" />

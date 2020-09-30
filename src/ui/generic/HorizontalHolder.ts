@@ -418,17 +418,17 @@ namespace we {
         this._startTime = egret.getTimer();
 
         const canvas = document.getElementsByTagName('canvas')[0];
-        console.log(canvas);
+        // console.log(canvas);
         // this._previousPosition = this._startPosition;
 
         if (env.isMobile) {
-          (<any> canvas).addEventListener('touchmove', this.onTouchMove, { passive: false });
-          (<any> canvas).addEventListener('touchend', this.onTouchEnd, { passive: false });
-          console.log('mobile :' + this._startPosition);
+          (<any>canvas).addEventListener('touchmove', this.onTouchMove, { passive: false });
+          (<any>canvas).addEventListener('touchend', this.onTouchEnd, { passive: false });
+          // console.log('mobile :' + this._startPosition);
         } else {
-          (<any> window).addEventListener('mousemove', this.onTouchMove, { passive: false });
-          (<any> window).addEventListener('mouseup', this.onTouchEnd, { passive: false });
-          console.log('desktop :' + this._startPosition);
+          (<any>window).addEventListener('mousemove', this.onTouchMove, { passive: false });
+          (<any>window).addEventListener('mouseup', this.onTouchEnd, { passive: false });
+          // console.log('desktop :' + this._startPosition);
         }
 
         // (<any>window).addEventListener('mousemove', this.onTouchMove, { passive: false });
@@ -455,7 +455,7 @@ namespace we {
         } else {
           touchPos = Math.round(event.offsetX / egret.sys.DisplayList.$canvasScaleX);
         }
-        console.log('tp: ' + touchPos);
+        // console.log('tp: ' + touchPos);
         // const touchPos = e.$stageX;
         if (!this._previousPosition) {
           // this._previousPosition = e.$stageX;
@@ -654,11 +654,11 @@ namespace we {
         const canvas = document.getElementsByTagName('canvas')[0];
 
         if (env.isMobile) {
-          (<any> canvas).removeEventListener('touchmove', this.onTouchMove, { passive: false });
-          (<any> canvas).removeEventListener('touchend', this.onTouchEnd, { passive: false });
+          (<any>canvas).removeEventListener('touchmove', this.onTouchMove, { passive: false });
+          (<any>canvas).removeEventListener('touchend', this.onTouchEnd, { passive: false });
         } else {
-          (<any> window).removeEventListener('mousemove', this.onTouchMove, { passive: false });
-          (<any> window).removeEventListener('mouseup', this.onTouchEnd, { passive: false });
+          (<any>window).removeEventListener('mousemove', this.onTouchMove, { passive: false });
+          (<any>window).removeEventListener('mouseup', this.onTouchEnd, { passive: false });
         }
 
         // (<any>window).removeEventListener('mousemove', this.onTouchMove, { passive: false });

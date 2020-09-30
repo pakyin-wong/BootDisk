@@ -30,6 +30,10 @@ namespace we {
       //   super(skin, orientationDependent);
       constructor() {
         super();
+        this.initSkin();
+      }
+
+      protected initSkin() {
         this.skinName = 'skin_desktop.lo.SSCBettingControlBar';
       }
 
@@ -131,7 +135,7 @@ namespace we {
       }
 
       protected showBetDescription(e) {
-        const config = SelectionMapping[Object.keys(SelectionMapping)[this.bettingPanel.currentBigTagIndex]];
+        const config = this.bettingPanel.currentMap[Object.keys(this.bettingPanel.currentMap)[this.bettingPanel.currentBigTagIndex]];
 
         const bigTag = config.name;
         const smallTag = config['type'][Object.keys(config['type'])[this.bettingPanel.currentSmallTagIndex]].name;
@@ -160,7 +164,7 @@ namespace we {
         }
 
         if (this._lblTotalBet) {
-          this._lblTotalBet.text = `${this._totalBetAmount / 100}`;
+          this._lblTotalBet.text = `${utils.formatNumber(this._totalBetAmount)}`;
         }
       }
 

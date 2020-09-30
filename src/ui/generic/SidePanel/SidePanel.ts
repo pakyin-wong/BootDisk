@@ -8,6 +8,8 @@ namespace we {
       protected _viewStack: eui.ViewStack;
 
       protected _isCollapsed = true;
+      protected _maxPanelHeight = 1153;
+      protected _targetHeight = 1153;
 
       constructor() {
         super();
@@ -67,31 +69,41 @@ namespace we {
         if (this.isCollapsed) {
           this._viewStack.selectedIndex = this._tabbar.selectedIndex;
 
-          egret.Tween.removeTweens(this._tweenGroup);
-          egret.Tween.removeTweens(this._tabBarGroup);
-          egret.Tween.removeTweens(this._viewStack);
-          egret.Tween.removeTweens(this._bg);
-
-          egret.Tween.get(this._viewStack)
-            .wait(200)
-            .to({ height: 1153 }, 200);
-          egret.Tween.get(this._tweenGroup)
-            .to({ scaleX: 1 }, 200)
-            .set({ visible: true })
-            .to({ scaleY: 1, alpha: 1 }, 200);
-          egret.Tween.get(this._tabBarGroup)
-            .wait(200)
-            .to({ y: 8 }, 200);
-          egret.Tween.get(this._bg)
-            .wait(200)
-            .to({ ellipseHeight: 28, ellipseWidth: 28 }, 200);
+          this.updateTargetHeight();
+          this.tweenExpand(200);
 
           this._isCollapsed = false;
 
           this.dispatchChange();
         } else {
           this._viewStack.selectedIndex = this._tabbar.selectedIndex;
+          this.updateTargetHeight();
+          this.tweenExpand(200);
         }
+      }
+
+      protected updateTargetHeight(){
+      }
+
+      protected tweenExpand(interval: number){
+          egret.Tween.removeTweens(this._tweenGroup);
+          egret.Tween.removeTweens(this._tabBarGroup);
+          egret.Tween.removeTweens(this._viewStack);
+          egret.Tween.removeTweens(this._bg);
+
+          egret.Tween.get(this._viewStack)
+            .wait(interval)
+            .to({ height: this._targetHeight }, interval);
+          egret.Tween.get(this._tweenGroup)
+            .to({ scaleX: 1 }, interval)
+            .set({ visible: true })
+            .to({ scaleY: 1, alpha: 1 }, interval);
+          egret.Tween.get(this._tabBarGroup)
+            .wait(interval)
+            .to({ y: 8 }, interval);
+          egret.Tween.get(this._bg)
+            .wait(interval)
+            .to({ ellipseHeight: 28, ellipseWidth: 28 }, interval);
       }
     }
   }

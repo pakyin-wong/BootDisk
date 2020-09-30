@@ -60,8 +60,8 @@ namespace we {
         this.totalBet = 0;
 
         const options = {
-          paddingX: 13,
-          paddingY: 15,
+          paddingX: 0,
+          paddingY: 0,
           gapX: 16,
           gapY: 19,
           iconItemColors: [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1],
@@ -74,8 +74,8 @@ namespace we {
         };
 
         this.beadRoad = new DiBeadRoad(580, 2, 8, 48, 1, options); // in game
-        this.beadRoad.x = 29;
-        this.beadRoad.y = 16;
+        // this.beadRoad.x = 29;
+        // this.beadRoad.y = 16;
         this.beadRoad.scaleX = 689 / 689;
         this.beadRoad.scaleY = 689 / 689;
         this.beadRoad.expandRoad(false);
@@ -115,7 +115,12 @@ namespace we {
         this.sizeBigRoad = new DiSizeBigRoad(17, 34, 1, true);
         this.sizeBigRoad.scaleX = 580 / 578;
 
-        const data2 = [{ v: 0, gameRoundID: 'cde345' }, { v: 1, gameRoundID: 'cde345' }, { v: 2, gameRoundID: 'cde345' }, { v: 12, gameRoundID: 'cde345' }];
+        const data2 = [
+          { v: 0, gameRoundID: 'cde345' },
+          { v: 1, gameRoundID: 'cde345' },
+          { v: 2, gameRoundID: 'cde345' },
+          { v: 12, gameRoundID: 'cde345' },
+        ];
         this.sizeBigRoad.parseRoadData(data2);
 
         // add road to road stack 1

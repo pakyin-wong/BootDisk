@@ -9,6 +9,8 @@ namespace we {
         protected _txt_record_win: ui.RunTimeLabel;
         protected _tf_search: eui.EditableText;
         protected _txt_search: ui.RunTimeLabel;
+        protected _txt_noHistoryResult: ui.RunTimeLabel;
+        protected _rect_record: eui.Rect;
 
         protected _datagroup: eui.DataGroup;
         protected _dataColl: eui.ArrayCollection;
@@ -20,6 +22,8 @@ namespace we {
         protected _endtime: number;
         protected _limit: number = 11;
         protected _type: number = -1;
+
+        protected _noHistoryResult: eui.Group;
 
         protected _searchDelay: number;
 
@@ -46,6 +50,7 @@ namespace we {
           this.close.label.renderText = () => `${i18n.t('nav.menu.cancel')}`;
           // this._tf_search.prompt = '...';
           // this._tf_search.promptColor = 0xc9c9c9;
+          this._txt_noHistoryResult.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_noresult')}`;
           this._tf_search.addEventListener(egret.Event.CHANGE, this.onSearchEnter, this);
           this._btn_search.addEventListener('CLICKED', this.search, this);
           this._btn_clean.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickClean, this);
@@ -116,6 +121,19 @@ namespace we {
           } else {
             this.total = Math.ceil(res.total / this._limit);
             this._page = Math.floor(res.offset / this._limit) + 1;
+            if (res.total === 0) {
+              this._noHistoryResult.visible = true;
+              this._rect_record.visible = false;
+              this._txt_record_date.visible = false;
+              this._txt_record_game.visible = false;
+              this._txt_record_win.visible = false;
+            } else {
+              this._noHistoryResult.visible = false;
+              this._rect_record.visible = true;
+              this._txt_record_date.visible = true;
+              this._txt_record_game.visible = true;
+              this._txt_record_win.visible = true;
+            }
             // this._ddm_page && this._ddm_page.dropdown.select(this._page);
             res.history.forEach((element, i) => {
               if (i % 2 === 1) {
