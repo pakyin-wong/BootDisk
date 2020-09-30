@@ -109,7 +109,7 @@ namespace we {
         this._lblMultiplier.renderText = () => `${i18n.t('lo_trad.ui.multiplier')}`;
         this._lblTotalBet.renderText = () => `${i18n.t('lo_trad.ui.betamount')}`;
         this._lblControl.renderText = () => `${i18n.t('lo_trad.ui.action')}`;
-        this._lblBalance.renderText = () => `${i18n.t('nav.bet_balance')} $${env.balance ? utils.formatNumber(env.balance, true) : ' - '}`;
+        // this._lblBalance.renderText = () => `${i18n.t('nav.bet_balance')} $${env.balance ? utils.formatNumber(env.balance, true) : ' - '}`;
 
         this._lbltotalBetCount.renderText = () => `${this._totalBetCount}`;
         this._lbltotalBetAmount.renderText = () => `${this._totalBetAmount}`;

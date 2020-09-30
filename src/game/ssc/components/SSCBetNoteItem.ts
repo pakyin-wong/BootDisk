@@ -51,10 +51,10 @@ namespace we {
         this._txt_record_bgcolor.fillColor = 0x0f1721;
         this._txtGameMode.text = this.gamemode;
         this._txtBetItem.text = this.betitem;
-        this._txtBetMode.text = `${parseInt(this.betmode, 10) / 100} 元`;
+        this._txtBetMode.text = `${utils.formatNumber(parseInt(this.betmode, 10))} 元`;
         this._txtNoteCount.text = `${this.data.count} 注`;
         this._txtMultiplier.text = this.data.multiplier;
-        this._txtTotalBet.text = `$ ${Math.round(this.data.multiplier * parseInt(this.betmode, 10) * this.data.count * 100) / 10000}`;
+        this._txtTotalBet.text = `$${utils.formatNumber(this.data.multiplier * parseInt(this.betmode, 10) * this.data.count)}`;
       }
 
       protected addListeners() {
