@@ -6,10 +6,10 @@
                         strokeColor="0xffffff" strokeAlpha="0.5" fillColor="0x1b232c" />
         <e:EditableText id="_textArea" top="25" left="25" right="25" bottom="25" restrict="0-9 \\;\\,\\\n" multiline="true" text="" textAlign="left" verticalAlign="top" size="24"/>
     </e:Group>
-    <ui:RunTimeLabel id="_instruction" x="44" y="230" text="說明\n1. 每一注號碼之間的間隔符支持回車 空格[] 逗號[,] 分號[;]\n2. 文件格式必須是.txt格式，大小不超過200KB。\n3. 將文件拖入文本框即可快速實現文件上傳，大文件拖拽上傳效果更佳。\n4. 導入文本內容後將覆蓋文本框中現有的內容。" 
+    <ui:RunTimeLabel id="_lblInstruction" x="44" y="230" text="說明\n1. 每一注號碼之間的間隔符支持回車 空格[] 逗號[,] 分號[;]\n2. 文件格式必須是.txt格式，大小不超過200KB。\n3. 將文件拖入文本框即可快速實現文件上傳，大文件拖拽上傳效果更佳。\n4. 導入文本內容後將覆蓋文本框中現有的內容。" 
     lineSpacing="0" size="18" alpha="0.7" fontFamily="PMingLiU"/>
     
-    <e:Group id="_btnGroup" x="44" bottom="80" width="1420" height="100">
+    <e:Group id="_btnGroup" x="44" bottom="60" width="1420" height="100">
         <e:Group x="44" verticalCenter="0" id="_btnUploadGroup" width="149" height="50">
 		    <ui:RoundRectButton id="_btnUpload" cornerTL_TR_BL_BR="25,25,25,25" width="149" height="50" verticalCenter="0" 
                                 stroke="1" fillAlpha="0" strokeColor="0x1b416e"

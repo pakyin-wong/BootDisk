@@ -11,7 +11,7 @@ namespace we {
 
       public static toggle() {
         this.dismissableList.map(dismissable => {
-          console.log(dismissable.cancelAnim);
+          // console.log(dismissable.cancelAnim);
           dismissable.cancelAnim && dismissable.cancelAnim();
         });
 

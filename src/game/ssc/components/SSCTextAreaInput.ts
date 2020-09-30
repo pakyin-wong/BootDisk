@@ -5,7 +5,7 @@ namespace we {
       protected _textAreaGroup: eui.Group;
 
       protected _textArea: egret.TextField;
-      protected _instruction: ui.RunTimeLabel;
+      protected _lblInstruction: ui.RunTimeLabel;
 
       protected _btnUpload;
       protected _btnFix;
@@ -17,10 +17,14 @@ namespace we {
       protected _lblBtnFix;
       protected _lblBtnClear;
 
-      private isValidate = false;
+      protected isValidate = false;
 
       constructor(index: number, config: any) {
         super(index, config);
+        this.initSkin();
+      }
+
+      protected initSkin() {
         this.skinName = 'skin_desktop.lo.SSCTextAreaInput';
       }
 
@@ -78,15 +82,15 @@ namespace we {
         this.updateData();
       }
 
-      private loadFileAbort() {
+      protected loadFileAbort() {
         console.log('abort');
       }
 
-      private loadFileError() {
+      protected loadFileError() {
         console.log('error');
       }
 
-      private onUploadChange() {
+      protected onUploadChange() {
         // 获取选择图片
         const uploadText: any = document.getElementById('uploadText');
         const file = uploadText.files[0];
@@ -132,6 +136,8 @@ namespace we {
 
       protected updateText() {
         super.updateText();
+        this._lblInstruction.renderText = () =>
+          `說明\n1. 每一注號碼之間的間隔符支持回車 空格[] 逗號[,] 分號[;]\n2. 文件格式必須是.txt格式，大小不超過200KB。\n3. 將文件拖入文本框即可快速實現文件上傳，大文件拖拽上傳效果更佳。\n4. 導入文本內容後將覆蓋文本框中現有的內容。`;
         this._lblBtnUpload.renderText = () => `${i18n.t('lo_trad.upload_document')}`;
         this._lblBtnFix.renderText = () => `${i18n.t('lo_trad.erase_non_number')}`;
         this._lblBtnClear.renderText = () => `${i18n.t('lo_trad.all_clear')}`;

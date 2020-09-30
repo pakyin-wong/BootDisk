@@ -18,11 +18,14 @@ namespace we {
       constructor(index: number, config: any) {
         super(index, config);
 
-        this.skinName = 'skin_desktop.lo.SSCCheckBoxInput';
         // this.bigTagIndex = currentBigTagIndex;
         // this.smallTagIndex = currentSmallTagIndex;
         this.init();
         // this.initComponents();
+      }
+
+      protected initSkin() {
+        this.skinName = 'skin_desktop.lo.SSCCheckBoxInput';
       }
 
       public init() {

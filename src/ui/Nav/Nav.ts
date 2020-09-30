@@ -139,7 +139,7 @@ namespace we {
       }
 
       private updateMaxWinAmountAndCount(data) {
-        console.log('updateMaxWinAmountAndCount', data);
+        // console.log('updateMaxWinAmountAndCount', data);
         if (data.error) {
           return;
         }

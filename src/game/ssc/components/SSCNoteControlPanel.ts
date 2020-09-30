@@ -57,12 +57,16 @@ namespace we {
       //   super(skin, orientationDependent);
       constructor() {
         super();
-        this.skinName = 'skin_desktop.lo.SSCNoteControlPanel';
+        this.initSkin();
         // TradNoteData {
         //   public field: string; // field consist of several information: Bet type, bet per note and bet detail
         //   public count: number; // number of note corresponding to the field
         //   public multiplier: number;
         // }
+      }
+
+      protected initSkin() {
+        this.skinName = 'skin_desktop.lo.SSCNoteControlPanel';
       }
 
       protected childrenCreated() {
@@ -105,7 +109,7 @@ namespace we {
         this._lblMultiplier.renderText = () => `${i18n.t('lo_trad.ui.multiplier')}`;
         this._lblTotalBet.renderText = () => `${i18n.t('lo_trad.ui.betamount')}`;
         this._lblControl.renderText = () => `${i18n.t('lo_trad.ui.action')}`;
-        this._lblBalance.renderText = () => `${i18n.t('nav.bet_balance')} $${env.balance ? utils.formatNumber(env.balance, true) : ' - '}`;
+        // this._lblBalance.renderText = () => `${i18n.t('nav.bet_balance')} $${env.balance ? utils.formatNumber(env.balance, true) : ' - '}`;
 
         this._lbltotalBetCount.renderText = () => `${this._totalBetCount}`;
         this._lbltotalBetAmount.renderText = () => `${this._totalBetAmount}`;

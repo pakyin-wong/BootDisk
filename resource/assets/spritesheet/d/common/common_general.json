@@ -581,27 +581,27 @@
       "sourceW": 48,
       "sourceH": 42
     },
-    "d_common_icon_emoji_disabled_png": {
+    "d_common_panel_setting_uicolour_btn_active_png": {
       "x": 842,
       "y": 264,
-      "w": 42,
-      "h": 42,
+      "w": 47,
+      "h": 47,
       "offX": 0,
       "offY": 0,
-      "sourceW": 42,
-      "sourceH": 42
+      "sourceW": 47,
+      "sourceH": 47
     },
-    "d_common_icon_emoji_enabled_png": {
+    "d_common_panel_setting_uicolour_btn_png": {
       "x": 845,
       "y": 210,
-      "w": 42,
-      "h": 42,
+      "w": 47,
+      "h": 47,
       "offX": 0,
       "offY": 0,
-      "sourceW": 42,
-      "sourceH": 42
+      "sourceW": 47,
+      "sourceH": 47
     },
-    "d_common_icon_msg_disabled_png": {
+    "d_common_icon_emoji_disabled_png": {
       "x": 866,
       "y": 156,
       "w": 42,
@@ -611,9 +611,29 @@
       "sourceW": 42,
       "sourceH": 42
     },
-    "d_common_icon_msg_enabled_png": {
+    "d_common_icon_emoji_enabled_png": {
       "x": 794,
       "y": 363,
+      "w": 42,
+      "h": 42,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 42,
+      "sourceH": 42
+    },
+    "d_common_icon_msg_disabled_png": {
+      "x": 794,
+      "y": 409,
+      "w": 42,
+      "h": 42,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 42,
+      "sourceH": 42
+    },
+    "d_common_icon_msg_enabled_png": {
+      "x": 828,
+      "y": 455,
       "w": 42,
       "h": 42,
       "offX": 0,
@@ -642,8 +662,8 @@
       "sourceH": 28
     },
     "d_ba_navbar_chevron_png": {
-      "x": 781,
-      "y": 431,
+      "x": 776,
+      "y": 518,
       "w": 30,
       "h": 30,
       "offX": 0,
@@ -662,7 +682,7 @@
       "sourceH": 25
     },
     "d_ba_navbar_icon_setting_png": {
-      "x": 776,
+      "x": 810,
       "y": 518,
       "w": 28,
       "h": 28,
@@ -672,8 +692,8 @@
       "sourceH": 28
     },
     "d_ba_navbar_icon_sound_png": {
-      "x": 808,
-      "y": 518,
+      "x": 619,
+      "y": 224,
       "w": 28,
       "h": 28,
       "offX": 0,
@@ -683,7 +703,7 @@
     },
     "d_ba_navbar_icon_stat_png": {
       "x": 619,
-      "y": 224,
+      "y": 256,
       "w": 28,
       "h": 28,
       "offX": 0,
@@ -702,8 +722,8 @@
       "sourceH": 24
     },
     "d_ba_navbar_icon_info_png": {
-      "x": 619,
-      "y": 256,
+      "x": 475,
+      "y": 300,
       "w": 24,
       "h": 24,
       "offX": 0,
@@ -712,8 +732,8 @@
       "sourceH": 24
     },
     "d_ba_navbar_icon_rss_png": {
-      "x": 475,
-      "y": 300,
+      "x": 842,
+      "y": 501,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -722,8 +742,8 @@
       "sourceH": 22
     },
     "d_lobby_navbar_time_png": {
-      "x": 815,
-      "y": 409,
+      "x": 842,
+      "y": 527,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -732,8 +752,8 @@
       "sourceH": 22
     },
     "d_lobby_select_round_no_png": {
-      "x": 815,
-      "y": 435,
+      "x": 868,
+      "y": 501,
       "w": 18,
       "h": 18,
       "offX": 0,
@@ -742,8 +762,8 @@
       "sourceH": 18
     },
     "d_lobby_select_round_yes_png": {
-      "x": 840,
-      "y": 363,
+      "x": 868,
+      "y": 523,
       "w": 18,
       "h": 18,
       "offX": 0,

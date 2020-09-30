@@ -55,7 +55,7 @@ namespace we {
           return i18n.t('mobile_enter_table_button_label');
         };
 
-        this._enterTableButton.label.fontFamily = 'NotoSansCJKtc-Medium';
+        // this._enterTableButton.label.fontFamily = 'NotoSansCJKtc-Medium';
         if (this._toggler) {
           this.initBetLimitSelector();
         }

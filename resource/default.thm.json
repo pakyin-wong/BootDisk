@@ -287,6 +287,7 @@
 		"resource/skin_desktop/rc/RcSceneFun.exml",
 		"resource/skin_desktop/rc/RcSceneTraditional.exml",
 		"resource/skin_desktop/rc/RcSidePanel.exml",
+		"resource/skin_desktop/rc/trad/RCTraditionalBettingPanel.exml",
 		"resource/skin_desktop/ro/LobbyColorBarChart.exml",
 		"resource/skin_desktop/ro/LobbyOddBarChart.exml",
 		"resource/skin_desktop/ro/LobbyBigBarChart.exml",
