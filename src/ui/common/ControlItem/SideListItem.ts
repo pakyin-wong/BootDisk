@@ -3,6 +3,7 @@ namespace we {
     export class SideListItem extends LiveListSimpleItem {
       protected _bigRoad: we.ui.ILobbyRoad & eui.Component;
       protected _betChipSetPanel: eui.Group;
+      protected _betChipSetBg: ui.RoundRectShape;
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _betChipSetGridEnabled: boolean = false;
       protected _quickbetEnable: boolean = false;
@@ -72,6 +73,9 @@ namespace we {
         this._betChipSet.y = this._betChipPanelTargetY - 100;
         this._betChipSetPanel.visible = true;
         egret.Tween.get(this._betChipSet).to({ y: this._betChipPanelTargetY, alpha: 1 }, 300);
+        if (this._betChipSetBg) {
+          egret.Tween.get(this._betChipSetBg).to({ y: this._contentContainer.height + this._quickBetGroup.height /2 , height: 200, alpha: 1 }, 250);
+        }
         this._betChipSetGridEnabled = true;
       }
 
@@ -81,6 +85,9 @@ namespace we {
           .call(() => {
             this._betChipSetPanel.visible = false;
           });
+        if (this._betChipSetBg) {
+          egret.Tween.get(this._betChipSetBg).to({ y: 0, height: 200, alpha: 0 }, 250);
+        }
         this._betChipSetGridEnabled = false;
       }
 
