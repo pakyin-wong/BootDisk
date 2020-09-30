@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.LoPopupBetDetail" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*" xmlns:bh="we.overlay.betHistory.*">
+	<e:Group id="content">
+		<ui:RoundRectShape width="1026" height="450" scaleX="1" scaleY="1" fillColor="0x0f1721" strokeColor="0x1d2b3f" stroke="1.7" cornerTL_TR_BL_BR="13,13,13,13"/>
+		<e:Rect width="932" height="1" x="46" y="213" fillColor="0x333c4a"/>
+		<e:Group id="text" left="0" right="0" top="0" bottom="0">
+			<e:Label id="_txt_title" text="追號詳情" x="47" y="26" scaleX="1" scaleY="1" textColor="0xd5a56c" height="45" verticalAlign="middle"/>
+			<e:Label id="_txt_betid" text="投注編號" x="46" y="119" scaleX="1" scaleY="1" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_txt_round" text="獎期" x="324" y="119" scaleX="1" scaleY="1" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_txt_date" text="日期時間" x="572" y="119" scaleX="1" scaleY="1" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_txt_game" text="遊戲" x="897" y="119" scaleX="1" scaleY="1" size="20" height="29" verticalAlign="middle"/>
+			<e:Label id="_txt_type" text="類型" x="46" y="231" scaleX="1" scaleY="1" height="66" verticalAlign="middle" size="20"/>
+			<e:Label id="_txt_group" text="玩法" x="46" y="297" scaleX="1" scaleY="1" height="66" verticalAlign="middle" size="20"/>
+			<e:Label id="_txt_field" text="投注項目" x="46" y="363" scaleX="1" scaleY="1" height="66" verticalAlign="middle" size="20"/>
+			<e:Label id="_txt_result" text="遊玩結果" x="374" y="233" scaleX="1" scaleY="1" size="20" verticalAlign="middle" height="66"/>
+			<e:Label id="_txt_remark" text="贏輸" x="374" y="299" scaleX="1" scaleY="1" size="20" verticalAlign="middle" height="66"/>
+		</e:Group>
+        <e:DataGroup id="_list" left="0" right="0" top="0" bottom="0"/>
+		<e:Image id="close" width="48" height="48" source="d-lobby-button-close-none_png" x="942" y="25" scaleX="1" scaleY="1"/>
+	</e:Group>
+</e:Skin>

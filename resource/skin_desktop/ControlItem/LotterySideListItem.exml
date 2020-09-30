@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.LotterySideListItemSkin" width="339" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:baccarat="baccarat.*" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*"
+        xmlns:live="we.live.*" minHeight="174" height="266">
+    <e:Group id="_contentContainer" width="339" height="174" x="0" y="0">
+        <ui:RoundRectShape width="35" height="36" cornerTL_TR_BL_BR="8,8,8,8" x="202.5" y="6" fillColor="0x112239"
+                           fillAlpha="0.8" stroke="0" />
+        <ui:RoundRectShape width="35" height="36" cornerTL_TR_BL_BR="8,8,8,8" x="249" y="6" fillColor="0x112239"
+                           fillAlpha="0.8" stroke="0" />
+        <ui:RoundRectShape width="35" height="36" cornerTL_TR_BL_BR="8,8,8,8" x="294.5" y="6" fillColor="0x112239"
+                           fillAlpha="0.8" stroke="0" />
+        <e:Group id="_timerGroup" x="204" y="5">
+            <e:Label id="_counter1" text="0" width="15" height="36" verticalAlign="middle" size="30"
+                     textColor="0x4ADC84" bold="true" fontFamily="Barlow" x="204" textAlign="center" />
+            <e:Label id="_counter2" text="0" width="15" height="36" verticalAlign="middle" size="30"
+                     textColor="0x4ADC84" bold="true" fontFamily="Barlow" x="222.5" textAlign="center" />
+            <e:Label text=":" height="36" verticalAlign="middle" size="30" textColor="0x4ADC84" bold="true"
+                     fontFamily="Barlow" x="239" width="10" />
+            <e:Label id="_counter3" text="0" width="15" height="36" verticalAlign="middle" size="30"
+                     textColor="0x4ADC84" bold="true" fontFamily="Barlow" x="250.5" textAlign="center" />
+            <e:Label id="_counter4" text="0" width="15" height="36" verticalAlign="middle" size="30"
+                     textColor="0x4ADC84" bold="true" fontFamily="Barlow" x="268.5" textAlign="center" />
+            <e:Label text=":" height="36" verticalAlign="middle" size="30" textColor="0x4ADC84" bold="true"
+                     fontFamily="Barlow" x="284" width="10" />
+            <e:Label id="_counter5" text="0" width="15" height="36" verticalAlign="middle" size="30"
+                     textColor="0x4ADC84" bold="true" fontFamily="Barlow" x="294" textAlign="center" />
+            <e:Label id="_counter6" text="0" width="15" height="36" verticalAlign="middle" size="30"
+                     textColor="0x4ADC84" bold="true" fontFamily="Barlow" x="311" textAlign="center" />
+            <e:layout>
+                <e:HorizontalLayout gap="2" />
+            </e:layout>
+        </e:Group>
+        <ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" y="10" text="0" size="22" x="54" height="30"
+                         verticalAlign="middle" width="145" />
+        <e:Component id="_roadmapNode" width="339" height="216" scaleX="1" scaleY="1" y="50" />
+        <ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_desktop.GoodRoadLabelSkin" right="13" bottom="10" />
+        <ui:InGameMessage id="_message" anchorOffsetX="152" anchorOffsetY="16" skinName="skin_desktop.InGameMessageSkin"
+                          width="303" height="32" horizontalCenter="0.5" y="105"
+                          infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
+                          errorBg="d_ba_gamerecord_bankerelement_png" />
+        <e:Group id="_alreadyBetSign" right="5" bottom="40" visible="false">
+            <e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0"
+                     width="100" height="30" />
+            <e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="18" />
+        </e:Group>
+    </e:Group>
+</e:Skin>

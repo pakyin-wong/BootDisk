@@ -45,7 +45,7 @@
 			"name": "scene_lottery"
 		},
 		{
-			"keys": "d_lobby_panel_betcontrol_btn_confirm_bg_png,d_lobby_panel_betcontrol_btn_confirm_icon_png,d_lobby_button_down_normal2_png,d_common_liveverification_emoji_icon13_png,d_common_liveverification_emoji_icon102_png,d_common_liveverification_emoji_icon122_png,d_common_liveverification_emoji_icon112_png,d_common_liveverification_emoji_icon22_png,d_common_liveverification_emoji_icon32_png,d_common_liveverification_emoji_icon42_png,d_common_liveverification_emoji_icon52_png,d_common_liveverification_emoji_icon62_png,d_common_liveverification_emoji_icon72_png,d_common_liveverification_emoji_icon82_png,d_common_liveverification_emoji_icon92_png,m_common_liveverification_emoji_icon1_png,m_common_liveverification_emoji_icon10_png,m_common_liveverification_emoji_icon11_png,m_common_liveverification_emoji_icon12_png,m_common_liveverification_emoji_icon2_png,m_common_liveverification_emoji_icon3_png,m_common_liveverification_emoji_icon4_png,m_common_liveverification_emoji_icon5_png,m_common_liveverification_emoji_icon6_png,m_common_liveverification_emoji_icon7_png,m_common_liveverification_emoji_icon8_png,m_common_liveverification_emoji_icon9_png,SicBo_Game_Result_ske_json,SicBo_Game_Result_tex_json,SicBo_Game_Result_tex_png,dice12_png,dice22_png,dice32_png,dice42_png,dice52_png,dice62_png,dice13_png,dice23_png,dice33_png,dice43_png,dice53_png,dice63_png,flash_png,Base_Dice_22_png,Base_Dice_12_png,Base_Dice_32_png,Base_Dice_42_png,Base_Dice_52_png,Base_Dice_62_png,Base_Dice_13_png,Base_Dice_23_png,Base_Dice_33_png,Base_Dice_43_png,Base_Dice_53_png,Base_Dice_63_png,m_common_slide_bar_active_png,m_common_slide_bar_base_png,m_bam_instruction_card_group_landscape_1_png,m_bam_instruction_card_group_landscape_2_png,m_bam_button_close_none_png,m_bam_instruction_card_group_landscape_12_png,m_bam_instruction_card_group_landscape_22_png,m_bam_instruction_crad_group_png,m_bam_instruction_large_crad_png,m_bam_instruction_large_crad_HL_png,m_bam_instruction_reveal_all_btn_png,m_bam_instruction_swtich_crad_group_png,m_bam_panel_btn_bg_Inactive_png,m_bam_touch_icon_png,m_lw_listpenal_result_money_bg_west_png,m_bam_button_close_none2_png,m_bam_instruction_card_group_landscape_13_png,m_bam_instruction_card_group_landscape_23_png,m_bam_instruction_crad_group2_png,m_bam_instruction_large_crad2_png,m_bam_instruction_large_crad_HL2_png,m_bam_instruction_reveal_all_btn2_png,m_bam_instruction_swtich_crad_group2_png,m_bam_panel_btn_bg_Inactive2_png,m_bam_touch_icon2_png,m_lw_listpenal_result_money_bg_west2_png",
+			"keys": "d_lobby_panel_betcontrol_btn_confirm_bg_png,d_lobby_panel_betcontrol_btn_confirm_icon_png,d_lobby_button_down_normal2_png,d_common_liveverification_emoji_icon13_png,d_common_liveverification_emoji_icon102_png,d_common_liveverification_emoji_icon122_png,d_common_liveverification_emoji_icon112_png,d_common_liveverification_emoji_icon22_png,d_common_liveverification_emoji_icon32_png,d_common_liveverification_emoji_icon42_png,d_common_liveverification_emoji_icon52_png,d_common_liveverification_emoji_icon62_png,d_common_liveverification_emoji_icon72_png,d_common_liveverification_emoji_icon82_png,d_common_liveverification_emoji_icon92_png,m_common_liveverification_emoji_icon1_png,m_common_liveverification_emoji_icon10_png,m_common_liveverification_emoji_icon11_png,m_common_liveverification_emoji_icon12_png,m_common_liveverification_emoji_icon2_png,m_common_liveverification_emoji_icon3_png,m_common_liveverification_emoji_icon4_png,m_common_liveverification_emoji_icon5_png,m_common_liveverification_emoji_icon6_png,m_common_liveverification_emoji_icon7_png,m_common_liveverification_emoji_icon8_png,m_common_liveverification_emoji_icon9_png,SicBo_Game_Result_ske_json,SicBo_Game_Result_tex_json,SicBo_Game_Result_tex_png,dice12_png,dice22_png,dice32_png,dice42_png,dice52_png,dice62_png,dice13_png,dice23_png,dice33_png,dice43_png,dice53_png,dice63_png,flash_png,Base_Dice_22_png,Base_Dice_12_png,Base_Dice_32_png,Base_Dice_42_png,Base_Dice_52_png,Base_Dice_62_png,Base_Dice_13_png,Base_Dice_23_png,Base_Dice_33_png,Base_Dice_43_png,Base_Dice_53_png,Base_Dice_63_png,m_common_slide_bar_active_png,m_common_slide_bar_base_png,m_bam_instruction_card_group_landscape_1_png,m_bam_instruction_card_group_landscape_2_png,m_bam_button_close_none_png,m_bam_instruction_card_group_landscape_12_png,m_bam_instruction_card_group_landscape_22_png,m_bam_instruction_crad_group_png,m_bam_instruction_large_crad_png,m_bam_instruction_large_crad_HL_png,m_bam_instruction_reveal_all_btn_png,m_bam_instruction_swtich_crad_group_png,m_bam_panel_btn_bg_Inactive_png,m_bam_touch_icon_png,m_lw_listpenal_result_money_bg_west_png,m_bam_button_close_none2_png,m_bam_instruction_card_group_landscape_13_png,m_bam_instruction_card_group_landscape_23_png,m_bam_instruction_crad_group2_png,m_bam_instruction_large_crad2_png,m_bam_instruction_large_crad_HL2_png,m_bam_instruction_reveal_all_btn2_png,m_bam_instruction_swtich_crad_group2_png,m_bam_panel_btn_bg_Inactive2_png,m_bam_touch_icon2_png,m_lw_listpenal_result_money_bg_west2_png,m_ba_btn_info_png,d_common_video_verification_icon_correct_png,d_sq_ba_timer_bg_png",
 			"name": "preload"
 		}
 	],
@@ -6300,194 +6300,219 @@
 			"name": "d_common_panel_info_btn_right_active_png"
 		},
 		{
-			"name": "Base_Dice_22_png",
+			"url": "assets/images/d/dil/gfsb/Base_Dice_2.png",
 			"type": "image",
-			"url": "assets/images/d/dil/gfsb/Base_Dice_2.png"
+			"name": "Base_Dice_22_png"
 		},
 		{
-			"name": "Base_Dice_12_png",
+			"url": "assets/images/d/dil/gfsb/Base_Dice_1.png",
 			"type": "image",
-			"url": "assets/images/d/dil/gfsb/Base_Dice_1.png"
+			"name": "Base_Dice_12_png"
 		},
 		{
-			"name": "Base_Dice_32_png",
+			"url": "assets/images/d/dil/gfsb/Base_Dice_3.png",
 			"type": "image",
-			"url": "assets/images/d/dil/gfsb/Base_Dice_3.png"
+			"name": "Base_Dice_32_png"
 		},
 		{
-			"name": "Base_Dice_42_png",
+			"url": "assets/images/d/dil/gfsb/Base_Dice_4.png",
 			"type": "image",
-			"url": "assets/images/d/dil/gfsb/Base_Dice_4.png"
+			"name": "Base_Dice_42_png"
 		},
 		{
-			"name": "Base_Dice_52_png",
+			"url": "assets/images/d/dil/gfsb/Base_Dice_5.png",
 			"type": "image",
-			"url": "assets/images/d/dil/gfsb/Base_Dice_5.png"
+			"name": "Base_Dice_52_png"
 		},
 		{
-			"name": "Base_Dice_62_png",
+			"url": "assets/images/d/dil/gfsb/Base_Dice_6.png",
 			"type": "image",
-			"url": "assets/images/d/dil/gfsb/Base_Dice_6.png"
+			"name": "Base_Dice_62_png"
 		},
 		{
-			"name": "Base_Dice_13_png",
+			"url": "assets/images/m/dil/gfsb/Base_Dice_1.png",
 			"type": "image",
-			"url": "assets/images/m/dil/gfsb/Base_Dice_1.png"
+			"name": "Base_Dice_13_png"
 		},
 		{
-			"name": "Base_Dice_23_png",
+			"url": "assets/images/m/dil/gfsb/Base_Dice_2.png",
 			"type": "image",
-			"url": "assets/images/m/dil/gfsb/Base_Dice_2.png"
+			"name": "Base_Dice_23_png"
 		},
 		{
-			"name": "Base_Dice_33_png",
+			"url": "assets/images/m/dil/gfsb/Base_Dice_3.png",
 			"type": "image",
-			"url": "assets/images/m/dil/gfsb/Base_Dice_3.png"
+			"name": "Base_Dice_33_png"
 		},
 		{
-			"name": "Base_Dice_43_png",
+			"url": "assets/images/m/dil/gfsb/Base_Dice_4.png",
 			"type": "image",
-			"url": "assets/images/m/dil/gfsb/Base_Dice_4.png"
+			"name": "Base_Dice_43_png"
 		},
 		{
-			"name": "Base_Dice_53_png",
+			"url": "assets/images/m/dil/gfsb/Base_Dice_5.png",
 			"type": "image",
-			"url": "assets/images/m/dil/gfsb/Base_Dice_5.png"
+			"name": "Base_Dice_53_png"
 		},
 		{
-			"name": "Base_Dice_63_png",
+			"url": "assets/images/m/dil/gfsb/Base_Dice_6.png",
 			"type": "image",
-			"url": "assets/images/m/dil/gfsb/Base_Dice_6.png"
+			"name": "Base_Dice_63_png"
 		},
 		{
-			"name": "m_common_slide_bar_active_png",
+			"url": "assets/images/m/loading/m_common_slide_bar_active.png",
 			"type": "image",
-			"url": "assets/images/m/loading/m_common_slide_bar_active.png"
+			"name": "m_common_slide_bar_active_png"
 		},
 		{
-			"name": "m_common_slide_bar_base_png",
+			"url": "assets/images/m/loading/m_common_slide_bar_base.png",
 			"type": "image",
-			"url": "assets/images/m/loading/m_common_slide_bar_base.png"
+			"name": "m_common_slide_bar_base_png"
 		},
 		{
-			"name": "m_bam_instruction_card_group_landscape_1_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_1.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_1.png"
+			"name": "m_bam_instruction_card_group_landscape_1_png"
 		},
 		{
-			"name": "m_bam_instruction_card_group_landscape_2_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_2.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_2.png"
+			"name": "m_bam_instruction_card_group_landscape_2_png"
 		},
 		{
-			"name": "m_bam_button_close_none_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_button_close_none.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_button_close_none.png"
+			"name": "m_bam_button_close_none_png"
 		},
 		{
-			"name": "m_bam_instruction_card_group_landscape_12_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_1.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_1.png"
+			"name": "m_bam_instruction_card_group_landscape_12_png"
 		},
 		{
-			"name": "m_bam_instruction_card_group_landscape_22_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_2.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_2.png"
+			"name": "m_bam_instruction_card_group_landscape_22_png"
 		},
 		{
-			"name": "m_bam_instruction_crad_group_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_crad_group.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_crad_group.png"
+			"name": "m_bam_instruction_crad_group_png"
 		},
 		{
-			"name": "m_bam_instruction_large_crad_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_large_crad.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_large_crad.png"
+			"name": "m_bam_instruction_large_crad_png"
 		},
 		{
-			"name": "m_bam_instruction_large_crad_HL_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_large_crad_HL.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_large_crad_HL.png"
+			"name": "m_bam_instruction_large_crad_HL_png"
 		},
 		{
-			"name": "m_bam_instruction_reveal_all_btn_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_reveal_all_btn.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_reveal_all_btn.png"
+			"name": "m_bam_instruction_reveal_all_btn_png"
 		},
 		{
-			"name": "m_bam_instruction_swtich_crad_group_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_swtich_crad_group.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_swtich_crad_group.png"
+			"name": "m_bam_instruction_swtich_crad_group_png"
 		},
 		{
-			"name": "m_bam_panel_btn_bg_Inactive_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_panel_btn_bg_Inactive.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_panel_btn_bg_Inactive.png"
+			"name": "m_bam_panel_btn_bg_Inactive_png"
 		},
 		{
-			"name": "m_bam_touch_icon_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_touch_icon.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_touch_icon.png"
+			"name": "m_bam_touch_icon_png"
 		},
 		{
-			"name": "m_lw_listpenal_result_money_bg_west_png",
+			"url": "assets/images/m/common/game_panel/lw/resultmessage/m_lw_listpenal_result_money_bg_west.png",
 			"type": "image",
-			"url": "assets/images/m/common/game_panel/lw/resultmessage/m_lw_listpenal_result_money_bg_west.png"
+			"name": "m_lw_listpenal_result_money_bg_west_png"
 		},
 		{
-			"name": "m_bam_button_close_none2_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_button_close_none.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_button_close_none.png"
+			"name": "m_bam_button_close_none2_png"
 		},
 		{
-			"name": "m_bam_instruction_card_group_landscape_13_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_1.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_1.png"
+			"name": "m_bam_instruction_card_group_landscape_13_png"
 		},
 		{
-			"name": "m_bam_instruction_card_group_landscape_23_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_2.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_card_group_landscape_2.png"
+			"name": "m_bam_instruction_card_group_landscape_23_png"
 		},
 		{
-			"name": "m_bam_instruction_crad_group2_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_crad_group.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_crad_group.png"
+			"name": "m_bam_instruction_crad_group2_png"
 		},
 		{
-			"name": "m_bam_instruction_large_crad2_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_large_crad.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_large_crad.png"
+			"name": "m_bam_instruction_large_crad2_png"
 		},
 		{
-			"name": "m_bam_instruction_large_crad_HL2_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_large_crad_HL.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_large_crad_HL.png"
+			"name": "m_bam_instruction_large_crad_HL2_png"
 		},
 		{
-			"name": "m_bam_instruction_reveal_all_btn2_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_reveal_all_btn.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_reveal_all_btn.png"
+			"name": "m_bam_instruction_reveal_all_btn2_png"
 		},
 		{
-			"name": "m_bam_instruction_swtich_crad_group2_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_swtich_crad_group.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_instruction_swtich_crad_group.png"
+			"name": "m_bam_instruction_swtich_crad_group2_png"
 		},
 		{
-			"name": "m_bam_panel_btn_bg_Inactive2_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_panel_btn_bg_Inactive.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_panel_btn_bg_Inactive.png"
+			"name": "m_bam_panel_btn_bg_Inactive2_png"
 		},
 		{
-			"name": "m_bam_touch_icon2_png",
+			"url": "assets/images/m/ba/squeezeTutorial/m_bam_touch_icon.png",
 			"type": "image",
-			"url": "assets/images/m/ba/squeezeTutorial/m_bam_touch_icon.png"
+			"name": "m_bam_touch_icon2_png"
 		},
 		{
-			"name": "m_lw_listpenal_result_money_bg_west2_png",
+			"url": "assets/images/m/common/game_panel/lw/resultmessage/m_lw_listpenal_result_money_bg_west.png",
 			"type": "image",
-			"url": "assets/images/m/common/game_panel/lw/resultmessage/m_lw_listpenal_result_money_bg_west.png"
+			"name": "m_lw_listpenal_result_money_bg_west2_png"
+		},
+		{
+			"url": "assets/images/m/common/general/common/m_ba_btn_info.png",
+			"type": "image",
+			"name": "m_ba_btn_info_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_common_video_verification_icon_correct.png",
+			"type": "image",
+			"name": "d_common_video_verification_icon_correct_png"
+		},
+		{
+			"url": "assets/nmimages/d/ba/d_sq_ba_timer_bg.png",
+			"type": "image",
+			"name": "d_sq_ba_timer_bg_png"
+		},
+		{
+			"url": "assets/images/d/common/general/switch/d_common_panel_setting_uicolour_btn.png",
+			"type": "image",
+			"name": "d_common_panel_setting_uicolour_btn_png"
+		},
+		{
+			"url": "assets/images/d/common/general/switch/d_common_panel_setting_uicolour_btn_active.png",
+			"type": "image",
+			"name": "d_common_panel_setting_uicolour_btn_active_png"
 		}
 	]
 }

@@ -53,25 +53,25 @@ namespace we {
         for (const prop in betInfo.amount) {
           switch (prop) {
             case 'PLAYER':
-              this._playerBetLabel.text = betInfo.amount.PLAYER / 100;
+              this._playerBetLabel.text = we.utils.formatNumber(betInfo.amount.PLAYER, true);
               break;
             case 'BANKER':
-              this._bankerBetLabel.text = betInfo.amount.BANKER / 100;
+              this._bankerBetLabel.text = we.utils.formatNumber(betInfo.amount.BANKER, true);
               break;
             case 'BANKER_PAIR':
-              this._bankerPairBetLabel.text = betInfo.amount.BANKER_PAIR / 100;
+              this._bankerPairBetLabel.text = we.utils.formatNumber(betInfo.amount.BANKER_PAIR, true);
               break;
             case 'PLAYER_PAIR':
-              this._playerPairBetLabel.text = betInfo.amount.PLAYER_PAIR / 100;
+              this._playerPairBetLabel.text = we.utils.formatNumber(betInfo.amount.PLAYER_PAIR, true);
               break;
             case 'TIE':
-              this._tieBetLabel.text = betInfo.amount.TIE / 100;
+              this._tieBetLabel.text = we.utils.formatNumber(betInfo.amount.TIE, true);
               break;
             case 'SUPER_SIX':
-              this._superSixBetLabel.text = betInfo.amount.SUPER_SIX / 100;
+              this._superSixBetLabel.text = we.utils.formatNumber(betInfo.amount.SUPER_SIX, true);
               break;
             case 'SUPER_SIX_BANKER':
-              this._superSixBankerBetLabel.text = betInfo.amount.SUPER_SIX_BANKER / 100;
+              this._superSixBankerBetLabel.text = we.utils.formatNumber(betInfo.amount.SUPER_SIX_BANKER, true);
               break;
             default:
               this._bankerBetLabel.text = '0';

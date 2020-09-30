@@ -16,9 +16,6 @@ namespace we {
       protected _infoGroup: eui.Group;
       protected _chartGroup: eui.Group;
 
-      protected _historyPanel1: History;
-      protected _historyPanel2: History;
-
       public beadRoad: DilBeadRoad;
 
       public constructor(skin?: string) {
@@ -41,10 +38,6 @@ namespace we {
           this.beadRoad.y = 20;
           this.beadRoad.scaleX = 1;
           this.beadRoad.scaleY = 1;
-        }
-
-        if (this._historyPanel2) {
-          this._historyPanel2._roundNumber.text = '50';
         }
 
         this._historyGroup.addChild(this.beadRoad);

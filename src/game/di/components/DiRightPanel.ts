@@ -31,7 +31,7 @@ namespace we {
         gr.drawRect(0, 0, 100, 3);
         gr.endFill();
         this.addChild(this.activeLine);
-        this.activeLine.y = 331;
+        this.activeLine.y = 337;
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.pageRadioBtn1.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);

@@ -51,11 +51,11 @@ namespace we {
       protected _raceTrackTableLayer: RaceTrackTableLayer;
       protected _raceTrackControl: RaceTrackControl;
 
-      protected _baGameIDText: ui.RunTimeLabel;
-      protected _baGameID: ui.RunTimeLabel;
+      // protected _roGameIDText: ui.RunTimeLabel;
+      // protected _roGameID: ui.RunTimeLabel;
 
       protected _mode: string = 'normal';
-
+      protected _originBetRelatedGroupY: number;
       protected _mask: egret.Shape;
 
       constructor(data: any) {
@@ -65,7 +65,8 @@ namespace we {
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
 
-        this._baGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        // this._roGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        // this._roGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
 
         this.initBottomBetLimitSelector();
@@ -79,6 +80,16 @@ namespace we {
         this._betCombination.chipLayer = this._chipLayer;
       }
 
+      protected setBetRelatedComponentsEnabled(enable: boolean) {
+        super.setBetRelatedComponentsEnabled(enable);
+        // if (this._betRelatedGroup && env.orientation === 'portrait') {
+        if (this._betRelatedGroup) {
+          egret.Tween.removeTweens(this._betRelatedGroup);
+          egret.Tween.get(this._betRelatedGroup).to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
+        }
+        this._raceTrackChipLayer.touchEnabled = enable;
+        this._raceTrackChipLayer.touchChildren = enable;
+      }
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
@@ -86,9 +97,11 @@ namespace we {
           this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
         }
+        // this._roGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         this._roadmapControl.setTableInfo(this._tableInfo);
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
+        this._originBetRelatedGroupY = this._betRelatedGroup.y;
 
         this._mask = new egret.Shape();
         const gr = this._mask.graphics;
@@ -370,11 +383,11 @@ namespace we {
         }
       }
 
-      protected setBetRelatedComponentsEnabled(enable: boolean) {
-        super.setBetRelatedComponentsEnabled(enable);
-        this._raceTrackChipLayer.touchEnabled = enable;
-        this._raceTrackChipLayer.touchChildren = enable;
-      }
+      // protected setBetRelatedComponentsEnabled(enable: boolean) {
+      //   super.setBetRelatedComponentsEnabled(enable);
+      //   this._raceTrackChipLayer.touchEnabled = enable;
+      //   this._raceTrackChipLayer.touchChildren = enable;
+      // }
 
       public checkResultMessage(resultData = null) {
         this._betArea.mask = null;
@@ -463,7 +476,11 @@ namespace we {
 
       protected updateTableInfoRelatedComponents() {
         super.updateTableInfoRelatedComponents();
-        this._baGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
+        // this._roGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
+
+        if (this._bottomGamePanel._tableInfoPanel) {
+          this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
+        }
         // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
       }
     }

@@ -28,12 +28,7 @@ namespace we {
 
       protected createChildren() {
         super.createChildren();
-        // console.log(`...........${this._gameType}`);
-        if (this._gameType) {
-          this.skinName = utils.getSkinByClassname(`ba.BetItemCardHolderSkin`);
-        } else {
-          this.skinName = utils.getSkinByClassname(`bam.BetItemCardHolderSkin`);
-        }
+        this.skinName = utils.getSkinByClassname(`ba.BetItemCardHolderSkin`);
         this.lblPlayerName.renderText = () => `${i18n.t('baccarat.player')}`;
         this.lblBankerName.renderText = () => `${i18n.t('baccarat.banker')}`;
       }
@@ -56,7 +51,7 @@ namespace we {
           // this.card2Player.visible = false;
           // this.card3Player.visible = false;
           this.setCardVisible(false);
-          this.updateTimer(gameData);
+          // this.updateTimer(gameData);
         }
         super.updateResult(gameData);
         // if (this._timer) {
@@ -88,44 +83,44 @@ namespace we {
         }
       }
 
-      public updateTimer(gameData) {
-        switch (gameData.state) {
-          case core.GameState.PEEK:
-            this._timer.visible = true;
-            this.bamLabelDisplay.text = '咪牌中';
-            this._timer.countdownValue = gameData.countdownA * 1000;
-            this._timer.remainingTime = gameData.countdownA * 1000 - (env.currTime - gameData.peekstarttime);
-            this._timer.start();
-            this.setCardVisible(true);
-            break;
-          case core.GameState.PEEK_BANKER:
-            this._timer.visible = true;
-            this.bamLabelDisplay.text = '咪牌中';
-            this._timer.countdownValue = gameData.countdownB * 1000;
-            this._timer.remainingTime = gameData.countdownB * 1000 - (env.currTime - gameData.starttime - gameData.peekstarttime);
-            this._timer.start();
-            this.setCardVisible(true);
-            break;
-          case core.GameState.PEEK_PLAYER:
-            this._timer.visible = true;
-            this.bamLabelDisplay.text = '咪牌中';
-            this._timer.countdownValue = gameData.countdownB * 1000;
-            this._timer.remainingTime = gameData.countdownB * 1000 - (env.currTime - gameData.peekstarttime);
-            this._timer.start();
-            this.setCardVisible(true);
-            break;
-          case core.GameState.FINISH:
-            this.bamLabelDisplay.text = '';
-            this._timer.visible = false;
-            this.setCardVisible(true);
-            break;
-          default:
-            this.bamLabelDisplay.text = '';
-            this._timer.visible = false;
-            // this.setCardVisible(true);
-            break;
-        }
-      }
+      // public updateTimer(gameData) {
+      //   switch (gameData.state) {
+      //     case core.GameState.PEEK:
+      //       this._timer.visible = true;
+      //       this.bamLabelDisplay.text = '咪牌中';
+      //       this._timer.countdownValue = gameData.countdownA * 1000;
+      //       this._timer.remainingTime = gameData.countdownA * 1000 - (env.currTime - gameData.peekstarttime);
+      //       this._timer.start();
+      //       this.setCardVisible(true);
+      //       break;
+      //     case core.GameState.PEEK_BANKER:
+      //       this._timer.visible = true;
+      //       this.bamLabelDisplay.text = '咪牌中';
+      //       this._timer.countdownValue = gameData.countdownB * 1000;
+      //       this._timer.remainingTime = gameData.countdownB * 1000 - (env.currTime - gameData.starttime - gameData.peekstarttime);
+      //       this._timer.start();
+      //       this.setCardVisible(true);
+      //       break;
+      //     case core.GameState.PEEK_PLAYER:
+      //       this._timer.visible = true;
+      //       this.bamLabelDisplay.text = '咪牌中';
+      //       this._timer.countdownValue = gameData.countdownB * 1000;
+      //       this._timer.remainingTime = gameData.countdownB * 1000 - (env.currTime - gameData.peekstarttime);
+      //       this._timer.start();
+      //       this.setCardVisible(true);
+      //       break;
+      //     case core.GameState.FINISH:
+      //       this.bamLabelDisplay.text = '';
+      //       this._timer.visible = false;
+      //       this.setCardVisible(true);
+      //       break;
+      //     default:
+      //       this.bamLabelDisplay.text = '';
+      //       this._timer.visible = false;
+      //       // this.setCardVisible(true);
+      //       break;
+      //   }
+      // }
 
       protected setCardVisible(val: boolean) {
         this.card1Banker.visible = val;

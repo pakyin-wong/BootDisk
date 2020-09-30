@@ -18,10 +18,12 @@ namespace we {
 
       protected addListeners() {
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
+        dir.evtHandler.addEventListener(core.Event.BALANCE_UPDATE, this.updateBalance, this);
       }
 
       protected removeListeners() {
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
+        dir.evtHandler.removeEventListener(core.Event.BALANCE_UPDATE, this.updateBalance, this);
       }
 
       public init() {
@@ -87,24 +89,13 @@ namespace we {
       public updateNoteControlPanel() {}
 
       public updateBalance() {
-        this._lblBalance.renderText = () => `${i18n.t('nav.bet_balance')} $${env.balance ? utils.formatNumber(env.balance, true) : ' - '}`;
+        this._balance = env.balance;
+        this._lblBalance.renderText = () => `${i18n.t('nav.bet_balance')} $${this._balance ? utils.formatNumber(this._balance, true) : ' - '}`;
       }
 
       public setConfirmBetButton(enable: boolean) {
         if (!this._notes) {
           return;
-        }
-        if (this._notes.length > 0) {
-          if (enable === true) {
-            this._btnConfirmBet.buttonEnabled = true;
-            this._btnConfirmBet.enabled = true;
-          } else {
-            this._btnConfirmBet.buttonEnabled = false;
-            this._btnConfirmBet.enabled = false;
-          }
-        } else {
-          this._btnConfirmBet.buttonEnabled = false;
-          this._btnConfirmBet.enabled = false;
         }
       }
 

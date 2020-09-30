@@ -8,10 +8,22 @@ namespace we {
       protected async setResults(data: data.TableInfo, results: string[], points: number[]) {
         const idx = 0;
         const gameData = data.data;
+
         gameData.dice1 = points[0];
         gameData.dice2 = points[1];
         gameData.dice3 = points[2];
-        gameData.total = points[0] + points[1] + points[2];
+
+        /*
+        gameData.dice1 = 2;
+        gameData.dice2 = 2;
+        gameData.dice3 = 2;
+        */
+
+        gameData.total = +gameData.dice1 + +gameData.dice2 + +gameData.dice3;
+        console.log('gameData.total', gameData.total);
+        gameData.size = gameData.total > 9 ? 2 : 1;
+        gameData.odd = gameData.total % 2 === 0 ? 2 : 1;
+        gameData.tie = gameData.dice1 === gameData.dice2 && gameData.dice2 === gameData.dice3 ? 1 : 0;
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.DEAL;
 

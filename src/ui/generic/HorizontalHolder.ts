@@ -4,6 +4,7 @@ namespace we {
     export class HorizontalHolder extends eui.Group {
       protected _slides: any[]; // eui.Group
       protected _sortedSlides;
+      public finishAction: (page: number) => void;
       public _currentPageIdx: number = 0;
       private pageCount: number;
 
@@ -339,6 +340,9 @@ namespace we {
         if (this.isAuto) {
           this.doAuto();
         }
+        if (this.finishAction) {
+          this.finishAction(this._currentPageIdx);
+        }
       }
 
       public doPrevious(isButton: boolean = false) {
@@ -414,17 +418,17 @@ namespace we {
         this._startTime = egret.getTimer();
 
         const canvas = document.getElementsByTagName('canvas')[0];
-        console.log(canvas);
+        // console.log(canvas);
         // this._previousPosition = this._startPosition;
 
         if (env.isMobile) {
           (<any>canvas).addEventListener('touchmove', this.onTouchMove, { passive: false });
           (<any>canvas).addEventListener('touchend', this.onTouchEnd, { passive: false });
-          console.log('mobile :' + this._startPosition);
+          // console.log('mobile :' + this._startPosition);
         } else {
           (<any>window).addEventListener('mousemove', this.onTouchMove, { passive: false });
           (<any>window).addEventListener('mouseup', this.onTouchEnd, { passive: false });
-          console.log('desktop :' + this._startPosition);
+          // console.log('desktop :' + this._startPosition);
         }
 
         // (<any>window).addEventListener('mousemove', this.onTouchMove, { passive: false });
@@ -451,7 +455,7 @@ namespace we {
         } else {
           touchPos = Math.round(event.offsetX / egret.sys.DisplayList.$canvasScaleX);
         }
-        console.log('tp: ' + touchPos);
+        // console.log('tp: ' + touchPos);
         // const touchPos = e.$stageX;
         if (!this._previousPosition) {
           // this._previousPosition = e.$stageX;

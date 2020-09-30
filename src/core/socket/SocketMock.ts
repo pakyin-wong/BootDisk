@@ -490,7 +490,8 @@ namespace we {
               data.betInfo.tableid = data.tableid; // Unique table id
               data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
               data.betInfo.total = 10000; // Total bet amount for this gameround
-              data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
+              // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
+              data.betInfo.amount = { LW_0: 25080000, LW_1: 18000060, LW_2: 50500, LW_3: 10022000, LW_4: 800000, LW_5: 19000010, LW_6: 20012000 }; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
               data.betInfo.ranking = [];
 
               data.bets = [];
@@ -801,7 +802,16 @@ namespace we {
       public retryPlayerClient(functionName: string, args: any[]) {
         logger.l(utils.LogTarget.DEBUG, 'retryPlayerClient', functionName, args);
       }
-
+      public async batchUpdateAllGoodRoad(updatedefaultItem: any[], updatecustomItem: any[]) {
+        // this.mockGoodRoadMapData.custom.forEach(element => {
+        //   if (element.id === id) {
+        //     element.enabled = data.enabled;
+        //     element.name = data.name;
+        //     element.pattern = data.pattern;
+        //   }
+        // });
+        // await this._goodRoadUpdateCallback(this.mockGoodRoadMapData);
+      }
       public updateCustomGoodRoad(id: string, data: any) {
         this.mockGoodRoadMapData.custom.forEach(element => {
           if (element.id === id) {
@@ -1402,6 +1412,8 @@ namespace we {
         // return promise.resolve with BetResult
       }
 
+      public lotteryContinuousBet(tableID: string, betDetails: data.BetDetail[], roundBetDetails: data.LotteryBetCommand[], callback: (result) => void) {}
+
       private onGoodRoadMatch() {
         // random get a ba table
         const baTables = this.tables.filter(tableinfo => {
@@ -1672,6 +1684,15 @@ namespace we {
           history: tempData,
         });
       }
+
+      public getLotteryContinuousBetDetail(betid: string, callback: (res: any) => void, thisArg: any) {}
+
+      public getLotteryContinuousBetHistory(filter: any, callback: (res: any) => void, thisArg: any) {}
+
+      public getLotteryBetDetail(filter: any, callback: (res: any) => void, thisArg: any) {}
+
+      public cancelBet(tableID: string, betID: string, gametype: string, callback: (res: any) => void, thisArg: any) {}
+
       public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {
         const betCombination = new we.data.BetCombination();
         betCombination.title = title;

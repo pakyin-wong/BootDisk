@@ -43,14 +43,14 @@
 				             verticalAlign="middle" alpha="0.7" />
 				-->
 				<ui:RunTimeLabel id="pTableID" text="輪盤01" y="34" textAlign="right" size="40" width="216" height="66"
-				                    verticalAlign="middle" alpha="0.7" fontFamily="Barlow" right="97"/>
+				                    verticalAlign="middle" alpha="0.7" fontFamily="Barlow" x="112"/>
 				<e:Label id="pRoundID" text="6-38" y="109" textAlign="right" scaleX="1" scaleY="1" size="42" x="110" width="292"
 				         height="88" verticalAlign="middle" alpha="0.7"  fontFamily="Barlow"/>
 				<!--<e:Label id="pGameID" text="110326855429" y="197" textAlign="right" size="42" x="110" width="292" height="88"
 				             verticalAlign="middle" alpha="0.7" />
 				-->
-				<ui:ClampWidthLabel id="pGameID" text="110326855429" y="197" textAlign="right" size="42" x="110" width="292"
-				                    height="88" verticalAlign="middle" alpha="0.7" targetWidth="350"  fontFamily="Barlow"/>
+				<ui:ClampWidthLabel id="pGameID" text="110326855429" y="197" textAlign="right" size="42" x="93" width="310"
+				                    height="88" verticalAlign="middle" alpha="0.7" targetWidth="310"  fontFamily="Barlow"/>
 				<e:Rect width="1" height="308" fillAlpha="0.4" fillColor="0x979797" x="432" y="0" />
 			</e:Group>
 			<e:Group x="493.94" y="0" scaleX="1" scaleY="1" anchorOffsetX="0" width="501.28">

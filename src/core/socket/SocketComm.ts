@@ -109,6 +109,59 @@ namespace we {
         this.client.getRoadmap(this.warpServerCallback(this._goodRoadUpdateCallback));
       }
 
+      protected async asyncUpdateCustomGoodRoad(id: string, data: any) {
+        return new Promise((resolve, reject) => {
+          function callback(data) {
+            console.log('asyncUpdateCustomGoodRoad', data);
+            resolve();
+          }
+          this.client.updateCustomRoadmap(id, data, callback);
+        });
+      }
+
+      protected async asyncUpdateDefaultGoodRoad(ids: string[]) {
+        return new Promise((resolve, reject) => {
+          function callback(data) {
+            console.log('asyncUpdateDefaultGoodRoad', data);
+            resolve();
+          }
+          this.client.updateDefaultRoadmap(ids, callback);
+        });
+      }
+
+      public async batchUpdateAllGoodRoad(updatedefaultItem: any[], updatecustomItem: any[]) {
+        // [[id,id,id,id],[id: string, data: any],[id,data],[id,data],...] only last input update env.
+
+        if (!updatedefaultItem) {
+          return;
+        }
+        if (updatecustomItem.length === 0) {
+          // if custom goodroad not exist ,just update default goodroad
+          this.client.updateDefaultRoadmap(updatedefaultItem, this.warpServerCallback(this._goodRoadUpdateCallback));
+        } else if (updatecustomItem.length > 0) {
+          // if custom goodroad exist
+          // console.log('await this.asyncUpdateDefaultGoodRoad(updatedefaultItem);', updatedefaultItem);
+          await this.asyncUpdateDefaultGoodRoad(updatedefaultItem);
+          if (updatecustomItem.length === 1) {
+            this.client.updateCustomRoadmap(updatecustomItem[0][0], updatecustomItem[0][1], this.warpServerCallback(this._goodRoadUpdateCallback));
+          } else {
+            for (let i = 0; i < updatecustomItem.length; i++) {
+              // if more than one, call update custom goodroad in the last loop
+              if (i === updatecustomItem.length - 1) {
+                // console.log('last', [i, updatecustomItem[i][0], updatecustomItem[i][1]]);
+                await this.client.updateCustomRoadmap(updatecustomItem[i][0], updatecustomItem[i][1], this.warpServerCallback(this._goodRoadUpdateCallback));
+              } else {
+                // console.log('wait ', [i, updatecustomItem[i][0], updatecustomItem[i][1]]);
+                await this.asyncUpdateCustomGoodRoad(updatecustomItem[i][0], updatecustomItem[i][1]);
+              }
+            }
+          }
+        }
+        // await wait(id, data);
+        // await wait()
+        // await this.client.updateCustomRoadmap(id, data, this.warpServerCallback(this._batchGoodRoadUpdateCallback));
+      }
+
       public updateCustomGoodRoad(id: string, data: any) {
         this.client.updateCustomRoadmap(id, data, this.warpServerCallback(this._goodRoadUpdateCallback));
       }
@@ -129,7 +182,18 @@ namespace we {
         this.client.resetRoadmap(this.warpServerCallback(this._goodRoadUpdateCallback));
       }
 
+      private _batchGoodRoadUpdateCallback(data: any) {
+        return new Promise((resolve, reject) => {
+          if (!data.error) {
+            // if the data is an error, do not update the data
+            env.goodRoadData = ba.GoodRoadParser.CreateGoodRoadMapDataFromObject(data);
+          }
+          dir.evtHandler.dispatch(core.Event.GOOD_ROAD_DATA_UPDATE);
+          resolve();
+        });
+      }
       private _goodRoadUpdateCallback(data: any) {
+        console.log('_goodRoadUpdateCallback', data);
         if (!data.error) {
           // if the data is an error, do not update the data
           env.goodRoadData = ba.GoodRoadParser.CreateGoodRoadMapDataFromObject(data);
@@ -197,7 +261,15 @@ namespace we {
         env.currency = player.profile.currency;
         // env.nickname = player.profile.nickname;
         env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
-        env.favouriteTableList = player.profile.settings.favouriteTableList ? JSON.parse(player.profile.settings.favouriteTableList) : env.favouriteTableList;
+
+        env.favouriteTableList = env.favouriteTableList ? env.favouriteTableList : [];
+        if (player.profile.settings.favouriteTableList) {
+          try {
+            env.favouriteTableList = JSON.parse(player.profile.settings.favouriteTableList);
+          } catch (err) {
+            env.favouriteTableList = [];
+          }
+        }
 
         // env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
         // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
@@ -616,6 +688,7 @@ namespace we {
             tableInfo.gamestatistic = stats;
             break;
           }
+          case core.GameType.RC:
           case core.GameType.LO: {
             gameStatistic.tableID = tableid;
             gameStatistic.shoeID = gameStatistic.shoeid;
@@ -1003,6 +1076,30 @@ namespace we {
         logger.l(utils.LogTarget.RELEASE, `Table ${tableID} Placed bet`, betDetails);
       }
 
+      public lotteryContinuousBet(tableID: string, betDetails: data.BetDetail[], roundBetDetails: data.LotteryBetCommand[], callback: (result) => void) {
+        const betCommands: data.BetCommand[] = betDetails
+          .filter(data => {
+            return data.amount > 0;
+          })
+          .map(data => {
+            return {
+              field: data.field,
+              amount: data.amount,
+            };
+          });
+
+        const roundBetCommands: data.LotteryBetCommand[] = roundBetDetails.map(data => {
+          return {
+            round: data.round,
+            multiplier: data.multiplier,
+            isStopWon: data.isStopWon,
+          };
+        });
+
+        this.client.lotteryContinuousBet(tableID, betCommands, roundBetDetails, callback);
+        logger.l(utils.LogTarget.RELEASE, `Table ${tableID} Placed bet`, betDetails, roundBetDetails);
+      }
+
       public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {
         /*
         console.log(
@@ -1127,6 +1224,18 @@ namespace we {
 
       public getBetHistory(filter, callback: (res: any) => void, thisArg) {
         this.client.getBetHistory(filter, this.warpServerCallback(callback.bind(thisArg)));
+      }
+      public getLotteryContinuousBetHistory(filter: any, callback: (res: any) => void, thisArg: any) {
+        this.client.getLotteryContinuousBetHistory(filter, this.warpServerCallback(callback.bind(thisArg)));
+      }
+      public getLotteryContinuousBetDetail(betid: string, callback: (res: any) => void, thisArg: any) {
+        this.client.getLotteryContinuousBetDetail(betid, this.warpServerCallback(callback.bind(thisArg)));
+      }
+      public getLotteryBetDetail(filter: any, callback: (res: any) => void, thisArg: any) {
+        this.client.getLotteryBetDetail(filter, this.warpServerCallback(callback.bind(thisArg)));
+      }
+      public cancelBet(tableID: string, betID: string, gametype: string, callback: (res: any) => void, thisArg: any) {
+        this.client.cancelBet(tableID, betID, gametype, this.warpServerCallback(callback.bind(thisArg)));
       }
 
       public warpServerCallback(callback: any) {

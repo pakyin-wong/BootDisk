@@ -56,22 +56,25 @@ namespace we {
 
       protected createGradientBox() {
         switch (this._gradientPosition) {
+          // default gradientRatio is  [0, 255] and gradientAlphas is [1,1]
           case 'topRight':
             this._matrix = new egret.Matrix();
             // this._matrix.createGradientBox(this.width, this.width * 2, 0, this.width / 2, -this.width / 2);
             this._matrix.createGradientBox(this.width * 2, this.height * 2, 0, 0, -this.height);
-            // this._gradientRatio = [0, 200];
             break;
           case 'topLeft':
             this._matrix = new egret.Matrix();
             // this._matrix.createGradientBox(this.width, this.width, 0, -this.width / 2, -this.width / 2);
             this._matrix.createGradientBox(this.width * 2, this.height * 2, 0, -this.width, -this.height);
-            // this._gradientRatio = [0, 200];
             break;
           case 'topToBottom':
             this._matrix = new egret.Matrix();
             this._matrix.createGradientBox(this.width, this.height, 90, 0, 0);
             this._gradientRatio = [0, 255];
+            break;
+          case 'fromTopCenter':
+            this._matrix = new egret.Matrix();
+            this._matrix.createGradientBox(this.width, this.height * 2, 90, 0, -this.height);
             break;
         }
       }

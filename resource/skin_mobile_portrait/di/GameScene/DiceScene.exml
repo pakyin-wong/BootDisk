@@ -54,8 +54,8 @@
 						</e:layout>
 		</e:Group>
 		<e:Group bottom="-2029" left="0" width="700" x="0" y="2125" scaleX="1" scaleY="1">
-			<ui:RunTimeLabel id="_baGameIDText" text="Game ID :" bottom="0" left="0" left.left_hand_mode="15" bottom.left_hand_mode="94"/>
-			<ui:RunTimeLabel id="_baGameID" text="ID" bottom="0" left="0"/>
+			<ui:RunTimeLabel id="_GameIDText" text="Game ID :" bottom="0" left="0" left.left_hand_mode="15" bottom.left_hand_mode="94"/>
+			<ui:RunTimeLabel id="_GameID" text="ID" bottom="0" left="0"/>
 			<e:layout>
 			<e:HorizontalLayout/>
 			</e:layout>
@@ -85,8 +85,7 @@
 	         top.left_hand_mode="661">
 		<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0"
 		        ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.8" />
-		<ui:RunTimeLabel id="_bainfo" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" text="i"
-		                 size.left_hand_mode="60" size.right_hand_mode="60" />
+		<e:Image id="_bainfo" width="20" height="46" source="m_ba_btn_info_png" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" />
 	</e:Group>
 	<e:Scroller id="_betArea" width="924" scaleX="1" scaleY="1" scrollPolicyH="off" scrollPolicyV="off"
 	            x="159" y="67">
@@ -106,9 +105,9 @@
 	<di:GameResultMessage id="_resultMessage" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
 	                      horizontalCenter.left_hand_mode="0" top.left_hand_mode="350" horizontalCenter.right_hand_mode="0"
 	                      top.right_hand_mode="350" />
-	<ui:InGameMessage id="_message" x="311" y="474" skinName="skin_mobile_portrait.InGameMessageSkin"
-	                  infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
-	                  errorBg="d_ba_gamerecord_bankerelement_png" />
+    <ui:InGameMessage id="_message" x="311" y="474" skinName="skin_mobile_portrait.InGameMessageSkin"
+                      infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
+                      errorBg="d_ba_gamerecord_bankerelement_png" horizontalCenter="0" verticalCenter="0"  includeIn="left_hand_mode"/>
 	<e:Group id="_betSet" y="122" left="0" right="0" touchThrough="true" left.left_hand_mode="3" right.left_hand_mode="-3"
 	         left.right_hand_mode="16" right.right_hand_mode="0" y.left_hand_mode="267.45" y.right_hand_mode="267.45">
 		<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="150" height="150" skinName="skin_mobile.BetChipSkin"
@@ -146,7 +145,7 @@
 	-->
 	<e:Group id="_betRelatedGroup" x.right_hand_mode="1074" y="181" scaleX="1" scaleY="1" width="128"
 	         right.right_hand_mode="10" left.left_hand_mode="10" top.left_hand_mode="190" top.right_hand_mode="190">
-		<e:Rect id="_roundPanel" width="128" height="834" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
+		<e:Rect id="_roundPanel" width="128" height="1028" fillAlpha="1" ellipseHeight="150" ellipseWidth="150"
 		        fillColor="0x444444" />
 		<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="120" anchorOffsetY="0" height="300"
 		          x.right_hand_mode="5.82" skinName="skin_mobile_portrait.BetConfirmVerticalButtonMobile" x.left_hand_mode="5"
@@ -181,5 +180,6 @@
 
 <di:MobileBottomGamePanel skinName="skin_mobile_portrait.di.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"
                           x="0" scaleY="1" scaleX="1" bottom="55" locked="true" />
+	<!--<ui:InGameMessage id="_message" x="311" y="474" skinName="skin_mobile_portrait.InGameMessageSkin" infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" horizontalCenter="0" verticalCenter="0" includeIn="right_hand_mode"/>-->
 
 </e:Skin>

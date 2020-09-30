@@ -19,10 +19,12 @@ namespace we {
       protected _panelGroup: eui.Group;
       protected _panelTween: ui.TweenConfig;
 
-      protected _baGameIDText: ui.RunTimeLabel;
-      protected _baGameID: ui.RunTimeLabel;
+      // protected _diGameIDText: ui.RunTimeLabel;
+      // protected _diGameID: ui.RunTimeLabel;
 
       private _common_listpanel: ui.BaseImageButton;
+
+      protected _originBetRelatedGroupY: number;
 
       protected parser: ba.BARoadParser;
 
@@ -165,7 +167,14 @@ namespace we {
       // public backToLobby() {
       //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
       // }
-
+      protected setBetRelatedComponentsEnabled(enable: boolean) {
+        super.setBetRelatedComponentsEnabled(enable);
+        // if (this._betRelatedGroup && env.orientation === 'portrait') {
+        if (this._betRelatedGroup) {
+          egret.Tween.removeTweens(this._betRelatedGroup);
+          egret.Tween.get(this._betRelatedGroup).to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
+        }
+      }
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
@@ -182,6 +191,7 @@ namespace we {
 
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
+        this._originBetRelatedGroupY = this._betRelatedGroup.y;
 
         if (this._gameData.state === core.GameState.DEAL || this._gameData.state === core.GameState.FINISH) {
           this._betAreaLock = true;
@@ -190,7 +200,7 @@ namespace we {
           this.diState = 'small';
         }
 
-        this._baGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        // this._diGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
 
         if (env.isMobile) {
           dir.monitor._sideGameList.setToggler(this._common_listpanel);
@@ -263,13 +273,13 @@ namespace we {
         }
       }
 
-      protected setBetRelatedComponentsEnabled(enable: boolean) {
-        super.setBetRelatedComponentsEnabled(enable);
-        // animate table
+      // protected setBetRelatedComponentsEnabled(enable: boolean) {
+      //   super.setBetRelatedComponentsEnabled(enable);
+      //   // animate table
 
-        // (this._tableLayer as di.TableLayer).animateToState(!enable);
-        // (this._chipLayer as di.ChipLayer).animateToState(!enable);
-      }
+      //   // (this._tableLayer as di.TableLayer).animateToState(!enable);
+      //   // (this._chipLayer as di.ChipLayer).animateToState(!enable);
+      // }
 
       public checkResultMessage() {
         let totalWin: number = NaN;
@@ -315,6 +325,13 @@ namespace we {
       //     this._bottomGamePanel._betLimitDropDownBtn.renderText = () => ` ${bottomBetLimitItems.length > 0 ? bottomBetLimitItems[selectedIndex] : ''}`;
       //   }
       // }
+      protected updateTableInfoRelatedComponents() {
+        super.updateTableInfoRelatedComponents();
+
+        if (this._bottomGamePanel._tableInfoPanel) {
+          this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
+        }
+      }
 
       protected setStateIdle(isInit: boolean = false) {
         super.setStateIdle(isInit);
@@ -336,7 +353,7 @@ namespace we {
         this._betAreaLock = false;
         this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = true;
         this.diState = 'normal';
-        this._baGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
+        // this._diGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
       }
 

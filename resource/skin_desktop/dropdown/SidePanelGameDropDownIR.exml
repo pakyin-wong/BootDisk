@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.SidePanelGameDropDownIR" currentState="normal" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" height="52" states="normal,hover,selected,selected-hover"  width="343">
+	<e:Rect id="_underline" height="1" fillColor="0xffffff" left="0" right="0" alpha="0.1"/>
+	<e:Label id="_imgCheck" width="13" height="13" verticalCenter="0" includeIn="selected,selected-hover" left="21" text="✔" size="13" textColor="0x53a9ff" verticalAlign="middle" textAlign="center"/>
+	<ui:RunTimeLabel id="review" text="Label" minWidth="" alpha.normal="0.7" verticalAlign="middle" size="24" textAlign="left" top="8" bottom="8" left="50" right="10" multiline="false" textColor.selected="0x53a9ff" textColor.selected-hover="0x53a9ff"/>
+
+</e:Skin>

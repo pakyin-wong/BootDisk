@@ -8,7 +8,7 @@
 	<ui:RunTimeLabel id="bigNameLabel" text="大" x="137" y="57" textColor="0xe4493a" textAlign="center" size="22"
 	                 textKey="dice.bigFull" />
 	<ui:RunTimeLabel id="smallNameLabel" text="小" x="228" y="57" textColor="0x2da1fe" textAlign="center" size="22"
-	                 textKey="dice.smallFull" />
+	                 textKey="dice.small" />
 	<ui:RunTimeLabel id="tripleNameLabel" text="圍" x="319" y="57" textColor="0x6dd400" textAlign="center" size="22"
 	                 textKey="dice.triple_" />
 	<ui:RunTimeLabel id="evenNameLabel" text="雙" x="222" y="184" textColor="0xe4493a" textAlign="center" size="22"

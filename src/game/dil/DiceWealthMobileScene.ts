@@ -11,8 +11,8 @@ namespace we {
     export class MobileScene extends core.MobileBaseGameScene {
       protected _roadmapControl: DilRoadmapControl;
       protected _bottomGamePanel: MobileBottomGamePanel;
-      protected _dilGameIDText: ui.RunTimeLabel;
-      protected _dilGameID: ui.RunTimeLabel;
+      // protected _dilGameIDText: ui.RunTimeLabel;
+      // protected _dilGameID: ui.RunTimeLabel;
       protected _totalBet: ui.RunTimeLabel;
       protected _totalBetText: ui.RunTimeLabel;
       protected _verticalGroup: eui.Group;
@@ -60,7 +60,7 @@ namespace we {
 
       protected setStateBet(isInit: boolean) {
         super.setStateBet(isInit);
-        this._dilGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
+        // this._dilGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
         (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
@@ -113,7 +113,7 @@ namespace we {
         // }
         this.createVerticalLayout();
         this.changeHandMode();
-        this._dilGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        // this._dilGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
         this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
         dir.monitor._sideGameList.setToggler(this._common_listpanel);
         this.setChipPanelPos();

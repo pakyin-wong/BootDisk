@@ -441,8 +441,18 @@
       "sourceW": 83.5,
       "sourceH": 55
     },
-    "d_lobby_panel_gamelist_betresult_bankerbg_png": {
+    "m_lobby_panel_betrecord_empty_icon_png": {
       "x": 884,
+      "y": 1119,
+      "w": 77.5,
+      "h": 65,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 77.5,
+      "sourceH": 65
+    },
+    "d_lobby_panel_gamelist_betresult_bankerbg_png": {
+      "x": 963.5,
       "y": 1119,
       "w": 64.5,
       "h": 55,
@@ -452,8 +462,8 @@
       "sourceH": 55
     },
     "d_lobby_panel_gamelist_betresult_bankwinbg_png": {
-      "x": 950.5,
-      "y": 1101.5,
+      "x": 1030,
+      "y": 1119,
       "w": 64.5,
       "h": 55,
       "offX": 0,
@@ -462,8 +472,8 @@
       "sourceH": 55
     },
     "d_lobby_panel_gamelist_betresult_playbg_png": {
-      "x": 950.5,
-      "y": 1158.5,
+      "x": 1096.5,
+      "y": 1119,
       "w": 64.5,
       "h": 55,
       "offX": 0,
@@ -472,7 +482,7 @@
       "sourceH": 55
     },
     "d_lobby_panel_gamelist_betresult_playwinbg_png": {
-      "x": 1017,
+      "x": 1163,
       "y": 1119,
       "w": 64.5,
       "h": 55,
@@ -572,7 +582,7 @@
       "sourceH": 36.5
     },
     "m_lobby_panel_gamelist_tag_icon_goodroad_png": {
-      "x": 1017,
+      "x": 842.5,
       "y": 1176,
       "w": 37.5,
       "h": 36.5,
@@ -582,8 +592,8 @@
       "sourceH": 36.5
     },
     "m_lobby_panel_betcontrol_btn_confirm_icon_png": {
-      "x": 842.5,
-      "y": 1176,
+      "x": 882,
+      "y": 1186,
       "w": 34.5,
       "h": 24,
       "offX": 0,
@@ -592,8 +602,8 @@
       "sourceH": 24
     },
     "m_lw_listpenal_history_record_east_png": {
-      "x": 1056.5,
-      "y": 1176,
+      "x": 918.5,
+      "y": 1186,
       "w": 33,
       "h": 33,
       "offX": 0,
@@ -602,8 +612,8 @@
       "sourceH": 33
     },
     "m_lw_listpenal_history_record_green_png": {
-      "x": 1083.5,
-      "y": 1135.5,
+      "x": 953.5,
+      "y": 1186,
       "w": 33,
       "h": 33,
       "offX": 0,
@@ -612,7 +622,7 @@
       "sourceH": 33
     },
     "m_lw_listpenal_history_record_north_png": {
-      "x": 879,
+      "x": 988.5,
       "y": 1176,
       "w": 33,
       "h": 33,
@@ -622,7 +632,7 @@
       "sourceH": 33
     },
     "m_lw_listpenal_history_record_red_png": {
-      "x": 914,
+      "x": 1023.5,
       "y": 1176,
       "w": 33,
       "h": 33,
@@ -632,8 +642,8 @@
       "sourceH": 33
     },
     "m_lw_listpenal_history_record_south_png": {
-      "x": 1091.5,
-      "y": 1170.5,
+      "x": 1058.5,
+      "y": 1176,
       "w": 33,
       "h": 33,
       "offX": 0,
@@ -642,8 +652,8 @@
       "sourceH": 33
     },
     "m_lw_listpenal_history_record_west_png": {
-      "x": 1118.5,
-      "y": 1135.5,
+      "x": 1093.5,
+      "y": 1176,
       "w": 33,
       "h": 33,
       "offX": 0,
@@ -652,8 +662,8 @@
       "sourceH": 33
     },
     "m_lw_listpenal_history_record_white_png": {
-      "x": 1126.5,
-      "y": 1170.5,
+      "x": 1128.5,
+      "y": 1176,
       "w": 33,
       "h": 33,
       "offX": 0,
@@ -662,8 +672,8 @@
       "sourceH": 33
     },
     "m_sb_betarea_dice_fire_png": {
-      "x": 1153.5,
-      "y": 1135.5,
+      "x": 1163.5,
+      "y": 1176,
       "w": 33,
       "h": 33,
       "offX": 0,
@@ -672,8 +682,8 @@
       "sourceH": 33
     },
     "m_sb_betarea_dice_four_png": {
-      "x": 1161.5,
-      "y": 1170.5,
+      "x": 1198.5,
+      "y": 1176,
       "w": 33,
       "h": 33,
       "offX": 0,
@@ -682,7 +692,7 @@
       "sourceH": 33
     },
     "m_sb_betarea_dice_one_png": {
-      "x": 1188.5,
+      "x": 1229.5,
       "y": 1135.5,
       "w": 33,
       "h": 33,
@@ -692,7 +702,7 @@
       "sourceH": 33
     },
     "m_sb_betarea_dice_six_png": {
-      "x": 1196.5,
+      "x": 1233.5,
       "y": 1170.5,
       "w": 33,
       "h": 33,
@@ -702,7 +712,7 @@
       "sourceH": 33
     },
     "m_sb_betarea_dice_three_png": {
-      "x": 1223.5,
+      "x": 1264.5,
       "y": 1135.5,
       "w": 33,
       "h": 33,
@@ -712,7 +722,7 @@
       "sourceH": 33
     },
     "m_sb_betarea_dice_two_png": {
-      "x": 1231.5,
+      "x": 1268.5,
       "y": 1170.5,
       "w": 33,
       "h": 33,
@@ -732,8 +742,8 @@
       "sourceH": 31
     },
     "m_lobby_panel_gamelist_tag_icon_allgame_png": {
-      "x": 1258.5,
-      "y": 1135.5,
+      "x": 273,
+      "y": 1169.5,
       "w": 32,
       "h": 31,
       "offX": 0,
@@ -742,7 +752,7 @@
       "sourceH": 31
     },
     "m_common_listpanel_icon_gamelist_png": {
-      "x": 1292.5,
+      "x": 1299.5,
       "y": 1135.5,
       "w": 30,
       "h": 30.5,
@@ -822,8 +832,8 @@
       "sourceH": 25.5
     },
     "m_lobby_panel_gamelist_remark_box_png": {
-      "x": 1302.5,
-      "y": 593.5,
+      "x": 1303.5,
+      "y": 1168,
       "w": 24.5,
       "h": 24.5,
       "offX": 0,
@@ -912,7 +922,7 @@
       "sourceH": 16
     },
     "d_sic_history_lv1_dice-1_png": {
-      "x": 1091.5,
+      "x": 1233.5,
       "y": 1205.5,
       "w": 13,
       "h": 13,
@@ -922,7 +932,7 @@
       "sourceH": 13
     },
     "d_sic_history_lv1_dice-2_png": {
-      "x": 1106.5,
+      "x": 1248.5,
       "y": 1205.5,
       "w": 13,
       "h": 13,
@@ -932,7 +942,7 @@
       "sourceH": 13
     },
     "d_sic_history_lv1_dice-3_png": {
-      "x": 1121.5,
+      "x": 1263.5,
       "y": 1205.5,
       "w": 13,
       "h": 13,
@@ -942,7 +952,7 @@
       "sourceH": 13
     },
     "d_sic_history_lv1_dice-4_png": {
-      "x": 1136.5,
+      "x": 1278.5,
       "y": 1205.5,
       "w": 13,
       "h": 13,
@@ -952,7 +962,7 @@
       "sourceH": 13
     },
     "d_sic_history_lv1_dice-5_png": {
-      "x": 1151.5,
+      "x": 1293.5,
       "y": 1205.5,
       "w": 13,
       "h": 13,
@@ -962,8 +972,8 @@
       "sourceH": 13
     },
     "d_sic_history_lv1_dice-6_png": {
-      "x": 1166.5,
-      "y": 1205.5,
+      "x": 727,
+      "y": 971,
       "w": 13,
       "h": 13,
       "offX": 0,

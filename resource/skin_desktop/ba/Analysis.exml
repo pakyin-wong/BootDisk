@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.ba.Analysis" width="278" height="450" xmlns:e="http://ns.egret.com/eui" xmlns:ba="we.ba.*"
+<e:Skin class="skin_desktop.ba.Analysis" width="290" height="441" xmlns:e="http://ns.egret.com/eui" xmlns:ba="we.ba.*"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-	<e:Rect fillColor="0x23282f" width="100%" height="100%" alpha="0.4" />
-	<e:Group id="_analysisGroup" width="240" height="334" y="14" horizontalCenter="0">
+	<!--<e:Rect fillColor="0x23282f" width="290" height="441" alpha="0.4"  ellipseWidth="20" ellipseHeight="20" strokeWeight="2" strokeColor="0x434343"/>-->
+	<ui:RoundRectShape cornerTL_TR_BL_BR="0,10,0,10" width="290" height="441" x="2" y="0" stroke="0" fillColor="0x23282f" strokeIn="2" strokeInColor="0x434343" fillAlpha="0.4" />
+	<e:Group id="_analysisGroup" width="240" height="334" y="14" right="19">
 		<e:Group name="Group" width="240" height="334">
 			<ui:HorizontalHolder bulletWidth="10" bulletHeight="10" bulletRight="0" bulletTop="0" width="240" height="160"
 			                     slideWidth="240" slideHeight="160" isLoop="false" isAuto="false">
@@ -24,13 +25,13 @@
 			</ui:HorizontalHolder>
 		</e:Group>
 	</e:Group>
-	<e:Group id="_bankerBeadGroup" x="19" y="368" width="110" height="55" name="askRoad">
+	<e:Group id="_bankerBeadGroup" y="368" width="110" height="55" name="skipEnterScene" right="149">
 		<e:Image id="_iconBankerBead" width="110" height="28" source="d_ba_roadmap_topbar_textbg_banker_png" anchorOffsetX="0"
 		         scale9Grid="15,13,37,5" />
 		<ui:RunTimeLabel id="_bankerAskLabel" text="Ask P" textAlign="center" anchorOffsetX="0" width="110" size="16"
 		                 height="28" verticalAlign="middle" touchEnabled="false" />
 	</e:Group>
-	<e:Group id="_playerBeadGroup" right="19" y="368" width="110" height="55" name="askRoad">
+	<e:Group id="_playerBeadGroup" right="19" y="368" width="110" height="55" name="skipEnterScene">
 		<e:Image id="_iconPlayerBead" width="110" height="28" source="d_ba_roadmap_topbar_textbg_player_png"
 		         scale9Grid="15,13,37,5" />
 		<ui:RunTimeLabel id="_playerAskLabel" text="Ask B" textAlign="center" anchorOffsetX="0" width="110" size="16"

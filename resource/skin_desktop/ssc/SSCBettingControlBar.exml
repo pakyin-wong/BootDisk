@@ -40,9 +40,10 @@
                 <ui:RunTimeLabel id="_lblNoteDropDown" text="2 元" horizontalCenter="0" verticalCenter="0"/>
             </e:Group>
             <e:Group id="_btnBetDescription" width="170" height="50">
-                <e:Rect fillAlpha="1" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50" ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" fillColor="0x1b416e"/>
+                <ui:RoundRectButton cornerTL_TR_BL_BR="25,25,25,25" width="170" height="50" 
+                    fillAlpha="1"  fillColor="0x2e3740" stroke="0"/>
 			    <e:Image source="d_lobby_button_down_normal_png" width="40" height="40" verticalCenter="0" x="8"/>
-				<ui:RunTimeLabel id="_lblBetDescription" text="中獎說明" width="88" height="36" verticalAlign="middle" textAlign="center" fontFamily="NotoSansCJKtc" size="16" scaleX="1" scaleY="1" verticalCenter="0" x="44"/>
+				<ui:RunTimeLabel id="_lblBetDescription" text="中獎說明" width="88" height="36" verticalAlign="middle" textAlign="center" size="16" scaleX="1" scaleY="1" verticalCenter="0" x="44"/>
                 <e:layout>
                     <e:BasicLayout/>
                 </e:layout>
@@ -58,9 +59,21 @@
                 </e:Group>
                 <e:Group id="_lblDownPart" y="20">
                     <ui:RunTimeLabel id="_lblTitleNoteChosen" text="已選：" size="20"/>
-                    <ui:RunTimeLabel id="_lblNoteChosen" text="0注" size="20"/>
-                    <ui:RunTimeLabel id="_lblTitleTotalBetChosen" text="，共計：" size="20"/>
-                    <ui:RunTimeLabel id="_lblTotalBet" text="0元" size="20"/>
+                    <e:Group>
+                        <ui:RunTimeLabel id="_lblNoteChosen" text="0" size="20" textColor="0x4adc84" textAlign="bottom"/>
+                        <ui:RunTimeLabel id="_lblNote" text="注" size="20" textAlign="bottom"/>
+                        <e:layout>
+                            <e:HorizontalLayout horizontalAlign="center" verticalAlign="bottom" gap="0"/>
+                        </e:layout>
+                    </e:Group>
+                    <ui:RunTimeLabel id="_lblTitleTotalBetChosen" text="，共計：" size="20" />
+                    <e:Group>
+                        <ui:RunTimeLabel id="_lblTotalBet" text="0" size="20" textColor="0xe4493a" textAlign="bottom"/>
+                        <ui:RunTimeLabel id="_lblTotalBetDollar" text="元" size="20" textAlign="bottom"/>
+                        <e:layout>
+                            <e:HorizontalLayout horizontalAlign="center" verticalAlign="bottom" gap="0"/>
+                        </e:layout>
+                    </e:Group>
                     <e:layout>
                         <e:HorizontalLayout horizontalAlign="center" verticalAlign="middle" gap="0"/>
                     </e:layout>
@@ -89,6 +102,10 @@
             </e:layout>
         </e:Group>
         <ui:Panel id="_noteDropDown" width="170" x="380" y="80" skinName="skin_desktop.NavDropdown" maxHeight="200"  height="40"/>
+        <e:Group id="_betDesGrp" width="722" height="174" x="488" y="-174" touchEnabled="false" visible="false">
+            <ui:RoundRectShape cornerTL_TR_BL_BR="10,10,10,10" x="0" width="722" height="174" stroke="0" fillColor="0x28323d" fillAlpha="0.9"/>
+            <ui:RunTimeLabel id="_lblBetDes" width="672" height="174" x="25" y="18" size="20" alpha="0.7"/>
+        </e:Group>
     </e:Group>
  
 </e:Skin>

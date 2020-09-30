@@ -66,7 +66,7 @@ namespace we {
         this._mouseAreaMapping[dil.BetField.SUM_18] = this._sum_18_group;
 
         Object.keys(this._mouseAreaMapping).map(value => {
-          console.log(value);
+          // console.log(value);
           mouse.setButtonMode(this._mouseAreaMapping[value], true);
         });
 
@@ -200,7 +200,7 @@ namespace we {
         grid.addChild(this._winningAnim);
         this._winningAnim.anchorOffsetX = 3;
         this._winningAnim.anchorOffsetY = 2;
-        console.log('showWinningNumber', this._winningAnim);
+        // console.log('showWinningNumber', this._winningAnim);
 
         (async () => {
           const p = we.utils.waitDragonBone(this._winningAnim);
@@ -265,7 +265,7 @@ namespace we {
           this._luckyAnims.push(luckyAnim);
 
           const animName = this.getAnimName(+key);
-          console.log('showLuckyNumber');
+          // console.log('showLuckyNumber');
 
           (async () => {
             let p = we.utils.waitDragonBone(luckyAnim);

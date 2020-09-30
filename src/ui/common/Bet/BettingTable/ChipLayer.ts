@@ -429,9 +429,9 @@ namespace we {
 
         const betfields = this._doubleBetDetails.map(detail => {
           const uncfmBetDetail = this.getUncfmBetByField(detail.field);
-          let amount = uncfmBetDetail?uncfmBetDetail.amount + detail.amount:detail.amount;
+          const amount = uncfmBetDetail ? uncfmBetDetail.amount + detail.amount : detail.amount;
           // double the bet amounts
-          const betDetail = { field: detail.field, amount: amount };
+          const betDetail = { field: detail.field, amount };
           if (this.validateBetAction(betDetail)) {
             this.addBetToBetField(detail.field, betDetail.amount);
             this.updateBetChipUncfmBet(detail.field, this.getUncfmBetByField(detail.field).amount);
@@ -443,8 +443,6 @@ namespace we {
           const data = { exceedLower: false };
           this.dispatchEvent(new egret.Event(core.Event.EXCEED_BET_LIMIT, false, false, data));
         }
-
-
 
         // const validDoubleBet = this._cfmBetDetails.reduce((acc, cur) => {
         //   if (cur.amount === 0) {
@@ -554,6 +552,10 @@ namespace we {
         let exceedBetLimit = false;
         if (checkLowerLimit) {
           exceedBetLimit = this.isExceedLowerBetLimit(fieldAmounts, betLimit);
+          if (exceedBetLimit) {
+            this.resetUnconfirmedBet();
+            this.dispatchEvent(new egret.Event('onUnconfirmBet'));
+          }
         } else {
           exceedBetLimit = this.isExceedUpperBetLimit(fieldAmounts, betLimit, betDetail);
         }
@@ -563,7 +565,28 @@ namespace we {
           this.dispatchEvent(new egret.Event(core.Event.EXCEED_BET_LIMIT, false, false, data));
           return false;
         }
+
+        // LS-77
+        // TODO: change 999999999 to tableLimit from server.
+        // TODO: change ui/common/TableInfoPanel.ts 's tableLimit from server (now copy from betlimit and it is incorrect)
+        if (this.isExceedTableLimit(fieldAmounts, 99999999999999999)) {
+          // dispatchEvent tableLimit
+          this.dispatchEvent(new egret.Event(core.Event.EXCEED_TABLE_LIMIT, false, false, data));
+          return false;
+        }
+
         return true;
+      }
+
+      protected isExceedTableLimit(fieldAmounts: {}, tableLimit: number) {
+        let totalBet = this.getTotalCfmBetAmount();
+        for (const key of Object.keys(fieldAmounts)) {
+          totalBet += fieldAmounts[key];
+        }
+        if (totalBet >= tableLimit) {
+          return true;
+        }
+        return false;
       }
 
       // All amounts = betting value + uncfmvalue + cfmamount
@@ -584,15 +607,27 @@ namespace we {
       protected abstract isExceedUpperBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet, betDetail: data.BetDetail);
 
       protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
-        const totalUncfmAmount = this.getTotalUncfmBetAmount();
-        const totalCfmAmount = this.getTotalCfmBetAmount();
-
-        if (betLimit.minlimit > totalUncfmAmount + totalCfmAmount) {
-          return true;
+        for (const key of Object.keys(fieldAmounts)) {
+          if (fieldAmounts[key] === 0) {
+            continue;
+          }
+          if (fieldAmounts[key] < betLimit.minlimit) {
+            return true;
+          }
         }
-
         return false;
       }
+
+      // protected isExceedLowerBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+      //   const totalUncfmAmount = this.getTotalUncfmBetAmount();
+      //   const totalCfmAmount = this.getTotalCfmBetAmount();
+
+      //   if (betLimit.minlimit > totalUncfmAmount + totalCfmAmount) {
+      //     return true;
+      //   }
+
+      //   return false;
+      // }
 
       protected checkLimit(checkBet, betDetail, maxlimit) {
         if (checkBet > maxlimit) {

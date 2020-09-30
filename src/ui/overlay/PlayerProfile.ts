@@ -181,7 +181,7 @@ namespace we {
       }
 
       public updateProfileText() {
-        this._maxWinAmount.text = this.winAmount;
+        this._maxWinAmount.text = we.utils.formatNumber(this.winAmount, true);
         this._maxWinCount.text = this.winStreak;
       }
 
@@ -207,7 +207,7 @@ namespace we {
         }
 
         this._maxWinCount.text = env.maxWinCount.toString();
-        this._maxWinAmount.text = env.maxWinAmount.toString();
+        this._maxWinAmount.text = we.utils.formatNumber(env.maxWinAmount, true).toString();
         // create mask
         const shape = new egret.Shape();
         shape.graphics.beginFill(0xffffff, 1);
@@ -323,6 +323,7 @@ namespace we {
       private onChangeIcon() {
         env.profileimage = this.iconList[this._iconList.selectedIndex];
         this._playerIcon.source = env.icons[env.profileimage];
+        dir.socket.updateSetting('profileimage', env.profileimage);
         dir.evtHandler.dispatch(core.Event.ICON_UPDATE);
       }
 

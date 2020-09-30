@@ -1041,7 +1041,7 @@
       "sourceW": 57,
       "sourceH": 57
     },
-    "m-lobby-btn-filter-v_png": {
+    "m-lobby-btn-filter-h_png": {
       "x": 1564,
       "y": 1122.5,
       "w": 52,
@@ -1051,7 +1051,7 @@
       "sourceW": 52,
       "sourceH": 52
     },
-    "m_lobby_view_icon_1column_png": {
+    "m-lobby-btn-filter-v_png": {
       "x": 1505,
       "y": 1122.5,
       "w": 52,
@@ -1061,9 +1061,19 @@
       "sourceW": 52,
       "sourceH": 52
     },
-    "m_lobby_view_icon_2column_png": {
+    "m_lobby_view_icon_1column_png": {
       "x": 1619.5,
       "y": 1141.5,
+      "w": 52,
+      "h": 52,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 52,
+      "sourceH": 52
+    },
+    "m_lobby_view_icon_2column_png": {
+      "x": 1564,
+      "y": 1176.5,
       "w": 52,
       "h": 52,
       "offX": 0,
@@ -1142,16 +1152,6 @@
       "sourceH": 39.5
     },
     "m_common_header_profile_pic_08_png": {
-      "x": 1564,
-      "y": 1176.5,
-      "w": 39.5,
-      "h": 39.5,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 39.5,
-      "sourceH": 39.5
-    },
-    "m_common_header_profile_pic_09_png": {
       "x": 1619.5,
       "y": 1195.5,
       "w": 39.5,
@@ -1161,9 +1161,19 @@
       "sourceW": 39.5,
       "sourceH": 39.5
     },
-    "m_common_header_profile_pic_10_png": {
+    "m_common_header_profile_pic_09_png": {
       "x": 1564,
-      "y": 1218,
+      "y": 1230.5,
+      "w": 39.5,
+      "h": 39.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 39.5,
+      "sourceH": 39.5
+    },
+    "m_common_header_profile_pic_10_png": {
+      "x": 1544.5,
+      "y": 1272,
       "w": 39.5,
       "h": 39.5,
       "offX": 0,
@@ -1182,8 +1192,8 @@
       "sourceH": 39.5
     },
     "m_common_header_profile_pic_12_png": {
-      "x": 1564,
-      "y": 1259.5,
+      "x": 1619.5,
+      "y": 1278.5,
       "w": 39.5,
       "h": 39.5,
       "offX": 0,
@@ -1212,8 +1222,8 @@
       "sourceH": 30
     },
     "m_lobby_submenu_icon_roulette_png": {
-      "x": 1544.5,
-      "y": 1301,
+      "x": 1661,
+      "y": 1227.5,
       "w": 33,
       "h": 33,
       "offX": 0,
@@ -1272,8 +1282,8 @@
       "sourceH": 23
     },
     "m_lobby_login_form_typebox_png": {
-      "x": 1673.5,
-      "y": 1141.5,
+      "x": 1544.5,
+      "y": 1313.5,
       "w": 20.5,
       "h": 20.5,
       "offX": 0,

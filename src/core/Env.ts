@@ -16,7 +16,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.9.2f1';
+      public version: string = '0.10.0';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -32,7 +32,7 @@ namespace we {
       public maxWinAmount: number = 0;
       public maxWinCount: number = 0;
 
-      public frameRate: number = 30;
+      public frameRate: number = 60;
 
       public _nicknames: { [langcode: string]: any } = {};
       public _groups: {};
@@ -71,6 +71,7 @@ namespace we {
       public bgm = 1;
       // public liveVolume = 1;
       // public soundEffect = 1;
+      public videoOpen: boolean = true;
 
       public betLimits: data.BetLimitSet[];
       // public wholeDenomList: (value: number) => number;
@@ -118,6 +119,8 @@ namespace we {
       public isBottomPanelOpen = true;
       public bottomPanelSelectedIdx: number = 0;
 
+      public isAutoDismiss: boolean = true;
+
       // Lottery
       public loDenominationList = [2, 20, 200];
       public loDeniminationIdx = 0;
@@ -147,6 +150,7 @@ namespace we {
           core.GameType.RO,
           core.GameType.ROL,
           core.GameType.LO,
+          core.GameType.RC,
         ];
 
         dir.evtHandler.addEventListener('LIVE_PAGE_LOCK', this.onLockChanged, this);
@@ -318,12 +322,19 @@ namespace we {
             break;
           case core.GameType.LO:
             dir.sceneCtr.goto('lo', { tableid: tableId });
-
+            break;
+          case core.GameType.RC:
+            dir.sceneCtr.goto('rc', { tableid: tableId });
+            break;
           default:
             logger.e(utils.LogTarget.DEBUG, `Scene for GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
             this._currTableId = '';
             break;
         }
+      }
+
+      public get sceneId(): string {
+        return dir.sceneCtr.currid;
       }
 
       public set nicknameSet(val) {

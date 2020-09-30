@@ -22,7 +22,7 @@ namespace we {
 
       public dataChanged() {
         super.dataChanged();
-        this.label.renderText = () => i18n.t(this.data);
+        this.label.renderText = () => i18n.t(this.data.text);
 
         // set tab item min width to bold text width
         const bold = this.label.bold;

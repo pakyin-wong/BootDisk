@@ -89,7 +89,7 @@ namespace we {
         if (c.length > this.inFocusIdx && c[c.length - 1] !== this.target) {
           return;
         }
-        if (this.target.close && this.target.close.hitTestPoint(e.stageX, e.stageY)) {
+        if (this.target.close && this.target.close.hitTestPoint(e.stageX, e.stageY, true)) {
           this.target.dispatchEvent(new egret.Event('close'));
           this.hide();
         } else if (this.target.$hitTest(e.stageX, e.stageY)) {
@@ -105,8 +105,11 @@ namespace we {
           return;
         }
         this.isShow = true;
+        this.target.dispatchEvent(new egret.Event('POPPER_SHOW'));
+
         this.isFocusItem && this.target.stage['inFocusItems'].push(this.target);
         this.inFocusIdx = this.target.stage['inFocusItems'].length;
+
         await this.onShow(skipAnimation);
         if (this.target.stage) {
           this.target.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
@@ -126,6 +129,8 @@ namespace we {
           this.target.stage.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
         }
         this.isShow = false;
+        this.target.dispatchEvent(new egret.Event('POPPER_HIDE'));
+
         await this.onHide(skipAnimation);
       }
       protected async onShow(skipAnimation: boolean = false) {
@@ -151,9 +156,7 @@ namespace we {
         content.$x = this._contentPos.x;
         content.$y = this._contentPos.y - 20;
         await new Promise((resolve, reject) => {
-          egret.Tween.get(content)
-            .to({ alpha: 1, $y: this._contentPos.y }, 200)
-            .call(resolve);
+          egret.Tween.get(content).to({ alpha: 1, $y: this._contentPos.y }, 200).call(resolve);
         });
       }
       protected async onHide(skipAnimation: boolean = false) {

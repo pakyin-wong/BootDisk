@@ -116,14 +116,10 @@ namespace we {
 
         const p1 = new Promise(resolve =>
           egret.Tween.get(this)
-            .to({ y: this._originaly - this._offsetY, scaleX: this._hoverScale, scaleY: this._hoverScale }, this._tweenInterval1)
+            .to({ y: this._originaly - this._offsetY, scaleX: this._hoverScale, scaleY: this._hoverScale }, this._tweenInterval1, egret.Ease.cubicOut)
             .call(resolve)
         );
-        const p2 = new Promise(resolve =>
-          egret.Tween.get(this._quickBetGroup)
-            .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
-            .call(resolve)
-        );
+        const p2 = new Promise(resolve => egret.Tween.get(this._quickBetGroup).to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1).call(resolve));
       }
 
       protected hideQuickBetGroup() {
@@ -141,7 +137,7 @@ namespace we {
         egret.Tween.get(this._quickBetGroup).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1);
 
         if (this._mouseOutside) {
-          const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1, y: this._originaly }, this._tweenInterval1);
+          const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1, y: this._originaly }, this._tweenInterval1, egret.Ease.cubicOut);
           this.showQuickBetButton(false);
         } else {
           egret.Tween.get(this).to({ y: this._originaly }, this._tweenInterval1);

@@ -57,10 +57,10 @@
 				<e:Group id="_chartGroup" width="100%" height="100%" name="Group">
 					<ui:HorizontalHolder bulletWidth="25" bulletHeight="25" bulletGapValue="15" bulletRight="10" bulletTop="10" width="1242" height="532" slideWidth="1242" slideHeight="532" isLoop="false" isAuto="false">
 						<e:Group width="1242" height="532" y="0">
-							<dil:History id="_historyPanel1" skinName="skin_mobile_portrait.dil.HistorySkin" width="100%" height="100%" scaleX="1" scaleY="1"/>
+							<dil:History id="_historyPanel1" skinName="skin_mobile_portrait.dil.HistorySkin" width="100%" height="100%" scaleX="1" scaleY="1" round="10"/>
 						</e:Group>
 						<e:Group width="1242" height="532" x="1242">
-							<dil:History id="_historyPanel2" skinName="skin_mobile_portrait.dil.HistorySkin" width="100%" height="100%" scaleX="1" scaleY="1"/>
+							<dil:History id="_historyPanel2" skinName="skin_mobile_portrait.dil.HistorySkin" width="100%" height="100%" scaleX="1" scaleY="1" round="50"/>
 						</e:Group>
 					</ui:HorizontalHolder>	
 				</e:Group>

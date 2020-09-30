@@ -44,12 +44,12 @@ namespace we {
 
         this._bigEyeRoad = new ba.BABigEyeRoad(10 * 2, gridSize);
         this._bigEyeRoad.x = gridSizeBR * 17;
-        this._bigEyeRoad.y = gridSize * 3;
+        this._bigEyeRoad.y = 0;
         this.addChild(this._bigEyeRoad);
 
         this._smallRoad = new ba.BASmallRoad(10 * 2, gridSize);
         this._smallRoad.x = gridSizeBR * 17;
-        this._smallRoad.y = 0;
+        this._smallRoad.y = gridSize * 3;
         this.addChild(this._smallRoad);
 
         this._cockroachRoad = new ba.BACockroachRoad(10 * 2, gridSize);

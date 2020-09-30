@@ -101,7 +101,15 @@ namespace we {
           //   break;
 
           case core.LotteryTab.all:
+            this.gameFilters = [core.GameType.LO, core.GameType.RC];
+            break;
+
+          case core.LotteryTab.lo:
             this.gameFilters = [core.GameType.LO];
+            break;
+
+          case core.LotteryTab.rc:
+            this.gameFilters = [core.GameType.RC];
             break;
         }
       }

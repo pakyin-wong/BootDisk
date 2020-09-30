@@ -98,12 +98,14 @@ namespace we {
         }
         this.verticalScrollBar.skinName = utils.getSkinByClassname('ScrollBarVertical');
         this.verticalScrollBar.autoVisibility = false;
-        if (this._isCollapsible && this.collapseOnStart) {
-          this.verticalScrollBar.visible = false;
-        } else {
-          this.verticalScrollBar.visible = true;
-        }
+        // if (this._isCollapsible && this.collapseOnStart) {
+        //   this.verticalScrollBar.visible = false;
+        // } else {
+        //   this.verticalScrollBar.visible = true;
+        // }
         this.verticalScrollBar.touchEnabled = true;
+        this.verticalScrollBar.visible = false;
+        this.verticalScrollBar.alpha = 0;
         //   this.bounces = false;
         //   this.throwSpeed = Infinity;
       }
@@ -165,6 +167,11 @@ namespace we {
       private _initProgress = 0;
 
       private onThumbBegin(event: egret.TouchEvent) {
+        if (this.hideTimeoutId > -1) {
+          clearTimeout(this.hideTimeoutId);
+          this.hideTimeoutId = -1;
+        }
+        this.showScrollBar(true);
         if (!this.verticalScrollBar.thumb.hitTestPoint(event.stageX, event.stageY)) {
           // only draggable if click on thumb
           return;
@@ -189,6 +196,7 @@ namespace we {
       }
 
       private onMouseUp = (event: MouseEvent) => {
+        this.showScrollBar(false);
         (<any>window).removeEventListener('mousemove', this.onMouseMove, { passive: false });
         (<any>window).removeEventListener('mouseup', this.onMouseUp, { passive: false });
         this._firstYForMovement = 0;
@@ -257,7 +265,8 @@ namespace we {
       private onMouseWheel = this.throttle((event: WheelEvent) => {
         event.preventDefault();
         try {
-          console.log(event);
+          this.scheduleHide();
+          // console.log(event);
           const delta = -this.wheelDistance(event) * 100;
           const viewHeight = this.viewport.contentHeight - this.height;
           this.viewport.scrollV = Math.max(0, Math.min(viewHeight, this.viewport.scrollV + delta));
@@ -315,6 +324,32 @@ namespace we {
           } else {
             this.verticalScrollBar.visible = true;
           }
+        }
+      }
+
+      protected hideTimeoutId = -1;
+      protected scheduleHide() {
+        this.showScrollBar(true);
+        if (this.hideTimeoutId > -1) {
+          clearTimeout(this.hideTimeoutId);
+          this.hideTimeoutId = -1;
+        }
+        this.hideTimeoutId = setTimeout(() => {
+          this.showScrollBar(false);
+        }, 1500);
+      }
+
+      protected showScrollBar(isShow: boolean) {
+        egret.Tween.removeTweens(this.verticalScrollBar);
+        if (isShow) {
+          this.verticalScrollBar.visible = true;
+          egret.Tween.get(this.verticalScrollBar).to({ alpha: 1 }, 300);
+        } else {
+          egret.Tween.get(this.verticalScrollBar)
+            .to({ alpha: 0 }, 300)
+            .call(() => {
+              this.verticalScrollBar.visible = false;
+            });
         }
       }
     }

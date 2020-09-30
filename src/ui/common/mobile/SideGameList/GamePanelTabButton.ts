@@ -5,6 +5,7 @@ namespace we {
 
       private _badge: eui.Group;
       private _label: ui.RunTimeLabel;
+      private _extends: eui.Group;
       private _image: eui.Image;
       private _badgeLabel: eui.Label;
       private _background: eui.Image;
@@ -21,7 +22,7 @@ namespace we {
 
       protected mount() {
         super.mount();
-        this._content.removeChild(this._label);
+        this._content.removeChild(this._extends);
         this._background.alpha = 0;
         this.width = this._content.width;
         this._label.renderText = () => i18n.t(this.labelKey);
@@ -55,14 +56,14 @@ namespace we {
         this.setBadgeVisible(!isFocus);
         this.setBackgroundVisible(isFocus);
         if (isFocus) {
-          this._content.addChild(this._label);
+          this._content.addChild(this._extends);
           this.validateNow();
           egret.Tween.removeTweens(this);
           egret.Tween.get(this).to({ width: this._content.measuredWidth + 40 }, this.tweenDuration);
           this._image.source = `${this.imageKey}_png`;
         } else {
-          if (this._label.parent) {
-            this._content.removeChild(this._label);
+          if (this._extends.parent) {
+            this._content.removeChild(this._extends);
           }
           this.validateNow();
           egret.Tween.removeTweens(this);
@@ -122,10 +123,36 @@ namespace we {
           if (value > 0) {
             this.setBadgeVisible(true);
             this._label.renderText = () => `${i18n.t(this.labelKey)} (${value})`;
+            // console.log('!this.focus this.width = this._content.width;', this._content.width);
           } else {
             this.setBadgeVisible(false);
             this._label.renderText = () => `${i18n.t(this.labelKey)}`;
+            // console.log('!this.focus this.width = this._content.width;111111111111', this._content.width);
           }
+        } else {
+          if (value > 0) {
+            // this.setBadgeVisible(true);
+            this.validateNow();
+            this._label.renderText = () => `${i18n.t(this.labelKey)} (${value})`;
+            // console.log('this.focus this.width = this._content.width;', this._content.width);
+            this._setFocus(true);
+          } else {
+            // this.setBadgeVisible(false);
+            this.validateNow();
+            this._label.renderText = () => `${i18n.t(this.labelKey)}`;
+            // console.log('this.focus this.width = this._content.width;', this._content.width);
+            this._setFocus(true);
+          }
+        }
+      }
+
+      public updateLabelKey(key) {
+        this.labelKey = key;
+        if (this._focus) {
+          this._label.renderText = () => i18n.t(this.labelKey);
+          this.validateNow();
+          egret.Tween.removeTweens(this);
+          egret.Tween.get(this).to({ width: this._content.measuredWidth + 40 }, this.tweenDuration);
         }
       }
     }

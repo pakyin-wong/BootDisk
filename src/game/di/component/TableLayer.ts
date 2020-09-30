@@ -55,6 +55,12 @@ namespace we {
       protected _specific_4_group: eui.Group;
       protected _specific_5_group: eui.Group;
       protected _specific_6_group: eui.Group;
+      protected _specific_1_dice: eui.Image;
+      protected _specific_2_dice: eui.Image;
+      protected _specific_3_dice: eui.Image;
+      protected _specific_4_dice: eui.Image;
+      protected _specific_5_dice: eui.Image;
+      protected _specific_6_dice: eui.Image;
 
       protected _groupMapping: {};
       protected _groupHoverImageMapping: {};
@@ -278,6 +284,21 @@ namespace we {
               .call(resolve);
           });
           tweenPromises.push(promise);
+        })();
+        (() => {
+          for (let i = 1; i < 7; i++) {
+            const promise = new Promise(resolve => {
+              egret.Tween.get(this[`_specific_${i}_dice`])
+                .to(
+                  {
+                    scaleX: collapsed ? 0.858 : 1,
+                  },
+                  125
+                )
+                .call(resolve);
+            });
+            tweenPromises.push(promise);
+          }
         })();
         (() => {
           const promise = new Promise(resolve => {

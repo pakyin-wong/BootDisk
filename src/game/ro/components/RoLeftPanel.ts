@@ -21,9 +21,9 @@ namespace we {
       protected pageRadioBtn2: eui.RadioButton;
       protected pageRadioBtn3: eui.RadioButton;
 
-      protected roadRadioBtn1: eui.RadioButton;
-      protected roadRadioBtn2: eui.RadioButton;
-      protected roadRadioBtn3: eui.RadioButton;
+      protected roadRadioBtn1: ui.RoundRectButton;
+      protected roadRadioBtn2: ui.RoundRectButton;
+      protected roadRadioBtn3: ui.RoundRectButton;
 
       protected hotIcon1: ROBeadRoadIcon;
       protected hotIcon2: ROBeadRoadIcon;
@@ -61,13 +61,13 @@ namespace we {
         this.labelHot.text = i18n.t('roulette.hot');
         this.labelCold.text = i18n.t('roulette.cold');
 
+        this.roadRadioBtn1._label.renderText = () => i18n.t('roulette.roadRed') + ' / ' + i18n.t('roulette.roadBlack');
+        this.roadRadioBtn2._label.renderText = () => i18n.t('dice.roadBig') + ' / ' + i18n.t('roulette.roadSmall');
+        this.roadRadioBtn3._label.renderText = () => i18n.t('dice.roadOdd') + ' / ' + i18n.t('roulette.roadEven');
+
         this.pageRadioBtn1['labelDisplayDown']['text'] = this.pageRadioBtn1['labelDisplayUp']['text'] = i18n.t('roulette.hotColdNumber');
         this.pageRadioBtn2['labelDisplayDown']['text'] = this.pageRadioBtn2['labelDisplayUp']['text'] = i18n.t('roulette.history');
         this.pageRadioBtn3['labelDisplayDown']['text'] = this.pageRadioBtn3['labelDisplayUp']['text'] = i18n.t('roulette.roadmap');
-
-        this.roadRadioBtn1['labelDisplayDown']['text'] = this.roadRadioBtn1['labelDisplayUp']['text'] = i18n.t('roulette.roadRed') + '/' + i18n.t('roulette.roadBlack');
-        this.roadRadioBtn2['labelDisplayDown']['text'] = this.roadRadioBtn2['labelDisplayUp']['text'] = i18n.t('roulette.roadBig') + '/' + i18n.t('roulette.roadSmall');
-        this.roadRadioBtn3['labelDisplayDown']['text'] = this.roadRadioBtn3['labelDisplayUp']['text'] = i18n.t('roulette.roadOdd') + '/' + i18n.t('roulette.roadEven');
 
         this.updateActiveLine(false);
       }
@@ -200,9 +200,9 @@ namespace we {
         this.pageRadioBtn2.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.pageRadioBtn3.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
 
-        this.roadRadioBtn1.addEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
-        this.roadRadioBtn2.addEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
-        this.roadRadioBtn3.addEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
+        this.roadRadioBtn1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoadChange, this);
+        this.roadRadioBtn2.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoadChange, this);
+        this.roadRadioBtn3.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoadChange, this);
 
         if (this.toggleUpDownButton) {
           this.toggleUpDownButton.currentState = 'b_up';
@@ -215,8 +215,10 @@ namespace we {
       }
 
       protected onRoadChange(e: eui.UIEvent) {
-        const radio: eui.RadioButton = e.target;
+        const radio: ui.RoundRectButton = e.target;
         this.roadStack.selectedIndex = radio.value;
+        this.roadRadioBtn1.active = this.roadRadioBtn2.active = this.roadRadioBtn3.active = false;
+        radio.active = true;
       }
 
       protected onViewChange(e: eui.UIEvent) {
@@ -352,9 +354,9 @@ namespace we {
         // this.pageStack.removeChild(this.coldIcon3);
         // this.pageStack.removeChild(this.coldIcon4);
         // this.pageStack.removeChild(this.coldIcon5);
-        this.roadRadioBtn1.removeEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
-        this.roadRadioBtn2.removeEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
-        this.roadRadioBtn3.removeEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
+        this.roadRadioBtn1.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoadChange, this);
+        this.roadRadioBtn2.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoadChange, this);
+        this.roadRadioBtn3.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoadChange, this);
         this.hotIcon1.dispose();
         this.hotIcon2.dispose();
         this.hotIcon3.dispose();

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.ba.LiveListItemTableLayerSkin" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" xmlns:ui="we.ui.*" states="Normal,SuperSix">
+        xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" xmlns:ui="we.ui.*" states="Normal,SuperSix" height="177">
 	<e:Group id="_playerGroup" x="0" y="0" width="289" height="96">
 		<ui:BettingGrid id="_playerImage" width="289" height="96" 
 		                gradientColors="[0x2e95ff, 0x305acc]" gradientType="RADIAL" gradientPosition="topRight" />
@@ -12,7 +12,7 @@
 		<ui:RunTimeLabel id="_bankerLabel" verticalCenter="0" horizontalCenter="0" size="30" />
 	</e:Group>
 	<e:Group id="_playerPairGroup" x="0" y="96" width="193" height="81">
-		<ui:BettingGrid id="_playerPairImage" width="193" height="81" roundCorner="[0,0,0,6]" color="0x163757" />
+		<ui:BettingGrid id="_playerPairImage" width="193" height="81" roundCorner="[0,0,0,10]" color="0x163757" />
 		<ui:RunTimeLabel id="_playerPairLabel" verticalCenter="0" horizontalCenter="0" size="30" />
 	</e:Group>
 	<e:Group id="_tieGroup" x="193" y="96" width="192" height="81">
@@ -20,7 +20,7 @@
 		<ui:RunTimeLabel id="_tieLabel" verticalCenter="0" horizontalCenter="0" size="30" />
 	</e:Group>
 	<e:Group id="_bankerPairGroup" x="385" y="96" width="193" height="81">
-		<ui:BettingGrid id="_bankerPairImage" width="193" height="81" color="0x5a2322" roundCorner="[0,0,6,0]"/>
+		<ui:BettingGrid id="_bankerPairImage" width="193" height="81" color="0x5a2322" roundCorner="[0,0,10,0]"/>
 		<ui:RunTimeLabel id="_bankerPairLabel" verticalCenter="0" horizontalCenter="0" size="30" />
 	</e:Group>
 	<e:Group id="_superSixBankerGroup" visible="false">

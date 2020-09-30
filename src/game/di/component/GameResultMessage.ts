@@ -11,14 +11,11 @@ namespace we {
 
       protected startAnim(gameType: core.GameType, resultData: any) {
         const { gameData, winAmount } = resultData;
-        const { dice1, dice2, dice3, size, odd } = <di.GameData>gameData;
+        // const { dice1, dice2, dice3, size, odd } = <di.GameData> gameData;
+        const { dice1, dice2, dice3, size, odd, tie } = <di.GameData>gameData;
 
         const diceresult = [dice1, dice2, dice3];
-        console.log('diceresult', diceresult);
-        const isIdentical = diceresult.every(v => v === diceresult[0]);
-        console.log('isIdentical', isIdentical);
-        console.log('this._display.armature', this._display.armature);
-        console.log('gameData', gameData);
+        const isIdentical = tie === 1;
         this._display.armature.eventDispatcher.addDBEventListener(
           dragonBones.EventObject.COMPLETE,
           () => {
@@ -31,6 +28,7 @@ namespace we {
 
         const total = isNaN((gameData as di.GameData).total) ? dice1 + dice2 + dice3 : (gameData as di.GameData).total;
 
+        console.log('total', total);
         let anim = 'ani_result_';
         let txtSlot = null;
         let isWin = false;
@@ -48,10 +46,10 @@ namespace we {
         if (isNaN(winAmount)) {
           anim += 'no_bets';
           console.log('no_bets');
-          // if (isIdentical) {
-          //   anim += '_identical';
-          //   console.log('_identical');
-          // }
+          if (isIdentical) {
+            anim += '_identical';
+            console.log('_identical');
+          }
           // if (!isIdentical) {
           //   console.log('not _identical');
           // }
@@ -59,10 +57,10 @@ namespace we {
           anim += 'loss';
           txtSlot = 'credit_loss';
           console.log('loss');
-          // if (isIdentical) {
-          //   anim += '_identical';
-          //   console.log('_identical');
-          // }
+          if (isIdentical) {
+            anim += '_identical';
+            console.log('_identical');
+          }
           // if (!isIdentical) {
           //   console.log('not _identical');
           // }
@@ -71,10 +69,10 @@ namespace we {
           txtSlot = 'credit_win';
           console.log('win');
           isWin = true;
-          // if (isIdentical) {
-          //   anim += '_identical';
-          //   console.log('_identical');
-          // }
+          if (isIdentical) {
+            anim += '_identical';
+            console.log('_identical');
+          }
           // if (!isIdentical) {
           //   console.log('not _identical');
           // }
@@ -111,6 +109,18 @@ namespace we {
           [isWin ? 'red_txt_win' : 'red_txt_loss', 40, size === 1 ? '小' : '大'],
           [isWin ? 'blue_txt_win' : 'blue_txt_loss', 40, odd === 1 ? '單' : '雙'],
         ];
+
+        if (isIdentical) {
+          const slot = this._display.armature.getSlot('green_txt');
+          const r = new eui.Label();
+          r.fontFamily = 'Barlow';
+          r.size = 40;
+          r.text = '圍';
+          r.textColor = 0xffffff;
+          r.anchorOffsetX = r.width / 2;
+          r.anchorOffsetY = r.height / 2;
+          slot.display = r;
+        }
 
         for (const [slotName, fontSize, text] of array) {
           const slot = this._display.armature.getSlot(<string>slotName);

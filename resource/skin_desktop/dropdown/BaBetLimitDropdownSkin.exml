@@ -17,7 +17,7 @@
         <ui:Scroller id="_scroller" x="-1" y="38" isCollapsible="true" iscollapseAnimate="true" collapseOnStart="true"
                      collapseDuration="150" width="100%">
             <e:Group width="100%">
-                <ui:List id="_list" width="100%" itemRendererSkinName="SidePanelAllGameDropdownItemSkin" x="0"
+                <ui:List id="_list" width="100%" itemRendererSkinName="SidePanelBetLimitDropdownItemSkin" x="0"
                          scaleX="1" scaleY="1" top="0" />
             </e:Group>
         </ui:Scroller>

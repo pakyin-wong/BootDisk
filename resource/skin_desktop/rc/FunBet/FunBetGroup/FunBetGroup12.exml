@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.rc.FunBetGroup12" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing" >
+	<e:Image width="180" height="214" source="d_lottery_ent_penal_betarea_betpenal_bg_green_png"/>
+	<e:Group id="items" left="0" right="0" top="0" bottom="0">
+		<lo:FunBetItem verticalCenter="0" horizontalCenter="0" skinName="skin_desktop.rc.FunBetItem12" customKey="rc"/>
+	</e:Group>
+</e:Skin>

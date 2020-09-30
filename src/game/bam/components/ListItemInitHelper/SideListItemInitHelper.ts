@@ -19,6 +19,7 @@ namespace we {
 
       public generateRoadmap(node: eui.Component) {
         const bigRoad = new ba.BetInfoBigRoad();
+        bigRoad.height = 127;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(bigRoad, idx);
         return bigRoad;
@@ -32,8 +33,7 @@ namespace we {
       }
 
       public generateResultDisplay(node: eui.Component) {
-        const cardHolder = new ba.SideListBetItemCardHolder();
-        // cardHolder.skinName = `skin_desktop.ba.BetItemCardHolderSkin`;
+        const cardHolder = new bam.SideListBetItemCardHolder();
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(cardHolder, idx);
         return cardHolder;
