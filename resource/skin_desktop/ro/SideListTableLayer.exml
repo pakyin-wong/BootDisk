@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.ro.SideListTableLayerSkin" currentState="Normal" width="333" height="120"
+<e:Skin class="skin_desktop.ro.SideListTableLayerSkin" currentState="Normal" width="337" height="120"
         xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" xmlns:ui="we.ui.*"
         states="Normal">
-	<e:Group id="_odd_group" x="0" y="0" width="166" height="65">
-		<e:Image id="_odd_image" width="166" height="65" source="d_lobby_ro_panel_betcontrol_betarea_odd_png"
+	<e:Group id="_odd_group" x="0" y="0" height="65" width="169">
+		<e:Image id="_odd_image" width="100%" height="100%" source="d_lobby_ro_panel_betcontrol_betarea_odd_png"
 		         name="d_lobby_ro_panel_betcontrol_betarea_odd_hover_png" />
 		<ui:RunTimeLabel id="_odd_label" verticalCenter="5" horizontalCenter="0" bold="true" />
 	</e:Group>
-	<e:Group id="_even_group" x="166" y="0" width="167" height="65">
+	<e:Group id="_even_group" x="169" y="0" width="168" height="65">
 		<e:Image id="_even_image" source="d_lobby_ro_panel_betcontrol_betarea_even_png"
-		         name="d_lobby_ro_panel_betcontrol_betarea_even_hover_png" width="167" height="65" />
+		         name="d_lobby_ro_panel_betcontrol_betarea_even_hover_png" width="100%" height="100%" />
 		<ui:RunTimeLabel id="_even_label" verticalCenter="5" horizontalCenter="0" bold="true" />
 	</e:Group>
-	<e:Group id="_red_group" x="0" y="65" width="166" height="55">
+	<e:Group id="_red_group" x="2" y="65" height="55" width="169">
 		<e:Image id="_red_image" source="d_lobby_ro_panel_betcontrol_betarea_red_png"
-		         name="d_lobby_ro_panel_betcontrol_betarea_red_hover_png" width="166" height="55" />
+		         name="d_lobby_ro_panel_betcontrol_betarea_red_hover_png" width="100%" height="100%" />
 	</e:Group>
-	<e:Group id="_black_group" x="166" y="65" width="167" height="55">
+	<e:Group id="_black_group" x="169" y="65" width="168" height="55">
 		<e:Image id="_black_image"
-		         name="d_lobby_ro_panel_betcontrol_betarea_black_hover_png" width="167" height="55"  source="d_lobby_ro_panel_betcontrol_betarea_black_png"/>
+		         name="d_lobby_ro_panel_betcontrol_betarea_black_hover_png" width="100%" height="100%"  source="d_lobby_ro_panel_betcontrol_betarea_black_png"/>
 	</e:Group>
 </e:Skin>

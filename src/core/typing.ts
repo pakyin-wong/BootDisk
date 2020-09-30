@@ -30,6 +30,10 @@ namespace we {
       getPlayerProfileSummary(callback: (data: any) => void);
       getPlayerStatistic(filter: any, callback: (data: any) => void);
       getPlayerLotteryStatistic(filter: any);
+      getLotteryContinuousBetDetail(betid: string, callback: (res: any) => void, thisArg: any);
+      getLotteryContinuousBetHistory(filter: any, callback: (res: any) => void, thisArg: any);
+      getLotteryBetDetail(filter: any, callback: (res: any) => void, thisArg: any);
+      cancelBet(tableID: string, betID: string, gametype: string, callback: (res: any) => void, thisArg: any);
     }
 
     export interface ILobbyRoad {

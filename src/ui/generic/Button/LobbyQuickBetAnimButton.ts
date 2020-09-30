@@ -115,7 +115,7 @@ namespace we {
           if (direction) {
             this._tw1 = egret.Tween.get(this._label1).to({ alpha: 0 }, 250);
             this._tw2 = egret.Tween.get(this._label2).to({ alpha: 1 }, 250);
-            this._tw3 = egret.Tween.get(this._image).to({ width: 50 }, 250);
+            this._tw3 = egret.Tween.get(this._image).to({ width: 73 }, 250);
           } else {
             this._tw1 = egret.Tween.get(this._label1).to({ alpha: 1 }, 250);
             this._tw2 = egret.Tween.get(this._label2).to({ alpha: 0 }, 250);
@@ -126,7 +126,7 @@ namespace we {
           if (direction) {
             this._label1.alpha = 0;
             this._label2.alpha = 1;
-            this._image.width = 50;
+            this._image.width = 73;
           } else {
             this._label1.alpha = 1;
             this._label2.alpha = 0;

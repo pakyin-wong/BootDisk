@@ -9,6 +9,7 @@ namespace we {
       protected _originBetRelatedGroupY: number;
 
       protected _panelDismissToggleBtn: ui.AnimatedToggleButton;
+      protected _forceNoDismiss: boolean = false;
 
       constructor(data: any) {
         super(data);
@@ -67,7 +68,7 @@ namespace we {
             egret.Tween.get(target).to({ y: enable ? 0 : 100, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
           }
         }
-        if ((env.isAutoDismiss || enable) && ui.EdgeDismissableAddon.isDismiss === enable) {
+        if ((env.isAutoDismiss || enable) && ui.EdgeDismissableAddon.isDismiss === enable && !this._forceNoDismiss) {
           // console.log(ui.EdgeDismissableAddon.isDismiss);
           ui.EdgeDismissableAddon.toggle();
         }

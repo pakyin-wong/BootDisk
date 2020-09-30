@@ -3,14 +3,14 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
 		<e:Image source="popover_png" left="0" top="0" right="0" bottom="0" />
-		<e:Image id="close" width="48" height="48" right="44" top="44" source="d-lobby-button-close-none_png" />
+		<e:Image id="close" width="48" height="48" source="d-lobby-button-close-none_png"  x="436" y="30"/>
 		<ui:RunTimeLabel id="_txt_title" text="Label" x="61" y="39.3" textColor="0xce925e"
 		                 width="120" height="45" />
 		<ui:RunTimeLabel id="_txt_lang" text="Label" x="61" y="108.3" size="24" height="36"
 		                 anchorOffsetX="0" width="390" />
 		<e:Rect width="400" height="1" x="58" y="257.5" fillColor="0x979797" />
 		<ui:RunTimeLabel id="_txt_liveRecord" text="Label" x="61" y="286.3" size="24" width="394"
-		                 height="36"  anchorOffsetX="0"/>
+		                 height="36"  anchorOffsetX="0" verticalAlign="bottom"/>
 		<ui:RunTimeLabel id="_txt_soundfx" text="Label" x="58" y="422.5" size="24" width="137"
 		                 height="60"  anchorOffsetX="0" anchorOffsetY="0" verticalAlign="middle" targetWidth="137"/>
 		<ui:RunTimeLabel id="_txt_bgm" text="Label" x="61" y="569.3" size="24" width="396"
@@ -23,25 +23,25 @@
 		<ui:Slider id="_slider_soundfx" width="400" height="36" x="58" y="497" skinName="skin_desktop.Slider" />
 		<ui:Slider id="_slider_bgm" width="400" height="36" x="58" y="623" skinName="skin_desktop.Slider" />
 		<e:Group id="_btn_currLang" width="251" height="50" x="61" y="166.5">
-			<e:Rect fillColor="0xffffff" fillAlpha="0" strokeWeight="2" strokeColor="0x4b535b" ellipseWidth="50"
-			        ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
+			<e:Rect fillColor="0xffffff" fillAlpha="0" strokeWeight="2" strokeColor="0x4b535b" ellipseWidth="60"
+			        ellipseHeight="60" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
 			<ui:RunTimeLabel id="_txt_currLang" text="Label" x="48" y="7" width="155" height="36" verticalAlign="middle"
 			                 textAlign="center" size="24" alpha="0.7" scaleX="1" scaleY="1" />
-			<e:Image width="30" height="30" x="222" y="20" source="d_lobby_button_down_normal_png" />
+			<e:Image width="30" height="30" x="200" y="10" source="d_lobby_button_down_normal_png" />
 		</e:Group>
 		<e:Group id="_btn_currFx" width="251" height="50" x="205" y="428.5">
-			<e:Rect fillColor="0xFFFFFF" fillAlpha="0" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50"
-			        ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
+			<e:Rect fillColor="0xFFFFFF" fillAlpha="0" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="60"
+			        ellipseHeight="60" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
 			<ui:RunTimeLabel id="_txt_currFx" text="Label" x="48" y="7" width="155" height="36" verticalAlign="middle"
 			                 textAlign="center" size="24" alpha="0.7" scaleX="1" scaleY="1" />
-			<e:Image width="30" height="30" x="222" y="20" source="d_lobby_button_down_normal_png" />
+			<e:Image width="30" height="30" x="200" y="9" source="d_lobby_button_down_normal_png" />
 		</e:Group>
-		<e:Group id="_btn_currBgm" width="251" height="50" x="205" y="564.5" visible="false" locked="true">
-			<e:Rect fillColor="0xFFFFFF" fillAlpha="0" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50"
-			        ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
+		<e:Group id="_btn_currBgm" width="251" height="50" x="205" y="564.5">
+			<e:Rect fillColor="0xFFFFFF" fillAlpha="0" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="60"
+			        ellipseHeight="60" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
 			<ui:RunTimeLabel id="_txt_currBgm" text="Label" x="48" y="7" width="155" height="36" verticalAlign="middle"
 			                 textAlign="center" size="24" alpha="0.7" scaleX="1" scaleY="1" />
-			<e:Image width="30" height="30" x="222" y="20" source="d_lobby_button_down_normal_png" />					 
+			<e:Image width="30" height="30" x="200" y="10" source="d_lobby_button_down_normal_png" />					 
 		</e:Group>
 		<ui:Panel id="_ddm_currBgm" width="251" x="205" y="624.5" skinName="skin_desktop.NavDropdown" maxHeight="200" />
 		<ui:Panel id="_ddm_currFx" width="251" x="205" y="488.5" skinName="skin_desktop.NavDropdown" maxHeight="200" />

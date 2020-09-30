@@ -29,7 +29,7 @@
     </ui:TweenConfig>
     <e:Rect width="2424" height="1242" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030"
             visible="false" />
-    <e:Image id="_bgImg" width="2424" height="1242" top="0" bottom="0" source="frame-3_png" left="0" right="0"
+    <e:Image id="_bgImg" width="2424" height="1242" top="0" bottom="0" left="0" right="0"
              locked="true" />
     <e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2424" touchEnabled="false"
              touchChildren="true" touchThrough="true" height="121">
@@ -45,7 +45,7 @@
         </e:Group>
         <e:Group height="48" y="73" right="15">
             <ui:RunTimeLabel id="_totalBet" text="0" y="0" height="100%" right="0" anchorOffsetX="0" textAlign="right"  size="36" fontFamily="Barlow"/>
-            <ui:RunTimeLabel id="_totalBetText" text="bet AMOUNT vfghj" y="0" height="100%" right="0" anchorOffsetX="0"
+            <ui:RunTimeLabel id="_totalBetText" text="bet AMOUNT" y="0" height="100%" right="0" anchorOffsetX="0"
                              textAlign="right"  alpha=".7" size="36"/>
             <e:layout>
                 <e:HorizontalLayout horizontalAlign="right" gap="20" gap.left_hand_mode="20" />

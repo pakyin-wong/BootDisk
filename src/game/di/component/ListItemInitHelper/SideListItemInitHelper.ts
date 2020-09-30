@@ -19,13 +19,18 @@ namespace we {
 
       public generateRoadmap(node: eui.Component) {
         const bigRoad = new di.DiLobbyBeadRoad();
+        bigRoad.height = 127;
         bigRoad.roadGridSize = 30;
         bigRoad.roadCol = 8;
         bigRoad.roadRow = 1;
-        bigRoad.roadIndentX = 6;
+        bigRoad.roadIndentX = 5;
         bigRoad.roadIndentY = 5;
-        bigRoad.roadOffsetX = 12;
+        bigRoad.roadOffsetX = 11;
         bigRoad.roadOffsetY = 5;
+        bigRoad.iconHeight = 116;
+        bigRoad.textSize = 16;
+        bigRoad.diceSize = 20;
+        bigRoad.roadWidth = 337;
         bigRoad.roadIconItemYOffset = 4;
         bigRoad.roadIconItemColors = [0xee2e2e, 0x6dd400, 0x3e60f8, 0xededed, 1]; // [r_color,g_color,b_color, hightlight_color, hightlight_alpha]
         const idx = node.parent.getChildIndex(node);

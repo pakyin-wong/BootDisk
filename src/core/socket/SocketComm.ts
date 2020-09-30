@@ -688,6 +688,7 @@ namespace we {
             tableInfo.gamestatistic = stats;
             break;
           }
+          case core.GameType.RC:
           case core.GameType.LO: {
             gameStatistic.tableID = tableid;
             gameStatistic.shoeID = gameStatistic.shoeid;
@@ -1223,6 +1224,18 @@ namespace we {
 
       public getBetHistory(filter, callback: (res: any) => void, thisArg) {
         this.client.getBetHistory(filter, this.warpServerCallback(callback.bind(thisArg)));
+      }
+      public getLotteryContinuousBetHistory(filter: any, callback: (res: any) => void, thisArg: any) {
+        this.client.getLotteryContinuousBetHistory(filter, this.warpServerCallback(callback.bind(thisArg)));
+      }
+      public getLotteryContinuousBetDetail(betid: string, callback: (res: any) => void, thisArg: any) {
+        this.client.getLotteryContinuousBetDetail(betid, this.warpServerCallback(callback.bind(thisArg)));
+      }
+      public getLotteryBetDetail(filter: any, callback: (res: any) => void, thisArg: any) {
+        this.client.getLotteryBetDetail(filter, this.warpServerCallback(callback.bind(thisArg)));
+      }
+      public cancelBet(tableID: string, betID: string, gametype: string, callback: (res: any) => void, thisArg: any) {
+        this.client.cancelBet(tableID, betID, gametype, this.warpServerCallback(callback.bind(thisArg)));
       }
 
       public warpServerCallback(callback: any) {

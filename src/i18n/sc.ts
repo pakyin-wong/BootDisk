@@ -1,6 +1,9 @@
 namespace we {
   export namespace i18n {
     export const sc = {
+      yes: '是',
+      no: '否',
+
       voice_cantonese: '粤语',
       voice_mandarin: '普通话',
       voice_english: '英语',
@@ -17,6 +20,7 @@ namespace we {
       gametype_DT: '龙虎',
       gametype_LW: '幸運轮',
       gametype_LO: '时时彩',
+      gametype_RC: '北京赛车',
 
       sidegamelist_title: '游戏列表',
       sidegamelist_tab_bet: '已下注',
@@ -32,6 +36,14 @@ namespace we {
       betfield_dragonTiger_dragon: '龙',
       betfield_dragonTiger_tiger: '虎',
       betfield_dragonTiger_tie: '和',
+
+      betfield_lw_0: '東',
+      betfield_lw_1: '南',
+      betfield_lw_2: '西',
+      betfield_lw_3: '北',
+      betfield_lw_4: '白',
+      betfield_lw_5: '中',
+      betfield_lw_6: '發',
 
       playerprofile_title: '账户资讯',
       playerprofile_iconsetting: '设定头像',
@@ -110,6 +122,40 @@ namespace we {
       overlaypanel_bethistorylottery_record_bettype: '类型',
       overlaypanel_bethistorylottery_record_betgroup: '玩法',
       overlaypanel_bethistorylottery_record_betfield: '投注项目',
+      overlaypanel_bethistorylottery_record_continuousbetdetail: '追号相关纪录',
+
+      overlaypanel_bethistorylottery_continuousbetdetails_title: '追号相关记录',
+      overlaypanel_bethistorylottery_continuousbetdetails_cbetid: '追号编号',
+      overlaypanel_bethistorylottery_continuousbetdetails_date: '日期时间',
+      overlaypanel_bethistorylottery_continuousbetdetails_game: '游戏',
+      overlaypanel_bethistorylottery_continuousbetdetails_start: '起始奖期',
+      overlaypanel_bethistorylottery_continuousbetdetails_total: '追号期数',
+      overlaypanel_bethistorylottery_continuousbetdetails_count: '追号进度',
+      overlaypanel_bethistorylottery_continuousbetdetails_betamount: '总投注额',
+      overlaypanel_bethistorylottery_continuousbetdetails_status: '状态',
+      overlaypanel_bethistorylottery_continuousbetdetails_type: '类型',
+      overlaypanel_bethistorylottery_continuousbetdetails_group: '玩法',
+      overlaypanel_bethistorylottery_continuousbetdetails_field: '投注项目',
+      overlaypanel_bethistorylottery_continuousbetdetails_autostop: '追中即停',
+      overlaypanel_bethistorylottery_continuousbetdetails_cancelled: '取消期数',
+      overlaypanel_bethistorylottery_continuousbetdetails_doneAmount: '完成金额',
+
+      overlaypanel_bethistorylottery_popup_titme: '追号详情',
+      overlaypanel_bethistorylottery_continuousbet_round: '奖期',
+      overlaypanel_bethistorylottery_continuousbet_rate: '倍数',
+      overlaypanel_bethistorylottery_continuousbet_status: '状态',
+      overlaypanel_bethistorylottery_continuousbet_cancel: '撤单',
+      overlaypanel_bethistorylottery_continuousbet_detail: '详情',
+      overlaypanel_bethistorylottery_continuousbet_allcancel: '一键撤单',
+
+      overlaypanel_bethistorylottery_continuousbet_betted: '已投注',
+      overlaypanel_bethistorylottery_continuousbet_drawing: '进行中',
+      overlaypanel_bethistorylottery_continuousbet_cancelled: '已撤单',
+      overlaypanel_bethistorylottery_continuousbet_completed: '已结算',
+
+      overlaypanel_bethistorylottery_cancelbtn_title: '确定要撤单？ ',
+      overlaypanel_bethistorylottery_cancelbtn_yes: '确认',
+      overlaypanel_bethistorylottery_cancelbtn_no: '取消',
 
       overlaypanel_bethistory_baresult_banker: '庄',
       overlaypanel_bethistory_baresult_player: '闲',
@@ -310,6 +356,7 @@ namespace we {
         gametype: {
           allLotteryGame: '全部',
           lottery: '时时彩',
+          race: '北京赛车',
         },
       },
       tableInfo: {
@@ -500,6 +547,8 @@ namespace we {
         betted: '已下注项目',
         goodroad: '好路',
         allgames: '全部游戏',
+        noGoodRoad: '没有好路',
+        noBet: '没有已下注游戏'
       },
       baccarat: {
         tooltip: {
@@ -983,6 +1032,45 @@ namespace we {
           p5: '个',
         },
       },
+
+      rc_fun_betlayer_tab_fun: '娱乐',
+      rc_fun_betlayer_tab_num: '数字',
+      rc_fun_betlayer_tab_dt: '龙虎',
+      rc_fun_betlayer_tab_sum12: '冠亚和',
+      rc_fun_betlayer_tab_sum12num: '冠军和值',
+
+      rc_fun_betgroup_BASIC_CHAMP: '冠军',
+      rc_fun_betgroup_BASIC_SECOND: '亚军',
+      rc_fun_betgroup_BASIC_THIRD: '季军',
+      rc_fun_betgroup_BASIC_FORTH: '第四名',
+      rc_fun_betgroup_BASIC_FIFTH: '第五名',
+      rc_fun_betgroup_BASIC_SIXTH: '第六名',
+      rc_fun_betgroup_BASIC_SEVENTH: '第七名',
+      rc_fun_betgroup_BASIC_EIGHTH: '第八名',
+      rc_fun_betgroup_BASIC_NINETH: '第九名',
+      rc_fun_betgroup_BASIC_TENTH: '第十名',
+      rc_fun_betgroup_1FIXPOS2: '冠军',
+      rc_fun_betgroup_2FIXPOS2: '亚军',
+      rc_fun_betgroup_3FIXPOS2: '季军',
+      rc_fun_betgroup_4FIXPOS2: '第四名',
+      rc_fun_betgroup_5FIXPOS2: '第五名',
+      rc_fun_betgroup_6FIXPOS2: '第六名',
+      rc_fun_betgroup_7FIXPOS2: '第七名',
+      rc_fun_betgroup_8FIXPOS2: '第八名',
+      rc_fun_betgroup_9FIXPOS2: '第九名',
+      rc_fun_betgroup_10FIXPOS2: '第十名',
+      rc_fun_betgroup_DT1V102: '冠军',
+      rc_fun_betgroup_DT2V92: '亚军',
+      rc_fun_betgroup_DT3V82: '季军',
+      rc_fun_betgroup_DT4V72: '第四名',
+      rc_fun_betgroup_DT5V62: '第五名',
+      rc_fun_betgroup_sum12: '冠亚和',
+      rc_fun_betgroup_sum12num: '冠军和值',
+
+      rc_fun_betfield_n_SIZE2_BIG: '大',
+      rc_fun_betfield_n_SIZE2_SMALL: '细',
+      rc_fun_betfield_n_PARITY2_ODD: '单',
+      rc_fun_betfield_n_PARITY2_EVEN: '双',
     };
   }
 }

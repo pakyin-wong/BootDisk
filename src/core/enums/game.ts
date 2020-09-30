@@ -25,6 +25,7 @@ namespace we {
       LW = 16, // Lucky Wheel
       // MJ = 13, // MaJong
       LO = 15,
+      RC = 22,
     }
 
     export enum ChipType {
@@ -61,6 +62,7 @@ namespace we {
     export enum LotteryTab {
       all = 'allLotteryGame',
       lo = 'lottery',
+      rc = 'race',
     }
 
     export const TableFilter = {

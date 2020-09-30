@@ -4,6 +4,7 @@ namespace we {
     export class HorizontalHolder extends eui.Group {
       protected _slides: any[]; // eui.Group
       protected _sortedSlides;
+      public finishAction: (page: number) => void;
       public _currentPageIdx: number = 0;
       private pageCount: number;
 
@@ -338,6 +339,9 @@ namespace we {
 
         if (this.isAuto) {
           this.doAuto();
+        }
+        if (this.finishAction) {
+          this.finishAction(this._currentPageIdx);
         }
       }
 

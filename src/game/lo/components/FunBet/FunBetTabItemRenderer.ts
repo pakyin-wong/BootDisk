@@ -12,7 +12,7 @@ namespace we {
 
       public dataChanged() {
         super.dataChanged();
-        this.label.renderText = () => `${i18n.t(`lo_fun_betlayer_tab_${this.data}`)}`;
+        this.label.renderText = () => `${i18n.t(this.data)}`;
         if (this.itemIndex !== 0) {
           this.bg.cornerTL_TR_BL_BR = '0,0,0,0';
           this.bg.refresh();

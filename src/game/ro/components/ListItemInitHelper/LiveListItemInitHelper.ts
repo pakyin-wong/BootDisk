@@ -5,6 +5,7 @@ namespace we {
         const tableLayer = new ro.LobbyTableLayer();
         if (node.name === 'AdvancedTableLayerNode') {
           tableLayer.skinName = `skin_desktop.ro.LiveListAdvancedItemTableLayerSkin`;
+          tableLayer.scaleX = 345 / 350;
         } else {
           tableLayer.skinName = `skin_desktop.ro.LiveListItemTableLayerSkin`;
         }
@@ -17,6 +18,7 @@ namespace we {
         const chipLayer = new ro.LobbyChipLayer();
         if (node.name === 'AdvancedChipLayerNode') {
           chipLayer.skinName = `skin_desktop.ro.LiveListAdvancedItemChipLayerSkin`;
+          chipLayer.scaleX = 345 / 350;
         } else {
           chipLayer.skinName = `skin_desktop.ro.LiveListItemChipLayerSkin`;
         }
