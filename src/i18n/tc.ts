@@ -516,7 +516,7 @@ namespace we {
         goodroad: '好路',
         allgames: '全部遊戲',
         noGoodRoad: '沒有好路',
-        noBet: '沒有已下注遊戲'
+        noBet: '沒有已下注遊戲',
       },
       baccarat: {
         statisticChart: {
@@ -1071,6 +1071,18 @@ namespace we {
           p4: '十',
           p5: '個',
         },
+        rcballresultpos:{
+          p1:'冠軍',
+          p2:'亞軍',
+          p3:'季軍',
+          p4:'第四名',
+          p5:'第五名',
+          p6:'第六名',
+          p7:'第七名',
+          p8:'第八名',
+          p9:'第九名',
+          p10:'第十名'
+        }
       },
 
       rc_fun_betlayer_tab_fun: '娛樂',

@@ -283,7 +283,7 @@ namespace we {
             const trans2 = lo.BetFieldTranslationFunction.tradbetfieldtranslate(b[0]);
             return {
               type: `${i18n.t('lo_trad.bigTag.AnyTwo')}`,
-              group: `${trans2.selectType} | ${i18n.t(`lo_trad.specialbettype.${we.lo.LoTradBetField[`betfield_${trans2.betCode}`]}`)}`,
+              group: `${trans2.selectType} | ${i18n.t(`lo_trad.smallTag.${we.lo.LoTradBetField[`betfield_${trans2.betCode}`]}`)}`,
               field: `${b[1]}`,
             };
           case '123OPTIONALFREE':
@@ -349,7 +349,7 @@ namespace we {
             const trans3 = lo.BetFieldTranslationFunction.tradbetfieldtranslate(b[0]);
             return {
               type: i18n.t('lo_trad.bigTag.AnyThree'),
-              group: `${trans3.selectType} | ${i18n.t(`lo_trad.specialbettype.${we.lo.LoTradBetField[`betfield_${trans3.betCode}`]}`)}`,
+              group: `${trans3.selectType} | ${i18n.t(`lo_trad.smallTag.${we.lo.LoTradBetField[`betfield_${trans3.betCode}`]}`)}`,
               field: `${b[1]}`,
             };
           // AnyFour
@@ -386,8 +386,85 @@ namespace we {
             const trans4 = lo.BetFieldTranslationFunction.tradbetfieldtranslate(b[0]);
             return {
               type: i18n.t('lo_trad.bigTag.AnyFour'),
-              group: `${trans4.selectType} | ${i18n.t(`lo_trad.specialbettype.${we.lo.LoTradBetField[`betfield_${trans4.betCode}`]}`)}`,
+              group: `${trans4.selectType} | ${i18n.t(`lo_trad.smallTag.${we.lo.LoTradBetField[`betfield_${trans4.betCode}`]}`)}`,
               field: `${b[1]}`,
+            };
+          // rc_trad
+          case 'CHAMPION':
+            return {
+              type: i18n.t('lo_trad.bigTag.RCChampion'),
+              group: i18n.t(`lo_trad.smallTag.${we.rc.RcTradBetField[`betfield_${b[0]}`]}`),
+              field: `${b[1]}`,
+            };
+          case 'TOP2':
+          case 'TOP2INPUT':
+            return {
+              type: i18n.t('lo_trad.bigTag.RCTop2'),
+              group: i18n.t(`lo_trad.smallTag.${we.rc.RcTradBetField[`betfield_${b[0]}`]}`),
+              field: `${b[1]}`,
+            };
+          case 'TOP3':
+          case 'TOP3INPUT':
+            return {
+              type: i18n.t('lo_trad.bigTag.RCTop3'),
+              group: i18n.t(`lo_trad.smallTag.${we.rc.RcTradBetField[`betfield_${b[0]}`]}`),
+              field: `${b[1]}`,
+            };
+          case 'TOP4':
+          case 'TOP4INPUT':
+            return {
+              type: i18n.t('lo_trad.bigTag.RCTop4'),
+              group: i18n.t(`lo_trad.smallTag.${we.rc.RcTradBetField[`betfield_${b[0]}`]}`),
+              field: `${b[1]}`,
+            };
+          case 'TOP5':
+          case 'TOP5INPUT':
+            return {
+              type: i18n.t('lo_trad.bigTag.RCTop5'),
+              group: i18n.t(`lo_trad.smallTag.${we.rc.RcTradBetField[`betfield_${b[0]}`]}`),
+              field: `${b[1]}`,
+            };
+          case '1FIXPOS':
+          case '2FIXPOS':
+          case '3FIXPOS':
+          case '4FIXPOS':
+          case '5FIXPOS':
+          case '6FIXPOS':
+          case '7FIXPOS':
+          case '8FIXPOS':
+          case '9FIXPOS':
+          case '10FIXPOS':
+            const trans6 = rc.BetFieldTranslationFunction.tradbetfieldtranslate(b[0]);
+            return {
+              type: i18n.t('lo_trad.bigTag.RCFixPos'),
+              group: `${trans6.selectType} | ${i18n.t(`lo_trad.smallTag.${we.rc.RcTradBetField[`betfield_${b[0]}`]}`)}`,
+              field: `${b[1]}`,
+            };
+          case 'CHAMPSIZE':
+          case 'SECONDSIZE':
+          case 'THIRDSIZE':
+          case 'FORTHSIZE':
+          case 'FIFTHSIZE':
+            return {
+              type: i18n.t('lo_trad.bigTag.RCSize'),
+              group: i18n.t(`lo_trad.smallTag.${we.rc.RcTradBetField[`betfield_${b[0]}`]}`),
+              field: `lo_fun_betfield_n_${b[1]}`,
+            };
+          case 'CHAMPPARITY':
+          case 'SECONDPARITY':
+          case 'THIRDPARITY':
+          case 'FORTHPARITY':
+          case 'FIFTHPARITY':
+            return {
+              type: i18n.t('lo_trad.bigTag.RCParity'),
+              group: i18n.t(`lo_trad.smallTag.${we.rc.RcTradBetField[`betfield_${b[0]}`]}`),
+              field: `lo_fun_betfield_n_${b[1]}`,
+            };
+          case 'DT1V10':
+            return {
+              type: i18n.t('lo_trad.bigTag.RCDragonTiger'),
+              group: i18n.t(`lo_trad.smallTag.${we.rc.RcTradBetField[`betfield_${b[0]}`]}`),
+              field: `lo_fun_betfield_n_${b[1]}`,
             };
           default:
             return {
