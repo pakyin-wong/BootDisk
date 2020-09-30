@@ -38,7 +38,7 @@ namespace we {
       protected childrenCreated(): void {
         super.childrenCreated();
         utils.disableTouchforChildren(this, obj => {
-          const bool = !!(<any>obj).text;
+          const bool = !!(<any> obj).text;
           return bool;
         });
 
