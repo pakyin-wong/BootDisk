@@ -549,7 +549,7 @@ namespace we {
         goodroad: '好路',
         allgames: '全部游戏',
         noGoodRoad: '没有好路',
-        noBet: '没有已下注游戏'
+        noBet: '没有已下注游戏',
       },
       baccarat: {
         tooltip: {

@@ -516,7 +516,7 @@ namespace we {
         goodroad: '好路',
         allgames: '全部遊戲',
         noGoodRoad: '沒有好路',
-        noBet: '沒有已下注遊戲'
+        noBet: '沒有已下注遊戲',
       },
       baccarat: {
         statisticChart: {
