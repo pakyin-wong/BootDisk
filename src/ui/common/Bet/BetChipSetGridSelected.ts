@@ -6,6 +6,27 @@ namespace we {
         super();
       }
 
+      public set labelSize(value: number) {
+        this._labelSize = value;
+        this.setChipValueSlot();
+      }
+
+      public get labelSize() {
+        return this._labelSize;
+      }
+
+      public set chipScale(val: number) {
+        this._chipScale = val;
+        if (this._chipAnim) {
+          this._chipAnim.scaleX = this._chipScale;
+          this._chipAnim.scaleY = this._chipScale;
+        }
+      }
+
+      public get chipScale(): number {
+        return this._chipScale;
+      }
+
       // protected mount() {
       //   super.mount();
       //   mouse.setButtonMode(this, true);

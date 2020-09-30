@@ -549,7 +549,7 @@ namespace we {
         goodroad: '好路',
         allgames: '全部游戏',
         noGoodRoad: '没有好路',
-        noBet: '没有已下注游戏'
+        noBet: '没有已下注游戏',
       },
       baccarat: {
         tooltip: {
@@ -563,11 +563,14 @@ namespace we {
         },
         playerPair: '闲对',
         bankerPair: '庄对',
+        playerPairShort: '闲对',
+        bankerPairShort: '庄对',
         player: '闲',
         playerShort: '闲',
         tie: '和',
         tieShort: '和',
         superSix: '超级6',
+        superSixShort: '超级6',
         banker: '庄',
         bankerShort: '庄',
         tableInfo: '本台资讯',
@@ -1107,6 +1110,18 @@ namespace we {
           p4: '十',
           p5: '个',
         },
+        rcballresultpos:{
+          p1:'冠军',
+          p2:'亚军',
+          p3:'季军',
+          p4:'第四名',
+          p5:'第五名',
+          p6:'第六名',
+          p7:'第七名',
+          p8:'第八名',
+          p9:'第九名',
+          p10:'第十名'
+        }
       },
 
       rc_fun_betlayer_tab_fun: '娱乐',
