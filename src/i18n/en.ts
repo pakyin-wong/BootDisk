@@ -512,6 +512,8 @@ namespace we {
         betted: 'Bet',
         goodroad: 'Good Road',
         allgames: 'All Game',
+        noGoodRoad: 'No Good Road',
+        noBet: 'No Already Bet Table'
       },
       baccarat: {
         statisticChart: {
