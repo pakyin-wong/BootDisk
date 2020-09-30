@@ -35,7 +35,10 @@ namespace we {
         this.addEventListener(eui.UIEvent.CHANGE, this.onChanged, this);
         dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitChanged, this);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.onLanguageChanged, this);
-        this._label.size = 24;
+        if (this._betLimitLabel) {
+          this._betLimitLabel.size = 24;
+        }
+        this._label.size = 30;
 
         if (this._horizontalAlign && this._toggler) {
           this.horizontalAlign = this._horizontalAlign;
@@ -55,10 +58,8 @@ namespace we {
       protected onChanged(evt: eui.UIEvent) {
         env.currentSelectedBetLimitIndex = this.selectedIndex;
         dir.evtHandler.dispatch(core.Event.BET_LIMIT_CHANGE);
-        console.log('onChanged:::env.betLimits', env.betLimits);
 
         dir.socket.updateSetting('currentSelectedBetLimitIndex', this.selectedIndex.toString());
-        console.log(' this.selectedIndex; this.selectedIndex; this.selectedIndex; this.selectedIndex; this.selectedIndex;', this.selectedIndex);
       }
 
       protected runtimeGenerateScroller() {
@@ -98,7 +99,11 @@ namespace we {
       }
 
       protected updateLabel() {
-        this._label.text = `${i18n.t('baccarat.betLimitshort')} ${this._items.length > 0 ? this._items[this._selectedIndex] : ''}`;
+        if (this._betLimitLabel) {
+          this._betLimitLabel.text = `${i18n.t('baccarat.betLimitshort')}`;
+        }
+        this._label.text = `${this._items.length > 0 ? this._items[this._selectedIndex] : ''}`;
+        // this._label.text = `${i18n.t('baccarat.betLimitshort')} ${this._items.length > 0 ? this._items[this._selectedIndex] : ''}`;
         if (this._toggleArrow) {
           this._toggleArrow.rotation = this._scroller ? (this._scroller.isCollapsed() ? 0 : 180) : 0;
         }

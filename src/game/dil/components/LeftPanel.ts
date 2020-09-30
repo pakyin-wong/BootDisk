@@ -23,8 +23,8 @@ namespace we {
       public beadRoad: DilBeadRoad;
 
       // new for di
-      protected beadRadioBtn1: eui.RadioButton;
-      protected beadRadioBtn2: eui.RadioButton;
+      //protected beadRadioBtn1: eui.RadioButton;
+      //protected beadRadioBtn2: eui.RadioButton;
       protected isExpanded: boolean;
       protected toggleUpDownButton: eui.ToggleSwitch;
 
@@ -66,7 +66,7 @@ namespace we {
 
         const page1Group = this.pageStack.getChildAt(0) as eui.Group;
 
-        this.beadRoad = new DilBeadRoad(3, 8, 56, 1, 18, 18, 0x262a2b, 1); // in game
+        this.beadRoad = new DilBeadRoad(3, 8, 56, 1, 16, 18, 0x262a2b, 1); // in game
         this.beadRoad.x = 10;
         this.beadRoad.y = 20;
         this.beadRoad.scaleX = 689 / 689;
@@ -82,6 +82,7 @@ namespace we {
         this.pageRadioBtn2.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
 
         this.toggleUpDownButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggleUpDown, this, true);
+        this.toggleUpDownButton.visible = false;
         this.changeLang();
       }
       public onToggleUpDown(evt: egret.TouchEvent) {
@@ -101,8 +102,11 @@ namespace we {
           this.gameIdLabel.y -= 202;
           this.totalBetLabel.y -= 202;
 
-          this.beadRadioBtn1.y += 202;
-          this.beadRadioBtn2.y += 202;
+
+          //this.beadRadioBtn1.y += 202;
+          //this.beadRadioBtn2.y += 202;
+          this.beadRoad.expandRoad(true);
+          this.beadRoad.y -= 202;
           this.isExpanded = true;
 
           this.toggleUpDownButton.currentState = 'b_down';
@@ -118,8 +122,10 @@ namespace we {
           this.gameIdLabel.y += 202;
           this.totalBetLabel.y += 202;
 
-          this.beadRadioBtn1.y -= 202;
-          this.beadRadioBtn2.y -= 202;
+          //this.beadRadioBtn1.y -= 202;
+          //this.beadRadioBtn2.y -= 202;
+          this.beadRoad.expandRoad(false);
+          this.beadRoad.y += 202;
           this.isExpanded = false;
 
           this.toggleUpDownButton.currentState = 'b_up';
@@ -134,11 +140,12 @@ namespace we {
       protected onViewChange(e: eui.UIEvent) {
         const radio: eui.RadioButton = e.target;
         this.pageStack.selectedIndex = radio.value;
-        if (radio.value > 0) {
+        if (radio.value === 0) {
           this.expandPanel(false);
           this.toggleUpDownButton.visible = false;
         } else {
           this.toggleUpDownButton.visible = true;
+          this.toggleUpDownButton.visible = false;
         }
         this.updateActiveLine(true);
       }

@@ -11,8 +11,8 @@ namespace we {
         super.createChildren();
         this.skinName = utils.getSkinByClassname('dt.BetItemCardHolderSkin');
 
-        this.lblDragonName.renderText = () => `${i18n.t('dragontiger.dragon')}`;
-        this.lblTigerName.renderText = () => `${i18n.t('dragontiger.tiger')}`;
+        this.lblDragonName.renderText = () => `${i18n.t('dragontiger.dragonShort')}`;
+        this.lblTigerName.renderText = () => `${i18n.t('dragontiger.tigerShort')}`;
         this.setDragonBgColor(false);
         this.setTigerBgColor(false);
       }

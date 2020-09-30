@@ -30,7 +30,7 @@ namespace we {
         const road = dir.lobbyRoadPool.get(core.GameType.LW);
         road.roadRow = 3;
         road.roadCol = 13;
-        road.roadCellWidth = 44;
+        road.roadCellWidth = 44.3;
         road.roadCellHeight = 46;
         road.roadImageWidth = 31;
         road.roadImageHeight = 31;
@@ -38,10 +38,10 @@ namespace we {
         road.roadGridColor = 0xffffff;
         road.roadGridAlpha = 1;
         road.roadGridBorderColor = 0xafafaf;
-        road.roadScale = 578 / 572;
+        // road.roadScale = 578 / 572;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(road, idx);
-        road.drawGridBg(576, 139);
+        // road.drawGridBg(576, 138);
         return road;
       }
 

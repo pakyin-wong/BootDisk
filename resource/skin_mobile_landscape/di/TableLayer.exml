@@ -73,5 +73,5 @@
         <e:Group id="_specific_5_group" width="295" height="100%" x="1480" anchorOffsetX="0"/>
         <e:Group id="_specific_6_group" width="295" height="100%" x="1776" anchorOffsetX="0"/>
     </e:Group>
-    <ui:RunTimeLabel id="_specific_label" text="單骰 1:1 \n雙骰 2:1 三骰 12:1" size="32" bottom="30" textColor="0xffffff" left="20" textAlign="center"/>
+    <ui:RunTimeLabel id="_specific_label" text="單骰 1:1 \n雙骰 2:1 三骰 12:1" size="32" bottom="30" textColor="0xffffff" left="30" textAlign="center"/>
 </e:Skin>

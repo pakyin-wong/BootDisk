@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="SidePanelGameGroupDropdown" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"
+        xmlns:ui="we.ui.*">
+	<e:Group id="_toggler" x="0" y="0" touchEnabled="true" touchThrough="false" touchChildren="false" height="55">
+		<ui:RunTimeLabel id="_label" text="全部遊戲" top="0" bottom="0" textAlign="right" verticalAlign="middle" size="24" left="20" height="36"/>
+		<e:Image id="_toggleArrow" x="110" y="12" width="16" height="10" source="d_lobby_btn_dropdown_png" anchorOffsetX="0.5" anchorOffsetY="0.5"/>
+		<e:layout>
+		<e:HorizontalLayout verticalAlign="middle" paddingLeft="10" paddingRight="10" paddingTop="0" paddingBottom="0"/>
+		</e:layout>
+	</e:Group>
+    	<ui:Panel id="_dmm" y="55">
+		<e:Skin>
+		<e:Group id="content" left="0" right="0" top="0" bottom="0">
+			<e:Rect width="343" fillColor="0x1c1d1e" ellipseWidth="26" ellipseHeight="26" top="0" bottom="0"/>
+    		<ui:Scroller id="dropdownScroller" scaleX="1" scaleY="1" top="0" bottom="0" left="0" right="0" maxHeight="400"/>
+		</e:Group>
+		</e:Skin>
+	</ui:Panel>
+</e:Skin>

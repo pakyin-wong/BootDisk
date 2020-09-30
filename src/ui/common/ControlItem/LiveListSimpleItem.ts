@@ -12,6 +12,8 @@ namespace we {
       protected _betChipSetNode: eui.Component;
       protected _button: ui.LobbyQuickBetAnimButton;
 
+      protected _quickBetBtnGroup: eui.Group;
+
       protected _arrangeProperties = [
         'x',
         'y',
@@ -35,8 +37,21 @@ namespace we {
         super(skinName);
       }
 
+      protected initCustomPos() {
+        super.initCustomPos();
+        this._targetQuickBetButtonY = 191;
+        this._originalQuickBetButtonY = 141;
+        this._targetQuickbetPanelY = 178;
+        this._offsetLimit = 1000;
+        this._offsetMovement = 900;
+      }
+
       public destroy() {
         super.destroy();
+        this.releaseRoadmap();
+      }
+
+      protected releaseRoadmap() {
         if (this._bigRoad && this.tableInfo) {
           // this._bigRoad.parent.removeChild(this._bigRoad);
           dir.lobbyRoadPool.release(this._bigRoad, this.tableInfo.gametype);
@@ -75,9 +90,8 @@ namespace we {
 
       protected getBetChipSet(): BetChipSet & eui.Component {
         const betChipSet = new BetChipSetHorizontal();
-        betChipSet.chipScale = 0.8;
-        betChipSet.navWidth = 20;
-        betChipSet.containerPadding = 6;
+        betChipSet.chipScale = 0.75;
+        betChipSet.containerPadding = 8;
         return betChipSet;
       }
 
@@ -103,13 +117,13 @@ namespace we {
       // set the position of the children components
       protected arrangeComponents() {
         for (const att of this._arrangeProperties) {
-          if (this._tableLayer) {
+          if (this._tableLayer && att !== 'height') {
             this._tableLayer[att] = this._tableLayerNode[att];
           }
-          if (this._chipLayer) {
+          if (this._chipLayer && att !== 'height') {
             this._chipLayer[att] = this._chipLayerNode[att];
           }
-          if (this._roadmapNode && this._bigRoad) {
+          if (this._roadmapNode && this._bigRoad && att !== 'height' && att !== 'scaleX' && att !== 'scaleY') {
             this._bigRoad[att] = this._roadmapNode[att];
           }
         }
@@ -117,32 +131,34 @@ namespace we {
 
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-        if (!this._chipLayer) {
-          return;
-        }
-        if (this._chipLayer.isAlreadyBet()) {
+        if (this._tableInfo.totalBet > 0) {
           this._alreadyBetSign.visible = true;
-          this._button.label1text = i18n.t('mobile_quick_bet_button_add_label');
+          if (this._button) {
+            this._button.label1text = i18n.t('mobile_quick_bet_button_add_label');
+          }
         } else {
           this._alreadyBetSign.visible = false;
-          this._button.label1text = i18n.t('mobile_quick_bet_button_label');
+          if (this._button) {
+            this._button.label1text = i18n.t('mobile_quick_bet_button_label');
+          }
         }
       }
 
-      protected onTableBetInfoUpdate(evt: egret.Event) {
-        super.onTableBetInfoUpdate(evt);
-        if (!this._chipLayer) {
-          return;
-        }
+      protected onBetDetailUpdate(evt: egret.Event) {
+        super.onBetDetailUpdate(evt);
         if (evt && evt.data) {
-          const tableBetInfo = <data.GameTableBetInfo>evt.data;
-          if (tableBetInfo.tableid === this._tableId) {
-            if (this._chipLayer.isAlreadyBet()) {
+          const tableInfo = <data.TableInfo>evt.data;
+          if (tableInfo.tableid === this._tableId) {
+            if (this._tableInfo.totalBet > 0) {
               this._alreadyBetSign.visible = true;
-              this._button.label1text = i18n.t('mobile_quick_bet_button_add_label');
+              if (this._button) {
+                this._button.label1text = i18n.t('mobile_quick_bet_button_add_label');
+              }
             } else {
               this._alreadyBetSign.visible = false;
-              this._button.label1text = i18n.t('mobile_quick_bet_button_label');
+              if (this._button) {
+                this._button.label1text = i18n.t('mobile_quick_bet_button_label');
+              }
             }
           }
         }
@@ -185,7 +201,7 @@ namespace we {
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         this.generateChipLayer();
         for (const att of this._arrangeProperties) {
-          if (this._chipLayer) {
+          if (this._chipLayer && att !== 'height' && att !== 'scaleX') {
             this._chipLayer[att] = this._chipLayerNode[att];
           }
         }
@@ -206,7 +222,7 @@ namespace we {
       protected runtimeGenerateTableLayer() {
         this.generateTableLayer();
         for (const att of this._arrangeProperties) {
-          if (this._tableLayer) {
+          if (this._tableLayer && att !== 'height' && att !== 'scaleX') {
             this._tableLayer[att] = this._tableLayerNode[att];
           }
         }
@@ -224,14 +240,33 @@ namespace we {
         if (!this._chipLayer) {
           this.runtimeGenerateChipLayer();
         }
+        if (this._quickBetBtnGroup) {
+          this._quickBetBtnGroup.y = this._tableLayer.height - 7;
+        }
+
+        // create a
+
         super.showQuickBetGroup();
+        if (this._chipLayer) {
+          this.tweenChipLayer(true);
+        }
+        // egret.Tween.removeTweens(this._chipLayer);
+        // const p3 = new Promise(resolve =>
+        //   egret.Tween.get(this._chipLayer)
+        //     .set({ visible: true })
+        //     .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
+        //     .call(resolve)
+        // );
+      }
+
+      protected tweenChipLayer(isShow: boolean) {
         egret.Tween.removeTweens(this._chipLayer);
-        const p3 = new Promise(resolve =>
-          egret.Tween.get(this._chipLayer)
-            .set({ visible: true })
-            .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
-            .call(resolve)
-        );
+        const tween = egret.Tween.get(this._chipLayer)
+          .set({ visible: true })
+          .to({ y: isShow ? this._targetQuickbetPanelY : this._originalQuickBetPanelY, alpha: isShow ? 1 : 0 }, this._tweenInterval1);
+        if (!isShow) {
+          tween.set({ visible: false });
+        }
       }
 
       protected hideQuickBetGroup() {
@@ -240,10 +275,11 @@ namespace we {
         }
         super.hideQuickBetGroup();
         if (this._chipLayer) {
-          egret.Tween.removeTweens(this._chipLayer);
-          egret.Tween.get(this._chipLayer)
-            .to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1)
-            .set({ visible: false });
+          this.tweenChipLayer(false);
+          // egret.Tween.removeTweens(this._chipLayer);
+          // egret.Tween.get(this._chipLayer)
+          //   .to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1)
+          //   .set({ visible: false });
         }
       }
 
@@ -298,28 +334,34 @@ namespace we {
           return;
         }
         egret.Tween.removeTweens(this._quickbetButton);
-        if (this._favouriteButton) egret.Tween.removeTweens(this._favouriteButton);
+        if (this._favouriteButton) {
+          egret.Tween.removeTweens(this._favouriteButton);
+        }
         if (show) {
           egret.Tween.get(this._quickbetButton)
             .set({ visible: true })
             .to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
-          if (this._favouriteButton) egret.Tween.get(this._favouriteButton)
-            .set({ visible: true })
-            .to({ alpha: 1 }, this._tweenInterval1);
+          if (this._favouriteButton) {
+            egret.Tween.get(this._favouriteButton)
+              .set({ visible: true })
+              .to({ alpha: 1 }, this._tweenInterval1);
+          }
         } else {
           egret.Tween.get(this._quickbetButton)
             .to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250)
             .set({ visible: false });
-          if (this._favouriteButton) egret.Tween.get(this._favouriteButton)
-            .to({ alpha: 0 }, 250)
-            .set({ visible: false });
+          if (this._favouriteButton) {
+            egret.Tween.get(this._favouriteButton)
+              .to({ alpha: 0 }, 250)
+              .set({ visible: false });
+          }
         }
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);

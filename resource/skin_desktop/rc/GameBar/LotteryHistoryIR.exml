@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.rc.LotteryHistoryIR" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:lo="we.lo.*" height="48" width="704">
+	<e:Group verticalCenter="0" x="200">
+		<ui:RoundRectShape width="36" height="36" x="0" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="18,18,18,18" fillColor="0x034a94,00244e,0"/>
+		<ui:RoundRectShape width="36" height="36" x="58" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="18,18,18,18" fillColor="0x034a94,00244e,0"/>
+		<ui:RoundRectShape width="36" height="36" x="116" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="18,18,18,18" fillColor="0x034a94,00244e,0"/>
+		<ui:RoundRectShape width="36" height="36" x="174" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="18,18,18,18" fillColor="0x034a94,00244e,0"/>
+		<ui:RoundRectShape width="36" height="36" x="232" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="18,18,18,18" fillColor="0x034a94,00244e,0"/>
+		<ui:RoundRectShape width="36" height="36" x="242" y="10" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="18,18,18,18" fillColor="0x034a94,00244e,0"/>
+		<ui:RoundRectShape width="36" height="36" x="252" y="20" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="18,18,18,18" fillColor="0x034a94,00244e,0"/>
+		<ui:RoundRectShape width="36" height="36" x="262" y="30" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="18,18,18,18" fillColor="0x034a94,00244e,0"/>
+		<ui:RoundRectShape width="36" height="36" x="272" y="40" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="18,18,18,18" fillColor="0x034a94,00244e,0"/>
+		<ui:RoundRectShape width="36" height="36" x="282" y="50" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="18,18,18,18" fillColor="0x034a94,00244e,0"/>
+		<e:layout>
+		<e:HorizontalLayout gap="10"/>
+		</e:layout>
+	</e:Group>
+	<e:Group id="_result" verticalCenter="0" x="200" y="10">
+		<e:Label id="b1" width="36" height="36" x="232" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b2" width="36" height="36" x="174" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b3" width="36" height="36" x="116" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b4" width="36" height="36" x="58" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b5" width="36" height="36" x="0" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b6" width="36" height="36" x="20" y="20" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b7" width="36" height="36" x="30" y="30" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b8" width="36" height="36" x="40" y="40" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b9" width="36" height="36" x="50" y="50" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b10" width="36" height="36" x="10" y="10" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:layout>
+		<e:HorizontalLayout gap="10"/>
+		</e:layout>
+	</e:Group>
+	<e:Label id="round" text="Label" size="26" verticalCenter="0"/>
+</e:Skin>

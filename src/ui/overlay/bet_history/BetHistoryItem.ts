@@ -26,25 +26,53 @@ namespace we {
           this.skinName = utils.getSkinByClassname('BetHistoryItem');
         }
 
+        protected mount() {
+          utils.addButtonListener(this._btn_replay, this.onClickReplay, this);
+        }
+
+        protected destroy() {
+          utils.removeButtonListener(this._btn_replay, this.onClickReplay, this);
+        }
+
         protected childrenCreated(): void {
           super.childrenCreated();
-
-          // this.$addListener(mouse.MouseEvent.ROLL_OVER, this.onHover, this);
-          // this.$addListener(mouse.MouseEvent.ROLL_OUT, this.onRollOut, this);
-          this._btn_replay.$addListener(egret.TouchEvent.TOUCH_TAP, this.onClickReplay, this);
-
-          mouse.setButtonMode(this._btn_replay, true);
+          this.mount();
+          this.addEventListener(egret.Event.ADDED_TO_STAGE, this.mount, this);
+          this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.destroy, this);
         }
 
         protected dataChanged(): void {
-          this._txt_round && (this._txt_round.text = i18n.t('overlaypanel_bethistory_record_round'));
-          this._txt_bettype && (this._txt_bettype.text = i18n.t('overlaypanel_bethistory_record_bettype'));
-          this._txt_result && (this._txt_result.text = i18n.t('overlaypanel_bethistory_record_result'));
-          this._btn_replay['label'] && (this._btn_replay['label'].text = i18n.t('overlaypanel_bethistory_record_replay'));
+          this.setData(this._txt_round, i18n.t('overlaypanel_bethistory_record_round'));
+          this.setData(this._txt_bettype, i18n.t('overlaypanel_bethistory_record_bettype'));
+          this.setData(this._txt_result, i18n.t('overlaypanel_bethistory_record_result'));
+          this.setData(this._btn_replay['label'], i18n.t('overlaypanel_bethistory_record_replay'));
+          this.setData(this._txt_record_id, this.data.betid);
+          this.setData(this._txt_record_date, utils.formatTime(this.data.datetime.toFixed(0)));
+          this.setData(this._txt_record_game, i18n.t('gametype_' + we.core.GameType[this.data.gametype]) + (this.data.tablename ? ' ' + this.data.tablename : ''));
+          this.setData(this._txt_record_round, this.data.gameroundid);
+          this.setData(this._txt_record_remark, this.formatRemark(this.data.remark));
+          this.setData(this._txt_record_bettype, this.formatBetType(this.data.gametype, this.data.field));
+          this.setData(this._txt_record_betamount, utils.formatNumber(this.data.betamount, true));
+          this.setData(this._txt_record_orgbalance, utils.formatNumber(this.data.beforebalance, true));
+          this.setData(this._txt_record_finbalance, utils.formatNumber(this.data.afterbalance, true));
 
-          this._txt_record_id.text = this.data.betid;
-          this._txt_record_date.text = utils.formatTime(this.data.datetime.toFixed(0));
-          this._txt_record_game.text = `${i18n.t('gametype_' + we.core.GameType[this.data.gametype])} ${this.data.tablename}`;
+          this.updateBg();
+          this.updateWinText(this.data.remark, this.data.winamount);
+
+          this.createGameResult(this.data.gametype, this.data.result);
+        }
+
+        protected setData(label: eui.Label, txt) {
+          if (label) {
+            label.text = txt;
+          }
+        }
+
+        protected updateBg() {
+          if (!this._txt_record_bgcolor) {
+            return;
+          }
+
           if (env.isMobile) {
             this._txt_hover_color.visible = false;
             this._txt_record_bgcolor.fillColor = 0x4b535b;
@@ -54,6 +82,8 @@ namespace we {
           }
           this._txt_record_round.text = this.data.gameroundid;
           this._txt_record_remark.text = this.formatRemark(this.data.remark);
+          // console.log('this.formatBetType(this.data.gametype, this.data.field)', this.formatBetType(this.data.gametype, this.data.field));
+          // console.log('this.data.gametype, this.data.field', [this.data.gametype, this.data.field]);
           this._txt_record_bettype.text = this.formatBetType(this.data.gametype, this.data.field);
           this._txt_record_betamount.text = utils.formatNumber(this.data.betamount, true);
           this._txt_record_orgbalance.text = utils.formatNumber(this.data.beforebalance, true);
@@ -65,6 +95,10 @@ namespace we {
         }
 
         protected updateWinText(remark, amt) {
+          if (!this._txt_record_win) {
+            return;
+          }
+
           switch (remark) {
             case -1:
               this._txt_record_win.textColor = 0xff5555;
@@ -81,14 +115,6 @@ namespace we {
           } else {
             this._txt_record_win.text = `-${utils.formatNumber(this.data.winamount, true)}`;
           }
-        }
-
-        protected onHover() {
-          this.currentState = 'hover';
-        }
-
-        protected onRollOut() {
-          this.currentState = 'normal';
         }
 
         protected onClickReplay(e: egret.Event) {
@@ -120,14 +146,22 @@ namespace we {
 
             case we.core.GameType.DT:
               return i18n.t(`betfield_dragonTiger_${bettype.toLowerCase()}`);
-
+            case we.core.GameType.DI:
+              return i18n.t(`dice.${bettype.toLowerCase()}`);
+            case we.core.GameType.DIL:
+              return bettype;
+            case we.core.GameType.RO:
+            case we.core.GameType.ROL:
+              return i18n.t(`roulette.${bettype.toLowerCase()}`);
+            case we.core.GameType.LW:
+              return i18n.t(`luckywheel.${bettype.toLowerCase()}`);
             default:
               return i18n.t(`betfield_${bettype.toLowerCase()}`);
           }
         }
 
         private createGameResult(gametype, gameResult) {
-          let p: core.BaseEUI;
+          let p: eui.Component;
 
           switch (gametype) {
             case we.core.GameType.BAC:
@@ -158,7 +192,7 @@ namespace we {
               p = new LoResultItem(gameResult);
               break;
             default:
-              p = new core.BaseEUI();
+              p = new eui.Component();
               break;
           }
 

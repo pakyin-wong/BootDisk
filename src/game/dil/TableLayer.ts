@@ -50,9 +50,9 @@ namespace we {
       public onRollover(fieldName: string) {
         const group: eui.Group = this._groupMapping[fieldName];
         const imageObj = group.getChildByName('image');
-        const image = <eui.Image>imageObj;
+        const image = <eui.Image> imageObj;
 
-        const sourcePath = <string>image.source;
+        const sourcePath = <string> image.source;
         if (sourcePath && sourcePath.indexOf('hover_') !== -1) {
           return;
         }
@@ -67,8 +67,8 @@ namespace we {
         }
 
         const imageObj = group.getChildByName('image');
-        const image = <eui.Image>imageObj;
-        const sourcePath = <string>image.source;
+        const image = <eui.Image> imageObj;
+        const sourcePath = <string> image.source;
 
         if (sourcePath && sourcePath.indexOf('hover_') >= -1) {
           image.source = sourcePath.replace('hover_', '');

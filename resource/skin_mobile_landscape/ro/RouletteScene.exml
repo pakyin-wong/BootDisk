@@ -39,8 +39,8 @@
 			</e:layout>
 		</e:Group>
 		<e:Group x="189" y="18">
-			<ui:RunTimeLabel id="_baGameIDText" text="編號" y="0" height="38" verticalAlign="middle" size="26" textColor="0xf3f3f3" x="0"/>
-			<ui:RunTimeLabel id="_baGameID" text="000000000000" x="197" y="18" height="38" size="26" verticalAlign="middle" fontFamily="Barlow" textColor="0xf3f3f3"/>
+			<ui:RunTimeLabel id="_GameIDText" text="編號" y="0" height="38" verticalAlign="middle" size="26" textColor="0xf3f3f3" x="0"/>
+			<ui:RunTimeLabel id="_GameID" text="000000000000" x="197" y="18" height="38" size="26" verticalAlign="middle" fontFamily="Barlow" textColor="0xf3f3f3"/>
 			<e:layout>
 			<e:HorizontalLayout verticalAlign="middle" gap="8"/>
 			</e:layout>
@@ -74,7 +74,7 @@
       <ui:BetChipSetGrid id="_betChipSet" alpha="0" betChipWidth="201" betChipHeight="201" labelSize="48" width="1566" height="411" numChipsInRow="6" y="35"/>
     </e:Group>
     <e:Group id="_betRelatedGroup" x="819" y="18">
-				<e:Rect id="_roundPanel" width="765" height="130" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"  x="0" x.left="219"/>
+				<e:Rect id="_roundPanel" width="970" height="130" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"  x="0" x.left="219"/>
 				<e:Button id="_confirmButton" width="324" height="130" skinName="skin_mobile_portrait.BetConfirmButtonSkin" x="649" x.left="0"/>
 				<ui:CountdownTimer id="_timer" width="324" height="130" skinName="skin_mobile_portrait.CountdownTimerSkin" x="649" x.left="0" colorChange="true"/>
 			<ui:RunTimeLabel id="_repeatLabel" text="再次下注" x="41" y="73"  textAlign="center" width="128" size="32" height="47" verticalAlign="middle" x.left="792"/>
@@ -99,14 +99,9 @@
   <!--<e:Image id="_btnBack" width="30" height="30" x="35" y="17" source="d_ba_navbar_chevron_png" includeIn="right_hand_mode"/>-->
 	<!--===========-->
   <ro:GameResultMessage id="_resultMessage" y="333" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" horizontalCenter="0"/>
-  <ui:InGameMessage
-    id="_message"
-    x="901"
-    y="650"
-    infoBg="d_ba_gamerecord_playerelement_png"
-    successBg="d_ba_gamerecord_tieelement_png"
-    errorBg="d_ba_gamerecord_bankerelement_png" skinName="skin_mobile_landscape.InGameMessageSkin"/>
+
   <ro:MobileBottomGamePanel id="_bottomGamePanel" x="0" bottom="0" skinName="skin_mobile_landscape.ro.MobileBottomGamePanel"/>
+	<ui:InGameMessage id="_message" x="901" y="650" infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" skinName="skin_mobile_portrait.InGameMessageSkin"/>
 	<!--===============^-->
   <!--<ro:TableInfoPanel width="600" height="319.7" x="0" y="91" id="_tableInfoWindow" isPoppable="true" isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" anchorOffsetY="0"
   skinName="skin_mobile_portrait.ro.TableInfoPanel" />-->

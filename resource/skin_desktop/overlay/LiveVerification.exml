@@ -46,7 +46,7 @@
 			<ui:RoundRectShape cornerTL_TR_BL_BR="24,24,24,24" width="520" height="749" fillAlpha="0.58" fillColor="0x000000" stroke="0" />
 			<e:Group verticalCenter="0" horizontalCenter="0" width="400" height="305">
 				<ui:RoundRectShape cornerTL_TR_BL_BR="15,15,15,15" width="400" height="305" stroke="0" fillColor="0x1e262f" />
-				<e:Image width="91" height="91" source="d_lobby_restart_btn_png" y="45" horizontalCenter="0"/>
+				<e:Image width="104" height="104" source="d_common_video_verification_icon_correct_png" y="45" horizontalCenter="0"/>
 				<ui:RunTimeLabel id="success_text" text="Label" width="308" height="80" verticalAlign="middle" size="24" anchorOffsetX="0" bold="true" textAlign="center" textColor="0xffffff" y="163" horizontalCenter="0" />
 			</e:Group>
 		</e:Group>

@@ -44,6 +44,64 @@ namespace we {
       public odd3?: RoadmapCell[];
       public odd4?: RoadmapCell[];
       public odd5?: RoadmapCell[];
+
+      //pk 10
+      public dt1v6?: RoadmapCell[];
+      public dt1v7?: RoadmapCell[];
+      public dt1v8?: RoadmapCell[];
+      public dt1v9?: RoadmapCell[];
+      public dt1v10?: RoadmapCell[];
+
+      public dt2v6?: RoadmapCell[];
+      public dt2v7?: RoadmapCell[];
+      public dt2v8?: RoadmapCell[];
+      public dt2v9?: RoadmapCell[];
+      public dt2v10?: RoadmapCell[];
+
+      public dt3v6?: RoadmapCell[];
+      public dt3v7?: RoadmapCell[];
+      public dt3v8?: RoadmapCell[];
+      public dt3v9?: RoadmapCell[];
+      public dt3v10?: RoadmapCell[];
+
+      public dt4v6?: RoadmapCell[];
+      public dt4v7?: RoadmapCell[];
+      public dt4v8?: RoadmapCell[];
+      public dt4v9?: RoadmapCell[];
+      public dt4v10?: RoadmapCell[];
+
+      public dt5v6?: RoadmapCell[];
+      public dt5v7?: RoadmapCell[];
+      public dt5v8?: RoadmapCell[];
+      public dt5v9?: RoadmapCell[];
+      public dt5v10?: RoadmapCell[];
+
+      public dt6v7?: RoadmapCell[];
+      public dt6v8?: RoadmapCell[];
+      public dt6v9?: RoadmapCell[];
+      public dt6v10?: RoadmapCell[];
+
+      public dt7v8?: RoadmapCell[];
+      public dt7v9?: RoadmapCell[];
+      public dt7v10?: RoadmapCell[];
+
+      public dt8v9?: RoadmapCell[];
+      public dt8v10?: RoadmapCell[];
+
+      public dt9v10?: RoadmapCell[];
+
+
+      public size6?: RoadmapCell[];
+      public size7?: RoadmapCell[];
+      public size8?: RoadmapCell[];
+      public size9?: RoadmapCell[];
+      public size10?: RoadmapCell[];
+
+      public odd6?: RoadmapCell[];
+      public odd7?: RoadmapCell[];
+      public odd8?: RoadmapCell[];
+      public odd9?: RoadmapCell[];
+      public odd10?: RoadmapCell[];
     }
   }
 }

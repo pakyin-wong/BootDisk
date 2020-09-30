@@ -2,7 +2,7 @@ namespace we {
   export namespace ui {
     export class RoundRectButton extends core.BaseEUI implements IButton {
       private _roundRectShape: RoundRectShape;
-      private _label: RunTimeLabel;
+      public _label: RunTimeLabel;
       private _enabled: boolean = false;
       private _hover: boolean = false;
       private _active: boolean = false;
@@ -83,7 +83,11 @@ namespace we {
       public strokeIn_hover: number = -2;
       public strokeInColor_hover: number = -2;
       public strokeInAlpha_hover: number = -2;
+
       public labelSize: number = 24;
+      public labelAutoResize: boolean = true;
+
+      public value: number = 0;
 
       protected mount() {
         this._roundRectShape = new RoundRectShape();
@@ -119,14 +123,19 @@ namespace we {
           // this._label.left = 20;
           // this._label.right = 20;
           // this._label.width = this.width - 40;
-          this._label.targetWidth = this.width - 80;
           this._label.verticalAlign = 'middle';
           this._label.textAlign = 'center';
-          this._label.size = this.labelSize;
           this.addChild(this._label);
           // this._label.text = 'Hello';
           // left="20" right="20" top="10" bottom="10" verticalAlign="middle" textAlign="center" size="24" alpha="0.7" alpha.active="1" alpha.click="1" alpha.hover="1" bold.hover="true"
         }
+
+        this._label.size = this.labelSize;
+
+        if (this.labelAutoResize) {
+          this._label.targetWidth = this.width - 80;
+        }
+
         this.touchChildren = false;
         this.buttonEnabled = true;
         mouse.setButtonMode(this, true);
@@ -134,7 +143,7 @@ namespace we {
 
       public $setWidth(val: number) {
         super.$setWidth(val);
-        if (this._label) {
+        if (this._label && this.labelAutoResize) {
           // this._label.width = this.width - 40;
           this._label.targetWidth = this.width - 80;
         }
@@ -202,7 +211,7 @@ namespace we {
         this.update();
       }
 
-      private onClick() {
+      protected onClick() {
         this.dispatchEvent(new egret.Event('CLICKED'));
       }
 

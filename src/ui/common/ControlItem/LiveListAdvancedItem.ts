@@ -4,20 +4,23 @@ namespace we {
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _betChipSetGridEnabled: boolean = false;
       protected _closeButton: ui.BaseImageButton;
-
+      protected _betChipSet: ui.BetChipSetGrid;
       protected _advancedRoadNode: eui.Component;
       protected _advancedRoad: IAdvancedRoad & eui.Component;
       protected _analysisNode: eui.Component;
       protected _analysis: IAnalysis & eui.Component;
 
+      protected _quickBetBg: ui.RoundRectShape;
+
       public constructor(skinName: string = null) {
         super(skinName);
+        this._hoverScale = 1.01;
       }
 
       protected getBetChipSet() {
-        const betChipSet = new BetChipSetGrid();
-        betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
-        return betChipSet;
+        this._betChipSet = new BetChipSetGrid();
+        this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
+        return this._betChipSet;
       }
 
       public destroy() {
@@ -46,19 +49,31 @@ namespace we {
         super.showQuickBetGroup();
         this._quickBetGroup.touchEnabled = true;
         this._quickBetGroup.touchChildren = true;
+        if (this._quickbetButton) {
+          this._quickbetButton.visible = false;
+        }
+        if (this._quickBetBg) {
+          egret.Tween.get(this._quickBetBg).to({ height: this.height + 103 }, 250);
+        }
       }
 
       protected hideQuickBetGroup() {
         super.hideQuickBetGroup();
         this._quickBetGroup.touchEnabled = false;
         this._quickBetGroup.touchChildren = false;
+        if (this._quickbetButton) {
+          this._quickbetButton.visible = true;
+        }
+        if (this._quickBetBg) {
+          egret.Tween.get(this._quickBetBg).to({ height: this.height }, 250);
+        }
         this.hideBetChipPanel();
       }
 
       protected onTouchTap(evt: egret.Event) {
         const target = evt.target;
 
-        if (target instanceof eui.Group && target.name === 'askRoad') {
+        if (target instanceof eui.Group && target.name === 'skipEnterScene') {
           evt.stopPropagation();
           return;
         }
@@ -103,8 +118,8 @@ namespace we {
       protected initCustomPos() {
         this._targetQuickBetButtonY = 350;
         this._originalQuickBetButtonY = 300;
-        this._targetQuickbetPanelY = 378;
-        this._originalQuickBetPanelY = 100;
+        this._targetQuickbetPanelY = 541;
+        this._originalQuickBetPanelY = 241;
         this._offsetLimit = 900;
         this._offsetMovement = 800;
       }
@@ -131,7 +146,10 @@ namespace we {
 
       protected showBetChipPanel() {
         if (this._betChipSet) {
-          egret.Tween.get(this._betChipSet).to({ y: 590, alpha: 1 }, 250);
+          egret.Tween.get(this._betChipSet).to({ y: 550, alpha: 1 }, 250);
+        }
+        if (this._quickBetBg) {
+          egret.Tween.get(this._quickBetBg).to({ height: this.height + 130 + this._betChipSet._chipsetList.height }, 250);
         }
         this._betChipSetGridEnabled = true;
       }
@@ -139,6 +157,9 @@ namespace we {
       protected hideBetChipPanel() {
         if (this._betChipSet) {
           egret.Tween.get(this._betChipSet).to({ y: 0, alpha: 0 }, 250);
+        }
+        if (this._quickBetBg) {
+          egret.Tween.get(this._quickBetBg).to({ height: this.height + 103 }, 250);
         }
         this._betChipSetGridEnabled = false;
       }
@@ -148,7 +169,7 @@ namespace we {
         // console.log('LiveListAdvancedItem', this._tableId);
         // console.log('LiveListAdvancedItem::onRoadDataUpdate', evt.data);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._analysis) {
               this._analysis.tableId = this._tableId;
@@ -184,12 +205,14 @@ namespace we {
 
       protected addRoundCornerMask() {}
 
+      protected tweenChipLayer(isShow: boolean) {}
+
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         // console.log('LiveListAdvancedItem', this._tableId);
         // console.log('LiveListAdvancedItem::onTableBetInfoUpdate', evt.data);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._analysis) {
               this._analysis.tableId = this._tableId;

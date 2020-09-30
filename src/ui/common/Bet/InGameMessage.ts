@@ -21,13 +21,21 @@ namespace we {
 
       protected _nextMessage: ui.InGameMessage;
       protected _nextText: string;
-      protected _nextType:any;
+      protected _nextType: any;
 
       public constructor() {
         super();
         this.visible = false;
         this._isAnimating = false;
         // this.skinName = utils.getSkinByClassname('InGameMessageSkin');
+      }
+
+      get bg() {
+        return this._bg;
+      }
+
+      get label() {
+        return this._label;
       }
 
       set infoBg(value: string) {
@@ -62,11 +70,11 @@ namespace we {
         return this._expiredBg;
       }
 
-      public showMessage(type: string, message: string,callback?:()=>void) {
+      public showMessage(type: string, message: string, callback?: () => void) {
         if (this._bg) {
           this.setBackground(type);
         }
-        this.start(type, message,callback);
+        this.start(type, message, callback);
       }
 
       protected setBackground(type: string) {
@@ -86,30 +94,18 @@ namespace we {
         }
       }
 
-      protected start(type: string, message: string,callback?:()=>void) {
+      protected start(type: string, message: string, callback?: () => void) {
         egret.Tween.removeTweens(this);
         this._isAnimating = true;
         if (type === InGameMessage.EXPIRED) {
           const tween = egret.Tween.get(this)
-          .call(() => {
-            this.startAnimation(type);
-            this.visible = false;
-            this._label.visible = false;
-            this._label.text = message;
-          })
-          .wait(this.duration)
-          .call(() => {
-            this.startAnimation(type);
-            this.visible = true;
-            this._label.visible = true;
-            this._label.text = message;
-          })
-          .wait(this.duration)
-          .call(() => {
-            this.endAnimation(type);
-          });
-        }
-          const tween = egret.Tween.get(this)
+            .call(() => {
+              this.startAnimation(type);
+              this.visible = false;
+              this._label.visible = false;
+              this._label.text = message;
+            })
+            .wait(this.duration)
             .call(() => {
               this.startAnimation(type);
               this.visible = true;
@@ -119,13 +115,25 @@ namespace we {
             .wait(this.duration)
             .call(() => {
               this.endAnimation(type);
-            }).wait(200)
-            .call(() => {
-              if (callback){
-                callback()
-              } 
             });
-    
+        }
+        const tween = egret.Tween.get(this)
+          .call(() => {
+            this.startAnimation(type);
+            this.visible = true;
+            this._label.visible = true;
+            this._label.text = message;
+          })
+          .wait(this.duration)
+          .call(() => {
+            this.endAnimation(type);
+          })
+          .wait(200)
+          .call(() => {
+            if (callback) {
+              callback();
+            }
+          });
       }
 
       protected startAnimation(type: string) {

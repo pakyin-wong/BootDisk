@@ -58,7 +58,7 @@ namespace we {
 
       public showResult(gameType: core.GameType, resultData: any) {
         const { winAmount, gameData } = resultData;
-        console.log('di.SideBetResultMessage::showResult().resultData ', resultData);
+        // console.log('di.SideBetResultMessage::showResult().resultData ', resultData);
         this.visible = true;
         this._resultGroup.visible = true;
         this._winAmountGroup.visible = false;

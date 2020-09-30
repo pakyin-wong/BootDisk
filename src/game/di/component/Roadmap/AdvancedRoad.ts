@@ -35,41 +35,73 @@ namespace we {
         const group = new eui.Group();
         group.layout = layout;
 
-        this.beadRoad = new DiBeadRoad(2, 13, 46, 1, 0, 0, 10, [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1]); // in game
-        this.beadRoad.x = 2;
-        this.beadRoad.y = 0;
+        const bgShape = new ui.RoundRectShape();
+        bgShape.width = 580;
+        bgShape.height = 437;
+        bgShape.setRoundRectStyle(580, 437, { tl: 0, tr: 12, bl: 0, br: 12 }, '0xffffff', 1, 0);
+        this.addChild(bgShape);
+        bgShape.x = 0;
+        bgShape.y = 2;
+
+        const options = {
+          paddingX: 2,
+          paddingY: 2,
+          gapX: 4,
+          gapY: 10,
+          iconItemColors: [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1],
+          iconHeight: 149,
+          iconItemYOffset: 4,
+          textPadding: 1,
+          textSize: 20,
+          diceSize: 26,
+          highlightRadius: 8,
+          firstItemPadding: 5,
+          showOuterGrid: true,
+          showGrid: true,
+        };
+
+        this.beadRoad = new DiBeadRoad(580, 1, 13, 46, 1, options); // in game
+        this.beadRoad.x = 1;
+        this.beadRoad.y = 2;
         this.beadRoad.scaleX = 1;
+        this.beadRoad.width = 576;
+        this.beadRoad.height = 157;
         this.beadRoad.expandRoad(false);
         this.beadRoad.initRoadData();
+        this.beadRoad.setGridCorners({ tl: 0, tr: 12, br: 0, bl: 0 });
 
         this.sizeBigRoad = new DiSizeBigRoad(25, 24, 1, false);
-        this.sizeBigRoad.x = 0;
-        this.sizeBigRoad.y = 190;
+        this.sizeBigRoad.x = 1;
+        this.sizeBigRoad.y = 157;
+        this.sizeBigRoad.scaleX = 576 / 600;
+        this.sizeBigRoad.scaleY = 138 / 144;
         this.sizeBigRoad.initRoadData();
 
         this.oddBigRoad = new DiOddBigRoad(25, 24, 1, false);
-        this.oddBigRoad.x = 0;
-        this.oddBigRoad.y = 190 + 6 * 24;
+        this.oddBigRoad.x = 1;
+        this.oddBigRoad.y = 157 + 138;
+        this.oddBigRoad.scaleX = 576 / 600;
+        this.oddBigRoad.scaleY = 138 / 144;
         this.oddBigRoad.initRoadData();
+        this.oddBigRoad.setGridCorners({ tl: 0, tr: 0, br: 12, bl: 0 });
 
         this.roadsContainer = new egret.DisplayObjectContainer();
         this.roadsContainer.x = 0;
-        this.roadsContainer.y = 0;
-        this.roadsContainer.scaleX = 584 / 600;
-        this.roadsContainer.scaleY = 450 / (190 + 12 * 24);
+        this.roadsContainer.y = 2;
+        // this.roadsContainer.scaleX = 584 / 600;
+        // this.roadsContainer.scaleY = 450 / (159 + 12 * 24);
         this.addChild(this.roadsContainer);
 
         this.roadsContainer.addChild(this.beadRoad);
         this.roadsContainer.addChild(this.sizeBigRoad);
         this.roadsContainer.addChild(this.oddBigRoad);
 
-        this.roadsContainerRT = new egret.RenderTexture();
+        // this.roadsContainerRT = new egret.RenderTexture();
         this.roadsContainerDisplay = new egret.Bitmap();
-        this.roadsContainerDisplay.texture = this.roadsContainerRT;
+        // this.roadsContainerDisplay.texture = this.roadsContainerRT;
         this.roadsContainerDisplay.scaleX = 584 / 600;
         this.roadsContainerDisplay.scaleY = 450 / (190 + 12 * 24);
         this.addChild(this.roadsContainerDisplay);
-
 
         // dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
 

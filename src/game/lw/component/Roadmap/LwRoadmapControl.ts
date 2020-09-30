@@ -36,6 +36,7 @@ namespace we {
 
                 this.resultPanel.setResult(rslt);
                 this.resultPanel.visible = true;
+                this.resultPanel._gameInfoLabel.visible = true ? true : false; // todo: check if replay url is available
                 this.resultPanel.x = e.data.mouseX - 30;
                 this.resultPanel.y = e.data.mouseY - this.resultPanel.height - 10;
               } else {

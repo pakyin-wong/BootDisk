@@ -11,7 +11,7 @@ namespace we {
 
       protected _confirmButton: eui.Button;
       protected _cancelButton: ui.BaseImageButton;
-      protected _favouriteButton: ui.BaseAnimationButton;
+      protected _favouriteButton: ui.AnimatedToggleButton;
       protected _resultMessage: ui.IGameResultMessage & eui.Component;
       protected _message: ui.InGameMessage;
       protected _dropdown: live.BetLimitDropdown;
@@ -79,6 +79,10 @@ namespace we {
           this.initDenom();
           this.initBettingTable();
         }
+        if (this._favouriteButton) {
+          this._favouriteButton.visible = false;
+          this._favouriteButton.externalClickHandling = true;
+        }
       }
 
       protected initDenom() {
@@ -126,7 +130,7 @@ namespace we {
         this._confirmButton && this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this._cancelButton && this._cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
         if (this._favouriteButton) {
-          this._favouriteButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onFavouritePressed, this, true);
+          this._favouriteButton.addEventListener('CLICKED', this.onFavouritePressed, this);
         }
       }
 
@@ -166,7 +170,7 @@ namespace we {
         this._confirmButton && this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this._cancelButton && this._cancelButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
         if (this._favouriteButton) {
-          this._favouriteButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onFavouritePressed, this, true);
+          this._favouriteButton.removeEventListener('CLICKED', this.onFavouritePressed, this);
         }
         this._timer && this._timer.stop();
       }
@@ -187,7 +191,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         // logger.l(utils.LoggerTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -255,7 +259,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -266,11 +270,16 @@ namespace we {
             this.updateGame();
           }
           if (this._favouriteButton) {
-            if (env.favouriteTableList.indexOf(this._tableId) > -1) {
-              this._favouriteButton.playPromise('idle_off', 0);
-            } else {
-              this._favouriteButton.playPromise('idle_on', 0);
+            this._favouriteButton.visible = true;
+            const active = env.favouriteTableList.indexOf(this._tableId) > -1;
+            if (this._favouriteButton.active !== active) {
+              this._favouriteButton.active = active;
             }
+            // if (env.favouriteTableList.indexOf(this._tableId) > -1) {
+            //   this._favouriteButton.playPromise('idle_off', 0);
+            // } else {
+            //   this._favouriteButton.playPromise('idle_on', 0);
+            // }
           }
         }
       }
@@ -549,13 +558,21 @@ namespace we {
       }
 
       protected onFavouritePressed(evt: egret.Event) {
-        if (env.favouriteTableList.indexOf(this._tableId) > -1) {
+        if (this._favouriteButton.active) {
           env.favouriteTableList.splice(env.favouriteTableList.indexOf(this._tableId), 1);
-          this._favouriteButton.playPromise('switch_to_off', 0);
         } else {
           env.favouriteTableList.push(this._tableId);
-          this._favouriteButton.playPromise('switch_to_on', 0);
         }
+        this._favouriteButton.toggle();
+
+        // if (env.favouriteTableList.indexOf(this._tableId) > -1) {
+        //   env.favouriteTableList.splice(env.favouriteTableList.indexOf(this._tableId), 1);
+        //   this._favouriteButton.playPromise('switch_to_off', 0);
+        // } else {
+        //   env.favouriteTableList.push(this._tableId);
+        //   this._favouriteButton.playPromise('switch_to_on', 0);
+        // }
+
         // console.log('Pass player setting = ' + JSON.stringify(env.favouriteTableList));
 
         dir.socket.updateSetting('favouriteTableList', JSON.stringify(env.favouriteTableList));

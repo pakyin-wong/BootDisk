@@ -8,7 +8,8 @@ namespace we {
       protected _tableInfoWindow: ui.TableInfoPanel;
       protected _originBetRelatedGroupY: number;
 
-      protected _panelDismissToggleBtn: ui.BaseAnimationButton;
+      protected _panelDismissToggleBtn: ui.AnimatedToggleButton;
+      protected _forceNoDismiss: boolean = false;
 
       constructor(data: any) {
         super(data);
@@ -16,6 +17,10 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
+
+        this._message.label.size = 28;
+        this._message.bg.width = 303;
+        this._message.bg.height = 63;
 
         this._leftGamePanel.setTableInfo(this._tableInfo);
         this._rightGamePanel.setTableInfo(this._tableInfo);
@@ -32,14 +37,17 @@ namespace we {
         }
 
         if (this._panelDismissToggleBtn) {
-          this._panelDismissToggleBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
+          this._panelDismissToggleBtn.active = env.isAutoDismiss;
+          this._panelDismissToggleBtn.addEventListener('CLICKED', this.onPanelToggle, this);
+          this._panelDismissToggleBtn['tooltipText'] = env.isAutoDismiss ? 'live.tooltip.autoFullscreenToggleOff' : 'live.tooltip.autoFullscreenToggleOn';
         }
-
-        ui.EdgeDismissableAddon.isDismiss = false;
       }
 
       protected onPanelToggle(evt: egret.TouchEvent) {
-        ui.EdgeDismissableAddon.toggle();
+        console.log(this._panelDismissToggleBtn.active);
+        env.isAutoDismiss = this._panelDismissToggleBtn.active;
+        this._panelDismissToggleBtn['tooltipText'] = env.isAutoDismiss ? 'live.tooltip.autoFullscreenToggleOff' : 'live.tooltip.autoFullscreenToggleOn';
+        // env.isAutoDismiss = !env.isAutoDismiss;
       }
 
       protected updateTableInfoRelatedComponents() {
@@ -60,12 +68,16 @@ namespace we {
             egret.Tween.get(target).to({ y: enable ? 0 : 100, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
           }
         }
+        if ((env.isAutoDismiss || enable) && ui.EdgeDismissableAddon.isDismiss === enable && !this._forceNoDismiss) {
+          // console.log(ui.EdgeDismissableAddon.isDismiss);
+          ui.EdgeDismissableAddon.toggle();
+        }
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo>evt.data;
+          const stat = <data.TableInfo> evt.data;
           if (stat.tableid === this._tableId) {
             this._leftGamePanel.updateStat();
             this._rightGamePanel.updateStat();
@@ -76,12 +88,26 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
             this._leftGamePanel.updateTableBetInfo();
             this._rightGamePanel.updateTableBetInfo();
           }
         }
+      }
+
+      public updateGame(isInit: boolean = false) {
+        if (isInit && env.isAutoDismiss) {
+          switch (this._gameData.state) {
+            case core.GameState.BET:
+              ui.EdgeDismissableAddon.isDismiss = false;
+              break;
+            default:
+              ui.EdgeDismissableAddon.isDismiss = true;
+              break;
+          }
+        }
+        super.updateGame(isInit);
       }
     }
   }

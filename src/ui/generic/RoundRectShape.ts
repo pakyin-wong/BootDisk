@@ -20,15 +20,15 @@ namespace we {
 
       protected mount() {
         this._shape = new egret.Shape();
-        this.addChild(this._shape);
+        this.addChildAt(this._shape, 0);
         this._gr = this._shape.graphics;
 
         this.refresh();
-        this.addEventListener(eui.UIEvent.RESIZE,this.refresh,this)
+        this.addEventListener(eui.UIEvent.RESIZE, this.refresh, this);
       }
 
       protected destroy() {
-        this.removeEventListener(eui.UIEvent.RESIZE,this.refresh,this)
+        this.removeEventListener(eui.UIEvent.RESIZE, this.refresh, this);
       }
 
       public setRoundRectStyle(
@@ -44,13 +44,14 @@ namespace we {
         strokeInColor: number = 0x0000ff,
         strokeInAlpha: number = 1
       ) {
-        this.width = width;
-        this.height = height;
+        // this.width = width;
+        // this.height = height;
         this.cornerTL = cornerRadius.tl;
         this.cornerTR = cornerRadius.tr;
         this.cornerBL = cornerRadius.bl;
         this.cornerBR = cornerRadius.br;
         this.fillColor = fillColor;
+        this.fillAlpha = fillAlpha;
         this.stroke = stroke;
         this.strokeColor = strokeColor;
         this.strokeAlpha = strokeAlpha;
@@ -124,14 +125,14 @@ namespace we {
           this.cornerBR = parseInt(corners[3], 10);
         }
 
-        // support percentage width / height
-        if (!isNaN(this.percentWidth) || !isNaN(this.percentHeight)) {
-          await new Promise(resolve => window.requestAnimationFrame(resolve));
-          // wait width / height calculated
-          this.width = (this as any).layoutBoundsWidth;
-          this.height = (this as any).layoutBoundsHeight;
-          this.percentWidth = this.percentHeight = NaN;
-        }
+        // // support percentage width / height
+        // if (!isNaN(this.percentWidth) || !isNaN(this.percentHeight)) {
+        //   await new Promise(resolve => window.requestAnimationFrame(resolve));
+        //   // wait width / height calculated
+        //   this.width = (this as any).layoutBoundsWidth;
+        //   this.height = (this as any).layoutBoundsHeight;
+        //   this.percentWidth = this.percentHeight = NaN;
+        // }
 
         this.setRoundRectStyle(
           this.width,

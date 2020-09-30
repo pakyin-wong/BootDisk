@@ -12,8 +12,8 @@ namespace we {
 
       protected _beadRoadResultPanel: DTBeadRoadResultPanel;
 
-      protected _dtGameIDText: ui.RunTimeLabel;
-      protected _dtGameID: ui.RunTimeLabel;
+      // protected _dtGameIDText: ui.RunTimeLabel;
+      // protected _dtGameID: ui.RunTimeLabel;
 
       protected _verticalGroup: eui.Group;
 
@@ -63,12 +63,12 @@ namespace we {
           egret.Tween.get(this._tableLayer).to({ scaleX: 1, scaleY: 1 }, 250);
           egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
         }
-        this._dtGameID.renderText = () => `${this._tableInfo.tableid}`;
+        // this._dtGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.dt.TableLayer>this._tableLayer).totalAmount = { DRAGON: 0, TIGER: 0 };
-            (<we.dt.TableLayer>this._tableLayer).totalPerson = { DRAGON: 0, TIGER: 0 };
+            (<we.dt.TableLayer> this._tableLayer).totalAmount = { DRAGON: 0, TIGER: 0 };
+            (<we.dt.TableLayer> this._tableLayer).totalPerson = { DRAGON: 0, TIGER: 0 };
           }
         }
         if (this._resultDisplay && env.orientation === 'portrait') {
@@ -123,7 +123,8 @@ namespace we {
         //   this.initBottomBetLimitSelector();
         // }
 
-        this._dtGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        // this._dtGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        // this._dtGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
 
         dir.monitor._sideGameList.setToggler(this._common_listpanel);
 
@@ -230,7 +231,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo>evt.data;
+          const stat = <data.TableInfo> evt.data;
           if (stat.tableid === this._tableId) {
             this._roadmapControl.updateRoadData();
           }
@@ -240,11 +241,11 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
             // update the scene
-            (<we.dt.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
-            (<we.dt.TableLayer>this._tableLayer).totalPerson = evt.data.count;
+            (<we.dt.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
+            (<we.dt.TableLayer> this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }

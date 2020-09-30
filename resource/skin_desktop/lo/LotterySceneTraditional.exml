@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.LotterySceneTraditional" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
-        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:ro="we.ro.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing"
-        xmlns:live="we.live.*">
+        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:ro="we.ro.*" xmlns:lo="we.lo.*" xmlns:rc="we.rc.*"
+        xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*">
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x212425" visible="true" />
-	<e:Image id="_bgImg" x="1560" y="104" width="1024" height="575" source="frame-3_jpg" visible="false" locked="true"/>
+	<e:Image id="_bgImg" x="1560" y="104" width="1024" height="575" source="frame-3_jpg" visible="false" locked="true" />
 	<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" width="2600" height="294" x="0" bottom="0" stroke="0"
 	                   fillColor="0x00000000,0x00000050" />
 	<!--<ro:TableLayer id="_tableLayer" width="1208" height="340" x="692" y="986" skinName="skin_desktop.ro.TableLayerSkin"
@@ -43,6 +43,10 @@
 		<e:Image id="_lblRoomInfo" width="24" height="24" x="271.98" y="19" source="d_ba_navbar_icon_info_png" />
 		<ui:GameBar width="251" height="52" x="1558" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_desktop.GameBar" visible="false" />
+	</e:Group>
+	<e:Group id="_chaseGroup" width="2600" height="1340" touchThrough="true" touchEnabled="false" touchChildren="false"
+	         visible="false">
+		<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x00000" alpha="0.4" />
 	</e:Group>
 	<ro:GameResultMessage id="_resultMessage" width="0" height="0" horizontalCenter="0" verticalCenter="0" />
 	<ui:InGameMessage id="_message" x="1300" y="680" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"

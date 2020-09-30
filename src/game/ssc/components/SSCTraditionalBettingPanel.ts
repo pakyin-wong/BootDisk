@@ -8,8 +8,8 @@ namespace we {
       protected _bigTagsGroup: eui.Group;
       protected _smallTagsGroup: eui.Group;
 
-      protected bigTagsArray: any[];
-      protected smallTagsArray: any[];
+      protected bigTagsArray: any[] = [];
+      protected smallTagsArray: any[] = [];
 
       protected bigTagNames: ui.RunTimeLabel[];
       protected smallTagNames: ui.RunTimeLabel[];
@@ -32,32 +32,38 @@ namespace we {
       private _winInstructGroup: eui.Group;
       private _lblwinInstruct: ui.RunTimeLabel;
 
-      private _lblCurrentRound: ui.RunTimeLabel;
-      private _lblCurrentRoundState: ui.RunTimeLabel;
+      protected _lblCurrentRound: ui.RunTimeLabel;
+      protected _lblCurrentRoundState: ui.RunTimeLabel;
 
-      private _lblPrevRound: ui.RunTimeLabel;
-      private _lblLastRound: ui.RunTimeLabel;
+      protected _lblPrevRound: ui.RunTimeLabel;
+      protected _lblLastRound: ui.RunTimeLabel;
 
-      private _lblResultBall0: ui.RunTimeLabel;
-      private _lblResultBall1: ui.RunTimeLabel;
-      private _lblResultBall2: ui.RunTimeLabel;
-      private _lblResultBall3: ui.RunTimeLabel;
-      private _lblResultBall4: ui.RunTimeLabel;
+      protected _lblResultBall0: ui.RunTimeLabel;
+      protected _lblResultBall1: ui.RunTimeLabel;
+      protected _lblResultBall2: ui.RunTimeLabel;
+      protected _lblResultBall3: ui.RunTimeLabel;
+      protected _lblResultBall4: ui.RunTimeLabel;
 
-      private _lblLastBall0: ui.RunTimeLabel;
-      private _lblLastBall1: ui.RunTimeLabel;
-      private _lblLastBall2: ui.RunTimeLabel;
-      private _lblLastBall3: ui.RunTimeLabel;
-      private _lblLastBall4: ui.RunTimeLabel;
+      protected _lblLastBall0: ui.RunTimeLabel;
+      protected _lblLastBall1: ui.RunTimeLabel;
+      protected _lblLastBall2: ui.RunTimeLabel;
+      protected _lblLastBall3: ui.RunTimeLabel;
+      protected _lblLastBall4: ui.RunTimeLabel;
 
-      private _lblPrevBall0: ui.RunTimeLabel;
-      private _lblPrevBall1: ui.RunTimeLabel;
-      private _lblPrevBall2: ui.RunTimeLabel;
-      private _lblPrevBall3: ui.RunTimeLabel;
-      private _lblPrevBall4: ui.RunTimeLabel;
+      protected _lblPrevBall0: ui.RunTimeLabel;
+      protected _lblPrevBall1: ui.RunTimeLabel;
+      protected _lblPrevBall2: ui.RunTimeLabel;
+      protected _lblPrevBall3: ui.RunTimeLabel;
+      protected _lblPrevBall4: ui.RunTimeLabel;
 
       constructor(skin: string = null) {
         super(skin);
+        this._currentKey = 'lo';
+        this._currentMap = we[this._currentKey].SelectionMapping;
+        this.initSkin();
+      }
+
+      protected initSkin() {
         this.skinName = 'skin_desktop.lo.SSCTraditionalBettingPanel';
       }
 
@@ -82,11 +88,11 @@ namespace we {
       // Big Tags Related
       protected createBigTags() {
         this.bigTagsArray = [];
-        this.currentBigTagIndex = 0;
+        this._currentBigTagIndex = 0;
         this.bigTagNames = [];
 
-        for (let i = 0; i < Object.keys(SelectionMapping).length; i++) {
-          const obj = SelectionMapping[Object.keys(SelectionMapping)[i]];
+        for (let i = 0; i < Object.keys(this._currentMap).length; i++) {
+          const obj = this._currentMap[Object.keys(this._currentMap)[i]];
 
           const bigTagGroup: eui.Group = new eui.Group();
           bigTagGroup.width = 107.7;
@@ -143,15 +149,12 @@ namespace we {
           this._bigTagsGroup.touchChildren = true;
           bigTagGroup.x = i * bigTagGroup.width;
           bigTagGroup.y = 0;
-          bigTag.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBigTagClicked, this);
+          utils.addButtonListener(bigTag, this.onBigTagClicked, this);
+          // bigTag.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBigTagClicked, this);
         }
 
         this.setActiveBigTag();
         this.createSmallTags();
-      }
-
-      protected generateNoteData(): TradNoteData[] {
-        return super.generateNoteData();
       }
 
       protected setActiveBigTag() {
@@ -161,20 +164,20 @@ namespace we {
           // img.source = ImageMapping.BIGTAG_NORMAL;
           this.bigTagsArray[i].active = false;
 
-          if (i === this.currentBigTagIndex) {
+          if (i === this._currentBigTagIndex) {
             this.bigTagsArray[i].active = true;
             // img.source = ImageMapping.BIGTAG_ACTIVE;
           }
         }
       }
 
-      protected onBigTagClicked(e: egret.TouchEvent) {
+      protected onBigTagClicked(e) {
         for (let i = 0; i < this.bigTagsArray.length; i++) {
           if (e.target === this.bigTagsArray[i]) {
-            if (i === this.currentBigTagIndex) {
+            if (i === this._currentBigTagIndex) {
               return;
             }
-            this.currentBigTagIndex = i;
+            this._currentBigTagIndex = i;
             break;
           }
         }
@@ -188,7 +191,7 @@ namespace we {
         // this.clearSmallTags();
         this.smallTagsArray = [];
         this.smallTagNames = [];
-        const currentBigTag = SelectionMapping[Object.keys(SelectionMapping)[this.currentBigTagIndex]];
+        const currentBigTag = this._currentMap[Object.keys(this._currentMap)[this._currentBigTagIndex]];
         const smallTagsHeight = 57;
         const lastRowItemIndex = -1;
         const offset = 0;
@@ -219,7 +222,8 @@ namespace we {
           this.smallTagsArray.push(smallTag);
           smallTag.x = 24 + offset + i * smallTag.width;
           smallTag.y = 0;
-          smallTag.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSmallTagClicked, this);
+          utils.addButtonListener(smallTag, this.onSmallTagClicked, this);
+          // smallTag.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSmallTagClicked, this);
 
           // if (currentBigTag['seperateLine']) {
           //   for (let k = 0; k < currentBigTag['seperateLine'].length; k++) {
@@ -251,13 +255,13 @@ namespace we {
         this.setActiveSmallTag();
       }
 
-      protected onSmallTagClicked(e: egret.TouchEvent) {
+      protected onSmallTagClicked(e) {
         for (let i = 0; i < this.smallTagsArray.length; i++) {
           if (e.target === this.smallTagsArray[i]) {
-            if (i === this.currentSmallTagIndex) {
+            if (i === this._currentSmallTagIndex) {
               return;
             }
-            this.currentSmallTagIndex = i;
+            this._currentSmallTagIndex = i;
           }
         }
         this.setActiveSmallTag();
@@ -267,15 +271,15 @@ namespace we {
         for (let i = 0; i < this.smallTagsArray.length; i++) {
           const lbl = this.smallTagsArray[i].getChildAt(0) as ui.RunTimeLabel;
           lbl.alpha = 0.7;
-          lbl.textFlow = <egret.ITextElement[]>[
+          lbl.textFlow = <egret.ITextElement[]> [
             {
               text: lbl.text,
               style: { bold: false, underline: false },
             },
           ];
-          if (i === this.currentSmallTagIndex) {
+          if (i === this._currentSmallTagIndex) {
             lbl.alpha = 1;
-            lbl.textFlow = <egret.ITextElement[]>[
+            lbl.textFlow = <egret.ITextElement[]> [
               {
                 text: lbl.text,
                 style: { bold: true, underline: true },
@@ -320,37 +324,41 @@ namespace we {
 
       public updateBetTableInfo(info) {
         super.updateBetTableInfo(info);
-        if (info.gamestatistic.loresults) {
-          const data = info.gamestatistic.loresults;
-          let index = data.length - 1;
+        if (!info.gamestatistic) {
+          return;
+        }
+        if (info.gamestatistic) {
+          if (info.gamestatistic.loresults) {
+            const data = info.gamestatistic.loresults;
+            let index = data.length - 1;
 
-          this._lblCurrentRoundState.renderText = () => `${data[index].Roundnumber + i18n.t('lo_fun_drawingRound')}`;
-          this._lblResultBall0.renderText = () => (data[index].Data.ball1 >= 0 ? `${data[index].Data.ball1}` : '-');
-          this._lblResultBall1.renderText = () => (data[index].Data.ball2 >= 0 ? `${data[index].Data.ball2}` : '-');
-          this._lblResultBall2.renderText = () => (data[index].Data.ball3 >= 0 ? `${data[index].Data.ball3}` : '-');
-          this._lblResultBall3.renderText = () => (data[index].Data.ball4 >= 0 ? `${data[index].Data.ball4}` : '-');
-          this._lblResultBall4.renderText = () => (data[index].Data.ball5 >= 0 ? `${data[index].Data.ball5}` : '-');
+            this._lblCurrentRoundState.renderText = () => `${data[index].Roundnumber + i18n.t('lo_fun_drawingRound')}`;
+            this._lblResultBall0.renderText = () => (data[index].Data.ball1 >= 0 ? `${data[index].Data.ball1}` : '-');
+            this._lblResultBall1.renderText = () => (data[index].Data.ball2 >= 0 ? `${data[index].Data.ball2}` : '-');
+            this._lblResultBall2.renderText = () => (data[index].Data.ball3 >= 0 ? `${data[index].Data.ball3}` : '-');
+            this._lblResultBall3.renderText = () => (data[index].Data.ball4 >= 0 ? `${data[index].Data.ball4}` : '-');
+            this._lblResultBall4.renderText = () => (data[index].Data.ball5 >= 0 ? `${data[index].Data.ball5}` : '-');
 
-          if (data.length >= 2) {
-            index = data.length - 2;
+            if (data.length >= 2) {
+              index = data.length - 2;
 
-            this._lblLastRound.renderText = () => `${data[index].Roundnumber}`;
-            this._lblLastBall0.renderText = () => (data[index].Data.ball1 >= 0 ? `${data[index].Data.ball1}` : '-');
-            console.log(data[index].Data.ball1);
-            this._lblLastBall1.renderText = () => (data[index].Data.ball2 >= 0 ? `${data[index].Data.ball2}` : '-');
-            this._lblLastBall2.renderText = () => (data[index].Data.ball3 >= 0 ? `${data[index].Data.ball3}` : '-');
-            this._lblLastBall3.renderText = () => (data[index].Data.ball4 >= 0 ? `${data[index].Data.ball4}` : '-');
-            this._lblLastBall4.renderText = () => (data[index].Data.ball5 >= 0 ? `${data[index].Data.ball5}` : '-');
-          }
-          if (data.length >= 3) {
-            index = data.length - 3;
+              this._lblLastRound.renderText = () => `${data[index].Roundnumber}`;
+              this._lblLastBall0.renderText = () => (data[index].Data.ball1 >= 0 ? `${data[index].Data.ball1}` : '-');
+              this._lblLastBall1.renderText = () => (data[index].Data.ball2 >= 0 ? `${data[index].Data.ball2}` : '-');
+              this._lblLastBall2.renderText = () => (data[index].Data.ball3 >= 0 ? `${data[index].Data.ball3}` : '-');
+              this._lblLastBall3.renderText = () => (data[index].Data.ball4 >= 0 ? `${data[index].Data.ball4}` : '-');
+              this._lblLastBall4.renderText = () => (data[index].Data.ball5 >= 0 ? `${data[index].Data.ball5}` : '-');
+            }
+            if (data.length >= 3) {
+              index = data.length - 3;
 
-            this._lblPrevRound.renderText = () => `${data[index].Roundnumber}`;
-            this._lblPrevBall0.renderText = () => (data[index].Data.ball1 >= 0 ? `${data[index].Data.ball1}` : '-');
-            this._lblPrevBall1.renderText = () => (data[index].Data.ball2 >= 0 ? `${data[index].Data.ball2}` : '-');
-            this._lblPrevBall2.renderText = () => (data[index].Data.ball3 >= 0 ? `${data[index].Data.ball3}` : '-');
-            this._lblPrevBall3.renderText = () => (data[index].Data.ball4 >= 0 ? `${data[index].Data.ball4}` : '-');
-            this._lblPrevBall4.renderText = () => (data[index].Data.ball5 >= 0 ? `${data[index].Data.ball5}` : '-');
+              this._lblPrevRound.renderText = () => `${data[index].Roundnumber}`;
+              this._lblPrevBall0.renderText = () => (data[index].Data.ball1 >= 0 ? `${data[index].Data.ball1}` : '-');
+              this._lblPrevBall1.renderText = () => (data[index].Data.ball2 >= 0 ? `${data[index].Data.ball2}` : '-');
+              this._lblPrevBall2.renderText = () => (data[index].Data.ball3 >= 0 ? `${data[index].Data.ball3}` : '-');
+              this._lblPrevBall3.renderText = () => (data[index].Data.ball4 >= 0 ? `${data[index].Data.ball4}` : '-');
+              this._lblPrevBall4.renderText = () => (data[index].Data.ball5 >= 0 ? `${data[index].Data.ball5}` : '-');
+            }
           }
         }
       }
@@ -358,8 +366,8 @@ namespace we {
       protected createBetTable() {
         this.clearCurrentBettingTable();
 
-        const currentBigTag = SelectionMapping[Object.keys(SelectionMapping)[this.currentBigTagIndex]];
-        const config = currentBigTag['type'][Object.keys(currentBigTag['type'])[this.currentSmallTagIndex]];
+        const currentBigTag = this._currentMap[Object.keys(this._currentMap)[this._currentBigTagIndex]];
+        const config = currentBigTag['type'][Object.keys(currentBigTag['type'])[this._currentSmallTagIndex]];
 
         const bettingTable = new SSCTraditionalBettingTable(config);
         if (this._bettingControl) {
@@ -388,8 +396,26 @@ namespace we {
       }
 
       protected clearSmallTags() {
-        this.currentSmallTagIndex = 0;
+        this._currentSmallTagIndex = 0;
+        if (this.smallTagsArray.length > 0) {
+          for (let i = 0; i < this.smallTagsArray.length; i++) {
+            utils.removeButtonListener(this.smallTagsArray[i], this.onSmallTagClicked, this);
+          }
+        }
+
         this._smallTagsGroup.removeChildren();
+      }
+
+      protected removeEventListeners() {
+        super.removeEventListeners();
+
+        for (let i = 0; i < this.bigTagsArray.length; i++) {
+          utils.removeButtonListener(this.bigTagsArray[i], this.onBigTagClicked, this);
+        }
+
+        for (let i = 0; i < this.smallTagsArray.length; i++) {
+          utils.removeButtonListener(this.smallTagsArray[i], this.onSmallTagClicked, this);
+        }
       }
     }
   }

@@ -5,7 +5,7 @@
         <e:Group id="content" height="994" left="0" right="0" bottom="0">
             <e:Rect left="0" right="0" top="0" bottom="0" strokeColor="0x333c4a" strokeWeight="2" fillColor="0x14181e" x="0"
 			        y="0" scaleX="1" scaleY="1" />
-            <e:Rect height="80" y="208" left="0" right="0" fillColor="0x1b416e" x="0" scaleX="1" scaleY="1" />
+            <e:Rect id="_rect_record" height="80" y="208" left="0" right="0" fillColor="0x1b416e" x="0" scaleX="1" scaleY="1" />
             <e:Rect width="2040" height="115" x="55" y="53" fillAlpha="0.4" ellipseHeight="115"
 			        ellipseWidth="115" scaleX="1" scaleY="1"  fillColor="0x666666"/>
             <e:Rect height="208" fillAlpha="0.4" ellipseHeight="0"
@@ -28,6 +28,12 @@
             <e:Scroller id="_scroller" height="707" y="288" anchorOffsetY="0" left="0" right="0" x="0" scaleX="1" scaleY="1">
 				<e:List id="_datagroup" />
 	    </e:Scroller>
+            <e:Group id="_noHistoryResult" width="2424" height="283" y="290">
+                <ui:RunTimeLabel id="_txt_noHistoryResult" text="no bet result" height="59" size="55"
+                        verticalAlign="middle" scaleX="1" scaleY="1"  horizontalCenter="0" y="182"/>
+                <e:Image x="1135" y="35.5" source="m_lobby_panel_betrecord_empty_icon_png" width="153" height="130"/>
+                <!--<e:Rect width="1242" height="200" fillColor="0xfffcfc"/>-->
+            </e:Group>
             <bh:BetHistoryDetail skinName="skin_mobile_landscape.BetHistoryDetail" id="_detail" x="0" y="-242" visible="false"/>
         </e:Group>
 </e:Skin>

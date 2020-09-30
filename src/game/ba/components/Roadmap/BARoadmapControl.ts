@@ -75,11 +75,12 @@ namespace we {
                 gameData.bankerpoint = rslt.bv;
                 gameData.playerpoint = rslt.pv;
                 gameData.wintype = rslt.result;
-                gameData.gameroundid = rslt.gameRoundID;
+                gameData.gameroundid = e.data.gameRoundID; // rslt.gameRoundID;
 
                 this.beadResultPanel.setCardResult(gameData);
 
                 this.beadResultPanel.visible = true;
+                this.beadResultPanel._gameInfoLabel.visible = true ? true : false; // todo: check if replay url is available
                 this.beadResultPanel.x = e.data.mouseX;
                 this.beadResultPanel.y = e.data.mouseY - this.beadResultPanel.height - 10;
               } else {

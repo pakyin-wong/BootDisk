@@ -24,11 +24,16 @@ namespace we {
 
       private _lblAdd;
       private _lblInstantBet;
-
+      private _lblBetDes;
+      private _betDesGrp;
       // constructor(skin, orientationDependent) {
       //   super(skin, orientationDependent);
       constructor() {
         super();
+        this.initSkin();
+      }
+
+      protected initSkin() {
         this.skinName = 'skin_desktop.lo.SSCBettingControlBar';
       }
 
@@ -54,21 +59,25 @@ namespace we {
         //   this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this);
         // }
         if (this._btnInstantBet) {
-          this._btnInstantBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.placeBet, this);
+          utils.addButtonListener(this._btnInstantBet, this.placeBet, this);
         }
 
         if (this._btnAddBetFields) {
-          this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.addNotes, this.bettingPanel);
+          utils.addButtonListener(this._btnAddBetFields, this.bettingPanel.addNotes, this.bettingPanel);
           // this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addBetfield, this);
         }
         if (this._btnAddMultiplier) {
-          this._btnAddMultiplier.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addMultiplier, this);
+          utils.addButtonListener(this._btnAddMultiplier, this.addMultiplier, this);
         }
         if (this._btnMinusMultiplier) {
-          this._btnMinusMultiplier.addEventListener(egret.TouchEvent.TOUCH_TAP, this.minusMultiplier, this);
+          utils.addButtonListener(this._btnMinusMultiplier, this.minusMultiplier, this);
         }
         if (this._noteDropDown) {
           this._noteDropDown.addEventListener('DROPDOWN_ITEM_CHANGE', this.onUnitSelect, this);
+        }
+
+        if (this._btnBetDescription) {
+          this._btnBetDescription.addEventListener(mouse.MouseEvent.ROLL_OVER, this.showBetDescription, this);
         }
       }
 
@@ -78,21 +87,28 @@ namespace we {
         //   this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this);
         // }
         if (this._btnInstantBet) {
-          this._btnInstantBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.placeBet, this);
+          utils.removeButtonListener(this._btnInstantBet, this.placeBet, this);
+
+          // this._btnInstantBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.placeBet, this);
         }
 
         if (this._btnAddBetFields) {
-          this._btnAddBetFields.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.addNotes, this.bettingPanel);
+          utils.removeButtonListener(this._btnAddBetFields, this.bettingPanel.addNotes, this.bettingPanel);
+          // this._btnAddBetFields.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.addNotes, this.bettingPanel);
           // this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addBetfield, this);
         }
         if (this._btnAddMultiplier) {
-          this._btnAddMultiplier.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.addMultiplier, this);
+          utils.removeButtonListener(this._btnAddMultiplier, this.addMultiplier, this);
         }
         if (this._btnMinusMultiplier) {
-          this._btnMinusMultiplier.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.minusMultiplier, this);
+          utils.removeButtonListener(this._btnMinusMultiplier, this.minusMultiplier, this);
+          // this._btnMinusMultiplier.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.minusMultiplier, this);
         }
         if (this._noteDropDown) {
           this._noteDropDown.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onUnitSelect, this);
+        }
+        if (this._btnBetDescription) {
+          this._btnBetDescription.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.showBetDescription, this);
         }
       }
 
@@ -118,6 +134,21 @@ namespace we {
         this._noteDropDown.dropdown.select(this._unitBet);
       }
 
+      protected showBetDescription(e) {
+        const config = this.bettingPanel.currentMap[Object.keys(this.bettingPanel.currentMap)[this.bettingPanel.currentBigTagIndex]];
+
+        const bigTag = config.name;
+        const smallTag = config['type'][Object.keys(config['type'])[this.bettingPanel.currentSmallTagIndex]].name;
+
+        this._lblBetDes.renderText = () => `${i18n.t('lo_trad.bigTag.' + bigTag)} | ${i18n.t('lo_trad.smallTag.' + smallTag)}\n${i18n.t('lo_trad.betDescription.' + bigTag + '.' + smallTag)}`;
+        this._betDesGrp.visible = true;
+        this._btnBetDescription.once(mouse.MouseEvent.ROLL_OUT, this.hideBetDescription, this);
+      }
+
+      protected hideBetDescription(e) {
+        this._betDesGrp.visible = false;
+      }
+
       protected onUnitSelect(e) {
         this.onUnitBetUpdate(e.data);
         this.updateTotalBetAmount();
@@ -133,7 +164,7 @@ namespace we {
         }
 
         if (this._lblTotalBet) {
-          this._lblTotalBet.text = `${this._totalBetAmount / 100} 元`;
+          this._lblTotalBet.text = `${utils.formatNumber(this._totalBetAmount)}`;
         }
       }
 

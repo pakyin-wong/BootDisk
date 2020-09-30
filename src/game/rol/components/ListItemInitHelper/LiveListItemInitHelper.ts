@@ -4,6 +4,7 @@ namespace we {
       public generateTableLayer(node: eui.Component) {
         const tableLayer = new ro.LobbyTableLayer();
         tableLayer.skinName = `skin_desktop.ro.LiveListItemTableLayerSkin`;
+        tableLayer.scaleX = 345 / 350;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(tableLayer, idx);
         return tableLayer;
@@ -12,6 +13,7 @@ namespace we {
       public generateChipLayer(node: eui.Component) {
         const chipLayer = new ro.LobbyChipLayer();
         chipLayer.skinName = `skin_desktop.ro.LiveListItemChipLayerSkin`;
+        chipLayer.scaleX = 345 / 350;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(chipLayer, idx);
         return chipLayer;

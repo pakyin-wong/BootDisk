@@ -6,6 +6,7 @@ namespace we {
       protected _list: List;
 
       protected _label: eui.Label;
+      protected _betLimitLabel: eui.Label;
 
       protected _items = [];
       protected _collection: eui.ArrayCollection;

@@ -1,16 +1,15 @@
 namespace we {
   export namespace ui {
     export class SidePanel extends core.BaseEUI {
+      protected _bg: eui.Rect;
       protected _tabbar: eui.List;
       protected _tabBarGroup: eui.Group;
+      protected _tweenGroup: eui.Group;
       protected _viewStack: eui.ViewStack;
-      protected _scroller: Scroller;
-      protected activeLine: eui.Rect;
-      protected _label: ui.RunTimeLabel;
 
-      protected lineMoveDuration: number = 100;
-
-      protected resizeWidthTimeoutId = null;
+      protected _isCollapsed = true;
+      protected _maxPanelHeight = 1153;
+      protected _targetHeight = 1153;
 
       constructor() {
         super();
@@ -27,15 +26,7 @@ namespace we {
         this._tabbar.addEventListener(eui.UIEvent.CHANGE, this.onSelected, this);
         this._tabbar.addEventListener('CLEAR_SELECTION', this.onClearSelection, this);
 
-        this.activeLine = new eui.Rect();
-        this.activeLine.fillColor = 0xffffff;
-        this.activeLine.height = 3;
-        this._tabBarGroup.addChild(this.activeLine);
-
         this.initTabs();
-        this.width = this._tabbar.width + 60;
-        this.activeLine.y = this._tabbar.top + this._tabbar.height + 3;
-
         this.dispatchChange();
       }
 
@@ -47,71 +38,72 @@ namespace we {
       }
 
       protected onClearSelection() {
-        if (!this._scroller.isCollapsed() && !this._scroller.isAnimating()) {
-          this._scroller.toggle();
-          this._tabbar.selectedIndex = -1;
-          this._tabbar.touchEnabled = false;
-          this._tabbar.touchChildren = false;
-          setTimeout(() => {
-            this._tabbar.touchEnabled = true;
-            this._tabbar.touchChildren = true;
-          }, 400);
-          const content = <eui.Group>this._scroller.viewport; // ?????
-          if (this.resizeWidthTimeoutId) {
-            clearTimeout(this.resizeWidthTimeoutId);
-          }
-          this.resizeWidthTimeoutId = setTimeout(() => {
-            this.onCollapse();
-          }, 200);
+        this._tabbar.selectedIndex = -1;
 
-          egret.Tween.removeTweens(this.activeLine);
-          egret.Tween.get(this.activeLine).to({ width: 0 }, this.lineMoveDuration);
-          this.dispatchChange();
-        }
-      }
+        egret.Tween.removeTweens(this._tweenGroup);
+        egret.Tween.removeTweens(this._tabBarGroup);
+        egret.Tween.removeTweens(this._viewStack);
+        egret.Tween.removeTweens(this._bg);
 
-      protected onCollapse() {
-        if (this._label) {
-          this._label.visible = false;
-        }
-        this.width = this._tabbar.width + 60;
+        egret.Tween.get(this._viewStack).to({ height: 0 }, 200);
+        egret.Tween.get(this._tweenGroup)
+          .to({ scaleY: 0 }, 200)
+          .set({ visible: false })
+          .to({ scaleX: 0, alpha: 0 }, 200);
+        egret.Tween.get(this._tabBarGroup)
+          .wait(200)
+          .to({ y: 0 }, 200);
+        egret.Tween.get(this._bg)
+          .wait(200)
+          .to({ ellipseHeight: 56, ellipseWidth: 56 }, 200);
+
+        this._isCollapsed = true;
+        this.dispatchChange();
       }
 
       public get isCollapsed() {
-        return this._scroller.isCollapsed();
+        return this._isCollapsed;
       }
 
       protected onSelected() {
-        if (this._scroller.isCollapsed()) {
-          if (!this._scroller.isAnimating()) {
-            this._scroller.toggle();
-            this._viewStack.selectedIndex = this._tabbar.selectedIndex;
-            const content = <eui.Group>this._scroller.viewport;
-            if (this.resizeWidthTimeoutId) {
-              clearTimeout(this.resizeWidthTimeoutId);
-            }
-            this.width = this.measuredWidth;
-
-            const { width } = this._tabbar.$children[this._tabbar.selectedIndex];
-            this.activeLine.x = this._tabbar.x + (this._tabbar.$children[this._tabbar.selectedIndex] as ItemRenderer).x;
-            egret.Tween.removeTweens(this.activeLine);
-            egret.Tween.get(this.activeLine).to({ width }, this.lineMoveDuration);
-            this.dispatchChange();
-          } else {
-            this._tabbar.selectedIndex = -1;
-          }
-        } else {
+        if (this.isCollapsed) {
           this._viewStack.selectedIndex = this._tabbar.selectedIndex;
 
-          const { width } = this._tabbar.$children[this._tabbar.selectedIndex];
-          const x = this._tabbar.x + (this._tabbar.$children[this._tabbar.selectedIndex] as ItemRenderer).x;
-          egret.Tween.removeTweens(this.activeLine);
-          egret.Tween.get(this.activeLine).to({ x, width }, this.lineMoveDuration);
+          this.updateTargetHeight();
+          this.tweenExpand(200);
+
+          this._isCollapsed = false;
+
+          this.dispatchChange();
+        } else {
+          this._viewStack.selectedIndex = this._tabbar.selectedIndex;
+          this.updateTargetHeight();
+          this.tweenExpand(200);
         }
-        if (this._label) {
-          this._label.visible = true;
-          this._label.renderText = () => `${i18n.t(`sidePanel.${this._viewStack.getChildAt(this._viewStack.selectedIndex).name}`)}`;
-        }
+      }
+
+      protected updateTargetHeight(){
+      }
+
+      protected tweenExpand(interval: number){
+          egret.Tween.removeTweens(this._tweenGroup);
+          egret.Tween.removeTweens(this._tabBarGroup);
+          egret.Tween.removeTweens(this._viewStack);
+          egret.Tween.removeTweens(this._bg);
+
+          egret.Tween.get(this._viewStack)
+            .wait(interval)
+            .to({ height: this._targetHeight }, interval);
+          egret.Tween.get(this._tweenGroup)
+            .to({ scaleX: 1 }, interval)
+            .set({ visible: true })
+            .to({ scaleY: 1, alpha: 1 }, interval);
+          egret.Tween.get(this._tabBarGroup)
+            .wait(interval)
+            .to({ y: 8 }, interval);
+          egret.Tween.get(this._bg)
+            .wait(interval)
+            .to({ ellipseHeight: 28, ellipseWidth: 28 }, interval);
       }
     }
   }

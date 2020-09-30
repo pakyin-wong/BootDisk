@@ -11,7 +11,7 @@
 		<e:HorizontalLayout gap="10"/>
 		</e:layout>
 	</e:Group>
-	<e:Group verticalCenter="0" x="200" y="10">
+	<e:Group id="_result" verticalCenter="0" x="200" y="10">
 		<e:Label id="b1" width="36" height="36" x="232" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
 		<e:Label id="b2" width="36" height="36" x="174" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
 		<e:Label id="b3" width="36" height="36" x="116" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>

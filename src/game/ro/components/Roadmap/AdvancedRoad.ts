@@ -44,6 +44,8 @@ namespace we {
         this.totalCount = 0;
 
         const bgShape = new ui.RoundRectShape();
+        bgShape.width = 580;
+        bgShape.height = 437;
         bgShape.setRoundRectStyle(584, 441, { tl: 0, tr: 10, bl: 0, br: 10 }, '0xffffff', 1, 0);
         this.addChild(bgShape);
 
@@ -108,7 +110,7 @@ namespace we {
         if (this.tableInfo) {
           if (!this._roadmapControl) {
             this._roadmapControl = new RORoadmapControl(this._tableInfo.tableid);
-            this._roadmapControl.setRoads(this.beadRoad, this.colorBigRoad, this.oddBigRoad, this.sizeBigRoad, null, null, null);
+            this._roadmapControl.setRoads(this.beadRoad, this.colorBigRoad, this.sizeBigRoad, this.oddBigRoad, null, null, null);
           }
           if (this._roadmapControl) {
             this._roadmapControl.setTableInfo(this._tableInfo);

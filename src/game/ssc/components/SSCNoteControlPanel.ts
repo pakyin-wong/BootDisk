@@ -39,7 +39,7 @@ namespace we {
       protected _lbltotalBetAmount: ui.RunTimeLabel;
       protected _lbltotalBetCount: ui.RunTimeLabel;
 
-      protected _scroller: eui.Scroller;
+      protected _scroller: ui.Scroller;
       protected _datagroup: eui.DataGroup;
       protected _dataColl: eui.ArrayCollection;
 
@@ -57,12 +57,16 @@ namespace we {
       //   super(skin, orientationDependent);
       constructor() {
         super();
-        this.skinName = 'skin_desktop.lo.SSCNoteControlPanel';
+        this.initSkin();
         // TradNoteData {
         //   public field: string; // field consist of several information: Bet type, bet per note and bet detail
         //   public count: number; // number of note corresponding to the field
         //   public multiplier: number;
         // }
+      }
+
+      protected initSkin() {
+        this.skinName = 'skin_desktop.lo.SSCNoteControlPanel';
       }
 
       protected childrenCreated() {
@@ -83,6 +87,8 @@ namespace we {
         dir.evtHandler.addEventListener(we.core.Event.SSC_DELETE_ONE_NOTE, this.deleteOneNote, this);
         this._btnDelectAll.addEventListener(egret.TouchEvent.TOUCH_TAP, this.clearAllNotes, this);
         this._btnConfirmBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this.bettingPanel);
+        this._btnChaseBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.chaseBet, this.bettingPanel);
+
         // this._btnAddDataTEMP.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addTempData, this);
       }
 
@@ -92,6 +98,7 @@ namespace we {
         this._btnDelectAll.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.clearAllNotes, this);
         dir.evtHandler.removeEventListener(we.core.Event.SSC_DELETE_ONE_NOTE, this.deleteOneNote, this);
         this._btnConfirmBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this.bettingPanel);
+        this._btnChaseBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.chaseBet, this.bettingPanel);
       }
 
       public updateText() {
@@ -102,7 +109,7 @@ namespace we {
         this._lblMultiplier.renderText = () => `${i18n.t('lo_trad.ui.multiplier')}`;
         this._lblTotalBet.renderText = () => `${i18n.t('lo_trad.ui.betamount')}`;
         this._lblControl.renderText = () => `${i18n.t('lo_trad.ui.action')}`;
-        this._lblBalance.renderText = () => `${i18n.t('nav.bet_balance')} $${env.balance ? utils.formatNumber(env.balance, true) : ' - '}`;
+        // this._lblBalance.renderText = () => `${i18n.t('nav.bet_balance')} $${env.balance ? utils.formatNumber(env.balance, true) : ' - '}`;
 
         this._lbltotalBetCount.renderText = () => `${this._totalBetCount}`;
         this._lbltotalBetAmount.renderText = () => `${this._totalBetAmount}`;
@@ -219,6 +226,24 @@ namespace we {
       public onExit() {
         super.onExit();
         this.removeListeners();
+      }
+
+      public setConfirmBetButton(enable: boolean) {
+        super.setConfirmBetButton(enable);
+        if (!this._notes) {
+          return;
+        }
+        if (this._notes.length > 0) {
+          this._btnConfirmBet.buttonEnabled = enable;
+          this._btnConfirmBet.enabled = enable;
+          this._btnChaseBet.buttonEnabled = enable;
+          this._btnChaseBet.enabled = enable;
+        } else {
+          this._btnConfirmBet.buttonEnabled = false;
+          this._btnConfirmBet.enabled = false;
+          this._btnChaseBet.buttonEnabled = false;
+          this._btnChaseBet.enabled = false;
+        }
       }
       // protected addTotalBetCount(count: number) {
       //   this._totalBetCount += count;

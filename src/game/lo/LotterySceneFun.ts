@@ -22,7 +22,7 @@ namespace we {
       protected mount() {
         super.mount();
         this.initDenom();
-        FunBet.reset();
+        this.funbet.reset();
 
         if (this._drawerPanel) {
           this._drawerPanel.setTableInfo(this._tableInfo);
@@ -35,14 +35,6 @@ namespace we {
         this._betChipSet.selectedChipIndex = 0;
         this.onBetChipChanged();
       }
-      protected onRoadDataUpdate(evt: egret.Event) {
-        if (evt && evt.data) {
-          const stat = <data.TableInfo>evt.data;
-          if (stat.tableid === this._tableId) {
-            this._drawerPanel.update();
-          }
-        }
-      }
 
       protected addListeners() {
         super.addListeners();
@@ -51,10 +43,10 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitUpdate, this);
         utils.addButtonListener(this._confirmButton, this.onConfirmPressed, this);
         utils.addButtonListener(this._cancelButton, this.onCancelPressed, this);
-        FunBet.evtHandler.addEventListener('LOTTERY_FUNBET_UPDATE', this.onFunBetUpdate, this);
-        FunBet.evtHandler.addEventListener('LOTTERY_FUNBET_OVERBETLIMIT', this.onOverBetLimit, this);
-        FunBet.evtHandler.addEventListener('LOTTERY_FUNBET_LOWERBETLIMIT', this.onLowBetLimit, this);
-        FunBet.evtHandler.addEventListener('LOTTERY_FUNBET_OVERBALANCE', this.onOverBalance, this);
+        this.funbet.evtHandler.addEventListener('LOTTERY_FUNBET_UPDATE', this.onFunBetUpdate, this);
+        this.funbet.evtHandler.addEventListener('LOTTERY_FUNBET_OVERBETLIMIT', this.onOverBetLimit, this);
+        this.funbet.evtHandler.addEventListener('LOTTERY_FUNBET_LOWERBETLIMIT', this.onLowBetLimit, this);
+        this.funbet.evtHandler.addEventListener('LOTTERY_FUNBET_OVERBALANCE', this.onOverBalance, this);
       }
 
       protected removeListeners() {
@@ -64,9 +56,20 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitUpdate, this);
         utils.removeButtonListener(this._confirmButton, this.onConfirmPressed, this);
         utils.removeButtonListener(this._cancelButton, this.onCancelPressed, this);
-        FunBet.evtHandler.removeEventListener('LOTTERY_FUNBET_UPDATE', this.onFunBetUpdate, this);
-        FunBet.evtHandler.removeEventListener('LOTTERY_FUNBET_OVERBETLIMIT', this.onOverBetLimit, this);
-        FunBet.evtHandler.removeEventListener('LOTTERY_FUNBET_OVERBALANCE', this.onOverBalance, this);
+        this.funbet.evtHandler.removeEventListener('LOTTERY_FUNBET_UPDATE', this.onFunBetUpdate, this);
+        this.funbet.evtHandler.removeEventListener('LOTTERY_FUNBET_OVERBETLIMIT', this.onOverBetLimit, this);
+        this.funbet.evtHandler.removeEventListener('LOTTERY_FUNBET_LOWERBETLIMIT', this.onLowBetLimit, this);
+        this.funbet.evtHandler.removeEventListener('LOTTERY_FUNBET_OVERBALANCE', this.onOverBalance, this);
+      }
+
+      protected onRoadDataUpdate(evt: egret.Event) {
+        super.onRoadDataUpdate(evt);
+        if (evt && evt.data) {
+          const stat = <data.TableInfo> evt.data;
+          if (stat.tableid === this._tableId) {
+            this._drawerPanel.update();
+          }
+        }
       }
 
       protected onGameStatisticUpdated() {
@@ -81,13 +84,13 @@ namespace we {
 
       protected onCustomBetSelected() {
         this._custombet.selected = true;
-        FunBet.bet = this._custombet.currentBet;
+        this.funbet.bet = this._custombet.currentBet;
         this._betChipSet.unSelect();
       }
 
       protected onBetChipChanged() {
         this._custombet.selected = false;
-        FunBet.bet = this._denominationList[this._betChipSet.selectedChipIndex];
+        this.funbet.bet = this._denominationList[this._betChipSet.selectedChipIndex];
       }
 
       protected onBetLimitUpdate(evt: egret.Event) {
@@ -98,7 +101,7 @@ namespace we {
       }
 
       protected onFunBetUpdate() {
-        this._confirmButton.enabled = Object.keys(FunBet.betDetails).length > 0;
+        this._confirmButton.enabled = Object.keys(this.funbet.betDetails).length > 0;
       }
 
       protected onOverBetLimit() {
@@ -114,26 +117,26 @@ namespace we {
       }
 
       protected onConfirmPressed() {
-        if (Object.keys(FunBet.betDetails).length > 0 && FunBet.checkAllAvailable()) {
+        if (Object.keys(this.funbet.betDetails).length > 0 && this.funbet.checkAllAvailable()) {
           dir.evtHandler.createOverlay({
             class: 'FunBetOverlay',
-            args: [this._tableInfo],
+            args: [this._tableInfo, this.customKey],
           });
         }
       }
 
       protected onCancelPressed() {
-        FunBet.reset();
+        this.funbet.reset();
       }
 
       protected onBetResultReceived(evt: egret.Event) {
         super.onBetResultReceived(evt);
-        FunBet.evtHandler.dispatchEvent(new egret.Event('LOTTERY_FUNBET_CLEANSCREEN'));
+        this.funbet.evtHandler.dispatchEvent(new egret.Event('LOTTERY_FUNBET_CLEANSCREEN'));
       }
 
       protected onBetConfirmed() {
         super.onBetConfirmed();
-        FunBet.reset();
+        this.funbet.reset();
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
@@ -141,8 +144,8 @@ namespace we {
         this.betLayerEnabled = enable;
 
         if (!enable) {
-          FunBet.evtHandler.dispatchEvent(new egret.Event('LOTTERY_FUNBET_CLEANSCREEN'));
-          FunBet.reset();
+          this.funbet.evtHandler.dispatchEvent(new egret.Event('LOTTERY_FUNBET_CLEANSCREEN'));
+          this.funbet.reset();
         }
       }
 

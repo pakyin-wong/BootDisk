@@ -2,6 +2,7 @@ namespace we {
   export namespace di {
     export class DiBeadRoadIcon extends ba.BARoadIconBase {
       private itemYOffset: number; // Y offset of each components
+      private textOffset: number; // Y offset of each components
       private itemColors: any; // [r_color,g_color,b_color, hightlight_color, hightlight_alpha]
       private iconHightLight: egret.Shape;
       private sizeText: egret.TextField;
@@ -19,10 +20,29 @@ namespace we {
       protected diceImage2: eui.Image;
       protected diceImage3: eui.Image;
 
+      protected group: eui.Group;
+      protected diceDisplaySize: number;
+      protected highlightRadius: number;
+      protected textPadding: number;
+
       protected layout: number; // layout 0 = inGame.Size, layout 1 = inGame.Odd, layout 3 = side bar/lobby
 
-      public constructor(size: number = 30, itemYOffset: number = 6, itemColors: any) {
+      public constructor(
+        width: number,
+        height: number,
+        itemColors: any,
+        size: number = 30,
+        diceDisplaySize: number = 30,
+        itemYOffset: number = 6,
+        textPadding: number = 1,
+        highlightRadius: number = 8
+      ) {
         super(size);
+        this.width = width;
+        this.height = height;
+        this.diceDisplaySize = diceDisplaySize;
+        this.highlightRadius = highlightRadius;
+        this.textPadding = textPadding;
         this.itemYOffset = itemYOffset;
         this.itemColors = itemColors;
         this.initGraphics();
@@ -56,37 +76,47 @@ namespace we {
       }
 
       protected initGraphics() {
-        this.sizeText = new egret.TextField();
-        this.oddText = new egret.TextField();
-        this.totalText = new egret.TextField();
+        this.sizeText = new ui.Label();
+        this.oddText = new ui.Label();
+        this.totalText = new ui.Label();
         this.iconHightLight = new egret.Shape();
 
         this.diceImage1 = new eui.Image();
         this.diceImage2 = new eui.Image();
         this.diceImage3 = new eui.Image();
 
+        this.group = new eui.Group();
+        this.group.verticalCenter = 0;
+        this.group.horizontalCenter = 0;
+        const layout = new eui.VerticalLayout();
+        layout.gap = this.itemYOffset;
+        layout.verticalAlign = egret.VerticalAlign.MIDDLE;
+        layout.horizontalAlign = egret.HorizontalAlign.CENTER;
+        this.group.layout = layout;
+
         this.addChild(this.iconHightLight);
-        this.addChild(this.diceImage1);
-        this.addChild(this.diceImage2);
-        this.addChild(this.diceImage3);
-        this.addChild(this.sizeText);
-        this.addChild(this.oddText);
-        this.addChild(this.totalText);
+        this.addChild(this.group);
+        this.group.addChild(this.diceImage1);
+        this.group.addChild(this.diceImage2);
+        this.group.addChild(this.diceImage3);
+        this.group.addChild(this.sizeText);
+        this.group.addChild(this.oddText);
+        this.group.addChild(this.totalText);
 
-        const iconSize = this.size;
-        const displaySize = iconSize * 0.64;
-        const spacing: number = displaySize + this.itemYOffset;
+        // const iconSize = this.size;
+        // const displaySize = iconSize * 0.64;
+        // const spacing: number = displaySize + this.itemYOffset;
 
-        this.diceImage1.width = this.diceImage1.height = displaySize;
-        this.diceImage2.width = this.diceImage2.height = displaySize;
-        this.diceImage3.width = this.diceImage3.height = displaySize;
-        this.diceImage1.x = this.diceImage2.x = this.diceImage3.x = iconSize * 0.18;
+        this.diceImage1.width = this.diceImage1.height = this.diceDisplaySize;
+        this.diceImage2.width = this.diceImage2.height = this.diceDisplaySize;
+        this.diceImage3.width = this.diceImage3.height = this.diceDisplaySize;
+        // this.diceImage1.x = this.diceImage2.x = this.diceImage3.x = iconSize * 0.18;
 
         // draw the hightlight
         // this.iconHightLight.graphics.lineStyle(2, 0x2da1fe, 1, true);
         // this.iconHightLight.graphics.beginFill(this.itemColors[3], this.itemColors[4]);
-        this.iconHightLight.graphics.beginFill(0x184077, 0.8);
-        this.iconHightLight.graphics.drawRoundRect(0, 0, iconSize, spacing * 4 + displaySize, 36, 36);
+        this.iconHightLight.graphics.beginFill(0xededed, 1);
+        this.iconHightLight.graphics.drawRoundRect(0, 0, this.width, this.height, this.highlightRadius, this.highlightRadius);
         this.iconHightLight.graphics.endFill();
         this.iconHightLight.visible = false;
 
@@ -94,27 +124,27 @@ namespace we {
         this.sizeText.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.sizeText.textColor = 0xffffff; // colors[2];
         this.sizeText.text = '2';
-        this.sizeText.width = iconSize;
-        this.sizeText.height = displaySize;
-        this.sizeText.size = iconSize * 0.45;
+        // this.sizeText.width = iconSize;
+        this.sizeText.height = this.size + this.textPadding * 2;
+        this.sizeText.size = this.size;
         // this.iconText.fontFamily = 'Times New Roman';
 
         this.oddText.textAlign = egret.HorizontalAlign.CENTER;
         this.oddText.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.oddText.textColor = 0xffffff; // colors[2];
         this.oddText.text = '2';
-        this.oddText.width = iconSize;
-        this.oddText.height = displaySize;
-        this.oddText.size = iconSize * 0.45;
-        this.oddText.fontFamily = 'Barlow';
+        // this.oddText.width = iconSize;
+        this.oddText.height = this.size + this.textPadding * 2;
+        this.oddText.size = this.size;
+        // this.oddText.fontFamily = 'Barlow';
 
         this.totalText.textAlign = egret.HorizontalAlign.CENTER;
         this.totalText.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.totalText.textColor = 0xffffff; // colors[2];
         this.totalText.text = '2';
-        this.totalText.width = iconSize;
-        this.totalText.height = displaySize;
-        this.totalText.size = iconSize * 0.45;
+        // this.totalText.width = iconSize;
+        this.totalText.height = this.size + this.textPadding * 2;
+        this.totalText.size = this.size;
         // this.iconText.fontFamily = 'Times New Roman';
       }
 
@@ -123,54 +153,80 @@ namespace we {
         this.layout = layout;
 
         const iconSize = this.size;
-        const displaySize = iconSize * 0.64;
-        const spacing: number = displaySize + this.itemYOffset;
+        // const displaySize = iconSize * 0.64;
+        const spacing: number = this.diceDisplaySize + this.itemYOffset;
 
         if (this.layout === 0) {
           // size
-          this.sizeText.visible = true;
-          this.oddText.visible = false;
+          // this.sizeText.visible = true;
+          // this.oddText.visible = false;
 
-          this.diceImage1.visible = true;
-          this.diceImage2.visible = true;
-          this.diceImage3.visible = true;
-          this.totalText.visible = true;
+          // this.diceImage1.visible = true;
+          // this.diceImage2.visible = true;
+          // this.diceImage3.visible = true;
+          // this.totalText.visible = true;
+          if (this.oddText.parent) {
+            this.oddText.parent.removeChild(this.oddText);
+          }
+          this.group.addChildAt(this.totalText, 0);
+          this.group.addChildAt(this.diceImage3, 0);
+          this.group.addChildAt(this.diceImage2, 0);
+          this.group.addChildAt(this.diceImage1, 0);
+          this.group.addChildAt(this.sizeText, 0);
 
-          this.sizeText.y = this.itemYOffset;
-          this.diceImage1.y = spacing * 1;
-          this.diceImage2.y = spacing * 2;
-          this.diceImage3.y = spacing * 3;
-          this.totalText.y = spacing * 4;
+          // this.sizeText.y = this.itemYOffset;
+          // this.diceImage1.y = spacing * 1;
+          // this.diceImage2.y = spacing * 2;
+          // this.diceImage3.y = spacing * 3;
+          // this.totalText.y = spacing * 4;
         } else if (this.layout === 1) {
           // odd
-          this.sizeText.visible = false;
-          this.oddText.visible = true;
+          // this.sizeText.visible = false;
+          // this.oddText.visible = true;
 
-          this.diceImage1.visible = true;
-          this.diceImage2.visible = true;
-          this.diceImage3.visible = true;
-          this.totalText.visible = true;
+          // this.diceImage1.visible = true;
+          // this.diceImage2.visible = true;
+          // this.diceImage3.visible = true;
+          // this.totalText.visible = true;
 
-          this.oddText.y = this.itemYOffset;
-          this.diceImage1.y = spacing * 1;
-          this.diceImage2.y = spacing * 2;
-          this.diceImage3.y = spacing * 3;
-          this.totalText.y = spacing * 4;
+          // this.oddText.y = this.itemYOffset;
+          // this.diceImage1.y = spacing * 1;
+          // this.diceImage2.y = spacing * 2;
+          // this.diceImage3.y = spacing * 3;
+          // this.totalText.y = spacing * 4;
+
+          if (this.sizeText.parent) {
+            this.sizeText.parent.removeChild(this.sizeText);
+          }
+          this.group.addChildAt(this.totalText, 0);
+          this.group.addChildAt(this.diceImage3, 0);
+          this.group.addChildAt(this.diceImage2, 0);
+          this.group.addChildAt(this.diceImage1, 0);
+          this.group.addChildAt(this.oddText, 0);
         } else {
           // side bar/lobby
-          this.sizeText.visible = true;
-          this.oddText.visible = false;
+          // this.sizeText.visible = true;
+          // this.oddText.visible = false;
 
-          this.diceImage1.visible = true;
-          this.diceImage2.visible = true;
-          this.diceImage3.visible = true;
-          this.totalText.visible = true;
+          // this.diceImage1.visible = true;
+          // this.diceImage2.visible = true;
+          // this.diceImage3.visible = true;
+          // this.totalText.visible = true;
 
-          this.diceImage1.y = this.itemYOffset;
-          this.diceImage2.y = spacing * 1 + this.itemYOffset;
-          this.diceImage3.y = spacing * 2 + this.itemYOffset;
-          this.totalText.y = spacing * 3 + this.itemYOffset;
-          this.sizeText.y = spacing * 4;
+          // this.diceImage1.y = this.itemYOffset;
+          // this.diceImage2.y = spacing * 1 + this.itemYOffset;
+          // this.diceImage3.y = spacing * 2 + this.itemYOffset;
+          // this.totalText.y = spacing * 3 + this.itemYOffset;
+          // this.sizeText.y = spacing * 4;
+
+          if (this.oddText.parent) {
+            this.oddText.parent.removeChild(this.oddText);
+          }
+          this.group.addChildAt(this.sizeText, 0);
+          this.group.addChildAt(this.totalText, 0);
+          this.group.addChildAt(this.diceImage3, 0);
+          this.group.addChildAt(this.diceImage2, 0);
+          this.group.addChildAt(this.diceImage1, 0);
         }
         this.changeLang();
       }
@@ -179,6 +235,7 @@ namespace we {
         this.reset();
         this.value = value;
         if (this.value.dice) {
+          this.group.visible = true;
           this.dice = value.dice;
           this.total = this.dice.reduce((a, b) => a + b, 0);
           this.tie = this.dice.every((val, i, arr) => val === arr[0]) ? 1 : 0;
@@ -191,6 +248,7 @@ namespace we {
 
           this.setLayout(this.layout);
         } else {
+          this.group.visible = false;
         }
       }
 
@@ -203,14 +261,14 @@ namespace we {
       public reset() {
         this.value = null;
 
-        this.sizeText.visible = false;
-        this.oddText.visible = false;
+        // this.sizeText.visible = false;
+        // this.oddText.visible = false;
 
-        this.sizeText.visible = false;
-        this.diceImage1.visible = false;
-        this.diceImage2.visible = false;
-        this.diceImage3.visible = false;
-        this.totalText.visible = false;
+        // this.sizeText.visible = false;
+        // this.diceImage1.visible = false;
+        // this.diceImage2.visible = false;
+        // this.diceImage3.visible = false;
+        // this.totalText.visible = false;
       }
 
       public dispose() {

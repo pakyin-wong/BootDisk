@@ -15,7 +15,7 @@ namespace we {
       protected _labelGroup: eui.Group;
 
       public aspectRatio: number = 0.7;
-      public debugRect: eui.Rect;
+      protected _touchArea: eui.Rect;
 
       public constructor(value: number = null, index: number = 0, type: we.core.ChipType = we.core.ChipType.PERSPECTIVE) {
         super();
@@ -37,12 +37,16 @@ namespace we {
       }
 
       protected mount() {
-        // this.debugRect = new eui.Rect();
-        // this.debugRect.fillColor = 0xffffff;
-        // this.addChild(this.debugRect);
+        this._touchArea = new eui.Rect();
+        this._touchArea.fillAlpha = 0;
+        this.addChild(this._touchArea);
+        this._touchArea.percentWidth = 100;
+        this._touchArea.percentHeight = 100;
 
         this._chipAnim = this.createChipAnim();
-        this._chipAnim.touchEnabled = true;
+        this.touchEnabled = true;
+        this.touchChildren = false;
+        this._chipAnim.touchEnabled = false;
         this._chipAnim.touchChildren = false;
         this._chipAnim.scaleX = this._chipScale;
         this._chipAnim.scaleY = this._chipScale;
@@ -54,6 +58,16 @@ namespace we {
 
         this._type = this._type || core.ChipType.PERSPECTIVE;
         this.draw(true);
+
+        if (!env.isMobile) {
+          mouse.setButtonMode(this, true);
+        }
+        this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.beep, this);
+        this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.beep, this);
+      }
+
+      protected beep() {
+        console.log('beep');
       }
 
       protected setChipValueSlot() {
@@ -96,10 +110,13 @@ namespace we {
         chip.source = this.getChipSource(we.core.ChipType.FLAT);
         chip.horizontalCenter = 0;
         chip.verticalCenter = 0;
+        chip.touchEnabled = false;
         // chip.anchorOffsetX = this._armatureWidth / 2;
         // chip.anchorOffsetY = this._armatureHeight / 2;
 
         const group = new eui.Group();
+        group.touchEnabled = false;
+        group.touchChildren = false;
         group.width = 0;
         group.height = 0;
         group.addChild(chip);
@@ -117,10 +134,13 @@ namespace we {
         chip.source = this.getChipSource(we.core.ChipType.PERSPECTIVE);
         chip.horizontalCenter = 0;
         chip.verticalCenter = 0;
+        chip.touchEnabled = false;
         // chip.anchorOffsetX = this._armatureWidth / 2;
         // chip.anchorOffsetY = this._armatureHeight / 2;
 
         const group = new eui.Group();
+        group.touchEnabled = false;
+        group.touchChildren = false;
         group.width = 0;
         group.height = 0;
         group.addChild(chip);

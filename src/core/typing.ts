@@ -9,11 +9,13 @@ namespace we {
       leaveTable(tableID: string);
       getTableList(filter?: string);
       bet(tableID: string, betDetails: data.BetDetail[], callback: (result) => void);
+      lotteryContinuousBet(tableID: string, betDetails: data.BetDetail[], roundBetDetails: data.LotteryBetCommand[], callback: (result) => void);
       getTableHistory();
       getBetHistory(filter: any, callback: (res: any) => void, thisArg: any);
       getLobbyMaterial(callback: (res: any) => void); // res: LobbyMaterial to any, since it could be error
       updateSetting(key: string, value: string);
       getGoodRoad();
+      batchUpdateAllGoodRoad(updatedefaultItem: any[], updatecustomItem: any[]);
       updateCustomGoodRoad(id: string, data: any);
       updateDefaultGoodRoad(ids: string[]);
       createGoodRoad(name: string, pattern: string);
@@ -28,6 +30,10 @@ namespace we {
       getPlayerProfileSummary(callback: (data: any) => void);
       getPlayerStatistic(filter: any, callback: (data: any) => void);
       getPlayerLotteryStatistic(filter: any);
+      getLotteryContinuousBetDetail(betid: string, callback: (res: any) => void, thisArg: any);
+      getLotteryContinuousBetHistory(filter: any, callback: (res: any) => void, thisArg: any);
+      getLotteryBetDetail(filter: any, callback: (res: any) => void, thisArg: any);
+      cancelBet(tableID: string, betID: string, gametype: string, callback: (res: any) => void, thisArg: any);
     }
 
     export interface ILobbyRoad {

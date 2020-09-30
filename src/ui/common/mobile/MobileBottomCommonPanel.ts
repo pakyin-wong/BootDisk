@@ -77,7 +77,7 @@ namespace we {
           egret.Tween.removeTweens(this._middlePart);
           env.isBottomPanelOpen = true;
           this.isPanelOpen = env.isBottomPanelOpen;
-          egret.Tween.get(this._middlePart).to({ height: this._middlePartHeight }, 250);
+          egret.Tween.get(this._middlePart).to({ height: this._middlePartHeight + 11 }, 250);
           this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
         }
       }
@@ -99,7 +99,7 @@ namespace we {
         if (this.isFirstTime) {
           this.isFirstTime = false;
           this.currentState = env.isBottomPanelOpen ? 'on' : 'off';
-          this._middlePart.height = env.isBottomPanelOpen ? this._middlePartHeight : 0;
+          this._middlePart.height = env.isBottomPanelOpen ? this._middlePartHeight + 11 : 0;
           return;
         }
         this.currentState = env.isBottomPanelOpen ? 'off' : 'on';
@@ -116,7 +116,7 @@ namespace we {
           case false:
             env.isBottomPanelOpen = true;
             this.isPanelOpen = env.isBottomPanelOpen;
-            egret.Tween.get(this._middlePart).to({ height: this._middlePartHeight }, 250);
+            egret.Tween.get(this._middlePart).to({ height: this._middlePartHeight + 11 }, 250);
             this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
 
             this._gameScene.updateTableLayerPosition(env.isBottomPanelOpen);

@@ -2,6 +2,9 @@ namespace we {
   export namespace core {
     export class BaseEUI extends eui.Component implements ui.IDismissable {
       public static tapHistory: any[] = [];
+
+      public customKey: string;
+
       protected _skinKey: string;
       protected _orientationDependent: boolean;
       constructor(skin: string = null, orientationDependent: boolean = true) {
@@ -116,6 +119,20 @@ namespace we {
 
       public dismissPosX: number = NaN;
       public dismissPosY: number = NaN;
+
+      public $setX(val: number): boolean {
+        if (this.edgeDismissableAddon) {
+          this.edgeDismissableAddon.objPosX = val;
+        }
+        return super.$setX(val);
+      }
+
+      public $setY(val: number): boolean {
+        if (this.edgeDismissableAddon) {
+          this.edgeDismissableAddon.objPosY = val;
+        }
+        return super.$setY(val);
+      }
 
       public set isEdgeDismissable(value: boolean) {
         this._isEdgeDismissable = value;

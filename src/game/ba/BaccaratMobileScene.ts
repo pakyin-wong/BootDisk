@@ -14,8 +14,8 @@ namespace we {
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
 
-      protected _baGameIDText: ui.RunTimeLabel;
-      protected _baGameID: ui.RunTimeLabel;
+      // protected _baGameIDText: ui.RunTimeLabel;
+      // protected _baGameID: ui.RunTimeLabel;
 
       protected _verticalGroup: eui.Group;
       protected _BAgoodRoadLabel: ui.GoodRoadLabel;
@@ -70,18 +70,13 @@ namespace we {
           egret.Tween.get(this._tableLayer).to({ scaleX: 1, scaleY: 1 }, 250);
           egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
         }
-        this._baGameID.renderText = () => `${this._tableInfo.tableid}`;
+        // this._baGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-// <<<<<<< HEAD
-//             (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
-//             (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
-// =======
-            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
-            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
-// >>>>>>> develop
+            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
           }
         }
         if (this._resultDisplay && env.orientation === 'portrait') {
@@ -170,7 +165,8 @@ namespace we {
         this.setChipPanelPos();
         this._BAgoodRoadLabel.visible = false;
 
-        this._baGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        // this._baGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        // this._baGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         if (env.isMobile) {
           dir.monitor._sideGameList.setToggler(this._common_listpanel);
         }
@@ -264,7 +260,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo>evt.data;
+          const stat = <data.TableInfo> evt.data;
           if (stat.tableid === this._tableId) {
             this._roadmapControl.updateRoadData();
           }
@@ -274,10 +270,10 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
-            (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
-            (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
+            (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
+            (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }
@@ -288,24 +284,6 @@ namespace we {
         if (this._bottomGamePanel._tableInfoPanel) {
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
         }
-
-        /*
-        if (this._bottomGamePanel.normalChartPanel) {
-          this._bottomGamePanel.normalChartPanel.tableId = this._tableId;
-        }
-
-        if (this._bottomGamePanel.normalPairChartPanel) {
-          this._bottomGamePanel.normalPairChartPanel.tableId = this._tableId;
-        }
-
-        if (this._bottomGamePanel.shoeChartPanel) {
-          this._bottomGamePanel.shoeChartPanel.tableId = this._tableId;
-        }
-
-        if (this._bottomGamePanel.shoePairChartPanel) {
-          this._bottomGamePanel.shoePairChartPanel.tableId = this._tableId;
-        }
-        */
       }
 
       protected onMatchGoodRoadUpdate() {

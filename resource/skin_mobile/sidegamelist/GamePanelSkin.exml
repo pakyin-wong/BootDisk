@@ -1,68 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile.GamePanelSkin" width="1242" height="2155" currentState="portrait" xmlns:e="http://ns.egret.com/eui"
-        xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" states="portrait,landscape"  width.landscape="2424" height.landscape="992">
-    <e:Group id="content" left="0" right="0" touchChildren="true" touchEnabled="false" height="2001" y="154">
-			<e:Rect height="170" x="0" y="-157" width="100%" fillAlpha="0.4"/>
-        <e:Rect left="0" right="0" top="0" bottom="0" ellipseHeight="80" ellipseWidth="80" strokeWeight="3"
-                strokeColor="0x282828"  fillColor="0x14181e"/>
+<e:Skin class="skin_mobile.GamePanelSkin" width="1242" height="2155" currentState="portrait"
+        xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing"
+        states="portrait,landscape" width.landscape="2424" height.landscape="992">
+	<e:Group id="content" left="0" right="0" touchChildren="true" touchEnabled="false" height="2001" y="154">
+		<e:Rect height="170" x="0" y="-157" width="100%" fillAlpha="0.4" />
+		<e:Rect left="0" right="0" top="0" bottom="0" ellipseHeight="80" ellipseWidth="80" strokeWeight="3"
+		        strokeColor="0x282828" fillColor="0x14181e" />
 		<e:Group id="_tabButtonGroup" height="100" x="60" y="60" anchorOffsetX="0" anchorOffsetY="0">
-            <ui:GamePanelTabButton id="_btnAlreadyBet" width="100" height="100" scaleX="1" scaleY="1"
-                                   skinName="skin_mobile_portrait.GamePanelTabButtonSkin" currentState="already_bet"
-                                   imageKey="m_lobby_panel_gamelist_tag_icon_betted" labelKey="sidePanel.betted"/>
-            <ui:GamePanelTabButton id="_btnGoodRoad" width="100" height="100" scaleX="1" scaleY="1"
-                                   skinName="skin_mobile_portrait.GamePanelTabButtonSkin" currentState="good_road"
-                                   imageKey="m_lobby_panel_gamelist_tag_icon_goodroad" labelKey="sidePanel.goodroad" />
-            <ui:GamePanelTabButton id="_btnAllGame" width="100" height="100" scaleX="1" scaleY="1"
-                                   skinName="skin_mobile_portrait.GamePanelTabButtonSkin"
-                                   imageKey="m_lobby_panel_gamelist_tag_icon_allgame" labelKey="sidePanel.allgames" />
-            <e:layout>
-                <e:HorizontalLayout verticalAlign="middle" gap="40" />
-            </e:layout>
-        </e:Group>
-
-
-			<e:Group id="_layoutRefer">
-				<e:layout>
-					<e:TileLayout verticalGap="48" horizontalAlign="center" requestedColumnCount="1" columnWidth="1140" rowHeight="399" horizontalGap="0" paddingLeft="48" orientation.landscape="columns" horizontalGap.landscape="48" rowHeight.landscape="400" requestedColumnCount.landscape="2" paddingRight.landscape="48" paddingRight="48"/>
-				</e:layout>
+			<ui:GamePanelTabButton id="_btnAllGame" width="100" height="100" scaleX="1" scaleY="1"
+			                       skinName="skin_mobile_portrait.GamePanelTabButtonSkin"
+			                       imageKey="m_lobby_panel_gamelist_tag_icon_allgame" labelKey="sidePanel.allgames" />
+			<ui:GamePanelTabButton id="_btnGoodRoad" width="100" height="100" scaleX="1" scaleY="1"
+			                       skinName="skin_mobile_portrait.GamePanelTabButtonSkin" currentState="good_road"
+			                       imageKey="m_lobby_panel_gamelist_tag_icon_goodroad" labelKey="sidePanel.goodroad" />
+			<ui:GamePanelTabButton id="_btnAlreadyBet" width="100" height="100" scaleX="1" scaleY="1"
+			                       skinName="skin_mobile_portrait.GamePanelTabButtonSkin" currentState="already_bet"
+			                       imageKey="m_lobby_panel_gamelist_tag_icon_betted" labelKey="sidePanel.betted" />
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="middle" gap="40" />
+			</e:layout>
+		</e:Group>
+		<e:Group id="_layoutRefer">
+			<e:layout>
+				<e:TileLayout verticalGap="48" horizontalAlign="center" requestedColumnCount="1" columnWidth="1140" rowHeight="399"
+				              horizontalGap="0" paddingLeft="48" orientation.landscape="columns" horizontalGap.landscape="48"
+				              rowHeight.landscape="400" requestedColumnCount.landscape="2" paddingRight.landscape="48"
+				              paddingRight="48" />
+			</e:layout>
+		</e:Group>
+		<e:ViewStack id="_viewStack" left="0" right="0" selectedIndex="0" y.landscape="202" height.landscape="790" top="200"
+		             bottom="0">
+			<e:Group left="0" right="0" top="0" bottom="0" scaleX="1" scaleY="1">
+				<ui:Scroller left="0" right="0" top="90" bottom="0" bottom.landscape="1140">
+					<ui:TableList id="_betTableList" />
+				</ui:Scroller>
+				<e:Group id="_noBetGroup" verticalCenter.portrait="0" horizontalCenter="0" bottom.landscape="1340">
+					<e:Image source="m_lobby_panel_gamelist_tag_icon_betted_dim_png" width="194" height="194" />
+					<ui:RunTimeLabel i18n="sidePanel.noBet" size="64" />
+					<e:layout>
+						<e:VerticalLayout gap="31" horizontalAlign="center" />
+					</e:layout>
+				</e:Group>
 			</e:Group>
-
-
-
-
-
-        <e:ViewStack id="_viewStack" left="0" right="0"
-                     selectedIndex="2" y.landscape="202" height.landscape="790" top="200" bottom="0">
-					<e:Group left="0" right="0" top="0" bottom="0" x="0" y="-200" scaleX="1" scaleY="1">
-						<e:Group height="110" left="0" right="0">
-						<ui:RunTimeLabel id="_lblBetHint" text="Label" horizontalCenter="0" verticalCenter="0" textAlign="center" verticalAlign="middle" size="42"/>
-						<e:Image source="m_lobby_panel_gamelist_remark_box_png" scale9Grid="24,24,1,1" right="0" left="0" top="0" bottom="0"/>
-						</e:Group>
-						<ui:Scroller left="0" right="0" top="150" bottom="0">
-						<ui:TableList id="_betTableList"/>
-						</ui:Scroller>
-					</e:Group>
-					<ui:Scroller left="0" right="0" top="0" bottom="0" x="0" y="-200" scaleX="1" scaleY="1">
-						<ui:TableList id="_goodRoadTableList"/>
-					</ui:Scroller>
-					<e:Group left="0" right="0" top="0" bottom="0" x="0" y="-200" scaleX="1" scaleY="1">
-						<e:Scroller height="80" left="48" right="48">
-						<e:TabBar id="_tabs">
-							<e:layout>
-							<e:HorizontalLayout gap="83"/>
-							</e:layout>
-						</e:TabBar>
-						</e:Scroller>
-						<ui:Scroller left="0" right="0" x="0" scaleX="1" scaleY="1" top="90" bottom="0" bottom.landscape="1140">
-						<ui:TableList id="_allTableList"/>
-						</ui:Scroller>
-					</e:Group>
-
-
-
-        </e:ViewStack>
-			<e:Group id="close" width="120" height="120" right="4">
-				<ui:BaseImageButton width="40" height="40" skinName="skin_mobile_portrait.ImageButtonSkinLobby" currentState="game_list_close_btn" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" useColorFilter="true"/>
+			<e:Group left="0" right="0" top="0" bottom="0" scaleX="1" scaleY="1">
+				<ui:Scroller left="0" right="0" top="90" bottom="0" bottom.landscape="1140">
+					<ui:TableList id="_goodRoadTableList" />
+				</ui:Scroller>
+				<e:Group id="_noGoodRoadGroup" verticalCenter.portrait="0" horizontalCenter="0" bottom.landscape="1340">
+					<e:Image source="m_lobby_panel_gamelist_tag_icon_goodroad_dim_png" width="194" height="194" />
+					<ui:RunTimeLabel i18n="sidePanel.noGoodRoad" size="64" />
+					<e:layout>
+						<e:VerticalLayout gap="31" horizontalAlign="center"/>
+					</e:layout>
+				</e:Group>
 			</e:Group>
-    </e:Group>
+			<e:Group left="0" right="0" top="0" bottom="0" scaleX="1" scaleY="1">
+				<e:Scroller height="80" left="48" right="48">
+					<e:TabBar id="_tabs">
+						<e:layout>
+							<e:HorizontalLayout gap="83" />
+						</e:layout>
+					</e:TabBar>
+				</e:Scroller>
+				<ui:Scroller left="0" right="0" scaleX="1" scaleY="1" top="90" bottom="0" bottom.landscape="1140">
+					<ui:TableList id="_allTableList" />
+				</ui:Scroller>
+			</e:Group>
+		</e:ViewStack>
+		<ui:Panel id="_dmm" skinName="skin_mobile.SidePanelDropdown" x="48" y="0" y.portrait="168" y.landscape="179" />
+		<e:Group id="close" width="120" height="120" right="4">
+			<ui:BaseImageButton width="40" height="40" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
+			                    currentState="game_list_close_btn" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"
+			                    useColorFilter="true" />
+		</e:Group>
+	</e:Group>
 </e:Skin>
