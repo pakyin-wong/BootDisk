@@ -147,7 +147,7 @@ namespace we {
       protected onBetDetailUpdate(evt: egret.Event) {
         super.onBetDetailUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._tableInfo.totalBet > 0) {
               this._alreadyBetSign.visible = true;
