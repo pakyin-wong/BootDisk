@@ -15,7 +15,6 @@ namespace we {
 
         numString += i18n.t(`lo_trad.rcballresultpos.p${check[0]}`);
 
-
         return { selectType: numString, betCode: nonNumberBetCode };
       }
     }

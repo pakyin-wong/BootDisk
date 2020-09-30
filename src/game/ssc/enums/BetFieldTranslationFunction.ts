@@ -22,15 +22,15 @@ namespace we {
         return { selectType: numString, betCode: nonNumberBetCode };
       }
 
-      export function tradbetfieldsplit(trans:string ,betfields:string ): string{
+      export function tradbetfieldsplit(trans: string, betfields: string): string {
         let str = '';
-        let betfieldsSplit = betfields.split('|');
+        const betfieldsSplit = betfields.split('|');
 
-        for(let i = 0; i < betfieldsSplit.length;i++){
-          if(i === 0){
-            str += `${i18n.t(trans+betfieldsSplit[i])}`;
-          }else{
-            str += `, ${i18n.t(trans+betfieldsSplit[i])}`;
+        for (let i = 0; i < betfieldsSplit.length; i++) {
+          if (i === 0) {
+            str += `${i18n.t(trans + betfieldsSplit[i])}`;
+          } else {
+            str += `, ${i18n.t(trans + betfieldsSplit[i])}`;
           }
         }
         return str;

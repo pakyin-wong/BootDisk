@@ -192,7 +192,7 @@ namespace we {
             return {
               type: i18n.t('lo_trad.bigTag.SizeParity'),
               group: i18n.t(`lo_trad.smallTag.${we.lo.LoTradBetField[`betfield_${b[0]}`]}`),
-              field: we.lo.BetFieldTranslationFunction.tradbetfieldsplit('lo_fun_betfield_n_',b[1]),
+              field: we.lo.BetFieldTranslationFunction.tradbetfieldsplit('lo_fun_betfield_n_', b[1]),
             };
           // Interest
           case 'INTEREST1':
@@ -218,7 +218,7 @@ namespace we {
             return {
               type: i18n.t('lo_trad.bigTag.DragonTiger'),
               group: i18n.t(`lo_trad.smallTag.${we.lo.LoTradBetField[`betfield_${b[0]}`]}`),
-              field: we.lo.BetFieldTranslationFunction.tradbetfieldsplit('lo_fun_betfield_dt_',b[1]),
+              field: we.lo.BetFieldTranslationFunction.tradbetfieldsplit('lo_fun_betfield_dt_', b[1]),
             };
           // AnyTwo
           case '12OPTIONALFREE':
@@ -449,7 +449,7 @@ namespace we {
             return {
               type: i18n.t('lo_trad.bigTag.RCSize'),
               group: i18n.t(`lo_trad.smallTag.${we.rc.RcTradBetField[`betfield_${b[0]}`]}`),
-              field: we.lo.BetFieldTranslationFunction.tradbetfieldsplit('lo_fun_betfield_n_',b[1]),
+              field: we.lo.BetFieldTranslationFunction.tradbetfieldsplit('lo_fun_betfield_n_', b[1]),
             };
           case 'CHAMPPARITY':
           case 'SECONDPARITY':
@@ -459,13 +459,13 @@ namespace we {
             return {
               type: i18n.t('lo_trad.bigTag.RCParity'),
               group: i18n.t(`lo_trad.smallTag.${we.rc.RcTradBetField[`betfield_${b[0]}`]}`),
-              field: we.lo.BetFieldTranslationFunction.tradbetfieldsplit('lo_fun_betfield_n_',b[1]),
+              field: we.lo.BetFieldTranslationFunction.tradbetfieldsplit('lo_fun_betfield_n_', b[1]),
             };
           case 'DT1V10':
             return {
               type: i18n.t('lo_trad.bigTag.RCDragonTiger'),
               group: i18n.t(`lo_trad.smallTag.${we.rc.RcTradBetField[`betfield_${b[0]}`]}`),
-              field: we.lo.BetFieldTranslationFunction.tradbetfieldsplit('lo_fun_betfield_dt_',b[1]),
+              field: we.lo.BetFieldTranslationFunction.tradbetfieldsplit('lo_fun_betfield_dt_', b[1]),
             };
           case 'CHAMPSIZE2':
           case 'SECONDSIZE2':
