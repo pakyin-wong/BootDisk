@@ -16,9 +16,11 @@
         -->
     </e:Group>
 	<e:Group id="_betChipSetPanel" width="337" height="0">
-		<ui:RoundRectShape id="_betChipSetBg" cornerTL_TR_BL_BR="8,8,8,8" strokeIn="2" width="337" strokeInColor="0x3b4f6c" fillColor="0x1A2026" fillAlpha="1" stroke="1" strokeColor="0x000000" y="110"/>
-        <e:Image id="_arrowPanel" source="d_ba_betarea_chipsbg_triangle_png"  y="0"  horizontalCenter="0" width="25" height="15" />
-		<ui:BetChipSetGrid id="_betChipSet" width="337" anchorOffsetX="0" x="0" anchorOffsetY="0" y="0" alpha="1"/>
+        <e:Group id="_betChipSetGroup" horizontalCenter="0" visible="false">
+		    <ui:RoundRectShape id="_betChipSetBg" cornerTL_TR_BL_BR="8,8,8,8" strokeIn="2" strokeInColor="0x3b4f6c" fillColor="0x1A2026" fillAlpha="1" stroke="1" strokeColor="0x000000" left="0" top="12" bottom="0" right="0"/>
+            <e:Image id="_arrowPanel" source="d_ba_betarea_chipsbg_triangle_png" horizontalCenter="0" width="25" height="15" top="0"/>
+		    <ui:BetChipSetGrid id="_betChipSet" anchorOffsetX="0" anchorOffsetY="0" alpha="1" left="10" top="40" bottom="30" right="10" width="337"/>
+        </e:Group>
 	</e:Group>
     <e:Group id="_contentContainer" width="339" x="0" y="0">
 			<ui:RoundRectShape id="_strokeShape" cornerTL_TR_BL_BR="8,8,8,8" stroke="2" strokeColor="0x000000" fillColor="0x23282e" fillAlpha="1" strokeIn="2" strokeInColor="0x3A3F48" right="0" left="0" top="0" bottom="0" touchEnabled="true" touchChildren="false"/>
