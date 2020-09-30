@@ -133,7 +133,8 @@ namespace we {
         this._label.size = this.labelSize;
 
         if (this.labelAutoResize) {
-          this._label.targetWidth = this.width - 80;
+          this._label.targetWidth = this.width ;
+          console.log('this.width',this.width)
         }
 
         this.touchChildren = false;

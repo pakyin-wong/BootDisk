@@ -1,5 +1,5 @@
 {
-    "target": "development",
+    "target": "local",
     "mode": "",
     "playerID": "BT1JBSAHE4OLKNA2QSEG",
     "endpoint": "https://dev-rest-gateway.weapi247.com",
