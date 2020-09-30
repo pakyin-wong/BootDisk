@@ -281,6 +281,8 @@
 		"resource/skin_desktop/rc/FunBet/FunBetLayer.exml",
 		"resource/skin_desktop/rc/FunBet/FunBetResult.exml",
 		"resource/skin_desktop/rc/FunBet/FunBetRoundInfo.exml",
+		"resource/skin_desktop/rc/GameBar/LotteryHistory.exml",
+		"resource/skin_desktop/rc/GameBar/LotteryHistoryIR.exml",
 		"resource/skin_desktop/rc/RcLeftPanel.exml",
 		"resource/skin_desktop/rc/RcLobbyRoadPanel.exml",
 		"resource/skin_desktop/rc/RcRightDrawerPanel.exml",

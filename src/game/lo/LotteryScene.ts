@@ -31,6 +31,7 @@ namespace we {
 
       constructor(data: any) {
         super();
+        this.customKey = 'lo';
         this.skinName = utils.getSkinByClassname('LotteryScene');
         this._data = data;
         this._tableId = data.tableid;
@@ -45,6 +46,7 @@ namespace we {
         super.mount();
 
         this._gamebar.tableid = this._tableId;
+        this._gamebar.key = this.customKey;
 
         this._txt_trad.renderText = () => `${i18n.t('lo_switch_trad')}`;
         this._txt_fun.renderText = () => `${i18n.t('lo_switch_fun')}`;

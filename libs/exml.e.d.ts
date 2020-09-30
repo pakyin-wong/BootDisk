@@ -970,6 +970,14 @@ declare module skin_desktop.rc{
 	class FunBetRoundInfo extends eui.Skin{
 	}
 }
+declare module skin_desktop.rc{
+	class LotteryHistory extends eui.Skin{
+	}
+}
+declare module skin_desktop.rc{
+	class LotteryHistoryIR extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class RcLeftPanel extends eui.Skin{
 	}

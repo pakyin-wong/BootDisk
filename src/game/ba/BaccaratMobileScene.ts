@@ -75,8 +75,8 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
-            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
           }
         }
         if (this._resultDisplay && env.orientation === 'portrait') {
@@ -260,7 +260,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo>evt.data;
+          const stat = <data.TableInfo> evt.data;
           if (stat.tableid === this._tableId) {
             this._roadmapControl.updateRoadData();
           }
@@ -270,10 +270,10 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
-            (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
-            (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
+            (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
+            (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }
