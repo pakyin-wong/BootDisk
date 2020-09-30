@@ -14,10 +14,10 @@ namespace we {
       protected _subdropdown: SidePanelGameDropdown;
       protected _label: ui.RunTimeLabel;
 
-      protected _paddingHeight : number = 67;
+      protected _paddingHeight: number = 67;
 
-      protected _noBettedLabel : ui.RunTimeLabel;
-      protected _noGoodRoadLabel : ui.RunTimeLabel;
+      protected _noBettedLabel: ui.RunTimeLabel;
+      protected _noGoodRoadLabel: ui.RunTimeLabel;
 
       protected allGameList: string[];
 
@@ -196,17 +196,17 @@ namespace we {
         const tableList = evt.data;
         this.goodRoadTableList.setTableList(tableList);
         const count = tableList.length;
-        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(1);
+        const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(1);
         if (tabItem) {
           tabItem.onBadgeUpdate('goodroad', count);
         }
-        this._noGoodRoadLabel.visible = (this.goodRoadTableList.getTableList().length === 0)
-        if(!this.isCollapsed){
+        this._noGoodRoadLabel.visible = this.goodRoadTableList.getTableList().length === 0;
+        if (!this.isCollapsed) {
           (async () => {
             this.betTableList.invalidateSize();
-            await we.utils.sleep(200)
+            await we.utils.sleep(200);
             this.updateTargetHeight();
-            this.tweenExpand(200)
+            this.tweenExpand(200);
           })();
         }
       }
@@ -215,20 +215,19 @@ namespace we {
         const tableList = evt.data;
         this.betTableList.setTableList(tableList);
         const count = tableList.length;
-        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(0);
+        const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(0);
         if (tabItem) {
           tabItem.onBadgeUpdate('bet', count);
         }
-        this._noBettedLabel.visible = (this.betTableList.getTableList().length === 0)
-        if(!this.isCollapsed){
+        this._noBettedLabel.visible = this.betTableList.getTableList().length === 0;
+        if (!this.isCollapsed) {
           (async () => {
             this.betTableList.invalidateSize();
-            await we.utils.sleep(200)
+            await we.utils.sleep(200);
             this.updateTargetHeight();
-            this.tweenExpand(200)
+            this.tweenExpand(200);
           })();
         }
-
       }
 
       protected onClearSelection() {
@@ -239,27 +238,27 @@ namespace we {
         egret.Tween.get(this).to({ width: 185, height: 56 }, 200);
       }
 
-      protected getListHeight(list: TableList){
-        if(!list ){
+      protected getListHeight(list: TableList) {
+        if (!list) {
           return 138;
         }
-        let tableArr = list.getTableList()
-         if(!tableArr || tableArr.length === 0){
-           return 138;
-         }
-         if(list.contentHeight > this._maxPanelHeight){
-           return this._maxPanelHeight;
-         }
-         return list.contentHeight;
+        let tableArr = list.getTableList();
+        if (!tableArr || tableArr.length === 0) {
+          return 138;
+        }
+        if (list.contentHeight > this._maxPanelHeight) {
+          return this._maxPanelHeight;
+        }
+        return list.contentHeight;
       }
 
-      protected updateTargetHeight(){
+      protected updateTargetHeight() {
         switch (this._viewStack.selectedIndex) {
           case 0:
-            this._targetHeight = this.getListHeight(this.betTableList) + 15
+            this._targetHeight = this.getListHeight(this.betTableList) + 15;
             break;
           case 1:
-            this._targetHeight = this.getListHeight(this.goodRoadTableList) + 15
+            this._targetHeight = this.getListHeight(this.goodRoadTableList) + 15;
             break;
           case 2:
             this._targetHeight = this._maxPanelHeight;
@@ -268,7 +267,7 @@ namespace we {
       }
 
       protected onSelected() {
-        console.log('sidepanel _targetHeight :', this._viewStack.selectedIndex, this._targetHeight)
+        console.log('sidepanel _targetHeight :', this._viewStack.selectedIndex, this._targetHeight);
         super.onSelected();
 
         switch (this._viewStack.selectedIndex) {
@@ -285,8 +284,8 @@ namespace we {
         }
       }
 
-      protected tweenExpand(interval: number){
-        super.tweenExpand(interval)
+      protected tweenExpand(interval: number) {
+        super.tweenExpand(interval);
         egret.Tween.removeTweens(this);
         egret.Tween.get(this).to({ width: 385, height: this._targetHeight + this._paddingHeight }, interval);
       }
