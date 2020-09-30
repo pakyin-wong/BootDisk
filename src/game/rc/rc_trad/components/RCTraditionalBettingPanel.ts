@@ -45,7 +45,6 @@ namespace we {
           default:
             this._lblCurrentRoundState.renderText = () => `${i18n.t('lo_fun_lastRound')}`;
         }
-        
       }
       public updateBetTableInfo(info) {
         super.updateBetTableInfo(info);

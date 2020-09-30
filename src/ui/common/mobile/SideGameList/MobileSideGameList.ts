@@ -12,7 +12,7 @@ namespace we {
       private _btnGoodRoad: ui.GamePanelTabButton;
       private _btnAllGame: ui.GamePanelTabButton;
 
-      //protected _lblBetHint: ui.RunTimeLabel;
+      // protected _lblBetHint: ui.RunTimeLabel;
 
       protected _betTableList: TableList;
       protected _goodRoadTableList: TableList;

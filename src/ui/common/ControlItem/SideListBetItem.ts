@@ -45,7 +45,6 @@ namespace we {
           this._targetQuickBetButtonY = this._tableLayer.height + 50;
           this._originalQuickBetButtonY = this._tableLayer.height - 10;
           this._message.y = 46 + this._tableLayer.height * 0.5;
-
         }
       }
 
