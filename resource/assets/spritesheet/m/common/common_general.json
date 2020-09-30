@@ -1041,6 +1041,16 @@
       "sourceW": 23,
       "sourceH": 23
     },
+    "m_ba_btn_info_png": {
+      "x": 1025.5,
+      "y": 417,
+      "w": 10,
+      "h": 23,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 10,
+      "sourceH": 23
+    },
     "d_lobby_goodroadsetting_normal_png": {
       "x": 1130,
       "y": 489,
@@ -1222,8 +1232,8 @@
       "sourceH": 11
     },
     "m_lobby_banner_bullet_active_png": {
-      "x": 1025.5,
-      "y": 417,
+      "x": 1087,
+      "y": 517,
       "w": 10,
       "h": 10,
       "offX": 0,
@@ -1232,8 +1242,8 @@
       "sourceH": 10
     },
     "m_lobby_banner_bullet_png": {
-      "x": 1087,
-      "y": 517,
+      "x": 1025.5,
+      "y": 442,
       "w": 10,
       "h": 10,
       "offX": 0,

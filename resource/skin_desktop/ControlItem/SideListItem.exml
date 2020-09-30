@@ -35,7 +35,7 @@
 				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="18"/>
 			</e:Group>
         </e:Group>
-        <!--<ui:InGameMessage id="_message" anchorOffsetX="152" anchorOffsetY="16" skinName="skin_desktop.InGameMessageSkin" width="303" height="32" horizontalCenter="0.5" infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" x="18" scaleX="1" scaleY="1" verticalCenter="36"/>-->
+        <ui:InGameMessage id="_message" anchorOffsetX="152" anchorOffsetY="16" skinName="skin_desktop.InGameMessageSkin" width="303" height="32" horizontalCenter="0.5" infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" x="18" scaleX="1" scaleY="1" y="88"/>
 			<e:Group id="_quickBetButtonGroup" height="0" left="0" right="0">
 				<e:Component id="_quickbetButtonNode" alpha="0" horizontalCenter="0" y="180" width="148" height="42" x="96" scaleX="1" scaleY="1"/>
 			</e:Group>

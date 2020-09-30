@@ -49,7 +49,7 @@ namespace we {
           this._winningAnim.scaleX = 1.6;
           this._winningAnim.scaleY = 1.6;
         }
-        console.log('showWinningNumber', this._winningAnim);
+        // console.log('showWinningNumber', this._winningAnim);
 
         (async () => {
           const p = we.utils.waitDragonBone(this._winningAnim);
@@ -127,7 +127,7 @@ namespace we {
           this._luckyAnims.push(luckyAnim);
 
           const animName = this.getAnimName(+key);
-          console.log('showLuckyNumber');
+          // console.log('showLuckyNumber');
 
           (async () => {
             let p = we.utils.waitDragonBone(luckyAnim);

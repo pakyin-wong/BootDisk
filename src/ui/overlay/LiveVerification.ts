@@ -124,7 +124,7 @@ namespace we {
         this.inputIndex += 1;
         this.checkBoxHighlight();
 
-        console.log('THE PATTERN = ' + this.pattern);
+        // console.log('THE PATTERN = ' + this.pattern);
       }
 
       protected sendVerification() {
