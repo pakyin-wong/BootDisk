@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.dil.SideListChipLayerSkin" currentState="Normal" width="333" height="120"
+<e:Skin class="skin_desktop.dil.SideListChipLayerSkin" currentState="Normal" width="337" height="100"
         xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" xmlns:ui="we.ui.*"
         states="Normal">
-	<e:Group id="_row1" x="15" y="16">
+	<e:Group id="_row1" y="8" horizontalCenter="0">
 		<e:Group id="_sum_3_group" width="36" height="38">
 			<ui:BetChipStack id="_sum_3_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="25" chipHeight="25"
 			                 chipInterval="2" totalCfmOffset="10" totalUncfmOffset="0"
@@ -52,10 +52,10 @@
 			                 betSumBackgroundHeight="10" chipLabelOffset="-3" chipLabelSize="10" chipType="2" betSumLabelFontSize="15" />
 		</e:Group>
 		<e:layout>
-			<e:HorizontalLayout gap="2" horizontalAlign="center" />
+			<e:HorizontalLayout gap="6" horizontalAlign="center" />
 		</e:layout>
 	</e:Group>
-	<e:Group id="_row2" y="56" x="15">
+	<e:Group id="_row2" y="54" horizontalCenter="0">
 		<e:Group id="_sum_11_group" width="36" height="38">
 			<ui:BetChipStack id="_sum_11_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="25" chipHeight="25"
 			                 chipInterval="2" totalCfmOffset="10" totalUncfmOffset="0"
@@ -105,7 +105,7 @@
 			                 betSumBackgroundHeight="10" chipLabelOffset="-3" chipLabelSize="10" chipType="2" betSumLabelFontSize="15" />
 		</e:Group>
 		<e:layout>
-			<e:HorizontalLayout gap="2" horizontalAlign="center" />
+			<e:HorizontalLayout gap="6" horizontalAlign="center" />
 		</e:layout>
 	</e:Group>
 

@@ -12,7 +12,7 @@ namespace we {
       private _btnGoodRoad: ui.GamePanelTabButton;
       private _btnAllGame: ui.GamePanelTabButton;
 
-      protected _lblBetHint: ui.RunTimeLabel;
+      //protected _lblBetHint: ui.RunTimeLabel;
 
       protected _betTableList: TableList;
       protected _goodRoadTableList: TableList;
@@ -20,6 +20,9 @@ namespace we {
       protected _allGameList: string[] = [];
       protected _betList: string[] = [];
       protected _goodRoadList: string[] = [];
+
+      protected _noGoodRoadGroup: eui.Group;
+      protected _noBetGroup: eui.Group;
 
       // protected fixedTab: string[] = ['allGame', 'bet', 'goodroad'];
       protected _pageIds: string = 'allGame';
@@ -40,12 +43,6 @@ namespace we {
         // this._txt_title.renderText = () => `${i18n.t('sidegamelist_title')}`;
         this._betTableList.setTableList(this._betList);
         const count = this._betList.length;
-        if (count === 0) {
-          this._lblBetHint.renderText = () => i18n.t('mobile_game_panel_bet_hint_label2');
-        } else {
-          this._lblBetHint.renderText = () => i18n.t('mobile_game_panel_bet_hint_label');
-        }
-
         this.initTabs();
         this.initPage();
         this.initDmm();
@@ -308,11 +305,6 @@ namespace we {
         this._betTableList.setTableList(this._betList);
         const count = this._betList.length;
         this._btnAlreadyBet.setBadge(count);
-        if (count === 0) {
-          this._lblBetHint.renderText = () => i18n.t('mobile_game_panel_bet_hint_label2');
-        } else {
-          this._lblBetHint.renderText = () => i18n.t('mobile_game_panel_bet_hint_label');
-        }
       }
       protected setGoodRoadList() {
         this._goodRoadTableList.setTableList(this._goodRoadList);
@@ -338,12 +330,14 @@ namespace we {
       protected onGoodRoadTableListUpdate(evt: egret.Event) {
         const tableList = evt.data;
         this._goodRoadList = tableList;
+        this._noGoodRoadGroup.visible = this._goodRoadList.length === 0;
         this.setGoodRoadList();
       }
 
       protected onBetTableListUpdate(evt: egret.Event) {
         const tableList = evt.data;
         this._betList = tableList;
+        this._noBetGroup.visible = this._betList.length === 0;
         this.setBetList();
       }
     }

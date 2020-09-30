@@ -150,6 +150,10 @@ namespace we {
       overlaypanel_bethistorylottery_continuousbet_cancelled: '已撤单',
       overlaypanel_bethistorylottery_continuousbet_completed: '已结算',
 
+      overlaypanel_bethistorylottery_cancelbtn_title: '确定要撤单？ ',
+      overlaypanel_bethistorylottery_cancelbtn_yes: '确认',
+      overlaypanel_bethistorylottery_cancelbtn_no: '取消',
+
       overlaypanel_bethistorylottery_tab_single: '投注记录',
       overlaypanel_bethistorylottery_tab_multi: '追号记录',
 
@@ -542,6 +546,8 @@ namespace we {
         betted: '已下注项目',
         goodroad: '好路',
         allgames: '全部游戏',
+        noGoodRoad: '没有好路',
+        noBet: '没有已下注游戏'
       },
       baccarat: {
         tooltip: {

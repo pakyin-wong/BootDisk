@@ -4,7 +4,7 @@
     <e:Component id="_sliderRefer" height="780" width="2600" y="0" x="0"/>
     <e:List id="_roomListRefer" left="0" right="0" top="0" bottom="0">
 			<e:layout>
-				<e:TileLayout horizontalGap="48" verticalGap="48" paddingLeft="71" paddingTop="647"/>
+				<e:TileLayout horizontalGap="48" verticalGap="48" paddingLeft="71" paddingTop="647" orientation="rows" requestedColumnCount="4" columnWidth="578" rowHeight="388"/>
 			</e:layout>
 		</e:List>
 	<ui:Scroller id="_scroller" left="0" right="0" top="0" bottom="0" headerOffset="100">

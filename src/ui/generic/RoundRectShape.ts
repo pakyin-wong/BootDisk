@@ -44,8 +44,8 @@ namespace we {
         strokeInColor: number = 0x0000ff,
         strokeInAlpha: number = 1
       ) {
-        this.width = width;
-        this.height = height;
+        // this.width = width;
+        // this.height = height;
         this.cornerTL = cornerRadius.tl;
         this.cornerTR = cornerRadius.tr;
         this.cornerBL = cornerRadius.bl;
@@ -125,14 +125,14 @@ namespace we {
           this.cornerBR = parseInt(corners[3], 10);
         }
 
-        // support percentage width / height
-        if (!isNaN(this.percentWidth) || !isNaN(this.percentHeight)) {
-          await new Promise(resolve => window.requestAnimationFrame(resolve));
-          // wait width / height calculated
-          this.width = (this as any).layoutBoundsWidth;
-          this.height = (this as any).layoutBoundsHeight;
-          this.percentWidth = this.percentHeight = NaN;
-        }
+        // // support percentage width / height
+        // if (!isNaN(this.percentWidth) || !isNaN(this.percentHeight)) {
+        //   await new Promise(resolve => window.requestAnimationFrame(resolve));
+        //   // wait width / height calculated
+        //   this.width = (this as any).layoutBoundsWidth;
+        //   this.height = (this as any).layoutBoundsHeight;
+        //   this.percentWidth = this.percentHeight = NaN;
+        // }
 
         this.setRoundRectStyle(
           this.width,
