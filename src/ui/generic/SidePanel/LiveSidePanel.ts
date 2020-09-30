@@ -110,20 +110,19 @@ namespace we {
             case we.core.GameType.BAC:
             case we.core.GameType.BAI:
             case we.core.GameType.BAS:
-              return ba.SideListBetItemHolder;
             case we.core.GameType.BAM:
-              return bam.SideListBetItemHolder;
+              return ba.SideListItemHolder;
             case we.core.GameType.RO:
             case we.core.GameType.ROL:
-              return ro.SideListBetItemHolder;
+              return ro.SideListItemHolder;
             case we.core.GameType.DI:
-              return di.SideListBetItemHolder;
+              return di.SideListItemHolder;
             case we.core.GameType.DIL:
-              return dil.SideListBetItemHolder;
+              return dil.SideListItemHolder;
             case we.core.GameType.LW:
-              return lw.SideListBetItemHolder;
+              return lw.SideListItemHolder;
             case we.core.GameType.DT:
-              return dt.SideListBetItemHolder;
+              return dt.SideListItemHolder;
             case we.core.GameType.LO:
               return lo.SideListItemHolder;
             case we.core.GameType.RC:
