@@ -1,58 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.SideListItemSkin" width="339" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:baccarat="baccarat.*" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*"
-        xmlns:live="we.live.*" minHeight="174">
-    <e:Group id="_betChipSetPanel">
-        <ui:BetChipSetGrid id="_betChipSet" width="339" anchorOffsetX="0" x="0" anchorOffsetY="0" y="0" alpha="0" />
+        xmlns:live="we.live.*">
+    <e:Group id="_betChipSetPanel" height="0">
+        <ui:BetChipSetGrid id="_betChipSet" width="337" anchorOffsetX="0" x="0" anchorOffsetY="0" y="0"  alpha="0"/>
     </e:Group>
-    <e:Group id="_quickBetGroup" width="339" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" alpha="0">
-        <ui:RoundRectShape cornerTL_TR_BL_BR="0,0,8,8" width="337" height="110" x="0" y="110" stroke="0"
-                           fillColor="0x000000" fillAlpha="0.5" />
-        <ui:RoundRectShape cornerTL_TR_BL_BR="0,0,8,8" width="337" height="122" x="0" y="0" stroke="2"
-                           strokeColor="0x000000" fillColor="0x282828" strokeIn="4" strokeInColor="0x3a3f48" />
-        <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" y="128"
-                                   skinName="skin_desktop.BetChipSkin" tooltipText="'sidePanel.changeChip'"  horizontalCenter="8"/>
-        <e:Component id="_tableLayerNode"
-                     anchorOffsetY="0" height="120" left="2" top="0" name="sidebettingtable" />
-        <ui:BaseImageButton id="_closeButton" x="12" y="144" width="56" height="60"
-                            currentState="lobby_betcontrol_close" skinName="skin_desktop.ImageButtonSkinLobby" />
-        <ui:BaseImageButton id="_prevButton" x="68" y="144" width="56" height="60"
-                            currentState="lobby_betcontrol_previous" skinName="skin_desktop.ImageButtonSkinLobby" />
+    <e:Group id="_quickBetGroup" width="337" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" alpha="0" touchChildren="true" touchEnabled="false">
+        <e:Group id="_betButtonGroup" touchChildren="true" touchEnabled="false" y="0">
+					<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,8,8" width="337" height="110" x="0" y="0" stroke="0" fillColor="0x000000" fillAlpha="0.5" scaleX="1" scaleY="1"/>
+					<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" y="18" skinName="skin_desktop.BetChipSkin" tooltipText="'sidePanel.changeChip'" horizontalCenter="8" x="138" scaleX="1" scaleY="1"/>
+					<ui:BaseImageButton id="_closeButton" x="12" y="34" width="56" height="60" currentState="lobby_betcontrol_close" skinName="skin_desktop.ImageButtonSkinLobby" scaleX="1" scaleY="1"/>
+					<ui:BaseImageButton id="_prevButton" x="68" y="34" width="56" height="60" currentState="lobby_betcontrol_previous" skinName="skin_desktop.ImageButtonSkinLobby" scaleX="1" scaleY="1"/>
+					<ui:RoundRectButton id="_confirmButton" x="225" y="36" cornerTL_TR_BL_BR="27,27,27,27" width="99" height="54" stroke="0" strokeIn="0" fillColor="00aa5e" fillAlpha="1" fillAlpha_hover="0.7" fillColor_hover="0x0f9d5d" currentState="lobby_confirm_button" scaleX="1" scaleY="1"/>
+					<e:Image x="260" y="53" width="30" height="20" source="d_lobby_panel_betcontrol_btn_confirm_icon_png" touchEnabled="false" scaleX="1" scaleY="1"/>
+        </e:Group>
         <!--<ui:BaseImageButton id="_confirmButton" x="235" y="130" width="85" height="50"
                                 currentState="lobby_confirm_button" skinName="skin_desktop.ImageButtonSkinLobby" />
         -->
-        <ui:RoundRectButton id="_confirmButton" x="225" y="146" cornerTL_TR_BL_BR="27,27,27,27" width="99" height="54"
-                            stroke="0" strokeIn="0" fillColor="00aa5e" fillAlpha="1" fillAlpha_hover="0.7"
-                            fillColor_hover="0x0f9d5d" currentState="lobby_confirm_button" />
-        <e:Image x="260" y="163" width="30" height="20" source="d_lobby_panel_betcontrol_btn_confirm_icon_png"  touchEnabled="false"/>
     </e:Group>
-    <e:Group id="_contentContainer" width="339" height="174" x="0" y="0">
+    <e:Group id="_contentContainer" width="339" x="0" y="0">
+			<ui:RoundRectShape id="_strokeShape" cornerTL_TR_BL_BR="8,8,8,8" stroke="2" strokeColor="0x000000" fillColor="0x23282e" fillAlpha="1" strokeIn="2" strokeInColor="0x3A3F48" right="0" left="0" top="0" bottom="0" touchEnabled="true" touchChildren="false"/>
+			<e:Group id="_tableLayerGroup" left="1" right="1" touchChildren="false" touchEnabled="false">
+				<e:Component id="_tableLayerNode" anchorOffsetY="0" left="0" top="0" name="sidebettingtable" scaleX="1" scaleY="1" right="0" bottom="1"/>
+			</e:Group>
         <ui:CountdownTimer id="_timer" width="34" height="34" x="7" y="7" anchorOffsetX="0" anchorOffsetY="0"
                            skinName="skin_desktop.CountdownTimerRoundSmallSkin" />
         <ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" y="12" text="" size="23.4"  x="47" />
         <e:Image source="d_lobby_button_down_normal_png" x="290" y="45" rotation="270" />
-        <e:Component id="_roadmapNode" width="339" height="127" bottom="1" x="1" scaleX="335/337" scaleY="126/127"
-                     visible="false" />
-        <ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_desktop.GoodRoadLabelSkin" right="13" bottom="10" />
-        <ui:InGameMessage id="_message" anchorOffsetX="152" anchorOffsetY="16" skinName="skin_desktop.InGameMessageSkin"
-                          width="303" height="32" horizontalCenter="0.5" y="105"
-                          infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
-                          errorBg="d_ba_gamerecord_bankerelement_png" />
-        <e:Group id="_alreadyBetSign" right="5" bottom="40" visible="false">
-            <e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0"
-                     width="100" height="30" />
-            <e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="18" />
+        <e:Group left="0" right="0">
+            <e:Component id="_roadmapNode" top="46" left="1" right="1"/>
+            <ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_desktop.GoodRoadLabelSkin" right="13" bottom="10" />
+			<e:Group id="_alreadyBetSign" right="5" bottom="40" visible="false">
+				<e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0" width="100" height="30"/>
+				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="18"/>
+			</e:Group>
         </e:Group>
-        <e:Component id="_quickbetButtonNode" alpha="0" horizontalCenter="0" y="180" width="148" height="42"
-                     visible="false" />
+        <!--<ui:InGameMessage id="_message" anchorOffsetX="152" anchorOffsetY="16" skinName="skin_desktop.InGameMessageSkin" width="303" height="32" horizontalCenter="0.5" infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" x="18" scaleX="1" scaleY="1" verticalCenter="36"/>-->
+			<e:Group id="_quickBetButtonGroup" height="0" left="0" right="0">
+				<e:Component id="_quickbetButtonNode" alpha="0" horizontalCenter="0" y="180" width="148" height="42" x="96" scaleX="1" scaleY="1"/>
+			</e:Group>
         <!--<ui:SideQuickBetAnimButton id="_quickbetButton" resName="d_lobby_quick_bet_notification_follow_normal_png"
                                        hoverResName="d_lobby_quick_bet_notification_follow_hover_png" alpha="0"
                                        horizontalCenter="0" y="186" width="148" height="42" label1text="加注"
                                        label2text="" />
         -->
-        <live:BetLimitDropdown id="_dropdown" width="145" height="30" x="420" y="211" anchorOffsetX="0"
-                               anchorOffsetY="0" skinName="BetLimitDropdownSkin" visible="false" />
+        <!--<live:BetLimitDropdown id="_dropdown" width="145" height="30" x="420" y="211" anchorOffsetX="0"
+                               anchorOffsetY="0" skinName="BetLimitDropdownSkin" visible="false" />-->
     </e:Group>
-    <e:Component id="_chipLayerNode" width="339" skinName="skin_desktop.ba.SideListChipLayerSkin" anchorOffsetY="0"
-                 height="110" left="0" y="0" name="sidebettingtable" alpha="0" visible="false" />
+    <e:Component id="_chipLayerNode" width="337" skinName="skin_desktop.ba.SideListChipLayerSkin" anchorOffsetY="0"
+                 height="110" left="0" y="0" name="sidebettingtable" alpha="0"  visible="false"/>
 </e:Skin>

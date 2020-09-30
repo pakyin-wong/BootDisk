@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.ro.SideListChipLayerSkin" currentState="Normal" width="333" height="120"
+<e:Skin class="skin_desktop.ro.SideListChipLayerSkin" currentState="Normal" width="337" height="120"
         xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" xmlns:ui="we.ui.*"
         states="Normal">
-	<e:Group id="_odd_group" x="0" y="0" width="167" height="65">
+	<e:Group id="_odd_group" x="0" y="0" width="169" height="65">
 		<ui:BetChipStack id="_odd_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="40" chipHeight="40"
 		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="40"
 		                 betSumBackgroundHeight="20" betSumLabelFontSize="30" chipLabelOffset="-3" chipLabelSize="15"/>
 	</e:Group>
-	<e:Group id="_even_group" x="167" y="0" width="166" height="65">
+	<e:Group id="_even_group" x="169" y="0" width="168" height="65">
 		<ui:BetChipStack id="_even_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="40" chipHeight="40"
 		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="40"
 		                 betSumBackgroundHeight="20" betSumLabelFontSize="30" chipLabelOffset="-3" chipLabelSize="15"/>
 	</e:Group>
-	<e:Group id="_red_group" x="2" y="65" width="165" height="55">
+	<e:Group id="_red_group" x="2" y="65" width="169" height="55">
 		<ui:BetChipStack id="_red_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="40" chipHeight="40"
 		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="40"
 		                 betSumBackgroundHeight="20" betSumLabelFontSize="30" chipLabelOffset="-3" chipLabelSize="15"/>
 	</e:Group>
-	<e:Group id="_black_group" x="167" y="65" width="164" height="55">
+	<e:Group id="_black_group" x="169" y="65" width="168" height="55">
 		<ui:BetChipStack id="_black_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="40" chipHeight="40"
 		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="40"

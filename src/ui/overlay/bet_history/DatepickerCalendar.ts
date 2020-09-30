@@ -7,6 +7,10 @@ namespace we {
       private _month: number;
       private _tday: number;
       private _itemMargin: number;
+      private _today;
+      private _currMonth;
+      private _highlightToday = false; // determined in doubleDatePicker
+      private _isFirstTime = true;
 
       constructor() {
         super();
@@ -28,20 +32,28 @@ namespace we {
 
       protected mount() {
         super.mount();
+        this._today = new Date();
+        this._currMonth = this._today.getMonth();
+        this._today = this._today.getDate() - 1;
+
         for (let w = 0; w < 7; w++) {
           this._headerItems[w].label.renderText = () => `${i18n.t('datePicker_weekday_' + w)}`;
+          this._headerItems[w].currentState = 'disabled';
         }
 
         for (let d = 0; d < 31; d++) {
           this._dateItems[d].label.text = this._dateItems[d].id.toString();
         }
-
         this._itemMargin = this._headerItems[0].width;
       }
 
       protected destroy() {
         super.destroy();
         this.removeChildren();
+      }
+
+      set highlightToday(isHighlight: boolean) {
+        this._highlightToday = isHighlight;
       }
 
       protected update() {
@@ -65,7 +77,7 @@ namespace we {
           this._dateItems[d].date = itemDate;
           this._dateItems[d].isToday = t.isSame(itemDate, 'day');
           this._dateItems[d].lock = itemDate.isAfter(t, 'day');
-          this.setItemState(d, 'enabled');
+          // this.setItemState(d, 'enabled');
           c++;
           if (c > 6) {
             c = 0;
@@ -81,24 +93,34 @@ namespace we {
       public pick(date, range) {
         const begin = date.clone().subtract(range + 1, 'days');
         const end = date.clone().add(range, 'days');
-
+        this.setItemState(this._today, 'today');
         for (let d = 0; d < this._tday; d++) {
           const curr = moment([this._year, this._month, d + 1]);
-
           if (curr.isSame(date, 'day')) {
-            this.setItemState(d, 'single');
+            if (this._isFirstTime) {
+              this.setItemState(this._today, 'today', false);
+              this._isFirstTime = false;
+            } else {
+              this.setItemState(d, 'single');
+            }
           } else if (curr.isBetween(begin, end)) {
             this.setItemState(d, 'enabled');
+            if (d == this._today) {
+              this.setItemState(this._today, 'today');
+            }
           } else {
             this.setItemState(d, 'disabled');
+            if (d == this._today) {
+              this.setItemState(this._today, 'today', false);
+            }
           }
         }
       }
 
       public select(begin, end) {
+        this.setItemState(this._today, 'today');
         for (let d = 0; d < this._tday; d++) {
           const curr = moment([this._year, this._month, d + 1]);
-
           if (curr.isSame(begin, 'day')) {
             this.setItemState(d, 'begin');
           } else if (curr.isSame(end, 'day')) {
@@ -106,17 +128,21 @@ namespace we {
           } else if (curr.isBetween(begin, end)) {
             this.setItemState(d, 'multi');
           } else {
-            this.setItemState(d, 'enabled');
+            if (d == this._today) {
+              this.setItemState(this._today, 'today');
+            } else {
+              this.setItemState(d, 'enabled');
+            }
           }
         }
       }
 
-      public setItemState(d, s) {
+      public setItemState(d, s, enableClick = true) {
         const item = this._dateItems[d];
         item.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClicked, this);
         mouse.setButtonMode(item, false);
 
-        if (item.lock) {
+        if (item.lock && d != this._today) {
           item.currentState = 'disabled';
           return;
         }
@@ -133,6 +159,14 @@ namespace we {
           case 'single':
           case 'disabled':
             item.currentState = s;
+            break;
+          case 'today':
+            if (this._highlightToday) {
+              item.currentState = s;
+            }
+            if (enableClick) {
+              item.$addListener(egret.TouchEvent.TOUCH_TAP, this.onClicked, this);
+            }
             break;
         }
       }

@@ -110,12 +110,13 @@ namespace we {
         chip.source = this.getChipSource(we.core.ChipType.FLAT);
         chip.horizontalCenter = 0;
         chip.verticalCenter = 0;
+        chip.touchEnabled = false;
         // chip.anchorOffsetX = this._armatureWidth / 2;
         // chip.anchorOffsetY = this._armatureHeight / 2;
 
         const group = new eui.Group();
-        // group.touchEnabled = false;
-        // group.touchChildren = false;
+        group.touchEnabled = false;
+        group.touchChildren = false;
         group.width = 0;
         group.height = 0;
         group.addChild(chip);
@@ -133,12 +134,13 @@ namespace we {
         chip.source = this.getChipSource(we.core.ChipType.PERSPECTIVE);
         chip.horizontalCenter = 0;
         chip.verticalCenter = 0;
+        chip.touchEnabled = false;
         // chip.anchorOffsetX = this._armatureWidth / 2;
         // chip.anchorOffsetY = this._armatureHeight / 2;
 
         const group = new eui.Group();
-        // group.touchEnabled = false;
-        // group.touchChildren = false;
+        group.touchEnabled = false;
+        group.touchChildren = false;
         group.width = 0;
         group.height = 0;
         group.addChild(chip);
