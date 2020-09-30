@@ -14,8 +14,8 @@ namespace we {
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
 
-      protected _baGameIDText: ui.RunTimeLabel;
-      protected _baGameID: ui.RunTimeLabel;
+      // protected _baGameIDText: ui.RunTimeLabel;
+      // protected _baGameID: ui.RunTimeLabel;
 
       protected _verticalGroup: eui.Group;
       protected _BAgoodRoadLabel: ui.GoodRoadLabel;
@@ -70,7 +70,7 @@ namespace we {
           egret.Tween.get(this._tableLayer).to({ scaleX: 1, scaleY: 1 }, 250);
           egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
         }
-        this._baGameID.renderText = () => `${this._tableInfo.tableid}`;
+        // this._baGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
 
         if (this._previousState !== we.core.GameState.BET) {
@@ -165,7 +165,8 @@ namespace we {
         this.setChipPanelPos();
         this._BAgoodRoadLabel.visible = false;
 
-        this._baGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        // this._baGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        // this._baGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         if (env.isMobile) {
           dir.monitor._sideGameList.setToggler(this._common_listpanel);
         }

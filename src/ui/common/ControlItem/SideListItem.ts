@@ -224,9 +224,7 @@ namespace we {
             .set({ visible: true })
             .to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
         } else {
-          egret.Tween.get(this._quickbetButton)
-            .to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250)
-            .set({ visible: false });
+          egret.Tween.get(this._quickbetButton).to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250).set({ visible: false });
         }
         //   egret.Tween.removeTweens(this._quickbetButton);
         //   if (show) {

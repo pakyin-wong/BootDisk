@@ -16,12 +16,12 @@
                 <ui:RunTimeLabel id="tableNoLabel" text="檯號" y="40" x="24" scaleX="1" scaleY="1" size="44" />
                 <ui:RunTimeLabel id="roundNoLabel" text="局號" y="120" x="24" scaleX="1" scaleY="1" size="44" />
                 <ui:RunTimeLabel id="gameIdLabel" text="編號" y="200" x="24" scaleX="1" scaleY="1" size="44" />
-                <ui:RunTimeLabel id="pTableID" text="百家樂01" right="108" y="40" textAlign="right" size="44"
-                                     alpha="0.7"  fontFamily="Barlow"/>
+                <ui:RunTimeLabel id="pTableID" text="-" y="40" textAlign="right" size="44"
+                                     alpha="0.7"  fontFamily="Barlow" x="325"/>
                 <e:Label id="pRoundID" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44" right="27.5"
                          width="280" anchorOffsetX="0" alpha=".7"  fontFamily="Barlow"/>
-                <ui:ClampWidthLabel id="pGameID" text="000-000-000000000" x="165" y="200" textAlign="right" size="44"
-                                    targetWidth="350" alpha="0.7"  anchorOffsetX="0" width="310" anchorOffsetY="0" height="46" fontFamily="Barlow"/>
+                <ui:ClampWidthLabel id="pGameID" text="000-000-000000000" y="200" size="44"
+                                    targetWidth="350" alpha="0.7"  anchorOffsetX="0" width="350" anchorOffsetY="0" height="46" fontFamily="Barlow" x="147" textAlign="right"/>
                 <e:Image id="btnDetail" right="28" height="58" x="465" y="36" source="m_ba_tag_btn_detail_png" />
                 <e:Rect width="1" height="100%" fillAlpha="0.4" right="0"  fillColor="0x979797"/>
             </e:Group>

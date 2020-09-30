@@ -119,8 +119,8 @@
 			</e:layout>
 		</e:Group>
 		<e:Group bottom="-2029" left="0" width="700" x="0" y="2125" scaleX="1" scaleY="1">
-			<ui:RunTimeLabel id="_dilGameIDText" text="Game ID :" bottom="0" left="0"/>
-			<ui:RunTimeLabel id="_dilGameID" text="ID" bottom="0" left="0"/>
+			<ui:RunTimeLabel id="_GameIDText" text="Game ID :" bottom="0" left="0"/>
+			<ui:RunTimeLabel id="_GameID" text="ID" bottom="0" left="0"/>
 			<e:layout>
 			<e:HorizontalLayout/>
 			</e:layout>
