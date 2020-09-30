@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.LoContinuousBetStatusIR" currentState="invaild" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="629" states="vaild,invaild,detail" >
+<e:Skin class="skin_desktop.LoContinuousBetStatusIR" currentState="invaild" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:bh="we.overlay.betHistory.*" width="629" states="vaild,invaild,detail" >
 	<e:Label id="_round" text="0000000000" height="61" verticalAlign="middle" size="20" alpha="0.7"/>
 	<e:Label id="_rate" text="0倍" height="61" verticalAlign="middle" size="20" x="191" alpha="0.7"/>
 	<e:Label id="_status" text="狀態" height="61" verticalAlign="middle" size="20" x="333" alpha="0.7"/>
 	<e:Label text="-" height="61" verticalAlign="middle" size="20" x="542" visible.vaild="false" visible.detail="false"/>
-	<ui:RoundRectButton id="_btn_cancel" width="120" height="34" x="485" verticalCenter="0" cornerTL_TR_BL_BR="17,17,17,17" strokeColor="0x5f6973" fillAlpha="0" visible.invaild="false" strokeAlpha="0.7" strokeAlpha_hover="1" visible.detail="false"/>
+	<bh:CancelBetbutton id="_btn_cancel" width="120" height="34" x="485" verticalCenter="0" cornerTL_TR_BL_BR="17,17,17,17" strokeColor="0x5f6973" fillAlpha="0" visible.invaild="false" strokeAlpha="0.7" strokeAlpha_hover="1" visible.detail="false"/>
 	<e:Group id="_btn_detail" width="120" height="34" x="485" verticalCenter="0" visible.invaild="false" visible.vaild="false">
 		<e:Label id="_txt_detail" text="Label" size="20"/>
 		<e:Image x="105" y="19" source="d_lobby_betcontrol_btn_right_png" width="13" height="22"/>

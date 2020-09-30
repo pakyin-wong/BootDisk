@@ -143,6 +143,10 @@ namespace we {
       overlaypanel_bethistorylottery_continuousbet_cancelled: '已撤單',
       overlaypanel_bethistorylottery_continuousbet_completed: '已結算',
 
+      overlaypanel_bethistorylottery_cancelbtn_title: '確定要撤單？',
+      overlaypanel_bethistorylottery_cancelbtn_yes: '確認',
+      overlaypanel_bethistorylottery_cancelbtn_no: '取消',
+
       overlaypanel_bethistorylottery_tab_single: '投注記錄',
       overlaypanel_bethistorylottery_tab_multi: '追號記錄',
 

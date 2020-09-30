@@ -1234,6 +1234,9 @@ namespace we {
       public getLotteryBetDetail(filter: any, callback: (res: any) => void, thisArg: any) {
         this.client.getLotteryBetDetail(filter, this.warpServerCallback(callback.bind(thisArg)));
       }
+      public cancelBet(tableID: string, betID: string, gametype: string, callback: (res: any) => void, thisArg: any) {
+        this.client.cancelBet(tableID, betID, gametype, this.warpServerCallback(callback.bind(thisArg)));
+      }
 
       public warpServerCallback(callback: any) {
         return data => {
