@@ -82,8 +82,8 @@ namespace we {
           }
           this._txt_record_round.text = this.data.gameroundid;
           this._txt_record_remark.text = this.formatRemark(this.data.remark);
-          console.log('this.formatBetType(this.data.gametype, this.data.field)', this.formatBetType(this.data.gametype, this.data.field));
-          console.log('this.data.gametype, this.data.field', [this.data.gametype, this.data.field]);
+          // console.log('this.formatBetType(this.data.gametype, this.data.field)', this.formatBetType(this.data.gametype, this.data.field));
+          // console.log('this.data.gametype, this.data.field', [this.data.gametype, this.data.field]);
           this._txt_record_bettype.text = this.formatBetType(this.data.gametype, this.data.field);
           this._txt_record_betamount.text = utils.formatNumber(this.data.betamount, true);
           this._txt_record_orgbalance.text = utils.formatNumber(this.data.beforebalance, true);
