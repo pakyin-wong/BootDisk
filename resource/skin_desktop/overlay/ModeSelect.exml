@@ -9,8 +9,8 @@
 			<e:Image width="56" height="40.3" x="0" y="0" source="d_common_panel_uicolour_icon_light_png" />
 			<ui:RunTimeLabel id="txt_lightMode" text="l" y="44.8" height="27" size="18" textAlign="center" verticalAlign="middle"
 			                 left="0" right="0" />
-			<e:Image width="18" height="18" x="19" y="78" source.dark="d_lobby_select_round_no_png"
-			         source.light="d_lobby_select_round_yes_png" />
+			<e:Image width="18" height="18" x="19" y="78" source="d_common_panel_setting_uicolour_btn_png" />
+			<e:Image width="18" height="18" x="19" y="78" source.light="d_common_panel_setting_uicolour_btn_active_png" />
 			<e:Image width="56" height="40.3" x="0" y="0" scaleX="1" scaleY="1" source.dark="d_common_panel_setting_uicolour_png"
 			         source.light="d_common_panel_setting_uicolour_active_png" />
 		</e:Group>
@@ -18,8 +18,8 @@
 			<e:Image width="56" height="40.3" x="0" y="0" source="d_common_panel_uicolour_icon_drak_png" />
 			<ui:RunTimeLabel id="txt_darkMode" text="l" y="44.8" height="27" size="18" textAlign="center" verticalAlign="middle"
 			                 left="0" right="0" />
-			<e:Image width="18" height="18" x="19" y="78" source.light="d_lobby_select_round_no_png"
-			         source.dark="d_lobby_select_round_yes_png" />
+			<e:Image width="18" height="18" x="19" y="78" source="d_common_panel_setting_uicolour_btn_png" />
+			<e:Image width="18" height="18" x="19" y="78" source.dark="d_common_panel_setting_uicolour_btn_active_png" />
 			<e:Image width="56" height="40.3" x="0" y="0" scaleX="1" scaleY="1" right="0"
 			         source.dark="d_common_panel_setting_uicolour_active_png" source.light="d_common_panel_setting_uicolour_png" />
 		</e:Group>

@@ -18,13 +18,13 @@
 			</e:Group>
 		</e:Group>
 	</e:Group>
-	<e:Group id="_dragonBeadGroup" y="368" width="110" height="55" name="askRoad" right="149">
+	<e:Group id="_dragonBeadGroup" y="368" width="110" height="55" name="skipEnterScene" right="149">
 		<e:Image id="_iconBankerBead" width="110" height="28" source="d_ba_roadmap_topbar_textbg_banker_png" anchorOffsetX="0"
 		         scale9Grid="15,13,37,5" />
 		<ui:RunTimeLabel id="_playerAskLabel" textAlign="center" anchorOffsetX="0" width="110" size="16" height="28"
 		                 verticalAlign="middle" touchEnabled="false" />
 	</e:Group>
-	<e:Group id="_tigerBeadGroup" right="19" y="368" width="110" height="55" name="askRoad">
+	<e:Group id="_tigerBeadGroup" right="19" y="368" width="110" height="55" name="skipEnterScene">
 		<e:Image id="_iconPlayerBead" width="110" height="28" source="d_ba_roadmap_topbar_textbg_player_png"
 		         scale9Grid="15,13,37,5" />
 		<ui:RunTimeLabel id="_bankerAskLabel" textAlign="center" anchorOffsetX="0" width="110" size="16"

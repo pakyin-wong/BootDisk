@@ -4,7 +4,7 @@ namespace we {
       protected _roadPanel: rc.RcLobbyRoadPanel;
 
       public constructor(skinName: string = null) {
-        super(skinName);
+        super('LotteryListItem');
         this._roadPanel = new rc.RcLobbyRoadPanel();
       }
     }

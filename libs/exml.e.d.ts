@@ -217,6 +217,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class CountdownTextbamSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class CountdownTimerSkin extends eui.Skin{
 	}
 }
@@ -926,6 +930,46 @@ declare module skin_desktop{
 	class QuickBetAnimButtonSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.rc{
+	class FunBetGroup12 extends eui.Skin{
+	}
+}
+declare module skin_desktop.rc{
+	class FunBetGroup12num extends eui.Skin{
+	}
+}
+declare module skin_desktop.rc{
+	class FunBetGroupDT extends eui.Skin{
+	}
+}
+declare module skin_desktop.rc{
+	class FunBetGroupN extends eui.Skin{
+	}
+}
+declare module skin_desktop.rc{
+	class FunBetGroupNum extends eui.Skin{
+	}
+}
+declare module skin_desktop.rc{
+	class FunBetItem12 extends eui.Skin{
+	}
+}
+declare module skin_desktop.rc{
+	class FunBetItemN extends eui.Skin{
+	}
+}
+declare module skin_desktop.rc{
+	class FunBetLayer extends eui.Skin{
+	}
+}
+declare module skin_desktop.rc{
+	class FunBetResult extends eui.Skin{
+	}
+}
+declare module skin_desktop.rc{
+	class FunBetRoundInfo extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class RcLeftPanel extends eui.Skin{
 	}
@@ -936,6 +980,14 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class RcRightDrawerPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class RcSceneFun extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class RcSceneTraditional extends eui.Skin{
 	}
 }
 declare module skin_desktop{

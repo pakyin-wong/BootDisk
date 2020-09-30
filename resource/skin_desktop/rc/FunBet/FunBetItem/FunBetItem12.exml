@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.rc.FunBetItem12" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing" >
+
+	<ui:RunTimeLabel id="label" text="標" height="89" size="60" verticalAlign="middle" bold="true" width="80" textAlign="center" textColor="0xdea167"/>
+	<e:Label id="rate" text="賠率" y="94" size="24" verticalAlign="middle" alpha="0.8" height="29" left="0" right="0" textAlign="center"/>
+	<ui:RoundRectShape id="betArea" y="131" width="80" height="50" cornerTL_TR_BL_BR="5,5,5,5" stroke="1" fillColor="0x0a2f40" fillAlpha="0.7" strokeAlpha="0.5" strokeColor="0x5f7273"/>
+	<e:Label id="betAmt" text="00000" verticalAlign="middle" textAlign="center" size="24" bold="true" width="80" height="50" y="131" touchEnabled="false"/>
+
+        
+</e:Skin>

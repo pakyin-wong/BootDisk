@@ -34,6 +34,7 @@ namespace we {
         this._statistic = this._tableInfo.gamestatistic;
         this.onGameStatisticUpdated();
         this.setSkinName();
+        this.customKey = 'lo';
       }
 
       protected setSkinName() {
@@ -97,7 +98,7 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
         // dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
-        FunBet.evtHandler.addEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
+        this.funbet.evtHandler.addEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
         utils.addButtonListener(this._btnBack, this.backToLobby, this);
       }
 
@@ -109,7 +110,7 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
         // dir.evtHandler.removeEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
-        FunBet.evtHandler.removeEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
+        this.funbet.evtHandler.removeEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
         utils.removeButtonListener(this._btnBack, this.backToLobby, this);
       }
 
@@ -119,7 +120,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             this.setupTableInfo(tableInfo);
             this.updateGame();
@@ -171,7 +172,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {}
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         if (tableInfo.tableid === this._tableId) {
           logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
           this._betDetails = tableInfo.bets;
@@ -328,6 +329,10 @@ namespace we {
       protected resetTimer() {
         this._counter.text = '00:00:00';
         clearInterval(this._counterInterval);
+      }
+
+      protected get funbet() {
+        return utils.GetFunBet(this.customKey);
       }
     }
   }

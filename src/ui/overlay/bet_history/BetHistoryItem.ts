@@ -69,7 +69,9 @@ namespace we {
         }
 
         protected updateBg() {
-          if (!this._txt_record_bgcolor) { return; }
+          if (!this._txt_record_bgcolor) {
+            return;
+          }
 
           if (env.isMobile) {
             this._txt_hover_color.visible = false;
@@ -93,7 +95,9 @@ namespace we {
         }
 
         protected updateWinText(remark, amt) {
-          if (!this._txt_record_win) { return; }
+          if (!this._txt_record_win) {
+            return;
+          }
 
           switch (remark) {
             case -1:

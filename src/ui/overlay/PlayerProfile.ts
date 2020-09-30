@@ -323,6 +323,7 @@ namespace we {
       private onChangeIcon() {
         env.profileimage = this.iconList[this._iconList.selectedIndex];
         this._playerIcon.source = env.icons[env.profileimage];
+        dir.socket.updateSetting('profileimage', env.profileimage);
         dir.evtHandler.dispatch(core.Event.ICON_UPDATE);
       }
 

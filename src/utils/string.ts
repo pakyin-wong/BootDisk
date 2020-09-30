@@ -118,6 +118,8 @@ namespace we {
           return 'lw';
         case core.GameType.LO:
           return 'lo';
+        case core.GameType.RC:
+          return 'rc';
       }
     }
 

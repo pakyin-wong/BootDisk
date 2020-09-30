@@ -688,6 +688,7 @@ namespace we {
             tableInfo.gamestatistic = stats;
             break;
           }
+          case core.GameType.RC:
           case core.GameType.LO: {
             gameStatistic.tableID = tableid;
             gameStatistic.shoeID = gameStatistic.shoeid;
@@ -977,7 +978,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
           return betDetail;
         });
 
@@ -1232,6 +1233,9 @@ namespace we {
       }
       public getLotteryBetDetail(filter: any, callback: (res: any) => void, thisArg: any) {
         this.client.getLotteryBetDetail(filter, this.warpServerCallback(callback.bind(thisArg)));
+      }
+      public cancelBet(tableID: string, betID: string, gametype: string, callback: (res: any) => void, thisArg: any) {
+        this.client.cancelBet(tableID, betID, gametype, this.warpServerCallback(callback.bind(thisArg)));
       }
 
       public warpServerCallback(callback: any) {

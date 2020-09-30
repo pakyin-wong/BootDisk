@@ -165,7 +165,9 @@ namespace we {
           // this.diceImage2.visible = true;
           // this.diceImage3.visible = true;
           // this.totalText.visible = true;
-          if (this.oddText.parent) this.oddText.parent.removeChild(this.oddText);
+          if (this.oddText.parent) {
+            this.oddText.parent.removeChild(this.oddText);
+          }
           this.group.addChildAt(this.totalText, 0);
           this.group.addChildAt(this.diceImage3, 0);
           this.group.addChildAt(this.diceImage2, 0);
@@ -193,7 +195,9 @@ namespace we {
           // this.diceImage3.y = spacing * 3;
           // this.totalText.y = spacing * 4;
 
-          if (this.sizeText.parent) this.sizeText.parent.removeChild(this.sizeText);
+          if (this.sizeText.parent) {
+            this.sizeText.parent.removeChild(this.sizeText);
+          }
           this.group.addChildAt(this.totalText, 0);
           this.group.addChildAt(this.diceImage3, 0);
           this.group.addChildAt(this.diceImage2, 0);
@@ -215,7 +219,9 @@ namespace we {
           // this.totalText.y = spacing * 3 + this.itemYOffset;
           // this.sizeText.y = spacing * 4;
 
-          if (this.oddText.parent) this.oddText.parent.removeChild(this.oddText);
+          if (this.oddText.parent) {
+            this.oddText.parent.removeChild(this.oddText);
+          }
           this.group.addChildAt(this.sizeText, 0);
           this.group.addChildAt(this.totalText, 0);
           this.group.addChildAt(this.diceImage3, 0);

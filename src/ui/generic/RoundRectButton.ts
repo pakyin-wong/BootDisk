@@ -208,7 +208,7 @@ namespace we {
         this.update();
       }
 
-      private onClick() {
+      protected onClick() {
         this.dispatchEvent(new egret.Event('CLICKED'));
       }
 

@@ -59,7 +59,7 @@ namespace we {
       protected onTouchTap(evt: egret.Event) {
         const target = evt.target;
 
-        if (target instanceof eui.Group && target.name === 'askRoad') {
+        if (target instanceof eui.Group && target.name === 'skipEnterScene') {
           evt.stopPropagation();
           return;
         }

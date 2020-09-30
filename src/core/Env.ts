@@ -150,6 +150,7 @@ namespace we {
           core.GameType.RO,
           core.GameType.ROL,
           core.GameType.LO,
+          core.GameType.RC,
         ];
 
         dir.evtHandler.addEventListener('LIVE_PAGE_LOCK', this.onLockChanged, this);
@@ -321,12 +322,19 @@ namespace we {
             break;
           case core.GameType.LO:
             dir.sceneCtr.goto('lo', { tableid: tableId });
-
+            break;
+          case core.GameType.RC:
+            dir.sceneCtr.goto('rc', { tableid: tableId });
+            break;
           default:
             logger.e(utils.LogTarget.DEBUG, `Scene for GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
             this._currTableId = '';
             break;
         }
+      }
+
+      public get sceneId(): string {
+        return dir.sceneCtr.currid;
       }
 
       public set nicknameSet(val) {
