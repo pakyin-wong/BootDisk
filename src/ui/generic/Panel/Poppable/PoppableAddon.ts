@@ -10,6 +10,7 @@ namespace we {
       protected toggler: egret.DisplayObject;
       protected isAnimating: boolean = false;
       protected _contentPos: egret.Point;
+      public isPixelFit: boolean = false;
       private onToggleCallback: (value: boolean) => void;
       constructor(displayObject: egret.DisplayObject & IPoppable) {
         super(displayObject);
@@ -89,7 +90,7 @@ namespace we {
         if (c.length > this.inFocusIdx && c[c.length - 1] !== this.target) {
           return;
         }
-        if (this.target.close && this.target.close.hitTestPoint(e.stageX, e.stageY, true)) {
+        if (this.target.close && this.target.close.hitTestPoint(e.stageX, e.stageY, this.isPixelFit)) {
           this.target.dispatchEvent(new egret.Event('close'));
           this.hide();
         } else if (this.target.$hitTest(e.stageX, e.stageY)) {
@@ -121,7 +122,7 @@ namespace we {
           return;
         }
         this.target.stage['inFocusItems'] = this.target.stage['inFocusItems'].filter(
-          function(i) {
+          function (i) {
             return i !== this.target;
           }.bind(this)
         );
