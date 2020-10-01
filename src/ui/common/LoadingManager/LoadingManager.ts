@@ -134,7 +134,7 @@ namespace we {
         this.progress = 0;
         const self = this;
         function tick(promise, idx) {
-          promise.then(function () {
+          promise.then(function() {
             self._subprogresses[idx] = self.progressMap[idx];
             tickCallback();
           });

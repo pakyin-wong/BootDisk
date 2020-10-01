@@ -102,7 +102,6 @@ namespace we {
           this.gameIdLabel.y -= 202;
           this.totalBetLabel.y -= 202;
 
-
           //this.beadRadioBtn1.y += 202;
           //this.beadRadioBtn2.y += 202;
           this.beadRoad.expandRoad(true);

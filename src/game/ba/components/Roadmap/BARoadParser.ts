@@ -616,19 +616,19 @@ namespace we {
 
         // lo
         for (var i = 1; i <= 10; i++) {
-          if (data["size" + i] !== undefined) {
-            roadSet["size" + i] = [];
-            data["size" + i].forEach(element => {
-              roadSet["size" + i].push(BARoadParser.CreateRoadmapCellFromObject(element));
+          if (data['size' + i] !== undefined) {
+            roadSet['size' + i] = [];
+            data['size' + i].forEach(element => {
+              roadSet['size' + i].push(BARoadParser.CreateRoadmapCellFromObject(element));
             });
           }
         }
 
         for (var i = 1; i <= 10; i++) {
-          if (data["odd" + i] !== undefined) {
-            roadSet["odd" + i] = [];
-            data["odd" + i].forEach(element => {
-              roadSet["odd" + i].push(BARoadParser.CreateRoadmapCellFromObject(element));
+          if (data['odd' + i] !== undefined) {
+            roadSet['odd' + i] = [];
+            data['odd' + i].forEach(element => {
+              roadSet['odd' + i].push(BARoadParser.CreateRoadmapCellFromObject(element));
             });
           }
         }
@@ -637,10 +637,10 @@ namespace we {
         for (let i = 1; i < 10; i++) {
           for (let j = i + 1; j <= 10; j++) {
             c++;
-            if (data["dt" + i + "v" + j] !== undefined) {
-              roadSet["dt" + i + "v" + j] = [];
-              data["dt" + i + "v" + j].forEach(element => {
-                roadSet["dt" + i + "v" + j].push(BARoadParser.CreateRoadmapCellFromObject(element));
+            if (data['dt' + i + 'v' + j] !== undefined) {
+              roadSet['dt' + i + 'v' + j] = [];
+              data['dt' + i + 'v' + j].forEach(element => {
+                roadSet['dt' + i + 'v' + j].push(BARoadParser.CreateRoadmapCellFromObject(element));
               });
             }
           }
