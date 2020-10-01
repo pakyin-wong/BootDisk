@@ -191,6 +191,9 @@ namespace we {
             case we.core.GameType.LO:
               p = new LoResultItem(gameResult);
               break;
+            case we.core.GameType.RC:
+              p = new RcResultItem(gameResult);
+              break;
             default:
               p = new eui.Component();
               break;

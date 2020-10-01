@@ -31,14 +31,14 @@ namespace we {
       public updateResult(gameData: data.GameData) {
         // TODO: update card using the gameData
 
-        this.gameData = <ba.GameData> gameData;
+        this.gameData = <ba.GameData>gameData;
         const cardArr = [this.gameData.a1, this.gameData.a2, this.gameData.a3, this.gameData.b1, this.gameData.b2, this.gameData.b3];
         const cardHolderArr = [this.card1Banker, this.card2Banker, this.card3Banker, this.card1Player, this.card2Player, this.card3Player];
 
         this.playerSum.text = this.gameData.playerpoint >= 0 ? this.gameData.playerpoint.toString() : '';
         this.bankerSum.text = this.gameData.bankerpoint >= 0 ? this.gameData.bankerpoint.toString() : '';
 
-        cardArr.forEach(function (value, index) {
+        cardArr.forEach(function(value, index) {
           if (value) {
             cardHolderArr[index].setCard(utils.formatCard(value));
           } else {

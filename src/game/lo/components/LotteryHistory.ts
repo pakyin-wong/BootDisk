@@ -41,7 +41,8 @@ namespace we {
         if (s && s.length) {
           for (let i = s.length - 1; i >= 0; i--) {
             r.push({
-              round: s[i].Roundnumber, ...s[i].Data
+              round: s[i].Roundnumber,
+              ...s[i].Data,
             });
           }
         }

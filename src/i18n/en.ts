@@ -833,7 +833,7 @@ namespace we {
           Group: 'Group',
 
           Any: 'Any',
-		      // rc
+          // rc
           RCChampion: 'Champion',
           RCSecond: 'Second',
           RCThird: 'Third',
@@ -1073,18 +1073,18 @@ namespace we {
           p4: '十',
           p5: '個',
         },
-        rcballresultpos:{
-          p1:'Champion',
-          p2:'Second',
-          p3:'Third',
-          p4:'Forth',
-          p5:'Fifth',
-          p6:'Sixth',
-          p7:'Seventh',
-          p8:'Eightth',
-          p9:'Ninth',
-          p10:'Tenth',
-        }
+        rcballresultpos: {
+          p1: 'Champion',
+          p2: 'Second',
+          p3: 'Third',
+          p4: 'Forth',
+          p5: 'Fifth',
+          p6: 'Sixth',
+          p7: 'Seventh',
+          p8: 'Eightth',
+          p9: 'Ninth',
+          p10: 'Tenth',
+        },
       },
 
       rc_fun_betlayer_tab_fun: 'Fun',

@@ -90,7 +90,6 @@ namespace we {
 
       public dt9v10?: RoadmapCell[];
 
-
       public size6?: RoadmapCell[];
       public size7?: RoadmapCell[];
       public size8?: RoadmapCell[];

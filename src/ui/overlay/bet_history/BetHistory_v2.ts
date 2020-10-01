@@ -153,6 +153,7 @@ namespace we {
           default:
             switch (data.gametype) {
               case GameType.LO:
+              case GameType.RC:
                 return betHistory.BetHistoryItemLottery;
               default:
                 return betHistory.BetHistoryItem;

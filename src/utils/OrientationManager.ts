@@ -60,7 +60,7 @@ namespace we {
             clearTimeout(this._timeoutId);
             this._timeoutId = null;
           }
-          this._timeoutId = setTimeout(function () {
+          this._timeoutId = setTimeout(function() {
             dir.evtHandler.dispatch(core.Event.ORIENTATION_UPDATE);
           }, 100);
         }
