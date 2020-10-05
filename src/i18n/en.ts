@@ -87,7 +87,7 @@ namespace we {
       overlaypanel_bethistory_recordtab_game: 'Game',
       overlaypanel_bethistory_recordtab_round: 'Round',
       overlaypanel_bethistory_recordtab_replay: 'Replay',
-      overlaypanel_bethistory_recordtab_remark: 'Remark',
+      overlaypanel_bethistory_recordtab_remark: 'Result',
       overlaypanel_bethistory_recordtab_bettype: 'Type',
       overlaypanel_bethistory_recordtab_betamount: 'Bet Amt',
       overlaypanel_bethistory_recordtab_win: 'Win Amt',

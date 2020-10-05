@@ -87,7 +87,7 @@ namespace we {
       overlaypanel_bethistory_recordtab_game: '遊戲',
       overlaypanel_bethistory_recordtab_round: '局數',
       overlaypanel_bethistory_recordtab_replay: '重播',
-      overlaypanel_bethistory_recordtab_remark: '備註',
+      overlaypanel_bethistory_recordtab_remark: '贏輸',
       overlaypanel_bethistory_recordtab_bettype: '投注項目',
       overlaypanel_bethistory_recordtab_betamount: '投注額',
       overlaypanel_bethistory_recordtab_win: '派彩',

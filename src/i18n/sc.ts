@@ -95,7 +95,7 @@ namespace we {
       overlaypanel_bethistory_recordtab_game: '游戏',
       overlaypanel_bethistory_recordtab_round: '局数',
       overlaypanel_bethistory_recordtab_replay: '重播',
-      overlaypanel_bethistory_recordtab_remark: '备注',
+      overlaypanel_bethistory_recordtab_remark: '赢输',
       overlaypanel_bethistory_recordtab_bettype: '投注项目',
       overlaypanel_bethistory_recordtab_betamount: '投注额',
       overlaypanel_bethistory_recordtab_win: '派彩',
