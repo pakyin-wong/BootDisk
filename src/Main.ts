@@ -193,7 +193,7 @@ class Main extends eui.UILayer {
 
   private updateMobileHitTest() {
     const $hitTest = egret.DisplayObjectContainer.prototype.$hitTest;
-    egret.DisplayObjectContainer.prototype.$hitTest = function (stageX, stageY) {
+    egret.DisplayObjectContainer.prototype.$hitTest = function(stageX, stageY) {
       if (!this.$touchEnabled && !this.$touchChildren) {
         return null;
       }

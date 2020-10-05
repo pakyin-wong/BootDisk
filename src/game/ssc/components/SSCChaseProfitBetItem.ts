@@ -22,8 +22,12 @@ namespace we {
 
       constructor() {
         super();
-        this.skinName = utils.getSkinByClassname('SSCChaseProfitBetItem');
+        this.initSkin();
         this.addListeners();
+      }
+
+      protected initSkin() {
+        this.skinName = 'skin_desktop.SSCChaseProfitBetItem';
       }
 
       public addListeners() {

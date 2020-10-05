@@ -15,8 +15,19 @@ namespace we {
       private _isBetLimitValidate: boolean = false; // validate betlimit from server
       protected _roundDetailInfo = {};
 
+      protected _currentKey = 'lo';
+      protected _currentMap;
+
       public _timer: eui.Label;
       protected _ratioList: any;
+
+      public get currentMap() {
+        return this._currentMap;
+      }
+
+      public get currentKey() {
+        return this._currentKey;
+      }
 
       public get currentBigTagIndex() {
         return this._currentBigTagIndex;
@@ -135,7 +146,7 @@ namespace we {
           tradNoteData.field = finalbetFields[i];
           tradNoteData.count = this._currentBettingTable.noteCount[i];
           tradNoteData.multiplier = this._bettingControl.multiplier;
-          const betMode = SelectionMapping[Object.keys(SelectionMapping)[this._currentBigTagIndex]];
+          const betMode = this._currentMap[Object.keys(this._currentMap)[this._currentBigTagIndex]];
           const betMethod = betMode['type'][Object.keys(betMode['type'])[this._currentSmallTagIndex]];
           if (this._ratioList) {
             const ratioKeys = betMethod['ratio'];

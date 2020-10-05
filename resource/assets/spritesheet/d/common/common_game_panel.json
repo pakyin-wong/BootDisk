@@ -411,6 +411,16 @@
       "sourceW": 106,
       "sourceH": 82
     },
+    "d_lobby_panel_betrecord_empty_icon_png": {
+      "x": 702,
+      "y": 1332,
+      "w": 78,
+      "h": 66,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 78,
+      "sourceH": 66
+    },
     "d_lw_listpenal_betarea_bet_east_png": {
       "x": 1437,
       "y": 898,
@@ -442,8 +452,8 @@
       "sourceH": 75
     },
     "d_lw_listpenal_betarea_bet_red_png": {
-      "x": 702,
-      "y": 1332,
+      "x": 784,
+      "y": 1308,
       "w": 43,
       "h": 75,
       "offX": 0,
@@ -452,7 +462,7 @@
       "sourceH": 75
     },
     "d_lw_listpenal_betarea_bet_south_png": {
-      "x": 749,
+      "x": 831,
       "y": 1308,
       "w": 43,
       "h": 75,
@@ -462,7 +472,7 @@
       "sourceH": 75
     },
     "d_lw_listpenal_betarea_bet_west_png": {
-      "x": 796,
+      "x": 878,
       "y": 1308,
       "w": 43,
       "h": 75,
@@ -472,7 +482,7 @@
       "sourceH": 75
     },
     "d_lw_listpenal_betarea_bet_white_png": {
-      "x": 843,
+      "x": 925,
       "y": 1308,
       "w": 43,
       "h": 75,
@@ -532,7 +542,7 @@
       "sourceH": 29
     },
     "d_lw_listpenal_history_record_hl_png": {
-      "x": 749,
+      "x": 784,
       "y": 1387,
       "w": 37,
       "h": 37,
@@ -572,7 +582,7 @@
       "sourceH": 32
     },
     "d_lobby_panel_gamelist_icon_bet_normal_png": {
-      "x": 790,
+      "x": 825,
       "y": 1387,
       "w": 32,
       "h": 32,
@@ -592,7 +602,7 @@
       "sourceH": 32
     },
     "d_lobby_panel_gamelist_icon_goodroad_normal_png": {
-      "x": 826,
+      "x": 861,
       "y": 1387,
       "w": 32,
       "h": 32,
@@ -652,7 +662,7 @@
       "sourceH": 27
     },
     "d_lw_listpenal_history_record_west_png": {
-      "x": 862,
+      "x": 897,
       "y": 1387,
       "w": 27,
       "h": 27,
@@ -672,6 +682,16 @@
       "sourceH": 27
     },
     "d_sic_history_lv1_dice-1_png": {
+      "x": 928,
+      "y": 1387,
+      "w": 26,
+      "h": 26,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 26,
+      "sourceH": 26
+    },
+    "d_sic_history_lv1_dice-2_png": {
       "x": 437,
       "y": 1175,
       "w": 26,
@@ -681,7 +701,17 @@
       "sourceW": 26,
       "sourceH": 26
     },
-    "d_sic_history_lv1_dice-2_png": {
+    "d_sic_history_lv1_dice-3_png": {
+      "x": 958,
+      "y": 1387,
+      "w": 26,
+      "h": 26,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 26,
+      "sourceH": 26
+    },
+    "d_sic_history_lv1_dice-4_png": {
       "x": 467,
       "y": 1175,
       "w": 26,
@@ -691,7 +721,7 @@
       "sourceW": 26,
       "sourceH": 26
     },
-    "d_sic_history_lv1_dice-3_png": {
+    "d_sic_history_lv1_dice-5_png": {
       "x": 497,
       "y": 1175,
       "w": 26,
@@ -701,28 +731,8 @@
       "sourceW": 26,
       "sourceH": 26
     },
-    "d_sic_history_lv1_dice-4_png": {
-      "x": 527,
-      "y": 1175,
-      "w": 26,
-      "h": 26,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 26,
-      "sourceH": 26
-    },
-    "d_sic_history_lv1_dice-5_png": {
-      "x": 557,
-      "y": 1175,
-      "w": 26,
-      "h": 26,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 26,
-      "sourceH": 26
-    },
     "d_sic_history_lv1_dice-6_png": {
-      "x": 587,
+      "x": 527,
       "y": 1175,
       "w": 26,
       "h": 26,

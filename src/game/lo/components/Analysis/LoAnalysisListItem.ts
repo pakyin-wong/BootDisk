@@ -10,6 +10,8 @@ namespace we {
         this.renderType = renderType;
 
         this.bg = new ui.RoundRectShape();
+        this.bg.width = 130;
+        this.bg.height = 34;
         this.bg.setRoundRectStyle(130, 34, { tl: 8, tr: 8, bl: 8, br: 8 }, '0x0d3057', 1, 0);
 
         this.label = new ui.RunTimeLabel();
@@ -59,6 +61,9 @@ namespace we {
           rslt = s1 + s2 + ' - ' + s3;
         } else if (data0.endsWith('INTEREST1SPECIAL')) {
           rslt = '全五中 - ' + data1;
+        } else if (data0.endsWith('FIXPOS2')) {
+          const s1 = this.getPK10UnitString(data0.substring(0, 2));
+          rslt = s1 + ' - ' + data1;
         } else if (data0.indexOf('Ball') === 0) {
           const s1 = this.getUnitString(data0.substring(4));
           rslt = s1 + '位 - ' + data1;
@@ -71,6 +76,31 @@ namespace we {
 
         }
         */
+      }
+
+      protected getPK10UnitString(input: string): string {
+        switch (input) {
+          case '1F':
+            return '第一名';
+          case '2F':
+            return '第二名';
+          case '3F':
+            return '第三名';
+          case '4F':
+            return '第四名';
+          case '5F':
+            return '第五名';
+          case '6F':
+            return '第六名';
+          case '7F':
+            return '第七名';
+          case '8F':
+            return '第八名';
+          case '9F':
+            return '第九名';
+          case '10':
+            return '第十名';
+        }
       }
 
       protected getUnitString(input: string): string {

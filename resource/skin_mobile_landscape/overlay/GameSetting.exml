@@ -9,11 +9,11 @@
 		<!--<ui:BaseButton id="switch_autoBet" width="153" height="93" x="798" y="205" skinName="skin_mobile_portrait.NavLeftHandModeBtn"/>-->
 		<e:Group id="_btn_autoBet" x="96" y="202" height="96" touchChildren="false">
 			<ui:BaseButton id="switch_autoBet" width="155" height="95" x="629" y="0.5" skinName="skin_mobile_portrait.NavLeftHandModeBtn"/>
-			<ui:RunTimeLabel id="_txt_autoBet" text="Label" x="0" y="3" anchorOffsetX="0" width="620" height="89" size="60" textColor="0xFFFFFF" fontFamily="NotoSansCJKtc" verticalAlign="middle"/>
+			<ui:RunTimeLabel id="_txt_autoBet" text="Label" x="0" y="3" anchorOffsetX="0" width="620" height="89" size="60" textColor="0xFFFFFF" verticalAlign="middle"/>
 
 		</e:Group>
 		<e:Group id="_btn_showHint" x="96" y="358" height="96" touchChildren="false">
-			<ui:RunTimeLabel id="_txt_showHint" text="Label" x="0" y="3" anchorOffsetX="0" width="620" height="89" size="60" textColor="0xFFFFFF" fontFamily="NotoSansCJKtc" verticalAlign="middle"/>
+			<ui:RunTimeLabel id="_txt_showHint" text="Label" x="0" y="3" anchorOffsetX="0" width="620" height="89" size="60" textColor="0xFFFFFF" verticalAlign="middle"/>
 			<ui:BaseButton id="switch_showHint" width="153" height="93" x="629" y="0.5" skinName="skin_mobile_portrait.NavLeftHandModeBtn"/>
 		</e:Group>
 		<!--<e:Group id="_btn_sendLiveVer" width="792" height="150" x="94" y="438">

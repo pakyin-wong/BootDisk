@@ -34,9 +34,10 @@ namespace we {
           this.setData(this._txt_betfield, i18n.t('overlaypanel_bethistorylottery_record_betfield'));
 
           const betinfo = utils.BetTypeParser.parse(this.data.gametype, this.data.field);
-          this._txt_record_bettype.text = betinfo['type'];
-          this._txt_record_betgroup.text = betinfo['group'];
-          this._txt_record_betfield.text = betinfo['field'];
+
+          this.setData(this._txt_record_bettype, betinfo['type']);
+          this.setData(this._txt_record_betgroup, betinfo['group']);
+          this.setData(this._txt_record_betfield, betinfo['field']);
 
           this._betid = this.data.betid;
 

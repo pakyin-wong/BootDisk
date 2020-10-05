@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.dil.SideBetResultMessage" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" width="240"
-        height="91">
+<e:Skin class="skin_mobile_portrait.dil.SideBetResultMessage" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" width="546"
+        height="218">
 	<e:Group id="_diceGroup" left="0" right="0" bottom="0" top="0">
 		<e:Image id="_diceBackground" verticalCenter="0" horizontalCenter="0" />
-		<e:Image id="_dice1" width="26" height="26" horizontalCenter="-32" verticalCenter="-20" />
-		<e:Image id="_dice2" width="26" height="26" horizontalCenter="0" verticalCenter="-20" />
-		<e:Image id="_dice3" width="26" height="26" horizontalCenter="32" verticalCenter="-20" />
-		<e:Group horizontalCenter="-50" verticalCenter="20">
-			<e:Image width="48" height="17" source="m_sb_panel_gamelist_result_data_red_png" />
-			<e:Label id="_badgeRed" text="大" horizontalCenter="0" verticalCenter="0" size="14"/>
+		<e:Image id="_dice1" width="64" height="64" horizontalCenter="-128" verticalCenter="-20" />
+		<e:Image id="_dice2" width="64" height="64" horizontalCenter="0" verticalCenter="-20" />
+		<e:Image id="_dice3" width="64" height="64" horizontalCenter="128" verticalCenter="-20" />
+		<e:Group horizontalCenter="-140" verticalCenter="40">
+			<e:Image width="135" height="49" source="m_sb_panel_gamelist_result_data_red_png" />
+			<e:Label id="_badgeRed" text="大" horizontalCenter="0" verticalCenter="0" size="36"/>
 		</e:Group>
-		<e:Group horizontalCenter="50" verticalCenter="20">
-			<e:Image width="48" height="17" source="m_sb_panel_gamelist_result_data_blue_png" />
-			<e:Label id="_badgeBlue" text="大" horizontalCenter="0" verticalCenter="0" size="14"/>
+		<e:Group horizontalCenter="140" verticalCenter="40">
+			<e:Image width="135" height="49" source="m_sb_panel_gamelist_result_data_blue_png" />
+			<e:Label id="_badgeBlue" text="大" horizontalCenter="0" verticalCenter="0" size="36"/>
 		</e:Group>
-		<e:Group horizontalCenter="0" verticalCenter="20">
-			<e:Image width="48" height="17" source="m_sb_panel_gamelist_result_data_green_png" />
-			<e:Label id="_badgeGreen" text="大" horizontalCenter="0" verticalCenter="0" size="14"/>
+		<e:Group horizontalCenter="0" verticalCenter="40">
+			<e:Image width="135" height="49" source="m_sb_panel_gamelist_result_data_green_png" />
+			<e:Label id="_badgeGreen" text="大" horizontalCenter="0" verticalCenter="0" size="36"/>
 		</e:Group>
-		<e:Label id="_lblSum" text="Label" horizontalCenter="0" verticalCenter="20" size="24"/>
+		<e:Label id="_lblSum" text="Label" horizontalCenter="0" verticalCenter="40" size="46"/>
 	</e:Group>
 	<e:Group id="_winAmountGroup" left="0" top="0" bottom="0" right="0" visible="false">
 		<e:Image id="_winAmountBackground" verticalCenter="0" horizontalCenter="0" />
-		<e:Label id="_lblWinAmount" text="Label" horizontalCenter="0" verticalCenter="0" size="18"/>
+		<e:Label id="_lblWinAmount" text="Label" horizontalCenter="0" verticalCenter="0" size="70"/>
 	</e:Group>
 </e:Skin>

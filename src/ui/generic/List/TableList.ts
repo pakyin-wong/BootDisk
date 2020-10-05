@@ -65,6 +65,10 @@ namespace we {
         }
       }
 
+      public getTableList() {
+        return this.tableList;
+      }
+
       public setGameFilters(tab) {
         switch (tab) {
           case core.LiveGameTab.all:

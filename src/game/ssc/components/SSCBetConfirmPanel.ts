@@ -34,9 +34,13 @@ namespace we {
 
       constructor(data: we.lo.TradNoteData[], currentRoundNumber) {
         super();
-        this.skinName = 'skin_desktop.SSCBetConfirmPanel';
+        this.initSkin();
         this._noteData = data;
         this._currentRoundNumber = currentRoundNumber;
+      }
+
+      protected initSkin() {
+        this.skinName = 'skin_desktop.SSCBetConfirmPanel';
       }
 
       public mount() {

@@ -1,7 +1,7 @@
 {
     "target": "staging",
     "mode": "comm",
-    "playerID": "BMJCQSLH5S5VDBFBP1A0",
+    "playerID": "BNC9O6DH5S5JNQTG8PR5",
     "endpoint": "https://release-rest-gateway.weapi247.com",
     "rabbitmqhostname": "mqrelease-apse1.weinfra247.com",
     "rabbitmqport": "443",

@@ -19,8 +19,12 @@ namespace we {
 
       constructor() {
         super();
-        this.skinName = utils.getSkinByClassname('SSCChaseMultiplierBetItem');
+        this.initSkin();
         this.addListeners();
+      }
+
+      protected initSkin() {
+        this.skinName = 'skin_desktop.SSCChaseMultiplierBetItem';
       }
 
       public addListeners() {

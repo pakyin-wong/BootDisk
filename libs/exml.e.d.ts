@@ -871,6 +871,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class RcResultItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class RolResultItem extends eui.Skin{
 	}
 }
@@ -970,6 +974,14 @@ declare module skin_desktop.rc{
 	class FunBetRoundInfo extends eui.Skin{
 	}
 }
+declare module skin_desktop.rc{
+	class LotteryHistory extends eui.Skin{
+	}
+}
+declare module skin_desktop.rc{
+	class LotteryHistoryIR extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class RcLeftPanel extends eui.Skin{
 	}
@@ -992,6 +1004,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class RcSidePanel extends eui.Skin{
+	}
+}
+declare module skin_desktop.rc{
+	class RCTraditionalBettingPanel extends eui.Skin{
 	}
 }
 declare module skin_desktop.ro{
@@ -1530,6 +1546,10 @@ declare module skin_mobile_landscape{
 }
 declare module skin_mobile_landscape{
 	class BetHistoryItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class BetHistoryItemLottery extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{
@@ -2193,10 +2213,6 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
-	class BaResultItem extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
 	class BetHistorySkin extends eui.Skin{
 	}
 }
@@ -2209,19 +2225,23 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class BetHistoryItemLottery extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class BetHistorySearch extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
-	class ChangeName extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class CustomRoad extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
 	class DatePickerItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class DoubleCalendarPicker extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class BaResultItem extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -2233,7 +2253,27 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
-	class DoubleCalendarPicker extends eui.Skin{
+	class LoResultItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class LwResultItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class RolResultItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class RoResultItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class ChangeName extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class CustomRoad extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -2242,10 +2282,6 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class LiveVerification extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class LwResultItem extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -2278,14 +2314,6 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class PlayerProfileIconItem extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class RolResultItem extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class RoResultItem extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

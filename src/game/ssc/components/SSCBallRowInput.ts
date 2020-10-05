@@ -14,6 +14,11 @@ namespace we {
       constructor(index: number, config: any) {
         super(index, config);
 
+        this.initSkin();
+        this.init();
+      }
+
+      protected initSkin() {
         switch (this._config.theme) {
           case InputComponentTheme.ROW:
           case InputComponentTheme.ROW_WITH_OPTION:
@@ -23,8 +28,6 @@ namespace we {
             this.skinName = 'skin_desktop.lo.SSCBallButtonRows';
             break;
         }
-
-        this.init();
       }
 
       protected init() {

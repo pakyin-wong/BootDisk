@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.LoResultItem" height="76" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" >
+	<e:Group id="_ballContainer" verticalCenter="0">
+    	<e:Group>
+		<ui:RoundRectShape width="36" height="36" x="0" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="18,18,18,18" fillColor="0x034a94,00244e,0"/>
+		<ui:RoundRectShape width="36" height="36" x="58" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="18,18,18,18" fillColor="0x034a94,00244e,0"/>
+		<ui:RoundRectShape width="36" height="36" x="116" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="18,18,18,18" fillColor="0x034a94,00244e,0"/>
+		<ui:RoundRectShape width="36" height="36" x="174" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="18,18,18,18" fillColor="0x034a94,00244e,0"/>
+		<ui:RoundRectShape width="36" height="36" x="232" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="18,18,18,18" fillColor="0x034a94,00244e,0"/>
+		<e:layout>
+		<e:HorizontalLayout gap="10"/>
+		</e:layout>
+	</e:Group>
+	<e:Group>
+		<e:Label id="b1" width="36" height="36" x="232" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b2" width="36" height="36" x="174" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b3" width="36" height="36" x="116" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b4" width="36" height="36" x="58" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b5" width="36" height="36" x="0" y="0" textColor="0xDEA167" size="26" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:layout>
+		<e:HorizontalLayout gap="10"/>
+		</e:layout>
+	</e:Group>
+    </e:Group>
+</e:Skin>

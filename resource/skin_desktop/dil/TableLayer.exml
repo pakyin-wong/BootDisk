@@ -2,7 +2,8 @@
 <e:Skin class="skin_desktop.dil.TableLayerSkin" width="1312" height="340" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:bt="we.ui.bt.*" xmlns:tween="egret.tween.*"
         xmlns:di="we.di.*">
-	<e:Group id="_row1" x="16" y="16">
+		<ui:RoundRectShape cornerTL_TR_BL_BR="25,25,25,25" width="1312" height="340" x="0" y="0" stroke="1" strokeColor="0x000000" fillColor="0x000000"/>
+	<e:Group id="_row1" y="16" horizontalCenter="0">
 		<e:Group id="_sum_3_group" width="146" height="146">
 			<e:Image name='image' source="d_gfsb_panel_betarea_green_yellow_png" horizontalCenter="0" verticalCenter="0" />
 			<e:Label fontFamily="Barlow" text="150x" size="28" horizontalCenter="0" y="4" />
@@ -47,7 +48,7 @@
 			<e:HorizontalLayout gap="8" horizontalAlign="center" />
 		</e:layout>
 	</e:Group>
-	<e:Group id="_row2" y="178" x="16">
+	<e:Group id="_row2" y="178" horizontalCenter="0">
 		<e:Group id="_sum_11_group" width="146" height="146">
 			<e:Image name='image' source="d_gfsb_panel_betarea_green_png" horizontalCenter="0" verticalCenter="0" />
 			<e:Label fontFamily="Barlow" text="5x" size="28" horizontalCenter="0" y="4" />

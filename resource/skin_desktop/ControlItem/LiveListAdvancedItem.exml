@@ -35,7 +35,7 @@
 	         touchChildren="false" height="100">
 		<e:Group width="100%" x="0" scaleX="1" scaleY="1" bottom="0">
 			<!--<ui:RoundRectShape cornerTL_TR_BL_BR="15,15,15,15" width="345" height="103" x="0" y="0" stroke="0" fillColor="0x000000" fillAlpha="0.8"/>-->
-			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" x="136" y="20" skinName="skin_desktop.BetChipSkin"/>
+			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" x="140" y="12" skinName="skin_desktop.BetChipSkin"/>
 			<ui:BaseImageButton id="_closeButton" x="12" y="28" width="56" height="60" currentState="lobby_betcontrol_close" skinName="skin_desktop.ImageButtonSkinLobby"/>
 			<ui:BaseImageButton id="_prevButton" x="68" y="28" width="56" height="60" currentState="lobby_betcontrol_previous" skinName="skin_desktop.ImageButtonSkinLobby"/>
 			<ui:RoundRectButton id="_confirmButton" x="235" y="33" cornerTL_TR_BL_BR="25,25,25,25" width="85" height="50" stroke="0" strokeIn="0" fillColor="00aa5e" fillAlpha="1" fillAlpha_hover="0.7" currentState="lobby_confirm_button"/>

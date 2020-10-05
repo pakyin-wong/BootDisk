@@ -9,6 +9,7 @@ namespace we {
       constructor(tableId: string) {
         super('MobileQuickBet');
         this._tableId = tableId;
+        this.poppableAddon.isPixelFit = true;
       }
 
       private changeLang() {}

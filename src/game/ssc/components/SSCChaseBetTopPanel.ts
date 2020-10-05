@@ -37,6 +37,10 @@ namespace we {
         super();
         this._chaseBetPanel = panel;
         this._currentChaseType = chaseType;
+        this.initSkin();
+      }
+
+      protected initSkin() {
         switch (this._currentChaseType) {
           case SSCChaseType.SAMEMULTIPLE:
             this.skinName = 'skin_desktop.lo.SSCTraditionalChaseBetTopPanel';

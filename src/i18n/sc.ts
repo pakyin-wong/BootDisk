@@ -78,7 +78,7 @@ namespace we {
       overlaypanel_customroad_default: '还原预设',
       overlaypanel_customroad_selectall: '全选',
 
-      overlaypanel_bethistory_title: '投注记录',
+      overlaypanel_bethistory_title: '游戏记录',
       overlaypanel_bethistory_tab_all: '游戏总览',
       overlaypanel_bethistory_tab_live: '真人游戏',
       overlaypanel_bethistory_tab_lottery: '彩票游戏',
@@ -88,20 +88,21 @@ namespace we {
       overlaypanel_bethistory_yesterday: '昨天',
       overlaypanel_bethistory_week: '本周',
       overlaypanel_bethistory_customperiod: '自订',
-      overlaypanel_bethistory_searchrecord: '搜寻记录',
+      overlaypanel_bethistory_searchrecord: '请输入投注编号',
       overlaypanel_bethistory_recordtab_title: '记录详情',
       overlaypanel_bethistory_recordtab_id: '投注编号',
       overlaypanel_bethistory_recordtab_date: '日期时间',
       overlaypanel_bethistory_recordtab_game: '游戏',
       overlaypanel_bethistory_recordtab_round: '局数',
       overlaypanel_bethistory_recordtab_replay: '重播',
-      overlaypanel_bethistory_recordtab_remark: '赢输',
+      overlaypanel_bethistory_recordtab_remark: '输嬴',
       overlaypanel_bethistory_recordtab_bettype: '投注项目',
       overlaypanel_bethistory_recordtab_betamount: '投注额',
       overlaypanel_bethistory_recordtab_win: '派彩',
       overlaypanel_bethistory_recordtab_orgbalance: '开局余额',
       overlaypanel_bethistory_recordtab_finbalance: '本局余额',
       overlaypanel_bethistory_recordtab_resuit: '游戏结果',
+      overlaypanel_bethistory_recordtab_noresult: '没有相关结果',
       overlaypanel_bethistory_remark_win: '嬴',
       overlaypanel_bethistory_remark_lose: '输',
       overlaypanel_bethistory_remark_ties: '和',
@@ -115,7 +116,10 @@ namespace we {
       overlaypanel_bethistory_btn_prev: '上一则',
       overlaypanel_bethistory_searchtype_all: '全部游戏',
 
-      overlaypanel_bethistorylottery_record_round: '奖期',
+      overlaypanel_bethistorylottery_tab_single: '投注记录',
+      overlaypanel_bethistorylottery_tab_multi: '追号记录',
+
+      overlaypanel_bethistorylottery_record_round: '投注编号',
       overlaypanel_bethistorylottery_record_bettype: '类型',
       overlaypanel_bethistorylottery_record_betgroup: '玩法',
       overlaypanel_bethistorylottery_record_betfield: '投注项目',
@@ -154,9 +158,6 @@ namespace we {
       overlaypanel_bethistorylottery_cancelbtn_yes: '确认',
       overlaypanel_bethistorylottery_cancelbtn_no: '取消',
 
-      overlaypanel_bethistorylottery_tab_single: '投注记录',
-      overlaypanel_bethistorylottery_tab_multi: '追号记录',
-
       overlaypanel_bethistory_baresult_banker: '庄',
       overlaypanel_bethistory_baresult_player: '闲',
       overlaypanel_bethistory_dtresult_dragon: '龙',
@@ -172,7 +173,7 @@ namespace we {
         },
       },
 
-      overlaypanel_gameSet_showGoodRoadHint: '显示好路提示',
+      overlaypanel_gameSet_showGoodRoadHint: '显示百家乐好路提示',
       overlaypanel_gameSet_autoBet: '自动确认投注',
       overlaypanel_gameSet_sendLiveVerfication: '发送现场验证',
 
@@ -204,7 +205,7 @@ namespace we {
       mobile_notification_close_button_label: '关闭',
       mobile_notification_next_button_label: '下一页',
 
-      mobile_quick_bet_button_label: '快速投注',
+      mobile_quick_bet_button_label: '快速下注',
       mobile_quick_bet_button_add_label: '追注',
       mobile_enter_table_button_label: '进入游戏',
 
@@ -402,7 +403,8 @@ namespace we {
         double: '双骰',
         triple: '三骰',
         triple_: '围',
-        TableLayerMsg: '单骰1:1 双骰2:1 三骰3:1',
+        TableLayerMsg_P: '单骰1:1 双骰2:1 三骰3:1',
+        TableLayerMsg_L: '单骰1:1 \n双骰2:1 三骰3:1',
 
         roadBig: '大',
         roadSmall: '小',
@@ -547,7 +549,7 @@ namespace we {
         goodroad: '好路',
         allgames: '全部游戏',
         noGoodRoad: '没有好路',
-        noBet: '没有已下注游戏'
+        noBet: '没有已下注游戏',
       },
       baccarat: {
         tooltip: {
@@ -561,11 +563,14 @@ namespace we {
         },
         playerPair: '闲对',
         bankerPair: '庄对',
+        playerPairShort: '闲对',
+        bankerPairShort: '庄对',
         player: '闲',
         playerShort: '闲',
         tie: '和',
         tieShort: '和',
         superSix: '超级6',
+        superSixShort: '超级6',
         banker: '庄',
         bankerShort: '庄',
         tableInfo: '本台资讯',
@@ -734,6 +739,16 @@ namespace we {
           AnyTwo: '任选二',
           AnyThree: '任选三',
           AnyFour: '任选四',
+          // rc
+          RCChampion: '猜冠军',
+          RCTop2: '猜前二',
+          RCTop3: '猜前三',
+          RCTop4: '猜前四',
+          RCTop5: '猜前五',
+          RCFixPos: '定位胆',
+          RCSize: '大小',
+          RCParity: '单双',
+          RCDragonTiger: '龙虎',
         },
         smallTag: {
           DirectionSelection: '直选复式', // FiveStar
@@ -812,6 +827,17 @@ namespace we {
           GroupThree: '组三复式',
           GroupSix: '组六复式',
           MixGroup: '混合组选',
+          // rc
+          RCDirectionalSelection: '直选复式',
+          RCDirectionalMenu: '直选单式',
+          RCFirstFiveFixPos: '前五定位胆',
+          RCLastFiveFixPos: '后五定位胆',
+          RCChampion: '冠军',
+          RCSecond: '亚军',
+          RCThird: '季军',
+          RCForth: '第四名',
+          RCFifth: '第五名',
+          RCDT1v10: '1v10',
         },
         inputTitle: {
           TenThousand: '第一球｜万位',
@@ -835,6 +861,20 @@ namespace we {
           Group: '组选',
 
           Any: '任选',
+          // rc
+          RCChampion: '冠军',
+          RCSecond: '亚军',
+          RCThird: '季军',
+          RCForth: '第四名',
+          RCFifth: '第五名',
+
+          RCSixth: '第六名',
+          RCSeventh: '第七名',
+          RCEighth: '第八名',
+          RCNinth: '第九名',
+          RCTenth: '第十名',
+
+          RCDT1vs10: '1VS10',
         },
         inputs: {
           DRAGON: '龙',
@@ -999,6 +1039,46 @@ namespace we {
             Group6: '所选号码与开奖号码的选取位置四个数字相同，所选二重号在\n开奖号码中出现2次，顺序不限，即中奖',
             Group4: '所选号码与开奖号码的选取位置四个数字相同，单号号码与开\n奖号码相同，且所选三重号在开奖号码中出现3次，顺序不限，即中奖',
           },
+          RCChampion: {
+            RCDirectionalSelection: '所选号码与当期顺序摇出的10个号码中的第一个号码相同,即为中奖',
+          },
+          RCTop2: {
+            RCDirectionalSelection: '所选号码与当期顺序摇出的10个号码中的前2个号码相同，且顺序一致，即中奖。',
+            RCDirectionalMenu: '所选号码与当期顺序摇出的10个号码中的前2个号码相同，且顺序一致，即中奖。',
+          },
+          RCTop3: {
+            RCDirectionalSelection: '所选号码与当期顺序摇出的10个号码中的前3个号码相同，且顺序一致，即中奖。',
+            RCDirectionalMenu: '所选号码与当期顺序摇出的10个号码中的前3个号码相同，且顺序一致，即中奖。',
+          },
+          RCTop4: {
+            RCDirectionalSelection: '所选号码与当期顺序摇出的10个号码中的前4个号码相同，且顺序一致，即中奖。',
+            RCDirectionalMenu: '所选号码与当期顺序摇出的10个号码中的前4个号码相同，且顺序一致，即中奖。',
+          },
+          RCTop5: {
+            RCDirectionalSelection: '所选号码与当期顺序摇出的10个号码中的前5个号码相同，且顺序一致，即中奖。',
+            RCDirectionalMenu: '所选号码与当期顺序摇出的10个号码中的前5个号码相同，且顺序一致，即中奖。',
+          },
+          RCFixPos: {
+            RCFirstFiveFixPos: '所选号码与相同位置上的开奖号码一致，即中奖。',
+            RCLastFiveFixPos: '所选号码与相同位置上的开奖号码一致，即中奖。',
+          },
+          RCSize: {
+            RCChampion: '选号型态的开奖号码一致，即中奖。',
+            RCSecond: '选号型态的开奖号码一致，即中奖。',
+            RCThird: '选号型态的开奖号码一致，即中奖。',
+            RCForth: '选号型态的开奖号码一致，即中奖。',
+            RCFifth: '选号型态的开奖号码一致，即中奖。',
+          },
+          RCParity: {
+            RCChampion: '选号型态的开奖号码一致，即中奖。',
+            RCSecond: '选号型态的开奖号码一致，即中奖。',
+            RCThird: '选号型态的开奖号码一致，即中奖。',
+            RCForth: '选号型态的开奖号码一致，即中奖。',
+            RCFifth: '选号型态的开奖号码一致，即中奖。',
+          },
+          RCDragonTiger: {
+            RCDT1v10: '所选号码的位置、形态,与开奖号码的位置与形态一致，即中奖。',
+          },
         },
         chase: {
           chaseBet: '追号',
@@ -1029,6 +1109,18 @@ namespace we {
           p3: '百',
           p4: '十',
           p5: '个',
+        },
+        rcballresultpos: {
+          p1: '冠军',
+          p2: '亚军',
+          p3: '季军',
+          p4: '第四名',
+          p5: '第五名',
+          p6: '第六名',
+          p7: '第七名',
+          p8: '第八名',
+          p9: '第九名',
+          p10: '第十名',
         },
       },
 

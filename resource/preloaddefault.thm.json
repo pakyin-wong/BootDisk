@@ -35,7 +35,6 @@
 		"resource/skin_mobile_portrait/imagebutton/ImageButtonSkinEmpty.exml",
 		"resource/skin_mobile_portrait/ImageSlider.exml",
 		"resource/skin_mobile_portrait/nav/NavSideMenu.exml",
-		"resource/skin_mobile_portrait/overlay/DatePickerItem.exml",
 		"resource/skin_mobile_portrait/ToggleButton.exml",
 		"resource/skin_mobile/BetChipStack.exml"
 	],
