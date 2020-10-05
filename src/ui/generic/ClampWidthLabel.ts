@@ -66,6 +66,7 @@ namespace we {
         };
 
         const width = utils.measureTextWidth(this.text, values, this.style);
+        console.log('widthwidthwidth',width)
         // console.log(width, this.measuredWidth, egret.sys.DisplayList.$canvasScaleFactor);
         if (this.targetWidth > 0) {
           if (this.targetWidth < width) {
