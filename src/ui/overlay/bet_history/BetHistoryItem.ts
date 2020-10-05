@@ -48,7 +48,8 @@ namespace we {
           this.setData(this._btn_replay['label'], i18n.t('overlaypanel_bethistory_record_replay'));
           this.setData(this._txt_record_id, this.data.betid);
           this.setData(this._txt_record_date, utils.formatTime(this.data.datetime.toFixed(0)));
-          this.setData(this._txt_record_game, i18n.t('gametype_' + we.core.GameType[this.data.gametype]) + (this.data.tablename ? ' ' + this.data.tablename : ''));
+          this.setData(this._txt_record_game, i18n.t('gametype_' + we.core.GameType[this.data.gametype]));
+          // this.setData(this._txt_record_game, i18n.t('gametype_' + we.core.GameType[this.data.gametype]) + (this.data.tablename ? ' ' + this.data.tablename : ''));
           this.setData(this._txt_record_round, this.data.gameroundid);
           this.setData(this._txt_record_remark, this.formatRemark(this.data.remark));
           this.setData(this._txt_record_bettype, this.formatBetType(this.data.gametype, this.data.field));
