@@ -64,7 +64,7 @@ namespace we {
     }
     eui.sys.TouchScroll.prototype.finish = finish;
 
-    egret['web'].WebPlayer.prototype.updateScreenSize = function() {
+    egret['web'].WebPlayer.prototype.updateScreenSize = function () {
       const canvas = this.canvas;
       if (canvas['userTyping']) {
         return;

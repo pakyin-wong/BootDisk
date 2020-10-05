@@ -72,7 +72,7 @@ namespace we {
         mouse.setButtonMode(this._playerBeadGroup, true);
       }
 
-      protected getBankerBeadIconGroup(){
+      protected getBankerBeadIconGroup() {
         const bankerLayout = new eui.HorizontalLayout();
         bankerLayout.gap = 2;
 
@@ -97,7 +97,7 @@ namespace we {
         return bankerBeadIconGroup;
       }
 
-      protected getPlayerBeadIconGroup(){
+      protected getPlayerBeadIconGroup() {
         const playerLayout = new eui.HorizontalLayout();
         playerLayout.gap = 2;
 
@@ -120,14 +120,13 @@ namespace we {
         playerBeadIconGroup.addChild(this.iconPlayerCockroach);
 
         return playerBeadIconGroup;
-
       }
 
       public askBankerRoad(evt: egret.Event) {
         if (evt.target === this._iconBankerBead) {
           evt.stopPropagation();
           if (this.advancedRoad && this.advancedRoad instanceof we.ba.AdvancedRoad) {
-            (<we.ba.AdvancedRoad> this.advancedRoad).askBankerRoad();
+            (<we.ba.AdvancedRoad>this.advancedRoad).askBankerRoad();
           }
         }
       }
@@ -136,7 +135,7 @@ namespace we {
         if (evt.target === this._iconPlayerBead) {
           evt.stopPropagation();
           if (this.advancedRoad && this.advancedRoad instanceof we.ba.AdvancedRoad) {
-            (<we.ba.AdvancedRoad> this.advancedRoad).askPlayerRoad();
+            (<we.ba.AdvancedRoad>this.advancedRoad).askPlayerRoad();
           }
         }
       }

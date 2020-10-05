@@ -242,7 +242,7 @@ namespace we {
         if (!list) {
           return 138;
         }
-        let tableArr = list.getTableList();
+        const tableArr = list.getTableList();
         if (!tableArr || tableArr.length === 0) {
           return 138;
         }

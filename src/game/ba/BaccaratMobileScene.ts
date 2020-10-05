@@ -108,6 +108,7 @@ namespace we {
       //     // .to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
       //   }
       // }
+
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
         // if (this._betRelatedGroup && env.orientation === 'portrait') {
@@ -115,9 +116,9 @@ namespace we {
           egret.Tween.removeTweens(this._betRelatedGroup);
           egret.Tween.get(this._betRelatedGroup).to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
         }
-
         this._switchBaMode.enabled = enable;
       }
+
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
