@@ -23,8 +23,8 @@ namespace we {
       public beadRoad: DilBeadRoad;
 
       // new for di
-      //protected beadRadioBtn1: eui.RadioButton;
-      //protected beadRadioBtn2: eui.RadioButton;
+      // protected beadRadioBtn1: eui.RadioButton;
+      // protected beadRadioBtn2: eui.RadioButton;
       protected isExpanded: boolean;
       protected toggleUpDownButton: eui.ToggleSwitch;
 
@@ -102,8 +102,8 @@ namespace we {
           this.gameIdLabel.y -= 202;
           this.totalBetLabel.y -= 202;
 
-          //this.beadRadioBtn1.y += 202;
-          //this.beadRadioBtn2.y += 202;
+          // this.beadRadioBtn1.y += 202;
+          // this.beadRadioBtn2.y += 202;
           this.beadRoad.expandRoad(true);
           this.beadRoad.y -= 202;
           this.isExpanded = true;
@@ -121,8 +121,8 @@ namespace we {
           this.gameIdLabel.y += 202;
           this.totalBetLabel.y += 202;
 
-          //this.beadRadioBtn1.y -= 202;
-          //this.beadRadioBtn2.y -= 202;
+          // this.beadRadioBtn1.y -= 202;
+          // this.beadRadioBtn2.y -= 202;
           this.beadRoad.expandRoad(false);
           this.beadRoad.y += 202;
           this.isExpanded = false;

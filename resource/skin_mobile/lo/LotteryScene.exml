@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.LotteryScene" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" states="left_hand_mode,right_hand_mode">
+	<e:Group x="19" top="0" bottom="0">
+		<ui:RoundRectShape id="_btn_mode" width="104" height="104" y="292" cornerTL_TR_BL_BR="52,52,52,52" fillColor="0x3a3f48"/>
+	</e:Group>
+</e:Skin>

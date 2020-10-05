@@ -57,7 +57,7 @@ namespace we {
         this.previousTargetRanks = this.targetRanks; // store the last targetRanks to current ranks
         this.targetRanks = ranks; // set targetRanks to new ranksCopy
         if (duration >= 0) {
-          const funcChange = function(): void {
+          const funcChange = function (): void {
             const tempRanks = [];
             if (!this.previousTargetRanks) {
               this.previousTargetRanks = this.targetRanks;
@@ -67,7 +67,7 @@ namespace we {
             }
             this.renderRanks(tempRanks, this.colorSettings);
           };
-          const funcCompleted = function(): void {
+          const funcCompleted = function (): void {
             this.renderRanks(ranks, this.colorSettings);
           };
           egret.Tween.removeTweens(this);

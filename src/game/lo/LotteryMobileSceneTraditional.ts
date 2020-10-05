@@ -8,7 +8,7 @@
  */
 namespace we {
   export namespace lo {
-    export class LotterySceneTraditional extends core.DesktopBaseGameScene {
+    export class LotteryMobileSceneTraditional extends core.DesktopBaseGameScene {
       protected _roadmapControl: we.lo.LoRoadmapControl;
       protected _counter: eui.Label;
       protected _targetTime;
@@ -29,13 +29,13 @@ namespace we {
       }
 
       protected mount() {
-        super.mount();
+        // super.mount();
 
-        if (this._rightGamePanel) {
-          // for testing
-          // this._rightGamePanel.initBetCombination(this._chipLayer);
-          // this._rightGamePanel.initRaceTrack(this._chipLayer, this._tableLayer);
-        } // for testing
+        // if (this._rightGamePanel) {
+        //   // for testing
+        //   // this._rightGamePanel.initBetCombination(this._chipLayer);
+        //   // this._rightGamePanel.initRaceTrack(this._chipLayer, this._tableLayer);
+        // } // for testing
       }
 
       protected addEventListeners() {

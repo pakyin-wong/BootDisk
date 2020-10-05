@@ -137,6 +137,7 @@ namespace we {
           core.GameType.LW,
           core.GameType.RO,
           core.GameType.ROL,
+          core.GameType.LO,
         ];
         this.desktopValidGameType = [
           core.GameType.BAC,

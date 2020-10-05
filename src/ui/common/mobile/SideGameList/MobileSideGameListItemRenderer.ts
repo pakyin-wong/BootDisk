@@ -15,7 +15,7 @@ namespace we {
 
         this.count = this.data.count ? this.data.count : 0;
 
-        this.label.renderText = function() {
+        this.label.renderText = function () {
           let _text = `${i18n.t(this.data.text)}`;
           this.count > 0 && (_text = _text + `(${this.count})`);
           return _text;
