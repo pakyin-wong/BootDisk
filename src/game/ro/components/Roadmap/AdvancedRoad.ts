@@ -44,6 +44,8 @@ namespace we {
         this.totalCount = 0;
 
         const bgShape = new ui.RoundRectShape();
+        bgShape.width = 580;
+        bgShape.height = 437;
         bgShape.setRoundRectStyle(584, 441, { tl: 0, tr: 10, bl: 0, br: 10 }, '0xffffff', 1, 0);
         this.addChild(bgShape);
 

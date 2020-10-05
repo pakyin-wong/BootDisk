@@ -81,13 +81,13 @@ namespace we {
         this._totalAmountMapping[ba.BetField.BANKER] = this._bankerTotalAmount;
         this._totalAmountMapping[ba.BetField.SUPER_SIX_BANKER] = this._superSixBankerTotalAmount;
 
-        this._playerLabel.renderText = () => i18n.t('baccarat.player');
-        this._bankerLabel.renderText = () => i18n.t('baccarat.banker');
-        this._playerPairLabel.renderText = () => i18n.t('baccarat.playerPair');
-        this._tieLabel.renderText = () => i18n.t('baccarat.tie');
-        this._bankerPairLabel.renderText = () => i18n.t('baccarat.bankerPair');
-        this._superSixBankerLabel.renderText = () => i18n.t('baccarat.banker');
-        this._superSixLabel.renderText = () => i18n.t('baccarat.superSix');
+        this._playerLabel.renderText = () => i18n.t('baccarat.playerShort');
+        this._bankerLabel.renderText = () => i18n.t('baccarat.bankerShort');
+        this._playerPairLabel.renderText = () => i18n.t('baccarat.playerPairShort');
+        this._tieLabel.renderText = () => i18n.t('baccarat.tieShort');
+        this._bankerPairLabel.renderText = () => i18n.t('baccarat.bankerPairShort');
+        this._superSixBankerLabel.renderText = () => i18n.t('baccarat.bankerShort');
+        this._superSixLabel.renderText = () => i18n.t('baccarat.superSixShort');
       }
 
       public onRollover(fieldName: string) {

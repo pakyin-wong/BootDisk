@@ -70,7 +70,7 @@
 
                 <e:Rect width="1" height="100%" fillColor="0xd8d8d8" fillAlpha="1" right="0"/>
             </e:Group>
-            <e:Group id="column6" x="2607.5" width="521.5" height="100%">
+            <e:Group id="column6" x="2607.5" width="421.5" height="100%">
                 <ui:RunTimeLabel id="twelveCountLabel" text="總數8 / 13" y="40" x="24" scaleX="1" scaleY="1" size="44"/>
                 <e:Label id="pTwelveCount" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" right="28" alpha=".7"/>
 
@@ -81,7 +81,7 @@
                 <e:Label id="pFourteenCount" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" right="28" alpha=".7"/>
                 <e:Rect width="1" height="100%" fillColor="0xd8d8d8" fillAlpha="1" right="0"/>
             </e:Group>
-            <e:Group id="column7" x="3129" width="521.5" height="100%">
+            <e:Group id="column7" x="3029" width="421.5" height="100%">
                 <ui:RunTimeLabel id="fifteenCountLabel" text="指定單骰" y="40" x="24" scaleX="1" scaleY="1" size="44"/>
                 <e:Label id="pFifteenCount" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" right="28" alpha=".7"/>
 
@@ -92,7 +92,7 @@
                 <e:Label id="pSeventeenCount" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" right="28" alpha=".7"/>
                 <e:Rect width="1" height="100%" fillColor="0xd8d8d8" fillAlpha="1" right="0"/>
             </e:Group>
-            <e:Group id="column8" x="3650.5" width="521.5" height="100%">
+            <e:Group id="column8" x="3450.5" width="421.5" height="100%">
                 <ui:RunTimeLabel id="eighteenCountLabel" text="指定單骰" y="40" x="24" scaleX="1" scaleY="1" size="44"/>
                 <e:Label id="pEighteenCount" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" right="28" alpha=".7"/>
             </e:Group>

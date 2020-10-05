@@ -29,7 +29,7 @@ namespace we {
         page['_tabbarBg'] = tabbarBg;
         page['_tabs'] = tabs;
         page['_stickyHeader'] = stickyHeader;
-        page['onScroll'] = function () {
+        page['onScroll'] = function() {
           const scrollV = this.scroller.viewport.scrollV;
           const scrollTarget = 700;
           const ratio = Math.min(1, scrollV / scrollTarget);
@@ -37,7 +37,7 @@ namespace we {
           this._tabbarBg.alpha = opacity;
           dir.evtHandler.dispatch(core.Event.UPDATE_NAVBAR_OPACITY, opacity);
         };
-        page['onTabChanged'] = function () {
+        page['onTabChanged'] = function() {
           const item = this._tabs.tabBar.selectedItem.key;
           env.currentTab = item;
           this.roomList.setGameFilters(item);

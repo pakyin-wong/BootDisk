@@ -38,7 +38,7 @@ namespace we {
         this.playerSum.text = this.gameData.playerpoint >= 0 ? this.gameData.playerpoint.toString() : '';
         this.bankerSum.text = this.gameData.bankerpoint >= 0 ? this.gameData.bankerpoint.toString() : '';
 
-        cardArr.forEach(function (value, index) {
+        cardArr.forEach(function(value, index) {
           if (value) {
             cardHolderArr[index].setCard(utils.formatCard(value));
           } else {

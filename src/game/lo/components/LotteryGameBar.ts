@@ -2,6 +2,7 @@ namespace we {
   export namespace lo {
     export class LotteryGameBar extends ui.GameBar {
       protected _tableid;
+      protected _key;
 
       protected historyBtn: egret.DisplayObject;
       protected trendBtn: egret.DisplayObject;
@@ -10,6 +11,10 @@ namespace we {
 
       public set tableid(i) {
         this._tableid = i;
+      }
+
+      public set key(k) {
+        this._key = k;
       }
 
       protected mount() {
@@ -39,7 +44,7 @@ namespace we {
             originX: this.historyBtn.localToGlobal(0, 0).x,
             originY: this.historyBtn.localToGlobal(0, 0).y,
           },
-          args: [this._tableid],
+          args: [this._tableid, this._key],
         });
         logger.l(utils.LogTarget.DEBUG, `onClickHistory`);
       }

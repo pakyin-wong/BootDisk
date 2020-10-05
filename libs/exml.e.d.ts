@@ -871,6 +871,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class RcResultItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class RolResultItem extends eui.Skin{
 	}
 }
@@ -968,6 +972,14 @@ declare module skin_desktop.rc{
 }
 declare module skin_desktop.rc{
 	class FunBetRoundInfo extends eui.Skin{
+	}
+}
+declare module skin_desktop.rc{
+	class LotteryHistory extends eui.Skin{
+	}
+}
+declare module skin_desktop.rc{
+	class LotteryHistoryIR extends eui.Skin{
 	}
 }
 declare module skin_desktop{

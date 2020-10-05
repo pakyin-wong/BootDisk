@@ -20,11 +20,7 @@ namespace we {
         this.shape = new egret.Shape();
         this.graphic = this.shape.graphics;
         this.addChild(this.shape);
-        this.setChartStyles([
-          [[0x2552fc, 0x5ad9ff], [1, 1], [0, 255], 0],
-          [[0xe4e85c, 0x1fe479], [1, 1], [0, 255], 0],
-          [[0xfc2424, 0xfa936e], [1, 1], [0, 255], 0],
-        ]);
+        this.setChartStyles([[[0x2552fc, 0x5ad9ff], [1, 1], [0, 255], 0], [[0xe4e85c, 0x1fe479], [1, 1], [0, 255], 0], [[0xfc2424, 0xfa936e], [1, 1], [0, 255], 0]]);
       }
 
       public set maxChartSize(value: number) {
@@ -64,7 +60,7 @@ namespace we {
         this.previousTargetRanks = this.targetRanks; // store the last targetRanks to current ranks
         this.targetRanks = ranks; // set targetRanks to new ranksCopy
         if (duration >= 0) {
-          const funcChange = function (): void {
+          const funcChange = function(): void {
             const tempRanks = [];
             if (!this.previousTargetRanks) {
               this.previousTargetRanks = this.targetRanks;
@@ -75,7 +71,7 @@ namespace we {
             tempRanks[this.targetRanks.length] = 100 - this.percentStart;
             this.renderRanks(tempRanks, this.colorSettings, this.emptyRadius);
           };
-          const funcCompleted = function (): void {
+          const funcCompleted = function(): void {
             this.renderRanks(ranks, this.colorSettings, this.emptyRadius);
           };
           egret.Tween.removeTweens(this);

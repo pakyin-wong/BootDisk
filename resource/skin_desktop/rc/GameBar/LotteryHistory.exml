@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.rc.LotteryHistory" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:lo="we.lo.*">
+	<e:Group id="content">
+		<ui:RoundRectShape width="704" height="624" fillColor="0x0b1725" cornerTL_TR_BL_BR="20,20,20,20" stroke="0" x="0" y="0" scaleX="1" scaleY="1"/>
+		<e:List id="_list" y="12" horizontalCenter="0">
+			<e:layout>
+				<e:VerticalLayout gap="12" horizontalAlign="center"/>
+			</e:layout>
+		</e:List>
+	</e:Group>
+</e:Skin>

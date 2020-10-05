@@ -52,7 +52,7 @@ namespace we {
         let result;
         let timeout = null;
         let previous = 0;
-        const later = function () {
+        const later = function() {
           previous = options.leading === false ? 0 : Date.now();
           timeout = null;
           result = func.apply(context, args);
@@ -60,7 +60,7 @@ namespace we {
             context = args = null;
           }
         };
-        return function () {
+        return function() {
           const now = Date.now();
           if (!previous && options.leading === false) {
             previous = now;
@@ -193,14 +193,14 @@ namespace we {
         const viewHeight = this.viewport.contentHeight - this.height;
         this.viewport.scrollV = Math.max(0, Math.min(viewHeight, viewHeight * progress));
         this.dispatchEvent(new egret.Event(egret.Event.CHANGE));
-      }
+      };
 
       private onMouseUp = (event: MouseEvent) => {
         this.showScrollBar(false);
         (<any>window).removeEventListener('mousemove', this.onMouseMove, { passive: false });
         (<any>window).removeEventListener('mouseup', this.onMouseUp, { passive: false });
         this._firstYForMovement = 0;
-      }
+      };
 
       private onThumbEnd = (event: egret.TouchEvent) => {
         if (this._firstYForMovement !== 0) {
@@ -212,7 +212,7 @@ namespace we {
         const viewHeight = this.viewport.contentHeight - this.height;
         this.viewport.scrollV = Math.max(0, Math.min(viewHeight, viewHeight * progress));
         this.dispatchEvent(new egret.Event(egret.Event.CHANGE));
-      }
+      };
 
       private onMouseOver(event: egret.TouchEvent) {
         this.enableWheel();

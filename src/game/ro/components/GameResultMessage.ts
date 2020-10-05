@@ -40,11 +40,7 @@ namespace we {
         //   ['middle_txt', 90, numCenter, 90],
         //   ['L_txt3', 60, numRight, 90],
         // ];
-        const array = [
-          ['result_l', 60, numLeft, 0],
-          ['result_middle', 90, numCenter, 0],
-          ['result_r', 60, numRight, 0],
-        ];
+        const array = [['result_l', 60, numLeft, 0], ['result_middle', 90, numCenter, 0], ['result_r', 60, numRight, 0]];
 
         for (const [slotName, fontSize, text, rotate] of array) {
           const slot = this._display.armature.getSlot(<string>slotName);

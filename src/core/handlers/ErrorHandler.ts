@@ -45,14 +45,14 @@ namespace we {
             this.createDialog(error.detail, {
               dismiss: {
                 text: 'Cancel',
-                onClick: async function () {
+                onClick: async function() {
                   error.args[error.args.length - 1](error);
                   this.doFinish();
                 }.bind(this),
               },
               action: {
                 text: 'Retry',
-                onClick: async function () {
+                onClick: async function() {
                   this.doRetryFunction(error.method, error.args);
                   this.doFinish();
                 }.bind(this),
@@ -62,7 +62,7 @@ namespace we {
             this.createDialog(error.detail, {
               dismiss: {
                 text: 'Restart',
-                onClick: async function () {
+                onClick: async function() {
                   this.doRestart();
                 }.bind(this),
               },
@@ -71,7 +71,7 @@ namespace we {
             this.createDialog(error.detail, {
               dismiss: {
                 text: 'Cancel',
-                onClick: async function () {
+                onClick: async function() {
                   this.doFinish();
                 }.bind(this),
               },

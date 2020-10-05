@@ -33,7 +33,7 @@ namespace we {
         this.dragonSum.text = this.gameData.dragonpoint >= 0 ? this.gameData.dragonpoint.toString() : '';
         this.tigerSum.text = this.gameData.tigerpoint >= 0 ? this.gameData.tigerpoint.toString() : '';
 
-        cardArr.forEach(function (value, index) {
+        cardArr.forEach(function(value, index) {
           if (value) {
             cardHolderArr[index].setCard(utils.formatCard(value));
           } else {

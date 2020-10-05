@@ -82,28 +82,27 @@ namespace we {
         }
       }
 
-      protected updateTargetHeight(){
-      }
+      protected updateTargetHeight() {}
 
-      protected tweenExpand(interval: number){
-          egret.Tween.removeTweens(this._tweenGroup);
-          egret.Tween.removeTweens(this._tabBarGroup);
-          egret.Tween.removeTweens(this._viewStack);
-          egret.Tween.removeTweens(this._bg);
+      protected tweenExpand(interval: number) {
+        egret.Tween.removeTweens(this._tweenGroup);
+        egret.Tween.removeTweens(this._tabBarGroup);
+        egret.Tween.removeTweens(this._viewStack);
+        egret.Tween.removeTweens(this._bg);
 
-          egret.Tween.get(this._viewStack)
-            .wait(interval)
-            .to({ height: this._targetHeight }, interval);
-          egret.Tween.get(this._tweenGroup)
-            .to({ scaleX: 1 }, interval)
-            .set({ visible: true })
-            .to({ scaleY: 1, alpha: 1 }, interval);
-          egret.Tween.get(this._tabBarGroup)
-            .wait(interval)
-            .to({ y: 8 }, interval);
-          egret.Tween.get(this._bg)
-            .wait(interval)
-            .to({ ellipseHeight: 28, ellipseWidth: 28 }, interval);
+        egret.Tween.get(this._viewStack)
+          .wait(interval)
+          .to({ height: this._targetHeight }, interval);
+        egret.Tween.get(this._tweenGroup)
+          .to({ scaleX: 1 }, interval)
+          .set({ visible: true })
+          .to({ scaleY: 1, alpha: 1 }, interval);
+        egret.Tween.get(this._tabBarGroup)
+          .wait(interval)
+          .to({ y: 8 }, interval);
+        egret.Tween.get(this._bg)
+          .wait(interval)
+          .to({ ellipseHeight: 28, ellipseWidth: 28 }, interval);
       }
     }
   }

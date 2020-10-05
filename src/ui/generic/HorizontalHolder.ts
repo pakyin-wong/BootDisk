@@ -580,7 +580,7 @@ namespace we {
             }
           }
         }
-      }
+      };
 
       protected onTouchEnd = event => {
         if (this._isAnimating) {
@@ -648,7 +648,7 @@ namespace we {
             break;
         }
         this.clearTouch();
-      }
+      };
 
       protected clearTouch() {
         const canvas = document.getElementsByTagName('canvas')[0];

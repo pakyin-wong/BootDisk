@@ -64,49 +64,49 @@ class IPhone8Helper extends IPhone7Helper {
     this.root = this.CreateElement('fullscreen-root-hidden', true);
     this.root.addEventListener(
       'touchstart',
-      function () {
+      function() {
         self.HandleTouchStart.apply(self, arguments);
       },
       false
     );
     this.root.addEventListener(
       'touchmove',
-      function () {
+      function() {
         self.HandleTouchMove.apply(self, arguments);
       },
       false
     );
     this.root.addEventListener(
       'touchend',
-      function () {
+      function() {
         self.HandleTouchEnd.apply(self, arguments);
       },
       false
     );
     this.root.addEventListener(
       'touchcancel',
-      function () {
+      function() {
         self.HandleTouchEnd.apply(self, arguments);
       },
       false
     );
     this.root.addEventListener(
       'gesturestart',
-      function () {
+      function() {
         self.PreventEvent.apply(self, arguments);
       },
       false
     );
     this.root.addEventListener(
       'gesturechange',
-      function () {
+      function() {
         self.PreventEvent.apply(self, arguments);
       },
       false
     );
     this.root.addEventListener(
       'gestureend',
-      function () {
+      function() {
         self.PreventEvent.apply(self, arguments);
       },
       false
@@ -124,7 +124,7 @@ class IPhone8Helper extends IPhone7Helper {
   public ResizeHandler(e?: Event) {
     const self = this;
     if (!this.GameStarted()) {
-      setTimeout(function () {
+      setTimeout(function() {
         self.ResizeHandler();
       }, 100);
       return;
@@ -138,7 +138,7 @@ class IPhone8Helper extends IPhone7Helper {
       if (wasLandscape === this.isLandscape) {
         if (this.panelHiddenTime > 0) {
           if (Date.now() - this.panelHiddenTime < 69) {
-            setTimeout(function () {
+            setTimeout(function() {
               self.ResizeHandler(e);
             }, 500);
             return;
@@ -187,7 +187,7 @@ class IPhone8Helper extends IPhone7Helper {
       this.UpdateScrollable(false);
     }
     if (e !== undefined) {
-      setTimeout(function () {
+      setTimeout(function() {
         self.ResizeHandler();
       }, 500);
     }
@@ -234,13 +234,13 @@ class IPhone8Helper extends IPhone7Helper {
     const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
 
     // if any scroll is attempted, set this to the previous value
-    window.onscroll = function () {
+    window.onscroll = function() {
       window.scrollTo(scrollLeft, scrollTop);
     };
   }
 
   public enableScroll() {
-    window.onscroll = function () {};
+    window.onscroll = function() {};
   }
 
   public HandleTouchStart(event: Event) {
@@ -267,7 +267,7 @@ class IPhone8Helper extends IPhone7Helper {
     const self = this;
     this.isTouch = false;
     this.UpdateScrollable(false);
-    this.resetScrollTimeout = setTimeout(function () {
+    this.resetScrollTimeout = setTimeout(function() {
       self.ResetScroll();
       this.resizeCanvas();
     }, 200);
@@ -312,17 +312,17 @@ class FullScreenIPhoneHelper {
     const version = parseInt(env.UAInfo.os.version, 10);
     if (version === 7) {
       const h7 = new IPhone7Helper();
-      const onScroll = function () {
+      const onScroll = function() {
         h7.ScrollHandler.apply(h7, arguments);
       };
       window.addEventListener('scroll', onScroll, false);
       h7.ScrollHandler();
     } else {
       const h = new IPhone8Helper();
-      const onScroll = function () {
+      const onScroll = function() {
         h.ScrollHandler.apply(h, arguments);
       };
-      const onResize = function () {
+      const onResize = function() {
         h.ResizeHandler.apply(h, arguments);
       };
       window.addEventListener('resize', onResize, false);

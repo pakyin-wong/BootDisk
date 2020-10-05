@@ -8,9 +8,9 @@ namespace we {
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('RcSceneFun');
       }
-      protected onGameStatisticUpdated() {}
+      // protected onGameStatisticUpdated() {}
 
-      protected updateResultDisplay() {}
+      // protected updateResultDisplay() {}
     }
   }
 }
