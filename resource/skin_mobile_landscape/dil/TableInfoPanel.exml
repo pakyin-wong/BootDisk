@@ -95,13 +95,6 @@
             <e:Group id="column8" x="3650.5" width="521.5" height="100%">
                 <ui:RunTimeLabel id="eighteenCountLabel" text="指定單骰" y="40" x="24" scaleX="1" scaleY="1" size="44"/>
                 <e:Label id="pEighteenCount" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" right="28" alpha=".7"/>
-
-
-
-
-
-
-
             </e:Group>
         </e:Group>
     </e:Scroller>
