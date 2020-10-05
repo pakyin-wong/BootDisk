@@ -2551,6 +2551,18 @@ declare module skin_mobile{
 	}
 }
 declare module skin_mobile{
+	class LotteryScene extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class LotterySceneFun extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class LotterySceneTraditional extends eui.Skin{
+	}
+}
+declare module skin_mobile{
 	class LobbyTabListItemRenderer extends eui.Skin{
 	}
 }

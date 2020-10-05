@@ -169,7 +169,7 @@ namespace we {
         // console.log('LiveListAdvancedItem', this._tableId);
         // console.log('LiveListAdvancedItem::onRoadDataUpdate', evt.data);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._analysis) {
               this._analysis.tableId = this._tableId;
@@ -212,7 +212,7 @@ namespace we {
         // console.log('LiveListAdvancedItem', this._tableId);
         // console.log('LiveListAdvancedItem::onTableBetInfoUpdate', evt.data);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._analysis) {
               this._analysis.tableId = this._tableId;

@@ -41,12 +41,12 @@ class FontManager {
       const self = this;
       font
         .load()
-        .then(function(loaded_face) {
-          (<any>document).fonts.add(loaded_face);
+        .then(function (loaded_face) {
+          (<any> document).fonts.add(loaded_face);
           self.fonts[fontname] = loaded_face;
           return Promise.resolve();
         })
-        .catch(function(error) {
+        .catch(function (error) {
           // error occurred
           egret.error(`Load font error: ${error}`);
           return Promise.reject(error);

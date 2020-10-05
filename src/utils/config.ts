@@ -15,7 +15,7 @@ namespace we {
     export async function getText(path) {
       return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
+        xhr.onreadystatechange = function () {
           if (xhr.readyState === 4) {
             if (xhr.status === 200) {
               resolve(xhr.responseText);

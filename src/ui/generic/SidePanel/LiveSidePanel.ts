@@ -196,7 +196,7 @@ namespace we {
         const tableList = evt.data;
         this.goodRoadTableList.setTableList(tableList);
         const count = tableList.length;
-        const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(1);
+        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(1);
         if (tabItem) {
           tabItem.onBadgeUpdate('goodroad', count);
         }
@@ -215,7 +215,7 @@ namespace we {
         const tableList = evt.data;
         this.betTableList.setTableList(tableList);
         const count = tableList.length;
-        const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(0);
+        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(0);
         if (tabItem) {
           tabItem.onBadgeUpdate('bet', count);
         }
@@ -242,7 +242,7 @@ namespace we {
         if (!list) {
           return 138;
         }
-        let tableArr = list.getTableList();
+        const tableArr = list.getTableList();
         if (!tableArr || tableArr.length === 0) {
           return 138;
         }
