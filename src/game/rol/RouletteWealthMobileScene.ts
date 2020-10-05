@@ -21,12 +21,12 @@ namespace we {
 
       protected setStateIdle(isInit: boolean = false) {
         super.setStateIdle(isInit);
-        (<we.rol.MobileChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.rol.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         this.luckyCoinGroup.clearLuckyNumbers();
       }
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-        (<we.rol.MobileChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.rol.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         this.luckyCoinGroup.clearLuckyNumbers();
       }
       protected setStateFinish(isInit: boolean = false) {
@@ -39,25 +39,25 @@ namespace we {
             this.roState = 'small';
           }
         }
-        (<we.rol.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.rol.MobileChipLayer> this._chipLayer).showWinningNumber();
+        (<we.rol.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.rol.MobileChipLayer>this._chipLayer).showWinningNumber();
       }
 
       protected setStateRefund(isInit: boolean = false) {
         super.setStateRefund(isInit);
-        (<we.rol.MobileChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.rol.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         this.luckyCoinGroup.clearLuckyNumbers();
       }
 
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
-        (<we.rol.MobileChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.rol.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         this.luckyCoinGroup.clearLuckyNumbers();
       }
 
       protected setStateUnknown(isInit: boolean = false) {
         super.setStateUnknown(isInit);
-        (<we.rol.MobileChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.rol.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         this.luckyCoinGroup.clearLuckyNumbers();
       }
 
@@ -65,7 +65,7 @@ namespace we {
         // this.resetToNormal();
         super.setStateDeal(isInit);
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
-          (<we.rol.MobileChipLayer> this._chipLayer).showLuckyNumber();
+          (<we.rol.MobileChipLayer>this._chipLayer).showLuckyNumber();
           this.luckyCoinGroup.updateLuckyNumbers(this._gameData, this._chipLayer);
           if (this.luckyCoinGroup.isLuckyNo) {
             this.roState = 'result';
@@ -81,7 +81,7 @@ namespace we {
       }
 
       public checkResultMessage(resultData = null) {
-        (<any> this._gameData).hasBet = this.hasBet();
+        (<any>this._gameData).hasBet = this.hasBet();
         super.checkResultMessage(resultData);
         this.luckyCoinGroup.clearLuckyNumbers();
       }

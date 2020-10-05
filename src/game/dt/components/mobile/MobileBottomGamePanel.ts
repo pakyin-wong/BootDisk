@@ -16,6 +16,11 @@ namespace we {
       protected chartBtn: eui.RadioButton;
       protected tableInfoBtn: eui.RadioButton;
 
+      protected totalCountLabel: eui.Label;
+      protected bankerCountLabel: eui.Label;
+      protected playerCountLabel: eui.Label;
+      protected tieCountLabel: eui.Label;
+
       public constructor(skin?: string) {
         super(skin || !env.isMobile ? skin : 'dt.MobileBottomGamePanel');
       }
@@ -35,6 +40,12 @@ namespace we {
             break;
         }
         // this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
+      }
+
+      public setTableInfo(tableInfo: data.TableInfo) {
+        super.setTableInfo(tableInfo);
+        this._roadmapPanel.setTableInfo(this.tableInfo);
+        this._statisticChartPanel.setValue(tableInfo);
       }
 
       protected addListeners() {

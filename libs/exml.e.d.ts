@@ -871,6 +871,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class RcResultItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class RolResultItem extends eui.Skin{
 	}
 }
