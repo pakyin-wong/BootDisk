@@ -64,53 +64,63 @@ namespace we {
         this._bankerAskLabel.renderText = () => i18n.t('baccarat.askBanker');
         this._playerAskLabel.renderText = () => i18n.t('baccarat.askPlayer');
 
-        this.iconBankerBigEye = new BABigEyeRoadIcon();
-        this.iconBankerBigEye.x = 20;
-        this.iconBankerBigEye.y = 34;
-        this.iconBankerBigEye.width = 14;
-        this.iconBankerBigEye.height = 14;
-
-        this.iconBankerSmall = new BASmallRoadIcon();
-        this.iconBankerSmall.horizontalCenter = 0;
-        this.iconBankerSmall.y = 34;
-        this.iconBankerSmall.width = 14;
-        this.iconBankerSmall.height = 14;
-
-        this.iconBankerCockroach = new BACockroachRoadIcon();
-        this.iconBankerCockroach.right = 20;
-        this.iconBankerCockroach.y = 34;
-        this.iconBankerCockroach.width = 14;
-        this.iconBankerCockroach.height = 14;
-
-        this.iconPlayerBigEye = new BABigEyeRoadIcon();
-        this.iconPlayerBigEye.x = 20;
-        this.iconPlayerBigEye.y = 34;
-        this.iconPlayerBigEye.width = 14;
-        this.iconPlayerBigEye.height = 14;
-
-        this.iconPlayerSmall = new BASmallRoadIcon();
-        this.iconPlayerSmall.horizontalCenter = 0;
-        this.iconPlayerSmall.y = 34;
-        this.iconPlayerSmall.width = 14;
-        this.iconPlayerSmall.height = 14;
-
-        this.iconPlayerCockroach = new BACockroachRoadIcon();
-        this.iconPlayerCockroach.right = 20;
-        this.iconPlayerCockroach.y = 34;
-        this.iconPlayerCockroach.width = 14;
-        this.iconPlayerCockroach.height = 14;
-
-        this._bankerBeadGroup.addChild(this.iconBankerBigEye);
-        this._bankerBeadGroup.addChild(this.iconBankerSmall);
-        this._bankerBeadGroup.addChild(this.iconBankerCockroach);
-
-        this._playerBeadGroup.addChild(this.iconPlayerBigEye);
-        this._playerBeadGroup.addChild(this.iconPlayerSmall);
-        this._playerBeadGroup.addChild(this.iconPlayerCockroach);
+        this._bankerBeadGroup.addChild(this.getBankerBeadIconGroup());
+        this._playerBeadGroup.addChild(this.getPlayerBeadIconGroup());
 
         mouse.setButtonMode(this._analysisGroup, true);
         mouse.setButtonMode(this._bankerBeadGroup, true);
         mouse.setButtonMode(this._playerBeadGroup, true);
+      }
+
+      protected getBankerBeadIconGroup(){
+        const bankerLayout = new eui.HorizontalLayout();
+        bankerLayout.gap = 2;
+
+        const bankerBeadIconGroup = new eui.Group();
+        bankerBeadIconGroup.horizontalCenter = 0;
+        bankerBeadIconGroup.y = 34;
+        bankerBeadIconGroup.layout = bankerLayout;
+
+        this.iconBankerBigEye = new BABigEyeRoadIcon();
+        this.iconBankerBigEye.width = 26;
+
+        this.iconBankerSmall = new BASmallRoadIcon();
+        this.iconBankerSmall.width = 26;
+
+        this.iconBankerCockroach = new BACockroachRoadIcon();
+        this.iconBankerCockroach.width = 26;
+
+        bankerBeadIconGroup.addChild(this.iconBankerBigEye);
+        bankerBeadIconGroup.addChild(this.iconBankerSmall);
+        bankerBeadIconGroup.addChild(this.iconBankerCockroach);
+
+        return bankerBeadIconGroup;
+      }
+
+      protected getPlayerBeadIconGroup(){
+        const playerLayout = new eui.HorizontalLayout();
+        playerLayout.gap = 2;
+
+        const playerBeadIconGroup = new eui.Group();
+        playerBeadIconGroup.horizontalCenter = 0;
+        playerBeadIconGroup.y = 34;
+        playerBeadIconGroup.layout = playerLayout;
+
+        this.iconPlayerBigEye = new BABigEyeRoadIcon();
+        this.iconPlayerBigEye.width = 26;
+
+        this.iconPlayerSmall = new BASmallRoadIcon();
+        this.iconPlayerSmall.width = 26;
+
+        this.iconPlayerCockroach = new BACockroachRoadIcon();
+        this.iconPlayerCockroach.width = 26;
+
+        playerBeadIconGroup.addChild(this.iconPlayerBigEye);
+        playerBeadIconGroup.addChild(this.iconPlayerSmall);
+        playerBeadIconGroup.addChild(this.iconPlayerCockroach);
+
+        return playerBeadIconGroup;
+
       }
 
       public askBankerRoad(evt: egret.Event) {
