@@ -160,6 +160,8 @@ namespace we {
       overlaypanel_gameSet_autoBet: '自動確認投注',
       overlaypanel_gameSet_sendLiveVerfication: '發送現場驗證',
 
+      expiredmessage_text:'您已3局未下注，2局後踢出',
+
       datePicker_clean: '清除',
       datePicker_confirm: '確定',
       datePicker_weekday_0: '日',

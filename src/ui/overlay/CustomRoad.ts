@@ -46,7 +46,7 @@ namespace we {
         this._cover.visible = false;
 
         this._defaultButton.label.renderText = () => `${i18n.t('overlaypanel_customroad_default')}`;
-        this._defaultButton.label.size = env.isMobile ? 40 : 24;
+        this._defaultButton.label.size = env.isMobile ? 40 : 22;
         this._defaultButton.label.alpha = 0.7;
 
         this._defaultButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDefaultClicked, this);

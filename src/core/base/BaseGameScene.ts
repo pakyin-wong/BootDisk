@@ -489,7 +489,7 @@ namespace we {
         this.updateCountdownTimer();
       }
       protected showTwoMessage() {
-        this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, '您已3局未下注，2局后踢出');
+        this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, i18n.t('expiredmessage_text'));
       }
       protected checkRoundCountWithoutBet() {
         if (this.tableInfo.totalBet > 0) {
@@ -505,7 +505,7 @@ namespace we {
               class: 'MessageDialog',
               args: [
                 // i18n.t(''),
-                '您已3局未下注，2局后踢出',
+                i18n.t('expiredmessage_text'),
                 {
                   // dismiss: { text: i18n.t('') },
                   dismiss: { text: 'cancelBet' },
@@ -522,7 +522,7 @@ namespace we {
           //               // i18n.t(''),
           //               '您已3局未下注，2局后踢出',
           //               {
-          //                 dismiss: { text: i18n.t('nav.menu.confirm') },
+          //                 dismiss: { text: i18n.t('nav.menu.confirm') }, 
           //                 // dismiss: { text: 'cancelBet' },
           //               },
           //             ],
@@ -537,7 +537,7 @@ namespace we {
 
       protected showInGameMessage() {
         if (this._expiredMessage) {
-          this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, '您已3局未下注，2局后踢出');
+          this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, i18n.t('expiredmessage_text'));
           // this._message.showMessage(ui.InGameMessage.EXPIRED,i18n.t(''));
         }
       }
