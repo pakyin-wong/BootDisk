@@ -179,7 +179,7 @@ namespace we {
 
       expiredmessage_text: '您已3局未下注，2局后踢出',
 
-      customerservicehotlinenumber_text: '客服热线号码更新为＋63 9250898888',
+      // customerservicehotlinenumber_text: '客服热线号码更新为＋63 9250898888',
 
       datePicker_clean: '清除',
       datePicker_confirm: '确定',

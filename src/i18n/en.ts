@@ -161,7 +161,7 @@ namespace we {
 
       expiredmessage_text: 'You have not bet for 3 rounds, and will be back to lobby after 2 rounds',
 
-      customerservicehotlinenumber_text: 'The customer service hotline number is updated to +63 9250898888',
+      // customerservicehotlinenumber_text: 'The customer service hotline number is updated to +63 9250898888',
 
       datePicker_clean: 'Clean',
       datePicker_confirm: 'Confirm',
