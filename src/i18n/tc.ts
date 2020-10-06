@@ -160,7 +160,9 @@ namespace we {
       overlaypanel_gameSet_autoBet: '自動確認投注',
       overlaypanel_gameSet_sendLiveVerfication: '發送現場驗證',
 
-      expiredmessage_text:'您已3局未下注，2局後踢出',
+      expiredmessage_text: '您已3局未下注，2局後踢出',
+
+      customerservicehotlinenumber_text: '客服熱線號碼更新為＋63 9250898888',
 
       datePicker_clean: '清除',
       datePicker_confirm: '確定',

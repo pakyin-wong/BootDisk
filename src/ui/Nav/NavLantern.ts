@@ -3,9 +3,12 @@ namespace we {
     export class NavLantern extends core.BaseEUI {
       private _loopIndex: number;
       private _loopline: number;
-      private _loopMsg: string[];
-      private _label: eui.Label;
-      private _next: eui.Label;
+      // private _loopMsg: string[];
+      private _loopMsg: any[];
+      // private _label: eui.Label;
+      // private _next: eui.Label;
+      private _label: ui.RunTimeLabel;
+      private _next: ui.RunTimeLabel;
       private _mask: egret.Shape;
 
       private _loopInterval;
@@ -23,9 +26,12 @@ namespace we {
       }
 
       protected mount() {
-        this._loopMsg = ['客服熱線號碼更新為 +63 9250898888，接聽時間為 8:00-00:00。'];
-        this._label = new eui.Label();
-        this._next = new eui.Label();
+        // this._loopMsg = ['客服熱線號碼更新為 +63 9250898888，接聽時間為 8:00-00:00。'];
+        this._loopMsg = [`${i18n.t('customerservicehotlinenumber_text')}`];
+        // this._label = new eui.Label();
+        this._label = new ui.RunTimeLabel();
+        // this._next = new eui.Label();
+        this._next = new ui.RunTimeLabel();
         this._label.width = this._next.width = this.width;
         this._label.size = this._next.size = this.fontsize;
         this._label.verticalAlign = this._next.verticalAlign = egret.VerticalAlign.MIDDLE;
@@ -89,7 +95,9 @@ namespace we {
         const lineHeight = (this._label.measuredHeight - this.lineSpacing * (this._label.numLines - 1)) / this._label.numLines;
         if (this._loopline === this._label.numLines) {
           this._loopIndex = this._loopIndex + 1 >= this._loopMsg.length ? 0 : this._loopIndex + 1;
-          this._next.text = this._loopMsg[this._loopIndex];
+          // this._next.text = this._loopMsg[this._loopIndex];
+          console.log('this._loopMsg[this._loopIndex]',this._loopMsg[this._loopIndex])
+          this._next.renderText = () => this._loopMsg[this._loopIndex]
           this._next.y = this.lineSpacing + lineHeight;
           egret.Tween.get(this._label).to({ y: this._label.y - this.lineSpacing - lineHeight }, 500);
           egret.Tween.get(this._next)
@@ -97,6 +105,7 @@ namespace we {
             .call(
               function() {
                 egret.Tween.removeTweens(this._label);
+                console.log('this._next.text',this._next.text)
                 this._label.text = this._next.text;
                 this._label.y = 0;
                 this._next.parent && this.removeChild(this._next);

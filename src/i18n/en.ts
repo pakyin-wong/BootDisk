@@ -159,7 +159,9 @@ namespace we {
       overlaypanel_gameSet_autoBet: 'Auto Bet Confirm',
       overlaypanel_gameSet_sendLiveVerfication: 'Send Live Verfication',
 
-      expiredmessage_text:'You have not bet for 3 rounds, and will be back to lobby after 2 rounds',
+      expiredmessage_text: 'You have not bet for 3 rounds, and will be back to lobby after 2 rounds',
+
+      customerservicehotlinenumber_text: 'The customer service hotline number is updated to +63 9250898888',
 
       datePicker_clean: 'Clean',
       datePicker_confirm: 'Confirm',
