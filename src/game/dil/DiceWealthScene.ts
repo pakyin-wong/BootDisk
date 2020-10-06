@@ -32,51 +32,51 @@ namespace we {
 
       protected setStateIdle(isInit: boolean = false) {
         super.setStateIdle(isInit);
-        (<we.dil.ChipLayer>this._chipLayer).clearLuckyNumber();
-        (<we.dil.LeftPanel>this._leftGamePanel).clearLuckyNumbers();
+        (<we.dil.ChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.dil.LeftPanel> this._leftGamePanel).clearLuckyNumbers();
       }
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-        (<we.dil.ChipLayer>this._chipLayer).clearLuckyNumber();
-        (<we.dil.LeftPanel>this._leftGamePanel).clearLuckyNumbers();
+        (<we.dil.ChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.dil.LeftPanel> this._leftGamePanel).clearLuckyNumbers();
       }
       protected setStateFinish(isInit: boolean = false) {
         super.setStateFinish(isInit);
         if (isInit && this._previousState !== we.core.GameState.FINISH) {
-          (<we.dil.LeftPanel>this._leftGamePanel).updateLuckyNumbers();
+          (<we.dil.LeftPanel> this._leftGamePanel).updateLuckyNumbers();
         }
-        (<we.dil.ChipLayer>this._chipLayer).clearLuckyNumber();
-        (<dil.ChipLayer>this._chipLayer).showWinningNumber();
+        (<we.dil.ChipLayer> this._chipLayer).clearLuckyNumber();
+        (<dil.ChipLayer> this._chipLayer).showWinningNumber();
       }
 
       protected setStateRefund(isInit: boolean = false) {
         super.setStateRefund(isInit);
-        (<we.dil.ChipLayer>this._chipLayer).clearLuckyNumber();
-        (<we.dil.LeftPanel>this._leftGamePanel).clearLuckyNumbers();
+        (<we.dil.ChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.dil.LeftPanel> this._leftGamePanel).clearLuckyNumbers();
       }
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
-        (<we.dil.ChipLayer>this._chipLayer).clearLuckyNumber();
-        (<we.dil.LeftPanel>this._leftGamePanel).clearLuckyNumbers();
+        (<we.dil.ChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.dil.LeftPanel> this._leftGamePanel).clearLuckyNumbers();
       }
 
       protected setStateUnknown(isInit: boolean = false) {
         super.setStateUnknown(isInit);
-        (<we.dil.ChipLayer>this._chipLayer).clearLuckyNumber();
-        (<we.dil.LeftPanel>this._leftGamePanel).clearLuckyNumbers();
+        (<we.dil.ChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.dil.LeftPanel> this._leftGamePanel).clearLuckyNumbers();
       }
 
       protected setStateDeal(isInit: boolean = false) {
         super.setStateDeal(isInit);
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
-          (<we.dil.ChipLayer>this._chipLayer).showLuckyNumber();
-          (<we.dil.LeftPanel>this._leftGamePanel).updateLuckyNumbers();
+          (<we.dil.ChipLayer> this._chipLayer).showLuckyNumber();
+          (<we.dil.LeftPanel> this._leftGamePanel).updateLuckyNumbers();
         }
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const stat = <data.TableInfo>evt.data;
+          const stat = <data.TableInfo> evt.data;
           if (stat.tableid === this._tableId) {
             this._roadmapControl.updateRoadData();
             this._rightGamePanel.updateStat();
@@ -89,7 +89,7 @@ namespace we {
       }
 
       public checkResultMessage(resultData = null) {
-        (<any>this._gameData).hasBet = this.hasBet();
+        (<any> this._gameData).hasBet = this.hasBet();
         super.checkResultMessage(resultData);
       }
     }
