@@ -110,15 +110,15 @@ namespace we {
 
         // reader.onload = this.loadFileComplete(event).bind(this);
 
-        reader.onload = function(event) {
+        reader.onload = function (event) {
           this.loadFileComplete(event.target.result);
         }.bind(this);
 
-        reader.onabort = function() {
+        reader.onabort = function () {
           this.loadFileAbort();
         }.bind(this);
 
-        reader.onerror = function(event) {
+        reader.onerror = function (event) {
           this.loadFileError();
         }.bind(this);
 

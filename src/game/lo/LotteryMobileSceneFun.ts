@@ -1,6 +1,6 @@
 namespace we {
   export namespace lo {
-    export class LotterySceneFun extends LotterySceneFunBasic {
+    export class LotteryMobileSceneFun extends LotterySceneFunBasic {
       // protected _denominationList = [500, 1000, 2000, 5000, 10000];
       protected _denominationList;
       protected _betLayerTween: ui.TweenConfig;
@@ -20,13 +20,17 @@ namespace we {
       protected _drawerPanel: lo.LoRightDrawerPanel;
 
       protected mount() {
-        super.mount();
-        this.initDenom();
-        this.funbet.reset();
+        // super.mount();
+        // this.initDenom();
+        // this.funbet.reset();
 
-        if (this._drawerPanel) {
-          this._drawerPanel.setTableInfo(this._tableInfo);
-        }
+        // if (this._drawerPanel) {
+        //   this._drawerPanel.setTableInfo(this._tableInfo);
+        // }
+      }
+
+      protected destroy() {
+        
       }
 
       protected initDenom() {

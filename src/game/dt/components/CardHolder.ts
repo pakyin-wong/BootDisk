@@ -26,14 +26,14 @@ namespace we {
 
       public updateResult(gameData: data.GameData) {
         // TODO: update card using the gameData
-        this.gameData = <dt.GameData>gameData;
+        this.gameData = <dt.GameData> gameData;
         const cardArr = [this.gameData.d, this.gameData.t];
         const cardHolderArr = [this.cardDragon, this.cardTiger];
 
         this.dragonSum.text = this.gameData.dragonpoint >= 0 ? this.gameData.dragonpoint.toString() : '';
         this.tigerSum.text = this.gameData.tigerpoint >= 0 ? this.gameData.tigerpoint.toString() : '';
 
-        cardArr.forEach(function(value, index) {
+        cardArr.forEach(function (value, index) {
           if (value) {
             cardHolderArr[index].setCard(utils.formatCard(value));
           } else {
