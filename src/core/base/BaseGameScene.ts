@@ -745,10 +745,14 @@ namespace we {
 
       protected changeBtnState(isEnable: boolean = true) {
         this._undoButton.touchEnabled = isEnable;
+        this._undoButton.touchChildren = isEnable;
         this._cancelButton.touchEnabled = isEnable;
+        this._cancelButton.touchChildren = isEnable;
         this._confirmButton.touchEnabled = isEnable;
+        this._confirmButton.touchChildren = isEnable;
         this._doubleButton.alpha = this._chipLayer.getTotalCfmBetAmount() ? 1 : 0.3;
         this._doubleButton.touchEnabled = this._chipLayer.getTotalCfmBetAmount() ? true : false;
+        this._doubleButton.touchChildren = this._chipLayer.getTotalCfmBetAmount() ? true : false;
         this._undoButton.alpha = isEnable ? 1 : 0.5;
         this._cancelButton.alpha = isEnable ? 1 : 0.5;
         this._confirmButton.alpha = isEnable ? 1 : 0.3;
@@ -774,6 +778,7 @@ namespace we {
         if (this._chipLayer) {
           this._chipLayer.onRepeatPressed();
         }
+        this.changeBtnState(true);
       }
 
       protected onDoublePressed() {
