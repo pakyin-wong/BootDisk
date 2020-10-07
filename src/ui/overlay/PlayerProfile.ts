@@ -338,6 +338,8 @@ namespace we {
         env.nickname = nickName['value'];
         env.nicknameKey = e.data;
         dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
+        dir.socket.updateSetting('nickname', env.nickname);
+        dir.socket.updateSetting('nicknameKey', env.nicknameKey);
       }
 
       protected createIconList() {
