@@ -34,7 +34,7 @@ namespace we {
           case 12:
             this._content = new DIResultNotificationContent(); // DI
             break;
-          case 17:
+          case 19:
             this._content = new DLResultNotificationContent(); // DIL
           default:
             break;

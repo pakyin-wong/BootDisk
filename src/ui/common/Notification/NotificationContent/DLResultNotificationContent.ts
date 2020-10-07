@@ -12,7 +12,8 @@ namespace we {
 
       protected updateResult(gameType, tabledata) {
         console.log('[gameType,tabledata]', [gameType, tabledata]);
-        // const { dice1, dice2, dice3, winType } = tabledata;
+        const { dice1, dice2, dice3 } = tabledata;
+        this._lblDilResult1.text = dice1 + dice2 + dice3;
         // this._lblResult.renderText = () => i18n.t(utils.getWinMessageKey(gameType, winType, true));
         // if (dice1 && dice2 && dice3) {
         //   this._DIresultImage1.source = this.getDiceImage(dice1);
