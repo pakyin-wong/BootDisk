@@ -93,10 +93,7 @@ namespace we {
         this._roundRectShape = new RoundRectShape();
         this.addChildAt(this._roundRectShape, 0);
         if (this.cornerTL_TR_BL_BR !== '') {
-          const corners = this.cornerTL_TR_BL_BR
-            .split(' ')
-            .join('')
-            .split(',');
+          const corners = this.cornerTL_TR_BL_BR.split(' ').join('').split(',');
           this.cornerTL = parseInt(corners[0], 10);
           this.cornerTR = parseInt(corners[1], 10);
           this.cornerBL = parseInt(corners[2], 10);
@@ -133,8 +130,7 @@ namespace we {
         this._label.size = this.labelSize;
 
         if (this.labelAutoResize) {
-          this._label.targetWidth = this.width ;
-          console.log('this.width',this.width)
+          this._label.targetWidth = this.width;
         }
 
         this.touchChildren = false;

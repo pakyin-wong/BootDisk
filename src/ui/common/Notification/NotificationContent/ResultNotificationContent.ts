@@ -106,6 +106,9 @@ namespace we {
             case core.GameType.DI:
               dir.sceneCtr.goto('di', { tableid: this.tableId });
               break;
+            case core.GameType.DIL:
+              dir.sceneCtr.goto('dil', { tableid: this.tableId });
+              break;
           }
           this.removeSelf();
         }
