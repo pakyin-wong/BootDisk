@@ -233,6 +233,17 @@ namespace we {
         }
       }
 
+      public async getLobbyMaterialAsync(callback, thisArg) {
+        return new Promise((resolve, reject) => {
+          const resolveFunc = async (res: any) => {
+            await callback.bind(thisArg)(res);
+            resolve();
+          };
+          this.client.getLobbyMaterial(this.warpServerCallback(resolveFunc));
+          // this.client.getLobbyMaterial(env.language, this.warpServerCallback(resolveFunc));
+        });
+      }
+
       public updateSetting(key: string, value: string) {
         this.client.updateSetting(key, value);
       }
@@ -978,7 +989,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
           return betDetail;
         });
 
@@ -1197,7 +1208,7 @@ namespace we {
 
         for (const tableid of added) {
           const tableInfo = env.tableInfos[tableid];
-          if (tableInfo.data.state === core.GameState.BET) {
+          if (tableInfo.data && tableInfo.data.state === core.GameState.BET) {
             tableInfo.goodRoad.alreadyShown = true;
             const data = {
               tableid,

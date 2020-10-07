@@ -13,6 +13,7 @@ namespace we {
       getTableHistory();
       getBetHistory(filter: any, callback: (res: any) => void, thisArg: any);
       getLobbyMaterial(callback: (res: any) => void); // res: LobbyMaterial to any, since it could be error
+      getLobbyMaterialAsync(callback: (res: any) => void, thisArg: any);
       updateSetting(key: string, value: string);
       getGoodRoad();
       batchUpdateAllGoodRoad(updatedefaultItem: any[], updatecustomItem: any[]);
