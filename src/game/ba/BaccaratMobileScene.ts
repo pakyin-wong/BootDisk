@@ -111,12 +111,16 @@ namespace we {
       protected setResultRelatedComponentsEnabled(enable: boolean) {
         super.setResultRelatedComponentsEnabled(enable);
         if (this._resultDisplay && env.orientation === 'portrait') {
-          egret.Tween.removeTweens(this._resultDisplay);
-          if (enable) {
-            egret.Tween.get(this._resultDisplay).to({ y: 40, alpha: 1 }, 400);
-          } else {
-            egret.Tween.get(this._resultDisplay).to({ y: 232, alpha: 0 }, 10);
-          }
+          this.showResultDisplay(enable);
+        }
+      }
+
+      protected showResultDisplay(isShow: boolean) {
+        egret.Tween.removeTweens(this._resultDisplay);
+        if (isShow) {
+          egret.Tween.get(this._resultDisplay).to({ y: 40, alpha: 1 }, 400);
+        } else {
+          egret.Tween.get(this._resultDisplay).to({ y: 232, alpha: 0 }, 10);
         }
       }
 
