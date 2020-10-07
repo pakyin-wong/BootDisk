@@ -15,7 +15,8 @@ namespace we {
       protected _lblDilLuckyResult: eui.Group;
       protected _lblDilResult1: eui.Label;
       protected _lblDilResultTop: eui.Label;
-      protected _lblDilResultBottom: eui.Label; 
+      protected _lblDilResultBottom: eui.Label;
+      protected _DLresultImage: eui.Image;
 
       protected _btnQuickBet: BaseImageButton;
       protected _btnDismiss: BaseImageButton;

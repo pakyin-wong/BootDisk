@@ -2,33 +2,36 @@ namespace we {
   export namespace ui {
     export class DLResultNotificationContent extends ResultNotificationContent {
       private colorIndex: string[] = ['yellow', 'orange', 'red', 'pink', 'purple', 'blue', 'indigo', 'green', 'green', 'indigo', 'blue', 'purple', 'pink', 'red', 'orange', 'yellow'];
-      
+
       constructor() {
         super();
         this.currentState = 'DL';
       }
 
-      protected getDiceImage(value) {
-        return `d_sic_history_lv3_dice-${value}_png`;
-      }
-      //this._borderImage.source = (env.isMobile ? 'm' : 'd') + '_gfsb_panel_roadmap_record_multiple_' + this.colorIndex[value.v - 3] + '_png';
-                   // this._iconTopText.text = value.odds + 'X';
+      // protected getDiceImage(value) {
+      //   return `d_sic_history_lv3_dice-${value}_png`;
+      // }
+      // this._borderImage.source = (env.isMobile ? 'm' : 'd') + '_gfsb_panel_roadmap_record_multiple_' + this.colorIndex[value.v - 3] + '_png';
+      // this._iconTopText.text = value.odds + 'X';
       protected updateResult(gameType, tabledata) {
         console.log('[gameType,tabledata]', [gameType, tabledata]);
-        const { dice1, dice2, dice3 ,luckynumber} = tabledata;
-        let gameResult = dice1 + dice2 + dice3;
-        let luckynumberOdd
-        console.log('gameResult',[gameResult,typeof gameResult])
-        console.log('luckynumber',luckynumber)
-        console.log('object.keys(luckynumber)[0]',[Object.keys(luckynumber)[0],typeof Object.keys(luckynumber)[0]])
-        if ( gameResult.toString() in luckynumber) {
+        const { dice1, dice2, dice3, luckynumber } = tabledata;
+        const gameResult = dice1 + dice2 + dice3;
+        let luckynumberOdd;
+        console.log('gameResult', [gameResult, typeof gameResult]);
+        console.log('luckynumber', luckynumber);
+        console.log('object.keys(luckynumber)[0]', [Object.keys(luckynumber)[0], typeof Object.keys(luckynumber)[0]]);
+        if (gameResult.toString() in luckynumber) {
+          console.log('gameResult.toString() in luckynumber', gameResult.toString() in luckynumber);
           this._lblDilLuckyResult.visible = true;
           this._lblDilnonLuckyResult.visible = false;
-          luckynumberOdd = luckynumber[gameResult.toString()]
+          luckynumberOdd = luckynumber[gameResult.toString()];
           this._lblDilResultTop.text = luckynumberOdd + 'X';
           this._lblDilResultBottom.text = gameResult;
-          console.log('luckynumberOdd',luckynumberOdd)
+          this._DLresultImage.source = (env.isMobile ? 'm' : 'd') + '_gfsb_panel_roadmap_record_multiple_' + this.colorIndex[gameResult - 3] + '_png';
+          console.log('luckynumberOdd', luckynumberOdd);
         } else {
+          console.log('gameResult.toString() in luckynumber', gameResult.toString() in luckynumber);
           this._lblDilLuckyResult.visible = false;
           this._lblDilnonLuckyResult.visible = true;
           this._lblDilResult1.text = gameResult;
