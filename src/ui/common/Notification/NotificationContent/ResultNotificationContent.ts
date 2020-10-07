@@ -12,7 +12,10 @@ namespace we {
       protected _ROlblResult: RunTimeLabel;
 
       protected _lblDilnonLuckyResult: eui.Group;
+      protected _lblDilLuckyResult: eui.Group;
       protected _lblDilResult1: eui.Label;
+      protected _lblDilResultTop: eui.Label;
+      protected _lblDilResultBottom: eui.Label; 
 
       protected _btnQuickBet: BaseImageButton;
       protected _btnDismiss: BaseImageButton;
