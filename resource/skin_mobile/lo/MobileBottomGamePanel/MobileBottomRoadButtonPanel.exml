@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.lo.MobileButtonRoadPanel" xmlns:e="http://ns.egret.com/eui" width="1242" states="bead,big">
+    <e:Group id="_buttonGroup" width="100%" height="100%">
+        <e:RadioButton id="roadmapSizeBtn" label="大 / 小" includeIn="bead,big" x.big="22" x.bead="223" width="380" height="70" value="0" scaleX="1" scaleY="1" selected="true">
+            <e:skinName>
+                <e:Skin states="up,down,disabled">
+                    <e:Rect width="100%" height="100%" fillColor.up="0x375b7f" fillAlpha.up="0.2" fillColor.down="0x375b7f" fillAlpha.down="1" ellipseHeight="72" ellipseWidth="72"/>
+                    <e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" textColor.up="0xffffff" textColor.down="0xffffff"  alpha.up="0.5"   alpha.down="1"/>
+                </e:Skin>
+            </e:skinName>
+        </e:RadioButton>
+        <e:RadioButton id="roadmapOddevenBtn" label="單 / 雙" includeIn="bead,big" x.big="423" x.bead="623" width="380" height="70" value="1" scaleX="1" scaleY="1">
+            <e:skinName>
+                <e:Skin states="up,down,disabled">
+                    <e:Rect width="100%" height="100%" fillColor.up="0x375b7f" fillAlpha.up="0.2" fillColor.down="0x375b7f" fillAlpha.down="1" ellipseHeight="72" ellipseWidth="72"/>
+                    <e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" textColor.up="0xffffff" textColor.down="0xffffff"   alpha.up="0.5"  alpha.down="1"/>
+                </e:Skin>
+            </e:skinName>
+        </e:RadioButton>
+        <e:RadioButton id="roadmapSumBtn" label="和值" x="824" width="380" height="70" value="2" scaleX="1" scaleY="1" includeIn="big">
+            <e:skinName>
+                <e:Skin states="up,down,disabled">
+                    <e:Rect width="100%" height="100%" fillColor.up="0x375b7f" fillAlpha.up="0.2" fillColor.down="0x375b7f" fillAlpha.down="1" ellipseHeight="72" ellipseWidth="72"/>
+                    <e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" textColor.up="0xffffff" textColor.down="0xffffff" alpha.up="0.5"  alpha.down="1"/>
+                </e:Skin>
+            </e:skinName>
+        </e:RadioButton>
+    </e:Group>
+</e:Skin>
