@@ -7,7 +7,7 @@
 namespace we {
   export namespace bab {
     export class Scene extends ba.Scene {
-      // protected _flipCard;
+      public static resGroups = [core.res.BlockchainBaccarat];
 
       protected initChildren() {
         super.initChildren();

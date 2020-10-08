@@ -35,8 +35,8 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
           }
         }
         if (this._minimizedTableLayer) {
@@ -149,7 +149,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo> evt.data;
+          const stat = <data.TableInfo>evt.data;
           if (stat.tableid === this._tableId) {
             this._roadmapControl.updateRoadData();
           }
@@ -161,11 +161,11 @@ namespace we {
         if (!evt || !evt.data) {
           return;
         }
-        const betInfo = <data.GameTableBetInfo> evt.data;
+        const betInfo = <data.GameTableBetInfo>evt.data;
         if (betInfo.tableid === this._tableId) {
           // update the scene
-          (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-          (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+          (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+          (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
           if (this._minimizedTableLayer) {
             this._minimizedTableLayer.updateBetLabel(false, betInfo);
           }
@@ -186,7 +186,8 @@ namespace we {
           case core.GameType.BAC:
           case core.GameType.BAI:
           case core.GameType.BAS:
-          case core.GameType.BAM: {
+          case core.GameType.BAM:
+          case core.GameType.BAB: {
             // (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.selected);
             (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.active);
             switch (this._gameData.wintype) {

@@ -110,6 +110,7 @@ namespace we {
         case core.GameType.BAI:
         case core.GameType.BAS:
         case core.GameType.BAM:
+        case core.GameType.BAB:
           return 'ba';
         case core.GameType.DT:
           return 'dt';
