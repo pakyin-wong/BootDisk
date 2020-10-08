@@ -12,6 +12,7 @@ namespace we {
       gametype_BAS: '競速百家樂',
       gametype_BAI: '保險百家樂',
       gametype_BAM: '咪牌百家樂',
+      gametype_BAB: '區塊鏈百家樂',
       gametype_DI: '骰寶',
       gametype_DIL: '財神骰寶',
       gametype_MJ: '麻將',

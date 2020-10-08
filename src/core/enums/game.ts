@@ -16,7 +16,8 @@ namespace we {
       BAC = 0, // classic baccarat
       BAS = 1, // speed baccarat
       BAI = 2, // insurance baccarat
-      BAM = 18, // squeeze baccarat
+      BAM = 18, // squeeze BACCARAT
+      BAB = 99, // Blockchain Baccarat
       DT = 5, // Dragon Tiger
       RO = 14, // Roulette
       ROL = 17, // Roulette (God of Wealth) // L stands for luck

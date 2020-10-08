@@ -12,6 +12,7 @@ namespace we {
       gametype_BAS: 'BAS',
       gametype_BAI: 'BAI',
       gametype_BAM: 'BAM',
+      gametype_BAB: 'BAB',
       gametype_DI: 'DI',
       gametype_DIL: 'DIL',
       gametype_MJ: 'MJ',
