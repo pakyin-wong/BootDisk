@@ -49,7 +49,8 @@ namespace we {
       env.language = i18n.lang = s;
       dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
 
-      if (!isInit) {//  && !env._nicknames[env.language]
+      if (!isInit) {
+        //  && !env._nicknames[env.language]
         const tasks = [
           () =>
             dir.socket.getStaticInitDataAsync(async res => {
@@ -60,23 +61,9 @@ namespace we {
                 }
               }
             }, this),
-          () =>
-            dir.socket.getLobbyMaterialAsync(async res => {
-              if (res.error) {
-              } else {
-                const data: data.LobbyMaterial = res;
-                if (data) {
-                  // load all the first banner url
-                  // data.homeherobanners
-                }
-              }
-            }, this),
+          ()=>utils.BannerLoader.loadBanners()
         ];
-
         await loadingMgr.load(tasks, { isSequence: true });
-
-        const loadImageTasks = [];
-        await loadingMgr.load(loadImageTasks);
       }
 
       dir.evtHandler.dispatch(core.Event.SWITCH_LANGUAGE, s);

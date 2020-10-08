@@ -1,7 +1,7 @@
 namespace we {
   export namespace utils {
     export class BannerLoader {
-      private _loadRemoteImage(url) {
+      private static _loadRemoteImage(url) {
         return new Promise<egret.Texture>(resolve => {
           const loader = new egret.ImageLoader();
           loader.crossOrigin = 'anonymous';
@@ -20,8 +20,8 @@ namespace we {
         });
       }
 
-      public async loadBanners() {
-        await new Promise(resolve => {
+      public static async loadBanners() {
+        return new Promise(resolve => {
           dir.socket.getLobbyMaterial(async res => {
             logger.l(utils.LogTarget.DEBUG, res);
             if (res.error) {
