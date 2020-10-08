@@ -35,12 +35,12 @@
 				<e:Image width="20" height="46" source="m_ba_btn_info_png" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" />
 			</e:Group>
 			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" horizontalCenter="505"
-			                           skinName="skin_mobile.BetChipSkin" bottom="291" horizontalCenter.right_hand_mode="-500"
-			                           bottom.right_hand_mode="291" horizontalCenter.left_hand_mode="491"
-			                           bottom.left_hand_mode="291" labelSize="48" />
+			                           skinName="skin_mobile.BetChipSkin" horizontalCenter.right_hand_mode="-500"
+			                           horizontalCenter.left_hand_mode="491"
+			                           labelSize="48" y="220" />
 			<e:Group id="_betRelatedGroup" x="34" y="235" x.right_hand_mode="224" scaleX="1" scaleY="1">
-				<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
-							fillColor="0x444444"  width.left_hand_mode="100%"/>
+				<e:Rect id="_roundPanel"  height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
+							fillColor="0x444444"  right.right_hand_mode="0" left.left_hand_mode="0" width.right_hand_mode="940" width.left_hand_mode="940"/>
 				<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="874"
 							verticalCenter="0" x.right_hand_mode="682"  skinName="skin_mobile_portrait.BetConfirmButtonSkin" x.left_hand_mode="3"/>
 				<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="0" colorChange="true"

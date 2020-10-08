@@ -319,6 +319,7 @@ namespace we {
         super.setBetRelatedComponentsEnabled(enable);
         // this._betRelatedGroup.visible = enable;
         this._betChipSetGridSelected.visible = enable;
+        this._betChipSetGridSelected.chipScale = 0.6;
 
         const isEnable = enable;
         if (!isEnable) {
