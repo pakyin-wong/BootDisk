@@ -283,7 +283,8 @@ namespace we {
         // env.icons = {};
 
         // env.nicknameKey = player.profile.nickname;
-        env.nickname = player.profile.settings.nickname;
+        // env.nickname = player.profile.settings.nickname;
+        env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
         // env.icons = {
         //   iconKey01: 'd_lobby_profile_pic_01_png',
         //   iconKey02: 'd_lobby_profile_pic_02_png',
