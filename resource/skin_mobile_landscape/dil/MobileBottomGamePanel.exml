@@ -16,12 +16,12 @@
 			<e:Image id="_arrowUp" source="d_lobby_button_down_normal_png" width="80" height="80" scaleX="1" scaleY="1"
 			         visible.on="false" rotation="180" horizontalCenter="0" y="78" />
 		</e:Group>
-		<e:Group id="_middlePart" width="2424" x="0" scaleX="1" scaleY="1" left="0" right="0" height="308" y="65">
+		<e:Group id="_middlePart" width="2424" x="0" scaleX="1" scaleY="1" left="0" right="0" height="100%" y="65">
 			<e:Rect fillColor="0x212425" ellipseHeight="40" ellipseWidth="40" strokeColor="0x212425" right="0" left="0" top="0"
 			        bottom="0" visible="false" />
 			<e:Rect id="viewStackMask" width="100%" y="0" scaleX="1" scaleY="1" top="0" bottom="0" left="0" right="0" />
 			<e:Group id="_topPart" scaleX="1" scaleY="1" anchorOffsetX="0" x="2086"
-			         width="338" top="0" height="308">
+			         width="338" top="0" height="100%">
 				<e:Rect id="top_bg" width="100%" y="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
 				        fillColor="0x212425" strokeColor="0x212425" x="0" height="100%" />
 				<e:RadioButton id="historyBtn" label="路紙" x="8" y="10" height="80" value="0" selected="true" scaleX="1" scaleY="1"
@@ -54,7 +54,7 @@
 				</e:RadioButton>
 				<ui:RunTimeLabel id="_gameInfoLabel" text="Label" x="-401.72" y="26" size="42" bold="true" visible="false" />
 			</e:Group>
-			<e:ViewStack id="viewStack" height="308" x="0" y="0" selectedIndex="3" scaleX="1" scaleY="1" top="0"
+			<e:ViewStack id="viewStack" height="100%" x="0" y="0" selectedIndex="3" scaleX="1" scaleY="1" top="0"
 			             anchorOffsetX="0" width="2086" includeIn="on">
 				<e:Group id="_historyGroup" name="Group" left="0" right="0" height="100%" width="2086" includeIn="on">
 				<e:Rect id="history_bg" width="100%" y="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_landscape.ba.MobileBottomRoadmapPanel" width="2140" height="260"
         xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-	<e:Group id="content" width="100%" height="260">
-		<e:Rect id="topBar" width="244" height="260" x="1896" y="0" fillColor="0x1F242B" strokeWeight="0" ellipseHeight="0"
+	<e:Group id="content" width="100%" height="100%">
+		<e:Rect id="topBar" width="244" height="100%" x="1896" y="0" fillColor="0x1F242B" strokeWeight="0" ellipseHeight="0"
 		        ellipseWidth="0" strokeColor="0x1f242b" />
 		<e:Group verticalCenter="0" x="1961" anchorOffsetX="0" width="61">
 			<ui:RunTimeLabel id="bankerCountLabel" text="00" x="1952" y="165" textAlign="left" anchorOffsetX="0" width="36"

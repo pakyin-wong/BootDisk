@@ -13,7 +13,7 @@
 		<e:Group id="_middlePart" width="2424" x="0" y="80" scaleX="1" scaleY="1" left="0" right="0">
 			<e:Rect id="viewStackMask" y="0" scaleX="1" scaleY="1" top="0" bottom="0" left="0" right="0"/>
 			<e:Group id="_topPart" width="284" y="80" scaleX="1" scaleY="1" anchorOffsetX="0" top="0" bottom="0" x="2140">
-			<e:Rect id="top_bg" width="100%" height="260" y="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x212425" strokeColor="0x212425" x="0"/>
+			<e:Rect id="top_bg" width="100%" height="100%" y="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x212425" strokeColor="0x212425" x="0"/>
 			<e:RadioButton id="roadSheetBtn" label="路紙" x="8" y="12" width="252" height="70" value="0" selected="false" scaleX="1" scaleY="1">
 				<e:skinName>
 				<e:Skin states="up,down,disabled">
@@ -43,7 +43,7 @@
 			</e:RadioButton>
 			<ui:RunTimeLabel id="_gameInfoLabel" text="Label" x="-401.72" y="26" size="42" bold="true" visible="false"/>
 			</e:Group>
-			<e:ViewStack id="viewStack" width="2140" height="260" x="0" y="0" selectedIndex="2" scaleX="1" scaleY="1" top="0" anchorOffsetX.on="0">
+			<e:ViewStack id="viewStack" width="2140" height="100%" x="0" y="0" selectedIndex="2" scaleX="1" scaleY="1" top="0" anchorOffsetX.on="0">
 			<e:Group id="_roadmapGroup" width="100%" name="Group" left="0" right="0" height="100%">
 				<ba:MobileBottomRoadmapPanel id="_roadmapPanel" skinName="skin_mobile_landscape.ba.MobileBottomRoadmapPanel" scaleX="1" scaleY="1" top="0" height="100%" width="100%" left="0"/>
 			</e:Group>

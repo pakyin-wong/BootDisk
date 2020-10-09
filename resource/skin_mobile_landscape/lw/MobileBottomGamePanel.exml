@@ -52,7 +52,7 @@
 				</e:RadioButton>
 				<ui:RunTimeLabel id="_gameInfoLabel" text="Label" x="-401.72" y="26" size="42" bold="true" visible="false" />
 			</e:Group>
-			<e:ViewStack id="viewStack" width="2140" height="318" x="0" y="0" selectedIndex="1" scaleX="1" scaleY="1" top="0"
+			<e:ViewStack id="viewStack" width="2140" height="100%" x="0" y="0" selectedIndex="1" scaleX="1" scaleY="1" top="0"
 			             anchorOffsetX.on="0">
 				<e:Group id="_roadmapGroup" width="100%" name="Group" left="0" right="0" height="100%">
 					<lw:MobileBottomRoadmapPanel id="_roadmapPanel" skinName="skin_mobile_landscape.lw.MobileBottomRoadmapPanel"
