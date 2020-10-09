@@ -10,14 +10,14 @@
 			<e:Image id="_dealerImage" width="345" height="441" x="0" y="0" />
 			<ui:RoundRectShape width="345" height="107" x="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="0,0,0,0" fillColor="0x19191900,0x191919,0" anchorOffsetX="0" anchorOffsetY="0" y="334"/>
 			<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" size="27" x="22" y="365"  text=""/>
-			<e:Group id="_alreadyBetSign" right="5" bottom="40" visible="false">
-				<e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0"
-				         width="100" height="30" />
-				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="18" />
-			</e:Group>
+
 			<live:BetLimitDropdown id="_dropdown" width="200" x="13" y="388" skinName="BetLimitDropdownSkin"  horizontalAlign="left"/>
 			<e:Component id="_analysisNode" right="0" y="0" width="290" height="441" />
 			<e:Component id="_advancedRoadNode" width="580" height="441" x="345" y="0" />
+			<e:Group id="_alreadyBetSign" x="243" y="299" visible="false">
+				<e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0" width="100" height="30"/>
+				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="18"/>
+			</e:Group>
 		</e:Group>
 		<e:Group id="_contentContainerDynamic" left="0" right="0" top="0" bottom="0" touchEnabled="false">
 			<ui:CountdownTimer id="_timer" width="80" height="80" x="15" y="15" skinName="skin_desktop.CountdownTimerRoundSkin" />
