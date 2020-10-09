@@ -83,5 +83,15 @@
 	</ui:Group>
 	<ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="242" x="18" y="644" anchorOffsetX="0"
 	                          anchorOffsetY="0" visible="false" />
+	<e:Group id="_deckButton" x="2279" y="203" width="282" height="49">
+		<ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
+		<ui:RunTimeLabel i18n="baccarat.fullShoe" verticalCenter="0" horizontalCenter="0" />
+	</e:Group>
+	<e:Group id="_helpButton" x="2279" y="275" width="282" height="49">
+		<ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
+		<ui:RunTimeLabel i18n="baccarat.mechanismHelp" verticalCenter="0" horizontalCenter="0" />
+	</e:Group>
+	<bab:FirstRoundPanel visible="false"/>
+	<bab:CardInfoPanel id="_cardInfoPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" visible="false" />
 </e:Skin>
 
