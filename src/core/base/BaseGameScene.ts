@@ -292,7 +292,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -319,6 +319,7 @@ namespace we {
         if (this._betDetails && this._chipLayer) {
           this._chipLayer.updateBetFields(this._betDetails);
           this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
+          this.changeBtnState(false);
         }
       }
       protected onBetDetailUpdateInFinishState() {
@@ -332,7 +333,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -464,6 +465,7 @@ namespace we {
           if (this._betDetails && this._chipLayer) {
             this._chipLayer.updateBetFields(this._betDetails);
           }
+          this.changeBtnState(false);
         }
 
         if (this._previousState !== we.core.GameState.BET) {
@@ -708,8 +710,6 @@ namespace we {
               this.changeBtnState(false);
               this._undoStack.clearStack();
               dir.socket.bet(this._tableId, bets, this.onBetReturned.bind(this));
-              this._doubleButton.touchEnabled = true;
-              this._doubleButton.alpha = 1;
             }
           }
         }
@@ -744,14 +744,16 @@ namespace we {
       }
 
       protected changeBtnState(isEnable: boolean = true) {
-        this._undoButton.touchEnabled = isEnable;
-        this._cancelButton.touchEnabled = isEnable;
-        this._confirmButton.touchEnabled = isEnable;
-        this._doubleButton.alpha = this._chipLayer.getTotalCfmBetAmount() ? 1 : 0.3;
-        this._doubleButton.touchEnabled = this._chipLayer.getTotalCfmBetAmount() ? true : false;
+        this._undoButton.touchChildren = this._undoButton.touchEnabled = isEnable;
+        this._cancelButton.touchChildren = this._cancelButton.touchEnabled = isEnable;
+        this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isEnable;
+        this._doubleButton.touchChildren = this._doubleButton.touchEnabled = this._chipLayer.getTotalCfmBetAmount() ? true : false;
+        this._repeatButton.touchChildren = this._repeatButton.touchEnabled = this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid;
         this._undoButton.alpha = isEnable ? 1 : 0.5;
         this._cancelButton.alpha = isEnable ? 1 : 0.5;
         this._confirmButton.alpha = isEnable ? 1 : 0.3;
+        this._repeatButton.alpha = this._repeatButton.touchEnabled? 1: 0.5;
+        this._doubleButton.alpha = this._doubleButton.touchEnabled ? 1 : 0.5;
         if (this._timer.bg_color) {
           this._timer.bg_color.alpha = isEnable ? 0.7 : 0;
           if (isEnable) {
@@ -774,6 +776,7 @@ namespace we {
         if (this._chipLayer) {
           this._chipLayer.onRepeatPressed();
         }
+        this.changeBtnState(true);
       }
 
       protected onDoublePressed() {
