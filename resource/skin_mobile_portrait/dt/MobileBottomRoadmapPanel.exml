@@ -3,10 +3,10 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="content" width="100%" height="100%">
 		<e:Rect id="topBar" width="100%" height="98" x="0" y="0" fillColor="0x1F242B" strokeWeight="0" ellipseHeight="0" ellipseWidth="0" strokeColor="0x1f242b"/>
-		<ui:RunTimeLabel id="totalCountLabel" text="00" x="1160" y="32" textAlign="left" anchorOffsetX="0" width="80" size="34" height="34" verticalAlign="middle"/>
-		<ui:RunTimeLabel id="bankerCountLabel" text="00" x="583" y="32" textAlign="left" anchorOffsetX="0" width="80" size="34" height="34" verticalAlign="middle"/>
-		<ui:RunTimeLabel id="playerCountLabel" text="00" x="679" y="32" textAlign="left" anchorOffsetX="0" width="80" size="34" height="34" verticalAlign="middle"/>
-		<ui:RunTimeLabel id="tieCountLabel" text="00" x="775" y="32" textAlign="left" anchorOffsetX="0" width="80" size="34" height="34" verticalAlign="middle"/>
+		<ui:RunTimeLabel id="totalCountLabel" text="00" x="1160" y="32" textAlign="left" anchorOffsetX="0" width="80" size="34" height="34" verticalAlign="middle" targetWidth="45"/>
+		<ui:RunTimeLabel id="bankerCountLabel" text="00" x="583" y="32" textAlign="left" anchorOffsetX="0" width="80" size="34" height="34" verticalAlign="middle" targetWidth="45"/>
+		<ui:RunTimeLabel id="playerCountLabel" text="00" x="679" y="32" textAlign="left" anchorOffsetX="0" width="80" size="34" height="34" verticalAlign="middle" targetWidth="45"/>
+		<ui:RunTimeLabel id="tieCountLabel" text="00" x="775" y="32" textAlign="left" anchorOffsetX="0" width="80" size="34" height="34" verticalAlign="middle" targetWidth="45"/>
 		<e:Image width="34" height="34" x="537" y="32" source="m_ba_goodroad_info_state_banker_png"/>
 		<e:Image width="34" height="34" x="633" y="32" source="m_ba_goodroad_info_round_player_png"/>
 		<e:Image width="34" height="34" x="729" y="32" source="m_ba_goodroad_info_state_player_png"/>
