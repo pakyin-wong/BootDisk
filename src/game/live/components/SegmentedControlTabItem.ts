@@ -15,7 +15,7 @@ namespace we {
       }
 
       public clone() {
-        const clone: SegmentedControlTabItem = <SegmentedControlTabItem> super.clone();
+        const clone: SegmentedControlTabItem = <SegmentedControlTabItem>super.clone();
         clone.data = this.data;
         return clone;
       }

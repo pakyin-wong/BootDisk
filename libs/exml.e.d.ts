@@ -2562,6 +2562,26 @@ declare module skin_mobile{
 	class LotterySceneTraditional extends eui.Skin{
 	}
 }
+declare module skin_mobile.lo{
+	class MobileBottomBeadRoadPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class MobileBottomGamePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class MobileButtonRoadPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class MobileBottomRoadmapPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class StatisticChartPanel extends eui.Skin{
+	}
+}
 declare module skin_mobile{
 	class LobbyTabListItemRenderer extends eui.Skin{
 	}
