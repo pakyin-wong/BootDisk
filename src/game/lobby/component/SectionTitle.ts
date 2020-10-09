@@ -37,12 +37,14 @@ namespace we {
         this.height = 110;
 
         this._leftLine = new eui.Rect();
-        this._leftLine.height = 2;
+        this._leftLine.height = 2.5;
         this._leftLine.fillColor = 0xb0936d;
+        this._leftLine.strokeAlpha = 0;
         this._leftLine.strokeWeight = 0;
         this._rightLine = new eui.Rect();
-        this._rightLine.height = 2;
+        this._rightLine.height = 2.5;
         this._rightLine.fillColor = 0xb0936d;
+        this._rightLine.strokeAlpha = 0;
         this._rightLine.strokeWeight = 0;
         this._leftImg = new eui.Image();
         this._leftImg.source = 'd_ba_betarea_banker_hover_png';
