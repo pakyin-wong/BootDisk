@@ -66,9 +66,9 @@ namespace we {
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
         if (this.tableInfo.totalBet > 0) {
-          // this._alreadyBetSign.visible = true;
+          this._alreadyBetSign.visible = true;
         } else {
-          // this._alreadyBetSign.visible = false;
+          this._alreadyBetSign.visible = false;
         }
       }
 
