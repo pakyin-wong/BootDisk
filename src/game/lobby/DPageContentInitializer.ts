@@ -104,6 +104,27 @@ namespace we {
         gridsContainer.addChild(grids);
         group.addChild(gridsContainer);
 
+        let title: SectionTitle = new SectionTitle();
+        group.addChild(title);
+        title.width = this._root.stage.stageWidth - 146;
+        title.height = 110;
+        title.renderText = () => '精選遊戲';
+        title.x = 73;
+
+        title = new SectionTitle();
+        group.addChild(title);
+        title.width = this._root.stage.stageWidth - 146;
+        title.height = 110;
+        title.renderText = () => '精選遊戲遊戲遊戲';
+        title.x = 73;
+
+        title = new SectionTitle();
+        group.addChild(title);
+        title.width = this._root.stage.stageWidth - 146;
+        title.height = 110;
+        title.renderText = () => '精選遊戲遊戲遊戲遊戲遊戲';
+        title.x = 73;
+
         // init footer
         const footer = new eui.Group();
         footer.width = this._root.stage.stageWidth;
