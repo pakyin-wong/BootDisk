@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile.lo.MobileButtonRoadPanel" xmlns:e="http://ns.egret.com/eui" width="858" states="fiveColumn,sixColumn" >
     <e:Group id="_buttonGroup" width="100%" height="100%">
-        <e:RadioButton id="stateOneBtn" label="第一球"  width="108" height="54" value="0" scaleX="1" scaleY="1" selected="true" width.bead="108" height.bead="54" verticalCenter.bead="0" horizontalCenter.bead="-344" verticalCenter="0" width.sixColumn="72" label.sixColumn="一球">
+        <e:RadioButton id="stateOneBtn" label="第一球"  width="108" height="54" value="0" scaleX="1" scaleY="1" selected="true" verticalCenter="0" width.sixColumn="72" label.sixColumn="一球">
             <e:skinName>
                 <e:Skin states="up,down,disabled">
-                    <e:Rect width="106" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1" width.sixColumn="72"/>
+                    <e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
                     <e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="36" textColor.up="0xffffff" textColor.down="0xffffff"  alpha.up="0.5"   alpha.down="1"/>
                 </e:Skin>
             </e:skinName>
@@ -12,15 +12,15 @@
         <e:RadioButton id="stateTwoBtn" label="第二球" width="108" height="54" value="1" scaleX="1" scaleY="1" width.sixColumn="72" label.sixColumn="二球">
             <e:skinName>
                 <e:Skin states="up,down,disabled">
-                    <e:Rect width="106" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1" width.sixColumn="72"/>
+                    <e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
                     <e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="36" textColor.up="0xffffff" textColor.down="0xffffff"   alpha.up="0.5"  alpha.down="1"/>
                 </e:Skin>
             </e:skinName>
         </e:RadioButton>
-        <e:RadioButton id="stateThreeBtn" label="第三球" width="108" height="54" value="1" scaleX="1" scaleY="1" width.sixColumn="72" label.sixColumn="三球">
+        <e:RadioButton id="stateThreeBtn" includeIn="fiveColumn,sixColumn" label="第三球" width="108" height="54" value="1" scaleX="1" scaleY="1" width.sixColumn="72" label.sixColumn="三球">
             <e:skinName>
                 <e:Skin states="up,down,disabled">
-                    <e:Rect width="106" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1" width.sixColumn="72"/>
+                    <e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
                     <e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="36" textColor.up="0xffffff" textColor.down="0xffffff"   alpha.up="0.5"  alpha.down="1"/>
                 </e:Skin>
             </e:skinName>
@@ -28,7 +28,7 @@
         <e:RadioButton id="stateFourBtn" label="第四球" width="108" height="54" value="1" scaleX="1" scaleY="1" width.sixColumn="72" label.sixColumn="四球">
             <e:skinName>
                 <e:Skin states="up,down,disabled">
-                    <e:Rect width="106" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1" width.sixColumn="72"/>
+                    <e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
                     <e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="36" textColor.up="0xffffff" textColor.down="0xffffff"   alpha.up="0.5"  alpha.down="1"/>
                 </e:Skin>
             </e:skinName>
@@ -36,7 +36,7 @@
         <e:RadioButton id="stateFiveBtn" label="第五球" width="108" height="54" value="1" scaleX="1" scaleY="1" width.sixColumn="72" label.sixColumn="五球">
             <e:skinName>
                 <e:Skin states="up,down,disabled">
-                    <e:Rect width="106" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1" width.sixColumn="72"/>
+                    <e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1" />
                     <e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="36" textColor.up="0xffffff" textColor.down="0xffffff"   alpha.up="0.5"  alpha.down="1"/>
                 </e:Skin>
             </e:skinName>
