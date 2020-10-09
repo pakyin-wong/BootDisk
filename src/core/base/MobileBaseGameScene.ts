@@ -329,15 +329,16 @@ namespace we {
 
       protected showBetChipPanel() {
         const betChipSetGridPosition = this._betChipSetGridSelected.localToGlobal(0, 0);
+        console.log(`................${betChipSetGridPosition}`);
         if (env.orientation === 'portrait') {
           // portrait position
-          if (betChipSetGridPosition.y < 900) {
+          if (betChipSetGridPosition.y < 1000) {
             // bottomGamePanel is on
             this._betPanelGroup.scaleY = 1;
 
             this._betPanelGroup.y = betChipSetGridPosition.y;
             this._betChipSetPanel.y = betChipSetGridPosition.y + 185;
-          } else if (betChipSetGridPosition.y >= 900) {
+          } else if (betChipSetGridPosition.y >= 1000) {
             // bottomGamePanel is off
             this._betPanelGroup.y = betChipSetGridPosition.y;
             this._betChipSetPanel.y = betChipSetGridPosition.y - 780;
