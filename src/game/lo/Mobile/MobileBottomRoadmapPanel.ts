@@ -19,6 +19,16 @@ namespace we {
       protected _roadmapBg: eui.Component;
       protected _roadmapView: eui.ViewStack;
 
+      // protected dtRoadNames: string[] = ['dt1v2', 'dt1v3', 'dt1v4', 'dt1v5', 'dt2v3', 'dt2v4', 'dt2v5', 'dt3v4', 'dt3v5', 'dt4v5'];
+      // protected chartTypeNames: string[] = ['lucky_time', 'lucky_game', 'fav_bet', 'fav_game'];
+      // protected chartPeriodNames: string[] = ['day', 'pday', 'week', 'pweek', 'month', 'pmonth'];
+      // protected chartTypeMapping: number[] = [2, 3, 0, 1];
+
+      // // roadmap
+      // public dtBigRoad: LoDtBigRoad;
+      // public sizeBigRoad: LoSizeBigRoad;
+      // public oddBigRoad: LoOddBigRoad;
+
       public constructor() {
         super();
       }
