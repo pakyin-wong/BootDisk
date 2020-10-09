@@ -11,7 +11,7 @@
 		               touchEnabled="false" />
 		<dl:ChipLayer id="_chipLayer" width="1312" height="340" skinName="skin_desktop.dil.ChipLayerSkin" />
 	</ui:Group>
-	<ui:Group id="_betRelatedGroup" x="768" y="880" isEdgeDismissable="true">
+	<ui:Group id="_betRelatedGroup" x="768" y="890" isEdgeDismissable="true">
 	<ui:Group>
 		<e:Rect id="_roundPanel" width="1039" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 		<e:Rect width="1" height="54" fillAlpha="0.3" fillColor="0x000000" verticalCenter="0" right="460"/>
