@@ -7,6 +7,7 @@
 namespace we {
   export namespace bab {
     export class Scene extends ba.Scene {
+      protected _alwaysShowResult = true;
       public static resGroups = [core.res.BlockchainBaccarat];
 
       protected initChildren() {

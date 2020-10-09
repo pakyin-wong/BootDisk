@@ -66,6 +66,8 @@
 		"resource/skin_desktop/ba/SideListTableLayer.exml",
 		"resource/skin_desktop/ba/SidePanelGameResult/SidePanelGameResultNormalSkin.exml",
 		"resource/skin_desktop/ba/SidePanelGameResult/SidePanelGameResultWinSkin.exml",
+		"resource/skin_desktop/bab/BlockchainBaccaratScene.exml",
+		"resource/skin_desktop/bab/ResultDisplay/resultDisplay/CardHolder.exml",
 		"resource/skin_desktop/CountdownTimerRoundSqueezeBaccarat.exml",
 		"resource/skin_desktop/bam/resultDisplay/CardHolder.exml",
 		"resource/skin_desktop/CountdownTextbam.exml",

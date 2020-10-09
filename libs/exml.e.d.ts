@@ -156,6 +156,14 @@ declare module skin_desktop.ba{
 	class TableLayerSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class BlockchainBaccaratScene extends eui.Skin{
+	}
+}
+declare module skin_desktop.bab{
+	class CardHolderSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop.bam{
 	class CardHolderSkin extends eui.Skin{
 	}

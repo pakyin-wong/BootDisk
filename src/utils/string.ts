@@ -1,6 +1,6 @@
 namespace we {
   export namespace utils {
-    function zeroPad(num, places) {
+    export function zeroPad(num, places) {
       let val = parseInt(num, 10);
       const sign = utils.sign(val);
       val *= sign;
