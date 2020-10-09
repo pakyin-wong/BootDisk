@@ -23,7 +23,7 @@ namespace we {
           this.beadRoad.x = 0;
           this.beadRoad.y = 0;
         } else {
-          this.beadRoad = new LwBeadRoad(3, 11, 96, 105, 58, 58, 1, 0x000000, 0.85, 0x3a3f48, true); // in game
+          this.beadRoad = new LwBeadRoad(3, 11, 96*0.95, 105*0.9, 58*0.85, 58*0.85, 1, 0x000000, 0.85, 0x3a3f48, true); // in game
           this.beadRoad.x = 0;
           this.beadRoad.y = 0;
         }

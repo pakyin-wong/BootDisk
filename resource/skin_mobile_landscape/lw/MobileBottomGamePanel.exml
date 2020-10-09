@@ -58,7 +58,7 @@
 					<lw:MobileBottomRoadmapPanel id="_roadmapPanel" skinName="skin_mobile_landscape.lw.MobileBottomRoadmapPanel"
 					                             scaleX="1" scaleY="1" top="0" height="100%" width="100%" left="0" />
 					<lw:StatisticChartPanel id="_statisticChartPanel" skinName="skin_mobile_landscape.lw.StatisticChartPanel"
-					                        width="1081" height="304" scaleX="1" scaleY="1" x="1057" />
+					                        width="1081" height="304" scaleX="1" scaleY="1" x="1020" />
 				</e:Group>
 				<e:Group id="_chartGroup" width="100%" height="100%" name="Group">
 					<!--<lw:StatisticChartPanel id="_statisticChartPanel" skinName="skin_mobile_landscape.lw.StatisticChartPanel"
