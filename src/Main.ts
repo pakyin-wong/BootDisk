@@ -64,7 +64,7 @@ class Main extends eui.UILayer {
     data = we.utils.getQueryParams(query);
     const isMobile = data.ismobile ? data.ismobile : 0;
 
-    if (type === 'mobile' || isMobile) {
+    if (1 || type === 'mobile' || isMobile) {
       // if (true) {
       env.isMobile = true;
       // this.updateMobileHitTest();
