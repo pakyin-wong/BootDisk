@@ -9,6 +9,7 @@ namespace we {
         const group = new eui.Group();
         const vlayout = new eui.VerticalLayout();
         vlayout.gap = 0;
+        vlayout.horizontalAlign = 'center';
         group.layout = vlayout;
 
         this._root = root;
@@ -27,7 +28,7 @@ namespace we {
 
         const gapSize = 48;
         const paddingHorizontal = 71;
-        const offsetForTableList = -gapSize * 3;
+        const offsetForTableList = 233;
 
         // init image slider
         const slider = new we.ui.ImageSlider();
@@ -40,11 +41,17 @@ namespace we {
         sliderContainer.addChild(slider);
         group.addChild(sliderContainer);
 
+        let title: SectionTitle = new SectionTitle();
+        group.addChild(title);
+        title.width = this._root.stage.stageWidth - 146;
+        title.height = 110;
+        title.renderText = () => '精選推介';
+
         // init 4 featured posters
         const featuredPosterHeight = 800;
         const posters = new eui.Group();
         const hlayout = new eui.HorizontalLayout();
-        hlayout.horizontalAlign = egret.HorizontalAlign.JUSTIFY;
+        hlayout.horizontalAlign = egret.HorizontalAlign.CENTER;
         hlayout.gap = gapSize;
         posters.horizontalCenter = 0;
         posters.layout = hlayout;
@@ -53,17 +60,19 @@ namespace we {
           const poster = new eui.Image();
           poster.source = image;
           poster.height = featuredPosterHeight;
+          poster.width = 578;
           poster.addEventListener(
             egret.TouchEvent.TOUCH_TAP,
             () => {
               logger.l(utils.LogTarget.DEBUG, 'psoter click', i, link);
-              if (i === 0) {
-                dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
-              } else if (i === 3) {
-                dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
-              } else {
-                dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
-              }
+              utils.linkTo(link);
+              // if (i === 0) {
+              //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
+              // } else if (i === 3) {
+              //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
+              // } else {
+              //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
+              // }
             },
             this
           );
@@ -74,6 +83,12 @@ namespace we {
         postersContainer.addChild(posters);
         group.addChild(postersContainer);
 
+        title = new SectionTitle();
+        group.addChild(title);
+        title.width = this._root.stage.stageWidth - 146;
+        title.height = 110;
+        title.renderText = () => '熱門推介';
+
         // init 3 grids
         const grids = new eui.Group();
         const tlayout = new eui.TileLayout();
@@ -82,13 +97,15 @@ namespace we {
         tlayout.paddingBottom = gapSize;
         tlayout.horizontalGap = gapSize;
         tlayout.verticalGap = gapSize;
-        tlayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (tlayout.requestedColumnCount - 1)) / tlayout.requestedColumnCount;
+        // tlayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (tlayout.requestedColumnCount - 1)) / tlayout.requestedColumnCount;
+        tlayout.columnWidth = 786;
         grids.layout = tlayout;
         grids.horizontalCenter = 0;
         dir.lobbyResources.homeBanners.forEach(banner => {
           const image = new eui.Image();
           image.source = banner.image;
-          image.height = 300;
+          image.height = 388;
+          image.width = 786;
           // image.height = 3000;
           image.addEventListener(
             egret.TouchEvent.TOUCH_TAP,
@@ -103,27 +120,6 @@ namespace we {
         gridsContainer.percentWidth = 100;
         gridsContainer.addChild(grids);
         group.addChild(gridsContainer);
-
-        let title: SectionTitle = new SectionTitle();
-        group.addChild(title);
-        title.width = this._root.stage.stageWidth - 146;
-        title.height = 110;
-        title.renderText = () => '精選遊戲';
-        title.x = 73;
-
-        title = new SectionTitle();
-        group.addChild(title);
-        title.width = this._root.stage.stageWidth - 146;
-        title.height = 110;
-        title.renderText = () => '精選遊戲遊戲遊戲';
-        title.x = 73;
-
-        title = new SectionTitle();
-        group.addChild(title);
-        title.width = this._root.stage.stageWidth - 146;
-        title.height = 110;
-        title.renderText = () => '精選遊戲遊戲遊戲遊戲遊戲';
-        title.x = 73;
 
         // init footer
         const footer = new eui.Group();
