@@ -42,6 +42,11 @@ namespace we {
         this.skinName = utils.getSkinByClassname('BlockchainBaccaratScene');
       }
 
+      protected setStateBet(isInit: boolean = false) {
+        super.setStateBet(isInit);
+        this._resultDisplay.updateResult(this._gameData,this._chipLayer)
+      }
+
       /*
       protected setStateDeal(isInit: boolean = false) {
         if (this._previousState === we.core.GameState.BET) {

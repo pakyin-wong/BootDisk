@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.bab.CardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" width="2600"
         height="1340">
-        <e:Rect width="2" height="100%" fillColor="0x00ffff" horizontalCenter="0" visible="false" />
-        <e:Group horizontalCenter="-67">
-                <e:Rect width="86" height="32" fillAlpha="0.3" ellipseWidth="40" ellipseHeight="40"  x="0"/>
-                <e:Label id="playerSum" text="" x="53" fontFamily="Barlow" textAlign="center" horizontalCenter="0"
-                         verticalCenter="-15"  size="32"/>
+        <e:Group id="_particleGroup" width="100%" height="100%"/>
+        <e:Group id="_animRingGroup" x="1300" y="670"/>
+        <e:Group x="68" y="347" width="637" height="98">
+                <e:Image source="d_bcba_resultarea_player_png" width="100%" height="100%" />
+                <ui:RunTimeLabel right="159" i18n="baccarat.player" textAlign="center" verticalAlign="middle" size="68" height="100%"/>
+                <e:Label id="_playerSum" x="485" y="0" textAlign="center" verticalAlign="middle" size="96" height="100%" />
         </e:Group>
-        <e:Group horizontalCenter="67">
-                <e:Rect width="86" height="32" fillAlpha="0.3" ellipseWidth="40" ellipseHeight="40" />
-                <e:Label id="bankerSum" text="" x="53" fontFamily="Barlow" textAlign="center" horizontalCenter="0"
-                         verticalCenter="-15"  size="32"/>
+        <e:Group x="1895" y="347" width="637" height="98">
+                <e:Image source="d_bcba_resultarea_banker_png" width="100%" height="100%"  />
+                <ui:RunTimeLabel x="159" i18n="baccarat.banker" textAlign="center" verticalAlign="middle" size="68" height="100%"/>
+                <e:Label id="_bankerSum" x="97" y="0" textAlign="center" verticalAlign="middle" size="96" height="100%"/>
         </e:Group>
-        <ui:Card id="card3Banker" width="44" height="64" horizontalCenter="160" y="105"  rotation="270"/>
-        <ui:Card id="card2Banker" width="44" height="64" horizontalCenter="98" y="42" />
-        <ui:Card id="card1Banker" width="44" height="64" horizontalCenter="46" y="42" />
-        <ui:Card id="card3Player" width="44" height="64" horizontalCenter="-160" y="105"  rotation="270"/>
-        <ui:Card id="card2Player" width="44" height="64" horizontalCenter="-46" y="42" />
-        <ui:Card id="card1Player" width="44" height="64" horizontalCenter="-98" y="42" />
+        <e:Group x="205" y="470" id="_playerCard1Group" />
+        <e:Group x="506" y="470" id="_playerCard2Group" />
+        <e:Group x="250" y="470" id="_playerCard3Group" visible="false" />
+        <e:Group x="1860" y="470" id="_bankerCard1Group" />
+        <e:Group x="2116" y="470" id="_bankerCard2Group" />
+        <e:Group x="250" y="470" id="_bankerCard3Group" visible="false" />
 </e:Skin>
