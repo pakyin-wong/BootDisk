@@ -1,7 +1,7 @@
 // TypeScript file
 namespace we {
   export namespace lobby {
-    export class MPageContentInitializer {
+    export class MPageContentInitializer implements core.IContentInitializer {
       constructor() {}
 
       public initContent(root: ILobbyPage) {
@@ -47,6 +47,8 @@ namespace we {
       protected bannerClicked(e: egret.Event) {
         logger.l(utils.LogTarget.DEBUG, 'psoter click', e.currentTarget['link']);
       }
+
+      public reloadBanners() {}
     }
   }
 }

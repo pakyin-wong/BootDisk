@@ -242,6 +242,8 @@ namespace we {
         this._tabbarBg.alpha = opacity;
         dir.evtHandler.dispatch(core.Event.UPDATE_NAVBAR_OPACITY, opacity);
       }
+
+      public reloadBanners() {}
     }
   }
 }

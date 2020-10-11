@@ -3,6 +3,9 @@ namespace we {
   export namespace lobby {
     export class DPageContentInitializer implements core.IContentInitializer {
       protected _root: any;
+
+      protected _largeBanner: eui.Group;
+      protected _smallBanner: eui.Group;
       constructor() {}
 
       public initContent(root: Page) {
@@ -49,24 +52,17 @@ namespace we {
 
         // init 4 featured posters
         const featuredPosterHeight = 800;
-        const posters = new eui.Group();
+        this._largeBanner = new eui.Group();
         const hlayout = new eui.HorizontalLayout();
         hlayout.horizontalAlign = egret.HorizontalAlign.CENTER;
         hlayout.gap = gapSize;
         hlayout.paddingBottom = 49;
-        posters.horizontalCenter = 0;
-        posters.layout = hlayout;
-        for (let i = 0, len = Math.min(dir.lobbyResources.homeLargeBanners.length, 4); i < len; i++) {
-          const { image, link } = dir.lobbyResources.homeLargeBanners[i];
-          const poster = new LobbyBannerItem();
-          poster.skinName = 'skin_desktop.LargeBannerSkin';
-          poster.texture = image;
-          poster.link = link;
-          posters.addChild(poster);
-        }
+        this._largeBanner.horizontalCenter = 0;
+        this._largeBanner.layout = hlayout;
+
         const postersContainer = new eui.Group();
         postersContainer.percentWidth = 100;
-        postersContainer.addChild(posters);
+        postersContainer.addChild(this._largeBanner);
         group.addChild(postersContainer);
 
         title = new SectionTitle();
@@ -76,7 +72,7 @@ namespace we {
         title.renderText = () => '熱門推介';
 
         // init 3 grids
-        const grids = new eui.Group();
+        this._smallBanner = new eui.Group();
         const tlayout = new eui.TileLayout();
         tlayout.requestedColumnCount = 3;
         tlayout.paddingTop = gapSize;
@@ -85,29 +81,15 @@ namespace we {
         tlayout.verticalGap = gapSize;
         // tlayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (tlayout.requestedColumnCount - 1)) / tlayout.requestedColumnCount;
         tlayout.columnWidth = 786;
-        grids.layout = tlayout;
-        grids.horizontalCenter = 0;
-        dir.lobbyResources.homeBanners.forEach(banner => {
-          const {image, link, title, description} = banner;
-          const poster = new LobbyBannerItem();
-          poster.skinName = 'skin_desktop.SmallBannerSkin';
-          poster.texture = image;
-          poster.link = link;
-          poster.title = title;
-          poster.description = description;
-          grids.addChild(poster);
+        this._smallBanner.layout = tlayout;
+        this._smallBanner.horizontalCenter = 0;
 
-          // TODO: remove, this is for testing!!!!!
-          if (!title) {
-            poster.title = "百家樂";
-            poster.description = "The perfect game for startup";
-          }
-        });
         const gridsContainer = new eui.Group();
         gridsContainer.percentWidth = 100;
-        gridsContainer.addChild(grids);
+        gridsContainer.addChild(this._smallBanner);
         group.addChild(gridsContainer);
 
+        this.reloadBanners();
         // init footer
         const footer = new eui.Group();
         footer.width = this._root.stage.stageWidth;
@@ -160,6 +142,37 @@ namespace we {
         const ratio = Math.min(1, scrollV / scrollTarget);
         const opacity = egret.Ease.quintIn(ratio);
         dir.evtHandler.dispatch(core.Event.UPDATE_NAVBAR_OPACITY, opacity);
+      }
+
+      public reloadBanners() {
+        this._largeBanner.removeChildren();
+        this._smallBanner.removeChildren();
+        
+        for (let i = 0, len = Math.min(dir.lobbyResources.homeLargeBanners.length, 4); i < len; i++) {
+          const { image, link } = dir.lobbyResources.homeLargeBanners[i];
+          const poster = new LobbyBannerItem();
+          poster.skinName = 'skin_desktop.LargeBannerSkin';
+          poster.texture = image;
+          poster.link = link;
+          this._largeBanner.addChild(poster);
+        }
+
+        dir.lobbyResources.homeBanners.forEach(banner => {
+          const { image, link, title, description } = banner;
+          const poster = new LobbyBannerItem();
+          poster.skinName = 'skin_desktop.SmallBannerSkin';
+          poster.texture = image;
+          poster.link = link;
+          poster.title = title;
+          poster.description = description;
+          this._smallBanner.addChild(poster);
+
+          // TODO: remove, this is for testing!!!!!
+          if (!title) {
+            poster.title = '百家樂';
+            poster.description = 'The perfect game for startup';
+          }
+        });
       }
     }
   }

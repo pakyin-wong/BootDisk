@@ -106,6 +106,8 @@ namespace we {
             break;
         }
       }
+
+      public reloadBanners() {}
     }
   }
 }
