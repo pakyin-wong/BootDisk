@@ -159,7 +159,7 @@ namespace we {
         data.bets = [];
         // set to bet state and wait
         gameData.b1 = MockProcessBaccaratBlockchain.allCards[0];
-        gameData.currentCardIndex = this.currentCardIndex;
+        gameData.currentcardindex = this.currentCardIndex;
 
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.SHUFFLE;

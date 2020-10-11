@@ -115,12 +115,22 @@ namespace we {
         const p1 = we.utils.waitDragonBone(this._ringAnim);
         this._ringAnim.animation.play('round_loop_a', 5);
         await p1;
+        this.movePin();
       }
 
       protected setStateDeal() {
         if(this._gameData.a1 === null && this._gameData.a2 === null && this._gameData.b1 === null && this._gameData.b2 === null){
           this.distributeFirst4Cards();
         }
+      }
+
+      protected async movePin(){
+        const bone = this._ringAnim.armature.getBone('red_card');
+        egret.Tween.get(bone.animationPose).to({rotation: 3.4},1000,function (t) {
+          bone.invalidUpdate();
+          return t;
+        
+        })
       }
 
       protected async distributeFirst4Cards() {
@@ -145,20 +155,6 @@ namespace we {
           this._ringAnim.animation.play('poker_round_out', 1);
           await p5
         }
-      }
-
-      protected async animChip(chip: dragonBones.EgretArmatureDisplay) {
-        const p1 = we.utils.waitDragonBone(chip);
-        chip.animation.play('shoe_in', 1);
-        await p1;
-        const p2 = we.utils.waitDragonBone(chip);
-        chip.animation.play('round_in', 1);
-        await p2;
-        await utils.sleep(2000);
-        const p3 = we.utils.waitDragonBone(chip);
-        chip.animation.play('shoe_out', 1);
-        await p3;
-        this.animChip(chip);
       }
 
       public reset() {}
