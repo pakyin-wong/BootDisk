@@ -8,7 +8,7 @@ namespace we {
       protected _rightImg: eui.Image;
       protected _title: ui.RunTimeLabel;
 
-      protected _renderText: () => string = ()=>'';
+      protected _renderText: () => string = () => '';
 
       constructor() {
         super();

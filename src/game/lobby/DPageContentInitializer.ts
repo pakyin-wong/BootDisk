@@ -8,7 +8,7 @@ namespace we {
       public initContent(root: Page) {
         const group = new eui.Group();
         const vlayout = new eui.VerticalLayout();
-        vlayout.gap = 0;
+        vlayout.gap = 10;
         vlayout.horizontalAlign = 'center';
         group.layout = vlayout;
 
@@ -53,29 +53,38 @@ namespace we {
         const hlayout = new eui.HorizontalLayout();
         hlayout.horizontalAlign = egret.HorizontalAlign.CENTER;
         hlayout.gap = gapSize;
+        hlayout.paddingBottom = 49;
         posters.horizontalCenter = 0;
         posters.layout = hlayout;
-        for (let i = 0, len = dir.lobbyResources.homeLargeBanners.length; i < len; i += 1) {
+        for (let i = 0, len = Math.min(dir.lobbyResources.homeLargeBanners.length, 4); i < len; i++) {
           const { image, link } = dir.lobbyResources.homeLargeBanners[i];
-          const poster = new eui.Image();
-          poster.source = image;
-          poster.height = featuredPosterHeight;
-          poster.width = 578;
-          poster.addEventListener(
-            egret.TouchEvent.TOUCH_TAP,
-            () => {
-              logger.l(utils.LogTarget.DEBUG, 'psoter click', i, link);
-              utils.linkTo(link);
-              // if (i === 0) {
-              //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
-              // } else if (i === 3) {
-              //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
-              // } else {
-              //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
-              // }
-            },
-            this
-          );
+          const poster = new LobbyBannerItem();
+          poster.skinName = 'skin_desktop.LargeBannerSkin';
+          poster.texture = image;
+          poster.link = link;
+
+          // const poster = new eui.Image();
+          // poster.source = image;
+          // poster.height = featuredPosterHeight;
+          // poster.width = 578;
+          // if (!env.isMobile) {
+          //   mouse.setButtonMode(poster, true);
+          // }
+          // poster.addEventListener(
+          //   egret.TouchEvent.TOUCH_TAP,
+          //   () => {
+          //     logger.l(utils.LogTarget.DEBUG, 'poster click', i, link);
+          //     utils.linkTo(link);
+          //     // if (i === 0) {
+          //     //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
+          //     // } else if (i === 3) {
+          //     //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
+          //     // } else {
+          //     //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
+          //     // }
+          //   },
+          //   this
+          // );
           posters.addChild(poster);
         }
         const postersContainer = new eui.Group();
@@ -94,7 +103,7 @@ namespace we {
         const tlayout = new eui.TileLayout();
         tlayout.requestedColumnCount = 3;
         tlayout.paddingTop = gapSize;
-        tlayout.paddingBottom = gapSize;
+        tlayout.paddingBottom = 49;
         tlayout.horizontalGap = gapSize;
         tlayout.verticalGap = gapSize;
         // tlayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (tlayout.requestedColumnCount - 1)) / tlayout.requestedColumnCount;
