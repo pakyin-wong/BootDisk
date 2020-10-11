@@ -59,7 +59,7 @@ namespace we {
         mouse.setButtonMode(this._dragonBeadGroup, true);
       }
 
-      protected getBankerBeadIconGroup(){
+      protected getBankerBeadIconGroup() {
         const bankerLayout = new eui.HorizontalLayout();
         bankerLayout.gap = 2;
 
@@ -84,7 +84,7 @@ namespace we {
         return bankerBeadIconGroup;
       }
 
-      protected getPlayerBeadIconGroup(){
+      protected getPlayerBeadIconGroup() {
         const playerLayout = new eui.HorizontalLayout();
         playerLayout.gap = 2;
 
@@ -107,7 +107,6 @@ namespace we {
         playerBeadIconGroup.addChild(this.iconPlayerCockroach);
 
         return playerBeadIconGroup;
-
       }
 
       public setPredictIcons(b1: any, b2: any, b3: any, p1: any, p2: any, p3: any) {
