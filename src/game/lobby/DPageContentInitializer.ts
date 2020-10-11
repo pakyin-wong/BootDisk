@@ -62,29 +62,6 @@ namespace we {
           poster.skinName = 'skin_desktop.LargeBannerSkin';
           poster.texture = image;
           poster.link = link;
-
-          // const poster = new eui.Image();
-          // poster.source = image;
-          // poster.height = featuredPosterHeight;
-          // poster.width = 578;
-          // if (!env.isMobile) {
-          //   mouse.setButtonMode(poster, true);
-          // }
-          // poster.addEventListener(
-          //   egret.TouchEvent.TOUCH_TAP,
-          //   () => {
-          //     logger.l(utils.LogTarget.DEBUG, 'poster click', i, link);
-          //     utils.linkTo(link);
-          //     // if (i === 0) {
-          //     //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
-          //     // } else if (i === 3) {
-          //     //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
-          //     // } else {
-          //     //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
-          //     // }
-          //   },
-          //   this
-          // );
           posters.addChild(poster);
         }
         const postersContainer = new eui.Group();
@@ -111,19 +88,20 @@ namespace we {
         grids.layout = tlayout;
         grids.horizontalCenter = 0;
         dir.lobbyResources.homeBanners.forEach(banner => {
-          const image = new eui.Image();
-          image.source = banner.image;
-          image.height = 388;
-          image.width = 786;
-          // image.height = 3000;
-          image.addEventListener(
-            egret.TouchEvent.TOUCH_TAP,
-            () => {
-              logger.l(utils.LogTarget.DEBUG, 'banner click', banner.link);
-            },
-            this
-          );
-          grids.addChild(image);
+          const {image, link, title, description} = banner;
+          const poster = new LobbyBannerItem();
+          poster.skinName = 'skin_desktop.SmallBannerSkin';
+          poster.texture = image;
+          poster.link = link;
+          poster.title = title;
+          poster.description = description;
+          grids.addChild(poster);
+
+          // TODO: remove, this is for testing!!!!!
+          if (!title) {
+            poster.title = "百家樂";
+            poster.description = "The perfect game for startup";
+          }
         });
         const gridsContainer = new eui.Group();
         gridsContainer.percentWidth = 100;
