@@ -40,8 +40,8 @@
 				         verticalCenter="0" />
 			</e:Group>
 			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" horizontalCenter="505"
-			                           skinName="skin_mobile.BetChipSkin" horizontalCenter.right_hand_mode="-480"
-			                           horizontalCenter.left_hand_mode="491" labelSize="48" y="222" />
+			                           skinName="skin_mobile.BetChipSkin" horizontalCenter.right_hand_mode="-470"
+			                           horizontalCenter.left_hand_mode="491" labelSize="48" y="232" />
 			<e:Group id="_betRelatedGroup" x="34" y="235" x.right_hand_mode="224" scaleX="1" scaleY="1">
 				<e:Rect id="_roundPanel" width="940" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
 				        fillColor="0x444444" right.right_hand_mode="0" left.left_hand_mode="0" />
