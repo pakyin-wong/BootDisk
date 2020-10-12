@@ -32,6 +32,8 @@ namespace we {
         super.mount();
 
         this.initRoadMap();
+        
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
         this.updateText();
       }
 
@@ -110,6 +112,7 @@ namespace we {
             this['road3Btn' + i].removeEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
           }
         }
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
       }
 
       public updateText() {

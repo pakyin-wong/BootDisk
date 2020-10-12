@@ -2,260 +2,293 @@
 namespace we {
   export namespace lo {
     export class StatisticChartPanel extends ui.Panel {
-      protected contentTwo: eui.Group;
-      protected _diPie: di.DiPie;
-      protected _diChance: di.DiChance;
 
-      private slides = [];
-      private duration = 1.0;
-      private currentIndex = 0;
-      private direction: string;
-      private isDown = false;
-      private isMoved = false;
-      private isAnimating = false;
-      private autoPlayTimer: number;
+      protected chartStack: eui.ViewStack;
 
-      private initX;
+      protected noDataOverlay: eui.Group;
+      protected loadingOverlay: eui.Group;
 
-      private _bulletOne: eui.Image;
-      private _bulletTwo: eui.Image;
+      protected chartTypeNames: string[] = ['lucky_time', 'lucky_game', 'fav_bet', 'fav_game'];
+      protected chartPeriodNames: string[] = ['day', 'pday', 'week', 'pweek', 'month', 'pmonth'];
+      protected chartTypeMapping: number[] = [2, 3, 0, 1];
+
+      protected chartPeriodIndex: number;
+      protected chartTypeIndex: number;
+
+      protected chart1Btn: eui.RadioButton;
+      protected chart2Btn: eui.RadioButton;
+      protected chart3Btn: eui.RadioButton;
+      protected chart4Btn: eui.RadioButton;
+
+      protected chartPeriodBtn1: eui.RadioButton;
+      protected chartPeriodBtn2: eui.RadioButton;
+      protected chartPeriodBtn3: eui.RadioButton;
+      protected chartPeriodBtn4: eui.RadioButton;
+      protected chartPeriodBtn5: eui.RadioButton;
+      protected chartPeriodBtn6: eui.RadioButton;
+
+      protected _bestTimePieChart: we.di.InteractivePieChart;
+      protected _bestGamePieChart: we.di.InteractivePieChart;
+      protected _favBetBarChart: we.di.HorizontalBarChart;
+      protected _favGameBarChart: we.di.SlopedBarChart;
 
       public constructor() {
         super();
       }
 
-      protected partAdded(partName: string, instance: any): void {
-        super.partAdded(partName, instance);
+      protected mount() {
+        super.mount();
       }
 
-      protected childrenCreated(): void {
-        super.childrenCreated();
+      protected init() {
+        this.chartPeriodIndex = 0;
+        this.chartTypeIndex = 0;
+        this.loadingOverlay.visible = true;
 
-        this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
+        this._bestTimePieChart = new we.di.InteractivePieChart();
+        this._bestTimePieChart.setChartStyles(
+          [
+            [[0xff5c00, 0xff9000, 0xff5c00], [1, 1, 1], [0, 128, 255], 0],
+            [[0xee4343, 0xe033e7, 0xee4343], [1, 1, 1], [0, 128, 255], 0],
+            [[0x5a003e, 0xca0d59, 0x5a003e], [1, 1, 1], [0, 128, 255], 0],
+            [[0xc68707, 0xeef700, 0xc68707], [1, 1, 1], [0, 128, 255], 0],
+            [[0x2ea853, 0x7cffa0, 0x2ea853], [1, 1, 1], [0, 128, 255], 0],
+            [[0x3b7ad6, 0x37fbf1, 0x3b7ad6], [1, 1, 1], [0, 128, 255], 0],
+            [[0x115bb7, 0x27abdd, 0x115bb7], [1, 1, 1], [0, 128, 255], 0],
+            [[0x05076a, 0x0a4481, 0x05076a], [1, 1, 1], [0, 128, 255], 0],
+            [[0x2e219e, 0x5832e5, 0x2e219e], [1, 1, 1], [0, 128, 255], 0],
+            [[0x812391, 0x8633e7, 0x812391], [1, 1, 1], [0, 128, 255], 0],
+          ],
+          37,
+          74,
+          0
+        );
+        this._bestTimePieChart.x = 94;
+        this._bestTimePieChart.y = 100;
+        // add to chart stack 1
+        const chat1Group = this.chartStack.getChildAt(0) as eui.Group;
+        chat1Group.addChild(this._bestTimePieChart);
+
+        this._bestGamePieChart = new we.di.InteractivePieChart();
+        this._bestGamePieChart.setChartStyles(
+          [
+            [[0xff5c00, 0xff9000, 0xff5c00], [1, 1, 1], [0, 128, 255], 0],
+            [[0xee4343, 0xe033e7, 0xee4343], [1, 1, 1], [0, 128, 255], 0],
+            [[0x5a003e, 0xca0d59, 0x5a003e], [1, 1, 1], [0, 128, 255], 0],
+            [[0xc68707, 0xeef700, 0xc68707], [1, 1, 1], [0, 128, 255], 0],
+            [[0x2ea853, 0x7cffa0, 0x2ea853], [1, 1, 1], [0, 128, 255], 0],
+            [[0x3b7ad6, 0x37fbf1, 0x3b7ad6], [1, 1, 1], [0, 128, 255], 0],
+            [[0x115bb7, 0x27abdd, 0x115bb7], [1, 1, 1], [0, 128, 255], 0],
+            [[0x05076a, 0x0a4481, 0x05076a], [1, 1, 1], [0, 128, 255], 0],
+            [[0x2e219e, 0x5832e5, 0x2e219e], [1, 1, 1], [0, 128, 255], 0],
+            [[0x812391, 0x8633e7, 0x812391], [1, 1, 1], [0, 128, 255], 0],
+          ],
+          37,
+          74,
+          0
+        );
+        this._bestGamePieChart.x = 94;
+        this._bestGamePieChart.y = 100;
+        this.addChild(this._bestGamePieChart);
+        // add road to page stack 2
+        const page2Group = this.chartStack.getChildAt(1) as eui.Group;
+        page2Group.addChild(this._bestGamePieChart);
+
+        this._favBetBarChart = new we.di.HorizontalBarChart();
+        this._favBetBarChart.setChartStyles(
+          [
+            [[0x2ea853, 0x7cffa0], [1, 1], [0, 255], 0],
+            [[0x1aa796, 0x6effd0], [1, 1], [0, 255], 0],
+            [[0x3583af, 0x67e8ff], [1, 1], [0, 255], 0],
+            [[0x0065dc, 0x008bef], [1, 1], [0, 255], 0],
+            [[0x05076a, 0x0a4481], [1, 1], [0, 255], 0],
+            [[0x2e219e, 0x5832e5], [1, 1], [0, 255], 0],
+          ],
+          382,
+          16,
+          26
+        );
+        this._favBetBarChart.x = 164;
+        this._favBetBarChart.y = 26;
+        this.addChild(this._favBetBarChart);
+        // add road to page stack 3
+        const page3Group = this.chartStack.getChildAt(2) as eui.Group;
+        page3Group.addChild(this._favBetBarChart);
+
+        this._favGameBarChart = new we.di.SlopedBarChart();
+        this._favGameBarChart.x = 4;
+        this._favGameBarChart.y = 20;
+        this._favGameBarChart.setChartStyles(
+          [
+            [[0x2552fc, 0x5ad9ff], [1, 1], [0, 255], 0],
+            [[0xe4e85c, 0x1fe479], [1, 1], [0, 255], 0],
+            [[0xfc2424, 0xfa936e], [1, 1], [0, 255], 0],
+            [[0x2552fc, 0x5ad9ff], [1, 1], [0, 255], 0],
+            [[0xe4e85c, 0x1fe479], [1, 1], [0, 255], 0],
+            [[0xfc2424, 0xfa936e], [1, 1], [0, 255], 0],
+          ],
+          168,
+          122,
+          2
+        );
+        this._favGameBarChart.setRanksAndAnimate([80, 50, 30, 20, 10]);
+        this.addChild(this._favGameBarChart);
+        // add road to page stack 4
+        const page4Group = this.chartStack.getChildAt(3) as eui.Group;
+        page4Group.addChildAt(this._favGameBarChart, 0);
+
+        this.chart1Btn.addEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
+        this.chart2Btn.addEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
+        this.chart3Btn.addEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
+        this.chart4Btn.addEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
+
+        this.chartPeriodBtn1.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+        this.chartPeriodBtn2.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+        this.chartPeriodBtn3.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+        this.chartPeriodBtn4.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+        this.chartPeriodBtn5.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+        this.chartPeriodBtn6.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+
+        const filter = { operatorID: 'IBC-sjfbshd', timeFilter: '', typeFilter: 2 }; // typeFilter 0: favourite bet, 1: favourite game, 2: lucky time, 3: lucky game
+        dir.evtHandler.addEventListener(core.Event.PLAYER_LOTTERY_STAT, this.onPlayerLotteryStatisticUpdate, this);
+        dir.socket.getPlayerLotteryStatistic(filter);
+
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.changeLang();
-        if (env.orientation === 'portrait') {
-          this.contentTwo.x = this.stage.width;
-        }
-        this.configSlides();
       }
 
       protected destroy() {
         super.destroy();
-        if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
+          this.chart1Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
+          this.chart2Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
+          this.chart3Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
+          this.chart4Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
+
+          this.chartPeriodBtn1.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+          this.chartPeriodBtn2.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+          this.chartPeriodBtn3.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+          this.chartPeriodBtn4.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+          this.chartPeriodBtn5.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+          this.chartPeriodBtn6.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+
+          dir.evtHandler.removeEventListener(core.Event.PLAYER_LOTTERY_STAT, this.onPlayerLotteryStatisticUpdate, this);
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        }
       }
 
-      public configSlides() {
-        this.slides = [this.content, this.contentTwo];
-        logger.l(utils.LogTarget.DEBUG, this.width, this.height, this.slides);
-
-        if (!this.slides.length) {
-          return;
-        }
-
-        const slide = this.slides[this.currentIndex];
+      protected onChartPeriodIndexChange(e: eui.UIEvent) {
+        const radio: eui.RadioButton = e.target;
+        this.chartPeriodIndex = radio.value - 0;
+        this.readPlayerLotteryResult();
       }
 
-      private onTouchBegin(event: egret.TouchEvent): void {
-        if (env.orientation === 'landscape') {
-          return;
-        }
-
-        if (!this.touchEnabled) {
-          return;
-        }
-        if (this.isAnimating) {
-          clearTimeout(this.autoPlayTimer);
-          return;
-        }
-        this.isDown = true;
-        this.initX = event.$stageX;
-        this.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
-        this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
-      }
-
-      private onTouchMove(event: egret.TouchEvent): void {
-        if (env.orientation === 'landscape') {
-          return;
-        }
-        this.isMoved = true;
-
-        if (!this.slides.length) {
-          return;
-        }
-
-        switch (this.currentIndex) {
-          case 0:
-            // this.content.x = event.$stageX;
-            // this.contentTwo.x = this.content.x + this.content.width;
-            this.direction = 'next';
-            break;
-          case 1:
-            // this.contentTwo.x = event.$stageX;
-            // this.content.x = this.contentTwo.x - this.contentTwo.width;
-            this.direction = 'prev';
-            break;
-        }
-
-        // let temp;
-        // let temp2;
-
-        // switch (this.currentIndex) {
-        //   case 0:
-        //     temp = this.content;
-        //     temp2 = this.contentTwo;
-        //     break;
-        //   case 1:
-        //     temp = this.contentTwo;
-        //     temp2 = this.content;
-        //     break;
-        // }
-
-        // temp.x = event.$stageX - this.initX;
-        // if (temp.x > 0) {
-        //   // invisible one to left (prev)
-        //   temp2.x = temp.x - temp.width;
-        //   this.direction = 'prev';
-        // } else {
-        //   // invisble one to right (next)
-        //   temp2 = temp.x + temp.width;
-        //   this.direction = 'next';
-        // }
-        // const index = (this.slides.length + (this.currentIndex + (this.direction === 'prev' ? -1 : 1))) % this.slides.length;
-        // this.contentTwo.alpha = 1;
-      }
-
-      private onTouchEnd(event: egret.TouchEvent): void {
-        if (env.orientation === 'landscape') {
-          return;
-        }
-
-        clearTimeout(this.autoPlayTimer);
-        this.isDown = false;
-        this.isMoved = false;
-        this.isAnimating = true;
-        this.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
-        this.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
-
-        const diff = event.$stageX - this.initX;
-
-        switch (this.currentIndex) {
-          case 0:
-            if (Math.abs(diff) / this.content.width <= 0.25) {
-              TweenLite.to(this.content, this.duration, {
-                x: 0,
-              });
-              TweenLite.to(this.contentTwo, this.duration, {
-                x: this.content.width,
-              });
-            }
-            break;
-          case 1:
-            if (Math.abs(diff) / this.contentTwo.width <= 0.25) {
-              TweenLite.to(this.contentTwo, this.duration, {
-                x: 0,
-              });
-              TweenLite.to(this.content, this.duration, {
-                x: -this.content.width,
-              });
-            }
-            break;
-        }
-
-        this.currentIndex++;
-        if (this.currentIndex >= this.slides.length) {
-          this.currentIndex = 0;
-        }
-
-        switch (this.direction) {
-          case 'next':
-            TweenLite.to(this.contentTwo, this.duration, {
-              x: 0,
+      protected readPlayerLotteryResult() {
+        this.noDataOverlay.visible = true;
+        const chartData = env.playerLotteryStat;
+        let d = [];
+        let ranks = [];
+        let count = 0;
+        let i = 0;
+        if (this.chartTypeIndex === 0) {
+          // chart1
+          d = chartData[this.chartPeriodNames[this.chartPeriodIndex]].dataarrayList;
+          ranks = [];
+          for (i = 0; i < 10; i++) {
+            this['luckyTimeTxt' + (i + 1)].text = '-';
+          }
+          if (d.length > 0) {
+            d.forEach(element => {
+              count++;
+              this['luckyTimeTxt' + count].text = element.key;
+              ranks.push(element.value);
             });
-            TweenLite.to(this.content, this.duration, {
-              x: -this.content.width,
+            this._bestTimePieChart.setRanksAndAnimate(ranks, -1);
+            this['luckyTimeTitleValue'].text = d[0].key + '';
+          }
+        } else if (this.chartTypeIndex === 1) {
+          // chart2
+          d = chartData[this.chartPeriodNames[this.chartPeriodIndex]].dataarrayList;
+          ranks = [];
+          for (i = 0; i < 10; i++) {
+            this['luckyGameTxt' + (i + 1)].text = '-';
+          }
+          if (d.length > 0) {
+            d.forEach(element => {
+              count++;
+              this['luckyGameTxt' + count].text = element.key;
+              ranks.push(element.value);
             });
-            break;
-          case 'prev':
-            TweenLite.to(this.content, this.duration, {
-              x: 0,
+            this['luckyGameTitleValue'].text = d[0].key;
+            this._bestGamePieChart.setRanksAndAnimate(ranks, -1);
+          }
+        } else if (this.chartTypeIndex === 2) {
+          // chart3
+          d = chartData[this.chartPeriodNames[this.chartPeriodIndex]].dataarrayList;
+          ranks = [0, 0, 0, 0, 0, 0];
+          for (i = 0; i < 6; i++) {
+            this['favBetTxt' + (i + 1)].text = '-';
+            this['favBetTxtValue' + (i + 1)].text = '-';
+          }
+          if (d.length > 0) {
+            d.forEach(element => {
+              count++;
+              this['favBetTxt' + count].text = element.key;
+              this['favBetTxtValue' + count].text = element.value;
+              ranks[count - 1] = element.value;
             });
-            TweenLite.to(this.contentTwo, this.duration, {
-              x: this.content.width,
+            this._favBetBarChart.setRanksAndAnimate(ranks, -1);
+          }
+        } else if (this.chartTypeIndex === 3) {
+          // chart4
+          d = chartData[this.chartPeriodNames[this.chartPeriodIndex]].dataarrayList;
+          ranks = [];
+          for (i = 0; i < 5; i++) {
+            this['favGameTxtPercent' + (i + 1)].text = '';
+            this['favGameTxt' + (i + 1)].text = '';
+            this['favGameTxtValue' + (i + 1)].text = '';
+          }
+          if (d.length > 0) {
+            d.forEach(element => {
+              count++;
+              const percent = Math.round((element.value / d[0].value) * 100);
+              this['favGameTxtPercent' + count].text = percent + '%';
+              this['favGameTxt' + count].text = element.key;
+              this['favGameTxtValue' + count].text = element.value;
+              ranks.push(element.value);
             });
-            break;
+            this._favGameBarChart.setRanksAndAnimate(ranks, -1);
+          }
         }
-
-        setTimeout(() => {
-          this.isAnimating = false;
-        }, this.duration * 1000 + 50);
-
-        // let temp;
-        // let temp2;
-
-        // switch (this.currentIndex) {
-        //   case 0:
-        //     temp = this.content;
-        //     temp2 = this.contentTwo;
-        //     break;
-        //   case 1:
-        //     temp = this.contentTwo;
-        //     temp2 = this.content;
-        //     break;
-        // }
-
-        // if (Math.abs(diff) / temp.width <= 0.25) {
-        //   // not reach threshold, don't slide
-        //   TweenLite.to(temp, this.duration, {
-        //     x: 0,
-        //   });
-        //   TweenLite.to(temp2, this.duration, {
-        //     x: this.direction === 'next' ? temp.width : -temp.width,
-        //   });
-
-        //   setTimeout(() => {
-        //     this.contentTwo.alpha = 0;
-        //     this.isAnimating = false;
-        //   }, this.duration * 1000 + 50);
-        //   return;
-        // }
-
-        // // Before Animate
-        // this.currentIndex = (this.slides.length + (this.currentIndex + (this.direction === 'prev' ? -1 : 1))) % this.slides.length;
-
-        // TweenLite.to(temp2, this.duration, {
-        //   x: 0,
-        // });
-        // TweenLite.to(temp, this.duration, {
-        //   x: this.direction === 'next' ? -temp.width / 2 : temp.width,
-        // });
-
-        // setTimeout(() => {
-        //   this.isAnimating = false;
-        // }, this.duration * 1000 + 50);
+        if (d.length > 0) {
+          this.noDataOverlay.visible = false;
+        }
       }
 
-      public setValue(tableInfo: data.TableInfo) {
-        if (!tableInfo || !tableInfo.gamestatistic) {
-          return;
-        }
-        if (tableInfo.gamestatistic.diOdd) {
-          this._diPie.setPieOdd([tableInfo.gamestatistic.diOdd.odd, tableInfo.gamestatistic.diOdd.even, tableInfo.gamestatistic.diOdd.tie]);
-          this._diPie.setOddValues(tableInfo.gamestatistic.diOdd);
-        }
-        if (tableInfo.gamestatistic.diSize) {
-          this._diPie.setPieSize([tableInfo.gamestatistic.diSize.small, tableInfo.gamestatistic.diSize.big, tableInfo.gamestatistic.diSize.tie]);
-          this._diPie.setSizeValues(tableInfo.gamestatistic.diSize);
-        }
-        if (tableInfo.gamestatistic.points) {
-          this._diChance.setDiceValues(tableInfo.gamestatistic.points);
-        }
+      protected onChartTypeChange(e: eui.UIEvent) {
+        this.chartTypeIndex = e.target.value - 0;
+        this.chartStack.selectedIndex = this.chartTypeIndex;
+
+        this.loadingOverlay.visible = true;
+        const filter = { operatorID: 'IBC-sjfbshd', timeFilter: '', typeFilter: this.chartTypeMapping[this.chartTypeIndex] };
+        dir.socket.getPlayerLotteryStatistic(filter);
+      }
+
+      protected onPlayerLotteryStatisticUpdate(evt: egret.Event) {
+        this.loadingOverlay.visible = false;
+        this.readPlayerLotteryResult();
       }
 
       public changeLang() {
-        this._diPie.changeLang();
+        this.chart1Btn['labelDisplayDown']['text'] = this.chart1Btn['labelDisplayUp']['text'] = 'L.Time';
+        this.chart2Btn['labelDisplayDown']['text'] = this.chart2Btn['labelDisplayUp']['text'] = 'L.Game';
+        this.chart3Btn['labelDisplayDown']['text'] = this.chart3Btn['labelDisplayUp']['text'] = 'Fav.Bet';
+        this.chart4Btn['labelDisplayDown']['text'] = this.chart4Btn['labelDisplayUp']['text'] = 'Fav.Game';
+
+        this.chartPeriodBtn1['labelDisplayDown']['text'] = this.chartPeriodBtn1['labelDisplayUp']['text'] = 'Day';
+        this.chartPeriodBtn2['labelDisplayDown']['text'] = this.chartPeriodBtn2['labelDisplayUp']['text'] = 'pDay';
+        this.chartPeriodBtn3['labelDisplayDown']['text'] = this.chartPeriodBtn3['labelDisplayUp']['text'] = 'Week';
+        this.chartPeriodBtn4['labelDisplayDown']['text'] = this.chartPeriodBtn4['labelDisplayUp']['text'] = 'pWeek';
+        this.chartPeriodBtn5['labelDisplayDown']['text'] = this.chartPeriodBtn5['labelDisplayUp']['text'] = 'Mon';
+        this.chartPeriodBtn6['labelDisplayDown']['text'] = this.chartPeriodBtn6['labelDisplayUp']['text'] = 'pMon';
       }
     }
   }
