@@ -112,9 +112,14 @@ namespace we {
 
       protected async ringLoop(){
         this._ringAnim.animation.stop();
+        /*
         const p1 = we.utils.waitDragonBone(this._ringAnim);
         this._ringAnim.animation.play('round_loop_a', 5);
         await p1;
+        */
+        this._ringAnim.animation.fadeIn("round_loop_a", 0, 0, 0, "NORMAL_ANIMATION_GROUP");
+        this._ringAnim.animation.fadeIn("poker_round_in", 0, 0, 0, "ATTACK_ANIMATION_GROUP");
+        this._ringAnim.animation.fadeIn("draw", 0, 0, 0, "DRAW_ANIMATION_GROUP");
         this.movePin();
       }
 
