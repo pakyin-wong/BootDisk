@@ -523,8 +523,8 @@ namespace we {
         statisticChart: {
           bankerPlayerTie: '庄閒和比例(100局)',
           bankerPlayerTiePair: '庄閒和对比例 (100局)',
-          shoeBankerPlayerTie: '庄閒和比例(本靴)',
-          shoeBankerPlayerTiePair: '庄閒和對比例(本靴)',
+          shoeBankerPlayerTie: '庄閒和比例 (本靴)',
+          shoeBankerPlayerTiePair: '庄閒和對比例 (本靴)',
         },
         playerPair: '閒對',
         bankerPair: '庄對',
@@ -569,7 +569,7 @@ namespace we {
         playersqueeze: '咪牌中',
         allOpen: '全開',
         fullShoe: '完整牌靴',
-        mechanismHelp: '機制說明'
+        mechanismHelp: '機制說明',
       },
       message: {
         test: '你贏左 $1，$2% 會比左我',

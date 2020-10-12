@@ -557,10 +557,10 @@ namespace we {
           swapRoadmap: '轉換路紙',
         },
         statisticChart: {
-          bankerPlayerTie: '庄闲和比例(100局)',
+          bankerPlayerTie: '庄闲和比例 (100局)',
           bankerPlayerTiePair: '庄闲和对比例 (100局)',
-          shoeBankerPlayerTie: '庄闲和比例(本靴)',
-          shoeBankerPlayerTiePair: '庄闲和比例对(本靴)',
+          shoeBankerPlayerTie: '庄闲和比例 (本靴)',
+          shoeBankerPlayerTiePair: '庄闲和比例对 (本靴)',
         },
         playerPair: '闲对',
         bankerPair: '庄对',
@@ -605,7 +605,7 @@ namespace we {
         playersqueeze: '咪牌中',
         allOpen: '全开',
         fullShoe: '完整牌靴',
-        mechanismHelp: '机制说明'
+        mechanismHelp: '机制说明',
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',

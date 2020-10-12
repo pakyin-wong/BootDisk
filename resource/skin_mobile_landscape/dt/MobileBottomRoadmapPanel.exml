@@ -4,7 +4,7 @@
 	<e:Group id="content" width="100%" height="260">
 		<e:Rect id="topBar" width="244" height="100%" x="1896" y="0" fillColor="0x1F242B" strokeWeight="0" ellipseHeight="0"
 		        ellipseWidth="0" strokeColor="0x1f242b" />
-		<e:Group x="1961" anchorOffsetX="0" width="45" y="20">
+		<e:Group x="1961" anchorOffsetX="0" width="56" y="20">
 			<ui:RunTimeLabel id="totalCountLabel" text="00" x="1952" y="165" textAlign="left" anchorOffsetX="0" width="36"
 			                 size="30" height="34" verticalAlign="middle" />
 			<ui:RunTimeLabel id="bankerCountLabel" text="00" x="1952" y="32" textAlign="left" anchorOffsetX="0" width="36"
