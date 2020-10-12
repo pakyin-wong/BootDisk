@@ -17,16 +17,13 @@ namespace we {
         protected _txt_record_bgcolor: eui.Rect;
         protected _txt_hover_color: eui.Rect;
 
-        protected _txt_round: ui.RunTimeLabel;
-        protected _txt_bettype: ui.RunTimeLabel;
-        protected _txt_result: ui.RunTimeLabel;
+        protected _txt_round: eui.Label;
+        protected _txt_bettype: eui.Label;
+        protected _txt_result: eui.Label;
 
         public constructor() {
           super();
           this.skinName = utils.getSkinByClassname('BetHistoryItem');
-          this._txt_round.renderText = () => `${i18n.t('overlaypanel_bethistory_record_round')}`;
-          this._txt_bettype.renderText = () => `${i18n.t('overlaypanel_bethistory_record_bettype')}`
-          this._txt_result.renderText = () => `${i18n.t('overlaypanel_bethistory_record_result')}`
         }
 
         protected mount() {
@@ -45,14 +42,13 @@ namespace we {
         }
 
         protected dataChanged(): void {
-          // this.setData(this._txt_round, i18n.t('overlaypanel_bethistory_record_round'));
-          // this.setData(this._txt_bettype, i18n.t('overlaypanel_bethistory_record_bettype'));
-          // this.setData(this._txt_result, i18n.t('overlaypanel_bethistory_record_result'));
+          this.setData(this._txt_round, i18n.t('overlaypanel_bethistory_record_round'));
+          this.setData(this._txt_bettype, i18n.t('overlaypanel_bethistory_record_bettype'));
+          this.setData(this._txt_result, i18n.t('overlaypanel_bethistory_record_result'));
           this.setData(this._btn_replay['label'], i18n.t('overlaypanel_bethistory_record_replay'));
           this.setData(this._txt_record_id, this.data.betid);
           this.setData(this._txt_record_date, utils.formatTime(this.data.datetime.toFixed(0)));
-          this.setData(this._txt_record_game, i18n.t('gametype_' + we.core.GameType[this.data.gametype]));
-          // this.setData(this._txt_record_game, i18n.t('gametype_' + we.core.GameType[this.data.gametype]) + (this.data.tablename ? ' ' + this.data.tablename : ''));
+          this.setData(this._txt_record_game, i18n.t('gametype_' + we.core.GameType[this.data.gametype]) + (this.data.tablename ? ' ' + this.data.tablename : ''));
           this.setData(this._txt_record_round, this.data.gameroundid);
           this.setData(this._txt_record_remark, this.formatRemark(this.data.remark));
           this.setData(this._txt_record_bettype, this.formatBetType(this.data.gametype, this.data.field));
@@ -158,31 +154,29 @@ namespace we {
             case we.core.GameType.ROL:
               return i18n.t(`roulette.${bettype.toLowerCase()}`);
             case we.core.GameType.LW:
-            console.log('bettype.toLowerCase()',bettype.toLowerCase())
-            console.log('type of  bettype.toLowerCase()',typeof bettype.toLowerCase())
-              let lwresult 
+              let lwresult;
               switch (bettype.toLowerCase()) {
                 case 'lw_0':
-                lwresult = 'east'
-                break;
+                  lwresult = 'east';
+                  break;
                 case 'lw_1':
-                lwresult = 'south'
-                break;
+                  lwresult = 'south';
+                  break;
                 case 'lw_2':
-                lwresult = 'west'
-                break;
+                  lwresult = 'west';
+                  break;
                 case 'lw_3':
-                lwresult = 'north'
-                break;
+                  lwresult = 'north';
+                  break;
                 case 'lw_4':
-                lwresult = 'red'
-                break;
+                  lwresult = 'red';
+                  break;
                 case 'lw_5':
-                lwresult = 'green'
-                break;
+                  lwresult = 'green';
+                  break;
                 case 'lw_6':
-                lwresult = 'white'
-                break;
+                  lwresult = 'white';
+                  break;
               }
               return i18n.t(`luckywheel.${lwresult}`);
             default:
