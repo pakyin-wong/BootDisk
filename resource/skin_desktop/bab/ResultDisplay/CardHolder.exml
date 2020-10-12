@@ -16,7 +16,9 @@
         <e:Group x="205" y="470" id="_playerCard1Group" />
         <e:Group x="506" y="470" id="_playerCard2Group" />
         <e:Group x="250" y="470" id="_playerCard3Group" visible="false" />
+        <e:Group x="1790" y="159" id="_smallPlayerCard3Group"  />
         <e:Group x="1860" y="470" id="_bankerCard1Group" />
         <e:Group x="2116" y="470" id="_bankerCard2Group" />
         <e:Group x="250" y="470" id="_bankerCard3Group" visible="false" />
+        <e:Group x="1900" y="159" id="_smallBankerCard3Group"  />
 </e:Skin>

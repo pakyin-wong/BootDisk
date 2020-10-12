@@ -568,7 +568,7 @@ namespace we {
           }
         }
         if (this._resultDisplay) {
-          this._resultDisplay.updateResult(this._gameData);
+          this._resultDisplay.updateResult(this._gameData,this._chipLayer,isInit);
         }
       }
 
@@ -753,7 +753,7 @@ namespace we {
         this._undoButton.alpha = isEnable ? 1 : 0.5;
         this._cancelButton.alpha = isEnable ? 1 : 0.5;
         this._confirmButton.alpha = isEnable ? 1 : 0.3;
-        this._repeatButton.alpha = this._repeatButton.touchEnabled? 1: 0.5;
+        this._repeatButton.alpha = this._repeatButton.touchEnabled ? 1 : 0.5;
         this._doubleButton.alpha = this._doubleButton.touchEnabled ? 1 : 0.5;
         if (this._timer.bg_color) {
           this._timer.bg_color.alpha = isEnable ? 0.7 : 0;

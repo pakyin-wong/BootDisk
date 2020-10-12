@@ -16,14 +16,22 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        this._helpButton.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
-          this._cardInfoPanel.visible = !this._cardInfoPanel.visible;
-          this._cardInfoPanel.showDeck();
-        }, this)
-        this._deckButton.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
-          this._cardInfoPanel.visible = !this._cardInfoPanel.visible;
-          this._cardInfoPanel.showHelp();
-        }, this)
+        this._helpButton.addEventListener(
+          egret.TouchEvent.TOUCH_TAP,
+          () => {
+            this._cardInfoPanel.visible = !this._cardInfoPanel.visible;
+            this._cardInfoPanel.showDeck();
+          },
+          this
+        );
+        this._deckButton.addEventListener(
+          egret.TouchEvent.TOUCH_TAP,
+          () => {
+            this._cardInfoPanel.visible = !this._cardInfoPanel.visible;
+            this._cardInfoPanel.showHelp();
+          },
+          this
+        );
         /*
         this._forceNoDismiss = true;
         if (!env.isFirstTimeBam) {
@@ -41,12 +49,10 @@ namespace we {
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('BlockchainBaccaratScene');
       }
-
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-        this._resultDisplay.updateResult(this._gameData,this._chipLayer)
+        this._resultDisplay.updateResult(this._gameData,this._chipLayer,isInit)
       }
-
       /*
       protected setStateDeal(isInit: boolean = false) {
         if (this._previousState === we.core.GameState.BET) {
