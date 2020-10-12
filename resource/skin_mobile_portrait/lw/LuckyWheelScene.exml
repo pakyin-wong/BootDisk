@@ -35,7 +35,7 @@
 				         verticalCenter="0" />
 			</e:Group>
 			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" horizontalCenter="505"
-			                           skinName="skin_mobile.BetChipSkin" horizontalCenter.right_hand_mode="-500"
+			                           skinName="skin_mobile.BetChipSkin" horizontalCenter.right_hand_mode="-480"
 			                           horizontalCenter.left_hand_mode="491" labelSize="48" y="220" />
 			<e:Group id="_betRelatedGroup" x="34" y="235" x.right_hand_mode="224" scaleX="1" scaleY="1">
 				<e:Rect id="_roundPanel" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"
@@ -69,73 +69,86 @@
 		<lw:MobileBottomGamePanel skinName="skin_mobile_portrait.lw.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"
 		                          x="0" scaleY="1" y="731" scaleX="1" />
 	</e:Group>
-	<e:Group id="_betChipSetPanel" y.right_hand_mode="1110" width="1182" height="762" x.right_hand_mode="34" scaleY="1"
+	<!--<e:Group id="_betChipSetPanel" y.right_hand_mode="1110" width="1182" height="762" x.right_hand_mode="34" scaleY="1"
 	         horizontalCenter.left_hand_mode="4" y.left_hand_mode="1110" scaleY.left_hand_mode="1" y="1110"
 	         horizontalCenter="4">
-		<e:Group id="_betPanelGroup" y.right_hand_mode="0" scaleY.left_hand_mode="1" horizontalCenter="0"
-		         horizontalCenter.left_hand_mode="0" horizontalCenter.right_hand_mode="0" left.left_hand_mode="0"
-		         top.left_hand_mode="0" bottom.left_hand_mode="0" right.left_hand_mode="0" left="0" right="0" top="0"
-		         bottom="0">
-			<e:Image id="_panel" width="100%" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1"
-			         height="729" y="33" x="0" scaleX="1" />
-			<e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" height.right_hand_mode="40"
-			         left.left_hand_mode="1043" scaleY="1" width.left_hand_mode="68" y="-2" scaleX="1" x.left_hand_mode="1040"
-			         width.right_hand_mode="70" right.right_hand_mode="1057" />
-		</e:Group>
-		<ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" horizontalCenter="0" betChipWidth="250"
-		                   betChipHeight="208" scaleY="1" y="70" anchorOffsetY.left_hand_mode="0" right.left_hand_mode="0"
-		                   left.left_hand_mode="0" labelSize="48" right="0" left="0" />
+	<e:Group id="_betPanelGroup" y.right_hand_mode="0" scaleY.left_hand_mode="1" horizontalCenter="0"
+	         horizontalCenter.left_hand_mode="0" horizontalCenter.right_hand_mode="0" left.left_hand_mode="0"
+	         top.left_hand_mode="0" bottom.left_hand_mode="0" right.left_hand_mode="0" left="0" right="0" top="0"
+	         bottom="0">
+		<e:Image id="_panel" width="100%" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1"
+		         height="729" y="33" x="0" scaleX="1" />
+		<e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" height.right_hand_mode="40"
+		         left.left_hand_mode="1043" scaleY="1" width.left_hand_mode="68" y="-2" scaleX="1" x.left_hand_mode="1040"
+		         width.right_hand_mode="70" right.right_hand_mode="1057" />
 	</e:Group>
-	<e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="1242" touchEnabled="false"
-	         touchChildren="true" touchThrough="true" height="121">
-		<e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3" />
-		<ui:RunTimeLabel id="_lblRoomNo" x="25" y="15" size="40" height="56" verticalAlign="middle" width="200"
-		                 textAlign="left" anchorOffsetX="0" text="Label" />
-		<e:Group x="25" y="65">
-			<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Arial" size="40" text="label" />
-			<e:Image source="m_common_panel_icon_dropdown_png" width="34" height="19" visible="false" />
-			<e:layout>
-				<e:HorizontalLayout verticalAlign="middle" />
-			</e:layout>
-		</e:Group>
-		<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" x="0"
-		                       visible="false" />
-		<e:Group id="_btnBack" width="104" height="104" x="31" y="149">
-			<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0"
-			        ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.8" />
-			<e:Image width="41" height="33" source="d_ba_navbar_chevron_png" scaleX="1" scaleY="1" horizontalCenter="0"
-			         verticalCenter="0" />
-		</e:Group>
-		<!--<e:Image id="_lblRoomInfo" width="48" height="48" x="310" y="33" source="d_ba_navbar_icon_info_png" />
-		-->
-		<ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
-		            skinName="skin_mobile_portrait.GameBar" visible="false" />
-		<e:Group y="65" right="15">
-			<ui:RunTimeLabel id="_totalBet" text="0" anchorOffsetX="0" textAlign="right" size="36" right="5" />
-			<ui:RunTimeLabel id="_totalBetText" text="總下注" anchorOffsetX="0" textAlign="right" size="36" alpha="0.7" />
-			<e:layout>
-				<e:HorizontalLayout/>
-			</e:layout>
-		</e:Group>
-		<e:Group bottom="-2029" left="0" width="700" x="0" y="2125" scaleX="1" scaleY="1">
-			<ui:RunTimeLabel id="_GameIDText" text="Game ID :" bottom="0" left="0" />
-			<ui:RunTimeLabel id="_GameID" text="ID" bottom="0" left="0" />
-			<e:layout>
-				<e:HorizontalLayout/>
-			</e:layout>
-		</e:Group>
+	<ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" horizontalCenter="0" betChipWidth="250"
+	                   betChipHeight="208" scaleY="1" y="70" anchorOffsetY.left_hand_mode="0" right.left_hand_mode="0"
+	                   left.left_hand_mode="0" labelSize="48" right="0" left="0" />
+</e:Group>
+-->
+<e:Group id="_betChipSetPanel" width="1182" height="762" scaleY="1" y="986" horizontalCenter="4" touchThrough="true">
+	<e:Group id="_betPanelGroup" horizontalCenter="0" left="0" right="0" touchThrough="true">
+		<e:Image id="_panel" width="100%" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" height="790" y="33"
+		         x="0" />
+		<e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" left.left_hand_mode="1043" scaleY="1"
+		         width.left_hand_mode="68" y="2" scaleX="1" width.right_hand_mode="70" right.right_hand_mode="1057" />
 	</e:Group>
-	<lw:GameResultMessage id="_resultMessage" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
-	                      verticalCenter="-550" horizontalCenter="0" />
-	<ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
-	                  infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
-	                  errorBg="d_ba_gamerecord_bankerelement_png" y="623" x="312" />
-	<!--<e:Group height="50" x="1108" anchorOffsetX="0" anchorOffsetY="0" y="655">
-	<ui:RunTimeLabel id="_lblBaMode" x="13" y="26" scaleX="1" scaleY="1" />
-	<e:ToggleSwitch id="_switchBaMode" label="免佣" x="88" y="28" scaleX="1" scaleY="1" />
-	<e:layout>
-		<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle" />
-	</e:layout>
+	<ui:BetChipSetGrid id="_betChipSet" alpha="0" horizontalCenter="0" betChipWidth="250" betChipHeight="208" y="0"
+	                   labelSize="48" right="0" left="0" />
+</e:Group>
+
+
+<e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="1242" touchEnabled="false"
+         touchChildren="true" touchThrough="true" height="121">
+	<e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3" />
+	<ui:RunTimeLabel id="_lblRoomNo" x="25" y="15" size="40" height="56" verticalAlign="middle" width="200"
+	                 textAlign="left" anchorOffsetX="0" text="Label" />
+	<e:Group x="25" y="65">
+		<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Arial" size="40" text="label" />
+		<e:Image source="m_common_panel_icon_dropdown_png" width="34" height="19" visible="false" />
+		<e:layout>
+			<e:HorizontalLayout verticalAlign="middle" />
+		</e:layout>
+	</e:Group>
+	<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" x="0"
+	                       visible="false" />
+	<e:Group id="_btnBack" width="104" height="104" x="31" y="149">
+		<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0"
+		        ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.8" />
+		<e:Image width="41" height="33" source="d_ba_navbar_chevron_png" scaleX="1" scaleY="1" horizontalCenter="0"
+		         verticalCenter="0" />
+	</e:Group>
+	<!--<e:Image id="_lblRoomInfo" width="48" height="48" x="310" y="33" source="d_ba_navbar_icon_info_png" />
+	-->
+	<ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
+	            skinName="skin_mobile_portrait.GameBar" visible="false" />
+	<e:Group y="65" right="15">
+		<ui:RunTimeLabel id="_totalBet" text="0" anchorOffsetX="0" textAlign="right" size="36" right="5" />
+		<ui:RunTimeLabel id="_totalBetText" text="總下注" anchorOffsetX="0" textAlign="right" size="36" alpha="0.7" />
+		<e:layout>
+			<e:HorizontalLayout/>
+		</e:layout>
+	</e:Group>
+	<e:Group bottom="-2029" left="0" width="700" x="0" y="2125" scaleX="1" scaleY="1">
+		<ui:RunTimeLabel id="_GameIDText" text="Game ID :" bottom="0" left="0" />
+		<ui:RunTimeLabel id="_GameID" text="ID" bottom="0" left="0" />
+		<e:layout>
+			<e:HorizontalLayout/>
+		</e:layout>
+	</e:Group>
+</e:Group>
+<lw:GameResultMessage id="_resultMessage" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
+                      verticalCenter="-550" horizontalCenter="0" />
+<ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
+                  infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
+                  errorBg="d_ba_gamerecord_bankerelement_png" y="623" x="312" />
+<!--<e:Group height="50" x="1108" anchorOffsetX="0" anchorOffsetY="0" y="655">
+<ui:RunTimeLabel id="_lblBaMode" x="13" y="26" scaleX="1" scaleY="1" />
+<e:ToggleSwitch id="_switchBaMode" label="免佣" x="88" y="28" scaleX="1" scaleY="1" />
+<e:layout>
+	<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle" />
+</e:layout>
 </e:Group>
 -->
 </e:Skin>

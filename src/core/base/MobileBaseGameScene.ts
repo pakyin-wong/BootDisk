@@ -340,6 +340,7 @@ namespace we {
             this._betChipSetPanel.y = betChipSetGridPosition.y + 185;
             this._betPanelGroup.y = 0;
             this._betChipSet.y = 100;
+            this._betPanelGroup.scaleY = 1;
           } else if (betChipSetGridPosition.y >= 1000) {
             // bottomGamePanel is off
             // this._betPanelGroup.y = betChipSetGridPosition.y;
