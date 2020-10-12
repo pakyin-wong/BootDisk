@@ -8,7 +8,6 @@ namespace we {
       public _roadButtonPanel: di.MobileBottomRoadButtonPanel;
 
       public _tableInfoPanel: di.TableInfoPanel;
-      // public _betLimitDropDownBtn: ui.RunTimeLabel;
 
       public _statisticChartPanel: di.StatisticChartPanel;
 
@@ -26,7 +25,7 @@ namespace we {
       protected _historyGroup: eui.Group;
 
       public constructor(skin?: string) {
-        super(skin || !env.isMobile ? skin : 'di.MobileBottomGamePanel');
+        super(skin || !env.isMobile ? skin : 'lo.MobileBottomGamePanel');
       }
 
       protected mount() {
@@ -44,8 +43,6 @@ namespace we {
         this._roadmapGroup && this._roadmapGroup.removeChildren();
         // }
 
-        // this._chartGroup.removeChildren();
-        // this._infoGroup.removeChildren();
         this.removeListeners();
       }
 
