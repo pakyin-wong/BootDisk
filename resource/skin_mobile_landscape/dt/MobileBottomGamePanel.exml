@@ -56,8 +56,8 @@
 			</e:ViewStack>
 			<e:Group id="_bottomResultDisplayContainer" width="2140" height="259" x="0" touchEnabled="false" touchThrough="true" touchChildren="false" bottom="0">
 				<e:Rect width="100%" height="100%" fillColor="0x000000" fillAlpha="0.4" touchEnabled="false" touchChildren="false"/>
-				<dt:CardHolder id="_bottomResultDisplay" width="1384" height="152" y="1.5" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
-					 scaleY="1" horizontalCenter="0"  touchChildren="false" touchEnabled="false"/>
+				<dt:CardHolder id="_bottomResultDisplay" width="1120" height="152" y="1.5" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
+					 scaleY="1"  touchChildren="false" touchEnabled="false" x="652"/>
 			</e:Group>
 		</e:Group>
 	</e:Group>
