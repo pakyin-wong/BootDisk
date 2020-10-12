@@ -12,6 +12,7 @@ namespace we {
       gametype_BAS: 'BAS',
       gametype_BAI: 'BAI',
       gametype_BAM: 'BAM',
+      gametype_BAB: 'BAB',
       gametype_DI: 'DI',
       gametype_DIL: 'DIL',
       gametype_MJ: 'MJ',
@@ -570,6 +571,8 @@ namespace we {
         rounds: 'rounds',
         playersqueeze: 'Squeeze',
         allOpen: 'All Open',
+        fullShoe: 'All cards in shoe',
+        mechanismHelp: 'Help'
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',

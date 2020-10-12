@@ -137,12 +137,14 @@ namespace we {
           core.GameType.LW,
           core.GameType.RO,
           core.GameType.ROL,
+          core.GameType.LO,
         ];
         this.desktopValidGameType = [
           core.GameType.BAC,
           core.GameType.BAI,
           core.GameType.BAS,
           core.GameType.BAM,
+          core.GameType.BAB,
           core.GameType.DI,
           core.GameType.DIL,
           core.GameType.DT,
@@ -302,6 +304,9 @@ namespace we {
           case core.GameType.BAM:
             dir.sceneCtr.goto('bam', { tableid: tableId });
             break;
+          case core.GameType.BAB:
+            dir.sceneCtr.goto('bab', { tableid: tableId });
+            break;            
           case core.GameType.DT:
             dir.sceneCtr.goto('dt', { tableid: tableId });
             break;
@@ -327,7 +332,7 @@ namespace we {
             dir.sceneCtr.goto('rc', { tableid: tableId });
             break;
           default:
-            logger.e(utils.LogTarget.DEBUG, `Scene for GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
+            logger.e(utils.LogTarget.DEBUG, ` GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
             this._currTableId = '';
             break;
         }

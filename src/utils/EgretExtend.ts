@@ -64,7 +64,7 @@ namespace we {
     }
     eui.sys.TouchScroll.prototype.finish = finish;
 
-    egret['web'].WebPlayer.prototype.updateScreenSize = function() {
+    egret['web'].WebPlayer.prototype.updateScreenSize = function () {
       const canvas = this.canvas;
       if (canvas['userTyping']) {
         return;
@@ -147,6 +147,18 @@ namespace we {
         canvas.width = stageWidth * canvasScaleX;
         canvas.height = stageHeight * canvasScaleY;
       }
+    };
+
+    egret.MovieClipData.prototype.getTextureByFrame = function (frame) {
+      let frameData = this.getKeyFrameData(frame);
+      if (this.spriteSheet == null) {
+        let outputTexture = RES.getRes(frameData.res);
+        return outputTexture;
+      } else if (frameData.res) {
+        let outputTexture = this.getTextureByResName(frameData.res);
+        return outputTexture;
+      }
+      return null;
     };
   }
 }

@@ -148,7 +148,7 @@ namespace we {
             case we.core.GameType.DT:
               return dt.MobileSideListBetItemHolder;
             default:
-              throw new Error('Invalid Game Type');
+              throw new Error('Invalid Game Type: ' + tableInfo.gametype);
           }
         };
 
@@ -176,7 +176,7 @@ namespace we {
             case we.core.GameType.DT:
               return dt.MobileSideListItemHolder;
             default:
-              throw new Error('Invalid Game Type');
+              throw new Error('Invalid Game Type: ' + tableInfo.gametype);
           }
         };
 
@@ -208,7 +208,7 @@ namespace we {
             case we.core.GameType.LO:
               return ro.MobileSideListItemHolder;
             default:
-              throw new Error('Invalid Game Type');
+              throw new Error('Invalid Game Type: ' + tableInfo.gametype);
           }
         };
 

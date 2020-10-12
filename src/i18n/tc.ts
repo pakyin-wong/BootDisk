@@ -12,6 +12,7 @@ namespace we {
       gametype_BAS: '競速百家樂',
       gametype_BAI: '保險百家樂',
       gametype_BAM: '咪牌百家樂',
+      gametype_BAB: '區塊鏈百家樂',
       gametype_DI: '骰寶',
       gametype_DIL: '財神骰寶',
       gametype_MJ: '麻將',
@@ -571,6 +572,8 @@ namespace we {
         rounds: '局',
         playersqueeze: '咪牌中',
         allOpen: '全開',
+        fullShoe: '完整牌靴',
+        mechanismHelp: '機制說明'
       },
       message: {
         test: '你贏左 $1，$2% 會比左我',

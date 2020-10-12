@@ -102,7 +102,7 @@ namespace we {
           egret.Tween.get(this._next)
             .to({ y: 0 }, 500)
             .call(
-              function() {
+              function () {
                 egret.Tween.removeTweens(this._label);
                 this._label.text = this._next.text;
                 this._label.y = 0;
