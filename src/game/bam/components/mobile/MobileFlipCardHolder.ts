@@ -30,6 +30,10 @@ namespace we {
         this.moveCardIndex = 0;
         this.currentCard = this._flipCard1;
         this.nextCard = this._flipCard2;
+        this._flipCard1.clearUserEvents();
+        this._flipCard2.clearUserEvents();
+        this._flipCard1.visible = false;
+        this._flipCard2.visible = false;
       }
 
       protected childrenCreated() {
