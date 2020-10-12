@@ -139,7 +139,7 @@ namespace we {
       protected async betFinalState() {
         const cardAnimName = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2', '_smallPlayerCard3', '_smallBankerCard3'];
         for (let i = 0; i < cardAnimName.length; i++) {
-          const p4 = we.utils.waitDragonBone(this[cardAnimName[i]]);
+          //const p4 = we.utils.waitDragonBone(this[cardAnimName[i]]);
           const cardAnim = <dragonBones.EgretArmatureDisplay>this[cardAnimName[i]];
 
           const cardIndexSlot = cardAnim.armature.getSlot('card_number_vertical');
@@ -161,6 +161,7 @@ namespace we {
           cardSlot.display = group;
 
           cardAnim.animation.reset();
+          cardAnim.animation.stop();
           cardAnim.animation.gotoAndStop('vertical_loop_back', 0);
         }
       }
@@ -233,22 +234,23 @@ namespace we {
           group.addChild(image);
           cardSlot.display = group;
 
-          const p2 = we.utils.waitDragonBone(this._ringAnim);
-          this._ringAnim.animation.play('poker_round_in', 1);
+          //cardAnim.animation.stop();
 
-          const p3 = we.utils.waitDragonBone(cardAnim);
+          this._ringAnim.animation.play('poker_in', 1);
+
+          //const p3 = we.utils.waitDragonBone(cardAnim);
           cardAnim.animation.play('vertical_in', 1);
-          await p3;
-          await p2;
+          //await p3;
+          //await p2;
 
-          const p4 = we.utils.waitDragonBone(cardAnim);
+          //const p4 = we.utils.waitDragonBone(cardAnim);
           cardAnim.animation.play('vertical_loop_back', 1);
 
-          const p5 = we.utils.waitDragonBone(this._ringAnim);
-          this._ringAnim.animation.play('poker_round_out', 1);
-          
-          await p4;
-          await p5;
+          //const p5 = we.utils.waitDragonBone(this._ringAnim);
+          this._ringAnim.animation.play('poker_out', 1);
+
+          //await p4;
+          //await p5;
 
           if (this._gameData.currentcardindex + i === this._gameData.redcardindex) {
             // do red card thing
