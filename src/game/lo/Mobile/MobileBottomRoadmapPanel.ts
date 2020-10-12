@@ -3,31 +3,26 @@
 namespace we {
   export namespace lo {
     export class MobileBottomRoadmapPanel extends core.BaseGamePanel {
-      // protected beadRoad: DiBeadRoad;
-      public sumRoad: di.DiSumBigRoad;
-      public sizeRoad: di.DiSizeBigRoad;
-      public oddRoad: di.DiOddBigRoad;
 
-      protected sumBigRoadConfig: di.RoadMapConfig;
-      protected sizeBigRoadConfig: di.RoadMapConfig;
-      protected oddBigRoadConfig: di.RoadMapConfig;
+      protected roadStack: eui.ViewStack;
 
-      protected roadmapSizeBtn: eui.RadioButton;
-      protected roadmapOddevenBtn: eui.RadioButton;
-      protected roadmapSumBtn: eui.RadioButton;
+      protected dtRoadNames: string[] = ['dt1v2', 'dt1v3', 'dt1v4', 'dt1v5', 'dt2v3', 'dt2v4', 'dt2v5', 'dt3v4', 'dt3v5', 'dt4v5'];
 
-      protected _roadmapBg: eui.Component;
-      protected _roadmapView: eui.ViewStack;
+      public dtBigRoad: LoDtBigRoad;
+      public sizeBigRoad: LoSizeBigRoad;
+      public oddBigRoad: LoOddBigRoad;
 
-      // protected dtRoadNames: string[] = ['dt1v2', 'dt1v3', 'dt1v4', 'dt1v5', 'dt2v3', 'dt2v4', 'dt2v5', 'dt3v4', 'dt3v5', 'dt4v5'];
-      // protected chartTypeNames: string[] = ['lucky_time', 'lucky_game', 'fav_bet', 'fav_game'];
-      // protected chartPeriodNames: string[] = ['day', 'pday', 'week', 'pweek', 'month', 'pmonth'];
-      // protected chartTypeMapping: number[] = [2, 3, 0, 1];
+      protected road3PageNum: number;
+      protected road3NextBtn: eui.Image;
+      protected road3BackBtn: eui.Image;
 
-      // // roadmap
-      // public dtBigRoad: LoDtBigRoad;
-      // public sizeBigRoad: LoSizeBigRoad;
-      // public oddBigRoad: LoOddBigRoad;
+      protected road1Index: number;
+      protected road2Index: number;
+      protected road3Index: number;
+
+      protected road1Btn: eui.RadioButton;
+      protected road2Btn: eui.RadioButton;
+      protected road3Btn: eui.RadioButton;
 
       public constructor() {
         super();
@@ -37,78 +32,187 @@ namespace we {
         super.mount();
 
         this.initRoadMap();
-        this.addListeners();
-
         this.updateText();
-        this.updateMode();
       }
 
       protected initRoadMap() {
-        switch (env.orientation) {
-          case 'portrait':
-            this.sumRoad = new di.DiSumBigRoad(18, 68, 1, false);
-            this.sumBigRoadConfig.parent.addChild(this.sumRoad);
+        this.road1Index = this.road2Index = this.road3Index = 0;
 
-            this.sizeRoad = new di.DiSizeBigRoad(18, 68, 1, false);
-            this.sizeBigRoadConfig.parent.addChild(this.sizeRoad);
+        this.dtBigRoad = new LoDtBigRoad(16, 39);
+        this.dtBigRoad.x = 1;
+        this.dtBigRoad.y = 43;
 
-            this.oddRoad = new di.DiOddBigRoad(18, 68, 1, false);
-            this.oddBigRoadConfig.parent.addChild(this.oddRoad);
-            break;
-          case 'landscape':
-            this.sumRoad = new di.DiSumBigRoad(18, 51, 1, false);
-            this.sumBigRoadConfig.parent.addChild(this.sumRoad);
+        this.sizeBigRoad = new LoSizeBigRoad(16, 39);
+        this.sizeBigRoad.x = 1;
+        this.sizeBigRoad.y = 43;
 
-            this.sizeRoad = new di.DiSizeBigRoad(18, 51, 1, false);
-            this.sizeBigRoadConfig.parent.addChild(this.sizeRoad);
+        this.oddBigRoad = new LoOddBigRoad(16, 39);
+        this.oddBigRoad.x = 1;
+        this.oddBigRoad.y = 43;
 
-            this.oddRoad = new di.DiOddBigRoad(18, 51, 1, false);
-            this.oddBigRoadConfig.parent.addChild(this.oddRoad);
-            break;
+        // add road to road stack 1
+        const road1Group = this.roadStack.getChildAt(0) as eui.Group;
+        road1Group.addChild(this.sizeBigRoad);
+
+        // add road to road stack 2
+        const road2Group = this.roadStack.getChildAt(1) as eui.Group;
+        road2Group.addChild(this.oddBigRoad);
+
+        // add road to road stack 3
+        const road3Group = this.roadStack.getChildAt(2) as eui.Group;
+        road3Group.addChild(this.dtBigRoad);
+
+        this.road1Btn.addEventListener(eui.UIEvent.CHANGE, this.onRoadTypeChange, this);
+        this.road2Btn.addEventListener(eui.UIEvent.CHANGE, this.onRoadTypeChange, this);
+        this.road3Btn.addEventListener(eui.UIEvent.CHANGE, this.onRoadTypeChange, this);
+
+        for (let i = 1; i <= 5; i++) {
+          this['road1Btn' + i].addEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
         }
+
+        for (let i = 1; i <= 5; i++) {
+          this['road2Btn' + i].addEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
+        }
+
+        for (let i = 1; i <= 10; i++) {
+          this['road3Btn' + i].addEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
+        }
+
+        this.setRoad3PageNum(0);
+
+        this.road3NextBtn.touchEnabled = true;
+        this.road3NextBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoad3NextBtnClick, this);
+
+        this.road3BackBtn.touchEnabled = true;
+        this.road3BackBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoad3BackBtnClick, this);
       }
 
       public destroy() {
         super.destroy();
+        if (this['road1Btn1'].hasEventListener(eui.UIEvent.CHANGE)) {
 
-        this.sumRoad.dispose();
-        this.sizeRoad.dispose();
-        this.oddRoad.dispose();
+          this.road1Btn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadTypeChange, this);
+          this.road2Btn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadTypeChange, this);
+          this.road3Btn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadTypeChange, this);
 
-        this.removeListeners();
-      }
+          this.road3NextBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoad3NextBtnClick, this);
+          this.road3BackBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoad3BackBtnClick, this);
 
-      protected addListeners() {
-        // this.roadmapSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-        // this.roadmapOddevenBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-        // this.roadmapSumBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+          for (let i = 1; i <= 5; i++) {
+            this['road1Btn' + i].removeEventListener(eui.UIEvent.CHANGE, this.onRoad1IndexChange, this);
+          }
 
-        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
-        dir.evtHandler.addEventListener(core.Event.MODE_UPDATE, this.updateMode, this);
-      }
+          for (let i = 1; i <= 5; i++) {
+            this['road2Btn' + i].removeEventListener(eui.UIEvent.CHANGE, this.onRoad2IndexChange, this);
+          }
 
-      protected removeListeners() {
-        // this.roadmapSizeBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-        // this.roadmapOddevenBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-        // this.roadmapSumBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-
-        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
-        dir.evtHandler.removeEventListener(core.Event.MODE_UPDATE, this.updateMode, this);
+          for (let i = 1; i <= 10; i++) {
+            this['road3Btn' + i].removeEventListener(eui.UIEvent.CHANGE, this.onRoad3IndexChange, this);
+          }
+        }
       }
 
       public updateText() {
-        // this.roadmapSizeBtn.label = i18n.t('dice.roadBig') + '/' + i18n.t('dice.roadSmall');
-        // this.roadmapOddevenBtn.label = i18n.t('dice.roadOdd') + '/' + i18n.t('dice.roadEven');
-        // this.roadmapSumBtn.label = i18n.t('dice.total');
+        this.road1Btn['labelDisplayDown']['text'] = this.road1Btn['labelDisplayUp']['text'] = 'B/S';
+        this.road2Btn['labelDisplayDown']['text'] = this.road2Btn['labelDisplayUp']['text'] = 'O/E';
+        this.road3Btn['labelDisplayDown']['text'] = this.road3Btn['labelDisplayUp']['text'] = 'DT';
+
+        for (let i = 1; i <= 5; i++) {
+          this['road1Btn' + i]['labelDisplayDown']['text'] = this['road1Btn' + i]['labelDisplayUp']['text'] = 'Ball ' + i;
+        }
+
+        for (let i = 1; i <= 5; i++) {
+          this['road2Btn' + i]['labelDisplayDown']['text'] = this['road2Btn' + i]['labelDisplayUp']['text'] = 'Ball ' + i;
+        }
+
+        let c = 0;
+        for (let i = 1; i < 5; i++) {
+          for (let j = i + 1; j <= 5; j++) {
+            c++;
+            this['road3Btn' + c]['labelDisplayDown']['text'] = this['road3Btn' + c]['labelDisplayUp']['text'] = i + ' VS ' + j;
+          }
+        }
       }
 
-      public onRoadMapChanged(e) {
-        this._roadmapView.selectedIndex = e.target.value;
+            protected onRoad3NextBtnClick(e: egret.TouchEvent) {
+        if (this.road3PageNum === 0) {
+          this.setRoad3PageNum(++this.road3PageNum);
+        }
       }
 
-      protected updateMode() {
-        this._roadmapBg.currentState = 'dark'; // change when light state done
-        // this._roadmapBg.currentState = env.mode === 1 ? 'dark' : 'light';
+      protected onRoad3BackBtnClick(e: egret.TouchEvent) {
+        if (this.road3PageNum > 0) {
+          this.setRoad3PageNum(--this.road3PageNum);
+        }
+      }
+      protected onRoadTypeChange(e) {
+        const roadTypeIndex = e.target.value;
+        this.roadStack.selectedIndex = roadTypeIndex;
+
+        this['road1Btn1'].selected = true;
+        this['road2Btn1'].selected = true;
+        this['road3Btn1'].selected = true;
+      }
+
+      protected setRoad3PageNum(n: number) {
+        this.road3PageNum = n;
+        if (this.road3PageNum == 0) {
+          this.road3NextBtn.visible = true;
+          this.road3BackBtn.visible = false;
+        } else {
+          this.road3NextBtn.visible = false;
+          this.road3BackBtn.visible = true;
+        }
+
+        const itemPerPage = 6;
+        const numBtn = 10;
+        for (let i = 0; i < numBtn; i++) {
+          const page = Math.floor(i / itemPerPage);
+          // check if same page
+          this['road3Btn' + (i + 1)].includeInLayout = this['road3Btn' + (i + 1)].visible = page === n;
+        }
+      }
+
+      protected onRoad1IndexChange(e: eui.UIEvent) {
+        const radio: eui.RadioButton = e.target;
+        this.road1Change(radio.value);
+      }
+      protected onRoad2IndexChange(e: eui.UIEvent) {
+        const radio: eui.RadioButton = e.target;
+        this.road2Change(radio.value);
+      }
+      protected onRoad3IndexChange(e: eui.UIEvent) {
+        const radio: eui.RadioButton = e.target;
+        this.road3Change(radio.value);
+      }
+
+      protected road1Change(i: number) {
+        this.road1Index = i - 0;
+        if (this.tableInfo.roadmap) {
+          this.sizeBigRoad.parseRoadData(this.tableInfo.roadmap.sideBar['size' + (this.road1Index + 1)]);
+        }
+      }
+
+      protected road2Change(i: number) {
+        this.road2Index = i - 0;
+        if (this.tableInfo.roadmap) {
+          this.oddBigRoad.parseRoadData(this.tableInfo.roadmap.sideBar['odd' + (this.road2Index + 1)]);
+        }
+      }
+
+      protected road3Change(i: number) {
+        this.road3Index = i - 0;
+        if (this.tableInfo.roadmap) {
+          this.dtBigRoad.parseRoadData(this.tableInfo.roadmap.sideBar[this.dtRoadNames[this.road3Index]]);
+        }
+      }
+
+      public update() {
+          if (this.tableInfo.roadmap) {
+            this.road1Change(this.road1Index);
+            this.road2Change(this.road2Index);
+            this.road3Change(this.road3Index);
+          }
       }
     }
   }
