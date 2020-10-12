@@ -319,7 +319,7 @@ namespace we {
         super.setBetRelatedComponentsEnabled(enable);
         // this._betRelatedGroup.visible = enable;
         this._betChipSetGridSelected.visible = enable;
-        this._betChipSetGridSelected.chipScale = 0.6;
+        this._betChipSetGridSelected.chipScale = 0.5;
 
         const isEnable = enable;
         if (!isEnable) {
@@ -334,14 +334,19 @@ namespace we {
           // portrait position
           if (betChipSetGridPosition.y < 1000) {
             // bottomGamePanel is on
-            this._betPanelGroup.scaleY = 1;
-
-            this._betPanelGroup.y = betChipSetGridPosition.y;
+            // this._betPanelGroup.scaleY = 1;
+            // this._betPanelGroup.y = betChipSetGridPosition.y;
+            // this._betChipSet.y = betChipSetGridPosition.y;
             this._betChipSetPanel.y = betChipSetGridPosition.y + 185;
+            this._betPanelGroup.y = 0;
+            this._betChipSet.y = 100;
           } else if (betChipSetGridPosition.y >= 1000) {
             // bottomGamePanel is off
-            this._betPanelGroup.y = betChipSetGridPosition.y;
-            this._betChipSetPanel.y = betChipSetGridPosition.y - 780;
+            // this._betPanelGroup.y = betChipSetGridPosition.y;
+            // this._betChipSet.y = betChipSetGridPosition.y - 780;
+            this._betChipSetPanel.y = betChipSetGridPosition.y - 20;
+            this._betPanelGroup.y = 0;
+            this._betChipSet.y = -760;
             this._betPanelGroup.scaleY = -1;
           }
         } else {
