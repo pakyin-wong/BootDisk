@@ -4,6 +4,7 @@ namespace we {
       private _page: eui.Group;
       private _pageIndex: number;
       private _items: string[] = [
+        'dbTest',
         'BetChipSetHorizontalTest',
         'AnimBetChipTest',
         'RoadmapTest',

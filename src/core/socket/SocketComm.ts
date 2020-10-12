@@ -281,8 +281,10 @@ namespace we {
         //   groups: {},
         // };
         // env.icons = {};
-        env.nicknameKey = player.profile.nickname;
 
+        // env.nicknameKey = player.profile.nickname;
+        // env.nickname = player.profile.settings.nickname;
+        env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
         // env.icons = {
         //   iconKey01: 'd_lobby_profile_pic_01_png',
         //   iconKey02: 'd_lobby_profile_pic_02_png',
@@ -571,6 +573,7 @@ namespace we {
           case core.GameType.BAC:
           case core.GameType.BAI:
           case core.GameType.BAS:
+          case core.GameType.BAB:
           case core.GameType.DT: {
             // const roadmapData = parseAscString(gameStatistic.roadmapdata);
             const roadmapData = gameStatistic.roadmapdata;
@@ -978,7 +981,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
           return betDetail;
         });
 
@@ -1197,7 +1200,7 @@ namespace we {
 
         for (const tableid of added) {
           const tableInfo = env.tableInfos[tableid];
-          if (tableInfo.data.state === core.GameState.BET) {
+          if (tableInfo.data && tableInfo.data.state === core.GameState.BET) {
             tableInfo.goodRoad.alreadyShown = true;
             const data = {
               tableid,

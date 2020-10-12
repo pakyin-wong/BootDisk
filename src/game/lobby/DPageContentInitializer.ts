@@ -56,7 +56,7 @@ namespace we {
           poster.addEventListener(
             egret.TouchEvent.TOUCH_TAP,
             () => {
-              logger.l(utils.LogTarget.DEBUG, 'psoter click', i, link);
+              logger.l(utils.LogTarget.DEBUG, 'poster click', i, link);
               if (i === 0) {
                 dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
               } else if (i === 3) {

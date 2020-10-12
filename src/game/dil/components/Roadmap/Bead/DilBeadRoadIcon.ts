@@ -294,7 +294,9 @@ namespace we {
             this._shapeLayer.addChild(this._borderImage);
           }
           if (this._textLayer) {
-            this._textLayer.addChild(this._iconText);
+            this._textLayer.addChild(this._iconNumText);
+            this._textLayer.addChild(this._iconTopText);
+            this._textLayer.addChild(this._iconBtmText);
           }
         } else {
           if (this._shapeLayer) {
@@ -312,6 +314,8 @@ namespace we {
           if (this._textLayer) {
             if (this._iconNumText.parent === this._textLayer) {
               this._textLayer.removeChild(this._iconNumText);
+              this._textLayer.removeChild(this._iconTopText);
+              this._textLayer.removeChild(this._iconBtmText);
             }
           }
         }

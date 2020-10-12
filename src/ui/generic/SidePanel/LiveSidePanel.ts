@@ -44,7 +44,9 @@ namespace we {
             case we.core.GameType.BAC:
             case we.core.GameType.BAI:
             case we.core.GameType.BAS:
+            case we.core.GameType.BAB:
               return ba.SideListBetItemHolder;
+             
             case we.core.GameType.BAM:
               return bam.SideListBetItemHolder;
             case we.core.GameType.RO:
@@ -63,7 +65,7 @@ namespace we {
             case we.core.GameType.RC:
               return ro.SideListBetItemHolder;
             default:
-              throw new Error('Invalid Game Type');
+              throw new Error('Invalid Game Type: ' + tableInfo.gametype);
           }
         };
         this._bettedScroller.viewport = this.betTableList;
@@ -81,6 +83,7 @@ namespace we {
             case we.core.GameType.BAI:
             case we.core.GameType.BAS:
             case we.core.GameType.BAM:
+            case we.core.GameType.BAB:
               return ba.SideListItemHolder;
             case we.core.GameType.RO:
             case we.core.GameType.ROL:
@@ -98,7 +101,7 @@ namespace we {
             case we.core.GameType.RC:
               return rc.SideListItemHolder;
             default:
-              throw new Error('Invalid Game Type');
+              throw new Error('Invalid Game Type: ' + tableInfo.gametype);
           }
         };
         this._goodroadScroller.viewport = this.goodRoadTableList;
@@ -117,6 +120,8 @@ namespace we {
             case we.core.GameType.BAS:
             case we.core.GameType.BAM:
               return ba.SideListItemHolder;
+            case we.core.GameType.BAB:
+              return ba.SideListItemHolder;
             case we.core.GameType.RO:
             case we.core.GameType.ROL:
               return ro.SideListItemHolder;
@@ -133,7 +138,7 @@ namespace we {
             case we.core.GameType.RC:
               return rc.SideListItemHolder;
             default:
-              throw new Error('Invalid Game Type');
+              throw new Error('Invalid Game Type: ' + tableInfo.gametype);
           }
         };
         this._allgamesScroller.viewport = this.allTableList;

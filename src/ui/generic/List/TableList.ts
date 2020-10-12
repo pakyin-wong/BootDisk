@@ -77,6 +77,7 @@ namespace we {
               core.GameType.BAI,
               core.GameType.BAS,
               core.GameType.BAM,
+              core.GameType.BAB,
               core.GameType.DT,
               core.GameType.RO,
               core.GameType.ROL,
@@ -86,7 +87,7 @@ namespace we {
             ];
             break;
           case core.LiveGameTab.ba:
-            this.gameFilters = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.BAM];
+            this.gameFilters = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.BAM, core.GameType.BAB];
             break;
           case core.LiveGameTab.dt:
             this.gameFilters = [core.GameType.DT];
