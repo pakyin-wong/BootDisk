@@ -27,6 +27,8 @@ namespace we {
       sidegamelist_tab_bet: '已下注',
       sidegamelist_tab_goodroad: '好路',
 
+      lobby_footer_text: 'Copyright © 2020 World Entertainment 保留一切權利。',
+
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '閒',
       betfield_baccarat_tie: '和',

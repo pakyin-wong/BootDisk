@@ -27,6 +27,8 @@ namespace we {
       sidegamelist_tab_bet: 'Bet',
       sidegamelist_tab_goodroad: 'GoodRoad',
 
+      lobby_footer_text: 'Copyright © 2020 World Entertainment All rights reserved.',
+
       betfield_baccarat_banker: 'banker',
       betfield_baccarat_player: 'player',
       betfield_baccarat_tie: 'tie',
