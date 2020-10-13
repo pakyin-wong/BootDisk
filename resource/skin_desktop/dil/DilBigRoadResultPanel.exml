@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.DilBigRoadResultPanelSkin" width="368" height="242" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<w:Config id="175200c02ca"/>
+        <ui:RoundRectShape name="bg" cornerTL_TR_BL_BR="12,12,12,12" width="368" height="241"
+                           fillColor="0x181B1F" fillAlpha="0.9" stroke="0" />
+        <e:Image width="320" height="82" y="50" anchorOffsetX="0" anchorOffsetY="0" id="tripleBg0" x="24"
+                 source="d_sic_lobby_bg_2_png" />
+        <e:Group y="12" left="15">
+                <ui:RunTimeLabel id="_gameLabel" text="GameId" x="16" y="12" textAlign="left" anchorOffsetX="0"
+                                 size="18" anchorOffsetY="0" height="23" scaleX="1" scaleY="1" alpha=".7" />
+                <ui:RunTimeLabel id="_gameNumLabel" text="1234567890" x="16" y="12" anchorOffsetX="0" size="18"
+                                 anchorOffsetY="0" height="23" scaleX="1" scaleY="1" />
+                <e:layout>
+                        <e:HorizontalLayout gap="4" verticalAlign="middle" />
+                </e:layout>
+        </e:Group>
+        <ui:RunTimeLabel id="_gameInfoLabel" text="click to see video of this round" x="16" y="205" textAlign="left"
+                         anchorOffsetX="0" width="316" size="16" anchorOffsetY="0" height="18" />
+        <e:Image id="dice1" width="54" height="54" x="58" y="64" source="d_sic_history_lv3_dice-1_png" />
+        <e:Image id="dice2" width="54" height="54" x="125" y="64" source="d_sic_history_lv3_dice-1_png" />
+        <e:Image id="dice3" width="54" height="54" x="192" y="64" source="d_sic_history_lv3_dice-1_png" />
+        <e:Label id="sumLabel" text="15" x="266" y="66" size="50" textAlign="center" />
+        <ui:RoundRectShape id="sizeBg" cornerTL_TR_BL_BR="21,21,21,21" width="152" height="42" x="27" y="143" stroke="0"
+                           fillColor="0x000000" />
+        <ui:RoundRectShape id="oddBg" cornerTL_TR_BL_BR="21,21,21,21" width="152" height="42" x="189" y="143" stroke="0"
+                           fillColor="0x000000" />
+        <ui:RoundRectShape id="tripleBg" cornerTL_TR_BL_BR="21,21,21,21" width="152" height="42" x="108" y="143"
+                           stroke="0" fillColor="0x00aa5e" />
+        <e:Label id="sizeLabel" text="大" x="89" y="150" size="28" textAlign="center" />
+        <e:Label id="oddLabel" text="單" x="251" y="150" size="28" textAlign="center" />
+        <e:Label id="tripleLabel" text="圍" y="150" size="28" textAlign="center" x="170" />
+	<e:Label text="dil" x="219" y="12"/>
+</e:Skin>
