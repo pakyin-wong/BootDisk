@@ -466,6 +466,11 @@ namespace we {
         const tableInfo = env.getOrCreateTableInfo(gameStatus.tableid);
         gameStatus.previousstate = tableInfo.data ? tableInfo.data.state : null;
         gameStatus.starttime = Math.floor(gameStatus.starttime / 1000000);
+        /*
+        if (tableInfo && tableInfo.tableid && tableInfo.tableid.indexOf('BAB') && tableInfo.data){
+          console.log('BAB tableid ' + tableInfo.tableid + ':' + tableInfo.data)
+        }
+*/
         if (tableInfo.roundid !== gameStatus.gameroundid) {
           tableInfo.prevroundid = tableInfo.roundid;
           tableInfo.roundid = gameStatus.gameroundid;

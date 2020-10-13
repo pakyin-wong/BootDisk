@@ -568,7 +568,7 @@ namespace we {
           }
         }
         if (this._resultDisplay) {
-          this._resultDisplay.updateResult(this._gameData);
+          this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         }
       }
 
