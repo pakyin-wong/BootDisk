@@ -17,7 +17,8 @@ namespace we {
         _xOffset: number,
         _yOffset: number,
         _emptyColor: number = 0xc1c1c1,
-        _emptyAlpha: number = 0.2
+        _emptyAlpha: number = 0.2,
+        _showResult: boolean = false
       ) {
         super(_numCol, _gridSize, _scale);
         this.xOffset = _xOffset;
@@ -26,7 +27,12 @@ namespace we {
         this.emptyAlpha = _emptyAlpha;
         this.numRow = _numRow;
         this.gridUnit = 1;
-
+      if (_showResult) {
+          this.touchEnabled = true;
+          this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+          this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onOver, this);
+          this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onOut, this);
+        }
         this.isExpanded = true;
       }
 
@@ -103,7 +109,10 @@ namespace we {
         }
         this.isExpanded = expand;
       }
-      
+      private onOver(event: mouse.MouseEvent) {
+        mouse.setMouseMoveEnabled(true);
+        this.stage.addEventListener(mouse.MouseEvent.MOUSE_MOVE, this.onMove, this);
+      }
       private onMove(event: egret.TouchEvent) {
         let pt: egret.Point = new egret.Point(0, 0);
         this.globalToLocal(event.stageX, event.stageY, pt);
