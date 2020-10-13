@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.lo.FunBetGroupTotal" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing"  >
+	<e:Image width="1146" height="358" source="d_lottery_ent_penal_betarea_betpenal_bg_purple_png"/>
+	<e:Image width="1146" height="66" source="d_lottery_ent_penal_betarea_betpenal_bg_purple_title_png"/>
+	<e:Group id="items" y="66" horizontalCenter="0">
+		<lo:FunBetItem x="56" y="108" scaleX="1" scaleY="1" field="BIG" skinName="skin_mobile.lo.FunBetItemTotal"/>
+		<lo:FunBetItem x="111" y="202" scaleX="1" scaleY="1" skinName="skin_mobile.lo.FunBetItemTotal" field="SMALL"/>
+		<lo:FunBetItem x="58" y="204" scaleX="1" scaleY="1" skinName="skin_mobile.lo.FunBetItemTotal" field="ODD"/>
+		<lo:FunBetItem x="70" y="279" scaleX="1" scaleY="1" skinName="skin_mobile.lo.FunBetItemTotal" field="EVEN"/>
+		<e:layout>
+			<e:HorizontalLayout gap="0"/>
+		</e:layout>
+	</e:Group>
+	<ui:RunTimeLabel id="title" text="Label" y="9" textColor="0x00b8c3" size="34" height="50" verticalAlign="middle" left="0" right="0" textAlign="center"/>
+</e:Skin>

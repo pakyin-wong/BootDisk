@@ -51,7 +51,7 @@ namespace we {
       }
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-        this._resultDisplay.updateResult(this._gameData,this._chipLayer,isInit)
+        this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
       }
       /*
       protected setStateDeal(isInit: boolean = false) {
