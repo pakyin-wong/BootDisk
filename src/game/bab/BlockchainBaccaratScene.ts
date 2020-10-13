@@ -10,40 +10,18 @@ namespace we {
       protected _alwaysShowResult = true;
       protected _helpButton: eui.Group;
       protected _deckButton: eui.Group;
+      protected _shufflePanel: bab.ShufflePanel;
+      protected _helpPanel: bab.HelpPanel;
+      protected _deckPanel: bab.DeckPanel;
       protected _cardInfoPanel: bab.CardInfoPanel;
 
       public static resGroups = [core.res.BlockchainBaccarat];
 
       protected initChildren() {
         super.initChildren();
-        this._helpButton.addEventListener(
-          egret.TouchEvent.TOUCH_TAP,
-          () => {
-            this._cardInfoPanel.visible = !this._cardInfoPanel.visible;
-            this._cardInfoPanel.showDeck();
-          },
-          this
-        );
-        this._deckButton.addEventListener(
-          egret.TouchEvent.TOUCH_TAP,
-          () => {
-            this._cardInfoPanel.visible = !this._cardInfoPanel.visible;
-            this._cardInfoPanel.showHelp();
-          },
-          this
-        );
-        /*
-        this._forceNoDismiss = true;
-        if (!env.isFirstTimeBam) {
-          const tutorial = new SqueezeTutorial('SqueezeTutorial');
-          tutorial.x = 106;
-          tutorial.y = 171;
-          tutorial.isDraggable = true;
-          tutorial.isEdgeDismissable = true;
-          this.addChild(tutorial);
-          env.isFirstTimeBam = true;
-        }
-        */
+        this._helpPanel.setToggler(this._helpButton);
+        this._deckPanel.setToggler(this._deckButton);
+        (<bab.CardHolder>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
       }
 
       protected setSkinName() {
@@ -52,6 +30,22 @@ namespace we {
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
+      }
+
+      protected setStateShuffle(isInit: boolean) {
+        super.setStateShuffle(isInit);
+        if (isInit) {
+          // this._shufflePanel.show();
+          this._shufflePanel.anim(this._gameData);
+        } else {
+          // this._shufflePanel.show();
+          this._shufflePanel.stat(this._gameData);
+        }
+      }
+
+      protected showCardInfoPanel() {
+        this._cardInfoPanel.setValue(this._gameData);
+        this._cardInfoPanel.show();
       }
       /*
       protected setStateDeal(isInit: boolean = false) {

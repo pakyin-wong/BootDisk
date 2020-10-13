@@ -161,7 +161,23 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop.bab{
+	class CardInfoPanelSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.bab{
+	class DeckPanelSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.bab{
+	class HelpPanelSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.bab{
 	class CardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.bab{
+	class ShufflePanelSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.bam{

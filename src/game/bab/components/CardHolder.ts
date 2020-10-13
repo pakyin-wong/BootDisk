@@ -22,6 +22,11 @@ namespace we {
       protected _bankerCard3Group: eui.Group;
       protected _smallBankerCard3Group: eui.Group;
 
+      protected _playerCard1Info: eui.Group;
+      protected _playerCard2Info: eui.Group;
+      protected _bankerCard1Info: eui.Group;
+      protected _bankerCard2Info: eui.Group;
+
       protected _playerCard1: dragonBones.EgretArmatureDisplay;
       protected _playerCard2: dragonBones.EgretArmatureDisplay;
       protected _playerCard3: dragonBones.EgretArmatureDisplay;
@@ -105,7 +110,7 @@ namespace we {
       public updateResult(gameData: data.GameData, chipLayer: ui.ChipLayer, isInit: boolean) {
         console.log('updateResult ', isInit);
 
-        this._gameData = <bab.GameData> gameData;
+        this._gameData = <bab.GameData>gameData;
         // check prev data == current data?
         switch (gameData.state) {
           case core.GameState.BET:
@@ -116,8 +121,7 @@ namespace we {
             this.setStateDeal();
             break;
           case core.GameState.FINISH:
-            break;
-          case core.GameState.SHUFFLE:
+            this.setStateFinish();
             break;
           default:
             break;
@@ -126,12 +130,12 @@ namespace we {
 
       protected async setStateBet(isInit: boolean) {
         console.log('setStateBet() isInit', isInit);
-        this.movePin();
-        this.moveShoe();
+        await this.movePin();
+        await this.moveShoe();
         if (!isInit) {
-          this.distributeCards();
+          await this.distributeCards();
         } else {
-          this.betFinalState();
+          await this.betFinalState();
         }
       }
 
@@ -139,7 +143,7 @@ namespace we {
         const cardAnimName = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2', '_smallPlayerCard3', '_smallBankerCard3'];
         for (let i = 0; i < cardAnimName.length; i++) {
           // const p4 = we.utils.waitDragonBone(this[cardAnimName[i]]);
-          const cardAnim = <dragonBones.EgretArmatureDisplay> this[cardAnimName[i]];
+          const cardAnim = <dragonBones.EgretArmatureDisplay>this[cardAnimName[i]];
 
           const cardIndexSlot = cardAnim.armature.getSlot('card_number_vertical');
           const cardGroup = new eui.Group();
@@ -178,31 +182,45 @@ namespace we {
         this.movePin();
       }
 
-      protected setStateDeal() {}
+      protected flipCards() {}
+
+      protected setStateDeal() {
+        this.flipCards();
+      }
+
+      protected showCardButtonForInfo() {}
 
       protected async movePin() {
-        const bone = this._ringAnim.armature.getBone('red_card');
-        const proportion = this._gameData.currentcardindex / this._gameData.redcardindex;
-        const angleOffset = 82 * proportion; // -49 - (-131) = 82
-        const destAngle = -49 + angleOffset;
-        const destRad = (destAngle * Math.PI) / 180;
+        new Promise(resolve => {
+          const bone = this._ringAnim.armature.getBone('red_card');
+          const proportion = this._gameData.currentcardindex / this._gameData.redcardindex;
+          const angleOffset = 82 * proportion; // -49 - (-131) = 82
+          const destAngle = -49 + angleOffset;
+          const destRad = (destAngle * Math.PI) / 180;
 
-        egret.Tween.get(bone.animationPose).to({ rotation: destRad }, 1000, function (t) {
-          bone.invalidUpdate();
-          return t;
+          egret.Tween.get(bone.animationPose)
+            .to({ rotation: destRad }, 1000, function (t) {
+              bone.invalidUpdate();
+              return t;
+            })
+            .call(resolve);
         });
       }
 
       protected async moveShoe() {
-        const bone = this._ringAnim.armature.getBone('shoe_bar');
-        const proportion = this._gameData.currentcardindex / this._gameData.maskedcardssnList.length;
-        const angleOffset = 82 * proportion; // -49 - (-131) = 82
-        const destAngle = -49 + angleOffset;
-        const destRad = (destAngle * Math.PI) / 180;
+        new Promise(resolve => {
+          const bone = this._ringAnim.armature.getBone('shoe_bar');
+          const proportion = this._gameData.currentcardindex / this._gameData.maskedcardssnList.length;
+          const angleOffset = 82 * proportion; // -49 - (-131) = 82
+          const destAngle = -49 + angleOffset;
+          const destRad = (destAngle * Math.PI) / 180;
 
-        egret.Tween.get(bone.animationPose).to({ rotation: destRad }, 1000, function (t) {
-          bone.invalidUpdate();
-          return t;
+          egret.Tween.get(bone.animationPose)
+            .to({ rotation: destRad }, 1000, function (t) {
+              bone.invalidUpdate();
+              return t;
+            })
+            .call(resolve);
         });
       }
 
@@ -214,7 +232,7 @@ namespace we {
 
         const cardAnimName = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2', '_smallPlayerCard3', '_smallBankerCard3'];
         for (let i = 0; i < cardAnimName.length; i++) {
-          const cardAnim = <dragonBones.EgretArmatureDisplay> this[cardAnimName[i]];
+          const cardAnim = <dragonBones.EgretArmatureDisplay>this[cardAnimName[i]];
           const cardIndexSlot = cardAnim.armature.getSlot('card_number_vertical');
           const cardGroup = new eui.Group();
           const cardLabel = new eui.Label();
@@ -233,29 +251,33 @@ namespace we {
           group.addChild(image);
           cardSlot.display = group;
 
+          const ringNumberSlot = this._ringAnim.armature.getSlot('');
+
           // cardAnim.animation.stop();
 
+          const p2 = we.utils.waitDragonBone(this._ringAnim);
           this._ringAnim.animation.play('poker_in', 1);
+          await p2;
 
-          // const p3 = we.utils.waitDragonBone(cardAnim);
+          const p3 = we.utils.waitDragonBone(cardAnim);
           cardAnim.animation.play('vertical_in', 1);
-          // await p3;
-          // await p2;
+          await p3;
 
-          // const p4 = we.utils.waitDragonBone(cardAnim);
+          const p4 = we.utils.waitDragonBone(cardAnim);
           cardAnim.animation.play('vertical_loop_back', 1);
+          await p4;
 
-          // const p5 = we.utils.waitDragonBone(this._ringAnim);
+          const p5 = we.utils.waitDragonBone(this._ringAnim);
           this._ringAnim.animation.play('poker_out', 1);
-
-          // await p4;
-          // await p5;
+          await p5;
 
           if (this._gameData.currentcardindex + i === this._gameData.redcardindex) {
             // do red card thing
           }
         }
       }
+
+      protected setStateFinish() {}
 
       public reset() {}
     }

@@ -99,7 +99,13 @@
 		<ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
 		<ui:RunTimeLabel i18n="baccarat.mechanismHelp" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<bab:FirstRoundPanel visible="false"/>
-	<bab:CardInfoPanel id="_cardInfoPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" visible="false" />
+	<bab:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true"
+	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" skinName="skin_desktop.bab.ShufflePanelSkin" />
+	<bab:DeckPanel id="_deckPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
+	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" skinName="skin_desktop.bab.DeckPanelSkin" />
+	<bab:HelpPanel id="_helpPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
+	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" skinName="skin_desktop.bab.HelpPanelSkin" />
+	<bab:CardInfoPanel id="_cardInfoPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
+	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" skinName="skin_desktop.bab.CardInfoPanelSkin" />
 </e:Skin>
 
