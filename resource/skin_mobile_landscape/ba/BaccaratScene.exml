@@ -94,7 +94,7 @@
 								textAlign="left" anchorOffsetX="0" text="Label" />
 				<e:Group x="25" y="65">
 					<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Arial" size="40" text="label"/>
-					<e:Image source="m_common_panel_icon_dropdown_png" width="34" height="19" visible="false"/>
+
 					<e:layout>
 					<e:HorizontalLayout verticalAlign="middle"/>
 					</e:layout>
