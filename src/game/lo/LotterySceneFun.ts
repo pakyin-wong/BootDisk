@@ -22,6 +22,8 @@ namespace we {
       protected _lastgameResult;
       protected _drawerPanel: lo.LoRightDrawerPanel;
 
+      protected _titleHeader: eui.Group;
+
       protected _video: egret.FlvVideo;
       protected _counter: eui.Label;
       protected _targetTime;
@@ -38,8 +40,27 @@ namespace we {
         }
       }
 
+      protected initOrientationDependentComponent() {
+        this._header && dir.layerCtr.nav && dir.layerCtr.nav.addChild(this._header);
+        console.log(this._titleHeader);
+        const titleGroup1: eui.Group = dir.layerCtr.nav.$children[0] as eui.Group;
+        const titleGroup: eui.Group = titleGroup1['_titleGroup'];
+        console.log(titleGroup);
+        this._titleHeader && titleGroup && titleGroup.addChild(this._titleHeader);
+        // this._header && this.sceneHeader.addChild(this._header);
+      }
+
+      protected clearOrientationDependentComponent() {
+        super.clearOrientationDependentComponent();
+        if (this._titleHeader && this._titleHeader.parent !== null) {
+          this._titleHeader.parent.removeChild(this._titleHeader);
+        }
+      }
       protected destroy() {
         super.destroy();
+        if (this._titleHeader && this._titleHeader.parent !== null) {
+          this._titleHeader.parent.removeChild(this._titleHeader);
+        }
         this.removeVideo();
       }
 
