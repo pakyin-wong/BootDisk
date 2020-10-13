@@ -125,7 +125,7 @@ namespace we {
         this.stage.frameRate = 60;
         this._bgImg.visible = false;
 
-        this._gameBar.targetScene = this;
+        if (this._gameBar) this._gameBar.targetScene = this;
 
         if (env.betLimits) {
           this.initDenom();
