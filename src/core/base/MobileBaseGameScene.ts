@@ -164,14 +164,15 @@ namespace we {
       protected setResultRelatedComponentsEnabled(enable: boolean) {
         super.setResultRelatedComponentsEnabled(enable);
         if (this._bottomGamePanel._bottomResultDisplayContainer && env.orientation === 'landscape') {
-          this._bottomGamePanel._bottomResultDisplayContainer.visible = enable;
           if (this._bottomGamePanel.isPanelOpen) {
-            if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.BET) {
+            this._resultDisplay.visible = false;
+            if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.FINISH) {
               this._bottomGamePanel._bottomResultDisplayContainer.visible = true;
-              this._resultDisplay.visible = false;
+            } else {
+              this._bottomGamePanel._bottomResultDisplayContainer.visible = false;
             }
           } else {
-            if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.BET) {
+            if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.FINISH) {
               this._bottomGamePanel._bottomResultDisplayContainer.visible = false;
               this._resultDisplay.visible = true;
             }
@@ -184,7 +185,7 @@ namespace we {
           return;
         }
         if (env.orientation === 'landscape') {
-          if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.BET) {
+          if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.FINISH) {
             this._resultDisplay.visible = !bottomGamePanelisOpen;
             this._bottomGamePanel._bottomResultDisplayContainer.visible = bottomGamePanelisOpen;
           }
