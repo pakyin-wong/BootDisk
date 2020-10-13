@@ -10,13 +10,13 @@ namespace we {
        */
       public createMovieClip(name: string, startIdx: number, endIdx: number, frameRate: number, anims: any = null, zeroPad: number = 0) {
         const data = this.generateMovieClipData(name, startIdx, endIdx, frameRate, anims, zeroPad);
-        let mcDataFactory: egret.MovieClipDataFactory = new egret.MovieClipDataFactory(data, null);
-        let mc: egret.MovieClip = new egret.MovieClip(mcDataFactory.generateMovieClipData('run'));
+        const mcDataFactory: egret.MovieClipDataFactory = new egret.MovieClipDataFactory(data, null);
+        const mc: egret.MovieClip = new egret.MovieClip(mcDataFactory.generateMovieClipData('run'));
         return mc;
       }
 
       protected generateMovieClipData(name: string, startIdx: number, endIdx: number, frameRate: number, anims: any = null, zeroPad: number = 0) {
-        const data = { mc: { run: { frameRate } }, res: { } };
+        const data = { mc: { run: { frameRate } }, res: {} };
         const run: any = data.mc.run;
         // add labels
         if (anims) {

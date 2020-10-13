@@ -35,6 +35,10 @@
 		{
 			"keys": "m_lw_hor_bg_jpg,m_lw_ver_bg_jpg,m_lw_hor_betarea_bet_betclosed_east_betted_png,m_lw_hor_betarea_bet_betclosed_east_dim_png,m_lw_hor_betarea_bet_betclosed_east_result_png,m_lw_hor_betarea_bet_betclosed_green_betted_png,m_lw_hor_betarea_bet_betclosed_green_dim_png,m_lw_hor_betarea_bet_betclosed_green_result_png,m_lw_hor_betarea_bet_betclosed_north_betted_png,m_lw_hor_betarea_bet_betclosed_north_dim_png,m_lw_hor_betarea_bet_betclosed_north_result_png,m_lw_hor_betarea_bet_betclosed_red_betted_png,m_lw_hor_betarea_bet_betclosed_red_dim_png,m_lw_hor_betarea_bet_betclosed_red_result_png,m_lw_hor_betarea_bet_betclosed_south_betted_png,m_lw_hor_betarea_bet_betclosed_south_dim_png,m_lw_hor_betarea_bet_betclosed_south_result_png,m_lw_hor_betarea_bet_betclosed_west_betted_png,m_lw_hor_betarea_bet_betclosed_west_dim_png,m_lw_hor_betarea_bet_betclosed_west_result_png,m_lw_hor_betarea_bet_betclosed_white_betted_png,m_lw_hor_betarea_bet_betclosed_white_dim_png,m_lw_hor_betarea_bet_betclosed_white_result_png,m_lw_hor_betarea_bet_east_png,m_lw_hor_betarea_bet_green_png,m_lw_hor_betarea_bet_north_png,m_lw_hor_betarea_bet_red_png,m_lw_hor_betarea_bet_south_png,m_lw_hor_betarea_bet_west_png,m_lw_hor_betarea_bet_white_png,m_lw_ver_betarea_bet_betclosed_east_dim_png,m_lw_ver_betarea_bet_betclosed_green_dim_png,m_lw_ver_betarea_bet_betclosed_north_dim_png,m_lw_ver_betarea_bet_betclosed_red_dim_png,m_lw_ver_betarea_bet_betclosed_south_dim_png,m_lw_ver_betarea_bet_betclosed_west_dim_png,m_lw_ver_betarea_bet_betclosed_white_dim_png,m_lw_ver_betarea_bet_east_result_png,m_lw_ver_betarea_bet_east_png,m_lw_ver_betarea_bet_green_result_png,m_lw_ver_betarea_bet_green_png,m_lw_ver_betarea_bet_north_result_png,m_lw_ver_betarea_bet_north_png,m_lw_ver_betarea_bet_red_result_png,m_lw_ver_betarea_bet_red_png,m_lw_ver_betarea_bet_south_result_png,m_lw_ver_betarea_bet_south_png,m_lw_ver_betarea_bet_west_result_png,m_lw_ver_betarea_bet_west_png,m_lw_ver_betarea_bet_white_result_png,m_lw_ver_betarea_bet_white_png,m_lw_hor_betpool_barchart_bg_png,m_lw_hor_betpool_barchart_east_png,m_lw_hor_betpool_barchart_gold_png,m_lw_hor_betpool_barchart_north_png,m_lw_hor_betpool_barchart_south_png,m_lw_hor_betpool_barchart_west_png,m_lw_hor_betpool_barchart_white_png,m_lw_result_east_png,m_lw_result_green_png,m_lw_result_money_bg_east_png,m_lw_result_money_bg_gold_png,m_lw_result_money_bg_north_png,m_lw_result_money_bg_south_png,m_lw_result_money_bg_west_png,m_lw_result_money_bg_white_png,m_lw_result_north_png,m_lw_result_red_png,m_lw_result_south_png,m_lw_result_west_png,m_lw_result_white_png,lucky_wheel_game_result_tex_png,lucky_wheel_game_result_tex_json,lucky_wheel_game_result_ske_json",
 			"name": "scene_luckywheel"
+		},
+		{
+			"keys": "d_lottery_ent_penal_betarea_betpenal_five_bet_hover_png,d_lottery_ent_penal_betarea_betpenal_five_bet_active_png,d_lottery_ent_penal_betarea_betpenal_bg_blue_png,d_lottery_ent_penal_betarea_betpenal_bg_green_title_png,d_lottery_ent_penal_betarea_betpenal_bg_green_png,d_lottery_ent_penal_betarea_betpenal_bg_blue_title_png,d_lottery_ent_penal_betarea_betpenal_bg_purple_png,d_lottery_ent_penal_betarea_betpenal_bg_purple_title_png",
+			"name": "scene_lottery"
 		}
 	],
 	"resources": [
@@ -5666,6 +5670,53 @@
 			"url": "assets/images/m/common/game_panel/common/m_lobby_panel_betrecord_empty_icon.png",
 			"type": "image",
 			"name": "m_lobby_panel_betrecord_empty_icon_png"
+		},
+		{
+			"url": "assets/nmimages/m/lo/d_lottery_ent_penal_betarea_betpenal_five_bet_hover.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_five_bet_hover_png",
+			"scale9grid": "20,22,1,1"
+		},
+		{
+			"url": "assets/nmimages/m/lo/d_lottery_ent_penal_betarea_betpenal_five_bet_active.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_five_bet_active_png"
+		},
+		{
+			"url": "assets/nmimages/m/lo/d_lottery_ent_penal_betarea_betpenal_bg_blue.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_bg_blue_png",
+			"scale9grid": "21,21,1,1"
+		},
+		{
+			"url": "assets/nmimages/m/lo/d_lottery_ent_penal_betarea_betpenal_bg_green_title.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_bg_green_title_png",
+			"scale9grid": "20,20,23,23"
+		},
+		{
+			"url": "assets/nmimages/m/lo/d_lottery_ent_penal_betarea_betpenal_bg_green.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_bg_green_png",
+			"scale9grid": "21,21,1,1"
+		},
+		{
+			"url": "assets/nmimages/m/lo/d_lottery_ent_penal_betarea_betpenal_bg_blue_title.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_bg_blue_title_png",
+			"scale9grid": "20,20,23,23"
+		},
+		{
+			"url": "assets/nmimages/m/lo/d_lottery_ent_penal_betarea_betpenal_bg_purple.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_bg_purple_png",
+			"scale9grid": "21,21,1,1"
+		},
+		{
+			"url": "assets/nmimages/m/lo/d_lottery_ent_penal_betarea_betpenal_bg_purple_title.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_bg_purple_title_png",
+			"scale9grid": "20,20,23,23"
 		}
 	]
 }

@@ -2558,6 +2558,78 @@ declare module skin_mobile{
 	class DefaultLoadingUISkin extends eui.Skin{
 	}
 }
+declare module skin_mobile.lo{
+	class BetChipSetWithCustom extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetContainer extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetGroup5 extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetGroupDT extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetGroupN extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetGroupN3 extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetGroupNum extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetGroupTotal extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetItem5 extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetItemDT extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetItemN extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetItemN3 extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetItemNum extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetItemTotal extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetLayer extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetOverlay extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetOverlayIR extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetTabItemRenderer extends eui.Skin{
+	}
+}
 declare module skin_mobile{
 	class LotteryScene extends eui.Skin{
 	}

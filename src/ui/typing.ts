@@ -39,7 +39,7 @@ namespace we {
     }
 
     export interface IResultDisplay {
-      updateResult(gameData: data.GameData, chipLayer?: ui.ChipLayer);
+      updateResult(gameData: data.GameData, chipLayer?: ui.ChipLayer, isInit?: boolean);
       reset();
 
       visible: boolean;

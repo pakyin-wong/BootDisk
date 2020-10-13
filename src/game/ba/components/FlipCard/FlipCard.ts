@@ -241,6 +241,9 @@ namespace we {
       public clearUserEvents() {
         this.onTouchEnd(null); // remove all touch events
         this.onOut(null); // remove mouse move event
+
+        this.touchEnabled = false;
+        this.touchChildren = false;
         if (this.hasEventListener(mouse.MouseEvent.ROLL_OVER)) {
           this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onOver, this);
         }
@@ -255,6 +258,7 @@ namespace we {
       public reset() {
         this.clearUserEvents();
         this.touchEnabled = true;
+        this.touchChildren = true;
         this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
         this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onOver, this);
         this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onOut, this);

@@ -6,7 +6,7 @@ namespace we {
         rect.width = this.width;
         rect.height = this.height;
         rect.fillColor = 0x000000;
-        rect.alpha = 0.8
+        rect.alpha = 0.8;
         this.addChild(rect);
       }
 

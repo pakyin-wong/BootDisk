@@ -115,7 +115,7 @@ namespace we {
         // set to deal state and start showing the result
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.DEAL;
-        gameData.a1 = gameData.a2 = gameData.b1 = gameData.b2 = null
+        gameData.a1 = gameData.a2 = gameData.b1 = gameData.b2 = null;
         this.dispatchEvent(data);
         await this.sleep(this.distributeInterval);
 
