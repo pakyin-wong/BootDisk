@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.BlockchainBaccaratScene" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
-        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*">
+        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:bab="we.bab.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*">
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
-	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_jpg" x="0" locked="true" />
+	<e:Image id="_bgImg" />
+	<e:Image top="0" bottom="0" left="0" right="0" source="blockchain_bg_jpg" x="0" locked="true" />
 	<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" width="2600" height="294" x="0" bottom="0" stroke="0"
 	                   fillColor="0x00000000,0x00000050" />
+	<e:Image top="0" bottom="0" left="0" right="0" source="blockchain_bg_mask_png" x="0" locked="true" />
+	<bab:CardHolder id="_resultDisplay" width="2600" height="1340" x="0" y="0" />
 	<ba:MinimizedTableLayer id="_minimizedTableLayer" skinName="skin_desktop.ba.BAMinimizedTableLayerSkin" x="724" y="1340"
 	                        isEdgeDismissable="true" dismissPosX="724" dismissPosY="1297" />
 	<ui:Group x="724" y="1024" isEdgeDismissable="true" dismissPosX="724" dismissPosY="1340">
 		<ba:TableLayer id="_tableLayer" width="1170" height="304" skinName="skin_desktop.ba.TableLayerSkin"
 		               touchEnabled="false" />
 		<ba:ChipLayer id="_chipLayer" width="1170" height="304" skinName="skin_desktop.ba.ChipLayerSkin" />
-		<ba:CardHolder id="_resultDisplay" width="412" height="152" y="11" horizontalCenter="1" anchorOffsetX="0"
-		               anchorOffsetY="0" />
 	</ui:Group>
 	<ui:Group id="_betRelatedGroup" x="769" y="939" isEdgeDismissable="true">
 	<ui:Group>
@@ -84,5 +85,15 @@
 	</ui:Group>
 	<ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="242" x="18" y="644" anchorOffsetX="0"
 	                          anchorOffsetY="0" visible="false" />
+	<e:Group id="_deckButton" x="2279" y="203" width="282" height="49">
+		<ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
+		<ui:RunTimeLabel i18n="baccarat.fullShoe" verticalCenter="0" horizontalCenter="0" />
+	</e:Group>
+	<e:Group id="_helpButton" x="2279" y="275" width="282" height="49">
+		<ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
+		<ui:RunTimeLabel i18n="baccarat.mechanismHelp" verticalCenter="0" horizontalCenter="0" />
+	</e:Group>
+	<bab:FirstRoundPanel visible="false"/>
+	<bab:CardInfoPanel id="_cardInfoPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" visible="false" />
 </e:Skin>
 

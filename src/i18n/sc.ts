@@ -604,6 +604,8 @@ namespace we {
         rounds: '局',
         playersqueeze: '咪牌中',
         allOpen: '全开',
+        fullShoe: '完整牌靴',
+        mechanismHelp: '机制说明',
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',

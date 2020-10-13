@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile.lo.FunBetItemNum" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing" >
-	<ui:RoundRectShape id="highlight" width="228" height="289" stroke="0" fillColor="0x1c5469,0x0c2a38,90" />
+	<ui:RoundRectShape id="highlight" width="228" height="289" stroke="0" fillColor="0x1c5469,0x0c2a38" />
 	<ui:RoundRectShape width="74" height="74" y="24" stroke="0" fillColor="0x034a94,0x00244e,0" cornerTL_TR_BL_BR="21,21,21,21" horizontalCenter="0"/>
 	<ui:RunTimeLabel id="label" text="0" y="24" height="74" size="51" verticalAlign="middle" bold="true" width="74" textAlign="center" textColor="0xdea167" horizontalCenter="0"/>
 	<e:Label id="rate" text="賠率" y="108" size="44" verticalAlign="middle" alpha="0.8" height="53" horizontalCenter="0"/>

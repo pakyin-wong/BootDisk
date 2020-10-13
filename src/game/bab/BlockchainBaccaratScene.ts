@@ -7,10 +7,31 @@
 namespace we {
   export namespace bab {
     export class Scene extends ba.Scene {
+      protected _alwaysShowResult = true;
+      protected _helpButton: eui.Group;
+      protected _deckButton: eui.Group;
+      protected _cardInfoPanel: bab.CardInfoPanel;
+
       public static resGroups = [core.res.BlockchainBaccarat];
 
       protected initChildren() {
         super.initChildren();
+        this._helpButton.addEventListener(
+          egret.TouchEvent.TOUCH_TAP,
+          () => {
+            this._cardInfoPanel.visible = !this._cardInfoPanel.visible;
+            this._cardInfoPanel.showDeck();
+          },
+          this
+        );
+        this._deckButton.addEventListener(
+          egret.TouchEvent.TOUCH_TAP,
+          () => {
+            this._cardInfoPanel.visible = !this._cardInfoPanel.visible;
+            this._cardInfoPanel.showHelp();
+          },
+          this
+        );
         /*
         this._forceNoDismiss = true;
         if (!env.isFirstTimeBam) {
@@ -27,6 +48,11 @@ namespace we {
 
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('BlockchainBaccaratScene');
+      }
+
+      protected setStateBet(isInit: boolean = false) {
+        super.setStateBet(isInit);
+        this._resultDisplay.updateResult(this._gameData, this._chipLayer);
       }
 
       /*

@@ -43,7 +43,7 @@ namespace we {
         this._betChip.horizontalCenter = 0;
         this._betChip.scaleX = 0.85;
         this._betChip.scaleY = 0.85;
-        this._betChip.labelSize = this.betChipSetGrid ? this.betChipSetGrid.labelSize : this._labelSize;
+        this._betChip.labelSize = this.betChipSetGrid && this.betChipSetGrid.labelSize ? this.betChipSetGrid.labelSize : this._labelSize;
 
         if (this.betChipSetGrid && this.betChipSetGrid['chipScale']) {
           this._betChip.chipScale = this.betChipSetGrid['chipScale'];

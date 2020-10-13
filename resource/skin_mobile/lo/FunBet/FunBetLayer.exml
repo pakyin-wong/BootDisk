@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile.lo.FunBetLayer" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing">
-	<ui:RoundRectShape width="1242" height="1604" cornerTL_TR_BL_BR="24,24,24,24" fillColor="0x11305549,0x000103,90" strokeColor="0x214a72" stroke="3"/>
-	<e:Scroller left="0" right="0" y="133" height="1471">
-	<e:ViewStack id="_viewstack" selectedIndex="4" scaleY="1">
-
-		<e:Group left="0" right="0" top="0" bottom="0" x="0" id="funPage" name="fun">
+	<ui:RoundRectShape width="1242" height="1604" cornerTL_TR_BL_BR="24,24,24,24" fillColor="0x11305549,0x000103" strokeColor="0x214a72" stroke="3"/>
+	<e:ViewStack id="_viewstack" selectedIndex="0" scaleY="1" y="133" left="0" right="0" height="1471">
+	<e:Scroller left="0" right="0" top="0" bottom="0" id="funPage" name="fun">
+		<e:Group>
 			<e:layout>
 				<e:VerticalLayout gap="24" horizontalAlign="center" paddingTop="3"/>
 			</e:layout>
@@ -19,8 +18,9 @@
 			<lo:FunBetGroup scaleX="1" scaleY="1" skinName="skin_mobile.lo.FunBetGroupN3" groupType="%id%THREESPECIAL" groupId="345"/>
 			<lo:FunBetGroup scaleX="1" scaleY="1" skinName="skin_mobile.lo.FunBetGroupTotal" groupType="SUMSIZEPARITY"/>
 		</e:Group>
-
-		<e:Group id="numPage" left="0" right="0" top="0" bottom="0" name="num">
+	</e:Scroller>
+	<e:Scroller  id="numPage" left="0" right="0" top="0" bottom="0" name="num">
+		<e:Group>
 			<lo:FunBetGroup x="0" y="56" scaleX="1" scaleY="1" skinName="skin_mobile.lo.FunBetGroupNum" groupType="%id%NUM" groupId="MILLION"/>
 			<lo:FunBetGroup x="10" y="66" scaleX="1" scaleY="1" skinName="skin_mobile.lo.FunBetGroupNum" groupType="%id%NUM" groupId="THOUSAND"/>
 			<lo:FunBetGroup x="20" y="76" scaleX="1" scaleY="1" skinName="skin_mobile.lo.FunBetGroupNum" groupType="%id%NUM" groupId="HUNDRED"/>
@@ -30,8 +30,9 @@
 				<e:VerticalLayout gap="24" horizontalAlign="center" paddingTop="3"/>
 			</e:layout>
 		</e:Group>
-
-		<e:Group id="dtPage" left="0" right="0" top="0" bottom="0" name="dt">
+	</e:Scroller>
+	<e:Scroller id="dtPage" left="0" right="0" top="0" bottom="0" name="dt">
+		<e:Group>
 			<lo:FunBetGroup x="1256" y="428" skinName="skin_mobile.lo.FunBetGroupDT" groupType="%id%DT2" groupId="12"/>
 			<lo:FunBetGroup x="1266" y="438" skinName="skin_mobile.lo.FunBetGroupDT" groupType="%id%DT2" groupId="13"/>
 			<lo:FunBetGroup x="1276" y="448" skinName="skin_mobile.lo.FunBetGroupDT" groupType="%id%DT2" groupId="14"/>
@@ -46,8 +47,9 @@
 				<e:VerticalLayout gap="24" horizontalAlign="center" paddingTop="3"/>
 			</e:layout>
 		</e:Group>
-
-		<e:Group id="five1Page" name="five1" horizontalCenter="0">
+	</e:Scroller>
+	<e:Scroller id="five1Page" left="0" right="0" top="0" bottom="0" name="five1">
+		<e:Group>
 			<lo:FunBetGroup x="113" y="176" skinName="skin_mobile.lo.FunBetGroup5" groupType="INTEREST1SPECIAL_%id%" groupId="0"/>
 			<lo:FunBetGroup x="123" y="186" skinName="skin_mobile.lo.FunBetGroup5" groupType="INTEREST1SPECIAL_%id%" groupId="1"/>
 			<lo:FunBetGroup x="133" y="196" skinName="skin_mobile.lo.FunBetGroup5" groupType="INTEREST1SPECIAL_%id%" groupId="2"/>
@@ -59,16 +61,15 @@
 			<lo:FunBetGroup x="193" y="256" skinName="skin_mobile.lo.FunBetGroup5" groupType="INTEREST1SPECIAL_%id%" groupId="8"/>
 			<lo:FunBetGroup x="203" y="266" skinName="skin_mobile.lo.FunBetGroup5" groupType="INTEREST1SPECIAL_%id%" groupId="9"/>
 			<e:layout>
-				<e:TileLayout orientation="rows" horizontalGap="24" verticalGap="24" horizontalAlign="center" requestedColumnCount="4"/>
+				<e:TileLayout orientation="rows" horizontalGap="24" verticalGap="24" requestedColumnCount="4" paddingLeft="48"/>
 			</e:layout>
 		</e:Group>
-
+	</e:Scroller>
 	</e:ViewStack>
-    </e:Scroller>
 	<e:Scroller>
     	<e:TabBar id="_tabbar" height="133" width="1242">
 		<e:layout>
-		<e:HorizontalLayout horizontalAlign="left" gap="0" paddingLeft="126"/>
+		<e:HorizontalLayout horizontalAlign="left" gap="0" paddingLeft="126" verticalAlign="middle"/>
 		</e:layout>
 	</e:TabBar>
 	</e:Scroller>

@@ -9,6 +9,7 @@ namespace we {
       protected _tableLayer: ui.TableLayer;
       protected _chipLayer: ui.ChipLayer;
       protected _betChipSet: ui.BetChipSet;
+      protected _alwaysShowResult = false;
       protected _resultDisplay: ui.IResultDisplay;
       protected _resultMessage: ui.IGameResultMessage;
       protected _message: ui.InGameMessage;
@@ -634,7 +635,7 @@ namespace we {
 
       protected setResultRelatedComponentsEnabled(enable: boolean) {
         if (this._resultDisplay) {
-          this._resultDisplay.visible = enable;
+          this._resultDisplay.visible = this._alwaysShowResult || enable;
         }
       }
 

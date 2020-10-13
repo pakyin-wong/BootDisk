@@ -160,6 +160,10 @@ declare module skin_desktop{
 	class BlockchainBaccaratScene extends eui.Skin{
 	}
 }
+declare module skin_desktop.bab{
+	class CardHolderSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop.bam{
 	class CardHolderSkin extends eui.Skin{
 	}
@@ -2555,6 +2559,14 @@ declare module skin_mobile{
 	}
 }
 declare module skin_mobile.lo{
+	class BetChipSetWithCustom extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetContainer extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
 	class FunBetGroup5 extends eui.Skin{
 	}
 }
@@ -2604,6 +2616,18 @@ declare module skin_mobile.lo{
 }
 declare module skin_mobile.lo{
 	class FunBetLayer extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetOverlay extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetOverlayIR extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetTabItemRenderer extends eui.Skin{
 	}
 }
 declare module skin_mobile{

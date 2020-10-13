@@ -3,6 +3,9 @@ namespace we {
     export class LotterySceneFun extends LotterySceneFunBasic {
       // protected _denominationList = [500, 1000, 2000, 5000, 10000];
       protected _denominationList;
+
+      protected _btnBack: egret.DisplayObject;
+
       protected _betLayerTween: ui.TweenConfig;
       protected _betLayer: FunBetLayer;
 
@@ -62,6 +65,7 @@ namespace we {
         this.funbet.evtHandler.addEventListener('LOTTERY_FUNBET_OVERBETLIMIT', this.onOverBetLimit, this);
         this.funbet.evtHandler.addEventListener('LOTTERY_FUNBET_LOWERBETLIMIT', this.onLowBetLimit, this);
         this.funbet.evtHandler.addEventListener('LOTTERY_FUNBET_OVERBALANCE', this.onOverBalance, this);
+        utils.addButtonListener(this._btnBack, this.backToLobby, this);
       }
 
       protected removeListeners() {
@@ -75,6 +79,7 @@ namespace we {
         this.funbet.evtHandler.removeEventListener('LOTTERY_FUNBET_OVERBETLIMIT', this.onOverBetLimit, this);
         this.funbet.evtHandler.removeEventListener('LOTTERY_FUNBET_LOWERBETLIMIT', this.onLowBetLimit, this);
         this.funbet.evtHandler.removeEventListener('LOTTERY_FUNBET_OVERBALANCE', this.onOverBalance, this);
+        utils.removeButtonListener(this._btnBack, this.backToLobby, this);
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {

@@ -9,7 +9,6 @@
 namespace we {
   export namespace lo {
     export class LotterySceneFunBasic extends core.BaseScene {
-      protected _btnBack: egret.DisplayObject;
       protected _lblRoomNo: ui.RunTimeLabel;
 
       protected _tableId: string;
@@ -67,7 +66,6 @@ namespace we {
         // dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
         this.funbet.evtHandler.addEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
-        utils.addButtonListener(this._btnBack, this.backToLobby, this);
       }
 
       protected removeListeners() {
@@ -79,7 +77,6 @@ namespace we {
         // dir.evtHandler.removeEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
         this.funbet.evtHandler.removeEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
-        utils.removeButtonListener(this._btnBack, this.backToLobby, this);
       }
 
       public backToLobby() {

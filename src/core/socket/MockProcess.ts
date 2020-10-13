@@ -26,11 +26,10 @@ namespace we {
 
       public start(data: data.TableInfo) {
         // random choose a result process
-        setTimeout(() => {
-          this.randomWin(data).then(() => {
-            this.start(data);
-          });
-        });
+        setTimeout(async () => {
+          await this.randomWin(data);
+          this.start(data);
+        }, 100);
       }
 
       protected async setResults(data: data.TableInfo, results: string[], points: number[]) {}

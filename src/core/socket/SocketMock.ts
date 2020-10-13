@@ -332,7 +332,7 @@ namespace we {
               data.betInfo.ranking = [];
 
               data.bets = [];
-              const mockProcess = new MockProcessBaccarat(this, core.GameType.BAB);
+              const mockProcess = new MockProcessBaccaratBlockchain(this, core.GameType.BAB);
               if (idx !== count - 1) {
                 mockProcess.startRand = idx;
                 mockProcess.endRand = idx + 1;
