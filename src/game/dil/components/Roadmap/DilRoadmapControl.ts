@@ -5,6 +5,7 @@ namespace we {
       protected beadRoad: dil.DilBeadRoad;
       protected leftPanel: LeftPanel;
       protected rightPanel: RightPanel;
+      protected resultPanel: di.DiBigRoadResultPanel;
       public tableid: string;
 
       protected parser: ro.RORoadParser;
@@ -15,12 +16,62 @@ namespace we {
         this.tableid = tableid;
       }
 
-      public setRoads(r1, leftPanel, rightPanel) {
+      public setRoads(r1, leftPanel, rightPanel, resultPanel) {
         this.beadRoad = r1;
         this.leftPanel = leftPanel;
         this.rightPanel = rightPanel;
+        this.resultPanel = resultPanel;
+        // if (this.beadRoad) {
+          this.beadRoad.addEventListener('RollOverResult', this.onBeadRoadOver, this);
+          this.beadRoad.addEventListener('RollOutResult', this.onBeadRoadOut, this);
+          this.beadRoad.addEventListener('ClickResult', this.onBeadRoadClick, this);
+        // }
+        console.log('this.tableInfothis.tableInfo',this.tableInfo)
+      }
+      protected onBeadRoadClick(e: egret.Event) {
+        if (this.tableInfo) {
+          if (this.tableInfo.roadmap) {
+            const roadData = this.tableInfo.roadmap;
+            if (roadData.gameInfo) {
+              if (e.data.gameRoundID !== undefined) {
+                const rslt = roadData.gameInfo[e.data.gameRoundID];
+
+                window.open('http://www.google.com', '_blank');
+              }
+            }
+          }
+        }
       }
 
+      protected onBeadRoadOut(e: egret.Event) {
+        if (this.tableInfo) {
+          if (this.tableInfo.roadmap) {
+            const data = this.tableInfo.roadmap;
+            this.resultPanel.visible = false;
+          }
+        }
+      }
+
+      protected onBeadRoadOver(e: egret.Event) {
+        if (this.tableInfo) {
+          if (this.tableInfo.roadmap) {
+            const roadData = this.tableInfo.roadmap;
+            if (roadData.gameInfo) {
+              if (e.data.gameRoundID !== undefined) {
+                const rslt = roadData.gameInfo[e.data.gameRoundID];
+
+                this.resultPanel.setResult(rslt);
+                this.resultPanel.visible = true;
+                this.resultPanel._gameInfoLabel.visible = true ? true : false; // todo: check if replay url is available
+                this.resultPanel.x = e.data.mouseX - 30;
+                this.resultPanel.y = e.data.mouseY - this.resultPanel.height - 10;
+              } else {
+                this.resultPanel.visible = false;
+              }
+            }
+          }
+        }
+      }
       protected doParserUpdate(state: number) {
         // stae 0 = update, 1 = predict, 2 = restore from predict
         this.beadRoad.parseRoadData(this.parser.beadRoadResult, state);
@@ -61,6 +112,18 @@ namespace we {
       public dispose() {
         if (this.parser.hasEventListener('onUpdate')) {
           this.parser.removeEventListener('onUpdate', this.onParserUpdate, this);
+        }
+
+        if (this.beadRoad.hasEventListener('RollOverResult')) {
+          this.beadRoad.removeEventListener('RollOverResult', this.onBeadRoadOver, this);
+        }
+
+        if (this.beadRoad.hasEventListener('RollOutResult')) {
+          this.beadRoad.removeEventListener('RollOutResult', this.onBeadRoadOut, this);
+        }
+
+        if (this.beadRoad.hasEventListener('ClickResult')) {
+          this.beadRoad.removeEventListener('ClickResult', this.onBeadRoadClick, this);
         }
       }
     }
