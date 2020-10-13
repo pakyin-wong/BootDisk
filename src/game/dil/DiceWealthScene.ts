@@ -12,7 +12,7 @@ namespace we {
       protected _roadmapControl: we.dil.DilRoadmapControl;
       protected _leftGamePanel: we.dil.LeftPanel;
       protected _rightGamePanel: we.dil.RightPanel;
-      protected _bigRoadResultPanel: we.di.DiBigRoadResultPanel;
+      protected _bigRoadResultPanel: we.dil.DilBigRoadResultPanel;
 
       protected initChildren() {
         super.initChildren();

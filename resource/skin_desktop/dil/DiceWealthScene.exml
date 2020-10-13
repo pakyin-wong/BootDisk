@@ -57,8 +57,8 @@
 	<di:TableInfoPanel width="434" x="0" y="91" id="_tableInfoWindow" isPoppable="true" isEdgeDismissable="true"
 	                   dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" anchorOffsetY="0"
 	                   skinName="skin_desktop.di.TableInfoPanel"/>
-	<di:DiBigRoadResultPanel id="_bigRoadResultPanel" width="368" height="242" x="18.49" y="644" anchorOffsetX="0"
-	                         anchorOffsetY="0"  visible="false"/>
+	<dl:DilBigRoadResultPanel id="_bigRoadResultPanel" width="368" height="242" x="18.49" y="644" anchorOffsetX="0"
+	                         anchorOffsetY="0"  visible="true"/>
 	<ui:AnimatedToggleButton id="_panelDismissToggleBtn" dbClass="common_ui" dbDisplay="d_common_hide_ui" width="30"
 	                         height="30" x="2526" y="915" dismissPosY="1222" dismissPosX="2526" isEdgeDismissable="true" />
 	<dl:GameResultMessage id="_resultMessage" x="1300" y="640" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"/>
