@@ -29,7 +29,7 @@ namespace we {
         setTimeout(async () => {
           await this.randomWin(data);
           this.start(data);
-        },100);
+        }, 100);
       }
 
       protected async setResults(data: data.TableInfo, results: string[], points: number[]) {}

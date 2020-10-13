@@ -574,7 +574,7 @@ namespace we {
         playersqueeze: 'Squeeze',
         allOpen: 'All Open',
         fullShoe: 'All cards in shoe',
-        mechanismHelp: 'Help'
+        mechanismHelp: 'Help',
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',

@@ -575,7 +575,7 @@ namespace we {
         playersqueeze: '咪牌中',
         allOpen: '全開',
         fullShoe: '完整牌靴',
-        mechanismHelp: '機制說明'
+        mechanismHelp: '機制說明',
       },
       message: {
         test: '你贏左 $1，$2% 會比左我',
