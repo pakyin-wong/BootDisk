@@ -9,10 +9,7 @@
 namespace we {
   export namespace lo {
     export class LotterySceneFunBasic extends core.BaseScene {
-      protected _btnBack: egret.DisplayObject;
       protected _lblRoomNo: ui.RunTimeLabel;
-
-      protected _video: egret.FlvVideo;
 
       protected _tableId: string;
       protected _tableInfo: data.TableInfo;
@@ -22,10 +19,6 @@ namespace we {
       protected _gameData: we.data.GameData;
 
       protected _message: ui.InGameMessage;
-
-      protected _counter: eui.Label;
-      protected _targetTime;
-      protected _counterInterval;
 
       constructor(data: any) {
         super(data);
@@ -50,8 +43,6 @@ namespace we {
 
       protected mount() {
         super.mount();
-
-        this.initVideo();
         this.initText();
         this.updateGame();
         this.addListeners();
@@ -59,36 +50,12 @@ namespace we {
 
       protected destroy() {
         super.destroy();
-
-        dir.audioCtr.video = null;
-        this._video.stop();
-        dir.videoPool.release(this._video);
-
         this.resetTimer();
         this.removeListeners();
         this.removeChildren();
       }
 
-      protected initVideo() {
-        this._video = dir.videoPool.get();
-        this._video.setBrowser(env.UAInfo.browser.name);
-        this._video.load('https://gcp.weinfra247.com:443/live/720.flv');
-        dir.audioCtr.video = this._video;
-        const aspect = 16 / 9;
-        const ratio = this.stage.stageWidth / this.stage.stageHeight;
-        this._video.x = this.stage.stageWidth * 0.5;
-        this._video.y = this.stage.stageHeight * 0.5;
-        this._video.width = ratio < 1 ? this.stage.stageHeight * aspect : this.stage.stageWidth;
-        this._video.height = ratio < 1 ? this.stage.stageHeight : this.stage.stageWidth / aspect;
-        this._video.$anchorOffsetX = this._video.width * 0.5;
-        this._video.$anchorOffsetY = this._video.height * 0.5;
-        this.addChildAt(this._video, 0);
-        this._video.play();
-      }
-
-      protected initText() {
-        this._lblRoomNo.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this._tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
-      }
+      protected initText() {}
 
       protected addListeners() {
         dir.evtHandler.addEventListener(core.Event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
@@ -99,7 +66,6 @@ namespace we {
         // dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
         this.funbet.evtHandler.addEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
-        utils.addButtonListener(this._btnBack, this.backToLobby, this);
       }
 
       protected removeListeners() {
@@ -111,7 +77,6 @@ namespace we {
         // dir.evtHandler.removeEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
         this.funbet.evtHandler.removeEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
-        utils.removeButtonListener(this._btnBack, this.backToLobby, this);
       }
 
       public backToLobby() {
@@ -308,28 +273,9 @@ namespace we {
         // }
       }
 
-      protected updateTimer() {
-        clearInterval(this._counterInterval);
-        this._targetTime = this._gameData.starttime + this._gameData.countdown * 1000;
+      protected updateTimer() {}
 
-        this._counterInterval = setInterval(this.update.bind(this), 500);
-        this.update();
-      }
-
-      protected update() {
-        const diff = this._targetTime - env.currTime;
-
-        if (diff > 0) {
-          this._counter.text = moment.utc(diff).format('HH:mm:ss');
-        } else {
-          this.resetTimer();
-        }
-      }
-
-      protected resetTimer() {
-        this._counter.text = '00:00:00';
-        clearInterval(this._counterInterval);
-      }
+      protected resetTimer() {}
 
       protected get funbet() {
         return utils.GetFunBet(this.customKey);

@@ -293,7 +293,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -334,7 +334,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -568,7 +568,7 @@ namespace we {
           }
         }
         if (this._resultDisplay) {
-          this._resultDisplay.updateResult(this._gameData);
+          this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         }
       }
 
@@ -753,7 +753,7 @@ namespace we {
         this._undoButton.alpha = isEnable ? 1 : 0.5;
         this._cancelButton.alpha = isEnable ? 1 : 0.5;
         this._confirmButton.alpha = isEnable ? 1 : 0.3;
-        this._repeatButton.alpha = this._repeatButton.touchEnabled? 1: 0.5;
+        this._repeatButton.alpha = this._repeatButton.touchEnabled ? 1 : 0.5;
         this._doubleButton.alpha = this._doubleButton.touchEnabled ? 1 : 0.5;
         if (this._timer.bg_color) {
           this._timer.bg_color.alpha = isEnable ? 0.7 : 0;

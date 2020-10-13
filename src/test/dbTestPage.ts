@@ -17,25 +17,24 @@ namespace we {
 
       protected mount() {
         (async () => {
-          await RES.loadGroup('scene_bc_baccarat')
+          await RES.loadGroup('scene_bc_baccarat');
           this.loadAnim();
-        })()
+        })();
       }
 
-      protected loadAnim(){
-         this.removeEventListener(eui.UIEvent.COMPLETE, this.mount, this);
+      protected loadAnim() {
+        this.removeEventListener(eui.UIEvent.COMPLETE, this.mount, this);
 
         const bg = new egret.Bitmap();
         bg.texture = RES.getRes('blockchain_bg_jpg');
         this.addChild(bg);
 
-
         const mcFactory = new ui.SeqMovieClipFactory();
-        for (var i=0;i<4;i++) {
+        for (let i = 0; i < 4; i++) {
           const mc: egret.MovieClip = mcFactory.createMovieClip('d_bcba_animation_particle', 0, 150, 30, [{ name: 'play', frame: 1, end: 151 }], 5);
           this.addChild(mc);
-          const j = i%2;
-          mc.x = 1300 * Math.floor(i/2);
+          const j = i % 2;
+          mc.x = 1300 * Math.floor(i / 2);
           mc.y = 760 * j;
           mc.gotoAndPlay('play', -1);
         }

@@ -46,7 +46,7 @@ namespace we {
             case we.core.GameType.BAS:
             case we.core.GameType.BAB:
               return ba.SideListBetItemHolder;
-             
+
             case we.core.GameType.BAM:
               return bam.SideListBetItemHolder;
             case we.core.GameType.RO:
