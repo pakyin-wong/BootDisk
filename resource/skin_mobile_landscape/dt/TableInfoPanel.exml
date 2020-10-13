@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_landscape.dt.TableInfoPanel" width="2138" height="271" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_landscape.dt.TableInfoPanel" width="2138" height="260" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-	<e:Group id="content" left="0" bottom="0" height="271" width="100%">
-		<e:Rect id="_bg" height="271" x="0" fillColor="0x212425" anchorOffsetY="0" width="100%"  bottom="0"/>
+	<e:Group id="content" left="0" bottom="0" height="260" width="100%">
+		<e:Rect id="_bg" height="260" x="0" fillColor="0x212425" anchorOffsetY="0" width="100%"  bottom="0"/>
 				<e:Group height="100%" width="100%">
 					<e:Image id="moveArea" source="popover_png" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7"
 					         visible="false" />
