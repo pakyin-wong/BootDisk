@@ -32,7 +32,7 @@
 				         verticalCenter="0" />
 			</e:Group>
 			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" skinName="skin_mobile.BetChipSkin"
-			                           labelSize="48" x.right_hand_mode="608" y="70" x.left_hand_mode="1610" />
+			                           labelSize="48" x.right_hand_mode="635" y="70" x.left_hand_mode="1610" />
 			<!--<e:Group id="_betRelatedGroup" y="71" scaleX="1" scaleY="1" x="780" x.left_hand_mode="604">
 			<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
 			        fillColor="0x444444" />
@@ -89,7 +89,7 @@
 	<dt:MobileBottomGamePanel skinName="skin_mobile_landscape.dt.MobileBottomGamePanel" id="_bottomGamePanel" width="2424"
 	                          scaleY="1" scaleX="1" />
 	<e:layout>
-		<e:VerticalLayout gap="-35" />
+		<e:VerticalLayout gap="-55" />
 	</e:layout>
 </e:Group>
 <e:Group id="_betChipSetPanel" width="1566" height="260" scaleY="1" x="367" y="138">
