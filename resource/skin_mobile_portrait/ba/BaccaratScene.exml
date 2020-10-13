@@ -78,12 +78,12 @@
 	<e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="1242" touchEnabled="false"
 	         touchChildren="true" touchThrough="true" height="121">
 		<e:Group>
-		<e:Group>
-			<ui:RunTimeLabel id="_lblRoomNo" x="25" y="15" size="40" height="56" verticalAlign="middle"
-							textAlign="left" anchorOffsetX="0" text="Label" />
-			<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Arial" size="40" text="label" x="25" y="65"/>
-		</e:Group>
-		<ui:GoodRoadLabel id="_BAgoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin"  x="215" y="23"/>
+			<e:Group>
+				<ui:RunTimeLabel id="_lblRoomNo" x="25" y="15" size="40" height="56" verticalAlign="middle"
+								textAlign="left" anchorOffsetX="0" text="Label" />
+				<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Arial" size="40" text="label" x="25" y="65"/>
+			</e:Group>
+			<ui:GoodRoadLabel id="_BAgoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin"  x="215" y="23"/>
 			<e:layout>
 				<e:HorizontalLayout gap="36" verticalAlign="middle"/>
 			</e:layout>
