@@ -55,6 +55,19 @@ namespace we {
         // this._header && this.sceneHeader.addChild(this._header);
       }
 
+      protected clearOrientationDependentComponent() {
+        super.clearOrientationDependentComponent();
+        if (this._titleHeader && this._titleHeader.parent !== null) {
+          this._titleHeader.parent.removeChild(this._titleHeader);
+        }
+      }
+      protected destroy() {
+        super.destroy();
+        if (this._titleHeader && this._titleHeader.parent !== null) {
+          this._titleHeader.parent.removeChild(this._titleHeader);
+        }
+      }
+
       protected onPanelToggle(evt: egret.TouchEvent) {
         console.log(this._panelDismissToggleBtn.active);
         env.isAutoDismiss = this._panelDismissToggleBtn.active;
@@ -89,7 +102,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo> evt.data;
+          const stat = <data.TableInfo>evt.data;
           if (stat.tableid === this._tableId) {
             this._leftGamePanel.updateStat();
             this._rightGamePanel.updateStat();
@@ -100,7 +113,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             this._leftGamePanel.updateTableBetInfo();
             this._rightGamePanel.updateTableBetInfo();
