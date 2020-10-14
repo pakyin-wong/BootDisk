@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.DilBigRoadResultPanelSkin" width="368" height="242" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.DilBeadRoadResultPanelSkin" width="368" height="242" xmlns:e="http://ns.egret.com/eui"
         xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<w:Config id="175200c02ca"/>
         <ui:RoundRectShape name="bg" cornerTL_TR_BL_BR="12,12,12,12" width="368" height="241"

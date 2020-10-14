@@ -5,7 +5,7 @@ namespace we {
       protected beadRoad: dil.DilBeadRoad;
       protected leftPanel: LeftPanel;
       protected rightPanel: RightPanel;
-      protected resultPanel: dil.DilBigRoadResultPanel;
+      protected resultPanel: dil.DilBeadRoadResultPanel;
       public tableid: string;
 
       protected parser: ro.RORoadParser;

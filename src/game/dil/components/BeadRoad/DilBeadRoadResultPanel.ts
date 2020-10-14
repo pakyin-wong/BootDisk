@@ -1,6 +1,6 @@
 namespace we {
   export namespace dil {
-    export class DilBigRoadResultPanel extends ui.Panel {
+    export class DilBeadRoadResultPanel extends ui.Panel {
       protected gameRoundID: string;
       protected _gameLabel: ui.RunTimeLabel;
       protected _gameNumLabel: ui.RunTimeLabel;
@@ -21,7 +21,7 @@ namespace we {
 
       protected createChildren() {
         super.createChildren();
-        this.skinName = utils.getSkinByClassname('DilBigRoadResultPanelSkin');
+        this.skinName = utils.getSkinByClassname('DilBeadRoadResultPanelSkin');
         this._gameInfoLabel.renderText = () => `${i18n.t('baccarat.clickToSeeVideo')}`;
         this._gameInfoLabel.visible = false; // true when replay url is available
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
