@@ -66,9 +66,8 @@ namespace we {
         if (this.showOuterGrid) {
           // draw bg rectangle
           this.grid.graphics.beginFill(bgColors[0], 1);
-          // this.grid.graphics.drawRect(0, 0, this.numCol * size, 6 * size);
           this.grid.graphics.lineStyle(this.gridLine * this.scale, gridColors[0], 1, true);
-          RoundRect.drawRoundRect(this.grid.graphics, 0, 0, this.width, this.height, this.gridCorners);
+          RoundRect.drawRoundRect(this.grid.graphics, 0, 0, this.width, this.iconHeight + this.paddingY * 2, this.gridCorners);
           this.grid.graphics.endFill();
         }
 

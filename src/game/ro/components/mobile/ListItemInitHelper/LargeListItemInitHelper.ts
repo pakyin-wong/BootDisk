@@ -30,6 +30,7 @@ namespace we {
         roadmap.roadEmptyAlpha = 0.2;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(roadmap, idx);
+        roadmap.drawGridBg(1136, 288);
         return roadmap;
       }
 
