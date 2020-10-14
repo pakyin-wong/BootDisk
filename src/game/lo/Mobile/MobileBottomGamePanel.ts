@@ -2,13 +2,13 @@
 namespace we {
   export namespace lo {
     export class MobileBottomGamePanel extends ui.MobileBottomCommonPanel {
-      public _roadmapPanel: di.MobileBottomRoadmapPanel;
+      public _roadmapPanel: lo.MobileBottomRoadmapPanel;
 
       // public _roadButtonPanel: di.MobileBottomRoadButtonPanel;
 
-      public _tableInfoPanel: di.TableInfoPanel;
+      public _statisticChartPanel: lo.StatisticChartPanel;
 
-      public _statisticChartPanel: di.StatisticChartPanel;
+       public _analysisPanel: lo.AnalysisPanel;
 
       // viewStack and radioBtn
       protected historyBtn: eui.RadioButton;
@@ -75,7 +75,7 @@ namespace we {
 
       public updateStat() {
         super.updateStat();
-        this._statisticChartPanel.setValue(this.tableInfo);
+        // this._statisticChartPanel.setValue(this.tableInfo);
       }
 
       public manualClose() {
@@ -87,53 +87,17 @@ namespace we {
 
       protected onViewChange(e: eui.UIEvent) {
         super.onViewChange(e);
-        switch (env.orientation) {
-          case 'landscape':
-            // if (e.target.value === '3') {
-            //   e.target.value = 0;
-            // }
-
-            // if (e.target.value === '1' || e.target.value === '2') {
-            //   this._roadButtonPanel.visible = false;
-            // } else {
-            //   this._roadButtonPanel.visible = true;
-            // }
-            break;
-          case 'portrait':
-            // if (e.target.value === '0') {
-            //   this._roadButtonPanel.roadmapType = 0;
-            // }
-            // if (e.target.value === '1') {
-            //   this._roadButtonPanel.roadmapType = 1;
-            // }
-
-            // this._roadButtonPanel.changeState();
-            // if (e.target.value === '2' || e.target.value === '3') {
-            //   this._roadButtonPanel.visible = false;
-            // } else {
-            //   this._roadButtonPanel.visible = true;
-            // }
-            break;
-        }
         this.viewStack.selectedIndex = e.target.value;
       }
 
       protected onPanelToggle() {
         super.onPanelToggle();
-        // this.viewStack.selectedIndex = 0;
-        // if (env.isBottomPanelOpen) {
-        //   this._roadmapPanel.visible = true;
-        //   this._beadroadPanel.visible = true;
-        // } else {
-        //   this._roadmapPanel.visible = false;
-        //   this._beadroadPanel.visible = false;
-        // }
         this.viewStack.selectedIndex = Math.max(0, this.viewStack._selectedIndex);
         this.dispatchEvent(new egret.Event('ON_BOTTOM_PANEL_TOGGLE'));
       }
 
       protected onRoadMapChanged(e: eui.UIEvent) {
-        this._roadmapPanel.onRoadMapChanged(e);
+        // this._roadmapPanel.onRoadMapChanged(e);
       }
 
     }
