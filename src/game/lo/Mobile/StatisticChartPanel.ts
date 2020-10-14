@@ -277,6 +277,11 @@ namespace we {
         this.readPlayerLotteryResult();
       }
 
+     public update() {
+          this.changeLang();
+      }
+
+
       public changeLang() {
         this.chart1Btn['labelDisplayDown']['text'] = this.chart1Btn['labelDisplayUp']['text'] = 'L.Time';
         this.chart2Btn['labelDisplayDown']['text'] = this.chart2Btn['labelDisplayUp']['text'] = 'L.Game';
