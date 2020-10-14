@@ -373,6 +373,9 @@ namespace we {
         const list = Object.keys(env._nicknames[langcode]); // [namekey001,namekey002...]
         for (const item of list) {
           const _item = env._nicknames[langcode][item]['group'];
+          if (!env._groups[_item]) {
+            continue;
+          }
           env._groups[_item].push(item);
         }
       }
