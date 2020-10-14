@@ -42,18 +42,18 @@
 		<e:Group id="_icon" visible="false">
 			<e:Group x="41" y="78">
 				<e:Image width="57" height="57" x="0" y="0" source="m_ba_goodroad_info_state_banker_png" />
-				<ui:RunTimeLabel text="庄" x="10" y="7" width="40" height="40" size="30" textAlign="center" verticalAlign="middle"
-				                 textKey="baccarat.bankerShort" />
+				<ui:RunTimeLabel text="虎" x="10" y="7" width="40" height="40" size="30" textAlign="center" verticalAlign="middle"
+				                 textKey="dragontiger.tigerShort" />
 			</e:Group>
 			<e:Group x="166" y="78">
 				<e:Image width="57" height="57" x="0" y="0" source="m_ba_goodroad_info_round_player_png" />
-				<ui:RunTimeLabel text="闲" x="8" y="8" width="40" height="40" size="30" textAlign="center" verticalAlign="middle"
-				                 textKey="baccarat.playerShort" />
+				<ui:RunTimeLabel text="龍" x="8" y="8" width="40" height="40" size="30" textAlign="center" verticalAlign="middle"
+				                 textKey="dragontiger.dragonShort" />
 			</e:Group>
 			<e:Group x="293" y="78">
 				<e:Image width="57" height="57" x="0" y="0" source="m_ba_goodroad_info_state_player_png" />
 				<ui:RunTimeLabel text="和" x="8" y="8" width="40" height="40" size="30" textAlign="center" verticalAlign="middle"
-				                 textKey="baccarat.tieShort" />
+				                 textKey="dragontiger.tieShort" />
 			</e:Group>
 		</e:Group>
 		<e:Group id="_icon_pair" visible="false">
