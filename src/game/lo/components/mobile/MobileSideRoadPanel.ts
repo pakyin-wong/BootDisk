@@ -198,6 +198,7 @@ namespace we {
         });
 
         this._roadTypeToggler.addEventListener('DROPDOWN_ITEM_CHANGE', this.onRoadTypeSelected, this);
+        this.doRoadTypeChange(0);
 
         // init road index dropdown
         for (let r = 0; r < 3; r++) {
@@ -227,6 +228,10 @@ namespace we {
             title: () => dataSource[0],
             selected: 0,
           });
+
+          this['_roadIndexToggler' + (r + 1)].addEventListener('DROPDOWN_ITEM_CHANGE', this['onRoad' + (r + 1) + 'IndexChange'], this);
+          this['road' + (r + 1) + 'Change'](0);
+          this['_roadIndexToggler' + (r + 1)].text = dataSource[0];
         }
 
         this.changeLang();
@@ -234,6 +239,13 @@ namespace we {
 
       protected doRoadTypeChange(index: number) {
         this.roadStack.selectedIndex = index - 0;
+
+        const dataSource = ['B/S', 'O/E', 'DT'];
+        const dropdownSource = dataSource.map((data, index) => {
+          return ui.NewDropdownItem(index, () => `${dataSource[index]}`);
+        });
+        // this._roadTypeToggler.renderText = () => `${dataSource[this.roadStack.selectedIndex]}`;
+        this._roadTypeToggler.text = dataSource[this.roadStack.selectedIndex];
       }
 
       protected onRoadTypeSelected(evt: egret.Event) {
@@ -241,15 +253,41 @@ namespace we {
         this.doRoadTypeChange(selectedIndex);
       }
 
-      protected doRoadIndexChange(index: number) {
-        this.road1Change(index);
-        this.road2Change(index);
-        this.road3Change(index);
+      protected onRoad1IndexChange(evt: eui.UIEvent) {
+        const selectedIndex = evt.data - 0;
+        this.road1Change(selectedIndex);
+
+        const dataSource = [];
+        for (let i = 1; i <= 5; i++) {
+          dataSource.push('Ball ' + i);
+        }
+        this._roadIndexToggler1.text = dataSource[selectedIndex];
       }
 
-      protected onRoadIndexSelected(evt: egret.Event) {
+      protected onRoad2IndexChange(evt: eui.UIEvent) {
         const selectedIndex = evt.data - 0;
-        this.doRoadIndexChange(selectedIndex);
+        this.road2Change(selectedIndex);
+
+        const dataSource = [];
+        for (let i = 1; i <= 5; i++) {
+          dataSource.push('Ball ' + i);
+        }
+        this._roadIndexToggler2.text = dataSource[selectedIndex];
+      }
+
+      protected onRoad3IndexChange(evt: eui.UIEvent) {
+        const selectedIndex = evt.data - 0;
+        this.road3Change(selectedIndex);
+
+        const dataSource = [];
+        let c = 0;
+        for (let i = 1; i < 5; i++) {
+          for (let j = i + 1; j <= 5; j++) {
+            c++;
+            dataSource.push(i + ' VS ' + j);
+          }
+        }
+        this._roadIndexToggler3.text = dataSource[selectedIndex];
       }
 
       protected road1Change(i: number) {

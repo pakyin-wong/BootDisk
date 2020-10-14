@@ -53,6 +53,31 @@ namespace we {
         this._counter6.text = '0';
         clearInterval(this._counterInterval);
       }
+
+      protected onTouchTap(evt: egret.Event) {
+        // check if the parent name is "ActionButton"
+        let t = evt.target;
+        if (t.stage) {
+          while (!(t instanceof egret.Stage)) {
+            if (t.name === 'ActionButton') {
+              return;
+            } else {
+              t = t.parent;
+            }
+          }
+        }
+        //
+        if (evt.target === this._toggler || evt.target === this) {
+          evt.stopPropagation();
+          return;
+        }
+
+        if (this._isButtonGroupShow) {
+          this.hideButtonGroup();
+        } else {
+          this.showButtonGroup();
+        }
+      }
     }
   }
 }
