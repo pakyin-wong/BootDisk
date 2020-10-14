@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.LiveOverlayItemSkin" width="1140" height="1503" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.LiveOverlayItemSkin" width="1140" height="1749" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
     <!--<e:Group id="_betChipSetPanel">
     <ui:BetChipSetGrid id="_betChipSet" width="200" anchorOffsetX="0" x="0" anchorOffsetY="0" y="0" alpha="0" />
@@ -52,11 +52,11 @@
 
     </e:Group>
 </e:Group>
-<e:Group id="_betChipSetPanel" y="945" width="1140" height="588">
-    <e:Image width="100%" top="33" bottom="0" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0"
-             locked="true" />
-    <e:Image width="68" height="40" horizontalCenter="0" source="m_ba_betarea_chipsbg_triangle_png" locked="true" />
-    <ui:BetChipSetGrid id="_betChipSet" width="1085" height="521" alpha="0" anchorOffsetX="0" y="0" x="0"
-                       horizontalCenter="0" verticalCenter="16" betChipWidth="250" betChipHeight="208" labelSize="64" />
+<e:Group id="_betChipSetPanel" y="945" width="1140" height="760">
+    <e:Image width="100%" bottom="0" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0"
+              height="100%"/>
+    <e:Image width="68" height="40" horizontalCenter="0" source="m_ba_betarea_chipsbg_triangle_png"  y="-30"/>
+    <ui:BetChipSetGrid id="_betChipSet" width="1085" alpha="0" anchorOffsetX="0" x="0"
+                       horizontalCenter="0" betChipWidth="250" betChipHeight="208" labelSize="64"  top="50" bottom="20"/>
 </e:Group>
 </e:Skin>
