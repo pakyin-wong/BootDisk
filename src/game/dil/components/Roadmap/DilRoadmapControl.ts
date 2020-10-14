@@ -54,12 +54,16 @@ namespace we {
 
       protected onBeadRoadOver(e: egret.Event) {
         if (this.tableInfo) {
+          console.log('this.tableInfo',this.tableInfo)
           if (this.tableInfo.roadmap) {
             const roadData = this.tableInfo.roadmap;
             if (roadData.gameInfo) {
+              console.log('roadData.gameInfo',roadData.gameInfo)
               if (e.data.gameRoundID !== undefined) {
-                const rslt = roadData.gameInfo[e.data.gameRoundID];
+                console.log('e.data.gameRoundID',e.data.gameRoundID)
 
+                const rslt = roadData.gameInfo[e.data.gameRoundID];
+                console.log('rslt',rslt)
                 this.resultPanel.setResult(rslt);
                 this.resultPanel.visible = true;
                 this.resultPanel._gameInfoLabel.visible = true ? true : false; // todo: check if replay url is available

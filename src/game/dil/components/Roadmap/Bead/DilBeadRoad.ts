@@ -52,6 +52,7 @@ namespace we {
         for (let i = 0; i < n; i++) {
           const icon = this.createIcon(this.gridSize / this.gridUnit);
           icon.setByObject({});
+          console.log('this.gridSize,this.gridUnit',[this.gridSize,this.gridUnit])
           icon.x = (this.gridSize / this.gridUnit + this.xOffset) * (iconIndex % this.numCol);
           icon.y = (this.gridSize / this.gridUnit + this.yOffset) * Math.floor(iconIndex / this.numCol);
           // this.addChild(icon);
@@ -119,10 +120,10 @@ namespace we {
         pt = pt;
         const posX: number = pt.x;
         const posY: number = pt.y;
-        if (posX > 0 && posX < this.gridSize * this.numCol && posY > 0 && posY < this.gridSize * 6) {
-          const col = Math.floor(posX / this.gridSize);
-          const row = Math.floor(posY / this.gridSize);
-          const index = col * 6 + row;
+        if (posX > 0 && posX < (this.gridSize + this.xOffset) * this.numCol && posY > 0 && posY < (this.gridSize + this.yOffset) * 6) {
+          const col = Math.floor(posX / (this.gridSize + this.xOffset));
+          const row = Math.floor(posY / (this.gridSize + this.yOffset));
+          const index = col + row * 8;
           const iconValue = this.roadMapIconList[index].value;
 
           if (iconValue.v !== undefined) {
@@ -151,10 +152,10 @@ namespace we {
         pt = pt;
         const posX: number = pt.x;
         const posY: number = pt.y;
-        if (posX > 0 && posX < this.gridSize * this.numCol && posY > 0 && posY < this.gridSize * 6) {
-          const col = Math.floor(posX / this.gridSize);
-          const row = Math.floor(posY / this.gridSize);
-          const index = col * 6 + row;
+        if (posX > 0 && posX < (this.gridSize + this.xOffset) * this.numCol && posY > 0 && posY < (this.gridSize + this.yOffset) * 6) {
+          const col = Math.floor(posX / (this.gridSize + this.xOffset));
+          const row = Math.floor(posY / (this.gridSize + this.yOffset));
+          const index = col + row * 8;
           const iconValue = this.roadMapIconList[index].value;
 
           if (iconValue.v !== undefined) {
