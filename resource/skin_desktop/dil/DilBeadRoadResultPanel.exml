@@ -16,20 +16,6 @@
         </e:Group>
         <ui:RunTimeLabel id="_gameInfoLabel" text="click to see video of this round" x="16" y="205" textAlign="left"
                          anchorOffsetX="0" width="316" size="16" anchorOffsetY="0" height="18" />
-
-
-
-
-        <ui:RoundRectShape id="sizeBg" cornerTL_TR_BL_BR="21,21,21,21" width="152" height="42" x="27" y="143" stroke="0"
-                           fillColor="0x000000"  visible="false"/>
-        <ui:RoundRectShape id="oddBg" cornerTL_TR_BL_BR="21,21,21,21" width="152" height="42" x="189" y="143" stroke="0"
-                           fillColor="0x000000"  visible="false"/>
-        <ui:RoundRectShape id="tripleBg" cornerTL_TR_BL_BR="21,21,21,21" width="152" height="42" x="108" y="143"
-                           stroke="0" fillColor="0x00aa5e"  visible="false"/>
-        <e:Label id="sizeLabel" text="大" x="89" y="150" size="28" textAlign="center"  visible="false"/>
-        <e:Label id="oddLabel" text="單" x="251" y="150" size="28" textAlign="center"  visible="false"/>
-        <e:Label id="tripleLabel" text="圍" y="150" size="28" textAlign="center" x="170"  visible="false"/>
-	<e:Label text="dil" x="219" y="12"/>
 	<e:Group width="320" height="82" x="24" y="85">
 		<e:Image width="320" height="82" y="0" anchorOffsetX="0" anchorOffsetY="0" id="tripleBg0" x="0" source="d_sic_lobby_bg_2_png" scaleX="1" scaleY="1"/>
 		<e:Image id="dice1" width="54" height="54" x="34" y="14" source="d_sic_history_lv3_dice-1_png" scaleX="1" scaleY="1"/>
