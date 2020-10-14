@@ -66,9 +66,9 @@ namespace we {
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
         if (this.tableInfo.totalBet > 0) {
-          // this._alreadyBetSign.visible = true;
+          this._alreadyBetSign.visible = true;
         } else {
-          // this._alreadyBetSign.visible = false;
+          this._alreadyBetSign.visible = false;
         }
       }
 
@@ -149,7 +149,8 @@ namespace we {
 
       protected updateBetLimitText(items, idx) {
         if (this._toggler) {
-          this._toggler.renderText = () => ` ${i18n.t('baccarat.betLimitshort')} ${items.length > 0 ? items[idx] : ''}`;
+          // this._toggler.renderText = () => ` ${i18n.t('baccarat.betLimitshort')} ${items.length > 0 ? items[idx] : ''}`;
+          this._toggler.renderText = () => ` ${items.length > 0 ? items[idx] : ''}`;
         }
       }
     }
