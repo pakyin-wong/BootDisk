@@ -30,7 +30,6 @@ namespace we {
 
       protected mount() {
         // super.mount();
-
         // if (this._rightGamePanel) {
         //   // for testing
         //   // this._rightGamePanel.initBetCombination(this._chipLayer);

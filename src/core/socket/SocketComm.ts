@@ -281,8 +281,10 @@ namespace we {
         //   groups: {},
         // };
         // env.icons = {};
-        env.nicknameKey = player.profile.nickname;
 
+        // env.nicknameKey = player.profile.nickname;
+        // env.nickname = player.profile.settings.nickname;
+        env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
         // env.icons = {
         //   iconKey01: 'd_lobby_profile_pic_01_png',
         //   iconKey02: 'd_lobby_profile_pic_02_png',
@@ -297,21 +299,21 @@ namespace we {
         env.profileimage = player.profile.settings.profileimage
           ? player.profile.settings.profileimage
           : player.profile.profileimageurl === ''
-            ? Object.keys(env.icons)[0]
-            : player.profile.profileimageurl;
+          ? Object.keys(env.icons)[0]
+          : player.profile.profileimageurl;
         logger.l(utils.LogTarget.RELEASE, 'PlayerClient::handleReady() ' + player.profile.betlimits);
 
         env.betLimits = player.profile.betlimits
           ? player.profile.betlimits
           : [
-            {
-              currency: Currency.RMB,
-              maxlimit: 1000,
-              minlimit: 10,
-              chips: [1, 5, 20, 100, 500],
-              // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
-            },
-          ];
+              {
+                currency: Currency.RMB,
+                maxlimit: 1000,
+                minlimit: 10,
+                chips: [1, 5, 20, 100, 500],
+                // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
+              },
+            ];
 
         if (!Array.isArray(env.betLimits)) {
           env.betLimits = [env.betLimits];
@@ -464,6 +466,11 @@ namespace we {
         const tableInfo = env.getOrCreateTableInfo(gameStatus.tableid);
         gameStatus.previousstate = tableInfo.data ? tableInfo.data.state : null;
         gameStatus.starttime = Math.floor(gameStatus.starttime / 1000000);
+		/*        
+        if (tableInfo && tableInfo.tableid && tableInfo.tableid.indexOf('BAB') && tableInfo.data){
+          console.log('BAB tableid ' + tableInfo.tableid + ':' + tableInfo.data)
+        }
+		*/
         if (tableInfo.roundid !== gameStatus.gameroundid) {
           tableInfo.prevroundid = tableInfo.roundid;
           tableInfo.roundid = gameStatus.gameroundid;
@@ -571,6 +578,7 @@ namespace we {
           case core.GameType.BAC:
           case core.GameType.BAI:
           case core.GameType.BAS:
+          case core.GameType.BAB:
           case core.GameType.DT: {
             // const roadmapData = parseAscString(gameStatistic.roadmapdata);
             const roadmapData = gameStatistic.roadmapdata;
@@ -978,7 +986,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
           return betDetail;
         });
 
@@ -1155,7 +1163,7 @@ namespace we {
         this.client.sendVerifyInfo(id, pattern, this.warpServerCallback(callback.bind(thisArg)));
       }
 
-      public getTableHistory() { }
+      public getTableHistory() {}
 
       protected onBetTableListUpdate(tableList: data.GameTableList, timestamp: string) {
         this.updateTimestamp(timestamp);

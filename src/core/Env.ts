@@ -16,7 +16,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.10.3';
+      public version: string = '0.10.3f1';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -144,6 +144,7 @@ namespace we {
           core.GameType.BAI,
           core.GameType.BAS,
           core.GameType.BAM,
+          core.GameType.BAB,
           core.GameType.DI,
           core.GameType.DIL,
           core.GameType.DT,
@@ -303,6 +304,9 @@ namespace we {
           case core.GameType.BAM:
             dir.sceneCtr.goto('bam', { tableid: tableId });
             break;
+          case core.GameType.BAB:
+            dir.sceneCtr.goto('bab', { tableid: tableId });
+            break;
           case core.GameType.DT:
             dir.sceneCtr.goto('dt', { tableid: tableId });
             break;
@@ -328,7 +332,7 @@ namespace we {
             dir.sceneCtr.goto('rc', { tableid: tableId });
             break;
           default:
-            logger.e(utils.LogTarget.DEBUG, `Scene for GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
+            logger.e(utils.LogTarget.DEBUG, ` GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
             this._currTableId = '';
             break;
         }
@@ -369,6 +373,9 @@ namespace we {
         const list = Object.keys(env._nicknames[langcode]); // [namekey001,namekey002...]
         for (const item of list) {
           const _item = env._nicknames[langcode][item]['group'];
+          if (!env._groups[_item]) {
+            continue;
+          }
           env._groups[_item].push(item);
         }
       }

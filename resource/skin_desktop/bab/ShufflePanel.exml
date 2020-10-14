@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.bab.ShufflePanelSkin" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:bab="we.bab.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*">
+        <e:Group id="content">
+        </e:Group>
+</e:Skin>
+
