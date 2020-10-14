@@ -5,6 +5,7 @@ namespace we {
       private _onShowItem: Panel;
       private _onShowItemClass: string;
 
+      private _overlayMaskAlpha = 0.4;
       public constructor() {
         super();
         this._overlayMask = new egret.Shape();
@@ -32,7 +33,7 @@ namespace we {
         this._overlayMask.graphics.beginFill(0x000000, 0.7);
         this._overlayMask.graphics.drawRect(0, 0, this.width, this.height);
         this._overlayMask.graphics.endFill();
-        this._overlayMask.alpha = 0.4;
+        this._overlayMask.alpha = this._overlayMaskAlpha;
       }
 
       protected addListeners() {
@@ -59,7 +60,7 @@ namespace we {
             this.addChild(this._overlayMask);
             this._overlayMask.alpha = 0;
             egret.Tween.removeTweens(this._overlayMask);
-            egret.Tween.get(this._overlayMask).to({ alpha: 1 }, 250);
+            egret.Tween.get(this._overlayMask).to({ alpha: this._overlayMaskAlpha }, 250);
           }
           this.addItem(item, opt);
           return;
@@ -80,7 +81,7 @@ namespace we {
             this.addChild(this._overlayMask);
             this._overlayMask.alpha = 0;
             egret.Tween.removeTweens(this._overlayMask);
-            egret.Tween.get(this._overlayMask).to({ alpha: 1 }, 250);
+            egret.Tween.get(this._overlayMask).to({ alpha: this._overlayMaskAlpha }, 250);
           }
         }
 
