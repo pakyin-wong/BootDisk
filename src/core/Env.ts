@@ -16,7 +16,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.10.3';
+      public version: string = '0.10.3f2';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -368,6 +368,9 @@ namespace we {
         const list = Object.keys(env._nicknames[langcode]); // [namekey001,namekey002...]
         for (const item of list) {
           const _item = env._nicknames[langcode][item]['group'];
+          if (!env._groups[_item]) {
+            continue;
+          }
           env._groups[_item].push(item);
         }
       }
