@@ -146,7 +146,7 @@ namespace we {
         }
 
         const analysis1Group = this.analysisStack.getChildAt(0) as eui.Group;
-        this.listShow = new LoAnalysisScrollList(1, 3, 1024, 211, 22);
+        this.listShow = new LoAnalysisScrollList(0, 3, 1024, 211, 22);
         this.listShow.y = 73;
         analysis1Group.addChild(this.listShow);
 
@@ -156,12 +156,12 @@ namespace we {
         analysis2Group.addChild(this.listNoShow);
 
         const analysis3Group = this.analysisStack.getChildAt(2) as eui.Group;
-        this.listHot = new LoAnalysisScrollList(1, 3, 1024, 211, 22);
+        this.listHot = new LoAnalysisScrollList(2, 3, 1024, 211, 22);
         this.listHot.y = 73;
         analysis3Group.addChild(this.listHot);
 
         const analysis4Group = this.analysisStack.getChildAt(3) as eui.Group;
-        this.listCold = new LoAnalysisScrollList(1, 3, 1024, 211, 22);
+        this.listCold = new LoAnalysisScrollList(3, 3, 1024, 211, 22);
         this.listCold.y = 73;
         analysis4Group.addChild(this.listCold);
 

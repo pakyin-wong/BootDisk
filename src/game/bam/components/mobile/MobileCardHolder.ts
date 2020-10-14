@@ -153,6 +153,8 @@ namespace we {
         const nextIdx = this.getNextIndex(this._flipIndex);
         if (nextIdx > -1) {
           this.selectCardByIdx(nextIdx);
+        } else {
+          this._resultCard.closeFlipPanel();
         }
       }
 
@@ -230,6 +232,11 @@ namespace we {
 
         this.calculatePoint();
         this._openAllBanker.visible = false;
+
+        // if current select is banker card, call getNextIndex
+        if (this._flipIndex === 0 || this._flipIndex === 1 || this._flipIndex === 2) {
+          this.showNextCard();
+        }
       }
 
       protected openAllPlayer(evt: egret.Event) {
@@ -249,6 +256,11 @@ namespace we {
 
         this.calculatePoint();
         this._openAllPlayer.visible = false;
+
+        // if current select is player card, call getNextIndex
+        if (this._flipIndex === 3 || this._flipIndex === 4 || this._flipIndex === 5) {
+          this.showNextCard();
+        }
       }
 
       protected updateResultCard() {
@@ -478,7 +490,6 @@ namespace we {
             this.cardHolderArr[i].setCard(utils.formatCard(this.cardArr[i]));
           }
         }
-
         this.checkOpenAllBtn();
       }
 

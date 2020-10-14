@@ -56,6 +56,8 @@ namespace we {
         this._resultDisplay.importData(this._cardHolderData);
       }
 
+      protected showResultDisplay(isShow: boolean) {}
+
       protected setStateDeal(isInit: boolean = false) {
         if (this._previousState === we.core.GameState.BET) {
           this.checkRoundCountWithoutBet();

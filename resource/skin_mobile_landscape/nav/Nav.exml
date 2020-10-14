@@ -5,7 +5,7 @@
 	<ui:NavLantern id="_lantern" width="2000" height="38"   y="17" x="20" lineSpacing="38" fontsize="36" visible.Game="false" visible.Lobby="true"/>
 
 	<e:Image height="150" left="0" right="0" top="0" source="d-lobby-header-dim_png" touchEnabled="false"  visible="false"/>
-	<e:Label id="_time" text="yyyy/mm/dd 00:00:00" size="36" fontFamily="Barlow" width="340" height="38" textAlign="right" anchorOffsetX="0" verticalAlign="top" textColor="0xa5a5a5" y="17" x.Game="479" x="2064" size.Game="26" width.Game="273" y.Game="24"/>
+	<e:Label id="_time" text="yyyy/mm/dd 00:00:00" size="36" fontFamily="Barlow" width="340" height="38" textAlign="right" anchorOffsetX="0" verticalAlign="top" textColor="0xa5a5a5" y="17" x.Game="479" x="2064" size.Game="26" width.Game="273" y.Game="24" visible.Game="false"/>
 		<e:Group id="_profile_toggle" y="34" y.Game="9" width.Game="531" right.Game="0" x.Lobby="1996" y.Lobby="1095" height.Game="91" width.Lobby="316" visible.Game="false">
 		<e:Label id="_user" text="User" x="108" y="0" height="47" size="38.8" fontFamily="Barlow" textColor="0xffffff" textAlign="left" verticalAlign="middle" maxWidth="202" visible.Game="false" x.Lobby="121"/>
 

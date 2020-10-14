@@ -33,11 +33,16 @@ namespace we {
       }
 
       protected clearOrientationDependentComponent() {
-        this.sceneHeader.removeChildren();
+        if (this._header && this._header.parent !== null) {
+          this._header.parent.removeChild(this._header);
+        }
+        // this.sceneHeader.removeChildren();
       }
 
       protected initOrientationDependentComponent() {
-        this._header && this.sceneHeader.addChild(this._header);
+        this._header && dir.layerCtr.nav && dir.layerCtr.nav.addChild(this._header);
+        // this._header && dir.layerCtr.nav['_headerContainer'] && dir.layerCtr.nav['_headerContainer'].addChild(this._header);
+        // this._header && this.sceneHeader.addChild(this._header);
       }
 
       // protected mount() {
@@ -46,7 +51,10 @@ namespace we {
 
       protected destroy() {
         super.destroy();
-        this.sceneHeader.removeChildren();
+        if (this._header && this._header.parent !== null) {
+          this._header.parent.removeChild(this._header);
+        }
+        // this.sceneHeader.removeChildren();
       }
 
       // switchSkin (mobile / tablet / desktop)

@@ -186,7 +186,8 @@ namespace we {
           case core.GameType.BAC:
           case core.GameType.BAI:
           case core.GameType.BAS:
-          case core.GameType.BAM: {
+          case core.GameType.BAM:
+          case core.GameType.BAB: {
             // (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.selected);
             (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.active);
             switch (this._gameData.wintype) {

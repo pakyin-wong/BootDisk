@@ -137,7 +137,7 @@ namespace we {
       }
 
       public async hide() {
-        this.poppableAddon.active && (await this.poppableAddon.hide());
+        this.poppableAddon.active && this.poppableAddon.isShow && (await this.poppableAddon.hide());
       }
 
       public async foreclosed() {
