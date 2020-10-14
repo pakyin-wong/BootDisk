@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_landscape.di.MobileBottomRoadmapPanel"
-        width="901" height="308" xmlns:w="http://ns.egret.com/wing" 
+        width="901" height="310" xmlns:w="http://ns.egret.com/wing" 
         xmlns:ui="we.ui.*" xmlns:e="http://ns.egret.com/eui" xmlns:di="we.di.*">
 	<e:Group id="content" width="100%" height="100%">
 		<e:Component id="_roadmapBg" height="100%" left="0" right="0" bottom="0">
@@ -10,9 +10,9 @@
 			</e:Skin>
 			</e:skinName>
 		</e:Component>
-            <e:ViewStack id="_roadmapView" scaleX="1" scaleY="1" left="0" right="0" height="100%" y="0">
+            <e:ViewStack id="_roadmapView" scaleX="1" scaleY="1" left="0" right="0" height="100%" bottom="0">
                 <e:Group name="size" left="0" top="0" bottom="0" right="0">
-                    <di:RoadMapConfig id="sizeBigRoadConfig" scaleX="1" scaleY="1"/>
+                    <di:RoadMapConfig id="sizeBigRoadConfig" scaleX="1" scaleY="1" y="0"/>
                 </e:Group>
                 <e:Group name="oddeven" left="0" top="0" bottom="0" right="0">
                     <di:RoadMapConfig id="oddBigRoadConfig" scaleX="1" scaleY="1"/>

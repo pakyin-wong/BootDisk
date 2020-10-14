@@ -83,14 +83,14 @@
   </e:Scroller>
 	<ro:MobileHotColdPanel id="_hotcoldPanel" x="696" y="14" skinName="skin_mobile_landscape.ro.MobileHotColdPanel" coldNumLimit="5" hotNumLimit="5"/>
   <e:Group id="_betSet" y="355" left="0" right="0" touchThrough="true" y.right="324">
-    <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" skinName="skin_mobile.BetChipSkin" labelSize="48" x="632"/>
+    <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" skinName="skin_mobile.BetChipSkin" labelSize="48" x="632" y="20" />
     <e:Group id="_betChipSetPanel" horizontalCenter="0" y="168">
 			<e:Image id="_panel" scale9Grid="33,33,0,0" source="m_ba_betarea_chipsbg_round_png" left="0" right="0" y="32" height="411" width="1566"/>
 			<e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" x="249"/>
       <ui:BetChipSetGrid id="_betChipSet" alpha="0" betChipWidth="201" betChipHeight="201" labelSize="48" width="1566" height="411" numChipsInRow="6" y="35"/>
     </e:Group>
     <e:Group id="_betRelatedGroup" x="819" y="18">
-				<e:Rect id="_roundPanel" width="765" height="130" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"  x="0" x.left="219"/>
+				<e:Rect id="_roundPanel" width="960" height="130" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"  right.right="0" left.left="0" />
 				<e:Button id="_confirmButton" width="324" height="130" skinName="skin_mobile_portrait.BetConfirmButtonSkin" x="649" x.left="0"/>
 				<ui:CountdownTimer id="_timer" width="324" height="130" skinName="skin_mobile_portrait.CountdownTimerSkin" x="649" x.left="0" colorChange="true"/>
 			<ui:RunTimeLabel id="_repeatLabel" text="再次下注" x="41" y="73"  textAlign="center" width="128" size="32" height="47" verticalAlign="middle" x.left="792"/>

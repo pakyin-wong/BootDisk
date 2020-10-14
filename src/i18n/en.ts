@@ -522,8 +522,8 @@ namespace we {
         statisticChart: {
           bankerPlayerTie: 'Banker Player Tie (100 rounds)',
           bankerPlayerTiePair: 'Banker Player Tie pair (100 rounds)',
-          shoeBankerPlayerTie: 'Banker Player Tie(本靴)',
-          shoeBankerPlayerTiePair: 'Banker Player Tie pair (本靴)',
+          shoeBankerPlayerTie: 'Banker Player Tie (shoe)',
+          shoeBankerPlayerTiePair: 'Banker Player Tie pair (shoe)',
         },
         playerPair: 'Player Pair',
         bankerPair: 'Banker Pair',

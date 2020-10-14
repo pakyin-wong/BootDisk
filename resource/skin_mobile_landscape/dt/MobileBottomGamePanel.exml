@@ -10,9 +10,9 @@
 			<e:Image id="_arrow" source="d_lobby_button_down_normal_png" width="80" height="80" scaleX="1" scaleY="1" visible.off="false" horizontalCenter.on="0" horizontalCenter="0" y="0"/>
 			<e:Image id="_arrowUp" source="d_lobby_button_down_normal_png" width="80" height="80" scaleX="1" scaleY="1" visible.on="false" rotation="180" horizontalCenter.on="0" horizontalCenter="0" y="78"/>
 		</e:Group>
-		<e:Group id="_middlePart" width="2424" x="0" y="80" scaleX="1" scaleY="1" left="0" right="0">
+		<e:Group id="_middlePart" width="2424" x="0" y="80" scaleX="1" scaleY="1" left="0" right="0" height="260">
 			<e:Rect id="viewStackMask" y="0" scaleX="1" scaleY="1" top="0" bottom="0" left="0" right="0"/>
-			<e:Group id="_topPart" width="284" y="80" scaleX="1" scaleY="1" anchorOffsetX="0" top="0" bottom="0" x="2140">
+			<e:Group id="_topPart" width="284" y="80" scaleX="1" scaleY="1" anchorOffsetX="0" bottom="0" x="2140" height="260">
 			<e:Rect id="top_bg" width="100%" height="260" y="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x212425" strokeColor="0x212425" x="0"/>
 			<e:RadioButton id="roadSheetBtn" label="路紙" x="8" y="12" width="252" height="70" value="0" selected="false" scaleX="1" scaleY="1">
 				<e:skinName>
@@ -43,9 +43,9 @@
 			</e:RadioButton>
 			<ui:RunTimeLabel id="_gameInfoLabel" text="Label" x="-401.72" y="26" size="42" bold="true" visible="false"/>
 			</e:Group>
-			<e:ViewStack id="viewStack" width="2140" height="260" x="0" y="0" selectedIndex="0" scaleX="1" scaleY="1" top="0" anchorOffsetX.on="0">
-			<e:Group id="_roadmapGroup" width="100%" height="100%" name="Group">
-				<dt:MobileBottomRoadmapPanel id="_roadmapPanel" skinName="skin_mobile_landscape.dt.MobileBottomRoadmapPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
+			<e:ViewStack id="viewStack" width="2140" height="260" x="0" selectedIndex="0" scaleX="1" scaleY="1" anchorOffsetX.on="0" bottom="0">
+			<e:Group id="_roadmapGroup" width="100%" height="260" name="Group" bottom="0">
+				<dt:MobileBottomRoadmapPanel id="_roadmapPanel" skinName="skin_mobile_landscape.dt.MobileBottomRoadmapPanel" width="100%" height="260" scaleX="1" scaleY="1" bottom="0"/>
 			</e:Group>
 			<e:Group id="_chartGroup" width="100%" height="100%" name="Group">
 				<dt:StatisticChartPanel id="_statisticChartPanel" skinName="skin_mobile_landscape.dt.StatisticChartPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
@@ -54,10 +54,10 @@
 				<dt:TableInfoPanel id="_tableInfoPanel" skinName="skin_mobile_landscape.dt.TableInfoPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
 			</e:Group>
 			</e:ViewStack>
-			<e:Group id="_bottomResultDisplayContainer" width="2140" height="259" x="0" y="0" touchEnabled="false" touchThrough="true" touchChildren="false">
-				<e:Rect width="100%" height="100%" fillColor="0x000000" fillAlpha="0.4" touchEnabled="false" touchChildren="false"/>
-				<dt:CardHolder id="_bottomResultDisplay" width="1384" height="152" y="1.5" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
-					 scaleY="1" horizontalCenter="0"  touchChildren="false" touchEnabled="false"/>
+			<e:Group id="_bottomResultDisplayContainer" width="2140" height="259" x="0" touchEnabled="false" touchThrough="true" touchChildren="false" bottom="0" visible="false">
+				<e:Rect width="100%" height="100%" fillColor="0x000000" fillAlpha="0.4" touchEnabled="false" touchChildren="false" bottom="0"/>
+				<dt:CardHolder id="_bottomResultDisplay" width="1120" height="152" y="1.5" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
+					 scaleY="1"  touchChildren="false" touchEnabled="false" x="652"/>
 			</e:Group>
 		</e:Group>
 	</e:Group>

@@ -23,7 +23,7 @@ namespace we {
       public _tableInfoPanel: ui.TableInfoPanel;
       public _betLimitDropDownBtn: ui.RunTimeLabel;
 
-      public isPanelOpen: boolean = false;
+      public isPanelOpen: boolean;
 
       // landscape bottom game result
       public _bottomResultDisplayContainer: eui.Group;
@@ -39,6 +39,7 @@ namespace we {
 
       protected mount() {
         super.mount();
+        this.isPanelOpen = env.isBottomPanelOpen;
         this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
         this.addListeners();
         this.updateText();

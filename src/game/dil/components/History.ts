@@ -73,14 +73,14 @@ namespace we {
         if (this.round === 10) {
           for (let i = 3; i < 19; i++) {
             this[`_sum${i}Percent`].text = `${percentages_10[i - 3]}`;
-            (<ui.ProgressBar> this[`_sum${i}`]).proportion = percentages_10[i - 3] / 100;
-            (<ui.ProgressBar> this[`_sum${i}`]).draw();
+            (<ui.ProgressBar>this[`_sum${i}`]).proportion = percentages_10[i - 3] / 100;
+            (<ui.ProgressBar>this[`_sum${i}`]).draw();
           }
         } else {
           for (let i = 3; i < 19; i++) {
             this[`_sum${i}Percent`].text = `${percentages_50[i - 3]}`;
-            (<ui.ProgressBar> this[`_sum${i}`]).proportion = percentages_50[i - 3] / 100;
-            (<ui.ProgressBar> this[`_sum${i}`]).draw();
+            (<ui.ProgressBar>this[`_sum${i}`]).proportion = percentages_50[i - 3] / 100;
+            (<ui.ProgressBar>this[`_sum${i}`]).draw();
           }
         }
       }
