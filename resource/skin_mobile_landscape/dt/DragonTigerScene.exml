@@ -12,7 +12,7 @@
 			              scaleX="1" scaleY="1" horizontalCenter="0" />
 			<ui:BaseImageButton id="_common_listpanel" width="104" height="104" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
 			                    scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
-			                    currentState="lobby_panel_gamelist_tag_icon_allgame" x="2262"  bottom="192"/>
+			                    currentState="lobby_panel_gamelist_tag_icon_allgame" x="2262" bottom="192" />
 			<e:Group width="104" height="104" x="2262" bottom="43">
 				<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0"
 				        ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.4" />
@@ -92,45 +92,44 @@
 		<e:VerticalLayout gap="-55" />
 	</e:layout>
 </e:Group>
-	<e:Group id="_betChipSetPanel" width="1566" height="443" scaleY="1" x="366" y="264">
-		<e:Group id="_betPanelGroup" scaleY="1" x="0" height="443" y="0" width="100%" >
-			<e:Image id="_panel" width="1566" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1"
-			         scaleX="1" y="0" height="443" x="0" />
-			<e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" scaleY="1" width="68" y="474"
-			         scaleX="1" x.right_hand_mode="347" rotation="180" x.left_hand_mode="1340" />
-		</e:Group>
-		<ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" horizontalCenter="0" betChipWidth="250"
-		                   betChipHeight="208" numChipsInRow="6" chipSizeScale="0.75" horizontalGapSize="30" right="0"
-		                   left="0" labelSize="48" y="35" />
+<e:Group id="_betChipSetPanel" width="1566" height="443" scaleY="1" x="366" y="264">
+	<e:Group id="_betPanelGroup" scaleY="1" x="0" height="443" y="0" width="100%">
+		<e:Image id="_panel" width="1566" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1" scaleX="1"
+		         y="0" height="443" x="0" />
+		<e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" scaleY="1" width="68" y="474"
+		         scaleX="1" x.right_hand_mode="367" rotation="180" x.left_hand_mode="1340" />
 	</e:Group>
+	<ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" horizontalCenter="0" betChipWidth="250"
+	                   betChipHeight="208" numChipsInRow="6" chipSizeScale="0.75" horizontalGapSize="-20"
+	                   verticalGapSize="-20" right="0" left="0" labelSize="48" y="35" />
+</e:Group>
 <e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" width="2424" touchEnabled="false" touchChildren="true"
          touchThrough="true" height="121">
+	<e:Group>
 		<e:Group>
-			<e:Group>
-				<ui:RunTimeLabel id="_lblRoomNo" x="25" y="15" size="40" height="56" verticalAlign="middle"
-								textAlign="left" anchorOffsetX="0" text="Label" />
-				<e:Group x="25" y="65">
-					<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Arial" size="40" text="label"/>
-
-					<e:layout>
-					<e:HorizontalLayout verticalAlign="middle"/>
-					</e:layout>
-				</e:Group>
+			<ui:RunTimeLabel id="_lblRoomNo" x="25" y="15" size="40" height="56" verticalAlign="middle" textAlign="left"
+			                 anchorOffsetX="0" text="Label" />
+			<e:Group x="25" y="65">
+				<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Arial" size="40" text="label" />
+				<e:layout>
+					<e:HorizontalLayout verticalAlign="middle" />
+				</e:layout>
 			</e:Group>
-			<e:Group>
-				<e:Group y="24" right="0">
-					<ui:RunTimeLabel id="_GameIDText" text="Game ID :" bottom="0" left="0" alpha=".7" verticalAlign="top" size="26"/>
-					<ui:RunTimeLabel id="_GameID" text="ID0000000000000001" bottom="0" left="0" verticalAlign="top" size="26"/>
-					<ui:TimeLabel bottom="0" left="0" verticalAlign="top" size="26"/>
-					<e:layout>
-					<e:HorizontalLayout gap="8"/>
-					</e:layout>
-				</e:Group>
-			</e:Group>
-			<e:layout>
-				<e:HorizontalLayout gap="36"/>
-			</e:layout>
 		</e:Group>
+		<e:Group>
+			<e:Group y="24" right="0">
+				<ui:RunTimeLabel id="_GameIDText" text="Game ID :" bottom="0" left="0" alpha=".7" verticalAlign="top" size="26" />
+				<ui:RunTimeLabel id="_GameID" text="ID0000000000000001" bottom="0" left="0" verticalAlign="top" size="26" />
+				<ui:TimeLabel bottom="0" left="0" verticalAlign="top" size="26" />
+				<e:layout>
+					<e:HorizontalLayout gap="8" />
+				</e:layout>
+			</e:Group>
+		</e:Group>
+		<e:layout>
+			<e:HorizontalLayout gap="36" />
+		</e:layout>
+	</e:Group>
 	<e:Group height="48" y="73" right="15">
 		<ui:RunTimeLabel id="_totalBet" text="0" y="0" height="100%" right="0" anchorOffsetX="0" textAlign="right" size="36"
 		                 fontFamily="Barlow" />

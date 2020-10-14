@@ -12,6 +12,7 @@ namespace we {
       public chipSizeScale: number = 1;
       public labelSize: number = 30;
       public horizontalGapSize: number = 15;
+      public verticalGapSize: number = 15;
 
       public constructor() {
         super();
@@ -29,8 +30,9 @@ namespace we {
           this.chipScale = this.chipSizeScale;
         }
         this._chipsetLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
+        console.log(`..............${this.horizontalGapSize}`);
         this._chipsetLayout.horizontalGap = this.horizontalGapSize;
-        this._chipsetLayout.verticalGap = this._normalGapSize;
+        this._chipsetLayout.verticalGap = this.verticalGapSize;
         this._chipsetLayout.paddingTop = this._normalGapSize;
         this._chipsetLayout.paddingBottom = this._normalGapSize;
         this._chipsetLayout.requestedColumnCount = this.numChipsInRow;

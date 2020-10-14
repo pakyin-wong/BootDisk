@@ -147,6 +147,8 @@ namespace we {
               return lw.MobileSideListBetItemHolder;
             case we.core.GameType.DT:
               return dt.MobileSideListBetItemHolder;
+            case we.core.GameType.LO:
+              return;
             default:
               throw new Error('Invalid Game Type: ' + tableInfo.gametype);
           }
