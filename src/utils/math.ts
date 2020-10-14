@@ -10,6 +10,10 @@ namespace we {
       return (value - min) / (max - min);
     }
 
+    export function getDigit(num: number){
+      return num % 10;
+    }
+
     export function lerpColor(a, b, amount) {
       const ar = a >> 16,
         ag = (a >> 8) & 0xff,
