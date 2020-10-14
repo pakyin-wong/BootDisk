@@ -8,6 +8,8 @@ namespace we {
       protected _counter4: eui.Label;
       protected _counter5: eui.Label;
       protected _counter6: eui.Label;
+      protected _timerDot1: eui.Label;
+      protected _timerDot2: eui.Label;
 
       protected _targetTime;
       protected _counterInterval;
@@ -18,6 +20,7 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
+        this.resetTimer();
       }
 
       protected updateCountdownTimer() {
@@ -39,6 +42,9 @@ namespace we {
           this._counter4.text = dateStr.substr(4, 1);
           this._counter5.text = dateStr.substr(6, 1);
           this._counter6.text = dateStr.substr(7, 1);
+
+          this._counter1.textColor = (diff > 5999) ? 0x4adc84 : 0xe4493a;
+          this._timerDot1.textColor = this._timerDot2.textColor = this._counter2.textColor = this._counter3.textColor = this._counter4.textColor = this._counter5.textColor = this._counter6.textColor = this._counter1.textColor;
         } else {
           this.resetTimer();
         }
@@ -51,6 +57,8 @@ namespace we {
         this._counter4.text = '0';
         this._counter5.text = '0';
         this._counter6.text = '0';
+        this._counter1.textColor = 0xe4493a;
+        this._timerDot1.textColor = this._timerDot2.textColor = this._counter2.textColor = this._counter3.textColor = this._counter4.textColor = this._counter5.textColor = this._counter6.textColor = this._counter1.textColor;
         clearInterval(this._counterInterval);
       }
 

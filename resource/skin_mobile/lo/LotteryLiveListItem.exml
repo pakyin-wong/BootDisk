@@ -25,14 +25,14 @@
 			         fontFamily="Barlow" x="204" textAlign="center" width="36" />
 			<e:Label id="_counter2" text="0" width="36" height="86" verticalAlign="middle" size="72" textColor="0x4ADC84"
 			         bold="true" fontFamily="Barlow" x="222.5" textAlign="center" />
-			<e:Label text=":" height="86" verticalAlign="middle" size="72" textColor="0x4ADC84" bold="true" fontFamily="Barlow"
-			         x="239" width="30" textAlign="center" />
+			<e:Label id="_timerDot1" text=":" height="86" verticalAlign="middle" size="72" textColor="0x4ADC84" bold="true"
+			         fontFamily="Barlow" x="239" width="30" textAlign="center" />
 			<e:Label id="_counter3" text="0" width="36" height="86" verticalAlign="middle" size="72" textColor="0x4ADC84"
 			         bold="true" fontFamily="Barlow" x="250.5" textAlign="center" />
 			<e:Label id="_counter4" text="0" width="36" height="86" verticalAlign="middle" size="72" textColor="0x4ADC84"
 			         bold="true" fontFamily="Barlow" x="268.5" textAlign="center" />
-			<e:Label text=":" height="86" verticalAlign="middle" size="72" textColor="0x4ADC84" bold="true" fontFamily="Barlow"
-			         x="284" width="30" textAlign="center" />
+			<e:Label id="_timerDot2" text=":" height="86" verticalAlign="middle" size="72" textColor="0x4ADC84" bold="true"
+			         fontFamily="Barlow" x="284" width="30" textAlign="center" />
 			<e:Label id="_counter5" text="0" width="36" height="86" verticalAlign="middle" size="72" textColor="0x4ADC84"
 			         bold="true" fontFamily="Barlow" x="294" textAlign="center" />
 			<e:Label id="_counter6" text="0" width="36" height="86" verticalAlign="middle" size="72" textColor="0x4ADC84"
