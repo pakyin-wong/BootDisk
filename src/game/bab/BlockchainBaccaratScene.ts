@@ -24,7 +24,6 @@ namespace we {
         this._deckPanel.setValue(<bab.GameData>this._gameData);
         this._deckPanel.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         this._cardInfoPanel.addEventListener('OPEN_DECK_PANEL', this.showDeckPanel, this);
-
       }
 
       protected setSkinName() {

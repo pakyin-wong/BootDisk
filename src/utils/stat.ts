@@ -14,7 +14,6 @@ namespace we {
       }
       export namespace ba {
         export function translateCardToNumber(card: string) {
-          console.log('card: ', card);
           switch (card.charAt(card.length - 1)) {
             case 'k':
               return 13;
