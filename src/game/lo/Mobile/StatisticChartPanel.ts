@@ -2,7 +2,6 @@
 namespace we {
   export namespace lo {
     export class StatisticChartPanel extends ui.Panel {
-
       protected chartStack: eui.ViewStack;
 
       protected noDataOverlay: eui.Group;
@@ -159,20 +158,20 @@ namespace we {
 
       protected destroy() {
         super.destroy();
-          this.chart1Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
-          this.chart2Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
-          this.chart3Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
-          this.chart4Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
+        this.chart1Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
+        this.chart2Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
+        this.chart3Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
+        this.chart4Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
 
-          this.chartPeriodBtn1.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
-          this.chartPeriodBtn2.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
-          this.chartPeriodBtn3.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
-          this.chartPeriodBtn4.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
-          this.chartPeriodBtn5.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
-          this.chartPeriodBtn6.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+        this.chartPeriodBtn1.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+        this.chartPeriodBtn2.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+        this.chartPeriodBtn3.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+        this.chartPeriodBtn4.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+        this.chartPeriodBtn5.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
+        this.chartPeriodBtn6.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
 
-          dir.evtHandler.removeEventListener(core.Event.PLAYER_LOTTERY_STAT, this.onPlayerLotteryStatisticUpdate, this);
-          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        dir.evtHandler.removeEventListener(core.Event.PLAYER_LOTTERY_STAT, this.onPlayerLotteryStatisticUpdate, this);
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
 
       protected onChartPeriodIndexChange(e: eui.UIEvent) {
@@ -277,10 +276,9 @@ namespace we {
         this.readPlayerLotteryResult();
       }
 
-     public update() {
-          this.changeLang();
+      public update() {
+        this.changeLang();
       }
-
 
       public changeLang() {
         this.chart1Btn['labelDisplayDown']['text'] = this.chart1Btn['labelDisplayUp']['text'] = 'L.Time';

@@ -2,7 +2,6 @@
 namespace we {
   export namespace lo {
     export class AnalysisPanel extends ui.Panel {
-
       protected analysisStack: eui.ViewStack;
 
       protected analysisBtn1: eui.RadioButton;
@@ -54,12 +53,12 @@ namespace we {
       }
 
       protected destroy() {
-          super.destroy();
-          this.analysisBtn1.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
-          this.analysisBtn2.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
-          this.analysisBtn3.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
-          this.analysisBtn4.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
-          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        super.destroy();
+        this.analysisBtn1.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+        this.analysisBtn2.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+        this.analysisBtn3.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+        this.analysisBtn4.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
 
       protected onAnalysisChange(e: eui.UIEvent) {
@@ -72,13 +71,13 @@ namespace we {
         this.listCold.resetPosition();
       }
 
-    public update() {
-          // this.listShow.updateList(history.show);
-          // this.listNoShow.updateList(history.noShow);
-          // this.listHot.updateList(history.hot);
-          // this.listCold.updateList(history.cold);
+      public update() {
+        // this.listShow.updateList(history.show);
+        // this.listNoShow.updateList(history.noShow);
+        // this.listHot.updateList(history.hot);
+        // this.listCold.updateList(history.cold);
 
-          this.changeLang();
+        this.changeLang();
       }
 
       public changeLang() {

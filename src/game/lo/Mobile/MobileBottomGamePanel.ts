@@ -8,7 +8,7 @@ namespace we {
 
       public _statisticChartPanel: lo.StatisticChartPanel;
 
-       public _analysisPanel: lo.AnalysisPanel;
+      public _analysisPanel: lo.AnalysisPanel;
 
       // viewStack and radioBtn
       protected historyBtn: eui.RadioButton;
@@ -99,7 +99,6 @@ namespace we {
       protected onRoadMapChanged(e: eui.UIEvent) {
         // this._roadmapPanel.onRoadMapChanged(e);
       }
-
     }
   }
 }
