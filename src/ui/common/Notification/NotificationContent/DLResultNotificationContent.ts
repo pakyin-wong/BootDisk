@@ -19,22 +19,24 @@ namespace we {
         const gameResult = dice1 + dice2 + dice3;
         let luckynumberOdd;
         // console.log('gameResult', [gameResult, typeof gameResult]);
-        // console.log('luckynumber', luckynumber);
+        console.log('luckynumber', luckynumber);
+        if (luckynumber) {
         // console.log('object.keys(luckynumber)[0]', [Object.keys(luckynumber)[0], typeof Object.keys(luckynumber)[0]]);
-        if (gameResult.toString() in luckynumber) {
-          // console.log('gameResult.toString() in luckynumber', gameResult.toString() in luckynumber);
-          this._lblDilLuckyResult.visible = true;
-          this._lblDilnonLuckyResult.visible = false;
-          luckynumberOdd = luckynumber[gameResult.toString()];
-          this._lblDilResultTop.text = luckynumberOdd + 'X';
-          this._lblDilResultBottom.text = gameResult;
-          this._DLresultImage.source = (env.isMobile ? 'm' : 'd') + '_gfsb_panel_roadmap_record_multiple_' + this.colorIndex[gameResult - 3] + '_png';
-          // console.log('luckynumberOdd', luckynumberOdd);
-        } else {
-          // console.log('gameResult.toString() in luckynumber', gameResult.toString() in luckynumber);
-          this._lblDilLuckyResult.visible = false;
-          this._lblDilnonLuckyResult.visible = true;
-          this._lblDilResult1.text = gameResult;
+          if (gameResult.toString() in luckynumber) { 
+            // console.log('gameResult.toString() in luckynumber', gameResult.toString() in luckynumber);
+            this._lblDilLuckyResult.visible = true;
+            this._lblDilnonLuckyResult.visible = false;
+            luckynumberOdd = luckynumber[gameResult.toString()];
+            this._lblDilResultTop.text = luckynumberOdd + 'X';
+            this._lblDilResultBottom.text = gameResult;
+            this._DLresultImage.source = (env.isMobile ? 'm' : 'd') + '_gfsb_panel_roadmap_record_multiple_' + this.colorIndex[gameResult - 3] + '_png';
+            // console.log('luckynumberOdd', luckynumberOdd);
+          } else {
+            // console.log('gameResult.toString() in luckynumber', gameResult.toString() in luckynumber);
+            this._lblDilLuckyResult.visible = false;
+            this._lblDilnonLuckyResult.visible = true;
+            this._lblDilResult1.text = gameResult;
+          }
         }
         // this._lblResult.renderText = () => i18n.t(utils.getWinMessageKey(gameType, winType, true));
         // if (dice1 && dice2 && dice3) {

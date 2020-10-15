@@ -52,7 +52,6 @@ namespace we {
         for (let i = 0; i < n; i++) {
           const icon = this.createIcon(this.gridSize / this.gridUnit);
           icon.setByObject({});
-          console.log('this.gridSize,this.gridUnit',[this.gridSize,this.gridUnit])
           icon.x = (this.gridSize / this.gridUnit + this.xOffset) * (iconIndex % this.numCol);
           icon.y = (this.gridSize / this.gridUnit + this.yOffset) * Math.floor(iconIndex / this.numCol);
           // this.addChild(icon);
