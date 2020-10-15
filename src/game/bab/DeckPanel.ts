@@ -14,6 +14,13 @@ namespace we {
           },
           this
         );
+        this._list.addEventListener(
+          'CLOSE',
+          (evt: egret.Event) => {
+            this.hide();
+          },
+          this
+        );
       }
 
       public setValue(gameData: bab.GameData) {
@@ -30,7 +37,11 @@ namespace we {
       protected convertMaskedCardSsnList() {
         const arr = new Array();
         for (let i = 0; i < this._gameData.maskedcardssnList.length; i++) {
-          arr.push({ cardIndex: i + 1, cardString: this._gameData.maskedcardssnList[i] });
+          if(i>0 && i < we.utils.stat.ba.translateCardToNumber(this._gameData.firstcard) + 1){
+            arr.push({ cardIndex: i + 1, cardString: 'dim' });
+          }else{
+            arr.push({ cardIndex: i + 1, cardString: this._gameData.maskedcardssnList[i] });
+          }
           if (i === this._gameData.redcardindex) {
             arr.push({ cardIndex: null, cardString: 'red' });
           }

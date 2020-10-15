@@ -127,7 +127,7 @@ namespace we {
       }
 
       public updateResult(gameData: data.GameData, chipLayer: ui.ChipLayer, isInit: boolean) {
-        console.log('updateResult ', isInit);
+        console.log('BAM cardholder::updateResult ', gameData, isInit);
 
         if (this._gameData) {
           this._preva1 = this._gameData.a1;

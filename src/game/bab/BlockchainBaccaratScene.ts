@@ -23,6 +23,8 @@ namespace we {
         this._deckPanel.setToggler(this._deckButton);
         this._deckPanel.setValue(<bab.GameData>this._gameData);
         this._deckPanel.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
+        this._cardInfoPanel.addEventListener('OPEN_DECK_PANEL', this.showDeckPanel, this);
+
       }
 
       protected setSkinName() {
@@ -72,9 +74,12 @@ namespace we {
       }
 
       protected showCardInfoPanel(evt: egret.Event) {
-        console.log('showCardInfoPanel scene touch tap');
         this._cardInfoPanel.setValue(this._gameData, evt.data);
         this._cardInfoPanel.show();
+      }
+
+      protected showDeckPanel(evt: egret.Event) {
+        this._deckPanel.show();
       }
       /*
       protected setStateDeal(isInit: boolean = false) {

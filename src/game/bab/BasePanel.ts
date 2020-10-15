@@ -7,7 +7,6 @@ namespace we {
       protected mount() {
         super.mount();
         this.createBg();
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP, () => this.hide(), this);
       }
 
       protected createBg() {

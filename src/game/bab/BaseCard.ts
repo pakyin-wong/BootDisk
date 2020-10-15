@@ -34,13 +34,24 @@ namespace we {
           this._cardImage.source = utils.getCardResName('back');
           return;
         }
+        if (this._cardString === 'dim') {
+          this.setDimCard();
+        }
         if (this._cardString === 'red') {
-          this._cardImage.source = utils.getCardResName('red');
-          this._cardIndexBg && (this._cardIndexBg.visible = false);
-          this._cardIndexLabel && (this._cardIndexLabel.visible = false);
+          this.setRedCard();
           return;
         }
         this._cardImage.source = utils.getCardResName(this.getUnmaskedCardRes(this._cardString));
+      }
+
+      protected setDimCard(){
+         this._cardImage.source = utils.getCardResName('back');
+      }
+
+      protected setRedCard(){
+          this._cardImage.source = utils.getCardResName('red');
+          this._cardIndexBg && (this._cardIndexBg.visible = false);
+          this._cardIndexLabel && (this._cardIndexLabel.visible = false);
       }
 
       protected updateCardIndex() {

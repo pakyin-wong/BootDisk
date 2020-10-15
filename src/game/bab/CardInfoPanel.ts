@@ -15,6 +15,7 @@ namespace we {
       protected _copyEncryptedKey : eui.Group;
       protected _copyDecryptedKey : eui.Group;
       protected _copySsn : eui.Group;
+      protected _backButton: eui.Group;
 
       public constructor() {
         super();
@@ -36,14 +37,15 @@ namespace we {
           utils.copyToClipboard(this._gameData.hashedcardsList[this._cardIndex - 1])
         }, this)
         this._copyDecryptedKey.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{
-          this.setValue(this._gameData,this._cardIndex + 1)
           utils.copyToClipboard(this._gameData.hashedcardsList[this._cardIndex - 1])
         }, this)
         this._copySsn.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{
-          this.setValue(this._gameData,this._cardIndex + 1)
           utils.copyToClipboard(this._gameData.maskedcardssnList[this._cardIndex - 1])
         }, this)
-
+        this._backButton.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{
+          this.dispatchEvent(new egret.Event('OPEN_DECK_PANEL'))
+          this.hide();
+        }, this)
       }
 
       public setValue(gameData: any, index: number) {
@@ -65,11 +67,15 @@ namespace we {
         //enable/disable next/prev Button
         this._prevButton.active = true;
         this._nextButton.active = true;
+        this._prevButton.enabled = true;
+        this._nextButton.enabled = true;
         if(utils.stat.ba.translateCardToNumber(this._gameData.firstcard) + 1 >= this._cardIndex - 1){
           this._prevButton.active = false;
+          this._prevButton.enabled = false;
         }
-        if(this._cardIndex + 1 > this._gameData.maskedcardssnList.length + 1){
+        if((this._cardIndex + 1 > this._gameData.maskedcardssnList.length) || this._cardIndex === 1){
           this._nextButton.active = false;
+          this._nextButton.enabled = false;
         }
       }
     }
