@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.lw.QuickBetTableLayerSkin" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="Normal" width="1142" height="309">
-	<e:Rect anchorOffsetY="0" ellipseHeight="48" ellipseWidth="48" strokeColor="0x5F6973" strokeWeight="2" fillAlpha="1" top="-20" bottom="0" left="0" right="0" fillColor="0x282828"/>
 	<e:Group id="_oneCircleGroup" x="28" y="44" width="136" height="235">
 		<e:Image id="_oneCircleImage" width="100%" height="100%" name="m_lw_listpenal_bet_east_png" fillMode="scale"
 		          source="m_lw_listpenal_bet_east_png"/>
