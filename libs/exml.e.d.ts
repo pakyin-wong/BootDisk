@@ -1500,6 +1500,10 @@ declare module skin_mobile_landscape.lw{
 	class ChipLayerSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape.lw{
+	class SideBetResultMessage extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait.lw{
 	class LiveListItemChipLayerSkin extends eui.Skin{
 	}

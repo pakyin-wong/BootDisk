@@ -6,5 +6,5 @@
 	<ui:RadialProgressIndicator id="progressIndicator" anchorOffsetX="0" anchorOffsetY="0" left="0" top="0" bottom="0"
 	                            right="0" thickness="6" touchEnabled="false" touchChildren="false" />
 	<e:Label id="countdownLabel" text="0" textAlign="center"
-	         verticalAlign="middle" width="50" height="48" fontFamily="Barlow" size="55"  horizontalCenter="0" verticalCenter="-4"/>
+	         verticalAlign="middle" width="60" height="48" fontFamily="Barlow" size="55"  horizontalCenter="0" verticalCenter="-4"/>
 </e:Skin>
