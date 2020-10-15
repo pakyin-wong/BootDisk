@@ -27,19 +27,42 @@ namespace we {
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('BlockchainBaccaratScene');
       }
+
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
+        this._shufflePanel.hide();
+        console.log('Bab scene bet state', this._gameData);
+        if (this.previousState !== core.GameState.BET) {
+          this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
+        }
+      }
+
+      protected setStateDeal(isInit: boolean = false) {
+        super.setStateBet(isInit);
+        this._shufflePanel.hide();
+        console.log('Bab scene deal state', this._gameData);
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
+      }
+
+      protected setStateFinish(isInit: boolean) {
+        super.setStateFinish(isInit);
+        this._shufflePanel.hide();
+        console.log('Bab scene finish state', this._gameData);
       }
 
       protected setStateShuffle(isInit: boolean) {
         super.setStateShuffle(isInit);
+        if (this._gameData.previousstate === core.GameState.SHUFFLE) {
+          return;
+        }
+        console.log('Bab scene shuffle state', this._gameData);
+
         if (isInit) {
-          // this._shufflePanel.show();
-          this._shufflePanel.anim(this._gameData);
-        } else {
-          // this._shufflePanel.show();
+          this._shufflePanel.show();
           this._shufflePanel.stat(this._gameData);
+        } else {
+          this._shufflePanel.show();
+          this._shufflePanel.anim(this._gameData);
         }
       }
 
