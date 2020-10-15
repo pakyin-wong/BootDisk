@@ -161,6 +161,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop.bab{
+	class CardInfoCard extends eui.Skin{
+	}
+}
+declare module skin_desktop.bab{
 	class CardInfoPanelSkin extends eui.Skin{
 	}
 }
@@ -1502,10 +1506,6 @@ declare module skin_mobile_landscape{
 }
 declare module skin_mobile_landscape.lw{
 	class ChipLayerSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_landscape.lw{
-	class SideBetResultMessage extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.lw{

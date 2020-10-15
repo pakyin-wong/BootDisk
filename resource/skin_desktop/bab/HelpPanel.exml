@@ -2,7 +2,8 @@
 <e:Skin class="skin_desktop.bab.HelpPanelSkin" width="1853" height="1025" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:bab="we.bab.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*">
         <e:Group id="content" width="1853" height="1025">
-                <ui:RunTimeLabel i18n="baccarat.mechanismHelp" horizontalCenter="0" y="44" size="48" />
+                <e:Image id="_closeButton" source="d-lobby-button-close-none_png" x="1785" y="44" width="44" height="44" />
+                <ui:RunTimeLabel i18n="baccarat.mechanismHelp" horizontalCenter="0" y="44" size="48" textColor="0xc59466"/>
                 <e:Image source="d_bcba_panel_instructions_step1_png" x="288" y="201" width="545" height="214"/>
                 <e:Image source="d_bcba_panel_instructions_step2_png" x="1067" y="201" width="575" height="194" />
                 <e:Image source="d_bcba_panel_instructions_step3_png" x="288" y="594" width="581" height="203" />

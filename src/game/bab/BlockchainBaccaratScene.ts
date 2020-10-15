@@ -22,7 +22,7 @@ namespace we {
         this._helpPanel.setToggler(this._helpButton);
         this._deckPanel.setToggler(this._deckButton);
         this._deckPanel.setValue(<bab.GameData>this._gameData);
-        (<bab.CardHolder>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
+        this._deckPanel.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
       }
 
       protected setSkinName() {
@@ -40,7 +40,7 @@ namespace we {
       }
 
       protected setStateDeal(isInit: boolean = false) {
-        super.setStateBet(isInit);
+        super.setStateDeal(isInit);
         this._shufflePanel.hide();
         this._deckPanel.setValue(<bab.GameData>this._gameData);
         console.log('Bab scene deal state', this._gameData);
@@ -71,8 +71,9 @@ namespace we {
         }
       }
 
-      protected showCardInfoPanel() {
-        this._cardInfoPanel.setValue(this._gameData);
+      protected showCardInfoPanel(evt: egret.Event) {
+        console.log('showCardInfoPanel scene touch tap');
+        this._cardInfoPanel.setValue(this._gameData, evt.data);
         this._cardInfoPanel.show();
       }
       /*
