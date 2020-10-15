@@ -165,6 +165,10 @@ declare module skin_desktop.bab{
 	}
 }
 declare module skin_desktop.bab{
+	class DeckCard extends eui.Skin{
+	}
+}
+declare module skin_desktop.bab{
 	class DeckPanelSkin extends eui.Skin{
 	}
 }

@@ -67,33 +67,13 @@ namespace we {
         return labelGroup;
       }
 
-      protected getCardResName(resName: string) {
-        if (!resName) {
-          return null;
-        }
-        if (!env.isMobile) {
-          if (resName === 'back') {
-            return 'd_sq_ba_card_back_png';
-          } else {
-            return `d_sq_bac_large_poker_${resName}_png`;
-          }
-        }
-
-        if (resName === 'back') {
-          return 'm_sq_bac_small_poker_backside_png';
-        } else {
-          return `m_sq_bac_small_poker_${resName}_vertical_png`;
-        }
-      }
-
-
       protected getFirstCardFront(cardString: string) {
         const resName = (cardString === 'back') ? 'back' : utils.formatCardForFlip(cardString);
 
         const image = new eui.Image();
         image.width = 204;
         image.height = 312;
-        image.source = this.getCardResName(resName);
+        image.source = utils.getCardResName(resName);
         return image;
       }
 

@@ -21,6 +21,7 @@ namespace we {
         super.initChildren();
         this._helpPanel.setToggler(this._helpButton);
         this._deckPanel.setToggler(this._deckButton);
+        this._deckPanel.setValue(<bab.GameData>this._gameData);
         (<bab.CardHolder>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
       }
 
@@ -31,6 +32,7 @@ namespace we {
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
         this._shufflePanel.hide();
+        this._deckPanel.setValue(<bab.GameData>this._gameData);
         console.log('Bab scene bet state', this._gameData);
         if (this.previousState !== core.GameState.BET) {
           this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
@@ -40,6 +42,7 @@ namespace we {
       protected setStateDeal(isInit: boolean = false) {
         super.setStateBet(isInit);
         this._shufflePanel.hide();
+        this._deckPanel.setValue(<bab.GameData>this._gameData);
         console.log('Bab scene deal state', this._gameData);
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
       }
@@ -47,11 +50,13 @@ namespace we {
       protected setStateFinish(isInit: boolean) {
         super.setStateFinish(isInit);
         this._shufflePanel.hide();
+        this._deckPanel.setValue(<bab.GameData>this._gameData);
         console.log('Bab scene finish state', this._gameData);
       }
 
       protected setStateShuffle(isInit: boolean) {
         super.setStateShuffle(isInit);
+        this._deckPanel.setValue(<bab.GameData>this._gameData);
         if (this._gameData.previousstate === core.GameState.SHUFFLE) {
           return;
         }

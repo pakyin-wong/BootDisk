@@ -72,6 +72,7 @@
 		"resource/skin_desktop/bab/HelpPanel.exml",
 		"resource/skin_desktop/bab/CardInfoPanel.exml",
 		"resource/skin_desktop/bab/BlockchainBaccaratScene.exml",
+		"resource/skin_desktop/bab/DeckCard.exml",
 		"resource/skin_desktop/bab/ResultDisplay/CardHolder.exml",
 		"resource/skin_desktop/CountdownTimerRoundSqueezeBaccarat.exml",
 		"resource/skin_desktop/bam/resultDisplay/CardHolder.exml",

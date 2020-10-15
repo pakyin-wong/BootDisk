@@ -211,25 +211,6 @@ namespace we {
         }
       }
 
-      protected getCardResName(resName: string) {
-        if (!resName) {
-          return null;
-        }
-        if (!env.isMobile) {
-          if (resName === 'back') {
-            return 'd_sq_ba_card_back_png';
-          } else {
-            return `d_sq_bac_large_poker_${resName}_png`;
-          }
-        }
-
-        if (resName === 'back') {
-          return 'm_sq_bac_small_poker_backside_png';
-        } else {
-          return `m_sq_bac_small_poker_${resName}_vertical_png`;
-        }
-      }
-
       protected async dealInitState() {
         const cardAnimName = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2', '_playerCard3', '_bankerCard3'];
         const arrName = ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
@@ -260,7 +241,7 @@ namespace we {
           const image = new eui.Image();
           image.width = 204;
           image.height = 312;
-          image.source = this.getCardResName(utils.formatCardForFlip(this._gameData[arrName[i]]));
+          image.source = 'd_sq_ba_card_back_png';
           image.anchorOffsetX = image.width / 2;
           image.anchorOffsetY = image.height / 2;
           group.addChild(image);
@@ -272,7 +253,7 @@ namespace we {
             const image = new eui.Image();
             image.width = 204;
             image.height = 312;
-            image.source = this.getCardResName(utils.formatCardForFlip(this._gameData[arrName[i]]));
+            image.source = utils.getCardResName(utils.formatCardForFlip(this._gameData[arrName[i]]));
             image.anchorOffsetX = image.width / 2;
             image.anchorOffsetY = image.height / 2;
             group.addChild(image);
@@ -337,7 +318,7 @@ namespace we {
             const image = new eui.Image();
             image.width = 204;
             image.height = 312;
-            image.source = this.getCardResName(utils.formatCardForFlip(this._gameData[arrName[i]]));
+            image.source = utils.getCardResName(utils.formatCardForFlip(this._gameData[arrName[i]]));
             image.anchorOffsetX = image.width / 2;
             image.anchorOffsetY = image.height / 2;
             group.addChild(image);
@@ -360,7 +341,7 @@ namespace we {
         const image = new eui.Image();
         image.width = 204;
         image.height = 312;
-        image.source = this.getCardResName(resName);
+        image.source = utils.getCardResName(resName);
         image.anchorOffsetX = image.width / 2;
         image.anchorOffsetY = image.height / 2;
         return image;

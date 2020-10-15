@@ -569,6 +569,7 @@ namespace we {
         allOpen: 'All Open',
         fullShoe: 'All cards in shoe',
         mechanismHelp: 'Help',
+        deckDesc : '416 cards'
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',
