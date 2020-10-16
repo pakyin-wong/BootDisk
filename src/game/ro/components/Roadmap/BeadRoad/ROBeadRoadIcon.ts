@@ -47,8 +47,8 @@ namespace we {
           // this._iconText.height = size * 0.3;
           this._iconText.textAlign = egret.HorizontalAlign.CENTER;
           this._iconText.verticalAlign = egret.VerticalAlign.MIDDLE;
-          this._iconText.anchorOffsetX = this._iconText.width * 0.5;
-          this._iconText.anchorOffsetY = this._iconText.height;
+          this._iconText.anchorOffsetX = this._iconText.width * 0.4;
+          this._iconText.anchorOffsetY = this._iconText.height * 0.4;
         }
         //
         this._iconTopText = new egret.TextField();
