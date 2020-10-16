@@ -17,7 +17,7 @@ namespace we {
       protected _copyDecryptedKey : eui.Group;
       protected _copySsn : eui.Group;
       protected _backButton: eui.Group;
-      
+      protected _helpButton: eui.Group;
 
       public constructor() {
         super();
@@ -46,6 +46,10 @@ namespace we {
         }, this)
         this._backButton.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{
           this.dispatchEvent(new egret.Event('OPEN_DECK_PANEL'))
+          this.hide();
+        }, this)
+        this._helpButton.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{
+          this.dispatchEvent(new egret.Event('OPEN_HELP_PANEL'))
           this.hide();
         }, this)
       }
