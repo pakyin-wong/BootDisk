@@ -214,11 +214,11 @@ namespace we {
                 break;
               case core.GameType.LW:
                 if (bottomGamePanelisOpen === true) {
-                  vlayout.gap = -20;
+                  vlayout.gap = 0;
                   // this._tableLayer.y -= 24;
                   // this._chipLayer.y -= 24;
                 } else {
-                  vlayout.gap = -60;
+                  vlayout.gap = 0;
                   // this._tableLayer.y += 24;
                   // this._chipLayer.y += 24;
                 }

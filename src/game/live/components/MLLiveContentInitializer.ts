@@ -15,6 +15,7 @@ namespace we {
         // root.slider.height = 850;
         // root.slider.configSlides(dir.liveResources.liveHeroBanners);
         root.holder = new we.ui.HorizontalHolder();
+        root.holder.maskRadius = 48;
         root.holder.x = 60;
         root.holder.slideHeight = 850;
         root.holder.slideWidth = 850;
@@ -27,33 +28,28 @@ namespace we {
         root.holder.bulletBottom = 50;
         root.holder.bulletHorizontalCenter = 0;
         dir.liveResources.liveHeroBanners.forEach(element => {
-          const _group = new eui.Group();
-          _group.height = root.holder.height;
-          _group.width = root.holder.width;
+          // const _group = new eui.Group();
+          // _group.height = root.holder.height;
+          // _group.width = root.holder.width;
           const image = new eui.Image();
-          const _mask = new egret.Shape();
-          _mask.graphics.beginFill(0xffffff, 1);
-          _mask.graphics.drawRoundRect(0, 0, root.holder.height, root.holder.width, 100, 100);
-          _mask.graphics.endFill();
-          _group.addChild(_mask);
-          _mask.visible = false;
-          if (element.image) {
-            image.source = element.image;
-            image.height = root.holder.height;
-            image.width = root.holder.width;
-            image.fillMode = 'cover';
-            // image.mask = _mask;
-            _group.mask = _mask;
-            _mask.visible = true;
-          } else {
-          }
-          // _group.mask = _mask
-          _group.addChild(image);
-          root.holder.addChild(_group);
+          // const _mask = new egret.Shape();
+          // _mask.graphics.beginFill(0xffffff, 1);
+          // _mask.graphics.drawRoundRect(0, 0, root.holder.height, root.holder.width, 100, 100);
+          // _mask.graphics.endFill();
           // _group.addChild(_mask);
-          // image.mask = _mask;
-          // root.holder.addChild(image);
-          // root.holder.addChild(_mask);
+          // _mask.visible = false;
+          // if (element.image) {
+          image.source = element.image;
+          image.height = root.holder.height;
+          image.width = root.holder.width;
+          image.fillMode = 'cover';
+          // _group.mask = _mask;
+          // _mask.visible = true;
+          // } else {
+          // }
+          // _group.addChild(image);
+          // root.holder.addChild(_group);
+          root.holder.addChild(image);
         });
 
         root.roomList.layout = root.roomListRefer.layout;

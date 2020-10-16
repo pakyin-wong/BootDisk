@@ -10,7 +10,7 @@ namespace we {
       return (value - min) / (max - min);
     }
 
-    export function getDigit(num: number){
+    export function getDigit(num: number) {
       return num % 10;
     }
 

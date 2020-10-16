@@ -91,21 +91,21 @@
 	</ui:Group>
 	<ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="242" x="18" y="644" anchorOffsetX="0"
 	                          anchorOffsetY="0" visible="false" />
-	<e:Group id="_deckButton" x="2279" y="203" width="282" height="49">
+	<e:Group id="_deckButton" x="2279" y="203" width="282" height="49" touchThrough="true">
 		<ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
 		<ui:RunTimeLabel i18n="baccarat.fullShoe" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_helpButton" x="2279" y="275" width="282" height="49">
+	<e:Group id="_helpButton" x="2279" y="275" width="282" height="49" touchThrough="true">
 		<ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
 		<ui:RunTimeLabel i18n="baccarat.mechanismHelp" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
 	<bab:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true"
-	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" skinName="skin_desktop.bab.ShufflePanelSkin" />
+	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bab.ShufflePanelSkin" />
 	<bab:DeckPanel id="_deckPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
-	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" skinName="skin_desktop.bab.DeckPanelSkin" />
+	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bab.DeckPanelSkin" />
 	<bab:HelpPanel id="_helpPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
-	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" skinName="skin_desktop.bab.HelpPanelSkin" />
+	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bab.HelpPanelSkin" />
 	<bab:CardInfoPanel id="_cardInfoPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
-	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" skinName="skin_desktop.bab.CardInfoPanelSkin" />
+	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bab.CardInfoPanelSkin" />
 </e:Skin>
 

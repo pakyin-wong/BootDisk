@@ -74,7 +74,6 @@ namespace we {
       }
 
       public draw() {
-
         const totalAmount = this._a + this._b + this._c;
         const widthA = this._totalWidth * (this._a / totalAmount);
         const widthB = this._totalWidth * (this._b / totalAmount);
