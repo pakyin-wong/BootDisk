@@ -7,6 +7,9 @@
 		        <ui:BaseAnimationButton  dbClass="common_ui" dbDisplay="d_common_icon_back" width="30" height="30" verticalCenter="0" x="0" tooltipText="'nav.tooltip.back'" />
                         <ui:RunTimeLabel i18n="baccarat.fullShoe" size="30"  verticalCenter="0" x="50" textColor="0xc59466"/>
                 </e:Group>
+                <e:Group x="239" y="557" width="204" height="42" >
+                        <e:Label id="_cardIndexLabel" size="36" horizontalCenter="0" verticalCenter="0"/>
+                </e:Group>
 
                 <e:Image id="close" source="d-lobby-button-close-none_png" x="1785" y="44" width="44" height="44" />
                 <ui:RunTimeLabel i18n="baccarat.verification" horizontalCenter="0" y="44" size="48" textColor="0xc59466" />
