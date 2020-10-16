@@ -3,6 +3,7 @@ namespace we {
     export class CardInfoPanel extends BasePanel {
       protected _gameData: bab.GameData;
       protected _cardIndex: number;
+      protected _cardIndexLabel: eui.Label;
       protected _cardImage: bab.DeckCard;
       protected _encryptedAreaImage: eui.Image;
       protected _ssnAreaImage: eui.Image;
@@ -16,6 +17,7 @@ namespace we {
       protected _copyDecryptedKey : eui.Group;
       protected _copySsn : eui.Group;
       protected _backButton: eui.Group;
+      
 
       public constructor() {
         super();
@@ -54,6 +56,9 @@ namespace we {
         
         //set cardImage
         this._cardImage.dataUpdate(this._gameData.maskedcardssnList[this._cardIndex - 1], this._cardIndex);
+
+        //set cardIndexLabel
+        this._cardIndexLabel.text = this._cardIndex.toString();
 
         //set Key
         this._encryptedKeyLabel.text = this._gameData.hashedcardsList[this._cardIndex - 1]
