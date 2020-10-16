@@ -10,6 +10,8 @@ namespace we {
       // protected _cockroachRoad: ba.BACockroachRoad;
 
       protected _roadmap: ILobbyRoad;
+      protected _gameType: string;
+      protected _gameIdx: string;
 
       public constructor(skinName: string = null) {
         super(skinName);
@@ -22,6 +24,7 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
 
       public setData(tableInfo: data.TableInfo) {
@@ -60,7 +63,25 @@ namespace we {
 
       protected updateBetLimitText(items, idx) {
         if (this._toggler) {
-          this._toggler.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${items.length > 0 ? items[idx] : ''}`;
+          let _betLimitLabel = i18n.t('baccarat.betLimitshort');
+          this._gameIdx = items.length > 0 ? items[idx] : '';
+          // this._toggler.renderText = () => `......${i18n.t('baccarat.betLimitshort')} ${items.length > 0 ? items[idx] : ''}`;
+          this._toggler.textFlow = <Array<egret.ITextElement>>[
+            { text: "妈妈再也不用担心我在", style: { "size": 12 } },
+            { text: _betLimitLabel, style: { "textColor": 0xff0000 } },
+            { text: this._gameIdx, style: { "textColor": 0x336699, "size": 60, "strokeColor": 0x6699cc, "stroke": 2 } }
+          ];
+        }
+      }
+
+      protected changeLang() {
+        if (this._toggler) {
+          let _betLimitLabel = i18n.t('baccarat.betLimitshort');
+          this._toggler.textFlow = <Array<egret.ITextElement>>[
+            { text: "妈妈再也不用担心我在", style: { "size": 12 } },
+            { text: _betLimitLabel, style: { "textColor": 0xff0000 } },
+            { text: this._gameIdx, style: { "textColor": 0x336699, "size": 60, "strokeColor": 0x6699cc, "stroke": 2 } }
+          ];
         }
       }
 

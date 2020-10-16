@@ -27,7 +27,7 @@
 		                  y="167.5" infoBg="m_common_gamestate_message_black_png"
 		                  successBg="m_common_gamestate_message_green_png" errorBg="m_common_gamestate_message_red_png" />
 		<e:Group right="20" y="24">
-			<ui:RunTimeLabel id="_toggler" textAlign="left" size="36" bold="true" alpha=".7" />
+			<ui:RunTimeLabel id="_toggler" textAlign="left" size="36" alpha=".7" />
 			<e:Image source="m_common_panel_icon_dropdown_png" x="920" y="52" width="20.42" height="11.41" anchorOffsetX="0"
 			         anchorOffsetY="0" />
 			<e:layout>
