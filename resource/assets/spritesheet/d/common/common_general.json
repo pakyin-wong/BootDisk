@@ -281,6 +281,16 @@
       "sourceW": 66,
       "sourceH": 69
     },
+    "d_ba_betarea_chipsbg_triangle_png": {
+      "x": 296,
+      "y": 413,
+      "w": 68,
+      "h": 40,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 68,
+      "sourceH": 40
+    },
     "d_common_chartroom_emoji_icon_6_png": {
       "x": 586,
       "y": 483,
@@ -422,8 +432,8 @@
       "sourceH": 60
     },
     "d_ba_live_button_swapvideo_png": {
-      "x": 296,
-      "y": 413,
+      "x": 728,
+      "y": 220,
       "w": 58,
       "h": 58,
       "offX": 0,
@@ -432,8 +442,8 @@
       "sourceH": 58
     },
     "m_ba_tag_btn_detail_png": {
-      "x": 728,
-      "y": 220,
+      "x": 757,
+      "y": 156,
       "w": 58,
       "h": 58,
       "offX": 0,
@@ -512,8 +522,8 @@
       "sourceH": 50
     },
     "d_common_chartroom_selfbg_png": {
-      "x": 757,
-      "y": 156,
+      "x": 726,
+      "y": 431,
       "w": 51,
       "h": 50,
       "offX": 0,
@@ -522,8 +532,8 @@
       "sourceH": 50
     },
     "d_lobby_switch_dark_png": {
-      "x": 726,
-      "y": 431,
+      "x": 776,
+      "y": 485,
       "w": 51,
       "h": 31,
       "offX": 0,
@@ -532,8 +542,8 @@
       "sourceH": 31
     },
     "d_lobby_switch_png": {
-      "x": 787,
-      "y": 282,
+      "x": 776,
+      "y": 520,
       "w": 51,
       "h": 31,
       "offX": 0,
@@ -542,8 +552,8 @@
       "sourceH": 31
     },
     "m_common_header_icon_refresh_png": {
-      "x": 790,
-      "y": 210,
+      "x": 781,
+      "y": 431,
       "w": 51,
       "h": 50,
       "offX": 0,
@@ -552,8 +562,8 @@
       "sourceH": 50
     },
     "d_common_chartroom_icon_hover_png": {
-      "x": 812,
-      "y": 156,
+      "x": 831,
+      "y": 485,
       "w": 50,
       "h": 50,
       "offX": 0,
@@ -562,8 +572,8 @@
       "sourceH": 50
     },
     "d-lobby-button-close-none_png": {
-      "x": 776,
-      "y": 466,
+      "x": 787,
+      "y": 282,
       "w": 48,
       "h": 48,
       "offX": 0,
@@ -572,8 +582,8 @@
       "sourceH": 48
     },
     "d_common_icon_close_png": {
-      "x": 794,
-      "y": 317,
+      "x": 790,
+      "y": 218,
       "w": 48,
       "h": 42,
       "offX": 0,
@@ -582,8 +592,8 @@
       "sourceH": 42
     },
     "d_common_panel_setting_uicolour_btn_active_png": {
-      "x": 842,
-      "y": 264,
+      "x": 819,
+      "y": 156,
       "w": 47,
       "h": 47,
       "offX": 0,
@@ -592,8 +602,8 @@
       "sourceH": 47
     },
     "d_common_panel_setting_uicolour_btn_png": {
-      "x": 845,
-      "y": 210,
+      "x": 794,
+      "y": 334,
       "w": 47,
       "h": 47,
       "offX": 0,
@@ -602,8 +612,8 @@
       "sourceH": 47
     },
     "d_common_icon_emoji_disabled_png": {
-      "x": 866,
-      "y": 156,
+      "x": 794,
+      "y": 385,
       "w": 42,
       "h": 42,
       "offX": 0,
@@ -612,8 +622,8 @@
       "sourceH": 42
     },
     "d_common_icon_emoji_enabled_png": {
-      "x": 794,
-      "y": 363,
+      "x": 836,
+      "y": 431,
       "w": 42,
       "h": 42,
       "offX": 0,
@@ -622,8 +632,8 @@
       "sourceH": 42
     },
     "d_common_icon_msg_disabled_png": {
-      "x": 794,
-      "y": 409,
+      "x": 840,
+      "y": 385,
       "w": 42,
       "h": 42,
       "offX": 0,
@@ -632,8 +642,8 @@
       "sourceH": 42
     },
     "d_common_icon_msg_enabled_png": {
-      "x": 828,
-      "y": 455,
+      "x": 882,
+      "y": 431,
       "w": 42,
       "h": 42,
       "offX": 0,
@@ -662,8 +672,8 @@
       "sourceH": 28
     },
     "d_ba_navbar_chevron_png": {
-      "x": 776,
-      "y": 518,
+      "x": 619,
+      "y": 224,
       "w": 30,
       "h": 30,
       "offX": 0,
@@ -672,8 +682,8 @@
       "sourceH": 30
     },
     "d_lobby_navbar_menu_png": {
-      "x": 726,
-      "y": 466,
+      "x": 253,
+      "y": 375,
       "w": 29,
       "h": 25,
       "offX": 0,
@@ -682,8 +692,8 @@
       "sourceH": 25
     },
     "d_ba_navbar_icon_setting_png": {
-      "x": 810,
-      "y": 518,
+      "x": 619,
+      "y": 258,
       "w": 28,
       "h": 28,
       "offX": 0,
@@ -692,8 +702,8 @@
       "sourceH": 28
     },
     "d_ba_navbar_icon_sound_png": {
-      "x": 619,
-      "y": 224,
+      "x": 475,
+      "y": 300,
       "w": 28,
       "h": 28,
       "offX": 0,
@@ -702,8 +712,8 @@
       "sourceH": 28
     },
     "d_ba_navbar_icon_stat_png": {
-      "x": 619,
-      "y": 256,
+      "x": 839,
+      "y": 264,
       "w": 28,
       "h": 28,
       "offX": 0,
@@ -712,8 +722,8 @@
       "sourceH": 28
     },
     "d_ba_navbar_icon_dropdown_png": {
-      "x": 253,
-      "y": 375,
+      "x": 839,
+      "y": 296,
       "w": 24,
       "h": 24,
       "offX": 0,
@@ -722,8 +732,8 @@
       "sourceH": 24
     },
     "d_ba_navbar_icon_info_png": {
-      "x": 475,
-      "y": 300,
+      "x": 842,
+      "y": 207,
       "w": 24,
       "h": 24,
       "offX": 0,
@@ -733,7 +743,7 @@
     },
     "d_ba_navbar_icon_rss_png": {
       "x": 842,
-      "y": 501,
+      "y": 235,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -742,8 +752,8 @@
       "sourceH": 22
     },
     "d_lobby_navbar_time_png": {
-      "x": 842,
-      "y": 527,
+      "x": 868,
+      "y": 235,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -752,8 +762,8 @@
       "sourceH": 22
     },
     "d_lobby_select_round_no_png": {
-      "x": 868,
-      "y": 501,
+      "x": 845,
+      "y": 324,
       "w": 18,
       "h": 18,
       "offX": 0,
@@ -762,8 +772,8 @@
       "sourceH": 18
     },
     "d_lobby_select_round_yes_png": {
-      "x": 868,
-      "y": 523,
+      "x": 845,
+      "y": 346,
       "w": 18,
       "h": 18,
       "offX": 0,

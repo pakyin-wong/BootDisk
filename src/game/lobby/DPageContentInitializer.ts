@@ -119,7 +119,7 @@ namespace we {
         label.textAlign = egret.HorizontalAlign.CENTER;
         label.verticalCenter = 0;
         label.horizontalCenter = 0;
-        label.renderText = () => `${i18n.t('lobby_footer_text')}`
+        label.renderText = () => `${i18n.t('lobby_footer_text')}`;
         footer.addChild(label);
         group.addChild(footer);
 

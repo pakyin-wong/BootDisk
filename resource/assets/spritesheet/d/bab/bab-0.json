@@ -1,0 +1,435 @@
+{
+  "file": "bab-0.png",
+  "frames": {
+    "blockchain_bg_jpg": {
+      "x": 2,
+      "y": 2,
+      "w": 2600,
+      "h": 1340,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 2600,
+      "sourceH": 1340
+    },
+    "blockchain_bg_mask_png": {
+      "x": 2,
+      "y": 1346,
+      "w": 10,
+      "h": 1340,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 10,
+      "sourceH": 1340
+    },
+    "d_bcba_animation_particle_00000_png": {
+      "x": 16,
+      "y": 1346,
+      "w": 1300,
+      "h": 670,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 1300,
+      "sourceH": 670
+    },
+    "d_bcba_animation_particle_00001_png": {
+      "x": 2606,
+      "y": 2,
+      "w": 1300,
+      "h": 670,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 1300,
+      "sourceH": 670
+    },
+    "d_bcba_animation_particle_00002_png": {
+      "x": 2606,
+      "y": 676,
+      "w": 1300,
+      "h": 670,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 1300,
+      "sourceH": 670
+    },
+    "d_bcba_animation_particle_00003_png": {
+      "x": 1320,
+      "y": 1350,
+      "w": 1300,
+      "h": 670,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 1300,
+      "sourceH": 670
+    },
+    "d_bcba_animation_particle_00004_png": {
+      "x": 16,
+      "y": 2020,
+      "w": 1300,
+      "h": 670,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 1300,
+      "sourceH": 670
+    },
+    "d_bcba_animation_particle_00005_png": {
+      "x": 1320,
+      "y": 2024,
+      "w": 1300,
+      "h": 670,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 1300,
+      "sourceH": 670
+    },
+    "d_bcba_animation_particle_00006_png": {
+      "x": 2,
+      "y": 2694,
+      "w": 1300,
+      "h": 670,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 1300,
+      "sourceH": 670
+    },
+    "d_bcba_animation_particle_00007_png": {
+      "x": 1306,
+      "y": 2698,
+      "w": 1300,
+      "h": 670,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 1300,
+      "sourceH": 670
+    },
+    "d_bcba_resultarea_banker_png": {
+      "x": 2,
+      "y": 3372,
+      "w": 678,
+      "h": 105,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 678,
+      "sourceH": 105
+    },
+    "d_bcba_resultarea_player_png": {
+      "x": 2,
+      "y": 3481,
+      "w": 678,
+      "h": 105,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 678,
+      "sourceH": 105
+    },
+    "d_bcba_panel_instructions_step4_png": {
+      "x": 684,
+      "y": 3368,
+      "w": 604,
+      "h": 249,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 604,
+      "sourceH": 249
+    },
+    "d_bcba_panel_instructions_step3_png": {
+      "x": 2,
+      "y": 3590,
+      "w": 581,
+      "h": 203,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 581,
+      "sourceH": 203
+    },
+    "d_bcba_panel_instructions_step2_png": {
+      "x": 2,
+      "y": 3797,
+      "w": 575,
+      "h": 194,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 575,
+      "sourceH": 194
+    },
+    "d_bcba_panel_instructions_step1_png": {
+      "x": 581,
+      "y": 3797,
+      "w": 545,
+      "h": 214,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 545,
+      "sourceH": 214
+    },
+    "d_bcba_resultarea_panel_prevresult_png": {
+      "x": 587,
+      "y": 3621,
+      "w": 386,
+      "h": 126,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 386,
+      "sourceH": 126
+    },
+    "d_bcba_btn_hover_png": {
+      "x": 977,
+      "y": 3621,
+      "w": 283,
+      "h": 49,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 283,
+      "sourceH": 49
+    },
+    "d_bcba_btn_normal_png": {
+      "x": 977,
+      "y": 3674,
+      "w": 283,
+      "h": 49,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 283,
+      "sourceH": 49
+    },
+    "d_bcba_panel_gamelist_gameresult_banker_png": {
+      "x": 977,
+      "y": 3727,
+      "w": 275,
+      "h": 62,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 275,
+      "sourceH": 62
+    },
+    "d_bcba_panel_gamelist_gameresult_player_png": {
+      "x": 1130,
+      "y": 3793,
+      "w": 275,
+      "h": 62,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 275,
+      "sourceH": 62
+    },
+    "d_bcba_panel_gamelist_gameresult_tie_png": {
+      "x": 1256,
+      "y": 3727,
+      "w": 275,
+      "h": 62,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 275,
+      "sourceH": 62
+    },
+    "d_bcba_panel_shoe_card_png": {
+      "x": 1130,
+      "y": 3859,
+      "w": 89,
+      "h": 139,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 89,
+      "sourceH": 139
+    },
+    "d_bcba_panel_shoe_card_fill_hover_png": {
+      "x": 1223,
+      "y": 3859,
+      "w": 89,
+      "h": 138,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 89,
+      "sourceH": 138
+    },
+    "d_bcba_panel_shoe_card_random_dim_png": {
+      "x": 1316,
+      "y": 3859,
+      "w": 89,
+      "h": 138,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 89,
+      "sourceH": 138
+    },
+    "d_bcba_panel_shoe_card_red_png": {
+      "x": 1409,
+      "y": 3793,
+      "w": 89,
+      "h": 138,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 89,
+      "sourceH": 138
+    },
+    "d_bcba_panel_shoe_card_fill_png": {
+      "x": 587,
+      "y": 3590,
+      "w": 53,
+      "h": 24,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 53,
+      "sourceH": 24
+    },
+    "d_bcba_panel_full shoe_btn_hover_png": {
+      "x": 1409,
+      "y": 3935,
+      "w": 51,
+      "h": 50,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 51,
+      "sourceH": 50
+    },
+    "d_bcba_panel_full shoe_btn_unable_png": {
+      "x": 1464,
+      "y": 3935,
+      "w": 51,
+      "h": 50,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 51,
+      "sourceH": 50
+    },
+    "d_bcba_panel_verification_arrow_left_hover_png": {
+      "x": 1264,
+      "y": 3621,
+      "w": 27,
+      "h": 47,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 27,
+      "sourceH": 47
+    },
+    "d_bcba_panel_verification_arrow_left_inactive_png": {
+      "x": 1264,
+      "y": 3672,
+      "w": 27,
+      "h": 47,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 27,
+      "sourceH": 47
+    },
+    "d_bcba_panel_verification_arrow_left_normal_png": {
+      "x": 1502,
+      "y": 3793,
+      "w": 27,
+      "h": 47,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 27,
+      "sourceH": 47
+    },
+    "d_bcba_panel_verification_arrow_right_hover_png": {
+      "x": 1502,
+      "y": 3844,
+      "w": 27,
+      "h": 47,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 27,
+      "sourceH": 47
+    },
+    "d_bcba_panel_verification_arrow_right_inactive_png": {
+      "x": 1519,
+      "y": 3895,
+      "w": 27,
+      "h": 47,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 27,
+      "sourceH": 47
+    },
+    "d_bcba_panel_verification_arrow_right_normal_png": {
+      "x": 1519,
+      "y": 3946,
+      "w": 27,
+      "h": 47,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 27,
+      "sourceH": 47
+    },
+    "d_bcba_panel_verification_success_png": {
+      "x": 587,
+      "y": 3751,
+      "w": 33,
+      "h": 40,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 33,
+      "sourceH": 40
+    },
+    "d_bcba_panel_verification_gameinfo_bg_png": {
+      "x": 2,
+      "y": 3995,
+      "w": 23,
+      "h": 38,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 23,
+      "sourceH": 38
+    },
+    "d_bcba_panel_shoe_info_hover_png": {
+      "x": 1130,
+      "y": 4002,
+      "w": 29,
+      "h": 29,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 29,
+      "sourceH": 29
+    },
+    "d_bcba_panel_verification_pop_png": {
+      "x": 1163,
+      "y": 4002,
+      "w": 29,
+      "h": 29,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 29,
+      "sourceH": 29
+    },
+    "d_bcba_panel_verification_cardinfo_icon_normal_png": {
+      "x": 644,
+      "y": 3590,
+      "w": 25,
+      "h": 24,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 25,
+      "sourceH": 24
+    },
+    "d_bcba_panel_verification_cardinfo_icon_hover_png": {
+      "x": 1196,
+      "y": 4002,
+      "w": 21,
+      "h": 21,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 21,
+      "sourceH": 21
+    },
+    "d_bcba_panel_scroll_png": {
+      "x": 1502,
+      "y": 3895,
+      "w": 12,
+      "h": 13,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 12,
+      "sourceH": 13
+    },
+    "d_bcba_animation_particle_00150_png": {
+      "x": 16,
+      "y": 1346,
+      "w": 1300,
+      "h": 670,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 1300,
+      "sourceH": 670
+    }
+  }
+}
