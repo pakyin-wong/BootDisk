@@ -22,7 +22,7 @@ namespace we {
       }
 
       protected dataChanged(): void {
-        this.dataUpdate(this.data.cardString, this.data.cardIndex)
+        this.dataUpdate(this.data.cardString, this.data.cardIndex);
       }
 
       protected updateCardImage() {
@@ -44,14 +44,14 @@ namespace we {
         this._cardImage.source = utils.getCardResName(this.getUnmaskedCardRes(this._cardString));
       }
 
-      protected setDimCard(){
-         this._cardImage.source = utils.getCardResName('back');
+      protected setDimCard() {
+        this._cardImage.source = utils.getCardResName('back');
       }
 
-      protected setRedCard(){
-          this._cardImage.source = utils.getCardResName('red');
-          this._cardIndexBg && (this._cardIndexBg.visible = false);
-          this._cardIndexLabel && (this._cardIndexLabel.visible = false);
+      protected setRedCard() {
+        this._cardImage.source = utils.getCardResName('red');
+        this._cardIndexBg && (this._cardIndexBg.visible = false);
+        this._cardIndexLabel && (this._cardIndexLabel.visible = false);
       }
 
       protected updateCardIndex() {

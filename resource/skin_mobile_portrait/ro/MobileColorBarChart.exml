@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.ro.MobileColorBarChart" width="500" height="184" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-	<e:Image id="_redImg" width="69" height="49" x="0" y="0" source="m_lobby_ro_history_red_Rectangle_png" />
-	<e:Group x="0" y="150">
+	<e:Image id="_redImg" width="69" height="49" x="0" source="m_lobby_ro_history_red_Rectangle_png"  top="10"/>
+	<e:Group x="0" bottom="10">
 		<e:Label id="_totalLeftCount" text="10" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34" bold="true"
 		                 verticalAlign="middle" alpha="1" />
 		<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="24" textAlign="center" verticalAlign="bottom" bold="true"
@@ -11,9 +11,9 @@
 			<e:HorizontalLayout verticalAlign="bottom" horizontalAlign="center" gap="2" />
 		</e:layout>
 	</e:Group>
-	<e:Group id="_moveGroup" x="245" y="0">
-		<e:Image id="_greenImg" width="69" height="49" x="0" y="0" source="m_lobby_ro_history_green_Rectangle_png" />
-		<e:Group x="0" y="150">
+	<e:Group id="_moveGroup" x="245" y="0" height="100%">
+		<e:Image id="_greenImg" width="69" height="49" x="0" source="m_lobby_ro_history_green_Rectangle_png"  top="10"/>
+		<e:Group x="0" bottom="10">
 			<e:Label id="_totalMidCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34"
 			                 verticalAlign="middle" bold="true" alpha="1" />
 			<e:Label text="%" x="39" y="0" scaleX="1" scaleY="1" size="24" textAlign="center" verticalAlign="bottom" bold="true"
@@ -23,8 +23,8 @@
 			</e:layout>
 		</e:Group>
 	</e:Group>
-	<e:Image id="_blackImg" width="69" height="49" x="431" y="0" source="m_lobby_ro_history_black_Rectangle_png" />
-	<e:Group x="438" y="150">
+	<e:Image id="_blackImg" width="69" height="49" x="431" source="m_lobby_ro_history_black_Rectangle_png"  top="10"/>
+	<e:Group x="438" bottom="10">
 		<e:Label id="_totalRightCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34"
 		                 verticalAlign="middle" bold="true" alpha="1" />
 		<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="24" textAlign="center" verticalAlign="bottom" bold="true"

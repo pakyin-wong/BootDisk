@@ -528,7 +528,6 @@ namespace we {
 
       protected setStateDeal(isInit: boolean) {
         console.log('setStateDeal()', this._gameData);
-
         console.log('movePin()');
         this.movePin();
         console.log('moveShoe()');
@@ -600,6 +599,7 @@ namespace we {
             // do red card thing
           }
         }
+
         return new Promise(resolve => resolve());
       }
 
@@ -641,7 +641,6 @@ namespace we {
           return;
         }
       }
-
       protected setStateFinish() {}
 
       public reset() {}

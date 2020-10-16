@@ -9,13 +9,13 @@ namespace we {
       protected _ssnAreaImage: eui.Image;
       protected _decryptedAreaImage: eui.Image;
       protected _ssnLabel: eui.Label;
-      protected _encryptedKeyLabel : eui.Label;
-      protected _decryptedKeyLabel : eui.Label;
-      protected _prevButton : ui.BaseImageButton;
-      protected _nextButton : ui.BaseImageButton;
-      protected _copyEncryptedKey : eui.Group;
-      protected _copyDecryptedKey : eui.Group;
-      protected _copySsn : eui.Group;
+      protected _encryptedKeyLabel: eui.Label;
+      protected _decryptedKeyLabel: eui.Label;
+      protected _prevButton: ui.BaseImageButton;
+      protected _nextButton: ui.BaseImageButton;
+      protected _copyEncryptedKey: eui.Group;
+      protected _copyDecryptedKey: eui.Group;
+      protected _copySsn: eui.Group;
       protected _backButton: eui.Group;
       protected _helpButton: eui.Group;
 
@@ -24,7 +24,7 @@ namespace we {
         this.skinName = 'skin_desktop.bab.CardInfoPanelSkin';
       }
 
-      protected mount(){
+      protected mount() {
         super.mount();
         this._encryptedAreaImage.scale9Grid = new egret.Rectangle(31,31,57,2);
         this._decryptedAreaImage.scale9Grid = new egret.Rectangle(31,31,57,2);
@@ -57,10 +57,9 @@ namespace we {
       public setValue(gameData: any, index: number) {
         this._gameData = gameData;
         this._cardIndex = index;
-        
-        //set cardImage
-        this._cardImage.dataUpdate(this._gameData.maskedcardssnList[this._cardIndex - 1], this._cardIndex);
 
+        // set cardImage
+        this._cardImage.dataUpdate(this._gameData.maskedcardssnList[this._cardIndex - 1], this._cardIndex);
         //set cardIndexLabel
         this._cardIndexLabel.text = this._cardIndex.toString();
 
@@ -71,18 +70,18 @@ namespace we {
         }else{
           this._decryptedKeyLabel.text = this._gameData.hashedcardsList[this._cardIndex - 1]
         }
-        this._ssnLabel.text = this._gameData.maskedcardssnList[this._cardIndex - 1]
+        this._ssnLabel.text = this._gameData.maskedcardssnList[this._cardIndex - 1];
 
-        //enable/disable next/prev Button
+        // enable/disable next/prev Button
         this._prevButton.active = true;
         this._nextButton.active = true;
         this._prevButton.enabled = true;
         this._nextButton.enabled = true;
-        if(utils.stat.ba.translateCardToNumber(this._gameData.firstcard) + 1 >= this._cardIndex - 1){
+        if (utils.stat.ba.translateCardToNumber(this._gameData.firstcard) + 1 >= this._cardIndex - 1) {
           this._prevButton.active = false;
           this._prevButton.enabled = false;
         }
-        if((this._cardIndex + 1 > this._gameData.maskedcardssnList.length) || this._cardIndex === 1){
+        if (this._cardIndex + 1 > this._gameData.maskedcardssnList.length || this._cardIndex === 1) {
           this._nextButton.active = false;
           this._nextButton.enabled = false;
         }
