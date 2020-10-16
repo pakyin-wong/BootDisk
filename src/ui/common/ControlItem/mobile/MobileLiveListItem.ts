@@ -12,6 +12,7 @@ namespace we {
       protected _roadmap: ILobbyRoad;
       protected _gameType: string;
       protected _gameIdx: string;
+      protected _betLimit: ui.RunTimeLabel;
 
       public constructor(skinName: string = null) {
         super(skinName);
@@ -24,7 +25,6 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
 
       public setData(tableInfo: data.TableInfo) {
@@ -62,28 +62,12 @@ namespace we {
       }
 
       protected updateBetLimitText(items, idx) {
-        if (this._toggler) {
-          this._gameIdx = items.length > 0 ? items[idx] : '';
+        if (this._toggler && this._betLimit) {
+          this._betLimit.renderText = () => `${i18n.t('baccarat.betLimitshort')}`;
+          this._toggler.renderText = () => `${items.length > 0 ? items[idx] : ''}`;
           // this._toggler.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${items.length > 0 ? items[idx] : ''}`;
-          this._toggler.textAlign = egret.VerticalAlign.MIDDLE;
-          this._toggler.textFlow = <egret.ITextElement[]>[
-            { text: i18n.t('baccarat.betLimitshort') + '  ', style: { textColor: 0xffffff, size: 48 } },
-            { text: this._gameIdx, style: { textColor: 0xffffff, size: 60 } },
-          ];
         }
-      }
 
-      protected changeLang() {
-        if (this._toggler) {
-          this._toggler.textFlow = <egret.ITextElement[]>[
-            { text: i18n.t('baccarat.betLimitshort') + '  ', style: { textColor: 0xffffff, size: 48 } },
-            { text: this._gameIdx, style: { textColor: 0xffffff, size: 60 } },
-          ];
-        }
-      }
-      protected destroy() {
-        super.destroy();
-        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
 
       // protected initCustomPos() {

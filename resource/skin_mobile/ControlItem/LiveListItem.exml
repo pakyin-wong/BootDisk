@@ -23,12 +23,14 @@
 		                  skinName="skin_mobile_portrait.InGameMessageSkin" width="476" height="85" horizontalCenter="0"
 		                  y="237" infoBg="m_common_gamestate_message_black_png"
 		                  successBg="m_common_gamestate_message_green_png" errorBg="m_common_gamestate_message_red_png" />
-		<e:Group right="30" y="30">
-			<ui:RunTimeLabel id="_toggler" textAlign="left" y="24" size="48" x="924" alpha=".7" />
+		<e:Group right="30" y="24">
+			<ui:RunTimeLabel id="_betLimit" textAlign="left" y="-10" size="48" text="3" fontFamily="Barlow" anchorOffsetY="0" height="62"
+			         verticalAlign="middle" alpha=".7" />
+			<ui:RunTimeLabel id="_toggler" textAlign="left" y="24" size="60" x="924" alpha=".7" verticalAlign="middle" />
 			<e:Image source="m_common_panel_icon_dropdown_png" x="920" y="52" width="25" height="12.5" anchorOffsetX="0"
 			         anchorOffsetY="0" />
 			<e:layout>
-				<e:HorizontalLayout verticalAlign="middle" gap="14" />
+				<e:HorizontalLayout verticalAlign="middle" gap="10" />
 			</e:layout>
 		</e:Group>
 		<e:Group anchorOffsetX="0" anchorOffsetY="0" x="24" y="296" height="80">
