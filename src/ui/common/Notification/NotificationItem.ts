@@ -7,7 +7,7 @@ namespace we {
 
       protected _state: number;
       protected _timeoutId: number;
-      public duration: number = 5000;
+      public duration: number = 20000;
 
       protected _content: ui.ControlItem;
       protected _quickBetContent: ui.ControlItem;
@@ -25,9 +25,13 @@ namespace we {
       protected $setData(notification: data.Notification) {
         this._notification = notification;
         this._data = notification.data;
-        const { tableid , tableInfo} = this._data;
-        // this.tableInfo = env.tableInfos[tableid];
-              this.tableInfo = tableInfo
+        const { tableid } = this._data;
+        console.log('NotificationItem::this._data', this._data);
+        if (this._data.tableInfo) {
+          this.tableInfo = this._data.tableInfo;
+        } else {
+          this.tableInfo = env.tableInfos[tableid];
+        }
         if (this._content) {
           this.removeChild(this._content);
         }
