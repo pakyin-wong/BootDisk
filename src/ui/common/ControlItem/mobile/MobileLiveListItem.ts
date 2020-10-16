@@ -67,7 +67,7 @@ namespace we {
           // this._toggler.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${items.length > 0 ? items[idx] : ''}`;
           this._toggler.textAlign = egret.VerticalAlign.MIDDLE;
           this._toggler.textFlow = <egret.ITextElement[]>[
-            { text: i18n.t('baccarat.betLimitshort') + "  ", style: { textColor: 0xffffff, size: 48 } },
+            { text: i18n.t('baccarat.betLimitshort') + '  ', style: { textColor: 0xffffff, size: 48 } },
             { text: this._gameIdx, style: { textColor: 0xffffff, size: 60 } },
           ];
         }
@@ -76,7 +76,7 @@ namespace we {
       protected changeLang() {
         if (this._toggler) {
           this._toggler.textFlow = <egret.ITextElement[]>[
-            { text: i18n.t('baccarat.betLimitshort') + "  ", style: { textColor: 0xffffff, size: 48 } },
+            { text: i18n.t('baccarat.betLimitshort') + '  ', style: { textColor: 0xffffff, size: 48 } },
             { text: this._gameIdx, style: { textColor: 0xffffff, size: 60 } },
           ];
         }
