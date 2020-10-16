@@ -14,11 +14,11 @@
                 <e:Label id="_bankerSum" x="97" y="0" textAlign="center" verticalAlign="middle" size="96" height="100%"/>
         </e:Group>
         <e:Group x="205" y="470" id="_playerCard1Group" />
-        <e:Group x="506" y="470" id="_playerCard2Group" />
-        <e:Group x="250" y="470" id="_playerCard3Group" visible="false" />
+        <e:Group x="461" y="470" id="_playerCard2Group" />
+        <e:Group x="94" y="561" id="_playerCard3Group" visible="false" />
         <e:Group x="1790" y="159" id="_smallPlayerCard3Group"  />
         <e:Group x="1860" y="470" id="_bankerCard1Group" />
         <e:Group x="2116" y="470" id="_bankerCard2Group" />
-        <e:Group x="250" y="470" id="_bankerCard3Group" visible="false" />
+        <e:Group x="2162" y="561" id="_bankerCard3Group" visible="false" />
         <e:Group x="1900" y="159" id="_smallBankerCard3Group"  />
 </e:Skin>
