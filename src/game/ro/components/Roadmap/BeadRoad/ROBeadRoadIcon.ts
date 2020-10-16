@@ -25,8 +25,8 @@ namespace we {
 
         this._offsetX = this._iconText.width * 0.48;
         this._offsetY = this._iconText.height * 0.48;
-        this._iconText.scaleX = 0.8;
-        this._iconText.scaleY = 0.8;
+        this._iconText.scaleX = 0.9;
+        this._iconText.scaleY = 0.9;
         this._iconText.x = this._offsetX;
         this._iconText.y = this._offsetY;
 
@@ -45,10 +45,12 @@ namespace we {
           // this._iconText.font = RES.getRes('Barlow-Regular_otf');
           // this._iconText.width = size * 0.3;
           // this._iconText.height = size * 0.3;
+          this._iconText.scaleX = 0.6;
+          this._iconText.scaleY = 0.6;
           this._iconText.textAlign = egret.HorizontalAlign.CENTER;
           this._iconText.verticalAlign = egret.VerticalAlign.MIDDLE;
-          this._iconText.anchorOffsetX = this._iconText.width * 0.5;
-          this._iconText.anchorOffsetY = this._iconText.height;
+          this._iconText.anchorOffsetX = this._iconText.width * 0.3;
+          this._iconText.anchorOffsetY = this._iconText.height * 0.4;
         }
         //
         this._iconTopText = new egret.TextField();
@@ -171,7 +173,14 @@ namespace we {
         const value = this.value;
 
         const colors = [0xee2e2e, 0x333333, 0x00ff00, 0x990909, 0x000000, 0x00dd00];
-        const gradientColors = [[0xb82828, 0x781919], [0x2b2b2b, 0x000000], [0x249336, 0x10662b], [0xb82828, 0x781919], [0x2b2b2b, 0x000000], [0x249336, 0x10662b]];
+        const gradientColors = [
+          [0xb82828, 0x781919],
+          [0x2b2b2b, 0x000000],
+          [0x249336, 0x10662b],
+          [0xb82828, 0x781919],
+          [0x2b2b2b, 0x000000],
+          [0x249336, 0x10662b],
+        ];
         const iconSize = this.size;
         const circleRadius = this.size / 2;
         const lineWidth = 1;

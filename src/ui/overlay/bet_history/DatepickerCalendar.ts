@@ -65,15 +65,8 @@ namespace we {
         }
 
         const t = moment().startOf('day');
-        this._tday = moment()
-          .year(this._year)
-          .month(this._month)
-          .daysInMonth();
-        let c = moment()
-          .year(this._year)
-          .month(this._month)
-          .startOf('month')
-          .day();
+        this._tday = moment().year(this._year).month(this._month).daysInMonth();
+        let c = moment().year(this._year).month(this._month).startOf('month').day();
         let r = 1;
         for (let d = 0; d < this._tday; d++) {
           const itemDate = moment([this._year, this._month, d + 1]);
@@ -94,17 +87,7 @@ namespace we {
       }
 
       protected onClicked(e: egret.TouchEvent) {
-        this.dispatchEvent(
-          new egret.Event(
-            'PICKED_DATE',
-            false,
-            false,
-            moment()
-              .year(this._year)
-              .month(this._month)
-              .date(e.currentTarget.id)
-          )
-        );
+        this.dispatchEvent(new egret.Event('PICKED_DATE', false, false, moment().year(this._year).month(this._month).date(e.currentTarget.id)));
       }
 
       public pick(date, range) {

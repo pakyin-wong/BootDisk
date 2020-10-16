@@ -26,7 +26,11 @@ namespace we {
         this._notification = notification;
         this._data = notification.data;
         const { tableid } = this._data;
-        this.tableInfo = env.tableInfos[tableid];
+        if (this._data.tableInfo) {
+          this.tableInfo = this._data.tableInfo;
+        } else {
+          this.tableInfo = env.tableInfos[tableid];
+        }
         if (this._content) {
           this.removeChild(this._content);
         }

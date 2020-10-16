@@ -16,7 +16,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.10.3f3';
+      public version: string = '0.11.0';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -79,6 +79,7 @@ namespace we {
       public playerLotteryStat: any;
       public isMobile: boolean = false;
       public orientation: string = egret.OrientationMode.LANDSCAPE;
+      public orientationManager: we.utils.OrientationManager;
       public leftHandMode: boolean = false;
 
       public showGoodRoadHint: boolean = false;
@@ -137,12 +138,14 @@ namespace we {
           core.GameType.LW,
           core.GameType.RO,
           core.GameType.ROL,
+          core.GameType.LO,
         ];
         this.desktopValidGameType = [
           core.GameType.BAC,
           core.GameType.BAI,
           core.GameType.BAS,
           core.GameType.BAM,
+          core.GameType.BAB,
           core.GameType.DI,
           core.GameType.DIL,
           core.GameType.DT,
@@ -302,6 +305,9 @@ namespace we {
           case core.GameType.BAM:
             dir.sceneCtr.goto('bam', { tableid: tableId });
             break;
+          case core.GameType.BAB:
+            dir.sceneCtr.goto('bab', { tableid: tableId });
+            break;
           case core.GameType.DT:
             dir.sceneCtr.goto('dt', { tableid: tableId });
             break;
@@ -327,7 +333,7 @@ namespace we {
             dir.sceneCtr.goto('rc', { tableid: tableId });
             break;
           default:
-            logger.e(utils.LogTarget.DEBUG, `Scene for GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
+            logger.e(utils.LogTarget.DEBUG, ` GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
             this._currTableId = '';
             break;
         }

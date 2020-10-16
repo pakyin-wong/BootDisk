@@ -24,10 +24,14 @@ namespace we {
       protected _goodRoadLabel: ui.GoodRoadLabel;
 
       protected _toggler: ui.RunTimeLabel;
+      protected _betLimit: ui.RunTimeLabel;
 
       protected _tableLayerNode: eui.Component;
       protected _chipLayerNode: eui.Component;
       protected _roadmapNode: eui.Component;
+
+      protected _betChipPanel: eui.Group;
+
       // skinName = LiveOverlayItemSkin in quickbet
       public constructor(skinName: string = null) {
         super(skinName);
@@ -94,15 +98,24 @@ namespace we {
           'percentHeight',
         ];
         for (const att of properties) {
-          if (this._tableLayer) {
+          if (this._tableLayer && att !== 'height') {
             this._tableLayer[att] = this._tableLayerNode[att];
           }
-          if (this._chipLayer) {
+          if (this._chipLayer && att !== 'height') {
             this._chipLayer[att] = this._chipLayerNode[att];
           }
           if (this._roadmapNode && this._bigRoad) {
             this._bigRoad[att] = this._roadmapNode[att];
           }
+        }
+
+        this._betChipPanel.y = this._tableLayer.height - 15;
+        if (env.orientation == egret.OrientationMode.PORTRAIT) {
+          this._betChipSetPanel.y = this._tableLayer.height + 682;
+          this.height = this._betChipSetPanel.y + this._betChipSetPanel.height;
+        } else {
+          this._betChipSetPanel.y = this._tableLayer.height - 378;
+          this.height = this._tableLayer.height + 682;
         }
       }
 
@@ -171,8 +184,11 @@ namespace we {
         const betLimitItems = betLimitList.map(data => {
           return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
         });
-        if (this._toggler) {
-          this._toggler.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`;
+        // if (this._toggler) {
+        // this._toggler.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`;
+        if (this._toggler && this._betLimit) {
+          this._betLimit.renderText = () => `${i18n.t('baccarat.betLimitshort')}`;
+          this._toggler.renderText = () => `${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`;
         }
       }
 

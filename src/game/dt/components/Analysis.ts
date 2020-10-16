@@ -52,52 +52,61 @@ namespace we {
         this._dragonBeadGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.askBankerRoad, this);
         this._tigerBeadGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.askPlayerRoad, this);
 
-        this.iconBankerBigEye = new we.ba.BABigEyeRoadIcon();
-        this.iconBankerBigEye.x = 20;
-        this.iconBankerBigEye.y = 34;
-        this.iconBankerBigEye.width = 14;
-        this.iconBankerBigEye.height = 14;
-
-        this.iconBankerSmall = new we.ba.BASmallRoadIcon();
-        this.iconBankerSmall.horizontalCenter = 0;
-        this.iconBankerSmall.y = 34;
-        this.iconBankerSmall.width = 14;
-        this.iconBankerSmall.height = 14;
-
-        this.iconBankerCockroach = new we.ba.BACockroachRoadIcon();
-        this.iconBankerCockroach.right = 20;
-        this.iconBankerCockroach.y = 34;
-        this.iconBankerCockroach.width = 14;
-        this.iconBankerCockroach.height = 14;
-
-        this.iconPlayerBigEye = new we.ba.BABigEyeRoadIcon();
-        this.iconPlayerBigEye.x = 20;
-        this.iconPlayerBigEye.y = 34;
-        this.iconPlayerBigEye.width = 14;
-        this.iconPlayerBigEye.height = 14;
-
-        this.iconPlayerSmall = new we.ba.BASmallRoadIcon();
-        this.iconPlayerSmall.horizontalCenter = 0;
-        this.iconPlayerSmall.y = 34;
-        this.iconPlayerSmall.width = 14;
-        this.iconPlayerSmall.height = 14;
-
-        this.iconPlayerCockroach = new we.ba.BACockroachRoadIcon();
-        this.iconPlayerCockroach.right = 20;
-        this.iconPlayerCockroach.y = 34;
-        this.iconPlayerCockroach.width = 14;
-        this.iconPlayerCockroach.height = 14;
-
-        this._dragonBeadGroup.addChild(this.iconBankerBigEye);
-        this._dragonBeadGroup.addChild(this.iconBankerSmall);
-        this._dragonBeadGroup.addChild(this.iconBankerCockroach);
-
-        this._tigerBeadGroup.addChild(this.iconPlayerBigEye);
-        this._tigerBeadGroup.addChild(this.iconPlayerSmall);
-        this._tigerBeadGroup.addChild(this.iconPlayerCockroach);
+        this._dragonBeadGroup.addChild(this.getBankerBeadIconGroup());
+        this._tigerBeadGroup.addChild(this.getPlayerBeadIconGroup());
 
         mouse.setButtonMode(this._tigerBeadGroup, true);
         mouse.setButtonMode(this._dragonBeadGroup, true);
+      }
+
+      protected getBankerBeadIconGroup() {
+        const bankerLayout = new eui.HorizontalLayout();
+        bankerLayout.gap = 2;
+
+        const bankerBeadIconGroup = new eui.Group();
+        bankerBeadIconGroup.horizontalCenter = 0;
+        bankerBeadIconGroup.y = 34;
+        bankerBeadIconGroup.layout = bankerLayout;
+
+        this.iconBankerBigEye = new ba.BABigEyeRoadIcon();
+        this.iconBankerBigEye.width = 26;
+
+        this.iconBankerSmall = new ba.BASmallRoadIcon();
+        this.iconBankerSmall.width = 26;
+
+        this.iconBankerCockroach = new ba.BACockroachRoadIcon();
+        this.iconBankerCockroach.width = 26;
+
+        bankerBeadIconGroup.addChild(this.iconBankerBigEye);
+        bankerBeadIconGroup.addChild(this.iconBankerSmall);
+        bankerBeadIconGroup.addChild(this.iconBankerCockroach);
+
+        return bankerBeadIconGroup;
+      }
+
+      protected getPlayerBeadIconGroup() {
+        const playerLayout = new eui.HorizontalLayout();
+        playerLayout.gap = 2;
+
+        const playerBeadIconGroup = new eui.Group();
+        playerBeadIconGroup.horizontalCenter = 0;
+        playerBeadIconGroup.y = 34;
+        playerBeadIconGroup.layout = playerLayout;
+
+        this.iconPlayerBigEye = new ba.BABigEyeRoadIcon();
+        this.iconPlayerBigEye.width = 26;
+
+        this.iconPlayerSmall = new ba.BASmallRoadIcon();
+        this.iconPlayerSmall.width = 26;
+
+        this.iconPlayerCockroach = new ba.BACockroachRoadIcon();
+        this.iconPlayerCockroach.width = 26;
+
+        playerBeadIconGroup.addChild(this.iconPlayerBigEye);
+        playerBeadIconGroup.addChild(this.iconPlayerSmall);
+        playerBeadIconGroup.addChild(this.iconPlayerCockroach);
+
+        return playerBeadIconGroup;
       }
 
       public setPredictIcons(b1: any, b2: any, b3: any, p1: any, p2: any, p3: any) {

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.LotterySceneFun" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*" xmlns:live="we.live.*" >
+	<ui:RoundRectButton id="_betTogger" width="406" height="128" x="813" y="1815" cornerTL_TR_BL_BR="64,64,64,64" fillColor="0x1c6aa3" stroke="0" fillAlpha="1"/>
+
+	<ui:Panel id="_betContainer" y="551"  skinName="skin_mobile.lo.FunBetContainer"/>
+  <e:Group id="_betSet" left="0" right="0" touchThrough="true" y="375">
+    <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" skinName="skin_mobile.BetChipSkin" labelSize="48" x="269"/>
+    <lo:BetChipSetWithCustom id="_betChipSet" width="1182" height="790" horizontalCenter="0" y="178" skinName="skin_mobile.lo.BetChipSetWithCustom"/>
+    <e:Group id="_betRelatedGroup" scaleX="1" scaleY="1" x="493" y="17">
+			<ui:RoundRectShape width="500" height="127" alpha="0.6" fillColor="0x212425" stroke="0" cornerTL_TR_BL_BR="63,63,63,63"/>
+			<!--<ui:RunTimeLabel id="_cancelLabel" text="清除" y="66" textAlign="center" verticalAlign="middle" size="32" height="47" x="64" width="64"/>-->
+			<ui:BaseImageButton id="_cancelButton" anchorOffsetX="0" anchorOffsetY="0" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_cancel" x="64"/>
+      <e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" y="4" skinName="skin_mobile_portrait.BetConfirmButtonMobile" x="196"/>
+
+
+    </e:Group>
+  </e:Group>
+
+  <ui:InGameMessage
+    id="_message"
+   
+    y="474"
+    skinName="skin_mobile_portrait.InGameMessageSkin"
+    infoBg="d_ba_gamerecord_playerelement_png"
+    successBg="d_ba_gamerecord_tieelement_png"
+    errorBg="d_ba_gamerecord_bankerelement_png" touchEnabled="false" horizontalCenter="0"/>
+</e:Skin>

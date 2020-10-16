@@ -56,7 +56,7 @@ namespace we {
           poster.addEventListener(
             egret.TouchEvent.TOUCH_TAP,
             () => {
-              logger.l(utils.LogTarget.DEBUG, 'psoter click', i, link);
+              logger.l(utils.LogTarget.DEBUG, 'poster click', i, link);
               if (i === 0) {
                 dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
               } else if (i === 3) {
@@ -108,12 +108,18 @@ namespace we {
         const footer = new eui.Group();
         footer.width = this._root.stage.stageWidth;
         footer.height = 200;
-        const label = new eui.Label();
+        // const label = new eui.Label();
+        // label.fontFamily = 'Barlow';
+        // label.textAlign = egret.HorizontalAlign.CENTER;
+        // label.verticalCenter = 0;
+        // label.horizontalCenter = 0;
+        // label.text = '© 2020 World Entertainment 保留一切權利。';
+        const label = new ui.RunTimeLabel();
         label.fontFamily = 'Barlow';
         label.textAlign = egret.HorizontalAlign.CENTER;
         label.verticalCenter = 0;
         label.horizontalCenter = 0;
-        label.text = '© 2020 World Entertainment 保留一切權利。';
+        label.renderText = () => `${i18n.t('lobby_footer_text')}`
         footer.addChild(label);
         group.addChild(footer);
 

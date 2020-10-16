@@ -1,6 +1,6 @@
 namespace we {
   export namespace utils {
-    function zeroPad(num, places) {
+    export function zeroPad(num, places) {
       let val = parseInt(num, 10);
       const sign = utils.sign(val);
       val *= sign;
@@ -44,18 +44,12 @@ namespace we {
     }
 
     export function formatTime(timestamp) {
-      return moment
-        .unix(timestamp)
-        .utcOffset(8)
-        .format('YYYY/MM/DD HH:mm:ss');
+      return moment.unix(timestamp).utcOffset(8).format('YYYY/MM/DD HH:mm:ss');
     }
 
     // for mobile in game display
     export function formatTime2(timestamp) {
-      return moment
-        .unix(timestamp)
-        .utcOffset(8)
-        .format('YY/MM/DD HH:mm:ss');
+      return moment.unix(timestamp).utcOffset(8).format('YY/MM/DD HH:mm:ss');
     }
 
     export function formatCard(source) {
@@ -110,6 +104,7 @@ namespace we {
         case core.GameType.BAI:
         case core.GameType.BAS:
         case core.GameType.BAM:
+        case core.GameType.BAB:
           return 'ba';
         case core.GameType.DT:
           return 'dt';

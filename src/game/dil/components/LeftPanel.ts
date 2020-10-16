@@ -20,11 +20,13 @@ namespace we {
       protected pageStack: eui.ViewStack;
       protected roadStack: eui.ViewStack;
 
+      protected _page2Bg: eui.Rect;
+
       public beadRoad: DilBeadRoad;
 
       // new for di
-      //protected beadRadioBtn1: eui.RadioButton;
-      //protected beadRadioBtn2: eui.RadioButton;
+      // protected beadRadioBtn1: eui.RadioButton;
+      // protected beadRadioBtn2: eui.RadioButton;
       protected isExpanded: boolean;
       protected toggleUpDownButton: eui.ToggleSwitch;
 
@@ -66,11 +68,12 @@ namespace we {
 
         const page1Group = this.pageStack.getChildAt(0) as eui.Group;
 
-        this.beadRoad = new DilBeadRoad(3, 8, 56, 1, 16, 18, 0x262a2b, 1); // in game
+        this.beadRoad = new DilBeadRoad(6, 8, 56, 1, 16, 18, 0x262a2b, 1,true); // in game
         this.beadRoad.x = 10;
         this.beadRoad.y = 20;
         this.beadRoad.scaleX = 689 / 689;
         this.beadRoad.scaleY = 689 / 689;
+        this.beadRoad.expandRoad(false);
 
         // add bead road to page stack 1
         const page2Group = this.pageStack.getChildAt(1) as eui.Group;
@@ -91,10 +94,14 @@ namespace we {
 
       public expandPanel(expand: boolean) {
         if (!this.isExpanded && expand) {
+          this.bg.height = 340 + 202;
           this.bg.setRoundRectStyle(580, 340 + 202, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', 1, 0);
           this.bg.y -= 202;
+          this.border.height = 340 + 202;
           this.border.setRoundRectStyle(580, 340 + 202, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', -1, 2, 0x3a3f48);
           this.border.y -= 202;
+          this._page2Bg.height = 250 + 202;
+          this._page2Bg.y -= 202;
 
           (this.pageStack.getChildAt(0) as eui.Group).height += 202;
           (this.pageStack.getChildAt(0) as eui.Group).y -= 202;
@@ -102,18 +109,22 @@ namespace we {
           this.gameIdLabel.y -= 202;
           this.totalBetLabel.y -= 202;
 
-          //this.beadRadioBtn1.y += 202;
-          //this.beadRadioBtn2.y += 202;
+          // this.beadRadioBtn1.y += 202;
+          // this.beadRadioBtn2.y += 202;
           this.beadRoad.expandRoad(true);
           this.beadRoad.y -= 202;
           this.isExpanded = true;
 
           this.toggleUpDownButton.currentState = 'b_down';
         } else if (this.isExpanded && !expand) {
+          this.bg.height = 340;
           this.bg.setRoundRectStyle(580, 340, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', 1, 0);
           this.bg.y += 202;
+          this.border.height = 340;
           this.border.setRoundRectStyle(580, 340, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', -1, 2, 0x3a3f48);
           this.border.y += 202;
+          this._page2Bg.height = 250;
+          this._page2Bg.y += 202;
 
           (this.pageStack.getChildAt(0) as eui.Group).height -= 202;
           (this.pageStack.getChildAt(0) as eui.Group).y += 202;
@@ -121,8 +132,8 @@ namespace we {
           this.gameIdLabel.y += 202;
           this.totalBetLabel.y += 202;
 
-          //this.beadRadioBtn1.y -= 202;
-          //this.beadRadioBtn2.y -= 202;
+          // this.beadRadioBtn1.y -= 202;
+          // this.beadRadioBtn2.y -= 202;
           this.beadRoad.expandRoad(false);
           this.beadRoad.y += 202;
           this.isExpanded = false;
@@ -139,12 +150,11 @@ namespace we {
       protected onViewChange(e: eui.UIEvent) {
         const radio: eui.RadioButton = e.target;
         this.pageStack.selectedIndex = radio.value;
-        if (radio.value === 0) {
+        if (this.pageStack.selectedIndex === 0) {
           this.expandPanel(false);
           this.toggleUpDownButton.visible = false;
         } else {
           this.toggleUpDownButton.visible = true;
-          this.toggleUpDownButton.visible = false;
         }
         this.updateActiveLine(true);
       }

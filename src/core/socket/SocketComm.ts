@@ -11,6 +11,10 @@ namespace we {
         data = utils.getQueryParams(query);
         const playerID = data.playerid ? data.playerid : dir.config.playerID;
         const secret = data.secret ? data.secret : dir.config.secret;
+        let isMobile = false;
+        try {
+          isMobile = data.ismobile ? parseInt(data.ismobile)>0  : false;
+        } catch (err) {}
 
         logger.l(utils.LogTarget.RELEASE, `playerID: ${playerID}`);
         const options: any = {};
@@ -36,7 +40,7 @@ namespace we {
           options.path = dir.config.path;
         }
 
-        if (env.isMobile) {
+        if (env.isMobile || isMobile) {
           options.layout = 'mobile_web';
         } else {
           options.layout = 'desktop_web';
@@ -281,8 +285,10 @@ namespace we {
         //   groups: {},
         // };
         // env.icons = {};
-        env.nicknameKey = player.profile.nickname;
 
+        // env.nicknameKey = player.profile.nickname;
+        // env.nickname = player.profile.settings.nickname;
+        env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
         // env.icons = {
         //   iconKey01: 'd_lobby_profile_pic_01_png',
         //   iconKey02: 'd_lobby_profile_pic_02_png',
@@ -464,6 +470,11 @@ namespace we {
         const tableInfo = env.getOrCreateTableInfo(gameStatus.tableid);
         gameStatus.previousstate = tableInfo.data ? tableInfo.data.state : null;
         gameStatus.starttime = Math.floor(gameStatus.starttime / 1000000);
+        /*
+        if (tableInfo && tableInfo.tableid && tableInfo.tableid.indexOf('BAB') && tableInfo.data){
+          console.log('BAB tableid ' + tableInfo.tableid + ':' + tableInfo.data)
+        }
+		*/
         if (tableInfo.roundid !== gameStatus.gameroundid) {
           tableInfo.prevroundid = tableInfo.roundid;
           tableInfo.roundid = gameStatus.gameroundid;
@@ -571,6 +582,7 @@ namespace we {
           case core.GameType.BAC:
           case core.GameType.BAI:
           case core.GameType.BAS:
+          case core.GameType.BAB:
           case core.GameType.DT: {
             // const roadmapData = parseAscString(gameStatistic.roadmapdata);
             const roadmapData = gameStatistic.roadmapdata;
@@ -1022,9 +1034,11 @@ namespace we {
       public checkResultNotificationReady(tableInfo: data.TableInfo) {
         if (tableInfo.data) {
           if (this.hasBet(tableInfo)) {
+            const TableInfo = we.utils.clone(tableInfo);
             if (tableInfo.data && tableInfo.data.state === core.GameState.FINISH && !isNaN(tableInfo.totalWin)) {
               const data = {
                 tableid: tableInfo.tableid,
+                tableInfo: TableInfo,
               };
               const notification: data.Notification = {
                 type: core.NotificationType.Result,
@@ -1197,7 +1211,7 @@ namespace we {
 
         for (const tableid of added) {
           const tableInfo = env.tableInfos[tableid];
-          if (tableInfo.data.state === core.GameState.BET) {
+          if (tableInfo.data && tableInfo.data.state === core.GameState.BET) {
             tableInfo.goodRoad.alreadyShown = true;
             const data = {
               tableid,

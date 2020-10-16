@@ -10,6 +10,10 @@ namespace we {
       return (value - min) / (max - min);
     }
 
+    export function getDigit(num: number) {
+      return num % 10;
+    }
+
     export function lerpColor(a, b, amount) {
       const ar = a >> 16,
         ag = (a >> 8) & 0xff,
@@ -47,6 +51,27 @@ namespace we {
 
     export function sign(x) {
       return (x > 0 ? 1 : 0) + (x < 0 ? -1 : 0) || +x;
+    }
+
+    // Reference from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+    export function permutate(array) {
+      let currentIndex = array.length,
+        temporaryValue,
+        randomIndex;
+
+      // While there remain elements to shuffle...
+      while (0 !== currentIndex) {
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+
+      return array;
     }
   }
 }

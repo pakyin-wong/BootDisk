@@ -45,8 +45,12 @@
 			"name": "scene_lottery"
 		},
 		{
-			"keys": "d_lobby_panel_betcontrol_btn_confirm_bg_png,d_lobby_panel_betcontrol_btn_confirm_icon_png,d_lobby_button_down_normal2_png,d_common_liveverification_emoji_icon13_png,d_common_liveverification_emoji_icon102_png,d_common_liveverification_emoji_icon122_png,d_common_liveverification_emoji_icon112_png,d_common_liveverification_emoji_icon22_png,d_common_liveverification_emoji_icon32_png,d_common_liveverification_emoji_icon42_png,d_common_liveverification_emoji_icon52_png,d_common_liveverification_emoji_icon62_png,d_common_liveverification_emoji_icon72_png,d_common_liveverification_emoji_icon82_png,d_common_liveverification_emoji_icon92_png,m_common_liveverification_emoji_icon1_png,m_common_liveverification_emoji_icon10_png,m_common_liveverification_emoji_icon11_png,m_common_liveverification_emoji_icon12_png,m_common_liveverification_emoji_icon2_png,m_common_liveverification_emoji_icon3_png,m_common_liveverification_emoji_icon4_png,m_common_liveverification_emoji_icon5_png,m_common_liveverification_emoji_icon6_png,m_common_liveverification_emoji_icon7_png,m_common_liveverification_emoji_icon8_png,m_common_liveverification_emoji_icon9_png,SicBo_Game_Result_ske_json,SicBo_Game_Result_tex_json,SicBo_Game_Result_tex_png,dice12_png,dice22_png,dice32_png,dice42_png,dice52_png,dice62_png,dice13_png,dice23_png,dice33_png,dice43_png,dice53_png,dice63_png,flash_png,Base_Dice_22_png,Base_Dice_12_png,Base_Dice_32_png,Base_Dice_42_png,Base_Dice_52_png,Base_Dice_62_png,Base_Dice_13_png,Base_Dice_23_png,Base_Dice_33_png,Base_Dice_43_png,Base_Dice_53_png,Base_Dice_63_png,m_common_slide_bar_active_png,m_common_slide_bar_base_png,m_bam_instruction_card_group_landscape_1_png,m_bam_instruction_card_group_landscape_2_png,m_bam_button_close_none_png,m_bam_instruction_card_group_landscape_12_png,m_bam_instruction_card_group_landscape_22_png,m_bam_instruction_crad_group_png,m_bam_instruction_large_crad_png,m_bam_instruction_large_crad_HL_png,m_bam_instruction_reveal_all_btn_png,m_bam_instruction_swtich_crad_group_png,m_bam_panel_btn_bg_Inactive_png,m_bam_touch_icon_png,m_lw_listpenal_result_money_bg_west_png,m_bam_button_close_none2_png,m_bam_instruction_card_group_landscape_13_png,m_bam_instruction_card_group_landscape_23_png,m_bam_instruction_crad_group2_png,m_bam_instruction_large_crad2_png,m_bam_instruction_large_crad_HL2_png,m_bam_instruction_reveal_all_btn2_png,m_bam_instruction_swtich_crad_group2_png,m_bam_panel_btn_bg_Inactive2_png,m_bam_touch_icon2_png,m_lw_listpenal_result_money_bg_west2_png,m_ba_btn_info_png,d_common_video_verification_icon_correct_png,d_sq_ba_timer_bg_png,d_ba_betarea_chipsbg_triangle_png",
+			"keys": "d_lobby_panel_betcontrol_btn_confirm_bg_png,d_lobby_panel_betcontrol_btn_confirm_icon_png,d_lobby_button_down_normal2_png,d_common_liveverification_emoji_icon13_png,d_common_liveverification_emoji_icon102_png,d_common_liveverification_emoji_icon122_png,d_common_liveverification_emoji_icon112_png,d_common_liveverification_emoji_icon22_png,d_common_liveverification_emoji_icon32_png,d_common_liveverification_emoji_icon42_png,d_common_liveverification_emoji_icon52_png,d_common_liveverification_emoji_icon62_png,d_common_liveverification_emoji_icon72_png,d_common_liveverification_emoji_icon82_png,d_common_liveverification_emoji_icon92_png,m_common_liveverification_emoji_icon1_png,m_common_liveverification_emoji_icon10_png,m_common_liveverification_emoji_icon11_png,m_common_liveverification_emoji_icon12_png,m_common_liveverification_emoji_icon2_png,m_common_liveverification_emoji_icon3_png,m_common_liveverification_emoji_icon4_png,m_common_liveverification_emoji_icon5_png,m_common_liveverification_emoji_icon6_png,m_common_liveverification_emoji_icon7_png,m_common_liveverification_emoji_icon8_png,m_common_liveverification_emoji_icon9_png,SicBo_Game_Result_ske_json,SicBo_Game_Result_tex_json,SicBo_Game_Result_tex_png,dice12_png,dice22_png,dice32_png,dice42_png,dice52_png,dice62_png,dice13_png,dice23_png,dice33_png,dice43_png,dice53_png,dice63_png,flash_png,Base_Dice_22_png,Base_Dice_12_png,Base_Dice_32_png,Base_Dice_42_png,Base_Dice_52_png,Base_Dice_62_png,Base_Dice_13_png,Base_Dice_23_png,Base_Dice_33_png,Base_Dice_43_png,Base_Dice_53_png,Base_Dice_63_png,m_common_slide_bar_active_png,m_common_slide_bar_base_png,m_bam_instruction_card_group_landscape_1_png,m_bam_instruction_card_group_landscape_2_png,m_bam_button_close_none_png,m_bam_instruction_card_group_landscape_12_png,m_bam_instruction_card_group_landscape_22_png,m_bam_instruction_crad_group_png,m_bam_instruction_large_crad_png,m_bam_instruction_large_crad_HL_png,m_bam_instruction_reveal_all_btn_png,m_bam_instruction_swtich_crad_group_png,m_bam_panel_btn_bg_Inactive_png,m_bam_touch_icon_png,m_lw_listpenal_result_money_bg_west_png,m_bam_button_close_none2_png,m_bam_instruction_card_group_landscape_13_png,m_bam_instruction_card_group_landscape_23_png,m_bam_instruction_crad_group2_png,m_bam_instruction_large_crad2_png,m_bam_instruction_large_crad_HL2_png,m_bam_instruction_reveal_all_btn2_png,m_bam_instruction_swtich_crad_group2_png,m_bam_panel_btn_bg_Inactive2_png,m_bam_touch_icon2_png,m_lw_listpenal_result_money_bg_west2_png,m_ba_btn_info_png,d_common_video_verification_icon_correct_png,d_sq_ba_timer_bg_png,d_ba_betarea_chipsbg_triangle_png,d_bcba_panel_verification_arrow_left_inactive2_png,d_bcba_panel_verification_arrow_left_normal2_png,d_bcba_panel_verification_arrow_right_inactive2_png,d_bcba_panel_verification_cardinfo_icon_normal2_png,d_bcba_panel_verification_arrow_right_normal2_png",
 			"name": "preload"
+		},
+		{
+			"keys": "blockchain_tex_png,blockchain_tex_json,blockchain_ske_json,blockchain_bg_mask_png,blockchain_bg_jpg,d_bcba_animation_particle_00015_png,d_bcba_animation_particle_00014_png,d_bcba_animation_particle_00016_png,d_bcba_animation_particle_00017_png,d_bcba_animation_particle_00018_png,d_bcba_animation_particle_00019_png,d_bcba_animation_particle_00020_png,d_bcba_animation_particle_00021_png,d_bcba_animation_particle_00022_png,d_bcba_animation_particle_00024_png,d_bcba_animation_particle_00023_png,d_bcba_animation_particle_00025_png,d_bcba_animation_particle_00027_png,d_bcba_animation_particle_00028_png,d_bcba_animation_particle_00029_png,d_bcba_animation_particle_00030_png,d_bcba_animation_particle_00031_png,d_bcba_animation_particle_00032_png,d_bcba_animation_particle_00026_png,d_bcba_animation_particle_00033_png,d_bcba_animation_particle_00034_png,d_bcba_animation_particle_00035_png,d_bcba_animation_particle_00036_png,d_bcba_animation_particle_00037_png,d_bcba_animation_particle_00038_png,d_bcba_animation_particle_00039_png,d_bcba_animation_particle_00040_png,d_bcba_animation_particle_00041_png,d_bcba_animation_particle_00042_png,d_bcba_animation_particle_00043_png,d_bcba_animation_particle_00045_png,d_bcba_animation_particle_00044_png,d_bcba_animation_particle_00046_png,d_bcba_animation_particle_00047_png,d_bcba_animation_particle_00048_png,d_bcba_animation_particle_00050_png,d_bcba_animation_particle_00051_png,d_bcba_animation_particle_00052_png,d_bcba_animation_particle_00053_png,d_bcba_animation_particle_00054_png,d_bcba_animation_particle_00055_png,d_bcba_animation_particle_00056_png,d_bcba_animation_particle_00049_png,d_bcba_animation_particle_00057_png,d_bcba_animation_particle_00058_png,d_bcba_animation_particle_00059_png,d_bcba_animation_particle_00061_png,d_bcba_animation_particle_00060_png,d_bcba_animation_particle_00062_png,d_bcba_animation_particle_00063_png,d_bcba_animation_particle_00064_png,d_bcba_animation_particle_00066_png,d_bcba_animation_particle_00067_png,d_bcba_animation_particle_00069_png,d_bcba_animation_particle_00065_png,d_bcba_animation_particle_00068_png,d_bcba_animation_particle_00071_png,d_bcba_animation_particle_00074_png,d_bcba_animation_particle_00070_png,d_bcba_animation_particle_00073_png,d_bcba_animation_particle_00075_png,d_bcba_animation_particle_00072_png,d_bcba_animation_particle_00077_png,d_bcba_animation_particle_00076_png,d_bcba_animation_particle_00078_png,d_bcba_animation_particle_00080_png,d_bcba_animation_particle_00081_png,d_bcba_animation_particle_00082_png,d_bcba_animation_particle_00079_png,d_bcba_animation_particle_00083_png,d_bcba_animation_particle_00084_png,d_bcba_animation_particle_00085_png,d_bcba_animation_particle_00087_png,d_bcba_animation_particle_00086_png,d_bcba_animation_particle_00088_png,d_bcba_animation_particle_00089_png,d_bcba_animation_particle_00090_png,d_bcba_animation_particle_00091_png,d_bcba_animation_particle_00092_png,d_bcba_animation_particle_00093_png,d_bcba_animation_particle_00094_png,d_bcba_animation_particle_00095_png,d_bcba_animation_particle_00096_png,d_bcba_animation_particle_00097_png,d_bcba_animation_particle_00098_png,d_bcba_animation_particle_00099_png,d_bcba_animation_particle_00100_png,d_bcba_animation_particle_00101_png,d_bcba_animation_particle_00102_png,d_bcba_animation_particle_00103_png,d_bcba_animation_particle_00104_png,d_bcba_animation_particle_00105_png,d_bcba_animation_particle_00106_png,d_bcba_animation_particle_00107_png,d_bcba_animation_particle_00108_png,d_bcba_animation_particle_00109_png,d_bcba_animation_particle_00110_png,d_bcba_animation_particle_00111_png,d_bcba_animation_particle_00112_png,d_bcba_animation_particle_00113_png,d_bcba_animation_particle_00114_png,d_bcba_animation_particle_00115_png,d_bcba_animation_particle_00116_png,d_bcba_animation_particle_00117_png,d_bcba_animation_particle_00118_png,d_bcba_animation_particle_00119_png,d_bcba_animation_particle_00120_png,d_bcba_animation_particle_00121_png,d_bcba_animation_particle_00122_png,d_bcba_animation_particle_00123_png,d_bcba_animation_particle_00124_png,d_bcba_animation_particle_00125_png,d_bcba_animation_particle_00126_png,d_bcba_animation_particle_00127_png,d_bcba_animation_particle_00128_png,d_bcba_animation_particle_00129_png,d_bcba_animation_particle_00130_png,d_bcba_animation_particle_00131_png,d_bcba_animation_particle_00132_png,d_bcba_animation_particle_00133_png,d_bcba_animation_particle_00134_png,d_bcba_animation_particle_00135_png,d_bcba_animation_particle_00136_png,d_bcba_animation_particle_00137_png,d_bcba_animation_particle_00138_png,d_bcba_animation_particle_00139_png,d_bcba_animation_particle_00140_png,d_bcba_animation_particle_00141_png,d_bcba_animation_particle_00142_png,d_bcba_animation_particle_00143_png,d_bcba_animation_particle_00144_png,d_bcba_animation_particle_00145_png,d_bcba_animation_particle_00146_png,d_bcba_animation_particle_00147_png,d_bcba_animation_particle_00148_png,d_bcba_animation_particle_00149_png,d_bcba_animation_particle_00150_png,d_bcba_animation_particle_00000_png,d_bcba_animation_particle_00001_png,d_bcba_animation_particle_00002_png,d_bcba_animation_particle_00003_png,d_bcba_animation_particle_00004_png,d_bcba_animation_particle_00005_png,d_bcba_animation_particle_00006_png,d_bcba_animation_particle_00007_png,d_bcba_animation_particle_00008_png,d_bcba_animation_particle_00009_png,d_bcba_animation_particle_00010_png,d_bcba_animation_particle_00011_png,d_bcba_animation_particle_00012_png,d_bcba_animation_particle_00013_png,d_bcba_btn_hover_png,d_bcba_btn_normal_png,d_bcba_resultarea_banker_png,d_bcba_resultarea_player_png,d_bcba_panel_instructions_step4_png,d_bcba_panel_instructions_step1_png,d_bcba_panel_instructions_step2_png,d_bcba_panel_instructions_step3_png,d_bcba_panel_bg_png,d_bcba_panel_shoe_card_red_png,d_bcba_panel_verification_key_bg_png,d_bcba_panel_verification_encryt_bg_png,d_bcba_panel_verification_success_png,d_bcba_panel_verification_arrow_left_hover_png,d_bcba_panel_verification_arrow_left_inactive_png,d_bcba_panel_verification_arrow_left_normal_png,d_bcba_panel_verification_arrow_right_hover_png,d_bcba_panel_verification_arrow_right_normal_png,d_bcba_panel_verification_arrow_right_inactive_png,d_bcba_panel_verification_cardinfo_icon_hover_png,d_bcba_panel_verification_cardinfo_icon_normal_png",
+			"name": "scene_bc_baccarat"
 		}
 	],
 	"resources": [
@@ -6515,9 +6519,919 @@
 			"name": "d_common_panel_setting_uicolour_btn_active_png"
 		},
 		{
-			"name": "d_ba_betarea_chipsbg_triangle_png",
+			"url": "assets/images/d/common/general/switch/d_ba_betarea_chipsbg_triangle.png",
 			"type": "image",
-			"url": "assets/images/d/common/general/switch/d_ba_betarea_chipsbg_triangle.png"
+			"name": "d_ba_betarea_chipsbg_triangle_png"
+		},
+		{
+			"url": "assets/dragonbones/d/bab/blockchain_tex.png",
+			"type": "image",
+			"name": "blockchain_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/d/bab/blockchain_tex.json",
+			"type": "json",
+			"name": "blockchain_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/d/bab/blockchain_ske.json",
+			"type": "json",
+			"name": "blockchain_ske_json"
+		},
+		{
+			"url": "assets/images/d/bab/blockchain_bg_mask.png",
+			"type": "image",
+			"name": "blockchain_bg_mask_png"
+		},
+		{
+			"url": "assets/images/d/bab/blockchain_bg.jpg",
+			"type": "image",
+			"name": "blockchain_bg_jpg"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00015.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00015_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00014.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00014_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00016.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00016_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00017.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00017_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00018.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00018_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00019.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00019_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00020.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00020_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00021.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00021_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00022.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00022_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00024.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00024_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00023.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00023_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00025.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00025_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00027.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00027_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00028.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00028_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00029.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00029_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00030.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00030_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00031.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00031_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00032.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00032_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00026.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00026_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00033.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00033_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00034.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00034_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00035.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00035_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00036.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00036_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00037.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00037_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00038.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00038_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00039.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00039_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00040.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00040_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00041.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00041_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00042.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00042_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00043.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00043_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00045.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00045_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00044.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00044_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00046.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00046_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00047.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00047_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00048.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00048_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00050.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00050_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00051.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00051_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00052.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00052_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00053.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00053_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00054.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00054_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00055.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00055_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00056.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00056_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00049.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00049_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00057.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00057_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00058.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00058_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00059.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00059_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00061.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00061_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00060.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00060_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00062.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00062_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00063.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00063_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00064.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00064_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00066.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00066_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00067.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00067_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00069.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00069_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00065.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00065_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00068.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00068_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00071.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00071_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00074.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00074_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00070.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00070_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00073.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00073_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00075.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00075_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00072.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00072_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00077.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00077_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00076.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00076_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00078.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00078_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00080.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00080_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00081.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00081_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00082.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00082_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00079.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00079_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00083.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00083_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00084.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00084_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00085.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00085_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00087.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00087_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00086.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00086_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00088.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00088_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00089.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00089_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00090.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00090_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00091.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00091_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00092.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00092_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00093.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00093_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00094.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00094_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00095.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00095_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00096.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00096_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00097.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00097_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00098.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00098_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00099.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00099_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00100.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00100_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00101.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00101_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00102.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00102_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00103.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00103_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00104.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00104_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00105.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00105_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00106.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00106_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00107.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00107_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00108.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00108_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00109.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00109_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00110.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00110_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00111.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00111_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00112.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00112_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00113.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00113_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00114.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00114_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00115.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00115_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00116.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00116_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00117.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00117_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00118.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00118_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00119.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00119_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00120.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00120_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00121.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00121_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00122.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00122_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00123.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00123_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00124.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00124_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00125.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00125_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00126.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00126_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00127.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00127_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00128.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00128_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00129.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00129_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00130.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00130_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00131.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00131_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00132.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00132_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00133.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00133_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00134.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00134_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00135.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00135_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00136.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00136_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00137.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00137_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00138.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00138_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00139.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00139_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00140.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00140_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00141.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00141_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00142.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00142_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00143.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00143_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00144.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00144_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00145.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00145_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00146.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00146_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00147.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00147_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00148.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00148_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00149.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00149_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00150.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00150_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00000.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00000_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00001.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00001_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00002.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00002_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00003.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00003_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00004.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00004_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00005.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00005_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00006.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00006_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00007.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00007_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00008.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00008_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00009.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00009_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00010.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00010_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00011.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00011_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00012.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00012_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_animation_particle/d_bcba_animation_particle_00013.png",
+			"type": "image",
+			"name": "d_bcba_animation_particle_00013_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_btn_hover.png",
+			"type": "image",
+			"name": "d_bcba_btn_hover_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_btn_normal.png",
+			"type": "image",
+			"name": "d_bcba_btn_normal_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_resultarea_banker.png",
+			"type": "image",
+			"name": "d_bcba_resultarea_banker_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_resultarea_player.png",
+			"type": "image",
+			"name": "d_bcba_resultarea_player_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_panel_instructions_step4.png",
+			"type": "image",
+			"name": "d_bcba_panel_instructions_step4_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_panel_instructions_step1.png",
+			"type": "image",
+			"name": "d_bcba_panel_instructions_step1_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_panel_instructions_step2.png",
+			"type": "image",
+			"name": "d_bcba_panel_instructions_step2_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_panel_instructions_step3.png",
+			"type": "image",
+			"name": "d_bcba_panel_instructions_step3_png"
+		},
+		{
+			"url": "assets/nmimages/d/bab/d_bcba_panel_bg.png",
+			"type": "image",
+			"name": "d_bcba_panel_bg_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_panel_shoe_card_red.png",
+			"type": "image",
+			"name": "d_bcba_panel_shoe_card_red_png"
+		},
+		{
+			"url": "assets/nmimages/d/bab/d_bcba_panel_verification_key_bg.png",
+			"type": "image",
+			"name": "d_bcba_panel_verification_key_bg_png"
+		},
+		{
+			"url": "assets/nmimages/d/bab/d_bcba_panel_verification_encryt_bg.png",
+			"type": "image",
+			"name": "d_bcba_panel_verification_encryt_bg_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_panel_verification_success.png",
+			"type": "image",
+			"name": "d_bcba_panel_verification_success_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_panel_verification_arrow_left_hover.png",
+			"type": "image",
+			"name": "d_bcba_panel_verification_arrow_left_hover_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_panel_verification_arrow_left_inactive.png",
+			"type": "image",
+			"name": "d_bcba_panel_verification_arrow_left_inactive_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_panel_verification_arrow_left_normal.png",
+			"type": "image",
+			"name": "d_bcba_panel_verification_arrow_left_normal_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_panel_verification_arrow_right_hover.png",
+			"type": "image",
+			"name": "d_bcba_panel_verification_arrow_right_hover_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_panel_verification_arrow_right_normal.png",
+			"type": "image",
+			"name": "d_bcba_panel_verification_arrow_right_normal_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_panel_verification_arrow_right_inactive.png",
+			"type": "image",
+			"name": "d_bcba_panel_verification_arrow_right_inactive_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_panel_verification_cardinfo_icon_hover.png",
+			"type": "image",
+			"name": "d_bcba_panel_verification_cardinfo_icon_hover_png"
+		},
+		{
+			"url": "assets/images/d/bab/d_bcba_panel_verification_cardinfo_icon_normal.png",
+			"type": "image",
+			"name": "d_bcba_panel_verification_cardinfo_icon_normal_png"
+		},
+		{
+			"name": "d_bcba_panel_verification_arrow_left_inactive2_png",
+			"type": "image",
+			"url": "assets/images/d/bab/d_bcba_panel_verification_arrow_left_inactive.png"
+		},
+		{
+			"name": "d_bcba_panel_verification_arrow_left_normal2_png",
+			"type": "image",
+			"url": "assets/images/d/bab/d_bcba_panel_verification_arrow_left_normal.png"
+		},
+		{
+			"name": "d_bcba_panel_verification_arrow_right_inactive2_png",
+			"type": "image",
+			"url": "assets/images/d/bab/d_bcba_panel_verification_arrow_right_inactive.png"
+		},
+		{
+			"name": "d_bcba_panel_verification_cardinfo_icon_normal2_png",
+			"type": "image",
+			"url": "assets/images/d/bab/d_bcba_panel_verification_cardinfo_icon_normal.png"
+		},
+		{
+			"name": "d_bcba_panel_verification_arrow_right_normal2_png",
+			"type": "image",
+			"url": "assets/images/d/bab/d_bcba_panel_verification_arrow_right_normal.png"
 		}
 	]
 }

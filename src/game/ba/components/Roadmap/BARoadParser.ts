@@ -615,7 +615,7 @@ namespace we {
         }
 
         // lo
-        for (var i = 1; i <= 10; i++) {
+        for (let i = 1; i <= 10; i++) {
           if (data['size' + i] !== undefined) {
             roadSet['size' + i] = [];
             data['size' + i].forEach(element => {
@@ -624,7 +624,7 @@ namespace we {
           }
         }
 
-        for (var i = 1; i <= 10; i++) {
+        for (let i = 1; i <= 10; i++) {
           if (data['odd' + i] !== undefined) {
             roadSet['odd' + i] = [];
             data['odd' + i].forEach(element => {

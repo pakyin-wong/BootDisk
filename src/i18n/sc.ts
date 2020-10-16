@@ -12,6 +12,7 @@ namespace we {
       gametype_BAS: '竞速百家乐',
       gametype_BAI: '保险百家乐',
       gametype_BAM: '咪牌百家乐',
+      gametype_BAB: '区块链百家乐',
       gametype_DI: '骰宝',
       gametype_DIL: '财神骰宝',
       gametype_MJ: '麻将',
@@ -25,6 +26,8 @@ namespace we {
       sidegamelist_title: '游戏列表',
       sidegamelist_tab_bet: '已下注',
       sidegamelist_tab_goodroad: '好路',
+
+      lobby_footer_text: 'Copyright © 2020 World Entertainment 保留一切权利。',
 
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '闲',
@@ -176,6 +179,10 @@ namespace we {
       overlaypanel_gameSet_showGoodRoadHint: '显示百家乐好路提示',
       overlaypanel_gameSet_autoBet: '自动确认投注',
       overlaypanel_gameSet_sendLiveVerfication: '发送现场验证',
+
+      expiredmessage_text: '您已3局未下注，2局后踢出',
+
+      // customerservicehotlinenumber_text: '客服热线号码更新为＋63 9250898888',
 
       datePicker_clean: '清除',
       datePicker_confirm: '确定',
@@ -556,10 +563,10 @@ namespace we {
           swapRoadmap: '轉換路紙',
         },
         statisticChart: {
-          bankerPlayerTie: '庄闲和比例(100局)',
+          bankerPlayerTie: '庄闲和比例 (100局)',
           bankerPlayerTiePair: '庄闲和对比例 (100局)',
-          shoeBankerPlayerTie: '庄闲和比例(本靴)',
-          shoeBankerPlayerTiePair: '庄闲和比例对(本靴)',
+          shoeBankerPlayerTie: '庄闲和比例 (本靴)',
+          shoeBankerPlayerTiePair: '庄闲和比例对 (本靴)',
         },
         playerPair: '闲对',
         bankerPair: '庄对',
@@ -603,6 +610,21 @@ namespace we {
         rounds: '局',
         playersqueeze: '咪牌中',
         allOpen: '全开',
+        fullShoe: '完整牌靴',
+        mechanismHelp: '机制说明',
+        mechanismHelp1: '游戏以电子模式发牌，每局游戏模拟完整牌靴由八副牌组成，每张牌均拥有一个「卡牌序号」。 ',
+        mechanismHelp2: '「卡牌序号」以SHA-256技术加密生成「卡牌加密文」，并提前公布。 ',
+        mechanismHelp3: '开牌后，显示及验证「卡牌序号」和「卡牌加密文」以示公正。 ',
+        mechanismHelp4: '玩家可复制「卡牌序号」，并点击「第三方验证」键跳转至第三方平台，验证相关「卡牌加密文」。 ',
+        verification: '验证',
+        thirdParty: '第三方验证',
+        sha256VerifySuccess: 'SHA256已验证',
+        deckDesc:
+          '完整牌靴共由8副扑克牌组成，合计416张。首局开始前，系统会在完整牌靴中随机插入红牌，发牌至红卡时，代表该局游戏结束后将进行换靴。洗牌后，将重新生成「卡牌序号」及「卡牌加密文」，确保游戏的真确性。 ',
+        copy: '复制',
+        encryptedKey: '提前公布卡牌加密文',
+        decryptedKey: '卡牌加密文',
+        ssn: '卡牌序号',
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',

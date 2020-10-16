@@ -7,6 +7,7 @@ namespace we {
       public finishStateInterval: number = 5000;
       public shuffleStateInterval: number = 10000;
       public cardInterval: number = 1000;
+      public card3Interval: number = 5000;
       public startCardInterval: number = 2000;
       public betStateInterval: number = 10;
 
@@ -26,11 +27,10 @@ namespace we {
 
       public start(data: data.TableInfo) {
         // random choose a result process
-        setTimeout(() => {
-          this.randomWin(data).then(() => {
-            this.start(data);
-          });
-        });
+        setTimeout(async () => {
+          await this.randomWin(data);
+          this.start(data);
+        }, 100);
       }
 
       protected async setResults(data: data.TableInfo, results: string[], points: number[]) {}

@@ -4,7 +4,7 @@ namespace we {
       const data = {};
       const queryParamArray = queryStr.split('&');
       // iterate over parameter array
-      queryParamArray.forEach(function(queryParam) {
+      queryParamArray.forEach(function (queryParam) {
         // split the query parameter over '='
         const item = queryParam.split('=');
         data[item[0].toLowerCase()] = decodeURIComponent(item[1]);

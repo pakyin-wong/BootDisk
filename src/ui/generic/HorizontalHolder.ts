@@ -51,6 +51,8 @@ namespace we {
       private isPrevBlock = false;
       private isNextBlock = false;
 
+      public maskRadius: number = 0;
+
       public constructor() {
         super();
       }
@@ -192,7 +194,11 @@ namespace we {
         let gr = shape.graphics;
         gr.clear();
         gr.beginFill(0x00ff00, 1);
-        gr.drawRect(0, 0, this.slideWidth, this.slideHeight);
+        if (this.maskRadius > 0) {
+          gr.drawRoundRect(0, 0, this.slideWidth, this.slideHeight, this.maskRadius * 2, this.maskRadius * 2);
+        } else {
+          gr.drawRect(0, 0, this.slideWidth, this.slideHeight);
+        }
         gr.endFill();
 
         shape.x = 0;
@@ -580,7 +586,7 @@ namespace we {
             }
           }
         }
-      };
+      }
 
       protected onTouchEnd = event => {
         if (this._isAnimating) {
@@ -648,7 +654,7 @@ namespace we {
             break;
         }
         this.clearTouch();
-      };
+      }
 
       protected clearTouch() {
         const canvas = document.getElementsByTagName('canvas')[0];

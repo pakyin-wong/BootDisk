@@ -22,8 +22,8 @@ namespace we {
 
       constructor() {
         super();
-        this.addEventListener(TableList.LOCK, this.onLockChanged, this);
-        this.addEventListener(TableList.UNLOCK, this.onLockChanged, this);
+        this.addEventListener(TableList.LOCK, this.onLockChanged, this, false, 0);
+        this.addEventListener(TableList.UNLOCK, this.onLockChanged, this, false, 0);
       }
 
       public get tableCount() {
@@ -77,6 +77,7 @@ namespace we {
               core.GameType.BAI,
               core.GameType.BAS,
               core.GameType.BAM,
+              core.GameType.BAB,
               core.GameType.DT,
               core.GameType.RO,
               core.GameType.ROL,
@@ -86,7 +87,7 @@ namespace we {
             ];
             break;
           case core.LiveGameTab.ba:
-            this.gameFilters = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.BAM];
+            this.gameFilters = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.BAM, core.GameType.BAB];
             break;
           case core.LiveGameTab.dt:
             this.gameFilters = [core.GameType.DT];
@@ -213,7 +214,7 @@ namespace we {
         return !!this._isFocus;
       }
 
-      protected onFocusChanged(isFocus: any) {
+      protected onFocusChanged(isFocus: any, preventOffset: boolean = false) {
         this._isFocus = isFocus;
         if (this.isGlobalLock) {
           dir.evtHandler.dispatch(core.Event.LIVE_PAGE_LOCK, !!isFocus);
@@ -228,7 +229,7 @@ namespace we {
             const focusHeight = isFocus.height;
             this._originalV = scroller.viewport.scrollV;
             const targetV = focusY + focusHeight + this.extendHeight - scroller.height;
-            if (targetV > this._originalV) {
+            if (!preventOffset && targetV > this._originalV) {
               this._isScrollOffset = true;
               egret.Tween.get(scroller.viewport).to({ scrollV: targetV }, 300);
             }
@@ -255,6 +256,7 @@ namespace we {
       }
 
       protected onLockChanged(evt: egret.Event) {
+        console.log(evt.$isPropagationStopped);
         const focusItem: TableListItemHolder = evt.data;
         let listItem: TableListItemHolder;
         if (this.isFocus) {
@@ -262,7 +264,7 @@ namespace we {
         }
         switch (evt.type) {
           case TableList.LOCK:
-            this.onFocusChanged(focusItem);
+            this.onFocusChanged(focusItem, evt.$isPropagationStopped);
             break;
           case TableList.UNLOCK:
             this.onFocusChanged(null);
