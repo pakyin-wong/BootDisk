@@ -77,8 +77,8 @@
         <e:Image width="100%" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" height="100%" y="0" />
         <e:Image width="68" height="40" horizontalCenter="-2" source="m_ba_betarea_chipsbg_triangle_png" rotation="180"
                  y="500" />
-        <ui:BetChipSetGrid id="_betChipSet" width="100%" alpha="0" anchorOffsetX="0" x="0" horizontalCenter="0"
+        <ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" horizontalCenter="0"
                            betChipWidth="100" betChipHeight="100" numChipsInRow="6" chipSizeScale="0.9"
-                           horizontalGapSize="130" verticalGapSize="110" labelSize="64" top="50" bottom="20" />
+                           horizontalGapSize="130" verticalGapSize="110" labelSize="64" top="50" bottom="20"  left="0" right="0"/>
     </e:Group>
 </e:Skin>

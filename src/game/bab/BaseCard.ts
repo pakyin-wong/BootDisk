@@ -36,6 +36,7 @@ namespace we {
         }
         if (this._cardString === 'dim') {
           this.setDimCard();
+          return;
         }
         if (this._cardString === 'red') {
           this.setRedCard();

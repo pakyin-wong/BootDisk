@@ -13,7 +13,7 @@ namespace we {
         const secret = data.secret ? data.secret : dir.config.secret;
         let isMobile = false;
         try {
-          isMobile = data.ismobile ? parseInt(data.ismobile)>0  : false;
+          isMobile = data.ismobile ? parseInt(data.ismobile) > 0 : false;
         } catch (err) {}
 
         logger.l(utils.LogTarget.RELEASE, `playerID: ${playerID}`);

@@ -509,7 +509,7 @@ namespace we {
               args: [
                 i18n.t('expiredmessage_text'),
                 {
-                  dismiss: { text: i18n.t('nav.menu.confirm')},
+                  dismiss: { text: i18n.t('nav.menu.confirm') },
                 },
               ],
             });
@@ -526,7 +526,7 @@ namespace we {
       protected showInGameMessage() {
         if (this._expiredMessage) {
           this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, i18n.t('expiredmessage_text'));
-          // this._message.showMessage(ui.InGameMessage.EXPIRED,i18n.t(''));  
+          // this._message.showMessage(ui.InGameMessage.EXPIRED,i18n.t(''));
         }
       }
       protected setStateDeal(isInit: boolean = false) {
