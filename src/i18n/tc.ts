@@ -523,8 +523,8 @@ namespace we {
         statisticChart: {
           bankerPlayerTie: '庄閒和比例(100局)',
           bankerPlayerTiePair: '庄閒和对比例 (100局)',
-          shoeBankerPlayerTie: '庄閒和比例(本靴)',
-          shoeBankerPlayerTiePair: '庄閒和對比例(本靴)',
+          shoeBankerPlayerTie: '庄閒和比例 (本靴)',
+          shoeBankerPlayerTiePair: '庄閒和對比例 (本靴)',
         },
         playerPair: '閒對',
         bankerPair: '庄對',
@@ -570,6 +570,19 @@ namespace we {
         allOpen: '全開',
         fullShoe: '完整牌靴',
         mechanismHelp: '機制說明',
+        mechanismHelp1: '遊戲以電子模式發牌，每局遊戲模擬完整牌靴由八副牌組成，每張牌均擁有一個「卡牌序號」。',
+        mechanismHelp2: '「卡牌序號」以SHA-256技術加密生成「卡牌加密文」，並提前公佈。',
+        mechanismHelp3: '開牌後，顯示及驗證「卡牌序號」和「卡牌加密文」以示公正。',
+        mechanismHelp4: '玩家可複制「卡牌序號」，並點擊「第三方驗證」鍵跳轉至第三方平台，驗證相關「卡牌加密文」。',
+        verification: '驗證',
+        thirdParty: '第三方驗證',
+        sha256VerifySuccess: 'SHA256已驗證',
+        deckDesc : '完整牌靴共由8副撲克牌組成，合計416張。首局開始前，系統會在完整牌靴中隨機插入紅牌，發牌至紅卡時，代表該局遊戲結束後將進行換靴。洗牌後，將重新生成「卡牌序號」及「卡牌加密文」，確保遊戲的真確性。',
+        copy: '複製',
+        encryptedKey: '提前公佈卡牌加密文',
+        decryptedKey: '卡牌加密文',
+        ssn: '卡牌序號'
+
       },
       message: {
         test: '你贏左 $1，$2% 會比左我',

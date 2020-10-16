@@ -38,7 +38,7 @@ namespace we {
 
       protected mount() {
         if (env.isMobile) {
-          this.chipScale = 0.8;
+          this.chipScale = 1;
         }
         this._chipsetList.addEventListener(eui.UIEvent.CHANGE, this.onChipChange, this);
         dir.evtHandler.addEventListener(core.Event.BET_DENOMINATION_CHANGE, this.updateSelectedChip, this);

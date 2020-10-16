@@ -21,6 +21,8 @@ namespace we {
 
       protected allGameList: string[];
 
+      protected extendHeight: number = 500;
+
       constructor() {
         super();
         this.skinName = 'LiveSidePanelSkin';
@@ -35,7 +37,7 @@ namespace we {
         // create bet table list
         this.betTableList = new TableList();
         this.betTableList.isFreezeScrolling = true;
-        this.betTableList.extendHeight = 500;
+        this.betTableList.extendHeight = this.extendHeight;
         this.betTableList.isAnimateItemTransition = true;
         this.betTableList.layout = this.getLayout();
         this.betTableList.itemRendererFunction = item => {
@@ -69,11 +71,13 @@ namespace we {
           }
         };
         this._bettedScroller.viewport = this.betTableList;
+        this._bettedScroller.addEventListener(TableList.LOCK, this.onLockChanged, this, false, 10);
+        this._bettedScroller.addEventListener(TableList.UNLOCK, this.onLockChanged, this, false, 10);
 
         // create good road list
         this.goodRoadTableList = new TableList();
         this.goodRoadTableList.isFreezeScrolling = true;
-        this.goodRoadTableList.extendHeight = 500;
+        this.goodRoadTableList.extendHeight = this.extendHeight;
         this.goodRoadTableList.isAnimateItemTransition = true;
         this.goodRoadTableList.layout = this.getLayout();
         this.goodRoadTableList.itemRendererFunction = item => {
@@ -90,11 +94,13 @@ namespace we {
           }
         };
         this._goodroadScroller.viewport = this.goodRoadTableList;
+        this.goodRoadTableList.addEventListener(TableList.LOCK, this.onLockChanged, this, false, 10);
+        this.goodRoadTableList.addEventListener(TableList.UNLOCK, this.onLockChanged, this, false, 10);
 
         // create all game list
         this.allTableList = new TableList();
         this.allTableList.isFreezeScrolling = true;
-        this.allTableList.extendHeight = 500;
+        this.allTableList.extendHeight = this.extendHeight;
         this.allTableList.isAnimateItemTransition = true;
         this.allTableList.layout = this.getLayout();
         this.allTableList.itemRendererFunction = item => {
@@ -127,6 +133,8 @@ namespace we {
           }
         };
         this._allgamesScroller.viewport = this.allTableList;
+        this.allTableList.addEventListener(TableList.LOCK, this.onLockChanged, this, false, 10);
+        this.allTableList.addEventListener(TableList.UNLOCK, this.onLockChanged, this, false, 10);
 
         this._tabbar.dataProvider = this._viewStack;
         this._tabbar.validateNow();
@@ -257,6 +265,7 @@ namespace we {
       }
 
       protected onSelected() {
+        this.isLock = false;
         console.log('sidepanel _targetHeight :', this._viewStack.selectedIndex, this._targetHeight);
         super.onSelected();
 
@@ -275,9 +284,43 @@ namespace we {
       }
 
       protected tweenExpand(interval: number) {
-        super.tweenExpand(interval);
         egret.Tween.removeTweens(this);
-        egret.Tween.get(this).to({ width: 385, height: this._targetHeight + this._paddingHeight }, interval);
+        egret.Tween.removeTweens(this._tweenGroup);
+        egret.Tween.removeTweens(this._tabBarGroup);
+        egret.Tween.removeTweens(this._viewStack);
+        egret.Tween.removeTweens(this._bg);
+
+        const height = this._targetHeight + this._paddingHeight + (this.isLock ? 500 : 0);
+        egret.Tween.get(this).to({ width: 385, height }, interval);
+        egret.Tween.get(this._viewStack)
+          .wait(interval)
+          .to({ height: this._targetHeight + (this.isLock ? 500 : 0) }, interval);
+        egret.Tween.get(this._tweenGroup)
+          .to({ scaleX: 1 }, interval)
+          .set({ visible: true })
+          .to({ scaleY: 1, alpha: 1 }, interval);
+        egret.Tween.get(this._tabBarGroup)
+          .wait(interval)
+          .to({ y: 8 }, interval);
+        egret.Tween.get(this._bg)
+          .wait(interval)
+          .to({ ellipseHeight: 28, ellipseWidth: 28 }, interval);
+      }
+
+      protected isLock: boolean = true;
+      protected onLockChanged(evt: egret.Event) {
+        if (evt.type === TableList.LOCK) {
+          const diff = this._maxPanelHeight - this._targetHeight;
+          if (diff>=this.extendHeight) {
+            evt.stopPropagation();
+          }
+          this.isLock = true;
+          this.tweenExpand(200);
+        } else {
+          this.isLock = false;
+          this.tweenExpand(200);
+        }
+        return false;
       }
     }
   }
