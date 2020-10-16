@@ -206,6 +206,7 @@ namespace we {
       public update() {
         if (this.tableInfo) {
           if (this.tableInfo.gamestatistic) {
+            console.log('dt :: this.tableInfo.gamestatistic',            console.log('dt :: this.tableInfo.gamestatistic',this.tableInfo.gamestatistic))
             if (this.tableInfo.gamestatistic.bankerCount) {
               this.bankerCountLabel.text = this.tableInfo.gamestatistic.bankerCount.toString();
             }
@@ -225,6 +226,7 @@ namespace we {
             // }
             if (this.tableInfo.gamestatistic.totalCount) {
               this.totalCount = this.tableInfo.gamestatistic.totalCount;
+              this.totalCountLabel.text = this.tableInfo.gamestatistic.totalCount.toString();
             }
           }
         }

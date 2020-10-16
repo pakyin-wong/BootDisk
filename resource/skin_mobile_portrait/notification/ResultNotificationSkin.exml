@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.ResultNotificationSkin" width="515" height="104" states="BA,DT,LW,RO,DI"
-        xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
+<e:Skin class="skin_mobile_portrait.ResultNotificationSkin" width="515" height="104" states="BA,DT,LW,RO,DI,DL"
+        xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" width.DI="595">
     <e:Rect id="_roundPanel" width="515" height="104" fillAlpha="0.9" ellipseHeight="104" ellipseWidth="104"
-            fillColor="0x23282e" />
+            fillColor="0x23282e"  width.DI="595"/>
 
-    <e:Label id="_lblWinAMount" text="Label" x="321" size="40" touchEnabled="false" verticalCenter="0" />
+    <e:Label id="_lblWinAMount" text="Label" x="321" size="40" touchEnabled="false" verticalCenter="0"  x.DI="401"/>
     <e:Group x="11" touchEnabled="false" touchChildren="false" touchThrough="true" verticalCenter="0" includeIn="BA,DT">
         <e:Rect id="_resultRect" width="78" height="78" ellipseWidth="78" ellipseHeight="78" fillColor="0xff0000" />
         <ui:RunTimeLabel id="_lblResult" text="B" left="0" right="0" top="0" bottom="0" verticalAlign="middle"
                          textAlign="center" size="40" />
     </e:Group>
 
-    <e:Group x="29" touchEnabled="false" touchChildren="false" touchThrough="true" includeIn="LW" y="13">
+    <e:Group x="29" touchEnabled="false" touchChildren="false" touchThrough="true" includeIn="LW,DL" y="13">
+			<e:Group id="_lblDilnonLuckyResult" includeIn="DL" scaleX="1" scaleY="1" width="64" height="77">
+				<e:Label id="_lblDilResult1" text="3" includeIn="DL" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" x="74" y="78"/>
+			</e:Group>
+            <e:Group id="_lblDilLuckyResult" includeIn="DL" scaleX="1" scaleY="1" width="63" height="76">
+                <e:Label id="_lblDilResultTop" text="123 X" includeIn="DL" scaleX="1" scaleY="1" y="12" size="18" horizontalCenter="0"/>
+                <e:Label id="_lblDilResultBottom" text="3" includeIn="DL" scaleX="1" scaleY="1" horizontalCenter="0" x="74" y="40" size="20"/>
+                <e:Image id="_DLresultImage" height="100%" includeIn="DL" x="0" y="0" width="100%"/>       
+            </e:Group>
         <e:Image id="_resultImage" top="0" left="0" right="0" bottom="0" includeIn="LW" x="0" y="0" />
     </e:Group>
 
@@ -21,19 +29,20 @@
                          textAlign="center" size="40" />
     </e:Group>
 
-    <e:Group x="11" touchEnabled="false" touchChildren="false" touchThrough="true" includeIn="DI" y="13">
+    <e:Group x="27" touchEnabled="false" touchChildren="false" touchThrough="true" includeIn="DI" y="29" width="138" height="50">
         <e:Image id="_DIresultImage1" height="100%" includeIn="DI" x="0" y="0" width="38" />
-        <e:Image id="_DIresultImage2" height="100%" includeIn="DI" x="0" y="0" width="38" />
-        <e:Image id="_DIresultImage3" height="100%" includeIn="DI" x="0" y="0" width="38" />
+        <e:Image id="_DIresultImage2" height="100%" includeIn="DI" x="50" y="0" width="38" />
+        <e:Image id="_DIresultImage3" height="100%" includeIn="DI" x="100" y="0" width="38" />
     </e:Group>
     
-    <ui:RunTimeLabel id="_lblName" targetWidth="176" text="百家樂 02" x="102" size="40" touchEnabled="false" verticalCenter="0" />
-    <e:Rect width="3" height="50" fillColor="0xd8d8d8" alpha="0.2" verticalCenter="0" x="298" />
+    <ui:RunTimeLabel id="_lblName" targetWidth="176" text="百家樂 02" x="102" size="40" touchEnabled="false" verticalCenter="0"  x.DI="182"/>
+    <e:Rect width="3" height="50" fillColor="0xd8d8d8" alpha="0.2" verticalCenter="0" x="298"  x.DI="378"/>
     <ui:BaseImageButton id="_btnDismiss" width="122" height="39" x="250"
                         skinName="skin_mobile_portrait.ImageButtonSkinLobby" currentState="lobby_notify_btn_hide"
                         useColorFilter="true" visible="false" />
     <ui:BaseImageButton id="_btnQuickBet" width="64" height="64" x="437"
                         skinName="skin_mobile_portrait.ImageButtonSkinLobby"
-                        currentState="lobby_notify_btn_action_variant" useColorFilter="true" verticalCenter="0" />
-	<e:Group id="_touchArea2" width="100%" height="100%" touchEnabled="false"/>
+                        currentState="lobby_notify_btn_action_variant" useColorFilter="true" verticalCenter="0"  x.DI="517"/>
+	<e:Group id="_touchArea2" width="100%" height="100%" touchEnabled="false" width.DI="595" height.DI="104">
+	</e:Group>
 </e:Skin>

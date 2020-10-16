@@ -5,8 +5,7 @@
 		<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x14181e" ellipseHeight="48" ellipseWidth="48"
 		        strokeColor="0x333c4a" strokeWeight="2" />
 		<e:Image id="close" width="96" height="96" right="26" top="68" source="d-lobby-button-close-none_png" />
-		<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="55" width="487.88" height="119" verticalAlign="middle"
-		                 textColor="0xc59466" size="80" bold="true" scaleX="1" scaleY="1"  anchorOffsetX="0"/>
+
 		<!--<ui:ToggleButton id="_selectAllButton" resNameOn="d_lobby_panel_button_checkboxes_active_png"
 		                 hoverResNameOn="d_lobby_panel_button_checkboxes_active_png"
 		                 resNameOff="d_lobby_panel_button_checkboxes_normal_png"
@@ -15,13 +14,7 @@
 		<!--<ui:BaseImageButton id="_defaultButton" y="75" anchorOffsetX="0" width="320" anchorOffsetY="0" height="90"
 		                        currentState="b_reset" skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" x="745" />
 		-->
-		<e:Group x="379" y="112">
-			<ui:RunTimeLabel id="_selectAllLabel" text="Select All" textAlign="center" anchorOffsetX="0" width="110" size="35" verticalAlign="middle" touchEnabled="false" x="33" y="12" scaleX="1" scaleY="1"/>
-			<ui:ToggleButton id="_selectAllButton" resNameOn="m_common_setting_goodroad_roadmap_checkboxes_active_png" hoverResNameOn="m_common_setting_goodroad_roadmap_checkboxes_active_png" resNameOff="m_common_setting_goodroad_roadmap_checkboxes_png" hoverResNameOff="m_lobby_panel_button_checkboxes_hover_png" y="18" width="22" height="22" anchorOffsetX="0" x="151" scaleX="1" scaleY="1"/>
-			<e:layout>
-				<e:HorizontalLayout verticalAlign="middle"/>
-			</e:layout>
-		</e:Group>
+
 		<ui:RoundRectButton id="_defaultButton" cornerTL_TR_BL_BR="45,45,45,45" width="320" height="90" x="745" y="75"
 		                    stroke="0" strokeIn="3" strokeInColor="0x5f6973" fillAlpha="0"/>
 		<ui:Scroller id="scroller" top="300" bottom="0" left="0" right="0">
@@ -37,5 +30,18 @@
 		        bottom="0" />
 		<ba:GoodRoadEditItem skinName="skin_mobile_portrait.GoodRoadEditItem" id="_editRoadPanel" width="1016" height="953"
 		                     anchorOffsetX="0" anchorOffsetY="0" isDraggable="false" horizontalCenter="0" y="563" />
+		<e:Group x="36" y="56">
+			<ui:RunTimeLabel id="_txt_title" text="Label" height="119" verticalAlign="middle" textColor="0xc59466" size="80" bold="true" scaleX="1" scaleY="1" anchorOffsetX="0" targetWidth="500" x="188.24" y="18.24"/>
+			<e:Group scaleX="1" scaleY="1">
+				<ui:RunTimeLabel id="_selectAllLabel" text="Select All" textAlign="left" anchorOffsetX="0" width="110" size="35" verticalAlign="middle" touchEnabled="false" x="33" y="12" scaleX="1" scaleY="1" targetWidth="130"/>
+				<ui:ToggleButton id="_selectAllButton" resNameOn="m_common_setting_goodroad_roadmap_checkboxes_active_png" hoverResNameOn="m_common_setting_goodroad_roadmap_checkboxes_active_png" resNameOff="m_common_setting_goodroad_roadmap_checkboxes_png" hoverResNameOff="m_lobby_panel_button_checkboxes_hover_png" y="18" width="22" height="22" anchorOffsetX="0" x="151" scaleX="1" scaleY="1"/>
+				<e:layout>
+				<e:HorizontalLayout verticalAlign="middle" gap="15"/>
+				</e:layout>
+			</e:Group>
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="middle" gap="10"/>
+			</e:layout>
+		</e:Group>
 	</e:Group>
 </e:Skin>

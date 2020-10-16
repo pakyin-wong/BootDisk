@@ -137,13 +137,13 @@
 	</e:layout>
 </e:Group>
 </e:Group>
-<dil:GameResultMessage id="_resultMessage" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" horizontalCenter="0"
-                      y="100"  y.left_hand_mode="450" y.right_hand_mode="450"/>
+
 <ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
                   infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
                   errorBg="d_ba_gamerecord_bankerelement_png" y="282" horizontalCenter="0"  y.left_hand_mode="500" y.right_hand_mode="500"/>
 <dil:LuckyCoinGroup id="_luckyCoinGroup"/>
 <e:Rect width="2424" height="30" x="0" bottom="0" fillColor="0x212425" visible="false" />
+	<dil:GameResultMessage id="_resultMessage" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" horizontalCenter="0" y="100" y.left_hand_mode="450" y.right_hand_mode="450"/>
 <!--<e:Group height="50" x="1108" anchorOffsetX="0" anchorOffsetY="0" y="655">
 <ui:RunTimeLabel id="_lblBaMode" x="13" y="26" scaleX="1" scaleY="1" />
 <e:ToggleSwitch id="_switchBaMode" label="免佣" x="88" y="28" scaleX="1" scaleY="1" />

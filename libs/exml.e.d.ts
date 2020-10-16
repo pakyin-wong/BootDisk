@@ -369,6 +369,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class DilBeadRoadResultPanelSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class DilLeftPanel extends eui.Skin{
 	}
 }

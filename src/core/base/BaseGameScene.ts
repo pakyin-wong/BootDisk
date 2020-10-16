@@ -492,7 +492,7 @@ namespace we {
         this.updateCountdownTimer();
       }
       protected showTwoMessage() {
-        this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, '您已3局未下注，2局后踢出');
+        this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, i18n.t('expiredmessage_text'));
       }
       protected checkRoundCountWithoutBet() {
         if (this.tableInfo.totalBet > 0) {
@@ -507,30 +507,15 @@ namespace we {
             dir.evtHandler.showMessage({
               class: 'MessageDialog',
               args: [
-                // i18n.t(''),
-                '您已3局未下注，2局后踢出',
+                i18n.t('expiredmessage_text'),
                 {
-                  // dismiss: { text: i18n.t('') },
-                  dismiss: { text: 'cancelBet' },
+                  dismiss: { text: i18n.t('nav.menu.confirm')},
                 },
               ],
             });
           } else {
             this.showInGameMessage();
           }
-          // =======
-          //           dir.evtHandler.showMessage({
-          //             class: 'MessageDialog',
-          //             args: [
-          //               // i18n.t(''),
-          //               '您已3局未下注，2局后踢出',
-          //               {
-          //                 dismiss: { text: i18n.t('nav.menu.confirm') },
-          //                 // dismiss: { text: 'cancelBet' },
-          //               },
-          //             ],
-          //           });
-          // >>>>>>> develop
         }
 
         if (this._gameRoundCountWithoutBet >= 5) {
@@ -540,13 +525,11 @@ namespace we {
 
       protected showInGameMessage() {
         if (this._expiredMessage) {
-          this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, '您已3局未下注，2局后踢出');
-          // this._message.showMessage(ui.InGameMessage.EXPIRED,i18n.t(''));
+          this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, i18n.t('expiredmessage_text'));
+          // this._message.showMessage(ui.InGameMessage.EXPIRED,i18n.t(''));  
         }
       }
       protected setStateDeal(isInit: boolean = false) {
-        // console.log('this._tableId', this._tableId);
-        // console.log('env.tableinfo[this._tableid]', env.tableInfos[this._tableId]);
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);

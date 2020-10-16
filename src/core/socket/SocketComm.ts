@@ -11,6 +11,10 @@ namespace we {
         data = utils.getQueryParams(query);
         const playerID = data.playerid ? data.playerid : dir.config.playerID;
         const secret = data.secret ? data.secret : dir.config.secret;
+        let isMobile = false;
+        try {
+          isMobile = data.ismobile ? parseInt(data.ismobile)>0  : false;
+        } catch (err) {}
 
         logger.l(utils.LogTarget.RELEASE, `playerID: ${playerID}`);
         const options: any = {};
@@ -36,7 +40,7 @@ namespace we {
           options.path = dir.config.path;
         }
 
-        if (env.isMobile) {
+        if (env.isMobile || isMobile) {
           options.layout = 'mobile_web';
         } else {
           options.layout = 'desktop_web';

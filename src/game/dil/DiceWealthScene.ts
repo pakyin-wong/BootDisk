@@ -12,6 +12,7 @@ namespace we {
       protected _roadmapControl: we.dil.DilRoadmapControl;
       protected _leftGamePanel: we.dil.LeftPanel;
       protected _rightGamePanel: we.dil.RightPanel;
+      protected _beadRoadResultPanel: we.dil.DilBeadRoadResultPanel;
 
       protected initChildren() {
         super.initChildren();
@@ -23,7 +24,11 @@ namespace we {
 
       protected initRoadMap() {
         this._roadmapControl = new we.dil.DilRoadmapControl(this._tableId);
-        this._roadmapControl.setRoads(this._leftGamePanel.beadRoad, this._leftGamePanel, this._rightGamePanel);
+        this._roadmapControl.setRoads(
+          this._leftGamePanel.beadRoad,
+          this._leftGamePanel, 
+          this._rightGamePanel, 
+          this._beadRoadResultPanel);
       }
 
       // public backToLobby() {

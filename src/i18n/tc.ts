@@ -27,6 +27,8 @@ namespace we {
       sidegamelist_tab_bet: '已下注',
       sidegamelist_tab_goodroad: '好路',
 
+      lobby_footer_text: 'Copyright © 2020 World Entertainment 保留一切權利。',
+
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '閒',
       betfield_baccarat_tie: '和',
@@ -160,6 +162,10 @@ namespace we {
       overlaypanel_gameSet_showGoodRoadHint: '顯示百家樂好路提示',
       overlaypanel_gameSet_autoBet: '自動確認投注',
       overlaypanel_gameSet_sendLiveVerfication: '發送現場驗證',
+
+      expiredmessage_text: '您已3局未下注，2局後踢出',
+
+      // customerservicehotlinenumber_text: '客服熱線號碼更新為＋63 9250898888',
 
       datePicker_clean: '清除',
       datePicker_confirm: '確定',

@@ -62,7 +62,10 @@ class Main extends eui.UILayer {
     const query = value.replace('?', '');
     let data: any = {};
     data = we.utils.getQueryParams(query);
-    const isMobile = data.ismobile ? data.ismobile : 0;
+    let isMobile = false;
+    try {
+      isMobile = data.ismobile ? parseInt(data.ismobile)>0  : false;
+    } catch (err) {}
 
     if (type === 'mobile' || isMobile) {
       // if (true) {
