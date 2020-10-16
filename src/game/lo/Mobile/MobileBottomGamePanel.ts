@@ -4,8 +4,6 @@ namespace we {
     export class MobileBottomGamePanel extends ui.MobileBottomCommonPanel {
       public _roadmapPanel: lo.MobileBottomRoadmapPanel;
 
-      // public _roadButtonPanel: di.MobileBottomRoadButtonPanel;
-
       public _statisticChartPanel: lo.StatisticChartPanel;
 
       public _analysisPanel: lo.AnalysisPanel;

@@ -19,13 +19,8 @@ namespace we {
       protected road2Index: number;
       protected road3Index: number;
 
-      // protected road1Btn: eui.RadioButton;
-      // protected road2Btn: eui.RadioButton;
-      // protected road3Btn: eui.RadioButton;
-
       protected pType: ui.RunTimeLabel;
       protected typeNames: string[] = ['B / S', 'O / E', 'DT'];
-      protected typeIndex = 0;
 
       public constructor() {
         super();
@@ -35,9 +30,10 @@ namespace we {
         super.mount();
 
         this.initRoadMap();
+        this.initTypeSelector();
 
-        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
         this.updateText();
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
       }
 
       protected initRoadMap() {
@@ -94,17 +90,16 @@ namespace we {
 
       protected initTypeSelector() {
         const dropdownSource = this.typeNames.map((data, index) => {
-          return ui.NewDropdownItem(index, () => `${this.typeNames[index]}`);
+          return ui.NewDropdownItem(index, () => `${data}`);
         });
 
         utils.DropdownCreator.new({
           toggler: this.pType,
           review: this.pType,
           arrCol: new eui.ArrayCollection(dropdownSource),
-          title: () => `${i18n.t('baccarat.betLimitshort')} ${this.typeNames.length > 0 ? this.typeNames[this.typeIndex] : ''}`,
+          title: () => `${i18n.t('baccarat.betLimitshort')} ${this.typeNames.length > 0 ? this.typeNames[0] : ''}`,
           selected: 0,
         });
-
         // this.updateBetLimit(selectedIndex);
 
         this.pType.addEventListener('DROPDOWN_ITEM_CHANGE', this.onRoadTypeChange, this);
@@ -113,9 +108,6 @@ namespace we {
       public destroy() {
         super.destroy();
         if (this['road1Btn1'].hasEventListener(eui.UIEvent.CHANGE)) {
-          // this.road1Btn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadTypeChange, this);
-          // this.road2Btn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadTypeChange, this);
-          // this.road3Btn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadTypeChange, this);
 
           this.road3NextBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoad3NextBtnClick, this);
           this.road3BackBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoad3BackBtnClick, this);
@@ -136,9 +128,6 @@ namespace we {
       }
 
       public updateText() {
-        // this.road1Btn['labelDisplayDown']['text'] = this.road1Btn['labelDisplayUp']['text'] = 'B/S';
-        // this.road2Btn['labelDisplayDown']['text'] = this.road2Btn['labelDisplayUp']['text'] = 'O/E';
-        // this.road3Btn['labelDisplayDown']['text'] = this.road3Btn['labelDisplayUp']['text'] = 'DT';
 
         for (let i = 1; i <= 5; i++) {
           this['road1Btn' + i]['labelDisplayDown']['text'] = this['road1Btn' + i]['labelDisplayUp']['text'] = 'Ball ' + i;
@@ -169,11 +158,7 @@ namespace we {
         }
       }
       protected onRoadTypeChange(e) {
-        this.roadStack.selectedIndex = this.typeIndex;
-
-        // this['road1Btn1'].selected = true;
-        // this['road2Btn1'].selected = true;
-        // this['road3Btn1'].selected = true;
+        this.roadStack.selectedIndex = e.data;
       }
 
       protected setRoad3PageNum(n: number) {

@@ -14,11 +14,6 @@ namespace we {
       protected chartPeriodIndex: number;
       protected chartTypeIndex: number;
 
-      protected chart1Btn: eui.RadioButton;
-      protected chart2Btn: eui.RadioButton;
-      protected chart3Btn: eui.RadioButton;
-      protected chart4Btn: eui.RadioButton;
-
       protected chartPeriodBtn1: eui.RadioButton;
       protected chartPeriodBtn2: eui.RadioButton;
       protected chartPeriodBtn3: eui.RadioButton;
@@ -30,6 +25,8 @@ namespace we {
       protected _bestGamePieChart: we.di.InteractivePieChart;
       protected _favBetBarChart: we.di.HorizontalBarChart;
       protected _favGameBarChart: we.di.SlopedBarChart;
+
+      protected pType: ui.RunTimeLabel;
 
       public constructor() {
         super();
@@ -136,11 +133,6 @@ namespace we {
         const page4Group = this.chartStack.getChildAt(3) as eui.Group;
         page4Group.addChildAt(this._favGameBarChart, 0);
 
-        this.chart1Btn.addEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
-        this.chart2Btn.addEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
-        this.chart3Btn.addEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
-        this.chart4Btn.addEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
-
         this.chartPeriodBtn1.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
         this.chartPeriodBtn2.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
         this.chartPeriodBtn3.addEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
@@ -158,10 +150,6 @@ namespace we {
 
       protected destroy() {
         super.destroy();
-        this.chart1Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
-        this.chart2Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
-        this.chart3Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
-        this.chart4Btn.removeEventListener(eui.UIEvent.CHANGE, this.onChartTypeChange, this);
 
         this.chartPeriodBtn1.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
         this.chartPeriodBtn2.removeEventListener(eui.UIEvent.CHANGE, this.onChartPeriodIndexChange, this);
@@ -263,8 +251,8 @@ namespace we {
       }
 
       protected onChartTypeChange(e: eui.UIEvent) {
-        this.chartTypeIndex = e.target.value - 0;
-        this.chartStack.selectedIndex = this.chartTypeIndex;
+        // this.chartTypeIndex = e.target.value - 0;
+        this.chartStack.selectedIndex = e.data;
 
         this.loadingOverlay.visible = true;
         const filter = { operatorID: 'IBC-sjfbshd', timeFilter: '', typeFilter: this.chartTypeMapping[this.chartTypeIndex] };
@@ -280,12 +268,24 @@ namespace we {
         this.changeLang();
       }
 
-      public changeLang() {
-        this.chart1Btn['labelDisplayDown']['text'] = this.chart1Btn['labelDisplayUp']['text'] = 'L.Time';
-        this.chart2Btn['labelDisplayDown']['text'] = this.chart2Btn['labelDisplayUp']['text'] = 'L.Game';
-        this.chart3Btn['labelDisplayDown']['text'] = this.chart3Btn['labelDisplayUp']['text'] = 'Fav.Bet';
-        this.chart4Btn['labelDisplayDown']['text'] = this.chart4Btn['labelDisplayUp']['text'] = 'Fav.Game';
+      protected initTypeSelector() {
+        const dropdownSource = this.chartTypeNames.map((data, index) => {
+          return ui.NewDropdownItem(index, () => `${data}`);
+        });
 
+        utils.DropdownCreator.new({
+          toggler: this.pType,
+          review: this.pType,
+          arrCol: new eui.ArrayCollection(dropdownSource),
+          title: () => `${i18n.t('baccarat.betLimitshort')} ${this.chartTypeNames.length > 0 ? this.chartTypeNames[0] : ''}`,
+          selected: 0,
+        });
+        // this.updateBetLimit(selectedIndex);
+
+        this.pType.addEventListener('DROPDOWN_ITEM_CHANGE', this.onChartTypeChange, this);
+      }
+
+      public changeLang() {
         this.chartPeriodBtn1['labelDisplayDown']['text'] = this.chartPeriodBtn1['labelDisplayUp']['text'] = 'Day';
         this.chartPeriodBtn2['labelDisplayDown']['text'] = this.chartPeriodBtn2['labelDisplayUp']['text'] = 'pDay';
         this.chartPeriodBtn3['labelDisplayDown']['text'] = this.chartPeriodBtn3['labelDisplayUp']['text'] = 'Week';

@@ -20,6 +20,8 @@ namespace we {
       // protected _gamebar: LotteryGameBar;
       protected _video: egret.FlvVideo;
 
+      protected _bottomGamePanel: ui.MobileBottomCommonPanel;
+
       constructor(data: any) {
         super();
         this.customKey = 'lo';
@@ -39,6 +41,8 @@ namespace we {
         // this._gamebar.tableid = this._tableId;
         // this._gamebar.key = this.customKey;
         this.initVideo();
+
+        this.initBottomGamePanel();
 
         this.setMode(Mode.Fun);
         utils.addButtonListener(this._btn_mode, this.onBtnMode, this);
@@ -100,6 +104,35 @@ namespace we {
         this._video.$anchorOffsetY = this._video.height * 0.5;
         this.addChildAt(this._video, 0);
         this._video.play();
+      }
+
+      protected initBottomGamePanel() {
+        // mouse.setButtonMode(this._videoBtn, false);
+        this._bottomGamePanel.setTableInfo(this._tableInfo);
+        // this._bottomGamePanel.gameScene = this;
+
+        // if (this._bottomGamePanel._tableInfoPanel && this._lblRoomInfo) {
+        //   this._lblRoomInfo.addEventListener(
+        //     egret.TouchEvent.TOUCH_TAP,
+        //     () => {
+        //       this._bottomGamePanel.openTableInfo();
+        //     },
+        //     this
+        //   );
+        // }
+      }
+
+      protected updateTableInfoRelatedComponents() {
+        this._bottomGamePanel.update();
+      }
+
+      protected onRoadDataUpdate(evt: egret.Event) {
+        if (evt && evt.data) {
+          const stat = <data.TableInfo>evt.data;
+          if (stat.tableid === this._tableId) {
+            this._bottomGamePanel.updateStat();
+          }
+        }
       }
 
       protected removeVideo() {
