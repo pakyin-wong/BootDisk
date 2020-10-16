@@ -63,26 +63,27 @@ namespace we {
 
       protected updateBetLimitText(items, idx) {
         if (this._toggler) {
-          let _betLimitLabel = i18n.t('baccarat.betLimitshort');
           this._gameIdx = items.length > 0 ? items[idx] : '';
-          // this._toggler.renderText = () => `......${i18n.t('baccarat.betLimitshort')} ${items.length > 0 ? items[idx] : ''}`;
-          this._toggler.textFlow = <Array<egret.ITextElement>>[
-            { text: "妈妈再也不用担心我在", style: { "size": 12 } },
-            { text: _betLimitLabel, style: { "textColor": 0xff0000 } },
-            { text: this._gameIdx, style: { "textColor": 0x336699, "size": 60, "strokeColor": 0x6699cc, "stroke": 2 } }
+          // this._toggler.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${items.length > 0 ? items[idx] : ''}`;
+          this._toggler.textAlign = egret.VerticalAlign.MIDDLE;
+          this._toggler.textFlow = <egret.ITextElement[]>[
+            { text: i18n.t('baccarat.betLimitshort') + "  ", style: { textColor: 0xffffff, size: 48 } },
+            { text: this._gameIdx, style: { textColor: 0xffffff, size: 60 } },
           ];
         }
       }
 
       protected changeLang() {
         if (this._toggler) {
-          let _betLimitLabel = i18n.t('baccarat.betLimitshort');
-          this._toggler.textFlow = <Array<egret.ITextElement>>[
-            { text: "妈妈再也不用担心我在", style: { "size": 12 } },
-            { text: _betLimitLabel, style: { "textColor": 0xff0000 } },
-            { text: this._gameIdx, style: { "textColor": 0x336699, "size": 60, "strokeColor": 0x6699cc, "stroke": 2 } }
+          this._toggler.textFlow = <egret.ITextElement[]>[
+            { text: i18n.t('baccarat.betLimitshort') + "  ", style: { textColor: 0xffffff, size: 48 } },
+            { text: this._gameIdx, style: { textColor: 0xffffff, size: 60 } },
           ];
         }
+      }
+      protected destroy() {
+        super.destroy();
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
 
       // protected initCustomPos() {
