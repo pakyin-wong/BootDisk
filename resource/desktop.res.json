@@ -7344,7 +7344,7 @@
 			"name": "d_bcba_panel_instructions_step3_png"
 		},
 		{
-			"url": "assets/images/d/bab/d_bcba_panel_bg.png",
+			"url": "assets/nmimages/d/bab/d_bcba_panel_bg.png",
 			"type": "image",
 			"name": "d_bcba_panel_bg_png"
 		},
@@ -7354,12 +7354,12 @@
 			"name": "d_bcba_panel_shoe_card_red_png"
 		},
 		{
-			"url": "assets/images/d/bab/d_bcba_panel_verification_key_bg.png",
+			"url": "assets/nmimages/d/bab/d_bcba_panel_verification_key_bg.png",
 			"type": "image",
 			"name": "d_bcba_panel_verification_key_bg_png"
 		},
 		{
-			"url": "assets/images/d/bab/d_bcba_panel_verification_encryt_bg.png",
+			"url": "assets/nmimages/d/bab/d_bcba_panel_verification_encryt_bg.png",
 			"type": "image",
 			"name": "d_bcba_panel_verification_encryt_bg_png"
 		},

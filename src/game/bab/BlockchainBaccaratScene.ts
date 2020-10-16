@@ -24,7 +24,7 @@ namespace we {
         this._deckPanel.setValue(<bab.GameData> this._gameData);
         this._deckPanel.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         this._cardInfoPanel.addEventListener('OPEN_DECK_PANEL', this.showDeckPanel, this);
-        this._cardInfoPanel.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this)
+        this._cardInfoPanel.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
         (<any> this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
 
       }
