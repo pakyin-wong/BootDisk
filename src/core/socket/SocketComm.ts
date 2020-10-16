@@ -1030,9 +1030,11 @@ namespace we {
       public checkResultNotificationReady(tableInfo: data.TableInfo) {
         if (tableInfo.data) {
           if (this.hasBet(tableInfo)) {
+            const TableInfo = we.utils.clone(tableInfo);
             if (tableInfo.data && tableInfo.data.state === core.GameState.FINISH && !isNaN(tableInfo.totalWin)) {
               const data = {
                 tableid: tableInfo.tableid,
+                tableInfo: TableInfo,
               };
               const notification: data.Notification = {
                 type: core.NotificationType.Result,

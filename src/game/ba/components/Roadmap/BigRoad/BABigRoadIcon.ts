@@ -161,7 +161,7 @@ namespace we {
         const colors = [0xdb0011, 0x0167cc, 0xc2263e, 0x0c5ec3];
         const iconSize = this.size;
         const circleRadius = (this.size / 2) * 0.9;
-        const lineWidth = 4;
+        const lineWidth = env.isMobile ? 4 : 2;
         const offset = (iconSize - circleRadius * 2) / 2;
 
         let colorIdx = 0;

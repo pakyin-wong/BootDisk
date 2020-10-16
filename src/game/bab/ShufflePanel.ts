@@ -25,23 +25,18 @@ namespace we {
       }
 
       protected createFirstCard() {
-
         this._firstGroup = new eui.Group();
         this._firstGroup.width = 234;
         this._firstGroup.height = 342;
 
-
         this._firstCard = this._factory.buildArmatureDisplay('poker');
 
-        
         this._firstCard.armature.getSlot('card_number_vertical').display = this.createIndexLabel(1);
         const firstCardFront = this.getFirstCardFront(this._gameData.firstcard);
         firstCardFront.anchorOffsetX = this._firstGroup.width / 2;
         firstCardFront.anchorOffsetY = this._firstGroup.height / 2;
 
-        this._firstCard.armature.getSlot('card_front_vertical').display 
-
-
+        this._firstCard.armature.getSlot('card_front_vertical').display;
 
         this._firstGroup.horizontalCenter = 0;
         this._firstGroup.addChild(this._firstCard);
@@ -68,7 +63,7 @@ namespace we {
       }
 
       protected getFirstCardFront(cardString: string) {
-        const resName = (cardString === 'back') ? 'back' : utils.formatCardForFlip(cardString);
+        const resName = cardString === 'back' ? 'back' : utils.formatCardForFlip(cardString);
 
         const image = new eui.Image();
         image.width = 204;
@@ -91,7 +86,6 @@ namespace we {
         console.log('ShufflePanel::anim()', gameData);
         this._allCardsGroup.removeChildren();
 
-
         if (!this._gameData || !this._gameData.firstcard) {
           return;
         }
@@ -104,7 +98,6 @@ namespace we {
         this._gameData = gameData;
         console.log('ShufflePanel::stat()', gameData);
         this._allCardsGroup.removeChildren();
-
 
         if (!this._gameData || !this._gameData.firstcard) {
           return;

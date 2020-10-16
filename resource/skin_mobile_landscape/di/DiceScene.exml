@@ -143,7 +143,7 @@
                                 x.right_hand_mode="588" x.left_hand_mode="350" />
         </e:Group>
     </e:Group>
-    <e:Group id="_betChipSetPanel" width="1566" height="260" scaleY="1" x="366" y="264" y.left_hand_mode="336"
+    <!--<e:Group id="_betChipSetPanel" width="1566" height="260" scaleY="1" x="366" y="264" y.left_hand_mode="336"
              y.right_hand_mode="336" x.left_hand_mode="390.24" x.right_hand_mode="380">
         <e:Group id="_betPanelGroup" scaleY="1" x="0" height="260" y="0" width="100%" y.right_hand_mode="0">
             <e:Image id="_panel" width="1566" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1"
@@ -155,7 +155,22 @@
         </e:Group>
         <ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" horizontalCenter="0" betChipWidth="250"
                            betChipHeight="208" scaleY="1" anchorOffsetY="0" right="0" left="0" labelSize="48" y="35" />
-    </e:Group>
+    </e:Group>-->
+
+    	<e:Group id="_betChipSetPanel" width="1566" height="443" scaleY="1" x="366" y="304">
+		<e:Group id="_betPanelGroup" scaleY="1" x="0" height="443" y="0" width="100%" >
+			<e:Image id="_panel" width="1566" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1"
+			         scaleX="1" y="0" height="443" x="0" />
+			<e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" scaleY="1" width="68" y="-35"
+			         scaleX="1" x.right_hand_mode="190" rotation="0" x.left_hand_mode="1405" />
+		</e:Group>
+		<ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" horizontalCenter="0" betChipWidth="250"
+		                   betChipHeight="208" numChipsInRow="6" chipSizeScale="0.75" horizontalGapSize="-20" verticalGapSize="-20"
+		                   left="0" labelSize="48" y="35" />
+	</e:Group>
+
+
+
     <di:GameResultMessage id="_resultMessage" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
                           horizontalCenter.left_hand_mode="0" top.left_hand_mode="350"
                           horizontalCenter.right_hand_mode="0" top.right_hand_mode="350" />

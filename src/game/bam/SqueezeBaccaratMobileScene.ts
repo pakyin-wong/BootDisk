@@ -56,7 +56,15 @@ namespace we {
         this._resultDisplay.importData(this._cardHolderData);
       }
 
-      protected showResultDisplay(isShow: boolean) {}
+      protected showResultDisplay(isShow: boolean) {
+        super.showResultDisplay;
+        egret.Tween.removeTweens(this._resultDisplay);
+        if (isShow) {
+          egret.Tween.get(this._resultDisplay).to({ y: 500, alpha: 1 }, 400);
+        } else {
+          egret.Tween.get(this._resultDisplay).to({ y: 1000, alpha: 0 }, 10);
+        }
+      }
 
       protected setStateDeal(isInit: boolean = false) {
         if (this._previousState === we.core.GameState.BET) {

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.lw.StatisticChartPanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.lw.StatisticChartPanel" width="1242" height="550" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:lw="we.lw.*">
-	<e:Group id="content" width="100%" height="100%">
-		<e:Rect width="1242" height="532" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" />
+	<e:Group id="content" width="100%" height="550">
+		<e:Rect width="1242" height="550" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" />
 		<lw:StatisticChartPanelBar id="_progress_East" width="547" height="26" y="111" x="43"
 		                           source="m_lw_hor_betpool_barchart_east_png" />
 		<ui:RoundRectShape cornerTL_TR_BL_BR="12,12,12,12" fillColor="0x4A4A4A" fillAlpha="0.3" stroke="0" width="547"

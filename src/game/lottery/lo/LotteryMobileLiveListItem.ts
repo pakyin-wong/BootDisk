@@ -43,7 +43,7 @@ namespace we {
           this._counter5.text = dateStr.substr(6, 1);
           this._counter6.text = dateStr.substr(7, 1);
 
-          this._counter1.textColor = (diff > 5999) ? 0x4adc84 : 0xe4493a;
+          this._counter1.textColor = diff > 5999 ? 0x4adc84 : 0xe4493a;
           this._timerDot1.textColor = this._timerDot2.textColor = this._counter2.textColor = this._counter3.textColor = this._counter4.textColor = this._counter5.textColor = this._counter6.textColor = this._counter1.textColor;
         } else {
           this.resetTimer();

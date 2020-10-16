@@ -24,6 +24,7 @@ namespace we {
       protected _goodRoadLabel: ui.GoodRoadLabel;
 
       protected _toggler: ui.RunTimeLabel;
+      protected _betLimit: ui.RunTimeLabel;
 
       protected _tableLayerNode: eui.Component;
       protected _chipLayerNode: eui.Component;
@@ -183,8 +184,11 @@ namespace we {
         const betLimitItems = betLimitList.map(data => {
           return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
         });
-        if (this._toggler) {
-          this._toggler.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`;
+        // if (this._toggler) {
+        // this._toggler.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`;
+        if (this._toggler && this._betLimit) {
+          this._betLimit.renderText = () => `${i18n.t('baccarat.betLimitshort')}`;
+          this._toggler.renderText = () => `${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`;
         }
       }
 
