@@ -214,7 +214,9 @@ namespace we {
               this.playerCountLabel.text = this.tableInfo.gamestatistic.playerCount.toString();
             }
             if (this.tableInfo.gamestatistic.tieCount) {
-              this.tieCountLabel.text = this.tableInfo.gamestatistic.tieCount.toString();
+              if (this.tieCountLabel) {
+                this.tieCountLabel.text = this.tableInfo.gamestatistic.tieCount.toString();
+              }
             }
             // if (this.tableInfo.gamestatistic.bankerPairCount) {
             //   this.bankerPairCountLabel.text = this.tableInfo.gamestatistic.bankerPairCount.toString();

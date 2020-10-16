@@ -2,6 +2,7 @@ namespace we {
   export namespace bab {
     export class BasePanel extends ui.Panel {
       protected _gameData;
+      protected _closeButton;
 
       protected mount() {
         super.mount();
@@ -9,15 +10,13 @@ namespace we {
       }
 
       protected createBg() {
-        const rect = new eui.Rect();
-        rect.width = this.width;
-        rect.height = this.height;
-        rect.fillColor = 0x222222;
-        rect.alpha = 0.8;
-        this.content && this.content.addChildAt(rect, 0);
+        const image = new eui.Image();
+        image.width = this.width;
+        image.height = this.height;
+        image.source = 'd_bcba_panel_bg_png';
+        image.scale9Grid = new egret.Rectangle(169, 118, 2, 802);
+        this.content && this.content.addChildAt(image, 0);
       }
-
-      public setValue(gameData: any) {}
     }
   }
 }

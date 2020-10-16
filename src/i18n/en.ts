@@ -528,8 +528,8 @@ namespace we {
         statisticChart: {
           bankerPlayerTie: 'Banker Player Tie (100 rounds)',
           bankerPlayerTiePair: 'Banker Player Tie pair (100 rounds)',
-          shoeBankerPlayerTie: 'Banker Player Tie(本靴)',
-          shoeBankerPlayerTiePair: 'Banker Player Tie pair (本靴)',
+          shoeBankerPlayerTie: 'Banker Player Tie (shoe)',
+          shoeBankerPlayerTiePair: 'Banker Player Tie pair (shoe)',
         },
         playerPair: 'Player Pair',
         bankerPair: 'Banker Pair',
@@ -575,6 +575,14 @@ namespace we {
         allOpen: 'All Open',
         fullShoe: 'All cards in shoe',
         mechanismHelp: 'Help',
+        verification: 'Verification',
+        thirdParty: 'Verification',  
+        sha256VerifySuccess: 'SHA256 Verified',
+        deckDesc : '416 cards',
+        copy: 'Copy',
+        encryptedKey: 'Encrypted Key Before Distribution',
+        decryptedKey: 'Encrypted Key',
+        ssn: 'Serial Number'
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',

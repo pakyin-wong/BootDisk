@@ -178,7 +178,10 @@ namespace we {
             case we.core.GameType.DI:
               return i18n.t(`dice.${bettype.toLowerCase()}`);
             case we.core.GameType.DIL:
-              return bettype;
+            let res = bettype;
+            let dilresultStr = res.split("_");
+            let dilresult = dilresultStr[1]
+              return dilresult;
             case we.core.GameType.RO:
             case we.core.GameType.ROL:
               return i18n.t(`roulette.${bettype.toLowerCase()}`);

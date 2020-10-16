@@ -51,6 +51,8 @@ namespace we {
       private isPrevBlock = false;
       private isNextBlock = false;
 
+      public maskRadius: number = 0;
+
       public constructor() {
         super();
       }
@@ -192,7 +194,11 @@ namespace we {
         let gr = shape.graphics;
         gr.clear();
         gr.beginFill(0x00ff00, 1);
-        gr.drawRect(0, 0, this.slideWidth, this.slideHeight);
+        if (this.maskRadius > 0) {
+          gr.drawRoundRect(0, 0, this.slideWidth, this.slideHeight, this.maskRadius * 2, this.maskRadius * 2);
+        } else {
+          gr.drawRect(0, 0, this.slideWidth, this.slideHeight);
+        }
         gr.endFill();
 
         shape.x = 0;
@@ -422,12 +428,12 @@ namespace we {
         // this._previousPosition = this._startPosition;
 
         if (env.isMobile) {
-          (<any> canvas).addEventListener('touchmove', this.onTouchMove, { passive: false });
-          (<any> canvas).addEventListener('touchend', this.onTouchEnd, { passive: false });
+          (<any>canvas).addEventListener('touchmove', this.onTouchMove, { passive: false });
+          (<any>canvas).addEventListener('touchend', this.onTouchEnd, { passive: false });
           // console.log('mobile :' + this._startPosition);
         } else {
-          (<any> window).addEventListener('mousemove', this.onTouchMove, { passive: false });
-          (<any> window).addEventListener('mouseup', this.onTouchEnd, { passive: false });
+          (<any>window).addEventListener('mousemove', this.onTouchMove, { passive: false });
+          (<any>window).addEventListener('mouseup', this.onTouchEnd, { passive: false });
           // console.log('desktop :' + this._startPosition);
         }
 
@@ -654,11 +660,11 @@ namespace we {
         const canvas = document.getElementsByTagName('canvas')[0];
 
         if (env.isMobile) {
-          (<any> canvas).removeEventListener('touchmove', this.onTouchMove, { passive: false });
-          (<any> canvas).removeEventListener('touchend', this.onTouchEnd, { passive: false });
+          (<any>canvas).removeEventListener('touchmove', this.onTouchMove, { passive: false });
+          (<any>canvas).removeEventListener('touchend', this.onTouchEnd, { passive: false });
         } else {
-          (<any> window).removeEventListener('mousemove', this.onTouchMove, { passive: false });
-          (<any> window).removeEventListener('mouseup', this.onTouchEnd, { passive: false });
+          (<any>window).removeEventListener('mousemove', this.onTouchMove, { passive: false });
+          (<any>window).removeEventListener('mouseup', this.onTouchEnd, { passive: false });
         }
 
         // (<any>window).removeEventListener('mousemove', this.onTouchMove, { passive: false });

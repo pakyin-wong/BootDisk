@@ -85,21 +85,6 @@ namespace we {
             case we.core.GameType.BAM:
             case we.core.GameType.BAB:
               return ba.SideListItemHolder;
-            case we.core.GameType.RO:
-            case we.core.GameType.ROL:
-              return ro.SideListItemHolder;
-            case we.core.GameType.DI:
-              return di.SideListItemHolder;
-            case we.core.GameType.DIL:
-              return dil.SideListItemHolder;
-            case we.core.GameType.LW:
-              return lw.SideListItemHolder;
-            case we.core.GameType.DT:
-              return dt.SideListItemHolder;
-            case we.core.GameType.LO:
-              return lo.SideListItemHolder;
-            case we.core.GameType.RC:
-              return rc.SideListItemHolder;
             default:
               throw new Error('Invalid Game Type: ' + tableInfo.gametype);
           }
@@ -201,7 +186,7 @@ namespace we {
         const tableList = evt.data;
         this.goodRoadTableList.setTableList(tableList);
         const count = tableList.length;
-        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(1);
+        const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(1);
         if (tabItem) {
           tabItem.onBadgeUpdate('goodroad', count);
         }
@@ -220,7 +205,7 @@ namespace we {
         const tableList = evt.data;
         this.betTableList.setTableList(tableList);
         const count = tableList.length;
-        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(0);
+        const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(0);
         if (tabItem) {
           tabItem.onBadgeUpdate('bet', count);
         }

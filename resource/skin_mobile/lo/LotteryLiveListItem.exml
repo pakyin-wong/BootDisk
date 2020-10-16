@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.LotteryLiveListItemSkin" width="1140" height="399" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Group id="_contentContainer" width="100%" height="399" x="0" y="0" anchorOffsetY="0">
+		<ui:RoundRectShape id="_bg" cornerTL_TR_BL_BR="12,12,12,12" height="399" width="1138" stroke="2" strokeIn="1"
+		                   strokeColor="0x000000" strokeInColor="0x3a3f48" fillColor="0x091b31" horizontalCenter="0" />
+		<ui:RoundRectShape cornerTL_TR_BL_BR="12,12,0,0" height="108" width="1138" stroke="0" strokeIn="0"
+		                   fillColor="0x23282e" horizontalCenter="0" />
+		<e:Image width="80" height="80" x="16" y="14" />
+		<e:Group x="110" y="24">
+			<ui:RunTimeLabel id="_label_game" textAlign="left" size="48" text="時時彩" />
+			<e:Label id="_label_ID" textAlign="left" y="-10" size="60" text="3" fontFamily="Barlow" anchorOffsetY="0" height="62" />
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="middle" />
+			</e:layout>
+		</e:Group>
+		<ui:RoundRectShape width="97" height="78" cornerTL_TR_BL_BR="8,8,8,8" x="772" y="15" fillColor="0x112239"
+		                   fillAlpha="0.8" stroke="0" />
+		<ui:RoundRectShape width="97" height="78" cornerTL_TR_BL_BR="8,8,8,8" x="892" y="15" fillColor="0x112239"
+		                   fillAlpha="0.8" stroke="0" />
+		<ui:RoundRectShape width="97" height="78" cornerTL_TR_BL_BR="8,8,8,8" x="1012" y="15" fillColor="0x112239"
+		                   fillAlpha="0.8" stroke="0" />
+		<e:Group id="_timerGroup" x="781.31" y="8">
+			<e:Label id="_counter1" text="0" height="86" verticalAlign="middle" size="72" textColor="0x4ADC84" bold="true"
+			         fontFamily="Barlow" x="204" textAlign="center" width="36" />
+			<e:Label id="_counter2" text="0" width="36" height="86" verticalAlign="middle" size="72" textColor="0x4ADC84"
+			         bold="true" fontFamily="Barlow" x="222.5" textAlign="center" />
+			<e:Label id="_timerDot1" text=":" height="86" verticalAlign="middle" size="72" textColor="0x4ADC84" bold="true"
+			         fontFamily="Barlow" x="239" width="30" textAlign="center" />
+			<e:Label id="_counter3" text="0" width="36" height="86" verticalAlign="middle" size="72" textColor="0x4ADC84"
+			         bold="true" fontFamily="Barlow" x="250.5" textAlign="center" />
+			<e:Label id="_counter4" text="0" width="36" height="86" verticalAlign="middle" size="72" textColor="0x4ADC84"
+			         bold="true" fontFamily="Barlow" x="268.5" textAlign="center" />
+			<e:Label id="_timerDot2" text=":" height="86" verticalAlign="middle" size="72" textColor="0x4ADC84" bold="true"
+			         fontFamily="Barlow" x="284" width="30" textAlign="center" />
+			<e:Label id="_counter5" text="0" width="36" height="86" verticalAlign="middle" size="72" textColor="0x4ADC84"
+			         bold="true" fontFamily="Barlow" x="294" textAlign="center" />
+			<e:Label id="_counter6" text="0" width="36" height="86" verticalAlign="middle" size="72" textColor="0x4ADC84"
+			         bold="true" fontFamily="Barlow" x="311" textAlign="center" />
+			<e:layout>
+				<e:HorizontalLayout gap="6" />
+			</e:layout>
+		</e:Group>
+		<e:Component id="_roadmapNode" width="1136" height="290" x="1" y="108" anchorOffsetY="0" horizontalCenter="0"
+		             visible="false" />
+		<ui:InGameMessage id="_message" anchorOffsetX="238.79" anchorOffsetY="42.5"
+		                  skinName="skin_mobile_portrait.InGameMessageSkin" width="476" height="85" horizontalCenter="0"
+		                  y="237" infoBg="m_common_gamestate_message_black_png"
+		                  successBg="m_common_gamestate_message_green_png" errorBg="m_common_gamestate_message_red_png" />
+		<e:Group anchorOffsetX="0" anchorOffsetY="0" x="24" y="296" height="80">
+			<ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_mobile_portrait.GoodRoadLabelSkin" visible="false" />
+			<e:Group id="_alreadyBetSign" height="80" y="0" x="0">
+				<e:Rect right="0" left="0" top="0" bottom="0" ellipseWidth="80" ellipseHeight="80" fillAlpha="0.76"
+				        fillColor="0x42bc60" />
+				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="56" left="30" right="30" />
+			</e:Group>
+			<e:layout>
+				<e:HorizontalLayout/>
+			</e:layout>
+		</e:Group>
+	</e:Group>
+	<e:Rect id="_dimmer" left="0" top="104" bottom="0" right="0" fillAlpha="0.7" anchorOffsetY="0" visible="false" />
+	<e:Group id="_buttonGroup" width="1140" x="0" y="196" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false"
+	         touchChildren="true">
+		<ui:RoundRectButton id="_quickBetButton" verticalCenter="0" left="200" width="350" height="100"
+		                    cornerTL_TR_BL_BR="50,50,50,50" skinName="skin_mobile.QuickBetButtonSkin" stroke="0" strokeIn="0"
+		                    fillColor="00AA5E" fillAlpha="1" fillAlpha_hover="0.7" labelSize="48" visible="false" />
+		<ui:RoundRectButton id="_enterTableButton" width="350" height="100" cornerTL_TR_BL_BR="50,50,50,50" stroke="0"
+		                    strokeIn="0" fillColor="00AA5E" fillAlpha="1" fillAlpha_hover="0.7" labelSize="50" y="0" x="395" />
+		<ui:AnimatedToggleButton id="_favouriteButton" dbClass="lobby_ui" dbDisplay="d_lobby_icon_fav" height="44" right="20"
+		                         width="42" bottom="-90" scaleX="2" scaleY="2" />
+	</e:Group>
+</e:Skin>
