@@ -79,6 +79,7 @@ namespace we {
       public playerLotteryStat: any;
       public isMobile: boolean = false;
       public orientation: string = egret.OrientationMode.LANDSCAPE;
+      public orientationManager: we.utils.OrientationManager;
       public leftHandMode: boolean = false;
 
       public showGoodRoadHint: boolean = false;

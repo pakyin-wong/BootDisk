@@ -39,6 +39,10 @@
 		{
 			"keys": "lo_json,d_lottery_ent_penal_betarea_betpenal_bg_blue_title_png,d_lottery_ent_penal_betarea_betpenal_bg_blue_png,d_lottery_ent_penal_betarea_betpenal_bg_green_title_png,d_lottery_ent_penal_betarea_betpenal_bg_green_png,d_lottery_ent_penal_betarea_betpenal_bg_purple_title_png,d_lottery_ent_penal_betarea_betpenal_bg_purple_png,d_lottery_ent_penal_betarea_betpenal_five_bet_active_png,d_lottery_ent_penal_betarea_betpenal_five_bet_hover_png",
 			"name": "scene_lottery"
+		},
+		{
+			"keys": "d_bcba_panel_verification_encryt_bg_png,d_bcba_panel_verification_key_bg_png,d_bcba_panel_bg_png",
+			"name": "scene_bc_baccarat"
 		}
 	],
 	"resources": [
@@ -616,6 +620,21 @@
 			"url": "assets/dragonbones/d/chip/chips_select_tex.png",
 			"type": "image",
 			"name": "chips_select_tex_png"
+		},
+		{
+			"url": "assets/nmimages/d/bab/d_bcba_panel_verification_encryt_bg.png",
+			"type": "image",
+			"name": "d_bcba_panel_verification_encryt_bg_png"
+		},
+		{
+			"url": "assets/nmimages/d/bab/d_bcba_panel_verification_key_bg.png",
+			"type": "image",
+			"name": "d_bcba_panel_verification_key_bg_png"
+		},
+		{
+			"url": "assets/nmimages/d/bab/d_bcba_panel_bg.png",
+			"type": "image",
+			"name": "d_bcba_panel_bg_png"
 		}
 	]
 }

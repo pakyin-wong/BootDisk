@@ -163,7 +163,7 @@ namespace we {
       }
 
       public updateResult(gameData: data.GameData, chipLayer: ui.ChipLayer, isInit: boolean) {
-        console.log('BAM cardholder::updateResult ', gameData, isInit);
+        console.log('BAB cardholder::updateResult ', gameData, isInit);
 
         this._gameData = <bab.GameData> gameData;
         this.updateCardInfoButtons();
@@ -288,13 +288,13 @@ namespace we {
 
       protected async betInitState(currentIndexAnchor = -1) {
         const cardAnimName = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2', '_smallPlayerCard3', '_smallBankerCard3'];
-        console.log('betinit begin')
+        console.log('betinit begin');
         for (let i = 0; i < cardAnimName.length; i++) {
           const cardAnim = <dragonBones.EgretArmatureDisplay> this[cardAnimName[i]];
           cardAnim.armature.getSlot('card_number_vertical').display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexAnchor + i);
           cardAnim.animation.gotoAndStopByTime('vertical_loop_back', 0);
         }
-        console.log('betinit end')
+        console.log('betinit end');
         return new Promise(resolve => resolve());
       }
 
@@ -321,19 +321,21 @@ namespace we {
         console.log('dealInitState 3');
         let j = 0;
         for (let i = 0; i < cardAnimNames.length; i++) {
-          const currentCardData = this._gameData[dataName[i]];
-          if (!currentCardData) {
-            continue;
-          }
-          j++;
-          if (cardAnimNames[i] === '_playerCard1' || cardAnimNames[i] === '_bankerCard1') {
-            continue;
-          }
           const cardAnim = <dragonBones.EgretArmatureDisplay> this[cardAnimNames[i]];
+          const currentCardData = this._gameData[dataName[i]];
           let orientation = 'vertical';
           if (cardAnimNames[i] === '_playerCard3' || cardAnimNames[i] === '_bankerCard3') {
             orientation = 'horizontal';
           }
+          if (!currentCardData) {
+            continue;
+          }
+          j++;
+          this.setCardFrontFace(cardAnim,currentCardData,currentIndexAnchor,j,cardAnimNames,i,orientation)
+          if (cardAnimNames[i] === '_playerCard1' || cardAnimNames[i] === '_bankerCard1') {
+            continue;
+          }
+
 
           console.log('dealInitState 4');
 
@@ -376,26 +378,6 @@ namespace we {
             );
           }
 
-          cardAnim.armature.getSlot(`card_number_${orientation}`).display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexAnchor + j);
-
-          console.log('dealInitState 5');
-          const cardSlot = cardAnim.armature.getSlot(`card_front_${orientation}`);
-          const group = new eui.Group();
-          const image = new eui.Image();
-          image.width = 204;
-          image.height = 312;
-          image.source = utils.getCardResName(utils.formatCardForFlip(currentCardData));
-          image.anchorOffsetX = image.width / 2;
-          image.anchorOffsetY = image.height / 2;
-          if (cardAnimNames[i] === '_playerCard3') {
-            image.rotation = 90;
-          }
-          if (cardAnimNames[i] === '_bankerCard3') {
-            image.rotation = 270;
-          }
-          group.addChild(image);
-          cardSlot.display = group;
-
           console.log('dealInitState 6');
 
           cardAnim.animation.gotoAndStopByTime(`${orientation}_loop_front`, 0);
@@ -431,16 +413,17 @@ namespace we {
         const dataName = ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
 
         console.log('flipCards 3');
-        //find current field
-        let currentField = -1
+
+        // find current field
+        let currentField = -1;
         for (let i = dataName.length - 1; i >= 0; i--) {
-          if(this._gameData[dataName[i]]){
+          if (this._gameData[dataName[i]]) {
             currentField = i;
             break;
           }
         }
 
-        console.log('flipCard currentfield', currentField)
+        console.log('flipCard currentfield', currentField);
         for (let i = currentField; i >= 0; i--) {
           const cardAnim = <dragonBones.EgretArmatureDisplay> this[cardAnimNames[i]];
           let orientation = 'vertical';
@@ -449,10 +432,10 @@ namespace we {
           }
 
           const currentCardData = this._gameData[dataName[i]];
+          this.setCardFrontFace(cardAnim,currentCardData,currentField,i,cardAnimNames,i,orientation)
           if (!currentCardData) {
             continue;
           }
-          
 
           if (cardAnimNames[i] === '_playerCard1' || cardAnimNames[i] === '_bankerCard1') {
             continue;
@@ -499,25 +482,7 @@ namespace we {
             );
           }
 
-          cardAnim.armature.getSlot(`card_number_${orientation}`).display = this.getLabelGroup(this._gameData.currentcardindex - (currentField - i));
 
-          console.log('flipCards 5');
-          const cardSlot = cardAnim.armature.getSlot(`card_front_${orientation}`);
-          const group = new eui.Group();
-          const image = new eui.Image();
-          image.width = 204;
-          image.height = 312;
-          image.source = utils.getCardResName(utils.formatCardForFlip(currentCardData));
-          if (cardAnimNames[i] === '_playerCard3') {
-            image.rotation = 90;
-          }
-          if (cardAnimNames[i] === '_bankerCard3') {
-            image.rotation = 270;
-          }
-          image.anchorOffsetX = image.width / 2;
-          image.anchorOffsetY = image.height / 2;
-          group.addChild(image);
-          cardSlot.display = group;
 
           console.log('flipCards 6');
 
@@ -536,6 +501,29 @@ namespace we {
         }
 
         return new Promise(resolve => resolve());
+      }
+
+      protected setCardFrontFace(cardAnim: dragonBones.EgretArmatureDisplay,currentCardData,currentField,minus,cardAnimNames,idx,orientation){
+          cardAnim.armature.getSlot(`card_number_${orientation}`).display = this.getLabelGroup(this._gameData.currentcardindex - (currentField - minus));
+
+          console.log('flipCards 5');
+          const cardSlot = cardAnim.armature.getSlot(`card_front_${orientation}`);
+          const group = new eui.Group();
+          const image = new eui.Image();
+          image.width = 204;
+          image.height = 312;
+          console.log('flipcard card', currentCardData, utils.formatCardForFlip(currentCardData))
+          image.source = utils.getCardResName(utils.formatCardForFlip(currentCardData));
+          if (cardAnimNames[idx] === '_playerCard3') {
+            image.rotation = 90;
+          }
+          if (cardAnimNames[idx] === '_bankerCard3') {
+            image.rotation = 270;
+          }
+          image.anchorOffsetX = image.width / 2;
+          image.anchorOffsetY = image.height / 2;
+          group.addChild(image);
+          cardSlot.display = group;
       }
 
       protected setStateDeal(isInit: boolean) {
@@ -557,7 +545,7 @@ namespace we {
 
       protected movePin() {
         const bone = this._ringAnim.armature.getBone('red_card');
-        const proportion =  this._gameData.currentcardindex / this._gameData.redcardindex;
+        const proportion = this._gameData.currentcardindex / this._gameData.redcardindex;
         const angleOffset = 82 * proportion; // -49 - (-131) = 82
         const destAngle = -49 + angleOffset;
         const destRad = (destAngle * Math.PI) / 180;
@@ -585,7 +573,7 @@ namespace we {
         const cardAnimNames = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2', '_smallPlayerCard3', '_smallBankerCard3'];
         for (let i = 0; i < cardAnimNames.length; i++) {
           const cardAnim = <dragonBones.EgretArmatureDisplay> this[cardAnimNames[i]];
-          cardAnim.armature.getSlot('card_number_vertical').display = this.getLabelGroup(this._gameData.currentcardindex + i + 1 );
+          cardAnim.armature.getSlot('card_number_vertical').display = this.getLabelGroup(this._gameData.currentcardindex + i + 1);
 
           this._ringAnim.armature.getSlot('card_number_vertical').display = this.getLabelGroup(this._gameData.currentcardindex + i + 1);
 
