@@ -25,8 +25,9 @@ namespace we {
       protected $setData(notification: data.Notification) {
         this._notification = notification;
         this._data = notification.data;
-        const { tableid } = this._data;
-        this.tableInfo = env.tableInfos[tableid];
+        const { tableid , tableInfo} = this._data;
+        // this.tableInfo = env.tableInfos[tableid];
+              this.tableInfo = tableInfo
         if (this._content) {
           this.removeChild(this._content);
         }

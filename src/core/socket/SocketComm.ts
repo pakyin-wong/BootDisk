@@ -1031,13 +1031,21 @@ namespace we {
         if (tableInfo.data) {
           if (this.hasBet(tableInfo)) {
             if (tableInfo.data && tableInfo.data.state === core.GameState.FINISH && !isNaN(tableInfo.totalWin)) {
+              const tableINFO = env.tableInfos[tableInfo.tableid]
               const data = {
                 tableid: tableInfo.tableid,
+                tableNo: tableInfo.tablename,
+                winAmount: tableInfo.totalWin,
+                tabledata: tableInfo.data,
+                gameType: tableInfo.gametype,
+                winType: tableInfo.data.wintype,
+                tableInfo: tableINFO,
               };
               const notification: data.Notification = {
                 type: core.NotificationType.Result,
                 data,
               };
+              console.log('notification', notification);
               dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
             }
           }
