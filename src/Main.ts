@@ -78,6 +78,7 @@ class Main extends eui.UILayer {
 
       // uncomment below when there are both portrait and landscape layout
       this.orientationManager = new we.utils.OrientationManager(this.stage);
+      env.orientationManager = this.orientationManager;
     }
 
     dir.evtHandler = new we.core.EventHandler();
