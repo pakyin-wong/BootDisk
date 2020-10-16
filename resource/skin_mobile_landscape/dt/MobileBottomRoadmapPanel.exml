@@ -13,8 +13,7 @@
 			                 size="30" height="34" verticalAlign="middle" />
 			<ui:RunTimeLabel id="tieCountLabel" text="00" x="2076" y="203" textAlign="left" anchorOffsetX="0" width="36"
 			                 size="30" height="34" verticalAlign="middle" />
-			<ui:RunTimeLabel id="totalCountLabel" text="00" x="2076" y="203" textAlign="left" anchorOffsetX="0" width="36"
-			                 size="30" height="34" verticalAlign="middle" />
+
 			<e:layout>
 				<e:VerticalLayout gap="6" />
 			</e:layout>
