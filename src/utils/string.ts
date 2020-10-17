@@ -87,6 +87,7 @@ namespace we {
         case we.core.GameType.BAS:
         case we.core.GameType.BAI:
         case we.core.GameType.BAM:
+        case we.core.GameType.BAB:
           return `winType.ba${shortStr}.${ba.WinType[winType]}`;
         case we.core.GameType.DT:
           return `winType.dt${shortStr}.${dt.WinType[winType]}`;
@@ -134,3 +135,4 @@ namespace we {
     }
   }
 }
+
