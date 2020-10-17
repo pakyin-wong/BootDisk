@@ -38,23 +38,22 @@ namespace we {
         this._shufflePanel.hide();
         this._deckPanel.setValue(<bab.GameData> this._gameData);
         console.log('Bab scene bet state', this._gameData);
-        if (this.previousState !== core.GameState.BET) {
+        if (isInit || this.previousState !== core.GameState.BET) {
           this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         }
       }
 
       protected setStateDeal(isInit: boolean = false) {
-        super.setStateDeal(isInit);
         this._shufflePanel.hide();
         this._deckPanel.setValue(<bab.GameData> this._gameData);
+        super.setStateDeal(isInit);
         console.log('Bab scene deal state', this._gameData);
-        this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
       }
 
       protected setStateFinish(isInit: boolean) {
-        super.setStateFinish(isInit);
         this._shufflePanel.hide();
         this._deckPanel.setValue(<bab.GameData> this._gameData);
+        super.setStateFinish(isInit);
         console.log('Bab scene finish state', this._gameData);
       }
 
