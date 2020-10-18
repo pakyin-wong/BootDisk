@@ -625,6 +625,7 @@ namespace we {
         encryptedKey: '提前公布卡牌加密文',
         decryptedKey: '卡牌加密文',
         ssn: '卡牌序号',
+        lastRound: '上局结果',
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',

@@ -185,6 +185,10 @@ declare module skin_desktop.bab{
 	}
 }
 declare module skin_desktop.bab{
+	class CornerHistoryHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.bab{
 	class ShufflePanelSkin extends eui.Skin{
 	}
 }
