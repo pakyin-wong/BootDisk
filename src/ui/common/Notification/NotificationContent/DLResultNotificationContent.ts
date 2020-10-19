@@ -21,8 +21,8 @@ namespace we {
         // console.log('gameResult', [gameResult, typeof gameResult]);
         console.log('luckynumber', luckynumber);
         if (luckynumber) {
-        // console.log('object.keys(luckynumber)[0]', [Object.keys(luckynumber)[0], typeof Object.keys(luckynumber)[0]]);
-          if (gameResult.toString() in luckynumber) { 
+          // console.log('object.keys(luckynumber)[0]', [Object.keys(luckynumber)[0], typeof Object.keys(luckynumber)[0]]);
+          if (gameResult.toString() in luckynumber) {
             // console.log('gameResult.toString() in luckynumber', gameResult.toString() in luckynumber);
             this._lblDilLuckyResult.visible = true;
             this._lblDilnonLuckyResult.visible = false;

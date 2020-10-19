@@ -27,7 +27,7 @@ namespace we {
         this.emptyAlpha = _emptyAlpha;
         this.numRow = _numRow;
         this.gridUnit = 1;
-      if (_showResult) {
+        if (_showResult) {
           this.touchEnabled = true;
           this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
           this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onOver, this);

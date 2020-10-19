@@ -311,7 +311,7 @@ namespace we {
       protected onLockChanged(evt: egret.Event) {
         if (evt.type === TableList.LOCK) {
           const diff = this._maxPanelHeight - this._targetHeight;
-          if (diff>=this.extendHeight) {
+          if (diff >= this.extendHeight) {
             evt.stopPropagation();
           }
           this.isLock = true;
