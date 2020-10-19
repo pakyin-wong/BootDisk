@@ -51,6 +51,8 @@ namespace we {
         this._chipAnim.y = 30;
         this.addChild(this._chipAnim);
 
+        mouse.setButtonMode(this, true);
+
         this._value = env.betLimits[env.currentSelectedBetLimitIndex].chips[env.currentChipSelectedIndex];
         this._type = core.ChipType.FLAT;
         this.setChipValueSlot();
