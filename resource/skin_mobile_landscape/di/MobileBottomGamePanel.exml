@@ -24,7 +24,7 @@
 			         width="338" height="100%">
 				<e:Rect id="top_bg" width="100%" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
 				        fillColor="0x212425" strokeColor="0x212425" x="0" height="307"  bottom="0"/>
-				<e:RadioButton id="roadSheetBtn" label="路紙" x="8" y="10" height="80" value="0" selected="true" scaleX="1" scaleY="1"
+				<e:RadioButton id="roadSheetBtn" label="路紙" x="8" y="15" height="80" value="0" selected="true" scaleX="1" scaleY="1"
 				               width="321">
 					<e:skinName>
 						<e:Skin states="up,down,disabled">
@@ -34,7 +34,7 @@
 						</e:Skin>
 					</e:skinName>
 				</e:RadioButton>
-				<e:RadioButton id="chartBtn" label="統計圖表" height="80" value="1" scaleX="1" scaleY="1" width="321" x="8" y="98">
+				<e:RadioButton id="chartBtn" label="統計圖表" height="80" value="1" scaleX="1" scaleY="1" width="321" x="8" y="103">
 					<e:skinName>
 						<e:Skin states="up,down,disabled">
 							<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1" />
@@ -43,7 +43,7 @@
 						</e:Skin>
 					</e:skinName>
 				</e:RadioButton>
-				<e:RadioButton id="tableInfoBtn" label="本檯資訊" x="8" height="80" value="2" scaleX="1" scaleY="1" width="321" y="198">
+				<e:RadioButton id="tableInfoBtn" label="本檯資訊" x="8" height="80" value="2" scaleX="1" scaleY="1" width="321" y="203">
 					<e:skinName>
 						<e:Skin states="up,down,disabled">
 							<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1" />
