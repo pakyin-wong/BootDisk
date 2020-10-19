@@ -17,24 +17,27 @@ namespace we {
           // DI = 12, // Dice
           // LW = 16, // Lucky Wheel
           // // MJ = 13, // MaJong
-          case 0:
-          case 1:
-          case 2:
+          case core.GameType.BAS:
+          case core.GameType.BAC:
+          case core.GameType.BAI:
+          case core.GameType.BAM:
+          case core.GameType.BAB:
             this._content = new BAResultNotificationContent(); // BA
             break;
-          case 5:
+          case core.GameType.DT:
             this._content = new DTResultNotificationContent(); // DT
             break;
-          case 16:
+          case core.GameType.LW:
             this._content = new LWResultNotificationContent(); // LW
             break;
-          case 14:
+          case core.GameType.RO:
+          case core.GameType.ROL:
             this._content = new ROResultNotificationContent(); // RO
             break;
-          case 12:
+          case core.GameType.DI:
             this._content = new DIResultNotificationContent(); // DI
             break;
-          case 19:
+          case core.GameType.DIL:
             this._content = new DLResultNotificationContent(); // DIL
           default:
             break;
