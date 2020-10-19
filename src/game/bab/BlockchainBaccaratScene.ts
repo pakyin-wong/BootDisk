@@ -22,11 +22,11 @@ namespace we {
         super.initChildren();
         this._helpPanel.setToggler(this._helpButton);
         this._deckPanel.setToggler(this._deckButton);
-        this._deckPanel.setValue(<bab.GameData>this._gameData);
+        this._deckPanel.setValue(<bab.GameData> this._gameData);
         this._deckPanel.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         this._cardInfoPanel.addEventListener('OPEN_DECK_PANEL', this.showDeckPanel, this);
         this._cardInfoPanel.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
-        (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
+        (<any> this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
       }
 
       protected setSkinName() {
@@ -36,7 +36,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo>evt.data;
+          const stat = <data.TableInfo> evt.data;
           this._historyCardHolder.setCards(this._tableId);
         }
       }
@@ -44,7 +44,7 @@ namespace we {
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
         this._shufflePanel.hide();
-        this._deckPanel.setValue(<bab.GameData>this._gameData);
+        this._deckPanel.setValue(<bab.GameData> this._gameData);
         console.log('Bab scene bet state', this._gameData);
         if (isInit || this.previousState !== core.GameState.BET) {
           this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
@@ -53,21 +53,21 @@ namespace we {
 
       protected setStateDeal(isInit: boolean = false) {
         this._shufflePanel.hide();
-        this._deckPanel.setValue(<bab.GameData>this._gameData);
+        this._deckPanel.setValue(<bab.GameData> this._gameData);
         super.setStateDeal(isInit);
         console.log('Bab scene deal state', this._gameData);
       }
 
       protected setStateFinish(isInit: boolean) {
         this._shufflePanel.hide();
-        this._deckPanel.setValue(<bab.GameData>this._gameData);
+        this._deckPanel.setValue(<bab.GameData> this._gameData);
         super.setStateFinish(isInit);
         console.log('Bab scene finish state', this._gameData);
       }
 
       protected setStateShuffle(isInit: boolean) {
         super.setStateShuffle(isInit);
-        this._deckPanel.setValue(<bab.GameData>this._gameData);
+        this._deckPanel.setValue(<bab.GameData> this._gameData);
         if (this._gameData.previousstate === core.GameState.SHUFFLE) {
           return;
         }

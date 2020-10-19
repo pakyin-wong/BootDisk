@@ -90,7 +90,7 @@ namespace we {
         return this._dismissOnClickOutside;
       }
       public get panelName(): string {
-        return (<any>this).constructor.name;
+        return (<any> this).constructor.name;
       }
 
       protected childrenCreated() {

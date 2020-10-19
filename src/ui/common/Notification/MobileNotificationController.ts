@@ -129,7 +129,7 @@ namespace we {
       }
 
       protected onNotified(evt: egret.Event) {
-        const notification: data.Notification = <data.Notification>evt.data;
+        const notification: data.Notification = <data.Notification> evt.data;
         this.notificationList.push(notification);
         this.showNextNotification();
       }
@@ -254,7 +254,7 @@ namespace we {
         // remove the focus item if exist
         if (this._currentFocus) {
           if (!isRemoved) {
-            const holder = <NotificationItemHolder>this.goodRoadListDisplay.getChildAt(0);
+            const holder = <NotificationItemHolder> this.goodRoadListDisplay.getChildAt(0);
             holder.removeItem();
           }
           this._currentFocus = null;

@@ -589,7 +589,6 @@ namespace we {
         decryptedKey: 'Encrypted Key',
         ssn: 'Serial Number',
         lastRound: 'Last Round',
-
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',

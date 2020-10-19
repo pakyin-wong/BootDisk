@@ -8,12 +8,12 @@ namespace we {
       protected dice1: eui.Image;
       protected dice2: eui.Image;
       protected dice3: eui.Image;
-    //   protected sizeBg: ui.RoundRectShape;
-    //   protected oddBg: ui.RoundRectShape;
-    //   protected tripleBg: ui.RoundRectShape;
-    //   protected sizeLabel: ui.RunTimeLabel;
-    //   protected oddLabel: ui.RunTimeLabel;
-    //   protected tripleLabel: ui.RunTimeLabel;
+      //   protected sizeBg: ui.RoundRectShape;
+      //   protected oddBg: ui.RoundRectShape;
+      //   protected tripleBg: ui.RoundRectShape;
+      //   protected sizeLabel: ui.RunTimeLabel;
+      //   protected oddLabel: ui.RunTimeLabel;
+      //   protected tripleLabel: ui.RunTimeLabel;
       protected sumLabel: ui.RunTimeLabel;
 
       protected diceSize: number;
@@ -34,23 +34,23 @@ namespace we {
         } else {
           this._gameLabel.text = `${i18n.t('overlaypanel_bethistory_recordtab_round') + this.gameRoundID}`;
         }
-    //     if (this.diceSize === 1) {
-    //       // small
-    //       this.sizeLabel.text = i18n.t('dice.smallShort');
-    //     } else {
-    //       // big
-    //       this.sizeLabel.text = i18n.t('dice.bigShort');
-    //     }
+        //     if (this.diceSize === 1) {
+        //       // small
+        //       this.sizeLabel.text = i18n.t('dice.smallShort');
+        //     } else {
+        //       // big
+        //       this.sizeLabel.text = i18n.t('dice.bigShort');
+        //     }
 
-    //     if (this.diceOdd === 1) {
-    //       // odd
-    //       this.oddLabel.text = i18n.t('dice.oddShort');
-    //     } else {
-    //       // even
-    //       this.oddLabel.text = i18n.t('dice.evenShort');
-    //     }
+        //     if (this.diceOdd === 1) {
+        //       // odd
+        //       this.oddLabel.text = i18n.t('dice.oddShort');
+        //     } else {
+        //       // even
+        //       this.oddLabel.text = i18n.t('dice.evenShort');
+        //     }
 
-    //     this.tripleLabel.text = i18n.t('dice.tripleShort');
+        //     this.tripleLabel.text = i18n.t('dice.tripleShort');
       }
 
       constructor() {

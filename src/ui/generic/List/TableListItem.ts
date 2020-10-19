@@ -6,7 +6,7 @@ namespace we {
       public holder: TableListItemHolder;
 
       public get list(): TableList {
-        return this.holder ? <TableList>this.holder.parent : null;
+        return this.holder ? <TableList> this.holder.parent : null;
       }
 
       constructor() {
