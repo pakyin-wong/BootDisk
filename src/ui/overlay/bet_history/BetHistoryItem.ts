@@ -62,7 +62,7 @@ namespace we {
           this.createGameResult(this.data.gametype, this.data.result);
         }
 
-        protected setData(label: eui.Label, txt) {
+          protected setData(label: eui.Label, txt) {
           if (label) {
             label.text = txt;
           }
@@ -137,7 +137,6 @@ namespace we {
         }
 
         private formatBetType(gametype, bettype: string) {
-          console.log('bettype,bettype.toLowerCase()',[bettype,bettype.toLowerCase()])
           switch (gametype) {
             case we.core.GameType.BAC:
             case we.core.GameType.BAS:
@@ -150,38 +149,73 @@ namespace we {
             case we.core.GameType.DI:
               return i18n.t(`dice.${bettype.toLowerCase()}`);
             case we.core.GameType.DIL:
-            let res = bettype;
-            let dilresultStr = res.split("_");
-            let dilresult = dilresultStr[1]
+              const res = bettype;
+              const dilresultStr = res.split('_');
+              const dilresult = dilresultStr[1];
               return dilresult;
             case we.core.GameType.RO:
             case we.core.GameType.ROL:
-              return i18n.t(`roulette.${bettype.toLowerCase()}`);
+              const roresult = this.formatROBetType(bettype.toLowerCase());
+              // return i18n.t(`roulette.${bettype.toLowerCase()}`);
+              return roresult;
             case we.core.GameType.LW:
-              let lwresult = this.formatLWBetType(bettype.toLowerCase());
+              const lwresult = this.formatLWBetType(bettype.toLowerCase());
               return i18n.t(`luckywheel.${lwresult}`);
             default:
               return i18n.t(`betfield_${bettype.toLowerCase()}`);
           }
         }
 
-        private formatLWBetType(bettype){
-            switch (bettype) {
-                case 'lw_0':
-                  return 'east';
-                case 'lw_1':
-                  return 'south';
-                case 'lw_2':
-                  return 'west';
-                case 'lw_3':
-                  return 'north';
-                case 'lw_4':
-                  return 'red';
-                case 'lw_5':
-                  return 'green';
-                case 'lw_6':
-                  return 'white';
-              }
+        private formatROBetType(bettype) {
+          const bettypearray = bettype.split('_'); // direct,SEPARAT,street,corner,LINE,row,DOZEN,RED,black,odd,even,small,big
+          switch (bettypearray[0]) {
+            case 'direct':
+              return `${i18n.t(`roulette.betGroup.direct`)} ${bettypearray[1]}`;
+            case 'separate':
+              return `${i18n.t(`roulette.betGroup.separate`)} (${bettypearray[1]},${bettypearray[2]})`;
+            case 'street':
+              return `${i18n.t(`roulette.betGroup.street`)} (${bettypearray[1]},${bettypearray[2]},${bettypearray[3]})`;
+            case 'corner':
+              return `${i18n.t(`roulette.corner`)} (${bettypearray[1]},${bettypearray[2]},${bettypearray[3]},${bettypearray[4]})`;
+            case 'line':
+              return `${i18n.t(`roulette.betGroup.line`)} (${bettypearray[1]},${(parseInt(bettypearray[1], 10) + 1).toString()},${(parseInt(bettypearray[1], 10) + 2).toString()},${(
+                parseInt(bettypearray[1], 10) + 3
+              ).toString()},${(parseInt(bettypearray[1], 10) + 4).toString()}, ${bettypearray[2]})`;
+            case 'row':
+              return `${i18n.t(`roulette.betGroup.row`)}_${i18n.t(`roulette.${bettype}`)}`;
+            case 'dozen':
+              return `${i18n.t(`roulette.dozen`)} (${bettypearray[1]} ${i18n.t(`roulette.to`)} ${bettypearray[2]})`;
+            case 'red':
+              return `${i18n.t(`roulette.roadRed`)}`;
+            case 'black':
+              return `${i18n.t(`roulette.roadBlack`)}`;
+            case 'odd':
+              return `${i18n.t(`roulette.roadOdd`)}`;
+            case 'even':
+              return `${i18n.t(`roulette.roadEven`)}`;
+            case 'small':
+              return `${i18n.t(`roulette.roadSmall`)}`;
+            case 'big':
+              return `${i18n.t(`roulette.roadBig`)}`;
+          }
+        }
+        private formatLWBetType(bettype) {
+          switch (bettype) {
+            case 'lw_0':
+              return 'east';
+            case 'lw_1':
+              return 'south';
+            case 'lw_2':
+              return 'west';
+            case 'lw_3':
+              return 'north';
+            case 'lw_4':
+              return 'red';
+            case 'lw_5':
+              return 'green';
+            case 'lw_6':
+              return 'white';
+          }
         }
         private createGameResult(gametype, gameResult) {
           let p: eui.Component;

@@ -443,9 +443,11 @@ namespace we {
         row_1: 'ROW 1',
         row_2: 'ROW 2',
         row_3: 'ROW 3',
+        dozen: '12 bets',
         dozen_1_12: '1ST GROUP',
         dozen_13_24: '2ND GROUP',
         dozen_25_36: '3RD GROUP',
+        corner: 'corner',
         small: '1-18',
         big: '19-36',
         odd: 'ODD',
@@ -484,6 +486,7 @@ namespace we {
         orphelins: 'Orphelins',
         voisins: 'Voisins',
         zero: 'Zero',
+        to: 'to',
         betGroup: {
           color: 'Red / Black',
           oddeven: 'Odd / Even',
@@ -588,7 +591,6 @@ namespace we {
         decryptedKey: 'Encrypted Key',
         ssn: 'Serial Number',
         lastRound: 'Last Round',
-
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',
