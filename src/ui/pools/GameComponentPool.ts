@@ -35,7 +35,8 @@ namespace we {
       public abstract generateComponent(gameType: string);
 
       public get(gameType: core.GameType) {
-        const namespace = utils.getGameTypeNamespace(gameType);
+        let namespace = utils.getGameTypeNamespace(gameType);
+        if (namespace === 'rol') namespace = 'ro';
         try {
           return this._pools[namespace].get();
         } catch (err) {
@@ -44,7 +45,8 @@ namespace we {
       }
 
       public release(obj: any, gameType: core.GameType) {
-        const namespace = utils.getGameTypeNamespace(gameType);
+        let namespace = utils.getGameTypeNamespace(gameType);
+        if (namespace === 'rol') namespace = 'ro';
         try {
           this._pools[namespace].release(obj);
         } catch (err) {
