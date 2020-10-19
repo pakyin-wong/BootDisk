@@ -4,13 +4,21 @@
         <e:Group id="content" width="1853" height="1025">
                 <e:Image id="close" source="d-lobby-button-close-none_png" x="1785" y="44" width="44" height="44" />
                 <ui:RunTimeLabel i18n="baccarat.mechanismHelp" horizontalCenter="0" y="44" size="48" textColor="0xc59466"/>
-                <e:Image source="d_bcba_panel_instructions_step1_png" x="288" y="201" width="545" height="214"/>
+                
+                <e:Label text="1" x="214" y="426" textColor="0x00CAD0" size="76"/>
+                <e:Image source="d_bcba_panel_instructions_step1_png" x="288" y="193" width="545" height="214"/>
                 <ui:RunTimeLabel i18n="baccarat.mechanismHelp1" x="286" y="430" width="560" height="87" size="24" textColor="0xFFFFFF" wordWrap="true"/>
-                <e:Image source="d_bcba_panel_instructions_step2_png" x="1067" y="201" width="575" height="194" />
+
+                <e:Label text="2" x="1013" y="426" textColor="0x00CAD0" size="76"/>
+                <e:Image source="d_bcba_panel_instructions_step2_png" x="1067" y="193" width="575" height="194" />                
                 <ui:RunTimeLabel i18n="baccarat.mechanismHelp2" x="1092" y="430" width="560" height="87" size="24" textColor="0xFFFFFF" wordWrap="true"/>
-                <e:Image source="d_bcba_panel_instructions_step3_png" x="288" y="594" width="581" height="203" />
+
+                <e:Label text="3" x="207" y="829" textColor="0x00CAD0" size="76"/>
+                <e:Image source="d_bcba_panel_instructions_step3_png" x="288" y="583" width="581" height="203" />
                 <ui:RunTimeLabel i18n="baccarat.mechanismHelp3" x="286" y="833" width="500" height="87" size="24" textColor="0xFFFFFF" wordWrap="true"/>
-                <e:Image source="d_bcba_panel_instructions_step4_png" x="1067" y="594" width="604" height="249" />
+
+                <e:Label text="4" x="1013" y="829" textColor="0x00CAD0" size="76"/>
+                <e:Image source="d_bcba_panel_instructions_step4_png" x="1067" y="583" width="604" height="249" />
                 <ui:RunTimeLabel i18n="baccarat.mechanismHelp4" x="1092" y="833" width="500" height="87" size="24" textColor="0xFFFFFF" wordWrap="true"/>
         </e:Group>
 </e:Skin>

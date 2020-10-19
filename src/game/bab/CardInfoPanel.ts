@@ -13,11 +13,14 @@ namespace we {
       protected _decryptedKeyLabel: eui.Label;
       protected _prevButton: ui.BaseImageButton;
       protected _nextButton: ui.BaseImageButton;
+      protected _thirdPartyButton: ui.BaseImageButton;
       protected _copyEncryptedKey: eui.Group;
       protected _copyDecryptedKey: eui.Group;
       protected _copySsn: eui.Group;
       protected _backButton: eui.Group;
       protected _helpButton: eui.Group;
+      protected _sha256SuccessfulGroup: eui.Group;
+      protected _sha256FailGroup: eui.Group;
 
       public constructor() {
         super();
@@ -52,6 +55,9 @@ namespace we {
           this.dispatchEvent(new egret.Event('OPEN_HELP_PANEL'))
           this.hide();
         }, this)
+        this._thirdPartyButton.addEventListener(egret.TouchEvent.TOUCH_TAP,()=>{
+          window.open('https://emn178.github.io/online-tools/sha256.html')
+        },this)
       }
 
       public setValue(gameData: any, index: number) {
@@ -71,6 +77,18 @@ namespace we {
           this._decryptedKeyLabel.text = this._gameData.hashedcardsList[this._cardIndex - 1]
         }
         this._ssnLabel.text = this._gameData.maskedcardssnList[this._cardIndex - 1];
+
+        // set sha256 Group
+        if(this._gameData.maskedcardssnList[this._cardIndex - 1][0] === '*'){
+          this._sha256SuccessfulGroup.visible = false;
+          this._sha256FailGroup.visible = false;
+      }else if(we.utils.sha256(this._gameData.maskedcardssnList[this._cardIndex - 1]) === this._gameData.hashedcardsList[this._cardIndex - 1]){
+          this._sha256SuccessfulGroup.visible = true;
+          this._sha256FailGroup.visible = false;
+        }else{
+          this._sha256SuccessfulGroup.visible = false;
+          this._sha256FailGroup.visible = true;
+        }
 
         // enable/disable next/prev Button
         this._prevButton.active = true;
