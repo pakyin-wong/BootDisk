@@ -24,6 +24,8 @@ namespace we {
       protected _chaseGroup: eui.Group;
       protected _chasePanel;
 
+      protected _videoLogo: ui.RunTimeImage;
+
       constructor(data: any) {
         super(data);
       }
@@ -238,6 +240,8 @@ namespace we {
         //     env.isFirstTimeInfoPanel = true;
         //   }
         // }
+        this._videoLogo.renderImage = () => `${i18n.t('lo_tri_logo')}`;
+
         if (this._panelDismissToggleBtn) {
           this._panelDismissToggleBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
         }

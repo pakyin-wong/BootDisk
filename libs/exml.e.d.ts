@@ -2683,6 +2683,22 @@ declare module skin_mobile{
 	}
 }
 declare module skin_mobile.lo{
+	class AnalysisPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class MobileBottomGamePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class MobileBottomRoadmapPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class StatisticChartPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
 	class MobileSideRoadPanel extends eui.Skin{
 	}
 }

@@ -56,6 +56,8 @@ namespace we {
       protected _lblPrevBall3: ui.RunTimeLabel;
       protected _lblPrevBall4: ui.RunTimeLabel;
 
+      protected _logo: ui.RunTimeImage;
+
       constructor(skin: string = null) {
         super(skin);
         this._currentKey = 'lo';
@@ -77,6 +79,9 @@ namespace we {
       protected initComponents() {
         super.initComponents();
         this.createBigTags();
+        if(this._logo){
+          this._logo.renderImage = () => `${i18n.t('lo_tri_logo')}`;
+        }
         // this.createSmallTags();
         // this.initCurrentButtonPanel();
       }
