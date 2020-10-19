@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_landscape.di.PiePanel" width="780" height="341" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_landscape.di.PiePanel" width="780" height="340" xmlns:e="http://ns.egret.com/eui"
         xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:di="we.di.*">
 		<ui:RoundRectShape cornerTL_TR_BL_BR="43,0,43,0" width="506" height="100" right="72" y="43" stroke="0"
 	                   fillColor="0x1f3a57,0x1f2b3a4d,270" />
