@@ -370,6 +370,7 @@ namespace we {
         rounds: '局',
       },
       luckywheel: {
+        pool: '即時彩池',
         east: '東',
         south: '南',
         west: '西',
@@ -384,7 +385,7 @@ namespace we {
         tie: '和',
         playerPair: '閒對',
         bankerPair: '庄對',
-        gameRecord: '遊戲記錄',
+        gameRecord: '歷史記錄',
       },
       dice: {
         recent: '最近',

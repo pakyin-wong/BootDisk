@@ -51,19 +51,29 @@ namespace we {
         );
         this._horizontalBarChart.x = 25;
         this._horizontalBarChart.y = 82;
-        this._horizontalBarChart.setRanksAndAnimate([25080000, 18000060, 50500, 10022000, 800000, 19000010, 20012000]);
+        this._horizontalBarChart.setRanksAndAnimate([0, 0, 0, 0, 0, 0, 0]);
         this.addChild(this._horizontalBarChart);
       }
 
       public updateTableBetInfo() {
-        const data = env.tableInfos[this._tableId].betInfo;
+        const arr = ['LW_0', 'LW_1', 'LW_2', 'LW_3', 'LW_4', 'LW_5', 'LW_6'];
+        const amount = env.tableInfos[this._tableId].betInfo.amount;
+        const amountArr = arr.map(key => {
+          if (!amount[key]) {
+            amount[key] = 0;
+          }
+          return amount[key];
+        });
+        // const amountArr = Object.keys(amount).sort().map(key => amount[key]);
+        this._horizontalBarChart.setRanksAndAnimate(amountArr);
+
         for (let i = 0; i < 7; i += 1) {
-          this[`_lbl_lwValue${i}`].text = data.amount[`LW_${i}`] || 0;
+          this[`_lbl_lwValue${i}`].text = amount[`LW_${i}`] ? we.utils.formatNumber(amount[`LW_${i}`], false) : 0;
         }
         super.updateTableBetInfo();
       }
 
-      public updateRoad() {}
+      public updateRoad() { }
     }
   }
 }

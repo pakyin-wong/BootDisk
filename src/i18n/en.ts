@@ -369,6 +369,7 @@ namespace we {
         rounds: 'rounds',
       },
       luckywheel: {
+        pool: 'Pool',
         east: 'East',
         south: 'South',
         west: 'West',
@@ -383,7 +384,7 @@ namespace we {
         tie: 'Tie',
         playerPair: 'Player Pair',
         bankerPair: 'Banker Pair',
-        gameRecord: 'Game Record',
+        gameRecord: 'History Record',
       },
       dice: {
         recent: 'Recent',
@@ -589,7 +590,6 @@ namespace we {
         decryptedKey: 'Encrypted Key',
         ssn: 'Serial Number',
         lastRound: 'Last Round',
-
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',
