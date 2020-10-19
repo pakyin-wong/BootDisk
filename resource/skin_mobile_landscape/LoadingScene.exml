@@ -5,8 +5,8 @@
 	<e:Image id="logo" width="378" height="108" x="822" y="26.8" source="d_lobby_navbar_logo_png"  visible="false"/>
 	<!--<e:ProgressBar id="_progressbar" width="1012" height="30" horizontalCenter="45" y="914.09" anchorOffsetY="0"
 	               skinName="skin_mobile_portrait.LoadingProgressBar" touchEnabled="false" />-->
-	<ui:ProgressBar id="_progressbar2" gradientColor="0x855205,0xd9b989"  baseColor="0x505050" width="1012" height="30"
-                        horizontalCenter="45" y="1050" roundCorner="[10, 10, 10, 10, 10, 10, 10, 10]"
+	<ui:ProgressBar id="_progressbar2" gradientColor="0x855205,0xd9b989"  baseColor="0x3A3A3A" width="1012" height="30"
+                        horizontalCenter="45" y="1050" roundCorner="[18, 18, 18, 18, 18, 18, 18, 18]" hasBaseBorder="true"
                 	 touchEnabled="false" direction="horizontal"/>
 	<ui:RunTimeLabel id="_progressMsg" text="" y="984" textAlign="center" left="45" right="-45"
 	                 size="40" height="56"  alpha=".7"/>
