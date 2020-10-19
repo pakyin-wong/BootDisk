@@ -582,6 +582,7 @@ namespace we {
         verification: 'Verification',
         thirdParty: 'Verification',
         sha256VerifySuccess: 'SHA256 Verified',
+        sha256VerifyFail: 'Cannot be verified by SHA256',
         deckDesc: '416 cards',
         copy: 'Copy',
         encryptedKey: 'Encrypted Key Before Distribution',
