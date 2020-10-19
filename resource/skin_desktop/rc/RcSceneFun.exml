@@ -9,6 +9,7 @@
 			</e:Skin>
 		</ui:skinName>
 	</ui:TweenConfig>
+	<e:Rect width="1050" height="110" x="775" y="94" fillAlpha="0.6" ellipseWidth="40" ellipseHeight="40"/>
 	<lo:FunBetRoundInfo id="_roundInfo" x="674" y="94"  skinName="skin_desktop.rc.FunBetRoundInfo"/>
 	<e:Label id="_counter" text="00:00:00" y="98" height="96" verticalAlign="middle" size="80"
 	         textColor="0x4adc84" bold="true" fontFamily="Barlow"  x="930"/>

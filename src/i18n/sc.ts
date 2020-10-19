@@ -675,7 +675,7 @@ namespace we {
       lo_fun_bettingRound: '本期投注',
       lo_fun_round: '期',
       lo_fun_drawingRound: '期开奖中',
-      lo_fun_lastRound: '上期开期号码',
+      lo_fun_lastRound: '上期开奖结果',
 
       lo_fun_overlay_title: '投票确认',
       lo_fun_overlay_table: '彩种名称',
