@@ -1361,6 +1361,10 @@ declare module skin_mobile_landscape.di{
 	}
 }
 declare module skin_mobile_landscape.di{
+	class PiePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.di{
 	class StatisticChartPanel extends eui.Skin{
 	}
 }
