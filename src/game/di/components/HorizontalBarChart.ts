@@ -71,9 +71,7 @@ namespace we {
             this.renderRanks(ranks, this.colorSettings);
           };
           egret.Tween.removeTweens(this);
-          egret.Tween.get(this, { onChange: funcChange, onChangeObj: this })
-            .to({ percentStart: 100, percentTransit: 100 }, duration, egret.Ease.quintIn)
-            .call(funcCompleted, this);
+          egret.Tween.get(this, { onChange: funcChange, onChangeObj: this }).to({ percentStart: 100, percentTransit: 100 }, duration, egret.Ease.quintIn).call(funcCompleted, this);
         } else {
           this.percentStart = 100;
           this.percentTransit = 100;

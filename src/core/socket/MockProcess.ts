@@ -7,6 +7,7 @@ namespace we {
       public finishStateInterval: number = 5000;
       public shuffleStateInterval: number = 10000;
       public cardInterval: number = 1000;
+      public card3Interval: number = 5000;
       public startCardInterval: number = 2000;
       public betStateInterval: number = 10;
 

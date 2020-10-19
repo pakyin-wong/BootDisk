@@ -5,25 +5,31 @@
 		<e:Rect width="2424" height="1040" fillColor="0x14181e" strokeColor="0x333c4a" strokeWeight="2" ellipseHeight="48"
 		        ellipseWidth="48" />
 		<e:Image id="close" width="96" height="96" right="26" top="68" source="d-lobby-button-close-none_png" />
-		<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="55" width="497" height="119" verticalAlign="middle"
-		                 textColor="0xc59466" size="80" bold="true" scaleX="1" scaleY="1" />
+
 		<!--<ui:ToggleButton id="_selectAllButton" resNameOn="d_lobby_panel_button_checkboxes_active_png"
 		                 hoverResNameOn="d_lobby_panel_button_checkboxes_active_png"
 		                 resNameOff="d_lobby_panel_button_checkboxes_normal_png"
 		                 hoverResNameOff="d_lobby_panel_button_checkboxes_hover_png" y="117" width="22" height="22"
 		                 anchorOffsetX="0" x="654" />	-->
-			<e:Group x="446" y="80" scaleX="1" scaleY="1" height="97">
-				<ui:RunTimeLabel id="_selectAllLabel" text="Select All" textAlign="center" anchorOffsetX="0" width="110" size="34" verticalAlign="middle" touchEnabled="false" x="33" y="12" scaleX="1" scaleY="1"/>
-				<ui:ToggleButton id="_selectAllButton" resNameOn="d_lobby_panel_button_checkboxes_active_png" hoverResNameOn="m_common_setting_goodroad_roadmap_checkboxes_active_png" resNameOff="m_common_setting_goodroad_roadmap_checkboxes_png" hoverResNameOff="m_lobby_panel_button_checkboxes_hover_png" y="18" width="22" height="22" anchorOffsetX="0" x="151" scaleX="1" scaleY="1"/>
-				<e:layout>
-				<e:HorizontalLayout verticalAlign="middle" paddingTop="16"/>
-				</e:layout>
-			</e:Group>
+
 		<!--<ui:BaseImageButton id="_defaultButton" y="65" anchorOffsetX="0" width="320" anchorOffsetY="0" height="90"
 		                        currentState="b_reset" skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" x="1850" />
 		-->
 		<ui:RoundRectButton id="_defaultButton" cornerTL_TR_BL_BR="45,45,45,45" width="320" height="90" x="1850" y="65"
-		                    stroke="0" strokeIn="3" strokeInColor="0x5f6973" fillAlpha="0" />
+		                    stroke="0" strokeIn="3" strokeInColor="0x5f6973" fillAlpha="0" labelAutoResize="true" />
+		<e:Group height="132" x="44" y="53">
+			<ui:RunTimeLabel id="_txt_title" text="Label" height="119" verticalAlign="middle" textColor="0xc59466" size="80" bold="true" scaleX="1" scaleY="1" targetWidth="650"/>
+			<e:Group x="402" y="26.99999999999997" scaleX="1" scaleY="1" height="97" >
+				<ui:RunTimeLabel id="_selectAllLabel" text="Select All" textAlign="center" anchorOffsetX="0" width="150" size="34" verticalAlign="middle" touchEnabled="false" x="33" y="12" scaleX="1" scaleY="1"  targetWidth="200"/>
+				<ui:ToggleButton id="_selectAllButton" resNameOn="d_lobby_panel_button_checkboxes_active_png" hoverResNameOn="m_common_setting_goodroad_roadmap_checkboxes_active_png" resNameOff="m_common_setting_goodroad_roadmap_checkboxes_png" hoverResNameOff="m_lobby_panel_button_checkboxes_hover_png" y="18" width="22" height="22" anchorOffsetX="0" x="151" scaleX="1" scaleY="1"/>
+				<e:layout>
+					<e:HorizontalLayout verticalAlign="middle" paddingTop="16" gap="15"/>
+				</e:layout>
+			</e:Group>
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="middle" gap="10"/>
+			</e:layout>
+		</e:Group>
 		<ui:Scroller id="scroller" top="300" bottom="0" width="2224" x="100" height="740">
 			<ui:List id="roomList" requireSelection="true" width="100%">
 				<e:layout>

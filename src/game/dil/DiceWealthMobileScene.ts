@@ -21,6 +21,8 @@ namespace we {
 
       protected _luckyCoinGroup: LuckyCoinGroup;
 
+      protected _originBetRelatedGroupY: number;
+
       private _common_listpanel: ui.BaseImageButton;
 
       constructor(data: any) {
@@ -99,11 +101,20 @@ namespace we {
         (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearLuckyNumbers();
       }
+      protected setBetRelatedComponentsEnabled(enable: boolean) {
+        super.setBetRelatedComponentsEnabled(enable);
+        // if (this._betRelatedGroup && env.orientation === 'portrait') {
+        if (this._betRelatedGroup) {
+          egret.Tween.removeTweens(this._betRelatedGroup);
+          egret.Tween.get(this._betRelatedGroup).to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
+        }
 
+      }
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
         this._roadmapControl.setTableInfo(this._tableInfo);
+        this._originBetRelatedGroupY = this._betRelatedGroup.y;
         if (this._bottomGamePanel._tableInfoPanel) {
           this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
@@ -194,7 +205,7 @@ namespace we {
 
       protected initRoadMap() {
         this._roadmapControl = new DilRoadmapControl(this._tableId);
-        this._roadmapControl.setRoads(this._bottomGamePanel.beadRoad, null, null);
+        this._roadmapControl.setRoads(this._bottomGamePanel.beadRoad, null, null,null);
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {

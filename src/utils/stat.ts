@@ -13,6 +13,51 @@ namespace we {
         return result;
       }
       export namespace ba {
+        export function getTotalPoint(card1:string, card2:string, card3:string){
+          let total = 0;
+          if(!card1){
+            return total;
+          }
+          total += translateCardToPoint(card1)
+          if(!card2){
+            return total;
+          }
+          total += translateCardToPoint(card2)
+          if(!card3){
+            return total;
+          }
+          total += translateCardToPoint(card3);
+          return total;
+        }
+        export function translateCardToNumber(card: string) {
+          switch (card.charAt(card.length - 1)) {
+            case 'k':
+              return 13;
+            case 'q':
+              return 12;
+            case 'j':
+              return 11;
+            case '0':
+              return 10;
+            case 'a':
+              return 1;
+            default:
+              return +card.charAt(card.length - 1);
+          }
+        }
+        export function translateCardToPoint(card: string) {
+          switch (card.charAt(card.length - 1)) {
+            case '0':
+            case 'k':
+            case 'q':
+            case 'j':
+              return 10;
+            case 'a':
+              return 1;
+            default:
+              return +card.charAt(card.length - 1);
+          }
+        }
         export function getStatInfo(shoe: boolean, gamestatistic: any) {
           if (!gamestatistic) {
             return {

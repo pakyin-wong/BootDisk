@@ -161,7 +161,15 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop.bab{
+	class CardInfoCard extends eui.Skin{
+	}
+}
+declare module skin_desktop.bab{
 	class CardInfoPanelSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.bab{
+	class DeckCard extends eui.Skin{
 	}
 }
 declare module skin_desktop.bab{
@@ -174,6 +182,10 @@ declare module skin_desktop.bab{
 }
 declare module skin_desktop.bab{
 	class CardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.bab{
+	class CornerHistoryHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.bab{
@@ -358,6 +370,10 @@ declare module skin_desktop.dil{
 }
 declare module skin_desktop{
 	class DiceWealthScene extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DilBeadRoadResultPanelSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -2651,6 +2667,10 @@ declare module skin_mobile.lo{
 	}
 }
 declare module skin_mobile{
+	class LotteryLiveListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile{
 	class LotteryScene extends eui.Skin{
 	}
 }
@@ -2663,19 +2683,7 @@ declare module skin_mobile{
 	}
 }
 declare module skin_mobile.lo{
-	class AnalysisPanel extends eui.Skin{
-	}
-}
-declare module skin_mobile.lo{
-	class MobileBottomGamePanel extends eui.Skin{
-	}
-}
-declare module skin_mobile.lo{
-	class MobileBottomRoadmapPanel extends eui.Skin{
-	}
-}
-declare module skin_mobile.lo{
-	class StatisticChartPanel extends eui.Skin{
+	class MobileSideRoadPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile{

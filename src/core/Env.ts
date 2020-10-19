@@ -16,7 +16,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.10.3';
+      public version: string = '0.11.1';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -79,6 +79,7 @@ namespace we {
       public playerLotteryStat: any;
       public isMobile: boolean = false;
       public orientation: string = egret.OrientationMode.LANDSCAPE;
+      public orientationManager: we.utils.OrientationManager;
       public leftHandMode: boolean = false;
 
       public showGoodRoadHint: boolean = false;

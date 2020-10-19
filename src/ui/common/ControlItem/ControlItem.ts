@@ -290,6 +290,7 @@ namespace we {
         if (!this._gameData) {
           return;
         }
+        this.updateCountdownTimer();
         switch (this._gameData.state) {
           case core.GameState.IDLE:
             this.setStateIdle(isInit);
@@ -358,8 +359,8 @@ namespace we {
             this._undoStack.clearStack();
           }
         }
-        // update the countdownTimer
-        this.updateCountdownTimer();
+        // update the countdownTimer, updated: moved the function call to updateGame to ensure the timer is correct in every state since timer always shown
+        // this.updateCountdownTimer();
       }
 
       protected setStateDeal(isInit: boolean = false) {

@@ -32,7 +32,7 @@ namespace we {
       protected _thirdCountLabel: eui.Label;
       protected _thirdPercentageLabel: eui.Label;
 
-      protected _totalLabel: eui.Label;
+      protected _totalLabel: ui.RunTimeLabel;
 
       protected _thirdColor: number = 0x1f86c;
 

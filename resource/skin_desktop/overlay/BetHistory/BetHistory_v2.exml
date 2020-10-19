@@ -98,14 +98,14 @@
 			<e:Label id="_txt_limit" text="每頁顯示項目: " x="50" size="22" height="31" verticalAlign="middle" bottom="19"/>
 			<e:Group id="_btn_limit" right="1863" bottom="19">
 				<ui:RunTimeLabel id="_tf_limit" text="100" height="31" verticalAlign="middle" size="26" y="0" right="36"/>
-				<e:Image width="16" height="10" source="d_lobby_btn_dropup_popover_png" right="0" verticalCenter="0"/>
+				<e:Image width="16" height="10" source="d_lobby_btn_dropup_popover_png" right="0" verticalCenter="0" rotation="180"/>
 			</e:Group>
 			<e:Label id="_txt_total" text="現在顯示: 0-0 項 共 0 項記錄" x="292" size="26" height="37" verticalAlign="middle" alpha="0.7" bottom="18"/>
-			<ui:BaseAnimationButton id="_btn_prev" width="40" height="40" dbClass="lobby_ui" dbDisplay="d_lobby_betrecord_icon_prev" tooltipText="'overlay.tooltip.bethistory.prev'" tooltipPosition="'above'" right="112" bottom="14"/>
-			<ui:BaseAnimationButton id="_btn_next" width="40" height="40" dbClass="lobby_ui" dbDisplay="d_lobby_betrecord_icon_next" tooltipText="'overlay.tooltip.bethistory.next'" tooltipPosition="'above'" right="52" bottom="14"/>
+			<ui:BaseAnimationButton id="_btn_prev" width="40" height="40" dbClass="lobby_ui" dbDisplay="d_lobby_betrecord_icon_prev" tooltipText="'overlaypanel_bethistory_btn_prev'" tooltipPosition="'above'" right="112" bottom="14"/>
+			<ui:BaseAnimationButton id="_btn_next" width="40" height="40" dbClass="lobby_ui" dbDisplay="d_lobby_betrecord_icon_next" tooltipText="'overlaypanel_bethistory_btn_next'" tooltipPosition="'above'" right="52" bottom="14"/>
 			<e:Group id="_btn_page" height="30" right="178" bottom="19">
 				<ui:RunTimeLabel id="_txt_page" text="00/00" fontFamily="Barlow" size="24" verticalAlign="middle" textAlign="right" height="29" right="38" verticalCenter="0"/>
-				<e:Image width="16" height="10" source="d_lobby_btn_dropup_popover_png" right="0" verticalCenter="0"/>
+				<e:Image width="16" height="10" source="d_lobby_btn_dropup_popover_png" right="0" verticalCenter="0" rotation="" />
 			</e:Group>
 		</e:Group>
 

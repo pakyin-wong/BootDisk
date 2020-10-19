@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.ba.TableInfoPanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.ba.TableInfoPanel" width="1242" height="550" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-	<ui:HorizontalHolder bulletBottom="0" bulletHorizontalCenter="0" width="1242" height="532" slideWidth="1242"
-	                     slideHeight="532" isLoop="true" isAuto="false" bulletGapValue="20" touchAreaAtBottom="true">
-		<e:Group id="content" x="0" width="1242" height="532" touchEnabled="false" touchChildren="true">
-			<e:Rect id="_bg" width="100%" height="100%" x="1" y="-1" scaleX="1" scaleY="1" fillColor="0x212425"  touchEnabled="false"/>
+	<ui:HorizontalHolder bulletBottom="10" bulletHorizontalCenter="0" width="1242" height="550" slideWidth="1242"
+	                     slideHeight="550" isLoop="true" isAuto="false" bulletGapValue="20" touchAreaAtBottom="true">
+		<e:Group id="content" x="0" width="1242" height="550" touchEnabled="false" touchChildren="true">
+			<e:Rect id="_bg" width="100%" height="100%" x="0" y="-1" scaleX="1" scaleY="1" fillColor="0x212425"  touchEnabled="false"/>
 			<e:Image id="moveArea" source="popover_png" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7"
 			          visible="false"/>
 			<ui:RunTimeLabel id="lblTableInfo" text="本檯資訊" left="50" top="50" x="50" y="50" scaleX="1" scaleY="1" size="20"
@@ -71,7 +71,7 @@
 			<ui:RunTimeLabel id="playerPairLabel" text="閒對" y="410" x="745" scaleX="1" scaleY="1" size="44"
 			                 textKey="baccarat.playerPair" />
 		</e:Group>
-		<e:Group id="content0" x="0" width="1242" height="532" touchEnabled="false" touchChildren="false" visible="false">
+		<e:Group id="content0" x="0" width="1242" height="550" touchEnabled="false" touchChildren="false" visible="false">
 			<e:Rect id="_bg0" width="100%" height="100%" x="1" y="-1" scaleX="1" scaleY="1" fillColor="0x212425" />
 			<ui:RunTimeLabel id="superSixLabel" text="超級六 (免佣)" y="60" x="47" scaleX="1" scaleY="1" size="44" />
 			<ui:ClampWidthLabel id="pSuperSixOdd" text="-" y="60" textAlign="right" scaleX="1" scaleY="1" size="44" targetWidth="130"

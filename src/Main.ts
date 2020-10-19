@@ -62,23 +62,27 @@ class Main extends eui.UILayer {
     const query = value.replace('?', '');
     let data: any = {};
     data = we.utils.getQueryParams(query);
-    const isMobile = data.ismobile ? data.ismobile : 0;
+    let isMobile = false;
+    try {
+      isMobile = data.ismobile ? parseInt(data.ismobile) > 0 : false;
+    } catch (err) {}
 
-    // if (type === 'mobile' || isMobile) {
-    // if (true) {
-    env.isMobile = true;
-    // this.updateMobileHitTest();
-    // use these when there is portrait mode only
-    // this.stage.setContentSize(1242, 2155);
-    // this.stage.orientation = egret.OrientationMode.PORTRAIT;
-    // env.orientation = egret.OrientationMode.PORTRAIT;
-    // this.stage.setContentSize(2155, 1242);
-    // this.stage.orientation = egret.OrientationMode.LANDSCAPE;
-    // env.orientation = egret.OrientationMode.LANDSCAPE;
+    if (type === 'mobile' || isMobile) {
+      // if (true) {
+      env.isMobile = true;
+      // this.updateMobileHitTest();
+      // use these when there is portrait mode only
+      // this.stage.setContentSize(1242, 2155);
+      // this.stage.orientation = egret.OrientationMode.PORTRAIT;
+      // env.orientation = egret.OrientationMode.PORTRAIT;
+      // this.stage.setContentSize(2155, 1242);
+      // this.stage.orientation = egret.OrientationMode.LANDSCAPE;
+      // env.orientation = egret.OrientationMode.LANDSCAPE;
 
-    // uncomment below when there are both portrait and landscape layout
-    this.orientationManager = new we.utils.OrientationManager(this.stage);
-    // }
+      // uncomment below when there are both portrait and landscape layout
+      this.orientationManager = new we.utils.OrientationManager(this.stage);
+      env.orientationManager = this.orientationManager;
+    }
 
     dir.evtHandler = new we.core.EventHandler();
     dir.errHandler = new we.core.ErrorHandler();
