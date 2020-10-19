@@ -137,6 +137,7 @@ namespace we {
         }
 
         private formatBetType(gametype, bettype: string) {
+          console.log('bettype,bettype.toLowerCase()',[bettype,bettype.toLowerCase()])
           switch (gametype) {
             case we.core.GameType.BAC:
             case we.core.GameType.BAS:
@@ -157,36 +158,31 @@ namespace we {
             case we.core.GameType.ROL:
               return i18n.t(`roulette.${bettype.toLowerCase()}`);
             case we.core.GameType.LW:
-              let lwresult;
-              switch (bettype.toLowerCase()) {
-                case 'lw_0':
-                  lwresult = 'east';
-                  break;
-                case 'lw_1':
-                  lwresult = 'south';
-                  break;
-                case 'lw_2':
-                  lwresult = 'west';
-                  break;
-                case 'lw_3':
-                  lwresult = 'north';
-                  break;
-                case 'lw_4':
-                  lwresult = 'red';
-                  break;
-                case 'lw_5':
-                  lwresult = 'green';
-                  break;
-                case 'lw_6':
-                  lwresult = 'white';
-                  break;
-              }
+              let lwresult = this.formatLWBetType(bettype.toLowerCase());
               return i18n.t(`luckywheel.${lwresult}`);
             default:
               return i18n.t(`betfield_${bettype.toLowerCase()}`);
           }
         }
 
+        private formatLWBetType(bettype){
+            switch (bettype) {
+                case 'lw_0':
+                  return 'east';
+                case 'lw_1':
+                  return 'south';
+                case 'lw_2':
+                  return 'west';
+                case 'lw_3':
+                  return 'north';
+                case 'lw_4':
+                  return 'red';
+                case 'lw_5':
+                  return 'green';
+                case 'lw_6':
+                  return 'white';
+              }
+        }
         private createGameResult(gametype, gameResult) {
           let p: eui.Component;
 
