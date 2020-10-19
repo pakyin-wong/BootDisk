@@ -47,62 +47,34 @@ namespace we {
 
       protected createQuickBetContent() {
         super.createQuickBetContent();
-        const skinName = this.getQuickBetContentSkinName();
-        this._quickBetContent = new NotificationQuickBetContent(skinName);
+        // const skinName = this.getQuickBetContentSkinName();
+        this._quickBetContent = new NotificationQuickBetContent();
+        const gameType = utils.getGameTypeNamespace(this.tableInfo.gametype);
+        this._quickBetContent.itemInitHelper = new we[gameType].SideListItemInitHelper();
+
         this._quickBetContent.scaleX = 1.05;
         this._quickBetContent.scaleY = 1.05;
         this._quickBetContent.top = 8;
         // this._quickBetContent.setData(this.tableInfo);
       }
 
-      protected getQuickBetContentSkinName() {
-        const gameType = this.tableInfo.gametype;
-        switch (gameType) {
-          case core.GameType.BAC:
-          case core.GameType.BAI:
-          case core.GameType.BAS:
-            return 'BaQuickBetContainerSkin';
-          case core.GameType.DT:
-            return 'DtQuickBetContainerSkin';
-          case core.GameType.LW:
-            return 'LwQuickBetContainerSkin';
-          case core.GameType.RO:
-            return 'RoQuickBetContainerSkin';
-          case core.GameType.DI:
-            return 'DiQuickBetContainerSkin';
-          // case we.core.GameType.BAC:
-          // case we.core.GameType.BAS:
-          // case we.core.GameType.BAI:
-          //   this._lblResult.renderText = () => i18n.t(utils.getWinMessageKey(gameType, winType, true));
-          //   switch (winType) {
-          //     case ba.WinType.BANKER:
-          //       this._resultRect.fillColor = 0xff0000;
-          //       break;
-          //     case ba.WinType.PLAYER:
-          //       this._resultRect.fillColor = 0x0000ff;
-          //       break;
-          //     case ba.WinType.TIE:
-          //       this._resultRect.fillColor = 0x00ff00;
-          //       break;
-          //   }
-          //   break;
-          // case we.core.GameType.DT:
-          // default:
-          //   this._lblResult.renderText = () => i18n.t(utils.getWinMessageKey(gameType, winType, true));
-          //   switch (winType) {
-          //     case dt.WinType.DRAGON:
-          //       this._resultRect.fillColor = 0x0000ff;
-          //       break;
-          //     case dt.WinType.TIGER:
-          //       this._resultRect.fillColor = 0xff0000;
-          //       break;
-          //     case dt.WinType.TIE:
-          //       this._resultRect.fillColor = 0x00ff00;
-          //       break;
-          //   }
-          //   break;
-        }
-      }
+      // protected getQuickBetContentSkinName() {
+      //   const gameType = this.tableInfo.gametype;
+      //   switch (gameType) {
+      //     case core.GameType.BAC:
+      //     case core.GameType.BAI:
+      //     case core.GameType.BAS:
+      //       return 'BaQuickBetContainerSkin';
+      //     case core.GameType.DT:
+      //       return 'DtQuickBetContainerSkin';
+      //     case core.GameType.LW:
+      //       return 'LwQuickBetContainerSkin';
+      //     case core.GameType.RO:
+      //       return 'RoQuickBetContainerSkin';
+      //     case core.GameType.DI:
+      //       return 'DiQuickBetContainerSkin';
+      //   }
+      // }
     }
   }
 }
