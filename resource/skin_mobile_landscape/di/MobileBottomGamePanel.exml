@@ -3,18 +3,18 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:di="we.di.*" states="on,off">
 	<e:Group y="0">
 		<e:Group id="_bottomPart" scaleX="1" scaleY="1" touchEnabled="false" touchChildren="true" anchorOffsetX="0"
-		         width="104" x="2260" height="66" y="0">
+		         width="104" x="2260" height="66" y="10">
 			<e:Image id="bottom_bg" x="0" y="0" source="m_ba_tab_bottom_png" scaleX="1" scaleY="1" visible="false" />
 			<ui:RunTimeLabel id="gameIdLabel" text="ID00000000000000" x="700" y="13.5" textAlign="right" anchorOffsetX="0"
 			                 width="514" size="25" scaleX="1" scaleY="1" visible="false" />
 			<ui:RunTimeLabel id="totalBetLabel" text="0" x="16" y="13.5" textAlign="left" anchorOffsetX="0" width="260" size="25"
 			                 scaleX="1" scaleY="1" visible="false" />
 			<e:Rect fillColor="0x212425" ellipseHeight="40" ellipseWidth="40" strokeColor="0x212425" height="58" left="0"
-			        right="0" y="20" />
+			        right="0" y="25" />
 			<e:Image id="_arrow" source="d_lobby_button_down_normal_png" width="80" height="80" scaleX="1" scaleY="1"
-			         visible.off="false" horizontalCenter="0" y="0" />
+			         visible.off="false" horizontalCenter="0" y="5" />
 			<e:Image id="_arrowUp" source="d_lobby_button_down_normal_png" width="80" height="80" scaleX="1" scaleY="1"
-			         visible.on="false" rotation="180" horizontalCenter="0" y="78" />
+			         visible.on="false" rotation="180" horizontalCenter="0" y="83" />
 		</e:Group>
 		<e:Group id="_middlePart" width="2424" x="0" scaleX="1" scaleY="1" left="0" right="0" height="308" y="65">
 			<e:Rect fillColor="0x212425" ellipseHeight="40" ellipseWidth="40" strokeColor="0x212425" right="0" left="0" top="0"
