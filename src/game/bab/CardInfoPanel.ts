@@ -82,7 +82,7 @@ namespace we {
         if(this._gameData.maskedcardssnList[this._cardIndex - 1][0] === '*'){
           this._sha256SuccessfulGroup.visible = false;
           this._sha256FailGroup.visible = false;
-      }else if(we.utils.sha256(this._gameData.maskedcardssnList[this._cardIndex - 1]) === this._gameData.hashedcardsList[this._cardIndex - 1]){
+      }else if(we.utils.SHA256(this._gameData.maskedcardssnList[this._cardIndex - 1]) === this._gameData.hashedcardsList[this._cardIndex - 1]){
           this._sha256SuccessfulGroup.visible = true;
           this._sha256FailGroup.visible = false;
         }else{
