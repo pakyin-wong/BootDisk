@@ -71,8 +71,8 @@ namespace we {
           }
         };
         this._bettedScroller.viewport = this.betTableList;
-        this._bettedScroller.addEventListener(TableList.LOCK, this.onLockChanged, this, false, 10);
-        this._bettedScroller.addEventListener(TableList.UNLOCK, this.onLockChanged, this, false, 10);
+        this.betTableList.addEventListener(TableList.LOCK, this.onLockChanged, this, false, 10);
+        this.betTableList.addEventListener(TableList.UNLOCK, this.onLockChanged, this, false, 10);
 
         // create good road list
         this.goodRoadTableList = new TableList();

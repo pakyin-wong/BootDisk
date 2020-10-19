@@ -622,6 +622,7 @@ namespace we {
         verification: '验证',
         thirdParty: '第三方验证',
         sha256VerifySuccess: 'SHA256已验证',
+        sha256VerifyFail: 'SHA256验证失败',
         deckDesc:
           '完整牌靴共由8副扑克牌组成，合计416张。首局开始前，系统会在完整牌靴中随机插入红牌，发牌至红卡时，代表该局游戏结束后将进行换靴。洗牌后，将重新生成「卡牌序号」及「卡牌加密文」，确保游戏的真确性。 ',
         copy: '复制',
