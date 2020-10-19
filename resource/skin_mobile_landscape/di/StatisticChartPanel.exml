@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_landscape.di.StatisticChartPanel" width="2086" height="308" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:di="we.di.*">
-
-<e:Group id="content" width="100%" height="100%">
-    <e:Rect id="_bg" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425"/>
-    <e:Image id="moveArea" source="popover_png" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7" visible="false"/>
-    <e:ViewStack id="pageOneStack" width="50%" height="100%" x="0" y="0" anchorOffsetX="0" selectedIndex="0" anchorOffsetY="0">
-        <e:Group width="100%" height="100%" name="Group">
-            <di:DiPie id="_diPie" skinName="skin_desktop.DiRightPanelPie" scaleX="1" scaleY="1" horizontalCenter="0" top="0"/>
-        </e:Group>
-    </e:ViewStack>
-    <e:ViewStack id="pageTwoStack" width="50%" height="100%" x="1043" y="0" anchorOffsetX="0" selectedIndex="0" anchorOffsetY="0">
-        <e:Group width="100%" height="100%" name="View">
-            <di:DiChance id="_diChance" skinName="skin_desktop.DiRightPanelChance" scaleX="1" scaleY="1" horizontalCenter="0" top="0"/>
-        </e:Group>    
-    </e:ViewStack>
-</e:Group>
+<e:Skin class="skin_mobile_landscape.di.StatisticChartPanel" width="2086" height="308" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:di="we.di.*">
+    <e:Group id="content" width="100%" height="100%">
+        <e:Rect id="_bg" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" />
+        <e:Image id="moveArea" source="popover_png" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7"
+                 visible="false" />
+        <e:ViewStack id="pageOneStack" width="35%" height="100%" x="0" y="0" anchorOffsetX="0" selectedIndex="0"
+                     anchorOffsetY="0">
+            <e:Group width="100%" height="100%" name="Group">
+                <di:DiPie id="_diPie" skinName="skin_mobile_landscape.di.PiePanel" scaleX="1" scaleY="1"
+                          horizontalCenter="0" top="0" />
+            </e:Group>
+        </e:ViewStack>
+        <e:ViewStack id="pageTwoStack" width="65%" height="100%" x="730" y="0" anchorOffsetX="0" selectedIndex="0"
+                     anchorOffsetY="0">
+            <e:Group width="100%" height="100%" name="View">
+                <di:DiChance id="_diChance" skinName="skin_desktop.DiRightPanelChance" scaleX="1" scaleY="1"
+                             horizontalCenter="0" top="0" />
+            </e:Group>
+        </e:ViewStack>
+        <e:Rect width="2" height="100%" x="730" y="0" fillColor="0x333333" />
+    </e:Group>
 </e:Skin>

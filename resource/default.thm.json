@@ -383,6 +383,7 @@
 		"resource/skin_mobile_landscape/di/TableLayer.exml",
 		"resource/skin_mobile_landscape/di/MobileBottomRoadmapPanel.exml",
 		"resource/skin_mobile_landscape/di/MobileBottomBeadRoadPanel.exml",
+		"resource/skin_mobile_landscape/di/PiePanel.exml",
 		"resource/skin_mobile_landscape/di/StatisticChartPanel.exml",
 		"resource/skin_mobile_landscape/di/TableInfoPanel.exml",
 		"resource/skin_mobile_landscape/di/MobileBottomRoadButtonPanel.exml",

@@ -59,6 +59,6 @@
 			<e:HorizontalLayout verticalAlign="bottom" gap="2" />
 		</e:layout>
 	</e:Group>
-	<di:RankedPieChart id="_pieSize" x="1020" y="135" maxChartSize="230" />
-	<di:RankedPieChart id="_pieOdd" x="180" y="360" maxChartSize="230" />
+	<di:RankedPieChart id="_pieSize" x="1020" y="140" maxChartSize="280" />
+	<di:RankedPieChart id="_pieOdd" x="180" y="360" maxChartSize="280" />
 </e:Skin>
