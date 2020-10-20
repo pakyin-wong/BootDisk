@@ -37,6 +37,15 @@ namespace we {
           return;
         }
 
+        // load slides
+        this.slides.forEach(async (slide: core.IRemoteResourceItem) => {
+          if (slide.imageUrl) {
+            const texture = await RES.getResByUrl(slide.imageUrl, null, this, RES.ResourceItem.TYPE_IMAGE);
+            slide.image = texture;
+            slide.loaded = true;
+          }
+        });
+        
         // reset dimensions
         this.imageVisible.width = this.width;
         this.imageVisible.height = this.height;
@@ -150,8 +159,11 @@ namespace we {
             this.scheduleNext();
             return;
           }
-
+          const oldIndex = this.currentIndex;
           this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+          while (!this.slides[this.currentIndex].loaded && this.currentIndex !== oldIndex) {
+            this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+          }
 
           this.isAnimating = true;
           this.imageVisible.x = 0;
@@ -173,7 +185,7 @@ namespace we {
             this.isAnimating = false;
             this.scheduleNext();
           }, this.duration * 1000 + 50);
-        }, 5000);
+        }, 1000);
       }
 
       private onTap() {
