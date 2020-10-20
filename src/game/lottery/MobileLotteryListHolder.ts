@@ -1,7 +1,7 @@
 /* tslint:disable no-eval */
 namespace we {
-  export namespace ba {
-    export class MobileLiveListHolder extends ui.TableListItemHolder {
+  export namespace lottery {
+    export class MobileLotteryListHolder extends ui.TableListItemHolder {
       public selected: boolean;
       public itemIndex: number;
 
@@ -50,7 +50,17 @@ namespace we {
             generalGameType = 'dt';
             break;
           case we.core.GameType.RO:
+          case we.core.GameType.ROL:
             generalGameType = 'ro';
+            break;
+          case we.core.GameType.DI:
+            generalGameType = 'di';
+            break;
+          case we.core.GameType.DIL:
+            generalGameType = 'dil';
+            break;
+          case we.core.GameType.LW:
+            generalGameType = 'lw';
             break;
         }
 

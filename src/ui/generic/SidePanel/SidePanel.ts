@@ -46,9 +46,16 @@ namespace we {
         egret.Tween.removeTweens(this._bg);
 
         egret.Tween.get(this._viewStack).to({ height: 0 }, 200);
-        egret.Tween.get(this._tweenGroup).to({ scaleY: 0 }, 200).set({ visible: false }).to({ scaleX: 0, alpha: 0 }, 200);
-        egret.Tween.get(this._tabBarGroup).wait(200).to({ y: 0 }, 200);
-        egret.Tween.get(this._bg).wait(200).to({ ellipseHeight: 56, ellipseWidth: 56 }, 200);
+        egret.Tween.get(this._tweenGroup)
+          .to({ scaleY: 0 }, 200)
+          .set({ visible: false })
+          .to({ scaleX: 0, alpha: 0 }, 200);
+        egret.Tween.get(this._tabBarGroup)
+          .wait(200)
+          .to({ y: 0 }, 200);
+        egret.Tween.get(this._bg)
+          .wait(200)
+          .to({ ellipseHeight: 56, ellipseWidth: 56 }, 200);
 
         this._isCollapsed = true;
         this.dispatchChange();
@@ -83,10 +90,19 @@ namespace we {
         egret.Tween.removeTweens(this._viewStack);
         egret.Tween.removeTweens(this._bg);
 
-        egret.Tween.get(this._viewStack).wait(interval).to({ height: this._targetHeight }, interval);
-        egret.Tween.get(this._tweenGroup).to({ scaleX: 1 }, interval).set({ visible: true }).to({ scaleY: 1, alpha: 1 }, interval);
-        egret.Tween.get(this._tabBarGroup).wait(interval).to({ y: 8 }, interval);
-        egret.Tween.get(this._bg).wait(interval).to({ ellipseHeight: 28, ellipseWidth: 28 }, interval);
+        egret.Tween.get(this._viewStack)
+          .wait(interval)
+          .to({ height: this._targetHeight }, interval);
+        egret.Tween.get(this._tweenGroup)
+          .to({ scaleX: 1 }, interval)
+          .set({ visible: true })
+          .to({ scaleY: 1, alpha: 1 }, interval);
+        egret.Tween.get(this._tabBarGroup)
+          .wait(interval)
+          .to({ y: 8 }, interval);
+        egret.Tween.get(this._bg)
+          .wait(interval)
+          .to({ ellipseHeight: 28, ellipseWidth: 28 }, interval);
       }
     }
   }

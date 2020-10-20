@@ -18,9 +18,9 @@ namespace we {
         const buttonNames = Object.keys(this._buttonProps);
         this.currentState = buttonNames.length === 2 ? 'two' : 'one';
         for (const btn of buttonNames) {
-          (<ui.RoundRectButton>this[`_btn_${btn}`]).label.text = this._buttonProps[btn].text;
-          (<ui.RoundRectButton>this[`_btn_${btn}`]).label.size = env.isMobile ? 60 : 24;
-          (<ui.RoundRectButton>this[`_btn_${btn}`]).label.fontFamily = 'Arial';
+          (<ui.RoundRectButton> this[`_btn_${btn}`]).label.text = this._buttonProps[btn].text;
+          (<ui.RoundRectButton> this[`_btn_${btn}`]).label.size = env.isMobile ? 60 : 24;
+          (<ui.RoundRectButton> this[`_btn_${btn}`]).label.fontFamily = 'Arial';
           this[`_btn_${btn}`].addEventListener(
             egret.TouchEvent.TOUCH_TAP,
             async () => {

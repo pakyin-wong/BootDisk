@@ -67,7 +67,6 @@ namespace we {
           this._toggler.renderText = () => `${items.length > 0 ? items[idx] : ''}`;
           // this._toggler.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${items.length > 0 ? items[idx] : ''}`;
         }
-
       }
 
       // protected initCustomPos() {

@@ -68,7 +68,7 @@ namespace we {
 
         const page1Group = this.pageStack.getChildAt(0) as eui.Group;
 
-        this.beadRoad = new DilBeadRoad(6, 8, 56, 1, 16, 18, 0x262a2b, 1,true); // in game
+        this.beadRoad = new DilBeadRoad(6, 8, 56, 1, 16, 18, 0x262a2b, 1, true); // in game
         this.beadRoad.x = 10;
         this.beadRoad.y = 20;
         this.beadRoad.scaleX = 689 / 689;
