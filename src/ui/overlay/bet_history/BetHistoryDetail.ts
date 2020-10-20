@@ -105,7 +105,7 @@ namespace we {
           }
 
           this._record_id.text = this.data.betid;
-          this._record_date.text = utils.formatTime(this.data.datetime.toFixed(0))
+          this._record_date.text = utils.formatTime(this.data.datetime.toFixed(0));
           // this._record_date.text = utils.formatTime((this.data.datetime / Math.pow(10, 9)).toFixed(0));
           this._record_game.text = `${i18n.t('gametype_' + we.core.GameType[this.data.gametype])} ${this.data.tablename}`;
           this._record_round.text = this.data.gameroundid;
@@ -178,9 +178,9 @@ namespace we {
             case we.core.GameType.DI:
               return i18n.t(`dice.${bettype.toLowerCase()}`);
             case we.core.GameType.DIL:
-            let res = bettype;
-            let dilresultStr = res.split("_");
-            let dilresult = dilresultStr[1]
+              const res = bettype;
+              const dilresultStr = res.split('_');
+              const dilresult = dilresultStr[1];
               return dilresult;
             case we.core.GameType.RO:
             case we.core.GameType.ROL:

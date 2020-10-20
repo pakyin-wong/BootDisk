@@ -827,6 +827,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class QuickBetContainerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class RoQuickBetContainerSkin extends eui.Skin{
 	}
 }
@@ -2178,6 +2182,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class LobbyScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class LotteryPage extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.lw{

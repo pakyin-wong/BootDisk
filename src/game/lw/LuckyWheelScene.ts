@@ -63,7 +63,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo>evt.data;
+          const stat = <data.TableInfo> evt.data;
           if (stat.tableid === this._tableId) {
             this._roadmapControl.updateRoadData();
           }
@@ -71,7 +71,7 @@ namespace we {
       }
 
       public checkResultMessage() {
-        const resultNo = (<lw.GameData>this._gameData).value;
+        const resultNo = (<lw.GameData> this._gameData).value;
         (this._tableLayer as lw.TableLayer).flashFields(`LW_${parseInt(resultNo, 10) - 1}`);
         super.checkResultMessage();
       }
