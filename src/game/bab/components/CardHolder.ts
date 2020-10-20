@@ -599,6 +599,10 @@ namespace we {
         this.movePin();
         this.moveShoe();
 
+        const p2 = we.utils.waitDragonBone(this._ringAnim);
+        this._ringAnim.animation.fadeIn('poker_round_in', 0, 1, 0, 'POKER_ANIMATION_GROUP');
+        await p2
+
         const cardAnimNames = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2', '_smallCard1', '_smallCard2'];
         for (let i = 0; i < cardAnimNames.length; i++) {
           switch (cardAnimNames[i]) {
@@ -660,6 +664,10 @@ namespace we {
             await p2
           }
         }
+
+        const p3 = we.utils.waitDragonBone(this._ringAnim);
+        this._ringAnim.animation.fadeIn('poker_round_out', 0, 1, 0, 'POKER_ANIMATION_GROUP');
+        await p3
 
         return new Promise(resolve => resolve());
       }
@@ -761,10 +769,6 @@ namespace we {
           this.dispatchEvent(new egret.Event('OPEN_SHUFFLE_PANEL',false,false,'init'))
         }else{
           (async()=>{
-            if(this._gameData.redcardindex <= this._gameData.currentcardindex + 6){
-              this._smallRedCard.animation.gotoAndStopByTime('red_poker_loop',0)
-            }
-
             console.log('shuffle start')
             const p1 = utils.waitDragonBone(this._smallRedCard);
             this._smallRedCard.animation.fadeIn('red_poker_out');
