@@ -6,6 +6,7 @@
 
 			<e:Group x="0" y="0">
 				<ui:ImageSlider id="_bannerSlider" height="1242" width="1242" horizontalCenter="0"/>
+				<ui:ImageSliderBullet id="_sliderBullet" bulletGap="20"  horizontalCenter="0" y="1100"/>
 				<e:Group id="_posterContainer" y="1186" horizontalCenter="0">
 					<e:layout>
 					<e:TileLayout horizontalAlign="center" requestedColumnCount="2" paddingTop="24" columnWidth="549" rowHeight="760" horizontalGap="47" paddingBottom="0" verticalGap="47"/>

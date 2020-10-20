@@ -7,6 +7,7 @@ namespace we {
 
       public _txt_hotgame: ui.RunTimeLabel;
       public _bannerSlider: ui.ImageSlider;
+      public _sliderBullet: ui.ImageSliderBullet;
       public _posterContainer: eui.Group;
       public _hotgameContainer: eui.Group;
 

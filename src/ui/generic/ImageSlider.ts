@@ -51,7 +51,7 @@ namespace we {
       protected childrenCreated(): void {
         super.childrenCreated();
 
-        this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
+        this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this, false, 10);
       }
 
       public configSlides(slides: core.IRemoteResourceItem[]) {
@@ -101,13 +101,13 @@ namespace we {
         }
         this.isDown = true;
         this.initX = event.$stageX;
-        this.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
-        this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
+        this.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this, false, 10);
+        this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this, false, 10);
+        this.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onTouchEnd, this, false, 10);
       }
 
       private onTouchMove(event: egret.TouchEvent): void {
         this.isMoved = true;
-
         if (!this._slides.length) {
           return;
         }
@@ -115,11 +115,11 @@ namespace we {
         this.imageVisible.x = event.$stageX - this.initX;
         if (this.imageVisible.x > 0) {
           // invisible one to left (prev)
-          this.imageInvisible.x = this.imageVisible.x - 2600;
+          this.imageInvisible.x = this.imageVisible.x - this.width;
           this.direction = 'prev';
         } else {
           // invisble one to right (next)
-          this.imageInvisible.x = this.imageVisible.x + 2600;
+          this.imageInvisible.x = this.imageVisible.x + this.width;
           this.direction = 'next';
         }
         // const index = (this.slides.length + (this.currentIndex + (this.direction === 'prev' ? -1 : 1))) % this.slides.length;
@@ -138,16 +138,17 @@ namespace we {
         this.isAnimating = true;
         this.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
         this.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
+        this.removeEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onTouchEnd, this);
 
         const diff = event.$stageX - this.initX;
 
-        if (Math.abs(diff) / 2600 <= 0.25) {
+        if (Math.abs(diff) / this.width <= 0.25) {
           // not reach threshold, don't slide
           TweenLite.to(this.imageVisible, this.duration, {
             x: 0,
           });
           TweenLite.to(this.imageInvisible, this.duration, {
-            x: this.direction === 'next' ? 2600 : -2600,
+            x: this.direction === 'next' ? this.width : -this.width,
           });
 
           setTimeout(() => {
@@ -166,7 +167,7 @@ namespace we {
           x: 0,
         });
         TweenLite.to(this.imageVisible, this.duration, {
-          x: this.direction === 'next' ? -2600 : 2600,
+          x: this.direction === 'next' ? -this.width : this.width,
         });
 
         if (this.bullets) {
@@ -199,7 +200,7 @@ namespace we {
 
         this.isAnimating = true;
         this.imageVisible.x = 0;
-        this.imageInvisible.x = isPrev? -2600: 2600;
+        this.imageInvisible.x = isPrev? -this.width: this.width;
         this.imageInvisible.source = this._slides[this.currentIndex].image;
         this.imageInvisible.alpha = 1;
 
@@ -211,7 +212,7 @@ namespace we {
           x: 0,
         });
         TweenLite.to(this.imageVisible, this.duration, {
-          x: isPrev ? 2600 : -2600,
+          x: isPrev ? this.width : -this.width,
         });
 
         setTimeout(() => {

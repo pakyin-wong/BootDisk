@@ -10,16 +10,18 @@ namespace we {
 
       protected _bullets: ImageSliderBulletItem[] = [];
 
+      protected _bulletGap: number = 6;
+
       constructor() {
         super();
         this.BulletItemClass = ImageSliderBulletItem;
+        const hLayout = new eui.HorizontalLayout();
+        hLayout.gap = this._bulletGap;
+        this.layout = hLayout;
       }
 
       protected childrenCreated() {
         super.childrenCreated();
-        const hLayout = new eui.HorizontalLayout();
-        hLayout.gap = 6;
-        this.layout = hLayout;
         this.refresh();
       }
 
@@ -27,7 +29,15 @@ namespace we {
         this._imageSlider = val;
       }
       public get imageSlider(): ImageSlider {
-        return this.imageSlider;
+        return this._imageSlider;
+      }
+
+      public set bulletGap(val: number) {
+        this._bulletGap = val;
+        (this.layout as eui.HorizontalLayout).gap = val;
+      }
+      public get bulletGap(): number {
+        return this._bulletGap;
       }
 
       public refresh() {
@@ -37,7 +47,7 @@ namespace we {
           this.removeChildren();
           this._bullets = Array.apply(null, {length: this._imageSlider.slideCount}).map((d, idx)=> {
             const bullet = new this.BulletItemClass(idx, this._imageSlider);
-            bullet.skinName = this.BulletItemSkinname;
+            bullet.skinName = utils.getSkinByClassname(this.BulletItemSkinname);
             this.addChild(bullet);
             return bullet;
           });

@@ -6,8 +6,12 @@ namespace we {
 
       public initContent(root: ILobbyPage) {
         // init image slider
-        root._bannerSlider.configSlides(dir.lobbyResources.homeHeroBanners);
+        root._bannerSlider.configSlides(dir.lobbyResources.homeLargeBanners);
 
+        if (root._bannerSlider && root._sliderBullet) {
+          root._bannerSlider.bullets = root._sliderBullet;
+          root._sliderBullet.imageSlider = root._bannerSlider;
+        }
         // init 4 featured posters
         for (let i = 0, len = dir.lobbyResources.homeLargeBanners.length; i < len; i += 1) {
           const { image, link } = dir.lobbyResources.homeLargeBanners[i];
