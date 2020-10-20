@@ -11,7 +11,7 @@ namespace we {
 
       public mount() {
         super.mount();
-        this._leftHolder.setupChart1(() => i18n.t('baccarat.statisticChart.shoeBankerPlayerTie'), false);
+        this._leftHolder.setupChart1(() => i18n.t('dragontiger.DragonTigerTieRatio'), false);
       }
 
       public setValue(tableInfo: data.TableInfo) {

@@ -61,10 +61,13 @@ namespace we {
       image: egret.Texture;
       link: string;
       loaded: boolean;
+      title?: string;
+      description?: string;
     }
 
     export interface IContentInitializer {
       initContent(root: eui.Component);
+      reloadBanners();
     }
   }
 }

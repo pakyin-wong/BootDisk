@@ -2,11 +2,14 @@
 namespace we {
   export namespace ui {
     export class NotificationQuickBetContent extends ui.ControlItem {
-      protected _bigRoad: we.ba.BALobbyBigRoad;
-      protected _beadRoad;
-      protected _dibeadRoad: we.di.DiLobbyBeadRoad;
-      protected _denomLayer: eui.Component;
+      protected _bigRoad: we.ui.ILobbyRoad & eui.Component;
       protected _alreadyBetSign: eui.Group;
+      protected _tableLayerNode: eui.Component;
+      protected _chipLayerNode: eui.Component;
+      protected _roadmapNode: eui.Component;
+      protected _quickbetButtonNode: eui.Component;
+      protected _betChipSetNode: eui.Component;
+
       protected _goodRoadLabel: ui.GoodRoadLabel;
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _betChipSetGridEnabled: boolean = false;
@@ -14,47 +17,38 @@ namespace we {
       protected _closeButton: ui.BaseImageButton;
       protected _prevButton: ui.BaseImageButton;
 
-      protected _contentMask: eui.Rect;
+      protected _betChipSetPanel: eui.Group;
+      protected _betChipSetGroup: eui.Group;
+      protected _betButtonGroup: eui.Group;
+      protected _quickBetGroup: eui.Group;
+      protected _tableLayerGroup: eui.Group;
 
-      public constructor(skinName: string = 'BaQuickBetContainerSkin') {
+      protected _betChipPanelTargetY: number;
+
+      protected _arrangeProperties = [
+        'x',
+        'y',
+        'width',
+        'height',
+        'scaleX',
+        'scaleY',
+        'left',
+        'right',
+        'top',
+        'bottom',
+        'verticalCenter',
+        'horizontalCenter',
+        'anchorOffsetX',
+        'anchorOffsetY',
+        'percentWidth',
+        'percentHeight',
+      ];
+
+      public constructor(skinName: string = 'QuickBetContainerSkin') {
         super(skinName);
         this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         this._betChipSet.init(null, denominationList);
-        if (this._beadRoad) {
-          if (skinName === 'DiQuickBetContainerSkin') {
-            // this._beadRoad.x = 0;
-            // this._beadRoad.y = 0;
-            // this._beadRoad.scaleX = this._beadRoad.scaleY =1;
-            // this._beadRoad.setLayout(3);
-            this._beadRoad.roadGridSize = 30;
-            this._beadRoad.roadCol = 8;
-            this._beadRoad.roadRow = 1;
-            this._beadRoad.roadIndentX = 6;
-            this._beadRoad.roadIndentY = 5;
-            this._beadRoad.roadOffsetX = 12;
-            this._beadRoad.roadOffsetY = 5;
-            this._beadRoad.roadIconItemYOffset = 4;
-            this._beadRoad.roadIconItemColors = [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1]; // [r_color,g_color,b_color, hightlight_color, hightlight_alpha]
-            // this._beadRoad.roadImageWidth = 18;
-            // this._beadRoad.roadImageHeight = 18;
-            // this._beadRoad.roadScale = 1;
-            // this._beadRoad.roadGridColor = 0xffffff;
-            // this._beadRoad.roadGridAlpha = 1;
-            // this._beadRoad.roadGridBorderColor = 0xdfdfdf;
-          } else {
-            this._beadRoad.roadRow = 3;
-            this._beadRoad.roadCol = 8;
-            this._beadRoad.roadCellWidth = 42;
-            this._beadRoad.roadCellHeight = 42;
-            this._beadRoad.roadImageWidth = 27;
-            this._beadRoad.roadImageHeight = 35;
-            this._beadRoad.roadScale = 1;
-            this._beadRoad.roadGridColor = 0xffffff;
-            this._beadRoad.roadGridAlpha = 1;
-            this._beadRoad.roadGridBorderColor = 0xdfdfdf;
-          }
-        }
       }
 
       protected setStateBet(isInit: boolean = false) {
@@ -100,14 +94,6 @@ namespace we {
 
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
-        if (tableInfo.roadmap) {
-          if (this._bigRoad) {
-            this._bigRoad.updateSideBarRoadData(tableInfo.roadmap);
-          }
-          if (this._beadRoad) {
-            this._beadRoad.updateSideBarRoadData(tableInfo.roadmap);
-          }
-        }
         if (this.tableInfo.goodRoad) {
           this._goodRoadLabel.visible = true;
           const goodRoadData = this.tableInfo.goodRoad;
@@ -116,6 +102,12 @@ namespace we {
           this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
         } else {
           this._goodRoadLabel.visible = false;
+        }
+
+        if (tableInfo.roadmap) {
+          if (this._bigRoad) {
+            this._bigRoad.updateSideBarRoadData(tableInfo.roadmap); // init  roadmap
+          }
         }
       }
 
@@ -127,18 +119,63 @@ namespace we {
             if (this._bigRoad) {
               this._bigRoad.updateSideBarRoadData(tableInfo.roadmap);
             }
-            if (this._beadRoad) {
-              this._beadRoad.updateSideBarRoadData(tableInfo.roadmap);
-            }
           }
         }
       }
 
       protected initChildren() {
+        this.generateRoadmap();
+        this.generateTableLayer();
+        this.generateChipLayer();
         super.initChildren();
-        this._betChipSet.resetFormat(1);
         this._goodRoadLabel.visible = false;
-        this._contentContainer.mask = this._contentMask;
+      }
+
+      protected generateTableLayer() {
+        if (this.itemInitHelper && this._tableLayerNode) {
+          this._tableLayer = this.itemInitHelper.generateTableLayer(this._tableLayerNode);
+          this._tableLayer.touchEnabled = false;
+          this._tableLayer.touchChildren = false;
+        }
+      }
+
+      protected generateChipLayer() {
+        if (this.itemInitHelper && this._chipLayerNode) {
+          this._chipLayer = this.itemInitHelper.generateChipLayer(this._chipLayerNode);
+        }
+      }
+
+      protected generateRoadmap() {
+        if (this.itemInitHelper && this._roadmapNode) {
+          this._bigRoad = this.itemInitHelper.generateRoadmap(this._roadmapNode);
+          if (this._bigRoad) {
+            this._bigRoad.touchEnabled = false;
+            this._bigRoad.touchChildren = false;
+          }
+        }
+      }
+
+      // set the position of the children components
+      protected arrangeComponents() {
+        for (const att of this._arrangeProperties) {
+          if (this._tableLayer && att !== 'height') {
+            this._tableLayer[att] = this._tableLayerNode[att];
+          }
+          if (this._chipLayer && att !== 'height') {
+            this._chipLayer[att] = this._chipLayerNode[att];
+          }
+          if (this._roadmapNode && this._bigRoad && att !== 'height' && att !== 'scaleX' && att !== 'scaleY') {
+            this._bigRoad[att] = this._roadmapNode[att];
+          }
+        }
+        this._tableLayer.y = this._bigRoad.height + 37;
+        this._chipLayer.y = this._bigRoad.height + 37;
+        this._tableLayerGroup.y = this._bigRoad.height + 37;
+        this._message.y = 47 + this._bigRoad.height * 0.5;
+        this._betButtonGroup.y = this._tableLayer.height - 10;
+        this._quickBetGroup.height = this._tableLayer.height + 100;
+        this._quickBetGroup.y = this._bigRoad.height + 37;
+        this._betChipPanelTargetY = this._bigRoad.height + 137 + this._tableLayer.height;
       }
 
       protected onBetDetailUpdateInBetState() {
@@ -178,12 +215,18 @@ namespace we {
       }
 
       protected showBetChipPanel() {
-        egret.Tween.get(this._betChipSet).to({ y: 390, alpha: 1 }, 250);
+        this._betChipSetGroup.y = this._betChipPanelTargetY - 100;
+        this._betChipSetGroup.visible = true;
+        egret.Tween.get(this._betChipSetGroup).to({ y: this._betChipPanelTargetY, alpha: 1 }, 300);
         this._betChipSetGridEnabled = true;
       }
 
       protected hideBetChipPanel() {
-        egret.Tween.get(this._betChipSet).to({ y: 0, alpha: 0 }, 250);
+        egret.Tween.get(this._betChipSetGroup)
+          .to({ y: this._betChipPanelTargetY - 100, alpha: 0 }, 300)
+          .call(() => {
+            this._betChipSetGroup.visible = false;
+          });
         this._betChipSetGridEnabled = false;
       }
     }

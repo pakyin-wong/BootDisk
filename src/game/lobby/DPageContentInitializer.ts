@@ -36,12 +36,18 @@ namespace we {
         // init image slider
         const slider = new we.ui.ImageSlider();
         slider.width = this._root.scroller.width;
-        slider.height = 790;
+        slider.height = 883;
         slider.configSlides(dir.lobbyResources.homeHeroBanners);
         const sliderContainer = new eui.Group();
         sliderContainer.width = slider.width;
-        sliderContainer.height = slider.height + offsetForTableList;
+        sliderContainer.height = 762;
         sliderContainer.addChild(slider);
+        const dimmer = new eui.Image();
+        dimmer.source = 'd_lobby_banner_fadeout_png';
+        dimmer.width = slider.width;
+        dimmer.height = 178;
+        dimmer.bottom = -121;
+        sliderContainer.addChild(dimmer);
         group.addChild(sliderContainer);
 
         let title: SectionTitle = new SectionTitle();
@@ -94,12 +100,18 @@ namespace we {
         const footer = new eui.Group();
         footer.width = this._root.stage.stageWidth;
         footer.height = 200;
-        const label = new eui.Label();
+        // const label = new eui.Label();
+        // label.fontFamily = 'Barlow';
+        // label.textAlign = egret.HorizontalAlign.CENTER;
+        // label.verticalCenter = 0;
+        // label.horizontalCenter = 0;
+        // label.text = '© 2020 World Entertainment 保留一切權利。';
+        const label = new ui.RunTimeLabel();
         label.fontFamily = 'Barlow';
         label.textAlign = egret.HorizontalAlign.CENTER;
         label.verticalCenter = 0;
         label.horizontalCenter = 0;
-        label.text = '© 2020 World Entertainment 保留一切權利。';
+        label.renderText = () => `${i18n.t('lobby_footer_text')}`;
         footer.addChild(label);
         group.addChild(footer);
 
@@ -168,10 +180,10 @@ namespace we {
           this._smallBanner.addChild(poster);
 
           // TODO: remove, this is for testing!!!!!
-          if (!title) {
-            poster.title = '百家樂';
-            poster.description = 'The perfect game for startup';
-          }
+          // if (!title) {
+          //   poster.title = '百家樂';
+          //   poster.description = 'The perfect game for startup';
+          // }
         });
       }
     }

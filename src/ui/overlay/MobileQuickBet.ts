@@ -109,11 +109,6 @@ namespace we {
         this.addListeners();
       }
 
-      protected onOrientationChange() {
-        this.clearOrientationDependentComponent();
-        this.initOrientationDependentComponent();
-      }
-
       protected clearOrientationDependentComponent() {
         super.clearOrientationDependentComponent();
         this._controlGroup.removeChild(this.displayItem);

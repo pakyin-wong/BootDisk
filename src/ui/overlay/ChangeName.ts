@@ -120,6 +120,8 @@ namespace we {
           args: ['PlayerProfile'],
         });
         logger.l(utils.LogTarget.DEBUG, `NavSideMenu::PlayerProfile`);
+        dir.socket.updateSetting('nickname', env.nickname);
+        dir.socket.updateSetting('nicknameKey', env.nicknameKey);
       }
 
       protected initOrientationDependentComponent() {

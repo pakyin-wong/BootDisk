@@ -648,7 +648,7 @@ namespace we {
         const totalUncfmAmount = this.getTotalUncfmBetAmount() + betDetail.amount;
         const balance = env.balance;
         if (balance < totalUncfmAmount) {
-          betDetail.amount += balance - totalUncfmAmount;
+          betDetail.amount += Math.floor(balance - totalUncfmAmount);
           if (betDetail.amount <= 0) {
             this.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
             return false;

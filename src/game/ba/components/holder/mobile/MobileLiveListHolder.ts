@@ -136,12 +136,12 @@ namespace we {
         switch (state) {
           case ui.TableListItemHolder.STATE_NORMAL:
             if (this.isFocus) {
-              this.list.dispatchEvent(new egret.Event(ui.TableList.UNLOCK, false, false, this));
+              this.list.dispatchEvent(new egret.Event(ui.TableList.UNLOCK, true, false, this));
             }
             this._holderState = ui.TableListItemHolder.STATE_NORMAL;
             return true;
           case ui.TableListItemHolder.STATE_FOCUS:
-            this.list.dispatchEvent(new egret.Event(ui.TableList.LOCK, false, false, this));
+            this.list.dispatchEvent(new egret.Event(ui.TableList.LOCK, true, false, this));
             this._holderState = ui.TableListItemHolder.STATE_FOCUS;
             return true;
         }

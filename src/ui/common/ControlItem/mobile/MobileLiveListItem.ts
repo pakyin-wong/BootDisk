@@ -10,6 +10,9 @@ namespace we {
       // protected _cockroachRoad: ba.BACockroachRoad;
 
       protected _roadmap: ILobbyRoad;
+      protected _gameType: string;
+      protected _gameIdx: string;
+      protected _betLimit: ui.RunTimeLabel;
 
       public constructor(skinName: string = null) {
         super(skinName);
@@ -59,8 +62,10 @@ namespace we {
       }
 
       protected updateBetLimitText(items, idx) {
-        if (this._toggler) {
-          this._toggler.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${items.length > 0 ? items[idx] : ''}`;
+        if (this._toggler && this._betLimit) {
+          this._betLimit.renderText = () => `${i18n.t('baccarat.betLimitshort')}`;
+          this._toggler.renderText = () => `${items.length > 0 ? items[idx] : ''}`;
+          // this._toggler.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${items.length > 0 ? items[idx] : ''}`;
         }
       }
 

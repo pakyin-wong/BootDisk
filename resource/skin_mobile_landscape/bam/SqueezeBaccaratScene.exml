@@ -37,12 +37,11 @@
 				         horizontalCenter="0" verticalCenter="0" />
 			</e:Group>
 			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" skinName="skin_mobile.BetChipSkin"
-			                           labelSize="48" x.right_hand_mode="578" y.right_hand_mode="36" x="578" y="36"
-			                           x.left_hand_mode="1614" />
+			                           labelSize="48" x.right_hand_mode="578" y="65" x.left_hand_mode="1614" />
 			<e:Group id="_betRelatedGroup" x="762" y="71" x.right_hand_mode="762" scaleX="1" scaleY="1" y.right_hand_mode="71"
 			         x.left_hand_mode="600">
-				<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
-				        fillColor="0x444444" />
+				<e:Rect id="_roundPanel" width="954" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
+				        fillColor="0x444444" right.right_hand_mode="0" left.left_hand_mode="0" />
 				<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="684"
 				          verticalCenter="0" x.right_hand_mode="684" skinName="skin_mobile_portrait.BetConfirmButtonSkin"
 				          x.left_hand_mode="5" />
@@ -75,15 +74,16 @@
 			<e:VerticalLayout gap="-65" />
 		</e:layout>
 	</e:Group>
-	<e:Group id="_betChipSetPanel" width="1566" height="260" scaleY="1" x="366" y="264">
-		<e:Group id="_betPanelGroup" scaleY="1" x="0" height="260" y="0" width="100%" y.right_hand_mode="-404">
+	<e:Group id="_betChipSetPanel" width="1566" height="443" scaleY="1" x="366" y="264">
+		<e:Group id="_betPanelGroup" scaleY="1" x="0" height="443" y="0" width="100%">
 			<e:Image id="_panel" width="1566" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1"
 			         scaleX="1" y="0" height="443" x="0" />
 			<e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" scaleY="1" width="68" y="474"
-			         scaleX="1" x="327" rotation="180" x.left_hand_mode="1340" />
+			         scaleX="1" x.right_hand_mode="307" rotation="180" x.left_hand_mode="1340" />
 		</e:Group>
 		<ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" horizontalCenter="0" betChipWidth="250"
-		                   betChipHeight="208" scaleY="1" anchorOffsetY="0" right="0" left="0" labelSize="48" y="35" />
+		                   betChipHeight="208" numChipsInRow="6" chipSizeScale="0.75" horizontalGapSize="-20"
+		                   verticalGapSize="-20" left="0" labelSize="48" y="35" />
 	</e:Group>
 	<e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2424" touchEnabled="false"
 	         touchChildren="true" touchThrough="true" height="121">

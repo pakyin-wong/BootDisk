@@ -18,7 +18,7 @@ let texturePacker = require("free-tex-packer-core");
 
 // console.log(args["--input"]);
 
-async function generateSpriteSheet(textureName, srcDir, outDir, scale) {
+async function generateSpriteSheet(textureName, srcDir, outDir, scale, size=8192) {
   let entries = [...await glob([`${srcDir}/*.png`]), ...await glob([`${srcDir}/**/*.png`]), ...await glob([`${srcDir}/**/*.jpg`])]
 
   entries = entries.map( entry => {
@@ -39,8 +39,8 @@ async function generateSpriteSheet(textureName, srcDir, outDir, scale) {
 
   let options = {
     textureName: textureName,
-    width: 8192,
-    height: 8192,
+    width: size,
+    height: size,
     fixedSize: false,
     powerOfTwo: true,
     padding: 2,
@@ -92,7 +92,7 @@ void async function() {
       const outDir = `${outBaseDir}/${platform}/${dir.split('/')[0]}`;
       const textureName = dir.replace(/\//g, '_');
       // console.log(textureName, srcDir, outDir);
-      await generateSpriteSheet(textureName, srcDir, outDir, item[platform].scale);
+      await generateSpriteSheet(textureName, srcDir, outDir, item[platform].scale, item[platform].size);
       // const dir = item.dir;
       // let entries = [...await glob([`${baseDir}/${platform}/${dir}/**/*.png`]), ...await glob([`${baseDir}/${platform}/${dir}/**/*.jpg`])]
 

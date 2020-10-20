@@ -149,12 +149,39 @@ namespace we {
             case we.core.GameType.DI:
               return i18n.t(`dice.${bettype.toLowerCase()}`);
             case we.core.GameType.DIL:
-              return bettype;
+              const res = bettype;
+              const dilresultStr = res.split('_');
+              const dilresult = dilresultStr[1];
+              return dilresult;
             case we.core.GameType.RO:
             case we.core.GameType.ROL:
               return i18n.t(`roulette.${bettype.toLowerCase()}`);
             case we.core.GameType.LW:
-              return i18n.t(`luckywheel.${bettype.toLowerCase()}`);
+              let lwresult;
+              switch (bettype.toLowerCase()) {
+                case 'lw_0':
+                  lwresult = 'east';
+                  break;
+                case 'lw_1':
+                  lwresult = 'south';
+                  break;
+                case 'lw_2':
+                  lwresult = 'west';
+                  break;
+                case 'lw_3':
+                  lwresult = 'north';
+                  break;
+                case 'lw_4':
+                  lwresult = 'red';
+                  break;
+                case 'lw_5':
+                  lwresult = 'green';
+                  break;
+                case 'lw_6':
+                  lwresult = 'white';
+                  break;
+              }
+              return i18n.t(`luckywheel.${lwresult}`);
             default:
               return i18n.t(`betfield_${bettype.toLowerCase()}`);
           }

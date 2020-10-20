@@ -105,7 +105,8 @@ namespace we {
           }
 
           this._record_id.text = this.data.betid;
-          this._record_date.text = utils.formatTime((this.data.datetime / Math.pow(10, 9)).toFixed(0));
+          this._record_date.text = utils.formatTime(this.data.datetime.toFixed(0));
+          // this._record_date.text = utils.formatTime((this.data.datetime / Math.pow(10, 9)).toFixed(0));
           this._record_game.text = `${i18n.t('gametype_' + we.core.GameType[this.data.gametype])} ${this.data.tablename}`;
           this._record_round.text = this.data.gameroundid;
           this._record_remark.text = this.formatRemark(this.data.remark);
@@ -174,6 +175,42 @@ namespace we {
 
             case we.core.GameType.DT:
               return i18n.t(`betfield_dragonTiger_${bettype.toLowerCase()}`);
+            case we.core.GameType.DI:
+              return i18n.t(`dice.${bettype.toLowerCase()}`);
+            case we.core.GameType.DIL:
+              const res = bettype;
+              const dilresultStr = res.split('_');
+              const dilresult = dilresultStr[1];
+              return dilresult;
+            case we.core.GameType.RO:
+            case we.core.GameType.ROL:
+              return i18n.t(`roulette.${bettype.toLowerCase()}`);
+            case we.core.GameType.LW:
+              let lwresult;
+              switch (bettype.toLowerCase()) {
+                case 'lw_0':
+                  lwresult = 'east';
+                  break;
+                case 'lw_1':
+                  lwresult = 'south';
+                  break;
+                case 'lw_2':
+                  lwresult = 'west';
+                  break;
+                case 'lw_3':
+                  lwresult = 'north';
+                  break;
+                case 'lw_4':
+                  lwresult = 'red';
+                  break;
+                case 'lw_5':
+                  lwresult = 'green';
+                  break;
+                case 'lw_6':
+                  lwresult = 'white';
+                  break;
+              }
+              return i18n.t(`luckywheel.${lwresult}`);
             default:
               return i18n.t(`betfield_${bettype.toLowerCase()}`);
           }

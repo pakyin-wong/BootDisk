@@ -164,14 +164,15 @@ namespace we {
       protected setResultRelatedComponentsEnabled(enable: boolean) {
         super.setResultRelatedComponentsEnabled(enable);
         if (this._bottomGamePanel._bottomResultDisplayContainer && env.orientation === 'landscape') {
-          this._bottomGamePanel._bottomResultDisplayContainer.visible = enable;
           if (this._bottomGamePanel.isPanelOpen) {
-            if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.BET) {
+            this._resultDisplay.visible = false;
+            if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.FINISH) {
               this._bottomGamePanel._bottomResultDisplayContainer.visible = true;
-              this._resultDisplay.visible = false;
+            } else {
+              this._bottomGamePanel._bottomResultDisplayContainer.visible = false;
             }
           } else {
-            if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.BET) {
+            if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.FINISH) {
               this._bottomGamePanel._bottomResultDisplayContainer.visible = false;
               this._resultDisplay.visible = true;
             }
@@ -184,7 +185,7 @@ namespace we {
           return;
         }
         if (env.orientation === 'landscape') {
-          if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.BET) {
+          if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.FINISH) {
             this._resultDisplay.visible = !bottomGamePanelisOpen;
             this._bottomGamePanel._bottomResultDisplayContainer.visible = bottomGamePanelisOpen;
           }
@@ -213,11 +214,11 @@ namespace we {
                 break;
               case core.GameType.LW:
                 if (bottomGamePanelisOpen === true) {
-                  vlayout.gap = -20;
+                  vlayout.gap = 0;
                   // this._tableLayer.y -= 24;
                   // this._chipLayer.y -= 24;
                 } else {
-                  vlayout.gap = -60;
+                  vlayout.gap = 0;
                   // this._tableLayer.y += 24;
                   // this._chipLayer.y += 24;
                 }
@@ -319,6 +320,7 @@ namespace we {
         super.setBetRelatedComponentsEnabled(enable);
         // this._betRelatedGroup.visible = enable;
         this._betChipSetGridSelected.visible = enable;
+        this._betChipSetGridSelected.chipScale = 0.5;
 
         const isEnable = enable;
         if (!isEnable) {
@@ -328,18 +330,25 @@ namespace we {
 
       protected showBetChipPanel() {
         const betChipSetGridPosition = this._betChipSetGridSelected.localToGlobal(0, 0);
+        console.log(`................${betChipSetGridPosition}`);
         if (env.orientation === 'portrait') {
           // portrait position
-          if (betChipSetGridPosition.y < 900) {
+          if (betChipSetGridPosition.y < 1000) {
             // bottomGamePanel is on
-            this._betPanelGroup.scaleY = 1;
-
-            this._betPanelGroup.y = betChipSetGridPosition.y;
+            // this._betPanelGroup.scaleY = 1;
+            // this._betPanelGroup.y = betChipSetGridPosition.y;
+            // this._betChipSet.y = betChipSetGridPosition.y;
             this._betChipSetPanel.y = betChipSetGridPosition.y + 185;
-          } else if (betChipSetGridPosition.y >= 900) {
+            this._betPanelGroup.y = 0;
+            this._betChipSet.y = 100;
+            this._betPanelGroup.scaleY = 1;
+          } else if (betChipSetGridPosition.y >= 1000) {
             // bottomGamePanel is off
-            this._betPanelGroup.y = betChipSetGridPosition.y;
-            this._betChipSetPanel.y = betChipSetGridPosition.y - 780;
+            // this._betPanelGroup.y = betChipSetGridPosition.y;
+            // this._betChipSet.y = betChipSetGridPosition.y - 780;
+            this._betChipSetPanel.y = betChipSetGridPosition.y - 20;
+            this._betPanelGroup.y = 0;
+            this._betChipSet.y = -760;
             this._betPanelGroup.scaleY = -1;
           }
         } else {

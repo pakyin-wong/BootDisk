@@ -62,8 +62,8 @@
 			<e:Image width="57" height="57" x="293" y="78" source="d_ba_roadmap_bar_remainingstate_png"  />
 		</e:Group>
 		<ui:SimpleChart id="chart" x="400" y="70" radius="90" lineWidth="14" scaleX="0.9" scaleY="0.9" />
-		<e:Label id="_totalLabel" text="99" x="426" y="81" textAlign="center" anchorOffsetX="0" width="111" size="65"
-					height="118" verticalAlign="middle" />
+		<e:Label id="_totalLabel" text="99" x="426" y="81" textAlign="center" anchorOffsetX="0" width="111" size="75"
+					height="118" verticalAlign="middle"  fontFamily="Barlow"/>
 		<ui:RunTimeLabel id="_roundLabel" text="局" x="405" y="171" scaleX="1" scaleY="1" width="151" height="46" size="25"
 							textAlign="center" verticalAlign="middle" textKey="baccarat.rounds" />
 	</e:Group>

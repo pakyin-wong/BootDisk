@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.lo.FunBetOverlayIR" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*"  xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*" width="1074">
+
+
+	<e:Group x="0" y="0">
+		<e:Label id="field" text="娛樂 ｜ 第一球 - 萬位 - 小" size="48" verticalAlign="middle" width="540" minHeight="70" x="0" verticalCenter="0"/>
+		<e:Label id="rate" text="0.000" size="48" height="70" verticalAlign="middle" x="588" verticalCenter="0"/>
+		<e:Label id="amt" text="$50.00" size="48" height="70" verticalAlign="middle" anchorOffsetX="0" width="200" textAlign="right" x="874" verticalCenter="0"/>
+	</e:Group>
+
+</e:Skin>
+

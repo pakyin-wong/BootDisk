@@ -62,7 +62,10 @@ class Main extends eui.UILayer {
     const query = value.replace('?', '');
     let data: any = {};
     data = we.utils.getQueryParams(query);
-    const isMobile = data.ismobile ? data.ismobile : 0;
+    let isMobile = false;
+    try {
+      isMobile = data.ismobile ? parseInt(data.ismobile) > 0 : false;
+    } catch (err) {}
 
     if (type === 'mobile' || isMobile) {
       // if (true) {
@@ -78,6 +81,7 @@ class Main extends eui.UILayer {
 
       // uncomment below when there are both portrait and landscape layout
       this.orientationManager = new we.utils.OrientationManager(this.stage);
+      env.orientationManager = this.orientationManager;
     }
 
     dir.evtHandler = new we.core.EventHandler();

@@ -38,12 +38,28 @@ namespace we {
         this.playerSum.text = this.gameData.playerpoint >= 0 ? this.gameData.playerpoint.toString() : '';
         this.bankerSum.text = this.gameData.bankerpoint >= 0 ? this.gameData.bankerpoint.toString() : '';
 
+        const bankerReady: boolean = !!this.gameData.a1 && !!this.gameData.a2;
+        const playerReady: boolean = !!this.gameData.b1 && !!this.gameData.b2;
         cardArr.forEach(function (value, index) {
-          if (value) {
-            cardHolderArr[index].setCard(utils.formatCard(value));
-          } else {
-            if ((index + 1) % 3 !== 0) {
+          if (index == 0 || index == 1) {
+            if (bankerReady) {
+              cardHolderArr[index].setCard(utils.formatCard(value));
+            } else {
               cardHolderArr[index].setCard('back');
+            }
+          } else if (index == 3 || index == 4) {
+            if (playerReady) {
+              cardHolderArr[index].setCard(utils.formatCard(value));
+            } else {
+              cardHolderArr[index].setCard('back');
+            }
+          } else {
+            if (value) {
+              cardHolderArr[index].setCard(utils.formatCard(value));
+            } else {
+              if ((index + 1) % 3 !== 0) {
+                cardHolderArr[index].setCard('back');
+              }
             }
           }
         });

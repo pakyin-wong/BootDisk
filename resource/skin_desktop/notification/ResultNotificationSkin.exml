@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.ResultNotificationSkin" width="385" height="100" states="DT,LW,RO,DI"  xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.ResultNotificationSkin" width="385" height="100" states="DT,LW,RO,DI,DL"  xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" width.DI="389">
         <e:Image id="_touchArea" source="popover_png" scale9Grid="25,20,23,10" anchorOffsetX="0" anchorOffsetY="0"
                  left="0" top="0" bottom="0" right="0" />
@@ -11,7 +11,15 @@
                 <ui:RunTimeLabel id="_lblResult" text="B" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0"
                                  verticalAlign="middle" textAlign="center" size="24" />
         </e:Group>
-        <e:Group x="29" y="20" touchEnabled="false" touchChildren="false" touchThrough="true" includeIn="LW" height.LW="53" x.LW="32">
+        <e:Group x="29" y="20" touchEnabled="false" touchChildren="false" touchThrough="true" includeIn="LW,DL" height.LW="53" x.LW="32">
+					<e:Group id="_lblDilnonLuckyResult" includeIn="DL" scaleX="1" scaleY="1" width="51" height="60">
+				                <e:Label id="_lblDilResult1" text="3" includeIn="DL" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" x="74" y="78"/>
+                                        </e:Group>
+					<e:Group id="_lblDilLuckyResult" includeIn="DL" scaleX="1" scaleY="1" width="63" height="76" y="-9" x="-6">
+                                                <e:Label id="_lblDilResultTop" text="123 X" includeIn="DL" scaleX="1" scaleY="1" y="12" size="18" horizontalCenter="0"/>
+                                                <e:Label id="_lblDilResultBottom" text="3" includeIn="DL" scaleX="1" scaleY="1" horizontalCenter="0" x="74" y="38" size="20"/>
+                                                <e:Image id="_DLresultImage" height="100%" includeIn="DL" x="0" y="0" width="100%"/>       
+                                        </e:Group>
 		<e:Image id="_resultImage" top="0" left="0" right="0" bottom="0" includeIn="LW" x="0" y="0"/>
         </e:Group>
         <e:Group x="29" y="20" touchEnabled="false" touchChildren="false" touchThrough="true" includeIn="RO" width="55" height="53">

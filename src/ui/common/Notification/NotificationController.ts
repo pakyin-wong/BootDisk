@@ -76,7 +76,7 @@ namespace we {
         const sidePanel = <LiveSidePanel> evt.data;
         let right = 30;
         if (!sidePanel.isCollapsed) {
-          right += sidePanel.width + 20;
+          right += 405;
         }
         egret.Tween.get(this).to({ right }, 300, egret.Ease.quintIn);
       }

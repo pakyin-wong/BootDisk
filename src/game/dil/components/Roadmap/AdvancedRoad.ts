@@ -69,7 +69,7 @@ namespace we {
         if (this.tableInfo) {
           if (!this._roadmapControl) {
             this._roadmapControl = new we.dil.DilRoadmapControl(this._tableInfo.tableid);
-            this._roadmapControl.setRoads(this.beadRoad, null, null);
+            this._roadmapControl.setRoads(this.beadRoad, null, null, null);
           }
           if (this._roadmapControl) {
             this._roadmapControl.setTableInfo(this._tableInfo);

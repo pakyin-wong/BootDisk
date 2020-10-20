@@ -12,6 +12,7 @@ namespace we {
       Roulette: 'scene_roulette',
       LuckyWheel: 'scene_luckywheel',
       Lottery: 'scene_lottery',
+      BlockchainBaccarat: 'scene_bc_baccarat',
     };
   }
 }

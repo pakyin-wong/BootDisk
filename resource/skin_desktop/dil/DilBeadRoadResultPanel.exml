@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.DilBeadRoadResultPanelSkin" width="368" height="242" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<w:Config id="175200c02ca"/>
+        <ui:RoundRectShape name="bg" cornerTL_TR_BL_BR="12,12,12,12" width="368" height="241"
+                           fillColor="0x181B1F" fillAlpha="0.9" stroke="0" />
+
+        <e:Group y="12" left="15">
+                <ui:RunTimeLabel id="_gameLabel" text="GameId" x="16" y="12" textAlign="left" anchorOffsetX="0"
+                                 size="18" anchorOffsetY="0" height="23" scaleX="1" scaleY="1" alpha=".7" />
+                <ui:RunTimeLabel id="_gameNumLabel" text="1234567890" x="16" y="12" anchorOffsetX="0" size="18"
+                                 anchorOffsetY="0" height="23" scaleX="1" scaleY="1" />
+                <e:layout>
+                        <e:HorizontalLayout gap="4" verticalAlign="middle" />
+                </e:layout>
+        </e:Group>
+        <ui:RunTimeLabel id="_gameInfoLabel" text="click to see video of this round" x="16" y="205" textAlign="left"
+                         anchorOffsetX="0" width="316" size="16" anchorOffsetY="0" height="18" />
+	<e:Group width="320" height="82" x="24" y="85">
+		<e:Image width="320" height="82" y="0" anchorOffsetX="0" anchorOffsetY="0" id="tripleBg0" x="0" source="d_sic_lobby_bg_2_png" scaleX="1" scaleY="1"/>
+		<e:Image id="dice1" width="54" height="54" x="34" y="14" source="d_sic_history_lv3_dice-1_png" scaleX="1" scaleY="1"/>
+		<e:Image id="dice2" width="54" height="54" x="101" y="14" source="d_sic_history_lv3_dice-1_png" scaleX="1" scaleY="1"/>
+		<e:Image id="dice3" width="54" height="54" x="168" y="14" source="d_sic_history_lv3_dice-1_png" scaleX="1" scaleY="1"/>
+		<e:Label id="sumLabel" text="15" x="242" y="16" size="50" textAlign="center" scaleX="1" scaleY="1"/>
+	</e:Group>
+</e:Skin>

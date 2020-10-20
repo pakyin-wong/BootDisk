@@ -2,15 +2,17 @@ namespace we {
   export namespace lobby {
     export class LobbyBannerItem extends core.BaseEUI {
       protected _image: eui.Image;
+      protected _imageMask: eui.Component;
       protected _lblTitle: eui.Label;
       protected _lblDescription: eui.Label;
+      protected _scaleGroup: eui.Group;
 
       protected _link: string = null;
       protected _tex: egret.Texture = null;
       protected _title: string = null;
       protected _description: string = null;
 
-      public hoverScale: number = 1.1;
+      public hoverScale: number = 1.05;
 
       public constructor() {
         super();
@@ -72,6 +74,10 @@ namespace we {
       public initComponents() {
         super.initComponents();
 
+        if (this._image && this._imageMask) {
+          this.image.mask = this._imageMask;
+        }
+
         if (this._image && this._tex) {
           this._image.source = this._tex;
         }
@@ -84,7 +90,10 @@ namespace we {
         // add touch action
         this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollOver, this);
         this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollOut, this);
-        this._image.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTap, this);
+        this._scaleGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTap, this);
+        if (!env.isMobile) {
+          mouse.setButtonMode(this._scaleGroup, true);
+        }
       }
 
       protected onRollOver(e: mouse.MouseEvent) {
@@ -101,9 +110,9 @@ namespace we {
       }
 
       protected scaleUp(isScaleUp: boolean) {
-        egret.Tween.removeTweens(this._image);
+        egret.Tween.removeTweens(this._scaleGroup);
         const scale = isScaleUp ? this.hoverScale : 1;
-        egret.Tween.get(this._image).to({ scaleX: scale, scaleY: scale }, 300);
+        egret.Tween.get(this._scaleGroup).to({ scaleX: scale, scaleY: scale }, 300);
       }
     }
   }

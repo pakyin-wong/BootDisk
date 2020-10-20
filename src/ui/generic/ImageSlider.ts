@@ -43,6 +43,8 @@ namespace we {
         this.imageInvisible.width = this.width;
         this.imageInvisible.height = this.height;
 
+        this.imageVisible.fillMode = 'cover';
+        this.imageInvisible.fillMode = 'cover';
         // create dots
         const slide = this.slides[this.currentIndex];
         if (slide.loaded) {

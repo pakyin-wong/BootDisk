@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.lo.FunBetContainer" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Group id="content">
+		<lo:FunBetLayer scaleX="1" scaleY="1" skinName="skin_mobile.lo.FunBetLayer"/>
+		<e:Image id="close" width="80" height="80" source="d-lobby-button-close-none_png"  y="29" x="1137"/>
+	</e:Group>
+</e:Skin>

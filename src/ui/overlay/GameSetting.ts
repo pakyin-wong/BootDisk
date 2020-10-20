@@ -51,6 +51,7 @@ namespace we {
           utils.addButtonListener(this.switch_autoBet, this.onSwitchAutoBet, this);
         } else {
           utils.addButtonListener(this._btn_autoBet, this.onSwitchAutoBet, this);
+          utils.addButtonListener(this._btn_showHint, this.onSwitchShowHint, this);
           // this.switch_autoBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchAutoBet, this);
         }
       }
@@ -63,12 +64,14 @@ namespace we {
           this.switch_autoBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchAutoBet, this);
         } else {
           this._btn_autoBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchAutoBet, this);
+          this._btn_showHint.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchShowHint, this);
           // this.switch_autoBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchAutoBet, this);
         }
       }
 
       protected onSwitchShowHint(e) {
         env.showGoodRoadHint = this.switch_showHint.active = !env.showGoodRoadHint;
+        console.log('env.showGoodRoadHint', env.showGoodRoadHint);
       }
 
       protected onSwitchAutoBet(e) {

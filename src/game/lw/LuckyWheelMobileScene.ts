@@ -48,7 +48,7 @@ namespace we {
         if (env.orientation === 'landscape') {
           egret.Tween.get(this._tableLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
           egret.Tween.get(this._chipLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
-          this._tableLayer.alpha = this._chipLayer.alpha = 0.7;
+          this._tableLayer.alpha = this._chipLayer.alpha = 1; // 0.7
         }
       }
 
@@ -68,7 +68,7 @@ namespace we {
         if (env.orientation === 'landscape') {
           egret.Tween.get(this._tableLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
           egret.Tween.get(this._chipLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
-          this._tableLayer.alpha = this._chipLayer.alpha = 0.7;
+          this._tableLayer.alpha = this._chipLayer.alpha = 1; // 0.7;
         }
       }
       protected setBetRelatedComponentsEnabled(enable: boolean) {
