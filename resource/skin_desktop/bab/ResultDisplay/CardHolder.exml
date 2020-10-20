@@ -22,7 +22,7 @@
         <e:Group x="94" y="561" id="_playerCard3Group" visible="false" width="350" height="220" touchThrough="true">
                 <e:Group id="_playerCard3Info" left="0" bottom="0" width="40" height="40"/>
         </e:Group>
-        <e:Group x="1790" y="159" id="_smallPlayerCard3Group" >
+        <e:Group x="1790" y="159" id="_smallCard1Group" >
         </e:Group>
         <e:Group x="1860" y="470" id="_bankerCard1Group" width="204" height="350" touchThrough="true">
                 <e:Group id="_bankerCard1Info" left="0" bottom="0" width="40" height="40"/>
@@ -33,6 +33,6 @@
         <e:Group x="2162" y="561" id="_bankerCard3Group" visible="false" width="350" height="220" touchThrough="true">
                 <e:Group id="_bankerCard3Info" left="0" bottom="0" width="40" height="40"/>
         </e:Group>
-        <e:Group x="1900" y="159" id="_smallBankerCard3Group" >
+        <e:Group x="1900" y="159" id="_smallCard2Group" >
         </e:Group>
 </e:Skin>
