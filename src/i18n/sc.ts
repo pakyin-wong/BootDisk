@@ -544,7 +544,8 @@ namespace we {
         tie: '和',
         playerPair: '闲对',
         bankerPair: '庄对',
-        gameRecord: '游戏记录',
+        gameRecord: '歷史记录',
+        gameRecordlandscape: '歷史记录 \n/ 即时彩池',
       },
       game: {
         insufficientBalance: '余额不足',

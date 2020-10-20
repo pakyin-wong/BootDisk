@@ -385,7 +385,8 @@ namespace we {
         tie: '和',
         playerPair: '閒對',
         bankerPair: '庄對',
-        gameRecord: '遊戲記錄',
+        gameRecord: '歷史記錄',
+        gameRecordlandscape: '歷史記錄 \n/ 即時彩池',
       },
       dice: {
         recent: '最近',
