@@ -8,6 +8,9 @@ namespace we {
       protected _bankerCard1InitX: number;
       protected _bankerCard2InitX: number;
 
+      protected _smallPlayerCard3Exist: boolean;
+      protected _smallBankerCard3Exist: boolean;
+
       protected _playerSum: eui.Label;
       protected _bankerSum: eui.Label;
 
@@ -103,14 +106,14 @@ namespace we {
       }
 
       protected createCards() {
-        this._playerCard1 = this.getCardAnim('vertical');
-        this._playerCard2 = this.getCardAnim('vertical');
-        this._playerCard3 = this.getCardAnim('horizontal', 90);
-        this._smallPlayerCard3 = this.getCardAnim('vertical');
-        this._bankerCard1 = this.getCardAnim('vertical');
-        this._bankerCard2 = this.getCardAnim('vertical');
-        this._bankerCard3 = this.getCardAnim('horizontal', 270);
-        this._smallBankerCard3 = this.getCardAnim('vertical');
+        this._playerCard1 = this.createCardAnim('vertical');
+        this._playerCard2 = this.createCardAnim('vertical');
+        this._playerCard3 = this.createCardAnim('horizontal', 90);
+        this._smallPlayerCard3 = this.createCardAnim('vertical');
+        this._bankerCard1 = this.createCardAnim('vertical');
+        this._bankerCard2 = this.createCardAnim('vertical');
+        this._bankerCard3 = this.createCardAnim('horizontal', 270);
+        this._smallBankerCard3 = this.createCardAnim('vertical');
 
         this._smallPlayerCard3.scaleX = 0.35;
         this._smallPlayerCard3.scaleY = 0.35;
@@ -133,7 +136,7 @@ namespace we {
         this._bankerCard2InitX = this._bankerCard2Group.x;
       }
 
-      protected getCardAnim(orientation: string, angle: number = 90) {
+      protected createCardAnim(orientation: string, angle: number = 90) {
         const cardAnim = this._factory.buildArmatureDisplay('poker');
         const cardSlot = cardAnim.armature.getSlot(`card_back_${orientation}`);
         const group = new eui.Group();
@@ -191,89 +194,61 @@ namespace we {
         this.movePin();
         console.log('moveShoe()');
         this.moveShoe();
+        
         if (isInit) {
           console.log('betInitState()');
+          this._ringAnim.animation.fadeIn('round_loop_a', 0, 0, 0, 'ROUND_BACKGROUND_ANIMATION_GROUP');
           await this.betInitState();
         } else {
-          console.log('resetRound()');
-          await this.resetRound();
+          this._ringAnim.animation.stop();
+          console.log('clearCards()');
+          await this.clearCards();
           console.log('distributeCards()');
           await this.distributeCards();
         }
       }
 
-      protected async resetRound() {
-        let cardAnimNames = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2', '_playerCard3', '_bankerCard3'];
-        console.log('resetRound 1');
-        for (let i = 0; i < cardAnimNames.length; i++) {
-          const cardAnim = <dragonBones.EgretArmatureDisplay> this[cardAnimNames[i]];
-          let orientation = 'vertical';
-          if (cardAnimNames[i] === '_playerCard3' || cardAnimNames[i] === '_bankerCard3') {
-            orientation = 'horizontal';
-          }
-          cardAnim.armature.getSlot(`card_number_${orientation}`).display = this.getLabelGroup(this._gameData.currentcardindex + 1 + i);
+      protected async hideCard(cardAnim, orientation,front = ''){
+          //cardAnim.armature.getSlot(`card_number_${orientation}`).display = this.getLabelGroup(number);
 
           const p1 = we.utils.waitDragonBone(cardAnim);
-          cardAnim.animation.play(`${orientation}_in`);
+          cardAnim.animation.play(`${orientation}_out${front}`);
           await p1;
 
-          cardAnim.animation.gotoAndStopByTime(`${orientation}_loop_back`, 0);
-          console.log('resetRound 1 loop ' + (i + 1));
-        }
+          cardAnim.animation.gotoAndStopByTime(`${orientation}_idle`, 0);
+          //console.log('clearCards 1 loop ' + number);
+          
+          return new Promise(resolve=>resolve())
+      }
+
+      protected async clearCards() {
+        console.log('clearCards')
+        await this.hideCard(this._playerCard1, 'vertical', '_front')
+        await this.hideCard(this._playerCard2, 'vertical', '_front')
+        await this.hideCard(this._bankerCard1, 'vertical', '_front')
+        await this.hideCard(this._bankerCard2, 'vertical', '_front')
 
         if (this._playerCard3Group.visible === true) {
-          await new Promise(resolve =>
-            egret.Tween.get(this._playerCard3Group)
-              .to({ alpha: 0 }, 500)
-              .set({ visible: false })
-              .call(resolve)
-          );
-          await new Promise(resolve =>
-            egret.Tween.get(this._playerCard1Group)
-              .to({ x: this._playerCard1InitX }, 500)
-              .call(resolve)
-          );
-          await new Promise(resolve =>
-            egret.Tween.get(this._playerCard2Group)
-              .to({ x: this._playerCard2InitX }, 500)
-              .call(resolve)
-          );
+          await this.hideCard(this._playerCard3, 'horizontal' )
+          this.moveAndHideB3(200);          
         }
-        console.log('resetRound 5');
+        console.log('clearCards 5');
 
         if (this._bankerCard3Group.visible === true) {
-          await new Promise(resolve =>
-            egret.Tween.get(this._bankerCard3Group)
-              .to({ alpha: 0 }, 500)
-              .set({ visible: false })
-              .call(resolve)
-          );
-          await new Promise(resolve =>
-            egret.Tween.get(this._bankerCard1Group)
-              .to({ x: this._bankerCard1InitX }, 500)
-              .call(resolve)
-          );
-          await new Promise(resolve =>
-            egret.Tween.get(this._bankerCard2Group)
-              .to({ x: this._bankerCard2InitX }, 500)
-              .call(resolve)
-          );
+          await this.hideCard(this._bankerCard3, 'horizontal')        
+          this.moveAndHideA3(200);          
         }
-        console.log('resetRound 6');
+        console.log('clearCards 6');
 
-        cardAnimNames = ['_smallPlayerCard3', '_smallBankerCard3'];
-        for (let i = 0; i < cardAnimNames.length; i++) {
-          const cardAnim = <dragonBones.EgretArmatureDisplay> this[cardAnimNames[i]];
-          cardAnim.armature.getSlot('card_number_vertical').display = this.getLabelGroup(this._gameData.currentcardindex + i + 5);
-
-          const p1 = we.utils.waitDragonBone(cardAnim);
-          cardAnim.animation.play('vertical_in');
-          await p1;
-
-          cardAnim.animation.gotoAndStopByTime('vertical_loop_back', 0);
-
-          console.log('resetRound loop 2' + (i + 4));
+        if(this._smallPlayerCard3Exist){
+          await this.hideCard(this._smallPlayerCard3, 'vertical', '_front')
         }
+
+        if(this._smallBankerCard3Exist){
+          await this.hideCard(this._smallBankerCard3, 'vertical', '_front')
+        }
+
+        this._ringAnim.animation.fadeIn('round_out',0,1,0,'ROUND_BACKGROUND_ANIMATION_GROUP')
 
         return new Promise(resolve => resolve());
       }
@@ -286,15 +261,22 @@ namespace we {
         return group;
       }
 
-      protected async betInitState(currentIndexAnchor = -1) {
+      protected async betInitState(currentIndexOffsetToFirstCard = -1) {
         const cardAnimName = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2', '_smallPlayerCard3', '_smallBankerCard3'];
-        console.log('betinit begin');
+        console.log('betInitState() begin');
         for (let i = 0; i < cardAnimName.length; i++) {
           const cardAnim = <dragonBones.EgretArmatureDisplay> this[cardAnimName[i]];
-          cardAnim.armature.getSlot('card_number_vertical').display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexAnchor + i);
+          cardAnim.armature.getSlot('card_number_vertical').display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard + i);
           cardAnim.animation.gotoAndStopByTime('vertical_loop_back', 0);
         }
-        console.log('betinit end');
+        this._playerCard3.armature.getSlot('card_number_horizontal').display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard + 4);
+        this._playerCard3.animation.gotoAndStopByTime('horizontal_loop_back', 0);
+        this._bankerCard3.armature.getSlot('card_number_horizontal').display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard + 5);
+        this._bankerCard3.animation.gotoAndStopByTime('horizontal_loop_back', 0);
+
+        this._smallBankerCard3Exist = true;
+        this._smallPlayerCard3Exist = true;
+        console.log('betInitState() end');
         return new Promise(resolve => resolve());
       }
 
@@ -361,12 +343,14 @@ namespace we {
               this.updateSum();
               break;
             case 'b3':
+              this.moveAndShowB3(200);
               this.setCardFrontFace(this._playerCard3,dataNames[i],'vertical', 270)
               this._playerCard3.armature.getSlot(`card_number_horizontal`).display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j);
               this._playerCard3.animation.gotoAndStopByTime(`horizontal_loop_front`, 0);
               this.updateSum();
               break;
             case 'a3':
+              this.moveAndShowA3(200);
               this.setCardFrontFace(this._bankerCard3,dataNames[i],'vertical', 270)
               this._bankerCard3.armature.getSlot(`card_number_horizontal`).display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j);
               this._bankerCard3.animation.gotoAndStopByTime(`horizontal_loop_front`, 0);
@@ -379,58 +363,84 @@ namespace we {
         return new Promise(resolve => resolve());
       }
 
-      protected async moveAndShowB3() {
-        console.log('dealInitState 4');
+      protected async moveAndHideB3(interval: number){
+            await new Promise(resolve =>
+            egret.Tween.get(this._playerCard3Group)
+              .to({ alpha: 0 }, interval)
+              .set({ visible: false })
+              .call(resolve)
+          );
+          await new Promise(resolve =>
+            egret.Tween.get(this._playerCard1Group)
+              .to({ x: this._playerCard1InitX }, interval)
+              .call(resolve)
+          );
+          await new Promise(resolve =>
+            egret.Tween.get(this._playerCard2Group)
+              .to({ x: this._playerCard2InitX }, interval)
+              .call(resolve)
+          );
+          return new Promise(resolve=>resolve())
+      }
+
+      protected async moveAndHideA3(interval: number){
+          await new Promise(resolve =>
+            egret.Tween.get(this._bankerCard3Group)
+              .to({ alpha: 0 }, interval)
+              .set({ visible: false })
+              .call(resolve)
+          );
+          await new Promise(resolve =>
+            egret.Tween.get(this._bankerCard1Group)
+              .to({ x: this._bankerCard1InitX }, interval)
+              .call(resolve)
+          );
+          await new Promise(resolve =>
+            egret.Tween.get(this._bankerCard2Group)
+              .to({ x: this._bankerCard2InitX }, interval)
+              .call(resolve)
+          );
+          return new Promise(resolve=>resolve())
+      }
+
+      protected async moveAndShowB3(interval: number) {
         await new Promise(resolve =>
           egret.Tween.get(this._playerCard1Group)
-            .to({ x: 459 }, 200)
+            .to({ x: 459 }, interval)
             .call(resolve)
         );
         await new Promise(resolve =>
           egret.Tween.get(this._playerCard2Group)
-            .to({ x: 715 }, 200)
+            .to({ x: 715 }, interval)
             .call(resolve)
         );
         await new Promise(resolve =>
           egret.Tween.get(this._playerCard3Group)
             .set({ visible: true })
-            .to({ alpha: 1 }, 500)
+            .to({ alpha: 1 }, interval)
             .call(resolve)
         );
         return new Promise(resolve=>resolve())
       }
 
-      protected async moveAndShowA3() {
+      protected async moveAndShowA3(interval: number) {
         await new Promise(resolve =>
           egret.Tween.get(this._bankerCard1Group)
-            .to({ x: 1651 }, 200)
+            .to({ x: 1651 }, interval)
             .call(resolve)
         );
         await new Promise(resolve =>
           egret.Tween.get(this._bankerCard2Group)
-            .to({ x: 1907 }, 200)
+            .to({ x: 1907 }, interval)
             .call(resolve)
         );
         await new Promise(resolve =>
           egret.Tween.get(this._bankerCard3Group)
             .set({ visible: true })
-            .to({ alpha: 1 }, 500)
+            .to({ alpha: 1 }, interval)
             .call(resolve)
         );
         return new Promise(resolve=>resolve())
-      }
-
-      protected async ringLoop() {
-        this._ringAnim.animation.stop();
-        /*
-        const p1 = we.utils.waitDragonBone(this._ringAnim);
-        this._ringAnim.animation.play('round_loop_a', 5);
-        await p1;
-        */
-        this._ringAnim.animation.fadeIn('round_loop_a', 0, 0, 0, 'NORMAL_ANIMATION_GROUP');
-        this._ringAnim.animation.fadeIn('poker_round_in', 0, 0, 0, 'ATTACK_ANIMATION_GROUP');
-        this._ringAnim.animation.fadeIn('draw', 0, 0, 0, 'DRAW_ANIMATION_GROUP');
-        // this.movePin();
       }
 
       protected async flipCards() {
@@ -440,7 +450,7 @@ namespace we {
           return;
         }
         const dataNames = ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
-        console.log('dealInitState 3');
+        console.log('flipCards 3' , this._gameData);
         for (let i = dataNames.length - 1; i >= 0; i--) {
           if (!this._gameData[dataNames[i]]) {
             continue;
@@ -457,29 +467,29 @@ namespace we {
             case 'b2':
             this.setCardFrontFace(this._playerCard2,dataNames[i],'vertical',0)  
               this._playerCard2.armature.getSlot(`card_number_vertical`).display = this.getLabelGroup(this._gameData.currentcardindex);
-              this._playerCard1.animation.gotoAndStopByTime(`vertical_loop_front`, 0);
-              this._playerCard2.animation.gotoAndStopByTime(`vertical_loop_front`, 0);
+              this._playerCard1.animation.play(`vertical_flip`, 1);
+              this._playerCard2.animation.play(`vertical_flip`, 1);
               this.updateSum();
               break;
             case 'a2':
             this.setCardFrontFace(this._bankerCard2,dataNames[i],'vertical',0)  
               this._bankerCard2.armature.getSlot(`card_number_vertical`).display = this.getLabelGroup(this._gameData.currentcardindex);
-              this._bankerCard1.animation.gotoAndStopByTime(`vertical_loop_front`, 0);
-              this._bankerCard2.animation.gotoAndStopByTime(`vertical_loop_front`, 0);
+              this._bankerCard1.animation.play(`vertical_flip`, 1);
+              this._bankerCard2.animation.play(`vertical_flip`, 1);
               this.updateSum();
               break;
             case 'b3':
-            this.setCardFrontFace(this._playerCard3,dataNames[i],'vertical',0)  
-              await this.moveAndShowB3()
+              this.setCardFrontFace(this._playerCard3,dataNames[i],'vertical',0)  
+              await this.moveAndShowB3(400)
               this._playerCard3.armature.getSlot(`card_number_horizontal`).display = this.getLabelGroup(this._gameData.currentcardindex);
-              this._playerCard3.animation.gotoAndStopByTime(`horizontal_loop_front`, 0);
+              this._playerCard3.animation.play(`horizontal_flip`, 1);
               this.updateSum();
               break;
             case 'a3':
-this.setCardFrontFace(this._bankerCard3,dataNames[i],'vertical',0)  
-              await this.moveAndShowA3()
+              this.setCardFrontFace(this._bankerCard3,dataNames[i],'vertical',0)  
+              await this.moveAndShowA3(400)
               this._bankerCard3.armature.getSlot(`card_number_horizontal`).display = this.getLabelGroup(this._gameData.currentcardindex);
-              this._bankerCard3.animation.gotoAndStopByTime(`horizontal_loop_front`, 0);
+              this._bankerCard3.animation.play(`horizontal_flip`, 1);
               this.updateSum();
               break;
           }
@@ -508,11 +518,18 @@ this.setCardFrontFace(this._bankerCard3,dataNames[i],'vertical',0)
 
       protected setStateDeal(isInit: boolean) {
         console.log('setStateDeal()', this._gameData);
+
         console.log('movePin()');
         this.movePin();
         console.log('moveShoe()');
         this.moveShoe();
         (async () => {
+
+        //const p1 = we.utils.waitDragonBone(this._ringAnim);
+        this._ringAnim.animation.stop();
+        this._ringAnim.animation.fadeIn('round_loop_a', 0, 0, 0, 'ROUND_BACKGROUND_ANIMATION_GROUP');
+        //await p1;
+
           if (isInit) {
             console.log('dealInitState()');
             await this.dealInitState();
@@ -545,10 +562,7 @@ this.setCardFrontFace(this._bankerCard3,dataNames[i],'vertical',0)
 
       protected async distributeCards() {
         this._ringAnim.animation.stop();
-
-        const p1 = we.utils.waitDragonBone(this._ringAnim);
-        this._ringAnim.animation.play('round_in', 0);
-        await p1;
+        this._ringAnim.animation.fadeIn('round_in',0,1,0,'ROUND_BACKGROUND_ANIMATION_GROUP')
 
         const cardAnimNames = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2', '_smallPlayerCard3', '_smallBankerCard3'];
         for (let i = 0; i < cardAnimNames.length; i++) {
@@ -566,14 +580,11 @@ this.setCardFrontFace(this._bankerCard3,dataNames[i],'vertical',0)
 
           await p3;
 
-          const p4 = we.utils.waitDragonBone(cardAnim);
-          cardAnim.animation.play('vertical_loop_back', 1);
+          cardAnim.animation.gotoAndStopByFrame('vertical_loop_back', 0);
 
           const p5 = we.utils.waitDragonBone(this._ringAnim);
           this._ringAnim.animation.play('poker_out', 1);
           await p5;
-
-          await p4;
 
           if (this._gameData.currentcardindex + i === this._gameData.redcardindex) {
             // do red card thing
@@ -621,7 +632,9 @@ this.setCardFrontFace(this._bankerCard3,dataNames[i],'vertical',0)
           return;
         }
       }
-      protected setStateFinish() {}
+      protected setStateFinish() {
+        this.dealInitState();
+      }
 
       public reset() {}
     }
