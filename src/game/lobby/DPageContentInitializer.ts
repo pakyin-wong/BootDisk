@@ -42,8 +42,17 @@ namespace we {
         sliderContainer.width = slider.width;
         sliderContainer.height = 762;
         sliderContainer.addChild(slider);
+
+        const bullets = new ui.ImageSliderBullet();
+        bullets.x = 75;
+        bullets.y = 730;
+        bullets.imageSlider = slider;
+        slider.bullets = bullets;
+        sliderContainer.addChild(bullets);
+
         const dimmer = new eui.Image();
         dimmer.source = 'd_lobby_banner_fadeout_png';
+        dimmer.touchEnabled = false;
         dimmer.width = slider.width;
         dimmer.height = 178;
         dimmer.bottom = -121;
