@@ -75,8 +75,8 @@ namespace we {
           this.autoRemoveAddon.startRemove();
         } else {
           if (this.parent instanceof List) {
-            const list = <List>this.parent;
-            const collection = <eui.ArrayCollection>list.dataProvider;
+            const list = <List> this.parent;
+            const collection = <eui.ArrayCollection> list.dataProvider;
             const idx = collection.getItemIndex(this.itemData);
             if (idx >= 0) {
               this.autoRemoveAddon.willRemove();
@@ -97,7 +97,7 @@ namespace we {
 
         if (this.isNew) {
           if (this.parent instanceof List) {
-            const list = <List>this.parent;
+            const list = <List> this.parent;
             this.isFadeEnter = list.isFade;
             this.isFadeLeave = list.isFade;
             this.enterFrom = list.enterFrom;

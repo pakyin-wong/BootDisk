@@ -114,7 +114,9 @@ namespace we {
             // change alpha instead of position
             this.target.dismissVisible = true;
             await new Promise((resolve, reject) => {
-              egret.Tween.get(this.target).to({ dismissAlpha: 1 }, 300).call(resolve);
+              egret.Tween.get(this.target)
+                .to({ dismissAlpha: 1 }, 300)
+                .call(resolve);
               this.cancelAnim = () => {
                 egret.Tween.removeTweens(this.target);
                 this.cancelAnim = null;
@@ -124,7 +126,9 @@ namespace we {
             });
           } else {
             await new Promise((resolve, reject) => {
-              egret.Tween.get(this.target).to({ $x: this.objPosX, $y: this.objPosY }, 300).call(resolve);
+              egret.Tween.get(this.target)
+                .to({ $x: this.objPosX, $y: this.objPosY }, 300)
+                .call(resolve);
               this.cancelAnim = () => {
                 egret.Tween.removeTweens(this.target);
                 // this.target.x = this.objPos.x;
@@ -182,7 +186,9 @@ namespace we {
             let destination: egret.Point;
             destination = new egret.Point(this.target.dismissPosX, this.target.dismissPosY);
             await new Promise((resolve, reject) => {
-              egret.Tween.get(this.target).to({ $x: destination.x, $y: destination.y }, 300).call(resolve);
+              egret.Tween.get(this.target)
+                .to({ $x: destination.x, $y: destination.y }, 300)
+                .call(resolve);
               this.cancelAnim = () => {
                 egret.Tween.removeTweens(this.target);
                 this.cancelAnim = null;

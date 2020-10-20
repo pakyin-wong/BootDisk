@@ -5,12 +5,17 @@ namespace we {
       protected trigger: egret.DisplayObject;
       protected items: string[];
 
+      public constructor(items: string[] = [], key:string = 'live') {
+        super(items);
+        this.customKey = key;
+      }
+
       protected initContent() {
         this.collection = new eui.ArrayCollection();
         for (const i of this.items) {
           this.collection.addItem({
             key: i,
-            renderText: () => i18n.t(`live.gametype.${i}`),
+            renderText: () => i18n.t(`${this.customKey}.gametype.${i}`),
           });
         }
 
@@ -18,7 +23,7 @@ namespace we {
           toggler: this.trigger,
           review: this.review,
           arrCol: this.collection,
-          title: () => i18n.t(`lobby.header.live`),
+          title: () => i18n.t(`lobby.header.${this.customKey}`),
           selected: this.items[0],
         });
         this.setSelectedIndex(0);
@@ -48,12 +53,16 @@ namespace we {
       }
 
       public setSelectedIndex(idx: number) {
-        this.review.renderText = () => i18n.t(`live.gametype.${this.items[idx]}`);
+        this.review.renderText = () => i18n.t(`${this.customKey}.gametype.${this.items[idx]}`);
         this.trigger['mDropdownItem'].selected = this.items[idx];
       }
 
       public get selectedIndex(): number {
         return this.trigger['mDropdownItem'] ? this.items.indexOf(this.trigger['mDropdownItem'].selected) : -1;
+      }
+
+      public get selectedItem() {
+        return this.items[this.selectedIndex];
       }
     }
   }

@@ -13,17 +13,17 @@ namespace we {
         return result;
       }
       export namespace ba {
-        export function getTotalPoint(card1:string, card2:string, card3:string){
+        export function getTotalPoint(card1: string, card2: string, card3: string) {
           let total = 0;
-          if(!card1){
+          if (!card1) {
             return total;
           }
-          total += translateCardToPoint(card1)
-          if(!card2){
+          total += translateCardToPoint(card1);
+          if (!card2) {
             return total;
           }
-          total += translateCardToPoint(card2)
-          if(!card3){
+          total += translateCardToPoint(card2);
+          if (!card3) {
             return total;
           }
           total += translateCardToPoint(card3);

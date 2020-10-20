@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.LotteryPage" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+<e:Skin class="skin_mobile_portrait.LotteryPage" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Rect id="background" width="100%" height="100%" x="0" y="0"  fillColor="0x121212" strokeColor="0x121212"/>
     <e:List id="_roomListRefer" left="0" right="0" top="0" bottom="0">
 			<e:layout>
-				<e:TileLayout horizontalGap="48" verticalGap="48" paddingLeft="71" paddingTop="647" orientation="rows" requestedColumnCount="4" columnWidth="578" rowHeight="388"/>
+				<e:VerticalLayout gap="48" paddingTop="1196" horizontalAlign="center"/>
 			</e:layout>
 		</e:List>
 	<ui:Scroller id="_scroller" left="0" right="0" top="0" bottom="0" headerOffset="100">
