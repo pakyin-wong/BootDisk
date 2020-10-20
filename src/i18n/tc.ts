@@ -639,7 +639,7 @@ namespace we {
       lo_fun_bettingRound: '本期投注',
       lo_fun_round: '期',
       lo_fun_drawingRound: '期開獎中',
-      lo_fun_lastRound: '上期開獎結果',
+      lo_fun_lastRound: '期開獎結果',
 
       lo_fun_overlay_title: '投票確認',
       lo_fun_overlay_table: '彩種名稱',

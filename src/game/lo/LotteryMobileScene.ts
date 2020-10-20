@@ -108,7 +108,7 @@ namespace we {
 
       protected initBottomGamePanel() {
         // mouse.setButtonMode(this._videoBtn, false);
-        this._bottomGamePanel.setTableInfo(this._tableInfo);
+        // this._bottomGamePanel.setTableInfo(this._tableInfo);
         // this._bottomGamePanel.gameScene = this;
 
         // if (this._bottomGamePanel._tableInfoPanel && this._lblRoomInfo) {

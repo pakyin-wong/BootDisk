@@ -637,7 +637,7 @@ namespace we {
       lo_fun_bettingRound: 'Betting deadline',
       lo_fun_round: 'Round',
       lo_fun_drawingRound: 'is drawing',
-      lo_fun_lastRound: 'Last draw number',
+      lo_fun_lastRound: 'Round draw number',
 
       lo_fun_overlay_title: 'Confirm bet',
       lo_fun_overlay_table: 'Name',
