@@ -27,22 +27,17 @@ namespace we {
         this._cardInfoPanel.addEventListener('OPEN_DECK_PANEL', this.showDeckPanel, this);
         this._cardInfoPanel.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
         (<any> this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
+        (<any> this._resultDisplay).addEventListener('OPEN_SHUFFLE_PANEL', this.showShufflePanel, this);
       }
 
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('BlockchainBaccaratScene');
       }
 
-      protected onRoadDataUpdate(evt: egret.Event) {
-        super.onRoadDataUpdate(evt);
-        if (evt && evt.data) {
-          const stat = <data.TableInfo> evt.data;
-          this._historyCardHolder.setCards(this._tableId);
-        }
-      }
-
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
+        this._historyCardHolder.setCards(this._tableId);
+        this._historyCardHolder.setNumber((<bab.GameData>this._gameData).currentcardindex);
         this._shufflePanel.hide();
         this._deckPanel.setValue(<bab.GameData> this._gameData);
         console.log('Bab scene bet state', this._gameData);
@@ -67,19 +62,7 @@ namespace we {
 
       protected setStateShuffle(isInit: boolean) {
         super.setStateShuffle(isInit);
-        this._deckPanel.setValue(<bab.GameData> this._gameData);
-        if (this._gameData.previousstate === core.GameState.SHUFFLE) {
-          return;
-        }
-        console.log('Bab scene shuffle state', this._gameData);
-
-        if (isInit) {
-          this._shufflePanel.show();
-          this._shufflePanel.stat(this._gameData);
-        } else {
-          this._shufflePanel.show();
-          this._shufflePanel.anim(this._gameData);
-        }
+        this._resultDisplay.updateResult(this._gameData,this._chipLayer,isInit)
       }
 
       protected showCardInfoPanel(evt: egret.Event) {
@@ -95,7 +78,14 @@ namespace we {
         this._helpPanel.show();
       }
 
-      protected setHistoryHolder() {}
+      protected showShufflePanel(evt: egret.Event){
+        if(evt.data === 'init'){
+          this._shufflePanel.showStatic(this._gameData);
+        }else{
+          this._shufflePanel.showAnim(this._gameData);
+        }
+        
+      }
     }
   }
 }
