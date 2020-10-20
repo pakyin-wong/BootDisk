@@ -19,7 +19,7 @@ namespace we {
       gametype_RO: '轮盘',
       gametype_ROL: '财神轮盘',
       gametype_DT: '龙虎',
-      gametype_LW: '幸運轮',
+      gametype_LW: '幸运轮',
       gametype_LO: '时时彩',
       gametype_RC: '北京赛车',
 
