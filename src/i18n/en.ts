@@ -369,6 +369,7 @@ namespace we {
         rounds: 'rounds',
       },
       luckywheel: {
+        pool: 'Pool',
         east: 'East',
         south: 'South',
         west: 'West',

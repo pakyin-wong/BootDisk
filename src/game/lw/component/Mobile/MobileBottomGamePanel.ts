@@ -69,6 +69,9 @@ namespace we {
         this.roadSheetBtn.label = i18n.t('luckywheel.gameRecord');
         this.tableInfoBtn.label = i18n.t('mobile_game_panel_table_info');
         if (env.orientation === 'portrait') {
+          console.log(`${ i18n.t('luckywheel.gameRecord')}`)
+          console.log(`${ i18n.t('luckywheel.pool')}`)
+          console.log(`${ i18n.t('mobile_game_panel_table_info')}`)
           this.chartBtn.label = i18n.t('luckywheel.pool');
         }
       }

@@ -370,6 +370,7 @@ namespace we {
         rounds: '局',
       },
       luckywheel: {
+        pool: '即時彩池',
         east: '東',
         south: '南',
         west: '西',
