@@ -132,15 +132,23 @@ namespace we {
 
       protected $draw(direction: string) {
         // draw the base
-        this._shape.graphics.clear();
-        if (this._hasBaseBorder) { //draw the base border line
-          this._shape.graphics.lineStyle(2, this._baseBorderColor, 3);
-        }
-        this._shape.graphics.beginFill(this._baseColor, 1);
-        const points = utils.roundRectPoints(this.width, this.height, this._roundCorner);
-        utils.drawRoundRect(this._shape.graphics, points);
-        this._shape.graphics.endFill();
 
+        this._shape.graphics.clear();
+        if (this._hasBaseBorder) {// for loading scene progress bar
+          const _baseShape = new egret.Shape();
+          _baseShape.graphics.lineStyle(2, this._baseBorderColor, 3);
+          _baseShape.graphics.beginFill(this._baseColor, 1);
+          const points = utils.roundRectPoints(this.width - 8, this.height - 8, this._roundCorner, 4, 4);
+          utils.drawRoundRect(_baseShape.graphics, points);
+          _baseShape.graphics.endFill();
+          this.addChildAt(_baseShape, 0);
+
+        } else {
+          this._shape.graphics.beginFill(this._baseColor, 1);
+          const points = utils.roundRectPoints(this.width, this.height, this._roundCorner);
+          utils.drawRoundRect(this._shape.graphics, points);
+          this._shape.graphics.endFill();
+        }
         const length = this._proportion * (this._direction === 'vertical' ? this.height : this.width);
 
         if (length === 0) {
