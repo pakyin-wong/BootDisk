@@ -102,6 +102,7 @@ namespace we {
       }
 
       protected onGameStatisticUpdated() {}
+      
 
       protected onBetResultReceived(evt: egret.Event) {
         const result: data.PlayerBetResult = evt.data;

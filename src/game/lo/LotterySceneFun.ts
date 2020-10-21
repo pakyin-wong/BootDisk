@@ -260,6 +260,11 @@ namespace we {
         dir.videoPool.release(this._video);
       }
 
+      
+      public get isVideoStopped() {
+        return this._video.paused;
+      }
+
       protected updateTimer() {
         clearInterval(this._counterInterval);
         this._targetTime = this._gameData.starttime + this._gameData.countdown * 1000;
