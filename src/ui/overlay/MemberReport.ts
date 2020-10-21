@@ -142,8 +142,8 @@ namespace we {
           this._txt_winAmount_value.text = '-';
         } else {
           const { bet, winloss } = data;
-          this._txt_betAmount_value.text = bet;
-          this._txt_winAmount_value.text = winloss;
+          this._txt_betAmount_value.text = utils.numberToFaceValue(bet);
+          this._txt_winAmount_value.text = utils.numberToFaceValue(winloss);
         }
       }
 
