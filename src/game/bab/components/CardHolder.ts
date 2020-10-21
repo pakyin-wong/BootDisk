@@ -3,10 +3,8 @@ namespace we {
     export class CardHolder extends core.BaseEUI implements ui.IResultDisplay {
       private _gameData: we.bab.GameData;
 
-      protected _playerCard1InitX: number;
-      protected _playerCard2InitX: number;
-      protected _bankerCard1InitX: number;
-      protected _bankerCard2InitX: number;
+      protected _playerCardInitX: number;
+      protected _bankerCardInitX: number;
 
       protected _smallCard1Exist: boolean;
       protected _smallCard2Exist: boolean;
@@ -29,6 +27,9 @@ namespace we {
       protected _bankerCard2Group: eui.Group;
       protected _bankerCard3Group: eui.Group;
       protected _smallCard2Group: eui.Group;
+
+      protected _bankerCardMoveGroup: eui.Group;
+      protected _playerCardMoveGroup: eui.Group;
 
       protected _smallRedCard : dragonBones.EgretArmatureDisplay;
       protected _smallRedCardGroup : eui.Group;
@@ -139,10 +140,8 @@ namespace we {
         this._smallCard2Group.addChild(this._smallCard2);
         
 
-        this._playerCard1InitX = this._playerCard1Group.x;
-        this._playerCard2InitX = this._playerCard2Group.x;
-        this._bankerCard1InitX = this._bankerCard1Group.x;
-        this._bankerCard2InitX = this._bankerCard2Group.x;
+        this._playerCardInitX = this._playerCardMoveGroup.x;
+        this._bankerCardInitX = this._bankerCardMoveGroup.x;
       }
 
       protected createCardAnim() {
@@ -179,8 +178,6 @@ namespace we {
         console.log('setStateBet() isInit', isInit, this._gameData);
         this.updatePlayerSum();
         this.updateBankerSum();
-
-
 
         if (isInit) {
           console.log('betInitState()');
@@ -386,13 +383,8 @@ namespace we {
             .call(resolve)
         );
         await new Promise(resolve =>
-          egret.Tween.get(this._playerCard1Group)
-            .to({ x: this._playerCard1InitX }, interval)
-            .call(resolve)
-        );
-        await new Promise(resolve =>
-          egret.Tween.get(this._playerCard2Group)
-            .to({ x: this._playerCard2InitX }, interval)
+          egret.Tween.get(this._playerCardMoveGroup)
+            .to({ x: this._playerCardInitX }, interval)
             .call(resolve)
         );
         return new Promise(resolve => resolve())
@@ -406,13 +398,8 @@ namespace we {
             .call(resolve)
         );
         await new Promise(resolve =>
-          egret.Tween.get(this._bankerCard1Group)
-            .to({ x: this._bankerCard1InitX }, interval)
-            .call(resolve)
-        );
-        await new Promise(resolve =>
-          egret.Tween.get(this._bankerCard2Group)
-            .to({ x: this._bankerCard2InitX }, interval)
+          egret.Tween.get(this._bankerCardMoveGroup)
+            .to({ x: this._bankerCardInitX }, interval)
             .call(resolve)
         );
         return new Promise(resolve => resolve())
@@ -420,12 +407,7 @@ namespace we {
 
       protected async moveAndShowB3(interval: number) {
         await new Promise(resolve =>
-          egret.Tween.get(this._playerCard1Group)
-            .to({ x: 715 }, interval)
-            .call(resolve)
-        );
-        await new Promise(resolve =>
-          egret.Tween.get(this._playerCard2Group)
+          egret.Tween.get(this._playerCardMoveGroup)
             .to({ x: 459 }, interval)
             .call(resolve)
         );
@@ -440,12 +422,7 @@ namespace we {
 
       protected async moveAndShowA3(interval: number) {
         await new Promise(resolve =>
-          egret.Tween.get(this._bankerCard1Group)
-            .to({ x: 1907 }, interval)
-            .call(resolve)
-        );
-        await new Promise(resolve =>
-          egret.Tween.get(this._bankerCard2Group)
+          egret.Tween.get(this._bankerCardMoveGroup)
             .to({ x: 1651 }, interval)
             .call(resolve)
         );
