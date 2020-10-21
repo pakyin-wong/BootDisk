@@ -9,8 +9,9 @@ namespace we {
       public labelSize: number = 57;
 
       public init(denomList: number[]) {
+        this._arrcol.removeAll();
         this._arrcol.replaceAll(denomList);
-        this._chipsetList.selectedIndex = denomList.length >= env.currentChipSelectedIndex ? denomList.length - 1 : env.currentChipSelectedIndex;
+        this._chipsetList.selectedIndex = denomList.length >= env.currentChipSelectedIndex ? env.currentChipSelectedIndex : denomList.length - 1;
         this.onUpdate();
       }
 

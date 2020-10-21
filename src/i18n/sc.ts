@@ -671,6 +671,10 @@ namespace we {
 
       lo_history_round: '%round% 期',
 
+      lo_fun_mobile_bettrigger: '游戏投注',
+      lo_fun_mobile_drawing: '开奖中',
+      lo_fun_mobile_last: '上期结果',
+
       lo_fun_custombet: '自订',
       lo_fun_bettingRound: '本期投注',
       lo_fun_round: '期',

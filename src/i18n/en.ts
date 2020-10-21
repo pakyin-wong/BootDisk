@@ -634,6 +634,10 @@ namespace we {
 
       lo_history_round: 'Round %round%',
 
+      lo_fun_mobile_bettrigger: 'Fun Bet',
+      lo_fun_mobile_drawing: 'Drawing',
+      lo_fun_mobile_last: 'Last Result',
+
       lo_fun_custombet: 'Custom',
       lo_fun_bettingRound: 'Betting deadline',
       lo_fun_round: 'Round',
