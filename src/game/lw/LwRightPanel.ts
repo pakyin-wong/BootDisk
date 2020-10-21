@@ -46,11 +46,19 @@ namespace we {
 
       public updateBarChart() {
         if (this._betInfo) {
-          let amount = this._betInfo.amount;
-          amount = Object.keys(amount).map(key => amount[key]);
-          this._horizontalBarChart.setRanksAndAnimate(amount);
+          const arr = ['LW_0', 'LW_1', 'LW_2', 'LW_3', 'LW_4', 'LW_5', 'LW_6'];
+
+          const amount = this._betInfo.amount;
+          const amountArr = arr.map(key => {
+            if (!amount[key]) {
+              amount[key] = 0;
+            }
+            return amount[key];
+          });
+          // const amountArr = Object.keys(amount).sort().map(key => amount[key]);
+          this._horizontalBarChart.setRanksAndAnimate(amountArr);
           for (let i = 0; i < 7; i += 1) {
-            this[`_lbl_lwValue${i}`].text = this._betInfo.amount[`LW_${i}`] || 0;
+            this[`_lbl_lwValue${i}`].text = amount[`LW_${i}`] ? we.utils.formatNumber(amount[`LW_${i}`], false) : 0;
           }
         }
       }

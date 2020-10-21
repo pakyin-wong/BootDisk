@@ -369,6 +369,7 @@ namespace we {
         rounds: 'rounds',
       },
       luckywheel: {
+        pool: 'Pool',
         east: 'East',
         south: 'South',
         west: 'West',
@@ -383,7 +384,7 @@ namespace we {
         tie: 'Tie',
         playerPair: 'Player Pair',
         bankerPair: 'Banker Pair',
-        gameRecord: 'Game Record',
+        gameRecord: 'History Record',
       },
       dice: {
         recent: 'Recent',
