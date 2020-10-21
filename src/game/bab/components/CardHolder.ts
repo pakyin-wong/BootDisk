@@ -117,7 +117,7 @@ namespace we {
         this._bankerCard2 = this.createCardAnim(); // ('vertical');
         this._bankerCard3 = this.createCardAnim(); //('horizontal', 270);
         this._smallCard2 = this.createCardAnim(); // ('vertical');
-        this._smallRedCard = this._factory.buildArmatureDisplay('red_card');
+
         //this._smallRedCard.animation.gotoAndStopByTime('red_poker_in',0)
 
         this._smallCard1.scaleX = 0.35;
@@ -137,7 +137,7 @@ namespace we {
         this._bankerCard2Group.addChild(this._bankerCard2);
         this._bankerCard3Group.addChild(this._bankerCard3);
         this._smallCard2Group.addChild(this._smallCard2);
-        this._smallRedCardGroup.addChild(this._smallRedCard);
+        
 
         this._playerCard1InitX = this._playerCard1Group.x;
         this._playerCard2InitX = this._playerCard2Group.x;
@@ -188,7 +188,7 @@ namespace we {
           this.movePin();
           this.moveShoe();
           if(this._gameData.redcardindex <= this._gameData.currentcardindex + 6){
-            this._smallRedCard.animation.gotoAndStopByTime('red_poker_loop',0)
+            this.getRedCardAnim().animation.gotoAndStopByTime('red_poker_loop',0)
           }
           await this.betInitState();
         } else {
@@ -214,22 +214,10 @@ namespace we {
 
       protected async clearCards() {
         console.log('clearCards')
-        this.hideCard(this._playerCard1, 'vertical', '_front')
-        this.hideCard(this._playerCard2, 'vertical', '_front')
-        this.hideCard(this._bankerCard1, 'vertical', '_front')
-        this.hideCard(this._bankerCard2, 'vertical', '_front')
-
-        if (this._playerCard3Group.visible === true) {
-          await this.hideCard(this._playerCard3, 'horizontal')
-          this.moveAndHideB3(200);
-        }
-        console.log('clearCards 5');
-
-        if (this._bankerCard3Group.visible === true) {
-          await this.hideCard(this._bankerCard3, 'horizontal')
-          this.moveAndHideA3(200);
-        }
-        console.log('clearCards 6');
+        this.hideCard(this._playerCard1, 'vertical', '_front');
+        this.hideCard(this._playerCard2, 'vertical', '_front');
+        this.hideCard(this._bankerCard1, 'vertical', '_front');
+        this.hideCard(this._bankerCard2, 'vertical', '_front');
 
         if (this._smallCard1Exist) {
           this.hideCard(this._smallCard1, 'vertical', '_back')
@@ -238,6 +226,22 @@ namespace we {
         if (this._smallCard2Exist) {
           this.hideCard(this._smallCard2, 'vertical', '_back')
         }
+
+        (async()=>{
+        if (this._playerCard3Group.visible === true) {
+          await this.hideCard(this._playerCard3, 'horizontal')
+          this.moveAndHideB3(200);
+        }
+        console.log('clearCards 5');
+        })();
+
+        (async()=>{
+        if (this._bankerCard3Group.visible === true) {
+          await this.hideCard(this._bankerCard3, 'horizontal')
+          this.moveAndHideA3(200);
+        }
+        console.log('clearCards 6');
+        })();
 
         const p1 = we.utils.waitDragonBone(this._ringAnim);
         this._ringAnim.animation.fadeIn('round_out', 0, 1, 0, 'ROUND_ANIMATION_GROUP')
@@ -550,7 +554,7 @@ namespace we {
         (async () => {
           const currentIndexOffsetToFirstCard = this.getCurrentIndexOffsetToFirstCard();
           if(this._gameData.redcardindex <= this._gameData.currentcardindex + 6 - currentIndexOffsetToFirstCard){
-              this._smallRedCard.animation.gotoAndStopByTime('red_poker_loop',0)
+              this.getRedCardAnim().animation.gotoAndStopByTime('red_poker_loop',0)
           }
 
           this._ringAnim.animation.fadeIn('round_loop_a', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
@@ -571,9 +575,9 @@ namespace we {
       protected movePin() {
         const bone = this._ringAnim.armature.getBone('red_card');
         const proportion = this._gameData.currentcardindex / this._gameData.maskedcardssnList.length;
-        const angleOffset = 49 * proportion; // -59 - 41 // -41 - 9
+        const angleOffset = 81 * proportion; // -40 to 41
         const destAngle = -40 + angleOffset;
-        const destRad = (0 * Math.PI) / 180;
+        const destRad = (destAngle * Math.PI) / 180;
         bone.animationPose.rotation = destRad;
         bone.invalidUpdate();
       }
@@ -581,8 +585,8 @@ namespace we {
       protected moveShoe() {
         const bone = this._ringAnim.armature.getBone('shoe_bar');
         const proportion = this._gameData.redcardindex / this._gameData.maskedcardssnList.length;
-        const angleOffset = 49 * proportion; // -59 - 41
-        const destAngle = -40 + angleOffset;
+        const angleOffset = 81 * proportion; // -72 to 9
+        const destAngle = -72 + angleOffset;
         const destRad = (destAngle * Math.PI) / 180; //this._gameData.currentcardindex d
         bone.animationPose.rotation = destRad;
         bone.invalidUpdate();
@@ -657,7 +661,6 @@ namespace we {
           }
 
           if (this._gameData.currentcardindex + i + 1 === this._gameData.redcardindex) {
-            // do red card thing
             const block1 = (async()=>{
               const p1 = we.utils.waitDragonBone(this._ringAnim);
               this._ringAnim.animation.fadeIn('red_poker_in', 0, 1, 0, 'POKER_ANIMATION_GROUP');
@@ -674,8 +677,8 @@ namespace we {
               return new Promise(resolve=>resolve());
             })()
 
-            const block2 = we.utils.waitDragonBone(this._smallRedCard);
-            this._smallRedCard.animation.fadeIn('red_poker_in')            
+            const block2 = we.utils.waitDragonBone(this.getRedCardAnim());
+            this.getRedCardAnim().animation.fadeIn('red_poker_in')            
             
             await block1
             await block2
@@ -687,6 +690,9 @@ namespace we {
         this.movePin();
         this.moveShoe();
         await p3
+
+        this._smallCard2Exist = true;
+        this._smallCard1Exist = true;
 
         return new Promise(resolve => resolve());
       }
@@ -769,7 +775,7 @@ namespace we {
       protected setStateFinish(isInit) {
         console.log('setStateFinish() isInit', isInit, this._gameData);
         if(this._gameData.redcardindex <= this._gameData.currentcardindex){
-          this._smallRedCard.animation.gotoAndStopByTime('red_poker_loop',0)
+          this.getRedCardAnim().animation.gotoAndStopByTime('red_poker_loop',0)
         }
         this.updatePlayerSum();
         this.updateBankerSum();
@@ -783,14 +789,13 @@ namespace we {
       }
 
       protected setStateShuffle(isInit){
-
         if(isInit){
           this.dispatchEvent(new egret.Event('OPEN_SHUFFLE_PANEL',false,false,'init'))
         }else{
           (async()=>{
             console.log('shuffle start')
-            const p1 = utils.waitDragonBone(this._smallRedCard);
-            this._smallRedCard.animation.fadeIn('red_poker_out');
+            const p1 = utils.waitDragonBone(this.getRedCardAnim());
+            this.getRedCardAnim().animation.fadeIn('red_poker_out');
 
             const p2 = utils.waitDragonBone(this._ringAnim);
             this._ringAnim.animation.fadeIn('shoe_out',0,1,0);
@@ -806,11 +811,22 @@ namespace we {
             this._ringAnim.animation.fadeIn('shoe_in',0,1,0);
             await p3
 
+            this._smallRedCardGroup.removeChild(this._smallRedCard);
+            this._smallRedCard = null
+
             this.dispatchEvent(new egret.Event('OPEN_SHUFFLE_PANEL',false,false,'notInit'))
 
             return new Promise(resolve=>resolve());
           })();
         }
+      }
+
+      protected getRedCardAnim(){
+        if(!this._smallRedCard){
+          this._smallRedCard = this._factory.buildArmatureDisplay('red_card');
+          this._smallRedCardGroup.addChild(this._smallRedCard)
+        }
+        return this._smallRedCard
       }
 
       public reset() { }
