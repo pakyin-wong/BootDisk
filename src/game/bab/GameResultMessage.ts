@@ -101,28 +101,6 @@ namespace we {
         this.visible = true;
         this._display.animation.play(anim, 1);
 
-        // update slot text
-        // for (const slotName of ['win_txt', 'loss_txt']) {
-        // for (const slotName of ['Result_Txt_Win', 'Result_Txt_Loss']) {
-        /*
-        for (const slotName of ['result_win', 'result_loss']) {
-          const slot = this._display.armature.getSlot(slotName);
-          const text: eui.Label = new eui.Label();
-          text.width = 320;
-          text.height = 50;
-          text.size = 50;
-          text.anchorOffsetX = 160;
-          text.anchorOffsetY = 25;
-          text.verticalAlign = egret.VerticalAlign.MIDDLE;
-          text.textAlign = egret.HorizontalAlign.CENTER;
-          text.text = i18n.t(utils.getWinMessageKey(gameType, winType));
-          this.visible = true;
-          this._display.animation.play(anim, 1);
-          slot.display = text;
-        }
-*/
-
-        /*
         if (!isNaN(winAmount)) {
           let slotName;
 
@@ -142,7 +120,6 @@ namespace we {
           layer.anchorOffsetY = r.height * 0.5;
           slot.display = layer;
         }
-        */
       }
     }
   }
