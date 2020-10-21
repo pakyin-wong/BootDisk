@@ -81,7 +81,7 @@ namespace we {
         this.content.addChildAt(rect, 0);
       }
 
-      public anim(gameData: any) {
+      public showAnim(gameData: any) {
         this._gameData = gameData;
         console.log('ShufflePanel::anim()', gameData);
         this._allCardsGroup.removeChildren();
@@ -94,7 +94,7 @@ namespace we {
         this.createGroups();
       }
 
-      public stat(gameData: any) {
+      public showStatic(gameData: any) {
         this._gameData = gameData;
         console.log('ShufflePanel::stat()', gameData);
         this._allCardsGroup.removeChildren();
@@ -186,6 +186,7 @@ namespace we {
         layout.gap = 45;
         return layout;
       }
+
     }
   }
 }
