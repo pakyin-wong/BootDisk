@@ -245,8 +245,8 @@ namespace we {
               return 'white';
           }
         }
-        private createGameResult(gametype, gameResult) {
-          let p: core.BaseEUI;
+         private createGameResult(gametype, gameResult) {
+          let p: eui.Component;
 
           switch (gametype) {
             case we.core.GameType.BAC:
@@ -258,22 +258,29 @@ namespace we {
             case we.core.GameType.DT:
               p = new DtResultItem(gameResult);
               break;
-
-            case we.core.GameType.ROL:
             case we.core.GameType.RO:
               p = new RoResultItem(gameResult);
               break;
-
+            case we.core.GameType.ROL:
+              p = new RolResultItem(gameResult);
+              break;
             case we.core.GameType.DI:
               p = new DiResultItem(gameResult);
               break;
-
+            case we.core.GameType.DIL:
+              p = new DilResultItem(gameResult);
+              break;
             case we.core.GameType.LW:
               p = new LwResultItem(gameResult);
               break;
-
+            case we.core.GameType.LO:
+              p = new LoResultItem(gameResult);
+              break;
+            case we.core.GameType.RC:
+              p = new RcResultItem(gameResult);
+              break;
             default:
-              p = new core.BaseEUI();
+              p = new eui.Component();
               break;
           }
 
