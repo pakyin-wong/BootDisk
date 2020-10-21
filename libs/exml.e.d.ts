@@ -2176,6 +2176,10 @@ declare module skin_mobile_portrait{
 	class LobbyScene extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait{
+	class LotteryPage extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait.lw{
 	class ChipLayerSkin extends eui.Skin{
 	}

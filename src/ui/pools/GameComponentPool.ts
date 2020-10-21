@@ -36,7 +36,7 @@ namespace we {
 
       public get(gameType: core.GameType) {
         let namespace = utils.getGameTypeNamespace(gameType);
-        if (namespace === 'rol') namespace = 'ro';
+        if (namespace === 'rol') { namespace = 'ro'; }
         try {
           return this._pools[namespace].get();
         } catch (err) {
@@ -46,7 +46,7 @@ namespace we {
 
       public release(obj: any, gameType: core.GameType) {
         let namespace = utils.getGameTypeNamespace(gameType);
-        if (namespace === 'rol') namespace = 'ro';
+        if (namespace === 'rol') { namespace = 'ro'; }
         try {
           this._pools[namespace].release(obj);
         } catch (err) {
