@@ -12,8 +12,8 @@
 		<e:Image id="_playerImage" source="m_ba_betarea_player_horizontal_png" name="m_ba_betarea_player_horizontal_png"
 		         width="100%" height="100%" x="0" y="0" anchorOffsetX="0" width.Normal="100%" x.Normal="0" y.Normal="0"
 		         height.SuperSix="100%" />
-		<ui:RunTimeLabel id="_playerLabel" horizontalCenter="0" size="72" text="" y="35"  y.SuperSix="25"/>
-		<e:Label text="1:1" horizontalCenter="0" size="35" verticalAlign="top" top="95" alpha="0.7" />
+		<ui:RunTimeLabel id="_playerLabel" horizontalCenter="0" size="72" text="" y="35"  y.SuperSix="25" y.Normal="25"/>
+		<e:Label text="1:1" horizontalCenter="0" size="35" verticalAlign="top" top="101" alpha="0.7" />
 		<e:Image source="d_ba_betarea_icon_bet_png" horizontalCenter="-100" verticalCenter="60" height="32" width="32" />
 		<e:Label id="_playerTotalAmount" x="222" verticalCenter="60" size="30"  text="0"/>
 		<e:Image source="d_ba_betarea_icon_person_png" horizontalCenter="50" verticalCenter="60" height="32" width="32"  />
@@ -36,7 +36,7 @@
 		<e:Image id="_superSixBankerImage" source="m_ba_betarea_banker_horizontal_png"
 		         name="m_ba_betarea_banker_horizontal_png" width="100%" height="100%" x="0" />
 		<ui:RunTimeLabel id="_superSixBankerLabel" horizontalCenter="0" size="72" y="25" />
-		<e:Label text="1:1" size="35" verticalAlign="top" top="95" alpha="0.7" horizontalCenter="0" />
+		<e:Label text="1:1" size="35" verticalAlign="top" top="101" alpha="0.7" horizontalCenter="0" />
 		<e:Image source="d_ba_betarea_icon_bet_png" horizontalCenter="-100" verticalCenter="60" height="32" width="32" />
 		<e:Label id="_superSixBankerTotalAmount" x="222" verticalCenter="60" size="30" text="0" />
 		<e:Image source="d_ba_betarea_icon_person_png" horizontalCenter="50" verticalCenter="60" height="32" width="32" />
@@ -46,7 +46,7 @@
 		<e:Image id="_bankerImage" source="m_ba_betarea_banker_horizontal_png" name="m_ba_betarea_banker_horizontal_png"
 		         width="100%" height="100%" />
 		<ui:RunTimeLabel id="_bankerLabel" horizontalCenter="0" size="72" y="25" />
-		<e:Label text="0.95:1" horizontalCenter="0" size="35" verticalAlign="top" top="95" alpha="0.7" />
+		<e:Label text="0.95:1" horizontalCenter="0" size="35" verticalAlign="top" top="101" alpha="0.7" />
 		<e:Image source="d_ba_betarea_icon_bet_png" horizontalCenter="-100" verticalCenter="60" height="32" width="32"  />
 		<e:Label id="_bankerTotalAmount" x="120" verticalCenter="60" size="30" text="0"/>
 		<e:Image source="d_ba_betarea_icon_person_png" horizontalCenter="50" verticalCenter="60" height="32" width="32"  />
