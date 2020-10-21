@@ -642,6 +642,10 @@ namespace we {
       lo_fun_drawingRound: '期開獎中',
       lo_fun_lastRound: '上期開期號碼',
 
+      lo_fun_mobile_bettrigger: '遊戲投注',
+      lo_fun_mobile_drawing: '開獎中',
+      lo_fun_mobile_last: '上期結果',
+
       lo_fun_overlay_title: '投票確認',
       lo_fun_overlay_table: '彩種名稱',
       lo_fun_overlay_round: '投注期數',

@@ -723,6 +723,8 @@
 		"resource/skin_mobile/lo/FunBet/FunBetContainer.exml",
 		"resource/skin_mobile/lo/FunBet/FunBetOverlay.exml",
 		"resource/skin_mobile/lo/FunBet/FunBetOverlayIR.exml",
+		"resource/skin_mobile/lo/FunBet/FunBetResult.exml",
+		"resource/skin_mobile/lo/FunBet/FunBetRoundInfo.exml",
 		"resource/skin_mobile/lo/FunBet/FunBetTabItemRenderer.exml",
 		"resource/skin_mobile/lo/LotteryLiveListItem.exml",
 		"resource/skin_mobile/lo/LotteryScene.exml",

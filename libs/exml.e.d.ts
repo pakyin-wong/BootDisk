@@ -2675,6 +2675,14 @@ declare module skin_mobile.lo{
 	}
 }
 declare module skin_mobile.lo{
+	class FunBetResult extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetRoundInfo extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
 	class FunBetTabItemRenderer extends eui.Skin{
 	}
 }
