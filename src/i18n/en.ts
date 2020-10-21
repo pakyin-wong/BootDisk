@@ -158,9 +158,9 @@ namespace we {
       overlaypanel_bethistory_dtresult_dragon: 'D',
       overlaypanel_bethistory_dtresult_tiger: 'T',
 
-      overlaypanel_gameSet_showGoodRoadHint: 'Show Baccarat GoodRoad Hint',
-      overlaypanel_gameSet_autoBet: 'Auto Bet Confirm',
-      overlaypanel_gameSet_sendLiveVerfication: 'Send Live Verfication',
+      overlaypanel_gameSet_showGoodRoadHint: 'Good Road Notification of Baccarat',
+      overlaypanel_gameSet_autoBet: 'Auto-Betting',
+      overlaypanel_gameSet_sendLiveVerfication: 'Send On-site Verification',
 
       expiredmessage_text: 'You have not bet for 3 rounds, and will be back to lobby after 2 rounds',
 
