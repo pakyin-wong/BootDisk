@@ -784,17 +784,24 @@ namespace we {
         this.movePin();
         this.moveShoe();
         if (isInit) {
+          const currentIndexOffsetToFirstCard = this.getCurrentIndexOffsetToFirstCard();
+          this.betInitState(currentIndexOffsetToFirstCard)
           this.dealInitState();
         }
       }
 
       protected setStateShuffle(isInit){
         if(isInit){
-          this._ringAnim.animation.fadeIn('round_loop_a',0,0,0);
-          this.movePin();
-          this.moveShoe();
+          (async()=>{
+            this._smallCard1Exist = true;
+            this._smallCard2Exist = true;
+            await this.clearCards();
+            this._ringAnim.animation.fadeIn('round_loop_a',0,0,0);
+            this.movePin();
+            this.moveShoe();          
+            this.dispatchEvent(new egret.Event('OPEN_SHUFFLE_PANEL',false,false,'init'))
 
-          this.dispatchEvent(new egret.Event('OPEN_SHUFFLE_PANEL',false,false,'init'))
+          })();
         }else{
           (async()=>{
             await this.clearCards();
