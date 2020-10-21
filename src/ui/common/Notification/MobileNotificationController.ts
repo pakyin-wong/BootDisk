@@ -98,8 +98,13 @@ namespace we {
       }
 
       protected onChangeScene() {
+        this._notificationContainer.horizontalCenter = 0; // horizontal center
         this._notificationContainer.width = this.stage.stageWidth;
         this._notificationContainer.height = this.stage.stageHeight;
+        // this.resultListDisplay.layout = null;
+        // this.goodRoadListDisplay.layout = null;
+        this.resultListDisplay.width = NaN;
+        this.goodRoadListDisplay.width = NaN;
 
         if (env.orientation === 'landscape') {
           switch (dir.sceneCtr.currScene.sceneHeaderPlacement) {
@@ -120,16 +125,25 @@ namespace we {
         } else {
           // portrait
           this._notificationContainer.layout = null;
+          this._notificationContainer.horizontalCenter = NaN; // horizontal center
+          this.resultListDisplay.x = 0;
+          this.goodRoadListDisplay.x = 0;
           this.resultListDisplay.y = this._notificationContainer.height - 200;
-          this.resultListDisplay.x = 363; // horizontal center
-          this.goodRoadListDisplay.x = 248; // horizontal center
           this.goodRoadListDisplay.y = 50;
+          this.resultListDisplay.width = this.stage.stageWidth;
+          this.goodRoadListDisplay.width = this.stage.stageWidth;
+          let vLayout = new eui.VerticalLayout();
+          vLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
+          this.resultListDisplay.layout = vLayout; // horizontal center
+          vLayout = new eui.VerticalLayout();
+          vLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
+          this.goodRoadListDisplay.layout = vLayout; // horizontal center
           this._max_result = 1;
         }
       }
 
       protected onNotified(evt: egret.Event) {
-        const notification: data.Notification = <data.Notification>evt.data;
+        const notification: data.Notification = <data.Notification> evt.data;
         this.notificationList.push(notification);
         this.showNextNotification();
       }
@@ -254,7 +268,7 @@ namespace we {
         // remove the focus item if exist
         if (this._currentFocus) {
           if (!isRemoved) {
-            const holder = <NotificationItemHolder>this.goodRoadListDisplay.getChildAt(0);
+            const holder = <NotificationItemHolder> this.goodRoadListDisplay.getChildAt(0);
             holder.removeItem();
           }
           this._currentFocus = null;
