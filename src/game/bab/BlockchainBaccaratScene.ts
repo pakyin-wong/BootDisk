@@ -80,8 +80,10 @@ namespace we {
 
       protected showShufflePanel(evt: egret.Event){
         if(evt.data === 'init'){
+          this._shufflePanel.show();
           this._shufflePanel.showStatic(this._gameData);
         }else{
+          this._shufflePanel.show();
           this._shufflePanel.showAnim(this._gameData);
         }
         

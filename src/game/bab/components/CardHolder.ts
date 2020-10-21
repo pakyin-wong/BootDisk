@@ -571,9 +571,9 @@ namespace we {
       protected movePin() {
         const bone = this._ringAnim.armature.getBone('red_card');
         const proportion = this._gameData.currentcardindex / this._gameData.maskedcardssnList.length;
-        const angleOffset = 100 * proportion; // -59 - 41
-        const destAngle = -59 + angleOffset;
-        const destRad = (destAngle * Math.PI) / 180;
+        const angleOffset = 49 * proportion; // -59 - 41 // -41 - 9
+        const destAngle = -40 + angleOffset;
+        const destRad = (0 * Math.PI) / 180;
         bone.animationPose.rotation = destRad;
         bone.invalidUpdate();
       }
@@ -581,8 +581,8 @@ namespace we {
       protected moveShoe() {
         const bone = this._ringAnim.armature.getBone('shoe_bar');
         const proportion = this._gameData.redcardindex / this._gameData.maskedcardssnList.length;
-        const angleOffset = 100 * proportion; // -59 - 41
-        const destAngle = -59 + angleOffset;
+        const angleOffset = 49 * proportion; // -59 - 41
+        const destAngle = -40 + angleOffset;
         const destRad = (destAngle * Math.PI) / 180; //this._gameData.currentcardindex d
         bone.animationPose.rotation = destRad;
         bone.invalidUpdate();
@@ -600,8 +600,14 @@ namespace we {
         this.moveShoe();
 
         const p2 = we.utils.waitDragonBone(this._ringAnim);
-        this._ringAnim.animation.fadeIn('poker_round_in', 0, 1, 0, 'POKER_ANIMATION_GROUP');
+        this._ringAnim.animation.fadeIn('poker_round_in', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
+        this.movePin();
+        this.moveShoe();
         await p2
+
+        this._ringAnim.animation.fadeIn('poker_round_loop', 0, 0, 0, 'POKER_ROUND_ANIMATION_GROUP');
+        this.movePin();
+        this.moveShoe();
 
         const cardAnimNames = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2', '_smallCard1', '_smallCard2'];
         for (let i = 0; i < cardAnimNames.length; i++) {
@@ -652,21 +658,34 @@ namespace we {
 
           if (this._gameData.currentcardindex + i + 1 === this._gameData.redcardindex) {
             // do red card thing
-            const p1 = we.utils.waitDragonBone(this._ringAnim);
-            this._ringAnim.animation.fadeIn('red_poker_in', 0, 1, 0, 'POKER_ANIMATION_GROUP');
-            this.movePin();
-            this.moveShoe();
+            const block1 = (async()=>{
+              const p1 = we.utils.waitDragonBone(this._ringAnim);
+              this._ringAnim.animation.fadeIn('red_poker_in', 0, 1, 0, 'POKER_ANIMATION_GROUP');
+              this.movePin();
+              this.moveShoe();
+              await p1
 
-            const p2 = we.utils.waitDragonBone(this._smallRedCard);
-            this._smallRedCard.animation.fadeIn('red_poker_in')
+              const p2 = we.utils.waitDragonBone(this._ringAnim);
+              this._ringAnim.animation.fadeIn('red_poker_out', 0, 1, 0, 'POKER_ANIMATION_GROUP');
+              this.movePin();
+              this.moveShoe();
+              await p2
 
-            await p1
-            await p2
+              return new Promise(resolve=>resolve());
+            })()
+
+            const block2 = we.utils.waitDragonBone(this._smallRedCard);
+            this._smallRedCard.animation.fadeIn('red_poker_in')            
+            
+            await block1
+            await block2
           }
         }
 
         const p3 = we.utils.waitDragonBone(this._ringAnim);
-        this._ringAnim.animation.fadeIn('poker_round_out', 0, 1, 0, 'POKER_ANIMATION_GROUP');
+        this._ringAnim.animation.fadeIn('poker_round_out', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
+        this.movePin();
+        this.moveShoe();
         await p3
 
         return new Promise(resolve => resolve());
