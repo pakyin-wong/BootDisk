@@ -1516,6 +1516,10 @@ declare module skin_mobile_landscape{
 	class LobbyScene extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape{
+	class LotteryPage extends eui.Skin{
+	}
+}
 declare module skin_mobile_landscape.lw{
 	class ChipLayerSkin extends eui.Skin{
 	}

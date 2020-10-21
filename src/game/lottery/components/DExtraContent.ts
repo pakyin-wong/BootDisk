@@ -26,8 +26,8 @@ namespace we {
         stickyHeader.y = 581;
 
         const slider = new ui.ImageSlider();
-        slider.height = 2600;
-        slider.width = 780;
+        slider.width = 2600;
+        slider.height = 780;
         slider.x = 0;
         slider.y = 0;
         slider.configSlides(dir.liveResources.liveHeroBanners);

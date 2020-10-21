@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.LotteryPage" width="2424" height="1242" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" >
+	<e:Rect id="background" width="100%" height="100%" x="0" y="0"  fillColor="0x121212" strokeColor="0x121212"/>
+    <e:List id="_roomListRefer" left="0" right="0" y="156" height="850">
+		<e:layout>
+		<e:TileLayout orientation="columns" horizontalGap="52" verticalGap="52" requestedRowCount="2" columnWidth="1140" rowHeight="400" paddingRight="80" paddingLeft="990"/>
+		</e:layout>
+		</e:List>
+	<ui:Scroller id="_scroller" left="0" right="0" headerOffset="100" y="156" height="850">
+		<ui:TableList id="_roomList"/>
+	</ui:Scroller>
+</e:Skin>
