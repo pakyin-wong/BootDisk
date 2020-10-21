@@ -421,12 +421,12 @@ namespace we {
       protected async moveAndShowB3(interval: number) {
         await new Promise(resolve =>
           egret.Tween.get(this._playerCard1Group)
-            .to({ x: 459 }, interval)
+            .to({ x: 715 }, interval)
             .call(resolve)
         );
         await new Promise(resolve =>
           egret.Tween.get(this._playerCard2Group)
-            .to({ x: 715 }, interval)
+            .to({ x: 459 }, interval)
             .call(resolve)
         );
         await new Promise(resolve =>
@@ -441,12 +441,12 @@ namespace we {
       protected async moveAndShowA3(interval: number) {
         await new Promise(resolve =>
           egret.Tween.get(this._bankerCard1Group)
-            .to({ x: 1651 }, interval)
+            .to({ x: 1907 }, interval)
             .call(resolve)
         );
         await new Promise(resolve =>
           egret.Tween.get(this._bankerCard2Group)
-            .to({ x: 1907 }, interval)
+            .to({ x: 1651 }, interval)
             .call(resolve)
         );
         await new Promise(resolve =>
@@ -572,22 +572,36 @@ namespace we {
         })();
       }
 
+      protected async collapsePin() {
+        const bone = this._ringAnim.armature.getBone('red_card');
+        const destRad = this.getPinRad(0)
+        await new Promise(resolve => egret.Tween.get(bone.animationPose).to({ rotation: destRad }, 1000, function (t) {
+          bone.invalidUpdate();
+          return t;
+        }).call(resolve))
+        bone.invalidUpdate();
+      }
+
+      protected async collapseShoe() {
+        const bone = this._ringAnim.armature.getBone('shoe_bar');
+        const destRad = this.getShoeRad(0)
+        await new Promise(resolve => egret.Tween.get(bone.animationPose).to({ rotation: destRad }, 1000, function (t) {
+          bone.invalidUpdate();
+          return t;
+        }).call(resolve))
+        bone.invalidUpdate();
+      }
+
       protected movePin() {
         const bone = this._ringAnim.armature.getBone('red_card');
-        const proportion = this._gameData.currentcardindex / this._gameData.maskedcardssnList.length;
-        const angleOffset = 81 * proportion; // -40 to 41
-        const destAngle = -40 + angleOffset;
-        const destRad = (destAngle * Math.PI) / 180;
+        const destRad = this.getPinRad()
         bone.animationPose.rotation = destRad;
         bone.invalidUpdate();
       }
 
       protected moveShoe() {
         const bone = this._ringAnim.armature.getBone('shoe_bar');
-        const proportion = this._gameData.redcardindex / this._gameData.maskedcardssnList.length;
-        const angleOffset = 81 * proportion; // -72 to 9
-        const destAngle = -72 + angleOffset;
-        const destRad = (destAngle * Math.PI) / 180; //this._gameData.currentcardindex d
+        const destRad = this.getShoeRad()
         bone.animationPose.rotation = destRad;
         bone.invalidUpdate();
       }
@@ -743,29 +757,38 @@ namespace we {
         }
       }
 
+      protected getPinRad(num = this._gameData.currentcardindex){
+        const proportion = num / this._gameData.maskedcardssnList.length;
+        const angleOffset = 81 * proportion; // -40 to 41
+        const destAngle = -40 + angleOffset;
+        const destRad = (destAngle * Math.PI) / 180;
+        return destRad
+      }
+
+      protected getShoeRad(num = this._gameData.redcardindex){
+        const proportion = num / this._gameData.maskedcardssnList.length;
+        const angleOffset = 81 * proportion; // -72 to 9
+        const destAngle = -72 + angleOffset;
+        const destRad = (destAngle * Math.PI) / 180;
+        return destRad
+      }
+
       protected async animatePin(){
         const bone = this._ringAnim.armature.getBone('red_card');
-        const proportion = this._gameData.currentcardindex / this._gameData.maskedcardssnList.length;
-        const angleOffset = 100 * proportion; // -59 - 41
-        const destAngle = -59 + angleOffset;
-        const destRad = (destAngle * Math.PI) / 180;
-        await new Promise(resolve => egret.Tween.get(bone.animationPose).to({roataion:destRad},300,(t)=>{
-          bone.invalidUpdate();          
+        const destRad = this.getPinRad();
+        await new Promise(resolve => egret.Tween.get(bone.animationPose).to({ rotation: destRad }, 1000, function (t) {
+          bone.invalidUpdate();
           return t;
         }).call(resolve))
 
         return new Promise(resolve=>resolve());
       }
-      
+    
       protected async animateShoe(){
         const bone = this._ringAnim.armature.getBone('shoe_bar');
-        const proportion = this._gameData.redcardindex / this._gameData.maskedcardssnList.length;
-        const angleOffset = 100 * proportion; // -59 - 41
-        const destAngle = -59 + angleOffset;
-        const destRad = (destAngle * Math.PI) / 180; //this._gameData.currentcardindex d
-        bone.animationPose.rotation = destRad;
-        await new Promise(resolve => egret.Tween.get(bone.animationPose).to({roataion:destRad},300,(t)=>{
-          bone.invalidUpdate();          
+        const destRad = this.getShoeRad();
+        await new Promise(resolve => egret.Tween.get(bone.animationPose).to({ rotation: destRad }, 1000, function (t) {
+          bone.invalidUpdate();
           return t;
         }).call(resolve))
 
@@ -790,15 +813,25 @@ namespace we {
 
       protected setStateShuffle(isInit){
         if(isInit){
+          this._ringAnim.animation.fadeIn('round_loop_a',0,0,0);
+          this.movePin();
+          this.moveShoe();
+
           this.dispatchEvent(new egret.Event('OPEN_SHUFFLE_PANEL',false,false,'init'))
         }else{
           (async()=>{
+            await this.clearCards();
             console.log('shuffle start')
             const p1 = utils.waitDragonBone(this.getRedCardAnim());
             this.getRedCardAnim().animation.fadeIn('red_poker_out');
+            this._smallRedCardGroup.removeChild(this._smallRedCard);
+            this._smallRedCard = null
 
             const p2 = utils.waitDragonBone(this._ringAnim);
             this._ringAnim.animation.fadeIn('shoe_out',0,1,0);
+
+            await this.collapsePin();
+            await this.collapseShoe();
 
             await p1;
             await p2;
@@ -806,13 +839,15 @@ namespace we {
             await this.animateShoe();
             await this.animatePin();
 
-
             const p3 = utils.waitDragonBone(this._ringAnim);
             this._ringAnim.animation.fadeIn('shoe_in',0,1,0);
+            this.movePin();
+            this.moveShoe();
             await p3
 
-            this._smallRedCardGroup.removeChild(this._smallRedCard);
-            this._smallRedCard = null
+            this._ringAnim.animation.fadeIn('round_loop_a',0,0,0);
+            this.movePin();
+            this.moveShoe();
 
             this.dispatchEvent(new egret.Event('OPEN_SHUFFLE_PANEL',false,false,'notInit'))
 
