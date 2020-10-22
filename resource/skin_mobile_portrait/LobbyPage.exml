@@ -12,22 +12,22 @@
 				<ui:ImageSliderBullet id="_sliderBullet" bulletGap="20"  horizontalCenter="0" y="1131"/>
 				<e:Group id="_title_featuregame" y="1222" horizontalCenter="0">
 					<e:Image source="m_lobby_title_left_png" width="234" height="79"/>
-					<ui:RunTimeLabel id="_txt_featuregame" text="熱門推介" horizontalCenter="0" size="60" height="89" verticalAlign="middle"/>
+					<ui:RunTimeLabel id="_txt_featuregame" text="熱門推介" horizontalCenter="0" size="64" height="110" verticalAlign="middle"/>
 					<e:Image source="m_lobby_title_right_png" width="234" height="79"/>
 					<e:layout>
-						<e:HorizontalLayout horizontalAlign="center" gap="34" verticalAlign="middle" paddingLeft="44" paddingRight="44"/>
+						<e:HorizontalLayout horizontalAlign="center" gap="46" verticalAlign="middle" paddingLeft="51" paddingRight="51"/>
 					</e:layout>
 				</e:Group>
 
 				<e:Group id="_posterContainer" y="1410" horizontalCenter="0">
 					<e:layout>
-					<e:TileLayout horizontalAlign="center" requestedColumnCount="2" paddingTop="24" columnWidth="549" rowHeight="760" horizontalGap="47" paddingBottom="0" verticalGap="47"/>
+					<e:TileLayout horizontalAlign="center" requestedColumnCount="2" paddingTop="24" columnWidth="496" rowHeight="689" horizontalGap="47" paddingBottom="73" verticalGap="47"/>
 					</e:layout>
 				</e:Group>
 			</e:Group>
 			<e:Group id="_title_hotgame" x="1027" y="1524" width="1145">
 				<e:Image width="234" height="79" source="m_lobby_title_left_png"/>
-				<ui:RunTimeLabel id="_txt_hotgame" text="熱門遊戲" horizontalCenter="0" size="60" height="89" verticalAlign="middle"/>
+				<ui:RunTimeLabel id="_txt_hotgame" text="熱門遊戲" horizontalCenter="0" size="64" height="110" verticalAlign="middle"/>
 				<e:Image width="234" height="79" source="m_lobby_title_right_png"/>
 				<e:layout>
 					<e:HorizontalLayout horizontalAlign="center" gap="34" verticalAlign="middle" paddingLeft="44" paddingRight="44"/>
@@ -35,14 +35,14 @@
 			</e:Group>
 			<e:Group id="_hotgameContainer" x="864" y="1491">
 				<e:layout>
-					<e:TileLayout horizontalGap="47" verticalGap="47" orientation="rows" requestedColumnCount="1" columnWidth="1145"/>
+					<e:TileLayout horizontalGap="71" verticalGap="71" orientation="rows" requestedColumnCount="1" columnWidth="1077"/>
 				</e:layout>
 			</e:Group>
 			<e:Group id="_footer" x="776" y="1697">
 				<ui:RunTimeLabel id="_txt_copyright" textKey="lobby_footer_text" scaleX="1" scaleY="1" size="40"/>
 			</e:Group>
 			<e:layout>
-				<e:VerticalLayout horizontalAlign="center" gap="47"/>
+				<e:VerticalLayout horizontalAlign="center" gap="66"/>
 			</e:layout>
 		</e:Group>
 	</e:Scroller>
