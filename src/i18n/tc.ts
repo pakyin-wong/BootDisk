@@ -386,10 +386,7 @@ namespace we {
         playerPair: '閒對',
         bankerPair: '庄對',
         gameRecord: '歷史記錄',
-<<<<<<< HEAD
         gameRecordlandscape: '歷史記錄 \n/ 即時彩池',
-=======
->>>>>>> origin/develop
       },
       dice: {
         recent: '最近',

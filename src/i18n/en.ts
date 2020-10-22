@@ -243,20 +243,20 @@ namespace we {
         bet_balance: 'Balance',
         menu: {
           title: 'Settings',
-          selectMode: 'Color Mode',
+          selectMode: 'Select Theme Color',
           whiteMode: 'Light',
           darkMode: 'Dark',
-          info: 'Player Info',
-          history: 'Bet Record',
+          info: 'Account',
+          history: 'Game Records',
           member: 'Member Report',
-          road: 'Road Notice',
-          system: 'System',
+          road: 'Good Road Settings',
+          system: 'System Setting',
           logout: 'Logout',
-          leftHandMode: 'Left Mode',
+          leftHandMode: 'Left hand Mode',
           logoutMsg: 'Are you sure to logout?',
           confirm: 'Confirm',
           cancel: 'Cancel',
-          gameSet: 'Game Setting',
+          gameSet: 'Game Settings',
           soundSet: 'Sound Setting',
         },
         system: {
@@ -384,12 +384,8 @@ namespace we {
         tie: 'Tie',
         playerPair: 'Player Pair',
         bankerPair: 'Banker Pair',
-<<<<<<< HEAD
         gameRecord: 'Game Record',
         gameRecordlandscape: 'Game Record',
-=======
-        gameRecord: 'History Record',
->>>>>>> origin/develop
       },
       dice: {
         recent: 'Recent',
