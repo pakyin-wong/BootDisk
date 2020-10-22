@@ -20,11 +20,11 @@
 	</e:Group>
 	<e:Rect id="_dimmer" left="0" top="104" bottom="0" right="0" fillAlpha="0.5" anchorOffsetY="0" visible="false" />
 	<e:Group id="_buttonGroup" width="1140" x="0" y="196" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false"
-	         touchChildren="true" locked="true">
+	         touchChildren="true">
 			<ui:RoundRectButton id="_quickBetButton" verticalCenter="0" left="200"  width="350" height="100" 
 								cornerTL_TR_BL_BR="50,50,50,50"	skinName="skin_mobile.QuickBetButtonSkin"
 			                    stroke="0" strokeIn="0" fillColor="00AA5E" fillAlpha="1" fillAlpha_hover="0.7"
-			                    />
+			                    labelSize="50" />
 			<ui:RoundRectButton id="_enterTableButton"  verticalCenter="0" right="200"  width="350" height="100" 
 								cornerTL_TR_BL_BR="50,50,50,50"	
 			                    stroke="0" strokeIn="0" fillColor="00AA5E" fillAlpha="1" fillAlpha_hover="0.7"
