@@ -386,7 +386,10 @@ namespace we {
         playerPair: '閒對',
         bankerPair: '庄對',
         gameRecord: '歷史記錄',
+<<<<<<< HEAD
         gameRecordlandscape: '歷史記錄 \n/ 即時彩池',
+=======
+>>>>>>> origin/develop
       },
       dice: {
         recent: '最近',
@@ -645,6 +648,10 @@ namespace we {
       lo_fun_round: '期',
       lo_fun_drawingRound: '期開獎中',
       lo_fun_lastRound: '上期開期號碼',
+
+      lo_fun_mobile_bettrigger: '遊戲投注',
+      lo_fun_mobile_drawing: '開獎中',
+      lo_fun_mobile_last: '上期結果',
 
       lo_fun_overlay_title: '投票確認',
       lo_fun_overlay_table: '彩種名稱',

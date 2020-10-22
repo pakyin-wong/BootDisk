@@ -70,7 +70,7 @@ namespace we {
           if (env.orientation === egret.OrientationMode.PORTRAIT) {
             MPExtraContent.mount(this);
           } else {
-            //
+            MLExtraContent.mount(this);
           }
         } else {
           DExtraContent.mount(this);
@@ -83,7 +83,7 @@ namespace we {
           if (env.orientation === egret.OrientationMode.PORTRAIT) {
             MPExtraContent.destroy(this);
           } else {
-            //
+            MLExtraContent.destroy(this);
           }
         } else {
           DExtraContent.destroy(this);

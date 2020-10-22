@@ -544,8 +544,12 @@ namespace we {
         tie: '和',
         playerPair: '闲对',
         bankerPair: '庄对',
+<<<<<<< HEAD
         gameRecord: '歷史记录',
         gameRecordlandscape: '歷史记录 \n/ 即时彩池',
+=======
+        gameRecord: '历史记录',
+>>>>>>> origin/develop
       },
       game: {
         insufficientBalance: '余额不足',
@@ -674,6 +678,10 @@ namespace we {
       lo_switch_trad: '传统',
 
       lo_history_round: '%round% 期',
+
+      lo_fun_mobile_bettrigger: '游戏投注',
+      lo_fun_mobile_drawing: '开奖中',
+      lo_fun_mobile_last: '上期结果',
 
       lo_fun_custombet: '自订',
       lo_fun_bettingRound: '本期投注',
