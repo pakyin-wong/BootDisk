@@ -5717,6 +5717,11 @@
 			"type": "image",
 			"name": "d_lottery_ent_penal_betarea_betpenal_bg_purple_title_png",
 			"scale9grid": "20,20,23,23"
+		},
+		{
+			"url": "assets/fonts/Barlow-Bold.ttf",
+			"type": "bin",
+			"name": "Barlow-Bold_ttf"
 		}
 	]
 }

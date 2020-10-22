@@ -58,6 +58,20 @@ namespace we {
         this.createRingAnim();
         this.createCards();
         this.addEventListeners();
+
+        /// update the card by replacing the MeshDisplayData of the slot
+        // update poker card front by update the texture instead of changing the display
+        const card = this._ringAnim.armature.getSlot('card_back_vertical');
+        const cardStr = utils.getCardResName('back');
+        const texture = RES.getRes(cardStr);
+        const meshDistData = card.displayData as dragonBones.MeshDisplayData;
+        const textureData = new dragonBones.EgretTextureData();
+        textureData.renderTexture = texture;
+        meshDistData.texture = textureData;
+        card.armature.replacedTexture == null;
+        card.replaceDisplayData(meshDistData);
+        card.displayIndex = -1;
+        card.displayIndex = 0;
       }
 
       protected createChildren() {
@@ -249,6 +263,7 @@ namespace we {
         return new Promise(resolve => resolve());
       }
 
+/*
       protected getLabelGroup(num: number) {
         const group = new eui.Group();
         const cardLabel = new eui.Label();
@@ -258,18 +273,56 @@ namespace we {
         cardLabel.anchorOffsetX = cardLabel.width / 2
         return group;
       }
+      */
+
+      protected setLabel(slot: dragonBones.Slot, num: number, size=36){
+        const cardLabel = new ui.LabelImage();
+        cardLabel.size = size;
+        cardLabel.textColor = 0xd2fdff;
+        cardLabel.fontFamily = 'BarlowBold';
+        cardLabel.bold = true;
+        cardLabel.hasShadow = true;
+        cardLabel.text = num.toString();
+
+        // create a new ImageDisplayData with a EgretTextureData holding the new texture
+        const displayData: dragonBones.ImageDisplayData = new dragonBones.ImageDisplayData();
+        let textureData: dragonBones.EgretTextureData = new dragonBones.EgretTextureData();
+        textureData.renderTexture = cardLabel.texture;
+        textureData.region.x = 0;
+        textureData.region.y = 0;
+        textureData.region.width = textureData.renderTexture.textureWidth;
+        textureData.region.height = textureData.renderTexture.textureHeight;
+        textureData.parent = new dragonBones.EgretTextureAtlasData();
+        textureData.parent.scale = 1;
+        displayData.texture = textureData;
+        displayData.pivot.x = 0.5;
+        displayData.pivot.y = 0.5;
+
+        // type 0 is ImageDisplayData
+        displayData.type = 0;
+
+        slot.replaceDisplayData(displayData,0);
+
+        // set the displayIndex to non zero since new value == current index will not trigger redraw
+        slot.displayIndex = -1;
+        slot.displayIndex = 0;
+      }
+
 
       protected async betInitState(currentIndexOffsetToFirstCard = -1) {
         const cardAnimName = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2', '_smallCard1', '_smallCard2'];
         console.log('betInitState() begin');
         for (let i = 0; i < cardAnimName.length; i++) {
           const cardAnim = <dragonBones.EgretArmatureDisplay>this[cardAnimName[i]];
-          cardAnim.armature.getSlot('card_number_vertical').display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard + i);
+          //cardAnim.armature.getSlot('card_number_vertical').display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard + i);
+          this.setLabel(cardAnim.armature.getSlot('card_number_vertical'),this._gameData.currentcardindex - currentIndexOffsetToFirstCard + i)
           cardAnim.animation.gotoAndStopByTime('vertical_loop_back', 0);
         }
-        this._playerCard3.armature.getSlot('card_number_horizontal').display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard + 4);
+        //this._playerCard3.armature.getSlot('card_number_horizontal').display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard + 4);
+        this.setLabel(this._playerCard3.armature.getSlot('card_number_horizontal'),this._gameData.currentcardindex - currentIndexOffsetToFirstCard + 4)
         this._playerCard3.animation.gotoAndStopByTime('horizontal_loop_back', 0);
-        this._bankerCard3.armature.getSlot('card_number_horizontal').display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard + 5);
+        //this._bankerCard3.armature.getSlot('card_number_horizontal').display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard + 5);
+        this.setLabel(this._bankerCard3.armature.getSlot('card_number_horizontal'),this._gameData.currentcardindex - currentIndexOffsetToFirstCard + 5)
         this._bankerCard3.animation.gotoAndStopByTime('horizontal_loop_back', 0);
 
         this._smallCard2Exist = true;
@@ -320,22 +373,26 @@ namespace we {
           switch (dataNames[i]) {
             case 'b1':
               this.setCardFrontFace(this._playerCard1, dataNames[i], 'vertical', 0)
-              this._playerCard1.armature.getSlot(`card_number_vertical`).display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard);
+              //this._playerCard1.armature.getSlot(`card_number_vertical`).display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard);
+              this.setLabel(this._playerCard1.armature.getSlot(`card_number_vertical`),this._gameData.currentcardindex - currentIndexOffsetToFirstCard);
               break;
             case 'a1':
               this.setCardFrontFace(this._bankerCard1, dataNames[i], 'vertical', 0)
-              this._bankerCard1.armature.getSlot(`card_number_vertical`).display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j);
+              //this._bankerCard1.armature.getSlot(`card_number_vertical`).display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j);
+              this.setLabel(this._bankerCard1.armature.getSlot(`card_number_vertical`),this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j)
               break;
             case 'b2':
               this.setCardFrontFace(this._playerCard2, dataNames[i], 'vertical', 0)
-              this._playerCard2.armature.getSlot(`card_number_vertical`).display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j);
+              //this._playerCard2.armature.getSlot(`card_number_vertical`).display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j);
+              this.setLabel(this._playerCard2.armature.getSlot(`card_number_vertical`),this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j)
               this._playerCard1.animation.gotoAndStopByTime(`vertical_loop_front`, 0);
               this._playerCard2.animation.gotoAndStopByTime(`vertical_loop_front`, 0);
               this.updatePlayerSum();
               break;
             case 'a2':
               this.setCardFrontFace(this._bankerCard2, dataNames[i], 'vertical', 0)
-              this._bankerCard2.armature.getSlot(`card_number_vertical`).display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j);
+              //this._bankerCard2.armature.getSlot(`card_number_vertical`).display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j);
+              this.setLabel(this._bankerCard2.armature.getSlot(`card_number_vertical`),this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j)
               this._bankerCard1.animation.gotoAndStopByTime(`vertical_loop_front`, 0);
               this._bankerCard2.animation.gotoAndStopByTime(`vertical_loop_front`, 0);
               this.updateBankerSum();
@@ -345,7 +402,8 @@ namespace we {
               this._smallCard1.animation.gotoAndStopByTime('vertical_idle', 0);
               this.moveAndShowB3(200);
               this.setCardFrontFace(this._playerCard3, dataNames[i], 'horizontal', 90)
-              this._playerCard3.armature.getSlot(`card_number_horizontal`).display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j);
+              //this._playerCard3.armature.getSlot(`card_number_horizontal`).display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j);
+              this.setLabel(this._playerCard3.armature.getSlot(`card_number_horizontal`),this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j)
               this._playerCard3.animation.gotoAndStopByTime(`horizontal_loop_front`, 0);
               this.updatePlayerSum();
               this.updateBankerSum();
@@ -360,7 +418,8 @@ namespace we {
               }
               this.moveAndShowA3(200);
               this.setCardFrontFace(this._bankerCard3, dataNames[i], 'horizontal', 90)
-              this._bankerCard3.armature.getSlot(`card_number_horizontal`).display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j);
+              //this._bankerCard3.armature.getSlot(`card_number_horizontal`).display = this.getLabelGroup(this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j);
+              this.setLabel(this._bankerCard3.armature.getSlot(`card_number_horizontal`),this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j)
               this._bankerCard3.animation.gotoAndStopByTime(`horizontal_loop_front`, 0);
               this.updatePlayerSum();
               this.updateBankerSum();
@@ -450,25 +509,41 @@ namespace we {
           switch (dataNames[i]) {
             case 'b1':
               this.setCardFrontFace(this._playerCard1, dataNames[i], 'vertical', 0)
-              this._playerCard1.armature.getSlot(`card_number_vertical`).display = this.getLabelGroup(this._gameData.currentcardindex);
+              //this._playerCard1.armature.getSlot(`card_number_vertical`).display = this.getLabelGroup(this._gameData.currentcardindex);
+              this.setLabel(this._playerCard1.armature.getSlot(`card_number_vertical`),this._gameData.currentcardindex)
               break;
             case 'a1':
               this.setCardFrontFace(this._bankerCard1, dataNames[i], 'vertical', 0)
-              this._bankerCard1.armature.getSlot(`card_number_vertical`).display = this.getLabelGroup(this._gameData.currentcardindex);
+              //this._bankerCard1.armature.getSlot(`card_number_vertical`).display = this.getLabelGroup(this._gameData.currentcardindex);
+              this.setLabel(this._bankerCard1.armature.getSlot(`card_number_vertical`),this._gameData.currentcardindex)
               break;
             case 'b2':
               this.setCardFrontFace(this._playerCard2, dataNames[i], 'vertical', 0)
-              this._playerCard2.armature.getSlot(`card_number_vertical`).display = this.getLabelGroup(this._gameData.currentcardindex);
+              //this._playerCard2.armature.getSlot(`card_number_vertical`).display = this.getLabelGroup(this._gameData.currentcardindex);
+              this.setLabel(this._playerCard2.armature.getSlot(`card_number_vertical`),this._gameData.currentcardindex)
 
+              const p4 = utils.waitDragonBone(this._playerCard1)
+              const p5 = utils.waitDragonBone(this._playerCard2)
               this._playerCard1.animation.play(`vertical_flip`, 1);
               this._playerCard2.animation.play(`vertical_flip`, 1);
+              await p4
+              await p5
+
               this.updatePlayerSum();
               break;
             case 'a2':
               this.setCardFrontFace(this._bankerCard2, dataNames[i], 'vertical', 0)
-              this._bankerCard2.armature.getSlot(`card_number_vertical`).display = this.getLabelGroup(this._gameData.currentcardindex);
+              //this._bankerCard2.armature.getSlot(`card_number_vertical`).display = this.getLabelGroup(this._gameData.currentcardindex);
+              this.setLabel(this._bankerCard2.armature.getSlot(`card_number_vertical`),this._gameData.currentcardindex)
+
+              const p6 = utils.waitDragonBone(this._playerCard1)
+              const p7 = utils.waitDragonBone(this._playerCard2)
               this._bankerCard1.animation.play(`vertical_flip`, 1);
               this._bankerCard2.animation.play(`vertical_flip`, 1);
+
+              await p6
+              await p7
+
               this.updateBankerSum();
               break;
             case 'b3':
@@ -479,7 +554,8 @@ namespace we {
               this.moveShoe();
               this._smallCard1Exist = false;
               this._smallCard1.animation.play('vertical_out_back', 1);
-              this._playerCard3.armature.getSlot(`card_number_horizontal`).display = this.getLabelGroup(this._gameData.currentcardindex);
+              //this._playerCard3.armature.getSlot(`card_number_horizontal`).display = this.getLabelGroup(this._gameData.currentcardindex);
+              this.setLabel(this._playerCard3.armature.getSlot(`card_number_horizontal`),this._gameData.currentcardindex)
               this._playerCard3.animation.play(`horizontal_flip`, 1);
               this.updatePlayerSum();
               this.updateBankerSum();
@@ -497,7 +573,8 @@ namespace we {
                 this._smallCard2Exist = false;
                 this._smallCard2.animation.play('vertical_out_back', 1);
               }
-              this._bankerCard3.armature.getSlot(`card_number_horizontal`).display = this.getLabelGroup(this._gameData.currentcardindex);
+              //this._bankerCard3.armature.getSlot(`card_number_horizontal`).display = this.getLabelGroup(this._gameData.currentcardindex);
+              this.setLabel(this._bankerCard3.armature.getSlot(`card_number_horizontal`),this._gameData.currentcardindex)
               this._bankerCard3.animation.play(`horizontal_flip`, 1);
               this.updatePlayerSum();
               this.updateBankerSum();
@@ -513,17 +590,20 @@ namespace we {
 
       protected setCardFrontFace(cardAnim: dragonBones.EgretArmatureDisplay, currentCard, orientation, rotation) {
         const cardSlot = cardAnim.armature.getSlot(`card_front_${orientation}`);
-        const group = new eui.Group();
         const image = new eui.Image();
-        image.width = 204;
-        image.height = 312;
-        image.source = utils.getCardResName(utils.formatCardForFlip(this._gameData[currentCard]));
+        image.source = RES.getRes(utils.getCardResName(utils.formatCardForFlip(this._gameData[currentCard])));
         image.rotation = rotation;
-        image.anchorOffsetX = image.width / 2;
-        image.anchorOffsetY = image.height / 2;
-        group.addChild(image);
-        cardSlot.display = group;
+        const meshDistData = cardSlot.displayData as dragonBones.MeshDisplayData;
+        const textureData = new dragonBones.EgretTextureData();
+        textureData.renderTexture = image.texture;
+        meshDistData.texture = textureData;
+        cardSlot.armature.replacedTexture == null;
+        cardSlot.replaceDisplayData(meshDistData);
+        cardSlot.displayIndex = -1;
+        cardSlot.displayIndex = 0;
       }
+
+      protected setCardNumber(cardAnim: dragonBones.EgretArmatureDisplay){}
 
       protected setStateDeal(isInit: boolean) {
         console.log('setStateDeal()', this._gameData);
@@ -616,10 +696,12 @@ namespace we {
             case '_bankerCard1':
             case '_playerCard2':
             case '_bankerCard2':
-              this._ringAnim.armature.getSlot('card_number_vertical').display = this.getLabelGroup(this._gameData.currentcardindex + i + 1);
+              //this._ringAnim.armature.getSlot('card_number_vertical').display = this.getLabelGroup(this._gameData.currentcardindex + i + 1);
+              this.setLabel(this._ringAnim.armature.getSlot('card_number_vertical'),this._gameData.currentcardindex + i + 1);
 
               const cardAnim = <dragonBones.EgretArmatureDisplay>this[cardAnimNames[i]];
-              cardAnim.armature.getSlot('card_number_vertical').display = this.getLabelGroup(this._gameData.currentcardindex + i + 1);
+              //cardAnim.armature.getSlot('card_number_vertical').display = this.getLabelGroup(this._gameData.currentcardindex + i + 1);
+              this.setLabel(cardAnim.armature.getSlot('card_number_vertical'),this._gameData.currentcardindex + i + 1)
 
               const block1 = (async () => {
                 const p1 = we.utils.waitDragonBone(cardAnim);
