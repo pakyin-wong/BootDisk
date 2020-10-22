@@ -33,6 +33,7 @@ namespace we {
 
       protected initDisplayItem() {
         let generalGameType: string;
+        let listItem;
 
         if (!this.tableInfo) {
           return;
@@ -40,27 +41,15 @@ namespace we {
 
         switch (this.tableInfo.gametype) {
           //  switch (0) {
-          case we.core.GameType.BAC:
-          case we.core.GameType.BAI:
-          case we.core.GameType.BAS:
-            generalGameType = 'ba';
+          case we.core.GameType.LO:
+            generalGameType = 'lo';
+            listItem = new we.ui.LotteryMobileLiveListItem('LotteryLiveListItemSkin');
             break;
-          case we.core.GameType.DT:
+          case we.core.GameType.RC:
+            generalGameType = 'rc';
+            break;
           default:
-            generalGameType = 'dt';
-            break;
-          case we.core.GameType.RO:
-          case we.core.GameType.ROL:
-            generalGameType = 'ro';
-            break;
-          case we.core.GameType.DI:
-            generalGameType = 'di';
-            break;
-          case we.core.GameType.DIL:
-            generalGameType = 'dil';
-            break;
-          case we.core.GameType.LW:
-            generalGameType = 'lw';
+            generalGameType = 'lo';
             break;
         }
 
@@ -74,7 +63,9 @@ namespace we {
             itemName = 'MobileLiveListItem';
             skinName = 'LiveListItemSkin';
             utils.assertSkinClassExists(skinName);
-            const listItem = new we.ui[itemName](skinName);
+            if (!listItem) {
+              listItem = new we.ui[itemName](skinName);
+            }
             if (we[generalGameType].LargeListItemInitHelper) {
               listItem.itemInitHelper = new we[generalGameType].LargeListItemInitHelper();
             }

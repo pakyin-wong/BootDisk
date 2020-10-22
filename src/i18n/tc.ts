@@ -370,6 +370,7 @@ namespace we {
         rounds: '局',
       },
       luckywheel: {
+        pool: '即時彩池',
         east: '東',
         south: '南',
         west: '西',
@@ -384,7 +385,7 @@ namespace we {
         tie: '和',
         playerPair: '閒對',
         bankerPair: '庄對',
-        gameRecord: '遊戲記錄',
+        gameRecord: '歷史記錄',
       },
       dice: {
         recent: '最近',
@@ -640,6 +641,10 @@ namespace we {
       lo_fun_round: '期',
       lo_fun_drawingRound: '期開獎中',
       lo_fun_lastRound: '上期開期號碼',
+
+      lo_fun_mobile_bettrigger: '遊戲投注',
+      lo_fun_mobile_drawing: '開獎中',
+      lo_fun_mobile_last: '上期結果',
 
       lo_fun_overlay_title: '投票確認',
       lo_fun_overlay_table: '彩種名稱',
