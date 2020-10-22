@@ -44,12 +44,9 @@ namespace we {
 
       protected initOrientationDependentComponent() {
         this._header && dir.layerCtr.nav && dir.layerCtr.nav.addChild(this._header);
-        console.log(this._titleHeader);
         const titleGroup1: eui.Group = dir.layerCtr.nav.$children[0] as eui.Group;
         const titleGroup: eui.Group = titleGroup1['_titleGroup'];
-        console.log(titleGroup);
         this._titleHeader && titleGroup && titleGroup.addChild(this._titleHeader);
-        // this._header && this.sceneHeader.addChild(this._header);
       }
 
       protected clearOrientationDependentComponent() {
@@ -58,6 +55,7 @@ namespace we {
           this._titleHeader.parent.removeChild(this._titleHeader);
         }
       }
+      
       protected destroy() {
         super.destroy();
         if (this._titleHeader && this._titleHeader.parent !== null) {

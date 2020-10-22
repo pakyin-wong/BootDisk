@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.lo.FunBetRoundInfo" currentState="normal" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing"    states="normal,drawing" >
+		<ui:RoundRectShape width="924" height="178" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="24,24,24,24" x="0" fillColor="0x000000" fillAlpha="0.7"/>
+		<ui:RunTimeLabel id="_txt_thisRound" text="本期投注" x="24" y="21" alpha="0.7" height="47" verticalAlign="middle" size="32"/>
+		<e:Group id="_rdContainer" x="164" y="20" sortableChildren="true">
+			<e:Label id="_tf_round" text="00000000000" x="0" y="0" alpha="0.7" height="48" verticalAlign="middle" textColor="0xc59466" fontFamily="Barlow" zIndex="0" size="40"/>
+			<ui:RunTimeLabel id="_txt_round" text="期" x="0" y="0" alpha="0.7" height="47" verticalAlign="middle" size="32" zIndex="1"/>
+			<e:layout>
+				<e:HorizontalLayout gap="5" verticalAlign="middle"/>
+			</e:layout>
+		</e:Group>
+	<ui:RunTimeLabel id="_txt_lastRound" text="上期開獎號碼" x="24" y="110" size="30" height="45" verticalAlign="middle" alpha="0.7" visible.drawing="false"/>
+
+		<e:Group id="_drawingContainer" x="24" y="110" sortableChildren="true" visible.normal="false">
+
+			<ui:RunTimeLabel id="_txt_drawingRound" text="期開獎中" x="0" y="0" alpha="0.7" height="45" verticalAlign="middle" size="30" zIndex="1"/>
+			<e:Label id="_tf_drawingRound" text="00000000000" x="0" y="0" alpha="0.7" height="45" verticalAlign="middle" fontFamily="Barlow" size="30" textColor="0xffffff" zIndex="0" visible="false"/>
+			<e:layout>
+			<e:HorizontalLayout gap="5" verticalAlign="middle"/>
+			</e:layout>
+		</e:Group>
+	<e:Rect width="876" height="2" x="24" y="87" fillColor="0xffffff" alpha="0.2"/>
+
+		<e:Group x="164" y="103">
+			<ui:RoundRectShape width="58" height="58" x="0" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="29,29,29,29" fillColor="0x034a94,00244e,0"/>
+			<ui:RoundRectShape width="58" height="58" x="58" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="29,29,29,29" fillColor="0x034a94,00244e,0"/>
+			<ui:RoundRectShape width="58" height="58" x="116" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="29,29,29,29" fillColor="0x034a94,00244e,0"/>
+			<ui:RoundRectShape width="58" height="58" x="174" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="29,29,29,29" fillColor="0x034a94,00244e,0"/>
+			<ui:RoundRectShape width="58" height="58" x="232" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="29,29,29,29" fillColor="0x034a94,00244e,0"/>
+			<e:layout>
+				<e:HorizontalLayout gap="8"/>
+			</e:layout>
+		</e:Group>
+
+		<e:Group id="_result" x="164" y="103">
+			<e:Label id="b1" width="58" height="58" x="232" y="0" textColor="0xdea167" size="43" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+			<e:Label id="b2" width="58" height="58" x="174" y="0" textColor="0xdea167" size="43" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+			<e:Label id="b3" width="58" height="58" x="116" y="0" textColor="0xdea167" size="43" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+			<e:Label id="b4" width="58" height="58" x="58" y="0" textColor="0xdea167" size="43" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+			<e:Label id="b5" width="58" height="58" x="0" y="0"  textColor="0xdea167" size="43" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+
+
+
+
+			<e:layout>
+				<e:HorizontalLayout gap="8"/>
+			</e:layout>
+		</e:Group>
+</e:Skin>

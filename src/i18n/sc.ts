@@ -19,7 +19,7 @@ namespace we {
       gametype_RO: '轮盘',
       gametype_ROL: '财神轮盘',
       gametype_DT: '龙虎',
-      gametype_LW: '幸運轮',
+      gametype_LW: '幸运轮',
       gametype_LO: '时时彩',
       gametype_RC: '北京赛车',
 
@@ -541,7 +541,7 @@ namespace we {
         tie: '和',
         playerPair: '闲对',
         bankerPair: '庄对',
-        gameRecord: '游戏记录',
+        gameRecord: '历史记录',
       },
       game: {
         insufficientBalance: '余额不足',
@@ -670,6 +670,10 @@ namespace we {
       lo_switch_trad: '传统',
 
       lo_history_round: '%round% 期',
+
+      lo_fun_mobile_bettrigger: '游戏投注',
+      lo_fun_mobile_drawing: '开奖中',
+      lo_fun_mobile_last: '上期结果',
 
       lo_fun_custombet: '自订',
       lo_fun_bettingRound: '本期投注',

@@ -369,6 +369,7 @@ namespace we {
         rounds: 'rounds',
       },
       luckywheel: {
+        pool: 'Pool',
         east: 'East',
         south: 'South',
         west: 'West',
@@ -383,7 +384,7 @@ namespace we {
         tie: 'Tie',
         playerPair: 'Player Pair',
         bankerPair: 'Banker Pair',
-        gameRecord: 'Game Record',
+        gameRecord: 'History Record',
       },
       dice: {
         recent: 'Recent',
@@ -632,6 +633,10 @@ namespace we {
       lo_switch_trad: 'TRAD',
 
       lo_history_round: 'Round %round%',
+
+      lo_fun_mobile_bettrigger: 'Fun Bet',
+      lo_fun_mobile_drawing: 'Drawing',
+      lo_fun_mobile_last: 'Last Result',
 
       lo_fun_custombet: 'Custom',
       lo_fun_bettingRound: 'Betting deadline',

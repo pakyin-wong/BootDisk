@@ -3,13 +3,17 @@ namespace we {
     export class ShufflePanel extends BasePanel {
       protected _firstGroup: eui.Group;
       protected _firstCard: dragonBones.EgretArmatureDisplay;
+      protected _firstCardWidth = 204
+      protected _firstCardHeight = 312
+      protected _smallCardWidth = 169
+      protected _smallCardHeight = 246
 
-      protected _oneRowFirstCardY = 230 + 300;
-      protected _oneRowFirstRowY = 687 + 300;
+      protected _oneRowFirstCardY = 230 + this._firstCardHeight / 2;
+      protected _oneRowFirstRowY = 687 + this._firstCardHeight / 2;
 
-      protected _twoRowFirstCardY = 110 + 300;
-      protected _twoRowFirstRowY = 567 + 300;
-      protected _twoRowSecondRowY = 905 + 300;
+      protected _twoRowFirstCardY = 110 + this._firstCardHeight / 2;
+      protected _twoRowFirstRowY = 567 + this._firstCardHeight / 2;
+      protected _twoRowSecondRowY = 905 + this._firstCardHeight / 2;
 
       protected _firstRowGroup: eui.Group;
       protected _secondRowGroup: eui.Group;
@@ -25,31 +29,26 @@ namespace we {
       }
 
       protected createFirstCard() {
-        this._firstGroup = new eui.Group();
-        this._firstGroup.width = 234;
-        this._firstGroup.height = 342;
+        const firstCardFront = this.getFirstCardFront(this._gameData.firstcard);
+        firstCardFront.anchorOffsetX = this._firstCardWidth / 2;
+        firstCardFront.anchorOffsetY = this._firstCardHeight / 2;
 
         this._firstCard = this._factory.buildArmatureDisplay('poker');
-
         this._firstCard.armature.getSlot('card_number_vertical').display = this.createIndexLabel(1);
-        const firstCardFront = this.getFirstCardFront(this._gameData.firstcard);
-        firstCardFront.anchorOffsetX = this._firstGroup.width / 2;
-        firstCardFront.anchorOffsetY = this._firstGroup.height / 2;
+        this._firstCard.armature.getSlot('card_front_vertical').display = firstCardFront;
+        this._firstCard.animation.gotoAndStopByTime('burn_card_center_in', 0)
+        this._firstCard.visible = false;
+        //this._firstCard.anchorOffsetX = this._firstCardWidth / 2;
+        //this._firstCard.anchorOffsetY = this._firstCardHeight / 2;
 
-        this._firstCard.armature.getSlot('card_front_vertical').display;
-
+        this._firstGroup = new eui.Group();
         this._firstGroup.horizontalCenter = 0;
         this._firstGroup.addChild(this._firstCard);
         this._allCardsGroup.addChild(this._firstGroup);
 
         const skipped = utils.stat.ba.translateCardToNumber(this._gameData.firstcard);
-        if (skipped > 7) {
-          this._firstGroup.y = this._twoRowFirstCardY;
-        } else {
-          this._firstGroup.y = this._oneRowFirstCardY;
-        }
-
-        this._firstCard.animation.gotoAndStop('burn_card_center_loop', 0);
+        this._firstGroup.y = (skipped > 7)? this._twoRowFirstCardY: this._oneRowFirstCardY;
+        
       }
 
       protected createIndexLabel(num: number) {
@@ -59,15 +58,17 @@ namespace we {
         const labelGroup = new eui.Group();
         labelGroup.addChild(label);
 
+        label.anchorOffsetX = label.width / 2
+        label.anchorOffsetY = label.height / 2
+
         return labelGroup;
       }
 
       protected getFirstCardFront(cardString: string) {
         const resName = cardString === 'back' ? 'back' : utils.formatCardForFlip(cardString);
-
         const image = new eui.Image();
-        image.width = 204;
-        image.height = 312;
+        image.width = this._firstCardWidth;
+        image.height = this._firstCardHeight;
         image.source = utils.getCardResName(resName);
         return image;
       }
@@ -81,30 +82,81 @@ namespace we {
         this.content.addChildAt(rect, 0);
       }
 
-      public anim(gameData: any) {
-        this._gameData = gameData;
-        console.log('ShufflePanel::anim()', gameData);
-        this._allCardsGroup.removeChildren();
-
-        if (!this._gameData || !this._gameData.firstcard) {
+      public async showAnim(gameData: any) {
+        if (!this.initCards(gameData)) {
           return;
         }
 
-        this.createFirstCard();
-        this.createGroups();
+        const firstGroupOriginalY = this._firstGroup.y
+        this._firstGroup.y = 550
+
+        await utils.sleep(1500)
+        this._firstCard.visible = true;
+
+        const p1 = utils.waitDragonBone(this._firstCard)
+        this._firstCard.animation.play('burn_card_center_in', 1);
+        await p1;
+
+        await new Promise(resolve => egret.Tween.get(this._firstGroup).to({y: firstGroupOriginalY},1000).call(resolve))
+
+        for (let i = 0; i < this._cards.length; i++){
+          this._cards[i].visible = true;
+
+          const block = utils.waitDragonBone(this._cards[i])
+          this._cards[i].animation.play('burn_card_in');
+          await block;
+        }
+
+        await utils.sleep(2500);
+
+        const firstCardBlock = utils.waitDragonBone(this._firstCard)
+        this._firstCard.animation.play('burn_card_center_out', 1);
+
+        let blocks = new Array;
+        for (let i = 0; i < this._cards.length; i++){
+          blocks.push(utils.waitDragonBone(this._firstCard))
+          this._cards[i].animation.play('burn_card_out');
+        }
+
+        await firstCardBlock
+        for (let i = 0; i < this._cards.length; i++){
+          await blocks[i]
+        }
+
+        this.hide();
+
+        return new Promise(resolve=>resolve()) 
       }
 
-      public stat(gameData: any) {
+      public showStatic(gameData: any) {
+        if (!this.initCards(gameData)) {
+          return;
+        }
+
+        this._firstCard.visible = true;
+        this._firstCard.animation.gotoAndStopByTime('burn_card_center_loop', 0)
+        this.showAllCards();
+
+/*
+        setTimeout(() => {
+          this.hide();
+        }, 8000)
+        */
+      }
+
+      protected initCards(gameData: any) {
         this._gameData = gameData;
-        console.log('ShufflePanel::stat()', gameData);
+        console.log('ShufflePanel::initComponents()', gameData);
         this._allCardsGroup.removeChildren();
 
         if (!this._gameData || !this._gameData.firstcard) {
-          return;
+          return false;
         }
 
         this.createFirstCard();
         this.createGroups();
+
+        return true;
       }
 
       protected createFactory() {
@@ -118,7 +170,7 @@ namespace we {
 
       protected createBurnCard(num: number) {
         const card = this._factory.buildArmatureDisplay('poker');
-        card.scaleX = card.scaleY = 0.7;
+        card.scaleX = card.scaleY = 0.72;
 
         const label = new eui.Label();
         label.text = num.toString();
@@ -130,11 +182,8 @@ namespace we {
         card.armature.getSlot('card_number_horizontal').display = new eui.Group();
 
         const group = new eui.Group();
-        group.height = 246;
-        group.width = 169;
-
-        card.anchorOffsetX = group.width / 2;
-        card.anchorOffsetY = group.height / 2;
+        card.anchorOffsetX = this._smallCardWidth / 2;
+        card.anchorOffsetY = this._smallCardHeight / 2;
 
         group.addChild(card);
 
@@ -145,32 +194,33 @@ namespace we {
         const skipped = utils.stat.ba.translateCardToNumber(this._gameData.firstcard);
         console.log('ShufflePanel::createGroups:skipped', skipped);
 
-        if (skipped > 7) {
-          this.createGroup('_firstRowGroup', this._twoRowFirstRowY);
-          this.createGroup('_secondRowGroup', this._twoRowSecondRowY);
+        this.createGroup('_firstRowGroup', (skipped > 7) ? this._twoRowFirstRowY : this._oneRowFirstRowY);
+        this.createGroup('_secondRowGroup', this._twoRowSecondRowY);
 
-          for (let i = 1; i < 8; i++) {
-            const cardGroup = this.createBurnCard(i + 1);
-            this._firstRowGroup.addChild(cardGroup.group);
-            cardGroup.card.animation.gotoAndStop('burn_card_loop', 0);
-            this._cards.push(cardGroup.card);
-          }
-
-          for (let i = 8; i <= skipped; i++) {
-            const cardGroup = this.createBurnCard(i + 1);
-            this._secondRowGroup.addChild(cardGroup.group);
-            cardGroup.card.animation.gotoAndStop('burn_card_loop', 0);
-            this._cards.push(cardGroup.card);
-          }
-        } else {
-          this.createGroup('_firstRowGroup', this._oneRowFirstRowY);
-          for (let i = 1; i <= skipped; i++) {
-            const cardGroup = this.createBurnCard(i + 1);
-            this._firstRowGroup.addChild(cardGroup.group);
-            cardGroup.card.animation.gotoAndStop('burn_card_loop', 0);
-            this._cards.push(cardGroup.card);
-          }
+        for (let i = 1; i < 8 && i <= skipped; i++) {
+          const cardGroup = this.createBurnCard(i + 1);
+          this._firstRowGroup.addChild(cardGroup.group);
+          cardGroup.card.animation.gotoAndStop('burn_card_loop', 0);
+          cardGroup.card.visible = false;
+          this._cards.push(cardGroup.card);
         }
+
+        for (let i = 8; i <= skipped; i++) {
+          const cardGroup = this.createBurnCard(i + 1);
+          this._secondRowGroup.addChild(cardGroup.group);
+          cardGroup.card.animation.gotoAndStop('burn_card_loop', 0);
+          cardGroup.card.visible = false;
+          this._cards.push(cardGroup.card);
+        }
+      }
+
+      protected showAllCards(){
+        if(!this._cards){
+          return;
+        }
+        this._cards.map(value=>{
+          value.visible = true;
+        })
       }
 
       protected createGroup(group, y) {
@@ -183,9 +233,10 @@ namespace we {
 
       protected getHLayout() {
         const layout = new eui.HorizontalLayout();
-        layout.gap = 45;
+        layout.gap = 213;
         return layout;
       }
+
     }
   }
 }
