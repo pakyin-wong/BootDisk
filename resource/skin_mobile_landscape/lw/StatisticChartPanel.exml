@@ -8,7 +8,7 @@
 			                           source="m_lw_hor_betpool_barchart_east_png" />
 			<ui:RoundRectShape cornerTL_TR_BL_BR="12,12,12,12" fillColor="0x4A4A4A" fillAlpha="0.3" stroke="0" width="300"
 			                   height="26" y="56" x="31" />
-			<ui:RunTimeLabel id="_lbl_East" x="30" y="7" size="32" verticalAlign="middle" text="東" scaleX="1" scaleY="1"
+			<ui:RunTimeLabel id="_lbl_lwTitle0" x="30" y="7" size="32" verticalAlign="middle" text="東" scaleX="1" scaleY="1"
 			                 textKey="luckywheel.east" />
 			<ui:RunTimeLabel id="_lbl_val_East" size="32" verticalAlign="middle" text="80,000000" fontFamily="Barlow" y="7"
 			                 x="181" />
@@ -18,7 +18,7 @@
 			                           source="m_lw_hor_betpool_barchart_south_png" />
 			<ui:RoundRectShape cornerTL_TR_BL_BR="12,12,12,12" fillColor="0x4A4A4A" fillAlpha="0.3" stroke="0" width="300"
 			                   height="26" y="56" x="31" />
-			<ui:RunTimeLabel id="_lbl_South" x="30" y="10" size="32" verticalAlign="middle" text="南" scaleX="1" scaleY="1"
+			<ui:RunTimeLabel id="_lbl_lwTitle1" x="30" y="10" size="32" verticalAlign="middle" text="南" scaleX="1" scaleY="1"
 			                 textKey="luckywheel.south" />
 			<ui:RunTimeLabel id="_lbl_val_South" size="32" verticalAlign="middle" text="25,080,000" fontFamily="Barlow" y="10"
 			                 x="181" />
@@ -28,7 +28,7 @@
 			                           source="m_lw_hor_betpool_barchart_west_png" />
 			<ui:RoundRectShape cornerTL_TR_BL_BR="12,12,12,12" fillColor="0x4A4A4A" fillAlpha="0.3" stroke="0" width="300"
 			                   height="26" y="56" x="31" />
-			<ui:RunTimeLabel id="_lbl_West" x="30" y="10" size="32" verticalAlign="middle" text="西" scaleX="1" scaleY="1"
+			<ui:RunTimeLabel id="_lbl_lwTitle2" x="30" y="10" size="32" verticalAlign="middle" text="西" scaleX="1" scaleY="1"
 			                 textKey="luckywheel.west" />
 			<ui:RunTimeLabel id="_lbl_val_West" size="32" verticalAlign="middle" text="25,080,000" fontFamily="Barlow" y="10"
 			                 x="181" />
@@ -38,7 +38,7 @@
 			                           source="m_lw_hor_betpool_barchart_north_png" />
 			<ui:RoundRectShape cornerTL_TR_BL_BR="12,12,12,12" fillColor="0x4A4A4A" fillAlpha="0.3" stroke="0" width="300"
 			                   height="26" y="56" x="31" />
-			<ui:RunTimeLabel id="_lbl_North" x="30" y="10" size="32" verticalAlign="middle" text="北" scaleX="1" scaleY="1"
+			<ui:RunTimeLabel id="_lbl_lwTitle3" x="30" y="10" size="32" verticalAlign="middle" text="北" scaleX="1" scaleY="1"
 			                 textKey="luckywheel.north" />
 			<ui:RunTimeLabel id="_lbl_val_North" size="32" verticalAlign="middle" text="25,080,000" fontFamily="Barlow" y="10"
 			                 x="181" />
@@ -48,7 +48,7 @@
 			                           source="m_lw_hor_betpool_barchart_white_png" />
 			<ui:RoundRectShape cornerTL_TR_BL_BR="12,12,12,12" fillColor="0x4A4A4A" fillAlpha="0.3" stroke="0" width="300"
 			                   height="26" y="56" x="31" />
-			<ui:RunTimeLabel id="_lbl_White" x="30" y="10" size="32" verticalAlign="middle" text="白" scaleX="1" scaleY="1"
+			<ui:RunTimeLabel id="_lbl_lwTitle6" x="30" y="10" size="32" verticalAlign="middle" text="白" scaleX="1" scaleY="1"
 			                 textKey="luckywheel.white" />
 			<ui:RunTimeLabel id="_lbl_val_White" size="32" verticalAlign="middle" text="25,080,000" fontFamily="Barlow" y="10"
 			                 x="181" />
@@ -58,7 +58,7 @@
 			                           source="m_lw_hor_betpool_barchart_gold_png" />
 			<ui:RoundRectShape cornerTL_TR_BL_BR="12,12,12,12" fillColor="0x4A4A4A" fillAlpha="0.3" stroke="0" width="300"
 			                   height="26" y="56" x="31" />
-			<ui:RunTimeLabel id="_lbl_Red" x="30" y="10" size="32" verticalAlign="middle" text="中" scaleX="1" scaleY="1"
+			<ui:RunTimeLabel id="_lbl_lwTitle4" x="30" y="10" size="32" verticalAlign="middle" text="中" scaleX="1" scaleY="1"
 			                 textKey="luckywheel.red" />
 			<ui:RunTimeLabel id="_lbl_val_Red" size="32" verticalAlign="middle" text="25,080,000" fontFamily="Barlow" y="10"
 			                 x="181" />
@@ -68,7 +68,7 @@
 			                           source="m_lw_hor_betpool_barchart_gold_png" />
 			<ui:RoundRectShape cornerTL_TR_BL_BR="12,12,12,12" fillColor="0x4A4A4A" fillAlpha="0.3" stroke="0" width="300"
 			                   height="26" y="56" x="31" />
-			<ui:RunTimeLabel id="_lbl_Green" x="30" y="10" size="32" verticalAlign="middle" text="發" scaleX="1" scaleY="1"
+			<ui:RunTimeLabel id="_lbl_lwTitle5" x="30" y="10" size="32" verticalAlign="middle" text="發" scaleX="1" scaleY="1"
 			                 textKey="luckywheel.green" />
 			<ui:RunTimeLabel id="_lbl_val_Green" size="32" verticalAlign="middle" text="25,080,000" fontFamily="Barlow" y="10"
 			                 x="181" />
