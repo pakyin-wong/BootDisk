@@ -40,33 +40,33 @@ namespace we {
           this._horizontalBarChart2 = new we.di.HorizontalBarChart();
           this._horizontalBarChart1.setChartStyles(
             [
-              [[0x2c77cc, 0x2c77cc], [1, 1], [0, 255], 0],
-              [[0x528f5b, 0x528f5b], [1, 1], [0, 255], 0],
-              [[0xe99744, 0xe99744], [1, 1], [0, 255], 0],
-              [[0xd95139, 0xd95139], [1, 1], [0, 255], 0],
-              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0],
-              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0],
-              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0],
-              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0],
-              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0],
-              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0],
+              [[0x2c77cc, 0x2c77cc], [1, 1], [0, 255], 0,1],
+              [[0x528f5b, 0x528f5b], [1, 1], [0, 255], 0,1],
+              [[0xe99744, 0xe99744], [1, 1], [0, 255], 0,1],
+              [[0xd95139, 0xd95139], [1, 1], [0, 255], 0,1],
+              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
             ],
-            432,
-            16,
-            18
+            547,
+            26,
+            89
           );
           this._horizontalBarChart2.setChartStyles(
             [
-              [[0x2c77cc, 0x2c77cc], [1, 1], [0, 255], 0],
-              [[0x528f5b, 0x528f5b], [1, 1], [0, 255], 0],
-              [[0xe99744, 0xe99744], [1, 1], [0, 255], 0],
-              [[0xd95139, 0xd95139], [1, 1], [0, 255], 0],
-              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0],
-              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0],
-              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0],
-              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0],
-              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0],
-              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0],
+              [[0xb750c5, 0xb750c5], [1, 1], [0, 255], 0,1],
+              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,1],
+              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,1],
+              [[0x2c77cc, 0x2c77cc], [1, 1], [0, 255], 0,0],
+              [[0x528f5b, 0x528f5b], [1, 1], [0, 255], 0,0],
+              [[0xe99744, 0xe99744], [1, 1], [0, 255], 0,0],
+              [[0xd95139, 0xd95139], [1, 1], [0, 255], 0,0],
+              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
             ],
             547,
             26,
@@ -75,11 +75,11 @@ namespace we {
           this._horizontalBarChart1.x = 43;
           this._horizontalBarChart1.y = 111;  
           this._horizontalBarChart2.x = 648;
-          this._horizontalBarChart2.y = 111;    
-          this.updateBarChart();
+          this._horizontalBarChart2.y = 111;  
           this.addChild(this._horizontalBarChart1);
-          this.addChild(this._horizontalBarChart2);            
-        } else if (env.orientation === 'landscape' ) {//landscape
+          this.addChild(this._horizontalBarChart2);    
+
+        } else if (env.orientation === 'landscape') {//landscape
 
         }
         // this._progress_East.setProgress(0.05);
@@ -94,8 +94,9 @@ namespace we {
       public setValue(tableInfo: data.TableInfo) { //called when bet start
         this.tableInfo = tableInfo;
         console.log('this.tableinfo',this.tableInfo)
-        this.tableInfo.betInfo;
+        this._betInfo = this.tableInfo.betInfo;
         // update bar chart 
+        this.updateBarChart();
 
       }
 
@@ -111,6 +112,7 @@ namespace we {
       }     
       // update bar chart method
       public updateBarChart() {
+        
         if (this._betInfo) {
           console.log('updatebarchart:::',this._betInfo)
           const arr = ['LW_0', 'LW_1', 'LW_2', 'LW_3', 'LW_4', 'LW_5', 'LW_6'];
@@ -124,13 +126,13 @@ namespace we {
           for (let i = 0; i < 7; i += 1) {
             this[`_lbl_lwValue${i}`].text = amount[`LW_${i}`] ? we.utils.formatNumber(amount[`LW_${i}`], false) : 0;
           }
-          if (env.orientation === 'portrait') { //portrait       
-            const portraitarr = [['LW_0', 'LW_1', 'LW_2', 'LW_3'],['LW_4', 'LW_5', 'LW_6']]
+          if (env.orientation === 'portrait') { //portrait
+            this._horizontalBarChart1.setRanksAndAnimate(amountArr);
+            const newarr = [amountArr[4],amountArr[5],amountArr[6],amountArr[0],amountArr[1],amountArr[2],amountArr[3]]  
+            this._horizontalBarChart2.setRanksAndAnimate(newarr);     
           } else if (env.orientation === 'landscape' ) {//landscape
 
           }
-
-
         }
       }
 
