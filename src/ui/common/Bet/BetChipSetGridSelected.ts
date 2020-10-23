@@ -53,7 +53,7 @@ namespace we {
 
         mouse.setButtonMode(this, true);
 
-        this._value = env.betLimits[env.currentSelectedBetLimitIndex].chips[env.currentChipSelectedIndex];
+        this._value = env.betLimits.Live[env.currentSelectedBetLimitIndex].chips[env.currentChipSelectedIndex];
         this._type = core.ChipType.FLAT;
         this.setChipValueSlot();
         this.setChipSelectSlot();
@@ -80,7 +80,7 @@ namespace we {
       }
 
       protected updateSelectedChip() {
-        this._value = env.betLimits[env.currentSelectedBetLimitIndex].chips[env.currentChipSelectedIndex];
+        this._value = env.betLimits.Live[env.currentSelectedBetLimitIndex].chips[env.currentChipSelectedIndex];
         this._index = env.currentChipSelectedIndex;
         this.setValue(this._value, this._index, we.core.ChipType.FLAT);
         this.setChipValueSlot();

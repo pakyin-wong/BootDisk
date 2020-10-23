@@ -12,7 +12,7 @@ namespace we {
         currency: number; // Curency Enum of the player
         nickname: string; // Player nickname
         profileimageurl: string; // URL of the profile image
-        betlimits: BetLimitSet[];
+        betlimits: BetLimit;
         mode: number;
         categoryorders: string;
         panelpositions: string;

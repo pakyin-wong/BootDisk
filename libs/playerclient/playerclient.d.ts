@@ -53,7 +53,7 @@ declare class PlayerClient {
     updateSettings(settings: {
         [key: string]: string;
     }): void;
-    getLobbyMaterial(callback?: (data: LobbyMaterial) => any): void;
+    getLobbyMaterial(callback?: (data: LobbyMaterial) => any, lang?: string): void;
     _handleCustomRoadmapUpdate(result: any, callback: any, event: string, f: Function, status: string, method: string, args: Array<Object>): void;
     resetRoadmap(callback?: Function): void;
     getRoadmap(callback?: Function): void;
