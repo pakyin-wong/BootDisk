@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.BetHistoryDetail" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*" >
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
-		<e:Rect left="0" right="0" top="0" bottom="0" strokeColor="0x333C4A" strokeWeight="2" fillColor="0x14181E" x="0" y="0" scaleX="1" scaleY="1"/>
+		<e:Rect left="0" right="0" top="0" bottom="0" strokeColor="0x333C4A" strokeWeight="2" fillColor="0x14181E" x="0" y="0" scaleX="1" scaleY="1" locked="true"/>
 		<e:Rect width="1050" height="3" x="96" y="878" fillColor="0x979797"/>
 		                <e:Image id="close" width="30" height="54" x="51" y="87"
                           source="m_common_btn_previous_png"/>
@@ -35,7 +35,14 @@
 		<!--<e:Image id="_btn_replay" width="300" height="100" x="846" y="689" scaleX="1" scaleY="1" source="m_common_setting_playerreportlist_detail_result_replay_box_png" scale9Grid="51,51,1,1"/>-->
 		<ui:RoundRectButton id="_btn_replay" width="300" height="100" x="846" y="689" fillAlpha="0" strokeColor="0xb1835b"
                             stroke="1" cornerTL_TR_BL_BR="50,50,50,50" />
-		<e:Group id="_record_result" width="1069" height="165" x="85" y="400" scaleX="1" scaleY="1"/>
+		<e:Group width="1069" height="165" x="85" y="400">
+			<e:Group id="_record_result" width="1069" height="165" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0">
+				<e:layout>
+					<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle"/>
+				</e:layout>
+			</e:Group>
+		</e:Group>
+
 		<ui:RoundRectButton id="_btn_prev" x="59" y="1963" width="536" height="130" fillColor="0x1b416e" useColorFilter="true"
                                             stroke="0" cornerTL_TR_BL_BR="75,75,75,75" labelSize="60" />
 		<ui:RoundRectButton id="_btn_next" x="647" y="1963" width="536" height="130" fillColor="0x1b416e" useColorFilter="true"
