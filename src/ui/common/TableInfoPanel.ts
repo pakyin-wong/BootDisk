@@ -26,6 +26,8 @@ namespace we {
       protected pTableBetLimit: eui.Label;
       public pBetLimit: ui.RunTimeLabel;
 
+      protected _tableinfo: data.TableInfo;
+
       public constructor() {
         super();
         this.isEdgeDismissable = true;
@@ -57,6 +59,7 @@ namespace we {
           this.pTableBetLimit.text = utils.numberToFaceValue(betLimitSet.maxlimit);
           this.pBetLimit.text = `${utils.numberToFaceValue(betLimitSet.minlimit)} - ${utils.numberToFaceValue(betLimitSet.maxlimit)}`;
         }
+        this.setValue(this._tableinfo);
       }
 
       protected destroy(): void {
@@ -89,7 +92,7 @@ namespace we {
 
       public setValue(tableInfo: data.TableInfo) {
         // this.pTableID.text = tableInfo.tableid;
-
+        this._tableinfo = tableInfo;
         this.pTableID.renderText = () => `${i18n.t('gametype_' + we.core.GameType[tableInfo.gametype])} ${env.getTableNameByID(tableInfo.tableid)}`;
         this.pGameID.text = tableInfo.data.gameroundid;
         this.pRoundID.text = tableInfo.data.round ? tableInfo.data.round : '-';
