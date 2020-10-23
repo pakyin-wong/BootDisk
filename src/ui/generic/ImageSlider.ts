@@ -73,6 +73,14 @@ namespace we {
           }
         });
 
+        if (this.currentIndex!==0) {
+          // reset index since some of the banner hasn't been loaded yet
+          this.currentIndex = 0;
+          if (this.bullets) {
+            this.bullets.refresh();
+          }
+        }
+        
         // reset dimensions
         this.imageVisible.width = this.width;
         this.imageVisible.height = this.height;

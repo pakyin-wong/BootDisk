@@ -37,7 +37,7 @@ namespace we {
         const slider = new we.ui.ImageSlider();
         slider.width = this._root.scroller.width;
         slider.height = 883;
-        slider.configSlides(dir.lobbyResources.homeHeroBanners);
+        this._root._bannerSlider = slider;
         const sliderContainer = new eui.Group();
         sliderContainer.width = slider.width;
         sliderContainer.height = 762;
@@ -105,6 +105,7 @@ namespace we {
         group.addChild(gridsContainer);
 
         this.reloadBanners();
+        
         // init footer
         const footer = new eui.Group();
         footer.width = this._root.stage.stageWidth;
@@ -168,6 +169,8 @@ namespace we {
       public reloadBanners() {
         this._largeBanner.removeChildren();
         this._smallBanner.removeChildren();
+
+        this._root._bannerSlider.configSlides(dir.lobbyResources.homeHeroBanners);
         
         for (let i = 0, len = Math.min(dir.lobbyResources.homeLargeBanners.length, 4); i < len; i++) {
           const { image, link } = dir.lobbyResources.homeLargeBanners[i];

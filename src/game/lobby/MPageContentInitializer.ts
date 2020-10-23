@@ -10,9 +10,6 @@ namespace we {
       public initContent(root: ILobbyPage) {
         this._root = root;
 
-        // init image slider
-        this._root._bannerSlider.configSlides(dir.lobbyResources.homeLargeBanners);
-
         if (root._bannerSlider && root._sliderBullet) {
           root._bannerSlider.bullets = root._sliderBullet;
           root._sliderBullet.imageSlider = root._bannerSlider;
@@ -30,6 +27,9 @@ namespace we {
       public reloadBanners() {
         this._root._posterContainer.removeChildren();
         this._root._hotgameContainer.removeChildren();
+
+        // init image slider
+        this._root._bannerSlider.configSlides(dir.lobbyResources.homeHeroBanners);
 
         for (let i = 0, len = Math.min(dir.lobbyResources.homeLargeBanners.length, 4); i < len; i++) {
           const { image, link } = dir.lobbyResources.homeLargeBanners[i];
