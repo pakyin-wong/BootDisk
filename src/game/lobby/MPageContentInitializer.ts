@@ -20,7 +20,7 @@ namespace we {
 
         this.reloadBanners();
 
-        root._txt_hotgame.renderText = () => i18n.t('mobile_lobby_feature_title');
+        // root._txt_hotgame.renderText = () => i18n.t('mobile_lobby_feature_title');
       }
 
       protected bannerClicked(e: egret.Event) {

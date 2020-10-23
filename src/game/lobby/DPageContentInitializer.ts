@@ -63,7 +63,7 @@ namespace we {
         group.addChild(title);
         title.width = this._root.stage.stageWidth - 146;
         title.height = 110;
-        title.renderText = () => '精選推介';
+        title.renderText = () => i18n.t('mobile_lobby_feature_title');
 
         // init 4 featured posters
         const featuredPosterHeight = 800;
@@ -84,7 +84,7 @@ namespace we {
         group.addChild(title);
         title.width = this._root.stage.stageWidth - 146;
         title.height = 110;
-        title.renderText = () => '熱門推介';
+        title.renderText = () => i18n.t('mobile_lobby_hot_game_title');
 
         // init 3 grids
         this._smallBanner = new eui.Group();

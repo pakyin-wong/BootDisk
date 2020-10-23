@@ -12,7 +12,7 @@
 				<ui:ImageSliderBullet id="_sliderBullet" bulletGap="20"  horizontalCenter="0" y="1131"/>
 				<e:Group id="_title_featuregame" y="1222" horizontalCenter="0">
 					<e:Image source="m_lobby_title_left_png" width="234" height="79"/>
-					<ui:RunTimeLabel id="_txt_featuregame" text="熱門推介" horizontalCenter="0" size="64" height="110" verticalAlign="middle"/>
+					<ui:RunTimeLabel id="_txt_featuregame" text="熱門推介" i18n="mobile_lobby_feature_title" horizontalCenter="0" size="64" height="110" verticalAlign="middle"/>
 					<e:Image source="m_lobby_title_right_png" width="234" height="79"/>
 					<e:layout>
 						<e:HorizontalLayout horizontalAlign="center" gap="46" verticalAlign="middle" paddingLeft="51" paddingRight="51"/>
@@ -27,7 +27,7 @@
 			</e:Group>
 			<e:Group id="_title_hotgame" x="1027" y="1524" width="1145">
 				<e:Image width="234" height="79" source="m_lobby_title_left_png"/>
-				<ui:RunTimeLabel id="_txt_hotgame" text="熱門遊戲" horizontalCenter="0" size="64" height="110" verticalAlign="middle"/>
+				<ui:RunTimeLabel id="_txt_hotgame" text="熱門遊戲" i18n="mobile_lobby_hot_game_title" horizontalCenter="0" size="64" height="110" verticalAlign="middle"/>
 				<e:Image width="234" height="79" source="m_lobby_title_right_png"/>
 				<e:layout>
 					<e:HorizontalLayout horizontalAlign="center" gap="34" verticalAlign="middle" paddingLeft="44" paddingRight="44"/>

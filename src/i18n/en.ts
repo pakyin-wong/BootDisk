@@ -176,7 +176,8 @@ namespace we {
       datePicker_weekday_5: 'Fr',
       datePicker_weekday_6: 'Sa',
 
-      mobile_lobby_feature_title: 'Hot Game',
+      mobile_lobby_feature_title: 'Featured Games',
+      mobile_lobby_hot_game_title: 'Hot Games',
       mobile_ba_undo: 'Undo',
       mobile_ba_clear: 'Clear',
       mobile_ba_double: 'Double',
