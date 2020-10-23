@@ -39,7 +39,7 @@ namespace we {
       }
 
       protected initBet() {
-        this._denominationList = env.betLimits[env.currentSelectedBetLimitIndex].chips;
+        this._denominationList = env.betLimits.Lottery[env.currentSelectedBetLimitIndex].chips;
         this._betChipSet.init(this._denominationList);
         this.onBetChipChanged();
       }
@@ -61,8 +61,8 @@ namespace we {
         this.funbet.evtHandler.addEventListener('LOTTERY_FUNBET_LOWERBETLIMIT', this.onLowBetLimit, this);
         this.funbet.evtHandler.addEventListener('LOTTERY_FUNBET_OVERBALANCE', this.onOverBalance, this);
 
-        this._betContainer.addEventListener('POPPER_SHOW',this.onBetContainerShow, this);
-        this._betContainer.addEventListener('POPPER_HIDE',this.onBetContainerHide, this);
+        this._betContainer.addEventListener('POPPER_SHOW', this.onBetContainerShow, this);
+        this._betContainer.addEventListener('POPPER_HIDE', this.onBetContainerHide, this);
       }
 
       protected removeListeners() {
@@ -77,8 +77,8 @@ namespace we {
         this.funbet.evtHandler.removeEventListener('LOTTERY_FUNBET_LOWERBETLIMIT', this.onLowBetLimit, this);
         this.funbet.evtHandler.removeEventListener('LOTTERY_FUNBET_OVERBALANCE', this.onOverBalance, this);
 
-        this._betContainer.removeEventListener('POPPER_SHOW',this.onBetContainerShow, this);
-        this._betContainer.removeEventListener('POPPER_HIDE',this.onBetContainerHide, this);
+        this._betContainer.removeEventListener('POPPER_SHOW', this.onBetContainerShow, this);
+        this._betContainer.removeEventListener('POPPER_HIDE', this.onBetContainerHide, this);
       }
 
       protected onBetContainerShow() {
@@ -103,7 +103,7 @@ namespace we {
 
       protected onBetLimitUpdate(evt: egret.Event) {
         // this._custombet.selected = false;
-        this._denominationList = env.betLimits[env.currentSelectedBetLimitIndex].chips;
+        this._denominationList = env.betLimits.Lottery[env.currentSelectedBetLimitIndex].chips;
         this._betChipSet.init(this._denominationList);
         this.onBetChipChanged();
       }
@@ -157,7 +157,7 @@ namespace we {
         }
       }
 
-      protected setResultRelatedComponentsEnabled(enable: boolean) {}
+      protected setResultRelatedComponentsEnabled(enable: boolean) { }
 
       protected set betLayerEnabled(enabled: boolean) {
         if (enabled) {
