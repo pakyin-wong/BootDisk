@@ -7437,6 +7437,11 @@
 			"url": "assets/images/d/bab/d_bcba_resultarea_panel_prevresult.png",
 			"type": "image",
 			"name": "d_bcba_resultarea_panel_prevresult_png"
+		},
+		{
+			"url": "assets/fonts/Barlow-Bold.ttf",
+			"type": "bin",
+			"name": "Barlow-Bold_ttf"
 		}
 	]
 }

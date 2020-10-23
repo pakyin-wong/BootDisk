@@ -4,6 +4,10 @@ namespace we {
       protected _text: string;
       protected _fontFamily: string;
       protected _size: number;
+      protected _textColor: number = 0x000000;
+      protected _bold: boolean = false;
+      protected _hasShadow: boolean = false;
+
       public constructor() {
         super();
       }
@@ -17,6 +21,15 @@ namespace we {
         return this._fontFamily;
       }
 
+      set bold(value: boolean) {
+        this._bold = value;
+        this.render();
+      }
+
+      get bold() {
+        return this._bold;
+      }
+
       set size(value: number) {
         this._size = value;
         this.render();
@@ -25,6 +38,16 @@ namespace we {
       get size() {
         return this._size;
       }
+
+      set textColor(value: number) {
+        this._textColor = value;
+        this.render();
+      }
+
+      get textColor() {
+        return this._textColor;
+      }
+
 
       set text(value: string) {
         this._text = value;
@@ -35,20 +58,37 @@ namespace we {
         return this._text;
       }
 
+      set hasShadow(value: boolean) {
+        this._hasShadow = value;
+        this.render();
+      }
+
+      get hasShadow() {
+        return this._hasShadow;
+      }
+
       protected render() {
         const renderTexture = new egret.RenderTexture();
         const label = new eui.Label();
-        label.textColor = 0x000000;
-        if (this._text) {
-          label.text = this._text;
-        }
+        label.textColor = this._textColor;
+        label.bold = this._bold;
         if (this._fontFamily) {
           label.fontFamily = this._fontFamily;
         }
         if (this._size) {
           label.size = this._size;
         }
-        renderTexture.drawToTexture(label);
+        if (this._text) {
+          label.text = this._text;
+        }
+        if (this._hasShadow) {
+          const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(1, 90, 0x000000, 0.5, 2, 2, 2, egret.BitmapFilterQuality.LOW);
+          label.filters = [shadowFilter];
+        }
+        const layer = new eui.Group();
+        layer.addChild(label);
+
+        renderTexture.drawToTexture(layer);
         this.fillMode = egret.BitmapFillMode.SCALE;
         this.texture = renderTexture;
       }
