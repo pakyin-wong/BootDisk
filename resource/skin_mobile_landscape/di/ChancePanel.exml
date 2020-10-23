@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.di.ChancePanel" width="1354" height="308" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<e:Group x="100" y="33">
+		<ui:RoundRectShape stroke="0" width="216" height="113" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x1f3246" />
+		<ui:BettingGrid id="_line1" width="180" height="14" x="30" y="17" gradientColors="[0x5273ef, 0x52d7ff]"
+		                gradientType="LINEAR" gradientPosition="topLeft" roundCorner="[9,9,9,9]" />
+		<e:Image width="47" height="47" x="22" y="49" source="d_sic_history_lv2_dice-1_png" />
+		<e:Group right="16" bottom="18">
+			<e:Label id="_dice1Label" text="45" x="28.5" y="-47" size="43" textAlign="center" scaleX="1" scaleY="1" />
+			<e:Label text="%" x="80" y="-34" size="30" textAlign="left" scaleX="1" scaleY="1" />
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="bottom" gap="2" horizontalAlign="right" />
+			</e:layout>
+		</e:Group>
+	</e:Group>
+	<e:Group x="340" y="33">
+		<ui:RoundRectShape stroke="0" width="216" height="113" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x1f3246" />
+		<ui:BettingGrid id="_line2" width="180" height="14" x="30" y="17" gradientColors="[0x5273ef, 0x52d7ff]"
+		                gradientType="LINEAR" gradientPosition="topLeft" roundCorner="[9,9,9,9]" />
+		<e:Image width="47" height="47" x="22" y="49" source="d_sic_history_lv2_dice-2_png" />
+		<e:Group right="16" bottom="18">
+			<e:Label id="_dice2Label" text="45" x="28.5" y="-47" size="43" textAlign="center" scaleX="1" scaleY="1" />
+			<e:Label text="%" x="80" y="-34" size="30" textAlign="left" scaleX="1" scaleY="1" />
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="bottom" gap="2" horizontalAlign="right" />
+			</e:layout>
+		</e:Group>
+	</e:Group>
+	<e:Group x="582" y="33">
+		<ui:RoundRectShape stroke="0" width="216" height="113" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x1f3246" />
+		<ui:BettingGrid id="_line3" width="180" height="14" x="30" y="17" gradientColors="[0x5273ef, 0x52d7ff]"
+		                gradientType="LINEAR" gradientPosition="topLeft" roundCorner="[9,9,9,9]" />
+		<e:Image width="47" height="47" x="22" y="49" source="d_sic_history_lv2_dice-3_png" />
+		<e:Group right="16" bottom="18">
+			<e:Label id="_dice3Label" text="45" x="28.5" y="-47" size="43" textAlign="center" scaleX="1" scaleY="1" />
+			<e:Label text="%" x="80" y="-34" size="30" textAlign="left" scaleX="1" scaleY="1" />
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="bottom" gap="2" horizontalAlign="right" />
+			</e:layout>
+		</e:Group>
+	</e:Group>
+	<e:Group x="100" y="170">
+		<ui:RoundRectShape stroke="0" width="216" height="113" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x1f3246" />
+		<ui:BettingGrid id="_line4" width="180" height="14" x="30" y="17" gradientColors="[0x5273ef, 0x52d7ff]"
+		                gradientType="LINEAR" gradientPosition="topLeft" roundCorner="[9,9,9,9]" />
+		<e:Image width="47" height="47" x="22" y="49" source="d_sic_history_lv2_dice-4_png" />
+		<e:Group right="16" bottom="18">
+			<e:Label id="_dice4Label" text="45" x="28.5" y="-47" size="43" textAlign="center" scaleX="1" scaleY="1" />
+			<e:Label text="%" x="80" y="-34" size="30" textAlign="left" scaleX="1" scaleY="1" />
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="bottom" gap="2" horizontalAlign="right" />
+			</e:layout>
+		</e:Group>
+	</e:Group>
+	<e:Group x="340" y="170">
+		<ui:RoundRectShape stroke="0" width="216" height="113" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x1f3246" />
+		<ui:BettingGrid id="_line5" width="180" height="14" x="30" y="17" gradientColors="[0x5273ef, 0x52d7ff]"
+		                gradientType="LINEAR" gradientPosition="topLeft" roundCorner="[9,9,9,9]" />
+		<e:Image width="47" height="47" x="22" y="49" source="d_sic_history_lv2_dice-5_png" />
+		<e:Group right="16" bottom="18">
+			<e:Label id="_dice5Label" text="45" x="28.5" y="-47" size="43" textAlign="center" scaleX="1" scaleY="1" />
+			<e:Label text="%" x="80" y="-34" size="30" textAlign="left" scaleX="1" scaleY="1" />
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="bottom" gap="2" horizontalAlign="right" />
+			</e:layout>
+		</e:Group>
+	</e:Group>
+	<e:Group x="582" y="170">
+		<ui:RoundRectShape stroke="0" width="216" height="113" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x1f3246" />
+		<ui:BettingGrid id="_line6" width="180" height="14" x="30" y="17" gradientColors="[0x5273ef, 0x52d7ff]"
+		                gradientType="LINEAR" gradientPosition="topLeft" roundCorner="[9,9,9,9]" />
+		<e:Image width="47" height="47" x="22" y="49" source="d_sic_history_lv2_dice-6_png" />
+		<e:Group right="16" bottom="18">
+			<e:Label id="_dice6Label" text="45" x="28.5" y="-47" size="43" textAlign="center" scaleX="1" scaleY="1" />
+			<e:Label text="%" x="80" y="-34" size="30" textAlign="left" scaleX="1" scaleY="1" />
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="bottom" gap="2" horizontalAlign="right" />
+			</e:layout>
+		</e:Group>
+	</e:Group>
+</e:Skin>
