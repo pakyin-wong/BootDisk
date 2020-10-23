@@ -58,7 +58,9 @@ namespace we {
         for (let i = 0; i < dices.length; i++) {
           this['_dice' + (i + 1) + 'Label'].text = dices[i];
           if (color[i] === 'red') {
-            this['_line' + (i + 1)].gradientColors = '[0xeb632c,0xfdc071]';
+            if (!env.isMobile) {
+              this['_line' + (i + 1)].gradientColors = '[0xeb632c,0xfdc071]';
+            }
           }
           this['_line' + (i + 1)].width = 10 + (this._maxWidth * dices[i]) / maxDice;
         }
