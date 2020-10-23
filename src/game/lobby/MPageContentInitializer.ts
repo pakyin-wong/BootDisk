@@ -34,7 +34,7 @@ namespace we {
         this._root._hotgameContainer.removeChildren();
 
         // init image slider
-        this._root._bannerSlider.configSlides(dir.lobbyResources.homeLargeBanners);
+        this._root._bannerSlider.configSlides(dir.lobbyResources.homeHeroBanners);
 
         for (let i = 0, len = Math.min(dir.lobbyResources.homeLargeBanners.length, 4); i < len; i++) {
           const { image, link } = dir.lobbyResources.homeLargeBanners[i];
