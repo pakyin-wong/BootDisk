@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.LobbyPage" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:lobby="we.lobby.*" xmlns:w="http://ns.egret.com/wing">
-		<e:Rect right="0" left="0" top="0" bottom="0"/>
+		<e:Rect right="0" left="0" top="0" bottom="0" fillColor="0x121212"/>
 	<e:Scroller left="0" right="0" top="0" bottom="0" scrollPolicyH="off">
 		<e:Group id="_viewport">
 

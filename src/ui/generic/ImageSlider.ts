@@ -12,6 +12,8 @@ namespace we {
       private imageInvisible: eui.Image;
       private autoPlayTimer: number;
 
+      private _mask: egret.Rectangle;
+
       public bullets: ImageSliderBullet;
 
       protected _selectedIndex: number = -1;
@@ -29,8 +31,8 @@ namespace we {
       }
 
       public set selectedIndex(val: number) {
-        if (this._selectedIndex === val) return;
-        if (!this.isAnimating && val<this._slides.length && this._slides[val].loaded) {
+        if (this._selectedIndex === val) { return; }
+        if (!this.isAnimating && val < this._slides.length && this._slides[val].loaded) {
           clearTimeout(this.autoPlayTimer);
           this._selectedIndex = val;
           this.moveToNext(val < this.currentIndex);
@@ -70,7 +72,7 @@ namespace we {
             slide.loaded = true;
           }
         });
-        
+
         // reset dimensions
         this.imageVisible.width = this.width;
         this.imageVisible.height = this.height;
@@ -84,6 +86,10 @@ namespace we {
         if (slide.loaded) {
           this.imageVisible.source = slide.image;
         }
+
+        this._mask = new egret.Rectangle(0, 0, this.width, this.height);
+        this.mask = this._mask;
+
 
         this.scheduleNext();
       }
@@ -123,7 +129,7 @@ namespace we {
           this.direction = 'next';
         }
         // const index = (this.slides.length + (this.currentIndex + (this.direction === 'prev' ? -1 : 1))) % this.slides.length;
-        const index = this.direction === 'prev'? this.getPrevIndex(): this.getNextIndex();
+        const index = this.direction === 'prev' ? this.getPrevIndex() : this.getNextIndex();
         this.imageInvisible.source = this._slides[index].image;
         this.imageInvisible.alpha = 1;
       }
@@ -160,7 +166,7 @@ namespace we {
         }
 
         // Before Animate
-        this.currentIndex = this.direction === 'prev'? this.getPrevIndex(): this.getNextIndex();
+        this.currentIndex = this.direction === 'prev' ? this.getPrevIndex() : this.getNextIndex();
         // this.currentIndex = (this.slides.length + (this.currentIndex + (this.direction === 'prev' ? -1 : 1))) % this.slides.length;
 
         TweenLite.to(this.imageInvisible, this.duration, {
@@ -200,7 +206,7 @@ namespace we {
 
         this.isAnimating = true;
         this.imageVisible.x = 0;
-        this.imageInvisible.x = isPrev? -this.width: this.width;
+        this.imageInvisible.x = isPrev ? -this.width : this.width;
         this.imageInvisible.source = this._slides[this.currentIndex].image;
         this.imageInvisible.alpha = 1;
 
@@ -234,7 +240,7 @@ namespace we {
 
       protected getNextIndex() {
         const oldIndex = this.currentIndex;
-        let index = this._selectedIndex>-1? this._selectedIndex: (this.currentIndex + 1) % this._slides.length;
+        let index = this._selectedIndex > -1 ? this._selectedIndex : (this.currentIndex + 1) % this._slides.length;
         this._selectedIndex = -1;
         while (!this._slides[index].loaded && index !== oldIndex) {
           index = (index + 1) % this._slides.length;
@@ -244,7 +250,7 @@ namespace we {
 
       protected getPrevIndex() {
         const oldIndex = this.currentIndex;
-        let index = this._selectedIndex>-1? this._selectedIndex: (this.currentIndex + this._slides.length - 1) % this._slides.length;
+        let index = this._selectedIndex > -1 ? this._selectedIndex : (this.currentIndex + this._slides.length - 1) % this._slides.length;
         this._selectedIndex = -1;
         while (!this._slides[index].loaded && index !== oldIndex) {
           index = (index + this._slides.length - 1) % this._slides.length;
