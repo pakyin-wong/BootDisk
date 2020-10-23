@@ -4,6 +4,7 @@ namespace we {
     export class MPageContentInitializer implements core.IContentInitializer {
 
       protected _root: ILobbyPage;
+      protected _shouldTouchFocus: boolean = true;
 
       constructor() {}
 
@@ -14,6 +15,10 @@ namespace we {
           root._bannerSlider.bullets = root._sliderBullet;
           root._sliderBullet.imageSlider = root._bannerSlider;
         }
+
+        root.scroller.viewport.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.touchBegin, this, true, -1);
+        root.scroller.viewport.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.touchContinue, this, true, -1);
+        root.scroller.viewport.addEventListener(egret.TouchEvent.TOUCH_END, this.touchContinue, this, true, -1);
 
         this.reloadBanners();
 
@@ -29,7 +34,7 @@ namespace we {
         this._root._hotgameContainer.removeChildren();
 
         // init image slider
-        this._root._bannerSlider.configSlides(dir.lobbyResources.homeHeroBanners);
+        this._root._bannerSlider.configSlides(dir.lobbyResources.homeLargeBanners);
 
         for (let i = 0, len = Math.min(dir.lobbyResources.homeLargeBanners.length, 4); i < len; i++) {
           const { image, link } = dir.lobbyResources.homeLargeBanners[i];
@@ -55,6 +60,24 @@ namespace we {
         });
 
       }
+
+      protected touchBegin(e: egret.TouchEvent) {
+        if (e.currentTarget !== e.target.parent) {
+          // if e.target is image and parent is ImageSlider
+          if ((e.target.parent as egret.EventDispatcher).hasEventListener(egret.TouchEvent.TOUCH_BEGIN)) {
+            this._shouldTouchFocus = false;
+            e.preventDefault();
+            return;
+          }
+        }
+        this._shouldTouchFocus = true;
+      }
+      protected touchContinue(e: egret.TouchEvent) {
+        if (!this._shouldTouchFocus) {
+          e.preventDefault();
+        }
+      }
+
     }
   }
 }

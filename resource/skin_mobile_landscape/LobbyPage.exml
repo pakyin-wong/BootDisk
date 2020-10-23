@@ -2,7 +2,7 @@
 <e:Skin class="skin_mobile_landscape.LobbyPage" width="2424" height="1242" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:lobby="we.lobby.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Rect right="0" left="0" top="0" bottom="0" fillColor="0x121212"/>
-	<e:Scroller scrollPolicyH="auto" scrollPolicyV="off" top="0" bottom="0" left="0" right="0">
+	<e:Scroller id="scroller" scrollPolicyH="auto" scrollPolicyV="off" top="0" bottom="0" left="0" right="0">
 		<e:Group id="_viewport" anchorOffsetX="0">
 			<e:Group id="_sliderGroup">
 				<ui:ImageSlider id="_bannerSlider" y="0" width="1212" height="1242" left="0"/>

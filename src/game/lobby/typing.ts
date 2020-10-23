@@ -13,6 +13,7 @@ namespace we {
       _sliderBullet?: ui.ImageSliderBullet;
       _posterContainer: eui.Group;
       _hotgameContainer: eui.Group;
+      scroller?: eui.Scroller; 
     }
   }
 }

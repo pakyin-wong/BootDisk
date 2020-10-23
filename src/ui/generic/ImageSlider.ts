@@ -53,7 +53,7 @@ namespace we {
       protected childrenCreated(): void {
         super.childrenCreated();
 
-        this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this, false, 10);
+        this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this, false, -1);
       }
 
       public configSlides(slides: core.IRemoteResourceItem[]) {
@@ -108,6 +108,7 @@ namespace we {
         if (!this.touchEnabled) {
           return;
         }
+        event.stopPropagation();
         if (this.isAnimating) {
           clearTimeout(this.autoPlayTimer);
           // animation end event will scheduleNext
