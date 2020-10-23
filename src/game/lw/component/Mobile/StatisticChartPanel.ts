@@ -2,20 +2,7 @@ namespace we {
   export namespace lw {
     export class StatisticChartPanel extends ui.Panel {
       protected tableInfo: data.TableInfo;
-      // public _progress_East: lw.StatisticChartPanelBar;
-      // public _progress_South: lw.StatisticChartPanelBar;
-      // public _progress_West: lw.StatisticChartPanelBar;
-      // public _progress_North: lw.StatisticChartPanelBar;
-      // public _progress_White: lw.StatisticChartPanelBar;
-      // public _progress_Red: lw.StatisticChartPanelBar;
-      // public _progress_Green: lw.StatisticChartPanelBar;
-      // public _lbl_East: ui.RunTimeLabel;
-      // public _lbl_South: ui.RunTimeLabel;
-      // public _lbl_West: ui.RunTimeLabel;
-      // public _lbl_North: ui.RunTimeLabel;
-      // public _lbl_White: ui.RunTimeLabel;
-      // public _lbl_Red: ui.RunTimeLabel;
-      // public _lbl_Green: ui.RunTimeLabel;
+
       public _lbl_lwValue0: ui.RunTimeLabel;
       public _lbl_lwValue1: ui.RunTimeLabel;
       public _lbl_lwValue2: ui.RunTimeLabel;
@@ -144,13 +131,6 @@ namespace we {
           this.addChild(this._horizontalBarChart2);    
           this.addChild(this._horizontalBarChart3); 
         }
-        // this._progress_East.setProgress(0.05);
-        // this._progress_South.setProgress(0.2);
-        // this._progress_West.setProgress(0.5);
-        // this._progress_North.setProgress(0.6);
-        // this._progress_White.setProgress(0.8);
-        // this._progress_Red.setProgress(0.95);
-        // this._progress_Green.setProgress(1);
       }
 
       public setValue(tableInfo: data.TableInfo) { //called when bet start
@@ -165,7 +145,6 @@ namespace we {
       // update bat chart when bet info update
        public updateTableBetInfo() {
         this._betInfo = this.tableInfo.betInfo;
-        console.log('this._betInfo = this.tableInfo.betInfo',this.tableInfo.betInfo)
         this.updateBarChart();  
 
     
@@ -176,7 +155,6 @@ namespace we {
       public updateBarChart() {
         
         if (this._betInfo) {
-          console.log('updatebarchart:::',this._betInfo)
           const arr = ['LW_0', 'LW_1', 'LW_2', 'LW_3', 'LW_4', 'LW_5', 'LW_6'];
           const amount = this._betInfo.amount;
           const amountArr = arr.map(key => {
