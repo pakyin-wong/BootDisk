@@ -81,7 +81,7 @@
 		<ui:RunTimeLabel i18n="baccarat.mechanismHelp" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
 	<dtb:HistoryCardHolder id="_historyCardHolder" width="190" height="125" x="22" y="151" skinName="skin_desktop.dtb.CornerHistoryHolderSkin" />	
-	<bab:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true"
+	<bab:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true" skeletonName="blockchain_dt"
 	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bab.ShufflePanelSkin" />
 	<bab:DeckPanel id="_deckPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
 	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bab.DeckPanelSkin" />

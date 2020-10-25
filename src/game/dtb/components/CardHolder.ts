@@ -74,26 +74,30 @@ namespace we {
       }
 
       protected async betInitState(currentIndexOffsetToFirstCard = -1) {
-        const cardAnimName = ['_dragonCard', '_tigerCard'];
         console.log('betInitState() begin');
-        for (let i = 0; i < cardAnimName.length; i++) {
-          const cardAnim = <dragonBones.EgretArmatureDisplay>this[cardAnimName[i]];
-          this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex - currentIndexOffsetToFirstCard + i)
-          cardAnim.animation.gotoAndStopByTime('vertical_loop_back', 0);
-        }
+
+        this.setLabel(this._dragonCard.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + 2)
+        this._dragonCard.animation.gotoAndStopByTime('vertical_loop_back', 0);
+
+        this.setLabel(this._tigerCard.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + 3)
+        this._tigerCard.animation.gotoAndStopByTime('vertical_loop_back', 0);
+
         console.log('betInitState() end');
         return new Promise(resolve => resolve());
       }
 
       protected getCurrentIndexOffsetToFirstCard() {
-        const cardDataNames = ['d', 't'];
-        let total = 0;
-        for (let i = cardDataNames.length - 1; i >= 0; i--) {
-          if (this._gameData[cardDataNames[i]]) {
-            total++;
-          }
+        if(!this._gameData.d){
+          return 0;
         }
-        return total;
+        if(this._gameData.d === 'remove'){
+          return 1;
+        }
+        if(!this._gameData.t){
+          return 2;
+        }
+        
+        return 3;
       }
 
       protected getCurrentDIndex() {
@@ -159,8 +163,6 @@ namespace we {
           this._dragonCard.animation.play(`vertical_flip`, 1);
           await p4
           this.updateDragonSum();
-          return new Promise(resolve => resolve());
-
         }
 
         if (this._gameData.t) {
@@ -171,7 +173,6 @@ namespace we {
           this._dragonCard.animation.play(`vertical_flip`, 1);
           await p5
           this.updateTigerSum();
-          return new Promise(resolve => resolve());
         }
 
         return new Promise(resolve => resolve());
@@ -182,7 +183,7 @@ namespace we {
 
         (async () => {
           const currentIndexOffsetToFirstCard = this.getCurrentIndexOffsetToFirstCard();
-          if (this._gameData.redcardindex <= this._gameData.currentcardindex + 6 - currentIndexOffsetToFirstCard) {
+          if (this._gameData.redcardindex <= this._gameData.currentcardindex + 3 - currentIndexOffsetToFirstCard) {
             this.getRedCardAnim().animation.gotoAndStopByTime('red_poker_loop', 0)
           }
 
@@ -214,15 +215,30 @@ namespace we {
 
         this._ringAnim.animation.fadeIn('poker_round_loop', 0, 0, 0, 'POKER_ROUND_ANIMATION_GROUP');
 
+        await (async () => {
+          this.setLabel(this._ringAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + 1);
+
+          const p1 = we.utils.waitDragonBone(this._ringAnim);
+          this._ringAnim.animation.fadeIn('poker_in', 0, 1, 0, 'POKER_ANIMATION_GROUP');
+          await p1;
+
+          const p2 = we.utils.waitDragonBone(this._ringAnim);
+          this._ringAnim.animation.fadeIn('poker_out', 0, 1, 0, 'POKER_ANIMATION_GROUP');
+          await p2;
+
+          return new Promise(resolve => resolve())
+        })();
+
+
         const cardAnimNames = ['_dragonCard', '_tigerCard'];
         for (let i = 0; i < cardAnimNames.length; i++) {
           switch (cardAnimNames[i]) {
             case '_dragonCard':
             case '_tigerCard':
-              this.setLabel(this._ringAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + i + 1);
+              this.setLabel(this._ringAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + i + 2);
 
               const cardAnim = <dragonBones.EgretArmatureDisplay>this[cardAnimNames[i]];
-              this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + i + 1)
+              this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + i + 2)
 
               const block1 = (async () => {
                 const p1 = we.utils.waitDragonBone(cardAnim);
@@ -301,7 +317,7 @@ namespace we {
       protected updateCardInfoButtons() {
         if (this._gameData.state === core.GameState.BET) {
           this._infoArray = new Array();
-          for (let i = 0; i < 6; i++) {
+          for (let i = 0; i < 2; i++) {
             this._infoArray.push(this._gameData.currentcardindex + 1 + i);
           }
           console.log('BET infoArray', this._infoArray);
@@ -384,6 +400,10 @@ namespace we {
             return new Promise(resolve => resolve());
           })();
         }
+      }
+
+      protected showStaticRedCard() {
+
       }
 
     }
