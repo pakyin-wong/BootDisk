@@ -2,14 +2,14 @@ namespace we {
   export namespace ui {
     export class MobileBetLimitSelector extends RunTimeLabel {
 
-        protected initRenderText() {
-            super.initRenderText();
+      protected initRenderText() {
+        super.initRenderText();
 
-        const betLimitItems = env.betLimits.map(data => {
+        const betLimitItems = env.betLimits.Live.map(data => {
           return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
         });
-        
-        const dropdownSource = env.betLimits.map((data, index) => {
+
+        const dropdownSource = env.betLimits.Live.map((data, index) => {
           return ui.NewDropdownItem(index, () => `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`);
         });
 
@@ -21,12 +21,12 @@ namespace we {
           selected: env.currentSelectedBetLimitIndex,
         });
         this.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
-        }
+      }
 
-        protected destroy() {
-            super.destroy();
-            this.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
-        }
+      protected destroy() {
+        super.destroy();
+        this.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
+      }
 
       protected onBetLimitSelected(evt: egret.Event) {
         const selected = evt.data;

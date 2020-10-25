@@ -73,7 +73,7 @@ namespace we {
       // public soundEffect = 1;
       public videoOpen: boolean = true;
 
-      public betLimits: data.BetLimitSet[];
+      public betLimits: data.BetLimit;
       // public wholeDenomList: (value: number) => number;
       public goodRoadData: data.GoodRoadMapData;
       public playerLotteryStat: any;
@@ -272,7 +272,7 @@ namespace we {
         }
         const denomMap = { [100]: 0 };
         let chipIndex = 1;
-        env.betLimits.map(limit => {
+        env.betLimits.Live.map(limit => {
           limit.chips.map(chipValue => {
             if (!denomMap[chipValue]) {
               if (this.chipImageLimit > chipIndex) {

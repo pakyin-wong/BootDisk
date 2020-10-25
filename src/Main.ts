@@ -65,7 +65,7 @@ class Main extends eui.UILayer {
     let isMobile = false;
     try {
       isMobile = data.ismobile ? parseInt(data.ismobile) > 0 : false;
-    } catch (err) {}
+    } catch (err) { }
 
     if (type === 'mobile' || isMobile) {
       // if (true) {
