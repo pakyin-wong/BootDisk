@@ -7,6 +7,7 @@
 namespace we {
   export namespace bab {
     export class Scene extends ba.Scene {
+      protected _gameData : data.GameData & data.BlockchainGameData 
       protected _alwaysShowResult = true;
       protected _helpButton: eui.Group;
       protected _deckButton: eui.Group;
@@ -14,7 +15,7 @@ namespace we {
       protected _helpPanel: bab.HelpPanel;
       protected _deckPanel: bab.DeckPanel;
       protected _cardInfoPanel: bab.CardInfoPanel;
-      protected _historyCardHolder: bab.HistoryCardHolder;
+      protected _historyCardHolder: we.ui.HistoryCardHolder;
 
       public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat];
 
@@ -37,10 +38,10 @@ namespace we {
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
         this._historyCardHolder.setCards(this._tableId);
-        this._historyCardHolder.setNumber((<bab.GameData>this._gameData).currentcardindex);
+        this._historyCardHolder.setNumber(this._gameData.currentcardindex);
         this._shufflePanel.hide();
-        this._deckPanel.setValue(<bab.GameData> this._gameData);
-        console.log('Bab scene bet state', this._gameData);
+        this._deckPanel.setValue(this._gameData);
+        console.log('Blockchain scene bet state', this._gameData);
         if (isInit || this.previousState !== core.GameState.BET) {
           this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         }
@@ -50,14 +51,14 @@ namespace we {
         this._shufflePanel.hide();
         this._deckPanel.setValue(<bab.GameData> this._gameData);
         super.setStateDeal(isInit);
-        console.log('Bab scene deal state', this._gameData);
+        console.log('Blockchain scene deal state', this._gameData);
       }
 
       protected setStateFinish(isInit: boolean) {
         this._shufflePanel.hide();
         this._deckPanel.setValue(<bab.GameData> this._gameData);
         super.setStateFinish(isInit);
-        console.log('Bab scene finish state', this._gameData);
+        console.log('Blockchain scene finish state', this._gameData);
       }
 
       protected setStateShuffle(isInit: boolean) {
