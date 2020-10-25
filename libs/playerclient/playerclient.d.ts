@@ -125,6 +125,7 @@ interface GameTypeMap {
     L28: 25;
     SP: 26;
     BAB: 27;
+    DTB: 28;
 }
 declare const GameType: GameTypeMap;
 
