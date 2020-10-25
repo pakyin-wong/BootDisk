@@ -12,9 +12,10 @@ namespace we {
       private imageInvisible: eui.Image;
       private autoPlayTimer: number;
 
-      private _mask: egret.Rectangle;
+      private _mask: any;
 
       public bullets: ImageSliderBullet;
+      public maskRadius: number = 0;
 
       protected _selectedIndex: number = -1;
 
@@ -95,9 +96,21 @@ namespace we {
           this.imageVisible.source = slide.image;
         }
 
-        this._mask = new egret.Rectangle(0, 0, this.width, this.height);
-        this.mask = this._mask;
+        let shape = new egret.Shape();
+        let gr = shape.graphics;
+        gr.clear();
+        gr.beginFill(0x00ff00, 1);
+        if (this.maskRadius > 0) {
+          gr.drawRoundRect(0, 0, this.width, this.height, this.maskRadius * 2, this.maskRadius * 2);
+        } else {
+          gr.drawRect(0, 0, this.width, this.height);
+        }
+        gr.endFill();
 
+        shape.x = 0;
+        this._mask = shape;
+        this.mask = this._mask;
+        this.addChild(shape);
 
         this.scheduleNext();
       }
