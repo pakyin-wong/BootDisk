@@ -43,41 +43,47 @@ namespace we {
           this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.destroy, this);
         }
 
+        protected setText(label: eui.Label, txt) {
+          if (label) {
+            label.text = txt;
+          }
+        }
+
         protected dataChanged(): void {
           this._txt_record_bgcolor.fillColor = this.data.colorIndex === 1 ? 0x14181e : 0x1a1f26;
 
           const key = 'overlaypanel_bethistorylottery_continuousbetdetails_';
-          this._txt_bettype.text = i18n.t(`${key}type`);
-          this._txt_betgroup.text = i18n.t(`${key}group`);
-          this._txt_betfield.text = i18n.t(`${key}field`);
-          this._txt_autostop.text = i18n.t(`${key}autostop`);
-          this._txt_cancelled.text = i18n.t(`${key}cancelled`);
-          this._txt_finAmount.text = i18n.t(`${key}doneAmount`);
+          this.setText(this._txt_bettype, i18n.t(`${key}type`));
+          this.setText(this._txt_betgroup, i18n.t(`${key}group`));
+          this.setText(this._txt_betfield, i18n.t(`${key}field`));
+          this.setText(this._txt_autostop, i18n.t(`${key}autostop`));
+          this.setText(this._txt_cancelled, i18n.t(`${key}cancelled`));
+          this.setText(this._txt_finAmount, i18n.t(`${key}doneAmount`));
 
           const d = this.data;
           const betinfo = utils.BetTypeParser.parse(d.gametype, d.field);
 
-          this._txt_record_id.text = d.continuousbetid;
-          this._txt_record_date.text = utils.formatTime(d.datetime.toFixed(0));
-          this._txt_record_game.text = i18n.t('gametype_' + we.core.GameType[d.gametype]);
-          this._txt_record_round.text = d.startround;
-          this._txt_record_totalRound.text = d.numofround;
-          this._txt_record_currRound.text = `${d.finishround}/${d.numofround}`;
-          this._txt_record_betamount.text = d.totalbet.toFixed(2);
-          this._txt_record_bettype.text = betinfo['type'];
-          this._txt_record_betgroup.text = betinfo['group'];
-          this._txt_record_betfield.text = betinfo['field'];
-          this._txt_record_autostop.text = d.isstopwon == 0 ? i18n.t('no') : i18n.t('yes');
-          this._txt_record_cancelled.text = d.cancelround;
-          this._txt_record_finAmount.text = d.finishbet.toFixed(2);
+          this.setText(this._txt_record_id, d.continuousbetid);
+          this.setText(this._txt_record_date, utils.formatTime(d.datetime.toFixed(0)));
+          this.setText(this._txt_record_game, i18n.t('gametype_' + we.core.GameType[d.gametype]));
+          this.setText(this._txt_record_round, d.startround);
+          this.setText(this._txt_record_totalRound, d.numofround);
+          this.setText(this._txt_record_currRound, `${d.finishround}/${d.numofround}`);
+          this.setText(this._txt_record_betamount, d.totalbet.toFixed(2));
+          this.setText(this._txt_record_bettype, betinfo['type']);
+          this.setText(this._txt_record_betgroup, betinfo['group']);
+          this.setText(this._txt_record_betfield, betinfo['field']);
+          this.setText(this._txt_record_autostop, d.isstopwon == 0 ? i18n.t('no') : i18n.t('yes'));
+          this.setText(this._txt_record_cancelled, d.cancelround);
+          this.setText(this._txt_record_finAmount, d.finishbet.toFixed(2));
 
           if (d.progressstatus == 0) {
-            this._txt_record_remark.text = i18n.t('overlaypanel_bethistorylottery_continuousbet_drawing');
+            this.setText(this._txt_record_remark, i18n.t('overlaypanel_bethistorylottery_continuousbet_drawing'));
           } else {
-            this._txt_record_remark.text = i18n.t('overlaypanel_bethistorylottery_continuousbet_completed');
+            this.setText(this._txt_record_remark, i18n.t('overlaypanel_bethistorylottery_continuousbet_completed'));
           }
 
-          this._cbetStatus.data = d;
+          this._cbetStatus && (this._cbetStatus.data = d);
         }
       }
     }

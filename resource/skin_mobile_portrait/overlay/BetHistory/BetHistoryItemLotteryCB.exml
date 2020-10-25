@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.BetHistoryItemLotteryCB" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*" xmlns:bh="we.overlay.betHistory.*"   width="1242">
+
+	<e:Rect id="_txt_record_bgcolor" width="1242" height="140" x="0" y="0"/>
+
+	<e:Group left="0" right="0" top="0" bottom="0" alpha="0.8">
+		<e:Label id="_txt_record_date" text="Label" x="47" y="0" size="50" verticalAlign="middle" height="140" fontFamily="Barlow" scaleX="1" scaleY="1" alpha="0.7" width="500"/>
+		<e:Label id="_txt_record_game" text="Label" x="571" y="0" height="140" size="50" verticalAlign="middle" scaleX="1" scaleY="1" alpha="0.7" width="460"/>
+		<e:Label id="_txt_record_currRound" text="1/10" y="0" height="140" size="50" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" alpha="0.7" right="47"/>
+	</e:Group>
+</e:Skin>

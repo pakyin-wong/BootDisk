@@ -75,6 +75,7 @@ namespace we {
       overlaypanel_customroad_selectall: '全選',
 
       overlaypanel_bethistory_title: '遊戲記錄',
+      overlaypanel_bethistory_tab: '分類',
       overlaypanel_bethistory_tab_all: '遊戲總覽',
       overlaypanel_bethistory_tab_live: '真人遊戲',
       overlaypanel_bethistory_tab_lottery: '彩票遊戲',
@@ -98,6 +99,7 @@ namespace we {
       overlaypanel_bethistory_recordtab_orgbalance: '開局餘額',
       overlaypanel_bethistory_recordtab_finbalance: '本局餘額',
       overlaypanel_bethistory_recordtab_resuit: '遊戲結果',
+      overlaypanel_bethistory_recordtab_vaildbet: '有效投注',
       overlaypanel_bethistory_recordtab_noresult: '沒有遊戲紀錄',
       overlaypanel_bethistory_remark_win: '嬴',
       overlaypanel_bethistory_remark_lose: '輸',
@@ -136,6 +138,7 @@ namespace we {
 
       overlaypanel_bethistorylottery_popup_titme: '追號詳情',
 
+      overlaypanel_bethistorylottery_continuousbet_listtite: '追號清單',
       overlaypanel_bethistorylottery_continuousbet_round: '獎期',
       overlaypanel_bethistorylottery_continuousbet_rate: '倍數',
       overlaypanel_bethistorylottery_continuousbet_status: '狀態',

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.LoPopupBetDetail" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*" xmlns:bh="we.overlay.betHistory.*" width="1242" height="2155">
+	<e:Group id="content" width="1242">
+		<e:Rect fillAlpha="0.5" left="0" right="0" top="0" bottom="0" width="1242" height="2155"/>
+		<ui:RoundRectShape width="1242" height="1899" scaleX="1" scaleY="1" fillColor="0x0f1721" strokeColor="0x1d2b3f" stroke="3" y="256" cornerTL="30" cornerTR="30"/>
+		<e:Rect width="1050" height="3" x="96" y="950" fillColor="0x333c4a"/>
+		<e:Group id="text" left="0" right="0" top="256" bottom="0">
+			<e:Label id="_txt_title" text="追號詳情" x="84" y="53" scaleX="1" scaleY="1" textColor="0xd5a56c" height="119" verticalAlign="middle" size="80"/>
+			<e:Label id="_txt_result" text="遊玩結果" x="96" y="215" scaleX="1" scaleY="1" size="50" verticalAlign="middle" height="74" alpha="0.5"/>
+			<e:Label id="_txt_betid" text="投注編號" x="96" y="770" scaleX="1" scaleY="1" size="50" height="74" verticalAlign="middle" alpha="0.5" width="700"/>
+			<e:Label id="_txt_round" text="獎期" x="96" y="953" scaleX="1" scaleY="1" size="50" height="74" verticalAlign="middle" width="700" alpha="0.5"/>
+			<e:Label id="_txt_date" text="日期時間" x="96" y="1136" scaleX="1" scaleY="1" size="50" height="74" verticalAlign="middle" width="700" alpha="0.5"/>
+			<e:Label id="_txt_field" text="投注項目" x="96" y="1325" scaleX="1" scaleY="1" height="74" verticalAlign="middle" size="50" width="700" alpha="0.5"/>
+			<e:Label id="_txt_remark" text="贏輸" x="96" y="1514" scaleX="1" scaleY="1" size="50" verticalAlign="middle" height="74" width="700" alpha="0.5"/>
+			<e:Label id="_txt_game" text="遊戲" x="810" y="770" scaleX="1" scaleY="1" size="50" height="74" verticalAlign="middle" width="326" alpha="0.5"/>
+			<e:Label id="_txt_type" text="類型" x="810" y="953" scaleX="1" scaleY="1" height="74" verticalAlign="middle" size="50" width="326" alpha="0.5"/>
+			<e:Label id="_txt_group" text="玩法" x="810" y="1136" scaleX="1" scaleY="1" height="74" verticalAlign="middle" size="50" width="326" alpha="0.5"/>
+			<e:Label id="_txt_betamount" text="投注額" x="810" y="1325" scaleX="1" scaleY="1" height="74" verticalAlign="middle" size="50" width="326" alpha="0.5"/>
+		</e:Group>
+        <e:DataGroup id="_list" left="0" right="0" top="253" bottom="3"/>
+		<e:Image id="close" width="96" height="96" source="d-lobby-button-close-none_png" x="1090" y="322" scaleX="1" scaleY="1"/>
+	</e:Group>
+</e:Skin>

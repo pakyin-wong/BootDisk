@@ -75,6 +75,7 @@ namespace we {
       overlaypanel_customroad_selectall: 'Select All',
 
       overlaypanel_bethistory_title: 'Bet Log',
+      overlaypanel_bethistory_tab: 'Class',
       overlaypanel_bethistory_tab_all: 'All',
       overlaypanel_bethistory_tab_live: 'Live',
       overlaypanel_bethistory_tab_lottery: 'Lottery',
@@ -98,6 +99,7 @@ namespace we {
       overlaypanel_bethistory_recordtab_orgbalance: 'Original Balance',
       overlaypanel_bethistory_recordtab_finbalance: 'Balance',
       overlaypanel_bethistory_recordtab_resuit: 'Game Result',
+      overlaypanel_bethistory_recordtab_vaildbet: 'Vaild bet',
       overlaypanel_bethistory_recordtab_noresult: 'No Bet Reult',
       overlaypanel_bethistory_remark_win: 'Win',
       overlaypanel_bethistory_remark_lose: 'Lose',
@@ -135,6 +137,8 @@ namespace we {
       overlaypanel_bethistorylottery_continuousbetdetails_doneAmount: 'Completed Bet',
 
       overlaypanel_bethistorylottery_popup_titme: 'Bet Detail',
+
+      overlaypanel_bethistorylottery_continuousbet_listtite: 'Bet List',
       overlaypanel_bethistorylottery_continuousbet_round: 'Round',
       overlaypanel_bethistorylottery_continuousbet_rate: 'Multiplier',
       overlaypanel_bethistorylottery_continuousbet_status: 'Status',
