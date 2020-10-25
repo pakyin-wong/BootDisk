@@ -64,25 +64,31 @@ namespace we {
         this.initBetHistory();
       }
 
+      protected setText(t:eui.Label, s:string) {
+        t && (t.text = s);
+      }
+
       protected initBetHistory() {
-        this._txt_title.renderText = () => `${i18n.t('overlaypanel_bethistory_title')}`;
-        this._txt_date.renderText = () => `${i18n.t('overlaypanel_bethistory_date')}`;
-        this._txt_search.renderText = () => `${i18n.t('overlaypanel_bethistory_searchrecord')}`;
-        this._btn_today.label.renderText = () => `${i18n.t('overlaypanel_bethistory_today')}`;
-        this._btn_week.label.renderText = () => `${i18n.t('overlaypanel_bethistory_week')}`;
-        this._btn_custom.label.renderText = () => `${i18n.t('overlaypanel_bethistory_customperiod')}`;
-        this._txt_record_id.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_id')}`;
-        this._txt_record_date.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_date')}`;
-        this._txt_record_game.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_game')}`;
-        this._txt_record_round.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_round')}`;
-        this._txt_record_replay.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_replay')}`;
-        this._txt_record_remake.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_remark')}`;
-        this._txt_record_bettype.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_bettype')}`;
-        this._txt_record_betamount.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_betamount')}`;
-        this._txt_record_win.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_win')}`;
-        this._txt_record_orgbalance.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_orgbalance')}`;
-        this._txt_record_finbalance.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_finbalance')}`;
-        this._txt_record_result.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_resuit')}`;
+        
+        this.setText(this._txt_title, i18n.t('overlaypanel_bethistory_title'));
+        this.setText(this._txt_date, i18n.t('overlaypanel_bethistory_date'));
+        this.setText(this._txt_search, i18n.t('overlaypanel_bethistory_searchrecord'));
+        this.setText(this._btn_today.label, i18n.t('overlaypanel_bethistory_today'));
+        this.setText(this._btn_week.label, i18n.t('overlaypanel_bethistory_week'));
+        this.setText(this._btn_custom.label, i18n.t('overlaypanel_bethistory_customperiod'));
+        this.setText(this._txt_record_id, i18n.t('overlaypanel_bethistory_recordtab_id'));
+        this.setText(this._txt_record_date, i18n.t('overlaypanel_bethistory_recordtab_date'));
+        this.setText(this._txt_record_game, i18n.t('overlaypanel_bethistory_recordtab_game'));
+        this.setText(this._txt_record_round, i18n.t('overlaypanel_bethistory_recordtab_round'));
+        this.setText(this._txt_record_replay, i18n.t('overlaypanel_bethistory_recordtab_replay'));
+        this.setText(this._txt_record_remake, i18n.t('overlaypanel_bethistory_recordtab_remark'));
+        this.setText(this._txt_record_bettype, i18n.t('overlaypanel_bethistory_recordtab_bettype'));
+        this.setText(this._txt_record_betamount, i18n.t('overlaypanel_bethistory_recordtab_betamount'));
+        this.setText(this._txt_record_win, i18n.t('overlaypanel_bethistory_recordtab_win'));
+        this.setText(this._txt_record_orgbalance, i18n.t('overlaypanel_bethistory_recordtab_orgbalance'));
+        this.setText(this._txt_record_finbalance, i18n.t('overlaypanel_bethistory_recordtab_finbalance'));
+        this.setText(this._txt_record_result, i18n.t('overlaypanel_bethistory_recordtab_resuit'));
+
         if (this._ddm_searchType) {
           this._ddm_searchType.isDropdown = true;
           this._ddm_searchType.isPoppable = true;
@@ -111,6 +117,7 @@ namespace we {
           this._ddm_limit.dropdown.data.replaceAll([ui.NewDropdownItem(10, () => `10`), ui.NewDropdownItem(50, () => `50`), ui.NewDropdownItem(100, () => `100`)]);
           this._ddm_limit.dropdown.select(10);
         }
+        
         this._datagroup.dataProvider = this._dataColl;
         // this._datagroup.itemRenderer = betHistory.BetHistoryItem;
         this._datagroup.itemRendererFunction = data => {
@@ -121,6 +128,7 @@ namespace we {
               return betHistory.BetHistoryItem;
           }
         };
+
         this._tf_search.prompt = '';
         mouse.setButtonMode(this._tf_search, true);
         this.updatePlaceHolder();
@@ -236,6 +244,7 @@ namespace we {
           return;
         }
 
+        this._page = 1;
         this._starttime = e.data.starttime;
         this._endtime = e.data.endtime;
         this.search();

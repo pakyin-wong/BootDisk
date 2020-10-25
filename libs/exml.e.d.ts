@@ -2277,11 +2277,23 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class BetHistoryItemLottery_popup extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class BetHistoryItemLottery extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
+	class BetHistoryItemLotteryCB extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class BetHistorySearch extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class BetHistorySubMenuItemRenderer extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -2290,6 +2302,22 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class DoubleCalendarPicker extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class LoContinuousBetDetails extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class LoContinuousBetStatus extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class LoContinuousBetStatusIR extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class LoPopupBetDetail extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -2310,6 +2338,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class LwResultItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class RcResultItem extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

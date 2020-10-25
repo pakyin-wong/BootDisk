@@ -20,6 +20,9 @@ namespace we {
       protected _mainTab: string = 'all';
       protected _loTab: string = 'single';
 
+      protected _label_bar: eui.Group;
+      protected _clabel_bar: eui.Group;
+
       protected _main_select_all: eui.Label;
       protected _main_select_live: eui.Label;
       protected _main_select_lottery: eui.Label;
@@ -42,7 +45,6 @@ namespace we {
       protected _popupbet_detail: betHistory.LoPopupBetDetail;
 
       protected _noHistoryResult: eui.Group;
-      protected label_bar: eui.Group;
       protected _txt_noHistoryResult: ui.RunTimeLabel;
 
       constructor(skin: string = 'BetHistory_v2') {
@@ -52,26 +54,25 @@ namespace we {
       protected initBetHistory() {
         super.initBetHistory();
 
-        this._txt_record_id.renderText = () => `${i18n.t('overlaypanel_bethistorylottery_record_round')}`;
-
         this._datagroup.itemRendererFunction = this.getItemRenderer.bind(this);
 
-        this._main_select_all.text = i18n.t('overlaypanel_bethistory_tab_all');
-        this._main_select_live.text = i18n.t('overlaypanel_bethistory_tab_live');
-        this._main_select_lottery.text = i18n.t('overlaypanel_bethistory_tab_lottery');
-        this._main_select_egame.text = i18n.t('overlaypanel_bethistory_tab_egame');
+        this.setText(this._txt_record_id, i18n.t('overlaypanel_bethistorylottery_record_round'));
+        this.setText(this._main_select_all, i18n.t('overlaypanel_bethistory_tab_all'));
+        this.setText(this._main_select_live, i18n.t('overlaypanel_bethistory_tab_live'));
+        this.setText(this._main_select_lottery, i18n.t('overlaypanel_bethistory_tab_lottery'));
+        this.setText(this._main_select_egame, i18n.t('overlaypanel_bethistory_tab_egame'));
 
         const key = 'overlaypanel_bethistorylottery_continuousbetdetails_';
-        this._txt_lcb_cbetid.text = i18n.t(`${key}cbetid`);
-        this._txt_lcb_date.text = i18n.t(`${key}date`);
-        this._txt_lcb_game.text = i18n.t(`${key}game`);
-        this._txt_lcb_start.text = i18n.t(`${key}start`);
-        this._txt_lcb_total.text = i18n.t(`${key}total`);
-        this._txt_lcb_count.text = i18n.t(`${key}count`);
-        this._txt_lcb_betamount.text = i18n.t(`${key}betamount`);
-        this._txt_lcb_status.text = i18n.t(`${key}status`);
+        this.setText(this._txt_lcb_cbetid, i18n.t(`${key}cbetid`));
+        this.setText(this._txt_lcb_date, i18n.t(`${key}date`));
+        this.setText(this._txt_lcb_game, i18n.t(`${key}game`));
+        this.setText(this._txt_lcb_start, i18n.t(`${key}start`));
+        this.setText(this._txt_lcb_total, i18n.t(`${key}total`));
+        this.setText(this._txt_lcb_count, i18n.t(`${key}count`));
+        this.setText(this._txt_lcb_betamount, i18n.t(`${key}betamount`));
+        this.setText(this._txt_lcb_status, i18n.t(`${key}status`));
 
-        this._txt_noHistoryResult.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_noresult')}`;
+        this.setText(this._txt_noHistoryResult, i18n.t('overlaypanel_bethistory_recordtab_noresult'));
 
         // Live game list menu
         const _liveArrCol: eui.ArrayCollection = new eui.ArrayCollection();
@@ -217,6 +218,7 @@ namespace we {
 
       protected onCBetDetails(e: egret.Event) {
         this._cbet_details.betid = e.data;
+        this._cbet_details.currentState = 'normal';
         this._cbet_details.show();
       }
 
@@ -242,10 +244,12 @@ namespace we {
         console.log('resresres', res);
         if (res.total === 0) {
           this._noHistoryResult.visible = true;
-          this.label_bar.visible = false;
+          this._label_bar.alpha = 0;
+          this._clabel_bar.alpha = 0;
         } else {
           this._noHistoryResult.visible = false;
-          this.label_bar.visible = true;
+          this._label_bar.alpha = 1;
+          this._clabel_bar.alpha = 1;
         }
       }
     }

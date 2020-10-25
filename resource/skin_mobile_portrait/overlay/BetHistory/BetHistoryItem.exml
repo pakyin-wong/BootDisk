@@ -3,17 +3,17 @@
 	<e:Rect id="_txt_record_bgcolor" width="1242" height="140" x="0" y="0"/>
 	<e:Rect id="_txt_hover_color" includeIn="hover" left="0" right="0" top="0" bottom="0" fillColor="0x4077ab"/>
 	<e:Group left="0" right="0" top="0" bottom="0" alpha="0.8" alpha.hover="1">
-		<e:Label id="_txt_record_id" text="Label" x="95" y="0" width="171" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" visible="false"/>
 		<e:Label id="_txt_record_date" text="Label" x="47" y="0" width="477" size="50" verticalAlign="middle" height="140" fontFamily="Barlow" scaleX="1" scaleY="1"/>
 		<e:Label id="_txt_record_game" text="Label" x="571" y="0" width="275" height="140" size="50" verticalAlign="middle" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_win" text="Label" x="920" y="0" width="275" height="140" size="50" verticalAlign="middle" scaleX="1" scaleY="1" textAlign="right"/>
+		<!--<e:Label id="_txt_record_id" text="Label" x="95" y="0" width="171" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" visible="false"/>
 		<e:Label id="_txt_record_round" text="Label" x="657" y="0" width="109" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" visible="false"/>
 		<e:Label id="_txt_record_remark" text="Label" x="865" y="0" width="66" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1" visible="false"/>
 		<e:Label id="_txt_record_bettype" text="Label" x="951" y="0" width="109" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1" visible="false"/>
 		<e:Label id="_txt_record_betamount" text="Label" x="1080" y="0" width="127" size="20" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1" visible="false"/>
-		<e:Label id="_txt_record_win" text="Label" x="920" y="0" width="275" height="140" size="50" verticalAlign="middle" scaleX="1" scaleY="1" textAlign="right"/>
 		<e:Label id="_txt_record_orgbalance" text="Label" x="1386" y="0" width="156" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" visible="false"/>
 		<e:Label id="_txt_record_finbalance" text="Label" x="1562" y="0" width="88" size="20" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1" visible="false"/>
 		<e:Image id="_btn_replay" width="37" height="37" x="786" y="20" scaleX="1" scaleY="1" source.hover="d_lobby_panel_button_play_hover_png" source.normal="d_lobby_panel_button_play_normal_png" visible="false"/>
-		<e:Group id="_record_result" width="490" height="76" x="1650" y="0" scaleX="1" scaleY="1" visible="false"/>
+		<e:Group id="_record_result" width="490" height="76" x="1650" y="0" scaleX="1" scaleY="1" visible="false"/>-->
 	</e:Group>
 </e:Skin>
