@@ -31,6 +31,7 @@ namespace we {
                 return null;
             }
           case core.GameType.DT:
+          case core.GameType.DTB:
             switch (winType) {
               case dt.WinType.DRAGON:
                 return 'b';

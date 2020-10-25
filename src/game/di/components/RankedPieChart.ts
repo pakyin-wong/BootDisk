@@ -31,7 +31,7 @@ namespace we {
         return this._maxChartSize;
       }
 
-      public setChartStyles(colorSettings: any, emptyRadius: number = 20, maxRadius: number = 65, reduceRadius: number = 5) {
+      public setChartStyles(colorSettings: any, emptyRadius: number = 27, maxRadius: number = 65, reduceRadius: number = 5) {
         this.colorSettings = colorSettings.slice();
         this.colorSettings.push([[0x000000, 0x000000], [0, 0], [0, 255], 0]); // add a blank color setting at the end
         this.emptyRadius = emptyRadius;

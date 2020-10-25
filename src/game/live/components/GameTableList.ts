@@ -5,8 +5,9 @@ namespace we {
       // private collection: eui.ArrayCollection;
       public roomIds: string[] = [];
 
-      public holder: ui.HorizontalHolder;
+      // public holder: ui.HorizontalHolder;
       public slider: ui.ImageSlider;
+      public sliderGroup: eui.Group;
       public tabs: LiveGameTabbar;
       public tabItems: string[];
       public roomList: ui.TableList;
@@ -45,11 +46,10 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChange, this);
         // dir.evtHandler.removeEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
         dir.evtHandler.removeEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this);
-        if (this.slider) {
+        if (this.sliderGroup) {
+          this.roomList.removeChild(this.sliderGroup);
+        } else if (this.slider) {
           this.roomList.removeChild(this.slider);
-        }
-        if (this.holder) {
-          this.roomList.removeChild(this.holder);
         }
       }
 
@@ -59,11 +59,10 @@ namespace we {
         dir.evtHandler.dispatch(core.Event.LIVE_PAGE_LOCK, false);
 
         this.contentInitializer.initContent(this);
-        if (this.slider) {
+        if (this.sliderGroup) {
+          this.roomList.addChildAt(this.sliderGroup, 0);
+        } else if (this.slider) {
           this.roomList.addChildAt(this.slider, 0);
-        }
-        if (this.holder) {
-          this.roomList.addChildAt(this.holder, 0);
         }
 
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);

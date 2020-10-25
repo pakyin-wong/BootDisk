@@ -4,19 +4,19 @@
 	<ui:RoundRectShape cornerTL_TR_BL_BR="84,0,84,0" width="874" height="168" y="50" stroke="0"
 	                   fillColor="0x1f3a57,0x1f2b3a4d,270"  x="309"/>
 	<ui:RoundRectShape cornerTL_TR_BL_BR="0,84,0,84" width="874" height="168" y="280" stroke="0"
-	                   fillColor="0x1f3a57,0x1f2b3a4d,90"  x="59"/>
-	<ui:RunTimeLabel id="bigNameLabel" text="大" x="404" y="77" textColor="0xe4493a" textAlign="center" size="40"
+	                   fillColor="0x1f3a57,0x1f2b3a4d,90"  left="99"/>
+	<ui:RunTimeLabel id="bigNameLabel" text="大" x="404" y="70" textColor="0xe4493a" textAlign="center" size="46"
 	                 textKey="dice.bigFull" />
-	<ui:RunTimeLabel id="smallNameLabel" text="小" x="586" y="77" textColor="0x2da1fe" textAlign="center" size="40"
+	<ui:RunTimeLabel id="smallNameLabel" text="小" x="586" y="70" textColor="0x2da1fe" textAlign="center" size="46"
 	                 textKey="dice.small" />
-	<ui:RunTimeLabel id="tripleNameLabel" text="圍" x="766" y="77" textColor="0x6dd400" textAlign="center" size="40"
+	<ui:RunTimeLabel id="tripleNameLabel" text="圍" x="766" y="70" textColor="0x6dd400" textAlign="center" size="46"
 	                 textKey="dice.triple_" />
-	<ui:RunTimeLabel id="evenNameLabel" text="雙" x="341" y="310" textColor="0xe4493a" textAlign="center" size="40"
-	                 textKey="dice.evenFull" />
-	<ui:RunTimeLabel id="oddNameLabel" text="單" x="519" y="310" textColor="0x2da1fe" textAlign="center" size="40"
-	                 textKey="dice.oddFull" />
-	<ui:RunTimeLabel id="triple2NameLabel" text="圍" x="710" y="310" textColor="0x6dd400" textAlign="center" size="40"
-	                 textKey="dice.triple_" />
+	<ui:RunTimeLabel id="evenNameLabel" text="雙" y="303" textColor="0xe4493a" textAlign="center" size="46"
+	                 textKey="dice.evenFull"  left="381"/>
+	<ui:RunTimeLabel id="oddNameLabel" text="單" y="303" textColor="0x2da1fe" textAlign="center" size="46"
+	                 textKey="dice.oddFull"  left="560"/>
+	<ui:RunTimeLabel id="triple2NameLabel" text="圍" y="303" textColor="0x6dd400" textAlign="center" size="46"
+	                 textKey="dice.triple_"  left="750"/>
 	<e:Group x="586" y="122">
 		<e:Label id="smallLabel" text="45" x="28.5" y="-47" size="72" textAlign="center" scaleX="1" scaleY="1" />
 		<e:Label text="%" x="80" y="-34" size="40" textAlign="left" scaleX="1" scaleY="1" />
@@ -38,27 +38,27 @@
 			<e:HorizontalLayout verticalAlign="bottom" gap="2" />
 		</e:layout>
 	</e:Group>
-	<e:Group x="710" y="355">
+	<e:Group y="355" left="750">
 		<e:Label id="triple2Label" text="45" x="28.5" y="-47" size="72" textAlign="center" scaleX="1" scaleY="1" />
 		<e:Label text="%" x="80" y="-34" size="40" textAlign="left" scaleX="1" scaleY="1" />
 		<e:layout>
 			<e:HorizontalLayout verticalAlign="bottom" gap="2" />
 		</e:layout>
 	</e:Group>
-	<e:Group x="519" y="355">
+	<e:Group y="355" left="559">
 		<e:Label id="oddLabel" text="45" x="28.5" y="-47" size="72" textAlign="center" scaleX="1" scaleY="1" />
 		<e:Label text="%" x="80" y="-34" size="40" textAlign="left" scaleX="1" scaleY="1" />
 		<e:layout>
 			<e:HorizontalLayout verticalAlign="bottom" gap="2" />
 		</e:layout>
 	</e:Group>
-	<e:Group x="341" y="355">
+	<e:Group y="355" left="381">
 		<e:Label id="evenLabel" text="45" x="28.5" y="-47" size="72" textAlign="center" scaleX="1" scaleY="1" />
 		<e:Label text="%" x="80" y="-34" size="40" textAlign="left" scaleX="1" scaleY="1" />
 		<e:layout>
 			<e:HorizontalLayout verticalAlign="bottom" gap="2" />
 		</e:layout>
 	</e:Group>
-	<di:RankedPieChart id="_pieSize" x="1020" y="135" maxChartSize="230" />
-	<di:RankedPieChart id="_pieOdd" x="180" y="360" maxChartSize="230" />
+	<di:RankedPieChart id="_pieSize" x="1020" y="140" maxChartSize="280" />
+	<di:RankedPieChart id="_pieOdd" y="360" maxChartSize="280"  left="200"/>
 </e:Skin>

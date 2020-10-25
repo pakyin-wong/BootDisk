@@ -2,7 +2,7 @@ namespace we {
   export namespace bab {
     export class DeckPanel extends BasePanel {
       protected _list: eui.List;
-      protected _gameData: bab.GameData;
+      protected _gameData: data.GameData & data.BlockchainGameData;
 
       protected mount() {
         super.mount();
@@ -23,7 +23,7 @@ namespace we {
         );
       }
 
-      public setValue(gameData: bab.GameData) {
+      public setValue(gameData: data.GameData & data.BlockchainGameData) {
         this._gameData = gameData;
         if (!this._gameData || !this._gameData.maskedcardssnList) {
           return;
@@ -42,7 +42,7 @@ namespace we {
           } else {
             arr.push({ cardIndex: i + 1, cardString: this._gameData.maskedcardssnList[i] });
           }
-          if (i === this._gameData.redcardindex) {
+          if (i === this._gameData.redcardindex - 1) {
             arr.push({ cardIndex: null, cardString: 'red' });
           }
         }

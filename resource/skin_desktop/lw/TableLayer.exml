@@ -9,7 +9,7 @@
 	<e:Group id="_threeCircleGroup" x="197" y="41" width="136" height="222" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Image id="_threeCircleImage" source="d_lw_betarea_bet_south_png" name="d_lw_betarea_bet_south_hover_png"
 		         horizontalCenter="0" verticalCenter="0" />
-		<e:Label horizontalCenter="0" verticalCenter="90" text="1" size="30" textColor="0xffffff" />
+		<e:Label horizontalCenter="0" verticalCenter="90" text="3" size="30" textColor="0xffffff" />
 	</e:Group>
 	<e:Group id="_fiveCircleGroup" x="355" y="41" width="136" height="222" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Image id="_fiveCircleImage" source="d_lw_betarea_bet_west_png" name="d_lw_betarea_bet_west_hover_png"

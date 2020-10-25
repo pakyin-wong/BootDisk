@@ -529,6 +529,18 @@ declare module skin_desktop.dt{
 	}
 }
 declare module skin_desktop{
+	class BlockchainDragonTigerScene extends eui.Skin{
+	}
+}
+declare module skin_desktop.dtb{
+	class CardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dtb{
+	class CornerHistoryHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class GameBar extends eui.Skin{
 	}
 }
@@ -710,6 +722,18 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class LoadingScene extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LargeBannerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class SliderBulletItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class SmallBannerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -1341,6 +1365,10 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape.di{
+	class ChancePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.di{
 	class ChipLayerSkin extends eui.Skin{
 	}
 }
@@ -1362,6 +1390,10 @@ declare module skin_mobile_landscape.di{
 }
 declare module skin_mobile_landscape.di{
 	class MobileBottomRoadmapPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.di{
+	class PiePanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape.di{
@@ -2732,6 +2764,18 @@ declare module skin_mobile{
 }
 declare module skin_mobile.lo{
 	class MobileSideRoadPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class LargeBannerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class SliderBulletItemSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class SmallBannerSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile{

@@ -7,8 +7,11 @@ namespace we {
 
       public _txt_hotgame: ui.RunTimeLabel;
       public _bannerSlider: ui.ImageSlider;
+      public _sliderBullet: ui.ImageSliderBullet;
       public _posterContainer: eui.Group;
       public _hotgameContainer: eui.Group;
+
+      public _contentInitializer: core.IContentInitializer;
 
       constructor(data: any = null) {
         super('LobbyPage', data);
@@ -29,12 +32,24 @@ namespace we {
         env.currentPage = 'lobby';
 
         if (env.isMobile) {
-          const contentInitializer = new MPageContentInitializer();
-          contentInitializer.initContent(this);
+          this._contentInitializer = new MPageContentInitializer();
+          this._contentInitializer.initContent(this);
         } else {
-          const contentInitializer = new DPageContentInitializer();
-          contentInitializer.initContent(this);
+          this._contentInitializer = new DPageContentInitializer();
+          this._contentInitializer.initContent(this);
         }
+
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+      }
+
+      protected destroy() {
+        super.destroy();
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+      }
+
+
+      protected changeLang(e: egret.Event) {
+        this._contentInitializer.reloadBanners();
       }
     }
   }
