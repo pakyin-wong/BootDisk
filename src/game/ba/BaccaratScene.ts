@@ -208,7 +208,8 @@ namespace we {
             }
             break;
           }
-          case core.GameType.DT: {
+          case core.GameType.DT:
+          case core.GameType.DTB: {
             (this._tableLayer as dt.TableLayer).flashFields(this._gameData);
             switch (this._gameData.wintype) {
               case dt.WinType.DRAGON: {

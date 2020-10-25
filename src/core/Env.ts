@@ -146,6 +146,7 @@ namespace we {
           core.GameType.BAS,
           core.GameType.BAM,
           core.GameType.BAB,
+          core.GameType.DTB,
           core.GameType.DI,
           core.GameType.DIL,
           core.GameType.DT,
@@ -310,6 +311,9 @@ namespace we {
             break;
           case core.GameType.DT:
             dir.sceneCtr.goto('dt', { tableid: tableId });
+            break;
+          case core.GameType.DTB:
+            dir.sceneCtr.goto('dtb', { tableid: tableId });
             break;
           case core.GameType.RO:
             dir.sceneCtr.goto('ro', { tableid: tableId });

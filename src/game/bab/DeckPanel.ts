@@ -2,7 +2,7 @@ namespace we {
   export namespace bab {
     export class DeckPanel extends BasePanel {
       protected _list: eui.List;
-      protected _gameData: bab.GameData;
+      protected _gameData: data.GameData & data.BlockchainGameData;
 
       protected mount() {
         super.mount();
@@ -23,7 +23,7 @@ namespace we {
         );
       }
 
-      public setValue(gameData: bab.GameData) {
+      public setValue(gameData: data.GameData & data.BlockchainGameData) {
         this._gameData = gameData;
         if (!this._gameData || !this._gameData.maskedcardssnList) {
           return;

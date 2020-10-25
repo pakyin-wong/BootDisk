@@ -13,6 +13,7 @@ namespace we {
       LuckyWheel: 'scene_luckywheel',
       Lottery: 'scene_lottery',
       BlockchainBaccarat: 'scene_bc_baccarat',
+      BlockchainDragonTiger: 'scene_bc_dragontiger'
     };
   }
 }

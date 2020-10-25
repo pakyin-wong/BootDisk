@@ -529,6 +529,10 @@ declare module skin_desktop.dt{
 	}
 }
 declare module skin_desktop{
+	class BlockchainDragonTigerScene extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class GameBar extends eui.Skin{
 	}
 }

@@ -19,6 +19,7 @@ namespace we {
       gametype_RO: 'RO',
       gametype_ROL: 'ROL',
       gametype_DT: 'DT',
+      gametype_DTB: 'DTB',
       gametype_LW: 'LW',
       gametype_LO: 'LO',
       gametype_RC: 'RC',
