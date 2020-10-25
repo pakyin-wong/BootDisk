@@ -9,13 +9,13 @@ namespace we {
       public _analysisPanel: lo.AnalysisPanel;
 
       // viewStack and radioBtn
-      protected historyBtn: eui.RadioButton;
+      protected analysisBtn: eui.RadioButton;
       protected roadSheetBtn: eui.RadioButton;
       protected chartBtn: eui.RadioButton;
 
       protected _roadmapGroup: eui.Group;
       protected _chartGroup: eui.Group;
-      protected _historyGroup: eui.Group;
+      protected _analysisGroup: eui.Group;
 
       public constructor(skin?: string) {
         super(skin || !env.isMobile ? skin : 'lo.MobileBottomGamePanel');
@@ -29,7 +29,7 @@ namespace we {
       public destroy() {
         super.destroy();
         // if (env.orientation === 'portrait') {
-        this._historyGroup && this._historyGroup.removeChildren();
+        this._analysisGroup && this._analysisGroup.removeChildren();
         this._roadmapGroup && this._roadmapGroup.removeChildren();
         // } else {
         this._roadmapGroup && this._roadmapGroup.removeChildren();
@@ -41,8 +41,8 @@ namespace we {
       protected addListeners() {
         super.addListeners();
         this.chartBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        if (this.historyBtn) {
-          this.historyBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        if (this._analysisGroup) {
+          this._analysisGroup.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         }
         if (this.roadSheetBtn) {
           this.roadSheetBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
@@ -52,8 +52,8 @@ namespace we {
       protected removeListeners() {
         super.removeListeners();
         this.chartBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        if (this.historyBtn) {
-          this.historyBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        if (this._analysisGroup) {
+          this._analysisGroup.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         }
         if (this.roadSheetBtn) {
           this.roadSheetBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
@@ -61,8 +61,8 @@ namespace we {
       }
 
       public updateText() {
-        if (this.historyBtn) {
-          this.historyBtn.label = i18n.t('mobile_game_panel_history');
+        if (this._analysisGroup) {
+          this.analysisBtn.label = i18n.t('mobile_game_panel_history');
         }
         if (this.roadSheetBtn) {
           this.roadSheetBtn.label = i18n.t('mobile_game_panel_road_sheet');
