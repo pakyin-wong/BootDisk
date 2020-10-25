@@ -1,7 +1,8 @@
 namespace we {
   export namespace bab {
     export class GameResultMessage extends ui.GameResultMessage implements ui.IGameResultMessage {
-      // protected _dbClass = 'baccarat';
+      protected _dbClass = 'baccarat';
+      protected _skeletonName = 'blockchain'
 
       public constructor() {
         super();
@@ -47,13 +48,18 @@ namespace we {
         }
       }
 
+      protected createFactory(){
+
+      }
+
       protected createAniamtionObject() {
-        const skeletonData = RES.getRes(`blockchain_ske_json`);
-        const textureData = RES.getRes(`blockchain_tex_json`);
-        const texture = RES.getRes(`blockchain_tex_png`);
+                const skeletonData = RES.getRes(`${this._skeletonName}_ske_json`);
+        const textureData = RES.getRes(`${this._skeletonName}_tex_json`);
+        const texture = RES.getRes(`${this._skeletonName}_tex_png`);
         const factory = new dragonBones.EgretFactory();
         factory.parseDragonBonesData(skeletonData);
         factory.parseTextureAtlasData(textureData, texture);
+
         this._display = factory.buildArmatureDisplay(this._armatureName);
         this._display.x = this.width / 2;
         this._display.y = this.height / 2;

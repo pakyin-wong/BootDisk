@@ -25,6 +25,33 @@ namespace we {
       protected _tigerCardInfo: eui.Group;
       protected _infoArray: number[];
 
+      protected _dragonAnimGroup: eui.Group;
+      protected _tigerAnimGroup: eui.Group;
+      protected _dragonAnim: dragonBones.EgretArmatureDisplay;
+      protected _tigerAnim: dragonBones.EgretArmatureDisplay;
+
+      protected mount(){
+        super.mount();
+        this._dragonAnim = this.createDragonTigerAnim('dragon',0.8)
+        this._tigerAnim = this.createDragonTigerAnim('tiger',0.8)
+        this._dragonAnimGroup.addChild(this._dragonAnim);
+        this._tigerAnimGroup.addChild(this._tigerAnim);
+        this._dragonAnim.animation.play('loop',0)
+        this._tigerAnim.animation.play('loop',0)
+      }
+
+      protected createDragonTigerAnim(skeletonName: string, scale: number){
+        const skeletonData = RES.getRes(`${skeletonName}_ske_json`);
+        const textureData = RES.getRes(`${skeletonName}_tex_json`);
+        const texture = RES.getRes(`${skeletonName}_tex_png`);
+        const factory = new dragonBones.EgretFactory();
+        factory.parseDragonBonesData(skeletonData);
+        factory.parseTextureAtlasData(textureData, texture);
+        const anim = factory.buildArmatureDisplay(skeletonName);
+        anim.scaleX = anim.scaleY = scale
+        return anim
+      }
+
       protected createChildren() {
         super.createChildren();
         this.skinName = utils.getSkinByClassname('dtb.CardHolderSkin');
@@ -170,7 +197,7 @@ namespace we {
           this.setCardFrontFace(this._tigerCard, 't', 'vertical', 0)
           this.setLabel(this._tigerCard.armature.getSlot(`card_number_vertical`), this.getCurrentTIndex())
           const p5 = utils.waitDragonBone(this._tigerCard)
-          this._dragonCard.animation.play(`vertical_flip`, 1);
+          this._tigerCard.animation.play(`vertical_flip`, 1);
           await p5
           this.updateTigerSum();
         }
@@ -203,6 +230,9 @@ namespace we {
       }
 
       protected async distributeCards() {
+        this._dragonAnim.animation.play('loop',0)
+        this._tigerAnim.animation.play('loop',0)
+
         const p1 = we.utils.waitDragonBone(this._ringAnim);
         this._ringAnim.animation.fadeIn('round_in', 0, 1, 0, 'ROUND_ANIMATION_GROUP')
         await p1
@@ -349,6 +379,26 @@ namespace we {
 
         this._ringAnim.animation.fadeIn('round_loop_a', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
 
+        if(this._gameData.wintype === dt.WinType.DRAGON){
+          (async()=>{
+          const p1 = utils.waitDragonBone(this._dragonAnim)
+          this._dragonAnim.animation.play('win',2);
+          await p1;
+
+          this._dragonAnim.animation.play('loop',0)
+          })();
+        }
+
+        if(this._gameData.wintype === dt.WinType.TIGER){
+          (async()=>{
+          const p1 = utils.waitDragonBone(this._tigerAnim)
+          this._tigerAnim.animation.play('win',2);
+          await p1
+
+          this._tigerAnim.animation.play('loop',0)
+          })();
+        }
+
         if (isInit) {
           this.movePin();
           this.moveShoe();
@@ -378,6 +428,18 @@ namespace we {
             this._smallRedCard = null
 
             const p2 = utils.waitDragonBone(this._ringAnim);
+            const p2a = (async()=>{
+              const dragonBlock = utils.waitDragonBone(this._dragonAnim);
+              const tigerBlock = utils.waitDragonBone(this._tigerAnim);
+
+              this._dragonAnim.animation.play('shoe_out',1)
+              this._tigerAnim.animation.play('shoe_out',1)
+
+              await dragonBlock;
+              await tigerBlock;
+
+              return new Promise(resolve=>resolve())
+            })();
             this._ringAnim.animation.fadeIn('shoe_out', 0, 1, 0);
 
             await this.collapsePin();
@@ -385,13 +447,30 @@ namespace we {
 
             await p1;
             await p2;
+            await p2a;
 
             await this.animateShoe();
             await this.animatePin();
 
             const p3 = utils.waitDragonBone(this._ringAnim);
             this._ringAnim.animation.fadeIn('shoe_in', 0, 1, 0);
+
+
+            const p3a = (async()=>{
+              const dragonBlock = utils.waitDragonBone(this._dragonAnim);
+              const tigerBlock = utils.waitDragonBone(this._tigerAnim);
+
+              this._dragonAnim.animation.play('shoe_in',1)
+              this._tigerAnim.animation.play('shoe_int',1)
+
+              await dragonBlock;
+              await tigerBlock;
+
+              return new Promise(resolve=>resolve())
+            })();
+
             await p3
+            await p3a
 
             this._ringAnim.animation.fadeIn('round_loop_a', 0, 0, 0);
 
