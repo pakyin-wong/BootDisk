@@ -237,6 +237,17 @@ namespace we {
         }
       }
 
+      public async getLobbyMaterialAsync(callback, thisArg) {
+        return new Promise((resolve, reject) => {
+          const resolveFunc = async (res: any) => {
+            await callback.bind(thisArg)(res);
+            resolve();
+          };
+          this.client.getLobbyMaterial(this.warpServerCallback(resolveFunc));
+          // this.client.getLobbyMaterial(env.language, this.warpServerCallback(resolveFunc));
+        });
+      }
+
       public updateSetting(key: string, value: string) {
         this.client.updateSetting(key, value);
       }
