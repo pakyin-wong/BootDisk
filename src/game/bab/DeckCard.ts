@@ -8,12 +8,38 @@ namespace we {
 
       protected mount() {
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
+        this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
+        this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
         mouse.setButtonMode(this, true);
       }
 
       protected onTouchTap() {
         this.parent.dispatchEvent(new egret.Event('OPEN_CARDINFO_PANEL', false, false, this._cardIndex));
         this.parent.dispatchEvent(new egret.Event('CLOSE'));
+      }
+
+      protected onRollover(){
+        if(!this._cardString || this._cardString === 'dim' || this._cardString === 'red') {
+            return;
+        }
+        const hoverImage = new eui.Image();
+        hoverImage.source =   'd_bcba_panel_shoe_card_fill_hover_png'
+        hoverImage.name = 'hover'
+        hoverImage.horizontalCenter = 0  
+        hoverImage.verticalCenter = 0 
+        hoverImage.width=89 
+        hoverImage.height=138
+        this.addChild(hoverImage)
+      }
+
+      protected onRollout(){
+        let child = this.getChildByName('hover')
+        do{
+          if(child && this.contains(child)){
+            this.removeChild(child)
+          }
+          child = this.getChildByName('hover')
+        }while(child)
       }
 
       protected setDimCard() {
