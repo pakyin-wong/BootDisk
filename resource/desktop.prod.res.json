@@ -694,6 +694,11 @@
 			"url": "assets/dragonbones/d/bab/blockchain_tex.png",
 			"type": "image",
 			"name": "blockchain_tex_png"
+		},
+		{
+			"url": "assets/fonts/Barlow-Bold.ttf",
+			"type": "bin",
+			"name": "Barlow-Bold_ttf"
 		}
 	]
 }

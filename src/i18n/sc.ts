@@ -19,7 +19,7 @@ namespace we {
       gametype_RO: '轮盘',
       gametype_ROL: '财神轮盘',
       gametype_DT: '龙虎',
-      gametype_LW: '幸運轮',
+      gametype_LW: '幸运轮',
       gametype_LO: '时时彩',
       gametype_RC: '北京赛车',
 
@@ -91,7 +91,7 @@ namespace we {
       overlaypanel_bethistory_yesterday: '昨天',
       overlaypanel_bethistory_week: '本周',
       overlaypanel_bethistory_customperiod: '自订',
-      overlaypanel_bethistory_searchrecord: '请输入投注编号',
+      overlaypanel_bethistory_searchrecord: '搜索纪录',
       overlaypanel_bethistory_recordtab_title: '记录详情',
       overlaypanel_bethistory_recordtab_id: '投注编号',
       overlaypanel_bethistory_recordtab_date: '日期时间',
@@ -105,7 +105,7 @@ namespace we {
       overlaypanel_bethistory_recordtab_orgbalance: '开局余额',
       overlaypanel_bethistory_recordtab_finbalance: '本局余额',
       overlaypanel_bethistory_recordtab_resuit: '游戏结果',
-      overlaypanel_bethistory_recordtab_noresult: '没有相关结果',
+      overlaypanel_bethistory_recordtab_noresult: '没有游戏纪录',
       overlaypanel_bethistory_remark_win: '嬴',
       overlaypanel_bethistory_remark_lose: '输',
       overlaypanel_bethistory_remark_ties: '和',
@@ -452,9 +452,11 @@ namespace we {
         row_1: '第一行',
         row_2: '第二行',
         row_3: '第三行',
+        dozen: '12注',
         dozen_1_12: '第一组',
         dozen_13_24: '第二组',
         dozen_25_36: '第三组',
+        corner: '角注',
         small: '1-18',
         big: '19-36',
         odd: '单',
@@ -493,6 +495,7 @@ namespace we {
         orphelins: '轮上孤注',
         voisins: '零旁注上角',
         zero: '轮上零旁',
+        to: '至',
         betGroup: {
           color: '红 / 黑',
           oddeven: '单 / 双',
@@ -542,7 +545,8 @@ namespace we {
         tie: '和',
         playerPair: '闲对',
         bankerPair: '庄对',
-        gameRecord: '游戏记录',
+        gameRecord: '歷史记录',
+        gameRecordlandscape: '歷史记录 \n/ 即时彩池',
       },
       game: {
         insufficientBalance: '余额不足',
@@ -671,6 +675,10 @@ namespace we {
       lo_switch_trad: '传统',
 
       lo_history_round: '%round% 期',
+
+      lo_fun_mobile_bettrigger: '游戏投注',
+      lo_fun_mobile_drawing: '开奖中',
+      lo_fun_mobile_last: '上期结果',
 
       lo_fun_custombet: '自订',
       lo_fun_bettingRound: '本期投注',

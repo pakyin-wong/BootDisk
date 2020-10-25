@@ -7452,6 +7452,11 @@
 			"url": "assets/images/d/lobby/common/d_lobby_banner_fadeout.png",
 			"type": "image",
 			"name": "d_lobby_banner_fadeout_png"
+		},
+		{
+			"url": "assets/fonts/Barlow-Bold.ttf",
+			"type": "bin",
+			"name": "Barlow-Bold_ttf"
 		}
 	]
 }

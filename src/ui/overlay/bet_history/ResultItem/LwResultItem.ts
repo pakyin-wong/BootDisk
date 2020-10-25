@@ -22,19 +22,34 @@ namespace we {
         }
 
         protected mount() {
-          if (this._gameResult.v === '01') {
+          // if (this._gameResult.v === '01') {
+          //   this.image.source = this.eastSource;
+          // } else if (this._gameResult.v === '02') {
+          //   this.image.source = this.southSource;
+          // } else if (this._gameResult.v === '03') {
+          //   this.image.source = this.westSource;
+          // } else if (this._gameResult.v === '04') {
+          //   this.image.source = this.northSource;
+          // } else if (this._gameResult.v === '05') {
+          //   this.image.source = this.whiteSource;
+          // } else if (this._gameResult.v === '06') {
+          //   this.image.source = this.redSource;
+          // } else if (this._gameResult.v === '07') {
+          //   this.image.source = this.greenSource;
+          // }
+          if (this._gameResult.a1 === '01') {
             this.image.source = this.eastSource;
-          } else if (this._gameResult.v === '02') {
+          } else if (this._gameResult.a1 === '02') {
             this.image.source = this.southSource;
-          } else if (this._gameResult.v === '03') {
+          } else if (this._gameResult.a1 === '03') {
             this.image.source = this.westSource;
-          } else if (this._gameResult.v === '04') {
+          } else if (this._gameResult.a1 === '04') {
             this.image.source = this.northSource;
-          } else if (this._gameResult.v === '05') {
+          } else if (this._gameResult.a1 === '05') {
             this.image.source = this.whiteSource;
-          } else if (this._gameResult.v === '06') {
+          } else if (this._gameResult.a1 === '06') {
             this.image.source = this.redSource;
-          } else if (this._gameResult.v === '07') {
+          } else if (this._gameResult.a1 === '07') {
             this.image.source = this.greenSource;
           }
         }

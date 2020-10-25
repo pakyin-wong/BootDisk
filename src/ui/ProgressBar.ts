@@ -4,7 +4,10 @@ namespace we {
       protected _proportion: number = 0; // 0 - 1
       protected _color: any = 0xffffff;
       protected _baseColor: number = 0x202020;
+      protected _baseBorderColor: number = 0x616161;
+      protected _hasBaseBorder: boolean = false;
       protected _shape: egret.Shape = new egret.Shape();
+      protected _shapeBorder: egret.Shape = new egret.Shape();
       protected _roundCorner: number[] = [10, 10, 10, 10, 10, 10, 10, 10];
       protected _direction: string = 'vertical';
       protected _gradientColor: any = null;
@@ -13,6 +16,7 @@ namespace we {
       protected mount() {
         super.mount();
         this.addChild(this._shape);
+        // this.addChild(this._shapeBorder);
         this.draw();
       }
 
@@ -36,6 +40,10 @@ namespace we {
 
       public set baseColor(value: string) {
         this._baseColor = +value;
+      }
+
+      public set hasBaseBorder(value: boolean) {
+        this._hasBaseBorder = value;
       }
 
       public set direction(value: string) {
@@ -124,12 +132,23 @@ namespace we {
 
       protected $draw(direction: string) {
         // draw the base
-        this._shape.graphics.clear();
-        this._shape.graphics.beginFill(this._baseColor, 1);
-        const points = utils.roundRectPoints(this.width, this.height, this._roundCorner);
-        utils.drawRoundRect(this._shape.graphics, points);
-        this._shape.graphics.endFill();
 
+        this._shape.graphics.clear();
+        if (this._hasBaseBorder) {// for loading scene progress bar
+          const _baseShape = new egret.Shape();
+          _baseShape.graphics.lineStyle(2, this._baseBorderColor, 3);
+          _baseShape.graphics.beginFill(this._baseColor, 1);
+          const points = utils.roundRectPoints(this.width - 8, this.height - 8, this._roundCorner, 4, 4);
+          utils.drawRoundRect(_baseShape.graphics, points);
+          _baseShape.graphics.endFill();
+          this.addChildAt(_baseShape, 0);
+
+        } else {
+          this._shape.graphics.beginFill(this._baseColor, 1);
+          const points = utils.roundRectPoints(this.width, this.height, this._roundCorner);
+          utils.drawRoundRect(this._shape.graphics, points);
+          this._shape.graphics.endFill();
+        }
         const length = this._proportion * (this._direction === 'vertical' ? this.height : this.width);
 
         if (length === 0) {

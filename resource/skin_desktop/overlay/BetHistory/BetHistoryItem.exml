@@ -21,7 +21,7 @@
 		<e:Label id="_txt_record_remark" text="Label" x="1501" y="0" width="66" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
 
 
-		<e:Label id="_txt_record_finbalance" text="Label" x="1676" y="0" width="88" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<ui:ClampWidthLabel id="_txt_record_finbalance" text="Label" x="1676" y="0" width="120" targetWidth="120" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
 		<e:Image x="1976" width="30" height="30" source="d_lobby_button_next_hover_png" y="23" visible.down="false"/>
 		<e:Image width="16" height="10" x="1983" y="33" source="d_lobby_btn_dropdown_png" visible.up="false"/>
 	</e:Group>

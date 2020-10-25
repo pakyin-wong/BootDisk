@@ -32,10 +32,12 @@ namespace we {
           this._touchArea2.touchEnabled = true;
           this._touchArea2.addEventListener(egret.TouchEvent.TOUCH_TAP, this.enterRoom, this);
         } else {
-          this._btnDismiss.addEventListener(egret.TouchEvent.TOUCH_TAP, this.removeSelf, this);
           this._btnQuickBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.quickBet, this);
           this._btnQuickBet.label.renderText = () => i18n.t('mobile_notification_quick_bet_button_label');
-          this._btnDismiss.label.renderText = () => i18n.t('mobile_notification_close_button_label');
+          if (this._btnDismiss) {
+            this._btnDismiss.addEventListener(egret.TouchEvent.TOUCH_TAP, this.removeSelf, this);
+            this._btnDismiss.label.renderText = () => i18n.t('mobile_notification_close_button_label');
+          }
         }
       }
 

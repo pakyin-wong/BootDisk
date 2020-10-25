@@ -78,7 +78,7 @@ namespace we {
         }, 6000);
       }
 
-      public getBalance() {}
+      public getBalance() { }
 
       public getPlayerLotteryStatistic(filter: any) {
         // 0: favourite bet, 1: favourite game, 2: lucky time, 3: lucky game
@@ -727,32 +727,54 @@ namespace we {
           // iconKey08: 'd_lobby_profile_pic_08_png',
         };
         env.profileimage = ''; // 'iconKey01';
-        env.betLimits = [
-          {
-            currency: Currency.RMB,
-            maxlimit: 100000,
-            minlimit: 1000,
-            chips: [1000, 2000, 5000, 10000, 50000, 100000, 200000, 500000, 1000000, 2000000],
-            limits: {},
-            // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
-          },
-          {
-            currency: Currency.RMB,
-            maxlimit: 100000,
-            minlimit: 2000,
-            chips: [2000, 10000, 30000, 40000, 50000],
-            limits: {},
-            // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
-          },
-          {
-            currency: Currency.RMB,
-            maxlimit: 500000,
-            minlimit: 5000,
-            chips: [5000, 10000, 200000, 300000, 500000],
-            limits: {},
-            // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
-          },
-        ];
+        env.betLimits = {
+          'Live':
+          [
+            {
+              currency: Currency.RMB,
+              maxlimit: 1000,
+              minlimit: 10,
+              chips: [1, 5, 20, 100, 500],
+              // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
+            },
+          ],
+          'Electronic':
+          [
+            {
+              currency: Currency.RMB,
+              maxlimit: 1000,
+              minlimit: 10,
+              chips: [1, 5, 20, 100, 500],
+            },
+          ],
+          'Lottery':
+          [
+            {
+              currency: Currency.RMB,
+              maxlimit: 1000,
+              minlimit: 10,
+              chips: [1, 5, 20, 100, 500],
+            },
+          ],
+          'Sportbook':
+          [
+            {
+              currency: Currency.RMB,
+              maxlimit: 1000,
+              minlimit: 10,
+              chips: [1, 5, 20, 100, 500],
+            },
+          ],
+          'Chess':
+          [
+            {
+              currency: Currency.RMB,
+              maxlimit: 1000,
+              minlimit: 10,
+              chips: [1, 5, 20, 100, 500],
+            },
+          ],
+        };
 
         /*
         let denominationList = [];
@@ -804,7 +826,7 @@ namespace we {
         */
       }
 
-      public leaveTable(tableID: string) {}
+      public leaveTable(tableID: string) { }
 
       public getTableList(filter: string) {
         /*
@@ -1451,7 +1473,7 @@ namespace we {
         // return promise.resolve with BetResult
       }
 
-      public lotteryContinuousBet(tableID: string, betDetails: data.BetDetail[], roundBetDetails: data.LotteryBetCommand[], callback: (result) => void) {}
+      public lotteryContinuousBet(tableID: string, betDetails: data.BetDetail[], roundBetDetails: data.LotteryBetCommand[], callback: (result) => void) { }
 
       private onGoodRoadMatch() {
         // random get a ba table
@@ -1724,13 +1746,13 @@ namespace we {
         });
       }
 
-      public getLotteryContinuousBetDetail(betid: string, callback: (res: any) => void, thisArg: any) {}
+      public getLotteryContinuousBetDetail(betid: string, callback: (res: any) => void, thisArg: any) { }
 
-      public getLotteryContinuousBetHistory(filter: any, callback: (res: any) => void, thisArg: any) {}
+      public getLotteryContinuousBetHistory(filter: any, callback: (res: any) => void, thisArg: any) { }
 
-      public getLotteryBetDetail(filter: any, callback: (res: any) => void, thisArg: any) {}
+      public getLotteryBetDetail(filter: any, callback: (res: any) => void, thisArg: any) { }
 
-      public cancelBet(tableID: string, betID: string, gametype: string, callback: (res: any) => void, thisArg: any) {}
+      public cancelBet(tableID: string, betID: string, gametype: string, callback: (res: any) => void, thisArg: any) { }
 
       public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {
         const betCombination = new we.data.BetCombination();
@@ -1743,7 +1765,7 @@ namespace we {
         dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);
       }
 
-      public sendVerifyInfo(id: string, pattern: string[], callback: (data: any) => void, thisArg) {}
+      public sendVerifyInfo(id: string, pattern: string[], callback: (data: any) => void, thisArg) { }
 
       public getBetCombination() {
         dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);

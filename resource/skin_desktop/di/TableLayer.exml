@@ -523,7 +523,7 @@
 			<e:Label fontFamily="Barlow" size="18" text="30:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="199">
-			<e:Label fontFamily="Barlow" size="18" text="18:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
+			<e:Label fontFamily="Barlow" size="18" text="16:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="298">
 			<e:Label fontFamily="Barlow" size="18" text="12:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
@@ -535,10 +535,10 @@
 			<e:Label fontFamily="Barlow" size="18" text="7:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="595">
-			<e:Label fontFamily="Barlow" size="18" text="6:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
+			<e:Label fontFamily="Barlow" size="18" text="7:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="694">
-			<e:Label fontFamily="Barlow" size="18" text="6:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
+			<e:Label fontFamily="Barlow" size="18" text="7:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="793">
 			<e:Label fontFamily="Barlow" size="18" text="7:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
@@ -550,7 +550,7 @@
 			<e:Label fontFamily="Barlow" size="18" text="12:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="1090">
-			<e:Label fontFamily="Barlow" size="18" text="18:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
+			<e:Label fontFamily="Barlow" size="18" text="16:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="1189">
 			<e:Label fontFamily="Barlow" size="18" text="30:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>

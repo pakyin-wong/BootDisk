@@ -1349,6 +1349,10 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape.di{
+	class ChancePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.di{
 	class ChipLayerSkin extends eui.Skin{
 	}
 }
@@ -1370,6 +1374,10 @@ declare module skin_mobile_landscape.di{
 }
 declare module skin_mobile_landscape.di{
 	class MobileBottomRoadmapPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.di{
+	class PiePanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape.di{
@@ -1522,6 +1530,10 @@ declare module skin_mobile_landscape{
 }
 declare module skin_mobile_landscape{
 	class LobbyScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class LotteryPage extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape.lw{
@@ -2265,10 +2277,6 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
-	class GoodRoadQuickBetContainerSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
 	class ResultNotificationSkin extends eui.Skin{
 	}
 }
@@ -2676,6 +2684,14 @@ declare module skin_mobile.lo{
 }
 declare module skin_mobile.lo{
 	class FunBetOverlayIR extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetResult extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetRoundInfo extends eui.Skin{
 	}
 }
 declare module skin_mobile.lo{

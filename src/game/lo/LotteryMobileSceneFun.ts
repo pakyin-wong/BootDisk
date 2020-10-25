@@ -1,26 +1,20 @@
 namespace we {
   export namespace lo {
     export class LotteryMobileSceneFun extends LotterySceneFunBasic {
-      // protected _denominationList = [500, 1000, 2000, 5000, 10000];
+
       protected _denominationList;
-      // protected _betLayerTween: ui.TweenConfig;
-      // protected _betLayer: FunBetLayer;
 
-      // protected _betResult: FunBetResult;
-      // protected _roundInfo: FunBetRoundInfo;
-
-      protected _betTogger: egret.DisplayObject;
+      protected _betTogger: ui.RoundRectButton;
       protected _betContainer: ui.Panel;
+
+      protected _betSet: eui.Group;
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _betChipSet: BetChipSetWithCustom;
-      // protected _betRelatedGroup: egret.DisplayObject;
+
       protected _confirmButton: eui.Button;
       protected _cancelButton: ui.BaseImageButton;
 
       // protected _custombet: FunBetCustomBet;
-
-      // protected _lastgameResult;
-      // protected _drawerPanel: lo.LoRightDrawerPanel;
 
       protected _video: egret.FlvVideo;
       protected _counter: eui.Label;
@@ -45,12 +39,13 @@ namespace we {
       }
 
       protected initBet() {
-        this._denominationList = env.betLimits[env.currentSelectedBetLimitIndex].chips;
+        this._denominationList = env.betLimits.Lottery[env.currentSelectedBetLimitIndex].chips;
         this._betChipSet.init(this._denominationList);
         this.onBetChipChanged();
       }
 
       protected initText() {
+        this._betTogger.label.renderText = () => `${i18n.t('lo_fun_mobile_bettrigger')}`;
         this._cancelButton.label.renderText = () => `${i18n.t('mobile_ba_clear')}`;
       }
 
@@ -65,6 +60,9 @@ namespace we {
         this.funbet.evtHandler.addEventListener('LOTTERY_FUNBET_OVERBETLIMIT', this.onOverBetLimit, this);
         this.funbet.evtHandler.addEventListener('LOTTERY_FUNBET_LOWERBETLIMIT', this.onLowBetLimit, this);
         this.funbet.evtHandler.addEventListener('LOTTERY_FUNBET_OVERBALANCE', this.onOverBalance, this);
+
+        this._betContainer.addEventListener('POPPER_SHOW', this.onBetContainerShow, this);
+        this._betContainer.addEventListener('POPPER_HIDE', this.onBetContainerHide, this);
       }
 
       protected removeListeners() {
@@ -78,6 +76,18 @@ namespace we {
         this.funbet.evtHandler.removeEventListener('LOTTERY_FUNBET_OVERBETLIMIT', this.onOverBetLimit, this);
         this.funbet.evtHandler.removeEventListener('LOTTERY_FUNBET_LOWERBETLIMIT', this.onLowBetLimit, this);
         this.funbet.evtHandler.removeEventListener('LOTTERY_FUNBET_OVERBALANCE', this.onOverBalance, this);
+
+        this._betContainer.removeEventListener('POPPER_SHOW', this.onBetContainerShow, this);
+        this._betContainer.removeEventListener('POPPER_HIDE', this.onBetContainerHide, this);
+      }
+
+      protected onBetContainerShow() {
+        this._betSet.visible = true;
+      }
+
+      protected onBetContainerHide() {
+        this._betSet.visible = false;
+        this._betChipSet.hide();
       }
 
       // protected onCustomBetSelected() {
@@ -93,7 +103,7 @@ namespace we {
 
       protected onBetLimitUpdate(evt: egret.Event) {
         // this._custombet.selected = false;
-        this._denominationList = env.betLimits[env.currentSelectedBetLimitIndex].chips;
+        this._denominationList = env.betLimits.Lottery[env.currentSelectedBetLimitIndex].chips;
         this._betChipSet.init(this._denominationList);
         this.onBetChipChanged();
       }
@@ -147,19 +157,17 @@ namespace we {
         }
       }
 
-      protected setResultRelatedComponentsEnabled(enable: boolean) {}
+      protected setResultRelatedComponentsEnabled(enable: boolean) { }
 
       protected set betLayerEnabled(enabled: boolean) {
         if (enabled) {
-          // this._betLayerTween.currentState = 'open';
           this._betTogger.touchEnabled = true;
         } else {
           this._betTogger.touchEnabled = false;
+          this._betSet.visible = false;
           this._betContainer.hide();
-          // this._betLayerTween.currentState = 'close';
+          this._betChipSet.hide();
         }
-        // egret.Tween.removeTweens(this._betLayer);
-        // egret.Tween.get(this._betLayer).to(this._betLayerTween.getTweenPackage(), 250);
       }
 
       protected set betClipEnabled(enabled: boolean) {

@@ -5737,6 +5737,11 @@
 			"url": "assets/images/m/lobby/common/m_lobby_title_left.png",
 			"type": "image",
 			"name": "m_lobby_title_left_png"
+		},
+		{
+			"url": "assets/fonts/Barlow-Bold.ttf",
+			"type": "bin",
+			"name": "Barlow-Bold_ttf"
 		}
 	]
 }
