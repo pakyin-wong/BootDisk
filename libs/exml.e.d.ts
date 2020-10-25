@@ -721,6 +721,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class SliderBulletItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class SmallBannerSkin extends eui.Skin{
 	}
 }
@@ -2720,6 +2724,14 @@ declare module skin_mobile{
 }
 declare module skin_mobile.lo{
 	class MobileSideRoadPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class LargeBannerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class SliderBulletItemSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile{

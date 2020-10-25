@@ -16,7 +16,7 @@ namespace we {
       protected _cardInfoPanel: bab.CardInfoPanel;
       protected _historyCardHolder: bab.HistoryCardHolder;
 
-      public static resGroups = [core.res.BlockchainBaccarat];
+      public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat];
 
       protected initChildren() {
         super.initChildren();
