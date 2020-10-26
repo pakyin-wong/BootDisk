@@ -38,7 +38,11 @@ namespace we {
       }
 
       protected initSkin() {
-        this.skinName = 'skin_desktop.SSCBetNoteItem';
+        if(env.isMobile){
+          this.skinName = 'skin_mobile.SSCBetNoteItem';
+        }else{
+          this.skinName = 'skin_desktop.SSCBetNoteItem';
+        }
       }
       // TradNoteData {
       //   public field: string; // field consist of several information: Bet type, bet per note and bet detail

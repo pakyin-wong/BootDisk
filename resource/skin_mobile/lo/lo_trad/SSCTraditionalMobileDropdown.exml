@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.lo.SSCTraditionalMobileDropdown" width="1242" height="765" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Group id="content" y="0" width="1242" height="765">
+		<e:Rect fillColor="0x1a1a1a" top="0" bottom="0" left="0" right="0" ellipseWidth="48" ellipseHeight="48"/>
+		<e:Group id="close" height="80" right="40" y="25">
+            <ui:RunTimeLabel id="_confirm" text="Label" height="80" verticalAlign="middle" textAlign="center" size="60"/>
+		</e:Group>
+        <ui:RunTimeLabel id="_title" text="Label" y="17" height="95" textAlign="center" verticalAlign="middle" size="70" left="45"/>
+        <e:Group id="_scrollerGroup" y="143" width="1242" height="622">
+            <e:Scroller id="_betTypeScroller" width="280" height="622" left="45" scrollPolicyH="off">
+                <e:List id="_betTypeList">
+                    <e:layout>
+                        <e:VerticalLayout paddingTop="92" paddingBottom="311" gap="10" horizontalAlign="center"/>
+                    </e:layout>
+                </e:List>
+            </e:Scroller>
+            <e:Scroller id="_betModeScroller" width="817" height="622" right="100" scrollPolicyH="off">
+                <e:List id="_betModeList">
+                    <e:layout>
+                        <e:VerticalLayout paddingTop="92" paddingBottom="417" gap="10" horizontalAlign="right"/>
+                    </e:layout>
+                </e:List>
+            </e:Scroller>
+        </e:Group>
+		<e:Rect id="_mask" fillColor="0x1A1A1A" top="0" bottom="0" left="0" right="0" visible="false"/>
+	</e:Group>
+</e:Skin>

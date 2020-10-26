@@ -10,9 +10,9 @@ namespace we {
       public _noteControl: ANoteControlPanel;
 
       public _currentGameRound: string;
-      private _isStateBet: boolean = false; // is current state allow betting
-      private _isBetCodeValidate: boolean = false; // is current bettingData valid(local checking)
-      private _isBetLimitValidate: boolean = false; // validate betlimit from server
+      protected _isStateBet: boolean = false; // is current state allow betting
+      protected _isBetCodeValidate: boolean = false; // is current bettingData valid(local checking)
+      protected _isBetLimitValidate: boolean = false; // validate betlimit from server
       protected _roundDetailInfo = {};
 
       protected _currentKey = 'lo';
@@ -394,6 +394,14 @@ namespace we {
           dir.evtHandler.dispatchEventWith('LO_TRAD_ON_UPDATE_ROUNDDETAILS', false, this._roundDetailInfo);
         }
       }
+      // for Mobile
+      public updateBettingTableState(e) {}
+
+      public openBettingTableState(e) {}
+
+      public closeBettingTableState(e) {}
+
+      public toggleGameTypeDropdown(e) {}
     }
   }
 }

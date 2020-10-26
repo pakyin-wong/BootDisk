@@ -25,7 +25,11 @@ namespace we {
       }
 
       protected initSkin() {
-        this.skinName = 'skin_desktop.lo.SSCCheckBoxInput';
+        if (env.isMobile === true) {
+          this.skinName = 'skin_mobile.lo.SSCCheckBoxInput';
+        } else {
+          this.skinName = 'skin_desktop.lo.SSCCheckBoxInput';
+        }
       }
 
       public init() {

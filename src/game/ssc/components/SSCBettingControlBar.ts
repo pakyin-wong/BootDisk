@@ -34,7 +34,11 @@ namespace we {
       }
 
       protected initSkin() {
-        this.skinName = 'skin_desktop.lo.SSCBettingControlBar';
+        if (env.isMobile) {
+          this.skinName = 'skin_mobile.lo.SSCBettingControlBar';
+        } else {
+          this.skinName = 'skin_desktop.lo.SSCBettingControlBar';
+        }
       }
 
       protected childrenCreated() {

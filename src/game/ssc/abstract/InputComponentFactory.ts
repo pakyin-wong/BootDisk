@@ -19,6 +19,22 @@ namespace we {
         return null;
       }
 
+      public static generateMobileInputComponent(index, config): AInputComponent {
+        const { type } = config;
+        switch (type) {
+          case InputComponentType.BALLS:
+            return new SSCBallRowInput(index, config);
+          // throw new Error('No Ball Component');
+          case InputComponentType.TEXTAREA:
+            return new SSCTextAreaInput(index, config);
+          case InputComponentType.CHECKBOXES:
+            return new SSCCheckBoxInput(index, config);
+          // default:
+          // throw new Error('Input type not defined.')
+        }
+        return null;
+      }
+
       public static findNextCombination(inputData: string[], combinations: string[], sample: number, i: number, depth: number, itemString: string) {
         if (depth === sample) {
           if (InputComponentFactory.validateCombination(itemString, sample)) {

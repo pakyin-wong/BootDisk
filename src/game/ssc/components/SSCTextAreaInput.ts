@@ -25,7 +25,11 @@ namespace we {
       }
 
       protected initSkin() {
-        this.skinName = 'skin_desktop.lo.SSCTextAreaInput';
+        if (env.isMobile === true) {
+          this.skinName = 'skin_mobile.lo.SSCTextAreaInput';
+        } else {
+          this.skinName = 'skin_desktop.lo.SSCTextAreaInput';
+        }
       }
 
       protected initComponents() {

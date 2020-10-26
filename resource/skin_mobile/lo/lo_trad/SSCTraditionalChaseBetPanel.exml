@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.SSCTraditionalChaseBetPanel" width="1242" height="1767" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
+    <e:Group id="_content" width="1242" height="1767">
+        <e:Scroller id="_scroller" scrollPolicyV="on" scrollPolicyH="off" width="1242" height="1520" x="0" y="40">
+            <e:Group id="_viewport" width="1242" height="1520"/>
+        </e:Scroller>
+		<e:Rect width="1140" height="3" x="51" fillColor="0x979797" alpha="0.2"/>
+        <e:Group id="_confirmBetGrp" width="1242" height="244">
+            <e:Group x="51" y="0" height="244">
+		        <ui:RunTimeLabel id="_lbltotalBetCountText" text="總投注額" width="192" targetWidth="192" size="48" verticalAlign="middle" height="90" textColor="0xffffff" verticalCenter="0" alpha="0.7"/>
+		        <ui:RunTimeLabel id="_lbltotalBetCount" text="$21,980.00" width="339" targetWidth="339" size="56" verticalAlign="middle" height="90" textColor="0xe4493a" verticalCenter="0"/>
+                <e:layout>
+                    <e:HorizontalLayout gap="37" verticalAlign="middle"/>
+                </e:layout>
+            </e:Group>
+            <e:Group width="400" height="130" touchChildren="true" x="788" verticalCenter="0">
+                <ui:RoundRectButton id="_btnConfirmBet" width="400" height="130" cornerTL_TR_BL_BR="65,65,65,65"
+                        stroke="2" strokeColor="0x0f9d5d" fillAlpha="0" strokeAlpha="1"
+                        stroke_disabled="2" strokeColor_disabled="0x5f6973" fillAlpha_disabled="0" strokeAlpha_disabled="1"
+                        stroke_hover="2" strokeAlpha_hover="1" strokeColor_hover="0x00c46d" fillAlpha_hover="0.2" fillColor_hover="0x00c46d"
+                        stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x00c46d"
+                        stroke_active="2" strokeColor_active="0x007842" fillAlpha_active="1" fillColor_active="0x007842" strokeAlpha_active="1"/>
+                <ui:RunTimeLabel id="_lblConfirmBet" text="確認購買" size="50" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
+            </e:Group>
+        </e:Group>
+        <e:layout>
+            <e:VerticalLayout gap="0" horizontalAlign="center"/>
+        </e:layout>
+    </e:Group>
+</e:Skin>

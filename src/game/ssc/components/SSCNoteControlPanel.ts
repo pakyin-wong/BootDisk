@@ -66,7 +66,11 @@ namespace we {
       }
 
       protected initSkin() {
-        this.skinName = 'skin_desktop.lo.SSCNoteControlPanel';
+        if (env.isMobile) {
+          this.skinName = 'skin_mobile.lo.SSCNoteControlPanel';
+        } else {
+          this.skinName = 'skin_desktop.lo.SSCNoteControlPanel';
+        }
       }
 
       protected childrenCreated() {
