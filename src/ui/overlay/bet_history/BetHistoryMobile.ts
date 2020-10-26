@@ -1,6 +1,6 @@
 namespace we {
   export namespace overlay {
-    export class BetHistoryMobile extends BetHistory {
+    export class BetHistoryMobile extends BetHistory_v2 {
       protected _btn_date: ui.RoundRectButton;
       protected _btn_search: ui.BaseImageButton;
       protected _scroller: eui.Scroller;
@@ -10,22 +10,28 @@ namespace we {
       protected _getFlag: boolean = false;
       protected _getLock: boolean = false;
 
+      constructor(skin: string = 'BetHistorySkin') {
+        super(skin);
+      }
+
       protected mount() {
         super.mount();
         this.initBetHistoryMobile();
       }
 
       protected initBetHistoryMobile() {
-        this._btn_searchType.label.size = 50;
-        this._btn_date.label.size = 50;
-        this._btn_custom.label.size = 50;
 
         utils.DropdownCreator.new({
           toggler: this._btn_searchType,
           review: this._btn_searchType.label,
-          arrCol: new eui.ArrayCollection(this.genGameTypeList()),
-          title: () => ``,
-          selected: this._type,
+          arrCol: new eui.ArrayCollection([
+            ui.NewDropdownItem('all', ()=>`${i18n.t('overlaypanel_bethistory_tab_all')}`),
+            ui.NewDropdownItem('live', ()=>`${i18n.t('overlaypanel_bethistory_tab_live')}`),
+            ui.NewDropdownItem('lottery', ()=>`${i18n.t('overlaypanel_bethistory_tab_lottery')}`),
+            ui.NewDropdownItem('egame', ()=>`${i18n.t('overlaypanel_bethistory_tab_egame')}`),
+          ]),
+          title: () => `${i18n.t('overlaypanel_bethistory_tab')}`,
+          selected: this._mainTab,
         });
 
         const dateSource = new eui.ArrayCollection([
@@ -38,7 +44,7 @@ namespace we {
           toggler: this._btn_date,
           review: this._btn_date.label,
           arrCol: dateSource,
-          title: () => ``,
+          title: () => `${i18n.t('overlaypanel_bethistory_date')}`,
           selected: 'today',
         });
         this._btn_date.active = true;
@@ -51,6 +57,7 @@ namespace we {
 
       protected addListeners() {
         super.addListeners();
+        this._btn_searchType.addEventListener('DROPDOWN_ITEM_CHANGE', this.onGameTypeDropdownSelected, this);
         this._btn_date.addEventListener('DROPDOWN_ITEM_CHANGE', this.onDateDropdownSelected, this);
         this._btn_search.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickSearch, this);
         this._scroller.addEventListener(egret.Event.CHANGE, this.onScrollerChange, this);
@@ -60,11 +67,53 @@ namespace we {
 
       protected removeListeners() {
         super.removeListeners();
+        this._btn_searchType.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onGameTypeDropdownSelected, this);
         this._btn_date.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onDateDropdownSelected, this);
         this._btn_search.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickSearch, this);
         this._scroller.removeEventListener(egret.Event.CHANGE, this.onScrollerChange, this);
         this._scroller.removeEventListener(eui.UIEvent.CHANGE_END, this.onScrollerChangeEnd, this);
         this._datagroup.removeEventListener(eui.ItemTapEvent.ITEM_TAP, this.onClickResult, this);
+      }
+
+      protected onGameTypeDropdownSelected(e:egret.Event) {
+        switch(e.data) {
+          case 'all':
+          this.onSelectAll();
+          break;
+          case 'live':
+          this.onSelectLive();
+          break;
+          case 'lottery':
+          this.onSelectLottery();
+          break;
+          case 'egame':
+          this.onSelectEgame();
+          break;
+        }
+      }
+
+      protected getItemRenderer(data) {
+        switch (this._mainTab) {
+          case 'live':
+            return betHistory.BetHistoryItem;
+          case 'lottery':
+            switch (this._loTab) {
+              case 'multi':
+                return betHistory.BetHistoryItemLotteryCB;
+              default:
+              case 'single':
+                return betHistory.BetHistoryItemLottery;
+            }
+          case 'all':
+          default:
+            switch (data.gametype) {
+              case GameType.LO:
+              case GameType.RC:
+                return betHistory.BetHistoryItemLottery;
+              default:
+                return betHistory.BetHistoryItem;
+            }
+        }
       }
 
       protected onDateDropdownSelected(e: egret.Event) {
@@ -90,10 +139,6 @@ namespace we {
         super.searchCustomDate(e);
         this._btn_date.active = false;
         this._btn_custom.active = true;
-      }
-
-      protected updatePlaceHolder() {
-        this._txt_search.$setVisible(false);
       }
 
       protected update(res: any) {
@@ -135,8 +180,18 @@ namespace we {
       }
 
       protected onClickResult(e) {
-        this._detail.dataChanged(this._dataColl.source, e.itemIndex);
-        this._detail.show();
+        if(this._mainTab == 'lottery' && this._loTab == 'multi') {
+          this._cbet_details.updateDetails({
+            data:{
+              value: this._dataColl.source[e.itemIndex]
+            } 
+          });
+          this._cbet_details.currentState = 'm';
+          this._cbet_details.show();
+        } else {
+          this._detail.dataChanged(this._dataColl.source, e.itemIndex);
+          this._detail.show();
+        }
       }
 
       protected onClickSearch(e) {

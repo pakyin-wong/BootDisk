@@ -9,26 +9,15 @@ namespace we {
       public numChipsInRow: number = 4;
       public betChipHeight: number = 56;
       public betChipWidth: number = 70;
+      public chipSizeScale: number = 1;
       public labelSize: number = 30;
+      public horizontalGapSize: number = 15;
+      public verticalGapSize: number = 15;
 
       public constructor() {
         super();
         this._chipsetLayout = new eui.AnimTileLayout();
-        this._chipsetLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
-        this._chipsetLayout.horizontalGap = this._normalGapSize;
-        this._chipsetLayout.verticalGap = this._normalGapSize;
-        this._chipsetLayout.paddingTop = this._normalGapSize;
-        this._chipsetLayout.paddingBottom = this._normalGapSize;
-        this._chipsetLayout.requestedColumnCount = this.numChipsInRow;
-
         this._chipsetList = new ui.List();
-        this._chipsetList.layout = this._chipsetLayout;
-        this._chipsetList.itemRenderer = BetChipSetGridItemRenderer;
-        this._chipsetList.useVirtualLayout = false;
-        this.addChild(this._chipsetList);
-        this._chipsetList.left = 0;
-        this._chipsetList.right = 0;
-        this._chipsetList.requireSelection = true;
       }
 
       public init(format: any, denomList: number[]) {
@@ -38,8 +27,24 @@ namespace we {
 
       protected mount() {
         if (env.isMobile) {
-          this.chipScale = 0.8;
+          this.chipScale = this.chipSizeScale;
         }
+        this._chipsetLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
+        console.log(`..............${this.horizontalGapSize}`);
+        this._chipsetLayout.horizontalGap = this.horizontalGapSize;
+        this._chipsetLayout.verticalGap = this.verticalGapSize;
+        this._chipsetLayout.paddingTop = this._normalGapSize;
+        this._chipsetLayout.paddingBottom = this._normalGapSize;
+        this._chipsetLayout.requestedColumnCount = this.numChipsInRow;
+
+        this._chipsetList.layout = this._chipsetLayout;
+        this._chipsetList.itemRenderer = BetChipSetGridItemRenderer;
+        this._chipsetList.useVirtualLayout = false;
+        this.addChild(this._chipsetList);
+        this._chipsetList.left = 0;
+        this._chipsetList.right = 0;
+        this._chipsetList.requireSelection = true;
+
         this._chipsetList.addEventListener(eui.UIEvent.CHANGE, this.onChipChange, this);
         dir.evtHandler.addEventListener(core.Event.BET_DENOMINATION_CHANGE, this.updateSelectedChip, this);
       }

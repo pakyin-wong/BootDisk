@@ -46,6 +46,7 @@ namespace we {
           diceSize: this.diceSize,
           highlightRadius: this.highlightRadius,
           showGrid: true,
+          showOuterGrid: true,
         };
 
         this.beadRoad = new DiBeadRoad(this.roadWidth, this.roadRow, this.roadCol, this.roadGridSize, 1, options);

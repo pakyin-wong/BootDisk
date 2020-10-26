@@ -1,30 +1,16 @@
-/* tslint:disable triple-equals */
-/**
- * RouletteScene
- *
- * RouletteScene consist of serveral components: Betting table, Video, serveral roadmap, table list panel on right hand side, table info panel and some statistic graph
- * It also contains
- *
- */
 namespace we {
   export namespace lo {
-    export class MobileScene extends core.BaseScene {
+    export class MobileScene extends LotteryMobileSceneBasic {
+
       protected _mode: Mode;
       protected _subScene: core.BaseScene;
+      protected _btn_mode: egret.DisplayObject;
       protected _data;
 
-      protected _btn_mode: egret.DisplayObject;
-
-      protected _tableId;
-      protected _tableInfo;
-      // protected _gamebar: LotteryGameBar;
-
       constructor(data: any) {
-        super();
+        super(data);
         this.customKey = 'lo';
-        this.skinName = utils.getSkinByClassname('LotteryScene');
         this._data = data;
-        this._tableId = data.tableid;
 
         /* create dummy sub scene */
         this._subScene = new core.BaseScene();
@@ -32,12 +18,12 @@ namespace we {
         this.sceneHeader.addChild(this._subScene.sceneHeader);
       }
 
+      protected setSkinName() {
+        this.skinName = utils.getSkinByClassname('LotteryScene');
+      }
+
       protected mount() {
         super.mount();
-
-        // this._gamebar.tableid = this._tableId;
-        // this._gamebar.key = this.customKey;
-
         this.setMode(Mode.Fun);
         utils.addButtonListener(this._btn_mode, this.onBtnMode, this);
       }

@@ -9,6 +9,7 @@ namespace we {
       protected _tableLayer: ui.TableLayer;
       protected _chipLayer: ui.ChipLayer;
       protected _betChipSet: ui.BetChipSet;
+      protected _alwaysShowResult = false;
       protected _resultDisplay: ui.IResultDisplay;
       protected _resultMessage: ui.IGameResultMessage;
       protected _message: ui.InGameMessage;
@@ -101,8 +102,8 @@ namespace we {
         this.removeEventListeners();
         this.removeChildren();
       }
-      public async onFadeEnter() {}
-      public async onFadeExit() {}
+      public async onFadeEnter() { }
+      public async onFadeExit() { }
 
       protected getSelectedBetLimitIndex() {
         return env.currentSelectedBetLimitIndex;
@@ -124,7 +125,7 @@ namespace we {
         this.stage.frameRate = 60;
         this._bgImg.visible = false;
 
-        this._gameBar.targetScene = this;
+        if (this._gameBar) { this._gameBar.targetScene = this; }
 
         if (env.betLimits) {
           this.initDenom();
@@ -144,7 +145,7 @@ namespace we {
       }
 
       protected initDenom() {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
+        const denominationList = env.betLimits.Live[this.getSelectedBetLimitIndex()].chips;
 
         if (this._betChipSet) {
           this._betChipSet.init(5, denominationList);
@@ -152,7 +153,7 @@ namespace we {
       }
 
       protected initBettingTable() {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
+        const denominationList = env.betLimits.Live[this.getSelectedBetLimitIndex()].chips;
         if (this._tableLayer) {
           this._tableLayer.init();
         }
@@ -282,7 +283,7 @@ namespace we {
       }
 
       protected onBetLimitUpdate(evt: egret.Event) {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
+        const denominationList = env.betLimits.Live[this.getSelectedBetLimitIndex()].chips;
         if (this._betChipSet) {
           this._betChipSet.resetDenominationList(denominationList);
         }
@@ -292,7 +293,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -308,17 +309,18 @@ namespace we {
         }
       }
 
-      protected onMatchGoodRoadUpdate() {}
+      protected onMatchGoodRoadUpdate() { }
 
-      protected onTableBetInfoUpdate(evt: egret.Event) {}
+      protected onTableBetInfoUpdate(evt: egret.Event) { }
 
       // item clicked
-      protected onTouchTap(evt: egret.Event) {}
+      protected onTouchTap(evt: egret.Event) { }
 
       protected onBetDetailUpdateInBetState() {
         if (this._betDetails && this._chipLayer) {
           this._chipLayer.updateBetFields(this._betDetails);
           this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
+          this.changeBtnState(false);
         }
       }
       protected onBetDetailUpdateInFinishState() {
@@ -332,7 +334,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -365,7 +367,7 @@ namespace we {
         this._chipLayer.resetUnconfirmedBet();
       }
 
-      protected onRoadDataUpdate(evt: egret.Event) {}
+      protected onRoadDataUpdate(evt: egret.Event) { }
 
       public updateGame(isInit: boolean = false) {
         if (!this._gameData) {
@@ -464,6 +466,7 @@ namespace we {
           if (this._betDetails && this._chipLayer) {
             this._chipLayer.updateBetFields(this._betDetails);
           }
+          this.changeBtnState(false);
         }
 
         if (this._previousState !== we.core.GameState.BET) {
@@ -489,7 +492,7 @@ namespace we {
         this.updateCountdownTimer();
       }
       protected showTwoMessage() {
-        this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, '您已3局未下注，2局后踢出');
+        this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, i18n.t('expiredmessage_text'));
       }
       protected checkRoundCountWithoutBet() {
         if (this.tableInfo.totalBet > 0) {
@@ -504,30 +507,15 @@ namespace we {
             dir.evtHandler.showMessage({
               class: 'MessageDialog',
               args: [
-                // i18n.t(''),
-                '您已3局未下注，2局后踢出',
+                i18n.t('expiredmessage_text'),
                 {
-                  // dismiss: { text: i18n.t('') },
-                  dismiss: { text: 'cancelBet' },
+                  dismiss: { text: i18n.t('nav.menu.confirm') },
                 },
               ],
             });
           } else {
             this.showInGameMessage();
           }
-          // =======
-          //           dir.evtHandler.showMessage({
-          //             class: 'MessageDialog',
-          //             args: [
-          //               // i18n.t(''),
-          //               '您已3局未下注，2局后踢出',
-          //               {
-          //                 dismiss: { text: i18n.t('nav.menu.confirm') },
-          //                 // dismiss: { text: 'cancelBet' },
-          //               },
-          //             ],
-          //           });
-          // >>>>>>> develop
         }
 
         if (this._gameRoundCountWithoutBet >= 5) {
@@ -537,13 +525,11 @@ namespace we {
 
       protected showInGameMessage() {
         if (this._expiredMessage) {
-          this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, '您已3局未下注，2局后踢出');
+          this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, i18n.t('expiredmessage_text'));
           // this._message.showMessage(ui.InGameMessage.EXPIRED,i18n.t(''));
         }
       }
       protected setStateDeal(isInit: boolean = false) {
-        // console.log('this._tableId', this._tableId);
-        // console.log('env.tableinfo[this._tableid]', env.tableInfos[this._tableId]);
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
@@ -565,7 +551,7 @@ namespace we {
           }
         }
         if (this._resultDisplay) {
-          this._resultDisplay.updateResult(this._gameData);
+          this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         }
       }
 
@@ -580,6 +566,7 @@ namespace we {
           }
 
           if (this._resultMessage) {
+            console.log('no message');
             this.checkResultMessage();
           }
         }
@@ -632,7 +619,7 @@ namespace we {
 
       protected setResultRelatedComponentsEnabled(enable: boolean) {
         if (this._resultDisplay) {
-          this._resultDisplay.visible = enable;
+          this._resultDisplay.visible = this._alwaysShowResult || enable;
         }
       }
 
@@ -659,6 +646,8 @@ namespace we {
           case core.GameType.BAI:
           case core.GameType.BAS:
           case core.GameType.BAM:
+          case core.GameType.BAB:
+          case core.GameType.DTB:
           case core.GameType.DT:
             pass1 = this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin);
             pass2 = this._gameData && this._gameData.wintype != 0;
@@ -697,7 +686,7 @@ namespace we {
         this.playResultSoundEffect(totalWin);
       }
 
-      protected playResultSoundEffect(totalWin) {}
+      protected playResultSoundEffect(totalWin) { }
 
       protected onConfirmPressed(evt: egret.Event) {
         if (this._chipLayer) {
@@ -708,8 +697,6 @@ namespace we {
               this.changeBtnState(false);
               this._undoStack.clearStack();
               dir.socket.bet(this._tableId, bets, this.onBetReturned.bind(this));
-              this._doubleButton.touchEnabled = true;
-              this._doubleButton.alpha = 1;
             }
           }
         }
@@ -744,14 +731,16 @@ namespace we {
       }
 
       protected changeBtnState(isEnable: boolean = true) {
-        this._undoButton.touchEnabled = isEnable;
-        this._cancelButton.touchEnabled = isEnable;
-        this._confirmButton.touchEnabled = isEnable;
-        this._doubleButton.alpha = this._chipLayer.getTotalCfmBetAmount() ? 1 : 0.3;
-        this._doubleButton.touchEnabled = this._chipLayer.getTotalCfmBetAmount() ? true : false;
+        this._undoButton.touchChildren = this._undoButton.touchEnabled = isEnable;
+        this._cancelButton.touchChildren = this._cancelButton.touchEnabled = isEnable;
+        this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isEnable;
+        this._doubleButton.touchChildren = this._doubleButton.touchEnabled = this._chipLayer.getTotalCfmBetAmount() ? true : false;
+        this._repeatButton.touchChildren = this._repeatButton.touchEnabled = this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid;
         this._undoButton.alpha = isEnable ? 1 : 0.5;
         this._cancelButton.alpha = isEnable ? 1 : 0.5;
         this._confirmButton.alpha = isEnable ? 1 : 0.3;
+        this._repeatButton.alpha = this._repeatButton.touchEnabled ? 1 : 0.5;
+        this._doubleButton.alpha = this._doubleButton.touchEnabled ? 1 : 0.5;
         if (this._timer.bg_color) {
           this._timer.bg_color.alpha = isEnable ? 0.7 : 0;
           if (isEnable) {
@@ -774,6 +763,7 @@ namespace we {
         if (this._chipLayer) {
           this._chipLayer.onRepeatPressed();
         }
+        this.changeBtnState(true);
       }
 
       protected onDoublePressed() {

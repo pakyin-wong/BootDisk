@@ -1,0 +1,4 @@
+<e:Skin class="skin_mobile.lo.FunBetTabItemRenderer" xmlns:e="http://ns.egret.com/eui" states="up,down" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
+	<ui:RoundRectShape id="bg" width="240" height="80" fillColor="0x1b416e" visible.up="false" stroke="0" cornerTL_TR_BL_BR="40,40,40,40"/>
+	<ui:RunTimeLabel id="label" text="{data}" textColor="0xffffff" alpha.up="0.7" bold.up="false" size="42" textAlign="center" verticalCenter="0" horizontalCenter="0" height="62" verticalAlign="middle"/>
+</e:Skin>

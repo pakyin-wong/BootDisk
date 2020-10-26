@@ -86,14 +86,14 @@ namespace we {
       }
 
       protected initDenom() {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
+        const denominationList = env.betLimits.Live[this.getSelectedBetLimitIndex()].chips;
         if (this._betChipSet) {
           this._betChipSet.init(3, denominationList);
         }
       }
 
       protected initBettingTable() {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
+        const denominationList = env.betLimits.Live[this.getSelectedBetLimitIndex()].chips;
         if (this._tableLayer) {
           this._tableLayer.init();
         }
@@ -181,7 +181,7 @@ namespace we {
       }
 
       protected onBetLimitUpdate(evt: egret.Event) {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
+        const denominationList = env.betLimits.Live[this.getSelectedBetLimitIndex()].chips;
         if (this._betChipSet) {
           this._betChipSet.resetDenominationList(denominationList);
         }
@@ -191,7 +191,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         // logger.l(utils.LoggerTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -207,14 +207,14 @@ namespace we {
         }
       }
 
-      protected onMatchGoodRoadUpdate() {}
+      protected onMatchGoodRoadUpdate() { }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         // logger.l(utils.LoggerTarget.DEBUG, 'LiveBaListSimpleItem::onTableBetInfoUpdate');
       }
 
       // item clicked
-      protected onTouchTap(evt: egret.Event) {}
+      protected onTouchTap(evt: egret.Event) { }
 
       protected onBetDetailUpdateInBetState() {
         if (this._betDetails && this._chipLayer) {
@@ -259,7 +259,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -284,12 +284,13 @@ namespace we {
         }
       }
 
-      protected onRoadDataUpdate(evt: egret.Event) {}
+      protected onRoadDataUpdate(evt: egret.Event) { }
 
       public updateGame(isInit: boolean = false) {
         if (!this._gameData) {
           return;
         }
+        this.updateCountdownTimer();
         switch (this._gameData.state) {
           case core.GameState.IDLE:
             this.setStateIdle(isInit);
@@ -358,8 +359,8 @@ namespace we {
             this._undoStack.clearStack();
           }
         }
-        // update the countdownTimer
-        this.updateCountdownTimer();
+        // update the countdownTimer, updated: moved the function call to updateGame to ensure the timer is correct in every state since timer always shown
+        // this.updateCountdownTimer();
       }
 
       protected setStateDeal(isInit: boolean = false) {

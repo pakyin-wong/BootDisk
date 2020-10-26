@@ -52,7 +52,7 @@
 				<e:Label id="_sum10Percent" verticalCenter="0" right="10" size="24" text="24000" />
 			</e:Group>
 			<e:layout>
-				<e:VerticalLayout gap="2.5" />
+				<e:VerticalLayout gap="0" />
 			</e:layout>
 		</e:Group>
 		<e:Group>
@@ -105,7 +105,7 @@
 				<e:Label id="_sum18Percent" verticalCenter="0" right="10" size="24" text="800" />
 			</e:Group>
 			<e:layout>
-				<e:VerticalLayout gap="2.5" />
+				<e:VerticalLayout gap="0" />
 			</e:layout>
 		</e:Group>
 		<e:layout>

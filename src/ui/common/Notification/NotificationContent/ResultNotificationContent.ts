@@ -11,6 +11,13 @@ namespace we {
       protected _lblResult: RunTimeLabel;
       protected _ROlblResult: RunTimeLabel;
 
+      protected _lblDilnonLuckyResult: eui.Group;
+      protected _lblDilLuckyResult: eui.Group;
+      protected _lblDilResult1: eui.Label;
+      protected _lblDilResultTop: eui.Label;
+      protected _lblDilResultBottom: eui.Label;
+      protected _DLresultImage: eui.Image;
+
       protected _btnQuickBet: BaseImageButton;
       protected _btnDismiss: BaseImageButton;
       protected _touchArea2: eui.Group;
@@ -25,10 +32,12 @@ namespace we {
           this._touchArea2.touchEnabled = true;
           this._touchArea2.addEventListener(egret.TouchEvent.TOUCH_TAP, this.enterRoom, this);
         } else {
-          this._btnDismiss.addEventListener(egret.TouchEvent.TOUCH_TAP, this.removeSelf, this);
           this._btnQuickBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.quickBet, this);
           this._btnQuickBet.label.renderText = () => i18n.t('mobile_notification_quick_bet_button_label');
-          this._btnDismiss.label.renderText = () => i18n.t('mobile_notification_close_button_label');
+          if (this._btnDismiss) {
+            this._btnDismiss.addEventListener(egret.TouchEvent.TOUCH_TAP, this.removeSelf, this);
+            this._btnDismiss.label.renderText = () => i18n.t('mobile_notification_close_button_label');
+          }
         }
       }
 
@@ -39,7 +48,6 @@ namespace we {
         const tabledata = tableInfo.data;
         const gameType = tableInfo.gametype;
         const winType = tableInfo.data.wintype;
-
         this._lblName.renderText = () => `${i18n.t('gametype_' + we.core.GameType[gameType])} ${tableNo}`;
         this._lblWinAMount.text = `${winAmount >= 0 ? '+' : ''}${utils.formatNumber(winAmount)}`;
         this.updateResult(gameType, tabledata);
@@ -105,6 +113,9 @@ namespace we {
               break;
             case core.GameType.DI:
               dir.sceneCtr.goto('di', { tableid: this.tableId });
+              break;
+            case core.GameType.DIL:
+              dir.sceneCtr.goto('dil', { tableid: this.tableId });
               break;
           }
           this.removeSelf();

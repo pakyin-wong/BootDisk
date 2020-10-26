@@ -24,11 +24,18 @@ namespace we {
         stickyHeader.scroller = page.scroller;
         stickyHeader.contentPaddingTop = 71;
         stickyHeader.y = 581;
-        page.roomList.addChild(stickyHeader);
+
+        const slider = new ui.ImageSlider();
+        slider.width = 2600;
+        slider.height = 780;
+        slider.x = 0;
+        slider.y = 0;
+        slider.configSlides(dir.liveResources.liveHeroBanners);
 
         page['_tabbarBg'] = tabbarBg;
         page['_tabs'] = tabs;
         page['_stickyHeader'] = stickyHeader;
+        page['_slider'] = slider;
         page['onScroll'] = function () {
           const scrollV = this.scroller.viewport.scrollV;
           const scrollTarget = 700;
@@ -48,11 +55,15 @@ namespace we {
 
         page.scroller.addEventListener(egret.Event.CHANGE, page['onScroll'], page);
         page['_tabs'].addEventListener('CHANGE', page['onTabChanged'], page);
+        page.roomList.addChild(page['_stickyHeader']);
+        page.roomList.addChildAt(page['_slider'], 0);
       }
 
       public static destroy(page: Page) {
         page.scroller.removeEventListener(egret.Event.CHANGE, page['onScroll'], page);
         page['_tabs'].removeEventListener('CHANGE', page['onTabChanged'], page);
+        page.roomList.removeChild(page['_stickyHeader']);
+        page.roomList.removeChild(page['_slider']);
       }
     }
   }

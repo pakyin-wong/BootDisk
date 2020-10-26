@@ -88,7 +88,7 @@ namespace we {
       public setValue(tableInfo: data.TableInfo) {
         super.setValue(tableInfo);
 
-        const betLimitSet = env.betLimits[env.currentSelectedBetLimitIndex];
+        const betLimitSet = env.betLimits.Live[env.currentSelectedBetLimitIndex];
         if (betLimitSet.limits && betLimitSet.limits.dil) {
           const limits = betLimitSet.limits.dil;
           const list = [
@@ -98,16 +98,16 @@ namespace we {
             { target: this.pSixCount, value: limits.SUM_6_15.odd },
             { target: this.pSevenCount, value: limits.SUM_7_14.odd },
             { target: this.pEightCount, value: limits.SUM_8_13.odd },
-            { target: this.pNineCount, value: limits.SUM_3_18.odd },
-            { target: this.pTenCount, value: limits.SUM_4_17.odd },
-            { target: this.pElevenCount, value: limits.SUM_5_16.odd },
-            { target: this.pTwelveCount, value: limits.SUM_6_15.odd },
-            { target: this.pThirteenCount, value: limits.SUM_7_14.odd },
-            { target: this.pFourteenCount, value: limits.SUM_8_13.odd },
-            { target: this.pFifteenCount, value: limits.SUM_3_18.odd },
-            { target: this.pSixteenCount, value: limits.SUM_4_17.odd },
-            { target: this.pSeventeenCount, value: limits.SUM_5_16.odd },
-            { target: this.pEighteenCount, value: limits.SUM_6_15.odd },
+            { target: this.pNineCount, value: limits.SUM_9_12.odd },
+            { target: this.pTenCount, value: limits.SUM_10_11.odd },
+            { target: this.pElevenCount, value: limits.SUM_10_11.odd },
+            { target: this.pTwelveCount, value: limits.SUM_9_12.odd },
+            { target: this.pThirteenCount, value: limits.SUM_8_13.odd },
+            { target: this.pFourteenCount, value: limits.SUM_7_14.odd },
+            { target: this.pFifteenCount, value: limits.SUM_6_15.odd },
+            { target: this.pSixteenCount, value: limits.SUM_5_16.odd },
+            { target: this.pSeventeenCount, value: limits.SUM_4_17.odd },
+            { target: this.pEighteenCount, value: limits.SUM_3_18.odd },
             // { target: this.pNineTwelveOdd, value: limits.SUM_9_12.odd },
             // { target: this.pTenElevenOdd, value: limits.SUM_10_11.odd },
           ];

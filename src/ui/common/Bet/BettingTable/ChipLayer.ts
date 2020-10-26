@@ -34,7 +34,7 @@ namespace we {
         // dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
       }
 
-      public onTableListUpdate() {}
+      public onTableListUpdate() { }
 
       set betField(value: any) {
         this._betField = value;
@@ -101,7 +101,7 @@ namespace we {
         return this._undoStack;
       }
 
-      protected createMapping() {}
+      protected createMapping() { }
 
       protected passDenomListToBetChipStack() {
         if (!this._betChipStackMapping) {
@@ -267,7 +267,7 @@ namespace we {
         this.currentState = state;
       }
 
-      protected changeLang() {}
+      protected changeLang() { }
 
       public setTouchEnabled(enable: boolean) {
         this.touchEnabled = enable;
@@ -343,7 +343,7 @@ namespace we {
       }
 
       protected getOrderAmount() {
-        return env.betLimits[this._getSelectedBetLimitIndex()].chips[this._getSelectedChipIndex()];
+        return env.betLimits.Live[this._getSelectedBetLimitIndex()].chips[this._getSelectedChipIndex()];
       }
 
       public onBetFieldUpdateEvent(evt: egret.Event) {
@@ -547,7 +547,7 @@ namespace we {
 
       // check if the current unconfirmed betDetails are valid
       protected validateFieldAmounts(fieldAmounts: {}, betDetail: data.BetDetail = null, checkLowerLimit: boolean = false): boolean {
-        const betLimit: data.BetLimitSet = env.betLimits[this._getSelectedBetLimitIndex()];
+        const betLimit: data.BetLimitSet = env.betLimits.Live[this._getSelectedBetLimitIndex()];
 
         let exceedBetLimit = false;
         if (checkLowerLimit) {
@@ -648,7 +648,7 @@ namespace we {
         const totalUncfmAmount = this.getTotalUncfmBetAmount() + betDetail.amount;
         const balance = env.balance;
         if (balance < totalUncfmAmount) {
-          betDetail.amount += balance - totalUncfmAmount;
+          betDetail.amount += Math.floor(balance - totalUncfmAmount);
           if (betDetail.amount <= 0) {
             this.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
             return false;

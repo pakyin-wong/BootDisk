@@ -3,12 +3,16 @@ namespace we {
   export namespace lobby {
     export class DPageContentInitializer implements core.IContentInitializer {
       protected _root: any;
+
+      protected _largeBanner: eui.Group;
+      protected _smallBanner: eui.Group;
       constructor() {}
 
       public initContent(root: Page) {
         const group = new eui.Group();
         const vlayout = new eui.VerticalLayout();
-        vlayout.gap = 0;
+        vlayout.gap = 10;
+        vlayout.horizontalAlign = 'center';
         group.layout = vlayout;
 
         this._root = root;
@@ -27,93 +31,97 @@ namespace we {
 
         const gapSize = 48;
         const paddingHorizontal = 71;
-        const offsetForTableList = -gapSize * 3;
+        const offsetForTableList = 233;
 
         // init image slider
         const slider = new we.ui.ImageSlider();
         slider.width = this._root.scroller.width;
-        slider.height = 790;
-        slider.configSlides(dir.lobbyResources.homeHeroBanners);
+        slider.height = 883;
+        this._root._bannerSlider = slider;
         const sliderContainer = new eui.Group();
         sliderContainer.width = slider.width;
-        sliderContainer.height = slider.height + offsetForTableList;
+        sliderContainer.height = 762;
         sliderContainer.addChild(slider);
+
+        const bullets = new ui.ImageSliderBullet();
+        bullets.x = 75;
+        bullets.y = 730;
+        bullets.imageSlider = slider;
+        slider.bullets = bullets;
+        sliderContainer.addChild(bullets);
+
+        const dimmer = new eui.Image();
+        dimmer.source = 'd_lobby_banner_fadeout_png';
+        dimmer.touchEnabled = false;
+        dimmer.width = slider.width;
+        dimmer.height = 178;
+        dimmer.bottom = -121;
+        sliderContainer.addChild(dimmer);
         group.addChild(sliderContainer);
+
+        let title: SectionTitle = new SectionTitle();
+        group.addChild(title);
+        title.width = this._root.stage.stageWidth - 146;
+        title.height = 110;
+        title.renderText = () => i18n.t('mobile_lobby_feature_title');
 
         // init 4 featured posters
         const featuredPosterHeight = 800;
-        const posters = new eui.Group();
+        this._largeBanner = new eui.Group();
         const hlayout = new eui.HorizontalLayout();
-        hlayout.horizontalAlign = egret.HorizontalAlign.JUSTIFY;
+        hlayout.horizontalAlign = egret.HorizontalAlign.CENTER;
         hlayout.gap = gapSize;
-        posters.horizontalCenter = 0;
-        posters.layout = hlayout;
-        for (let i = 0, len = dir.lobbyResources.homeLargeBanners.length; i < len; i += 1) {
-          const { image, link } = dir.lobbyResources.homeLargeBanners[i];
-          const poster = new eui.Image();
-          poster.source = image;
-          poster.height = featuredPosterHeight;
-          poster.addEventListener(
-            egret.TouchEvent.TOUCH_TAP,
-            () => {
-              logger.l(utils.LogTarget.DEBUG, 'psoter click', i, link);
-              if (i === 0) {
-                dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
-              } else if (i === 3) {
-                dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
-              } else {
-                dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
-              }
-            },
-            this
-          );
-          posters.addChild(poster);
-        }
+        hlayout.paddingBottom = 49;
+        this._largeBanner.horizontalCenter = 0;
+        this._largeBanner.layout = hlayout;
+
         const postersContainer = new eui.Group();
         postersContainer.percentWidth = 100;
-        postersContainer.addChild(posters);
+        postersContainer.addChild(this._largeBanner);
         group.addChild(postersContainer);
 
+        title = new SectionTitle();
+        group.addChild(title);
+        title.width = this._root.stage.stageWidth - 146;
+        title.height = 110;
+        title.renderText = () => i18n.t('mobile_lobby_hot_game_title');
+
         // init 3 grids
-        const grids = new eui.Group();
+        this._smallBanner = new eui.Group();
         const tlayout = new eui.TileLayout();
         tlayout.requestedColumnCount = 3;
         tlayout.paddingTop = gapSize;
-        tlayout.paddingBottom = gapSize;
+        tlayout.paddingBottom = 49;
         tlayout.horizontalGap = gapSize;
         tlayout.verticalGap = gapSize;
-        tlayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (tlayout.requestedColumnCount - 1)) / tlayout.requestedColumnCount;
-        grids.layout = tlayout;
-        grids.horizontalCenter = 0;
-        dir.lobbyResources.homeBanners.forEach(banner => {
-          const image = new eui.Image();
-          image.source = banner.image;
-          image.height = 300;
-          // image.height = 3000;
-          image.addEventListener(
-            egret.TouchEvent.TOUCH_TAP,
-            () => {
-              logger.l(utils.LogTarget.DEBUG, 'banner click', banner.link);
-            },
-            this
-          );
-          grids.addChild(image);
-        });
+        // tlayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (tlayout.requestedColumnCount - 1)) / tlayout.requestedColumnCount;
+        tlayout.columnWidth = 786;
+        this._smallBanner.layout = tlayout;
+        this._smallBanner.horizontalCenter = 0;
+
         const gridsContainer = new eui.Group();
         gridsContainer.percentWidth = 100;
-        gridsContainer.addChild(grids);
+        gridsContainer.addChild(this._smallBanner);
         group.addChild(gridsContainer);
 
+        this.reloadBanners();
+        
         // init footer
         const footer = new eui.Group();
         footer.width = this._root.stage.stageWidth;
         footer.height = 200;
-        const label = new eui.Label();
+        // const label = new eui.Label();
+        // label.fontFamily = 'Barlow';
+        // label.textAlign = egret.HorizontalAlign.CENTER;
+        // label.verticalCenter = 0;
+        // label.horizontalCenter = 0;
+        // label.text = '© 2020 World Entertainment 保留一切權利。';
+        const label = new ui.RunTimeLabel();
         label.fontFamily = 'Barlow';
         label.textAlign = egret.HorizontalAlign.CENTER;
         label.verticalCenter = 0;
         label.horizontalCenter = 0;
-        label.text = '© 2020 World Entertainment 保留一切權利。';
+        label.renderText = () => `${i18n.t('lobby_footer_text')}`;
         footer.addChild(label);
         group.addChild(footer);
 
@@ -156,6 +164,39 @@ namespace we {
         const ratio = Math.min(1, scrollV / scrollTarget);
         const opacity = egret.Ease.quintIn(ratio);
         dir.evtHandler.dispatch(core.Event.UPDATE_NAVBAR_OPACITY, opacity);
+      }
+
+      public reloadBanners() {
+        this._largeBanner.removeChildren();
+        this._smallBanner.removeChildren();
+
+        this._root._bannerSlider.configSlides(dir.lobbyResources.homeHeroBanners);
+        
+        for (let i = 0, len = Math.min(dir.lobbyResources.homeLargeBanners.length, 4); i < len; i++) {
+          const { image, link } = dir.lobbyResources.homeLargeBanners[i];
+          const poster = new LobbyBannerItem();
+          poster.skinName = 'skin_desktop.LargeBannerSkin';
+          poster.texture = image;
+          poster.link = link;
+          this._largeBanner.addChild(poster);
+        }
+
+        dir.lobbyResources.homeBanners.forEach(banner => {
+          const { image, link, title, description } = banner;
+          const poster = new LobbyBannerItem();
+          poster.skinName = 'skin_desktop.SmallBannerSkin';
+          poster.texture = image;
+          poster.link = link;
+          poster.title = title;
+          poster.description = description;
+          this._smallBanner.addChild(poster);
+
+          // TODO: remove, this is for testing!!!!!
+          // if (!title) {
+          //   poster.title = '百家樂';
+          //   poster.description = 'The perfect game for startup';
+          // }
+        });
       }
     }
   }

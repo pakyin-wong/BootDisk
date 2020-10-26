@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.LoContinuousBetStatus" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*" width="1050">
+	<ui:RoundRectShape width="1050" height="784" fillColor="0x0f1721" strokeColor="0x214a72" y="140" cornerTL_TR_BL_BR="30,30,30,30" fillAlpha="0" stroke="3"/>
+	<ui:RoundRectShape width="1050" height="80" fillColor="0x112c4c" alpha="0.5" stroke="0" cornerTL="30" cornerTR="30" y="140"/>
+	<e:Label id="_txt_title" text="追號清單" y="5" height="89" size="60" textColor="0xc59466" verticalAlign="middle"/>
+	<e:Label id="_txt_round" text="獎期" x="138" y="140" size="40" height="80" textColor="0x2ec0cb" verticalAlign="middle" width="80" textAlign="center"/>
+	<e:Label id="_txt_rate" text="倍數" x="367" y="140" size="40" height="80" textColor="0x2ec0cb" verticalAlign="middle" width="80" textAlign="center"/>
+	<e:Label id="_txt_status" text="狀態" x="565" y="140" size="40" height="80" textColor="0x2ec0cb" verticalAlign="middle" width="80" textAlign="center"/>
+	<e:Label id="_txt_cancel" text="撤單" x="798" y="140" size="40" height="80" textColor="0x2ec0cb" verticalAlign="middle" width="160" textAlign="center"/>
+	<ui:Scroller height="704" y="220" width="1050">
+		<e:DataGroup id="_list">
+			<e:layout>
+				<e:VerticalLayout paddingBottom="37" gap="0"/>
+			</e:layout>
+		</e:DataGroup>
+	</ui:Scroller>
+	<ui:RoundRectButton id="_btn_allCancel" width="380" height="100" x="670" fillAlpha="0" strokeColor="0x5f6973" stroke="1.2" skinName="RoundRectButtonSample" labelAutoResize="false" labelSize="50" cornerTL_TR_BL_BR="50,50,50,50"/>
+</e:Skin>

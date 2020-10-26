@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.SmallBannerSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" height="706" width="1077">
+	<e:Group id="_scaleGroup" width="1077" height="531" y="265" x="538" anchorOffsetX="538" anchorOffsetY="265">
+		<e:Image id="_image" left="0" right="0" top="0" bottom="0"/>
+		<e:Rect id="_imageMask" left="0" right="0" top="0" bottom="0"/>
+		<e:Rect left="0" right="0" top="0" bottom="0" ellipseWidth="24" ellipseHeight="24" strokeColor="0x403F3F" strokeWeight="1.5" fillAlpha="0"/>
+	</e:Group>
+	<e:Label id="_lblTitle" height="71" size="48" y="552"  bold="true" verticalAlign="middle"/>
+	<e:Label id="_lblDescription" height="75" size="36" y = "631" textColor="0x979797"/>
+</e:Skin>

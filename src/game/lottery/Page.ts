@@ -1,9 +1,6 @@
 namespace we {
   export namespace lottery {
     export class Page extends core.BasePage {
-      //   private video: egret.FlvVideo;
-      //   private _gameTableList: GameTableList;
-
       public static resGroups = [core.res.Lottery];
 
       public roomIds: string[] = [];
@@ -11,8 +8,6 @@ namespace we {
       protected _scroller: ui.Scroller;
       protected _roomList: ui.TableList;
       protected _roomListRefer: eui.List;
-      protected _slider: ui.ImageSlider;
-      protected _sliderRefer: eui.Component;
 
       public constructor(data: any = null) {
         super('LotteryPage', data);
@@ -24,18 +19,15 @@ namespace we {
         env.currentTab = 'allLotteryGame';
 
         this.initRoomList();
-        this.initSlider();
         this.initExtraContent();
 
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
-        this._roomList.addChildAt(this._slider, 0);
       }
 
       protected destroy() {
         super.destroy();
         this.removeExtraContent();
         dir.evtHandler.removeEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
-        this._roomList.removeChild(this._slider);
       }
 
       protected handleTableList(event: egret.Event) {
@@ -54,6 +46,9 @@ namespace we {
 
         this._roomList.layout = this._roomListRefer.layout;
         this._roomList.itemRendererFunction = item => {
+          if(env.isMobile) {
+            return MobileLotteryListHolder;
+          }
           const tableInfo = env.tableInfos[item];
           switch (tableInfo.gametype) {
             case we.core.GameType.LO:
@@ -69,21 +64,13 @@ namespace we {
         this._roomList.setTableList(this.roomIds);
       }
 
-      protected initSlider() {
-        this._slider = new ui.ImageSlider();
-        this._slider.height = this._sliderRefer.height;
-        this._slider.width = this._sliderRefer.width;
-        this._slider.x = this._sliderRefer.x;
-        this._slider.y = this._sliderRefer.y;
-        this._slider.configSlides(dir.liveResources.liveHeroBanners);
-      }
-
       protected initExtraContent() {
         if (env.isMobile) {
+          MExtraContent.mount(this);
           if (env.orientation === egret.OrientationMode.PORTRAIT) {
-            //
+            MPExtraContent.mount(this);
           } else {
-            //
+            MLExtraContent.mount(this);
           }
         } else {
           DExtraContent.mount(this);
@@ -92,10 +79,11 @@ namespace we {
 
       protected removeExtraContent() {
         if (env.isMobile) {
+          MExtraContent.destroy(this);
           if (env.orientation === egret.OrientationMode.PORTRAIT) {
-            //
+            MPExtraContent.destroy(this);
           } else {
-            //
+            MLExtraContent.destroy(this);
           }
         } else {
           DExtraContent.destroy(this);

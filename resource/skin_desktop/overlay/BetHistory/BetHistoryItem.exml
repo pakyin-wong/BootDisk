@@ -21,7 +21,7 @@
 		<e:Label id="_txt_record_remark" text="Label" x="1501" y="0" width="66" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
 
 
-		<e:Label id="_txt_record_finbalance" text="Label" x="1676" y="0" width="88" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<ui:ClampWidthLabel id="_txt_record_finbalance" text="Label" x="1676" y="0" width="120" targetWidth="120" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
 		<e:Image x="1976" width="30" height="30" source="d_lobby_button_next_hover_png" y="23" visible.down="false"/>
 		<e:Image width="16" height="10" x="1983" y="33" source="d_lobby_btn_dropdown_png" visible.up="false"/>
 	</e:Group>
@@ -31,9 +31,9 @@
 
 	<e:Group x="48" y="0" scaleX="1" scaleY="1" scaleX.up="0" scaleY.up="0" visible.up="false">
 		<e:Rect width="2040" height="1" x="0"  fillColor="0x353535" y="76"/>
-		<e:Label id="_txt_round" text="Label" size="20" verticalAlign="middle" height="66" width="104" y="79" />
-		<e:Label id="_txt_bettype" text="Label" size="20" verticalAlign="middle" height="66" width="104" y="145"  />
-		<e:Label id="_txt_result" text="Label" size="20" verticalAlign="middle" height="66" width="104" y="211" />
+		<ui:RunTimeLabel id="_txt_round" text="Label" size="20" verticalAlign="middle" height="66" width="104" y="79" targetWidth="104"/>
+		<ui:RunTimeLabel id="_txt_bettype" text="Label" size="20" verticalAlign="middle" height="66" width="104" y="145"  targetWidth="104"/>
+		<ui:RunTimeLabel id="_txt_result" text="Label" size="20" verticalAlign="middle" height="66" width="104" y="211" targetWidth="104"/>
 		<e:Label id="_txt_record_round" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y="79"/>
 		<e:Label id="_txt_record_bettype" text="Label"  height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y="145"/>
 		<e:Label id="_txt_record_orgbalance" text="Label"  height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" visible="false"/>

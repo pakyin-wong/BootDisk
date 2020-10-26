@@ -12,12 +12,14 @@ namespace we {
       gametype_BAS: '競速百家樂',
       gametype_BAI: '保險百家樂',
       gametype_BAM: '咪牌百家樂',
+      gametype_BAB: '區塊鏈百家樂',
       gametype_DI: '骰寶',
       gametype_DIL: '財神骰寶',
       gametype_MJ: '麻將',
       gametype_RO: '輪盤',
       gametype_ROL: '財神輪盤',
       gametype_DT: '龍虎',
+      gametype_DTB: '區塊鏈龍虎',
       gametype_LW: '幸運輪',
       gametype_LO: '時時彩',
       gametype_RC: '北京賽車',
@@ -25,6 +27,8 @@ namespace we {
       sidegamelist_title: '遊戲列表',
       sidegamelist_tab_bet: '已下注',
       sidegamelist_tab_goodroad: '好路',
+
+      lobby_footer_text: 'Copyright © 2020 World Entertainment 保留一切權利。',
 
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '閒',
@@ -71,6 +75,7 @@ namespace we {
       overlaypanel_customroad_selectall: '全選',
 
       overlaypanel_bethistory_title: '遊戲記錄',
+      overlaypanel_bethistory_tab: '分類',
       overlaypanel_bethistory_tab_all: '遊戲總覽',
       overlaypanel_bethistory_tab_live: '真人遊戲',
       overlaypanel_bethistory_tab_lottery: '彩票遊戲',
@@ -80,7 +85,7 @@ namespace we {
       overlaypanel_bethistory_yesterday: '昨天',
       overlaypanel_bethistory_week: '本週',
       overlaypanel_bethistory_customperiod: '自訂',
-      overlaypanel_bethistory_searchrecord: '請輸入投注編號',
+      overlaypanel_bethistory_searchrecord: '搜索紀錄',
       overlaypanel_bethistory_recordtab_title: '記錄詳情',
       overlaypanel_bethistory_recordtab_id: '投注編號',
       overlaypanel_bethistory_recordtab_date: '日期時間',
@@ -94,7 +99,8 @@ namespace we {
       overlaypanel_bethistory_recordtab_orgbalance: '開局餘額',
       overlaypanel_bethistory_recordtab_finbalance: '本局餘額',
       overlaypanel_bethistory_recordtab_resuit: '遊戲結果',
-      overlaypanel_bethistory_recordtab_noresult: '沒有相關結果',
+      overlaypanel_bethistory_recordtab_vaildbet: '有效投注',
+      overlaypanel_bethistory_recordtab_noresult: '沒有遊戲紀錄',
       overlaypanel_bethistory_remark_win: '嬴',
       overlaypanel_bethistory_remark_lose: '輸',
       overlaypanel_bethistory_remark_ties: '和',
@@ -132,6 +138,7 @@ namespace we {
 
       overlaypanel_bethistorylottery_popup_titme: '追號詳情',
 
+      overlaypanel_bethistorylottery_continuousbet_listtite: '追號清單',
       overlaypanel_bethistorylottery_continuousbet_round: '獎期',
       overlaypanel_bethistorylottery_continuousbet_rate: '倍數',
       overlaypanel_bethistorylottery_continuousbet_status: '狀態',
@@ -160,6 +167,10 @@ namespace we {
       overlaypanel_gameSet_autoBet: '自動確認投注',
       overlaypanel_gameSet_sendLiveVerfication: '發送現場驗證',
 
+      expiredmessage_text: '您已3局未下注，2局後踢出',
+
+      // customerservicehotlinenumber_text: '客服熱線號碼更新為＋63 9250898888',
+
       datePicker_clean: '清除',
       datePicker_confirm: '確定',
       datePicker_weekday_0: '日',
@@ -170,7 +181,8 @@ namespace we {
       datePicker_weekday_5: '五',
       datePicker_weekday_6: '六',
 
-      mobile_lobby_feature_title: '熱門遊戲',
+      mobile_lobby_feature_title: '精選推介',
+      mobile_lobby_hot_game_title: '熱門推介',
       mobile_ba_undo: '復原',
       mobile_ba_clear: '清除',
       mobile_ba_double: '雙倍',
@@ -363,6 +375,7 @@ namespace we {
         rounds: '局',
       },
       luckywheel: {
+        pool: '即時彩池',
         east: '東',
         south: '南',
         west: '西',
@@ -377,7 +390,8 @@ namespace we {
         tie: '和',
         playerPair: '閒對',
         bankerPair: '庄對',
-        gameRecord: '遊戲記錄',
+        gameRecord: '歷史記錄',
+        gameRecordlandscape: '歷史記錄 \n/ 即時彩池',
       },
       dice: {
         recent: '最近',
@@ -437,9 +451,11 @@ namespace we {
         row_1: '第一行',
         row_2: '第二行',
         row_3: '第三行',
+        dozen: '12注',
         dozen_1_12: '第一組',
         dozen_13_24: '第二組',
         dozen_25_36: '第三組',
+        corner: '角注',
         small: '1-18',
         big: '19-36',
         odd: '單',
@@ -478,6 +494,7 @@ namespace we {
         orphelins: '輪上孤注',
         voisins: '零旁注上角',
         zero: '輪上零旁',
+        to: '至',
         betGroup: {
           color: '紅 / 黑',
           oddeven: '單 / 雙',
@@ -522,8 +539,8 @@ namespace we {
         statisticChart: {
           bankerPlayerTie: '庄閒和比例(100局)',
           bankerPlayerTiePair: '庄閒和对比例 (100局)',
-          shoeBankerPlayerTie: '庄閒和比例(本靴)',
-          shoeBankerPlayerTiePair: '庄閒和對比例(本靴)',
+          shoeBankerPlayerTie: '庄閒和比例 (本靴)',
+          shoeBankerPlayerTiePair: '庄閒和對比例 (本靴)',
         },
         playerPair: '閒對',
         bankerPair: '庄對',
@@ -567,6 +584,23 @@ namespace we {
         rounds: '局',
         playersqueeze: '咪牌中',
         allOpen: '全開',
+        fullShoe: '完整牌靴',
+        mechanismHelp: '機制說明',
+        mechanismHelp1: '遊戲以電子模式發牌，每局遊戲模擬完整牌靴由八副牌組成，每張牌均擁有一個「卡牌序號」。',
+        mechanismHelp2: '「卡牌序號」以SHA-256技術加密生成「卡牌加密文」，並提前公佈。',
+        mechanismHelp3: '開牌後，顯示及驗證「卡牌序號」和「卡牌加密文」以示公正。',
+        mechanismHelp4: '玩家可複制「卡牌序號」，並點擊「第三方驗證」鍵跳轉至第三方平台，驗證相關「卡牌加密文」。',
+        verification: '驗證',
+        thirdParty: '第三方驗證',
+        sha256VerifySuccess: 'SHA256已驗證',
+        sha256VerifyFail: 'SHA256驗證失敗',
+        deckDesc:
+          '完整牌靴共由8副撲克牌組成，合計416張。首局開始前，系統會在完整牌靴中隨機插入紅牌，發牌至紅卡時，代表該局遊戲結束後將進行換靴。洗牌後，將重新生成「卡牌序號」及「卡牌加密文」，確保遊戲的真確性。',
+        copy: '複製',
+        encryptedKey: '提前公佈卡牌加密文',
+        decryptedKey: '卡牌加密文',
+        ssn: '卡牌序號',
+        lastRound: '上局結果',
       },
       message: {
         test: '你贏左 $1，$2% 會比左我',
@@ -616,6 +650,10 @@ namespace we {
       lo_fun_round: '期',
       lo_fun_drawingRound: '期開獎中',
       lo_fun_lastRound: '上期開期號碼',
+
+      lo_fun_mobile_bettrigger: '遊戲投注',
+      lo_fun_mobile_drawing: '開獎中',
+      lo_fun_mobile_last: '上期結果',
 
       lo_fun_overlay_title: '投票確認',
       lo_fun_overlay_table: '彩種名稱',

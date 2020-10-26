@@ -206,6 +206,7 @@ namespace we {
       public update() {
         if (this.tableInfo) {
           if (this.tableInfo.gamestatistic) {
+            console.log('dt :: this.tableInfo.gamestatistic', console.log('dt :: this.tableInfo.gamestatistic', this.tableInfo.gamestatistic));
             if (this.tableInfo.gamestatistic.bankerCount) {
               this.bankerCountLabel.text = this.tableInfo.gamestatistic.bankerCount.toString();
             }
@@ -213,16 +214,19 @@ namespace we {
               this.playerCountLabel.text = this.tableInfo.gamestatistic.playerCount.toString();
             }
             if (this.tableInfo.gamestatistic.tieCount) {
-              this.tieCountLabel.text = this.tableInfo.gamestatistic.tieCount.toString();
+              if (this.tieCountLabel) {
+                this.tieCountLabel.text = this.tableInfo.gamestatistic.tieCount.toString();
+              }
             }
-            if (this.tableInfo.gamestatistic.bankerPairCount) {
-              this.bankerPairCountLabel.text = this.tableInfo.gamestatistic.bankerPairCount.toString();
-            }
-            if (this.tableInfo.gamestatistic.playerPairCount) {
-              this.playerPairCountLabel.text = this.tableInfo.gamestatistic.playerPairCount.toString();
-            }
+            // if (this.tableInfo.gamestatistic.bankerPairCount) {
+            //   this.bankerPairCountLabel.text = this.tableInfo.gamestatistic.bankerPairCount.toString();
+            // }
+            // if (this.tableInfo.gamestatistic.playerPairCount) {
+            //   this.playerPairCountLabel.text = this.tableInfo.gamestatistic.playerPairCount.toString();
+            // }
             if (this.tableInfo.gamestatistic.totalCount) {
               this.totalCount = this.tableInfo.gamestatistic.totalCount;
+              this.totalCountLabel.text = this.tableInfo.gamestatistic.totalCount.toString();
             }
           }
         }

@@ -1,35 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.LobbyPage" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:lobby="we.lobby.*" xmlns:w="http://ns.egret.com/wing">
-	<e:Scroller left="0" right="0" top="0" bottom="0" scrollPolicyH="off">
+		<e:Rect right="0" left="0" top="0" bottom="0" fillColor="0x121212"/>
+	<e:Scroller id="scroller" left="0" right="0" top="0" bottom="0" scrollPolicyH="off">
 		<e:Group id="_viewport">
 
 			<e:Group x="0" y="0">
 				<ui:ImageSlider id="_bannerSlider" height="1242" width="1242" horizontalCenter="0"/>
-				<e:Group id="_posterContainer" y="1186" horizontalCenter="0">
+				<e:Image width="1242" height="160" source="m_lobby_banner_fadeout_png" y="1082"/>
+
+				<ui:ImageSliderBullet id="_sliderBullet" bulletGap="20"  horizontalCenter="0" y="1131"/>
+				<e:Group id="_title_featuregame" y="1222" horizontalCenter="0">
+					<e:Image source="m_lobby_title_left_png" width="234" height="79"/>
+					<ui:RunTimeLabel id="_txt_featuregame" text="熱門推介" i18n="mobile_lobby_feature_title" horizontalCenter="0" size="64" height="110" verticalAlign="middle"/>
+					<e:Image source="m_lobby_title_right_png" width="234" height="79"/>
 					<e:layout>
-					<e:TileLayout horizontalAlign="center" requestedColumnCount="2" paddingTop="24" columnWidth="549" rowHeight="760" horizontalGap="47" paddingBottom="0" verticalGap="47"/>
+						<e:HorizontalLayout horizontalAlign="center" gap="46" verticalAlign="middle" paddingLeft="51" paddingRight="51"/>
+					</e:layout>
+				</e:Group>
+
+				<e:Group id="_posterContainer" y="1410" horizontalCenter="0">
+					<e:layout>
+					<e:TileLayout horizontalAlign="center" requestedColumnCount="2" paddingTop="24" columnWidth="496" rowHeight="689" horizontalGap="47" paddingBottom="73" verticalGap="47"/>
 					</e:layout>
 				</e:Group>
 			</e:Group>
 			<e:Group id="_title_hotgame" x="1027" y="1524" width="1145">
-				<e:Rect height="1" x="263" y="54" fillColor="0xffffff" width="100%"/>
-				<ui:RunTimeLabel id="_txt_hotgame" text="熱門遊戲" horizontalCenter="0" size="60" height="89" verticalAlign="middle"/>
-				<e:Rect width="100%" height="1" x="1075" y="69" fillColor="0xffffff"/>
+				<e:Image width="234" height="79" source="m_lobby_title_left_png"/>
+				<ui:RunTimeLabel id="_txt_hotgame" text="熱門遊戲" i18n="mobile_lobby_hot_game_title" horizontalCenter="0" size="64" height="110" verticalAlign="middle"/>
+				<e:Image width="234" height="79" source="m_lobby_title_right_png"/>
 				<e:layout>
 					<e:HorizontalLayout horizontalAlign="center" gap="34" verticalAlign="middle" paddingLeft="44" paddingRight="44"/>
 				</e:layout>
 			</e:Group>
 			<e:Group id="_hotgameContainer" x="864" y="1491">
 				<e:layout>
-					<e:TileLayout horizontalGap="47" verticalGap="47" orientation="rows" requestedColumnCount="1" columnWidth="1145"/>
+					<e:TileLayout horizontalGap="71" verticalGap="71" orientation="rows" requestedColumnCount="1" columnWidth="1077"/>
 				</e:layout>
 			</e:Group>
 			<e:Group id="_footer" x="776" y="1697">
-				<ui:RunTimeLabel id="_txt_copyright" text="© 2020 World Entertainment 保留一切權利。" scaleX="1" scaleY="1" size="40"/>
+				<ui:RunTimeLabel id="_txt_copyright" textKey="lobby_footer_text" scaleX="1" scaleY="1" size="40"/>
 			</e:Group>
 			<e:layout>
-				<e:VerticalLayout horizontalAlign="center" gap="47"/>
+				<e:VerticalLayout horizontalAlign="center" gap="66"/>
 			</e:layout>
 		</e:Group>
 	</e:Scroller>

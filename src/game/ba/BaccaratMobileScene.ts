@@ -79,10 +79,6 @@ namespace we {
             (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
           }
         }
-        if (this._resultDisplay && env.orientation === 'portrait') {
-          egret.Tween.removeTweens(this._resultDisplay);
-          egret.Tween.get(this._resultDisplay).to({ y: 232, alpha: 0 }, 10);
-        }
       }
 
       protected setStateDeal(isInit: boolean) {
@@ -90,12 +86,6 @@ namespace we {
         if (env.orientation === 'landscape') {
           egret.Tween.get(this._tableLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
           egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
-        }
-        if (this._resultDisplay && env.orientation === 'portrait') {
-          egret.Tween.removeTweens(this._resultDisplay);
-          egret.Tween.get(this._resultDisplay).to({ y: 40, alpha: 1 }, 400);
-          //   egret.Tween.get(this._betRelatedGroup)
-          // .to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
         }
       }
 
@@ -118,6 +108,22 @@ namespace we {
 
         this._switchBaMode.enabled = enable;
       }
+      protected setResultRelatedComponentsEnabled(enable: boolean) {
+        super.setResultRelatedComponentsEnabled(enable);
+        if (this._resultDisplay && env.orientation === 'portrait') {
+          this.showResultDisplay(enable);
+        }
+      }
+
+      protected showResultDisplay(isShow: boolean) {
+        egret.Tween.removeTweens(this._resultDisplay);
+        if (isShow) {
+          egret.Tween.get(this._resultDisplay).to({ y: 40, alpha: 1 }, 400);
+        } else {
+          egret.Tween.get(this._resultDisplay).to({ y: 232, alpha: 0 }, 10);
+        }
+      }
+
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();

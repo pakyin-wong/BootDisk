@@ -4,7 +4,7 @@
 	<w:Config id="16dcf084172"></w:Config>
 	<ui:RadialProgressIndicator id="progressIndicator" anchorOffsetX="0" anchorOffsetY="0" left="0" top="0" bottom="0"
 	                            right="0" thickness="6" touchEnabled="false" touchChildren="false" />
-	<e:Group width="62" x="25" y="25" rotation.vertical="270" y.vertical="89">
+	<e:Group width="62" x="25" y="32" rotation.vertical="270" y.vertical="89">
 		<e:Label id="countdownLabel" text="0" verticalCenter="0" horizontalCenter="0" textAlign="center"
 		         verticalAlign="middle" size="54" bold="true" rotation="0" 
 		         fontFamily="Barlow" />

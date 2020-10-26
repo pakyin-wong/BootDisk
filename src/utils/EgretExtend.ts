@@ -148,5 +148,17 @@ namespace we {
         canvas.height = stageHeight * canvasScaleY;
       }
     };
+
+    egret.MovieClipData.prototype.getTextureByFrame = function (frame) {
+      const frameData = this.getKeyFrameData(frame);
+      if (this.spriteSheet == null) {
+        const outputTexture = RES.getRes(frameData.res);
+        return outputTexture;
+      } else if (frameData.res) {
+        const outputTexture = this.getTextureByResName(frameData.res);
+        return outputTexture;
+      }
+      return null;
+    };
   }
 }

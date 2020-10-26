@@ -111,8 +111,8 @@
 	<e:Group id="_betSet" y="122" left="0" right="0" touchThrough="true" left.left_hand_mode="3" right.left_hand_mode="-3"
 	         left.right_hand_mode="16" right.right_hand_mode="0" y.left_hand_mode="267.45" y.right_hand_mode="267.45">
 		<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="150" height="150" skinName="skin_mobile.BetChipSkin"
-		                           labelSize="48" right.right_hand_mode="0" top.right_hand_mode="30" top.left_hand_mode="30"
-		                           left.left_hand_mode="0" />
+		                           labelSize="48" right.right_hand_mode="-20" top.right_hand_mode="30" top.left_hand_mode="30"
+		                           left.left_hand_mode="20" />
 		<e:Group id="_betChipSetPanel" width="888" height="871" horizontalCenter="0">
 			<e:Group x="0" y="0" scaleX.left_hand_mode="-1" x.left_hand_mode="888">
 				<e:Image id="_panel" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1" scaleX="1"

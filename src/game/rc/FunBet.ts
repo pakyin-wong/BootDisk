@@ -17,7 +17,7 @@ namespace we {
       public static betDetails = FunBet.createBetDetails();
 
       public static add(betInfo) {
-        const betLimit = env.betLimits[env.currentSelectedBetLimitIndex];
+        const betLimit = env.betLimits.Lottery[env.currentSelectedBetLimitIndex];
         let rBet = 0;
 
         if (FunBet.totalBet + FunBet.bet > env.balance) {
@@ -66,7 +66,7 @@ namespace we {
       }
 
       public static checkAllAvailable() {
-        const betLimit = env.betLimits[env.currentSelectedBetLimitIndex];
+        const betLimit = env.betLimits.Lottery[env.currentSelectedBetLimitIndex];
 
         if (FunBet.totalBet > env.balance) {
           FunBet.evtHandler.dispatchEvent(new egret.Event('LOTTERY_FUNBET_OVERBALANCE'));
@@ -104,7 +104,7 @@ namespace we {
       }
 
       public static getBetRate(type: string, group: string, field: string): string {
-        console.log('lo', env.betLimits);
+        console.log('lo', env.betLimits.Lottery);
 
         return '1.8';
       }

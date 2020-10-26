@@ -16,7 +16,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.10.3';
+      public version: string = '0.11.1';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -73,12 +73,13 @@ namespace we {
       // public soundEffect = 1;
       public videoOpen: boolean = true;
 
-      public betLimits: data.BetLimitSet[];
+      public betLimits: data.BetLimit;
       // public wholeDenomList: (value: number) => number;
       public goodRoadData: data.GoodRoadMapData;
       public playerLotteryStat: any;
       public isMobile: boolean = false;
       public orientation: string = egret.OrientationMode.LANDSCAPE;
+      public orientationManager: we.utils.OrientationManager;
       public leftHandMode: boolean = false;
 
       public showGoodRoadHint: boolean = false;
@@ -144,6 +145,8 @@ namespace we {
           core.GameType.BAI,
           core.GameType.BAS,
           core.GameType.BAM,
+          core.GameType.BAB,
+          core.GameType.DTB,
           core.GameType.DI,
           core.GameType.DIL,
           core.GameType.DT,
@@ -270,7 +273,7 @@ namespace we {
         }
         const denomMap = { [100]: 0 };
         let chipIndex = 1;
-        env.betLimits.map(limit => {
+        env.betLimits.Live.map(limit => {
           limit.chips.map(chipValue => {
             if (!denomMap[chipValue]) {
               if (this.chipImageLimit > chipIndex) {
@@ -303,8 +306,14 @@ namespace we {
           case core.GameType.BAM:
             dir.sceneCtr.goto('bam', { tableid: tableId });
             break;
+          case core.GameType.BAB:
+            dir.sceneCtr.goto('bab', { tableid: tableId });
+            break;
           case core.GameType.DT:
             dir.sceneCtr.goto('dt', { tableid: tableId });
+            break;
+          case core.GameType.DTB:
+            dir.sceneCtr.goto('dtb', { tableid: tableId });
             break;
           case core.GameType.RO:
             dir.sceneCtr.goto('ro', { tableid: tableId });
@@ -328,7 +337,7 @@ namespace we {
             dir.sceneCtr.goto('rc', { tableid: tableId });
             break;
           default:
-            logger.e(utils.LogTarget.DEBUG, `Scene for GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
+            logger.e(utils.LogTarget.DEBUG, ` GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
             this._currTableId = '';
             break;
         }
@@ -369,6 +378,9 @@ namespace we {
         const list = Object.keys(env._nicknames[langcode]); // [namekey001,namekey002...]
         for (const item of list) {
           const _item = env._nicknames[langcode][item]['group'];
+          if (!env._groups[_item]) {
+            continue;
+          }
           env._groups[_item].push(item);
         }
       }

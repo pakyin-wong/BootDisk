@@ -1,6 +1,6 @@
 namespace we {
   export namespace utils {
-    function zeroPad(num, places) {
+    export function zeroPad(num, places) {
       let val = parseInt(num, 10);
       const sign = utils.sign(val);
       val *= sign;
@@ -93,8 +93,10 @@ namespace we {
         case we.core.GameType.BAS:
         case we.core.GameType.BAI:
         case we.core.GameType.BAM:
+        case we.core.GameType.BAB:
           return `winType.ba${shortStr}.${ba.WinType[winType]}`;
         case we.core.GameType.DT:
+        case we.core.GameType.DTB:
           return `winType.dt${shortStr}.${dt.WinType[winType]}`;
         case we.core.GameType.RO:
         case we.core.GameType.ROL:
@@ -110,12 +112,15 @@ namespace we {
         case core.GameType.BAI:
         case core.GameType.BAS:
         case core.GameType.BAM:
+        case core.GameType.BAB:
           return 'ba';
         case core.GameType.DT:
+        case core.GameType.DTB:
           return 'dt';
         case core.GameType.RO:
-        case core.GameType.ROL:
           return 'ro';
+        case core.GameType.ROL:
+          return 'rol';
         case core.GameType.DI:
           return 'di';
         case core.GameType.DIL:
