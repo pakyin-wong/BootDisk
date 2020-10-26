@@ -18,6 +18,8 @@ namespace we {
         protected _txt_remark: eui.Label;
         protected _txt_betamount:eui.Label;
 
+        protected _source: null;
+
         protected mount() {
           this.hideOnStart = true;
           this.dismissOnClickOutside = true;
@@ -53,8 +55,13 @@ namespace we {
           dir.socket.getLotteryBetDetail(this._id, this.updateDetail, this);
         }
 
-        protected updateDetail(e) {
+        public updateDetail(e) {
+          this._source = e;
           this._arrcol.replaceAll([e.data.value]);
+        }
+
+        public get source() {
+          return this._source;
         }
       }
     }

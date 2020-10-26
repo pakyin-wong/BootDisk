@@ -67,13 +67,19 @@ namespace we {
         // */
       }
 
-      protected onOrientationChange() {
+      protected async onOrientationChange() {
         this.clearOrientationDependentComponent();
         this.updateSkin(this._skinKey, true);
-        // need await ui complete?? by simon 4/23
+        // await utils.wait(this, 'mounted'); 
         this.initOrientationDependentComponent();
         this.arrangeComponents();
       }
+
+      // public dispatchEvent(event: egret.Event): boolean {
+      //   console.log(event.type);
+      //   return super.dispatchEvent(event);
+      // }
+
 
       // init those components which are not generated from the skin
       protected initComponents() {

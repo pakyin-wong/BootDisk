@@ -68,7 +68,7 @@ namespace we {
         this._Scene.data = { page, tab };
       }
 
-      protected onOrientationChange() {}
+      protected async onOrientationChange() {}
 
       public async onFadeEnter() {}
 

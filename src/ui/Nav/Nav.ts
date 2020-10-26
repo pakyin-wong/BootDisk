@@ -234,7 +234,7 @@ namespace we {
         dir.meterCtr.drop('balance', this._balanceGame);
       }
 
-      protected onOrientationChange() {
+      protected async onOrientationChange() {
         // dir.layerCtr.overlay.removeChild(this._sideGameList);
         // dir.layerCtr.overlay.removeChild(this._navMobileSilder);
         // dir.layerCtr.overlay.removeChild(this._overlay);

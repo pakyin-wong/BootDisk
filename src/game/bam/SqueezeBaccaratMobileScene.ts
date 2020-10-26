@@ -42,7 +42,7 @@ namespace we {
         this._skinKey = 'SqueezeBaccaratScene';
       }
 
-      protected onOrientationChange() {
+      protected async onOrientationChange() {
         this._cardHolderData = this._resultDisplay.exportData();
         if (this.tutorial) {
           env.isFirstTimeBam = false;
