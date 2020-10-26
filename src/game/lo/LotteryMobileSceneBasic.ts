@@ -16,6 +16,8 @@ namespace we {
       protected _targetTime;
       protected _counterInterval;
 
+      protected _bottomGamePanel: ui.MobileBottomCommonPanel;
+
       constructor(data: any) {
         super(data);
         this._tableId = data.tableid;
