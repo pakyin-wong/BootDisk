@@ -25,6 +25,33 @@ namespace we {
       protected _tigerCardInfo: eui.Group;
       protected _infoArray: number[];
 
+      protected _dragonAnimGroup: eui.Group;
+      protected _tigerAnimGroup: eui.Group;
+      protected _dragonAnim: dragonBones.EgretArmatureDisplay;
+      protected _tigerAnim: dragonBones.EgretArmatureDisplay;
+
+      protected mount(){
+        super.mount();
+        this._dragonAnim = this.createDragonTigerAnim('dragon',0.8)
+        this._tigerAnim = this.createDragonTigerAnim('tiger',0.8)
+        this._dragonAnimGroup.addChild(this._dragonAnim);
+        this._tigerAnimGroup.addChild(this._tigerAnim);
+        this._dragonAnim.animation.play('loop',0)
+        this._tigerAnim.animation.play('loop',0)
+      }
+
+      protected createDragonTigerAnim(skeletonName: string, scale: number){
+        const skeletonData = RES.getRes(`${skeletonName}_ske_json`);
+        const textureData = RES.getRes(`${skeletonName}_tex_json`);
+        const texture = RES.getRes(`${skeletonName}_tex_png`);
+        const factory = new dragonBones.EgretFactory();
+        factory.parseDragonBonesData(skeletonData);
+        factory.parseTextureAtlasData(textureData, texture);
+        const anim = factory.buildArmatureDisplay(skeletonName);
+        anim.scaleX = anim.scaleY = scale
+        return anim
+      }
+
       protected createChildren() {
         super.createChildren();
         this.skinName = utils.getSkinByClassname('dtb.CardHolderSkin');
@@ -74,26 +101,30 @@ namespace we {
       }
 
       protected async betInitState(currentIndexOffsetToFirstCard = -1) {
-        const cardAnimName = ['_dragonCard', '_tigerCard'];
         console.log('betInitState() begin');
-        for (let i = 0; i < cardAnimName.length; i++) {
-          const cardAnim = <dragonBones.EgretArmatureDisplay>this[cardAnimName[i]];
-          this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex - currentIndexOffsetToFirstCard + i)
-          cardAnim.animation.gotoAndStopByTime('vertical_loop_back', 0);
-        }
+
+        this.setLabel(this._dragonCard.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + 2)
+        this._dragonCard.animation.gotoAndStopByTime('vertical_loop_back', 0);
+
+        this.setLabel(this._tigerCard.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + 3)
+        this._tigerCard.animation.gotoAndStopByTime('vertical_loop_back', 0);
+
         console.log('betInitState() end');
         return new Promise(resolve => resolve());
       }
 
       protected getCurrentIndexOffsetToFirstCard() {
-        const cardDataNames = ['d', 't'];
-        let total = 0;
-        for (let i = cardDataNames.length - 1; i >= 0; i--) {
-          if (this._gameData[cardDataNames[i]]) {
-            total++;
-          }
+        if(!this._gameData.d){
+          return 0;
         }
-        return total;
+        if(this._gameData.d === 'remove'){
+          return 1;
+        }
+        if(!this._gameData.t){
+          return 2;
+        }
+        
+        return 3;
       }
 
       protected getCurrentDIndex() {
@@ -159,8 +190,6 @@ namespace we {
           this._dragonCard.animation.play(`vertical_flip`, 1);
           await p4
           this.updateDragonSum();
-          return new Promise(resolve => resolve());
-
         }
 
         if (this._gameData.t) {
@@ -168,10 +197,9 @@ namespace we {
           this.setCardFrontFace(this._tigerCard, 't', 'vertical', 0)
           this.setLabel(this._tigerCard.armature.getSlot(`card_number_vertical`), this.getCurrentTIndex())
           const p5 = utils.waitDragonBone(this._tigerCard)
-          this._dragonCard.animation.play(`vertical_flip`, 1);
+          this._tigerCard.animation.play(`vertical_flip`, 1);
           await p5
           this.updateTigerSum();
-          return new Promise(resolve => resolve());
         }
 
         return new Promise(resolve => resolve());
@@ -182,7 +210,7 @@ namespace we {
 
         (async () => {
           const currentIndexOffsetToFirstCard = this.getCurrentIndexOffsetToFirstCard();
-          if (this._gameData.redcardindex <= this._gameData.currentcardindex + 6 - currentIndexOffsetToFirstCard) {
+          if (this._gameData.redcardindex <= this._gameData.currentcardindex + 3 - currentIndexOffsetToFirstCard) {
             this.getRedCardAnim().animation.gotoAndStopByTime('red_poker_loop', 0)
           }
 
@@ -202,6 +230,9 @@ namespace we {
       }
 
       protected async distributeCards() {
+        this._dragonAnim.animation.play('loop',0)
+        this._tigerAnim.animation.play('loop',0)
+
         const p1 = we.utils.waitDragonBone(this._ringAnim);
         this._ringAnim.animation.fadeIn('round_in', 0, 1, 0, 'ROUND_ANIMATION_GROUP')
         await p1
@@ -214,15 +245,30 @@ namespace we {
 
         this._ringAnim.animation.fadeIn('poker_round_loop', 0, 0, 0, 'POKER_ROUND_ANIMATION_GROUP');
 
+        await (async () => {
+          this.setLabel(this._ringAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + 1);
+
+          const p1 = we.utils.waitDragonBone(this._ringAnim);
+          this._ringAnim.animation.fadeIn('poker_in', 0, 1, 0, 'POKER_ANIMATION_GROUP');
+          await p1;
+
+          const p2 = we.utils.waitDragonBone(this._ringAnim);
+          this._ringAnim.animation.fadeIn('poker_out', 0, 1, 0, 'POKER_ANIMATION_GROUP');
+          await p2;
+
+          return new Promise(resolve => resolve())
+        })();
+
+
         const cardAnimNames = ['_dragonCard', '_tigerCard'];
         for (let i = 0; i < cardAnimNames.length; i++) {
           switch (cardAnimNames[i]) {
             case '_dragonCard':
             case '_tigerCard':
-              this.setLabel(this._ringAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + i + 1);
+              this.setLabel(this._ringAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + i + 2);
 
               const cardAnim = <dragonBones.EgretArmatureDisplay>this[cardAnimNames[i]];
-              this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + i + 1)
+              this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + i + 2)
 
               const block1 = (async () => {
                 const p1 = we.utils.waitDragonBone(cardAnim);
@@ -301,7 +347,7 @@ namespace we {
       protected updateCardInfoButtons() {
         if (this._gameData.state === core.GameState.BET) {
           this._infoArray = new Array();
-          for (let i = 0; i < 6; i++) {
+          for (let i = 0; i < 2; i++) {
             this._infoArray.push(this._gameData.currentcardindex + 1 + i);
           }
           console.log('BET infoArray', this._infoArray);
@@ -333,6 +379,26 @@ namespace we {
 
         this._ringAnim.animation.fadeIn('round_loop_a', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
 
+        if(this._gameData.wintype === dt.WinType.DRAGON){
+          (async()=>{
+          const p1 = utils.waitDragonBone(this._dragonAnim)
+          this._dragonAnim.animation.play('win',2);
+          await p1;
+
+          this._dragonAnim.animation.play('loop',0)
+          })();
+        }
+
+        if(this._gameData.wintype === dt.WinType.TIGER){
+          (async()=>{
+          const p1 = utils.waitDragonBone(this._tigerAnim)
+          this._tigerAnim.animation.play('win',2);
+          await p1
+
+          this._tigerAnim.animation.play('loop',0)
+          })();
+        }
+
         if (isInit) {
           this.movePin();
           this.moveShoe();
@@ -362,6 +428,18 @@ namespace we {
             this._smallRedCard = null
 
             const p2 = utils.waitDragonBone(this._ringAnim);
+            const p2a = (async()=>{
+              const dragonBlock = utils.waitDragonBone(this._dragonAnim);
+              const tigerBlock = utils.waitDragonBone(this._tigerAnim);
+
+              this._dragonAnim.animation.play('shoe_out',1)
+              this._tigerAnim.animation.play('shoe_out',1)
+
+              await dragonBlock;
+              await tigerBlock;
+
+              return new Promise(resolve=>resolve())
+            })();
             this._ringAnim.animation.fadeIn('shoe_out', 0, 1, 0);
 
             await this.collapsePin();
@@ -369,13 +447,30 @@ namespace we {
 
             await p1;
             await p2;
+            await p2a;
 
             await this.animateShoe();
             await this.animatePin();
 
             const p3 = utils.waitDragonBone(this._ringAnim);
             this._ringAnim.animation.fadeIn('shoe_in', 0, 1, 0);
+
+
+            const p3a = (async()=>{
+              const dragonBlock = utils.waitDragonBone(this._dragonAnim);
+              const tigerBlock = utils.waitDragonBone(this._tigerAnim);
+
+              this._dragonAnim.animation.play('shoe_in',1)
+              this._tigerAnim.animation.play('shoe_int',1)
+
+              await dragonBlock;
+              await tigerBlock;
+
+              return new Promise(resolve=>resolve())
+            })();
+
             await p3
+            await p3a
 
             this._ringAnim.animation.fadeIn('round_loop_a', 0, 0, 0);
 
@@ -384,6 +479,10 @@ namespace we {
             return new Promise(resolve => resolve());
           })();
         }
+      }
+
+      protected showStaticRedCard() {
+
       }
 
     }
