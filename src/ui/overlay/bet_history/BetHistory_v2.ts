@@ -241,7 +241,6 @@ namespace we {
 
       protected update(res: any) {
         super.update(res);
-        console.log('resresres', res);
         if (res.total === 0) {
           this._noHistoryResult.visible = true;
           this._label_bar.alpha = 0;

@@ -471,7 +471,7 @@ namespace we {
         logger.l(utils.LogTarget.DEBUG, `onClickVideo`);
       }
 
-      protected onOrientationChange(gameModeExist?: boolean) {
+      protected async onOrientationChange(gameModeExist?: boolean) {
         this.onExit();
         super.onOrientationChange();
         if (gameModeExist != null) {
