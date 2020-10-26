@@ -18,6 +18,7 @@ namespace we {
       protected _middlePartHeight: number;
 
       protected _gameScene: core.MobileBaseGameScene;
+      protected _loGameScene: lo.LotteryMobileSceneBasic;
 
       // table info panel
       public _tableInfoPanel: ui.TableInfoPanel;
@@ -37,6 +38,10 @@ namespace we {
         this._gameScene = value;
       }
 
+      public set loGameScene(value: lo.LotteryMobileSceneBasic){
+        this._loGameScene = value;
+      }
+
       protected mount() {
         super.mount();
         this.isPanelOpen = env.isBottomPanelOpen;
@@ -52,6 +57,7 @@ namespace we {
       public destroy() {
         super.destroy();
         this._gameScene = null;
+        this._loGameScene = null;
 
         this.removeListeners();
       }
@@ -79,7 +85,12 @@ namespace we {
           env.isBottomPanelOpen = true;
           this.isPanelOpen = env.isBottomPanelOpen;
           egret.Tween.get(this._middlePart).to({ height: this._middlePartHeight + 11 }, 250);
-          this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
+          if(this._gameScene){
+            this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
+          }
+          if(this._loGameScene){
+            this._loGameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
+          }
         }
       }
 
@@ -97,6 +108,9 @@ namespace we {
         if (this._gameScene) {
           this._gameScene.betChipSetPanelVisible = false;
         }
+        /*if (this._loGameScene) {
+          this._loGameScene.betChipSetPanelVisible = false;
+        }*/
         if (this.isFirstTime) {
           this.isFirstTime = false;
           this.currentState = env.isBottomPanelOpen ? 'on' : 'off';
@@ -109,19 +123,29 @@ namespace we {
             env.isBottomPanelOpen = false;
             this.isPanelOpen = env.isBottomPanelOpen;
             egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
-            this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
+            if(this._gameScene){
+              this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
+              this._gameScene.updateTableLayerPosition(env.isBottomPanelOpen);
+            }
 
-            this._gameScene.updateTableLayerPosition(env.isBottomPanelOpen);
+            if(this._loGameScene){
+              this._loGameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
+              this._loGameScene.updateTableLayerPosition(env.isBottomPanelOpen);
+            }
 
             break;
           case false:
             env.isBottomPanelOpen = true;
             this.isPanelOpen = env.isBottomPanelOpen;
             egret.Tween.get(this._middlePart).to({ height: this._middlePartHeight + 11 }, 250);
-            this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
-
-            this._gameScene.updateTableLayerPosition(env.isBottomPanelOpen);
-
+            if(this._gameScene){
+              this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
+              this._gameScene.updateTableLayerPosition(env.isBottomPanelOpen);
+            }
+            if(this._loGameScene){
+              this._loGameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
+              this._loGameScene.updateTableLayerPosition(env.isBottomPanelOpen);
+            }
             break;
         }
         this.dispatchEvent(new egret.Event('TOGGLE'));

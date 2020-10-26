@@ -16,6 +16,7 @@ namespace we {
       protected _targetTime;
       protected _counterInterval;
 
+      //bottomGame
       protected _bottomGamePanel: ui.MobileBottomCommonPanel;
 
       constructor(data: any) {
@@ -132,6 +133,58 @@ namespace we {
       protected resetTimer() {
         this._counter.text = '00:00:00';
         clearInterval(this._counterInterval);
+      }
+
+      //_bottomGamePanel
+      public updateResultDisplayVisible(bottomGamePanelisOpen: boolean) {
+        if (!this._bottomGamePanel._bottomResultDisplayContainer) {
+          return;
+        }
+        /*if (env.orientation === 'landscape') {
+          if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.FINISH) {
+            this._resultDisplay.visible = !bottomGamePanelisOpen;
+            this._bottomGamePanel._bottomResultDisplayContainer.visible = bottomGamePanelisOpen;
+          }
+      }*/
+      }
+
+      public updateTableLayerPosition(bottomGamePanelisOpen: boolean) {
+ /*       if (env.orientation === 'landscape') {
+          const vlayout = new eui.VerticalLayout();
+          if (this._tableLayer) {
+            switch (env.tableInfos[this._tableId].gametype) {
+              case core.GameType.BAC:
+              case core.GameType.BAS:
+              case core.GameType.BAI:
+                console.log('this._aaaaa', this._tableLayer);
+                if (bottomGamePanelisOpen === true) {
+                  vlayout.gap = -65;
+                  // this._tableLayer.y -= 24;
+                  // this._chipLayer.y -= 24;
+                } else {
+                  vlayout.gap = -40;
+                  // this._tableLayer.y += 24;
+                  // this._chipLayer.y += 24;
+                }
+                this._verticalGroup.layout = vlayout;
+                break;
+              case core.GameType.LW:
+                if (bottomGamePanelisOpen === true) {
+                  vlayout.gap = 0;
+                  // this._tableLayer.y -= 24;
+                  // this._chipLayer.y -= 24;
+                } else {
+                  vlayout.gap = 0;
+                  // this._tableLayer.y += 24;
+                  // this._chipLayer.y += 24;
+                }
+                this._verticalGroup.layout = vlayout;
+                break;
+              default:
+                break;
+            }
+          }
+        }*/
       }
     }
   }
