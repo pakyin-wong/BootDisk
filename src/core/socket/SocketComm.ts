@@ -85,6 +85,19 @@ namespace we {
         this.client.subscribe(core.MQTT.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
         this.client.subscribe(core.MQTT.ERROR, this.onError, this);
         this.client.subscribe(core.MQTT.NOTIFICATION_ROADMAP_MATCH, this.onGoodRoadMatch, this);
+        this.client.subscribe(core.MQTT.CLOSE, this.onConnectionClose, this);
+      }
+
+      public onConnectionClose(value: any) {
+        const err = {
+          code: 1000,
+          error: "CONNECTION_CLOSE",
+          detail: i18n.t("message.connectionError"),
+          priority: 10,
+          action: 'restart',
+          timestamp: egret.getTimer()
+        }
+        dir.errHandler.handleError(err);
       }
 
       public onError(value: any) {
