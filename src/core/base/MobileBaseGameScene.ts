@@ -234,12 +234,12 @@ namespace we {
 
       protected initDenom() {
         this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
+        const denominationList = env.betLimits.Live[this.getSelectedBetLimitIndex()].chips;
         this._betChipSet.init(null, denominationList);
       }
 
       protected initBetLimitSelector() {
-        const betLimitList = env.betLimits;
+        const betLimitList = env.betLimits.Live;
         const betLimitItems = betLimitList.map(data => {
           return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
         });
@@ -263,7 +263,7 @@ namespace we {
       }
 
       protected initBottomBetLimitSelector() {
-        const betLimitList = env.betLimits;
+        const betLimitList = env.betLimits.Live;
         const betLimitItems = betLimitList.map(data => {
           return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
         });
@@ -298,7 +298,7 @@ namespace we {
       }
 
       protected updateBetLimit(selectedIndex) {
-        const betLimitList = env.betLimits;
+        const betLimitList = env.betLimits.Live;
         const betLimitItems = betLimitList.map(data => {
           return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
         });
@@ -386,7 +386,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             if (this._totalBet) {
               const totalBet = betInfo.gameroundid === this._gameData.gameroundid ? betInfo.total : 0;
@@ -399,7 +399,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo> evt.data;
+          const stat = <data.TableInfo>evt.data;
           if (stat.tableid === this._tableId) {
             this._bottomGamePanel.updateStat();
           }
@@ -471,7 +471,7 @@ namespace we {
         logger.l(utils.LogTarget.DEBUG, `onClickVideo`);
       }
 
-      protected onOrientationChange(gameModeExist?: boolean) {
+      protected async onOrientationChange(gameModeExist?: boolean) {
         this.onExit();
         super.onOrientationChange();
         if (gameModeExist != null) {
@@ -492,7 +492,7 @@ namespace we {
       }
 
       // check if game mode btn (e.g. BA) is selected when orientation
-      protected checkGameMode(value: boolean) {}
+      protected checkGameMode(value: boolean) { }
 
       protected setStateIdle(isInit: boolean) {
         super.setStateIdle(isInit);

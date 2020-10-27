@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.BetHistoryItemLottery" width="2424" height="140" currentState="normal" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*"  states="normal,hover" >
+	<e:Rect id="_txt_record_bgcolor" width="2424" height="140" x="0" y="0"/>
+	<e:Rect id="_txt_hover_color" includeIn="hover" left="0" right="0" top="0" bottom="0" fillColor="0x4077ab"/>
+	<e:Group left="0" right="0" top="0" bottom="0" alpha="0.8" alpha.hover="1">
+		<e:Label id="_txt_record_date" text="Label" x="48" y="0" width="1050" size="50" verticalAlign="middle" height="140" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Group x="1116" y="0">
+		<e:Label id="_txt_record_game" text="Label" x="0" y="0" height="140" size="50" verticalAlign="middle" scaleX="1" scaleY="1"/>
+			<ui:RoundRectShape id="_tab_cbet" width="46" height="46" cornerTL_TR_BL_BR="5,5,5,5" fillColor="0x1b416e" stroke="0">
+				<e:Skin>
+				<e:Label text="追" left="0" right="0" top="0" bottom="0" size="30" verticalAlign="middle" textAlign="center"/>
+				</e:Skin>
+			</ui:RoundRectShape>
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="middle" gap="11"/>
+			</e:layout>
+		</e:Group>
+		<e:Label id="_txt_record_win" text="Label" y="0" width="275" height="140" size="50" verticalAlign="middle" scaleX="1" scaleY="1" textAlign="right" right="96"/>
+	</e:Group>
+</e:Skin>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.BetHistorySkin" width="2424" height="1242" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*"
+        xmlns:bh="we.overlay.betHistory.*" states="all,live,lottery,lotteryC" >
+	<e:Group id="content" left="0" right="0" top="0" bottom="0">
+		<e:Group top="160" bottom="0" left="0" right="0">
+			<ui:RoundRectShape left="0" right="0" top="0" bottom="0" fillColor="0x14181e" stroke="2" strokeColor="0x333c4a"/>
+			<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="30" height="119" verticalAlign="middle"
+			                 textColor="0xc59466" size="80" bold="true" scaleX="1" scaleY="1" />
+
+			<e:List id="_live_submenu" height="74" y="193" left="0" right="0" visible.all="false" visible.lottery="false" visible.lotteryC="false">
+				<e:layout>
+					<e:HorizontalLayout gap="72" paddingLeft="48"/>
+				</e:layout>
+			</e:List>
+			<e:List id="_lottery_switch" height="74" y="193" width="528" visible.all="false" visible.live="false">
+				<e:layout>
+				<e:HorizontalLayout gap="72" paddingLeft="48"/>
+				</e:layout>
+			</e:List>
+			<e:List id="_lottery_submenu" height="74" y="193" left="528" right="0" visible.all="false" visible.live="false">
+				<e:layout>
+				<e:HorizontalLayout paddingLeft="48" gap="72"/>
+				</e:layout>
+			</e:List>
+			<e:Group id="_label_bar" x="0" y="299" y.all="179" visible.lotteryC="false">
+				<e:Rect height="80" y="0" fillColor="0x1b416e" scaleX="1" scaleY="1" width="2424" x="0"/>
+				<ui:RunTimeLabel id="_txt_record_date" text="Label" x="48" y="9" width="1050" size="40" verticalAlign="middle" height="59" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>
+				<ui:RunTimeLabel id="_txt_record_game" text="Label" x="1116" y="9" width="900" height="59" size="40" verticalAlign="middle" scaleX="1" scaleY="1"/>
+				<ui:RunTimeLabel id="_txt_record_win" text="Label" y="9" width="275" height="59" size="40" verticalAlign="middle" scaleX="1" scaleY="1" textAlign="right" right="96"/>
+			</e:Group>
+			<e:Group id="_clabel_bar" y="299" visible.all="false" visible.live="false" visible.lottery="false">
+				<e:Rect height="80" y="0" fillColor="0x1B416E" scaleX="1" scaleY="1" width="2424" x="0"/>
+				<ui:RunTimeLabel id="_txt_lcb_date" text="Label" x="48" y="9" width="1050" size="40" verticalAlign="middle" height="59" textColor="0xD5D5D5" scaleX="1" scaleY="1"/>
+				<ui:RunTimeLabel id="_txt_lcb_game" text="Label" x="1116" y="9" width="900" height="59" size="40" verticalAlign="middle" scaleX="1" scaleY="1"/>
+				<ui:RunTimeLabel id="_txt_lcb_count" text="Label" y="9" width="275" height="59" size="40" verticalAlign="middle" scaleX="1" scaleY="1" textAlign="right" right="96"/>
+			</e:Group>
+
+			<ui:RoundRectButton id="_btn_searchType" cornerTL_TR_BL_BR="60,60,60,60" width="400" height="120" x="639" y="29" stroke="0" strokeIn="0" fillAlpha="1" fillColor="0x1b416e"  labelSize="50" labelAutoResize="false">
+			<e:Skin width="400" height="120">
+				<e:Image source="d_lobby_button_down_normal_png" width="80" height="80" y="22" x="297" touchEnabled="false" />
+	<ui:RunTimeLabel id="_label" text="遊戲總覽" height="74" size="50" verticalAlign="middle" textAlign="center" verticalCenter="0" horizontalCenter="-48.5"/>
+			</e:Skin>
+			</ui:RoundRectButton>
+			<e:Group id="Date" x="1087" y="18">
+				<e:Rect width="497" height="142" x="0" y="0" fillColor="0x0c2848" fillAlpha="0.4" ellipseHeight="142" ellipseWidth="142" scaleX="1" scaleY="1"/>
+				<ui:RoundRectButton id="_btn_date" cornerTL_TR_BL_BR="60,60,60,60" width="250" height="120" x="14" y="11" stroke="0" strokeIn="0" fillAlpha="0" fillAlpha_active="1" fillColor="0x1b416e" labelSize="50" labelAutoResize="false">
+					<e:Skin width="250" height="120">
+					<e:Image source="d_lobby_button_down_normal_png" width="80" height="80" y="22" x="161" touchEnabled="false"/>
+					<ui:RunTimeLabel id="_label" text="今日" size="50" horizontalCenter="-40" verticalCenter="0" height="74" verticalAlign="middle" textAlign="center"/>
+					</e:Skin>
+				</ui:RoundRectButton>
+				<ui:RoundRectButton id="_btn_custom" cornerTL_TR_BL_BR="60,60,60,60" width="200" height="120" x="289" y="11" stroke="0" strokeIn="0" fillAlpha="0" fillAlpha_active="1" fillColor="0x1b416e" labelSize="50" labelAutoResize="false"/>
+			</e:Group>
+			<e:Group id="Search" x="1665" y="29">
+				<e:Rect width="120" height="120" x="0" y="0" fillColor="0x1a3f6c" ellipseHeight="120" ellipseWidth="120" scaleX="1" scaleY="1"/>
+				<ui:BaseImageButton id="_btn_search" width="63" height="63" currentState="search_icon" skinName="skin_mobile_portrait.ImageButtonSkinNav" scaleX="1" scaleY="1" verticalCenter="0" horizontalCenter="0"/>
+			</e:Group>
+			<e:Scroller id="_scroller" anchorOffsetY="0" left="0" right="0" x="0" scaleX="1" scaleY="1" top="379" bottom="0" top.all="259">
+				<e:List id="_datagroup" />
+			</e:Scroller>
+			<e:Group id="_noHistoryResult" height="283" horizontalCenter="0" verticalCenter="160">
+				<e:Image x="1135" y="35.5" width="130" height="130" source="d_lobby_panel_betrecord_empty_icon_png"/>
+				<ui:RunTimeLabel id="_txt_noHistoryResult" text="no bet result" height="59" size="55" verticalAlign="middle" scaleX="1" scaleY="1" horizontalCenter="0" y="182"/>
+				<e:layout>
+					<e:VerticalLayout verticalAlign="middle" gap="16" horizontalAlign="center"/>
+				</e:layout>
+			</e:Group>			
+		</e:Group>
+		<overlay:DoubleCalendarPicker id="_datepicker" scaleX="1" scaleY="1" skinName="skin_mobile_landscape.DoubleCalendarPicker" horizontalCenter="0" verticalCenter="0"/>
+		<bh:BetHistoryDetail id="_detail" left="0" right="0" top="0" bottom="0"  skinName="skin_mobile_landscape.BetHistoryDetail"/>
+		<e:Image id="close" width="96" height="96" right="26" top="196" source="d-lobby-button-close-none_png"/>
+		<bh:LoContinuousBetDetails id="_cbet_details" scaleX="1" scaleY="1" verticalCenter="0" horizontalCenter="0" skinName="skin_mobile_landscape.LoContinuousBetDetails"/>
+		<bh:LoPopupBetDetail id="_popupbet_detail" horizontalCenter="0" verticalCenter="0" skinName="skin_mobile_landscape.LoPopupBetDetail"/>
+		<bh:BetHistorySearch id="_search" left="0" right="0" top="0" bottom="0" touchEnabled="true"  skinName="skin_mobile_landscape.BetHistorySearch"/>
+		<e:Group id="useless" scaleX="0" scaleY="0" visible="false">
+			<e:Label id="_main_select_all" text="遊戲總覽" x="0" y="0" width="180" height="60" verticalAlign="middle" textAlign="center" size="24" alpha="0.7"/>
+			<e:Label id="_main_select_live" text="現場遊戲" x="170" y="0" width="180" height="60" verticalAlign="middle" textAlign="center" size="24" alpha="0.7"/>
+			<e:Label id="_main_select_lottery" text="彩票遊戲" x="340" y="0" width="180" height="60" verticalAlign="middle" textAlign="center" size="24" alpha="0.7"/>
+			<e:Label id="_main_select_egame" text="電子遊戲" x="510" y="0" width="180" height="60" verticalAlign="middle" textAlign="center" size="24" alpha="0.7"/>
+			<ui:BaseButton id="_btn_today" width="137" height="60" x="1512" y="47" skinName="skin_mobile_portrait.OverlayPanelButton" />
+			<ui:BaseButton id="_btn_week" width="137" height="60" x="1669" y="47" skinName="skin_mobile_portrait.OverlayPanelButton" />
+			<ui:RunTimeLabel id="_txt_search" text="Label" x="653" y="58" height="36" verticalAlign="middle" size="24" width="96" alpha="0.7" visible="false" />
+			<e:EditableText id="_tf_search" width="200" height="36" text="" x="653" y="58" verticalAlign="middle" size="24"/>
+			<ui:BaseImageButton id="_btn_prev" width="46" height="46" x="963" y="1077" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="page_prev_icon" />
+			<ui:BaseImageButton id="_btn_next" width="46" height="46" x="1132" y="1077" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="page_next_icon" />
+			<e:Group id="_btn_page" width="83" height="46" x="1029" y="1077">
+				<ui:RunTimeLabel id="_txt_page" text="00/00" left="0" right="20" top="0" bottom="0" verticalAlign="middle" textAlign="center" fontFamily="Barlow" size="28" />
+			</e:Group>
+		</e:Group>
+	</e:Group>
+</e:Skin>

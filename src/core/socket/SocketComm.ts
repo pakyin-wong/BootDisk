@@ -14,7 +14,7 @@ namespace we {
         let isMobile = false;
         try {
           isMobile = data.ismobile ? parseInt(data.ismobile) > 0 : false;
-        } catch (err) {}
+        } catch (err) { }
 
         logger.l(utils.LogTarget.RELEASE, `playerID: ${playerID}`);
         const options: any = {};
@@ -237,6 +237,17 @@ namespace we {
         }
       }
 
+      public async getLobbyMaterialAsync(callback, thisArg) {
+        return new Promise((resolve, reject) => {
+          const resolveFunc = async (res: any) => {
+            await callback.bind(thisArg)(res);
+            resolve();
+          };
+          this.client.getLobbyMaterial(this.warpServerCallback(resolveFunc));
+          // this.client.getLobbyMaterial(env.language, this.warpServerCallback(resolveFunc));
+        });
+      }
+
       public updateSetting(key: string, value: string) {
         this.client.updateSetting(key, value);
       }
@@ -303,13 +314,15 @@ namespace we {
         env.profileimage = player.profile.settings.profileimage
           ? player.profile.settings.profileimage
           : player.profile.profileimageurl === ''
-          ? Object.keys(env.icons)[0]
-          : player.profile.profileimageurl;
+            ? Object.keys(env.icons)[0]
+            : player.profile.profileimageurl;
         logger.l(utils.LogTarget.RELEASE, 'PlayerClient::handleReady() ' + player.profile.betlimits);
 
         env.betLimits = player.profile.betlimits
           ? player.profile.betlimits
-          : [
+          : {
+            'Live':
+            [
               {
                 currency: Currency.RMB,
                 maxlimit: 1000,
@@ -317,11 +330,48 @@ namespace we {
                 chips: [1, 5, 20, 100, 500],
                 // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
               },
-            ];
+            ],
+            'Electronic':
+            [
+              {
+                currency: Currency.RMB,
+                maxlimit: 1000,
+                minlimit: 10,
+                chips: [1, 5, 20, 100, 500],
+              },
+            ],
+            'Lottery':
+            [
+              {
+                currency: Currency.RMB,
+                maxlimit: 1000,
+                minlimit: 10,
+                chips: [1, 5, 20, 100, 500],
+              },
+            ],
+            'Sportbook':
+            [
+              {
+                currency: Currency.RMB,
+                maxlimit: 1000,
+                minlimit: 10,
+                chips: [1, 5, 20, 100, 500],
+              },
+            ],
+            'Chess':
+            [
+              {
+                currency: Currency.RMB,
+                maxlimit: 1000,
+                minlimit: 10,
+                chips: [1, 5, 20, 100, 500],
+              },
+            ],
+          };
 
-        if (!Array.isArray(env.betLimits)) {
-          env.betLimits = [env.betLimits];
-        }
+        //if (!Array.isArray(env.betLimits)) {
+        //env.betLimits = [env.betLimits];
+        //}
         env.currentSelectedBetLimitIndex = player.profile.settings.currentSelectedBetLimitIndex ? player.profile.settings.currentSelectedBetLimitIndex : 0;
         env.language = player.profile.settings.language ? player.profile.settings.language : 'sc';
         we.i18n.setLang(env.language ? env.language : 'sc', true);
@@ -583,6 +633,7 @@ namespace we {
           case core.GameType.BAI:
           case core.GameType.BAS:
           case core.GameType.BAB:
+          case core.GameType.DTB:
           case core.GameType.DT: {
             // const roadmapData = parseAscString(gameStatistic.roadmapdata);
             const roadmapData = gameStatistic.roadmapdata;
@@ -990,7 +1041,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
           return betDetail;
         });
 
@@ -1169,7 +1220,7 @@ namespace we {
         this.client.sendVerifyInfo(id, pattern, this.warpServerCallback(callback.bind(thisArg)));
       }
 
-      public getTableHistory() {}
+      public getTableHistory() { }
 
       protected onBetTableListUpdate(tableList: data.GameTableList, timestamp: string) {
         this.updateTimestamp(timestamp);
