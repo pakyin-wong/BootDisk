@@ -52,6 +52,8 @@ namespace we {
                 imageUrl: (item as any).imageurl,
                 link: (item as any).link,
                 loaded: true,
+                title: (item as any).title,
+                description: (item as any).description,
               }));
               offset += res.homebanners.length;
 
@@ -75,7 +77,6 @@ namespace we {
                 loaded: false,
               }));
               if (liveHeroBanners.length > 0) {
-                liveHeroBanners.push({ ...liveHeroBanners[0] }); // mock unloaded second image
                 // init first banner
                 liveHeroBanners[0].image = await this._loadRemoteImage(liveHeroBanners[0].imageUrl);
                 liveHeroBanners[0].loaded = true;
