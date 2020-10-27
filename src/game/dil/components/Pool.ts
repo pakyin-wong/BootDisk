@@ -46,6 +46,14 @@ namespace we {
               [[0x36d943, 0x36d943], [1, 1], [0, 255], 0,1],
               [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
               [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+              [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+              [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+              [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+              [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
             ],
             160,
             20,
@@ -61,6 +69,14 @@ namespace we {
               [[0xd94341, 0xd94341], [1, 1], [0, 255], 0,1],
               [[0x3cd9cd, 0x3cd9cd], [1, 1], [0, 255], 0,1],
               [[0xd98c20, 0xd98c20], [1, 1], [0, 255], 0,1],
+              [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+              [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+              [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+              [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+              [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
               [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
               [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
             ],
@@ -105,7 +121,7 @@ namespace we {
       }     
 
       public updateBarChart() {
-        console.log('updateBarChart:: hi')
+        //==============
         if (this._betInfo) {
           const arr =['SUM_3','SUM_4',
                       'SUM_5','SUM_6',
@@ -123,11 +139,21 @@ namespace we {
             return amount[key];
           });
           for (let i = 0; i < 16; i++){
-            console.log('amountArr',amountArr)
             this[`_SUM_${i+3}Percent`].text = amount[`SUM_${i+3}`] ? we.utils.formatNumber(amount[`SUM_${i+3}`], false) : 0;
           }
-        }
-      }
+         if (env.isMobile ===false) { 
+           let leftSide = amountArr.splice(0, Math.ceil(amountArr.length /2));
+           let rightSide = amountArr;
+           let arr1 = [...leftSide,...rightSide];
+           let arr2 = [...rightSide,...leftSide] 
+           this._horizontalBarChart1.setRanksAndAnimate(arr1);
+           this._horizontalBarChart2.setRanksAndAnimate(arr2);     
+//            let letters = ['a', 'b', 'c', 'd', 'e'];
+//            let leftSide = letters.splice(0, Math.ceil(letters.length /2));
+//            let rightSide = letters;
+         }
+         //=====================
+        }}
 
 
     }
