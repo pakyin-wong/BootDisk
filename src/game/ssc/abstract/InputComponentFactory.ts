@@ -23,7 +23,7 @@ namespace we {
         const { type } = config;
         switch (type) {
           case InputComponentType.BALLS:
-            return new SSCBallRowInput(index, config);
+            return new SSCMobileBallRowInput(index, config);
           // throw new Error('No Ball Component');
           case InputComponentType.TEXTAREA:
             return new SSCTextAreaInput(index, config);

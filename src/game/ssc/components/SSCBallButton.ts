@@ -34,7 +34,7 @@ namespace we {
           }
 
           this.height = 150;
-
+          this.stroke = 3;
           this.cornerTL_TR_BL_BR = '75,75,75,75';
         } else {
           if (text.length > 1) {
@@ -46,6 +46,7 @@ namespace we {
           this.height = 50;
 
           this.cornerTL_TR_BL_BR = '25,25,25,25';
+          this.stroke = 1;
         }
 
         this.touchEnabled = true;
@@ -54,7 +55,6 @@ namespace we {
         // const roundRectButton = new ui.RoundRectButton();
 
         this.fillAlpha = 0;
-        this.stroke = 1;
         this.strokeColor = 0xffffff;
         this.strokeAlpha = 1;
 

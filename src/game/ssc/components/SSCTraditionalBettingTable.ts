@@ -7,6 +7,8 @@ namespace we {
       private _bettingTableToggleButton: eui.Group;
       private _topClose: eui.Group;
       private _playmodeDropDownButton: eui.Group;
+      private _lblPlayMode : ui.RunTimeLabel;
+      private playMode : string;
       constructor(config) {
         super(config);
       }
@@ -32,6 +34,12 @@ namespace we {
         this.initSkin();
         this.createComponents();
         this.addEventListeners();
+      }
+
+      public setLabelPlayMode(str){
+        if(this._lblPlayMode){
+          this._lblPlayMode.renderText = () => str;
+        }
       }
 
       public dispose() {

@@ -81,7 +81,20 @@ namespace we {
         }
 
         if (this._btnBetDescription) {
-          this._btnBetDescription.addEventListener(mouse.MouseEvent.ROLL_OVER, this.showBetDescription, this);
+          if(env.isMobile){
+
+          }else
+          {
+            this._btnBetDescription.addEventListener(mouse.MouseEvent.ROLL_OVER, this.showBetDescription, this);
+          }
+        }
+      }
+
+      public updateHighestWin(config: any) {
+        // using local config, need to receive server award & winratio later
+        const maxWin = config.maxWin;
+        if(!env.isMobile){
+          this._lblHighestWin.renderText = () => `${i18n.t('lo_trad.highest_win')}${utils.formatNumber(maxWin * 100)}`;
         }
       }
 
@@ -112,7 +125,11 @@ namespace we {
           this._noteDropDown.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onUnitSelect, this);
         }
         if (this._btnBetDescription) {
-          this._btnBetDescription.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.showBetDescription, this);
+          if(env.isMobile){
+
+          }else{
+            this._btnBetDescription.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.showBetDescription, this);
+          }
         }
       }
 

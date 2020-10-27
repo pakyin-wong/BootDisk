@@ -64,10 +64,13 @@ namespace we {
       public bettingTableStates = ['off', 'on', 'extend'];
       protected _currentBettingStateIndex = -1;
 
-      protected _dropDown: eui.Group;
+      protected _dropDownOverlay: eui.Group;
       protected _bettingTypeDropDown: SSCTraditionalMobileDropdown;
       protected _betControlPanelGroup: eui.Group;
-      protected _betControlPanel: SSCTraditionalMobileBetControlPanel;
+      // protected _betControlPanel: SSCTraditionalMobileBetControlPanel;
+      protected _btnBet : ui.RoundRectButton;
+
+
 
       constructor(skin: string = null) {
         super(skin);
@@ -79,11 +82,14 @@ namespace we {
       protected addEventListeners() {
         super.addEventListeners();
         this.addEventListener('GAMETYPEDROPDOWN_ITEM_CHANGE', this.updateCurrentIndex, this);
+        this._btnBet.addEventListener(egret.TouchEvent.TOUCH_TAP,this.openBettingTableState,this);
       }
 
       protected removeEventListeners() {
         super.removeEventListeners();
         this.removeEventListener('GAMETYPEDROPDOWN_ITEM_CHANGE', this.updateCurrentIndex, this);
+        this._btnBet.removeEventListener(egret.TouchEvent.TOUCH_TAP,this.openBettingTableState,this);
+
       }
 
       protected initSkin() {
@@ -99,12 +105,18 @@ namespace we {
 
       protected initComponents() {
         this._bettingTypeDropDown = new SSCTraditionalMobileDropdown(this._currentMap, this);
-        this._dropDown.addChild(this._bettingTypeDropDown);
+        this._dropDownOverlay.addChild(this._bettingTypeDropDown);
         this._bettingTypeDropDown.bottom = 0;
         this._bettingTypeDropDown.horizontalCenter = 0;
+        this._dropDownOverlay.touchEnabled = false;
+        this._dropDownOverlay.touchThrough = true;
 
-        this._betControlPanel = new SSCTraditionalMobileBetControlPanel(this);
-        this._betControlPanelGroup.addChild(this._betControlPanel);
+        this._noteControl = new SSCTraditionalNoteControl();
+        this.addChildAt(this._noteControl,0)
+        this._noteControl.touchEnabled = false;
+        // this._betControlPanel = new SSCTraditionalMobileBetControlPanel(this);
+        // this._betControlPanelGroup.addChild(this._betControlPanel);
+        // this._betControlPanel.visible = false;
 
         this._currentBigTagIndex = 0;
         this._currentSmallTagIndex = 0;
@@ -121,67 +133,21 @@ namespace we {
       }
 
       protected updateCurrentIndex(e) {
+        this._dropDownOverlay.touchEnabled = false;
         this._currentBigTagIndex = e.data.betType;
         this._currentSmallTagIndex = e.data.betMode;
+
         this.refreshCurrentBettingTable();
       }
 
       public updateBetInfo(data) {
         super.updateBetInfo(data);
-        this._lblCurrentRound.renderText = () => `${data.gameroundid}`;
-        switch (data.state) {
-          case core.GameState.DEAL:
-          case core.GameState.FINISH:
-            this._lblCurrentRoundState.renderText = () => `${data.gameroundid + i18n.t('lo_fun_drawingRound')}`;
-            this._lblResultBall0.renderText = () => (data.ball1 >= 0 ? `${data.ball1}` : '-');
-            this._lblResultBall1.renderText = () => (data.ball2 >= 0 ? `${data.ball2}` : '-');
-            this._lblResultBall2.renderText = () => (data.ball3 >= 0 ? `${data.ball3}` : '-');
-            this._lblResultBall3.renderText = () => (data.ball4 >= 0 ? `${data.ball4}` : '-');
-            this._lblResultBall4.renderText = () => (data.ball5 >= 0 ? `${data.ball5}` : '-');
-            break;
-          default:
-            this._lblCurrentRoundState.renderText = () => `${i18n.t('lo_fun_lastRound')}`;
-        }
       }
 
       public updateBetTableInfo(info) {
         super.updateBetTableInfo(info);
         if (!info.gamestatistic) {
           return;
-        }
-        if (info.gamestatistic) {
-          if (info.gamestatistic.loresults) {
-            const data = info.gamestatistic.loresults;
-            let index = data.length - 1;
-
-            this._lblCurrentRoundState.renderText = () => `${data[index].Roundnumber + i18n.t('lo_fun_drawingRound')}`;
-            this._lblResultBall0.renderText = () => (data[index].Data.ball1 >= 0 ? `${data[index].Data.ball1}` : '-');
-            this._lblResultBall1.renderText = () => (data[index].Data.ball2 >= 0 ? `${data[index].Data.ball2}` : '-');
-            this._lblResultBall2.renderText = () => (data[index].Data.ball3 >= 0 ? `${data[index].Data.ball3}` : '-');
-            this._lblResultBall3.renderText = () => (data[index].Data.ball4 >= 0 ? `${data[index].Data.ball4}` : '-');
-            this._lblResultBall4.renderText = () => (data[index].Data.ball5 >= 0 ? `${data[index].Data.ball5}` : '-');
-
-            if (data.length >= 2) {
-              index = data.length - 2;
-
-              this._lblLastRound.renderText = () => `${data[index].Roundnumber}`;
-              this._lblLastBall0.renderText = () => (data[index].Data.ball1 >= 0 ? `${data[index].Data.ball1}` : '-');
-              this._lblLastBall1.renderText = () => (data[index].Data.ball2 >= 0 ? `${data[index].Data.ball2}` : '-');
-              this._lblLastBall2.renderText = () => (data[index].Data.ball3 >= 0 ? `${data[index].Data.ball3}` : '-');
-              this._lblLastBall3.renderText = () => (data[index].Data.ball4 >= 0 ? `${data[index].Data.ball4}` : '-');
-              this._lblLastBall4.renderText = () => (data[index].Data.ball5 >= 0 ? `${data[index].Data.ball5}` : '-');
-            }
-            if (data.length >= 3) {
-              index = data.length - 3;
-
-              this._lblPrevRound.renderText = () => `${data[index].Roundnumber}`;
-              this._lblPrevBall0.renderText = () => (data[index].Data.ball1 >= 0 ? `${data[index].Data.ball1}` : '-');
-              this._lblPrevBall1.renderText = () => (data[index].Data.ball2 >= 0 ? `${data[index].Data.ball2}` : '-');
-              this._lblPrevBall2.renderText = () => (data[index].Data.ball3 >= 0 ? `${data[index].Data.ball3}` : '-');
-              this._lblPrevBall3.renderText = () => (data[index].Data.ball4 >= 0 ? `${data[index].Data.ball4}` : '-');
-              this._lblPrevBall4.renderText = () => (data[index].Data.ball5 >= 0 ? `${data[index].Data.ball5}` : '-');
-            }
-          }
         }
       }
 
@@ -209,11 +175,12 @@ namespace we {
 
       public openBettingTableState(e) {
         super.openBettingTableState(e);
+
         if (this._currentBettingStateIndex === 1 || this._currentBettingStateIndex === 2) {
           return;
         }
 
-        this.changeBettingTableState(0);
+        this.changeBettingTableState(1);
       }
 
       public closeBettingTableState(e) {
@@ -240,29 +207,28 @@ namespace we {
       }
 
       protected changeBettingTableState(idx: number) {
-        if (!this._currentBettingTable || this._currentBettingStateIndex === idx) {
-          return;
-        }
 
+        this._currentBettingStateIndex = idx;
         this._currentBettingTable.currentState = this.bettingTableStates[idx];
         this._currentBettingTable.invalidateState();
 
         if (this._bettingControl) {
-          switch (idx) {
+          switch (this._currentBettingStateIndex) {
             case 1:
             case 2:
               //   this._bettingControl.visible = false;
               this._footer.visible = true;
               this._footer.touchEnabled = true;
-              this._footer.touchThrough = true;
+              this._footer.touchThrough = false;
               break;
             case 0:
               this._footer.visible = false;
               this._footer.touchEnabled = false;
-              this._footer.touchThrough = false;
+              this._footer.touchThrough = true;
               break;
           }
         }
+
       }
 
       public refreshCurrentBettingTable() {
@@ -278,10 +244,19 @@ namespace we {
         } else {
           this.changeBettingTableState(this._currentBettingStateIndex);
         }
+
+        const currentBigTag = this._currentMap[Object.keys(this._currentMap)[this._currentBigTagIndex]];
+        const config = currentBigTag['type'][Object.keys(currentBigTag['type'])[this._currentSmallTagIndex]];
+
+        const playmode = `${currentBigTag.name} - ${config.name}`      
+
+        this._currentBettingTable.setLabelPlayMode(playmode);
+
         this._bettingTableGroup.touchChildren = true;
       }
 
       public toggleGameTypeDropdown(e) {
+        this._dropDownOverlay.touchEnabled = true;
         this._bettingTypeDropDown.dispatchEvent(new egret.Event('LO_TRAD_TOGGLE_MOBILE_GAMETYPE_DROPDOWN'));
       }
 
@@ -291,7 +266,7 @@ namespace we {
           this._bettingControl.init();
         }
 
-        this._noteControl = this._betControlPanel._noteControl;
+        // this._noteControl = this._betControlPanel._noteControl;
 
         if (this._noteControl) {
           this._noteControl.bettingPanel = this;
@@ -319,7 +294,7 @@ namespace we {
         dir.evtHandler.once('onLotteryConfirmBet', this.placeBet, this);
         // this.placeBet(notes);
         dir.evtHandler.createOverlay({
-          class: 'SSCBetConfirmPanel',
+          class: 'SSCTraditionalMobileBetConfirmPanel',
           args: [notes, this._currentGameRound],
         });
       }
@@ -342,16 +317,37 @@ namespace we {
         dir.evtHandler.once('onLotteryConfirmBet', this.placeBet, this);
         // this.placeBet(notes);
         dir.evtHandler.createOverlay({
-          class: 'SSCBetConfirmPanel',
+          class: 'SSCTraditionalMobileBetConfirmPanel',
           args: [notes, this._currentGameRound],
         });
       }
 
       public addNotes() {
         // add notes to _noteControl
-        super.addNotes();
-        this._betControlPanel.visible = true;
-        this._betControlPanel.touchEnabled = true;
+        // super.addNotes();
+        let addnotes = this.generateNoteData();
+
+        if (!this._noteControl) {
+          return;
+        }
+
+        this._noteControl.addNotes(addnotes);
+
+        const notes = this._noteControl.notes;
+
+        if (this._roundDetailInfo === null || notes.length === 0) {
+          return;
+        }
+
+        dir.evtHandler.createOverlay({
+          class: 'SSCTraditionalMobileBetControlPanel',
+          args: [notes, this._roundDetailInfo, this],
+        });
+
+        dir.evtHandler.once('onLotteryConfirmBet', this.placeBet, this);
+
+        // this._betControlPanel.visible = true;
+        // this._betControlPanel.touchEnabled = true;
       }
     }
   }

@@ -157,6 +157,8 @@ namespace we {
       }
 
       public dispose() {}
+
+      public setLabelPlayMode(e) {}
     }
   }
 }

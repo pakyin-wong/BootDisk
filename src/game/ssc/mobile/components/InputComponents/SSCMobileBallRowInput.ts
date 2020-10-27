@@ -64,6 +64,19 @@ namespace we {
           this._top.height = 0;
           this._separateLine.height = 0;
         }
+        
+        this._bg = new ui.RoundRectShape();
+        this._bg.width = this._content.width;
+        this._bg.height = this._content.height;
+        this._bg.cornerTL_TR_BL_BR = "10,10,10,10";
+        this._bg.stroke = 0;
+        this._bg.fillColor = '0x23282f';
+        this._bg.fillAlpha = 0.4;
+        this.addChildAt(this._bg,0);
+        this._content.addEventListener(egret.Event.RESIZE,this.updateBg,this);
+      }
+
+      protected updateBg(e){
         this._bg.height = this._content.height;
         this._bg.refresh();
       }

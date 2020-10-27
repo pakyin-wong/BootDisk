@@ -49,9 +49,9 @@ namespace we {
 
       protected _btnChaseBet: ui.RoundRectButton;
 
-      private _outputData: any = [];
-      private _totalBetAmount: any = 0;
-      private _totalBetCount: any = 0;
+      protected _outputData: any = [];
+      protected _totalBetAmount: any = 0;
+      protected _totalBetCount: any = 0;
 
       // constructor(skin, orientationDependent) {
       //   super(skin, orientationDependent);
@@ -66,11 +66,7 @@ namespace we {
       }
 
       protected initSkin() {
-        if (env.isMobile) {
-          this.skinName = 'skin_mobile.lo.SSCNoteControlPanel';
-        } else {
-          this.skinName = 'skin_desktop.lo.SSCNoteControlPanel';
-        }
+        this.skinName = 'skin_desktop.lo.SSCNoteControlPanel';
       }
 
       protected childrenCreated() {
@@ -230,6 +226,11 @@ namespace we {
       public onExit() {
         super.onExit();
         this.removeListeners();
+      }
+      
+      public updateBalance() {
+        this._balance = env.balance;
+        this._lblBalance.renderText = () => `${i18n.t('nav.bet_balance')} $${this._balance ? utils.formatNumber(this._balance, true) : ' - '}`;
       }
 
       public setConfirmBetButton(enable: boolean) {

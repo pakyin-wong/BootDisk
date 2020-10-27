@@ -168,7 +168,7 @@ namespace we {
         const betmodearray = [];
         notes.forEach(data => {
           const result: any = data.field.split(/@/g);
-          const betmode = parseInt(result[1], 10) / 100;
+          const betmode = parseInt(result[1], 10);
           betmodearray.push(betmode);
         });
         return betmodearray;
@@ -341,6 +341,9 @@ namespace we {
       }
 
       public updateBetTableInfo(info) {
+        if(!info.betInfo){
+          return;
+        }
         this._currentGameRound = info.betInfo.gameroundid;
         if (info.betInfo.lotteryRatio && this._ratioList === undefined) {
           this._ratioList = info.betInfo.lotteryRatio;

@@ -1,20 +1,38 @@
 // TypeScript file
 namespace we {
-  export namespace lo {
-    export class SSCTraditionalMobileBetControlPanel extends core.BaseEUI {
-      public _noteControl: SSCNoteControlPanel;
-      public _chaseBetPanel: SSCChaseBetPanel;
-      protected _bettingPanel: SSCTraditionalMobileBettingPanel;
+  export namespace overlay {
+    export class SSCTraditionalMobileBetControlPanel extends ui.Panel {
+      public _noteControl: we.lo.SSCTraditionalMobileNoteControlPanel;
+      public _chaseBetPanel: we.lo.SSCChaseBetPanel;
 
+      public _btnConfirmBet
       protected _activePanelIndex = 0; // 0 = noteControl panel, 1 = chaseBetPanel
 
-      constructor(panel) {
+      protected _bettingPanel: we.lo.SSCTraditionalMobileBettingPanel;
+      protected _notes;
+      protected _roundData;
+
+      constructor(notes, roundData, panel) {
         super();
         this.skinName = 'skin_mobile.lo.SSCTraditionalBetControlPanel';
         this._bettingPanel = panel;
+        this._notes = notes;
+        this._roundData = roundData;
+        this.isPoppable = true;
       }
 
-      public init() {}
+      protected mount(){
+        super.mount();
+        this.init();
+      }
+
+      public init() {
+        this._noteControl.bettingPanel = this._bettingPanel;
+        this._noteControl.init();
+        this._noteControl.notes = this._notes;
+        this._noteControl.updateNoteControlPanel();
+        dir.evtHandler.once('onLotteryConfirmBet', this.onExit, this);
+      }
 
       public toggle() {
         this.parent.touchEnabled = !this.parent.touchEnabled;
@@ -33,6 +51,10 @@ namespace we {
             this._chaseBetPanel.visible = true;
           break;
         }
+      }
+
+      protected onExit(e){
+        this.foreclosed();
       }
 
       public switchMode(idx : number){

@@ -179,14 +179,26 @@ namespace we {
       protected regenerateBetitemFromField(DataString: string) {
         let newdatastring = '';
         const spliteddatastring = DataString.split('');
-        if (spliteddatastring.length < 16) {
-          newdatastring = DataString;
-        } else {
-          for (let i = 0; i < 16; i++) {
-            newdatastring += spliteddatastring[i];
+        if(env.isMobile){
+          if (spliteddatastring.length < 80) {
+            newdatastring = DataString;
+          } else {
+            for (let i = 0; i < 80; i++) {
+              newdatastring += spliteddatastring[i];
+            }
+            newdatastring += '...';
           }
-          newdatastring += '...';
+        }else{
+          if (spliteddatastring.length < 16) {
+            newdatastring = DataString;
+          } else {
+            for (let i = 0; i < 16; i++) {
+              newdatastring += spliteddatastring[i];
+            }
+            newdatastring += '...';
+          }
         }
+
         return newdatastring;
       }
 

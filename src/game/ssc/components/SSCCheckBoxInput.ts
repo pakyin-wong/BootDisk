@@ -17,7 +17,7 @@ namespace we {
 
       constructor(index: number, config: any) {
         super(index, config);
-
+        this.initSkin();
         // this.bigTagIndex = currentBigTagIndex;
         // this.smallTagIndex = currentSmallTagIndex;
         this.init();

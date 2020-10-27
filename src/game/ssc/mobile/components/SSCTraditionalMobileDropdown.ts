@@ -10,7 +10,7 @@ namespace we {
 
       private _title: ui.RunTimeLabel;
 
-      private _btnConfirm: eui.Group;
+      private _btnConfirm: ui.RunTimeLabel;
       private _config;
 
       private _betTypeConfig;
@@ -38,11 +38,18 @@ namespace we {
 
       protected mount() {
         super.mount();
-
-        this.addEventListener('LO_TRAD_TOGGLE_MOBILE_GAMETYPE_DROPDOWN', this.toggleDropdown, this);
-        this.addEventListener('close', this.syncResult, this);
+        this.addEventListeners();
       }
 
+      protected addEventListeners(){
+        this.addEventListener('LO_TRAD_TOGGLE_MOBILE_GAMETYPE_DROPDOWN', this.toggleDropdown, this);
+        this._btnConfirm.addEventListener(egret.TouchEvent.TOUCH_TAP, this.syncResult, this);
+      }
+
+      protected removeEventListeners(){
+        this.removeEventListener('LO_TRAD_TOGGLE_MOBILE_GAMETYPE_DROPDOWN', this.toggleDropdown, this);
+        this._btnConfirm.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.syncResult, this);
+      }
       protected async toggleDropdown(e) {
         if (this.isActivated) {
           return;
@@ -149,7 +156,7 @@ namespace we {
 
       protected initOrientationDependentComponent() {
         // protected initComponents() {
-        (<ui.RunTimeLabel>this.close).renderText = () => `${i18n.t('mobile_dropdown_confirm')}`;
+        (<ui.RunTimeLabel>this._btnConfirm).renderText = () => `${i18n.t('mobile_dropdown_confirm')}`;
         this._betTypeScroller.bounces = false;
         this._betTypeList.dataProvider = this._betTypeDataCollection;
         this._betTypeList.itemRenderer = SSCTraditionalMobileDropdownItemRender;
@@ -186,7 +193,7 @@ namespace we {
         // console.log('betType: ' + this._betTypeConfig[this._currentBigTagIndex] +
         //      'betMode: '+ this._betModeConfig[this._currentSmallTagIndex]);
 
-        this.hide();
+        this.foreclosed();
         // this._opt.review && (this._opt.review.renderText = this._list.selectedItem.renderText);
         // this._opt.toggler.dispatchEvent(new egret.Event('DROPDOWN_ITEM_CHANGE', false, false, this._list.selectedItem.key));
         // this._opt = null;

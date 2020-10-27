@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile.SSCTraditionalBetControlPanel" width="1242" height="1767" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
+<e:Skin class="skin_mobile.lo.SSCNoteControlPanel" width="1242" height="1767" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
     <e:Group id="_content" width="1242" height="1767">
         <e:Scroller id="_scroller" scrollPolicyV="on" scrollPolicyH="off" width="1242" height="1520" x="0" y="40">
-            <e:List id="_dataGroup">
+            <e:List id="_datagroup">
                 <e:layout>
                     <e:VerticalLayout paddingTop="48" paddingBottom="48" gap="48" horizontalAlign="center"/>
                 </e:layout>
@@ -12,7 +12,7 @@
         <e:Group id="_confirmBetGrp" width="1242" height="244">
             <e:Group x="51" y="0" height="244">
 		        <ui:RunTimeLabel id="_lbltotalBetCountText" text="總投注額" width="192" targetWidth="192" size="48" verticalAlign="middle" height="90" textColor="0xffffff" verticalCenter="0" alpha="0.7"/>
-		        <ui:RunTimeLabel id="_lbltotalBetCount" text="$21,980.00" width="339" targetWidth="339" size="56" verticalAlign="middle" height="90" textColor="0xe4493a" verticalCenter="0"/>
+		        <ui:RunTimeLabel id="_lbltotalBetAmount" text="$21,980.00" width="339" targetWidth="339" size="56" verticalAlign="middle" height="90" textColor="0xe4493a" verticalCenter="0"/>
                 <e:layout>
                     <e:HorizontalLayout gap="37" verticalAlign="middle"/>
                 </e:layout>
