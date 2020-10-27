@@ -1,24 +1,24 @@
 namespace we {
   export namespace dil {
     export class Pool extends ui.Panel {
-      protected TableInfo: data.TableInfo;
+      protected tableInfo: data.TableInfo;
 
-      public _sum3Percent: ui.RunTimeLabel;
-      public _sum4Percent: ui.RunTimeLabel;
-      public _sum5Percent: ui.RunTimeLabel;
-      public _sum6Percent: ui.RunTimeLabel;
-      public _sum7Percent: ui.RunTimeLabel;
-      public _sum8Percent: ui.RunTimeLabel;
-      public _sum9Percent: ui.RunTimeLabel;
-      public _sum10Percent: ui.RunTimeLabel;
-      public _sum11Percent: ui.RunTimeLabel;
-      public _sum12Percent: ui.RunTimeLabel;
-      public _sum13Percent: ui.RunTimeLabel;
-      public _sum14Percent: ui.RunTimeLabel;
-      public _sum15Percent: ui.RunTimeLabel;
-      public _sum16Percent: ui.RunTimeLabel;
-      public _sum17Percent: ui.RunTimeLabel;
-      public _sum18Percent: ui.RunTimeLabel;
+      public _SUM_3Percent: ui.RunTimeLabel;
+      public _SUM_4Percent: ui.RunTimeLabel;
+      public _SUM_5Percent: ui.RunTimeLabel;
+      public _SUM_6Percent: ui.RunTimeLabel;
+      public _SUM_7Percent: ui.RunTimeLabel;
+      public _SUM_8Percent: ui.RunTimeLabel;
+      public _SUM_9Percent: ui.RunTimeLabel;
+      public _SUM_10Percent: ui.RunTimeLabel;
+      public _SUM_11Percent: ui.RunTimeLabel;
+      public _SUM_12Percent: ui.RunTimeLabel;
+      public _SUM_13Percent: ui.RunTimeLabel;
+      public _SUM_14Percent: ui.RunTimeLabel;
+      public _SUM_15Percent: ui.RunTimeLabel;
+      public _SUM_16Percent: ui.RunTimeLabel;
+      public _SUM_17Percent: ui.RunTimeLabel;
+      public _SUM_18Percent: ui.RunTimeLabel;
 
       public _betInfo: any;
 
@@ -83,6 +83,53 @@ namespace we {
           }
         }
       }
+
+      public setValue(tableInfo: data.TableInfo) { //called when bet start
+        this.tableInfo = tableInfo;
+        console.log('setValue', this.tableInfo)
+        this._betInfo = this.tableInfo.betInfo;
+        // update bar chart 
+        this.updateBarChart();
+
+      }
+
+      // update bat chart when bet info update
+       public updateTableBetInfo() {
+        this._betInfo = this.tableInfo.betInfo;
+        console.log('updateTableBetInfo::this.tableInfo.betInfo',this.tableInfo.betInfo)
+        this.updateBarChart();  
+
+    
+        logger.l(utils.LogTarget.DEBUG, JSON.stringify(this.tableInfo.betInfo.count));
+        logger.l(utils.LogTarget.DEBUG, JSON.stringify(this.tableInfo.betInfo.amount));
+      }     
+
+      public updateBarChart() {
+        console.log('updateBarChart:: hi')
+        if (this._betInfo) {
+          const arr =['SUM_3','SUM_4',
+                      'SUM_5','SUM_6',
+                      'SUM_7','SUM_8',
+                      'SUM_9','SUM_10',
+                      'SUM_11','SUM_12',
+                      'SUM_13','SUM_14',
+                      'SUM_15','SUM_16',
+                      'SUM_17','SUM_18'];
+          const amount = this._betInfo.amount;
+          const amountArr = arr.map(key => {
+            if (!amount[key]) {
+              amount[key] = 0;
+            }
+            return amount[key];
+          });
+          for (let i = 0; i < 17; i++){
+            console.log('amountArr',amountArr)
+            // this[`_SUM_${i+3}Percent`].text = amount[`SUM_${i+3}`] ? we.utils.formatNumber(amount[`SUM_${i+3}`], false) : 0;
+          }
+        }
+      }
+
+
     }
   }
 }

@@ -93,6 +93,31 @@ namespace we {
         (<any> this._gameData).hasBet = this.hasBet();
         super.checkResultMessage(resultData);
       }
+
+
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
+        if (evt && evt.data) {
+          const betInfo = <data.GameTableBetInfo> evt.data;
+          if (betInfo.tableid === this._tableId) {
+            this._rightGamePanel.pool.updateTableBetInfo();
+          }
+        }
+      }
+      // protected onTableBetInfoUpdate(evt: egret.Event) {
+      //   super.onTableBetInfoUpdate(evt);
+      //   if (evt && evt.data) {
+      //     const betInfo = <data.GameTableBetInfo> evt.data;
+      //     if (betInfo.tableid === this._tableId) {
+      //       console.log('dil scene::betInfo',betInfo)
+      //       if (this._rightGamePanel.pool) {
+
+      //       }
+      //     }
+      //   }
+      // }
+
+
     }
   }
 }
