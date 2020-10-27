@@ -185,12 +185,7 @@ namespace we {
 
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
-        if (tableInfo.gametype === we.core.GameType.DI) {
-          this._dealerImage.texture = RES.getRes('advanced_dealer_sicbo_png');
-        } else {
-          const randNo = Math.round(Math.random()) + 1;
-          this._dealerImage.texture = RES.getRes('advanced_dealer_' + randNo + '_png');
-        }
+        this._dealerImage.source = this.itemInitHelper && this.itemInitHelper.getAdvancedPlaceholder ? this.itemInitHelper.getAdvancedPlaceholder() : null;
         if (tableInfo.tableid === this._tableId) {
           if (this._analysis) {
             this._analysis.tableId = this._tableId;
