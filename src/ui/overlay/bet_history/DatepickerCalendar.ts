@@ -17,14 +17,14 @@ namespace we {
 
         this._headerItems = [];
         for (let w = 0; w < 7; w++) {
-          const headeritem = new Datepickeritem(w);
+          const headeritem = new Datepickeritem(w); // 星期的array
           this._headerItems.push(headeritem);
           this.addChild(headeritem);
         }
 
         this._dateItems = [];
         for (let d = 0; d < 31; d++) {
-          const dateitem = new Datepickeritem(d + 1);
+          const dateitem = new Datepickeritem(d + 1); // 日子的array
           this._dateItems.push(dateitem);
           this.addChild(dateitem);
         }
@@ -33,8 +33,11 @@ namespace we {
       protected mount() {
         super.mount();
         this._today = new Date();
+        console.log('this._today  new Date()',this._today)
         this._currMonth = this._today.getMonth();
+        console.log('this._currMonth = this._today.getMonth();',this._currMonth)
         this._today = this._today.getDate() - 1;
+        console.log(' this._today = this._today.getDate() - 1;',this._today)
 
         for (let w = 0; w < 7; w++) {
           this._headerItems[w].label.renderText = () => `${i18n.t('datePicker_weekday_' + w)}`;

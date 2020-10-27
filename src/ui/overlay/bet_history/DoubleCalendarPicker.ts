@@ -22,6 +22,8 @@ namespace we {
 
       public range = 6;
 
+      private currentMonthIndex: number = 0;
+
       constructor() {
         super();
         this._current = moment().startOf('month');
@@ -60,7 +62,8 @@ namespace we {
 
         this._calender_prev.setTo(prev.year(), prev.month());
         this._calender_next.setTo(this._current.year(), this._current.month());
-        this._calender_next.highlightToday = true;
+        
+        this._calender_next.highlightToday = this.currentMonthIndex === 0 ? true : false;
 
         this._txt_prev.text = prev.format('YYYY / MM');
         this._txt_next.text = this._current.format('YYYY / MM');
@@ -97,11 +100,13 @@ namespace we {
       }
 
       protected nextClicked() {
+        this.currentMonthIndex++;
         this._current.add(1, 'months');
         this.update();
       }
 
       protected prevClicked() {
+        this.currentMonthIndex--;
         this._current.subtract(1, 'months');
         this.update();
       }
