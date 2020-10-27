@@ -75,6 +75,10 @@ namespace we {
           }
         });
 
+        if (this.bullets) {
+          this.bullets.visible = this._slides.length >= 2;
+        }
+
         if (this.currentIndex!==0) {
           // reset index since some of the banner hasn't been loaded yet
           this.currentIndex = 0;
@@ -126,6 +130,9 @@ namespace we {
         if (this.isAnimating) {
           clearTimeout(this.autoPlayTimer);
           // animation end event will scheduleNext
+          return;
+        }
+        if (this._slides.length < 2 ) {
           return;
         }
         this.isDown = true;
@@ -184,7 +191,7 @@ namespace we {
             this.imageInvisible.alpha = 0;
             this.isAnimating = false;
             this.scheduleNext();
-          }, this.interval * 1000 + 50);
+          }, this.duration * 1000 + 50);
           return;
         }
 
@@ -210,11 +217,14 @@ namespace we {
           this.imageInvisible.alpha = 0;
           this.isAnimating = false;
           this.scheduleNext();
-        }, this.interval * 1000 + 50);
+        }, this.duration * 1000 + 50);
       }
 
       private scheduleNext(isPrev: boolean = false) {
         clearTimeout(this.autoPlayTimer);
+
+        if (this._slides.length < 2) return;
+
         this.autoPlayTimer = setTimeout(() => {
           if (!this._slides.length || this.isDown) {
             this.scheduleNext();
@@ -250,7 +260,7 @@ namespace we {
           this.imageInvisible.alpha = 0;
           this.isAnimating = false;
           this.scheduleNext();
-        }, this.interval * 1000 + 50);
+        }, this.duration * 1000 + 50);
       }
 
       private onTap() {

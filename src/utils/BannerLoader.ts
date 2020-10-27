@@ -77,7 +77,6 @@ namespace we {
                 loaded: false,
               }));
               if (liveHeroBanners.length > 0) {
-                liveHeroBanners.push({ ...liveHeroBanners[0] }); // mock unloaded second image
                 // init first banner
                 liveHeroBanners[0].image = await this._loadRemoteImage(liveHeroBanners[0].imageUrl);
                 liveHeroBanners[0].loaded = true;
