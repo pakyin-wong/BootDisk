@@ -118,6 +118,9 @@ namespace we {
           this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
         }
+        if (this._bottomGamePanel._poolPanel) {
+          this._bottomGamePanel._poolPanel.setValue(this._tableInfo);
+        }
         // if (this._bottomGamePanel._betLimitDropDownBtn) {
         //   this.initBottomBetLimitSelector();
         // }
@@ -217,7 +220,12 @@ namespace we {
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
+          const betInfo = <data.GameTableBetInfo> evt.data;
+          if (betInfo.tableid === this._tableId) {
+            this._bottomGamePanel._poolPanel.updateTableBetInfo();
+          }
         }
       }
 

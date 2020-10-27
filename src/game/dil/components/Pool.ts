@@ -31,7 +31,7 @@ namespace we {
       }
       protected mount() {
         if (env.isMobile ===false) {
-          console.log('desktop')// desktop
+          // console.log('desktop')// desktop
           this._horizontalBarChart1 = new we.di.HorizontalBarChart();
           this._horizontalBarChart2 = new we.di.HorizontalBarChart();
           this._horizontalBarChart1.setChartStyles(
@@ -92,17 +92,130 @@ namespace we {
           this.addChild(this._horizontalBarChart2);    
 
         } else {
-          if ( env.orientation === 'landscape') {
-            console.log('landscape') //landscape
+        // console.log('isMobile')// isMobile
+          this._horizontalBarChart1 = new we.di.HorizontalBarChart();
+          this._horizontalBarChart2 = new we.di.HorizontalBarChart();
+          if (env.orientation === 'landscape') {
+            this._horizontalBarChart1.setChartStyles(
+              [
+                [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,1],
+                [[0xd98c20, 0xd98c20], [1, 1], [0, 255], 0,1],
+                [[0xd94341, 0xd94341], [1, 1], [0, 255], 0,1],
+                [[0xd93b96, 0xd93b96], [1, 1], [0, 255], 0,1],
+                [[0xa73ad9, 0xa73ad9], [1, 1], [0, 255], 0,1],
+                [[0x1c75d9, 0x1c75d9], [1, 1], [0, 255], 0,1],
+                [[0x3cd9cd, 0x3cd9cd], [1, 1], [0, 255], 0,1],
+                [[0x36d943, 0x36d943], [1, 1], [0, 255], 0,1],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+                [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+                [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+                [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+                [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+              ],
+              300,
+              15,
+              21
+            );
+            this._horizontalBarChart2.setChartStyles(
+              [
+                [[0x36d943, 0x36d943], [1, 1], [0, 255], 0,1],
+                [[0x3cd9cd, 0x3cd9cd], [1, 1], [0, 255], 0,1],
+                [[0x1c75d9, 0x1c75d9], [1, 1], [0, 255], 0,1],
+                [[0xa73ad9, 0xa73ad9], [1, 1], [0, 255], 0,1],
+                [[0xd93b96, 0xd93b96], [1, 1], [0, 255], 0,1],
+                [[0xd94341, 0xd94341], [1, 1], [0, 255], 0,1],
+                [[0x3cd9cd, 0x3cd9cd], [1, 1], [0, 255], 0,1],
+                [[0xd98c20, 0xd98c20], [1, 1], [0, 255], 0,1],
+                [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+                [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+                [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+                [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+                [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+              ],
+              300,
+              15,
+              21
+            );
+            
+            this._horizontalBarChart1.x = 50;
+            this._horizontalBarChart1.y = 11;  
+            this._horizontalBarChart2.x = 548;
+            this._horizontalBarChart2.y = 11;  
           } else {
-            console.log('portrait') //portrait
-          }
+            this._horizontalBarChart1.setChartStyles(
+              [
+                [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,1],
+                [[0xd98c20, 0xd98c20], [1, 1], [0, 255], 0,1],
+                [[0xd94341, 0xd94341], [1, 1], [0, 255], 0,1],
+                [[0xd93b96, 0xd93b96], [1, 1], [0, 255], 0,1],
+                [[0xa73ad9, 0xa73ad9], [1, 1], [0, 255], 0,1],
+                [[0x1c75d9, 0x1c75d9], [1, 1], [0, 255], 0,1],
+                [[0x3cd9cd, 0x3cd9cd], [1, 1], [0, 255], 0,1],
+                [[0x36d943, 0x36d943], [1, 1], [0, 255], 0,1],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+                [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+                [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+                [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+                [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+              ],
+              400,
+              30,
+              36
+            );
+            this._horizontalBarChart2.setChartStyles(
+              [
+                [[0x36d943, 0x36d943], [1, 1], [0, 255], 0,1],
+                [[0x3cd9cd, 0x3cd9cd], [1, 1], [0, 255], 0,1],
+                [[0x1c75d9, 0x1c75d9], [1, 1], [0, 255], 0,1],
+                [[0xa73ad9, 0xa73ad9], [1, 1], [0, 255], 0,1],
+                [[0xd93b96, 0xd93b96], [1, 1], [0, 255], 0,1],
+                [[0xd94341, 0xd94341], [1, 1], [0, 255], 0,1],
+                [[0x3cd9cd, 0x3cd9cd], [1, 1], [0, 255], 0,1],
+                [[0xd98c20, 0xd98c20], [1, 1], [0, 255], 0,1],
+                [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+                [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+                [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+                [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+                [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0,0],
+                [[0xffe6bd, 0x9b6d34], [1, 1], [0, 255], 0,0],
+              ],
+              400,
+              30,
+              36
+            );
+            
+            this._horizontalBarChart1.x = 78;
+            this._horizontalBarChart1.y = 9;  
+            this._horizontalBarChart2.x = 698;
+            this._horizontalBarChart2.y = 9;  
+          } 
+          this.addChild(this._horizontalBarChart1);
+          this.addChild(this._horizontalBarChart2);            
         }
       }
 
       public setValue(tableInfo: data.TableInfo) { //called when bet start
         this.tableInfo = tableInfo;
-        console.log('setValue', this.tableInfo)
+        // console.log('setValue', this.tableInfo)
         this._betInfo = this.tableInfo.betInfo;
         // update bar chart 
         this.updateBarChart();
@@ -112,7 +225,7 @@ namespace we {
       // update bat chart when bet info update
        public updateTableBetInfo() {
         this._betInfo = this.tableInfo.betInfo;
-        console.log('updateTableBetInfo::this.tableInfo.betInfo',this.tableInfo.betInfo)
+        // console.log('updateTableBetInfo::this.tableInfo.betInfo',this.tableInfo.betInfo)
         this.updateBarChart();  
 
     
@@ -141,7 +254,7 @@ namespace we {
           for (let i = 0; i < 16; i++){
             this[`_SUM_${i+3}Percent`].text = amount[`SUM_${i+3}`] ? we.utils.formatNumber(amount[`SUM_${i+3}`], false) : 0;
           }
-         if (env.isMobile ===false) { 
+        //  if (env.isMobile ===false) { 
            let leftSide = amountArr.splice(0, Math.ceil(amountArr.length /2));
            let rightSide = amountArr;
            let arr1 = [...leftSide,...rightSide];
@@ -151,7 +264,7 @@ namespace we {
 //            let letters = ['a', 'b', 'c', 'd', 'e'];
 //            let leftSide = letters.splice(0, Math.ceil(letters.length /2));
 //            let rightSide = letters;
-         }
+        //  } else 
          //=====================
         }}
 
