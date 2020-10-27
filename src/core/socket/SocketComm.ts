@@ -92,7 +92,7 @@ namespace we {
         const err = {
           code: 1000,
           error: "CONNECTION_CLOSE",
-          detail: "Connection is closed",
+          detail: i18n.t("message.connectionError"),
           priority: 10,
           action: 'restart',
           timestamp: egret.getTimer()

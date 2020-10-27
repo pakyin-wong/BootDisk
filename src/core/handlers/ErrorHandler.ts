@@ -44,14 +44,14 @@ namespace we {
           if (error.action === 'retry') {
             this.createDialog(error.detail, {
               dismiss: {
-                text: 'Cancel',
+                text: i18n.t("message.cancel"),
                 onClick: async function () {
                   error.args[error.args.length - 1](error);
                   this.doFinish();
                 }.bind(this),
               },
               action: {
-                text: 'Retry',
+                text: i18n.t("message.retry"),
                 onClick: async function () {
                   this.doRetryFunction(error.method, error.args);
                   this.doFinish();
@@ -61,7 +61,7 @@ namespace we {
           } else if (error.action === 'restart') {
             this.createDialog(error.detail, {
               dismiss: {
-                text: 'Restart',
+                text: i18n.t("message.restart"),
                 onClick: async function () {
                   this.doRestart();
                 }.bind(this),
@@ -70,7 +70,7 @@ namespace we {
           } else {
             this.createDialog(error.detail, {
               dismiss: {
-                text: 'Cancel',
+                text: i18n.t("message.cancel"),
                 onClick: async function () {
                   this.doFinish();
                 }.bind(this),
@@ -81,7 +81,7 @@ namespace we {
           // unknown error
           this.createDialog(`${i18n.t('message.unknownError')} (Code: ${error.code}) (Debug: ${error.debug})`, {
             dismiss: {
-              text: 'Cancel',
+              text: i18n.t("message.cancel"),
             },
           });
         }
