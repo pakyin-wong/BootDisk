@@ -183,7 +183,7 @@ namespace we {
         bitmap.texture = RES.getRes(utils.getCardResName(utils.formatCardForFlip(this._gameData[currentCard])));
         bitmap.rotation = rotation;
           
-        if (rotation === 0) {
+        if (1 === 1) {
 
 
           const textureData = new dragonBones.EgretTextureData();
