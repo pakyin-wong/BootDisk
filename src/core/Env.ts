@@ -37,6 +37,11 @@ namespace we {
       public _nicknames: { [langcode: string]: any } = {};
       public _groups: {};
       public groupName: { [groupKey: string]: string } = {};
+
+      public blockchain: { thirdPartySHA256:  string, cosmolink: string} = {
+        thirdPartySHA256 : '',
+        cosmolink : ''
+      };
       /**
        * {
        *  groupKey1:[

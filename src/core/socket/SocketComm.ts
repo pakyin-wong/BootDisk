@@ -269,7 +269,7 @@ namespace we {
       protected handleReady(player: data.PlayerSession, timestamp: string) {
         // return data with struct data.PlayerSession
 
-        console.log(player);
+        //console.log('player',player);
 
         this.updateTimestamp(timestamp);
         env.playerID = player.playerid;
@@ -285,6 +285,11 @@ namespace we {
             env.favouriteTableList = [];
           }
         }
+
+        env.blockchain.cosmolink = player.blockchainlinks.cosmoslink
+        env.blockchain.thirdPartySHA256 = player.blockchainlinks.thirdpartysha256
+
+        console.log('blockchain', env.blockchain)
 
         // env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
         // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
