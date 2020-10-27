@@ -23,6 +23,11 @@ namespace we {
       updateRoad();
     }
 
+    export interface HistoryCardHolder{
+      setCards(tableId: string);
+      setNumber(number: number);
+    }
+
     export interface IListItemHelper {
       // updateRoadData(roadmapData: any);
       generateTableLayer?(node: eui.Component): TableLayer;

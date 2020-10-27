@@ -40,7 +40,7 @@ namespace we {
       protected childrenCreated(): void {
         super.childrenCreated();
         utils.disableTouchforChildren(this, obj => {
-          const bool = !!(<any> obj).text;
+          const bool = !!(<any>obj).text;
           return bool;
         });
 
@@ -54,7 +54,7 @@ namespace we {
       }
 
       protected onBetLimitChange() {
-        const betLimitSet = env.betLimits[env.currentSelectedBetLimitIndex];
+        const betLimitSet = env.betLimits.Live[env.currentSelectedBetLimitIndex];
         if (this.pTableBetLimit && this.pBetLimit) {
           this.pTableBetLimit.text = utils.numberToFaceValue(betLimitSet.maxlimit);
           this.pBetLimit.text = `${utils.numberToFaceValue(betLimitSet.minlimit)} - ${utils.numberToFaceValue(betLimitSet.maxlimit)}`;
@@ -107,7 +107,7 @@ namespace we {
         // }
         this.pDealer.text = tableInfo.dealername ? tableInfo.dealername : '-';
 
-        const betLimitSet = env.betLimits[env.currentSelectedBetLimitIndex];
+        const betLimitSet = env.betLimits.Live[env.currentSelectedBetLimitIndex];
         if (this.pTableBetLimit) {
           this.pTableBetLimit.text = utils.numberToFaceValue(betLimitSet.maxlimit);
         }

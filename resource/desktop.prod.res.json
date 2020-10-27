@@ -41,8 +41,16 @@
 			"name": "scene_lottery"
 		},
 		{
-			"keys": "d_bcba_panel_verification_encryt_bg_png,d_bcba_panel_verification_key_bg_png,d_bcba_panel_bg_png,bab-0_json,bab-1_json,bab-2_json,bab-3_json,bab-4_json,bab-5_json,bab-6_json,bab-7_json,bab-8_json,blockchain_tex_png",
+			"keys": "bab-0_json,bab-1_json,bab-2_json,bab-3_json,bab-4_json,bab-5_json,bab-6_json,bab-7_json,bab-8_json,blockchain_tex_png",
 			"name": "scene_bc_baccarat"
+		},
+		{
+			"keys": "d_bcba_panel_bg_png,d_bcba_panel_verification_key_bg_png,d_bcba_panel_verification_encryt_bg_png",
+			"name": "scene_bc"
+		},
+		{
+			"keys": "",
+			"name": "scene_bc_dragontiger"
 		}
 	],
 	"resources": [
@@ -622,21 +630,6 @@
 			"name": "chips_select_tex_png"
 		},
 		{
-			"url": "assets/nmimages/d/bab/d_bcba_panel_verification_encryt_bg.png",
-			"type": "image",
-			"name": "d_bcba_panel_verification_encryt_bg_png"
-		},
-		{
-			"url": "assets/nmimages/d/bab/d_bcba_panel_verification_key_bg.png",
-			"type": "image",
-			"name": "d_bcba_panel_verification_key_bg_png"
-		},
-		{
-			"url": "assets/nmimages/d/bab/d_bcba_panel_bg.png",
-			"type": "image",
-			"name": "d_bcba_panel_bg_png"
-		},
-		{
 			"url": "assets/spritesheet/d/bab/bab-1.json",
 			"type": "sheet",
 			"name": "bab-1_json",
@@ -699,6 +692,21 @@
 			"url": "assets/fonts/Barlow-Bold.ttf",
 			"type": "bin",
 			"name": "Barlow-Bold_ttf"
+		},
+		{
+			"url": "assets/nmimages/d/bc/d_bcba_panel_bg.png",
+			"type": "image",
+			"name": "d_bcba_panel_bg_png"
+		},
+		{
+			"url": "assets/nmimages/d/bc/d_bcba_panel_verification_key_bg.png",
+			"type": "image",
+			"name": "d_bcba_panel_verification_key_bg_png"
+		},
+		{
+			"url": "assets/nmimages/d/bc/d_bcba_panel_verification_encryt_bg.png",
+			"type": "image",
+			"name": "d_bcba_panel_verification_encryt_bg_png"
 		}
 	]
 }

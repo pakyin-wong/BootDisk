@@ -49,27 +49,21 @@ namespace we {
       env.language = i18n.lang = s;
       dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
 
-      if (!isInit && !env._nicknames[env.language]) {
+      if (!isInit) {
+        //  && !env._nicknames[env.language]
         const tasks = [
           () =>
             dir.socket.getStaticInitDataAsync(async res => {
               if (res.error) {
-                // TODO: show default hero banner image
-                // const placeholderImg = new Image();
-                // this._bannerImages = [placeholderImg];
               } else {
-                // env.nicknameSet = {
-                //   nicknames: {},
-                //   groups: {},
-                // }; // res.Nicknames;
                 if (res.Nicknames) {
                   env.nicknameSet = res.Nicknames;
                 }
               }
             }, this),
+          ()=>utils.BannerLoader.loadBanners()
         ];
-
-        await loadingMgr.load(tasks);
+        await loadingMgr.load(tasks, { isSequence: true });
       }
 
       dir.evtHandler.dispatch(core.Event.SWITCH_LANGUAGE, s);

@@ -25,6 +25,7 @@ namespace we {
             this._content = new BAResultNotificationContent(); // BA
             break;
           case core.GameType.DT:
+          case core.GameType.DTB:
             this._content = new DTResultNotificationContent(); // DT
             break;
           case core.GameType.LW:

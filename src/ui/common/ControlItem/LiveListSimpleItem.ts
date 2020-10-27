@@ -108,7 +108,7 @@ namespace we {
           }
         }
 
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
+        const denominationList = env.betLimits.Live[this.getSelectedBetLimitIndex()].chips;
         if (this._betChipSet) {
           this._betChipSet.init(3, denominationList);
         }
@@ -147,7 +147,7 @@ namespace we {
       protected onBetDetailUpdate(evt: egret.Event) {
         super.onBetDetailUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._tableInfo.totalBet > 0) {
               this._alreadyBetSign.visible = true;
@@ -198,7 +198,7 @@ namespace we {
       }
 
       protected runtimeGenerateChipLayer() {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
+        const denominationList = env.betLimits.Live[this.getSelectedBetLimitIndex()].chips;
         this.generateChipLayer();
         for (const att of this._arrangeProperties) {
           if (this._chipLayer && att !== 'height' && att !== 'scaleX') {
@@ -361,7 +361,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);

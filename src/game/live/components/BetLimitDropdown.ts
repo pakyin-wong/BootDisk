@@ -26,7 +26,7 @@ namespace we {
 
       public mount() {
         super.mount();
-        const betLimitList = env.betLimits;
+        const betLimitList = env.betLimits.Live;
         const betLimitItems = betLimitList.map(data => {
           return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
         });

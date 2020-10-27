@@ -19,6 +19,7 @@ namespace we {
       gametype_RO: '轮盘',
       gametype_ROL: '财神轮盘',
       gametype_DT: '龙虎',
+      gametype_DTB: '区块链龙虎',
       gametype_LW: '幸运轮',
       gametype_LO: '时时彩',
       gametype_RC: '北京赛车',
@@ -82,6 +83,7 @@ namespace we {
       overlaypanel_customroad_selectall: '全选',
 
       overlaypanel_bethistory_title: '游戏记录',
+      overlaypanel_bethistory_tab: '分类',
       overlaypanel_bethistory_tab_all: '游戏总览',
       overlaypanel_bethistory_tab_live: '真人游戏',
       overlaypanel_bethistory_tab_lottery: '彩票游戏',
@@ -105,6 +107,7 @@ namespace we {
       overlaypanel_bethistory_recordtab_orgbalance: '开局余额',
       overlaypanel_bethistory_recordtab_finbalance: '本局余额',
       overlaypanel_bethistory_recordtab_resuit: '游戏结果',
+      overlaypanel_bethistory_recordtab_vaildbet: '有效投注',
       overlaypanel_bethistory_recordtab_noresult: '没有游戏纪录',
       overlaypanel_bethistory_remark_win: '嬴',
       overlaypanel_bethistory_remark_lose: '输',
@@ -145,6 +148,8 @@ namespace we {
       overlaypanel_bethistorylottery_continuousbetdetails_doneAmount: '完成金额',
 
       overlaypanel_bethistorylottery_popup_titme: '追号详情',
+
+      overlaypanel_bethistorylottery_continuousbet_listtite: '追号清单',
       overlaypanel_bethistorylottery_continuousbet_round: '奖期',
       overlaypanel_bethistorylottery_continuousbet_rate: '倍数',
       overlaypanel_bethistorylottery_continuousbet_status: '状态',
@@ -194,7 +199,8 @@ namespace we {
       datePicker_weekday_5: '五',
       datePicker_weekday_6: '六',
 
-      mobile_lobby_feature_title: '热门游戏',
+      mobile_lobby_feature_title: '精选推介',
+      mobile_lobby_hot_game_title: '热门推介',
       mobile_ba_undo: '复原',
       mobile_ba_clear: '清除',
       mobile_ba_double: '双倍',
