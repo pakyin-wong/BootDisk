@@ -122,9 +122,9 @@ namespace we {
             }
             return amount[key];
           });
-          for (let i = 0; i < 17; i++){
+          for (let i = 0; i < 16; i++){
             console.log('amountArr',amountArr)
-            // this[`_SUM_${i+3}Percent`].text = amount[`SUM_${i+3}`] ? we.utils.formatNumber(amount[`SUM_${i+3}`], false) : 0;
+            this[`_SUM_${i+3}Percent`].text = amount[`SUM_${i+3}`] ? we.utils.formatNumber(amount[`SUM_${i+3}`], false) : 0;
           }
         }
       }
