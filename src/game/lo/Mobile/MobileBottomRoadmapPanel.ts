@@ -20,7 +20,7 @@ namespace we {
       protected road3Index: number;
 
       protected pType: ui.RunTimeLabel;
-      protected typeNames: string[] = ['B / S', 'O / E', 'DT'];
+      protected typeNames: string[] = ['B/S', 'O/E', 'DT'];
 
       public constructor() {
         super();
@@ -29,11 +29,13 @@ namespace we {
       protected mount() {
         super.mount();
 
-        this.initRoadMap();
         this.initTypeSelector();
+        this.initRoadMap();
 
         this.updateText();
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
+
+        this.roadStack.selectedIndex = 0;
       }
 
       protected initRoadMap() {
@@ -97,7 +99,7 @@ namespace we {
           toggler: this.pType,
           review: this.pType,
           arrCol: new eui.ArrayCollection(dropdownSource),
-          title: () => `${i18n.t('baccarat.betLimitshort')} ${this.typeNames.length > 0 ? this.typeNames[0] : ''}`,
+          title: () => `${this.typeNames.length > 0 ? this.typeNames[0] : ''}`,
           selected: 0,
         });
         // this.updateBetLimit(selectedIndex);
@@ -159,6 +161,10 @@ namespace we {
       }
       protected onRoadTypeChange(e) {
         this.roadStack.selectedIndex = e.data;
+
+        this['road1Btn1'].selected = true;
+        this['road2Btn1'].selected = true;
+        this['road3Btn1'].selected = true;
       }
 
       protected setRoad3PageNum(n: number) {

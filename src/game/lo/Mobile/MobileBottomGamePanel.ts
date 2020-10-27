@@ -36,8 +36,10 @@ namespace we {
         this.removeListeners();
       }
 
-      public setRoadMap(){
+      public setData(){
         this._roadmapPanel.setTableInfo(this.tableInfo);
+        this._statisticChartPanel.setTableInfo(this.tableInfo);
+        this._analysisPanel.setTableInfo(this.tableInfo);
       }
 
       protected addListeners() {
@@ -75,7 +77,6 @@ namespace we {
 
       public updateStat() {
         super.updateStat();
-        // this._statisticChartPanel.setValue(this.tableInfo);
       }
 
       public manualClose() {
@@ -87,7 +88,7 @@ namespace we {
 
       protected onViewChange(e: eui.UIEvent) {
         super.onViewChange(e);
-        this.viewStack.selectedIndex = e.target.value;
+        // this.viewStack.selectedIndex = e.target.value;
       }
 
       protected onPanelToggle() {

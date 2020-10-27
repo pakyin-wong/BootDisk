@@ -2,6 +2,8 @@
 namespace we {
   export namespace lo {
     export class AnalysisPanel extends ui.Panel {
+      protected tableInfo: data.TableInfo;
+
       protected analysisStack: eui.ViewStack;
 
       protected analysisBtn1: eui.RadioButton;
@@ -20,6 +22,16 @@ namespace we {
 
       protected mount() {
         super.mount();
+      }
+
+      public setTableInfo(tableInfo: data.TableInfo) {
+        this.tableInfo = tableInfo;
+
+        if (!this.tableInfo.gamestatistic) {
+          return;
+        } else {
+          this.init();
+        }
       }
 
       protected init() {
@@ -43,10 +55,10 @@ namespace we {
         this.listCold.y = 45;
         analysis4Group.addChild(this.listCold);
 
-        this.analysisBtn1.addEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
-        this.analysisBtn2.addEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
-        this.analysisBtn3.addEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
-        this.analysisBtn4.addEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+        // this.analysisBtn1.addEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+        // this.analysisBtn2.addEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+        // this.analysisBtn3.addEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+        // this.analysisBtn4.addEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.changeLang();
@@ -54,10 +66,10 @@ namespace we {
 
       protected destroy() {
         super.destroy();
-        this.analysisBtn1.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
-        this.analysisBtn2.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
-        this.analysisBtn3.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
-        this.analysisBtn4.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+        // this.analysisBtn1.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+        // this.analysisBtn2.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+        // this.analysisBtn3.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+        // this.analysisBtn4.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
 
@@ -76,15 +88,17 @@ namespace we {
         // this.listNoShow.updateList(history.noShow);
         // this.listHot.updateList(history.hot);
         // this.listCold.updateList(history.cold);
-
+       if (this.tableInfo && this.tableInfo.gamestatistic) {
+          this.setTableInfo(this.tableInfo);
+        }
         this.changeLang();
       }
 
       public changeLang() {
-        this.analysisBtn1['labelDisplayDown']['text'] = this.analysisBtn1['labelDisplayUp']['text'] = 'Show';
-        this.analysisBtn2['labelDisplayDown']['text'] = this.analysisBtn2['labelDisplayUp']['text'] = 'NoShow';
-        this.analysisBtn3['labelDisplayDown']['text'] = this.analysisBtn3['labelDisplayUp']['text'] = 'Hot';
-        this.analysisBtn4['labelDisplayDown']['text'] = this.analysisBtn4['labelDisplayUp']['text'] = 'Cold';
+        // this.analysisBtn1['labelDisplayDown']['text'] = this.analysisBtn1['labelDisplayUp']['text'] = 'Show';
+        // this.analysisBtn2['labelDisplayDown']['text'] = this.analysisBtn2['labelDisplayUp']['text'] = 'NoShow';
+        // this.analysisBtn3['labelDisplayDown']['text'] = this.analysisBtn3['labelDisplayUp']['text'] = 'Hot';
+        // this.analysisBtn4['labelDisplayDown']['text'] = this.analysisBtn4['labelDisplayUp']['text'] = 'Cold';
       }
     }
   }

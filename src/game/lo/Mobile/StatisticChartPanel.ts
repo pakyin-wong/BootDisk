@@ -2,6 +2,8 @@
 namespace we {
   export namespace lo {
     export class StatisticChartPanel extends ui.Panel {
+      protected tableInfo: data.TableInfo;
+
       protected chartStack: eui.ViewStack;
 
       protected noDataOverlay: eui.Group;
@@ -34,6 +36,17 @@ namespace we {
 
       protected mount() {
         super.mount();
+        this.initTypeSelector();
+      }
+
+      public setTableInfo(tableInfo: data.TableInfo) {
+        this.tableInfo = tableInfo;
+
+        if (!this.tableInfo.gamestatistic) {
+          return;
+        } else {
+          this.init();
+        }
       }
 
       protected init() {
@@ -250,8 +263,8 @@ namespace we {
         }
       }
 
-      protected onChartTypeChange(e: eui.UIEvent) {
-        // this.chartTypeIndex = e.target.value - 0;
+      protected onChartTypeChange(e) {
+        this.chartTypeIndex = e.target.value - 0;
         this.chartStack.selectedIndex = e.data;
 
         this.loadingOverlay.visible = true;
@@ -266,10 +279,13 @@ namespace we {
 
       public update() {
         this.changeLang();
+        if (this.tableInfo && this.tableInfo.gamestatistic) {
+          this.setTableInfo(this.tableInfo);
+        }
       }
 
       protected initTypeSelector() {
-        const dropdownSource = this.chartTypeNames.map((data, index) => {
+        const dropdownSource = this.chartTypeNames.map((data, index) => { 
           return ui.NewDropdownItem(index, () => `${data}`);
         });
 
@@ -277,7 +293,7 @@ namespace we {
           toggler: this.pType,
           review: this.pType,
           arrCol: new eui.ArrayCollection(dropdownSource),
-          title: () => `${i18n.t('baccarat.betLimitshort')} ${this.chartTypeNames.length > 0 ? this.chartTypeNames[0] : ''}`,
+          title: () => `${this.chartTypeNames.length > 0 ? this.chartTypeNames[0] : ''}`,
           selected: 0,
         });
         // this.updateBetLimit(selectedIndex);
