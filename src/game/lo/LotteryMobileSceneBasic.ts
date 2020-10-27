@@ -17,7 +17,8 @@ namespace we {
       protected _counterInterval;
 
       //bottomGame
-      protected _bottomGamePanel: ui.MobileBottomCommonPanel;
+      protected _bottomGamePanel: lo.MobileBottomGamePanel;
+      protected _roadmapControl: lo.LoRoadmapControl;
 
       constructor(data: any) {
         super(data);
@@ -27,6 +28,13 @@ namespace we {
       protected mount() {
         super.mount();
         this.initVideo();
+
+        //added bottomGame
+        this._bottomGamePanel.setTableInfo(this._tableInfo);
+        // this._roadmapControl.setTableInfo(this._tableInfo);
+        this._bottomGamePanel.setRoadMap();
+
+        this.initRoadMap;
       }
 
       protected destroy() {
@@ -38,6 +46,14 @@ namespace we {
         this._lblRoomNo.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this._tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
         this._GameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
         this._GameID.renderText = () => `${this._tableInfo.data.gameroundid}`;        
+      }
+
+      //added bottomGame
+      protected initRoadMap() {
+        this._roadmapControl = new LoRoadmapControl(this._tableId);
+        // if (this._leftGamePanel) {// for testing
+        this._roadmapControl.setTableInfo(this._tableInfo);
+        this._roadmapControl.setRoads(null, null, this._bottomGamePanel._roadmapPanel);
       }
 
       protected addListeners() {

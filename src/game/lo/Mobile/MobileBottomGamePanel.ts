@@ -31,18 +31,20 @@ namespace we {
         // if (env.orientation === 'portrait') {
         this._analysisGroup && this._analysisGroup.removeChildren();
         this._roadmapGroup && this._roadmapGroup.removeChildren();
-        // } else {
-        this._roadmapGroup && this._roadmapGroup.removeChildren();
-        // }
+        this._chartGroup && this._chartGroup.removeChildren();
 
         this.removeListeners();
+      }
+
+      public setRoadMap(){
+        this._roadmapPanel.setTableInfo(this.tableInfo);
       }
 
       protected addListeners() {
         super.addListeners();
         this.chartBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        if (this._analysisGroup) {
-          this._analysisGroup.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        if (this.analysisBtn) {
+          this.analysisBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         }
         if (this.roadSheetBtn) {
           this.roadSheetBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
@@ -52,8 +54,8 @@ namespace we {
       protected removeListeners() {
         super.removeListeners();
         this.chartBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        if (this._analysisGroup) {
-          this._analysisGroup.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        if (this.analysisBtn) {
+          this.analysisBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         }
         if (this.roadSheetBtn) {
           this.roadSheetBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
@@ -61,7 +63,7 @@ namespace we {
       }
 
       public updateText() {
-        if (this._analysisGroup) {
+        if (this.analysisBtn) {
           this.analysisBtn.label = i18n.t('mobile_game_panel_history');
         }
         if (this.roadSheetBtn) {
@@ -94,9 +96,9 @@ namespace we {
         this.dispatchEvent(new egret.Event('ON_BOTTOM_PANEL_TOGGLE'));
       }
 
-      protected onRoadMapChanged(e: eui.UIEvent) {
-        // this._roadmapPanel.onRoadMapChanged(e);
-      }
+      // protected onRoadMapChanged(e: eui.UIEvent) {
+      //   // this._roadmapPanel.onRoadMapChanged(e);
+      // }
     }
   }
 }

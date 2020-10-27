@@ -17,7 +17,7 @@
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
 						<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
-                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36" />
+                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="up" size="36" />
                         <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36" />
                         </e:Skin>
                         </e:skinName>
@@ -27,7 +27,7 @@
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
 						<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
-                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36" />
+                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="up" size="36" />
                         <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36" />
                         </e:Skin>
                         </e:skinName>
@@ -37,7 +37,7 @@
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
 						<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
-                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36" />
+                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="up" size="36" />
                         <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36" />
                         </e:Skin>
                         </e:skinName>
@@ -47,7 +47,7 @@
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
 						<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
-                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36" />
+                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="up" size="36" />
                         <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36" />
                         </e:Skin>
                         </e:skinName>
@@ -57,7 +57,7 @@
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
 						<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
-                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36" />
+                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="up" size="36" />
                         <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36" />
                         </e:Skin>
                         </e:skinName>
@@ -74,7 +74,7 @@
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
 						<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
-                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36" />
+                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="up" size="36" />
                         <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36" />
                         </e:Skin>
                         </e:skinName>
@@ -84,7 +84,7 @@
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
 						<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
-                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36" />
+                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="up" size="36" />
                         <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36" />
                         </e:Skin>
                         </e:skinName>
@@ -94,7 +94,7 @@
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
 						<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
-                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36" />
+                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="up" size="36" />
                         <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36" />
                         </e:Skin>
                         </e:skinName>
@@ -104,7 +104,7 @@
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
 						<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
-                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36" />
+                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="up" size="36" />
                         <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36" />
                         </e:Skin>
                         </e:skinName>
@@ -114,7 +114,7 @@
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
 						<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
-                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36" />
+                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="up" size="36" />
                         <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36" />
                         </e:Skin>
                         </e:skinName>
@@ -131,7 +131,7 @@
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
 						<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
-                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36" />
+                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="up" size="36" />
                         <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36" />
                         </e:Skin>
                         </e:skinName>
@@ -141,7 +141,7 @@
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
 						<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
-                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36" />
+                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="up" size="36" />
                         <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36" />
                         </e:Skin>
                         </e:skinName>
@@ -151,7 +151,7 @@
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
 						<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
-                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36" />
+                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="up" size="36" />
                         <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36" />
                         </e:Skin>
                         </e:skinName>
@@ -161,7 +161,7 @@
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
 						<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
-                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36" />
+                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="up" size="36" />
                         <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36" />
                         </e:Skin>
                         </e:skinName>
@@ -171,7 +171,7 @@
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
 						<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
-                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36" />
+                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="up" size="36" />
                         <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36" />
                         </e:Skin>
                         </e:skinName>
@@ -181,7 +181,7 @@
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
 						<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
-                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36" />
+                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="up" size="36" />
                         <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36" />
                         </e:Skin>
                         </e:skinName>
@@ -191,7 +191,7 @@
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
 						<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
-                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36" />
+                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="up" size="36" />
                         <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36" />
                         </e:Skin>
                         </e:skinName>
@@ -201,7 +201,7 @@
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
 						<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
-                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36" />
+                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="up" size="36" />
                         <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36" />
                         </e:Skin>
                         </e:skinName>
@@ -211,7 +211,7 @@
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
 						<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
-                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36" />
+                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="up" size="36" />
                         <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36" />
                         </e:Skin>
                         </e:skinName>
@@ -221,7 +221,7 @@
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
 						<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
-                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36" />
+                        <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="up" size="36" />
                         <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36" />
                         </e:Skin>
                         </e:skinName>

@@ -39,17 +39,17 @@ namespace we {
       protected initRoadMap() {
         this.road1Index = this.road2Index = this.road3Index = 0;
 
-        this.dtBigRoad = new LoDtBigRoad(16, 39);
-        this.dtBigRoad.x = 1;
-        this.dtBigRoad.y = 43;
+        this.dtBigRoad = new LoDtBigRoad(18, 70);
+        this.dtBigRoad.x = 8;
+        this.dtBigRoad.y = 8;
 
-        this.sizeBigRoad = new LoSizeBigRoad(16, 39);
-        this.sizeBigRoad.x = 1;
-        this.sizeBigRoad.y = 43;
+        this.sizeBigRoad = new LoSizeBigRoad(18, 70);
+        this.sizeBigRoad.x = 8;
+        this.sizeBigRoad.y = 8;
 
-        this.oddBigRoad = new LoOddBigRoad(16, 39);
-        this.oddBigRoad.x = 1;
-        this.oddBigRoad.y = 43;
+        this.oddBigRoad = new LoOddBigRoad(18, 70);
+        this.oddBigRoad.x = 8;
+        this.oddBigRoad.y = 8;
 
         // add road to road stack 1
         const road1Group = this.roadStack.getChildAt(0) as eui.Group;

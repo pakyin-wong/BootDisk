@@ -45,7 +45,9 @@ namespace we {
       protected mount() {
         super.mount();
         this.isPanelOpen = env.isBottomPanelOpen;
-        this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
+        if(this._gameScene){
+          this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
+        }
         this.addListeners();
         this.updateText();
         this.updateStat();
