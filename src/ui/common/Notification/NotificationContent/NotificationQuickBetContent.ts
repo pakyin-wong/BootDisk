@@ -47,7 +47,7 @@ namespace we {
       public constructor(skinName: string = 'QuickBetContainerSkin') {
         super(skinName);
         this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
+        const denominationList = env.betLimits.Live[this.getSelectedBetLimitIndex()].chips;
         this._betChipSet.init(null, denominationList);
       }
 
@@ -63,7 +63,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const tableBetInfo = <data.GameTableBetInfo> evt.data;
+          const tableBetInfo = <data.GameTableBetInfo>evt.data;
           if (tableBetInfo.tableid === this._tableId) {
             if (this._chipLayer.isAlreadyBet()) {
               this._alreadyBetSign.visible = true;
@@ -114,7 +114,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateSideBarRoadData(tableInfo.roadmap);

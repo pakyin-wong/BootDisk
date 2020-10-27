@@ -23,6 +23,11 @@ namespace we {
       updateRoad();
     }
 
+    export interface HistoryCardHolder {
+      setCards(tableId: string);
+      setNumber(number: number);
+    }
+
     export interface IListItemHelper {
       // updateRoadData(roadmapData: any);
       generateTableLayer?(node: eui.Component): TableLayer;
@@ -32,6 +37,8 @@ namespace we {
       generateAnalysis?(node: eui.Component): IAnalysis & eui.Component;
       generateResultMessage?(node: eui.Component): IGameResultMessage & eui.Component;
       generateResultDisplay?(node: eui.Component): IResultDisplay & eui.Component;
+      getPlaceholder?(): string;
+      getAdvancedPlaceholder?(): string;
     }
 
     export interface IRunTimeComponent extends egret.DisplayObject {

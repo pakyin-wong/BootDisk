@@ -1,6 +1,6 @@
 namespace we {
   export namespace rol {
-    export class LiveListItemInitHelper implements ui.IListItemHelper {
+    export class LiveListItemInitHelper implements ro.LiveListItemInitHelper {
       public generateTableLayer(node: eui.Component) {
         const tableLayer = new ro.LobbyTableLayer();
         tableLayer.skinName = `skin_desktop.ro.LiveListItemTableLayerSkin`;
@@ -50,6 +50,14 @@ namespace we {
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(advancedRoad, idx);
         return advancedRoad;
+      }
+
+      public getPlaceholder() {
+        return 'd_lobby_placeholder_gof_ro_jpg';
+      }
+
+      public getAdvancedPlaceholder() {
+        return 'd_lobby_pro_placeholder_gof_ro_jpg';
       }
     }
   }
