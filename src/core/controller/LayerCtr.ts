@@ -43,7 +43,7 @@ namespace we {
         layer.height = this._stage.stageHeight;
       }
 
-      protected onOrientationChange() {
+      protected async onOrientationChange() {
         this.arrangeComponents();
       }
 

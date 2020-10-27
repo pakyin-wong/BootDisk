@@ -1,38 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_landscape.LobbyPage" width="2424" height="1242" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:lobby="we.lobby.*" xmlns:w="http://ns.egret.com/wing">
-	<e:Scroller left="0" right="0" scrollPolicyH="auto" height="850" y="156" scrollPolicyV="off">
-		<e:Group id="_viewport">
-			<e:Group id="_hotgameContainer" x="864" y="1491">
-				<e:layout>
-				<e:TileLayout horizontalGap="50" verticalGap="50" orientation="columns" columnWidth="490" paddingLeft="0" rowHeight="400" requestedRowCount="2"/>
-				</e:layout>
+	<e:Rect right="0" left="0" top="0" bottom="0" fillColor="0x121212"/>
+	<e:Scroller id="scroller" scrollPolicyH="auto" scrollPolicyV="off" top="0" bottom="0" left="0" right="0">
+		<e:Group id="_viewport" anchorOffsetX="0">
+			<e:Group id="_sliderGroup">
+				<ui:ImageSlider id="_bannerSlider" y="0" width="1212" height="1242" left="0"/>
+				<e:Image width="1242" height="160" source="m_lobby_banner_fadeout_png" y="1243" rotation="270" x="1052"/>
+				<ui:ImageSliderBullet id="_sliderBullet" bulletGap="20"  y="1027" right="0"/>
+
 			</e:Group>
-			<e:Group id="_posterContainer" y="1186" horizontalCenter="0" x="640">
-				<e:layout>
-				<e:TileLayout columnWidth="620" rowHeight="850" horizontalGap="50" requestedRowCount="1" verticalGap="0" orientation="columns" paddingTop="0" paddingBottom="0"/>
-				</e:layout>
+			<e:Group id="_posterGroup" height="1242">
+				<e:Group id="_title_featuregame" y="93" left="0">
+					<e:Image source="m_lobby_title_left_png" width="234" height="79"/>
+					<ui:RunTimeLabel id="_txt_featuregame" text="熱門推介" i18n="mobile_lobby_feature_title" horizontalCenter="0" size="64" height="110" verticalAlign="middle"/>
+					<e:Image source="m_lobby_title_right_png" width="234" height="79"/>
+					<e:layout>
+						<e:HorizontalLayout horizontalAlign="center" gap="46" verticalAlign="middle" paddingLeft="51" paddingRight="51"/>
+					</e:layout>
+				</e:Group>
+				<e:Group id="_posterContainer" y="280" x="0" height="689">
+					<e:layout>
+					<e:TileLayout columnWidth="496" rowHeight="689" horizontalGap="38" requestedRowCount="1" verticalGap="0" orientation="columns" paddingTop="0" paddingBottom="0"/>
+					</e:layout>
+				</e:Group>
 			</e:Group>
+			<e:Group id="_rectGroup" height="1242" width="132">
+				<e:Rect  height="1116" width="1.5" strokeAlpha="0" fillColor="0xb0936d" horizontalCenter="0" y="63"/>
+			</e:Group>
+			<e:Group id="_hotGameGroup" height="1242">
+				<e:Group id="_title_hotgame" y="93">
+					<e:Image width="234" height="79" source="m_lobby_title_left_png"/>
+					<ui:RunTimeLabel id="_txt_hotgame" text="熱門遊戲" i18n="mobile_lobby_hot_game_title" horizontalCenter="0" size="64" height="110" verticalAlign="middle"/>
+					<e:Image width="234" height="79" source="m_lobby_title_right_png"/>
+					<e:layout>
+						<e:HorizontalLayout horizontalAlign="center" gap="34" verticalAlign="middle" paddingLeft="44" paddingRight="44"/>
+					</e:layout>
+				</e:Group>
+				<e:Group id="_hotgameContainer" x="0" y="280" height="706">
+					<e:layout>
+						<e:HorizontalLayout gap="77"/>
+					</e:layout>
 
-
-
+				</e:Group>
+			</e:Group>
+			<e:Group id="_footer" x="1189" verticalCenter="0" y="531" scaleX="1" scaleY="1">
+				<ui:RunTimeLabel id="_txt_copyright" textKey="lobby_footer_text" scaleX="1" scaleY="1" size="46" text="1234567" rotation="270" verticalCenter="0" left="66"/>
+			</e:Group>
 
 			<e:layout>
-				<e:HorizontalLayout gap="80" paddingLeft="79" verticalAlign="middle" paddingRight="79"/>
+				<e:HorizontalLayout gap="81" paddingLeft="0" verticalAlign="middle" paddingRight="81"/>
 			</e:layout>
-
 		</e:Group>
 	</e:Scroller>
-	<ui:ImageSlider id="_bannerSlider" horizontalCenter="0" x="591" y="0" visible="false"/>
-	<e:Group id="_title_hotgame" visible="false">
-		<e:Rect height="1" x="263" y="54" fillColor="0xffffff" width="100%"/>
-		<ui:RunTimeLabel id="_txt_hotgame" text="熱門遊戲" horizontalCenter="0" size="60" height="89" verticalAlign="middle"/>
-		<e:Rect width="100%" height="1" x="1075" y="69" fillColor="0xffffff"/>
-		<e:layout>
-		<e:HorizontalLayout horizontalAlign="center" gap="34" verticalAlign="middle" paddingLeft="44" paddingRight="44"/>
-		</e:layout>
-	</e:Group>
-	<e:Group id="_footer" visible="false">
-		<ui:RunTimeLabel id="_txt_copyright" textKey="lobby_footer_text"  scaleX="1" scaleY="1" size="40"/>
-	</e:Group>
+
+
+
 </e:Skin>

@@ -96,6 +96,7 @@ namespace we {
         case we.core.GameType.BAB:
           return `winType.ba${shortStr}.${ba.WinType[winType]}`;
         case we.core.GameType.DT:
+        case we.core.GameType.DTB:
           return `winType.dt${shortStr}.${dt.WinType[winType]}`;
         case we.core.GameType.RO:
         case we.core.GameType.ROL:
@@ -114,6 +115,7 @@ namespace we {
         case core.GameType.BAB:
           return 'ba';
         case core.GameType.DT:
+        case core.GameType.DTB:
           return 'dt';
         case core.GameType.RO:
           return 'ro';

@@ -250,6 +250,17 @@ namespace we {
         }
       }
 
+      public async getLobbyMaterialAsync(callback, thisArg) {
+        return new Promise((resolve, reject) => {
+          const resolveFunc = async (res: any) => {
+            await callback.bind(thisArg)(res);
+            resolve();
+          };
+          this.client.getLobbyMaterial(this.warpServerCallback(resolveFunc));
+          // this.client.getLobbyMaterial(env.language, this.warpServerCallback(resolveFunc));
+        });
+      }
+
       public updateSetting(key: string, value: string) {
         this.client.updateSetting(key, value);
       }
@@ -271,7 +282,7 @@ namespace we {
       protected handleReady(player: data.PlayerSession, timestamp: string) {
         // return data with struct data.PlayerSession
 
-        console.log(player);
+        //console.log('player',player);
 
         this.updateTimestamp(timestamp);
         env.playerID = player.playerid;
@@ -287,6 +298,11 @@ namespace we {
             env.favouriteTableList = [];
           }
         }
+
+        env.blockchain.cosmolink = player.blockchainlinks.cosmoslink
+        env.blockchain.thirdPartySHA256 = player.blockchainlinks.thirdpartysha256
+
+        console.log('blockchain', env.blockchain)
 
         // env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
         // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
@@ -635,6 +651,7 @@ namespace we {
           case core.GameType.BAI:
           case core.GameType.BAS:
           case core.GameType.BAB:
+          case core.GameType.DTB:
           case core.GameType.DT: {
             // const roadmapData = parseAscString(gameStatistic.roadmapdata);
             const roadmapData = gameStatistic.roadmapdata;

@@ -647,6 +647,7 @@ namespace we {
           case core.GameType.BAS:
           case core.GameType.BAM:
           case core.GameType.BAB:
+          case core.GameType.DTB:
           case core.GameType.DT:
             pass1 = this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin);
             pass2 = this._gameData && this._gameData.wintype != 0;

@@ -40,7 +40,7 @@ namespace we {
         (this.parent as we.ui.MsgOverlay).hide();
       }
 
-      protected onOrientationChange() {
+      protected async onOrientationChange() {
         super.onOrientationChange();
         this.invalidateState();
       }

@@ -2,6 +2,7 @@ namespace we {
   export namespace overlay {
     export namespace betHistory {
       export class LoContinuousBetStatus extends core.BaseEUI {
+        protected _txt_title: eui.Label;
         protected _txt_round: eui.Label;
         protected _txt_rate: eui.Label;
         protected _txt_status: eui.Label;
@@ -17,10 +18,11 @@ namespace we {
         }
 
         protected mount() {
-          this._txt_round = i18n.t('overlaypanel_bethistorylottery_continuousbet_round');
-          this._txt_rate = i18n.t('overlaypanel_bethistorylottery_continuousbet_rate');
-          this._txt_status = i18n.t('overlaypanel_bethistorylottery_continuousbet_status');
-          this._txt_cancel = i18n.t('overlaypanel_bethistorylottery_continuousbet_cancel');
+          this._txt_title && (this._txt_title.text = i18n.t('overlaypanel_bethistorylottery_continuousbet_listtite'));
+          this._txt_round.text = i18n.t('overlaypanel_bethistorylottery_continuousbet_round');
+          this._txt_rate.text = i18n.t('overlaypanel_bethistorylottery_continuousbet_rate');
+          this._txt_status.text = i18n.t('overlaypanel_bethistorylottery_continuousbet_status');
+          this._txt_cancel.text = i18n.t('overlaypanel_bethistorylottery_continuousbet_cancel');
           this._btn_allCancel.label.text = i18n.t('overlaypanel_bethistorylottery_continuousbet_allcancel');
 
           this._arrcol = new eui.ArrayCollection();

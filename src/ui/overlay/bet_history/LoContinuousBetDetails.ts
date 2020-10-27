@@ -35,7 +35,11 @@ namespace we {
         protected _data_cancelled: eui.Label;
         protected _data_doneAmount: eui.Label;
 
+        protected _scroller: eui.Scroller;
+
         protected _cbetStatus: LoContinuousBetStatus;
+
+        protected _source: null;
 
         constructor() {
           super();
@@ -68,6 +72,7 @@ namespace we {
         protected destroy() {}
 
         protected clean() {
+          this._source = null;
           this._data_cbetid.text = '';
           this._data_date.text = '';
           this._data_game.text = '';
@@ -91,8 +96,13 @@ namespace we {
           dir.socket.getLotteryContinuousBetDetail(this._betid, this.updateDetails, this);
         }
 
-        protected updateDetails(res) {
-          const d = res.data.value;
+        public updateDetails(res) {
+          this.clean();
+          this._cbetStatus.clean();
+
+          this._scroller && (this._scroller.viewport.scrollV = 0);
+
+          const d = this._source = res.data.value;
           const betinfo = utils.BetTypeParser.parse(d.gametype, d.field);
 
           this._data_cbetid.text = d.continuousbetid;
@@ -116,6 +126,10 @@ namespace we {
           }
 
           this._cbetStatus.data = d;
+        }
+
+        public get source(){
+          return this._source;
         }
       }
     }
