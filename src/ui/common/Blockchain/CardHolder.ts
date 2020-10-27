@@ -183,13 +183,10 @@ namespace we {
         bitmap.texture = RES.getRes(utils.getCardResName(utils.formatCardForFlip(this._gameData[currentCard])));
         bitmap.rotation = rotation;
           
-        if (rotation === 0) {
-
-
-          const textureData = new dragonBones.EgretTextureData();
-          textureData.renderTexture = bitmap.texture;
-          meshDistData.texture = textureData;
-
+        const textureData = new dragonBones.EgretTextureData();
+        textureData.renderTexture = bitmap.texture;
+        meshDistData.texture = textureData;
+/*
         } else {
           bitmap.anchorOffsetX = bitmap.height / 2
           bitmap.anchorOffsetY = bitmap.width / 2
@@ -220,6 +217,7 @@ namespace we {
           //.texture = textureData;
 
         }
+        */
         cardSlot.armature.replacedTexture == null;
         cardSlot.replaceDisplayData(meshDistData);
         cardSlot.displayIndex = -1;
