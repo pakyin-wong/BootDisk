@@ -52,6 +52,8 @@ namespace we {
                 imageUrl: (item as any).imageurl,
                 link: (item as any).link,
                 loaded: true,
+                title: (item as any).title,
+                description: (item as any).description,
               }));
               offset += res.homebanners.length;
 

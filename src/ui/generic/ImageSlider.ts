@@ -3,6 +3,7 @@ namespace we {
     export class ImageSlider extends eui.Component implements eui.UIComponent {
       private _slides = [];
       private duration = 1.0;
+      private interval = 3.0;
       private currentIndex = 0;
       private direction: string;
       private isDown = false;
@@ -183,7 +184,7 @@ namespace we {
             this.imageInvisible.alpha = 0;
             this.isAnimating = false;
             this.scheduleNext();
-          }, this.duration * 1000 + 50);
+          }, this.interval * 1000 + 50);
           return;
         }
 
@@ -209,7 +210,7 @@ namespace we {
           this.imageInvisible.alpha = 0;
           this.isAnimating = false;
           this.scheduleNext();
-        }, this.duration * 1000 + 50);
+        }, this.interval * 1000 + 50);
       }
 
       private scheduleNext(isPrev: boolean = false) {
@@ -220,7 +221,7 @@ namespace we {
             return;
           }
           this.moveToNext(isPrev);
-        }, 1000);
+        }, this.interval * 1000);
       }
 
       protected moveToNext(isPrev: boolean = false) {
@@ -249,7 +250,7 @@ namespace we {
           this.imageInvisible.alpha = 0;
           this.isAnimating = false;
           this.scheduleNext();
-        }, this.duration * 1000 + 50);
+        }, this.interval * 1000 + 50);
       }
 
       private onTap() {
