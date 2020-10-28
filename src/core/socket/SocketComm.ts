@@ -246,7 +246,7 @@ namespace we {
             messages: [],
           });
         } else {
-          this.client.getLobbyMaterial(this.warpServerCallback(callback));
+          this.client.getLobbyMaterial(this.warpServerCallback(callback), env.language);
         }
       }
 
