@@ -152,6 +152,8 @@ namespace we {
         const opacity = egret.Ease.quintIn(ratio);
         dir.evtHandler.dispatch(core.Event.UPDATE_NAVBAR_OPACITY, opacity);
       }
+
+      public reloadBanners() {}
     }
   }
 }

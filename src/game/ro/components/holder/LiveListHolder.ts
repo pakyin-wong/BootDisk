@@ -84,7 +84,11 @@ namespace we {
         }
 
         const listItem = new we.ui[itemName](`${itemName}Skin`);
-        listItem.itemInitHelper = new we.ro.LiveListItemInitHelper();
+        if (this.tableInfo.gametype == core.GameType.ROL) {
+          listItem.itemInitHelper = new we.rol.LiveListItemInitHelper();
+        } else {
+          listItem.itemInitHelper = new we.ro.LiveListItemInitHelper();
+        }
 
         this._displayItem = listItem;
         this.setDisplayItem(this._displayItem);

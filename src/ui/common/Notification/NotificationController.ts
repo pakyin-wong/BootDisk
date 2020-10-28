@@ -73,16 +73,16 @@ namespace we {
       }
 
       public updatePosition(evt: egret.Event) {
-        const sidePanel = <LiveSidePanel>evt.data;
+        const sidePanel = <LiveSidePanel> evt.data;
         let right = 30;
         if (!sidePanel.isCollapsed) {
-          right += sidePanel.width + 20;
+          right += 405;
         }
         egret.Tween.get(this).to({ right }, 300, egret.Ease.quintIn);
       }
 
       protected onNotified(evt: egret.Event) {
-        const notification: data.Notification = <data.Notification>evt.data;
+        const notification: data.Notification = <data.Notification> evt.data;
         this.notificationList.push(notification);
         this.showNextNotification();
       }
@@ -177,7 +177,7 @@ namespace we {
         // remove the focus item if exist
         if (this._currentFocus) {
           if (!isRemoved) {
-            const holder = <NotificationItemHolder>this.listDisplay.getChildAt(0);
+            const holder = <NotificationItemHolder> this.listDisplay.getChildAt(0);
             holder.removeItem();
           }
           this._currentFocus = null;

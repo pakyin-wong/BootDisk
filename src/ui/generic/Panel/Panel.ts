@@ -90,7 +90,7 @@ namespace we {
         return this._dismissOnClickOutside;
       }
       public get panelName(): string {
-        return (<any>this).constructor.name;
+        return (<any> this).constructor.name;
       }
 
       protected childrenCreated() {
@@ -137,12 +137,16 @@ namespace we {
       }
 
       public async hide() {
-        this.poppableAddon.active && this.poppableAddon.isShow && (await this.poppableAddon.hide());
+        this.isShowed && (await this.poppableAddon.hide());
       }
 
       public async foreclosed() {
         this.dispatchEvent(new egret.Event('close'));
-        this.poppableAddon.active && (await this.poppableAddon.hide());
+        this.isShowed && (await this.poppableAddon.hide());
+      }
+
+      public get isShowed() {
+        return this.poppableAddon.active && this.poppableAddon.isShow;
       }
 
       public get dropdown(): DropdownAddon {

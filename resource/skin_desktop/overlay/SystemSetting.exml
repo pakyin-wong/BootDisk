@@ -5,7 +5,7 @@
 		<e:Image source="popover_png" left="0" top="0" right="0" bottom="0" />
 		<e:Image id="close" width="48" height="48" source="d-lobby-button-close-none_png"  x="436" y="30"/>
 		<ui:RunTimeLabel id="_txt_title" text="Label" x="61" y="39.3" textColor="0xce925e"
-		                 width="120" height="45" />
+		                 width="300" height="45" />
 		<ui:RunTimeLabel id="_txt_lang" text="Label" x="61" y="108.3" size="24" height="36"
 		                 anchorOffsetX="0" width="390" />
 		<e:Rect width="400" height="1" x="58" y="257.5" fillColor="0x979797" />

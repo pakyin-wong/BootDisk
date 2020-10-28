@@ -10,6 +10,8 @@ namespace we {
   export namespace lo {
     export class LotterySceneFunBasic extends core.BaseScene {
       protected _lblRoomNo: ui.RunTimeLabel;
+      protected _GameID: ui.RunTimeLabel;
+      protected _GameIDText: ui.RunTimeLabel;
 
       protected _tableId: string;
       protected _tableInfo: data.TableInfo;
@@ -85,7 +87,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             this.setupTableInfo(tableInfo);
             this.updateGame();
@@ -137,7 +139,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {}
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         if (tableInfo.tableid === this._tableId) {
           logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
           this._betDetails = tableInfo.bets;
@@ -210,7 +212,7 @@ namespace we {
         if (this._previousState !== we.core.GameState.BET) {
           //     this._resultMessage.clearMessage();
 
-          this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
+          this._message && this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
 
           //   if (this._betDetails && this._chipLayer) {
           //     this._chipLayer.updateBetFields(this._betDetails);
@@ -231,7 +233,7 @@ namespace we {
         //   }
 
         if (this._previousState === core.GameState.BET) {
-          this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
+          this._message && this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
         }
 
         //   if (this._betDetails) {

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.LoContinuousBetStatusIR" currentState="invaild" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:bh="we.overlay.betHistory.*" states="vaild,invaild,detail"  width="1050" width.detail="1050">
+	<e:Label id="_round" text="0000000000" height="130" verticalAlign="middle" size="50" alpha="0.7" textAlign="center" horizontalCenter="-304"/>
+	<e:Label id="_rate" text="0倍" height="130" verticalAlign="middle" size="50" alpha="0.7" textAlign="center" horizontalCenter="-89.5"/>
+	<e:Label id="_status" text="狀態" height="130" verticalAlign="middle" size="50" alpha="0.7" textAlign="center" horizontalCenter="108.5"/>
+	<e:Label text="-" height="100" verticalAlign="middle" size="50" x="798" visible.vaild="false" visible.detail="false" width="246" textAlign="center" y="15"/>
+	<bh:CancelBetbutton id="_btn_cancel" width="246" height="100" x="798" verticalCenter="0" cornerTL_TR_BL_BR="50,50,50,50" strokeColor="0x5f6973" fillAlpha="0" visible.invaild="false" strokeAlpha="0.7" strokeAlpha_hover="1" visible.detail="false" stroke="2" labelSize="50" labelAutoResize="false"/>
+	<e:Group id="_btn_detail" height="100" verticalCenter="0" visible.invaild="false" visible.vaild="false" horizontalCenter="382">
+		<e:Label id="_txt_detail" text="詳情" size="50"/>
+		<e:Image x="105" y="19" width="56" height="56" source="m_common_btn_previous_png" scaleX="-1" fillMode="clip"/>
+		<e:layout>
+			<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle" gap="27"/>
+		</e:layout>
+	</e:Group>
+</e:Skin>

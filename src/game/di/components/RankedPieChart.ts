@@ -20,11 +20,7 @@ namespace we {
         this.shape = new egret.Shape();
         this.graphic = this.shape.graphics;
         this.addChild(this.shape);
-        this.setChartStyles([
-          [[0x2552fc, 0x5ad9ff], [1, 1], [0, 255], 0],
-          [[0xe4e85c, 0x1fe479], [1, 1], [0, 255], 0],
-          [[0xfc2424, 0xfa936e], [1, 1], [0, 255], 0],
-        ]);
+        this.setChartStyles([[[0x2552fc, 0x5ad9ff], [1, 1], [0, 255], 0], [[0xe4e85c, 0x1fe479], [1, 1], [0, 255], 0], [[0xfc2424, 0xfa936e], [1, 1], [0, 255], 0]]);
       }
 
       public set maxChartSize(value: number) {
@@ -35,7 +31,7 @@ namespace we {
         return this._maxChartSize;
       }
 
-      public setChartStyles(colorSettings: any, emptyRadius: number = 20, maxRadius: number = 65, reduceRadius: number = 5) {
+      public setChartStyles(colorSettings: any, emptyRadius: number = 27, maxRadius: number = 65, reduceRadius: number = 5) {
         this.colorSettings = colorSettings.slice();
         this.colorSettings.push([[0x000000, 0x000000], [0, 0], [0, 255], 0]); // add a blank color setting at the end
         this.emptyRadius = emptyRadius;
@@ -79,7 +75,9 @@ namespace we {
             this.renderRanks(ranks, this.colorSettings, this.emptyRadius);
           };
           egret.Tween.removeTweens(this);
-          egret.Tween.get(this, { onChange: funcChange, onChangeObj: this }).to({ percentStart: 100, percentTransit: 100 }, duration, egret.Ease.quintIn).call(funcCompleted, this);
+          egret.Tween.get(this, { onChange: funcChange, onChangeObj: this })
+            .to({ percentStart: 100, percentTransit: 100 }, duration, egret.Ease.quintIn)
+            .call(funcCompleted, this);
         } else {
           this.percentStart = 100;
           this.percentTransit = 100;

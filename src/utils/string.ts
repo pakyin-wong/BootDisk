@@ -44,12 +44,18 @@ namespace we {
     }
 
     export function formatTime(timestamp) {
-      return moment.unix(timestamp).utcOffset(8).format('YYYY/MM/DD HH:mm:ss');
+      return moment
+        .unix(timestamp)
+        .utcOffset(8)
+        .format('YYYY/MM/DD HH:mm:ss');
     }
 
     // for mobile in game display
     export function formatTime2(timestamp) {
-      return moment.unix(timestamp).utcOffset(8).format('YY/MM/DD HH:mm:ss');
+      return moment
+        .unix(timestamp)
+        .utcOffset(8)
+        .format('YY/MM/DD HH:mm:ss');
     }
 
     export function formatCard(source) {
@@ -87,8 +93,10 @@ namespace we {
         case we.core.GameType.BAS:
         case we.core.GameType.BAI:
         case we.core.GameType.BAM:
+        case we.core.GameType.BAB:
           return `winType.ba${shortStr}.${ba.WinType[winType]}`;
         case we.core.GameType.DT:
+        case we.core.GameType.DTB:
           return `winType.dt${shortStr}.${dt.WinType[winType]}`;
         case we.core.GameType.RO:
         case we.core.GameType.ROL:
@@ -107,10 +115,12 @@ namespace we {
         case core.GameType.BAB:
           return 'ba';
         case core.GameType.DT:
+        case core.GameType.DTB:
           return 'dt';
         case core.GameType.RO:
-        case core.GameType.ROL:
           return 'ro';
+        case core.GameType.ROL:
+          return 'rol';
         case core.GameType.DI:
           return 'di';
         case core.GameType.DIL:

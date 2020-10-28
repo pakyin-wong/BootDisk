@@ -13,26 +13,33 @@
                 <ui:RunTimeLabel x="159" i18n="baccarat.banker" textAlign="center" verticalAlign="middle" size="68" height="100%"/>
                 <e:Label id="_bankerSum" x="97" y="0" textAlign="center" verticalAlign="middle" size="96" height="100%" name="a1/bankerSumn"/>
         </e:Group>
-        <e:Group x="205" y="470" id="_playerCard1Group" width="204" height="350" touchThrough="true">
-                <e:Group id="_playerCard1Info" left="0" bottom="0" width="40" height="40"/>
+        <e:Group x="205" y="470" id="_playerCardMoveGroup" >
+                <e:Group x="0" y="0" id="_playerCard1Group" width="204" height="350" touchThrough="true">
+                        <e:Group id="_playerCard1Info" left="0" bottom="0" width="40" height="40"/>
+                </e:Group>
+                <e:Group x="256" y="0" id="_playerCard2Group" width="204" height="350" touchThrough="true">
+                        <e:Group id="_playerCard2Info" left="0" bottom="0" width="40" height="40"/>
+                </e:Group>
         </e:Group>
-        <e:Group x="461" y="470" id="_playerCard2Group" width="204" height="350" touchThrough="true">
-                <e:Group id="_playerCard2Info" left="0" bottom="0" width="40" height="40"/>
-        </e:Group>
-        <e:Group x="94" y="561" id="_playerCard3Group" visible="false" width="350" height="220" touchThrough="true">
+        <e:Group x="94" y="471" id="_playerCard3Group" visible="false" width="350" height="220" touchThrough="true">
                 <e:Group id="_playerCard3Info" left="0" bottom="0" width="40" height="40"/>
         </e:Group>
-        <e:Group x="1790" y="159" id="_smallPlayerCard3Group" >
+        <e:Group x="1790" y="159" id="_smallCard1Group" >
         </e:Group>
-        <e:Group x="1860" y="470" id="_bankerCard1Group" width="204" height="350" touchThrough="true">
+        <e:Group x="1860" y="470" id="_bankerCardMoveGroup" >
+
+        <e:Group x="0" y="0" id="_bankerCard1Group" width="204" height="350" touchThrough="true">
                 <e:Group id="_bankerCard1Info" left="0" bottom="0" width="40" height="40"/>
         </e:Group>
-        <e:Group x="2116" y="470" id="_bankerCard2Group" width="204" height="350" touchThrough="true">
+        <e:Group x="256" y="0" id="_bankerCard2Group" width="204" height="350" touchThrough="true">
                 <e:Group id="_bankerCard2Info" left="0" bottom="0" width="40" height="40"/>
         </e:Group>
-        <e:Group x="2162" y="561" id="_bankerCard3Group" visible="false" width="350" height="220" touchThrough="true">
+        </e:Group>
+        <e:Group x="2162" y="471" id="_bankerCard3Group" visible="false" width="350" height="220" touchThrough="true">
                 <e:Group id="_bankerCard3Info" left="0" bottom="0" width="40" height="40"/>
         </e:Group>
-        <e:Group x="1900" y="159" id="_smallBankerCard3Group" >
+        <e:Group x="1900" y="159" id="_smallCard2Group" >
+        </e:Group>
+        <e:Group x="444" y="150" id="_smallRedCardGroup" >
         </e:Group>
 </e:Skin>

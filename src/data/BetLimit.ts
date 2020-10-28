@@ -1,6 +1,15 @@
 /* tslint:disable max-classes-per-file */
 namespace we {
   export namespace data {
+    export class BetLimit {
+      public Live: BetLimitSet[];
+      public Electronic: BetLimitSet[];
+      public Lottery: BetLimitSet[];
+      public Sportbook: BetLimitSet[];
+      public Chess: BetLimitSet[];
+    }
+
+
     export class BetLimitSet {
       public currency: core.Currency;
       public maxlimit: number;

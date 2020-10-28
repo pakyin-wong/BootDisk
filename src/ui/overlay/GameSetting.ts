@@ -71,7 +71,7 @@ namespace we {
 
       protected onSwitchShowHint(e) {
         env.showGoodRoadHint = this.switch_showHint.active = !env.showGoodRoadHint;
-        console.log('env.showGoodRoadHint',env.showGoodRoadHint);
+        console.log('env.showGoodRoadHint', env.showGoodRoadHint);
       }
 
       protected onSwitchAutoBet(e) {

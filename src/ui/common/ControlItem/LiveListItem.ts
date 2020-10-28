@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
     export class LiveListItem extends LiveListSimpleItem {
-      protected _dealerImage;
+      protected _dealerImage: eui.Image;
       protected _contentContainerStatic: eui.Group;
       protected _prevButton: ui.BaseImageButton;
 
@@ -32,6 +32,7 @@ namespace we {
           this._contentContainerStatic.cacheAsBitmap = true;
         }
         this.addRoundCornerMask();
+        this._dealerImage.fillMode = 'cover';
       }
 
       protected addRoundCornerMask() {
@@ -57,8 +58,7 @@ namespace we {
 
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
-        const randNo = Math.round(Math.random() * 4) + 1;
-        this._dealerImage.texture = RES.getRes('baccarat_dealer_' + randNo + '_jpg');
+        this._dealerImage.source = this.itemInitHelper && this.itemInitHelper.getPlaceholder ? this.itemInitHelper.getPlaceholder() : null;
       }
 
       get dealerImage() {

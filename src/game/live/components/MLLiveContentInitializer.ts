@@ -9,48 +9,64 @@ namespace we {
       public initContent(root: GameTableList) {
         this.root = root;
 
-        // root.slider = new ui.ImageSlider();
-        // root.slider.x = 60;
-        // root.slider.width = 850;
-        // root.slider.height = 850;
-        // root.slider.configSlides(dir.liveResources.liveHeroBanners);
-        root.holder = new we.ui.HorizontalHolder();
-        root.holder.maskRadius = 48;
-        root.holder.x = 60;
-        root.holder.slideHeight = 850;
-        root.holder.slideWidth = 850;
-        root.holder.isAuto = true;
-        root.holder.isLoop = true;
-        root.holder.isBullet = true;
-        root.holder.height = 850;
-        root.holder.width = 850;
-        root.holder.bulletGapValue = 20;
-        root.holder.bulletBottom = 50;
-        root.holder.bulletHorizontalCenter = 0;
-        dir.liveResources.liveHeroBanners.forEach(element => {
-          // const _group = new eui.Group();
-          // _group.height = root.holder.height;
-          // _group.width = root.holder.width;
-          const image = new eui.Image();
-          // const _mask = new egret.Shape();
-          // _mask.graphics.beginFill(0xffffff, 1);
-          // _mask.graphics.drawRoundRect(0, 0, root.holder.height, root.holder.width, 100, 100);
-          // _mask.graphics.endFill();
-          // _group.addChild(_mask);
-          // _mask.visible = false;
-          // if (element.image) {
-          image.source = element.image;
-          image.height = root.holder.height;
-          image.width = root.holder.width;
-          image.fillMode = 'cover';
-          // _group.mask = _mask;
-          // _mask.visible = true;
-          // } else {
-          // }
-          // _group.addChild(image);
-          // root.holder.addChild(_group);
-          root.holder.addChild(image);
-        });
+
+        root.sliderGroup = new eui.Group();
+        root.sliderGroup.height = 850;
+        root.sliderGroup.width = 850;
+        root.sliderGroup.x = 60;
+
+        root.slider = new ui.ImageSlider();
+        root.slider.width = 850;
+        root.slider.height = 850;
+        root.slider.maskRadius = 48;
+        root.slider.configSlides(dir.liveResources.heroBanners);
+        root.sliderGroup.addChild(root.slider);
+
+        const bullets = new ui.ImageSliderBullet();
+        bullets.horizontalCenter = 0;
+        bullets.y = 805;
+        bullets.bulletGap = 20;
+        bullets.imageSlider = root.slider;
+        root.slider.bullets = bullets;
+        root.sliderGroup.addChild(bullets);
+
+        // root.holder = new we.ui.HorizontalHolder();
+        // root.holder.maskRadius = 48;
+        // root.holder.x = 60;
+        // root.holder.slideHeight = 850;
+        // root.holder.slideWidth = 850;
+        // root.holder.isAuto = true;
+        // root.holder.isLoop = true;
+        // root.holder.isBullet = true;
+        // root.holder.height = 850;
+        // root.holder.width = 850;
+        // root.holder.bulletGapValue = 20;
+        // root.holder.bulletBottom = 50;
+        // root.holder.bulletHorizontalCenter = 0;
+        // dir.liveResources.liveHeroBanners.forEach(element => {
+        //   // const _group = new eui.Group();
+        //   // _group.height = root.holder.height;
+        //   // _group.width = root.holder.width;
+        //   const image = new eui.Image();
+        //   // const _mask = new egret.Shape();
+        //   // _mask.graphics.beginFill(0xffffff, 1);
+        //   // _mask.graphics.drawRoundRect(0, 0, root.holder.height, root.holder.width, 100, 100);
+        //   // _mask.graphics.endFill();
+        //   // _group.addChild(_mask);
+        //   // _mask.visible = false;
+        //   // if (element.image) {
+        //   image.source = element.image;
+        //   image.height = root.holder.height;
+        //   image.width = root.holder.width;
+        //   image.fillMode = 'cover';
+        //   // _group.mask = _mask;
+        //   // _mask.visible = true;
+        //   // } else {
+        //   // }
+        //   // _group.addChild(image);
+        //   // root.holder.addChild(_group);
+        //   root.holder.addChild(image);
+        // });
 
         root.roomList.layout = root.roomListRefer.layout;
         root.roomList.itemRenderer = MobileLiveListHolder;
@@ -72,7 +88,8 @@ namespace we {
 
       protected touchBegin(e: egret.TouchEvent) {
         if (e.currentTarget !== e.target) {
-          if ((e.target as egret.EventDispatcher).hasEventListener(egret.TouchEvent.TOUCH_BEGIN)) {
+          // if e.target is image and parent is ImageSlider
+          if ((e.target.parent as egret.EventDispatcher).hasEventListener(egret.TouchEvent.TOUCH_BEGIN)) {
             this._shouldTouchFocus = false;
             e.preventDefault();
             return;
@@ -102,6 +119,8 @@ namespace we {
             break;
         }
       }
+
+      public reloadBanners() {}
     }
   }
 }

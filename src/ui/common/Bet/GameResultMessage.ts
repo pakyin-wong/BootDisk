@@ -53,6 +53,7 @@ namespace we {
           case core.GameType.BAI:
           case core.GameType.BAS:
           case core.GameType.BAM:
+          case core.GameType.BAB:
             switch (winType) {
               case ba.WinType.BANKER:
                 return 'r';
@@ -64,6 +65,7 @@ namespace we {
                 return null;
             }
           case core.GameType.DT:
+          case core.GameType.DTB:
             switch (winType) {
               case dt.WinType.DRAGON:
                 return 'b';

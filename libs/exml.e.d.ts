@@ -185,6 +185,10 @@ declare module skin_desktop.bab{
 	}
 }
 declare module skin_desktop.bab{
+	class CornerHistoryHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.bab{
 	class ShufflePanelSkin extends eui.Skin{
 	}
 }
@@ -525,6 +529,18 @@ declare module skin_desktop.dt{
 	}
 }
 declare module skin_desktop{
+	class BlockchainDragonTigerScene extends eui.Skin{
+	}
+}
+declare module skin_desktop.dtb{
+	class CardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dtb{
+	class CornerHistoryHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class GameBar extends eui.Skin{
 	}
 }
@@ -709,6 +725,18 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class LargeBannerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class SliderBulletItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class SmallBannerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class LobbyScene extends eui.Skin{
 	}
 }
@@ -820,6 +848,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class LwQuickBetContainerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class QuickBetContainerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -1333,6 +1365,10 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape.di{
+	class ChancePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.di{
 	class ChipLayerSkin extends eui.Skin{
 	}
 }
@@ -1354,6 +1390,10 @@ declare module skin_mobile_landscape.di{
 }
 declare module skin_mobile_landscape.di{
 	class MobileBottomRoadmapPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.di{
+	class PiePanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape.di{
@@ -1508,6 +1548,10 @@ declare module skin_mobile_landscape{
 	class LobbyScene extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape{
+	class LotteryPage extends eui.Skin{
+	}
+}
 declare module skin_mobile_landscape.lw{
 	class ChipLayerSkin extends eui.Skin{
 	}
@@ -1589,11 +1633,31 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape{
+	class BetHistoryItemLottery_popup extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class BetHistoryItemLottery extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{
+	class BetHistoryItemLotteryCB extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class BetHistorySearch extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class DoubleCalendarPicker extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class LoContinuousBetDetails extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class LoPopupBetDetail extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{
@@ -1602,10 +1666,6 @@ declare module skin_mobile_landscape{
 }
 declare module skin_mobile_landscape{
 	class CustomRoad extends eui.Skin{
-	}
-}
-declare module skin_mobile_landscape{
-	class DoubleCalendarPicker extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{
@@ -2168,6 +2228,10 @@ declare module skin_mobile_portrait{
 	class LobbyScene extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait{
+	class LotteryPage extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait.lw{
 	class ChipLayerSkin extends eui.Skin{
 	}
@@ -2245,10 +2309,6 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
-	class GoodRoadQuickBetContainerSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
 	class ResultNotificationSkin extends eui.Skin{
 	}
 }
@@ -2265,11 +2325,23 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class BetHistoryItemLottery_popup extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class BetHistoryItemLottery extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
+	class BetHistoryItemLotteryCB extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class BetHistorySearch extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class BetHistorySubMenuItemRenderer extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -2278,6 +2350,22 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class DoubleCalendarPicker extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class LoContinuousBetDetails extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class LoContinuousBetStatus extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class LoContinuousBetStatusIR extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class LoPopupBetDetail extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -2298,6 +2386,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class LwResultItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class RcResultItem extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -2599,6 +2691,10 @@ declare module skin_mobile.lo{
 	}
 }
 declare module skin_mobile.lo{
+	class FunBetCustomBetMobile extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
 	class FunBetGroup5 extends eui.Skin{
 	}
 }
@@ -2659,7 +2755,23 @@ declare module skin_mobile.lo{
 	}
 }
 declare module skin_mobile.lo{
+	class FunBetResult extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class FunBetRoundInfo extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
 	class FunBetTabItemRenderer extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class LotteryHistory extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class LotteryHistoryIR extends eui.Skin{
 	}
 }
 declare module skin_mobile{
@@ -2680,6 +2792,18 @@ declare module skin_mobile{
 }
 declare module skin_mobile.lo{
 	class MobileSideRoadPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class LargeBannerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class SliderBulletItemSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class SmallBannerSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile{

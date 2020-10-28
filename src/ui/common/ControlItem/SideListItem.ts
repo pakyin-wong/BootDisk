@@ -36,13 +36,13 @@ namespace we {
       public constructor(skinName: string = null) {
         super(skinName);
         this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
+        const denominationList = env.betLimits.Live[this.getSelectedBetLimitIndex()].chips;
         this._betChipSet.init(null, denominationList);
       }
 
-      protected releaseRoadmap() {}
+      protected releaseRoadmap() { }
 
-      protected checkSkin() {}
+      protected checkSkin() { }
 
       protected addEventListeners() {
         super.addEventListeners();
@@ -234,9 +234,13 @@ namespace we {
         }
         egret.Tween.removeTweens(this._quickbetButton);
         if (show) {
-          egret.Tween.get(this._quickbetButton).set({ visible: true }).to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
+          egret.Tween.get(this._quickbetButton)
+            .set({ visible: true })
+            .to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
         } else {
-          egret.Tween.get(this._quickbetButton).to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250).set({ visible: false });
+          egret.Tween.get(this._quickbetButton)
+            .to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250)
+            .set({ visible: false });
         }
         //   egret.Tween.removeTweens(this._quickbetButton);
         //   if (show) {

@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile.LotterySceneFun" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*" xmlns:live="we.live.*" >
-	<ui:RoundRectButton id="_betTogger" width="406" height="128" x="813" y="1815" cornerTL_TR_BL_BR="64,64,64,64" fillColor="0x1c6aa3" stroke="0" fillAlpha="1"/>
+  <ui:RoundRectButton id="_betTogger" width="406" height="128" x="813" y="1815" cornerTL_TR_BL_BR="64,64,64,64" fillColor="0x1b436e" stroke="0" fillAlpha="1" labelSize="50" labelAutoResize="false">
+  <e:Skin width="406" height="128">
+	<ui:RunTimeLabel id="_label" text="遊戲投注" height="74" verticalCenter="0" size="50" verticalAlign="middle" textAlign="center" left="112" right="38"/>
+	<e:Image width="74" height="74" x="38" y="27" source="m_lobby_panel_gamelist_tag_icon_betted_png"/>
+  </e:Skin>
+  </ui:RoundRectButton>
 
-	<ui:Panel id="_betContainer" y="551"  skinName="skin_mobile.lo.FunBetContainer"/>
+	<ui:Panel id="_betContainer" y="551"  skinName="skin_mobile.lo.FunBetContainer" locked="true"/>
   <e:Group id="_betSet" left="0" right="0" touchThrough="true" y="375">
     <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" skinName="skin_mobile.BetChipSkin" labelSize="48" x="269"/>
+		<ui:RoundRectButton id="_custombetChip" width="184" height="184" x="257" labelSize="43" cornerTL_TR_BL_BR="92,92,92,92" stroke="3" strokeIn="6" strokeInColor="0x333c4a" fillColor="0x101720" fillAlpha="1" alpha="0" strokeColor="0x000001" y="-17"/>
     <lo:BetChipSetWithCustom id="_betChipSet" width="1182" height="790" horizontalCenter="0" y="178" skinName="skin_mobile.lo.BetChipSetWithCustom"/>
     <e:Group id="_betRelatedGroup" scaleX="1" scaleY="1" x="493" y="17">
 			<ui:RoundRectShape width="500" height="127" alpha="0.6" fillColor="0x212425" stroke="0" cornerTL_TR_BL_BR="63,63,63,63"/>

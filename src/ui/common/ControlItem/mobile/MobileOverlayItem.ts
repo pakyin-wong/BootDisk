@@ -128,7 +128,7 @@ namespace we {
         this._chipLayer.setTouchEnabled(false);
 
         this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
+        const denominationList = env.betLimits.Live[this.getSelectedBetLimitIndex()].chips;
         this._betChipSet.init(null, denominationList);
 
         // draw border corner radius
@@ -145,7 +145,7 @@ namespace we {
       }
 
       protected initBetLimitSelector() {
-        const betLimitList = env.betLimits;
+        const betLimitList = env.betLimits.Live;
         const betLimitItems = betLimitList.map(data => {
           return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
         });
@@ -180,7 +180,7 @@ namespace we {
       }
 
       protected updateBetLimit(selectedIndex) {
-        const betLimitList = env.betLimits;
+        const betLimitList = env.betLimits.Live;
         const betLimitItems = betLimitList.map(data => {
           return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
         });

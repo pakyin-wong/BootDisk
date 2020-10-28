@@ -1,12 +1,13 @@
 /* tslint:disable triple-equals */
 /**
- * BaccaratScene
+ * Blockchain BaccaratScene
  *
- * BaccaratScene consist of serveral components: Betting table, Video, serveral roadmap, table list panel on right hand side, table info panel and some statistic graph
+ * BlockchainBaccaratScene inherits from the BaccaratScene and acts differently on different animations.
  */
 namespace we {
   export namespace bab {
     export class Scene extends ba.Scene {
+      protected _gameData: data.GameData & data.BlockchainGameData
       protected _alwaysShowResult = true;
       protected _helpButton: eui.Group;
       protected _deckButton: eui.Group;
@@ -14,19 +15,20 @@ namespace we {
       protected _helpPanel: bab.HelpPanel;
       protected _deckPanel: bab.DeckPanel;
       protected _cardInfoPanel: bab.CardInfoPanel;
+      protected _historyCardHolder: we.ui.HistoryCardHolder;
 
-      public static resGroups = [core.res.BlockchainBaccarat];
+      public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat];
 
       protected initChildren() {
         super.initChildren();
         this._helpPanel.setToggler(this._helpButton);
         this._deckPanel.setToggler(this._deckButton);
-        this._deckPanel.setValue(<bab.GameData> this._gameData);
+        this._deckPanel.setValue(<bab.GameData>this._gameData);
         this._deckPanel.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         this._cardInfoPanel.addEventListener('OPEN_DECK_PANEL', this.showDeckPanel, this);
         this._cardInfoPanel.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
-        (<any> this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
-
+        (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
+        (<any>this._resultDisplay).addEventListener('OPEN_SHUFFLE_PANEL', this.showShufflePanel, this);
       }
 
       protected setSkinName() {
@@ -35,44 +37,36 @@ namespace we {
 
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
+        this.getShoeInfo();
+        this._historyCardHolder.setCards(this._tableId);
+        this._historyCardHolder.setNumber(this._gameData.currentcardindex);
         this._shufflePanel.hide();
-        this._deckPanel.setValue(<bab.GameData> this._gameData);
-        console.log('Bab scene bet state', this._gameData);
-        if (this.previousState !== core.GameState.BET) {
+        this._deckPanel.setValue(this._gameData);
+        console.log('Blockchain scene bet state', this._gameData);
+        if (isInit || this.previousState !== core.GameState.BET) {
           this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         }
       }
 
       protected setStateDeal(isInit: boolean = false) {
-        super.setStateDeal(isInit);
+        this.getShoeInfo();
         this._shufflePanel.hide();
-        this._deckPanel.setValue(<bab.GameData> this._gameData);
-        console.log('Bab scene deal state', this._gameData);
-        this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
+        this._deckPanel.setValue(<bab.GameData>this._gameData);
+        super.setStateDeal(isInit);
+        console.log('Blockchain scene deal state', this._gameData);
       }
 
       protected setStateFinish(isInit: boolean) {
-        super.setStateFinish(isInit);
+        this.getShoeInfo();
         this._shufflePanel.hide();
-        this._deckPanel.setValue(<bab.GameData> this._gameData);
-        console.log('Bab scene finish state', this._gameData);
+        this._deckPanel.setValue(<bab.GameData>this._gameData);
+        super.setStateFinish(isInit);
+        console.log('Blockchain scene finish state', this._gameData);
       }
 
       protected setStateShuffle(isInit: boolean) {
         super.setStateShuffle(isInit);
-        this._deckPanel.setValue(<bab.GameData> this._gameData);
-        if (this._gameData.previousstate === core.GameState.SHUFFLE) {
-          return;
-        }
-        console.log('Bab scene shuffle state', this._gameData);
-
-        if (isInit) {
-          this._shufflePanel.show();
-          this._shufflePanel.stat(this._gameData);
-        } else {
-          this._shufflePanel.show();
-          this._shufflePanel.anim(this._gameData);
-        }
+        this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit)
       }
 
       protected showCardInfoPanel(evt: egret.Event) {
@@ -84,51 +78,36 @@ namespace we {
         this._deckPanel.show();
       }
 
-      protected showHelpPanel(evt: egret.Event){
+      protected showHelpPanel(evt: egret.Event) {
         this._helpPanel.show();
       }
-      /*
-      protected setStateDeal(isInit: boolean = false) {
-        if (this._previousState === we.core.GameState.BET) {
-          this.checkRoundCountWithoutBet();
+
+      protected showShufflePanel(evt: egret.Event) {
+        if (evt.data === 'init') {
+          this._shufflePanel.show();
+          this._shufflePanel.showStatic(this._gameData);
+        } else {
+          this._shufflePanel.show();
+          this._shufflePanel.showAnim(this._gameData);
         }
       }
 
-      protected setStatePeek(isInit: boolean = false) {
-        // console.log('PEEK ' + new Date(Date.now()).toString());
-        this._resultDisplay.updateResult(this._gameData, this._chipLayer);
-        if (this._previousState !== we.core.GameState.PEEK || isInit) {
-          this.setBetRelatedComponentsEnabled(false);
-          this.setResultRelatedComponentsEnabled(true);
+      protected async getShoeInfo() {
+        let obj;
+        let text;
+        try {
+          text = await utils.getText(`${env.blockchain.cosmolink}${this._gameData.cosmosshoeid}`);
+          obj = JSON.parse(text);
+          if(obj.result.cards){
+            this._gameData.hashedcardsList = obj.result.cards
+            console.log('get cosmo succeeded')
+          }
+          return new Promise(resolve=>resolve())
+        } catch (error) {
+          console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
+          return new Promise(resolve=>resolve())
         }
-      }
-
-      protected setStatePeekPlayer(isInit: boolean = false) {
-        // console.log('PEEK_PLAYER ' + new Date(Date.now()).toString());
-        this._resultDisplay.updateResult(this._gameData, this._chipLayer);
-
-        if (this._previousState !== we.core.GameState.PEEK_PLAYER || isInit) {
-          this.setBetRelatedComponentsEnabled(false);
-          this.setResultRelatedComponentsEnabled(true);
-        }
-      }
-
-      protected setStatePeekBanker(isInit: boolean = false) {
-        // console.log('PEEK_BANKER ' + new Date(Date.now()).toString());
-        this._resultDisplay.updateResult(this._gameData, this._chipLayer);
-        if (this._previousState !== we.core.GameState.PEEK_BANKER || isInit) {
-          this.setBetRelatedComponentsEnabled(false);
-          this.setResultRelatedComponentsEnabled(true);
-        }
-      }
-
-      protected setStateFinish(isInit: boolean = false) {
-        // console.log('FINISH ' + new Date(Date.now()).toString());
-        super.setStateFinish(isInit);
-        this._resultDisplay.updateResult(this._gameData, this._chipLayer);
-        this.setResultRelatedComponentsEnabled(true);
-      }
-      */
+     }
     }
   }
 }

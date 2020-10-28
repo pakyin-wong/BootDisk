@@ -13,6 +13,22 @@ namespace we {
         return result;
       }
       export namespace ba {
+        export function getTotalPoint(card1: string, card2: string, card3: string) {
+          let total = 0;
+          if (!card1) {
+            return total;
+          }
+          total += translateCardToPoint(card1);
+          if (!card2) {
+            return total;
+          }
+          total += translateCardToPoint(card2);
+          if (!card3) {
+            return total;
+          }
+          total += translateCardToPoint(card3);
+          return total;
+        }
         export function translateCardToNumber(card: string) {
           switch (card.charAt(card.length - 1)) {
             case 'k':

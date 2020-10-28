@@ -2,6 +2,7 @@ namespace we {
   export namespace lw {
     export class LwBeadRoad extends ba.BARoadBase {
       protected numRow: number;
+      public numRowCollapse: number = -1;
       private cellWidth: number;
       private cellHeight: number;
       private imageWidth: number;
@@ -10,6 +11,7 @@ namespace we {
       private gridAlpha: number;
       private gridBorderColor: number;
       private theStage: egret.Stage;
+      private isExpanded: boolean;
 
       public constructor(
         _numRow: number = 3,
@@ -40,6 +42,24 @@ namespace we {
           this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onOver, this);
           this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onOut, this);
         }
+      }
+
+      public expandRoad(expand: boolean) {
+        if (this.roadMapIconList && this.roadData) {
+          const numPage = Math.ceil(this.numCol * this.numRowCollapse); // number of icon in each page when not expand
+          if (expand) {
+            for (let i = numPage; i < this.roadMapIconList.length; i++) {
+              (this.roadMapIconList[i] as LwBeadRoadIcon).visible = true;
+            }
+          } else {
+            for (let i = numPage; i < this.roadMapIconList.length; i++) {
+              (this.roadMapIconList[i] as LwBeadRoadIcon).visible = false;
+            }
+          }
+
+        }
+        this.isExpanded = expand;
+        this.renderGrid();
       }
 
       private onClick(event: egret.TouchEvent) {
@@ -114,6 +134,7 @@ namespace we {
 
       // override for base class
       protected renderGrid() {
+        const numRow = (this.isExpanded) ? this.numRow : this.numRowCollapse;
         const bgColors = [0xfafafa, 0x17181a];
         const gridColors = [0xafafaf, 0x1f2022];
 
@@ -124,13 +145,13 @@ namespace we {
         // draw bg rectangle
         this.grid.graphics.beginFill(bgColors[0], 1);
         this.grid.graphics.lineStyle(this.gridLine * this.scale, gridColors[0], 1, true);
-        RoundRect.drawRoundRect(this.grid.graphics, 0, 0, this.numCol * sizeW, this.numRow * sizeH, this.gridCorners);
+        RoundRect.drawRoundRect(this.grid.graphics, 0, 0, this.numCol * sizeW, numRow * sizeH, this.gridCorners);
         this.grid.graphics.endFill();
 
         // draw grid lines
         // this.grid.graphics.lineStyle(this.gridLine * this.scale, this.gridBorderColor, 1, true);
         let lineY: number = sizeH * this.gridUnit;
-        for (let r = 1; r < this.numRow; r += this.gridUnit) {
+        for (let r = 1; r < numRow; r += this.gridUnit) {
           this.grid.graphics.moveTo(0, lineY);
           this.grid.graphics.lineTo(this.numCol * sizeW, lineY);
           lineY += sizeH * this.gridUnit;
@@ -138,7 +159,7 @@ namespace we {
         let lineX: number = sizeW * this.gridUnit;
         for (let c = 1; c < this.numCol; c += this.gridUnit) {
           this.grid.graphics.moveTo(lineX, 0);
-          this.grid.graphics.lineTo(lineX, this.numRow * sizeH);
+          this.grid.graphics.lineTo(lineX, numRow * sizeH);
           lineX += sizeW * this.gridUnit;
         }
 
@@ -160,6 +181,12 @@ namespace we {
           iconIndex++;
         }
         (this.roadMapIconList[0] as LwBeadRoadIcon).showHighLight();
+
+        //if not set numRowCollapse, set it to numRow
+        if (this.numRowCollapse === -1) {
+          this.numRowCollapse = this.numRow;
+        }
+        this.expandRoad(this.isExpanded);
       }
 
       // override for base class
@@ -189,6 +216,7 @@ namespace we {
             icon.setByObject(roadDataCopy[i]);
           }
           (this.roadMapIconList[0] as LwBeadRoadIcon).showHighLight();
+          this.expandRoad(this.isExpanded);
         }
       }
 

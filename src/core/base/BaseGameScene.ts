@@ -121,11 +121,19 @@ namespace we {
         this._video.height = ratio < 1 ? this.stage.stageHeight : this.stage.stageWidth / aspect;
         this._video.$anchorOffsetX = this._video.width * 0.5;
         this._video.$anchorOffsetY = this._video.height * 0.5;
-        this._video.play();
-        this.stage.frameRate = 60;
-        this._bgImg.visible = false;
+        if (!env.videoOpen) {
+          this.stopVideo();
+        } else {
+          this.playVideo();
+        }
 
-        if (this._gameBar) this._gameBar.targetScene = this;
+        // this._video.play();
+        // this.stage.frameRate = 60;
+        // this._bgImg.visible = false;
+
+        if (this._gameBar) {
+          this._gameBar.targetScene = this;
+        }
 
         if (env.betLimits) {
           this.initDenom();
@@ -145,7 +153,7 @@ namespace we {
       }
 
       protected initDenom() {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
+        const denominationList = env.betLimits.Live[this.getSelectedBetLimitIndex()].chips;
 
         if (this._betChipSet) {
           this._betChipSet.init(5, denominationList);
@@ -153,7 +161,7 @@ namespace we {
       }
 
       protected initBettingTable() {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
+        const denominationList = env.betLimits.Live[this.getSelectedBetLimitIndex()].chips;
         if (this._tableLayer) {
           this._tableLayer.init();
         }
@@ -283,7 +291,7 @@ namespace we {
       }
 
       protected onBetLimitUpdate(evt: egret.Event) {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
+        const denominationList = env.betLimits.Live[this.getSelectedBetLimitIndex()].chips;
         if (this._betChipSet) {
           this._betChipSet.resetDenominationList(denominationList);
         }
@@ -293,7 +301,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -334,7 +342,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -566,6 +574,7 @@ namespace we {
           }
 
           if (this._resultMessage) {
+            console.log('no message');
             this.checkResultMessage();
           }
         }
@@ -645,6 +654,8 @@ namespace we {
           case core.GameType.BAI:
           case core.GameType.BAS:
           case core.GameType.BAM:
+          case core.GameType.BAB:
+          case core.GameType.DTB:
           case core.GameType.DT:
             pass1 = this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin);
             pass2 = this._gameData && this._gameData.wintype != 0;
@@ -791,6 +802,7 @@ namespace we {
         try {
           this._video.play();
           this.stage.frameRate = 60;
+          env.videoOpen = true;
         } catch (e) {
           console.log('Video play Error');
         }
@@ -798,13 +810,14 @@ namespace we {
       }
 
       public stopVideoFunc(scene: any) {
-        return () => scene.stopVideo;
+        return () => scene.stopVideo();
       }
 
       public stopVideo() {
         try {
           this._video.stop();
           this.stage.frameRate = env.frameRate;
+          env.videoOpen = false;
         } catch (e) {
           console.log('Video play Error');
         }
