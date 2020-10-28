@@ -43,6 +43,39 @@ namespace we {
           this._panelDismissToggleBtn.addEventListener('CLICKED', this.onPanelToggle, this);
           this._panelDismissToggleBtn['tooltipText'] = env.isAutoDismiss ? 'live.tooltip.autoFullscreenToggleOff' : 'live.tooltip.autoFullscreenToggleOn';
         }
+
+        this.setBackground();
+      }
+
+      protected setBackground() {
+        switch (this._tableInfo.gametype) {
+          case core.GameType.BAC:
+          case core.GameType.BAS:
+          case core.GameType.BAI:
+            this._bgImg.source = 'd_placeholder_ba_jpg';
+            break;
+          case core.GameType.BAM:
+            this._bgImg.source = 'd_placeholder_sq_ba_jpg';
+            break;
+          case core.GameType.DT:
+            this._bgImg.source = 'd_placeholder_dt_jpg';
+            break;
+          case core.GameType.DI:
+            this._bgImg.source = 'd_placeholder_sicbo_jpg';
+            break;
+          case core.GameType.DIL:
+            this._bgImg.source = 'd_placeholder_gof_sicbo_jpg';
+            break;
+          case core.GameType.RO:
+            this._bgImg.source = 'd_placeholder_ro_jpg';
+            break;
+          case core.GameType.ROL:
+            this._bgImg.source = 'd_placeholder_gof_ro_jpg';
+            break;
+          case core.GameType.LW:
+            this._bgImg.source = 'd_placeholder_lw_jpg';
+            break;
+        }
       }
 
       protected initOrientationDependentComponent() {
