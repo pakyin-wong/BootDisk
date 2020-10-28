@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_btn_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_warnbtn_hover_png,d_common_popup_warnbtn_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,m_lobby_header_submenu_bg_png,m_lobby_roadmap_1column_btn_png,m_lobby_roadmap_2column_btn_png,popover_png,common_chips_json,common_game_panel_json,common_menu_json,preload_json,m_lobby_panel_gamelist_tag_bg_allgame_png,m_lobby_panel_gamelist_tag_bg_betted_png,m_lobby_panel_gamelist_tag_bg_goodroad_png,common_general_json,common_cards_big_json,common_cards_small_json,dbjson_zip,m_common_notification_bg_png,common_ui_tex_png,m_ba_betarea_chipsbg_round_png,NeonOne_otf,chips_select_tex_png",
+			"keys": "d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_btn_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_warnbtn_hover_png,d_common_popup_warnbtn_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,m_lobby_header_submenu_bg_png,m_lobby_roadmap_1column_btn_png,m_lobby_roadmap_2column_btn_png,popover_png,common_chips_json,common_game_panel_json,common_menu_json,preload_json,m_lobby_panel_gamelist_tag_bg_allgame_png,m_lobby_panel_gamelist_tag_bg_betted_png,m_lobby_panel_gamelist_tag_bg_goodroad_png,common_general_json,common_cards_big_json,common_cards_small_json,dbjson_zip,m_common_notification_bg_png,common_ui_tex_png,m_ba_betarea_chipsbg_round_png,NeonOne_otf,chips_select_tex_png,m_h_placeholder_ba_jpg,m_h_placeholder_dt_jpg,m_h_placeholder_gof_ro_jpg,m_h_placeholder_gof_sicbo_jpg,m_h_placeholder_lw_jpg,m_h_placeholder_ro_jpg,m_h_placeholder_sicbo_jpg,m_h_placeholder_sq_ba_jpg,m_v_placeholder_ba_jpg,m_v_placeholder_dt_jpg,m_v_placeholder_dt_overlay_png,m_v_placeholder_gof_ro_jpg,m_v_placeholder_gof_sicbo_jpg,m_v_placeholder_lw_jpg,m_v_placeholder_lw_overlay_png,m_v_placeholder_overlay_common_png,m_v_placeholder_ro_jpg,m_v_placeholder_ro_overlay_png,m_v_placeholder_sicbo_jpg,m_v_placeholder_sq_ba_jpg",
 			"name": "common"
 		},
 		{
@@ -546,6 +546,106 @@
 			"url": "assets/nmimages/m/lo/d_lottery_ent_penal_betarea_betpenal_five_bet_hover.png",
 			"type": "image",
 			"name": "d_lottery_ent_penal_betarea_betpenal_five_bet_hover_png"
+		},
+		{
+			"url": "assets/nmimages/m/common/general/ingamebg/m_h_placeholder_ba.jpg",
+			"type": "image",
+			"name": "m_h_placeholder_ba_jpg"
+		},
+		{
+			"url": "assets/nmimages/m/common/general/ingamebg/m_h_placeholder_dt.jpg",
+			"type": "image",
+			"name": "m_h_placeholder_dt_jpg"
+		},
+		{
+			"url": "assets/nmimages/m/common/general/ingamebg/m_h_placeholder_gof_ro.jpg",
+			"type": "image",
+			"name": "m_h_placeholder_gof_ro_jpg"
+		},
+		{
+			"url": "assets/nmimages/m/common/general/ingamebg/m_h_placeholder_gof_sicbo.jpg",
+			"type": "image",
+			"name": "m_h_placeholder_gof_sicbo_jpg"
+		},
+		{
+			"url": "assets/nmimages/m/common/general/ingamebg/m_h_placeholder_lw.jpg",
+			"type": "image",
+			"name": "m_h_placeholder_lw_jpg"
+		},
+		{
+			"url": "assets/nmimages/m/common/general/ingamebg/m_h_placeholder_ro.jpg",
+			"type": "image",
+			"name": "m_h_placeholder_ro_jpg"
+		},
+		{
+			"url": "assets/nmimages/m/common/general/ingamebg/m_h_placeholder_sicbo.jpg",
+			"type": "image",
+			"name": "m_h_placeholder_sicbo_jpg"
+		},
+		{
+			"url": "assets/nmimages/m/common/general/ingamebg/m_h_placeholder_sq_ba.jpg",
+			"type": "image",
+			"name": "m_h_placeholder_sq_ba_jpg"
+		},
+		{
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_ba.jpg",
+			"type": "image",
+			"name": "m_v_placeholder_ba_jpg"
+		},
+		{
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_dt.jpg",
+			"type": "image",
+			"name": "m_v_placeholder_dt_jpg"
+		},
+		{
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_dt_overlay.png",
+			"type": "image",
+			"name": "m_v_placeholder_dt_overlay_png"
+		},
+		{
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_gof_ro.jpg",
+			"type": "image",
+			"name": "m_v_placeholder_gof_ro_jpg"
+		},
+		{
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_gof_sicbo.jpg",
+			"type": "image",
+			"name": "m_v_placeholder_gof_sicbo_jpg"
+		},
+		{
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_lw.jpg",
+			"type": "image",
+			"name": "m_v_placeholder_lw_jpg"
+		},
+		{
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_lw_overlay.png",
+			"type": "image",
+			"name": "m_v_placeholder_lw_overlay_png"
+		},
+		{
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_overlay_common.png",
+			"type": "image",
+			"name": "m_v_placeholder_overlay_common_png"
+		},
+		{
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_ro.jpg",
+			"type": "image",
+			"name": "m_v_placeholder_ro_jpg"
+		},
+		{
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_ro_overlay.png",
+			"type": "image",
+			"name": "m_v_placeholder_ro_overlay_png"
+		},
+		{
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_sicbo.jpg",
+			"type": "image",
+			"name": "m_v_placeholder_sicbo_jpg"
+		},
+		{
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_sq_ba.jpg",
+			"type": "image",
+			"name": "m_v_placeholder_sq_ba_jpg"
 		}
 	]
 }
