@@ -33,11 +33,11 @@ namespace we {
       protected mount() {
         super.mount();
         this._today = new Date();
-        console.log('this._today  new Date()',this._today)
+        console.log('DatepickerCalendar::this._today  new Date()',this._today)
         this._currMonth = this._today.getMonth();
-        console.log('this._currMonth = this._today.getMonth();',this._currMonth)
+        console.log('DatepickerCalendar::this._currMonth = this._today.getMonth();',this._currMonth)
         this._today = this._today.getDate() - 1;
-        console.log(' this._today = this._today.getDate() - 1;',this._today)
+        console.log('DatepickerCalendar::this._today = this._today.getDate() - 1;',this._today)
 
         for (let w = 0; w < 7; w++) {
           this._headerItems[w].label.renderText = () => `${i18n.t('datePicker_weekday_' + w)}`;
@@ -77,6 +77,8 @@ namespace we {
           .month(this._month)
           .startOf('month')
           .day();
+          console.log('DatepickerCalendar::update::_tday',this._tday)
+          console.log('DatepickerCalendar::update::c',c)
         let r = 1;
         for (let d = 0; d < this._tday; d++) {
           const itemDate = moment([this._year, this._month, d + 1]);

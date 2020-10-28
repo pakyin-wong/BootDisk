@@ -25,9 +25,13 @@ namespace we {
       private currentMonthIndex: number = 0;
       private prevCurrentMonthIndex: number = -1;
 
+      private test1:any;
+      private test2:any;
+
       constructor() {
         super();
         this._current = moment().startOf('month');
+        console.log('DoubleCalendarPicker::this._current',this._current)
       }
 
       protected mount() {
@@ -52,15 +56,25 @@ namespace we {
       }
 
       protected clean() {
-        this._select = null;
-        this._start = null;
-        this._end = null;
+        // this.setTo(this.test1,this.test2)
+        // let today = moment()
+        //   .utcOffset(8)
+        //   .startOf('day')
+        //   .unix();
+        this._select = this.test1;
+        this._start = this.test1;
+        this._end = this.test2;
         this._txt_current.text = '';
+        // this._select = today;
+        // this._start = today;
+        // this._end = today;
+        // this._txt_current.text = this._select.format('YYYY / MM / DD');
       }
 
       protected update() {
         const prev = this._current.clone().subtract(1, 'months');
         console.log('DoubleCalendarPicker::update::prev',prev)
+
 
         this._calender_prev.setTo(prev.year(), prev.month());
         this._calender_next.setTo(this._current.year(), this._current.month());
@@ -71,7 +85,7 @@ namespace we {
 
         this._txt_prev.text = prev.format('YYYY / MM');
         this._txt_next.text = this._current.format('YYYY / MM');
-
+        console.log('DoubleCalendarPicker::update:this._select',this._select)
         if (this._select) {
           this._txt_current.text = this._select.format('YYYY / MM / DD');
           this._calender_next.pick(this._select, this.range);
@@ -160,11 +174,21 @@ namespace we {
       }
 
       public setTo(starttime, endtime) {
+        console.log('DoubleCalendarPicker::setTo::starttime',starttime)
+        console.log('DoubleCalendarPicker::setTo::endtime',endtime)        
         this.clean();
+        this.currentMonthIndex = 0;
+        this.prevCurrentMonthIndex = -1;
+
         const start = moment.unix(starttime).startOf('day');
+        this.test1 = start;
         const end = moment.unix(endtime).startOf('day');
+        this.test2 = end;
+        console.log('DoubleCalendarPicker::setTo::start',start)
+        console.log('DoubleCalendarPicker::setTo::end',end)
         if (start.isSame(end, 'day')) {
           this._select = start;
+          console.log('this._select = start;this._select = start;this._select = start;this._select = start;')
           this._current = moment([start.year(), start.month()]);
         } else {
           this._start = start;
