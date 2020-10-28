@@ -63,18 +63,10 @@ namespace we {
         this.analysisBtn3.addEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
         this.analysisBtn4.addEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
 
-        //dir.evtHandler.addEventListener(core.Event.ROADMAP_UPDATE, this.update, this);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.changeLang();
 
         this.analysisStack.selectedIndex = 0;
-
-              const history = this.tableInfo.gamestatistic.loHistory;
-
-              this.listShow.updateList(history.show);
-              this.listNoShow.updateList(history.noShow);
-              this.listHot.updateList(history.hot);
-              this.listCold.updateList(history.cold);
       }
 
       protected destroy() {
@@ -83,7 +75,7 @@ namespace we {
         this.analysisBtn2.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
         this.analysisBtn3.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
         this.analysisBtn4.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
-        //dir.evtHandler.removeEventListener(core.Event.ROADMAP_UPDATE, this.update, this);
+
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
 

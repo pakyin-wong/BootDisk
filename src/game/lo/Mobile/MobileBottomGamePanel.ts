@@ -79,8 +79,10 @@ namespace we {
         super.updateStat();
       }
 
-      public update() {
-
+      public updateInfo() {
+        this._roadmapPanel.update();
+        this._analysisPanel.update();
+        this._statisticChartPanel.update();
       }
 
       public manualClose() {

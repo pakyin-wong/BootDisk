@@ -148,6 +148,16 @@ namespace we {
         this.update();
       }
 
+      protected onRoadDataUpdate(evt: egret.Event) {
+        super.onRoadDataUpdate(evt);
+        if(evt && evt.data){
+          const stat = <data.TableInfo>evt.data;
+          if(stat.tableid === this._tableId){
+            this._bottomGamePanel.updateInfo();
+          }
+        }
+      }
+
       protected update() {
         const diff = this._targetTime - env.currTime;
 
