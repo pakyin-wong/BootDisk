@@ -5744,102 +5744,102 @@
 			"name": "Barlow-Bold_ttf"
 		},
 		{
-			"url": "assets/images/m/common/general/ingamebg/m_v_placeholder_lw_overlay.png",
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_lw_overlay.png",
 			"type": "image",
 			"name": "m_v_placeholder_lw_overlay_png"
 		},
 		{
-			"url": "assets/images/m/common/general/ingamebg/m_v_placeholder_sq_ba.jpg",
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_sq_ba.jpg",
 			"type": "image",
 			"name": "m_v_placeholder_sq_ba_jpg"
 		},
 		{
-			"url": "assets/images/m/common/general/ingamebg/m_v_placeholder_sicbo.jpg",
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_sicbo.jpg",
 			"type": "image",
 			"name": "m_v_placeholder_sicbo_jpg"
 		},
 		{
-			"url": "assets/images/m/common/general/ingamebg/m_v_placeholder_ba.jpg",
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_ba.jpg",
 			"type": "image",
 			"name": "m_v_placeholder_ba_jpg"
 		},
 		{
-			"url": "assets/images/m/common/general/ingamebg/m_v_placeholder_lw.jpg",
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_lw.jpg",
 			"type": "image",
 			"name": "m_v_placeholder_lw_jpg"
 		},
 		{
-			"url": "assets/images/m/common/general/ingamebg/m_v_placeholder_ro.jpg",
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_ro.jpg",
 			"type": "image",
 			"name": "m_v_placeholder_ro_jpg"
 		},
 		{
-			"url": "assets/images/m/common/general/ingamebg/m_v_placeholder_overlay_common.png",
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_overlay_common.png",
 			"type": "image",
 			"name": "m_v_placeholder_overlay_common_png"
 		},
 		{
-			"url": "assets/images/m/common/general/ingamebg/m_v_placeholder_gof_ro.jpg",
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_gof_ro.jpg",
 			"type": "image",
 			"name": "m_v_placeholder_gof_ro_jpg"
 		},
 		{
-			"url": "assets/images/m/common/general/ingamebg/m_v_placeholder_gof_sicbo.jpg",
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_gof_sicbo.jpg",
 			"type": "image",
 			"name": "m_v_placeholder_gof_sicbo_jpg"
 		},
 		{
-			"url": "assets/images/m/common/general/ingamebg/m_v_placeholder_dt_overlay.png",
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_dt_overlay.png",
 			"type": "image",
 			"name": "m_v_placeholder_dt_overlay_png"
 		},
 		{
-			"url": "assets/images/m/common/general/ingamebg/m_v_placeholder_ro_overlay.png",
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_ro_overlay.png",
 			"type": "image",
 			"name": "m_v_placeholder_ro_overlay_png"
 		},
 		{
-			"url": "assets/images/m/common/general/ingamebg/m_v_placeholder_dt.jpg",
+			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_dt.jpg",
 			"type": "image",
 			"name": "m_v_placeholder_dt_jpg"
 		},
 		{
-			"url": "assets/images/m/common/general/ingamebg/m_h_placeholder_sicbo.jpg",
+			"url": "assets/nmimages/m/common/general/ingamebg/m_h_placeholder_sicbo.jpg",
 			"type": "image",
 			"name": "m_h_placeholder_sicbo_jpg"
 		},
 		{
-			"url": "assets/images/m/common/general/ingamebg/m_h_placeholder_sq_ba.jpg",
+			"url": "assets/nmimages/m/common/general/ingamebg/m_h_placeholder_sq_ba.jpg",
 			"type": "image",
 			"name": "m_h_placeholder_sq_ba_jpg"
 		},
 		{
-			"url": "assets/images/m/common/general/ingamebg/m_h_placeholder_ro.jpg",
+			"url": "assets/nmimages/m/common/general/ingamebg/m_h_placeholder_ro.jpg",
 			"type": "image",
 			"name": "m_h_placeholder_ro_jpg"
 		},
 		{
-			"url": "assets/images/m/common/general/ingamebg/m_h_placeholder_lw.jpg",
+			"url": "assets/nmimages/m/common/general/ingamebg/m_h_placeholder_lw.jpg",
 			"type": "image",
 			"name": "m_h_placeholder_lw_jpg"
 		},
 		{
-			"url": "assets/images/m/common/general/ingamebg/m_h_placeholder_gof_sicbo.jpg",
+			"url": "assets/nmimages/m/common/general/ingamebg/m_h_placeholder_gof_sicbo.jpg",
 			"type": "image",
 			"name": "m_h_placeholder_gof_sicbo_jpg"
 		},
 		{
-			"url": "assets/images/m/common/general/ingamebg/m_h_placeholder_dt.jpg",
+			"url": "assets/nmimages/m/common/general/ingamebg/m_h_placeholder_dt.jpg",
 			"type": "image",
 			"name": "m_h_placeholder_dt_jpg"
 		},
 		{
-			"url": "assets/images/m/common/general/ingamebg/m_h_placeholder_gof_ro.jpg",
+			"url": "assets/nmimages/m/common/general/ingamebg/m_h_placeholder_gof_ro.jpg",
 			"type": "image",
 			"name": "m_h_placeholder_gof_ro_jpg"
 		},
 		{
-			"url": "assets/images/m/common/general/ingamebg/m_h_placeholder_ba.jpg",
+			"url": "assets/nmimages/m/common/general/ingamebg/m_h_placeholder_ba.jpg",
 			"type": "image",
 			"name": "m_h_placeholder_ba_jpg"
 		}

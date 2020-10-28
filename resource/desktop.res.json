@@ -7552,147 +7552,147 @@
 			"name": "d_bcba_panel_verification_key_bg_png"
 		},
 		{
-			"url": "assets/images/d/lobby/common/d_lobby_placeholder_sicbo.jpg",
+			"url": "assets/nmimages/d/lobby/common/d_lobby_placeholder_sicbo.jpg",
 			"type": "image",
 			"name": "d_lobby_placeholder_sicbo_jpg"
 		},
 		{
-			"url": "assets/images/d/lobby/common/d_lobby_placeholder_ro.jpg",
+			"url": "assets/nmimages/d/lobby/common/d_lobby_placeholder_ro.jpg",
 			"type": "image",
 			"name": "d_lobby_placeholder_ro_jpg"
 		},
 		{
-			"url": "assets/images/d/lobby/common/d_lobby_placeholder_wtc.jpg",
+			"url": "assets/nmimages/d/lobby/common/d_lobby_placeholder_wtc.jpg",
 			"type": "image",
 			"name": "d_lobby_placeholder_wtc_jpg"
 		},
 		{
-			"url": "assets/images/d/lobby/common/d_lobby_placeholder_sq_ba.jpg",
+			"url": "assets/nmimages/d/lobby/common/d_lobby_placeholder_sq_ba.jpg",
 			"type": "image",
 			"name": "d_lobby_placeholder_sq_ba_jpg"
 		},
 		{
-			"url": "assets/images/d/lobby/common/d_lobby_pro_placeholder_ba.jpg",
+			"url": "assets/nmimages/d/lobby/common/d_lobby_pro_placeholder_ba.jpg",
 			"type": "image",
 			"name": "d_lobby_pro_placeholder_ba_jpg"
 		},
 		{
-			"url": "assets/images/d/lobby/common/d_lobby_pro_placeholder_dt.jpg",
+			"url": "assets/nmimages/d/lobby/common/d_lobby_pro_placeholder_dt.jpg",
 			"type": "image",
 			"name": "d_lobby_pro_placeholder_dt_jpg"
 		},
 		{
-			"url": "assets/images/d/lobby/common/d_lobby_pro_placeholder_gof_ro.jpg",
+			"url": "assets/nmimages/d/lobby/common/d_lobby_pro_placeholder_gof_ro.jpg",
 			"type": "image",
 			"name": "d_lobby_pro_placeholder_gof_ro_jpg"
 		},
 		{
-			"url": "assets/images/d/lobby/common/d_lobby_pro_placeholder_lw.jpg",
+			"url": "assets/nmimages/d/lobby/common/d_lobby_pro_placeholder_lw.jpg",
 			"type": "image",
 			"name": "d_lobby_pro_placeholder_lw_jpg"
 		},
 		{
-			"url": "assets/images/d/lobby/common/d_lobby_pro_placeholder_ro.png",
+			"url": "assets/nmimages/d/lobby/common/d_lobby_pro_placeholder_ro.png",
 			"type": "image",
 			"name": "d_lobby_pro_placeholder_ro_png"
 		},
 		{
-			"url": "assets/images/d/lobby/common/d_lobby_pro_placeholder_sicbo.jpg",
+			"url": "assets/nmimages/d/lobby/common/d_lobby_pro_placeholder_sicbo.jpg",
 			"type": "image",
 			"name": "d_lobby_pro_placeholder_sicbo_jpg"
 		},
 		{
-			"url": "assets/images/d/lobby/common/d_lobby_pro_placeholder_gof_sb.jpg",
+			"url": "assets/nmimages/d/lobby/common/d_lobby_pro_placeholder_gof_sb.jpg",
 			"type": "image",
 			"name": "d_lobby_pro_placeholder_gof_sb_jpg"
 		},
 		{
-			"url": "assets/images/d/lobby/common/d_lobby_pro_placeholder_sq_ba.jpg",
+			"url": "assets/nmimages/d/lobby/common/d_lobby_pro_placeholder_sq_ba.jpg",
 			"type": "image",
 			"name": "d_lobby_pro_placeholder_sq_ba_jpg"
 		},
 		{
-			"url": "assets/images/d/lobby/common/d_lobby_pro_placeholder_wtc.jpg",
+			"url": "assets/nmimages/d/lobby/common/d_lobby_pro_placeholder_wtc.jpg",
 			"type": "image",
 			"name": "d_lobby_pro_placeholder_wtc_jpg"
 		},
 		{
-			"url": "assets/images/d/lobby/common/d_lobby_placeholder_ba.jpg",
+			"url": "assets/nmimages/d/lobby/common/d_lobby_placeholder_ba.jpg",
 			"type": "image",
 			"name": "d_lobby_placeholder_ba_jpg"
 		},
 		{
-			"url": "assets/images/d/lobby/common/d_lobby_placeholder_dt.jpg",
+			"url": "assets/nmimages/d/lobby/common/d_lobby_placeholder_dt.jpg",
 			"type": "image",
 			"name": "d_lobby_placeholder_dt_jpg"
 		},
 		{
-			"url": "assets/images/d/lobby/common/d_lobby_placeholder_gof_ro.jpg",
+			"url": "assets/nmimages/d/lobby/common/d_lobby_placeholder_gof_ro.jpg",
 			"type": "image",
 			"name": "d_lobby_placeholder_gof_ro_jpg"
 		},
 		{
-			"url": "assets/images/d/lobby/common/d_lobby_placeholder_lw.jpg",
+			"url": "assets/nmimages/d/lobby/common/d_lobby_placeholder_lw.jpg",
 			"type": "image",
 			"name": "d_lobby_placeholder_lw_jpg"
 		},
 		{
-			"url": "assets/images/d/lobby/common/d_lobby_placeholder_gof_sb.jpg",
+			"url": "assets/nmimages/d/lobby/common/d_lobby_placeholder_gof_sb.jpg",
 			"type": "image",
 			"name": "d_lobby_placeholder_gof_sb_jpg"
 		},
 		{
-			"url": "assets/images/d/common/general/ingamebg/d_placeholder_ba.jpg",
+			"url": "assets/nmimages/d/common/general/ingamebg/d_placeholder_ba.jpg",
 			"type": "image",
 			"name": "d_placeholder_ba_jpg"
 		},
 		{
-			"url": "assets/images/d/common/general/ingamebg/d_placeholder_gof_sicbo.jpg",
+			"url": "assets/nmimages/d/common/general/ingamebg/d_placeholder_gof_sicbo.jpg",
 			"type": "image",
 			"name": "d_placeholder_gof_sicbo_jpg"
 		},
 		{
-			"url": "assets/images/d/common/general/ingamebg/d_placeholder_dt.jpg",
+			"url": "assets/nmimages/d/common/general/ingamebg/d_placeholder_dt.jpg",
 			"type": "image",
 			"name": "d_placeholder_dt_jpg"
 		},
 		{
-			"url": "assets/images/d/common/general/ingamebg/d_placeholder_gof_ro.jpg",
+			"url": "assets/nmimages/d/common/general/ingamebg/d_placeholder_gof_ro.jpg",
 			"type": "image",
 			"name": "d_placeholder_gof_ro_jpg"
 		},
 		{
-			"url": "assets/images/d/common/general/ingamebg/d_placeholder_lottery.jpg",
+			"url": "assets/nmimages/d/common/general/ingamebg/d_placeholder_lottery.jpg",
 			"type": "image",
 			"name": "d_placeholder_lottery_jpg"
 		},
 		{
-			"url": "assets/images/d/common/general/ingamebg/d_placeholder_lw.jpg",
+			"url": "assets/nmimages/d/common/general/ingamebg/d_placeholder_lw.jpg",
 			"type": "image",
 			"name": "d_placeholder_lw_jpg"
 		},
 		{
-			"url": "assets/images/d/common/general/ingamebg/d_placeholder_pk10.jpg",
+			"url": "assets/nmimages/d/common/general/ingamebg/d_placeholder_pk10.jpg",
 			"type": "image",
 			"name": "d_placeholder_pk10_jpg"
 		},
 		{
-			"url": "assets/images/d/common/general/ingamebg/d_placeholder_ro.jpg",
+			"url": "assets/nmimages/d/common/general/ingamebg/d_placeholder_ro.jpg",
 			"type": "image",
 			"name": "d_placeholder_ro_jpg"
 		},
 		{
-			"url": "assets/images/d/common/general/ingamebg/d_placeholder_sicbo.jpg",
+			"url": "assets/nmimages/d/common/general/ingamebg/d_placeholder_sicbo.jpg",
 			"type": "image",
 			"name": "d_placeholder_sicbo_jpg"
 		},
 		{
-			"url": "assets/images/d/common/general/ingamebg/d_placeholder_sq_ba.jpg",
+			"url": "assets/nmimages/d/common/general/ingamebg/d_placeholder_sq_ba.jpg",
 			"type": "image",
 			"name": "d_placeholder_sq_ba_jpg"
 		},
 		{
-			"url": "assets/images/d/common/general/ingamebg/d_placeholder_wtc.jpg",
+			"url": "assets/nmimages/d/common/general/ingamebg/d_placeholder_wtc.jpg",
 			"type": "image",
 			"name": "d_placeholder_wtc_jpg"
 		},
