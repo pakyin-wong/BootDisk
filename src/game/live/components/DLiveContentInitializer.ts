@@ -120,7 +120,7 @@ namespace we {
         root.slider = new we.ui.ImageSlider();
         root.slider.height = 790;
         root.slider.width = 2600;
-        root.slider.configSlides(dir.liveResources.liveHeroBanners);
+        root.slider.configSlides(dir.liveResources.heroBanners);
 
         const tabBarGroup = new eui.Group();
         this._tabbarBg = new eui.Rect();
