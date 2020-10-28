@@ -23,6 +23,7 @@ namespace we {
       public range = 6;
 
       private currentMonthIndex: number = 0;
+      private prevCurrentMonthIndex: number = -1;
 
       constructor() {
         super();
@@ -59,11 +60,14 @@ namespace we {
 
       protected update() {
         const prev = this._current.clone().subtract(1, 'months');
+        console.log('DoubleCalendarPicker::update::prev',prev)
 
         this._calender_prev.setTo(prev.year(), prev.month());
         this._calender_next.setTo(this._current.year(), this._current.month());
         
         this._calender_next.highlightToday = this.currentMonthIndex === 0 ? true : false;
+        this._calender_prev.highlightToday = this.prevCurrentMonthIndex === 0 ? true : false;
+        // this._calender_next.highlightToday = true
 
         this._txt_prev.text = prev.format('YYYY / MM');
         this._txt_next.text = this._current.format('YYYY / MM');
@@ -101,28 +105,36 @@ namespace we {
 
       protected nextClicked() {
         this.currentMonthIndex++;
+        this.prevCurrentMonthIndex++;
         this._current.add(1, 'months');
         this.update();
       }
 
       protected prevClicked() {
         this.currentMonthIndex--;
+        this.prevCurrentMonthIndex--;
         this._current.subtract(1, 'months');
         this.update();
       }
 
       protected cleanClicked() {
+        console.log('before clean this.currentMonthIndex',this.currentMonthIndex)
+        console.log('before clean prevCurrentMonthIndex',this.prevCurrentMonthIndex)
         this.clean();
+        console.log('after clean this.currentMonthIndex',this.currentMonthIndex)
+        console.log('after clean prevCurrentMonthIndex',this.prevCurrentMonthIndex)
         this.update();
       }
 
       protected datePicked(e: egret.Event) {
-        if (!this._select) {
+        if (!this._select) { // 
           this._select = e.data;
+          console.log('DoubleCalendarPicker::datePicked::this._select = e.data',this._select)
         } else {
           this._start = moment.min(e.data, this._select);
           this._end = moment.max(e.data, this._select);
           this._select = null;
+          console.log('DoubleCalendarPicker::datePicked::,[this._start,this._end,this._select]',[this._start,this._end,this._select])
         }
         this.update();
       }
