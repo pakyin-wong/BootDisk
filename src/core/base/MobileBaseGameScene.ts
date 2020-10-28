@@ -532,7 +532,8 @@ namespace we {
         super.setStateIdle(isInit);
         if (this._totalBet && this.tableInfo.betInfo) {
           const totalBet = this.tableInfo.betInfo.gameroundid === this._gameData.gameroundid ? this.tableInfo.betInfo.total : 0;
-          this._totalBet.renderText = () => `${totalBet}`;
+          // this._totalBet.renderText = () => `${totalBet}`;
+          this._totalBet.renderText = () => utils.numberToFaceValue(totalBet);
         }
       }
 
@@ -540,7 +541,8 @@ namespace we {
         super.setStateBet(isInit);
         if (this._totalBet && this.tableInfo.betInfo) {
           const totalBet = this.tableInfo.betInfo.gameroundid === this._gameData.gameroundid ? this.tableInfo.betInfo.total : 0;
-          this._totalBet.renderText = () => `${totalBet}`;
+          // this._totalBet.renderText = () => `${totalBet}`;
+          this._totalBet.renderText = () => utils.numberToFaceValue(totalBet);
         }
         this._GameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
       }
