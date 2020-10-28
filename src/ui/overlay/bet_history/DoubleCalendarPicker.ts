@@ -61,13 +61,13 @@ namespace we {
         //   .utcOffset(8)
         //   .startOf('day')
         //   .unix();
-        this._select = this.test1;
-        this._start = this.test1;
-        this._end = this.test2;
+        // this._select = this.test1;
+        // this._start = this.test1;
+        // this._end = this.test2;
         this._txt_current.text = '';
-        // this._select = today;
-        // this._start = today;
-        // this._end = today;
+        this._select = null;
+        this._start = null;
+        this._end = null;
         // this._txt_current.text = this._select.format('YYYY / MM / DD');
       }
 

@@ -89,7 +89,10 @@ namespace we {
           this._dateItems[d].date = itemDate;
           this._dateItems[d].isToday = t.isSame(itemDate, 'day');
           this._dateItems[d].lock = itemDate.isAfter(t, 'day');
-          // this.setItemState(d, 'enabled');
+          this.setItemState(d, 'enabled');
+          if( this._dateItems[d].isToday === true) {
+            this.setItemState(d, 'today');
+          }
           c++;
           if (c > 6) {
             c = 0;
