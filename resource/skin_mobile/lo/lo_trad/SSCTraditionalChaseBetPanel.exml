@@ -6,16 +6,16 @@
             <e:Rect width="1140" height="3" x="51" y="152" fillColor="0x979797" alpha="0.2"/>
             <ui:RunTimeLabel id="_lblChaseType" text="追號類型" x="48" y="195" width="168" size="42" verticalAlign="middle" height="62" textColor="0xffffff" scaleX="1" scaleY="1" alpha="0.7"/>
             <e:Group id="_btnChaseGroup" y="293" height="100">
-                <e:Group id="_btnSameMultiple" width="344" height="100" touchChildren="true">
-                    <ui:RoundRectButton cornerTL_TR_BL_BR="50,50,50,50" width="344" height="100" 
+                <e:Group width="344" height="100" touchChildren="true">
+                    <ui:RoundRectButton id="_btnSameMultiple" cornerTL_TR_BL_BR="50,50,50,50" width="344" height="100" 
                                 stroke="1" strokeColor="0x5F7273" fillAlpha="0" strokeAlpha="0.5"
                                 stroke_hover="0" fillAlpha_hover="0.76" fillColor_hover="0x1B416E"
                                 stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x1B416E"
                                 stroke_active="0" fillAlpha_active="0.7" fillColor_active="0x1B416E"/>
                     <ui:RunTimeLabel id="_lblBtnSameMultiple" text="同倍追號" verticalCenter="0" horizontalCenter="0" size="44" touchEnabled="false" alpha="0.7"/>
                 </e:Group>
-                <e:Group id="_btnDoubleMultiple" width="344" height="100" touchChildren="true">
-                    <ui:RoundRectButton cornerTL_TR_BL_BR="50,50,50,50" width="344" height="100" 
+                <e:Group width="344" height="100" touchChildren="true">
+                    <ui:RoundRectButton id="_btnDoubleMultiple" cornerTL_TR_BL_BR="50,50,50,50" width="344" height="100" 
                                 stroke="1" strokeColor="0x5F7273" fillAlpha="0" strokeAlpha="0.5"
                                 stroke_hover="0" fillAlpha_hover="0.76" fillColor_hover="0x1B416E"
                                 stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x1B416E"

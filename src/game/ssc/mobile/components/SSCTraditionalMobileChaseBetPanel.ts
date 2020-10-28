@@ -46,6 +46,8 @@ namespace we {
 
       protected initChaseType(){
         this._currentChaseType = 0;
+        this._btnSameMultiple.active = true;
+        this._btnDoubleMultiple.active = false;
         this._lblChaseType.renderText = () => `${i18n.t('lo_trad.chase.' + this.chaseType[this._currentChaseType])}`;
       }
 
@@ -100,11 +102,16 @@ namespace we {
         let chaseType ;
         if(e.target === this._btnSameMultiple){
           chaseType = 0;
+          this._btnSameMultiple.active = true;
+          this._btnDoubleMultiple.active = false;
+
         }else if(e.target === this._btnDoubleMultiple){
-          chaseType = 1
+          chaseType = 2;
+          this._btnDoubleMultiple.active = true;
+          this._btnSameMultiple.active = false;
         }
 
-        this.onChaseTypeUpdate(e.data);
+        this.onChaseTypeUpdate(chaseType);
         this.initData();
         // this.createListTitlePanel();
         this.remappingData();
@@ -114,7 +121,7 @@ namespace we {
         this.removeChaseTopPanel(this._currentChaseType);
         this._currentChaseType = value;
         this._lblChaseType.renderText = () => `${i18n.t('lo_trad.chase.' + this.chaseType[this._currentChaseType])}`;
-        this.createChaseTopPanel();
+        this.createChasePanel();
       }
 
       protected initData() {
@@ -171,7 +178,6 @@ namespace we {
       protected updateIsStopChaseIfWon(v){
         this._isStopWon = v;
       }
-
     }
   }
 }

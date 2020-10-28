@@ -13,15 +13,19 @@ namespace we {
       protected _bettingPanel: we.lo.SSCTraditionalMobileBettingPanel;
       protected _notes;
       protected _roundData;
+      protected _currentRoundID;
+      protected _enableInit;
       protected _currentPanelGroup : eui.Group;
       protected _lblCurrentRound :ui.RunTimeLabel;
 
-      constructor(notes, roundData, panel) {
+      constructor(notes, roundData, panel, currentRoundID, enable) {
         super();
         this.skinName = 'skin_mobile.lo.SSCTraditionalBetControlPanel';
         this._bettingPanel = panel;
         this._notes = notes;
         this._roundData = roundData;
+        this._currentRoundID = currentRoundID;
+        this._enableInit = enable;
         this.isPoppable = true;
       }
 
@@ -57,6 +61,12 @@ namespace we {
         this._noteControl.init();
         this._noteControl.notes = this._notes;
         this._noteControl.updateNoteControlPanel();
+
+        this._noteControl.setConfirmBetButton(this._enableInit);
+        this._chaseBetPanel.setConfirmBetButton(this._enableInit);
+
+        this._lblCurrentRound.renderText = () => this._currentRoundID;
+
         this._activePanelIndex = 0;
         this.showPanel();
       }
@@ -87,7 +97,8 @@ namespace we {
       }
 
       protected updateBetInfo(e){
-        this._lblCurrentRound.render = () => e.data.gameroundid;
+        this._currentRoundID = e.data.gameroundid;
+        this._lblCurrentRound.renderText = () => this._currentRoundID;
       }
 
       protected onClose(e){
@@ -122,7 +133,6 @@ namespace we {
         const enable = e.data.enable;
         this._noteControl.setConfirmBetButton(enable);
         this._chaseBetPanel.setConfirmBetButton(enable);
-
       }
     }
   }

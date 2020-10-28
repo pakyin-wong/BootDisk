@@ -49,7 +49,7 @@ namespace we {
             this.skinName = 'skin_mobile.SSCTradtiionalSameMultipleChaseBetPanel';
             break;
           case SSCChaseType.DOUBLE:
-            this.skinName = 'skin_mobile.SSCTradtiionalDoubleMultipleChaseBetPanel';
+            this.skinName = 'skin_mobile.SSCTradtionalDoubleMultipleChaseBetPanel';
             break;
         }
       }
@@ -58,14 +58,14 @@ namespace we {
         this.isStopChaseIfWon = false;
         switch (this._currentChaseType) {
           case SSCChaseType.SAMEMULTIPLE:
-            this._lblMultiplier.text = this._multiplier;
-            this._lblRound = this._round;
+            this._lblMultiplier.renderText = () => this._multiplier;
+            this._lblRound.renderText = () => this._round;
             break;
           case SSCChaseType.DOUBLE:
-            this._lblRoundSeperate = this._separateRound;
-            this._lblMultiplier.text = this._minMultiplier;
-            this._lblRound = this._round;
-            this._lblSeparateMultiplier.text = this._separateMultiplier;
+            this._lblRoundSeperate.renderText = () => this._separateRound;
+            this._lblMultiplier.renderText = () => this._minMultiplier;
+            this._lblRound.renderText = () => this._round;
+            this._lblSeparateMultiplier.renderText = () => this._separateMultiplier;
             break;
         }
       }
@@ -94,6 +94,30 @@ namespace we {
         }
       }
 
+      protected removeListeners() {
+        utils.removeButtonListener(this._btnFiveRound, this.onButtonClicked, this);
+        utils.removeButtonListener(this._btnTenRound, this.onButtonClicked, this);
+        utils.removeButtonListener(this._btnFifthteenRound, this.onButtonClicked, this);
+        utils.removeButtonListener(this._btnTwentyRound, this.onButtonClicked, this);
+        utils.removeButtonListener(this._btnAddRound, this.onRoundUpdate, this);
+        utils.removeButtonListener(this._btnMinusRound, this.onRoundUpdate, this);
+        utils.removeButtonListener(this._btnIsStopChaseIfWon,this.updateIsStopChaseIfWon,this);
+        switch (this._currentChaseType) {
+          case SSCChaseType.SAMEMULTIPLE:
+            utils.removeButtonListener(this._btnAddMultiplier, this.onMultiplierUpdate, this);
+            utils.removeButtonListener(this._btnMinusMultiplier, this.onMultiplierUpdate, this);
+            break;
+          case SSCChaseType.DOUBLE:
+            utils.removeButtonListener(this._btnAddMultiplier, this.minMultiplierUpdate, this);
+            utils.removeButtonListener(this._btnMinusMultiplier, this.minMultiplierUpdate, this);
+            utils.removeButtonListener(this._btnAddRoundSeperate, this.roundSeperateUpdate, this);
+            utils.removeButtonListener(this._btnMinusRoundSeperate, this.roundSeperateUpdate, this);
+            utils.removeButtonListener(this._btnAddSeparateMultiplier, this.multiplierSeperateUpdate, this);
+            utils.removeButtonListener(this._btnMinusSeparateMultiplier, this.multiplierSeperateUpdate, this);
+            break;
+        }
+      }
+
       protected onButtonClicked(e) {
         this._btnFiveRound.active = false;
         this._btnTenRound.active = false;
@@ -118,7 +142,7 @@ namespace we {
             this._round = 20;
             break;
         }
-        this._lblRound.text = this._round;
+        this._lblRound.renderText = () => this._round;
         this._chaseBetPanel.updateRound(this._round);
       }
 
@@ -134,13 +158,13 @@ namespace we {
             this._round--;
         }
 
-        this._lblRound.text = this._round;
+        this._lblRound.renderText = () => this._round;
         this._chaseBetPanel.updateRound(this._round);
       }
 
       protected updateIsStopChaseIfWon(e){
         this.isStopChaseIfWon = !this.isStopChaseIfWon;
-        this._btnIsStopChaseIfWon.source = this.isStopChaseIfWon ? "m_common_panel_setting_btn_switch_disabled_png" :"m_common_panel_setting_btn_switch_active_png";
+        this._btnIsStopChaseIfWon.source = this.isStopChaseIfWon ? "m_common_panel_setting_btn_switch_active_png" : "m_common_panel_setting_btn_switch_disabled_png";
         
         this._chaseBetPanel.updateIsStopChaseIfWon(this.isStopChaseIfWon);
       }
@@ -158,8 +182,9 @@ namespace we {
             this._minMultiplier--;
         }
 
-        this._lblMultiplier.text = this._minMultiplier;
+        this._lblMultiplier.renderText = () => this._minMultiplier;
         this._chaseBetPanel._minMultiplier = this._minMultiplier;
+        this.updateDouble();
       }
 
       protected roundSeperateUpdate(e){
@@ -170,11 +195,11 @@ namespace we {
             this._separateRound++;
         }
 
-        if (e.target === this._btnMinusMultiplier) {
+        if (e.target === this._btnMinusRoundSeperate) {
             this._separateRound--;
         }
 
-        this._lblRoundSeperate.text = this._separateRound;
+        this._lblRoundSeperate.renderText = () => this._separateRound;
         this._chaseBetPanel._separteRound = this._separateRound;
         this.updateDouble();
       }
@@ -191,9 +216,9 @@ namespace we {
             this._separateMultiplier--;
         }
 
-        this._lblRoundSeperate.text = this._separateMultiplier;
+        this._lblSeparateMultiplier.renderText = () => this._separateMultiplier;
         this._chaseBetPanel._separateMultiplier = this._separateMultiplier;
-
+        this.updateDouble();
       }
 
       protected updateDouble() {

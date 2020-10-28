@@ -87,7 +87,7 @@
 		<e:Rect width="1140" height="3" x="51" y="587" fillColor="0x979797" alpha="0.2"/>
         <e:Group y="621" width="1242" height="95" touchChildren="true">
             <ui:RunTimeLabel left="48" id="_lblIsStopChaseIfWon" text="追中即停 ( 注單1倍 )" textColor="0xffffff" size="48" verticalCenter="0" touchEnabled="false"/>
-            <ui:BaseButton id="_btnIsStopChaseIfWon" width="155" height="95" right="54" verticalCenter="0" skinName="skin_mobile_portrait.NavLeftHandModeBtn"/>
+            <e:Image id="_btnIsStopChaseIfWon" width="155" height="95" right="54" verticalCenter="0" source="m_common_panel_setting_btn_switch_disabled_png"/>
         </e:Group>
     </e:Group>
 </e:Skin>

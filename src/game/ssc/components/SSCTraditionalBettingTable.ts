@@ -20,7 +20,7 @@ namespace we {
       protected addEventListeners() {
         if (env.isMobile) {
           this._bettingTableToggleButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.updateBettingTableState, this.bettingPanel);
-          this._topClose.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.updateBettingTableState, this.bettingPanel);
+          this._topClose.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.closeBettingTableState, this.bettingPanel);
           this._playmodeDropDownButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.toggleGameTypeDropdown, this.bettingPanel);
         }
       }

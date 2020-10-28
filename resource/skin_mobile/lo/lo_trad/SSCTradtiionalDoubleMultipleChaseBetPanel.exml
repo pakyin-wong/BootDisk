@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile.SSCTradtiionalDoubleMultipleChaseBetPanel" width="1242" height="1085" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
+<e:Skin class="skin_mobile.SSCTradtionalDoubleMultipleChaseBetPanel" width="1242" height="1085" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
     <e:Group id="_content" width="1242" height="1085">
         <ui:RunTimeLabel x="48" y="50" id="_lblChaseBetValue" text="追號參數" textColor="0xffffff" size="42" alpha="0.7"/>
         <e:Group y="142" width="1242" height="100">
@@ -12,7 +12,7 @@
                 </e:Group>
                 <e:Group id="_roundGroup" width="130" height="100" touchEnabled="false">
                     <e:Rect fillAlpha="1" width="130" height="100" strokeWeight="0" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" fillColor="0x112c4c"/>
-                    <ui:RunTimeLabel id="_lblRoundNumber" text="1" horizontalCenter="0" verticalCenter="0" size="56"/>
+                    <ui:RunTimeLabel id="_lblRound" text="1" horizontalCenter="0" verticalCenter="0" size="56"/>
                 </e:Group>
                 <e:Group width="100" height="100" touchChildren="true">
                     <ui:RoundRectButton id="_btnAddRound" cornerTL_TR_BL_BR="0,50,0,50" width="100" height="100" 
@@ -63,21 +63,21 @@
         </e:Group>
 		<e:Rect width="1140" height="3" x="51" y="412" fillColor="0x979797" alpha="0.2"/>
         <e:Group y="449" width="1242" height="100">
-            <ui:RunTimeLabel left="48" id="_lbTitleMinMultiplier" text="起始倍數 ( 注單1倍 )" textColor="0xffffff" size="48" verticalCenter="0"/>
-            <e:Group id="_btnMinMultiplierGroup" right="48" width="330" height="100" touchChildren="true">
+            <ui:RunTimeLabel left="48" id="_lbTitleMultiplier" text="起始倍數 ( 注單1倍 )" textColor="0xffffff" size="48" verticalCenter="0"/>
+            <e:Group id="_btnMultiplierGroup" right="48" width="330" height="100" touchChildren="true">
                 <e:Group width="100" height="100" touchChildren="true">
-                    <ui:RoundRectButton id="_btnMinusMinMultiplier" cornerTL_TR_BL_BR="50,0,50,0" width="100" height="100" 
+                    <ui:RoundRectButton id="_btnMinusMultiplier" cornerTL_TR_BL_BR="50,0,50,0" width="100" height="100" 
                         fillAlpha="1"  fillColor="0x1b416e" stroke="0"/>
-                    <ui:RunTimeLabel id="_lblMinMultiplierMinus" text="-" size="72" verticalAlign="middle" x="21" y="0" touchEnabled="false" verticalCenter="0" horizontalCenter="0"/>
+                    <ui:RunTimeLabel id="_lblMultiplierMinus" text="-" size="72" verticalAlign="middle" x="21" y="0" touchEnabled="false" verticalCenter="0" horizontalCenter="0"/>
                 </e:Group>
-                <e:Group id="_minMultiplierGroup" width="130" height="100" touchEnabled="false">
+                <e:Group id="_multiplierGroup" width="130" height="100" touchEnabled="false">
                     <e:Rect fillAlpha="1" width="130" height="100" strokeWeight="0" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" fillColor="0x112c4c"/>
-                    <ui:RunTimeLabel id="_lblMinMultiplier" text="1" horizontalCenter="0" verticalCenter="0" size="56"/>
+                    <ui:RunTimeLabel id="_lblMultiplier" text="1" horizontalCenter="0" verticalCenter="0" size="56"/>
                 </e:Group>
                 <e:Group width="100" height="100" touchChildren="true">
-                    <ui:RoundRectButton id="_btnAddMinMultiplier" cornerTL_TR_BL_BR="0,50,0,50" width="100" height="100" 
+                    <ui:RoundRectButton id="_btnAddMultiplier" cornerTL_TR_BL_BR="0,50,0,50" width="100" height="100" 
                         fillAlpha="1"  fillColor="0x1b416e"  stroke="0"/>
-                    <ui:RunTimeLabel id="_lblMinMultiplierAdd" text="+" size="72" verticalAlign="middle" touchEnabled="false" verticalCenter="0" horizontalCenter="0"/>
+                    <ui:RunTimeLabel id="_lblMultiplierAdd" text="+" size="72" verticalAlign="middle" touchEnabled="false" verticalCenter="0" horizontalCenter="0"/>
                 </e:Group>
                 <e:layout>
                     <e:HorizontalLayout verticalAlign="middle" gap="0"/>
@@ -109,21 +109,21 @@
         </e:Group>
 		<e:Rect width="1140" height="3" x="51" y="752" fillColor="0x979797" alpha="0.2"/>
         <e:Group y="789" width="1242" height="100">
-            <ui:RunTimeLabel left="48" id="_lbTitleMultiplier" text="變動倍數" textColor="0xffffff" size="48" verticalCenter="0"/>
-            <e:Group id="_btnMultiplierGroup" right="48" width="330" height="100" touchChildren="true">
+            <ui:RunTimeLabel left="48" id="_lbTitleSeparateMultiplier" text="變動倍數" textColor="0xffffff" size="48" verticalCenter="0"/>
+            <e:Group id="_btnSeparateMultiplierGroup" right="48" width="330" height="100" touchChildren="true">
                 <e:Group width="100" height="100" touchChildren="true">
-                    <ui:RoundRectButton id="_btnMinusMultiplier" cornerTL_TR_BL_BR="50,0,50,0" width="100" height="100" 
+                    <ui:RoundRectButton id="_btnMinusSeparateMultiplier" cornerTL_TR_BL_BR="50,0,50,0" width="100" height="100" 
                         fillAlpha="1"  fillColor="0x1b416e" stroke="0"/>
-                    <ui:RunTimeLabel id="_lblMultiplierMinus" text="-" size="72" verticalAlign="middle" x="21" y="0" touchEnabled="false" verticalCenter="0" horizontalCenter="0"/>
+                    <ui:RunTimeLabel id="_lblMinusSeparateMultiplier" text="-" size="72" verticalAlign="middle" x="21" y="0" touchEnabled="false" verticalCenter="0" horizontalCenter="0"/>
                 </e:Group>
-                <e:Group id="_multiplierGroup" width="130" height="100" touchEnabled="false">
+                <e:Group id="_separateMultiplierGroup" width="130" height="100" touchEnabled="false">
                     <e:Rect fillAlpha="1" width="130" height="100" strokeWeight="0" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" fillColor="0x112c4c"/>
-                    <ui:RunTimeLabel id="_lblMultiplier" text="1" horizontalCenter="0" verticalCenter="0" size="56"/>
+                    <ui:RunTimeLabel id="_lblSeparateMultiplier" text="1" horizontalCenter="0" verticalCenter="0" size="56"/>
                 </e:Group>
                 <e:Group width="100" height="100" touchChildren="true">
-                    <ui:RoundRectButton id="_btnAddMultiplier" cornerTL_TR_BL_BR="0,50,0,50" width="100" height="100" 
+                    <ui:RoundRectButton id="_btnAddSeparateMultiplier" cornerTL_TR_BL_BR="0,50,0,50" width="100" height="100" 
                         fillAlpha="1"  fillColor="0x1b416e"  stroke="0"/>
-                    <ui:RunTimeLabel id="_lblMultiplierAdd" text="+" size="72" verticalAlign="middle" touchEnabled="false" verticalCenter="0" horizontalCenter="0"/>
+                    <ui:RunTimeLabel id="_lblAddSeparateMultiplier" text="+" size="72" verticalAlign="middle" touchEnabled="false" verticalCenter="0" horizontalCenter="0"/>
                 </e:Group>
                 <e:layout>
                     <e:HorizontalLayout verticalAlign="middle" gap="0"/>
@@ -132,8 +132,8 @@
         </e:Group>
 		<e:Rect width="1140" height="3" x="51" y="923" fillColor="0x979797" alpha="0.2"/>
         <e:Group y="967" width="1242" height="95">
-            <ui:RunTimeLabel left="48" id="_lblStopChaseIfWin" text="追中即停" textColor="0xffffff" size="48" verticalCenter="0"/>
-            <e:Image id="_activeButton" width="155" height="95" right="54" verticalCenter="0" source="m_common_panel_setting_btn_switch_disabled_png"/>
+            <ui:RunTimeLabel left="48" id="_lblIsStopChaseIfWon" text="追中即停" textColor="0xffffff" size="48" verticalCenter="0"/>
+            <e:Image id="_btnIsStopChaseIfWon" width="155" height="95" right="54" verticalCenter="0" source="m_common_panel_setting_btn_switch_disabled_png"/>
         </e:Group>
 
     </e:Group>

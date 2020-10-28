@@ -29,7 +29,7 @@ namespace we {
 
           const lblBetAmount = new ui.RunTimeLabel();
           lblBetAmount.renderText = () => `$ ${utils.formatNumber(field[1], true)}`;
-          lblBetMode.size = 48;
+          lblBetAmount.size = 48;
           data.addChild(lblBetAmount);
           lblBetAmount.right = 0;
         }

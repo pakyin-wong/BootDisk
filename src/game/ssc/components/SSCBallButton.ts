@@ -47,6 +47,11 @@ namespace we {
 
           this.cornerTL_TR_BL_BR = '25,25,25,25';
           this.stroke = 1;
+
+          this.strokeAlpha_hover = 0;
+          this.stroke_hover = 0;
+          this.fillColor_hover = '0x1B416E';
+          this.fillAlpha_hover = 0.76;
         }
 
         this.touchEnabled = true;
@@ -58,15 +63,14 @@ namespace we {
         this.strokeColor = 0xffffff;
         this.strokeAlpha = 1;
 
+        this.fillAlpha_idle = 0;
+        this.strokeColor_idle = 0xffffff;
+        this.strokeAlpha_idle = 1;
+
         this.strokeAlpha_click = 0;
         this.stroke_click = 0;
         this.fillColor_click = '0x1B416E';
         this.fillAlpha_click = 0.56;
-
-        this.strokeAlpha_hover = 0;
-        this.stroke_hover = 0;
-        this.fillColor_hover = '0x1B416E';
-        this.fillAlpha_hover = 0.76;
 
         this.stroke_active = 0;
         this.strokeAlpha_active = 0;
@@ -133,6 +137,30 @@ namespace we {
           this.addChild(this._lblValue);
         }
       }
+
+      // public set buttonEnabled(b: boolean) {
+      //   if (b === this._enabled) {
+      //     return;
+      //   }
+
+      //   if (b) {
+      //     this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
+      //     this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+      //     this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
+      //     this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
+      //     this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+      //     mouse.setButtonMode(this, true);
+      //   } else {
+      //     this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
+      //     this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+      //     this.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
+      //     this.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
+      //     this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+      //     mouse.setButtonMode(this, false);
+      //   }
+      //   this._enabled = b;
+      //   this.update();
+      // }
     }
   }
 }

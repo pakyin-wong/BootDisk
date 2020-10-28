@@ -92,6 +92,14 @@ namespace we {
 
       }
 
+      public setBetRelatedComponentsEnabled(enable: boolean) {
+        super.setBetRelatedComponentsEnabled(enable);
+        if(enable){
+        }else{
+          this.closeBettingTableState();
+        }
+      }
+
       protected initSkin() {
         this.skinName = 'skin_mobile.lo.SSCTraditionalBettingPanel';
       }
@@ -151,7 +159,7 @@ namespace we {
           return;
         }
         this._currentGameRound = info.betInfo.gameroundid;
-        
+
         dir.evtHandler.dispatchEventWith('LO_TRAD_MOBILE_ROUNDID_UPDATE',false,{gameroundid: this._currentGameRound});
         
         if (info.betInfo.lotteryRatio && this._ratioList === undefined) {
@@ -184,17 +192,17 @@ namespace we {
         }
       }
 
-      public openBettingTableState(e) {
+      public openBettingTableState(e = null) {
         super.openBettingTableState(e);
 
-        if (this._currentBettingStateIndex === 1 || this._currentBettingStateIndex === 2) {
+        if (this._currentBettingStateIndex === 1 || this._currentBettingStateIndex === 2 || !this._isStateBet) {
           return;
         }
 
         this.changeBettingTableState(1);
       }
 
-      public closeBettingTableState(e) {
+      public closeBettingTableState(e = null) {
         super.closeBettingTableState(e);
 
         if (this._currentBettingStateIndex === 0) {
@@ -204,7 +212,7 @@ namespace we {
         this.changeBettingTableState(0);
       }
 
-      public updateBettingTableState(e) {
+      public updateBettingTableState(e = null) {
         super.updateBettingTableState(e);
         if (this._currentBettingStateIndex === 0) {
           return;
@@ -345,7 +353,7 @@ namespace we {
 
         dir.evtHandler.createOverlay({
           class: 'SSCTraditionalMobileBetControlPanel',
-          args: [notes, this._roundDetailInfo, this],
+          args: [notes, this._roundDetailInfo, this, this._currentGameRound, this._isStateBet],
         });
 
         // this._betControlPanel.visible = true;

@@ -12,7 +12,7 @@ namespace we {
       protected _btnMinusMultiplier;
 
       protected _multiplier = 1;
-      protected _round = 1;
+      protected _round = 20;
       // Profit
       protected _lblLowestProfitRate;
       protected _etextLowestProfitRate;
