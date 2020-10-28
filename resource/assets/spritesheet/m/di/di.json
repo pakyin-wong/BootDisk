@@ -4,26 +4,26 @@
     "m_sb_betarea_horizontal_png": {
       "x": 1,
       "y": 1,
-      "w": 1036.5,
-      "h": 416,
+      "w": 1035.5,
+      "h": 415,
       "offX": 0,
       "offY": 0,
-      "sourceW": 1036.5,
-      "sourceH": 416
+      "sourceW": 1035.5,
+      "sourceH": 415
     },
     "m_sb_betarea_png": {
       "x": 1,
-      "y": 419,
-      "w": 463,
-      "h": 766,
+      "y": 418,
+      "w": 462,
+      "h": 765,
       "offX": 0,
       "offY": 0,
-      "sourceW": 463,
-      "sourceH": 766
+      "sourceW": 462,
+      "sourceH": 765
     },
     "m_sb_panel_chart_bg_left_png": {
-      "x": 466,
-      "y": 419,
+      "x": 465,
+      "y": 418,
       "w": 438,
       "h": 85,
       "offX": 0,
@@ -32,8 +32,8 @@
       "sourceH": 85
     },
     "m_sb_panel_chart_bg_right_png": {
-      "x": 466,
-      "y": 506,
+      "x": 465,
+      "y": 505,
       "w": 438,
       "h": 85,
       "offX": 0,
@@ -42,8 +42,8 @@
       "sourceH": 85
     },
     "m_sb_betarea_bg_hover_6_horizontal_png": {
-      "x": 466,
-      "y": 593,
+      "x": 465,
+      "y": 592,
       "w": 207.5,
       "h": 130,
       "offX": 0,
@@ -52,8 +52,8 @@
       "sourceH": 130
     },
     "m_sb_betarea_bg_hover_3_png": {
-      "x": 675.5,
-      "y": 593,
+      "x": 674.5,
+      "y": 592,
       "w": 154,
       "h": 94.5,
       "offX": 0,
@@ -62,8 +62,8 @@
       "sourceH": 94.5
     },
     "m_sb_betarea_bg_hover_6_png": {
-      "x": 831.5,
-      "y": 593,
+      "x": 830.5,
+      "y": 592,
       "w": 154,
       "h": 52.5,
       "offX": 0,
@@ -72,8 +72,8 @@
       "sourceH": 52.5
     },
     "m_sb_betarea_bg_hover_8_png": {
-      "x": 831.5,
-      "y": 647.5,
+      "x": 830.5,
+      "y": 646.5,
       "w": 154,
       "h": 48.5,
       "offX": 0,
@@ -82,8 +82,8 @@
       "sourceH": 48.5
     },
     "m_sb_betarea_bg_hover_5_png": {
-      "x": 675.5,
-      "y": 689.5,
+      "x": 674.5,
+      "y": 688.5,
       "w": 153.5,
       "h": 52.5,
       "offX": 0,
@@ -92,8 +92,8 @@
       "sourceH": 52.5
     },
     "m_sb_betarea_bg_hover_7_png": {
-      "x": 831,
-      "y": 698,
+      "x": 830,
+      "y": 697,
       "w": 153.5,
       "h": 48.5,
       "offX": 0,
@@ -102,8 +102,8 @@
       "sourceH": 48.5
     },
     "m_sb_panel_chart_bar_png": {
-      "x": 466,
-      "y": 725,
+      "x": 465,
+      "y": 724,
       "w": 151,
       "h": 12,
       "offX": 0,
@@ -112,8 +112,8 @@
       "sourceH": 12
     },
     "m_sb_betarea_bg_hover_11_horizontal_png": {
-      "x": 466,
-      "y": 739,
+      "x": 465,
+      "y": 738,
       "w": 147.5,
       "h": 61,
       "offX": 0,
@@ -122,8 +122,8 @@
       "sourceH": 61
     },
     "m_sb_betarea_bg_hover_15_horizontal_png": {
-      "x": 615.5,
-      "y": 744,
+      "x": 614.5,
+      "y": 743,
       "w": 147.5,
       "h": 61,
       "offX": 0,
@@ -132,8 +132,8 @@
       "sourceH": 61
     },
     "m_sb_panel_chart_redcircle_png": {
-      "x": 466,
-      "y": 802,
+      "x": 465,
+      "y": 801,
       "w": 144,
       "h": 144,
       "offX": 0,
@@ -142,8 +142,8 @@
       "sourceH": 144
     },
     "m_sb_panel_chart_bluecircle_png": {
-      "x": 466,
-      "y": 948,
+      "x": 465,
+      "y": 947,
       "w": 133,
       "h": 133,
       "offX": 0,
@@ -152,8 +152,8 @@
       "sourceH": 133
     },
     "m_sb_betarea_bg_hover_1_horizontal_png": {
-      "x": 906,
-      "y": 419,
+      "x": 905,
+      "y": 418,
       "w": 102.5,
       "h": 130,
       "offX": 0,
@@ -162,8 +162,8 @@
       "sourceH": 130
     },
     "m_sb_betarea_bg_hover_2_horizontal_png": {
-      "x": 601,
-      "y": 948,
+      "x": 600,
+      "y": 947,
       "w": 102.5,
       "h": 130,
       "offX": 0,
@@ -172,8 +172,8 @@
       "sourceH": 130
     },
     "m_sb_betarea_bg_hover_7_horizontal_png": {
-      "x": 612,
-      "y": 807,
+      "x": 611,
+      "y": 806,
       "w": 102.5,
       "h": 130,
       "offX": 0,
@@ -182,8 +182,8 @@
       "sourceH": 130
     },
     "m_sb_panel_chart_greencircle_png": {
-      "x": 705.5,
-      "y": 939,
+      "x": 704.5,
+      "y": 938,
       "w": 121,
       "h": 121,
       "offX": 0,
@@ -192,8 +192,8 @@
       "sourceH": 121
     },
     "m_sb_betarea_bg_hover_3_horizontal_png": {
-      "x": 466,
-      "y": 1083,
+      "x": 465,
+      "y": 1082,
       "w": 103.5,
       "h": 43.5,
       "offX": 0,
@@ -202,8 +202,8 @@
       "sourceH": 43.5
     },
     "m_sb_betarea_bg_hover_4_horizontal_png": {
-      "x": 466,
-      "y": 1128.5,
+      "x": 465,
+      "y": 1127.5,
       "w": 103.5,
       "h": 43,
       "offX": 0,
@@ -212,8 +212,8 @@
       "sourceH": 43
     },
     "m_sb_betarea_bg_hover_5_horizontal_png": {
-      "x": 571.5,
-      "y": 1083,
+      "x": 570.5,
+      "y": 1082,
       "w": 103.5,
       "h": 42.5,
       "offX": 0,
@@ -222,8 +222,8 @@
       "sourceH": 42.5
     },
     "m_sb_betarea_bg_hover_1_png": {
-      "x": 677,
-      "y": 1080,
+      "x": 676,
+      "y": 1079,
       "w": 76.5,
       "h": 94.5,
       "offX": 0,
@@ -232,8 +232,8 @@
       "sourceH": 94.5
     },
     "m_sb_betarea_bg_hover_2_png": {
-      "x": 755.5,
-      "y": 1062,
+      "x": 754.5,
+      "y": 1061,
       "w": 76.5,
       "h": 94.5,
       "offX": 0,
@@ -242,8 +242,8 @@
       "sourceH": 94.5
     },
     "m_sb_betarea_bg_hover_4_png": {
-      "x": 716.5,
-      "y": 807,
+      "x": 715.5,
+      "y": 806,
       "w": 76.5,
       "h": 94.5,
       "offX": 0,
@@ -252,8 +252,8 @@
       "sourceH": 94.5
     },
     "m_sb_betarea_bg_hover_10_horizontal_png": {
-      "x": 795,
-      "y": 748.5,
+      "x": 794,
+      "y": 747.5,
       "w": 68.5,
       "h": 93.5,
       "offX": 0,
@@ -262,8 +262,8 @@
       "sourceH": 93.5
     },
     "m_sb_betarea_bg_hover_9_horizontal_png": {
-      "x": 865.5,
-      "y": 748.5,
+      "x": 864.5,
+      "y": 747.5,
       "w": 69,
       "h": 93.5,
       "offX": 0,
@@ -272,8 +272,8 @@
       "sourceH": 93.5
     },
     "m_sb_betarea_bg_hover_12_png": {
-      "x": 571.5,
-      "y": 1127.5,
+      "x": 570.5,
+      "y": 1126.5,
       "w": 93,
       "h": 52,
       "offX": 0,
@@ -282,8 +282,8 @@
       "sourceH": 52
     },
     "m_sb_betarea_bg_hover_11_png": {
-      "x": 936.5,
-      "y": 748.5,
+      "x": 935.5,
+      "y": 747.5,
       "w": 90.5,
       "h": 52,
       "offX": 0,
@@ -292,8 +292,8 @@
       "sourceH": 52
     },
     "m_sb_betarea_bg_hover_8_horizontal_png": {
-      "x": 795,
-      "y": 844,
+      "x": 794,
+      "y": 843,
       "w": 73.5,
       "h": 79.5,
       "offX": 0,
@@ -302,8 +302,8 @@
       "sourceH": 79.5
     },
     "m_sb_betarea_bg_hover_14_png": {
-      "x": 936.5,
-      "y": 802.5,
+      "x": 935.5,
+      "y": 801.5,
       "w": 77,
       "h": 53,
       "offX": 0,
@@ -312,8 +312,8 @@
       "sourceH": 53
     },
     "m_sb_betarea_bg_hover_13_png": {
-      "x": 828.5,
-      "y": 925.5,
+      "x": 827.5,
+      "y": 924.5,
       "w": 76,
       "h": 53,
       "offX": 0,
@@ -322,8 +322,8 @@
       "sourceH": 53
     },
     "m_sb_betarea_bg_hover_10_png": {
-      "x": 870.5,
-      "y": 857.5,
+      "x": 869.5,
+      "y": 856.5,
       "w": 66,
       "h": 53.5,
       "offX": 0,
@@ -332,8 +332,8 @@
       "sourceH": 53.5
     },
     "d_sic_history_chart_line-2_png": {
-      "x": 612,
-      "y": 939,
+      "x": 611,
+      "y": 938,
       "w": 65,
       "h": 5,
       "offX": 0,
@@ -342,8 +342,8 @@
       "sourceH": 5
     },
     "m_sb_betarea_bg_hover_9_png": {
-      "x": 828.5,
-      "y": 980.5,
+      "x": 827.5,
+      "y": 979.5,
       "w": 64.5,
       "h": 53.5,
       "offX": 0,
@@ -352,8 +352,8 @@
       "sourceH": 53.5
     },
     "dice1_png": {
-      "x": 987.5,
-      "y": 551,
+      "x": 986.5,
+      "y": 550,
       "w": 50,
       "h": 50,
       "offX": 0,
@@ -362,8 +362,8 @@
       "sourceH": 50
     },
     "dice2_png": {
-      "x": 987.5,
-      "y": 603,
+      "x": 986.5,
+      "y": 602,
       "w": 50,
       "h": 50,
       "offX": 0,
@@ -372,8 +372,8 @@
       "sourceH": 50
     },
     "dice3_png": {
-      "x": 987.5,
-      "y": 655,
+      "x": 986.5,
+      "y": 654,
       "w": 50,
       "h": 50,
       "offX": 0,
@@ -382,8 +382,8 @@
       "sourceH": 50
     },
     "dice4_png": {
-      "x": 938.5,
-      "y": 857.5,
+      "x": 937.5,
+      "y": 856.5,
       "w": 50,
       "h": 50,
       "offX": 0,
@@ -392,8 +392,8 @@
       "sourceH": 50
     },
     "dice5_png": {
-      "x": 938.5,
-      "y": 909.5,
+      "x": 937.5,
+      "y": 908.5,
       "w": 50,
       "h": 50,
       "offX": 0,
@@ -402,8 +402,8 @@
       "sourceH": 50
     },
     "dice6_png": {
-      "x": 906.5,
-      "y": 961.5,
+      "x": 905.5,
+      "y": 960.5,
       "w": 50,
       "h": 50,
       "offX": 0,
