@@ -3,7 +3,7 @@
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*" xmlns:ns1="*"
         states="left_hand_mode,right_hand_mode">
 	<e:Rect width="2424" height="1242" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
-	<e:Image id="_bgImg" top="-247" bottom="-1221" source="m_ba_bg_offvideo_png" x="0" width="2424" />
+	<e:Image id="_bgImg" top="0" bottom="0" source="m_ba_bg_offvideo_png" x="0" width="2424" />
 	<e:Group id="_verticalGroup" width="2424" x="0" anchorOffsetY="0" bottom="0">
 		<e:Group id="_verticalTop" width="2424" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
 			<ba:TableLayer id="_tableLayer" isEdgeDismissable="true" skinName="skin_mobile_landscape.ba.TableLayerSkin"
