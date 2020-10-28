@@ -1,6 +1,8 @@
 namespace we {
   export namespace lottery {
     export class DExtraContent {
+      protected static slider : ui.ImageSlider;
+
       public static mount(page: Page) {
         const tabBarGroup = new eui.Group();
         tabBarGroup.left = 71;
@@ -25,17 +27,17 @@ namespace we {
         stickyHeader.contentPaddingTop = 71;
         stickyHeader.y = 581;
 
-        const slider = new ui.ImageSlider();
-        slider.width = 2600;
-        slider.height = 780;
-        slider.x = 0;
-        slider.y = 0;
-        slider.configSlides(dir.lotteryResources.heroBanners);
+        this.slider = new ui.ImageSlider();
+        this.slider.width = 2600;
+        this.slider.height = 780;
+        this.slider.x = 0;
+        this.slider.y = 0;
+        this.slider.configSlides(dir.lotteryResources.heroBanners);
 
         page['_tabbarBg'] = tabbarBg;
         page['_tabs'] = tabs;
         page['_stickyHeader'] = stickyHeader;
-        page['_slider'] = slider;
+        page['_slider'] = this.slider;
         page['onScroll'] = function () {
           const scrollV = this.scroller.viewport.scrollV;
           const scrollTarget = 700;
@@ -64,6 +66,10 @@ namespace we {
         page['_tabs'].removeEventListener('CHANGE', page['onTabChanged'], page);
         page.roomList.removeChild(page['_stickyHeader']);
         page.roomList.removeChild(page['_slider']);
+      }
+
+      public static reloadBanners() {
+        this.slider.configSlides(dir.lotteryResources.heroBanners);
       }
     }
   }

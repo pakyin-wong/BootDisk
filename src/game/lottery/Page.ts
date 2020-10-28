@@ -22,12 +22,14 @@ namespace we {
         this.initExtraContent();
 
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.reloadBanners, this);
       }
 
       protected destroy() {
         super.destroy();
         this.removeExtraContent();
         dir.evtHandler.removeEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.reloadBanners, this);
       }
 
       protected handleTableList(event: egret.Event) {
@@ -74,6 +76,18 @@ namespace we {
           }
         } else {
           DExtraContent.mount(this);
+        }
+      }
+
+      protected reloadBanners() {
+        if (env.isMobile) {
+          if (env.orientation === egret.OrientationMode.PORTRAIT) {
+            MPExtraContent.reloadBanners();
+          } else {
+            MLExtraContent.reloadBanners();
+          }
+        } else {
+          DExtraContent.reloadBanners();
         }
       }
 

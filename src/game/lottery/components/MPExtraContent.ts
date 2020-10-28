@@ -1,39 +1,41 @@
 namespace we {
   export namespace lottery {
     export class MPExtraContent {
+      protected static holder : ui.HorizontalHolder;
+
       public static mount(page: Page) {
 
         page.scroller.headerOffset = 220;
 
-        const holder = new we.ui.HorizontalHolder();
-        holder.slideHeight = 1242;
-        holder.slideWidth = 1242;
-        holder.isAuto = true;
-        holder.isLoop = true;
-        holder.isBullet = true;
-        holder.height = 1242;
-        holder.width = 1242;
-        holder.bulletGapValue = 20;
-        holder.bulletBottom = 50;
-        holder.bulletHorizontalCenter = 0;
+        this.holder = new we.ui.HorizontalHolder();
+        this.holder.slideHeight = 1242;
+        this.holder.slideWidth = 1242;
+        this.holder.isAuto = true;
+        this.holder.isLoop = true;
+        this.holder.isBullet = true;
+        this.holder.height = 1242;
+        this.holder.width = 1242;
+        this.holder.bulletGapValue = 20;
+        this.holder.bulletBottom = 50;
+        this.holder.bulletHorizontalCenter = 0;
         dir.lotteryResources.heroBanners.forEach(element => {
           const image = new eui.Image();
           if (element.image) {
             image.source = element.image;
           }
-          holder.addChild(image);
+          this.holder.addChild(image);
         });
 
         const shape: egret.Shape = new egret.Shape();
         GradientFill.beginGradientFill(shape.graphics, page.width, 160, ['0x12121200', '0x121212'], 0);
         shape.graphics.drawRect(0, 0, page.width, 160);
-        shape.y = holder.height - 160;
+        shape.y = this.holder.height - 160;
 
         const tabs = new live.DropDownLiveGameTabbar(utils.EnumHelpers.values(core.LotteryTab),'lottery');
 
         page['_tabbarBg'] = shape;
         page['_tabs'] = tabs;
-        page['_slider'] = holder;
+        page['_slider'] = this.holder;
         page['onScroll'] = function () {
           const scrollV = this.scroller.viewport.scrollV;
           const scrollTarget = 1100;
@@ -65,6 +67,20 @@ namespace we {
         // page.roomList.removeChild(page['_tabbarBg']);
         page.roomList.removeChild(page['_slider']);
       }
+
+      public static reloadBanners() {
+        const holder = this.holder;
+        holder.removeChildren();
+        dir.lotteryResources.heroBanners.forEach(element => {
+          const image = new eui.Image();
+          image.source = element.image;
+          image.height = holder.height;
+          image.width = holder.width;
+          image.fillMode = 'cover';
+          holder.addChild(image);
+        });
+      }
+
     }
   }
 }
