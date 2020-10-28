@@ -256,7 +256,7 @@ namespace we {
             await callback.bind(thisArg)(res);
             resolve();
           };
-          this.client.getLobbyMaterial(this.warpServerCallback(resolveFunc));
+          this.client.getLobbyMaterial(this.warpServerCallback(resolveFunc), env.language);
           // this.client.getLobbyMaterial(env.language, this.warpServerCallback(resolveFunc));
         });
       }
@@ -391,8 +391,8 @@ namespace we {
         //env.betLimits = [env.betLimits];
         //}
         env.currentSelectedBetLimitIndex = player.profile.settings.currentSelectedBetLimitIndex ? player.profile.settings.currentSelectedBetLimitIndex : 0;
-        env.language = player.profile.settings.language ? player.profile.settings.language : 'sc';
-        we.i18n.setLang(env.language ? env.language : 'sc', true);
+        env.language = player.profile.settings.language ? player.profile.settings.language : 'cn';
+        we.i18n.setLang(env.language ? env.language : 'cn', true);
         /*
         let denominationList = [];
         for (const betLimit of env.betLimits) {

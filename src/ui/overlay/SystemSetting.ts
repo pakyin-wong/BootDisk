@@ -40,7 +40,7 @@ namespace we {
         this._txt_bgm.renderText = () => `${i18n.t('nav.system.bgm')}`;
         this._txt_term.renderText = () => `${i18n.t('nav.system.term')}`;
 
-        const _arrCol_currLang = new eui.ArrayCollection([ui.NewDropdownItem('sc', () => `简体中文`), ui.NewDropdownItem('tc', () => `繁體中文`), ui.NewDropdownItem('en', () => `English`)]);
+        const _arrCol_currLang = new eui.ArrayCollection([ui.NewDropdownItem('cn', () => `简体中文`), ui.NewDropdownItem('zh', () => `繁體中文`), ui.NewDropdownItem('en', () => `English`)]);
         if (this._ddm_currLang) {
           this._ddm_currLang.isDropdown = true;
           this._ddm_currLang.isPoppable = true;
