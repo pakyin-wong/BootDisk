@@ -31,10 +31,10 @@ namespace we {
 
         //added bottomGame
         this._bottomGamePanel.setTableInfo(this._tableInfo);
-        // this._roadmapControl.setTableInfo(this._tableInfo);
         this._bottomGamePanel.setData();
-
         this.initRoadMap;
+
+        // this._bottomGamePanel.update();
       }
 
       protected destroy() {

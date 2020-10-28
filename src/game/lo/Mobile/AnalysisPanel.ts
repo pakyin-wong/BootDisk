@@ -16,6 +16,9 @@ namespace we {
       protected listHot: LoAnalysisScrollList;
       protected listCold: LoAnalysisScrollList;
 
+      protected gameId: string;
+      protected gameIdLabel: ui.RunTimeLabel;
+
       public constructor() {
         super();
       }
@@ -36,40 +39,49 @@ namespace we {
 
       protected init() {
         const analysis1Group = this.analysisStack.getChildAt(0) as eui.Group;
-        this.listShow = new LoAnalysisScrollList(0, 5, 625, 277, 20);
+        this.listShow = new LoAnalysisScrollList(0, 5, 1242, 365, 20);
         this.listShow.y = 45;
         analysis1Group.addChild(this.listShow);
 
         const analysis2Group = this.analysisStack.getChildAt(1) as eui.Group;
-        this.listNoShow = new LoAnalysisScrollList(1, 5, 625, 277, 20);
+        this.listNoShow = new LoAnalysisScrollList(1, 5, 1242, 365, 20);
         this.listNoShow.y = 45;
         analysis2Group.addChild(this.listNoShow);
 
         const analysis3Group = this.analysisStack.getChildAt(2) as eui.Group;
-        this.listHot = new LoAnalysisScrollList(2, 5, 625, 277, 20);
+        this.listHot = new LoAnalysisScrollList(2, 5, 1242, 365, 20);
         this.listHot.y = 45;
         analysis3Group.addChild(this.listHot);
 
         const analysis4Group = this.analysisStack.getChildAt(3) as eui.Group;
-        this.listCold = new LoAnalysisScrollList(3, 5, 625, 277, 20);
+        this.listCold = new LoAnalysisScrollList(3, 5, 1242, 365, 20);
         this.listCold.y = 45;
         analysis4Group.addChild(this.listCold);
 
-        // this.analysisBtn1.addEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
-        // this.analysisBtn2.addEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
-        // this.analysisBtn3.addEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
-        // this.analysisBtn4.addEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+        this.analysisBtn1.addEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+        this.analysisBtn2.addEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+        this.analysisBtn3.addEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+        this.analysisBtn4.addEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.changeLang();
+
+        this.analysisStack.selectedIndex = 0;
+
+                      const history = this.tableInfo.gamestatistic.loHistory;
+
+              this.listShow.updateList(history.show);
+              this.listNoShow.updateList(history.noShow);
+              this.listHot.updateList(history.hot);
+              this.listCold.updateList(history.cold);
       }
 
       protected destroy() {
         super.destroy();
-        // this.analysisBtn1.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
-        // this.analysisBtn2.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
-        // this.analysisBtn3.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
-        // this.analysisBtn4.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+        this.analysisBtn1.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+        this.analysisBtn2.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+        this.analysisBtn3.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
+        this.analysisBtn4.removeEventListener(eui.UIEvent.CHANGE, this.onAnalysisChange, this);
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
 
@@ -84,10 +96,18 @@ namespace we {
       }
 
       public update() {
-        // this.listShow.updateList(history.show);
-        // this.listNoShow.updateList(history.noShow);
-        // this.listHot.updateList(history.hot);
-        // this.listCold.updateList(history.cold);
+          if (this.tableInfo.gamestatistic) {
+            if (this.gameId !== this.tableInfo.roundid) {
+              this.gameId = this.tableInfo.roundid;
+              const history = this.tableInfo.gamestatistic.loHistory;
+
+              this.listShow.updateList(history.show);
+              this.listNoShow.updateList(history.noShow);
+              this.listHot.updateList(history.hot);
+              this.listCold.updateList(history.cold);
+            }
+          }
+
        if (this.tableInfo && this.tableInfo.gamestatistic) {
           this.setTableInfo(this.tableInfo);
         }
@@ -95,10 +115,10 @@ namespace we {
       }
 
       public changeLang() {
-        // this.analysisBtn1['labelDisplayDown']['text'] = this.analysisBtn1['labelDisplayUp']['text'] = 'Show';
-        // this.analysisBtn2['labelDisplayDown']['text'] = this.analysisBtn2['labelDisplayUp']['text'] = 'NoShow';
-        // this.analysisBtn3['labelDisplayDown']['text'] = this.analysisBtn3['labelDisplayUp']['text'] = 'Hot';
-        // this.analysisBtn4['labelDisplayDown']['text'] = this.analysisBtn4['labelDisplayUp']['text'] = 'Cold';
+        this.analysisBtn1['labelDisplayDown']['text'] = this.analysisBtn1['labelDisplayUp']['text'] = 'Show';
+        this.analysisBtn2['labelDisplayDown']['text'] = this.analysisBtn2['labelDisplayUp']['text'] = 'NoShow';
+        this.analysisBtn3['labelDisplayDown']['text'] = this.analysisBtn3['labelDisplayUp']['text'] = 'Hot';
+        this.analysisBtn4['labelDisplayDown']['text'] = this.analysisBtn4['labelDisplayUp']['text'] = 'Cold';
       }
     }
   }

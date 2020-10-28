@@ -10,8 +10,8 @@
 			</e:skinName>
 		</e:Component>
 		<e:ViewStack id="roadStack" height="100%" selectedIndex="2" width="100%" x="0" y="0">
-            <e:Group id="road1Page" width="100%" height="100%" name="Group">
-                <e:Group width="858" height="70" x="364" anchorOffsetX="0" bottom="35">
+            <e:Group id="road1Page" width="100%" height="100%" name="Group" visible="false">
+                <e:Group width="858" height="70" x="364" anchorOffsetX="0" bottom="25">
                     <e:RadioButton id="road1Btn1" label="第一球"  width="108" height="54" value="0" selected="true"
                                     groupName="road1Group" touchEnabled="true" touchChildren="false">
                         <e:skinName>
@@ -22,7 +22,7 @@
                         </e:Skin>
                         </e:skinName>
                  	</e:RadioButton>
-                    <e:RadioButton id="road1Btn2" label="第一球"  width="108" height="54" value="0" selected="false"
+                    <e:RadioButton id="road1Btn2" label="第一球"  width="108" height="54" value="1" selected="false"
                                     groupName="road1Group" touchEnabled="true" touchChildren="false">
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
@@ -32,7 +32,7 @@
                         </e:Skin>
                         </e:skinName>
                  	</e:RadioButton>
-                    <e:RadioButton id="road1Btn3" label="第一球"  width="108" height="54" value="0" selected="false"
+                    <e:RadioButton id="road1Btn3" label="第一球"  width="108" height="54" value="2" selected="false"
                                     groupName="road1Group" touchEnabled="true" touchChildren="false">
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
@@ -42,7 +42,7 @@
                         </e:Skin>
                         </e:skinName>
                  	</e:RadioButton>
-                    <e:RadioButton id="road1Btn4" label="第一球"  width="108" height="54" value="0" selected="false"
+                    <e:RadioButton id="road1Btn4" label="第一球"  width="108" height="54" value="3" selected="false"
                                     groupName="road1Group" touchEnabled="true" touchChildren="false">
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
@@ -52,7 +52,7 @@
                         </e:Skin>
                         </e:skinName>
                  	</e:RadioButton>
-                    <e:RadioButton id="road1Btn5" label="第一球"  width="108" height="54" value="0" selected="false"
+                    <e:RadioButton id="road1Btn5" label="第一球"  width="108" height="54" value="4" selected="false"
                                     groupName="road1Group" touchEnabled="true" touchChildren="false">
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
@@ -67,8 +67,8 @@
                     </e:layout>
                     </e:Group>
             </e:Group>
-            <e:Group id="road2Page" width="100%" height="100%" name="View">
-                    <e:Group width="858" height="70" x="364" anchorOffsetX="0" bottom="35">
+            <e:Group id="road2Page" width="100%" height="100%" name="View" visible="false">
+                    <e:Group width="858" height="70" x="364" anchorOffsetX="0" bottom="25">
                     <e:RadioButton id="road2Btn1" label="第一球"  width="108" height="54" value="0" selected="true"
                                     groupName="road2Group" touchEnabled="true" touchChildren="false">
                         <e:skinName>
@@ -79,7 +79,7 @@
                         </e:Skin>
                         </e:skinName>
                  	</e:RadioButton>
-                    <e:RadioButton id="road2Btn2" label="第一球"  width="108" height="54" value="0" selected="false"
+                    <e:RadioButton id="road2Btn2" label="第一球"  width="108" height="54" value="1" selected="false"
                                     groupName="road2Group" touchEnabled="true" touchChildren="false">
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
@@ -89,7 +89,7 @@
                         </e:Skin>
                         </e:skinName>
                  	</e:RadioButton>
-                    <e:RadioButton id="road2Btn3" label="第一球"  width="108" height="54" value="0" selected="false"
+                    <e:RadioButton id="road2Btn3" label="第一球"  width="108" height="54" value="2" selected="false"
                                     groupName="road2Group" touchEnabled="true" touchChildren="false">
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
@@ -99,7 +99,7 @@
                         </e:Skin>
                         </e:skinName>
                  	</e:RadioButton>
-                    <e:RadioButton id="road2Btn4" label="第一球"  width="108" height="54" value="0" selected="false"
+                    <e:RadioButton id="road2Btn4" label="第一球"  width="108" height="54" value="3" selected="false"
                                     groupName="road2Group" touchEnabled="true" touchChildren="false">
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
@@ -109,7 +109,7 @@
                         </e:Skin>
                         </e:skinName>
                  	</e:RadioButton>
-                    <e:RadioButton id="road2Btn5" label="第一球"  width="108" height="54" value="0" selected="false"
+                    <e:RadioButton id="road2Btn5" label="第一球"  width="108" height="54" value="4" selected="false"
                                     groupName="road2Group" touchEnabled="true" touchChildren="false">
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
@@ -124,8 +124,8 @@
                     </e:layout>
                     </e:Group>
                 </e:Group>
-                <e:Group id="road3Page" width="100%" height="100%" name="View">
-                 	<e:Group width="858" height="70" x="364" anchorOffsetX="0" bottom="35">
+                <e:Group id="road3Page" width="100%" height="100%" name="View" visible="false">
+                 	<e:Group width="858" height="70" x="364" anchorOffsetX="0" bottom="25">
                 	<e:RadioButton id="road3Btn1" label="一球"  width="72" height="54" value="0" selected="true"
                                     groupName="road3Group" touchEnabled="true" touchChildren="false">
                         <e:skinName>
@@ -136,7 +136,7 @@
                         </e:Skin>
                         </e:skinName>
                  	</e:RadioButton>
-                	<e:RadioButton id="road3Btn2" label="一球"  width="72" height="54" value="0" selected="false"
+                	<e:RadioButton id="road3Btn2" label="一球"  width="72" height="54" value="1" selected="false"
                                     groupName="road3Group" touchEnabled="true" touchChildren="false">
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
@@ -146,7 +146,7 @@
                         </e:Skin>
                         </e:skinName>
                  	</e:RadioButton>
-					<e:RadioButton id="road3Btn3" label="一球"  width="72" height="54" value="0" selected="false"
+					<e:RadioButton id="road3Btn3" label="一球"  width="72" height="54" value="2" selected="false"
                                     groupName="road3Group" touchEnabled="true" touchChildren="false">
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
@@ -156,7 +156,7 @@
                         </e:Skin>
                         </e:skinName>
                  	</e:RadioButton>
-					<e:RadioButton id="road3Btn4" label="一球"  width="72" height="54" value="0" selected="false"
+					<e:RadioButton id="road3Btn4" label="一球"  width="72" height="54" value="3" selected="false"
                                     groupName="road3Group" touchEnabled="true" touchChildren="false">
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
@@ -166,7 +166,7 @@
                         </e:Skin>
                         </e:skinName>
                  	</e:RadioButton>
-					<e:RadioButton id="road3Btn5" label="一球"  width="72" height="54" value="0" selected="false"
+					<e:RadioButton id="road3Btn5" label="一球"  width="72" height="54" value="4" selected="false"
                                     groupName="road3Group" touchEnabled="true" touchChildren="false">
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
@@ -176,7 +176,7 @@
                         </e:Skin>
                         </e:skinName>
                  	</e:RadioButton>
-					<e:RadioButton id="road3Btn6" label="一球"  width="72" height="54" value="0" selected="false"
+					<e:RadioButton id="road3Btn6" label="一球"  width="72" height="54" value="5" selected="false"
                                     groupName="road3Group" touchEnabled="true" touchChildren="false">
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
@@ -186,7 +186,7 @@
                         </e:Skin>
                         </e:skinName>
                  	</e:RadioButton>
-					<e:RadioButton id="road3Btn7" label="一球"  width="72" height="54" value="0" selected="false"
+					<e:RadioButton id="road3Btn7" label="一球"  width="72" height="54" value="6" selected="false"
                                     groupName="road3Group" touchEnabled="true" touchChildren="false">
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
@@ -196,7 +196,7 @@
                         </e:Skin>
                         </e:skinName>
                  	</e:RadioButton>
-					<e:RadioButton id="road3Btn8" label="一球"  width="72" height="54" value="0" selected="false"
+					<e:RadioButton id="road3Btn8" label="一球"  width="72" height="54" value="7" selected="false"
                                     groupName="road3Group" touchEnabled="true" touchChildren="false">
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
@@ -206,7 +206,7 @@
                         </e:Skin>
                         </e:skinName>
                  	</e:RadioButton>
-					    <e:RadioButton id="road3Btn9" label="一球"  width="72" height="54" value="0" selected="false"
+					    <e:RadioButton id="road3Btn9" label="一球"  width="72" height="54" value="8" selected="false"
                                     groupName="road3Group" touchEnabled="true" touchChildren="false">
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
@@ -216,7 +216,7 @@
                         </e:Skin>
                         </e:skinName>
                  	</e:RadioButton>
-					<e:RadioButton id="road3Btn10" label="一球"  width="72" height="54" value="0" selected="false"
+					<e:RadioButton id="road3Btn10" label="一球"  width="72" height="54" value="9" selected="false"
                                     groupName="road3Group" touchEnabled="true" touchChildren="false">
                         <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
