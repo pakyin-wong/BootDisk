@@ -18,8 +18,11 @@ namespace we {
       protected _smallRedCard: dragonBones.EgretArmatureDisplay;
       protected _smallRedCardGroup: eui.Group;
 
+      protected _centerBurnCardGroup: eui.Group;
+
       protected _dragonCard: dragonBones.EgretArmatureDisplay;
       protected _tigerCard: dragonBones.EgretArmatureDisplay;
+      protected _centerBurnCard: dragonBones.EgretArmatureDisplay;
 
       protected _dragonCardInfo: eui.Group;
       protected _tigerCardInfo: eui.Group;
@@ -38,6 +41,8 @@ namespace we {
         this._tigerAnimGroup.addChild(this._tigerAnim);
         this._dragonAnim.animation.play('loop',0)
         this._tigerAnim.animation.play('loop',0)
+        this._centerBurnCard = this.createCardAnim();
+        this._centerBurnCardGroup.addChild(this._centerBurnCard);
       }
 
       protected createDragonTigerAnim(skeletonName: string, scale: number){
@@ -252,9 +257,15 @@ namespace we {
           this._ringAnim.animation.fadeIn('poker_in', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
           await p1;
 
-          const p2 = we.utils.waitDragonBone(this._ringAnim);
-          this._ringAnim.animation.fadeIn('poker_out', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
+          this._centerBurnCardGroup.visible = true;
+          const p2 = we.utils.waitDragonBone(this._centerBurnCard);
+          this._centerBurnCard.animation.fadeIn('dt_burn_card_center',0,1,0,'POKER_ROUND_ANIMATION_GROUP')
           await p2;
+          this._centerBurnCardGroup.visible = false;
+
+          const p3 = we.utils.waitDragonBone(this._ringAnim);
+          this._ringAnim.animation.fadeIn('poker_out', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
+          await p3;
 
           return new Promise(resolve => resolve())
         })();
