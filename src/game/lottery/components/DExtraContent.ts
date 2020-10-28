@@ -30,7 +30,7 @@ namespace we {
         slider.height = 780;
         slider.x = 0;
         slider.y = 0;
-        slider.configSlides(dir.liveResources.liveHeroBanners);
+        slider.configSlides(dir.lotteryResources.heroBanners);
 
         page['_tabbarBg'] = tabbarBg;
         page['_tabs'] = tabs;

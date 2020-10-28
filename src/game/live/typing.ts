@@ -2,7 +2,7 @@
 namespace we {
   export namespace live {
     export interface ILiveResources {
-      liveHeroBanners: core.IRemoteResourceItem[];
+      heroBanners: core.IRemoteResourceItem[];
     }
 
     export interface IContentInitializer extends core.IContentInitializer {
