@@ -351,8 +351,18 @@
       "sourceW": 27,
       "sourceH": 47
     },
-    "d_bcba_panel_verification_success_png": {
+    "d_bcba_panel_verification_failed_png": {
       "x": 587,
+      "y": 3751,
+      "w": 33,
+      "h": 40,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 33,
+      "sourceH": 40
+    },
+    "d_bcba_panel_verification_success_png": {
+      "x": 624,
       "y": 3751,
       "w": 33,
       "h": 40,
