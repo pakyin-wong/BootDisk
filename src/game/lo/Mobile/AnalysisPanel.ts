@@ -39,22 +39,22 @@ namespace we {
 
       protected init() {
         const analysis1Group = this.analysisStack.getChildAt(0) as eui.Group;
-        this.listShow = new LoAnalysisScrollList(0, 5, 1242, 365, 20);
+        this.listShow = new LoAnalysisScrollList(0, 3, 1242, 365, 20);
         this.listShow.y = 45;
         analysis1Group.addChild(this.listShow);
 
         const analysis2Group = this.analysisStack.getChildAt(1) as eui.Group;
-        this.listNoShow = new LoAnalysisScrollList(1, 5, 1242, 365, 20);
+        this.listNoShow = new LoAnalysisScrollList(1, 3, 1242, 365, 20);
         this.listNoShow.y = 45;
         analysis2Group.addChild(this.listNoShow);
 
         const analysis3Group = this.analysisStack.getChildAt(2) as eui.Group;
-        this.listHot = new LoAnalysisScrollList(2, 5, 1242, 365, 20);
+        this.listHot = new LoAnalysisScrollList(2, 3, 1242, 365, 20);
         this.listHot.y = 45;
         analysis3Group.addChild(this.listHot);
 
         const analysis4Group = this.analysisStack.getChildAt(3) as eui.Group;
-        this.listCold = new LoAnalysisScrollList(3, 5, 1242, 365, 20);
+        this.listCold = new LoAnalysisScrollList(3, 3, 1242, 365, 20);
         this.listCold.y = 45;
         analysis4Group.addChild(this.listCold);
 
