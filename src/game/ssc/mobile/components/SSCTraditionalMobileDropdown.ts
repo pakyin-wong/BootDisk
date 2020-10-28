@@ -10,7 +10,8 @@ namespace we {
 
       private _title: ui.RunTimeLabel;
 
-      private _btnConfirm: ui.RunTimeLabel;
+      private _btnConfirm;
+      private _confirm :ui.RunTimeLabel;
       private _config;
 
       private _betTypeConfig;
@@ -55,7 +56,8 @@ namespace we {
           return;
         }
         this.initOpt();
-        // this._title.renderText = () => `${i18n.t('lo_trad.mobileui.playmode')}`;
+        this._title.renderText = () => `${i18n.t('lo_trad.mobileui.playmode')}`;
+        this._confirm.renderText = () =>`${i18n.t('mobile_dropdown_confirm')}`;
 
         this._currentBigTagIndex = 0;
         this._currentSmallTagIndex = 0;
@@ -98,7 +100,7 @@ namespace we {
         const tempBetType = [];
 
         for (let i = 0; i < this._betTypeConfig.length; i++) {
-          const name = this._betTypeConfig[i].name;
+          const name = `${i18n.t('lo_trad.bigTag.'+this._betTypeConfig[i].name)}`;
           tempBetType.push({ key: i, renderText: name });
         }
 
@@ -109,7 +111,7 @@ namespace we {
         const tempBetMode = [];
 
         for (let i = 0; i < this._betModeConfig.length; i++) {
-          const name = this._betModeConfig[i].name;
+          const name = `${i18n.t('lo_trad.smallTag.'+this._betModeConfig[i].name)}`;
           tempBetMode.push({ key: i, renderText: name });
         }
 
@@ -217,7 +219,7 @@ namespace we {
         const tempBetMode = [];
 
         for (let i = 0; i < this._betModeConfig.length; i++) {
-          const name = this._betModeConfig[i].name;
+          const name = `${i18n.t('lo_trad.smallTag.'+this._betModeConfig[i].name)}`;
           tempBetMode.push({ key: i, renderText: name });
         }
 

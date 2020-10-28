@@ -141,13 +141,21 @@ namespace we {
       }
 
       public updateBetInfo(data) {
-        super.updateBetInfo(data);
+        // if (this._noteControl) {
+        //   this._noteControl.updateBalance();
+        // }
       }
 
       public updateBetTableInfo(info) {
-        super.updateBetTableInfo(info);
-        if (!info.gamestatistic) {
+        if(!info.betInfo){
           return;
+        }
+        this._currentGameRound = info.betInfo.gameroundid;
+        
+        dir.evtHandler.dispatchEventWith('LO_TRAD_MOBILE_ROUNDID_UPDATE',false,{gameroundid: this._currentGameRound});
+        
+        if (info.betInfo.lotteryRatio && this._ratioList === undefined) {
+          this._ratioList = info.betInfo.lotteryRatio;
         }
       }
 
@@ -157,7 +165,10 @@ namespace we {
         const currentBigTag = this._currentMap[Object.keys(this._currentMap)[this._currentBigTagIndex]];
         const config = currentBigTag['type'][Object.keys(currentBigTag['type'])[this._currentSmallTagIndex]];
 
-        const bettingTable = new SSCTraditionalBettingTable(config);
+        const playmode = `${i18n.t('lo_trad.bigTag.'+currentBigTag.name)} - ${i18n.t('lo_trad.smallTag.'+config.name)}`;      
+
+        
+        const bettingTable = new SSCTraditionalBettingTable(config, playmode);
         if (this._bettingControl) {
           this._bettingControl.updateHighestWin(config);
         }
@@ -244,13 +255,6 @@ namespace we {
         } else {
           this.changeBettingTableState(this._currentBettingStateIndex);
         }
-
-        const currentBigTag = this._currentMap[Object.keys(this._currentMap)[this._currentBigTagIndex]];
-        const config = currentBigTag['type'][Object.keys(currentBigTag['type'])[this._currentSmallTagIndex]];
-
-        const playmode = `${currentBigTag.name} - ${config.name}`      
-
-        this._currentBettingTable.setLabelPlayMode(playmode);
 
         this._bettingTableGroup.touchChildren = true;
       }
@@ -344,11 +348,37 @@ namespace we {
           args: [notes, this._roundDetailInfo, this],
         });
 
-        dir.evtHandler.once('onLotteryConfirmBet', this.placeBet, this);
-
         // this._betControlPanel.visible = true;
         // this._betControlPanel.touchEnabled = true;
       }
+
+      public validateBetButtons() {
+        if (!this._bettingControl || !this._noteControl) {
+          return;
+        }
+
+        // console.log('isStateBet :' + this._isStateBet + 'isBetLimit :' + this._isBetLimitValidate + 'isBetCode :' + this._isBetCodeValidate);
+
+        if (this._isBetLimitValidate && this._isBetCodeValidate) {
+          this._bettingControl.setAddBetFieldsButton(true);
+          if (this._isStateBet) {
+            this._bettingControl.setInstantBetButton(true);
+          } else {
+            this._bettingControl.setInstantBetButton(false);
+          }
+        } else {
+          this._bettingControl.setAddBetFieldsButton(false);
+          this._bettingControl.setInstantBetButton(false);
+        }
+
+        if (this._isStateBet) {
+          dir.evtHandler.dispatchEventWith('LO_TRAD_MOBILE_CONFIRMBET_BUTTONSTATE', false, { enable: true });
+        } else {
+          dir.evtHandler.dispatchEventWith('LO_TRAD_MOBILE_CONFIRMBET_BUTTONSTATE', false, { enable: false });
+        }
+      }
+
+      
     }
   }
 }

@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile.SSCTraditionalChaseBetPanel" width="1242" height="1767" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
     <e:Group id="_content" width="1242" height="1767">
-        <e:Scroller id="_scroller" scrollPolicyV="on" scrollPolicyH="off" width="1242" height="1520" x="0" y="40">
-            <e:Group id="_viewport" width="1242" height="1520"/>
-        </e:Scroller>
+        <e:Group id="_btnChaseTypeGroup" width="1242" height="1520">
+            <ui:RunTimeLabel id="_lblChaseBetMode" text="追號模式：原訂單倍數自動初始化為1倍" x="48" y="50" width="729" size="42" verticalAlign="middle" height="62" textColor="0xffffff" scaleX="1" scaleY="1" alpha="0.7"/>
+            <e:Rect width="1140" height="3" x="51" y="152" fillColor="0x979797" alpha="0.2"/>
+            <ui:RunTimeLabel id="_lblChaseType" text="追號類型" x="48" y="195" width="168" size="42" verticalAlign="middle" height="62" textColor="0xffffff" scaleX="1" scaleY="1" alpha="0.7"/>
+            <e:Group id="_btnChaseGroup" y="293" height="100">
+                <e:Group id="_btnSameMultiple" width="344" height="100" touchChildren="true">
+                    <ui:RoundRectButton cornerTL_TR_BL_BR="50,50,50,50" width="344" height="100" 
+                                stroke="1" strokeColor="0x5F7273" fillAlpha="0" strokeAlpha="0.5"
+                                stroke_hover="0" fillAlpha_hover="0.76" fillColor_hover="0x1B416E"
+                                stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x1B416E"
+                                stroke_active="0" fillAlpha_active="0.7" fillColor_active="0x1B416E"/>
+                    <ui:RunTimeLabel id="_lblBtnSameMultiple" text="同倍追號" verticalCenter="0" horizontalCenter="0" size="44" touchEnabled="false" alpha="0.7"/>
+                </e:Group>
+                <e:Group id="_btnDoubleMultiple" width="344" height="100" touchChildren="true">
+                    <ui:RoundRectButton cornerTL_TR_BL_BR="50,50,50,50" width="344" height="100" 
+                                stroke="1" strokeColor="0x5F7273" fillAlpha="0" strokeAlpha="0.5"
+                                stroke_hover="0" fillAlpha_hover="0.76" fillColor_hover="0x1B416E"
+                                stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x1B416E"
+                                stroke_active="0" fillAlpha_active="0.7" fillColor_active="0x1B416E"/>
+                    <ui:RunTimeLabel id="_lblBtnDoubleMultiple" text="翻倍追號" verticalCenter="0" horizontalCenter="0" size="44" touchEnabled="false" alpha="0.7"/>
+                </e:Group>
+                <e:layout>
+                    <e:HorizontalLayout paddingLeft="54" gap="54" verticalAlign="middle"/>
+                </e:layout>
+            </e:Group>
+            <e:Rect width="1140" height="3" x="51" y="441" fillColor="0x979797" alpha="0.2"/>
+            <e:Group id="_chaseTopPanelGroup" y="444" width="1242" height="1085"/>
+        </e:Group>
 		<e:Rect width="1140" height="3" x="51" fillColor="0x979797" alpha="0.2"/>
         <e:Group id="_confirmBetGrp" width="1242" height="244">
             <e:Group x="51" y="0" height="244">
-		        <ui:RunTimeLabel id="_lbltotalBetCountText" text="總投注額" width="192" targetWidth="192" size="48" verticalAlign="middle" height="90" textColor="0xffffff" verticalCenter="0" alpha="0.7"/>
-		        <ui:RunTimeLabel id="_lbltotalBetCount" text="$21,980.00" width="339" targetWidth="339" size="56" verticalAlign="middle" height="90" textColor="0xe4493a" verticalCenter="0"/>
+		        <ui:RunTimeLabel id="_lblTotalBetTitle" text="總投注額" width="192" targetWidth="192" size="48" verticalAlign="middle" height="90" textColor="0xffffff" verticalCenter="0" alpha="0.7"/>
+		        <ui:RunTimeLabel id="_lblTotalBet" text="$21,980.00" width="339" targetWidth="339" size="56" verticalAlign="middle" height="90" textColor="0xe4493a" verticalCenter="0"/>
                 <e:layout>
                     <e:HorizontalLayout gap="37" verticalAlign="middle"/>
                 </e:layout>

@@ -178,6 +178,10 @@ namespace we {
         const notes = evt.data.noteData;
         const rounds = evt.data.roundData;
 
+        if(notes.length === 0){
+          return;
+        }
+
         const betdetails = this.generateBetDetail(notes);
         let roundbetdetails = [];
         if (rounds.length > 0) {
@@ -320,9 +324,6 @@ namespace we {
         //   class: 'SSCChaseBetPanel',
         //   args: [notes, this._roundDetailInfo, this],
         // });
-
-        dir.evtHandler.addEventListener('onLotteryConfirmBet', this.placeBet, this);
-
         // this.addEventListener('LO_TRAD_ON_CONFIRM_CHASEBET',this.onConfirmChaseBet,this);
       }
 

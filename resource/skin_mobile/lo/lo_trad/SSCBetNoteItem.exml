@@ -6,7 +6,7 @@
     <e:Rect id="_separateLine" width="1092" height="3" x="24" y="188" fillColor="0xffffff" alpha="0.1"/>
 	<e:Group left="46" right="48" top="23" bottom="26" alpha="1" touchChildren="true">
 		<e:Group id="_top" y="0">
-			<e:Label id="_txtGameMode" text="Label" y="0" width="327" height="71" size="48" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+			<e:Label id="_txtGameMode" text="Label" y="0" width="900" height="71" size="48" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
 			<e:Image id="_btnDelect" x="975" width="71" height="71" scaleX="1" scaleY="1" source="m_common_icon_close_png"/>
 		</e:Group>
 		<e:Label id="_txtBetItem" text="Label" verticalCenter="0" size="48" verticalAlign="middle" height="71" fontFamily="Barlow" scaleX="1" scaleY="1"/>

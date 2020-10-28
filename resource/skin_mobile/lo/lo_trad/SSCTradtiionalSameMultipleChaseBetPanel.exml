@@ -12,7 +12,7 @@
                 </e:Group>
                 <e:Group id="_roundGroup" width="130" height="100" touchEnabled="false">
                     <e:Rect fillAlpha="1" width="130" height="100" strokeWeight="0" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" fillColor="0x112c4c"/>
-                    <ui:RunTimeLabel id="_lblRoundNumber" text="1" horizontalCenter="0" verticalCenter="0" size="56"/>
+                    <ui:RunTimeLabel id="_lblRound" text="1" horizontalCenter="0" verticalCenter="0" size="56"/>
                 </e:Group>
                 <e:Group width="100" height="100" touchChildren="true">
                     <ui:RoundRectButton id="_btnAddRound" cornerTL_TR_BL_BR="0,50,0,50" width="100" height="100" 
@@ -85,9 +85,9 @@
             </e:Group>
         </e:Group>
 		<e:Rect width="1140" height="3" x="51" y="587" fillColor="0x979797" alpha="0.2"/>
-        <e:Group y="621" width="1242" height="95">
-            <ui:RunTimeLabel left="48" id="_lblStopChaseIfWin" text="追中即停 ( 注單1倍 )" textColor="0xffffff" size="48" verticalCenter="0"/>
-            <ui:BaseButton id="_activeButton" width="155" height="95" right="54" verticalCenter="0" skinName="skin_mobile_portrait.NavLeftHandModeBtn"/>
+        <e:Group y="621" width="1242" height="95" touchChildren="true">
+            <ui:RunTimeLabel left="48" id="_lblIsStopChaseIfWon" text="追中即停 ( 注單1倍 )" textColor="0xffffff" size="48" verticalCenter="0" touchEnabled="false"/>
+            <ui:BaseButton id="_btnIsStopChaseIfWon" width="155" height="95" right="54" verticalCenter="0" skinName="skin_mobile_portrait.NavLeftHandModeBtn"/>
         </e:Group>
     </e:Group>
 </e:Skin>

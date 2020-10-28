@@ -9,8 +9,12 @@ namespace we {
       private _playmodeDropDownButton: eui.Group;
       private _lblPlayMode : ui.RunTimeLabel;
       private playMode : string;
-      constructor(config) {
+      
+      constructor(config ,playMode = null) {
         super(config);
+        if(playMode){
+          this.playMode = playMode;
+        }
       }
 
       protected addEventListeners() {
@@ -34,6 +38,9 @@ namespace we {
         this.initSkin();
         this.createComponents();
         this.addEventListeners();
+        if(this.playMode){
+          this._lblPlayMode.renderText = () => this.playMode;
+        }
       }
 
       public setLabelPlayMode(str){
