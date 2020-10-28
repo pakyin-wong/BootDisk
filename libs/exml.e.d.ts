@@ -2691,6 +2691,10 @@ declare module skin_mobile.lo{
 	}
 }
 declare module skin_mobile.lo{
+	class FunBetCustomBetMobile extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
 	class FunBetGroup5 extends eui.Skin{
 	}
 }
@@ -2760,6 +2764,14 @@ declare module skin_mobile.lo{
 }
 declare module skin_mobile.lo{
 	class FunBetTabItemRenderer extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class LotteryHistory extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class LotteryHistoryIR extends eui.Skin{
 	}
 }
 declare module skin_mobile{

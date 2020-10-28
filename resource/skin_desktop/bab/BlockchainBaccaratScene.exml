@@ -93,11 +93,11 @@
 	                          anchorOffsetY="0" visible="false" />
 	<e:Group id="_deckButton" x="2279" y="203" width="282" height="49" touchThrough="true">
 		<ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
-		<ui:RunTimeLabel i18n="baccarat.fullShoe" verticalCenter="0" horizontalCenter="0" />
+		<ui:RunTimeLabel i18n="baccarat.fullShoe" verticalCenter="0" horizontalCenter="0" touchEnabled="false"/>
 	</e:Group>
 	<e:Group id="_helpButton" x="2279" y="275" width="282" height="49" touchThrough="true">
 		<ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
-		<ui:RunTimeLabel i18n="baccarat.mechanismHelp" verticalCenter="0" horizontalCenter="0" />
+		<ui:RunTimeLabel i18n="baccarat.mechanismHelp" verticalCenter="0" horizontalCenter="0" touchEnabled="false"/>
 	</e:Group>
 	<bab:HistoryCardHolder id="_historyCardHolder" width="385" height="125" x="22" y="151" skinName="skin_desktop.bab.CornerHistoryHolderSkin" />	
 	<bab:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true" skeletonName="blockchain"

@@ -207,6 +207,9 @@ interface BetHistoryDetail {
     winAmount: number;
     prevremaining: number;
     endremaining: number;
+    validBetAmount: number;
+    commission: number;
+    commissionRate: number;
 }
 interface BetHistory {
     history: BetHistoryDetail[];
