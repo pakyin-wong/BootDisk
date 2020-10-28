@@ -106,7 +106,7 @@ namespace we {
         this.setPlayFunc(this.playVideoFunc(this));
         this.setStopFunc(this.stopVideoFunc(this));
 
-        this.played = true;
+        this.played = env.videoOpen;
 
         if (this._bottomGamePanel._tableInfoPanel && this._lblRoomInfo) {
           this._lblRoomInfo.addEventListener(
@@ -116,6 +116,40 @@ namespace we {
             },
             this
           );
+        }
+
+        this.setBackground();
+      }
+
+      protected setBackground() {
+        const prefix = `m_${env.orientation == egret.OrientationMode.PORTRAIT ? 'v' : 'h'}`;
+        switch (this._tableInfo.gametype) {
+          case core.GameType.BAC:
+          case core.GameType.BAS:
+          case core.GameType.BAI:
+            this._bgImg.source = `${prefix}_placeholder_ba_jpg`;
+            break;
+          case core.GameType.BAM:
+            this._bgImg.source = `${prefix}_placeholder_sq_ba_jpg`;
+            break;
+          case core.GameType.DT:
+            this._bgImg.source = `${prefix}_placeholder_dt_jpg`;
+            break;
+          case core.GameType.DI:
+            this._bgImg.source = `${prefix}_placeholder_sicbo_jpg`;
+            break;
+          case core.GameType.DIL:
+            this._bgImg.source = `${prefix}_placeholder_gof_sicbo_jpg`;
+            break;
+          case core.GameType.RO:
+            this._bgImg.source = `${prefix}_placeholder_ro_jpg`;
+            break;
+          case core.GameType.ROL:
+            this._bgImg.source = `${prefix}_placeholder_gof_ro_jpg`;
+            break;
+          case core.GameType.LW:
+            this._bgImg.source = `${prefix}_placeholder_lw_jpg`;
+            break;
         }
       }
 
@@ -386,7 +420,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
             if (this._totalBet) {
               const totalBet = betInfo.gameroundid === this._gameData.gameroundid ? betInfo.total : 0;
@@ -399,7 +433,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo>evt.data;
+          const stat = <data.TableInfo> evt.data;
           if (stat.tableid === this._tableId) {
             this._bottomGamePanel.updateStat();
           }
@@ -471,7 +505,7 @@ namespace we {
         logger.l(utils.LogTarget.DEBUG, `onClickVideo`);
       }
 
-      protected onOrientationChange(gameModeExist?: boolean) {
+      protected async onOrientationChange(gameModeExist?: boolean) {
         this.onExit();
         super.onOrientationChange();
         if (gameModeExist != null) {
@@ -492,13 +526,14 @@ namespace we {
       }
 
       // check if game mode btn (e.g. BA) is selected when orientation
-      protected checkGameMode(value: boolean) { }
+      protected checkGameMode(value: boolean) {}
 
       protected setStateIdle(isInit: boolean) {
         super.setStateIdle(isInit);
         if (this._totalBet && this.tableInfo.betInfo) {
           const totalBet = this.tableInfo.betInfo.gameroundid === this._gameData.gameroundid ? this.tableInfo.betInfo.total : 0;
-          this._totalBet.renderText = () => `${totalBet}`;
+          // this._totalBet.renderText = () => `${totalBet}`;
+          this._totalBet.renderText = () => utils.numberToFaceValue(totalBet);
         }
       }
 
@@ -506,7 +541,8 @@ namespace we {
         super.setStateBet(isInit);
         if (this._totalBet && this.tableInfo.betInfo) {
           const totalBet = this.tableInfo.betInfo.gameroundid === this._gameData.gameroundid ? this.tableInfo.betInfo.total : 0;
-          this._totalBet.renderText = () => `${totalBet}`;
+          // this._totalBet.renderText = () => `${totalBet}`;
+          this._totalBet.renderText = () => utils.numberToFaceValue(totalBet);
         }
         this._GameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
       }

@@ -3,6 +3,7 @@ namespace we {
     export class ImageSlider extends eui.Component implements eui.UIComponent {
       private _slides = [];
       private duration = 1.0;
+      private interval = 3.0;
       private currentIndex = 0;
       private direction: string;
       private isDown = false;
@@ -74,6 +75,10 @@ namespace we {
           }
         });
 
+        if (this.bullets) {
+          this.bullets.visible = this._slides.length >= 2;
+        }
+
         if (this.currentIndex!==0) {
           // reset index since some of the banner hasn't been loaded yet
           this.currentIndex = 0;
@@ -125,6 +130,9 @@ namespace we {
         if (this.isAnimating) {
           clearTimeout(this.autoPlayTimer);
           // animation end event will scheduleNext
+          return;
+        }
+        if (this._slides.length < 2 ) {
           return;
         }
         this.isDown = true;
@@ -214,13 +222,16 @@ namespace we {
 
       private scheduleNext(isPrev: boolean = false) {
         clearTimeout(this.autoPlayTimer);
+
+        if (this._slides.length < 2) return;
+
         this.autoPlayTimer = setTimeout(() => {
           if (!this._slides.length || this.isDown) {
             this.scheduleNext();
             return;
           }
           this.moveToNext(isPrev);
-        }, 1000);
+        }, this.interval * 1000);
       }
 
       protected moveToNext(isPrev: boolean = false) {

@@ -16,7 +16,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.11.1';
+      public version: string = '0.11.2';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -37,6 +37,11 @@ namespace we {
       public _nicknames: { [langcode: string]: any } = {};
       public _groups: {};
       public groupName: { [groupKey: string]: string } = {};
+
+      public blockchain: { thirdPartySHA256:  string, cosmolink: string} = {
+        thirdPartySHA256 : '',
+        cosmolink : ''
+      };
       /**
        * {
        *  groupKey1:[

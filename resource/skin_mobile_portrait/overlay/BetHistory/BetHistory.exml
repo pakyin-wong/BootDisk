@@ -67,59 +67,26 @@
 					<e:VerticalLayout verticalAlign="middle" gap="16" horizontalAlign="center"/>
 				</e:layout>
 			</e:Group>			
-			<overlay:DoubleCalendarPicker skinName="skin_mobile_portrait.DoubleCalendarPicker" id="_datepicker" width="1050"
-			                              height="1500" horizontalCenter="0" x="96" scaleX="1" scaleY="1"  verticalCenter="0"/>
+			<overlay:DoubleCalendarPicker skinName="skin_mobile_portrait.DoubleCalendarPicker" id="_datepicker" width="1050" height="1500" horizontalCenter="0" x="96" scaleX="1" scaleY="1"  verticalCenter="0"/>
 			<e:Image id="close" width="96" height="96" right="26" top="68" source="d-lobby-button-close-none_png"/>
 		</e:Group>
-		<bh:BetHistoryDetail skinName="skin_mobile_portrait.BetHistoryDetail" id="_detail" left="0" right="0" top="0"
-		                     bottom="0" />
-
+		<bh:BetHistoryDetail skinName="skin_mobile_portrait.BetHistoryDetail" id="_detail" left="0" right="0" top="0" bottom="0" />
 		<bh:LoContinuousBetDetails id="_cbet_details" scaleX="1" scaleY="1" verticalCenter="0" horizontalCenter="0" skinName="skin_mobile_portrait.LoContinuousBetDetails"/>
 		<bh:LoPopupBetDetail id="_popupbet_detail" horizontalCenter="0" verticalCenter="0" skinName="skin_mobile_portrait.LoPopupBetDetail"/>
-		<bh:BetHistorySearch skinName="skin_mobile_portrait.BetHistorySearch" id="_search" left="0" right="0" top="0"
-		                     bottom="0" touchEnabled="true" />
-							 
+		<bh:BetHistorySearch skinName="skin_mobile_portrait.BetHistorySearch" id="_search" left="0" right="0" top="0" bottom="0" touchEnabled="true" />
 		<e:Group id="useless" scaleX="0" scaleY="0" visible="false">
 			<e:Label id="_main_select_all" text="遊戲總覽" x="0" y="0" width="180" height="60" verticalAlign="middle" textAlign="center" size="24" alpha="0.7"/>
 			<e:Label id="_main_select_live" text="現場遊戲" x="170" y="0" width="180" height="60" verticalAlign="middle" textAlign="center" size="24" alpha="0.7"/>
 			<e:Label id="_main_select_lottery" text="彩票遊戲" x="340" y="0" width="180" height="60" verticalAlign="middle" textAlign="center" size="24" alpha="0.7"/>
 			<e:Label id="_main_select_egame" text="電子遊戲" x="510" y="0" width="180" height="60" verticalAlign="middle" textAlign="center" size="24" alpha="0.7"/>
-			
-			<!--<ui:RunTimeLabel id="_txt_date" text="d" x="1428" y="58" width="48" height="36" size="24" alpha="0.7"
-							verticalAlign="middle"  visible="false"/>-->
-			<ui:BaseButton id="_btn_today" width="137" height="60" x="1512" y="47"
-						skinName="skin_mobile_portrait.OverlayPanelButton" />
-			<ui:BaseButton id="_btn_week" width="137" height="60" x="1669" y="47"
-						skinName="skin_mobile_portrait.OverlayPanelButton" />
-			<!--<ui:RunTimeLabel id="_txt_record_id" text="Label" x="95" y="168" width="191" height="29" size="20"
-							verticalAlign="middle" visible="false" />
-			<ui:RunTimeLabel id="_txt_record_round" text="Label" x="657" y="168" width="129" height="29" size="20"
-							verticalAlign="middle" scaleX="1" scaleY="1" visible="false" />
-			<ui:RunTimeLabel id="_txt_record_replay" text="Label" x="786" y="168" width="79" size="20" verticalAlign="middle"
-							height="29" scaleX="1" scaleY="1" visible="false" />
-			<ui:RunTimeLabel id="_txt_record_remake" text="Label" x="865" y="168" width="86" height="29" size="20"
-							verticalAlign="middle" scaleX="1" scaleY="1" visible="false" />
-			<ui:RunTimeLabel id="_txt_record_bettype" text="Label" x="951" y="168" width="129" height="29" size="20"
-							verticalAlign="middle" scaleX="1" scaleY="1" visible="false" />
-			<ui:RunTimeLabel id="_txt_record_betamount" text="Label" x="1080" y="168" width="147" size="20" verticalAlign="middle"
-							height="29" scaleX="1" scaleY="1" visible="false" />
-			<ui:RunTimeLabel id="_txt_record_orgbalance" text="Label" x="1386" y="168" width="176" height="29" size="20"
-							verticalAlign="middle" scaleX="1" scaleY="1" visible="false" />
-			<ui:RunTimeLabel id="_txt_record_finbalance" text="Label" x="1562" y="168" width="88" size="20" verticalAlign="middle"
-							height="29" scaleX="1" scaleY="1" visible="false" />
-			<ui:RunTimeLabel id="_txt_record_result" text="Label" x="1650" y="168" width="490" height="29" size="20"
-							verticalAlign="middle" scaleX="1" scaleY="1" textAlign="center" visible="false" />-->
-			<ui:RunTimeLabel id="_txt_search" text="Label" x="653" y="58" height="36" verticalAlign="middle" size="24" width="96"
-							alpha="0.7" visible="false" />
-			<e:EditableText id="_tf_search" width="200" height="36" text="" x="653" y="58" verticalAlign="middle" size="24"
-							/>
-			<ui:BaseImageButton id="_btn_prev" width="46" height="46" x="963" y="1077"
-								skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="page_prev_icon" />
-			<ui:BaseImageButton id="_btn_next" width="46" height="46" x="1132" y="1077"
-								skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="page_next_icon" />
+			<ui:BaseButton id="_btn_today" width="137" height="60" x="1512" y="47" skinName="skin_mobile_portrait.OverlayPanelButton" />
+			<ui:BaseButton id="_btn_week" width="137" height="60" x="1669" y="47" skinName="skin_mobile_portrait.OverlayPanelButton" />
+			<ui:RunTimeLabel id="_txt_search" text="Label" x="653" y="58" height="36" verticalAlign="middle" size="24" width="96" alpha="0.7" visible="false" />
+			<e:EditableText id="_tf_search" width="200" height="36" text="" x="653" y="58" verticalAlign="middle" size="24"/>
+			<ui:BaseImageButton id="_btn_prev" width="46" height="46" x="963" y="1077" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="page_prev_icon" />
+			<ui:BaseImageButton id="_btn_next" width="46" height="46" x="1132" y="1077" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="page_next_icon" />
 			<e:Group id="_btn_page" width="83" height="46" x="1029" y="1077">
-				<ui:RunTimeLabel id="_txt_page" text="00/00" left="0" right="20" top="0" bottom="0" verticalAlign="middle"
-								textAlign="center" fontFamily="Barlow" size="28" />
+				<ui:RunTimeLabel id="_txt_page" text="00/00" left="0" right="20" top="0" bottom="0" verticalAlign="middle" textAlign="center" fontFamily="Barlow" size="28" />
 			</e:Group>
 		</e:Group>
 	</e:Group>

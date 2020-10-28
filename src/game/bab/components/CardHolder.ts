@@ -478,11 +478,11 @@ namespace we {
 
               const block2 = (async () => {
                 const p1 = we.utils.waitDragonBone(this._ringAnim);
-                this._ringAnim.animation.fadeIn('poker_in', 0, 1, 0, 'POKER_ANIMATION_GROUP');
+                this._ringAnim.animation.fadeIn('poker_in', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
                 await p1;
 
                 const p2 = we.utils.waitDragonBone(this._ringAnim);
-                this._ringAnim.animation.fadeIn('poker_out', 0, 1, 0, 'POKER_ANIMATION_GROUP');
+                this._ringAnim.animation.fadeIn('poker_out', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
                 await p2;
 
                 return new Promise(resolve => resolve())
@@ -495,11 +495,11 @@ namespace we {
           if (this._gameData.currentcardindex + i + 1 === this._gameData.redcardindex) {
             const block1 = (async () => {
               const p1 = we.utils.waitDragonBone(this._ringAnim);
-              this._ringAnim.animation.fadeIn('red_poker_in', 0, 1, 0, 'POKER_ANIMATION_GROUP');
+              this._ringAnim.animation.fadeIn('red_poker_in', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
               await p1
 
               const p2 = we.utils.waitDragonBone(this._ringAnim);
-              this._ringAnim.animation.fadeIn('red_poker_out', 0, 1, 0, 'POKER_ANIMATION_GROUP');
+              this._ringAnim.animation.fadeIn('red_poker_out', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
               await p2
 
               return new Promise(resolve => resolve());

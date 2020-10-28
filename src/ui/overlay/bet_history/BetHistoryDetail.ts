@@ -157,6 +157,10 @@ namespace we {
           this.createGameResult(this.data.gametype, this.data.result);
         }
 
+        public get sourceIndex() {
+          return this._index;
+        }
+
         protected isLottery(gametype) {
           switch(gametype) {
             case we.core.GameType.LO:

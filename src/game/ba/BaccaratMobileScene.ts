@@ -304,7 +304,7 @@ namespace we {
         }
       }
 
-      protected onOrientationChange() {
+      protected async onOrientationChange() {
         // this.onExit();
         const temp = this._switchBaMode.selected;
         super.onOrientationChange(temp);

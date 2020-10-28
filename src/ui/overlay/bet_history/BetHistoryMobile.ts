@@ -10,13 +10,37 @@ namespace we {
       protected _getFlag: boolean = false;
       protected _getLock: boolean = false;
 
+      protected _mobileRecovery = {
+        date: 'today',
+        starttime: null,
+        endtime: null,
+        dateActive: true,
+        customActive: false,
+        live_submenu_index: 0,
+        lottery_switch_index: 0,
+        lottery_submenu_index: 0,
+        detailIndex: -1,
+        cbetDetailSrc: null,
+        cbetdetailState: null,
+        bPopDetailSrc: null,
+      };
+
       constructor(skin: string = 'BetHistorySkin') {
         super(skin);
       }
 
-      protected mount() {
-        super.mount();
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
         this.initBetHistoryMobile();
+        this.recovery();
+      }
+
+      protected clearOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
+        this.save();
+        this._detail.hide();
+        this._cbet_details.hide();
+        this._popupbet_detail.hide();
       }
 
       protected initBetHistoryMobile() {
@@ -45,14 +69,80 @@ namespace we {
           review: this._btn_date.label,
           arrCol: dateSource,
           title: () => `${i18n.t('overlaypanel_bethistory_date')}`,
-          selected: 'today',
+          selected: this._mobileRecovery.date,
         });
-        this._btn_date.active = true;
-        this._btn_custom.active = false;
 
         // this._scroller.scrollPolicyV = eui.ScrollPolicy.ON;
         this._scroller.verticalScrollBar.skinName = utils.getSkinByClassname('ScrollBarVertical');
-        this.addListeners();
+      }
+
+      protected save() {
+        this._mobileRecovery = {
+          date: this._btn_date['mDropdownItem'].selected,
+          starttime: this._starttime,
+          endtime: this._endtime,
+          dateActive: this._btn_date.active,
+          customActive: this._btn_custom.active,
+          live_submenu_index: this._live_submenu.selectedIndex,
+          lottery_switch_index: this._lottery_switch.selectedIndex,
+          lottery_submenu_index: this._lottery_submenu.selectedIndex,
+          detailIndex: this._detail.isShowed? this._detail.sourceIndex : -1,
+          cbetDetailSrc: this._cbet_details.isShowed? this._cbet_details.source : null,
+          cbetdetailState: this._cbet_details.currentState,
+          bPopDetailSrc: this._popupbet_detail.isShowed? this._popupbet_detail.source : null,
+        };
+      }
+
+      protected recovery() {
+        this._btn_date.active = this._mobileRecovery.dateActive;
+        this._btn_custom.active = this._mobileRecovery.customActive;
+        
+        switch(this._mainTab) {
+          case "all":
+            this.currentState = 'all';
+          break;
+          case "live":
+            this.currentState = 'live';
+          break;
+          case "lottery":
+            this.currentState = this._loTab == 'single'? 'lottery' : 'lotteryC';
+          break;
+          case "egame":
+          break;
+        }
+        this.invalidateState();
+
+        this._live_submenu.selectedIndex = this._mobileRecovery.live_submenu_index;
+        this._lottery_switch.selectedIndex = this._mobileRecovery.lottery_switch_index;
+        this._lottery_submenu.selectedIndex = this._mobileRecovery.lottery_submenu_index;
+
+        if(this._res){
+          this.update(this._res);
+        }
+
+        if(this._mobileRecovery.starttime && this._mobileRecovery.endtime) {
+          this._datepicker.setTo(this._mobileRecovery.starttime, this._mobileRecovery.endtime);
+        }
+
+        if(this._mobileRecovery.detailIndex >= 0) {
+          this._detail.dataChanged(this._dataColl.source, this._mobileRecovery.detailIndex);
+          this._detail.show();
+        }
+
+        if(this._mobileRecovery.cbetDetailSrc) {
+          this._cbet_details.updateDetails({
+            data:{
+              value: this._mobileRecovery.cbetDetailSrc
+            } 
+          });
+          this._cbet_details.currentState = this._mobileRecovery.cbetdetailState;
+          this._cbet_details.show();
+        }
+
+        if(this._mobileRecovery.bPopDetailSrc) {
+          this._popupbet_detail.updateDetail(this._mobileRecovery.bPopDetailSrc);
+          this._popupbet_detail.show();
+        }
       }
 
       protected addListeners() {
@@ -196,13 +286,6 @@ namespace we {
 
       protected onClickSearch(e) {
         this._search.show();
-      }
-
-      protected initOrientationDependentComponent() {
-        super.initOrientationDependentComponent();
-        this.initBetHistory();
-        this.initBetHistoryMobile();
-        this.addListeners();
       }
     }
   }

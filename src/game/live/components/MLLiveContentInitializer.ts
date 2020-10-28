@@ -19,7 +19,7 @@ namespace we {
         root.slider.width = 850;
         root.slider.height = 850;
         root.slider.maskRadius = 48;
-        root.slider.configSlides(dir.liveResources.liveHeroBanners);
+        root.slider.configSlides(dir.liveResources.heroBanners);
         root.sliderGroup.addChild(root.slider);
 
         const bullets = new ui.ImageSliderBullet();

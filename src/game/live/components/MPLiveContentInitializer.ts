@@ -29,7 +29,7 @@ namespace we {
         root.slider = new we.ui.ImageSlider();
         root.slider.height = 1242;
         root.slider.width = 1242;
-        root.slider.configSlides(dir.liveResources.liveHeroBanners);
+        root.slider.configSlides(dir.liveResources.heroBanners);
         root.sliderGroup.addChild(root.slider);
 
         const bullets = new ui.ImageSliderBullet();

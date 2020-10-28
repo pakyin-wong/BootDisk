@@ -247,6 +247,7 @@ There are few steps needed to be taken before publish
 ## Lottery Resource
 - [Lobby + 時時彩 Desktop Zeplin](https://app.zeplin.io/project/5d8d9c1ec2f4dd026286ee4e/dashboard?seid=5edf231d1fa6889938219d7a)
 - CP原型地址：https://xqh5ls.axshare.com/  CP访问密码：teF#LMvy&Kc4qNOx
+- 彩票项目新原型地址：https://onqg1s.axshare.com/#c=2 彩票项目新原型密码：teF#LMvy&Kc4qNO
 - [Lottery Algorithm (swift)](https://github.com/biostome/BTLotteryAlgorithm/blob/master/LotteryAlgorithm.playground/Contents.swift)
 - [Lottery Demo (yunjicp)](https://yunjicp.com/)
 - [Lottery bet type and backend field definition (by felix)](https://docs.google.com/spreadsheets/d/1NiRO7jKdO441-Ja9IuCCuDb_ib_pxLKA/edit#gid=1362459178)

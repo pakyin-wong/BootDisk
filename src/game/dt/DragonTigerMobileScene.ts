@@ -260,7 +260,7 @@ namespace we {
         }
       }
 
-      // protected onOrientationChange() {
+      // protected async onOrientationChange() {
       //   this.onExit();
       //   super.onOrientationChange();
       //   this.onEnter();

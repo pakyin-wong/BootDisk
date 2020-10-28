@@ -50,6 +50,7 @@ namespace we {
       protected _endtime: number;
       protected _limit: number = 10;
       protected _type: number = -1;
+      protected _res: number = 0;
 
       protected _datepicker: DoubleCalendarPicker;
 
@@ -61,7 +62,20 @@ namespace we {
       }
 
       protected mount() {
+        super.mount();
+        this.searchToday();
+      }
+
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
         this.initBetHistory();
+        this.addListeners();
+      }
+
+      protected clearOrientationDependentComponent() {
+        super.clearOrientationDependentComponent();
+        clearTimeout(this._searchDelay);
+        this.removeListeners();
       }
 
       protected setText(t:eui.Label, s:string) {
@@ -132,14 +146,11 @@ namespace we {
         this._tf_search.prompt = '';
         mouse.setButtonMode(this._tf_search, true);
         this.updatePlaceHolder();
-        this.addListeners();
-        this.searchToday();
       }
 
       protected destroy() {
         super.destroy();
-        clearTimeout(this._searchDelay);
-        this.removeListeners();
+        this.clearOrientationDependentComponent();
       }
 
       protected addListeners() {
@@ -302,6 +313,7 @@ namespace we {
         if (res.error) {
           // TODO: handle error if bet history is not available
         } else {
+          this._res = res;
           this.total = Math.ceil(res.total / this._limit);
           this._page = Math.floor(res.offset / this._limit) + 1;
           this._ddm_page && this._ddm_page.dropdown.select(this._page);

@@ -21,6 +21,7 @@ namespace we {
       public videoPool: utils.Pool<egret.FlvVideo>;
       public lobbyResources: lobby.ILobbyResources;
       public liveResources: live.ILiveResources;
+      public lotteryResources: live.ILiveResources;
       public uaParser: UAParser;
       public advancedRoadPool: ui.GameComponentPool;
       public analysisPool: ui.GameComponentPool;

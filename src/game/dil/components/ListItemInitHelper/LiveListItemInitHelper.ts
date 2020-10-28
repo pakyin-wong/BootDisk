@@ -49,6 +49,14 @@ namespace we {
         node.parent.addChildAt(advancedRoad, idx);
         return advancedRoad;
       }
+
+      public getPlaceholder() {
+        return 'd_lobby_placeholder_gof_sb_jpg';
+      }
+
+      public getAdvancedPlaceholder() {
+        return 'd_lobby_pro_placeholder_gof_sb_jpg';
+      }
     }
   }
 }

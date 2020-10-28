@@ -23,7 +23,7 @@ namespace we {
       updateRoad();
     }
 
-    export interface HistoryCardHolder{
+    export interface HistoryCardHolder {
       setCards(tableId: string);
       setNumber(number: number);
     }
@@ -37,6 +37,8 @@ namespace we {
       generateAnalysis?(node: eui.Component): IAnalysis & eui.Component;
       generateResultMessage?(node: eui.Component): IGameResultMessage & eui.Component;
       generateResultDisplay?(node: eui.Component): IResultDisplay & eui.Component;
+      getPlaceholder?(): string;
+      getAdvancedPlaceholder?(): string;
     }
 
     export interface IRunTimeComponent extends egret.DisplayObject {

@@ -35,7 +35,7 @@ namespace we {
         this.poppableAddon = new PoppableAddonBottomSilder(this);
       }
 
-      protected onOrientationChange() {
+      protected async onOrientationChange() {
         this.arrangeComponents();
       }
 

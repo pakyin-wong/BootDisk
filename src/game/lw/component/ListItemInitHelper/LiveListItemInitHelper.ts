@@ -60,6 +60,13 @@ namespace we {
         node.parent.addChildAt(advancedRoad, idx);
         return advancedRoad;
       }
+
+      public getPlaceholder() {
+        return 'd_lobby_placeholder_lw_jpg';
+      }
+      public getAdvancedPlaceholder() {
+        return 'd_lobby_pro_placeholder_lw_jpg';
+      }
     }
   }
 }
