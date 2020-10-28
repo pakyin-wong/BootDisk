@@ -24,6 +24,7 @@ namespace we {
 
       private currentMonthIndex: number = 0;
       private prevCurrentMonthIndex: number = -1;
+      private tempCurrentMonthIndex: number;
 
       private test1:any;
       private test2:any;
@@ -74,7 +75,7 @@ namespace we {
       protected update() {
         const prev = this._current.clone().subtract(1, 'months');
         console.log('DoubleCalendarPicker::update::prev',prev)
-
+ 
 
         this._calender_prev.setTo(prev.year(), prev.month());
         this._calender_next.setTo(this._current.year(), this._current.month());
@@ -171,19 +172,21 @@ namespace we {
 
         this.hide();
         this.dispatchEvent(new egret.Event('PICKED_DATE', false, false, data));
+    
       }
 
       public setTo(starttime, endtime) {
         console.log('DoubleCalendarPicker::setTo::starttime',starttime)
         console.log('DoubleCalendarPicker::setTo::endtime',endtime)        
         this.clean();
-        this.currentMonthIndex = 0;
-        this.prevCurrentMonthIndex = -1;
+        // this.currentMonthIndex = 0;
+        // this.prevCurrentMonthIndex = -1;
 
         const start = moment.unix(starttime).startOf('day');
         this.test1 = start;
         const end = moment.unix(endtime).startOf('day');
         this.test2 = end;
+        this.checkDisplayMonth(end)
         console.log('DoubleCalendarPicker::setTo::start',start)
         console.log('DoubleCalendarPicker::setTo::end',end)
         if (start.isSame(end, 'day')) {
@@ -197,6 +200,21 @@ namespace we {
         }
         this.update();
       }
+
+      private checkDisplayMonth(end){
+        let todaytime = moment()
+          .utcOffset(8)
+          .startOf('day')
+          .unix();
+        let today = moment.unix(todaytime).startOf('day');
+        console.log('====================today',today)
+        console.log('======================end',end)
+        let diff  =  moment(today).diff(end, "months")
+        console.log('==============diff',diff)
+        this.currentMonthIndex = diff * -1;
+        this.prevCurrentMonthIndex = this.currentMonthIndex -1;
+      }
+
     }
   }
 }
