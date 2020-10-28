@@ -28,16 +28,16 @@ namespace we {
 
         protected dataChanged(): void {
           super.dataChanged();
-          this.setData(this._txt_round, i18n.t('overlaypanel_bethistorylottery_record_round'));
-          this.setData(this._txt_bettype, i18n.t('overlaypanel_bethistorylottery_record_bettype'));
-          this.setData(this._txt_betgroup, i18n.t('overlaypanel_bethistorylottery_record_betgroup'));
-          this.setData(this._txt_betfield, i18n.t('overlaypanel_bethistorylottery_record_betfield'));
+          this.setText(this._txt_round, i18n.t('overlaypanel_bethistorylottery_record_round'));
+          this.setText(this._txt_bettype, i18n.t('overlaypanel_bethistorylottery_record_bettype'));
+          this.setText(this._txt_betgroup, i18n.t('overlaypanel_bethistorylottery_record_betgroup'));
+          this.setText(this._txt_betfield, i18n.t('overlaypanel_bethistorylottery_record_betfield'));
 
           const betinfo = utils.BetTypeParser.parse(this.data.gametype, this.data.field);
 
-          this.setData(this._txt_record_bettype, betinfo['type']);
-          this.setData(this._txt_record_betgroup, betinfo['group']);
-          this.setData(this._txt_record_betfield, betinfo['field']);
+          this.setText(this._txt_record_bettype, betinfo['type']);
+          this.setText(this._txt_record_betgroup, betinfo['group']);
+          this.setText(this._txt_record_betfield, betinfo['field']);
 
           this._betid = this.data.betid;
 

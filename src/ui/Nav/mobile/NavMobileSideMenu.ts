@@ -73,7 +73,7 @@ namespace we {
         this.addListeners();
       }
 
-      protected onOrientationChange() {
+      protected async onOrientationChange() {
         super.onOrientationChange();
         this.switch_leftHandMode.active = env.leftHandMode;
         this.invalidateState();

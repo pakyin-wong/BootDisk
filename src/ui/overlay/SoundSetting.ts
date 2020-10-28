@@ -38,7 +38,7 @@ namespace we {
         this._txt_bgm.renderText = () => `${i18n.t('nav.system.bgm')}`;
         this._txt_presetBgm.renderText = () => `${i18n.t('nav.system.bgm')}`;
 
-        const _arrCol_currLang = new eui.ArrayCollection([ui.NewDropdownItem('sc', () => `简体中文`), ui.NewDropdownItem('tc', () => `繁體中文`), ui.NewDropdownItem('en', () => `English`)]);
+        const _arrCol_currLang = new eui.ArrayCollection([ui.NewDropdownItem('cn', () => `简体中文`), ui.NewDropdownItem('zh', () => `繁體中文`), ui.NewDropdownItem('en', () => `English`)]);
         const _arrCol_presetBgm = new eui.ArrayCollection([
           ui.NewDropdownItem('1', () => `${i18n.t('nav.system.bgm')} 01`),
           ui.NewDropdownItem('2', () => `${i18n.t('nav.system.bgm')} 02`),

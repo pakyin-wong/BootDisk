@@ -1,6 +1,6 @@
 namespace we {
   export namespace i18n {
-    export let lang = 'sc';
+    export let lang = 'cn';
 
     export function t(s: string, ...variables: any[]) {
       function ds(p: any, c: string) {
@@ -46,30 +46,31 @@ namespace we {
     }
 
     export async function setLang(s, isInit: boolean = false) {
-      env.language = i18n.lang = s;
+      const langCodeList = Object.keys(core.lang).map(key=>core.lang[key]);
+      if (langCodeList.indexOf(s) < 0) {
+        env.language = core.lang.CN;
+        i18n.lang = core.lang.CN;
+      } else {
+        env.language = s;
+        i18n.lang = s;
+      }
       dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
 
-      if (!isInit && !env._nicknames[env.language]) {
+      if (!isInit) {
+        //  && !env._nicknames[env.language]
         const tasks = [
           () =>
             dir.socket.getStaticInitDataAsync(async res => {
               if (res.error) {
-                // TODO: show default hero banner image
-                // const placeholderImg = new Image();
-                // this._bannerImages = [placeholderImg];
               } else {
-                // env.nicknameSet = {
-                //   nicknames: {},
-                //   groups: {},
-                // }; // res.Nicknames;
                 if (res.Nicknames) {
                   env.nicknameSet = res.Nicknames;
                 }
               }
             }, this),
+          ()=>utils.BannerLoader.loadBanners()
         ];
-
-        await loadingMgr.load(tasks);
+        await loadingMgr.load(tasks, { isSequence: true });
       }
 
       dir.evtHandler.dispatch(core.Event.SWITCH_LANGUAGE, s);

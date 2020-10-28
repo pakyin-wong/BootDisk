@@ -16,7 +16,7 @@ namespace we {
         holder.bulletGapValue = 20;
         holder.bulletBottom = 50;
         holder.bulletHorizontalCenter = 0;
-        dir.liveResources.liveHeroBanners.forEach(element => {
+        dir.lotteryResources.heroBanners.forEach(element => {
           const image = new eui.Image();
           image.source = element.image;
           image.height = holder.height;

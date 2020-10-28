@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.lo.SSCTraditionalBetControlPanel" width="1242" height="2043" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*">
+    <ui:RoundRectShape cornerTL_TR_BL_BR="24,24,0,0" width="1242" height="2000" x="0" y="0" stroke="1" strokeColor="0x214a72" fillColor="0x14181E"/>
+    <e:Group id="_content" width="1242" height="2000" y="43">
+        <e:Group id="close" x="1158" y="44" width="40" height="39" touchChildren="false">
+            <ui:RunTimeLabel width="40" height="39" text="X" targetWidth="40" size="48" alpha="0.4" textColor="0xffffff" verticalAlign="middle" textAlign="center"/>
+        </e:Group>
+        <e:Group x="48" y="40" width="580" height="62">
+		    <ui:RunTimeLabel id="_lblCurrentRoundTitle" text="訂單起始獎期號：" width="336" targetWidth="336" height="62" size="42" verticalAlign="middle" textColor="0xffffff" scaleX="1" scaleY="1" alpha="0.7"/>
+		    <ui:RunTimeLabel id="_lblCurrentRound" text="" width="244" targetWidth="244" height="55" size="38" textColor="0xffffff" scaleX="1" scaleY="1" alpha="0.7" textAlign="center" verticalAlign="middle"/>
+            <e:layout>
+                <e:HorizontalLayout verticalAlign="middle" gap="0"/>
+            </e:layout>
+        </e:Group>
+        <e:Group x="48" y="138" width="1140" height="88" touchChildren="true">
+            <e:Group id="_btnNoteControlPanel" width="570" height="88" touchChildren="false" touchEnabled="true">
+                <ui:RoundRectShape id="_btnNoteControlBg" cornerTL_TR_BL_BR="44,44,0,0" width="570" height="88" stroke="0" strokeColor="0x214a72" fillColor="0x1b416e"/>
+		        <ui:RunTimeLabel id="_lblNoteControl" text="訂單詳情" width="176" targetWidth="176" height="65" size="44" textColor="0xffffff" scaleX="1" scaleY="1" textAlign="center" verticalAlign="middle" verticalCenter="0" horizontalCenter="0"/>
+            </e:Group>
+            <e:Group id="_btnChaseBetPanel" width="570" height="88" touchChildren="false" touchEnabled="true">
+                <ui:RoundRectShape id="_btnChaseBetBg" cornerTL_TR_BL_BR="44,44,0,0" width="570" height="88" stroke="0" strokeColor="0x214a72" fillColor="0x0c2848"/>
+		        <ui:RunTimeLabel id="_lblChaseBet" text="我要追號" width="176" targetWidth="176" height="65" size="44" textColor="0xffffff" scaleX="1" scaleY="1" textAlign="center" verticalAlign="middle" verticalCenter="0" horizontalCenter="0"/>
+            </e:Group>
+            <e:layout>
+                <e:HorizontalLayout verticalAlign="middle" gap="0"/>
+            </e:layout>
+        </e:Group>
+        <e:Group id="_currentPanelGroup" y="233" width="1242" height="1767">
+        <!--<lo:SSCChaseBetPanel/>-->
+        <lo:SSCTraditionalMobileNoteControlPanel id="_noteControl"/>
+        </e:Group>
+    </e:Group>
+</e:Skin>

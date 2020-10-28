@@ -275,7 +275,7 @@ namespace we {
         }
       }
 
-      protected onOrientationChange() {
+      protected async onOrientationChange() {
         super.onOrientationChange();
         this.onChangeScene();
       }

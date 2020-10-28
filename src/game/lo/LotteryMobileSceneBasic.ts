@@ -5,6 +5,7 @@ namespace we {
       protected _btnBack: egret.DisplayObject;
 
       protected _roundInfo: FunBetRoundInfo;
+      protected _result_toggler: egret.DisplayObject;
       protected _betResult: FunBetResult;
       protected _lastgameResult;
 
@@ -59,11 +60,22 @@ namespace we {
       protected addListeners() {
         super.addListeners();
         utils.addButtonListener(this._btnBack, this.backToLobby, this);
+        utils.addButtonListener(this._result_toggler, this.onTogglerResult, this);
       }
 
       protected removeListeners() {
         super.removeListeners();
         utils.removeButtonListener(this._btnBack, this.backToLobby, this);
+        utils.removeButtonListener(this._result_toggler, this.onTogglerResult, this);
+      }
+
+      protected onTogglerResult() {
+        dir.evtHandler.createOverlay({
+          class: 'LotteryHistory',
+          dismissOnClickOutside: true,
+          noDimmer: true,
+          args: [this._tableId, this.customKey],
+        });
       }
 
       protected onGameStatisticUpdated() {

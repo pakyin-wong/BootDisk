@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.BetHistorySubMenuItemRenderer" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="up,down" >
+	<e:Label id="_label" text="Label" height="62" verticalAlign="middle" alpha.up="0.7" size="42"/>
+	<ui:RoundRectShape width="100%" height="8" y="66" cornerTL_TR_BL_BR="4,4,4,4" fillColor="0x52d7ff,0x5273ef,90" visible.up="false"/>
+
+</e:Skin>

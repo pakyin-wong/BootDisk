@@ -27,11 +27,11 @@ namespace we {
         }
 
         protected mount() {
-          utils.addButtonListener(this._btn_replay, this.onClickReplay, this);
+          this._btn_replay && utils.addButtonListener(this._btn_replay, this.onClickReplay, this);
         }
 
         protected destroy() {
-          utils.removeButtonListener(this._btn_replay, this.onClickReplay, this);
+          this._btn_replay && utils.removeButtonListener(this._btn_replay, this.onClickReplay, this);
         }
 
         protected childrenCreated(): void {
@@ -42,27 +42,27 @@ namespace we {
         }
 
         protected dataChanged(): void {
-          this.setData(this._txt_round, i18n.t('overlaypanel_bethistory_record_round'));
-          this.setData(this._txt_bettype, i18n.t('overlaypanel_bethistory_record_bettype'));
-          this.setData(this._txt_result, i18n.t('overlaypanel_bethistory_record_result'));
-          this.setData(this._btn_replay['label'], i18n.t('overlaypanel_bethistory_record_replay'));
-          this.setData(this._txt_record_id, this.data.betid);
-          this.setData(this._txt_record_date, utils.formatTime(this.data.datetime.toFixed(0)));
-          this.setData(this._txt_record_game, i18n.t('gametype_' + we.core.GameType[this.data.gametype]) + (this.data.tablename ? ' ' + this.data.tablename : ''));
-          this.setData(this._txt_record_round, this.data.gameroundid);
-          this.setData(this._txt_record_remark, this.formatRemark(this.data.remark));
-          this.setData(this._txt_record_bettype, this.formatBetType(this.data.gametype, this.data.field));
-          this.setData(this._txt_record_betamount, utils.formatNumber(this.data.betamount, true));
-          this.setData(this._txt_record_orgbalance, utils.formatNumber(this.data.beforebalance, true));
-          this.setData(this._txt_record_finbalance, utils.formatNumber(this.data.afterbalance, true));
+          this.setText(this._txt_round, i18n.t('overlaypanel_bethistory_record_round'));
+          this.setText(this._txt_bettype, i18n.t('overlaypanel_bethistory_record_bettype'));
+          this.setText(this._txt_result, i18n.t('overlaypanel_bethistory_record_result'));
+          this._btn_replay && this.setText(this._btn_replay['label'], i18n.t('overlaypanel_bethistory_record_replay'));
+          
+          this.setText(this._txt_record_id, this.data.betid);
+          this.setText(this._txt_record_date, utils.formatTime(this.data.datetime.toFixed(0)));
+          this.setText(this._txt_record_game, i18n.t('gametype_' + we.core.GameType[this.data.gametype]) + (this.data.tablename ? ' ' + this.data.tablename : ''));
+          this.setText(this._txt_record_round, this.data.gameroundid);
+          this.setText(this._txt_record_remark, utils.BetHistory.formatRemark(this.data.remark));
+          this.setText(this._txt_record_bettype, utils.BetHistory.formatBetType(this.data.gametype, this.data.field));
+          this.setText(this._txt_record_betamount, utils.formatNumber(this.data.betamount, true));
+          this.setText(this._txt_record_orgbalance, utils.formatNumber(this.data.beforebalance, true));
+          this.setText(this._txt_record_finbalance, utils.formatNumber(this.data.afterbalance, true));
 
           this.updateBg();
           this.updateWinText(this.data.remark, this.data.winamount);
-
           this.createGameResult(this.data.gametype, this.data.result);
         }
 
-          protected setData(label: eui.Label, txt) {
+        protected setText(label: eui.Label, txt) {
           if (label) {
             label.text = txt;
           }
@@ -80,18 +80,6 @@ namespace we {
           } else {
             this._txt_record_bgcolor.fillColor = this.data.colorIndex === 1 ? 0x14181e : 0x1a1f26;
           }
-          this._txt_record_round.text = this.data.gameroundid;
-          this._txt_record_remark.text = this.formatRemark(this.data.remark);
-          // console.log('this.formatBetType(this.data.gametype, this.data.field)', this.formatBetType(this.data.gametype, this.data.field));
-          // console.log('this.data.gametype, this.data.field', [this.data.gametype, this.data.field]);
-          this._txt_record_bettype.text = this.formatBetType(this.data.gametype, this.data.field);
-          this._txt_record_betamount.text = utils.formatNumber(this.data.betamount, true);
-          this._txt_record_orgbalance.text = utils.formatNumber(this.data.beforebalance, true);
-          this._txt_record_finbalance.text = utils.formatNumber(this.data.afterbalance, true);
-
-          this.updateWinText(this.data.remark, this.data.winamount);
-
-          this.createGameResult(this.data.gametype, this.data.result);
         }
 
         protected updateWinText(remark, amt) {
@@ -109,11 +97,11 @@ namespace we {
           }
 
           if (amt > 0) {
-            this._txt_record_win.text = `+${utils.formatNumber(this.data.winamount, true)}`;
+            this.setText(this._txt_record_win, `+${utils.formatNumber(this.data.winamount, true)}`);
           } else if (amt === 0) {
-            this._txt_record_win.text = `${utils.formatNumber(this.data.winamount, true)}`;
+            this.setText(this._txt_record_win, `${utils.formatNumber(this.data.winamount, true)}`);
           } else {
-            this._txt_record_win.text = `-${utils.formatNumber(this.data.winamount, true)}`;
+            this.setText(this._txt_record_win, `-${utils.formatNumber(this.data.winamount, true)}`);
           }
         }
 
@@ -123,139 +111,11 @@ namespace we {
           }
         }
 
-        private formatRemark(remark) {
-          switch (remark) {
-            case 1:
-              return i18n.t('overlaypanel_bethistory_remark_win');
-            case -1:
-              return i18n.t('overlaypanel_bethistory_remark_lose');
-            case 0:
-              return i18n.t('overlaypanel_bethistory_remark_ties');
-            default:
-              return '';
-          }
-        }
-
-        private formatBetType(gametype, bettype: string) {
-          switch (gametype) {
-            case we.core.GameType.BAC:
-            case we.core.GameType.BAS:
-            case we.core.GameType.BAI:
-            case we.core.GameType.BAM:
-              return i18n.t(`betfield_baccarat_${bettype.toLowerCase()}`);
-
-            case we.core.GameType.DT:
-              return i18n.t(`betfield_dragonTiger_${bettype.toLowerCase()}`);
-            case we.core.GameType.DI:
-              return i18n.t(`dice.${bettype.toLowerCase()}`);
-            case we.core.GameType.DIL:
-              const res = bettype;
-              const dilresultStr = res.split('_');
-              const dilresult = dilresultStr[1];
-              return dilresult;
-            case we.core.GameType.RO:
-            case we.core.GameType.ROL:
-              const roresult = this.formatROBetType(bettype.toLowerCase());
-              // return i18n.t(`roulette.${bettype.toLowerCase()}`);
-              return roresult;
-            case we.core.GameType.LW:
-              const lwresult = this.formatLWBetType(bettype.toLowerCase());
-              return i18n.t(`luckywheel.${lwresult}`);
-            default:
-              return i18n.t(`betfield_${bettype.toLowerCase()}`);
-          }
-        }
-
-        private formatROBetType(bettype) {
-          const bettypearray = bettype.split('_'); // direct,SEPARAT,street,corner,LINE,row,DOZEN,RED,black,odd,even,small,big
-          switch (bettypearray[0]) {
-            case 'direct':
-              return `${i18n.t(`roulette.betGroup.direct`)} ${bettypearray[1]}`;
-            case 'separate':
-              return `${i18n.t(`roulette.betGroup.separate`)} (${bettypearray[1]},${bettypearray[2]})`;
-            case 'street':
-              return `${i18n.t(`roulette.betGroup.street`)} (${bettypearray[1]},${bettypearray[2]},${bettypearray[3]})`;
-            case 'corner':
-              return `${i18n.t(`roulette.corner`)} (${bettypearray[1]},${bettypearray[2]},${bettypearray[3]},${bettypearray[4]})`;
-            case 'line':
-              return `${i18n.t(`roulette.betGroup.line`)} (${bettypearray[1]},${(parseInt(bettypearray[1], 10) + 1).toString()},${(parseInt(bettypearray[1], 10) + 2).toString()},${(
-                parseInt(bettypearray[1], 10) + 3
-              ).toString()},${(parseInt(bettypearray[1], 10) + 4).toString()}, ${bettypearray[2]})`;
-            case 'row':
-              return `${i18n.t(`roulette.betGroup.row`)}_${i18n.t(`roulette.${bettype}`)}`;
-            case 'dozen':
-              return `${i18n.t(`roulette.dozen`)} (${bettypearray[1]} ${i18n.t(`roulette.to`)} ${bettypearray[2]})`;
-            case 'red':
-              return `${i18n.t(`roulette.roadRed`)}`;
-            case 'black':
-              return `${i18n.t(`roulette.roadBlack`)}`;
-            case 'odd':
-              return `${i18n.t(`roulette.roadOdd`)}`;
-            case 'even':
-              return `${i18n.t(`roulette.roadEven`)}`;
-            case 'small':
-              return `${i18n.t(`roulette.roadSmall`)}`;
-            case 'big':
-              return `${i18n.t(`roulette.roadBig`)}`;
-          }
-        }
-        private formatLWBetType(bettype) {
-          switch (bettype) {
-            case 'lw_0':
-              return 'east';
-            case 'lw_1':
-              return 'south';
-            case 'lw_2':
-              return 'west';
-            case 'lw_3':
-              return 'north';
-            case 'lw_4':
-              return 'red';
-            case 'lw_5':
-              return 'green';
-            case 'lw_6':
-              return 'white';
-          }
-        }
         private createGameResult(gametype, gameResult) {
-          let p: eui.Component;
-
-          switch (gametype) {
-            case we.core.GameType.BAC:
-            case we.core.GameType.BAS:
-            case we.core.GameType.BAI:
-            case we.core.GameType.BAM:
-              p = new BaResultItem(gameResult);
-              break;
-            case we.core.GameType.DT:
-              p = new DtResultItem(gameResult);
-              break;
-            case we.core.GameType.RO:
-              p = new RoResultItem(gameResult);
-              break;
-            case we.core.GameType.ROL:
-              p = new RolResultItem(gameResult);
-              break;
-            case we.core.GameType.DI:
-              p = new DiResultItem(gameResult);
-              break;
-            case we.core.GameType.DIL:
-              p = new DilResultItem(gameResult);
-              break;
-            case we.core.GameType.LW:
-              p = new LwResultItem(gameResult);
-              break;
-            case we.core.GameType.LO:
-              p = new LoResultItem(gameResult);
-              break;
-            case we.core.GameType.RC:
-              p = new RcResultItem(gameResult);
-              break;
-            default:
-              p = new eui.Component();
-              break;
+          if (!this._record_result) {
+            return;
           }
-
+          let p: eui.Component = utils.BetHistory.createGameResult(gametype,gameResult);
           this._record_result.removeChildren();
           this._record_result.addChild(p);
         }

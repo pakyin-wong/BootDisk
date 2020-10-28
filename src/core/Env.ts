@@ -16,7 +16,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.11.1';
+      public version: string = '0.11.2';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -37,6 +37,11 @@ namespace we {
       public _nicknames: { [langcode: string]: any } = {};
       public _groups: {};
       public groupName: { [groupKey: string]: string } = {};
+
+      public blockchain: { thirdPartySHA256:  string, cosmolink: string} = {
+        thirdPartySHA256 : '',
+        cosmolink : ''
+      };
       /**
        * {
        *  groupKey1:[
@@ -146,6 +151,7 @@ namespace we {
           core.GameType.BAS,
           core.GameType.BAM,
           core.GameType.BAB,
+          core.GameType.DTB,
           core.GameType.DI,
           core.GameType.DIL,
           core.GameType.DT,
@@ -310,6 +316,9 @@ namespace we {
             break;
           case core.GameType.DT:
             dir.sceneCtr.goto('dt', { tableid: tableId });
+            break;
+          case core.GameType.DTB:
+            dir.sceneCtr.goto('dtb', { tableid: tableId });
             break;
           case core.GameType.RO:
             dir.sceneCtr.goto('ro', { tableid: tableId });

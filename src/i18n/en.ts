@@ -19,6 +19,7 @@ namespace we {
       gametype_RO: 'RO',
       gametype_ROL: 'ROL',
       gametype_DT: 'DT',
+      gametype_DTB: 'DTB',
       gametype_LW: 'LW',
       gametype_LO: 'LO',
       gametype_RC: 'RC',
@@ -74,6 +75,7 @@ namespace we {
       overlaypanel_customroad_selectall: 'Select All',
 
       overlaypanel_bethistory_title: 'Bet Log',
+      overlaypanel_bethistory_tab: 'Class',
       overlaypanel_bethistory_tab_all: 'All',
       overlaypanel_bethistory_tab_live: 'Live',
       overlaypanel_bethistory_tab_lottery: 'Lottery',
@@ -97,6 +99,7 @@ namespace we {
       overlaypanel_bethistory_recordtab_orgbalance: 'Original Balance',
       overlaypanel_bethistory_recordtab_finbalance: 'Balance',
       overlaypanel_bethistory_recordtab_resuit: 'Game Result',
+      overlaypanel_bethistory_recordtab_vaildbet: 'Vaild bet',
       overlaypanel_bethistory_recordtab_noresult: 'No Bet Reult',
       overlaypanel_bethistory_remark_win: 'Win',
       overlaypanel_bethistory_remark_lose: 'Lose',
@@ -134,6 +137,8 @@ namespace we {
       overlaypanel_bethistorylottery_continuousbetdetails_doneAmount: 'Completed Bet',
 
       overlaypanel_bethistorylottery_popup_titme: 'Bet Detail',
+
+      overlaypanel_bethistorylottery_continuousbet_listtite: 'Bet List',
       overlaypanel_bethistorylottery_continuousbet_round: 'Round',
       overlaypanel_bethistorylottery_continuousbet_rate: 'Multiplier',
       overlaypanel_bethistorylottery_continuousbet_status: 'Status',
@@ -176,7 +181,8 @@ namespace we {
       datePicker_weekday_5: 'Fr',
       datePicker_weekday_6: 'Sa',
 
-      mobile_lobby_feature_title: 'Hot Game',
+      mobile_lobby_feature_title: 'Featured Games',
+      mobile_lobby_hot_game_title: 'Hot Games',
       mobile_ba_undo: 'Undo',
       mobile_ba_clear: 'Clear',
       mobile_ba_double: 'Double',
@@ -598,6 +604,10 @@ namespace we {
       message: {
         test: 'You won $1, and $2% will belongs to me',
         unknownError: 'An unknown error occurred',
+        connectionError: 'Network Connection lost',
+        restart: 'Restart',
+        retry: 'Retry',
+        cancel: 'Cancel',
       },
       winType: {
         ba: {
@@ -909,7 +919,7 @@ namespace we {
             DirectionSelection: '所选号码与开奖号码全部相同且顺序一致，即中奖',
             DirectMenu: '所选号码与开奖号码全部相同且顺序一致，即中奖',
             DirectCombination:
-              '所选号码的个位与开奖号码相同则中五等奖，十位和个位相同\n则中四等奖，百位、十位和个位相同则中三等奖，千位、百\n位、十位和个位相同则中二等奖，万位、千位、百位、十位和\n个位相同则中一等奖',
+            '所选号码的个位与开奖号码相同则中五等奖，十位和个位相同\n则中四等奖，百位、十位和个位相同则中三等奖，千位、百\n位、十位和个位相同则中二等奖，万位、千位、百位、十位和\n个位相同则中一等奖',
             Group120: '所选号码与开奖号码的万位、千位、百位、十位、个位相同且\n顺序不限，即中奖',
             Group60: '所选的单号号码与开奖号码相同，且所选二重号在开奖号码中\n出现2次且顺序不限，即中奖',
             Group30: '所选的单号号码与开奖号码相同，且所选2个二重号码分别在开\n奖号码中出现了2次且顺序不限，即中奖',

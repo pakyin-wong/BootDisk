@@ -23,6 +23,12 @@ namespace we {
       protected _factory: dragonBones.EgretFactory;
       protected _cards: dragonBones.EgretArmatureDisplay[] = new Array();
 
+      protected _skeletonName: string;
+
+      public set skeletonName(value: string){
+        this._skeletonName = value
+      }
+
       protected mount() {
         super.mount();
         this.createFactory();
@@ -160,9 +166,9 @@ namespace we {
       }
 
       protected createFactory() {
-        const skeletonData = RES.getRes(`blockchain_ske_json`);
-        const textureData = RES.getRes(`blockchain_tex_json`);
-        const texture = RES.getRes(`blockchain_tex_png`);
+        const skeletonData = RES.getRes(`${this._skeletonName}_ske_json`);
+        const textureData = RES.getRes(`${this._skeletonName}_tex_json`);
+        const texture = RES.getRes(`${this._skeletonName}_tex_png`);
         this._factory = new dragonBones.EgretFactory();
         this._factory.parseDragonBonesData(skeletonData);
         this._factory.parseTextureAtlasData(textureData, texture);
