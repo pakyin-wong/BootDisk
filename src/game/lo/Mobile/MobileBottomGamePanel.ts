@@ -80,9 +80,7 @@ namespace we {
       }
 
       public update() {
-        //   this._roadmapPanel.update();
-          // this._analysisPanel.update();
-          // this._statisticChartPanel.update();
+
       }
 
       public manualClose() {
