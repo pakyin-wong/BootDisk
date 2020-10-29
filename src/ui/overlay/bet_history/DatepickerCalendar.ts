@@ -124,12 +124,12 @@ namespace we {
           let diff = moment(today).diff(curr,"days")
           if ( diff < 91) {
             if (curr.isSame(date, 'day')) {
-              if (this._isFirstTime) {
-                this.setItemState(this._today, 'today', false);
-                this._isFirstTime = false;
-              } else {
+              // if (this._isFirstTime) {
+              //   this.setItemState(this._today, 'today', false);
+              //   this._isFirstTime = false;
+              // } else {
                 this.setItemState(d, 'single');
-              }
+              // }
             } else if (curr.isBetween(begin, end)) {
               this.setItemState(d, 'enabled');
               if (d == this._today) {
@@ -143,6 +143,25 @@ namespace we {
             }
           } else {
             this.setItemState(d, 'disabled'); // 
+          }
+        }
+      }
+
+      public checkIsAvailable() {
+        for (let d = 0; d < this._tday; d++) {
+          const curr = moment([this._year, this._month, d + 1]);
+          let todaytime = moment()
+            .utcOffset(8)
+            .startOf('day')
+            .unix();
+          let today = moment.unix(todaytime).startOf('day'); // get today's moment,disable it if curr - today > 90
+          let diff = moment(today).diff(curr,"days")
+          if (diff >= 91) {
+            this.setItemState(d, 'disabled');
+          } else {
+              if (d == this._today) {
+                this.setItemState(this._today, 'today');
+              }
           }
         }
       }

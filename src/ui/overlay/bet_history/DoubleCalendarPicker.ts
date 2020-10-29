@@ -80,6 +80,9 @@ namespace we {
           this._txt_current.text = `${this._start.format('YYYY / MM / DD')} - ${this._end.format('YYYY / MM / DD')}`;
           this._calender_next.select(this._start, this._end);
           this._calender_prev.select(this._start, this._end);
+        } else {
+          this._calender_next.checkIsAvailable();
+          this._calender_prev.checkIsAvailable();
         }
       }
 
