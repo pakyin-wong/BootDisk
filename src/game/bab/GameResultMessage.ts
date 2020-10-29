@@ -48,12 +48,12 @@ namespace we {
         }
       }
 
-      protected createFactory(){
+      protected createFactory() {
 
       }
 
       protected createAniamtionObject() {
-                const skeletonData = RES.getRes(`${this._skeletonName}_ske_json`);
+        const skeletonData = RES.getRes(`${this._skeletonName}_ske_json`);
         const textureData = RES.getRes(`${this._skeletonName}_tex_json`);
         const texture = RES.getRes(`${this._skeletonName}_tex_png`);
         const factory = new dragonBones.EgretFactory();
@@ -108,31 +108,40 @@ namespace we {
         this.visible = true;
         this._display.animation.play(anim, 1);
 
-        if (!isNaN(winAmount)) {
-          let slotName;
+        let slotName;
+        let slot;
+        let winText;
 
+        slotName = 'result';
+        slot = this._display.armature.getSlot(slotName);
+        winText = this.getWinText(background);
+        this.setLabel(slot, winText, 60, 0xFFFFFF, 'Microsoft JhengHei');
+
+        if (!isNaN(winAmount)) {
           slotName = 'credit';
-          const slot = this._display.armature.getSlot(slotName);
-          this.setLabel(slot,winAmount)
-          /*
-          const r = new eui.Label();
-          r.fontFamily = 'barlow';
-          r.size = 60;
-          r.text = utils.formatNumber(winAmount);
-          const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(3, 45, 0x111111, 0.1, 10, 10, 20, egret.BitmapFilterQuality.LOW);
-          r.filters = [shadowFilter];
-          r.bold = true;
-          r.textColor = 0xffffff;
-          const layer = new eui.Group();
-          layer.addChild(r);
-          layer.anchorOffsetX = r.width * 0.5;
-          layer.anchorOffsetY = r.height * 0.5;
-          slot.display = layer;
-          */
+          slot = this._display.armature.getSlot(slotName);
+          this.setLabel(slot, utils.formatNumber(winAmount))
         }
       }
 
-      protected setLabel(slot: dragonBones.Slot, num: number, size = 60) {
+      protected getWinText(background: string) {
+        let winText;
+        switch (background) {
+          case 'r':
+            winText = i18n.t('winType.ba.BANKER')
+            break;
+          case 'b':
+            winText = i18n.t('winType.ba.PLAYER')
+            break;
+          case 'g':
+          default:
+            winText = i18n.t('winType.ba.TIE');
+            break;
+        }
+        return winText;
+      }
+
+      protected setLabel(slot: dragonBones.Slot, text: string, size = 60, color = 0xd2fdff, fontFamily = 'barlow') {
         /*
         const cardLabel = new ui.LabelImage();
         cardLabel.size = size;
@@ -142,14 +151,14 @@ namespace we {
         cardLabel.hasShadow = true;
         cardLabel.text = num.toString();
 */
-          const r = new ui.LabelImage();
-          r.fontFamily = 'barlow';
-          r.size = size;
-          r.text = utils.formatNumber(num);
-          const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(3, 45, 0x111111, 0.1, 10, 10, 20, egret.BitmapFilterQuality.LOW);
-          r.filters = [shadowFilter];
-          r.bold = true;
-          r.textColor = 0xffffff;
+        const r = new ui.LabelImage();
+        r.fontFamily = fontFamily;
+        r.size = size;
+        r.text = text;
+        const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(3, 45, 0x111111, 0.1, 10, 10, 20, egret.BitmapFilterQuality.LOW);
+        r.filters = [shadowFilter];
+        r.bold = true;
+        r.textColor = color;
 
         // create a new ImageDisplayData with a EgretTextureData holding the new texture
         const displayData: dragonBones.ImageDisplayData = new dragonBones.ImageDisplayData();
