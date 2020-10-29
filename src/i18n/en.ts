@@ -289,7 +289,7 @@ namespace we {
           },
         },
       },
-      gamegroup_tab_live: 'Live',
+      gamegroup_tab_live: 'Live Casino',
       gamegroup_tab_lottery: 'Lottery',
       lobby: {
         header: {
@@ -333,7 +333,7 @@ namespace we {
         gametype: {
           allGame: 'All',
           bacarrat: 'Baccarat',
-          dragontiger: 'DT',
+          dragontiger: 'Dragon Tiger',
           luckywheel: 'Wheel',
           roulette: 'Roulette',
           dice: 'SicBo',
