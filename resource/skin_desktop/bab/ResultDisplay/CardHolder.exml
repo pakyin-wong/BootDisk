@@ -42,4 +42,5 @@
         </e:Group>
         <e:Group x="444" y="150" id="_smallRedCardGroup" >
         </e:Group>
+        <ui:RunTimeLabel x="540" y="150" id="_smallRedCardDesc" visible="false" i18n="baccarat.redCardDesc"/>
 </e:Skin>

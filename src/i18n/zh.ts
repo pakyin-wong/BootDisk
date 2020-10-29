@@ -601,6 +601,7 @@ namespace we {
         decryptedKey: '卡牌加密文',
         ssn: '卡牌序號',
         lastRound: '上局結果',
+        redCardDesc: '紅卡：該局遊戲結束後進行換靴',
       },
       message: {
         test: '你贏左 $1，$2% 會比左我',
