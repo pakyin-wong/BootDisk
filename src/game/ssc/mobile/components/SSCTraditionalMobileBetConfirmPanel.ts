@@ -43,6 +43,21 @@ namespace we {
         this.computeTotalNoteAmount();
         this._lblRoundNumber.renderText = () => `${this._currentRoundNumber + '期'}`;
       }
+
+      protected regenerateBetitemFromField(DataString: string) {
+        let newdatastring = '';
+        const spliteddatastring = DataString.split('');
+        if (spliteddatastring.length < 80) {
+          newdatastring = DataString;
+        } else {
+          for (let i = 0; i < 80; i++) {
+            newdatastring += spliteddatastring[i];
+          }
+          newdatastring += '...';
+        }
+        return newdatastring;
+      }
+      
     }
   }
 }

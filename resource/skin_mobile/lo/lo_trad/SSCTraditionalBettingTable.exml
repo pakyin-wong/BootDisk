@@ -22,7 +22,7 @@
                 <ui:Scroller id="_buttonGroup" width="1170" height.on="960" height.extend="1527" height.off="0"> 
                     <e:Group id="_bettingTableViewPort" width="1170" height.on="960" height.extend="1527" height.off="0">
                         <e:layout>
-                            <e:VerticalLayout gap="36" paddingBottom="300" horizontalAlign="center"/>
+                            <e:VerticalLayout gap="36" paddingTop="5" paddingBottom="300" horizontalAlign="center"/>
                         </e:layout>
                     </e:Group>
                 </ui:Scroller>

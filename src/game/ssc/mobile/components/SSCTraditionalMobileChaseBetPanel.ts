@@ -27,7 +27,7 @@ namespace we {
         this.createChasePanel();
         this.initData();
         this.mapData();
-        // this.generateDatas();
+        this.generateDatas();
         this.addListeners();
       }
 
@@ -115,6 +115,7 @@ namespace we {
         this.initData();
         // this.createListTitlePanel();
         this.remappingData();
+        this.updateRound(20);
       }
 
       protected onChaseTypeUpdate(value) {
@@ -170,13 +171,28 @@ namespace we {
 
         // TODO - create chaseBetConfirmPanel
         dir.evtHandler.createOverlay({
-          class: 'SSCChaseBetConfirmPanel',
+          class: 'SSCTraditionalMobileChaseBetConfirmPanel',
           args: [this._noteData, this._combinedData[0].gameroundid, roundData, this],
         });
       }
 
       protected updateIsStopChaseIfWon(v){
         this._isStopWon = v;
+      }
+
+      public updateRound(round) {
+        if (this._combinedData.length === 0) {
+          return;
+        }
+        this._combinedData.map((e, i) => {
+          if (i < round) {
+            e.isActive = true;
+          } else {
+            e.isActive = false;
+          }
+        });
+
+        this.remappingData();
       }
     }
   }

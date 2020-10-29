@@ -7,7 +7,7 @@
         </e:Group>
         <e:Group x="48" y="40" width="580" height="62">
 		    <ui:RunTimeLabel id="_lblCurrentRoundTitle" text="訂單起始獎期號：" width="336" targetWidth="336" height="62" size="42" verticalAlign="middle" textColor="0xffffff" scaleX="1" scaleY="1" alpha="0.7"/>
-		    <ui:RunTimeLabel id="_lblCurrentRound" text="" width="244" targetWidth="500" height="55" size="38" textColor="0xffffff" scaleX="1" scaleY="1" alpha="0.7" textAlign="center" verticalAlign="middle"/>
+		    <ui:RunTimeLabel id="_lblCurrentRound" text="" width="750" targetWidth="500" height="55" size="38" textColor="0xffffff" scaleX="1" scaleY="1" alpha="0.7" textAlign="center" verticalAlign="middle"/>
             <e:layout>
                 <e:HorizontalLayout verticalAlign="middle" gap="0"/>
             </e:layout>

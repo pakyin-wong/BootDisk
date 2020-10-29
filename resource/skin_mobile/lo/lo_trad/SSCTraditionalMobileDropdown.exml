@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile.lo.SSCTraditionalMobileDropdown" width="1242" height="765" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
-	<e:Group id="content" y="0" width="1242" height="765">
+<e:Skin class="skin_mobile.lo.SSCTraditionalMobileDropdown" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Group id="content" y="1390" width="1242" height="765">
 		<e:Rect fillColor="0x1a1a1a" top="0" bottom="0" left="0" right="0" ellipseWidth="48" ellipseHeight="48"/>
 		<e:Group id="_btnConfirm" height="80" right="40" y="25">
             <ui:RunTimeLabel id="_confirm" text="Label" height="80" verticalAlign="middle" textAlign="center" size="60"/>

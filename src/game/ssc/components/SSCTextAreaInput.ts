@@ -33,6 +33,9 @@ namespace we {
       }
 
       protected initComponents() {
+        if(env.isMobile){
+          this._textArea.inputType = egret.TextFieldInputType.TEL;
+        }
         this.addListeners();
         this.updateText();
       }

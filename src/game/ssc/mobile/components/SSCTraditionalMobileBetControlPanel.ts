@@ -90,6 +90,7 @@ namespace we {
             this._currentPanelGroup.addChildAt(this._noteControl,1);
             this._btnNoteControlBg.fillColor = '0x1b416e';
             this._btnChaseBetBg.fillColor = '0x0c2848';
+
           break;
           case 1:
             this._noteControl.visible = false;
@@ -101,6 +102,8 @@ namespace we {
             this._btnChaseBetBg.fillColor = '0x1b416e';
           break;
         }
+        this._btnNoteControlBg.refresh();
+        this._btnChaseBetBg.refresh();
       }
 
       protected updateBetInfo(e){

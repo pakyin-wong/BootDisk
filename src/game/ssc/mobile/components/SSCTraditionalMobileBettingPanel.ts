@@ -64,9 +64,9 @@ namespace we {
       public bettingTableStates = ['off', 'on', 'extend'];
       protected _currentBettingStateIndex = -1;
 
-      protected _dropDownOverlay: eui.Group;
-      protected _bettingTypeDropDown: SSCTraditionalMobileDropdown;
-      protected _betControlPanelGroup: eui.Group;
+      // protected _dropDownOverlay: eui.Group;
+      // protected _bettingTypeDropDown: SSCTraditionalMobileDropdown;
+      // protected _betControlPanelGroup: eui.Group;
       // protected _betControlPanel: SSCTraditionalMobileBetControlPanel;
       protected _btnBet : ui.RoundRectButton;
 
@@ -112,12 +112,12 @@ namespace we {
       protected mount() {}
 
       protected initComponents() {
-        this._bettingTypeDropDown = new SSCTraditionalMobileDropdown(this._currentMap, this);
-        this._dropDownOverlay.addChild(this._bettingTypeDropDown);
-        this._bettingTypeDropDown.bottom = 0;
-        this._bettingTypeDropDown.horizontalCenter = 0;
-        this._dropDownOverlay.touchEnabled = false;
-        this._dropDownOverlay.touchThrough = true;
+        // this._bettingTypeDropDown = new SSCTraditionalMobileDropdown(this._currentMap, this);
+        // this._dropDownOverlay.addChild(this._bettingTypeDropDown);
+        // this._bettingTypeDropDown.bottom = 0;
+        // this._bettingTypeDropDown.horizontalCenter = 0;
+        // this._dropDownOverlay.touchEnabled = false;
+        // this._dropDownOverlay.touchThrough = true;
 
         this._noteControl = new SSCTraditionalNoteControl();
         this.addChildAt(this._noteControl,0)
@@ -141,7 +141,7 @@ namespace we {
       }
 
       protected updateCurrentIndex(e) {
-        this._dropDownOverlay.touchEnabled = false;
+        // this._dropDownOverlay.touchEnabled = false;
         this._currentBigTagIndex = e.data.betType;
         this._currentSmallTagIndex = e.data.betMode;
 
@@ -268,8 +268,15 @@ namespace we {
       }
 
       public toggleGameTypeDropdown(e) {
-        this._dropDownOverlay.touchEnabled = true;
-        this._bettingTypeDropDown.dispatchEvent(new egret.Event('LO_TRAD_TOGGLE_MOBILE_GAMETYPE_DROPDOWN'));
+        // this._bettingTypeDropDown = new SSCTraditionalMobileDropdown(this._currentMap, this);
+
+        dir.evtHandler.createOverlay({
+          class: 'SSCTraditionalMobileDropdown',
+          args: [this._currentMap, this],
+        });
+
+        // this._dropDownOverlay.touchEnabled = true;
+        // this._bettingTypeDropDown.dispatchEvent(new egret.Event('LO_TRAD_TOGGLE_MOBILE_GAMETYPE_DROPDOWN'));
       }
 
       protected init() {

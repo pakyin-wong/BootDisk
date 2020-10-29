@@ -1,6 +1,6 @@
 // TypeScript file
 namespace we {
-  export namespace lo {
+  export namespace overlay {
     export class SSCTraditionalMobileDropdown extends ui.Panel {
       private _betTypeScroller: eui.Scroller;
       private _betTypeList: eui.List;
@@ -32,7 +32,7 @@ namespace we {
         this._config = config;
         this.skinName = 'skin_mobile.lo.SSCTraditionalMobileDropdown';
         this.isPoppable = true;
-        this.hideOnStart = true;
+        // this.hideOnStart = true;
         this.dismissOnClickOutside = true;
         this.poppableAddon = new ui.PoppableAddonBottomSilder(this);
       }
@@ -40,18 +40,19 @@ namespace we {
       protected mount() {
         super.mount();
         this.addEventListeners();
+        this.toggleDropdown();
       }
 
       protected addEventListeners(){
-        this.addEventListener('LO_TRAD_TOGGLE_MOBILE_GAMETYPE_DROPDOWN', this.toggleDropdown, this);
+        // this.addEventListener('LO_TRAD_TOGGLE_MOBILE_GAMETYPE_DROPDOWN', this.toggleDropdown, this);
         this._btnConfirm.addEventListener(egret.TouchEvent.TOUCH_TAP, this.syncResult, this);
       }
 
       protected removeEventListeners(){
-        this.removeEventListener('LO_TRAD_TOGGLE_MOBILE_GAMETYPE_DROPDOWN', this.toggleDropdown, this);
+        // this.removeEventListener('LO_TRAD_TOGGLE_MOBILE_GAMETYPE_DROPDOWN', this.toggleDropdown, this);
         this._btnConfirm.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.syncResult, this);
       }
-      protected async toggleDropdown(e) {
+      protected async toggleDropdown(e = null) {
         if (this.isActivated) {
           return;
         }
@@ -70,8 +71,8 @@ namespace we {
         this._betModeList.dataProvider = this._betModeDataCollection;
         this._betTypeList.dataProviderRefreshed();
         this._betModeList.dataProviderRefreshed();
-        this._betTypeList.itemRenderer = SSCTraditionalMobileDropdownItemRender;
-        this._betModeList.itemRenderer = SSCTraditionalMobileDropdownItemRender;
+        this._betTypeList.itemRenderer = lo.SSCTraditionalMobileDropdownItemRender;
+        this._betModeList.itemRenderer = lo.SSCTraditionalMobileDropdownItemRender;
 
         this.show();
       }
@@ -161,13 +162,13 @@ namespace we {
         (<ui.RunTimeLabel>this._btnConfirm).renderText = () => `${i18n.t('mobile_dropdown_confirm')}`;
         this._betTypeScroller.bounces = false;
         this._betTypeList.dataProvider = this._betTypeDataCollection;
-        this._betTypeList.itemRenderer = SSCTraditionalMobileDropdownItemRender;
+        this._betTypeList.itemRenderer = lo.SSCTraditionalMobileDropdownItemRender;
         this._betTypeList.requireSelection = true;
         this._betTypeScroller.viewport = this._betTypeList;
 
         this._betModeScroller.bounces = false;
         this._betModeList.dataProvider = this._betModeDataCollection;
-        this._betModeList.itemRenderer = SSCTraditionalMobileDropdownItemRender;
+        this._betModeList.itemRenderer = lo.SSCTraditionalMobileDropdownItemRender;
         this._betModeList.requireSelection = true;
         this._betModeScroller.viewport = this._betModeList;
 
@@ -226,7 +227,7 @@ namespace we {
         this._betModeDataCollection.replaceAll([].concat(tempBetMode));
         this._betModeList.dataProvider = this._betModeDataCollection;
         this._betModeList.dataProviderRefreshed();
-        this._betModeList.itemRenderer = SSCTraditionalMobileDropdownItemRender;
+        this._betModeList.itemRenderer = lo.SSCTraditionalMobileDropdownItemRender;
         this._betModeList.selectedIndex = 0;
         this._currentSmallTagIndex = 0;
       }
