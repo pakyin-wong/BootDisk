@@ -753,6 +753,7 @@
 		"resource/skin_mobile/lo/lo_trad/InputComponents/SSCTextAreaInput.exml",
 		"resource/skin_mobile/lo/lo_trad/SSCBetConfirmPanel.exml",
 		"resource/skin_mobile/lo/lo_trad/SSCBetNoteItem.exml",
+		"resource/skin_mobile/lo/lo_trad/SSCChaseBetConfirmPanel.exml",
 		"resource/skin_mobile/lo/lo_trad/SSCTraditionalBetControlPanel.exml",
 		"resource/skin_mobile/lo/lo_trad/SSCTraditionalBettingControlBar.exml",
 		"resource/skin_mobile/lo/lo_trad/SSCTraditionalBettingOptionButtonRow.exml",
