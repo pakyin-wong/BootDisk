@@ -113,6 +113,8 @@ namespace we {
 
           slotName = 'credit';
           const slot = this._display.armature.getSlot(slotName);
+          this.setLabel(slot,winAmount)
+          /*
           const r = new eui.Label();
           r.fontFamily = 'barlow';
           r.size = 60;
@@ -126,8 +128,54 @@ namespace we {
           layer.anchorOffsetX = r.width * 0.5;
           layer.anchorOffsetY = r.height * 0.5;
           slot.display = layer;
+          */
         }
       }
+
+      protected setLabel(slot: dragonBones.Slot, num: number, size = 60) {
+        /*
+        const cardLabel = new ui.LabelImage();
+        cardLabel.size = size;
+        cardLabel.textColor = 0xd2fdff;
+        cardLabel.fontFamily = 'BarlowBold';
+        cardLabel.bold = true;
+        cardLabel.hasShadow = true;
+        cardLabel.text = num.toString();
+*/
+          const r = new ui.LabelImage();
+          r.fontFamily = 'barlow';
+          r.size = size;
+          r.text = utils.formatNumber(num);
+          const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(3, 45, 0x111111, 0.1, 10, 10, 20, egret.BitmapFilterQuality.LOW);
+          r.filters = [shadowFilter];
+          r.bold = true;
+          r.textColor = 0xffffff;
+
+        // create a new ImageDisplayData with a EgretTextureData holding the new texture
+        const displayData: dragonBones.ImageDisplayData = new dragonBones.ImageDisplayData();
+        let textureData: dragonBones.EgretTextureData = new dragonBones.EgretTextureData();
+        textureData.renderTexture = r.texture;
+        textureData.region.x = 0;
+        textureData.region.y = 0;
+        textureData.region.width = textureData.renderTexture.textureWidth;
+        textureData.region.height = textureData.renderTexture.textureHeight;
+        textureData.parent = new dragonBones.EgretTextureAtlasData();
+        textureData.parent.scale = 1;
+        displayData.texture = textureData;
+        displayData.pivot.x = 0.5;
+        displayData.pivot.y = 0.5;
+
+        // type 0 is ImageDisplayData
+        displayData.type = 0;
+
+        slot.replaceDisplayData(displayData, 0);
+
+        // set the displayIndex to non zero since new value == current index will not trigger redraw
+        slot.displayIndex = -1;
+        slot.displayIndex = 0;
+      }
+
+
     }
   }
 }
