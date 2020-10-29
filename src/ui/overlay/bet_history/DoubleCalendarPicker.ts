@@ -27,9 +27,6 @@ namespace we {
       private prevCurrentMonthIndex: number = -1;
       private tempCurrentMonthIndex: number;
 
-      private test1:any;
-      private test2:any;
-
       constructor() {
         super();
         this._current = moment().startOf('month');
@@ -171,9 +168,7 @@ namespace we {
         // this.prevCurrentMonthIndex = -1;
 
         const start = moment.unix(starttime).startOf('day');
-        this.test1 = start;
         const end = moment.unix(endtime).startOf('day');
-        this.test2 = end;
         this.checkDisplayMonth(end)
         console.log('DoubleCalendarPicker::setTo::start',start)
         console.log('DoubleCalendarPicker::setTo::end',end)

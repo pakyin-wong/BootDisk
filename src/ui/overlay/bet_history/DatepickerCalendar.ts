@@ -134,7 +134,7 @@ namespace we {
               this.setItemState(this._today, 'today');
             }
           } else {
-            this.setItemState(d, 'disabled');
+            this.setItemState(d, 'disabled'); // 
             if (d == this._today) {
               this.setItemState(this._today, 'today', false);
             }
@@ -146,19 +146,32 @@ namespace we {
         this.setItemState(this._today, 'today');
         for (let d = 0; d < this._tday; d++) {
           const curr = moment([this._year, this._month, d + 1]);
-          if (curr.isSame(begin, 'day')) {
-            this.setItemState(d, 'begin');
-          } else if (curr.isSame(end, 'day')) {
-            this.setItemState(d, 'end');
-          } else if (curr.isBetween(begin, end)) {
-            this.setItemState(d, 'multi');
-          } else {
-            if (d == this._today) {
-              this.setItemState(this._today, 'today');
+          console.log('curr',curr)
+        let todaytime = moment()
+          .utcOffset(8)
+          .startOf('day')
+          .unix();
+        let today = moment.unix(todaytime).startOf('day'); // get today's moment,disable it if curr - today > 90
+        let diff = moment(today).diff(curr,"days")
+        console.log('diff in Datepickeritem (curr - today)',diff)
+        if (diff < 91) {
+
+            if (curr.isSame(begin, 'day')) {
+              this.setItemState(d, 'begin');
+            } else if (curr.isSame(end, 'day')) {
+              this.setItemState(d, 'end');
+            } else if (curr.isBetween(begin, end)) {
+              this.setItemState(d, 'multi');
             } else {
-              this.setItemState(d, 'enabled');
+              if (d == this._today) {
+                this.setItemState(this._today, 'today');
+              } else {
+                this.setItemState(d, 'enabled');
+              }
             }
-          }
+        } else {
+          this.setItemState(d, 'disabled');
+        }
         }
       }
 
