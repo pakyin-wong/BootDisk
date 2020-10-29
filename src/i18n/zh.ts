@@ -908,6 +908,8 @@ namespace we {
           multiplier: '倍數',
           betamount: '金額',
           action: '操作',
+          confirmbet:'確認購買',
+          coin:'元',
         },
         description: {
           checkbox: '請至少選擇$min$位位數，您當前選擇了$count$個位置\n，系統將自動生成$combination$個方案',
@@ -1106,8 +1108,50 @@ namespace we {
           confirmbet: '確認追號投注',
           lowestProfitRate: '最低收益率 (%)',
 
+          btnround:'期',
+          continuousChase:'連續追',
+          startmulti:'起始倍數',
+          to:'隔',
+          profitnotice:'注意：利潤率計算使用當前用戶最小獎金組展示',
+
           profitmsg_0: '利潤率追號不支持混選\n請確保您的投注都為同一玩法類型\n且元角模式保持一致',
           profitmsg_1: '您設置的參數無法達到盈利，請重新設置',
+        },
+        confirm_panel:{
+          betconfirm:'投注確認',
+          lotterynametitle:'彩種名稱',
+          lotterynametitle_lo:'WG 時時彩',
+          betmodetitle:'玩法投注',
+          winratiotitle:'賠率',
+          singlebetAmountTitle:'單注金額',
+          totalnotetitle:'總注數',
+          notetext:'注',
+          totalbetamountitle:'總投注額',
+          roundnumbertitle:'投注期數',
+          chaseroundtitle:'追號期數',
+          startroundtitle:'起始期数'
+        },
+        bettingcontrol:{
+          betdescription:'中獎說明',
+          totalnotechosen:'已選：',
+          totalbetchosen:'共計：',
+          addbetfields:'加入購物籃',
+          instantbet:'立即購買'
+        },
+        mobile_betcontrol:{
+          currentroundtitle:'訂單起始獎期號：',
+          notecontrol:'訂單詳情',
+          chasebetpanel:'我要追號',
+          multi:'倍',
+        },
+        mobile_chasebet:{
+          chasebetmode:'追號模式：原訂單倍數自動初始化為1倍',
+          chasetype:'追號類型',
+          chasevalue:'追號參數',
+          multiplierTitle:'起始倍數 ( 注單1倍 )',
+          stopchaseifwon:'追中即停 ( 注單1倍 )',
+          roundseparate:'間隔期數',
+          separatemultiplier:'變動倍數',
         },
         ballresultpos: {
           p1: '萬',

@@ -57,7 +57,7 @@ namespace we {
           return;
         }
         this.initOpt();
-        this._title.renderText = () => `${i18n.t('lo_trad.mobileui.playmode')}`;
+        this._title.renderText = () => `${i18n.t('lo_trad.ui.gamemode')}`;
         this._confirm.renderText = () =>`${i18n.t('mobile_dropdown_confirm')}`;
 
         this._currentBigTagIndex = 0;

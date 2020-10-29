@@ -254,22 +254,23 @@ namespace we {
 
       public updateText() {
         // need to update i18n later
-        this._lblBetConfirm.renderText = () => `${'投注確認'}`;
-        this._lblLotteryName.renderText = () => `${'彩種名稱'}`;
-        this._lblLotteryNameText.renderText = () => `${'WG 時時彩'}`;
-        this._lblBetModeTitle.renderText = () => `${'玩法投注'}`;
-        this._lblWinRatioTitle.renderText = () => `${'賠率'}`;
-        this._lblSingleBetAmountTitle.renderText = () => `${'單注金額'}`;
+        //lo_trad.chase.confirm_panel.
+        this._lblBetConfirm.renderText = () => `${i18n.t('lo_trad.confirm_panel.betconfirm')}`;
+        this._lblLotteryName.renderText = () => `${i18n.t('lo_trad.confirm_panel.lotterynametitle')}`;
+        this._lblLotteryNameText.renderText = () => `${i18n.t('lo_trad.confirm_panel.lotterynametitle_lo')}`;
+        this._lblBetModeTitle.renderText = () => `${i18n.t('lo_trad.confirm_panel.betmodetitle')}`;
+        this._lblWinRatioTitle.renderText = () => `${i18n.t('lo_trad.confirm_panel.winratiotitle')}`;
+        this._lblSingleBetAmountTitle.renderText = () => `${i18n.t('lo_trad.confirm_panel.singlebetAmountTitle')}`;
 
-        this._lblTotalNoteAmountTitle.renderText = () => `${'總注數'}`;
+        this._lblTotalNoteAmountTitle.renderText = () => `${i18n.t('lo_trad.confirm_panel.totalnotetitle')}`;
         // this._lblTotalNoteAmount;
-        this._lblNoteText.renderText = () => `${'注'}`;
+        this._lblNoteText.renderText = () => `${i18n.t('lo_trad.confirm_panel.notetext')}`;
 
-        this._lblTotalBetAmountTitle.renderText = () => `${'總投注額'}`;
+        this._lblTotalBetAmountTitle.renderText = () => `${i18n.t('lo_trad.confirm_panel.totalbetamountitle')}`;
         // this._lblTotalBetAmount;
-        this._lblTitleRoundNumber.renderText = () => `${'投注期數'}`;
-        this._lblBtnCancel.renderText = () => `${'取消'}`;
-        this._lblConfirmBet.renderText = () => `${'確認購買'}`;
+        this._lblTitleRoundNumber.renderText = () =>`${i18n.t('lo_trad.confirm_panel.roundnumbertitle')}`;
+        this._lblBtnCancel.renderText = () => `${i18n.t('nav.menu.cancel')}`;
+        this._lblConfirmBet.renderText = () => `${i18n.t('lo_trad.ui.confirmbet')}`;
       }
 
       protected destroy() {
