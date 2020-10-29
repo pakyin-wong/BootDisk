@@ -29,7 +29,6 @@ namespace we {
         root.slider = new we.ui.ImageSlider();
         root.slider.height = 1242;
         root.slider.width = 1242;
-        root.slider.configSlides(dir.liveResources.liveHeroBanners);
         root.sliderGroup.addChild(root.slider);
 
         const bullets = new ui.ImageSliderBullet();
@@ -39,6 +38,8 @@ namespace we {
         bullets.imageSlider = root.slider;
         root.slider.bullets = bullets;
         root.sliderGroup.addChild(bullets);
+
+        this.reloadBanners();
 
         // root.holder = new we.ui.HorizontalHolder();
         // root.holder.slideHeight = 1242;
@@ -167,7 +168,9 @@ namespace we {
         dir.evtHandler.dispatch(core.Event.UPDATE_NAVBAR_OPACITY, opacity);
       }
 
-      public reloadBanners() {}
+      public reloadBanners() {
+        this.root.slider.configSlides(dir.liveResources.heroBanners);
+      }
     }
   }
 }

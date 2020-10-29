@@ -1,8 +1,12 @@
 namespace we {
   export namespace core {
     export enum lang {
-      CN = 'zh-cn',
-      EN = 'en-us',
+      CN = 'cn',
+      ZH = 'zh',
+      EN = 'en',
+      // CN = 'zh-cn',
+      // ZH = 'zh-hk',
+      // EN = 'en-us',
     }
   }
 }

@@ -30,7 +30,6 @@ namespace we {
           this.chipScale = this.chipSizeScale;
         }
         this._chipsetLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
-        console.log(`..............${this.horizontalGapSize}`);
         this._chipsetLayout.horizontalGap = this.horizontalGapSize;
         this._chipsetLayout.verticalGap = this.verticalGapSize;
         this._chipsetLayout.paddingTop = this._normalGapSize;

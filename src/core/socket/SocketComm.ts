@@ -85,6 +85,19 @@ namespace we {
         this.client.subscribe(core.MQTT.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
         this.client.subscribe(core.MQTT.ERROR, this.onError, this);
         this.client.subscribe(core.MQTT.NOTIFICATION_ROADMAP_MATCH, this.onGoodRoadMatch, this);
+        this.client.subscribe(core.MQTT.CLOSE, this.onConnectionClose, this);
+      }
+
+      public onConnectionClose(value: any) {
+        const err = {
+          code: 1000,
+          error: "CONNECTION_CLOSE",
+          detail: i18n.t("message.connectionError"),
+          priority: 10,
+          action: 'restart',
+          timestamp: egret.getTimer()
+        }
+        dir.errHandler.handleError(err);
       }
 
       public onError(value: any) {
@@ -233,7 +246,7 @@ namespace we {
             messages: [],
           });
         } else {
-          this.client.getLobbyMaterial(this.warpServerCallback(callback));
+          this.client.getLobbyMaterial(this.warpServerCallback(callback), env.language);
         }
       }
 
@@ -243,7 +256,7 @@ namespace we {
             await callback.bind(thisArg)(res);
             resolve();
           };
-          this.client.getLobbyMaterial(this.warpServerCallback(resolveFunc));
+          this.client.getLobbyMaterial(this.warpServerCallback(resolveFunc), env.language);
           // this.client.getLobbyMaterial(env.language, this.warpServerCallback(resolveFunc));
         });
       }
@@ -269,7 +282,7 @@ namespace we {
       protected handleReady(player: data.PlayerSession, timestamp: string) {
         // return data with struct data.PlayerSession
 
-        console.log(player);
+        //console.log('player',player);
 
         this.updateTimestamp(timestamp);
         env.playerID = player.playerid;
@@ -285,6 +298,11 @@ namespace we {
             env.favouriteTableList = [];
           }
         }
+
+        env.blockchain.cosmolink = player.blockchainlinks.cosmoslink
+        env.blockchain.thirdPartySHA256 = player.blockchainlinks.thirdpartysha256
+
+        console.log('blockchain', env.blockchain)
 
         // env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
         // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
@@ -373,8 +391,8 @@ namespace we {
         //env.betLimits = [env.betLimits];
         //}
         env.currentSelectedBetLimitIndex = player.profile.settings.currentSelectedBetLimitIndex ? player.profile.settings.currentSelectedBetLimitIndex : 0;
-        env.language = player.profile.settings.language ? player.profile.settings.language : 'sc';
-        we.i18n.setLang(env.language ? env.language : 'sc', true);
+        env.language = player.profile.settings.language ? player.profile.settings.language : 'cn';
+        we.i18n.setLang(env.language ? env.language : 'cn', true);
         /*
         let denominationList = [];
         for (const betLimit of env.betLimits) {

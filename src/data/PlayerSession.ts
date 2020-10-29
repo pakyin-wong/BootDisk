@@ -20,6 +20,10 @@ namespace we {
         currentSelectedBetLimitIndex: number;
         language: string;
       };
+      public blockchainlinks: {
+        cosmoslink: string,
+        thirdpartysha256: string
+      };
     }
   }
 }

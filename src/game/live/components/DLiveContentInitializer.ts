@@ -120,7 +120,6 @@ namespace we {
         root.slider = new we.ui.ImageSlider();
         root.slider.height = 790;
         root.slider.width = 2600;
-        root.slider.configSlides(dir.liveResources.liveHeroBanners);
 
         const tabBarGroup = new eui.Group();
         this._tabbarBg = new eui.Rect();
@@ -147,6 +146,8 @@ namespace we {
         root.roomList.addChild(this._stickyHeader);
 
         root.scroller.viewport = root.roomList;
+
+        this.reloadBanners();
       }
 
       public onDisplayMode(evt: egret.Event) {
@@ -245,7 +246,9 @@ namespace we {
         dir.evtHandler.dispatch(core.Event.UPDATE_NAVBAR_OPACITY, opacity);
       }
 
-      public reloadBanners() {}
+      public reloadBanners() {
+        this.root.slider.configSlides(dir.liveResources.heroBanners);
+      }
     }
   }
 }

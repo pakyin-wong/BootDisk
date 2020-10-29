@@ -86,7 +86,7 @@ namespace we {
         this._thirdPartyButton.addEventListener(
           egret.TouchEvent.TOUCH_TAP,
           () => {
-            window.open('https://emn178.github.io/online-tools/sha256.html');
+            window.open(env.blockchain.thirdPartySHA256);
           },
           this
         );

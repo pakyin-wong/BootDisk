@@ -19,7 +19,6 @@ namespace we {
         root.slider.width = 850;
         root.slider.height = 850;
         root.slider.maskRadius = 48;
-        root.slider.configSlides(dir.liveResources.liveHeroBanners);
         root.sliderGroup.addChild(root.slider);
 
         const bullets = new ui.ImageSliderBullet();
@@ -30,6 +29,7 @@ namespace we {
         root.slider.bullets = bullets;
         root.sliderGroup.addChild(bullets);
 
+        this.reloadBanners();
         // root.holder = new we.ui.HorizontalHolder();
         // root.holder.maskRadius = 48;
         // root.holder.x = 60;
@@ -120,7 +120,9 @@ namespace we {
         }
       }
 
-      public reloadBanners() {}
+      public reloadBanners() {
+        this.root.slider.configSlides(dir.liveResources.heroBanners);
+      }
     }
   }
 }
