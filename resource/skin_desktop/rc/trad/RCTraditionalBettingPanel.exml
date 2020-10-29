@@ -7,7 +7,7 @@
     </e:Group>
     <e:Group id="_content" width="1508" height="849">
         <e:Group id="_topGroup" width="1508" height="127">
-            <e:Image x="10" y="20" width="87" height="86"/>
+            <e:Image x="10" y="20" width="87" height="86" source="d_lottery_pk10_trad_logo_eng_png"/>
             <ui:RunTimeLabel id="_lblbettingDeadLine" text="本期投注" y="20" textAlign="left" x="121" width="200" height="36" size="24" verticalAlign="middle" alpha=".7"/>
             <ui:RunTimeLabel id="_lblCurrentRound" targetWidth="236" text="20200414029" y="60" textAlign="left" x="121" width="236" height="36" size="30" verticalAlign="middle" textColor="0xc59466" bold="true" anchorOffsetX="0"/>
             <ui:RunTimeLabel id="_timer" text="00:00:00" x="380" y="24" size="80" bold="true" textColor="0x4adc84"/>

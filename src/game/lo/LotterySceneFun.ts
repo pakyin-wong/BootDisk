@@ -29,6 +29,8 @@ namespace we {
       protected _targetTime;
       protected _counterInterval;
 
+      protected _logo: ui.RunTimeImage;
+
       protected mount() {
         super.mount();
         this.initVideo();
@@ -71,6 +73,7 @@ namespace we {
 
       protected initText() {
         this._lblRoomNo.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this._tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
+        this._logo.renderImage = () => `${i18n.t('lo_fun_logo')}`;
       }
 
       protected addListeners() {
@@ -253,6 +256,11 @@ namespace we {
         dir.audioCtr.video = null;
         this._video.stop();
         dir.videoPool.release(this._video);
+      }
+
+      
+      public get isVideoStopped() {
+        return this._video.paused;
       }
 
       protected updateTimer() {
