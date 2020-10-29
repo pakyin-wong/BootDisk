@@ -1,34 +1,36 @@
 namespace we {
   export namespace lottery {
     export class MLExtraContent {
+      protected static holder : ui.HorizontalHolder;
+
       public static mount(page: Page) {
 
-        const holder = new we.ui.HorizontalHolder();
-        holder.maskRadius = 48;
-        holder.x = 60;
-        holder.slideHeight = 850;
-        holder.slideWidth = 850;
-        holder.isAuto = true;
-        holder.isLoop = true;
-        holder.isBullet = true;
-        holder.height = 850;
-        holder.width = 850;
-        holder.bulletGapValue = 20;
-        holder.bulletBottom = 50;
-        holder.bulletHorizontalCenter = 0;
+        this.holder = new we.ui.HorizontalHolder();
+        this.holder.maskRadius = 48;
+        this.holder.x = 60;
+        this.holder.slideHeight = 850;
+        this.holder.slideWidth = 850;
+        this.holder.isAuto = true;
+        this.holder.isLoop = true;
+        this.holder.isBullet = true;
+        this.holder.height = 850;
+        this.holder.width = 850;
+        this.holder.bulletGapValue = 20;
+        this.holder.bulletBottom = 50;
+        this.holder.bulletHorizontalCenter = 0;
         dir.lotteryResources.heroBanners.forEach(element => {
           const image = new eui.Image();
           image.source = element.image;
-          image.height = holder.height;
-          image.width = holder.width;
+          image.height = this.holder.height;
+          image.width = this.holder.width;
           image.fillMode = 'cover';
-          holder.addChild(image);
+          this.holder.addChild(image);
         });
 
         const tabs = new live.DropDownLiveGameTabbar(utils.EnumHelpers.values(core.LotteryTab),'lottery');
 
         page['_tabs'] = tabs;
-        page['_slider'] = holder;
+        page['_slider'] = this.holder;
         page['onTabChanged'] = function () {
           const item = this._tabs.selectedItem;
           env.currentTab = item;
@@ -48,6 +50,20 @@ namespace we {
         page.removeChild(page['_tabs']);
         page.roomList.removeChild(page['_slider']);
       }
+
+      public static reloadBanners() {
+        const holder = this.holder;
+        holder.removeChildren();
+        dir.lotteryResources.heroBanners.forEach(element => {
+          const image = new eui.Image();
+          image.source = element.image;
+          image.height = holder.height;
+          image.width = holder.width;
+          image.fillMode = 'cover';
+          holder.addChild(image);
+        });
+      }
+
     }
   }
 }

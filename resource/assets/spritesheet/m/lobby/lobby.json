@@ -761,6 +761,26 @@
       "sourceW": 68,
       "sourceH": 117.5
     },
+    "m_lobby_title_left_png": {
+      "x": 1189.5,
+      "y": 1136,
+      "w": 117,
+      "h": 39.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 117,
+      "sourceH": 39.5
+    },
+    "m_lobby_title_right_png": {
+      "x": 1187,
+      "y": 1177.5,
+      "w": 117,
+      "h": 39.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 117,
+      "sourceH": 39.5
+    },
     "d_lobby_panel_betcontrol_betarea_banker_hover_png": {
       "x": 1471,
       "y": 1525.5,
@@ -881,9 +901,19 @@
       "sourceW": 87.5,
       "sourceH": 28.5
     },
+    "m_lobby_banner_fadeout_png": {
+      "x": 1690,
+      "y": 148,
+      "w": 1,
+      "h": 80,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 1,
+      "sourceH": 80
+    },
     "m_lobby_submenu_bg_png": {
-      "x": 1544.5,
-      "y": 745.5,
+      "x": 1308.5,
+      "y": 170,
       "w": 15,
       "h": 80,
       "offX": 0,
@@ -892,8 +922,8 @@
       "sourceH": 80
     },
     "m_lobby_login_btn_login_png": {
-      "x": 1187,
-      "y": 1141.5,
+      "x": 1541,
+      "y": 1401,
       "w": 75.5,
       "h": 75,
       "offX": 0,
@@ -902,8 +932,8 @@
       "sourceH": 75
     },
     "d_lobby_panel_betcontrol_betarea_tie_hover_png": {
-      "x": 1264.5,
-      "y": 1136,
+      "x": 1498.5,
+      "y": 759,
       "w": 59,
       "h": 27.5,
       "offX": 0,
@@ -912,8 +942,8 @@
       "sourceH": 27.5
     },
     "d_lobby_panel_betcontrol_betarea_tie_normal_png": {
-      "x": 1264.5,
-      "y": 1165.5,
+      "x": 1498.5,
+      "y": 788.5,
       "w": 59,
       "h": 27.5,
       "offX": 0,
@@ -923,7 +953,7 @@
     },
     "d_lobby_panel_betcontrol_betarea_bankerpair_hover_png": {
       "x": 1498.5,
-      "y": 827.5,
+      "y": 818,
       "w": 58,
       "h": 27.5,
       "offX": 0,
@@ -933,7 +963,7 @@
     },
     "d_lobby_panel_betcontrol_betarea_bankerpair_normal_png": {
       "x": 1498.5,
-      "y": 857,
+      "y": 847.5,
       "w": 58,
       "h": 27.5,
       "offX": 0,
@@ -943,7 +973,7 @@
     },
     "d_lobby_panel_betcontrol_betarea_playerpair_hover_png": {
       "x": 1498.5,
-      "y": 886.5,
+      "y": 877,
       "w": 58,
       "h": 27.5,
       "offX": 0,
@@ -953,7 +983,7 @@
     },
     "d_lobby_panel_betcontrol_betarea_playerpair_normal_png": {
       "x": 1498.5,
-      "y": 916,
+      "y": 906.5,
       "w": 58,
       "h": 27.5,
       "offX": 0,
@@ -963,7 +993,7 @@
     },
     "d_lobby_profile_pic_01_png": {
       "x": 1505,
-      "y": 945.5,
+      "y": 936,
       "w": 57,
       "h": 57,
       "offX": 0,
@@ -973,7 +1003,7 @@
     },
     "d_lobby_profile_pic_02_png": {
       "x": 1505,
-      "y": 1004.5,
+      "y": 995,
       "w": 57,
       "h": 57,
       "offX": 0,
@@ -982,37 +1012,7 @@
       "sourceH": 57
     },
     "d_lobby_profile_pic_03_png": {
-      "x": 1541,
-      "y": 1401,
-      "w": 57,
-      "h": 57,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 57,
-      "sourceH": 57
-    },
-    "d_lobby_profile_pic_04_png": {
-      "x": 1541,
-      "y": 1460,
-      "w": 57,
-      "h": 57,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 57,
-      "sourceH": 57
-    },
-    "d_lobby_profile_pic_05_png": {
-      "x": 1560.5,
-      "y": 1519,
-      "w": 57,
-      "h": 57,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 57,
-      "sourceH": 57
-    },
-    "d_lobby_profile_pic_06_png": {
-      "x": 1619.5,
+      "x": 1618.5,
       "y": 1023.5,
       "w": 57,
       "h": 57,
@@ -1021,9 +1021,9 @@
       "sourceW": 57,
       "sourceH": 57
     },
-    "d_lobby_profile_pic_07_png": {
+    "d_lobby_profile_pic_04_png": {
       "x": 1544.5,
-      "y": 1063.5,
+      "y": 1054,
       "w": 57,
       "h": 57,
       "offX": 0,
@@ -1031,8 +1031,8 @@
       "sourceW": 57,
       "sourceH": 57
     },
-    "d_lobby_profile_pic_08_png": {
-      "x": 1619.5,
+    "d_lobby_profile_pic_05_png": {
+      "x": 1618.5,
       "y": 1082.5,
       "w": 57,
       "h": 57,
@@ -1041,9 +1041,39 @@
       "sourceW": 57,
       "sourceH": 57
     },
+    "d_lobby_profile_pic_06_png": {
+      "x": 1544.5,
+      "y": 1113,
+      "w": 57,
+      "h": 57,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 57,
+      "sourceH": 57
+    },
+    "d_lobby_profile_pic_07_png": {
+      "x": 1618.5,
+      "y": 1141.5,
+      "w": 57,
+      "h": 57,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 57,
+      "sourceH": 57
+    },
+    "d_lobby_profile_pic_08_png": {
+      "x": 1544.5,
+      "y": 1172,
+      "w": 57,
+      "h": 57,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 57,
+      "sourceH": 57
+    },
     "m-lobby-btn-filter-h_png": {
-      "x": 1564,
-      "y": 1122.5,
+      "x": 1618.5,
+      "y": 1200.5,
       "w": 52,
       "h": 52,
       "offX": 0,
@@ -1052,8 +1082,8 @@
       "sourceH": 52
     },
     "m-lobby-btn-filter-v_png": {
-      "x": 1505,
-      "y": 1122.5,
+      "x": 1564,
+      "y": 1231,
       "w": 52,
       "h": 52,
       "offX": 0,
@@ -1062,8 +1092,8 @@
       "sourceH": 52
     },
     "m_lobby_view_icon_1column_png": {
-      "x": 1619.5,
-      "y": 1141.5,
+      "x": 1618.5,
+      "y": 1254.5,
       "w": 52,
       "h": 52,
       "offX": 0,
@@ -1073,7 +1103,7 @@
     },
     "m_lobby_view_icon_2column_png": {
       "x": 1564,
-      "y": 1176.5,
+      "y": 1285,
       "w": 52,
       "h": 52,
       "offX": 0,
@@ -1143,7 +1173,7 @@
     },
     "m_common_header_profile_pic_07_png": {
       "x": 1498.5,
-      "y": 759,
+      "y": 1054,
       "w": 39.5,
       "h": 39.5,
       "offX": 0,
@@ -1152,8 +1182,8 @@
       "sourceH": 39.5
     },
     "m_common_header_profile_pic_08_png": {
-      "x": 1619.5,
-      "y": 1195.5,
+      "x": 1541,
+      "y": 1478,
       "w": 39.5,
       "h": 39.5,
       "offX": 0,
@@ -1163,7 +1193,7 @@
     },
     "m_common_header_profile_pic_09_png": {
       "x": 1564,
-      "y": 1230.5,
+      "y": 1339,
       "w": 39.5,
       "h": 39.5,
       "offX": 0,
@@ -1172,8 +1202,8 @@
       "sourceH": 39.5
     },
     "m_common_header_profile_pic_10_png": {
-      "x": 1544.5,
-      "y": 1272,
+      "x": 1605.5,
+      "y": 1339,
       "w": 39.5,
       "h": 39.5,
       "offX": 0,
@@ -1182,8 +1212,8 @@
       "sourceH": 39.5
     },
     "m_common_header_profile_pic_11_png": {
-      "x": 1619.5,
-      "y": 1237,
+      "x": 1647,
+      "y": 1308.5,
       "w": 39.5,
       "h": 39.5,
       "offX": 0,
@@ -1192,8 +1222,8 @@
       "sourceH": 39.5
     },
     "m_common_header_profile_pic_12_png": {
-      "x": 1619.5,
-      "y": 1278.5,
+      "x": 1647,
+      "y": 1350,
       "w": 39.5,
       "h": 39.5,
       "offX": 0,
@@ -1212,8 +1242,8 @@
       "sourceH": 24
     },
     "m_lobby_submenu_icon_baccarat_png": {
-      "x": 1661,
-      "y": 1195.5,
+      "x": 1435,
+      "y": 1217.5,
       "w": 33.5,
       "h": 30,
       "offX": 0,
@@ -1222,8 +1252,8 @@
       "sourceH": 30
     },
     "m_lobby_submenu_icon_roulette_png": {
-      "x": 1661,
-      "y": 1227.5,
+      "x": 1505,
+      "y": 1095.5,
       "w": 33,
       "h": 33,
       "offX": 0,
@@ -1232,8 +1262,8 @@
       "sourceH": 33
     },
     "flash_png": {
-      "x": 1498.5,
-      "y": 1063.5,
+      "x": 1303.5,
+      "y": 252,
       "w": 20,
       "h": 32,
       "offX": 0,
@@ -1272,8 +1302,8 @@
       "sourceH": 23
     },
     "d_lobby_panel_button_page_prev_normal_png": {
-      "x": 1505,
-      "y": 1097.5,
+      "x": 1302.5,
+      "y": 517,
       "w": 23,
       "h": 23,
       "offX": 0,
@@ -1282,14 +1312,24 @@
       "sourceH": 23
     },
     "m_lobby_login_form_typebox_png": {
-      "x": 1544.5,
-      "y": 1313.5,
+      "x": 1303.5,
+      "y": 286,
       "w": 20.5,
       "h": 20.5,
       "offX": 0,
       "offY": 0,
       "sourceW": 20.5,
       "sourceH": 20.5
+    },
+    "m_lobby_banner_border_png": {
+      "x": 1308.5,
+      "y": 542,
+      "w": 15.5,
+      "h": 15.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 15.5,
+      "sourceH": 15.5
     },
     "d_lobby_select_round_no_png": {
       "x": 1684.5,
