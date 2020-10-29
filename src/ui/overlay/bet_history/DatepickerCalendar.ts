@@ -164,6 +164,8 @@ namespace we {
 
       public setItemState(d, s, enableClick = true) {
         const item = this._dateItems[d];
+        console.log('this._dateItems',this._dateItems)
+        console.log('this._dateItems[d]',this._dateItems[d])
         item.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClicked, this);
         mouse.setButtonMode(item, false);
 

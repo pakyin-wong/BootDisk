@@ -21,7 +21,8 @@ namespace we {
       private _end;
 
       public range = 6;
-
+      public dayRange = 90;
+      
       private currentMonthIndex: number = 0;
       private prevCurrentMonthIndex: number = -1;
       private tempCurrentMonthIndex: number;
@@ -57,19 +58,10 @@ namespace we {
       }
 
       protected clean() {
-        // this.setTo(this.test1,this.test2)
-        // let today = moment()
-        //   .utcOffset(8)
-        //   .startOf('day')
-        //   .unix();
-        // this._select = this.test1;
-        // this._start = this.test1;
-        // this._end = this.test2;
         this._txt_current.text = '';
         this._select = null;
         this._start = null;
         this._end = null;
-        // this._txt_current.text = this._select.format('YYYY / MM / DD');
       }
 
       protected update() {
@@ -133,16 +125,12 @@ namespace we {
       }
 
       protected cleanClicked() {
-        console.log('before clean this.currentMonthIndex',this.currentMonthIndex)
-        console.log('before clean prevCurrentMonthIndex',this.prevCurrentMonthIndex)
         this.clean();
-        console.log('after clean this.currentMonthIndex',this.currentMonthIndex)
-        console.log('after clean prevCurrentMonthIndex',this.prevCurrentMonthIndex)
         this.update();
       }
 
       protected datePicked(e: egret.Event) {
-        if (!this._select) { // 
+        if (!this._select) { // need to set range 90days
           this._select = e.data;
           console.log('DoubleCalendarPicker::datePicked::this._select = e.data',this._select)
         } else {
@@ -207,10 +195,7 @@ namespace we {
           .startOf('day')
           .unix();
         let today = moment.unix(todaytime).startOf('day');
-        console.log('====================today',today)
-        console.log('======================end',end)
         let diff  =  moment(today).diff(end, "months")
-        console.log('==============diff',diff)
         this.currentMonthIndex = diff * -1;
         this.prevCurrentMonthIndex = this.currentMonthIndex -1;
       }
