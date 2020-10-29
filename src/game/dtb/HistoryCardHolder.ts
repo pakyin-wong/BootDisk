@@ -27,8 +27,8 @@ namespace we {
         this._dragonSum.text = latestGameInfo.dragonpoint;
         this._tigerSum.text = latestGameInfo.tigerpoint;
 
-        this.setCardGroup([this._dragonCard], [latestGameInfo.d]);
-        this.setCardGroup([this._tigerCard], [latestGameInfo.t]);
+        this.setCardGroup([this._dragonCard], [latestGameInfo.b1]);
+        this.setCardGroup([this._tigerCard], [latestGameInfo.a1]);
       }
 
       public setNumber(number: number) {
