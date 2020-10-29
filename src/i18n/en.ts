@@ -533,7 +533,7 @@ namespace we {
         goodroad: 'Good Road',
         allgames: 'All Game',
         noGoodRoad: 'No Good Road',
-        noBet: 'No Already Bet Table',
+        noBet: 'No Bet Table',
       },
       baccarat: {
         statisticChart: {
