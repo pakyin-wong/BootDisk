@@ -484,7 +484,7 @@ namespace we {
 
           if (this._message && !isInit) {
             // ==================================================
-            if (this._gameRoundCountWithoutBet === 1) {
+            if (this._gameRoundCountWithoutBet === 3) {
               // this.showTwoMessage();
               if (this._expiredMessage) {
                 this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'), this.showTwoMessage.call(this));
