@@ -256,6 +256,13 @@ namespace we {
         this.cockroachRoad.dispose();
         // this.parent.removeChildren();
 
+        this.iconBankerBigEye.dispose();
+        this.iconBankerSmall.dispose();
+        this.iconBankerCockroach.dispose();
+        this.iconPlayerBigEye.dispose();
+        this.iconPlayerSmall.dispose();
+        this.iconPlayerCockroach.dispose();
+
         if (this.switchModeButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
           this.switchModeButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchModeClick, this);
         }

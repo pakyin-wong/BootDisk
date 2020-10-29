@@ -153,6 +153,13 @@ namespace we {
         }
       }
 
+      protected destroy() {
+        if (this._lblBetLimit) {
+          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        }
+        super.destroy();
+      }
+
       protected setStateDeal(isInit: boolean = false) {
         super.setStateDeal(isInit);
         if (this._previousState !== we.core.GameState.DEAL && env.orientation === 'landscape') {

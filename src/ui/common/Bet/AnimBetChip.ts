@@ -66,6 +66,13 @@ namespace we {
         this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.beep, this);
       }
 
+      protected destroy() {
+        this._chipAnim.animation.stop();
+        this._chipAnim.dispose();
+        this.removeChild(this._chipAnim);
+        super.destroy();
+      }
+
       protected beep() {
         console.log('beep');
       }

@@ -87,12 +87,13 @@ namespace we {
       }
 
       public destroy() {
-        super.destroy();
         if (this._display) {
+          this._display.animation.stop();
           this._display.dispose();
           this._display = null;
           this.removeChild(this._group);
         }
+        super.destroy();
         // since ingame header button is being removed once in order to move to headerComponent
         this.once(eui.UIEvent.ADDED_TO_STAGE, this.addedAgain, this);
       }

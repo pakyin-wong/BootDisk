@@ -20,10 +20,12 @@ namespace we {
       }
 
       protected destroy() {
-        super.destroy();
         if (this._display) {
+          this._display.animation.stop();
           this._display.dispose();
+          this._display.parent.removeChild(this._display);
         }
+        super.destroy();
       }
 
       public showResult(gameType: core.GameType, resultData: any) {
