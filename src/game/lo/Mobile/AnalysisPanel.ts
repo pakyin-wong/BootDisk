@@ -33,11 +33,13 @@ namespace we {
         if (!this.tableInfo.gamestatistic) {
           return;
         } else {
-          this.init();
+          if(!this.listShow){
+            this.initContent();
+          }
         }
       }
 
-      protected init() {
+      protected initContent() {
         const analysis1Group = this.analysisStack.getChildAt(0) as eui.Group;
         this.listShow = new LoAnalysisScrollList(0, 3, 1242, 365, 20);
         this.listShow.y = 45;
@@ -67,6 +69,11 @@ namespace we {
         this.changeLang();
 
         this.analysisStack.selectedIndex = 0;
+
+        this.listShow.updateList(this.tableInfo.gamestatistic.loHistory.show);
+        this.listNoShow.updateList(this.tableInfo.gamestatistic.loHistory.noShow);
+        this.listHot.updateList(this.tableInfo.gamestatistic.loHistory.hot);
+        this.listCold.updateList(this.tableInfo.gamestatistic.loHistory.cold);
       }
 
       protected destroy() {
@@ -105,6 +112,7 @@ namespace we {
        if (this.tableInfo && this.tableInfo.gamestatistic) {
           this.setTableInfo(this.tableInfo);
         }
+
         this.changeLang();
       }
 

@@ -164,11 +164,11 @@ namespace we {
           if (this.rowCount === 3) {
             this.bg.width = w;
             this.bg.height = 365;
-            this.bg.setRoundRectStyle(w, 183, { tl: 12, tr: 12, br: 12, bl: 12 }, '0x0e1621', 1, 0);
+            this.bg.setRoundRectStyle(w, 365, { tl: 12, tr: 12, br: 12, bl: 12 }, '0x0e1621', 1, 0);
           } else {
             this.bg.width = w;
             this.bg.height = 365;
-            this.bg.setRoundRectStyle(w, 264, { tl: 12, tr: 12, br: 12, bl: 12 }, '0x000d1d', 0.9, 0);
+            this.bg.setRoundRectStyle(w, 365, { tl: 12, tr: 12, br: 12, bl: 12 }, '0x000d1d', 0.9, 0);
           }
         }
       }
