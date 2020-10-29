@@ -1,6 +1,6 @@
 namespace we {
   export namespace i18n {
-    export let lang = 'sc';
+    export let lang = 'cn';
 
     export function t(s: string, ...variables: any[]) {
       function ds(p: any, c: string) {
@@ -46,7 +46,14 @@ namespace we {
     }
 
     export async function setLang(s, isInit: boolean = false) {
-      env.language = i18n.lang = s;
+      const langCodeList = Object.keys(core.lang).map(key=>core.lang[key]);
+      if (langCodeList.indexOf(s) < 0) {
+        env.language = core.lang.CN;
+        i18n.lang = core.lang.CN;
+      } else {
+        env.language = s;
+        i18n.lang = s;
+      }
       dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
 
       if (!isInit) {

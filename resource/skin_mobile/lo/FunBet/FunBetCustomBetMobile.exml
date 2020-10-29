@@ -1,0 +1,6 @@
+<e:Skin class="skin_mobile.lo.FunBetCustomBetMobile" xmlns:e="http://ns.egret.com/eui" states="up,down" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
+	<ui:RoundRectButton id="_btn_custom" width="224" height="120" fillAlpha="0" strokeColor="0x5f6973" stroke="3" cornerTL_TR_BL_BR="60,60,60,60" labelSize="44" labelAutoResize="false" visible.down="false"/>
+	<ui:RoundRectShape width="224" height="120" stroke="6" strokeColor="0x5273ef,0x52d7ff,90" visible.up="false" fillAlpha="0" cornerTL_TR_BL_BR="60,60,60,60"/>
+	<e:Label id="_txt_value" text="00000" horizontalCenter="0" size="57" visible.up="false" verticalCenter="0"/>
+	<e:EditableText id="_input" text="" left="0" right="0" top="0" bottom="0" alpha="0" verticalAlign="middle" textAlign="center" size="57"/>
+</e:Skin>

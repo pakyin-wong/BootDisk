@@ -1,7 +1,7 @@
 {
-  "file": "bab-2.png",
+  "file": "bc-8.png",
   "frames": {
-    "d_bcba_animation_particle_00026_png": {
+    "d_bcba_animation_particle_00134_png": {
       "x": 2,
       "y": 2,
       "w": 1300,
@@ -11,7 +11,7 @@
       "sourceW": 1300,
       "sourceH": 670
     },
-    "d_bcba_animation_particle_00027_png": {
+    "d_bcba_animation_particle_00135_png": {
       "x": 2,
       "y": 676,
       "w": 1300,
@@ -21,7 +21,7 @@
       "sourceW": 1300,
       "sourceH": 670
     },
-    "d_bcba_animation_particle_00028_png": {
+    "d_bcba_animation_particle_00136_png": {
       "x": 1306,
       "y": 2,
       "w": 1300,
@@ -31,7 +31,7 @@
       "sourceW": 1300,
       "sourceH": 670
     },
-    "d_bcba_animation_particle_00029_png": {
+    "d_bcba_animation_particle_00137_png": {
       "x": 1306,
       "y": 676,
       "w": 1300,
@@ -41,7 +41,7 @@
       "sourceW": 1300,
       "sourceH": 670
     },
-    "d_bcba_animation_particle_00030_png": {
+    "d_bcba_animation_particle_00138_png": {
       "x": 2,
       "y": 1350,
       "w": 1300,
@@ -51,7 +51,7 @@
       "sourceW": 1300,
       "sourceH": 670
     },
-    "d_bcba_animation_particle_00031_png": {
+    "d_bcba_animation_particle_00139_png": {
       "x": 1306,
       "y": 1350,
       "w": 1300,
@@ -61,7 +61,7 @@
       "sourceW": 1300,
       "sourceH": 670
     },
-    "d_bcba_animation_particle_00032_png": {
+    "d_bcba_animation_particle_00140_png": {
       "x": 2,
       "y": 2024,
       "w": 1300,
@@ -71,7 +71,7 @@
       "sourceW": 1300,
       "sourceH": 670
     },
-    "d_bcba_animation_particle_00033_png": {
+    "d_bcba_animation_particle_00141_png": {
       "x": 1306,
       "y": 2024,
       "w": 1300,
@@ -81,7 +81,7 @@
       "sourceW": 1300,
       "sourceH": 670
     },
-    "d_bcba_animation_particle_00034_png": {
+    "d_bcba_animation_particle_00142_png": {
       "x": 2610,
       "y": 2,
       "w": 1300,
@@ -91,7 +91,7 @@
       "sourceW": 1300,
       "sourceH": 670
     },
-    "d_bcba_animation_particle_00035_png": {
+    "d_bcba_animation_particle_00143_png": {
       "x": 2610,
       "y": 676,
       "w": 1300,
@@ -101,7 +101,7 @@
       "sourceW": 1300,
       "sourceH": 670
     },
-    "d_bcba_animation_particle_00036_png": {
+    "d_bcba_animation_particle_00144_png": {
       "x": 2610,
       "y": 1350,
       "w": 1300,
@@ -111,7 +111,7 @@
       "sourceW": 1300,
       "sourceH": 670
     },
-    "d_bcba_animation_particle_00037_png": {
+    "d_bcba_animation_particle_00145_png": {
       "x": 2610,
       "y": 2024,
       "w": 1300,
@@ -121,7 +121,7 @@
       "sourceW": 1300,
       "sourceH": 670
     },
-    "d_bcba_animation_particle_00038_png": {
+    "d_bcba_animation_particle_00146_png": {
       "x": 2,
       "y": 2698,
       "w": 1300,
@@ -131,7 +131,7 @@
       "sourceW": 1300,
       "sourceH": 670
     },
-    "d_bcba_animation_particle_00039_png": {
+    "d_bcba_animation_particle_00147_png": {
       "x": 1306,
       "y": 2698,
       "w": 1300,
@@ -141,7 +141,7 @@
       "sourceW": 1300,
       "sourceH": 670
     },
-    "d_bcba_animation_particle_00040_png": {
+    "d_bcba_animation_particle_00148_png": {
       "x": 2610,
       "y": 2698,
       "w": 1300,
@@ -151,28 +151,8 @@
       "sourceW": 1300,
       "sourceH": 670
     },
-    "d_bcba_animation_particle_00041_png": {
+    "d_bcba_animation_particle_00149_png": {
       "x": 2,
-      "y": 3372,
-      "w": 1300,
-      "h": 670,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 1300,
-      "sourceH": 670
-    },
-    "d_bcba_animation_particle_00042_png": {
-      "x": 1306,
-      "y": 3372,
-      "w": 1300,
-      "h": 670,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 1300,
-      "sourceH": 670
-    },
-    "d_bcba_animation_particle_00043_png": {
-      "x": 2610,
       "y": 3372,
       "w": 1300,
       "h": 670,

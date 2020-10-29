@@ -6,12 +6,12 @@
         <e:Group x="218" y="347" width="637" height="98">
                 <e:Image source="d_bcba_resultarea_player_png" width="100%" height="100%" />
                 <ui:RunTimeLabel right="209" i18n="dragontiger.dragon" textAlign="center" verticalAlign="middle" size="68" height="100%"/>
-                <e:Label id="_dragonSum" x="435" y="0" textAlign="center" verticalAlign="middle" size="96" height="100%"/>
+                <e:Label id="_dragonSum" x="460" y="0" textAlign="center" verticalAlign="middle" size="96" height="100%"/>
         </e:Group>
         <e:Group x="1745" y="347" width="637" height="98">
                 <e:Image source="d_bcba_resultarea_banker_png" width="100%" height="100%"  />
                 <ui:RunTimeLabel x="209" i18n="dragontiger.tiger" textAlign="center" verticalAlign="middle" size="68" height="100%"/>
-                <e:Label id="_tigerSum" x="147" y="0" textAlign="center" verticalAlign="middle" size="96" height="100%"/>
+                <e:Label id="_tigerSum" y="0" textAlign="center" verticalAlign="middle" size="96" height="100%" right="460"/>
         </e:Group>
         <e:Group x="561" y="470" id="_dragonCardGroup" width="204" height="350" touchThrough="true">
                 <e:Group id="_dragonCardInfo" left="0" bottom="0" width="40" height="40"/>
@@ -21,5 +21,8 @@
         </e:Group>
         <e:Group x="1120" y="650" id="_dragonAnimGroup" />
         <e:Group x="1500" y="680" id="_tigerAnimGroup" />
+        <e:Group x="400" y="150" id="_smallRedCardGroup" >
+        </e:Group>
+        <e:Group id="_centerBurnCardGroup" horizontalCenter="0" y="550" visible="false"/>
 
 </e:Skin>
