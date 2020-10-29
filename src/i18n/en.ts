@@ -8,7 +8,7 @@ namespace we {
       voice_mandarin: 'Mandarin',
       voice_english: 'English',
 
-      gametype_BAC: 'BAC',
+      gametype_BAC: 'Baccarat',
       gametype_BAS: 'BAS',
       gametype_BAI: 'BAI',
       gametype_BAM: 'BAM',
@@ -191,7 +191,7 @@ namespace we {
       mobile_game_panel_history: 'History',
       mobile_game_panel_road_sheet: 'Road Sheet',
       mobile_game_panel_statistic_chart: 'Statistic Chart',
-      mobile_game_panel_table_info: 'Information',
+      mobile_game_panel_table_info: 'Table Info',
       mobile_table_info_gameID: 'ID',
       mobile_panel_game_Info: 'Game Information',
 
@@ -293,11 +293,11 @@ namespace we {
       gamegroup_tab_lottery: 'Lottery',
       lobby: {
         header: {
-          lobby: 'Promoted',
+          lobby: 'Home',
           live: 'Live',
           lottery: 'Lottery',
           egame: 'EGame',
-          favourite: 'Favourite',
+          favourite: 'Bookmarks / My Favourites',
         },
         categoryPromotion: 'Promoted',
         categoryBaccarat: 'Baccarat',
@@ -305,7 +305,7 @@ namespace we {
         categoryLuckyWheel: 'Lucky Wheel',
         categoryInstant: 'Instant Open Colour',
         categoryOtherGame: 'Other Games',
-        categoryFavorite: 'My Favorites',
+        categoryFavorite: 'Bookmarks / My Favourites',
       },
       live: {
         tooltip: {
