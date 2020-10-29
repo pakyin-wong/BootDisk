@@ -68,12 +68,12 @@ namespace we {
             [[0x2e219e, 0x5832e5, 0x2e219e], [1, 1, 1], [0, 128, 255], 0],
             [[0x812391, 0x8633e7, 0x812391], [1, 1, 1], [0, 128, 255], 0],
           ],
-          37,
-          74,
+          118,
+          236,
           0
         );
-        this._bestTimePieChart.x = 94;
-        this._bestTimePieChart.y = 100;
+        this._bestTimePieChart.x = 50;
+        this._bestTimePieChart.y = 30;
         // add to chart stack 1
         const chat1Group = this.chartStack.getChildAt(0) as eui.Group;
         chat1Group.addChild(this._bestTimePieChart);
@@ -92,12 +92,12 @@ namespace we {
             [[0x2e219e, 0x5832e5, 0x2e219e], [1, 1, 1], [0, 128, 255], 0],
             [[0x812391, 0x8633e7, 0x812391], [1, 1, 1], [0, 128, 255], 0],
           ],
-          37,
-          74,
+          118,
+          236,
           0
         );
-        this._bestGamePieChart.x = 94;
-        this._bestGamePieChart.y = 100;
+        this._bestGamePieChart.x = 50;
+        this._bestGamePieChart.y = 30;
         this.addChild(this._bestGamePieChart);
         // add road to page stack 2
         const page2Group = this.chartStack.getChildAt(1) as eui.Group;
@@ -113,19 +113,19 @@ namespace we {
             [[0x05076a, 0x0a4481], [1, 1], [0, 255], 0],
             [[0x2e219e, 0x5832e5], [1, 1], [0, 255], 0],
           ],
-          382,
-          16,
-          26
+          800,
+          30,
+          34
         );
-        this._favBetBarChart.x = 164;
-        this._favBetBarChart.y = 26;
+        this._favBetBarChart.x = 300;
+        this._favBetBarChart.y = 36;
         this.addChild(this._favBetBarChart);
         // add road to page stack 3
         const page3Group = this.chartStack.getChildAt(2) as eui.Group;
         page3Group.addChild(this._favBetBarChart);
 
         this._favGameBarChart = new we.di.SlopedBarChart();
-        this._favGameBarChart.x = 4;
+        this._favGameBarChart.x = 9;
         this._favGameBarChart.y = 20;
         this._favGameBarChart.setChartStyles(
           [
@@ -136,9 +136,9 @@ namespace we {
             [[0xe4e85c, 0x1fe479], [1, 1], [0, 255], 0],
             [[0xfc2424, 0xfa936e], [1, 1], [0, 255], 0],
           ],
-          168,
-          122,
-          2
+          270,
+          240,
+          6
         );
         this._favGameBarChart.setRanksAndAnimate([80, 50, 30, 20, 10]);
         this.addChild(this._favGameBarChart);
