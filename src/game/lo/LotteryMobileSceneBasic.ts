@@ -186,6 +186,16 @@ namespace we {
       }*/
       }
 
+      protected setStateIdle() {
+        super.setStateIdle();
+        this._bottomGamePanel.manualClose();
+      }
+
+      protected setStateDeal() {
+        super.setStateIdle();
+        this._bottomGamePanel.manualClose();
+      }
+
       public updateTableLayerPosition(bottomGamePanelisOpen: boolean) {
  /*       if (env.orientation === 'landscape') {
           const vlayout = new eui.VerticalLayout();
