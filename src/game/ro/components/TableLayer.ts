@@ -328,6 +328,17 @@ namespace we {
         this._betField = ro.BetField;
       }
 
+      protected destroy() {
+        super.destroy();
+        for (const field of Object.keys(this._groupMapping)) {
+          const group = this._groupMapping[field];
+          let rect = group.getChildByName('dim');
+          if (rect) {
+            egret.Tween.removeTweens(rect);
+          }
+        }
+      }
+
       protected createMapping() {
         super.createMapping();
         this._groupMapping = {};

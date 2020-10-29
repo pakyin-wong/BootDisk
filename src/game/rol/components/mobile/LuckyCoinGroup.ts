@@ -9,6 +9,9 @@ namespace we {
       protected animXArr;
       protected animYArr;
 
+      protected factory: dragonBones.EgretFactory;
+      protected display: dragonBones.EgretArmatureDisplay;
+
       public constructor() {
         super();
       }
@@ -68,17 +71,40 @@ namespace we {
       }
 
       protected createLuckyCoinAnim() {
-        const skeletonData = RES.getRes(`roulette_w_game_result_ske_json`);
-        const textureData = RES.getRes(`roulette_w_game_result_tex_json`);
-        const texture = RES.getRes(`roulette_w_game_result_tex_png`);
-        const factory = new dragonBones.EgretFactory();
-        factory.parseDragonBonesData(skeletonData);
-        factory.parseTextureAtlasData(textureData, texture);
-        if (env.orientation === 'portrait') {
-          return factory.buildArmatureDisplay('draw_number_effect_vertical');
-        } else {
-          return factory.buildArmatureDisplay('draw_number_effect_horizontal');
+        if (!this.factory) {
+          const skeletonData = RES.getRes(`roulette_w_game_result_ske_json`);
+          const textureData = RES.getRes(`roulette_w_game_result_tex_json`);
+          const texture = RES.getRes(`roulette_w_game_result_tex_png`);
+          const factory = new dragonBones.EgretFactory();
+          factory.parseDragonBonesData(skeletonData);
+          factory.parseTextureAtlasData(textureData, texture);
+          this.factory = factory;
         }
+        if (env.orientation === 'portrait') {
+          return this.factory.buildArmatureDisplay('draw_number_effect_vertical');
+        } else {
+          return this.factory.buildArmatureDisplay('draw_number_effect_horizontal');
+        }
+      }
+
+      protected destroy() {
+        this.clearAnim();
+        this.factory.clear(true);
+        super.destroy();
+      }
+
+      protected clearAnim() {
+        if (this.display) {
+          if (this.display.animation) {
+            this.display.animation.stop();
+          }
+          this.display.armature.dispose();
+          this.display.dispose();
+          if (this.display.parent) {
+            this.display.parent.removeChild(this.display);
+          }
+        }
+        this.display = null;
       }
 
       protected getOddSlotGroup(odd: number) {
@@ -161,6 +187,7 @@ namespace we {
 
         for (const key of Object.keys(luckyNumbers)) {
           const coinAnim = this.createLuckyCoinAnim();
+          this.display = coinAnim;
           coinAnim.x = this.animXArr[no];
           coinAnim.y = this.animYArr[no];
           coinAnim.scaleX = 0.8;
@@ -224,7 +251,7 @@ namespace we {
             coinAnim.animation.play(`draw_number_${color}${noBet}_out`, 1);
             await p;
 
-            coinAnim.animation.stop();
+            this.clearAnim();
           })();
         }
       }

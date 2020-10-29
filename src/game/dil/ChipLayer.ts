@@ -45,6 +45,30 @@ namespace we {
         this._betField = dil.BetField;
       }
 
+      protected destroy() {
+        if (this._winningAnim) {
+            if (this._winningAnim.animation) {
+              this._winningAnim.animation.stop();
+            }
+            if (this._winningAnim.parent) {
+              this._winningAnim.dispose();
+              this._winningAnim.parent.removeChild(this._winningAnim);
+            }
+        }
+        if (this._luckyAnims) {
+          this._luckyAnims.map(luckyAnim=> {
+            if (luckyAnim.animation) {
+              luckyAnim.animation.stop();
+            }
+            if (luckyAnim.parent) {
+              luckyAnim.dispose();
+              luckyAnim.parent.removeChild(luckyAnim);
+            }
+          });
+        }
+        super.destroy();
+      }
+
       protected createMapping() {
         super.createMapping();
         this._mouseAreaMapping = {};

@@ -7,6 +7,7 @@ namespace we {
 
     export class GameResultMessage extends core.BaseEUI implements IGameResultMessage {
       protected _display: dragonBones.EgretArmatureDisplay = null;
+      protected _factory: dragonBones.EgretFactory = null;
       protected _dbClass;
 
       // protected _armatureName = 'armatureName';
@@ -22,8 +23,12 @@ namespace we {
       protected destroy() {
         if (this._display) {
           this._display.animation.stop();
+          this._display.armature.dispose();
           this._display.dispose();
           this._display.parent.removeChild(this._display);
+        }
+        if (this._factory) {
+          this._factory.clear(true);
         }
         super.destroy();
       }
@@ -37,13 +42,16 @@ namespace we {
       }
 
       protected createAniamtionObject() {
-        const skeletonData = RES.getRes(`${this._dbClass}_game_result_ske_json`);
-        const textureData = RES.getRes(`${this._dbClass}_game_result_tex_json`);
-        const texture = RES.getRes(`${this._dbClass}_game_result_tex_png`);
-        const factory = new dragonBones.EgretFactory();
-        factory.parseDragonBonesData(skeletonData);
-        factory.parseTextureAtlasData(textureData, texture);
-        this._display = factory.buildArmatureDisplay(this._armatureName);
+        if (!this._factory) {
+          const skeletonData = RES.getRes(`${this._dbClass}_game_result_ske_json`);
+          const textureData = RES.getRes(`${this._dbClass}_game_result_tex_json`);
+          const texture = RES.getRes(`${this._dbClass}_game_result_tex_png`);
+          const factory = new dragonBones.EgretFactory();
+          factory.parseDragonBonesData(skeletonData);
+          factory.parseTextureAtlasData(textureData, texture);
+          this._factory = factory;
+        }
+        this._display = this._factory.buildArmatureDisplay(this._armatureName);
         this._display.x = this.width / 2;
         this._display.y = this.height / 2;
         this.addChild(this._display);

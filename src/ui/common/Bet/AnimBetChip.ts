@@ -67,9 +67,9 @@ namespace we {
       }
 
       protected destroy() {
-        this._chipAnim.animation.stop();
-        this._chipAnim.dispose();
-        this.removeChild(this._chipAnim);
+        // this._chipAnim.animation.stop();
+        // this._chipAnim.dispose();
+        // this.removeChild(this._chipAnim);
         super.destroy();
       }
 
