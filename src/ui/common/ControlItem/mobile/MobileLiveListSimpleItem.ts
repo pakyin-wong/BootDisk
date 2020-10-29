@@ -2,7 +2,7 @@
 namespace we {
   export namespace ui {
     export class MobileLiveListSimpleItem extends MobileListBaseItem {
-      protected _bigRoad: we.ui.ILobbyRoad;
+      protected _bigRoad: we.ui.ILobbyRoad & eui.Component;
       protected _alreadyBetSign: eui.Group;
       protected _goodRoadLabel: ui.GoodRoadLabel;
 
@@ -17,6 +17,11 @@ namespace we {
       protected initComponents() {
         super.initComponents();
         this.generateRoadmap();
+      }
+
+      protected destroy() {
+        super.destroy();
+        if (this._bigRoad) this._bigRoad.parent.removeChild(this._bigRoad);
       }
 
       protected generateRoadmap() {

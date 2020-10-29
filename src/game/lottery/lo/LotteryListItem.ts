@@ -52,7 +52,7 @@ namespace we {
         clearInterval(this._counterInterval);
         this._targetTime = this._gameData.starttime + this._gameData.countdown * 1000;
 
-        this._counterInterval = setInterval(this.update.bind(this), 500);
+        this._counterInterval = setInterval(()=>{this.update()}, 500);
         this.update();
       }
 

@@ -18,6 +18,10 @@ namespace we {
       public strokeInColor: number = 0x0000ff;
       public strokeInAlpha: number = 1;
 
+      constructor(skin: string = null, orientationDependent: boolean = false) {
+        super(skin, orientationDependent);
+      }
+
       protected mount() {
         this._shape = new egret.Shape();
         this.addChildAt(this._shape, 0);

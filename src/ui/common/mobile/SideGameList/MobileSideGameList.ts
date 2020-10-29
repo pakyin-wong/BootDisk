@@ -241,7 +241,7 @@ namespace we {
           default:
             this._viewStack.selectedIndex = 2;
             this._allTableList.setGameFilters(this._tabSource[this._tabs.selectedIndex]);
-            this._allTableList.setTableList(this._allGameList, true);
+            this._allTableList.setTableList(this._allGameList, false);
             this._dmm.setToggler(this._btnAllGame);
             break;
         }
