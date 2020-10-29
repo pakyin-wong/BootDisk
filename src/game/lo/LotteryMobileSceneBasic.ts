@@ -3,6 +3,8 @@ namespace we {
     export class LotteryMobileSceneBasic extends LotterySceneFunBasic {
 
       protected _btnBack: egret.DisplayObject;
+      protected _btn_sidegamelist: egret.DisplayObject;
+      protected _btn_video: egret.DisplayObject;
 
       protected _roundInfo: FunBetRoundInfo;
       protected _result_toggler: egret.DisplayObject;
@@ -60,13 +62,30 @@ namespace we {
       protected addListeners() {
         super.addListeners();
         utils.addButtonListener(this._btnBack, this.backToLobby, this);
+        utils.addButtonListener(this._btn_sidegamelist, this.onClickSideGameList, this);
         utils.addButtonListener(this._result_toggler, this.onTogglerResult, this);
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
       }
 
       protected removeListeners() {
         super.removeListeners();
         utils.removeButtonListener(this._btnBack, this.backToLobby, this);
+        utils.removeButtonListener(this._btn_sidegamelist, this.onClickSideGameList, this);
         utils.removeButtonListener(this._result_toggler, this.onTogglerResult, this);
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
+      }
+
+      protected changeHandMode() {
+        if (env.leftHandMode) {
+          this.currentState = 'left';
+        } else {
+          this.currentState = 'right';
+        }
+        this.invalidateState();
+      }
+
+      protected onClickSideGameList() {
+        dir.evtHandler.dispatch(core.Event.TOGGLE_SIDE_GAMELIST);
       }
 
       protected onTogglerResult() {
