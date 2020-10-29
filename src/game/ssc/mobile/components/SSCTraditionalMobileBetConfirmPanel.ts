@@ -2,6 +2,11 @@
 namespace we {
   export namespace overlay {
     export class SSCTraditionalMobileBetConfirmPanel extends SSCBetConfirmPanel {
+
+      protected initSkin(){
+        this.skinName = 'skin_mobile.SSCBetConfirmPanel';
+      }
+
       protected dataMapping() {
         this._datagroup.removeChildren();
 

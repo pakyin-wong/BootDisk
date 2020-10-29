@@ -10,6 +10,9 @@ namespace we {
       protected _btnNoteControlPanel;
       protected _btnChaseBetPanel;
 
+      protected _btnNoteControlBg : ui.RoundRectShape;
+      protected _btnChaseBetBg : ui.RoundRectShape;
+
       protected _bettingPanel: we.lo.SSCTraditionalMobileBettingPanel;
       protected _notes;
       protected _roundData;
@@ -85,6 +88,8 @@ namespace we {
             this._noteControl.visible = true;
             this._noteControl.touchEnabled = true;
             this._currentPanelGroup.addChildAt(this._noteControl,1);
+            this._btnNoteControlBg.fillColor = '0x1b416e';
+            this._btnChaseBetBg.fillColor = '0x0c2848';
           break;
           case 1:
             this._noteControl.visible = false;
@@ -92,6 +97,8 @@ namespace we {
             this._chaseBetPanel.visible = true;
             this._chaseBetPanel.touchEnabled = true;
             this._currentPanelGroup.addChildAt(this._chaseBetPanel,1);
+            this._btnNoteControlBg.fillColor = '0x0c2848';
+            this._btnChaseBetBg.fillColor = '0x1b416e';
           break;
         }
       }

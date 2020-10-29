@@ -40,12 +40,7 @@ namespace we {
       }
 
       protected initSkin() {
-        if(env.isMobile){
-          this.skinName = 'skin_mobile.SSCBetConfirmPanel';
-        }else
-        {
-          this.skinName = 'skin_desktop.SSCBetConfirmPanel';
-        }
+        this.skinName = 'skin_desktop.SSCBetConfirmPanel';
       }
 
       public mount() {

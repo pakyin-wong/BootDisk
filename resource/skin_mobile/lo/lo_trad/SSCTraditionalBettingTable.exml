@@ -3,7 +3,7 @@
     <e:Group id="_content" width="1242" height="2155" visible.off="false" visible.on="true" visible.extend="true">
         <e:Group id="_topClose" top="0" width="1242" height.off="0" height.on="699" height.extend="132" touchEnabled.off="false" touchEnabled.on="true" touchEnabled.extend="true"/>
         <e:Group id="_bottomGroup" x="0" bottom="0" width="1242" height.off="0" height.on="1456" height.extend="2023" touchEnabled.on="true" touchChildren.on="true" touchEnabled.extend="true" touchChildren.extend="true" touchEnabled.off="false" touchChildren.off="false">
-            <ui:RoundRectShape id="_bg" cornerTL_TR_BL_BR="25,25,25,25" width="1242" height.off="0" height.on="1456" height.extend="2023" x="0" y="0" stroke="0" fillColor="0x10151b"/>
+            <ui:RoundRectShape id="_bg" cornerTL_TR_BL_BR="25,25,0,0" width="1242" height.off="0" height.on="1402" height.extend="1979" x="0" y="0" stroke="0" fillColor="0x10151b"/>
             <e:Group id="_playmodeGroup" width="1242" height="160">
                 <ui:RunTimeLabel id="_lblPlayModeTitle" height="65" size="44" text="玩法" textAlign="left" verticalAlign="middle"/>
                 <e:Group id="_playmodeDropDownButton" width="354" height="88">
