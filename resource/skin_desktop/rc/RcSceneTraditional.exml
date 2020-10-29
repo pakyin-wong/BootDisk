@@ -11,7 +11,10 @@
 	<ro:ChipLayer id="_chipLayer" width="1208" height="340" x="692" y="986" skinName="skin_desktop.ro.ChipLayerSkin"
 	              isEdgeDismissable="true" />
 	-->
-	<e:Group id="_videoGroup" x="1560" y="104" width="1024" height="575" />
+	<e:Group id="_videoGroup" x="1560" y="104" width="1024" height="575" >
+		<e:Image id="_videoLogo" x="10" y="20" width="87" height="86" source="d_lottery_pk10_trad_logo_eng_png"/>
+	</e:Group>
+	
 	<e:Group id="_bettingPanelGroup" x="16" y="104" />
 	<e:Group id="_betRelatedGroup" x="768.64" y="895.13" visible="false">
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.lo.SSCTraditionalBettingOptionButtonRow" width="940" height="150" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*">
+    <e:Group id="_buttonGroup" width="940" height="150">
+        <e:Group width="120" height="75" touchChildren="true">
+            <ui:RoundRectButton id="_allButton" cornerTL_TR_BL_BR="8.8,8.8,8.8,8.8" width="120" height="75"
+                        stroke="1" strokeColor="0x5F7273" fillAlpha="0" strokeAlpha="0.5"
+                        stroke_hover="0" fillAlpha_hover="0.76" fillColor_hover="0x1B416E"
+                        stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x1B416E"
+                        stroke_active="0" fillAlpha_active="0.7" fillColor_active="0x1B416E"/>
+            <ui:RunTimeLabel id="_lblAllButton" text="All" verticalCenter="0" horizontalCenter="0" size="40" touchEnabled="false"/>
+        </e:Group>            
+        <e:Group width="120" height="75" touchChildren="true">
+            <ui:RoundRectButton id="_bigButton" cornerTL_TR_BL_BR="8.8,8.8,8.8,8.8" width="120" height="75"                    
+                        stroke="1" strokeColor="0x5F7273" fillAlpha="0" strokeAlpha="0.5"
+                        stroke_hover="0" fillAlpha_hover="0.76" fillColor_hover="0x1B416E"
+                        stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x1B416E"
+                        stroke_active="0" fillAlpha_active="0.7" fillColor_active="0x1B416E"/>
+            <ui:RunTimeLabel id="_lblBigButton" text="Big" verticalCenter="0" horizontalCenter="0" size="40" touchEnabled="false"/>
+        </e:Group>
+        <e:Group width="120" height="75" touchChildren="true">
+            <ui:RoundRectButton id="_smallButton" cornerTL_TR_BL_BR="8.8,8.8,8.8,8.8" width="120" height="75"
+                        stroke="1" strokeColor="0x5F7273" fillAlpha="0" strokeAlpha="0.5"
+                        stroke_hover="0" fillAlpha_hover="0.76" fillColor_hover="0x1B416E"
+                        stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x1B416E"
+                        stroke_active="0" fillAlpha_active="0.7" fillColor_active="0x1B416E"/>   
+            <ui:RunTimeLabel id="_lblSmallButton" text="Small" verticalCenter="0" horizontalCenter="0" size="40" touchEnabled="false"/>
+        </e:Group>
+        <e:Group width="120" height="75" touchChildren="true">
+            <ui:RoundRectButton id="_oddButton" cornerTL_TR_BL_BR="8.8,8.8,8.8,8.8" width="120" height="75" 
+                        stroke="1" strokeColor="0x5F7273" fillAlpha="0" strokeAlpha="0.5"
+                        stroke_hover="0" fillAlpha_hover="0.76" fillColor_hover="0x1B416E"
+                        stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x1B416E"
+                        stroke_active="0" fillAlpha_active="0.7" fillColor_active="0x1B416E"/>
+            <ui:RunTimeLabel id="_lblOddButton" text="Odd" verticalCenter="0" horizontalCenter="0" size="40" touchEnabled="false"/>
+        </e:Group>
+        <e:Group width="120" height="75" touchChildren="true">
+            <ui:RoundRectButton id="_evenButton" cornerTL_TR_BL_BR="8.8,8.8,8.8,8.8" width="120" height="75" 
+                        stroke="1" strokeColor="0x5F7273" fillAlpha="0" strokeAlpha="0.5"
+                        stroke_hover="0" fillAlpha_hover="0.76" fillColor_hover="0x1B416E"
+                        stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x1B416E"
+                        stroke_active="0" fillAlpha_active="0.7" fillColor_active="0x1B416E"/> 
+            <ui:RunTimeLabel id="_lblEvenButton" text="Even" verticalCenter="0" horizontalCenter="0" size="40" touchEnabled="false"/>
+        </e:Group> 
+        <e:Group width="120" height="75" touchChildren="true">
+            <ui:RoundRectButton id="_clearButton" cornerTL_TR_BL_BR="8.8,8.8,8.8,8.8" width="120" height="75"
+                        stroke="1" strokeColor="0x5F7273" fillAlpha="0" strokeAlpha="0.5"
+                        stroke_hover="0" fillAlpha_hover="0.76" fillColor_hover="0x1B416E"
+                        stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x1B416E"
+                        stroke_active="0" fillAlpha_active="0.7" fillColor_active="0x1B416E"/>
+            <ui:RunTimeLabel id="_lblClearButton" text="Clear" verticalCenter="0" horizontalCenter="0" size="40" touchEnabled="false"/>
+        </e:Group>
+        <e:layout>
+            <e:HorizontalLayout verticalAlign="middle" gap="40"/>
+        </e:layout>
+        </e:Group>
+</e:Skin>

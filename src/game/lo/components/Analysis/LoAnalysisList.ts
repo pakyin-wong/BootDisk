@@ -29,7 +29,11 @@ namespace we {
         ]);
         this.bg = new ui.RoundRectShape();
         this.addChild(this.bg);
-        this.initContent();
+        if(!env.isMobile){
+          this.initContent();
+        }else{
+          this.initMobileContent();
+        }
       }
 
       protected childrenCreated(): void {
@@ -77,6 +81,46 @@ namespace we {
         this.changeLang();
       }
 
+      protected initMobileContent() {
+        this.prefixLabel = new ui.RunTimeLabel();
+        this.prefixLabel.y = 11;
+        this.prefixLabel.x = 12;
+        this.prefixLabel.size = 36;
+        this.addChild(this.prefixLabel);
+
+        this.countLabel = new ui.RunTimeLabel();
+        this.countLabel.fontFamily = 'Barlow';
+        this.countLabel.y = 8;
+        this.countLabel.x = 61;
+        this.countLabel.size = 36;
+        this.countLabel.textColor = 0xc59466;
+        this.countLabel.text = '0';
+        this.addChild(this.countLabel);
+
+        this.suffixLabel = new ui.RunTimeLabel();
+        this.suffixLabel.y = 11;
+        this.suffixLabel.x = 82;
+        this.suffixLabel.size = 36;
+        this.addChild(this.suffixLabel);
+
+        this.list = new eui.ListBase();
+        this.list.x = 12;
+        this.list.y = 76;
+
+        this.list.itemRenderer = LoAnalysisMobileListItem;
+        this.list.dataProvider = this.collection;
+
+        const layout = new eui.TileLayout();
+        layout.verticalGap = 10;
+        layout.horizontalGap = 12;
+        layout.orientation = eui.TileOrientation.COLUMNS;
+        layout.requestedRowCount = this.rowCount;
+        this.list.layout = layout;
+
+        this.addChild(this.list);
+        this.changeLang();
+      }
+
       public changeLang() {
         // this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
         if (this.renderType === 0) {
@@ -104,15 +148,28 @@ namespace we {
         });
         this.collection.replaceAll(rslt);
 
-        const w = 12 + Math.ceil(rslt.length / this.rowCount) * (130 + 12);
-        if (this.rowCount === 3) {
-          this.bg.width = w;
-          this.bg.height = 183;
-          this.bg.setRoundRectStyle(w, 183, { tl: 12, tr: 12, br: 12, bl: 12 }, '0x0e1621', 1, 0);
-        } else {
-          this.bg.width = w;
-          this.bg.height = 264;
-          this.bg.setRoundRectStyle(w, 264, { tl: 12, tr: 12, br: 12, bl: 12 }, '0x000d1d', 0.9, 0);
+        if(!env.isMobile){
+          const w = 12 + Math.ceil(rslt.length / this.rowCount) * (130 + 12);
+          if (this.rowCount === 3) {
+            this.bg.width = w;
+            this.bg.height = 183;
+            this.bg.setRoundRectStyle(w, 183, { tl: 12, tr: 12, br: 12, bl: 12 }, '0x0e1621', 1, 0);
+          } else {
+            this.bg.width = w;
+            this.bg.height = 264;
+            this.bg.setRoundRectStyle(w, 264, { tl: 12, tr: 12, br: 12, bl: 12 }, '0x000d1d', 0.9, 0);
+          }
+        }else{
+          const w = 12 + Math.ceil(rslt.length / this.rowCount) * (260 + 12);
+          if (this.rowCount === 3) {
+            this.bg.width = w;
+            this.bg.height = 365;
+            this.bg.setRoundRectStyle(w, 365, { tl: 12, tr: 12, br: 12, bl: 12 }, '0x0e1621', 1, 0);
+          } else {
+            this.bg.width = w;
+            this.bg.height = 365;
+            this.bg.setRoundRectStyle(w, 365, { tl: 12, tr: 12, br: 12, bl: 12 }, '0x000d1d', 0.9, 0);
+          }
         }
       }
       protected destroy() {}

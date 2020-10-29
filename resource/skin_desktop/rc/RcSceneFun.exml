@@ -9,6 +9,7 @@
 			</e:Skin>
 		</ui:skinName>
 	</ui:TweenConfig>
+	<e:Rect width="1050" height="110" x="775" y="94" fillAlpha="0.6" ellipseWidth="40" ellipseHeight="40"/>
 	<lo:FunBetRoundInfo id="_roundInfo" x="674" y="94"  skinName="skin_desktop.rc.FunBetRoundInfo"/>
 	<e:Label id="_counter" text="00:00:00" y="98" height="96" verticalAlign="middle" size="80"
 	         textColor="0x4adc84" bold="true" fontFamily="Barlow"  x="930"/>
@@ -43,6 +44,7 @@
 	<ui:InGameMessage id="_message" y="650" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
 	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_playerelement_png"
 	                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" x="1300.5" />
+	<e:Image id="_logo" width="319" height="110" x="22.3" y="117" source="d_lottery_pk10_ent_logo_eng_png"/>
 	<!--<ro:TableInfoPanel width="324" height="672" x="0" y="90" id="_tableInfoWindow" isPoppable="true"
 	                       isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true"
 	                       anchorOffsetY="0" skinName="skin_desktop.ro.TableInfoPanel" />

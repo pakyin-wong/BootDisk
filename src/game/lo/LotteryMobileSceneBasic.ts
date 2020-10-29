@@ -17,6 +17,10 @@ namespace we {
       protected _targetTime;
       protected _counterInterval;
 
+      //bottomGame
+      protected _bottomGamePanel: lo.MobileBottomGamePanel;
+      protected _roadmapControl: lo.LoRoadmapControl;
+
       constructor(data: any) {
         super(data);
         this._tableId = data.tableid;
@@ -25,6 +29,13 @@ namespace we {
       protected mount() {
         super.mount();
         this.initVideo();
+
+        //added bottomGame
+        this._bottomGamePanel.setTableInfo(this._tableInfo);
+        this._bottomGamePanel.setData();
+        this.initRoadMap;
+
+        // this._bottomGamePanel.update();
       }
 
       protected destroy() {
@@ -36,6 +47,14 @@ namespace we {
         this._lblRoomNo.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this._tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
         this._GameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
         this._GameID.renderText = () => `${this._tableInfo.data.gameroundid}`;        
+      }
+
+      //added bottomGame
+      protected initRoadMap() {
+        this._roadmapControl = new LoRoadmapControl(this._tableId);
+        // if (this._leftGamePanel) {// for testing
+        this._roadmapControl.setTableInfo(this._tableInfo);
+        this._roadmapControl.setRoads(null, null, this._bottomGamePanel._roadmapPanel);
       }
 
       protected addListeners() {
@@ -129,6 +148,16 @@ namespace we {
         this.update();
       }
 
+      protected onRoadDataUpdate(evt: egret.Event) {
+        super.onRoadDataUpdate(evt);
+        if(evt && evt.data){
+          const stat = <data.TableInfo>evt.data;
+          if(stat.tableid === this._tableId){
+            this._bottomGamePanel.updateInfo();
+          }
+        }
+      }
+
       protected update() {
         const diff = this._targetTime - env.currTime;
 
@@ -142,6 +171,68 @@ namespace we {
       protected resetTimer() {
         this._counter.text = '00:00:00';
         clearInterval(this._counterInterval);
+      }
+
+      //_bottomGamePanel
+      public updateResultDisplayVisible(bottomGamePanelisOpen: boolean) {
+        if (!this._bottomGamePanel._bottomResultDisplayContainer) {
+          return;
+        }
+        /*if (env.orientation === 'landscape') {
+          if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.FINISH) {
+            this._resultDisplay.visible = !bottomGamePanelisOpen;
+            this._bottomGamePanel._bottomResultDisplayContainer.visible = bottomGamePanelisOpen;
+          }
+      }*/
+      }
+
+      protected setStateIdle() {
+        super.setStateIdle();
+        this._bottomGamePanel.manualClose();
+      }
+
+      protected setStateDeal() {
+        super.setStateIdle();
+        this._bottomGamePanel.manualClose();
+      }
+
+      public updateTableLayerPosition(bottomGamePanelisOpen: boolean) {
+ /*       if (env.orientation === 'landscape') {
+          const vlayout = new eui.VerticalLayout();
+          if (this._tableLayer) {
+            switch (env.tableInfos[this._tableId].gametype) {
+              case core.GameType.BAC:
+              case core.GameType.BAS:
+              case core.GameType.BAI:
+                console.log('this._aaaaa', this._tableLayer);
+                if (bottomGamePanelisOpen === true) {
+                  vlayout.gap = -65;
+                  // this._tableLayer.y -= 24;
+                  // this._chipLayer.y -= 24;
+                } else {
+                  vlayout.gap = -40;
+                  // this._tableLayer.y += 24;
+                  // this._chipLayer.y += 24;
+                }
+                this._verticalGroup.layout = vlayout;
+                break;
+              case core.GameType.LW:
+                if (bottomGamePanelisOpen === true) {
+                  vlayout.gap = 0;
+                  // this._tableLayer.y -= 24;
+                  // this._chipLayer.y -= 24;
+                } else {
+                  vlayout.gap = 0;
+                  // this._tableLayer.y += 24;
+                  // this._chipLayer.y += 24;
+                }
+                this._verticalGroup.layout = vlayout;
+                break;
+              default:
+                break;
+            }
+          }
+        }*/
       }
     }
   }
