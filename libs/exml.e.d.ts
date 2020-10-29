@@ -2794,6 +2794,10 @@ declare module skin_mobile{
 	class SSCBetNoteItem extends eui.Skin{
 	}
 }
+declare module skin_mobile{
+	class SSCChaseBetConfirmPanel extends eui.Skin{
+	}
+}
 declare module skin_mobile.lo{
 	class SSCTraditionalBetControlPanel extends eui.Skin{
 	}
@@ -2831,7 +2835,7 @@ declare module skin_mobile.lo{
 	}
 }
 declare module skin_mobile{
-	class SSCTradtiionalDoubleMultipleChaseBetPanel extends eui.Skin{
+	class SSCTradtionalDoubleMultipleChaseBetPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile{
