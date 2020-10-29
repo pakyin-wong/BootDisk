@@ -183,7 +183,7 @@ namespace we {
 
       mobile_lobby_feature_title: 'Featured Games',
       mobile_lobby_hot_game_title: 'Hot Games',
-      mobile_ba_undo: 'Undo',
+      mobile_ba_undo: 'Recovery',
       mobile_ba_clear: 'Clear',
       mobile_ba_double: 'Double',
       mobile_ba_repeat: 'Bet Again',
@@ -375,7 +375,7 @@ namespace we {
         rounds: 'rounds',
       },
       luckywheel: {
-        pool: 'Pool',
+        pool: 'Instant Pot',
         east: 'East',
         south: 'South',
         west: 'West',
