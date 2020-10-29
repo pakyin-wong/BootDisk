@@ -46,11 +46,16 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChange, this);
         // dir.evtHandler.removeEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
         dir.evtHandler.removeEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this);
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.reloadBanners, this);
         if (this.sliderGroup) {
           this.roomList.removeChild(this.sliderGroup);
         } else if (this.slider) {
           this.roomList.removeChild(this.slider);
         }
+      }
+
+      protected reloadBanners() {
+        this.contentInitializer.reloadBanners();
       }
 
       protected childrenCreated(): void {
@@ -68,6 +73,8 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
         // dir.evtHandler.addEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
         dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this, false, -1);
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.reloadBanners, this);
+
       }
 
       private onDisplayMode(evt: egret.Event) {

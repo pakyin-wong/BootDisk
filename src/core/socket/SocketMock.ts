@@ -599,7 +599,7 @@ namespace we {
         await utils.sleep(2000);
         let Nicknames;
         switch (env.language) {
-          case 'sc':
+          case 'cn':
             Nicknames = {
               nicknames: {
                 // nicknamekey001: { value: '海綿寶寶sc', group: 'groupKey03' },
@@ -619,7 +619,7 @@ namespace we {
               },
             };
             break;
-          case 'tc':
+          case 'zh':
             Nicknames = {
               nicknames: {
                 // nicknamekey001: { value: '海綿寶寶tc', group: 'groupKey03' },

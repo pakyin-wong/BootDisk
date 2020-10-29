@@ -56,8 +56,8 @@ namespace egret {
           const displayH = destH;
           const scaledBitmapW = bitmapWidth * ts;
           const scaledBitmapH = bitmapHeight * ts;
-          bitmapX = ((scaledBitmapW - displayW) * 0.5) / ts;
-          bitmapY = ((scaledBitmapH - displayH) * 0.5) / ts;
+          bitmapX = bitmapX + ((scaledBitmapW - displayW) * 0.5) / ts;
+          bitmapY = bitmapY + ((scaledBitmapH - displayH) * 0.5) / ts;
           BitmapNodeExtend.drawClipImageExtend(node, ts, bitmapX, bitmapY, scaledBitmapW, scaledBitmapH, offsetX, offsetY, displayW, displayH);
           return;
         }
