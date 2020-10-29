@@ -17,14 +17,14 @@ namespace we {
 
         this._headerItems = [];
         for (let w = 0; w < 7; w++) {
-          const headeritem = new Datepickeritem(w); // 星期的array
+          const headeritem = new Datepickeritem(w); 
           this._headerItems.push(headeritem);
           this.addChild(headeritem);
         }
 
         this._dateItems = [];
         for (let d = 0; d < 31; d++) {
-          const dateitem = new Datepickeritem(d + 1); // 日子的array
+          const dateitem = new Datepickeritem(d + 1); 
           this._dateItems.push(dateitem);
           this.addChild(dateitem);
         }
@@ -33,11 +33,8 @@ namespace we {
       protected mount() {
         super.mount();
         this._today = new Date();
-        console.log('DatepickerCalendar::this._today  new Date()',this._today)
         this._currMonth = this._today.getMonth();
-        console.log('DatepickerCalendar::this._currMonth = this._today.getMonth();',this._currMonth)
         this._today = this._today.getDate() - 1;
-        console.log('DatepickerCalendar::this._today = this._today.getDate() - 1;',this._today)
 
         for (let w = 0; w < 7; w++) {
           this._headerItems[w].label.renderText = () => `${i18n.t('datePicker_weekday_' + w)}`;
@@ -77,8 +74,6 @@ namespace we {
           .month(this._month)
           .startOf('month')
           .day();
-          console.log('DatepickerCalendar::update::_tday',this._tday)
-          console.log('DatepickerCalendar::update::c',c)
         let r = 1;
         for (let d = 0; d < this._tday; d++) {
           const itemDate = moment([this._year, this._month, d + 1]);
@@ -121,23 +116,33 @@ namespace we {
         this.setItemState(this._today, 'today');
         for (let d = 0; d < this._tday; d++) {
           const curr = moment([this._year, this._month, d + 1]);
-          if (curr.isSame(date, 'day')) {
-            if (this._isFirstTime) {
-              this.setItemState(this._today, 'today', false);
-              this._isFirstTime = false;
+          let todaytime = moment()
+            .utcOffset(8)
+            .startOf('day')
+            .unix();
+          let today = moment.unix(todaytime).startOf('day'); // get today's moment,disable it if curr - today > 90
+          let diff = moment(today).diff(curr,"days")
+          if ( diff < 91) {
+            if (curr.isSame(date, 'day')) {
+              if (this._isFirstTime) {
+                this.setItemState(this._today, 'today', false);
+                this._isFirstTime = false;
+              } else {
+                this.setItemState(d, 'single');
+              }
+            } else if (curr.isBetween(begin, end)) {
+              this.setItemState(d, 'enabled');
+              if (d == this._today) {
+                this.setItemState(this._today, 'today');
+              }
             } else {
-              this.setItemState(d, 'single');
-            }
-          } else if (curr.isBetween(begin, end)) {
-            this.setItemState(d, 'enabled');
-            if (d == this._today) {
-              this.setItemState(this._today, 'today');
+              this.setItemState(d, 'disabled'); // 
+              if (d == this._today) {
+                this.setItemState(this._today, 'today', false);
+              }
             }
           } else {
             this.setItemState(d, 'disabled'); // 
-            if (d == this._today) {
-              this.setItemState(this._today, 'today', false);
-            }
           }
         }
       }
@@ -146,15 +151,13 @@ namespace we {
         this.setItemState(this._today, 'today');
         for (let d = 0; d < this._tday; d++) {
           const curr = moment([this._year, this._month, d + 1]);
-          console.log('curr',curr)
-        let todaytime = moment()
-          .utcOffset(8)
-          .startOf('day')
-          .unix();
-        let today = moment.unix(todaytime).startOf('day'); // get today's moment,disable it if curr - today > 90
-        let diff = moment(today).diff(curr,"days")
-        console.log('diff in Datepickeritem (curr - today)',diff)
-        if (diff < 91) {
+          let todaytime = moment()
+            .utcOffset(8)
+            .startOf('day')
+            .unix();
+          let today = moment.unix(todaytime).startOf('day'); // get today's moment,disable it if curr - today > 90
+          let diff = moment(today).diff(curr,"days")
+          if (diff < 91) {
 
             if (curr.isSame(begin, 'day')) {
               this.setItemState(d, 'begin');
@@ -169,16 +172,14 @@ namespace we {
                 this.setItemState(d, 'enabled');
               }
             }
-        } else {
-          this.setItemState(d, 'disabled');
-        }
+          } else {
+            this.setItemState(d, 'disabled');
+          }
         }
       }
 
       public setItemState(d, s, enableClick = true) {
         const item = this._dateItems[d];
-        console.log('this._dateItems',this._dateItems)
-        console.log('this._dateItems[d]',this._dateItems[d])
         item.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClicked, this);
         mouse.setButtonMode(item, false);
 
