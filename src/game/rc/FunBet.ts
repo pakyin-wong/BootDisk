@@ -15,6 +15,11 @@ namespace we {
       public static bet: number = 0;
       public static totalBet: number = 0;
       public static betDetails = FunBet.createBetDetails();
+      public static betratios = null;
+
+      public static initRatios(b) {
+        FunBet.betratios = b;
+      }
 
       public static add(betInfo) {
         const betLimit = env.betLimits.Lottery[env.currentSelectedBetLimitIndex];

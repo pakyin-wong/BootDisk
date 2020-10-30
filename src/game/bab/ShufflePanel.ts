@@ -177,7 +177,10 @@ namespace we {
         card.scaleX = card.scaleY = 0.72;
 
         const label = new eui.Label();
+        label.size = 65
         label.text = num.toString();
+        label.anchorOffsetX = label.width / 2;
+        label.anchorOffsetY = label.height / 2;
 
         const labelGroup = new eui.Group();
         labelGroup.addChild(label);

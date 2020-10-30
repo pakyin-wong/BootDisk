@@ -3,12 +3,13 @@ namespace we {
     export class FunBetLayer extends core.BaseEUI {
       protected _tabbar: eui.TabBar;
       protected _viewstack: eui.ViewStack;
-      // protected _vh: number;
+      
+      protected _descTogger: egret.DisplayObject;
+      protected _desc: FunBetDescription;
 
-      // public items: string[] = ['fun', 'num', 'dt', 'five1'];
+      protected _txt_infoToggler: ui.RunTimeLabel;
 
       constructor() {
-        // super('lo.FunBetLayer');
         super();
         this.customKey = 'lo';
       }
@@ -26,16 +27,26 @@ namespace we {
         this._tabbar.itemRenderer = FunBetTabItemRenderer;
         this._tabbar.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.handleTap, this);
 
-        // this._vh = this._viewstack.height;
+        this._txt_infoToggler && (this._txt_infoToggler.renderText = ()=> i18n.t(`lo_fun_betlayer_info`));
+
+        this._desc.setToggler(this._descTogger);
+        utils.addButtonListener(this._descTogger, this.onDescTogger, this);
       }
 
       protected destroy() {
         super.destroy();
         this._tabbar.removeEventListener(eui.ItemTapEvent.ITEM_TAP, this.handleTap, this);
+
+        this._desc.removeToggler();
+        utils.removeButtonListener(this._descTogger, this.onDescTogger, this);
       }
 
       protected handleTap() {
         this._viewstack.selectedIndex = this._tabbar.selectedIndex;
+      }
+
+      protected onDescTogger() {
+        this._desc.setText(i18n.t(`${this.customKey}_fun_betlayer_info_${this._viewstack.getItemAt(this._tabbar.selectedIndex)}`));
       }
     }
   }
