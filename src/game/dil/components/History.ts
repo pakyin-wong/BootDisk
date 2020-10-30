@@ -1,6 +1,8 @@
 namespace we {
   export namespace dil {
-    export class History extends core.BaseEUI {
+    export class History extends  ui.Panel {
+      protected tableInfo: data.TableInfo;
+      protected _gamestatistic: any;
       public round: number = 10;
 
       protected _roundNumber: eui.Label;
@@ -52,6 +54,23 @@ namespace we {
           this._roundNumber.text = this.round.toString();
         }
       }
+      public setValue(tableInfo: data.TableInfo) { //called when bet start
+        this.tableInfo = tableInfo;
+        if (tableInfo.gamestatistic) {
+          this._gamestatistic = tableInfo.gamestatistic;
+          this.updateBar(this._gamestatistic)
+        }
+      }
+      // update bat chart when bet info update
+       public updateHistoryTableInfo(tableInfo) {
+        this._gamestatistic = tableInfo.gamestatistic;
+        // console.log('updateTableBetInfo::this.tableInfo.betInfo',this.tableInfo.betInfo)
+        this.updateBar(this._gamestatistic);  
+
+    
+        logger.l(utils.LogTarget.DEBUG, JSON.stringify(this.tableInfo.betInfo.count));
+        logger.l(utils.LogTarget.DEBUG, JSON.stringify(this.tableInfo.betInfo.amount));
+      }    
       public finishAction(page: number) {
         if (page === 0) {
           this.round = 10;
@@ -69,16 +88,17 @@ namespace we {
           return;
         }
         const percentages_10 = we.utils.stat.toPercentages(data.dilHistory.round_10);
+        console.log('percentages_10,',percentages_10)
         const percentages_50 = we.utils.stat.toPercentages(data.dilHistory.round_50);
         if (this.round === 10) {
           for (let i = 3; i < 19; i++) {
-            this[`_sum${i}Percent`].text = `${percentages_10[i - 3]}`;
+            this[`_sum${i}Percent`].text = `${percentages_10[i - 3]}%`;
             (<ui.ProgressBar> this[`_sum${i}`]).proportion = percentages_10[i - 3] / 100;
             (<ui.ProgressBar> this[`_sum${i}`]).draw();
           }
         } else {
           for (let i = 3; i < 19; i++) {
-            this[`_sum${i}Percent`].text = `${percentages_50[i - 3]}`;
+            this[`_sum${i}Percent`].text = `${percentages_50[i - 3]}%`;
             (<ui.ProgressBar> this[`_sum${i}`]).proportion = percentages_50[i - 3] / 100;
             (<ui.ProgressBar> this[`_sum${i}`]).draw();
           }
