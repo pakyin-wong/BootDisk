@@ -305,7 +305,6 @@ namespace we {
         logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
-          console.log(`.............${JSON.stringify(this._betDetails)}`);
           switch (this._gameData.state) {
             case we.core.GameState.BET:
               this.onBetDetailUpdateInBetState();
@@ -645,8 +644,6 @@ namespace we {
         if (!isNaN(this._tableInfo.totalWin)) {
           totalWin = this._tableInfo.totalWin;
         }
-        console.log(`.......tableinfo....${JSON.stringify(this._tableInfo)}`);
-        console.log(`.......total....${totalWin}`);
         let pass1: boolean = false;
         let pass2: boolean = false;
         switch (this._tableInfo.gametype) {
@@ -659,8 +656,6 @@ namespace we {
           case core.GameType.DT:
             pass1 = this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin);
             pass2 = this._gameData && this._gameData.wintype != 0;
-            console.log(`...pass1........${pass1}`);
-            console.log(`...pass2........${pass2}`);
             break;
           case core.GameType.RO:
           case core.GameType.ROL:

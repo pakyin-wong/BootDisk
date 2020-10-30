@@ -32,6 +32,7 @@ namespace we {
         const selected = evt.data;
         env.currentSelectedBetLimitIndex = selected;
         dir.evtHandler.dispatch(core.Event.BET_LIMIT_CHANGE);
+        dir.socket.updateSetting('currentSelectedBetLimitIndex', selected.toString());
       }
     }
   }
