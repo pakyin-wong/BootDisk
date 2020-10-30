@@ -33,6 +33,9 @@ namespace we {
       protected bg: ui.RoundRectShape;
       protected border: ui.RoundRectShape;
 
+      protected _factory: dragonBones.EgretFactory;
+      protected _displays: dragonBones.EgretArmatureDisplay[];
+
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'DilLeftPanel');
       }
@@ -208,28 +211,20 @@ namespace we {
       //   }
       // }
 
-      public destroy() {
-        super.destroy();
-
-        egret.Tween.removeTweens(this.activeLine);
-        if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
-          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        }
-        // dir.evtHandler.removeEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
-      }
-
       protected createLuckyCoinAnim() {
-        const skeletonData = RES.getRes(`dice_w_game_result_ske_json`);
-        const textureData = RES.getRes(`dice_w_game_result_tex_json`);
-        const texture = RES.getRes(`dice_w_game_result_tex_png`);
-        const factory = new dragonBones.EgretFactory();
-        factory.parseDragonBonesData(skeletonData);
-        factory.parseTextureAtlasData(textureData, texture);
-        return factory.buildArmatureDisplay('draw_number');
+        if (!this._factory) {
+          const skeletonData = RES.getRes(`dice_w_game_result_ske_json`);
+          const textureData = RES.getRes(`dice_w_game_result_tex_json`);
+          const texture = RES.getRes(`dice_w_game_result_tex_png`);
+          const factory = new dragonBones.EgretFactory();
+          factory.parseDragonBonesData(skeletonData);
+          factory.parseTextureAtlasData(textureData, texture);
+        }
+        return this._factory.buildArmatureDisplay('draw_number');
       }
 
       public updateLuckyNumbers() {
-        this._coinGroup.removeChildren();
+        this.clearLuckyNumbers();
 
         if (!(this.tableInfo && this.tableInfo.data && this.tableInfo.data.luckynumber)) {
           return;
@@ -242,6 +237,8 @@ namespace we {
         let x = (580 - (noOfLuckNum - 1) * 13 - noOfLuckNum * 175) / 2;
         let firstCoin = true;
 
+        this._displays = [];
+        
         for (const key of Object.keys(luckyNumbers)) {
           const animName = this.getAnimName(+key);
 
@@ -268,6 +265,7 @@ namespace we {
           coinGroup.visible = false;
 
           this._coinGroup.addChild(coinGroup);
+          this._displays.push(coinAnim);
 
           if (!this._chipLayer) {
             return;
@@ -379,8 +377,34 @@ namespace we {
         return group;
       }
 
+      public destroy() {
+        this.clearLuckyNumbers();
+        this._factory.clear(true);
+        super.destroy();
+        
+        egret.Tween.removeTweens(this.activeLine);
+        if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
+          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        }
+        // dir.evtHandler.removeEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
+      }
+
       public clearLuckyNumbers() {
-        this._coinGroup.removeChildren();
+        if (this._displays) {
+          for (const display of this._displays) {
+            if (display) {
+              if (display.animation) {
+                display.animation.stop();
+              }
+              display.armature.dispose();
+              display.dispose();
+              if (display.parent) {
+                display.parent.removeChild(display);
+              }
+            }
+          }
+          this._displays = null;
+        }
       }
 
       protected fieldToValue(fieldName: string) {
