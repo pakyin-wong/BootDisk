@@ -1568,6 +1568,10 @@ declare module skin_mobile_landscape{
 	class LuckyWheelScene extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape{
+	class LwLeftPanel extends eui.Skin{
+	}
+}
 declare module skin_mobile_landscape.lw{
 	class MobileBottomGamePanel extends eui.Skin{
 	}
@@ -2242,6 +2246,10 @@ declare module skin_mobile_portrait.lw{
 }
 declare module skin_mobile_portrait{
 	class LuckyWheelScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class LwLeftPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.lw{
