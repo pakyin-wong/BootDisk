@@ -257,15 +257,14 @@ namespace we {
           this._ringAnim.animation.fadeIn('poker_in', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
           await p1;
 
+
+          this.setLabel(this._centerBurnCard.armature.getSlot('card_number_vertical'),this._gameData.currentcardindex + 1);
           this._centerBurnCardGroup.visible = true;
           const p2 = we.utils.waitDragonBone(this._centerBurnCard);
           this._centerBurnCard.animation.fadeIn('dt_burn_card_center',0,1,0,'POKER_ROUND_ANIMATION_GROUP')
+          this._ringAnim.animation.gotoAndStopByTime('poker_in',0)
           await p2;
           this._centerBurnCardGroup.visible = false;
-
-          const p3 = we.utils.waitDragonBone(this._ringAnim);
-          this._ringAnim.animation.fadeIn('poker_out', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
-          await p3;
 
           return new Promise(resolve => resolve())
         })();
