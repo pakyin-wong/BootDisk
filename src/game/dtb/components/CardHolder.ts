@@ -471,7 +471,7 @@ namespace we {
               const tigerBlock = utils.waitDragonBone(this._tigerAnim);
 
               this._dragonAnim.animation.play('shoe_in',1)
-              this._tigerAnim.animation.play('shoe_int',1)
+              this._tigerAnim.animation.play('shoe_in',1)
 
               await dragonBlock;
               await tigerBlock;
