@@ -56,10 +56,12 @@ namespace we {
       }
 
       protected destroy() {
+        /*
         this.destroyAnim(this._ringAnim);
         this.destroyAnim(this._smallRedCard);
         super.destroy();
         this._factory.clear(true);
+        */
       }
 
       protected openCardInfo(infoIndex) {

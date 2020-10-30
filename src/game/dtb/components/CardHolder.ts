@@ -58,12 +58,14 @@ namespace we {
       }
 
       protected destroy() {
+        /*
         this.destroyAnim(this._dragonCard);
         this.destroyAnim(this._tigerCard);
         this.destroyAnim(this._centerBurnCard);
         this.destroyAnim(this._dragonAnim);
         this.destroyAnim(this._tigerAnim);
         super.destroy();
+        */
       }
 
       protected createChildren() {
