@@ -44,6 +44,7 @@ namespace we {
       }
 
       public destroy() {
+        this.beadRoad.dispose();
         super.destroy();
 
         this.removeListeners();

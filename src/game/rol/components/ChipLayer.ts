@@ -42,10 +42,12 @@ namespace we {
           if (this._winningAnim.animation) {
             this._winningAnim.animation.stop();
           }
+          this._winningAnim.armature.dispose();
+          this._winningAnim.dispose();
           if (this._winningAnim.parent) {
-            this._winningAnim.dispose();
             this._winningAnim.parent.removeChild(this._winningAnim);
           }
+          this._winningAnim = null;
         }
       }
 
@@ -60,7 +62,7 @@ namespace we {
               luckyAnim.parent.removeChild(luckyAnim);
             }
           }
-          this._luckyAnims = null
+          this._luckyAnims = null;
         }
         if (this._flashingOdds) {
           for (const flashingOdd of this._flashingOdds) {
@@ -128,30 +130,30 @@ namespace we {
       }
 
       protected addLuckyGridBg(evt: dragonBones.EgretEvent) {
-          if (!evt && !evt.eventObject && evt.eventObject.name !== 'INSERT_GRID_BG') {
-            return;
-          }
-          let source = '';
-          switch (evt.animationName) {
-            case 'bet_green_in':
-              source = 'Disc_Green_103x214_png';
+        if (!evt && !evt.eventObject && evt.eventObject.name !== 'INSERT_GRID_BG') {
+          return;
+        }
+        let source = '';
+        switch (evt.animationName) {
+          case 'bet_green_in':
+            source = 'Disc_Green_103x214_png';
             break;
-            case 'bet_red_in':
-              source = 'Disc_Red_84x72_png';
+          case 'bet_red_in':
+            source = 'Disc_Red_84x72_png';
             break;
-            case 'bet_black_in':
-              source = 'Disc_Black_84x72_png';
+          case 'bet_black_in':
+            source = 'Disc_Black_84x72_png';
             break;
-          }
-          const grid = this._mouseAreaMapping[ro.BetField['DIRECT_' + evt.target.name]];
-          const img = new eui.Image();
-          img.source = source;
-          img.verticalCenter = 0;
-          img.horizontalCenter = 0;
-          img.width = grid.width - 2;
-          img.height = grid.height - 2;
-          img.alpha = 0.5;
-          grid.addChild(img);
+        }
+        const grid = this._mouseAreaMapping[ro.BetField['DIRECT_' + evt.target.name]];
+        const img = new eui.Image();
+        img.source = source;
+        img.verticalCenter = 0;
+        img.horizontalCenter = 0;
+        img.width = grid.width - 2;
+        img.height = grid.height - 2;
+        img.alpha = 0.5;
+        grid.addChild(img);
       }
 
       public showLuckyNumber() {
@@ -213,13 +215,13 @@ namespace we {
           this._flashingOdds.push(flashingOdd);
 
           (async () => {
-            let p = we.utils.waitDragonBone(luckyAnim);
+            const p = we.utils.waitDragonBone(luckyAnim);
             luckyAnim.animation.play(`bet${color}_in`, 1);
             await p;
 
             luckyAnim.removeDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addLuckyGridBg, this);
 
-            luckyAnim.animation.play(`bet${color}_loop`, 0);
+            if (luckyAnim && luckyAnim.animation) { luckyAnim.animation.play(`bet${color}_loop`, 0); }
 
             /*
             p = we.utils.waitDragonBone(this._luckyAnim);

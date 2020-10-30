@@ -1,9 +1,11 @@
 namespace we {
   export namespace dil {
     export class ChipLayer extends we.ui.ChipLayer {
-      protected _flashingOdd: eui.Label;
+      protected _flashingOdds: eui.Label[];
       protected _luckyAnims: dragonBones.EgretArmatureDisplay[];
       protected _winningAnim: dragonBones.EgretArmatureDisplay;
+
+      protected factory: dragonBones.EgretFactory;
 
       // group
       protected _sum_3_group: eui.Group;
@@ -46,26 +48,8 @@ namespace we {
       }
 
       protected destroy() {
-        if (this._winningAnim) {
-            if (this._winningAnim.animation) {
-              this._winningAnim.animation.stop();
-            }
-            if (this._winningAnim.parent) {
-              this._winningAnim.dispose();
-              this._winningAnim.parent.removeChild(this._winningAnim);
-            }
-        }
-        if (this._luckyAnims) {
-          this._luckyAnims.map(luckyAnim=> {
-            if (luckyAnim.animation) {
-              luckyAnim.animation.stop();
-            }
-            if (luckyAnim.parent) {
-              luckyAnim.dispose();
-              luckyAnim.parent.removeChild(luckyAnim);
-            }
-          });
-        }
+        this.clearLuckyAnim();
+        this.clearWinningAnim();
         super.destroy();
       }
 
@@ -154,13 +138,13 @@ namespace we {
         }
       }
 
-      protected addGridBg(grid: any, num: number) {
-        return (evt: dragonBones.EgretEvent) => {
-          if (!evt && !evt.eventObject && evt.eventObject.name !== 'INSERT_GRID_BG') {
-            return;
-          }
-        };
-      }
+      // protected addGridBg(grid: any, num: number) {
+      //   return (evt: dragonBones.EgretEvent) => {
+      //     if (!evt && !evt.eventObject && evt.eventObject.name !== 'INSERT_GRID_BG') {
+      //       return;
+      //     }
+      //   };
+      // }
 
       public clearLuckyNumber() {
         this.clearLuckyAnim();
@@ -168,31 +152,40 @@ namespace we {
       }
 
       public clearWinningAnim() {
-        if (!this._winningAnim || !this._winningAnim.parent) {
-          return;
+        if (this._winningAnim) {
+          if (this._winningAnim.animation) {
+            this._winningAnim.animation.stop();
+          }
+          this._winningAnim.armature.dispose();
+          this._winningAnim.dispose();
+          if (this._winningAnim.parent) {
+            this._winningAnim.parent.removeChild(this._winningAnim);
+          }
+          this._winningAnim = null;
         }
-        this._winningAnim.parent.removeChild(this._winningAnim);
       }
 
       public clearLuckyAnim() {
-        if (!this._luckyAnims) {
-          return;
-        }
-        this._luckyAnims.map(luckyAnim => {
-          if (!luckyAnim || !luckyAnim.parent) {
-            return;
-          }
-
-          luckyAnim.animation.stop();
-          if (luckyAnim.parent.contains(luckyAnim)) {
+        if (this._luckyAnims) {
+          for (const luckyAnim of this._luckyAnims) {
+            if (luckyAnim.animation) {
+              luckyAnim.animation.stop();
+            }
+            luckyAnim.armature.dispose();
             luckyAnim.dispose();
-            luckyAnim.parent.removeChild(luckyAnim);
-          }
-        });
 
-        if (this._flashingOdd && this._flashingOdd.parent) {
-          egret.Tween.removeTweens(this._flashingOdd);
-          this._flashingOdd.parent.removeChild(this._flashingOdd);
+            if (luckyAnim.parent) {
+              luckyAnim.parent.removeChild(luckyAnim);
+            }
+          }
+          this._luckyAnims = null;
+        }
+
+        if (this._flashingOdds) {
+          for (const flashingOdd of this._flashingOdds) {
+            egret.Tween.removeTweens(flashingOdd);
+          }
+          this._flashingOdds = null;
         }
       }
 
@@ -260,6 +253,7 @@ namespace we {
         const luckyNumbers = env.tableInfos[this._tableId].data.luckynumber;
 
         this._luckyAnims = new Array<dragonBones.EgretArmatureDisplay>();
+        this._flashingOdds = new Array<eui.Label>();
 
         Object.keys(luckyNumbers).map((key, index) => {
           if (!this._mouseAreaMapping[dil.BetField['SUM_' + key]]) {
@@ -269,43 +263,45 @@ namespace we {
           const grid = this._mouseAreaMapping[dil.BetField['SUM_' + key]];
 
           const luckyAnim = this.createAnim('bet_effect');
-          luckyAnim.addDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addGridBg(grid, +key), luckyAnim);
+          // luckyAnim.addDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addGridBg(grid, +key), luckyAnim);
 
           grid.addChild(luckyAnim);
           luckyAnim.anchorOffsetX = 3;
           luckyAnim.anchorOffsetY = 2;
 
-          this._flashingOdd = new eui.Label();
-          this._flashingOdd.verticalCenter = 0;
-          this._flashingOdd.horizontalCenter = 0;
-          this._flashingOdd.fontFamily = 'Barlow';
-          this._flashingOdd.size = 30;
-          this._flashingOdd.textColor = 0x83f3af;
-          this._flashingOdd.text = luckyNumbers[key] + 'x';
+          const flashingOdd = new eui.Label();
+          flashingOdd.verticalCenter = 0;
+          flashingOdd.horizontalCenter = 0;
+          flashingOdd.fontFamily = 'Barlow';
+          flashingOdd.size = 30;
+          flashingOdd.textColor = 0x83f3af;
+          flashingOdd.text = luckyNumbers[key] + 'x';
 
-          grid.addChild(this._flashingOdd);
-          egret.Tween.get(this._flashingOdd)
+          grid.addChild(flashingOdd);
+          egret.Tween.get(flashingOdd)
             .to({ alpha: 0 }, 1000)
             .to({ alpha: 1 }, 1000)
             .to({ alpha: 0 }, 1000)
             .to({ alpha: 1 }, 1000)
-            .to({ alpha: 0 }, 1000);
+            .to({ alpha: 0 }, 1000)
+            .to({ alpha: 1 }, 1000);
 
           this._luckyAnims.push(luckyAnim);
+          this._flashingOdds.push(flashingOdd);
 
           const animName = this.getAnimName(+key);
           // console.log('showLuckyNumber');
 
           (async () => {
-            let p = we.utils.waitDragonBone(luckyAnim);
+            const p = we.utils.waitDragonBone(luckyAnim);
             luckyAnim.animation.play(`${animName}_in`, 1);
             await p;
 
-            luckyAnim.removeDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addGridBg(grid, +key), luckyAnim);
+            // luckyAnim.removeDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addGridBg(grid, +key), luckyAnim);
 
-            p = we.utils.waitDragonBone(luckyAnim);
-            luckyAnim.animation.play(`${animName}_loop`, 0);
-            await p;
+            // p = we.utils.waitDragonBone(luckyAnim);
+            if (luckyAnim && luckyAnim.animation) { luckyAnim.animation.play(`${animName}_loop`, 0); }
+            // await p;
           })();
         });
       }
@@ -313,13 +309,16 @@ namespace we {
       protected restructureChildren() {}
 
       protected createAnim(armatureName: string) {
-        const skeletonData = RES.getRes(`dice_w_game_result_ske_json`);
-        const textureData = RES.getRes(`dice_w_game_result_tex_json`);
-        const texture = RES.getRes(`dice_w_game_result_tex_png`);
-        const factory = new dragonBones.EgretFactory();
-        factory.parseDragonBonesData(skeletonData);
-        factory.parseTextureAtlasData(textureData, texture);
-        return factory.buildArmatureDisplay(armatureName);
+        if (!this.factory) {
+          const skeletonData = RES.getRes(`dice_w_game_result_ske_json`);
+          const textureData = RES.getRes(`dice_w_game_result_tex_json`);
+          const texture = RES.getRes(`dice_w_game_result_tex_png`);
+          const factory = new dragonBones.EgretFactory();
+          factory.parseDragonBonesData(skeletonData);
+          factory.parseTextureAtlasData(textureData, texture);
+          this.factory = factory;
+        }
+        return this.factory.buildArmatureDisplay(armatureName);
       }
     }
   }

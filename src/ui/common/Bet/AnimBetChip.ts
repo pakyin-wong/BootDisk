@@ -17,6 +17,8 @@ namespace we {
       public aspectRatio: number = 0.7;
       protected _touchArea: eui.Rect;
 
+      protected _factory: dragonBones.EgretFactory;
+
       public constructor(value: number = null, index: number = 0, type: we.core.ChipType = we.core.ChipType.PERSPECTIVE) {
         super();
         this._value = value;
@@ -27,13 +29,16 @@ namespace we {
       }
 
       protected createChipAnim() {
-        const skeletonData = RES.getRes(`chips_select_ske_json`);
-        const textureData = RES.getRes(`chips_select_tex_json`);
-        const texture = RES.getRes(`chips_select_tex_png`);
-        const factory = new dragonBones.EgretFactory();
-        factory.parseDragonBonesData(skeletonData);
-        factory.parseTextureAtlasData(textureData, texture);
-        return factory.buildArmatureDisplay('chips_select');
+        if (!this._factory) {
+          const skeletonData = RES.getRes(`chips_select_ske_json`);
+          const textureData = RES.getRes(`chips_select_tex_json`);
+          const texture = RES.getRes(`chips_select_tex_png`);
+          const factory = new dragonBones.EgretFactory();
+          factory.parseDragonBonesData(skeletonData);
+          factory.parseTextureAtlasData(textureData, texture);
+          this._factory = factory;
+        }
+        return this._factory.buildArmatureDisplay('chips_select');
       }
 
       protected mount() {
@@ -67,10 +72,15 @@ namespace we {
       }
 
       protected destroy() {
-        // this._chipAnim.animation.stop();
-        // this._chipAnim.dispose();
-        // this.removeChild(this._chipAnim);
         super.destroy();
+      }
+
+      public dispose() {
+        this._chipAnim.animation.stop();
+        this._chipAnim.armature.dispose();
+        this._chipAnim.dispose();
+        this._factory.clear(true);
+        this.removeChild(this._chipAnim);
       }
 
       protected beep() {

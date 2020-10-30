@@ -1,7 +1,6 @@
 namespace we {
   export namespace rol {
     export class MobileChipLayer extends we.ro.MobileChipLayer {
-
       protected factory: dragonBones.EgretFactory;
       protected _flashingOdds: eui.Label[];
       protected _luckyAnims: dragonBones.EgretArmatureDisplay[];
@@ -43,18 +42,17 @@ namespace we {
       }
 
       protected clearWinningAnim() {
-          if (this._winningAnim && this._winningAnim.animation) {
-            this._winningAnim.animation.stop();
-          }
-          if (this._winningAnim) {
-            this._winningAnim.armature.dispose();
-            this._winningAnim.dispose();
-          }
-          if (this._winningAnim && this._winningAnim.parent) {
-            this._winningAnim.parent.removeChild(this._winningAnim);
-          }
-          this._winningAnim = null;
-
+        if (this._winningAnim && this._winningAnim.animation) {
+          this._winningAnim.animation.stop();
+        }
+        if (this._winningAnim) {
+          this._winningAnim.armature.dispose();
+          this._winningAnim.dispose();
+        }
+        if (this._winningAnim && this._winningAnim.parent) {
+          this._winningAnim.parent.removeChild(this._winningAnim);
+        }
+        this._winningAnim = null;
       }
 
       protected clearLuckyAnim() {
@@ -142,42 +140,42 @@ namespace we {
       }
 
       protected addLuckyGridBg(evt: dragonBones.EgretEvent) {
-          if (!evt && !evt.eventObject && evt.eventObject.name !== 'INSERT_GRID_BG') {
-            return;
-          }
-          let source = '';
-          switch (evt.animationName) {
-            case 'bet_green_in':
-              if (env.orientation === 'portrait') {
-                source = 'Disc_Green_650x123_png';
-              } else {
-                source = 'Disc_Green_140x444_png';
-              }
+        if (!evt && !evt.eventObject && evt.eventObject.name !== 'INSERT_GRID_BG') {
+          return;
+        }
+        let source = '';
+        switch (evt.animationName) {
+          case 'bet_green_in':
+            if (env.orientation === 'portrait') {
+              source = 'Disc_Green_650x123_png';
+            } else {
+              source = 'Disc_Green_140x444_png';
+            }
             break;
-            case 'bet_red_in':
-              if (env.orientation === 'portrait') {
-                source = 'Disc_Red_218x128_png';
-              } else {
-                source = 'Disc_Red_148x148_png';
-              }
+          case 'bet_red_in':
+            if (env.orientation === 'portrait') {
+              source = 'Disc_Red_218x128_png';
+            } else {
+              source = 'Disc_Red_148x148_png';
+            }
             break;
-            case 'bet_black_in':
-              if (env.orientation === 'portrait') {
-                source = 'Disc_Black_218x128_png';
-              } else {
-                source = 'Disc_Black_148x148_png';
-              }
+          case 'bet_black_in':
+            if (env.orientation === 'portrait') {
+              source = 'Disc_Black_218x128_png';
+            } else {
+              source = 'Disc_Black_148x148_png';
+            }
             break;
-          }
-          const grid = this._mouseAreaMapping[ro.BetField['DIRECT_' + evt.target.name]];
-          const img = new eui.Image();
-          img.source = source;
-          img.verticalCenter = 0;
-          img.horizontalCenter = 0;
-          img.width = grid.width - 2;
-          img.height = grid.height - 2;
-          img.alpha = 0.5;
-          grid.addChild(img);
+        }
+        const grid = this._mouseAreaMapping[ro.BetField['DIRECT_' + evt.target.name]];
+        const img = new eui.Image();
+        img.source = source;
+        img.verticalCenter = 0;
+        img.horizontalCenter = 0;
+        img.width = grid.width - 2;
+        img.height = grid.height - 2;
+        img.alpha = 0.5;
+        grid.addChild(img);
       }
 
       public showLuckyNumber() {
@@ -245,15 +243,14 @@ namespace we {
           this._luckyAnims.push(coinAnim);
           this._flashingOdds.push(label);
 
-
           (async () => {
-            let p = we.utils.waitDragonBone(coinAnim);
+            const p = we.utils.waitDragonBone(coinAnim);
             coinAnim.animation.play(`bet${color}_in`, 1);
             await p;
 
             coinAnim.removeDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addLuckyGridBg, this);
 
-            coinAnim.animation.play(`bet${color}_loop`, 0);
+            if (coinAnim && coinAnim.animation) { coinAnim.animation.play(`bet${color}_loop`, 0); }
 
             // p = we.utils.waitDragonBone(coinAnim);
             // coinAnim.animation.play(`bet${color}_loop`, 3);
@@ -264,7 +261,6 @@ namespace we {
             // if (grid.contains(label)) {
             //   grid.removeChild(label);
             // }
-
           })();
         });
       }
