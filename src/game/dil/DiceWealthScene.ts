@@ -101,6 +101,7 @@ namespace we {
           const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
             this._rightGamePanel.pool.updateTableBetInfo();
+            this._rightGamePanel.history.updateHistoryTableInfo(this.tableInfo);
           }
         }
       }

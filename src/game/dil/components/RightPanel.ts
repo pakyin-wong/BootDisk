@@ -66,7 +66,6 @@ namespace we {
         if (!this.tableInfo) {
           return;
         }
-        console.log('updateStat::this.tableInfo.gamestatistic',this.tableInfo.gamestatistic)
         const stat = this.tableInfo.gamestatistic;
         if (this.history) {
           this.history.updateStat(stat);
@@ -109,8 +108,10 @@ namespace we {
           if (this.tableInfo.betInfo) {
             this.changeLang();
             if (this.pool) {
-              console.log('RightPanel::update:: this.tableInfo',this.tableInfo)
               this.pool.setValue(this.tableInfo);
+            }
+            if (this.history){
+              this.history.setValue(this.tableInfo);
             }
           }
         }
