@@ -107,6 +107,12 @@ namespace we {
         if (this.tableInfo) {
           if (this.tableInfo.betInfo) {
             this.changeLang();
+            if (this.pool) {
+              this.pool.setValue(this.tableInfo);
+            }
+            if (this.history){
+              this.history.setValue(this.tableInfo);
+            }
           }
         }
       }

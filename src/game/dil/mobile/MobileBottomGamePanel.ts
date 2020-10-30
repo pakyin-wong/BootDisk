@@ -16,6 +16,7 @@ namespace we {
       protected _infoGroup: eui.Group;
       protected _chartGroup: eui.Group;
 
+      public _poolPanel: Pool;
       public beadRoad: DilBeadRoad;
 
       public constructor(skin?: string) {
