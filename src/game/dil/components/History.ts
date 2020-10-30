@@ -132,17 +132,13 @@ namespace we {
       protected updateHistoryBar (data) {
         if (env.isMobile) {
           // check is 10 records or 50 records
-          console.log('_totalResult',this._totalResult)
           if (this._totalResult === 10) {
             this.updateBarWithTenResult(data);
-            console.log('data',data)
           } else if (this._totalResult === 50){
             this.updateBarWithFiftyResult(data);
-             console.log('data',data)
           }
         } else {
           this.updateBar(data)
-          console.log('data',data)
         }
       };
 
