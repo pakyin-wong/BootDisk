@@ -47,7 +47,6 @@ namespace we {
 
       protected mount() {
         this.initNav();
-        this.addListeners();
       }
 
       protected initNav() {
@@ -81,6 +80,7 @@ namespace we {
         this.getPlayerProfileSummary();
         this.updateIconImage();
         this.updateNickname();
+        this.addListeners();
       }
 
       private addListeners() {

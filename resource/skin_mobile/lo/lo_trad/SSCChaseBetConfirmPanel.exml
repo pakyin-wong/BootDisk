@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile.SSCChaseBetConfirmPanel" width="1242" height="1900" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*">
-    <e:Rect x="0" y="0" width="1242" height="1900" alpha="0.4" fillColor="0x000000"/>
-    <ui:RoundRectShape cornerTL_TR_BL_BR="13,13,0,0" x="0" y="0" width="1242" height="1900" fillColor="0x0f1721" stroke="0"/>
+<e:Skin class="skin_mobile.SSCChaseBetConfirmPanel" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*">
+    <e:Rect x="0" y="0" width="1242" height="2155" alpha="0.4" fillColor="0x000000"/>
+    <ui:RoundRectShape cornerTL_TR_BL_BR="13,13,0,0" x="0" bottom="0" width="1242" height="1900" fillColor="0x0f1721" stroke="0"/>
     <e:Group id="_panel" width="1242" height="1900" horizontalCenter="0" bottom="0">
         <ui:RunTimeLabel id="_lblBetConfirm" x="84" y="93" textColor="0xce925e" text="投注確認" fontFamily="Microsoft YaHei" size="80"/>
         <ui:RunTimeLabel id="_lblLotteryName" x="84" y="260" text="彩種名稱" fontFamily="Microsoft YaHei" size="48" alpha="0.7"/>

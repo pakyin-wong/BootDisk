@@ -87,13 +87,13 @@ namespace we {
 
       public manualOpen() {
         super.manualOpen();
-        this._middlePart.visible = env.isBottomPanelOpen;
+        this._middlePart.visible = this.currentState === 'on' ? true : false;
       }
 
       public manualClose() {
         super.manualClose();
 
-        this._middlePart.visible = env.isBottomPanelOpen;
+        this._middlePart.visible = this.currentState === 'on' ? true : false;
         // this._beadroadPanel.visible = false;
       }
 
@@ -106,7 +106,7 @@ namespace we {
         super.onPanelToggle();
         this.viewStack.selectedIndex = Math.max(0, this.viewStack._selectedIndex);
         this.dispatchEvent(new egret.Event('ON_BOTTOM_PANEL_TOGGLE'));
-        this._middlePart.visible = env.isBottomPanelOpen;
+        this._middlePart.visible = this.currentState === 'on' ? true : false;
       }
 
       // protected onRoadMapChanged(e: eui.UIEvent) {
