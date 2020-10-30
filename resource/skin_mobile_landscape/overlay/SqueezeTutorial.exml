@@ -55,12 +55,14 @@
                          fontFamily="Arial" y="290" />
         <ui:RunTimeLabel id="_buttonText" text="下一頁" horizontalCenter="0" width="448" height="136" size="48" alpha="0.7"
                          fontFamily="Arial" verticalAlign="middle" textAlign="center" touchEnabled="true" y="400" />
-        <e:Image id="_nextButton" source="m_bam_panel_btn_bg_Inactive_png" horizontalCenter="0" width="448" height="136"
-                 y="400">
-            <e:scale9Grid>
+        <!--<e:Image id="_nextButton" source="m_bam_panel_btn_bg_Inactive_png" horizontalCenter="0" width="448" height="136"
+                 y="400">-->
+        <ui:RoundRectShape id="_nextButton" width="448" height="136" cornerTL_TR_BL_BR="68,68,68,68" horizontalCenter="0" y="400" fillColor="0x112239"
+                           fillAlpha="0" stroke="1" strokeColor="0xffffff" strokeAlpha="0.7" />
+            <!--<e:scale9Grid>
                 <e:Rect x="62" y="136" width="0" height="0" />
             </e:scale9Grid>
-        </e:Image>
+        </e:Image>-->
     </e:Group>
     <e:Rect x="1088" y="231" fillColor="0xd8d8d8" width="2" height="776" alpha="0.4" />
 </e:Skin>

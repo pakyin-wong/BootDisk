@@ -16,7 +16,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.11.4';
+      public version: string = '0.11.5';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -256,7 +256,7 @@ namespace we {
             return false;
           }
 
-          if (tableInfo.data != null /* && tableInfo.roadmap != null*/) {
+          if (tableInfo.data != null  && tableInfo.roadmap != null) {
             tableInfo.displayReady = true;
             return true;
           }
