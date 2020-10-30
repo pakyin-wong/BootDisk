@@ -116,7 +116,7 @@ namespace we {
         }
         await Promise.all(initRectPromises);
         // start flashing
-        for (let run=1;run<6;run++) {
+        for (let run = 1; run < 6; run++) {
           const tickFlashPromises = [];
           for (const field of winningFields) {
             const group = this._imageMapping[field].parent;

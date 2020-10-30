@@ -219,6 +219,7 @@ namespace we {
           const factory = new dragonBones.EgretFactory();
           factory.parseDragonBonesData(skeletonData);
           factory.parseTextureAtlasData(textureData, texture);
+          this._factory = factory;
         }
         return this._factory.buildArmatureDisplay('draw_number');
       }
@@ -238,7 +239,7 @@ namespace we {
         let firstCoin = true;
 
         this._displays = [];
-        
+
         for (const key of Object.keys(luckyNumbers)) {
           const animName = this.getAnimName(+key);
 
@@ -379,9 +380,9 @@ namespace we {
 
       public destroy() {
         this.clearLuckyNumbers();
-        this._factory.clear(true);
+        if (this._factory) this._factory.clear(true);
         super.destroy();
-        
+
         egret.Tween.removeTweens(this.activeLine);
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
@@ -396,6 +397,7 @@ namespace we {
               if (display.animation) {
                 display.animation.stop();
               }
+              dragonBones.WorldClock.clock.remove(display.armature);
               display.armature.dispose();
               display.dispose();
               if (display.parent) {

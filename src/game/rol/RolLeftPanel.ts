@@ -189,7 +189,7 @@ namespace we {
 
       public destroy() {
         this.clearLuckyNumbers();
-        this._factory.clear(true);
+        if (this._factory) this._factory.clear(true);
         super.destroy();
       }
 
@@ -200,6 +200,7 @@ namespace we {
               if (display.animation) {
                 display.animation.stop();
               }
+              dragonBones.WorldClock.clock.remove(display.armature);
               display.armature.dispose();
               display.dispose();
               if (display.parent) {

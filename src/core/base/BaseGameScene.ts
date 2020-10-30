@@ -82,6 +82,7 @@ namespace we {
       }
 
       public onEnter() {
+        super.onEnter();
         this.setupTableInfo();
 
         this.initChildren();
