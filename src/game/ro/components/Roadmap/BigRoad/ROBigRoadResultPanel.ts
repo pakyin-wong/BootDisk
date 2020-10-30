@@ -40,6 +40,7 @@ namespace we {
       }
 
       public destroy() {
+        this._beadRoadIcon.dispose();
         super.destroy();
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }

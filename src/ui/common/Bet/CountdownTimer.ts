@@ -39,7 +39,6 @@ namespace we {
         this.stop();
       }
 
-
       get countdownValue(): number {
         return this._countdownValue;
       }
@@ -103,6 +102,7 @@ namespace we {
       }
 
       public start() {
+        this.stop();
         this._previousFrameTime = egret.getTimer();
         this.addEventListener(egret.Event.ENTER_FRAME, this.updateRemainingTime, this);
       }
@@ -117,7 +117,9 @@ namespace we {
         // while not time is out and uncfmBet >0 , do flashing
       }
       public removebg_flash() {
-        if (this.bg_color) egret.Tween.removeTweens(this.bg_color);
+        if (this.bg_color) {
+          egret.Tween.removeTweens(this.bg_color);
+        }
       }
     }
   }
