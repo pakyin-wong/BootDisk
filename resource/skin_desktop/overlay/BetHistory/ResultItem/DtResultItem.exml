@@ -10,8 +10,8 @@
 	<e:Rect width="22" height="44" x="161.9" y="16" ellipseHeight="8" ellipseWidth="8" fillColor="0xed4c4c"/>
 	<ui:RunTimeLabel id="_txt_player" text="A" x="121.9" y="13" size="18" textAlign="center" verticalAlign="middle" width="21" height="27" bold="true"/>
 	<ui:RunTimeLabel id="_txt_banker" text="B" x="161.9" y="13" size="18" verticalAlign="middle" textAlign="center" width="21" height="27" bold="true"/>
-	<e:Label id="_txt_pPoint" text="0" x="121.9" y="32" fontFamily="Barlow" size="24" width="21" height="29" textAlign="center" verticalAlign="middle"/>
-	<e:Label id="_txt_bPoint" text="0" x="161.9" y="32" fontFamily="Barlow" size="24" width="21" height="29" textAlign="center" verticalAlign="middle"/>
+	<e:Label id="_txt_pPoint" text="0" x="120.9" y="32" fontFamily="Barlow" size="24" width="24" height="29" textAlign="center" verticalAlign="middle"/>
+	<e:Label id="_txt_bPoint" text="0" x="160.4" y="32" fontFamily="Barlow" size="24" width="24" height="29" textAlign="center" verticalAlign="middle"/>
 
 
 
