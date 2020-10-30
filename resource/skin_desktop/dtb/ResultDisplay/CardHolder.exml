@@ -21,8 +21,8 @@
         </e:Group>
         <e:Group x="1120" y="650" id="_dragonAnimGroup" />
         <e:Group x="1500" y="680" id="_tigerAnimGroup" />
-        <e:Group x="400" y="150" id="_smallRedCardGroup" >
-        </e:Group>
+        <e:Group x="400" y="150" id="_smallRedCardGroup" />
+        <ui:RunTimeLabel x="540" y="150" id="_smallRedCardDesc" visible="false" i18n="baccarat.redCardDesc"/>
         <e:Group id="_centerBurnCardGroup" horizontalCenter="0" y="550" visible="false"/>
 
 </e:Skin>
