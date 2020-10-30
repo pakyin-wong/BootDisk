@@ -369,10 +369,8 @@ namespace we {
       }
 
        protected updateText() {
-         this._btnBet.label.renderText = () => `${i18n.t('lo_fun_mobile_bettrigger')}`;
+         this._btnBet.label.renderText = () => `${i18n.t('lo_trad.confirm_panel.bettrigger')}`;
        }
-
-      
     }
   }
 }

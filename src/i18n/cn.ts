@@ -1166,7 +1166,8 @@ namespace we {
           totalbetamountitle:'总投注额',
           roundnumbertitle:'投注期数',
           chaseroundtitle:'追号期数',
-          startroundtitle:'起始期数'
+          startroundtitle:'起始期数',
+          bettrigger: '游戏投注',
         },
         bettingcontrol:{
           betdescription:'中奖说明',

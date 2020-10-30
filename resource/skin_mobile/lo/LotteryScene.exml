@@ -54,5 +54,5 @@
 	</e:Group>
 	<e:Group id="_navLayer" touchChildren="true" touchThrough="true"/>
 	<lo:MobileBottomGamePanel skinName="skin_mobile.lo.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"
-		                        x="0" scaleY="1" scaleX="1"  bottom="45"/>
+		                        x="0" scaleY="1" scaleX="1"  bottom="42"/>
 </e:Skin>
