@@ -58,16 +58,15 @@ namespace we {
         this.tableInfo = tableInfo;
         if (tableInfo.gamestatistic) {
           this._gamestatistic = tableInfo.gamestatistic;
-          this.updateBar(this._gamestatistic)
+          
+          this.updateHistoryBar(this._gamestatistic)
         }
       }
       // update bat chart when bet info update
        public updateHistoryTableInfo(tableInfo) {
         this._gamestatistic = tableInfo.gamestatistic;
         // console.log('updateTableBetInfo::this.tableInfo.betInfo',this.tableInfo.betInfo)
-        this.updateBar(this._gamestatistic);  
-
-    
+        this.updateHistoryBar(this._gamestatistic);  
         logger.l(utils.LogTarget.DEBUG, JSON.stringify(this.tableInfo.betInfo.count));
         logger.l(utils.LogTarget.DEBUG, JSON.stringify(this.tableInfo.betInfo.amount));
       }    
@@ -77,18 +76,17 @@ namespace we {
         } else {
           this.round = 50;
         }
-        this.updateBar(this._data);
+        this.updateHistoryBar(this._data);
       }
       public updateStat(data: we.data.GameStatistic) {
         this._data = data;
-        this.updateBar(this._data);
+        this.updateHistoryBar(this._data);
       }
       protected updateBar(data) {
         if (!data || !data.dilHistory || !data.dilHistory.round_10 || !data.dilHistory.round_50) {
           return;
         }
         const percentages_10 = we.utils.stat.toPercentages(data.dilHistory.round_10);
-        console.log('percentages_10,',percentages_10)
         const percentages_50 = we.utils.stat.toPercentages(data.dilHistory.round_50);
         if (this.round === 10) {
           for (let i = 3; i < 19; i++) {
@@ -104,6 +102,15 @@ namespace we {
           }
         }
       }
+
+      protected updateHistoryBar (data) {
+        if (env.isMobile) {
+          // check is 10 records or 50 records
+        } else {
+          this.updateBar(data)
+        }
+      };
+
     }
   }
 }
