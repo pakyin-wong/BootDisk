@@ -45,7 +45,9 @@ namespace we {
         if (!this.tableInfo.gamestatistic) {
           return;
         } else {
-          this.init();
+          if(!this._bestTimePieChart){
+            this.init();
+          }
         }
       }
 

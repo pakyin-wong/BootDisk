@@ -71,6 +71,7 @@ namespace we {
         this.list.dataProvider = this.collection;
 
         const layout = new eui.TileLayout();
+
         layout.verticalGap = 10;
         layout.horizontalGap = 12;
         layout.orientation = eui.TileOrientation.COLUMNS;
