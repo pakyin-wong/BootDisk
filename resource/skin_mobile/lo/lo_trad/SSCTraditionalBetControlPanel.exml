@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile.lo.SSCTraditionalBetControlPanel" width="1242" height="2043" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*">
-    <ui:RoundRectShape cornerTL_TR_BL_BR="24,24,0,0" width="1242" height="2000" x="0" y="0" stroke="1" strokeColor="0x214a72" fillColor="0x14181E"/>
-    <e:Group id="_content" width="1242" height="2000" y="43">
+<e:Skin class="skin_mobile.lo.SSCTraditionalBetControlPanel" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*">
+    <ui:RoundRectShape cornerTL_TR_BL_BR="24,24,0,0" width="1242" height="2000" x="0" bottom="0" stroke="1" strokeColor="0x214a72" fillColor="0x14181E"/>
+    <e:Group id="_content" width="1242" height="2000" bottom="0">
         <e:Group id="close" x="1158" y="44" width="40" height="39" touchChildren="false">
-            <ui:RunTimeLabel width="40" height="39" text="X" targetWidth="40" size="48" alpha="0.4" textColor="0xffffff" verticalAlign="middle" textAlign="center"/>
+            <!--<ui:RunTimeLabel width="40" height="39" text="X" targetWidth="40" size="48" alpha="0.4" textColor="0xffffff" verticalAlign="middle" textAlign="center"/>-->
+            <e:Image width="40" height="39" source="m_common_icon_close_png" alpha="0.4"/>
         </e:Group>
         <e:Group x="48" y="40" width="580" height="62">
 		    <ui:RunTimeLabel id="_lblCurrentRoundTitle" text="訂單起始獎期號：" width="336" targetWidth="336" height="62" size="42" verticalAlign="middle" textColor="0xffffff" scaleX="1" scaleY="1" alpha="0.7"/>

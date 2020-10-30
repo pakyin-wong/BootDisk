@@ -111,6 +111,10 @@ namespace we {
           this._sideGameList.hide();
         }
       }
+
+      public get nav(){
+        return this._nav;
+      }
     }
   }
 }

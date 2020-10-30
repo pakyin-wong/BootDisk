@@ -100,7 +100,7 @@ namespace we {
         this._lblHighestWin.renderText = () => `${i18n.t('lo_trad.highest_win')}${utils.formatNumber(maxWin * 100)}`;
       }
 
-      public updateText() {}
+      protected updateText() {}
 
       public onExit() {}
     }

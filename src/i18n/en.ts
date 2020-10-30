@@ -8,7 +8,7 @@ namespace we {
       voice_mandarin: 'Mandarin',
       voice_english: 'English',
 
-      gametype_BAC: 'BAC',
+      gametype_BAC: 'Baccarat',
       gametype_BAS: 'BAS',
       gametype_BAI: 'BAI',
       gametype_BAM: 'BAM',
@@ -183,7 +183,7 @@ namespace we {
 
       mobile_lobby_feature_title: 'Featured Games',
       mobile_lobby_hot_game_title: 'Hot Games',
-      mobile_ba_undo: 'Undo',
+      mobile_ba_undo: 'Recovery',
       mobile_ba_clear: 'Clear',
       mobile_ba_double: 'Double',
       mobile_ba_repeat: 'Bet Again',
@@ -191,8 +191,8 @@ namespace we {
       mobile_game_panel_history: 'History',
       mobile_game_panel_road_sheet: 'Road Sheet',
       mobile_game_panel_statistic_chart: 'Statistic Chart',
+      mobile_game_panel_table_info: 'Table Info',
       mobile_game_panel_analysis: 'Analysis',
-      mobile_game_panel_table_info: 'Information',
       mobile_table_info_gameID: 'ID',
       mobile_panel_game_Info: 'Game Information',
 
@@ -290,15 +290,15 @@ namespace we {
           },
         },
       },
-      gamegroup_tab_live: 'Live',
+      gamegroup_tab_live: 'Live Casino',
       gamegroup_tab_lottery: 'Lottery',
       lobby: {
         header: {
-          lobby: 'Promoted',
+          lobby: 'Home',
           live: 'Live',
           lottery: 'Lottery',
           egame: 'EGame',
-          favourite: 'Favourite',
+          favourite: 'Bookmarks / My Favourites',
         },
         categoryPromotion: 'Promoted',
         categoryBaccarat: 'Baccarat',
@@ -306,7 +306,7 @@ namespace we {
         categoryLuckyWheel: 'Lucky Wheel',
         categoryInstant: 'Instant Open Colour',
         categoryOtherGame: 'Other Games',
-        categoryFavorite: 'My Favorites',
+        categoryFavorite: 'Bookmarks / My Favourites',
       },
       live: {
         tooltip: {
@@ -334,7 +334,7 @@ namespace we {
         gametype: {
           allGame: 'All',
           bacarrat: 'Baccarat',
-          dragontiger: 'DT',
+          dragontiger: 'Dragon Tiger',
           luckywheel: 'Wheel',
           roulette: 'Roulette',
           dice: 'SicBo',
@@ -376,7 +376,7 @@ namespace we {
         rounds: 'rounds',
       },
       luckywheel: {
-        pool: 'Pool',
+        pool: 'Instant Pot',
         east: 'East',
         south: 'South',
         west: 'West',
@@ -534,7 +534,7 @@ namespace we {
         goodroad: 'Good Road',
         allgames: 'All Game',
         noGoodRoad: 'No Good Road',
-        noBet: 'No Already Bet Table',
+        noBet: 'No Bet Table',
       },
       baccarat: {
         statisticChart: {
@@ -748,6 +748,8 @@ namespace we {
           multiplier: 'multiplier',
           betamount: 'betamount',
           action: 'action',
+          confirmbet:'Confirm Bet',
+          coin:'',
         },
         bigTag: {
           FiveStar: 'FiveStar',
@@ -1116,8 +1118,51 @@ namespace we {
           confirmbet: '確認追號投注',
           lowestProfitRate: '最低收益率 (%)',
 
+          btnround:'期',
+          continuousChase:'連續追',
+          startmulti:'起始倍數',
+          to:'隔',
+          profitnotice:'注意：利潤率計算使用當前用戶最小獎金組展示',
+
           profitmsg_0: '利潤率追號不支持混選\n請確保您的投注都為同一玩法類型\n且元角模式保持一致',
           profitmsg_1: '您設置的參數無法達到盈利，請重新設置',
+        },
+        confirm_panel:{
+          betconfirm:'投注確認',
+          lotterynametitle:'彩種名稱',
+          lotterynametitle_lo:'WG 時時彩',
+          betmodetitle:'玩法投注',
+          winratiotitle:'賠率',
+          singlebetAmountTitle:'單注金額',
+          totalnotetitle:'總注數',
+          notetext:'注',
+          totalbetamountitle:'總投注額',
+          roundnumbertitle:'投注期數',
+          chaseroundtitle:'追號期數',
+          startroundtitle:'起始期数',
+          bettrigger: 'Trad Bet',
+        },
+        bettingcontrol:{
+          betdescription:'中獎說明',
+          totalnotechosen:'已選：',
+          totalbetchosen:'共計：',
+          addbetfields:'加入購物籃',
+          instantbet:'立即購買'
+        },
+        mobile_betcontrol:{
+          currentroundtitle:'訂單起始獎期號：',
+          notecontrol:'訂單詳情',
+          chasebetpanel:'我要追號',
+          multi:'',
+        },
+        mobile_chasebet:{
+          chasebetmode:'追號模式：原訂單倍數自動初始化為1倍',
+          chasetype:'追號類型',
+          chasevalue:'追號參數',
+          multiplierTitle:'起始倍數 ( 注單1倍 )',
+          stopchaseifwon:'追中即停 ( 注單1倍 )',
+          roundseparate:'間隔期數',
+          separatemultiplier:'變動倍數',
         },
         ballresultpos: {
           p1: '萬',

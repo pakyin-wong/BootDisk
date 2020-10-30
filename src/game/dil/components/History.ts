@@ -42,8 +42,13 @@ namespace we {
       protected _sum18: ui.ProgressBar;
       protected _data;
 
+      protected _totalResult:number;
       public constructor(skin: string = null) {
         super(skin);
+      }
+
+      public set totalResult (val:number) {
+        this._totalResult = val;
       }
       protected mount() {
         super.mount();
@@ -58,16 +63,15 @@ namespace we {
         this.tableInfo = tableInfo;
         if (tableInfo.gamestatistic) {
           this._gamestatistic = tableInfo.gamestatistic;
-          this.updateBar(this._gamestatistic)
+          
+          this.updateHistoryBar(this._gamestatistic)
         }
       }
-      // update bat chart when bet info update
+      // update history chart when tableinfo info update
        public updateHistoryTableInfo(tableInfo) {
         this._gamestatistic = tableInfo.gamestatistic;
         // console.log('updateTableBetInfo::this.tableInfo.betInfo',this.tableInfo.betInfo)
-        this.updateBar(this._gamestatistic);  
-
-    
+        this.updateHistoryBar(this._gamestatistic);  
         logger.l(utils.LogTarget.DEBUG, JSON.stringify(this.tableInfo.betInfo.count));
         logger.l(utils.LogTarget.DEBUG, JSON.stringify(this.tableInfo.betInfo.amount));
       }    
@@ -77,18 +81,17 @@ namespace we {
         } else {
           this.round = 50;
         }
-        this.updateBar(this._data);
+        this.updateHistoryBar(this._data);
       }
       public updateStat(data: we.data.GameStatistic) {
         this._data = data;
-        this.updateBar(this._data);
+        this.updateHistoryBar(this._data);
       }
       protected updateBar(data) {
         if (!data || !data.dilHistory || !data.dilHistory.round_10 || !data.dilHistory.round_50) {
           return;
         }
         const percentages_10 = we.utils.stat.toPercentages(data.dilHistory.round_10);
-        console.log('percentages_10,',percentages_10)
         const percentages_50 = we.utils.stat.toPercentages(data.dilHistory.round_50);
         if (this.round === 10) {
           for (let i = 3; i < 19; i++) {
@@ -104,6 +107,41 @@ namespace we {
           }
         }
       }
+      protected updateBarWithTenResult(data){
+        if (!data || !data.dilHistory || !data.dilHistory.round_10 || !data.dilHistory.round_50) {
+          return;
+        }
+        const percentages_10 = we.utils.stat.toPercentages(data.dilHistory.round_10);
+        for (let i = 3; i < 19; i++) {
+            this[`_sum${i}Percent`].text = `${percentages_10[i - 3]}`;
+            (<ui.ProgressBar> this[`_sum${i}`]).proportion = percentages_10[i - 3] / 100;
+            (<ui.ProgressBar> this[`_sum${i}`]).draw();
+          }
+      }
+      protected updateBarWithFiftyResult(data){
+        if (!data || !data.dilHistory || !data.dilHistory.round_10 || !data.dilHistory.round_50) {
+          return;
+        }
+        const percentages_50 = we.utils.stat.toPercentages(data.dilHistory.round_50);
+        for (let i = 3; i < 19; i++) {
+          this[`_sum${i}Percent`].text = `${percentages_50[i - 3]}`;
+          (<ui.ProgressBar> this[`_sum${i}`]).proportion = percentages_50[i - 3] / 100;
+          (<ui.ProgressBar> this[`_sum${i}`]).draw();
+        }
+      }
+      protected updateHistoryBar (data) {
+        if (env.isMobile) {
+          // check is 10 records or 50 records
+          if (this._totalResult === 10) {
+            this.updateBarWithTenResult(data);
+          } else if (this._totalResult === 50){
+            this.updateBarWithFiftyResult(data);
+          }
+        } else {
+          this.updateBar(data)
+        }
+      };
+
     }
   }
 }

@@ -5,9 +5,9 @@ namespace we {
       export function tradbetfieldtranslate(betfield: string): any {
         // string 12345Optional
         // string ????optionalFree
-        const reg = /\d+[0-9]/g;
-        const checknum = betfield.split(reg)[0];
-        const nonNumberBetCode = betfield.split(reg)[1];
+        const reg = /(\d+)/g;
+        const checknum = betfield.split(reg).filter(Boolean)[0];
+        const nonNumberBetCode = betfield.split(reg).filter(Boolean)[1];
 
         let numString = '';
 

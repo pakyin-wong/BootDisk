@@ -773,10 +773,10 @@ namespace we {
       lo_tri_logo: 'd_lottery_lotto5_trad_logo_tw_png',
 
       lo_trad: {
-        highest_win: '單倍最高金額：',
-        erase_non_number: '清除錯誤或重複項',
+        highest_win: '单倍最高金额：',
+        erase_non_number: '清除错误或重复项',
         all_clear: '全清',
-        upload_document: '上傳文件',
+        upload_document: '上传文件',
         bigTag: {
           FiveStar: '五星',
           FourStar: '四星',
@@ -955,6 +955,8 @@ namespace we {
           multiplier: '倍数',
           betamount: '金额',
           action: '操作',
+          confirmbet:'确认购买',
+          coin:'元',
         },
         description: {
           checkbox: '请至少选择$min$位位数，您当前选择了$count$个位置\n，系统将自动生成$combination$个方案',
@@ -1153,8 +1155,51 @@ namespace we {
           confirmbet: '确认追号投注',
           lowestProfitRate: '最低收益率 (%)',
 
+          btnround:'期',
+          continuousChase:'连续追',
+          startmulti:'起始倍数',
+          to:'隔',
+          profitnotice:'注意：利润率计算使用当前用户最小奖金组展示',
+
           profitmsg_0: '利润率追号不支持混选\n请确保您的投注都为同一玩法类型\n且元角模式保持一致',
           profitmsg_1: '您设置的参数无法达到盈利，请重新设置',
+        },
+        confirm_panel:{
+          betconfirm:'投注确认',
+          lotterynametitle:'彩种名称',
+          lotterynametitle_lo:'WG 时时彩',
+          betmodetitle:'玩法投注',
+          winratiotitle:'赔率',
+          singlebetAmountTitle:'单注金额',
+          totalnotetitle:'总注数',
+          notetext:'注',
+          totalbetamountitle:'总投注额',
+          roundnumbertitle:'投注期数',
+          chaseroundtitle:'追号期数',
+          startroundtitle:'起始期数',
+          bettrigger: '游戏投注',
+        },
+        bettingcontrol:{
+          betdescription:'中奖说明',
+          totalnotechosen:'已选：',
+          totalbetchosen:'共计：',
+          addbetfields:'加入购物篮',
+          instantbet:'立即购买'
+        },
+        mobile_betcontrol:{
+          currentroundtitle:'订单起始奖期号：',
+          notecontrol:'订单详情',
+          chasebetpanel:'我要追号',
+          multi:'倍',
+        },
+        mobile_chasebet:{
+          chasebetmode:'追号模式：原订单倍数自动初始化为1倍',
+          chasetype:'追号类型',
+          chasevalue:'追号参数',
+          multiplierTitle:'起始倍数 ( 注单1倍 )',
+          stopchaseifwon:'追中即停 ( 注单1倍 )',
+          roundseparate:'间隔期数',
+          separatemultiplier:'变动倍数',
         },
         ballresultpos: {
           p1: '万',
