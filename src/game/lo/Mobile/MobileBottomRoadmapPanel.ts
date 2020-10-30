@@ -41,15 +41,15 @@ namespace we {
       protected initRoadMap() {
         this.road1Index = this.road2Index = this.road3Index = 0;
 
-        this.dtBigRoad = new LoDtBigRoad(18, 70);
+        this.dtBigRoad = new LoDtBigRoad(18, 68);
         this.dtBigRoad.x = 8;
         this.dtBigRoad.y = 8;
 
-        this.sizeBigRoad = new LoSizeBigRoad(18, 70);
+        this.sizeBigRoad = new LoSizeBigRoad(18, 68);
         this.sizeBigRoad.x = 8;
         this.sizeBigRoad.y = 8;
 
-        this.oddBigRoad = new LoOddBigRoad(18, 70);
+        this.oddBigRoad = new LoOddBigRoad(18, 68);
         this.oddBigRoad.x = 8;
         this.oddBigRoad.y = 8;
 

@@ -209,6 +209,7 @@ namespace we {
       mobile_game_panel_history: '历史记录',
       mobile_game_panel_road_sheet: '路纸',
       mobile_game_panel_statistic_chart: '统计图表',
+      mobile_game_panel_analysis: '分析',
       mobile_game_panel_table_info: '本台资讯',
       mobile_table_info_gameID: '编号',
       mobile_panel_game_Info: '游戏资讯',
@@ -767,6 +768,9 @@ namespace we {
       lo_fun_betfield_total_SMALL: '总小',
       lo_fun_betfield_total_ODD: '总单',
       lo_fun_betfield_total_EVEN: '总双',
+
+      lo_fun_logo: 'd_lottery_lotto5_ent_logo_tw_png',
+      lo_tri_logo: 'd_lottery_lotto5_trad_logo_tw_png',
 
       lo_trad: {
         highest_win: '單倍最高金額：',
