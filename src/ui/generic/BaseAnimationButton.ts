@@ -87,12 +87,16 @@ namespace we {
       }
 
       public destroy() {
-        super.destroy();
         if (this._display) {
+          this._display.animation.stop();
+          this._display.armature.dispose();
           this._display.dispose();
+          dragonBones.WorldClock.clock.remove(this._display.armature);
           this._display = null;
           this.removeChild(this._group);
         }
+        // BaseAnimationButton.FACTORIES[this.dbClass].clear(false);
+        super.destroy();
         // since ingame header button is being removed once in order to move to headerComponent
         this.once(eui.UIEvent.ADDED_TO_STAGE, this.addedAgain, this);
       }

@@ -116,36 +116,10 @@ namespace we {
         }
         await Promise.all(initRectPromises);
         // start flashing
-        let run = 1;
-        const self = this;
-        const tick = async () => {
-          // end flashing
-          if (run >= 6) {
-            const fadeOutPromises = [];
-            for (const field of Object.keys(lw.BetField)) {
-              const group = self._imageMapping[field].parent;
-              const rect = group.getChildByName('dim');
-              const promise = new Promise(resolve => {
-                if (!rect || !rect.parent) {
-                  return;
-                }
-                egret.Tween.get(rect)
-                  .to({ alpha: 0 }, 125)
-                  .call(() => {
-                    if (rect && rect.parent) {
-                      rect.parent.removeChild(rect);
-                    }
-                    resolve();
-                  });
-              });
-              fadeOutPromises.push(promise);
-            }
-            await Promise.all(fadeOutPromises);
-            return;
-          }
+        for (let run = 1; run < 6; run++) {
           const tickFlashPromises = [];
           for (const field of winningFields) {
-            const group = self._imageMapping[field].parent;
+            const group = this._imageMapping[field].parent;
             const rect = group.getChildByName('dim');
             const prom = new Promise(resolve => {
               const alpha = run % 2 === 1 ? 0.25 : 0;
@@ -158,10 +132,29 @@ namespace we {
             tickFlashPromises.push(prom);
           }
           await Promise.all(tickFlashPromises);
-          run += 1;
-          setTimeout(tick, 300);
-        };
-        setTimeout(tick, 300);
+          await utils.sleep(300);
+        }
+        const fadeOutPromises = [];
+        for (const field of Object.keys(lw.BetField)) {
+          const group = this._imageMapping[field].parent;
+          const rect = group.getChildByName('dim');
+          const promise = new Promise(resolve => {
+            if (!rect || !rect.parent) {
+              return;
+            }
+            egret.Tween.get(rect)
+              .to({ alpha: 0 }, 125)
+              .call(() => {
+                if (rect && rect.parent) {
+                  rect.parent.removeChild(rect);
+                }
+                resolve();
+              });
+          });
+          fadeOutPromises.push(promise);
+        }
+        await Promise.all(fadeOutPromises);
+        return;
       }
     }
   }

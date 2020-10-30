@@ -119,6 +119,7 @@ namespace we {
       }
 
       protected destroy() {
+        this.clearChipList();
         super.destroy();
         dir.evtHandler.removeEventListener(core.Event.BET_DENOMINATION_CHANGE, this.syncChip, this);
       }
@@ -233,6 +234,7 @@ namespace we {
 
       private clearChipList() {
         for (const betChip of this._chipList) {
+          betChip.dispose();
           betChip.parent && betChip.parent.removeChild(betChip);
         }
         this._chipList = [];

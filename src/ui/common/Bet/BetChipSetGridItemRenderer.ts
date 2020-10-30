@@ -30,6 +30,10 @@ namespace we {
         mouse.setButtonMode(this._betChip, true);
       }
 
+      protected destroy() {
+        this._betChip.dispose();
+      }
+
       protected setSize() {
         this.height = this.betChipSetGrid ? this.betChipSetGrid.betChipHeight : this._betChipHeight;
         this.width = this.betChipSetGrid ? this.betChipSetGrid.betChipWidth : this._betChipWidth;

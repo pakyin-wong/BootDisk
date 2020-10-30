@@ -11,14 +11,6 @@ namespace we {
         const { gameData, winAmount } = resultData;
         const resultNo = gameData.value;
 
-        this._display.armature.eventDispatcher.addDBEventListener(
-          dragonBones.EventObject.COMPLETE,
-          () => {
-            this.visible = false;
-          },
-          this
-        );
-
         const [numLeft, numCenter, numRight] = we.ro.getNeighbour(resultNo, 1);
         const colorMap = {
           [we.ro.Color.BLACK]: 'b',
@@ -73,7 +65,14 @@ namespace we {
         slot.display = layer;
 
         this.visible = true;
-        this._display.animation.play(anim, 1);
+
+        (async () => {
+          const p = we.utils.waitDragonBone(this._display);
+          this._display.animation.play(anim, 1);
+          await p;
+
+          this.visible = false;
+        })();
       }
     }
   }

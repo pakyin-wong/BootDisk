@@ -246,15 +246,23 @@ namespace we {
       }
 
       public destroy() {
-        super.destroy();
-        // this.roadsContainer.removeChildren();
-        // this.removeChildren();
         this.beadRoad.dispose();
         this.bigRoad.dispose();
         this.bigEyeRoad.dispose();
         this.smallRoad.dispose();
         this.cockroachRoad.dispose();
         // this.parent.removeChildren();
+
+        if (this.iconBankerBigEye) this.iconBankerBigEye.dispose();
+        if (this.iconBankerSmall) this.iconBankerSmall.dispose();
+        if (this.iconBankerCockroach) this.iconBankerCockroach.dispose();
+        if (this.iconPlayerBigEye) this.iconPlayerBigEye.dispose();
+        if (this.iconPlayerSmall) this.iconPlayerSmall.dispose();
+        if (this.iconPlayerCockroach) this.iconPlayerCockroach.dispose();
+
+        super.destroy();
+        // this.roadsContainer.removeChildren();
+        // this.removeChildren();
 
         if (this.switchModeButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
           this.switchModeButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchModeClick, this);

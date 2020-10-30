@@ -194,18 +194,43 @@ namespace we {
       }
 
       public destroy() {
-        super.destroy();
-
         this.bigRoad.dispose();
         this.bigEyeRoad.dispose();
         this.smallRoad.dispose();
         this.cockroachRoad.dispose();
-        if (dir.evtHandler.hasEventListener(we.core.Event.MODE_UPDATE)) {
+
+        if (this.iconBankerBigEye) {
+          this.iconBankerBigEye.dispose();
+        }
+        if (this.iconBankerSmall) {
+          this.iconBankerSmall.dispose();
+        }
+        if (this.iconBankerCockroach) {
+          this.iconBankerCockroach.dispose();
+        }
+        if (this.iconPlayerBigEye) {
+          this.iconPlayerBigEye.dispose();
+        }
+        if (this.iconPlayerSmall) {
+          this.iconPlayerSmall.dispose();
+        }
+        if (this.iconPlayerCockroach) {
+          this.iconPlayerCockroach.dispose();
+        }
+        if (this.iconBanker) {
+          this.iconBanker.dispose();
+        }
+        if (this.iconPlayer) {
+          this.iconPlayer.dispose();
+        }
+        if (this.iconTie) {
+          this.iconTie.dispose();
+        }
+
+        super.destroy();
+
           dir.evtHandler.removeEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
-        }
-        if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        }
       }
     }
   }

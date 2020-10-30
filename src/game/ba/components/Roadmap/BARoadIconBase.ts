@@ -108,9 +108,7 @@ namespace we {
 
       public dispose() {
         this.stopAnimate();
-        if (dir.evtHandler.hasEventListener(we.core.Event.MODE_UPDATE)) {
-          dir.evtHandler.removeEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
-        }
+        dir.evtHandler.removeEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
       }
 
       public set DarkMode(n: number) {

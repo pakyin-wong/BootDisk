@@ -57,7 +57,7 @@ namespace we {
       protected setStateIdle(isInit: boolean) {
         super.setStateIdle(isInit);
         (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearLuckyNumbers();
+        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearAnim();
       }
 
       protected setStateBet(isInit: boolean) {
@@ -65,7 +65,7 @@ namespace we {
         // this._dilGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
         (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearLuckyNumbers();
+        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearAnim();
       }
 
       protected setStateDeal(isInit: boolean) {
@@ -88,18 +88,18 @@ namespace we {
       protected setStateRefund(isInit: boolean = false) {
         super.setStateRefund(isInit);
         (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearLuckyNumbers();
+        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearAnim();
       }
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
         (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearLuckyNumbers();
+        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearAnim();
       }
 
       protected setStateUnknown(isInit: boolean = false) {
         super.setStateUnknown(isInit);
         (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearLuckyNumbers();
+        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearAnim();
       }
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
@@ -224,7 +224,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
             if (this._totalBet) {
               const totalBet = betInfo.gameroundid === this._gameData.gameroundid ? betInfo.total : 0;

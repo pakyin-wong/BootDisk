@@ -95,10 +95,13 @@ namespace we {
         }
       }
       protected destroy() {
-        super.destroy();
         if (this._titleHeader && this._titleHeader.parent !== null) {
           this._titleHeader.parent.removeChild(this._titleHeader);
         }
+        if (this._header && this._header.parent !== null) {
+          this._header.parent.removeChild(this._header);
+        }
+        super.destroy();
       }
 
       protected onPanelToggle(evt: egret.TouchEvent) {

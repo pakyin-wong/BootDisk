@@ -9,6 +9,9 @@ namespace we {
       protected animXArr;
       protected animYArr;
 
+      protected _factory: dragonBones.EgretFactory;
+      protected _displays: dragonBones.EgretArmatureDisplay[];
+
       public constructor() {
         super();
       }
@@ -68,16 +71,43 @@ namespace we {
       }
 
       protected createLuckyCoinAnim() {
-        const skeletonData = RES.getRes(`roulette_w_game_result_ske_json`);
-        const textureData = RES.getRes(`roulette_w_game_result_tex_json`);
-        const texture = RES.getRes(`roulette_w_game_result_tex_png`);
-        const factory = new dragonBones.EgretFactory();
-        factory.parseDragonBonesData(skeletonData);
-        factory.parseTextureAtlasData(textureData, texture);
+        if (!this._factory) {
+          const skeletonData = RES.getRes(`roulette_w_game_result_ske_json`);
+          const textureData = RES.getRes(`roulette_w_game_result_tex_json`);
+          const texture = RES.getRes(`roulette_w_game_result_tex_png`);
+          const factory = new dragonBones.EgretFactory();
+          factory.parseDragonBonesData(skeletonData);
+          factory.parseTextureAtlasData(textureData, texture);
+          this._factory = factory;
+        }
         if (env.orientation === 'portrait') {
-          return factory.buildArmatureDisplay('draw_number_effect_vertical');
+          return this._factory.buildArmatureDisplay('draw_number_effect_vertical');
         } else {
-          return factory.buildArmatureDisplay('draw_number_effect_horizontal');
+          return this._factory.buildArmatureDisplay('draw_number_effect_horizontal');
+        }
+      }
+
+      protected destroy() {
+        this.clearAnim();
+        this._factory.clear(true);
+        super.destroy();
+      }
+
+      public clearAnim() {
+        if (this._displays) {
+          for (const display of this._displays) {
+            if (display) {
+              if (display.animation) {
+                display.animation.stop();
+              }
+              display.armature.dispose();
+              display.dispose();
+              if (display.parent) {
+                display.parent.removeChild(display);
+              }
+            }
+          }
+          this._displays = null;
         }
       }
 
@@ -145,7 +175,7 @@ namespace we {
 
       public updateLuckyNumbers(gameData: data.GameData, chipLayer: ui.ChipLayer) {
         this.gameData = <rol.GameData> gameData;
-        this.removeChildren();
+        this.clearAnim();
 
         if (!(this.gameData && this.gameData.luckynumber)) {
           this.isLuckyNo = false;
@@ -158,6 +188,8 @@ namespace we {
         this.setAnimPositionVer(noOfLuckNum);
 
         let no = 0;
+
+        this._displays = [];
 
         for (const key of Object.keys(luckyNumbers)) {
           const coinAnim = this.createLuckyCoinAnim();
@@ -208,6 +240,8 @@ namespace we {
           coinAnim.visible = false;
           this.addChild(coinAnim);
 
+          this._displays.push(coinAnim);
+
           (async () => {
             await we.utils.sleep(1000);
 
@@ -224,13 +258,9 @@ namespace we {
             coinAnim.animation.play(`draw_number_${color}${noBet}_out`, 1);
             await p;
 
-            coinAnim.animation.stop();
+            this.clearAnim();
           })();
         }
-      }
-
-      public clearLuckyNumbers() {
-        this.removeChildren();
       }
 
       protected fieldToValue(fieldName: string) {

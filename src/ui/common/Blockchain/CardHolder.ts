@@ -42,13 +42,33 @@ namespace we {
         */
       }
 
-      protected openCardInfo(infoIndex){
-        return (evt : egret.Event) => {
-              console.log('dispatch OPEN_CARDINFO_PANEL', this._infoArray[infoIndex]);
-              if (this._infoArray[0] !== -1) {
-                this.dispatchEvent(new egret.Event('OPEN_CARDINFO_PANEL', false, false, this._infoArray[infoIndex]));
-              }
+      protected destroyAnim(display: dragonBones.EgretArmatureDisplay) {
+        if (!display) return;
+        if (display.animation) {
+          display.animation.stop();
         }
+        dragonBones.WorldClock.clock.remove(display.armature);
+        display.armature.dispose();
+        display.dispose();
+        if (display.parent) {
+          display.parent.removeChild(display);
+        }
+      }
+
+      protected destroy() {
+        this.destroyAnim(this._ringAnim);
+        this.destroyAnim(this._smallRedCard);
+        super.destroy();
+        this._factory.clear(true);
+      }
+
+      protected openCardInfo(infoIndex) {
+        return (evt: egret.Event) => {
+          console.log('dispatch OPEN_CARDINFO_PANEL', this._infoArray[infoIndex]);
+          if (this._infoArray[0] !== -1) {
+            this.dispatchEvent(new egret.Event('OPEN_CARDINFO_PANEL', false, false, this._infoArray[infoIndex]));
+          }
+        };
       }
 
       public createParticles() {
@@ -63,7 +83,7 @@ namespace we {
         }
       }
 
-      protected abstract  addEventListeners();
+      protected abstract addEventListeners();
 
       protected abstract createFactory();
 
@@ -82,7 +102,7 @@ namespace we {
       public updateResult(gameData: data.GameData, chipLayer: ui.ChipLayer, isInit: boolean) {
         console.log(' cardholder::updateResult ', gameData, isInit);
 
-        this._gameData = <bab.GameData>gameData;
+        this._gameData = <bab.GameData> gameData;
         this.updateCardInfoButtons();
         // check prev data == current data?
         switch (gameData.state) {
@@ -114,7 +134,7 @@ namespace we {
           console.log('betInitState()');
           this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
           if (this._gameData.redcardindex <= this._gameData.currentcardindex + 6) {
-            this.getRedCardAnim().animation.gotoAndStopByTime('red_poker_loop', 0)
+            this.getRedCardAnim().animation.gotoAndStopByTime('red_poker_loop', 0);
           }
           await this.betInitState();
         } else {
@@ -134,7 +154,7 @@ namespace we {
 
         cardAnim.animation.gotoAndStopByTime(`${orientation}_idle`, 0);
 
-        return new Promise(resolve => resolve())
+        return new Promise(resolve => resolve());
       }
 
       protected abstract async clearCards();
@@ -150,7 +170,7 @@ namespace we {
 
         // create a new ImageDisplayData with a EgretTextureData holding the new texture
         const displayData: dragonBones.ImageDisplayData = new dragonBones.ImageDisplayData();
-        let textureData: dragonBones.EgretTextureData = new dragonBones.EgretTextureData();
+        const textureData: dragonBones.EgretTextureData = new dragonBones.EgretTextureData();
         textureData.renderTexture = cardLabel.texture;
         textureData.region.x = 0;
         textureData.region.y = 0;
@@ -172,8 +192,7 @@ namespace we {
         slot.displayIndex = 0;
       }
 
-
-      protected abstract async betInitState()
+      protected abstract async betInitState();
 
       protected abstract async dealInitState();
 
@@ -185,11 +204,11 @@ namespace we {
         const bitmap = new egret.Bitmap();
         bitmap.texture = RES.getRes(utils.getCardResName(utils.formatCardForFlip(this._gameData[currentCard])));
         bitmap.rotation = rotation;
-          
+
         const textureData = new dragonBones.EgretTextureData();
         textureData.renderTexture = bitmap.texture;
         meshDistData.texture = textureData;
-/*
+        /*
         } else {
           bitmap.anchorOffsetX = bitmap.height / 2
           bitmap.anchorOffsetY = bitmap.width / 2
@@ -199,13 +218,9 @@ namespace we {
           group.width = bitmap.height
           group.height = bitmap.width
 
-
           const renderTexture = new egret.RenderTexture();
           renderTexture.drawToTexture(group)
 
-          
-
-        
           const textureData = new dragonBones.EgretTextureData();
           textureData.renderTexture = renderTexture;
           textureData.region.x = 0;
@@ -231,34 +246,42 @@ namespace we {
 
       protected async collapsePin() {
         const bone = this._ringAnim.armature.getBone('red_card');
-        const destRad = this.getPinRad(0)
-        await new Promise(resolve => egret.Tween.get(bone.origin).to({ rotation: destRad }, 1000, function (t) {
-          bone.invalidUpdate();
-          return t;
-        }).call(resolve))
+        const destRad = this.getPinRad(0);
+        await new Promise(resolve =>
+          egret.Tween.get(bone.origin)
+            .to({ rotation: destRad }, 1000, function (t) {
+              bone.invalidUpdate();
+              return t;
+            })
+            .call(resolve)
+        );
         bone.invalidUpdate();
       }
 
       protected async collapseShoe() {
         const bone = this._ringAnim.armature.getBone('shoe_bar');
-        const destRad = this.getShoeRad(0)
-        await new Promise(resolve => egret.Tween.get(bone.origin).to({ rotation: destRad }, 1000, function (t) {
-          bone.invalidUpdate();
-          return t;
-        }).call(resolve))
+        const destRad = this.getShoeRad(0);
+        await new Promise(resolve =>
+          egret.Tween.get(bone.origin)
+            .to({ rotation: destRad }, 1000, function (t) {
+              bone.invalidUpdate();
+              return t;
+            })
+            .call(resolve)
+        );
         bone.invalidUpdate();
       }
 
       protected movePin() {
         const bone = this._ringAnim.armature.getBone('red_card');
-        const destRad = this.getPinRad()
+        const destRad = this.getPinRad();
         bone.origin.rotation = destRad;
         bone.invalidUpdate();
       }
 
       protected moveShoe() {
         const bone = this._ringAnim.armature.getBone('shoe_bar');
-        const destRad = this.getShoeRad()
+        const destRad = this.getShoeRad();
         bone.origin.rotation = destRad;
         bone.invalidUpdate();
       }
@@ -272,7 +295,7 @@ namespace we {
         const angleOffset = 82 * proportion; // -40 to 41 / 131 to 49
         const destAngle = -131 + angleOffset;
         const destRad = (destAngle * Math.PI) / 180;
-        return destRad
+        return destRad;
       }
 
       protected getShoeRad(num = this._gameData.redcardindex) {
@@ -280,16 +303,20 @@ namespace we {
         const angleOffset = 82 * proportion; // -72 to 9
         const destAngle = -131 + angleOffset;
         const destRad = (destAngle * Math.PI) / 180;
-        return destRad
+        return destRad;
       }
 
       protected async animatePin() {
         const bone = this._ringAnim.armature.getBone('red_card');
         const destRad = this.getPinRad();
-        await new Promise(resolve => egret.Tween.get(bone.origin).to({ rotation: destRad }, 1000, function (t) {
-          bone.invalidUpdate();
-          return t;
-        }).call(resolve))
+        await new Promise(resolve =>
+          egret.Tween.get(bone.origin)
+            .to({ rotation: destRad }, 1000, function (t) {
+              bone.invalidUpdate();
+              return t;
+            })
+            .call(resolve)
+        );
 
         return new Promise(resolve => resolve());
       }
@@ -297,29 +324,33 @@ namespace we {
       protected async animateShoe() {
         const bone = this._ringAnim.armature.getBone('shoe_bar');
         const destRad = this.getShoeRad();
-        await new Promise(resolve => egret.Tween.get(bone.origin).to({ rotation: destRad }, 1000, function (t) {
-          bone.invalidUpdate();
-          return t;
-        }).call(resolve))
+        await new Promise(resolve =>
+          egret.Tween.get(bone.origin)
+            .to({ rotation: destRad }, 1000, function (t) {
+              bone.invalidUpdate();
+              return t;
+            })
+            .call(resolve)
+        );
 
         return new Promise(resolve => resolve());
       }
 
-      protected abstract setStateFinish(isInit)
+      protected abstract setStateFinish(isInit);
 
       protected abstract setStateShuffle(isInit);
 
       protected getRedCardAnim() {
         if (!this._smallRedCard) {
           this._smallRedCard = this._factory.buildArmatureDisplay('red_card');
-          this._smallRedCardGroup.addChild(this._smallRedCard)
+          this._smallRedCardGroup.addChild(this._smallRedCard);
           this._smallRedCard.addEventListener(mouse.MouseEvent.ROLL_OVER,()=>this._smallRedCardDesc.visible = true, this);
           this._smallRedCard.addEventListener(mouse.MouseEvent.ROLL_OUT,()=>this._smallRedCardDesc.visible = false, this);
         }
-        return this._smallRedCard
+        return this._smallRedCard;
       }
 
-      public reset() { }
+      public reset() {}
     }
   }
 }

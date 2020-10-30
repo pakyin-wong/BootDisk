@@ -9,12 +9,12 @@ namespace we {
       return we.utils.waitDragonBoneEvent(target, dragonBones.EventObject.COMPLETE);
     }
     export function waitDragonBoneEvent(target: dragonBones.IEventDispatcher, ev: string) {
-      const r = resolve => () => {
-        target.removeDBEventListener(ev, r(resolve), target);
-        resolve();
-      };
       const p = new Promise((resolve, reject) => {
-        target.addDBEventListener(ev, r(resolve), target);
+        const r = () => {
+          target.removeDBEventListener(ev, r, target);
+          resolve();
+        };
+        target.addDBEventListener(ev, r, target);
       });
       return p;
     }

@@ -328,6 +328,17 @@ namespace we {
         this._betField = ro.BetField;
       }
 
+      protected destroy() {
+        super.destroy();
+        for (const field of Object.keys(this._groupMapping)) {
+          const group = this._groupMapping[field];
+          const rect = group.getChildByName('dim');
+          if (rect) {
+            egret.Tween.removeTweens(rect);
+          }
+        }
+      }
+
       protected createMapping() {
         super.createMapping();
         this._groupMapping = {};
@@ -501,31 +512,9 @@ namespace we {
         }
         await Promise.all(initRectPromises);
         // start flashing
-        let run = 1;
-        const tick = async () => {
-          // end flashing
-          if (run >= 6) {
-            const fadeOutPromises = [];
-            for (const field of Object.keys(this._groupMapping)) {
-              const group = this._groupMapping[field];
-              const rect = group.getChildByName('dim');
-              const promise = new Promise(resolve => {
-                if (rect) {
-                  egret.Tween.get(rect)
-                    .to({ alpha: 0 }, 125)
-                    .call(() => {
-                      if (rect.parent) {
-                        rect.parent.removeChild(rect);
-                      }
-                      resolve();
-                    });
-                }
-              });
-              fadeOutPromises.push(promise);
-            }
-            await Promise.all(fadeOutPromises);
-            return;
-          }
+        const run = 1;
+
+        for (let run = 1; run < 6; run++) {
           const tickFlashPromises = [];
           for (const field of winningFields) {
             const group = this._groupMapping[field];
@@ -541,10 +530,72 @@ namespace we {
             tickFlashPromises.push(prom);
           }
           await Promise.all(tickFlashPromises);
-          run += 1;
-          setTimeout(tick, 300);
-        };
-        setTimeout(tick, 300);
+          await utils.sleep(300);
+        }
+        const fadeOutPromises = [];
+        for (const field of Object.keys(this._groupMapping)) {
+          const group = this._groupMapping[field];
+          const rect = group.getChildByName('dim');
+          const promise = new Promise(resolve => {
+            if (rect) {
+              egret.Tween.get(rect)
+                .to({ alpha: 0 }, 125)
+                .call(() => {
+                  if (rect.parent) {
+                    rect.parent.removeChild(rect);
+                  }
+                  resolve();
+                });
+            }
+          });
+          fadeOutPromises.push(promise);
+        }
+        await Promise.all(fadeOutPromises);
+        return;
+
+        // const tick = async () => {
+        //   // end flashing
+        //   if (run >= 6) {
+        //     const fadeOutPromises = [];
+        //     for (const field of Object.keys(this._groupMapping)) {
+        //       const group = this._groupMapping[field];
+        //       const rect = group.getChildByName('dim');
+        //       const promise = new Promise(resolve => {
+        //         if (rect) {
+        //           egret.Tween.get(rect)
+        //             .to({ alpha: 0 }, 125)
+        //             .call(() => {
+        //               if (rect.parent) {
+        //                 rect.parent.removeChild(rect);
+        //               }
+        //               resolve();
+        //             });
+        //         }
+        //       });
+        //       fadeOutPromises.push(promise);
+        //     }
+        //     await Promise.all(fadeOutPromises);
+        //     return;
+        //   }
+        //   const tickFlashPromises = [];
+        //   for (const field of winningFields) {
+        //     const group = this._groupMapping[field];
+        //     const rect = group.getChildByName('dim');
+        //     const prom = new Promise(resolve => {
+        //       const alpha = run % 2 === 1 ? 0.25 : 0;
+        //       if (rect) {
+        //         egret.Tween.get(rect)
+        //           .to({ alpha }, 125)
+        //           .call(resolve);
+        //       }
+        //     });
+        //     tickFlashPromises.push(prom);
+        //   }
+        //   await Promise.all(tickFlashPromises);
+        //   run += 1;
+        //   setTimeout(tick, 300);
+        // };
+        // setTimeout(tick, 300);
       }
     }
   }

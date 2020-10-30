@@ -22,12 +22,12 @@ namespace we {
       protected setStateIdle(isInit: boolean = false) {
         super.setStateIdle(isInit);
         (<we.rol.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        this.luckyCoinGroup.clearLuckyNumbers();
+        this.luckyCoinGroup.clearAnim();
       }
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
         (<we.rol.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        this.luckyCoinGroup.clearLuckyNumbers();
+        this.luckyCoinGroup.clearAnim();
       }
       protected setStateFinish(isInit: boolean = false) {
         super.setStateFinish(isInit);
@@ -46,19 +46,19 @@ namespace we {
       protected setStateRefund(isInit: boolean = false) {
         super.setStateRefund(isInit);
         (<we.rol.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        this.luckyCoinGroup.clearLuckyNumbers();
+        this.luckyCoinGroup.clearAnim();
       }
 
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
         (<we.rol.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        this.luckyCoinGroup.clearLuckyNumbers();
+        this.luckyCoinGroup.clearAnim();
       }
 
       protected setStateUnknown(isInit: boolean = false) {
         super.setStateUnknown(isInit);
         (<we.rol.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        this.luckyCoinGroup.clearLuckyNumbers();
+        this.luckyCoinGroup.clearAnim();
       }
 
       protected setStateDeal(isInit: boolean = false) {
@@ -83,7 +83,7 @@ namespace we {
       public checkResultMessage(resultData = null) {
         (<any> this._gameData).hasBet = this.hasBet();
         super.checkResultMessage(resultData);
-        this.luckyCoinGroup.clearLuckyNumbers();
+        this.luckyCoinGroup.clearAnim();
       }
     }
   }
