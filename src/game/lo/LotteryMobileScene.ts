@@ -7,6 +7,8 @@ namespace we {
       protected _btn_mode: egret.DisplayObject;
       protected _data;
 
+      protected _navLayer: eui.Group;
+
       constructor(data: any) {
         super(data);
         this.customKey = 'lo';
@@ -16,6 +18,8 @@ namespace we {
         this._subScene = new core.BaseScene();
         this.addChild(this._subScene);
         this.sceneHeader.addChild(this._subScene.sceneHeader);
+        this._navLayer.addChild(dir.monitor.nav);
+        dir.monitor.nav.onMoveLayer();
       }
 
       protected setSkinName() {
@@ -64,9 +68,19 @@ namespace we {
         this._mode = mode;
       }
 
-      public onEnter() {}
+      public onEnter() {
+        env.orientationManager.setOrientation(egret.OrientationMode.PORTRAIT);
+        env.orientationManager.pauseTracking();
+      }
+
       public onExit() {
         this._subScene.onExit();
+
+        dir.layerCtr.nav.addChildAt(dir.monitor.nav,0);
+        dir.monitor.nav.onMoveLayer();
+        
+        env.orientationManager.resumeTracking();
+        env.orientationManager.checkOrientation();
       }
     }
   }
