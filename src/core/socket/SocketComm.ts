@@ -291,6 +291,7 @@ namespace we {
         env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
 
         env.currentChipSelectedIndex = player.profile.settings.currentChipSelectedIndex ? parseInt(player.profile.settings.currentChipSelectedIndex) : 0;
+        env.leftHandMode = player.profile.settings.isLeftHand === '1' ? true : false;
         env.favouriteTableList = env.favouriteTableList ? env.favouriteTableList : [];
         if (player.profile.settings.favouriteTableList) {
           try {
