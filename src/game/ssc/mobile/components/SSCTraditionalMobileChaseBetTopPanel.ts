@@ -17,7 +17,8 @@ namespace we {
     protected _lblIsStopChaseIfWon;
     protected _btnIsStopChaseIfWon : eui.Image;
     protected isStopChaseIfWon = false;
-
+    protected _lblChaseRound;
+    protected _lblChaseBetValue;
     //SAMEMULTIPLE & DOUBLE
     protected _lblRound;
     protected _btnMinusRound;
@@ -33,7 +34,8 @@ namespace we {
     protected _lblSeparateMultiplier;
     protected _btnAddSeparateMultiplier;
     protected _btnMinusSeparateMultiplier;
-
+    protected _lblTitleRoundSeperate;
+    protected _lblTitleSeparateMultiplier;
     //   protected _separateRound = 2;
     //   protected _minMultiplier = 1;
     //   protected _chaseRound = 20;
@@ -223,6 +225,36 @@ namespace we {
 
       protected updateDouble() {
         this._chaseBetPanel.updateDouble(this._separateMultiplier);
+      }
+
+      public updateText() {
+        switch (this._currentChaseType) {
+          case lo.SSCChaseType.DOUBLE:
+            this._lblChaseBetValue.renderText = () =>`${i18n.t('lo_trad.mobile_chasebet.chasevalue')}`;
+            this._lblChaseRound.renderText = () =>`${i18n.t('lo_trad.chase.chaseround')}`;
+            this._lbTitleMultiplier.renderText = () =>`${i18n.t('lo_trad.mobile_chasebet.multiplierTitle')}`;
+            this._lblTitleRoundSeperate.renderText = () =>`${i18n.t('lo_trad.mobile_chasebet.roundseparate')}`;
+            this._lblTitleSeparateMultiplier.renderText = () =>`${i18n.t('lo_trad.mobile_chasebet.separatemultiplier')}`;
+            this._lblIsStopChaseIfWon.renderText = () =>`${i18n.t('lo_trad.mobile_chasebet.stopchaseifwon')}`;
+
+            this._lblFiveRound.renderText = () =>`5${i18n.t('lo_trad.chase.btnround')}`;
+            this._lblTenRound.renderText = () =>`10${i18n.t('lo_trad.chase.btnround')}`;
+            this._lblFifthteenRound.renderText = () =>`15${i18n.t('lo_trad.chase.btnround')}`;
+            this._lblTwentyRound.renderText = () =>`20${i18n.t('lo_trad.chase.btnround')}`;
+            break;
+          case lo.SSCChaseType.SAMEMULTIPLE:
+            this._lblChaseRound.renderText = () =>`${i18n.t('lo_trad.chase.chaseround')}`;
+            this._lblChaseBetValue.renderText = () =>`${i18n.t('lo_trad.mobile_chasebet.chasevalue')}`;
+            this._lbTitleMultiplier.renderText = () =>`${i18n.t('lo_trad.mobile_chasebet.multiplierTitle')}`;
+            this._lblIsStopChaseIfWon.renderText = () =>`${i18n.t('lo_trad.mobile_chasebet.stopchaseifwon')}`;
+            
+            this._lblFiveRound.renderText = () =>`5${i18n.t('lo_trad.chase.btnround')}`;
+            this._lblTenRound.renderText = () =>`10${i18n.t('lo_trad.chase.btnround')}`;
+            this._lblFifthteenRound.renderText = () =>`15${i18n.t('lo_trad.chase.btnround')}`;
+            this._lblTwentyRound.renderText = () =>`20${i18n.t('lo_trad.chase.btnround')}`;
+            break;
+
+        }
       }
     }
   }

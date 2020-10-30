@@ -57,11 +57,12 @@ namespace we {
           return;
         }
         this.initOpt();
-        this._title.renderText = () => `${i18n.t('lo_trad.mobileui.playmode')}`;
+        this._title.renderText = () => `${i18n.t('lo_trad.ui.gamemode')}`;
         this._confirm.renderText = () =>`${i18n.t('mobile_dropdown_confirm')}`;
 
         this._currentBigTagIndex = 0;
         this._currentSmallTagIndex = 0;
+
         this._betModeList.selectedIndex = 0;
         this._betTypeList.selectedIndex = 0;
 
@@ -74,6 +75,8 @@ namespace we {
         this._betTypeList.itemRenderer = lo.SSCTraditionalMobileDropdownItemRender;
         this._betModeList.itemRenderer = lo.SSCTraditionalMobileDropdownItemRender;
 
+        this.betTypeUpdate();
+        this.betModeUpdate();
         this.show();
       }
       protected initOpt() {
@@ -230,6 +233,7 @@ namespace we {
         this._betModeList.itemRenderer = lo.SSCTraditionalMobileDropdownItemRender;
         this._betModeList.selectedIndex = 0;
         this._currentSmallTagIndex = 0;
+        this.betModeUpdate();
       }
 
       protected onBetTypeHandleTap() {
@@ -278,11 +282,13 @@ namespace we {
 
       protected onBetTypeChange() {
         // this._scroller.stopAnimation();
+        this._betTypeScroller.stopAnimation();
         this.betTypeUpdate();
       }
 
       protected onBetModeChange() {
         // this._scroller.stopAnimation();
+        this._betModeScroller.stopAnimation();
         this.betModeUpdate();
       }
       protected _isBetTypeTapItem = false;

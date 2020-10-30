@@ -1,6 +1,9 @@
 namespace we {
   export namespace lo {
     export class FunBetLayer extends core.BaseEUI {
+
+      protected _toggler: egret.DisplayObject;
+
       protected _tabbar: eui.TabBar;
       protected _viewstack: eui.ViewStack;
       
@@ -47,6 +50,10 @@ namespace we {
 
       protected onDescTogger() {
         this._desc.setText(i18n.t(`${this.customKey}_fun_betlayer_info_${this._viewstack.getItemAt(this._tabbar.selectedIndex)}`));
+      }
+
+      public get toggler() {
+        return this._toggler;
       }
     }
   }

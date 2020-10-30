@@ -28,7 +28,7 @@ namespace we {
 
       protected mount(): void {
         // mouse.setButtonMode(this.videoButton, true);
-        if (this.videoButton) {
+        if (this.videoButton && this.videoButton.touchEnabled) {
           utils.addButtonListener(this.videoButton, this.onClickVideo, this);
         }
         if (this.soundBtn) {

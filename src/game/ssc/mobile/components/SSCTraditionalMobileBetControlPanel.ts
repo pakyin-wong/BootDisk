@@ -21,6 +21,10 @@ namespace we {
       protected _currentPanelGroup : eui.Group;
       protected _lblCurrentRound :ui.RunTimeLabel;
 
+      protected _lblCurrentRoundTitle : ui.RunTimeLabel;
+      protected _lblNoteControl : ui.RunTimeLabel;
+      protected _lblChaseBet : ui.RunTimeLabel;
+
       constructor(notes, roundData, panel, currentRoundID, enable) {
         super();
         this.skinName = 'skin_mobile.lo.SSCTraditionalBetControlPanel';
@@ -44,7 +48,6 @@ namespace we {
         this.addEventListener('close', this.onClose, this);
         dir.evtHandler.addEventListener('LO_TRAD_MOBILE_CONFIRMBET_BUTTONSTATE',this.updateComfirmButtonState,this);
         dir.evtHandler.addEventListener('LO_TRAD_MOBILE_ROUNDID_UPDATE',this.updateBetInfo,this);
-
       }
 
       protected removeListeners(){
@@ -71,6 +74,7 @@ namespace we {
         this._lblCurrentRound.renderText = () => this._currentRoundID;
 
         this._activePanelIndex = 0;
+        this.updateText();
         this.showPanel();
       }
 
@@ -143,6 +147,12 @@ namespace we {
         const enable = e.data.enable;
         this._noteControl.setConfirmBetButton(enable);
         this._chaseBetPanel.setConfirmBetButton(enable);
+      }
+
+      protected updateText(){
+        this._lblCurrentRoundTitle.renderText = () => `${i18n.t('lo_trad.mobile_betcontrol.currentroundtitle')}`;
+        this._lblNoteControl.renderText = () =>  `${i18n.t('lo_trad.mobile_betcontrol.notecontrol')}`;
+        this._lblChaseBet.renderText = () =>  `${i18n.t('lo_trad.mobile_betcontrol.chasebetpanel')}`
       }
     }
   }

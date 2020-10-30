@@ -110,6 +110,8 @@ namespace we {
         this._lblValue.verticalCenter = 0;
       }
 
+      
+
       public get betValue() {
         return this._betValue;
       }

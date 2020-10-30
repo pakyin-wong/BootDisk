@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile.lo.FunBetLayer" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing">
-	<ui:RoundRectShape width="1242" height="1604" cornerTL_TR_BL_BR="24,24,24,24" fillColor="0x11305549,0x000103" strokeColor="0x214a72" stroke="3"/>
-	<e:ViewStack id="_viewstack" selectedIndex="0" scaleY="1" y="133" left="0" right="0" height="1471">
+	<ui:RoundRectShape width="1242" cornerTL_TR_BL_BR="24,24,24,24" fillColor="0x11305549,0x000103" strokeColor="0x214a72" stroke="3" height="1549"/>
+	<e:ViewStack id="_viewstack" selectedIndex="0" scaleY="1" y="133" left="0" right="0" height="1416">
 	<e:Scroller left="0" right="0" top="0" bottom="0" id="funPage" name="fun">
 		<e:Group>
 			<e:layout>
-				<e:VerticalLayout gap="24" horizontalAlign="center" paddingTop="3"/>
+				<e:VerticalLayout gap="24" horizontalAlign="center" paddingTop="3" paddingBottom="100"/>
 			</e:layout>
 			<lo:FunBetGroup skinName="skin_mobile.lo.FunBetGroupN" scaleX="1" scaleY="1" groupType="%id%SIZEPARITY2" groupId="MIL"/>
 			<lo:FunBetGroup skinName="skin_mobile.lo.FunBetGroupN" scaleX="1" scaleY="1" groupType="%id%SIZEPARITY2" groupId="THOU"/>
@@ -27,7 +27,7 @@
 			<lo:FunBetGroup x="30" y="86" scaleX="1" scaleY="1" skinName="skin_mobile.lo.FunBetGroupNum" groupType="%id%NUM" groupId="TEN"/>
 			<lo:FunBetGroup x="40" y="96" scaleX="1" scaleY="1" skinName="skin_mobile.lo.FunBetGroupNum" groupType="%id%NUM" groupId="SINGLE"/>
 			<e:layout>
-				<e:VerticalLayout gap="24" horizontalAlign="center" paddingTop="3"/>
+				<e:VerticalLayout gap="24" horizontalAlign="center" paddingTop="3" paddingBottom="100"/>
 			</e:layout>
 		</e:Group>
 	</e:Scroller>
@@ -44,7 +44,7 @@
 			<lo:FunBetGroup x="1356" y="528" skinName="skin_mobile.lo.FunBetGroupDT" groupType="%id%DT2" groupId="35"/>
 			<lo:FunBetGroup x="1366" y="538" skinName="skin_mobile.lo.FunBetGroupDT" groupType="%id%DT2" groupId="45"/>
 			<e:layout>
-				<e:VerticalLayout gap="24" horizontalAlign="center" paddingTop="3"/>
+				<e:VerticalLayout gap="24" horizontalAlign="center" paddingTop="3" paddingBottom="100"/>
 			</e:layout>
 		</e:Group>
 	</e:Scroller>
@@ -61,7 +61,7 @@
 			<lo:FunBetGroup x="193" y="256" skinName="skin_mobile.lo.FunBetGroup5" groupType="INTEREST1SPECIAL_%id%" groupId="8"/>
 			<lo:FunBetGroup x="203" y="266" skinName="skin_mobile.lo.FunBetGroup5" groupType="INTEREST1SPECIAL_%id%" groupId="9"/>
 			<e:layout>
-				<e:TileLayout orientation="rows" horizontalGap="24" verticalGap="24" requestedColumnCount="4" paddingLeft="48"/>
+				<e:TileLayout orientation="rows" horizontalGap="24" verticalGap="24" requestedColumnCount="4" paddingLeft="48" paddingBottom="100"/>
 			</e:layout>
 		</e:Group>
 	</e:Scroller>

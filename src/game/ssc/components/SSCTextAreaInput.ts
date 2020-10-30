@@ -4,7 +4,7 @@ namespace we {
     export class SSCTextAreaInput extends AInputComponent {
       protected _textAreaGroup: eui.Group;
 
-      protected _textArea: egret.TextField;
+      protected _textArea: eui.EditableText;
       protected _lblInstruction: ui.RunTimeLabel;
 
       protected _btnUpload;
@@ -31,11 +31,17 @@ namespace we {
           this.skinName = 'skin_desktop.lo.SSCTextAreaInput';
         }
       }
+      protected childrenCreated(){
+        super.childrenCreated();
 
-      protected initComponents() {
         if(env.isMobile){
           this._textArea.inputType = egret.TextFieldInputType.TEL;
+          this._textArea.restrict ='0-9';
         }
+        
+      }
+      protected initComponents() {
+
         this.addListeners();
         this.updateText();
       }

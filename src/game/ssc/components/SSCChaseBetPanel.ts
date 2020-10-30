@@ -115,7 +115,7 @@ namespace we {
         this._lblRoundCountDown.text = this._bettingPanel._timer.text;
       }
       protected initChaseTypeDropDown() {
-        const _arr = new eui.ArrayCollection([ui.NewDropdownItem(0, () => `同倍追號`), ui.NewDropdownItem(1, () => `利潤率追號`), ui.NewDropdownItem(2, () => `翻倍追號`)]);
+        const _arr = new eui.ArrayCollection([ui.NewDropdownItem(0, () => `${i18n.t('lo_trad.chase.SAMEMULTIPLE')}`), ui.NewDropdownItem(1, () => `${i18n.t('lo_trad.chase.PROFIT')}`), ui.NewDropdownItem(2, () => `${i18n.t('lo_trad.chase.DOUBLE')}`)]);
         this._chaseTypeDropDown.isDropdown = true;
         this._chaseTypeDropDown.isPoppable = true;
         this._chaseTypeDropDown.dismissOnClickOutside = true;

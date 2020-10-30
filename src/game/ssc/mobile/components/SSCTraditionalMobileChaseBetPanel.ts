@@ -29,6 +29,7 @@ namespace we {
         this.mapData();
         this.generateDatas();
         this.addListeners();
+        this.updateText();
       }
 
       public setConfirmBetButton(enable){
@@ -145,8 +146,13 @@ namespace we {
       }
 
       protected updateText(){
-        
-      }
+        this._lblChaseBetMode.renderText = () =>`${i18n.t('lo_trad.mobile_chasebet.chasebetmode')}`;
+        this._lblChaseType.renderText = () => `${i18n.t('lo_trad.mobile_chasebet.chasetype')}`;
+        this._lblBtnSameMultiple.renderText = () => `${i18n.t('lo_trad.chase.SAMEMULTIPLE')}`;
+        this._lblBtnDoubleMultiple.renderText = () => `${i18n.t('lo_trad.chase.DOUBLE')}`;
+        this._lblTotalBetTitle.renderText = () => `${i18n.t('lo_trad.confirm_panel.totalbetamountitle')}`;
+        this._lblConfirmBet.renderText = () => `${i18n.t('lo_trad.ui.confirmbet')}`;
+    }
 
       protected onConfirmPressed(e) {
         const roundData = [];
