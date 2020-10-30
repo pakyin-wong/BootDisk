@@ -600,6 +600,7 @@ namespace we {
         decryptedKey: 'Encrypted Key',
         ssn: 'Serial Number',
         lastRound: 'Last Round',
+        redCardDesc: 'Red Card：After this round, new shoe will be used',
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',
@@ -656,7 +657,7 @@ namespace we {
       lo_fun_bettingRound: 'Betting deadline',
       lo_fun_round: 'Round',
       lo_fun_drawingRound: 'is drawing',
-      lo_fun_lastRound: 'Last draw number',
+      lo_fun_lastRound: 'Round draw number',
 
       lo_fun_overlay_title: 'Confirm bet',
       lo_fun_overlay_table: 'Name',
@@ -723,6 +724,9 @@ namespace we {
       lo_fun_betfield_total_SMALL: 'Total Small',
       lo_fun_betfield_total_ODD: 'Total Odd',
       lo_fun_betfield_total_EVEN: 'Total Even',
+
+      lo_fun_logo: 'd_lottery_lotto5_ent_logo_eng_png',
+      lo_tri_logo: 'd_lottery_lotto5_trad_logo_eng_png',
 
       lo_trad: {
         highest_win: '單倍最高金額：',

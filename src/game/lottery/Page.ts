@@ -9,14 +9,19 @@ namespace we {
       protected _roomList: ui.TableList;
       protected _roomListRefer: eui.List;
 
+      protected _extra: string;
+
       public constructor(data: any = null) {
         super('LotteryPage', data);
       }
 
       protected mount() {
         super.mount();
-        env.currentPage = 'lottery';
-        env.currentTab = 'allLotteryGame';
+        
+        if(env.currentPage != 'lottery') {
+          env.currentPage = 'lottery';
+          env.currentTab = 'allLotteryGame';
+        }
 
         this.initRoomList();
         this.initExtraContent();
@@ -62,7 +67,7 @@ namespace we {
           }
         };
         this._roomList.useVirtualLayout = true;
-        this._roomList.setGameFilters(core.LotteryTab.all);
+        this._roomList.setGameFilters(env.currentTab);
         this._roomList.setTableList(this.roomIds);
       }
 
@@ -71,11 +76,14 @@ namespace we {
           MExtraContent.mount(this);
           if (env.orientation === egret.OrientationMode.PORTRAIT) {
             MPExtraContent.mount(this);
+            this._extra = egret.OrientationMode.PORTRAIT;
           } else {
             MLExtraContent.mount(this);
+            this._extra = egret.OrientationMode.LANDSCAPE;
           }
         } else {
           DExtraContent.mount(this);
+          this._extra = 'desktop'
         }
       }
 
@@ -94,7 +102,7 @@ namespace we {
       protected removeExtraContent() {
         if (env.isMobile) {
           MExtraContent.destroy(this);
-          if (env.orientation === egret.OrientationMode.PORTRAIT) {
+          if (this._extra === egret.OrientationMode.PORTRAIT) {
             MPExtraContent.destroy(this);
           } else {
             MLExtraContent.destroy(this);

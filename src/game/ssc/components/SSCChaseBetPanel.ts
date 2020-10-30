@@ -13,14 +13,14 @@ namespace we {
       private _lblTotalRoundTitle;
       private _lblTotalNoteCount;
       private _lblTotalNoteTitle;
-      private _lblTotalBet;
-      private _lblTotalBetTitle;
+      protected _lblTotalBet;
+      protected _lblTotalBetTitle;
       private _lblRoundCountDown;
       private _lblRoundCountDownTitle;
       private _lblStopChaseIfWin;
-      private _lblConfirmBet;
+      protected _lblConfirmBet;
       private _activeButton;
-      private _isStopChaseIfWonGroup: eui.Group;
+      protected _isStopChaseIfWonGroup: eui.Group;
       private _profitMsg: ui.RunTimeLabel;
 
       private _content;
@@ -28,12 +28,12 @@ namespace we {
       private _scroller: eui.Scroller;
 
       private _stopChaseIfWinCheckBox;
-      private _btnConfirmBet: ui.RoundRectButton;
+      protected _btnConfirmBet: ui.RoundRectButton;
 
       private _listTitlePanel: lo.SSCTraditionalChaseBetListTitle;
 
       private _topPanelGroup;
-      private chaseType: string[] = ['SAMEMULTIPLE', 'PROFIT', 'DOUBLE'];
+      protected chaseType: string[] = ['SAMEMULTIPLE', 'PROFIT', 'DOUBLE'];
       protected _bettingPanel: lo.ABettingPanel;
 
       protected _noteData: we.lo.TradNoteData[];
@@ -50,7 +50,7 @@ namespace we {
       // Profit
       public _expectedProfitRatio = 10;
 
-      private _dataColl;
+      protected _dataColl;
 
       private _scrollV = 0;
       private _counterInterval;
@@ -87,7 +87,9 @@ namespace we {
       }
 
       protected initData() {
-        this._profitMsg.visible = false;
+        if(this._profitMsg){
+          this._profitMsg.visible = false;
+        }
         switch (this._currentChaseType) {
           case lo.SSCChaseType.SAMEMULTIPLE:
             this._multiplier = 1;
@@ -238,7 +240,9 @@ namespace we {
       }
 
       protected remappingData() {
-        this._profitMsg.visible = false;
+        if(this._profitMsg){
+          this._profitMsg.visible = false;
+        }
         let totalBet = this.computeTotalCount(this._noteData);
         let multiplier = this._multiplier;
         switch (this._currentChaseType) {
@@ -475,7 +479,6 @@ namespace we {
           dir.evtHandler.dispatchEvent(new egret.Event('ON_LOTTERY_TRAD_INSUFFICIENTBALANCE'));
           return;
         }
-
         dir.evtHandler.once('onLotteryConfirmBet', this._bettingPanel.placeBet, this._bettingPanel);
 
         // TODO - create chaseBetConfirmPanel
