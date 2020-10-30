@@ -8,6 +8,7 @@ namespace we {
 
       protected _betLayerTween: ui.TweenConfig;
       protected _betLayer: FunBetLayer;
+      protected _betLayerEnabled = false;
 
       protected _betResult: FunBetResult;
       protected _roundInfo: FunBetRoundInfo;
@@ -88,6 +89,7 @@ namespace we {
         this.funbet.evtHandler.addEventListener('LOTTERY_FUNBET_LOWERBETLIMIT', this.onLowBetLimit, this);
         this.funbet.evtHandler.addEventListener('LOTTERY_FUNBET_OVERBALANCE', this.onOverBalance, this);
         utils.addButtonListener(this._btnBack, this.backToLobby, this);
+        utils.addButtonListener(this._betLayer.toggler, this.onBetLayerToggler, this);
       }
 
       protected removeListeners() {
@@ -102,6 +104,7 @@ namespace we {
         this.funbet.evtHandler.removeEventListener('LOTTERY_FUNBET_LOWERBETLIMIT', this.onLowBetLimit, this);
         this.funbet.evtHandler.removeEventListener('LOTTERY_FUNBET_OVERBALANCE', this.onOverBalance, this);
         utils.removeButtonListener(this._btnBack, this.backToLobby, this);
+        utils.removeButtonListener(this._betLayer.toggler, this.onBetLayerToggler, this);
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
@@ -199,8 +202,26 @@ namespace we {
       protected set betLayerEnabled(enabled: boolean) {
         if (enabled) {
           this._betLayerTween.currentState = 'open';
+          this._betLayer.currentState = "on";
+          this._betLayerEnabled = true;
         } else {
           this._betLayerTween.currentState = 'close';
+          this._betLayer.currentState = "off";
+          this._betLayerEnabled = false;
+        }
+        egret.Tween.removeTweens(this._betLayer);
+        egret.Tween.get(this._betLayer).to(this._betLayerTween.getTweenPackage(), 250);
+      }
+
+      protected onBetLayerToggler() {
+        if(!this._betLayerEnabled) return;
+
+        if (this._betLayer.currentState == "off") {
+          this._betLayerTween.currentState = 'open';
+          this._betLayer.currentState = "on";
+        } else {
+          this._betLayerTween.currentState = 'close';
+          this._betLayer.currentState = "off";
         }
         egret.Tween.removeTweens(this._betLayer);
         egret.Tween.get(this._betLayer).to(this._betLayerTween.getTweenPackage(), 250);
