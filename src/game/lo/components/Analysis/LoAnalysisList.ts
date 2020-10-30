@@ -66,6 +66,7 @@ namespace we {
         this.list = new eui.ListBase();
         this.list.x = 12;
         this.list.y = 42;
+        this.list.useVirtualLayout = true;
 
         this.list.itemRenderer = LoAnalysisListItem;
         this.list.dataProvider = this.collection;
@@ -76,6 +77,7 @@ namespace we {
         layout.horizontalGap = 12;
         layout.orientation = eui.TileOrientation.COLUMNS;
         layout.requestedRowCount = this.rowCount;
+        layout.useVirtualLayout = true;
         this.list.layout = layout;
 
         this.addChild(this.list);

@@ -18,7 +18,7 @@
 			<e:RadioButton id="analysisBtn1" label="第一球" width="100" height="54" value="0" selected="true" groupName="analysisGroup" touchEnabled="true" touchChildren="false">
 			<e:skinName>
 				<e:Skin states="up,down,upAndSelected,downAndSelected">
-				<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
+				<e:Rect width="100%" height="3" fillColor="0xffffff" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
 				<e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36"/>
 				<e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36"/>
 				</e:Skin>
@@ -27,7 +27,7 @@
 			<e:RadioButton id="analysisBtn2" label="第一球" width="100" height="54" value="1" selected="false" groupName="analysisGroup" touchEnabled="true" touchChildren="false">
 			<e:skinName>
 				<e:Skin states="up,down,upAndSelected,downAndSelected">
-				<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
+				<e:Rect width="100%" height="3" fillColor="0xffffff" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
 				<e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36"/>
 				<e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36"/>
 				</e:Skin>
@@ -36,7 +36,7 @@
 			<e:RadioButton id="analysisBtn3" label="第一球" width="100" height="54" value="2" selected="false" groupName="analysisGroup" touchEnabled="true" touchChildren="false">
 			<e:skinName>
 				<e:Skin states="up,down,upAndSelected,downAndSelected">
-				<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
+				<e:Rect width="100%" height="3" fillColor="0xffffff" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
 				<e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36"/>
 				<e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36"/>
 				</e:Skin>
@@ -45,7 +45,7 @@
 			<e:RadioButton id="analysisBtn4" label="第一球" width="100" height="54" value="3" selected="false" groupName="analysisGroup" touchEnabled="true" touchChildren="false">
 			<e:skinName>
 				<e:Skin states="up,down,upAndSelected,downAndSelected">
-				<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
+				<e:Rect width="100%" height="3" fillColor="0xffffff" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
 				<e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36"/>
 				<e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36"/>
 				</e:Skin>

@@ -98,7 +98,7 @@
 			<e:RadioButton id="chartPeriodBtn1" label="第一球" width="72" height="54" value="0" selected="true" groupName="chart1Group" touchEnabled="true" touchChildren="false">
 			<e:skinName>
 				<e:Skin states="up,down,upAndSelected,downAndSelected">
-				<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
+				<e:Rect width="100%" height="3" fillColor="0xffffff" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
 				<e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36"/>
 				<e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36"/>
 				</e:Skin>
@@ -107,7 +107,7 @@
 			<e:RadioButton id="chartPeriodBtn2" label="第一球" width="72" height="54" value="1" selected="false" groupName="chart1Group" touchEnabled="true" touchChildren="false">
 			<e:skinName>
 				<e:Skin states="up,down,upAndSelected,downAndSelected">
-				<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
+				<e:Rect width="100%" height="3" fillColor="0xffffff" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
 				<e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36"/>
 				<e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36"/>
 				</e:Skin>
@@ -116,7 +116,7 @@
 			<e:RadioButton id="chartPeriodBtn3" label="第一球" width="72" height="54" value="2" selected="false" groupName="chart1Group" touchEnabled="true" touchChildren="false">
 			<e:skinName>
 				<e:Skin states="up,down,upAndSelected,downAndSelected">
-				<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
+				<e:Rect width="100%" height="3" fillColor="0xffffff" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
 				<e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36"/>
 				<e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36"/>
 				</e:Skin>
@@ -125,7 +125,7 @@
 			<e:RadioButton id="chartPeriodBtn4" label="第一球" width="72" height="54" value="3" selected="false" groupName="chart1Group" touchEnabled="true" touchChildren="false">
 			<e:skinName>
 				<e:Skin states="up,down,upAndSelected,downAndSelected">
-				<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
+				<e:Rect width="100%" height="3" fillColor="0xffffff" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
 				<e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36"/>
 				<e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36"/>
 				</e:Skin>
@@ -134,7 +134,7 @@
 			<e:RadioButton id="chartPeriodBtn5" label="第一球" width="72" height="54" value="4" selected="false" groupName="chart1Group" touchEnabled="true" touchChildren="false">
 			<e:skinName>
 				<e:Skin states="up,down,upAndSelected,downAndSelected">
-				<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
+				<e:Rect width="100%" height="3" fillColor="0xffffff" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
 				<e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36"/>
 				<e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36"/>
 				</e:Skin>
@@ -143,7 +143,7 @@
 			<e:RadioButton id="chartPeriodBtn6" label="第一球" width="72" height="54" value="5" selected="false" groupName="chart1Group" touchEnabled="true" touchChildren="false">
 			<e:skinName>
 				<e:Skin states="up,down,upAndSelected,downAndSelected">
-				<e:Rect width="100%" height="3" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
+				<e:Rect width="100%" height="3" fillColor="0xffffff" fillColor.up="0xffffff" fillAlpha.up="0" fillColor.down="0xffffff" fillAlpha.down="1" bottom="3" left="1"/>
 				<e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0" textColor="0xcccccc" includeIn="up" size="36"/>
 				<e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0" textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="36"/>
 				</e:Skin>
