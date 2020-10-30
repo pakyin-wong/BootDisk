@@ -47,7 +47,9 @@ namespace we {
 
       public update(r) {
         this._tf_round.text = this._tf_drawingRound.text = r.gameroundid;
-        this._txt_lastRound.renderText = () => `${r.gameroundid} ${i18n.t('lo_fun_lastRound')}`;
+        if(!env.isMobile) {
+          this._txt_lastRound.renderText = () => `${r.gameroundid} ${i18n.t('lo_fun_lastRound')}`;
+        }
 
         for (let i = 0; i < this._result.numChildren; i++) {
           this._result.getChildAt(i)['text'] = r[`ball${i + 1}`] >= 0 ? r[`ball${i + 1}`] : '-';
