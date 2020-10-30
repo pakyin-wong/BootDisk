@@ -191,6 +191,7 @@ namespace we {
       mobile_game_panel_history: '歷史記錄',
       mobile_game_panel_road_sheet: '路紙',
       mobile_game_panel_statistic_chart: '統計圖表',
+      mobile_game_panel_analysis: '分析',
       mobile_game_panel_table_info: '本檯資訊',
       mobile_table_info_gameID: '編號',
       mobile_panel_game_Info: '遊戲資訊',

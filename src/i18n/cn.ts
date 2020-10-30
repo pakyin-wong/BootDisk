@@ -209,6 +209,7 @@ namespace we {
       mobile_game_panel_history: '历史记录',
       mobile_game_panel_road_sheet: '路纸',
       mobile_game_panel_statistic_chart: '统计图表',
+      mobile_game_panel_analysis: '分析',
       mobile_game_panel_table_info: '本台资讯',
       mobile_table_info_gameID: '编号',
       mobile_panel_game_Info: '游戏资讯',
