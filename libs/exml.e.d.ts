@@ -2822,10 +2822,6 @@ declare module skin_mobile{
 	class SSCTraditionalChaseBetPanel extends eui.Skin{
 	}
 }
-declare module skin_mobile{
-	class SSCTraditionalChaseBetTypePanel extends eui.Skin{
-	}
-}
 declare module skin_mobile.lo{
 	class SSCTraditionalMobileDropdown extends eui.Skin{
 	}
