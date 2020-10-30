@@ -13,15 +13,15 @@
 
 	<e:Group id="_hoverGroup" x="48" y="0" 
 >
-		<e:Label id="_txt_record_id" text="Label" x="0" y="0" height="76" size="24" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" width="258" size.down="24"/>
-		<e:Label id="_txt_record_date" text="Label" x="293" y="0" width="228" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1" size.down="24"/>
-		<e:Label id="_txt_record_game" text="Label" x="642" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_betamount" text="Label" x="992" y="0" width="127" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1" size.down="24"/>
+		<e:Label id="_txt_record_id" text="Label" x="0" y="0" height="76" size="24" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" width="258" size.down="24"  alpha="0.7"/>
+		<e:Label id="_txt_record_date" text="Label" x="293" y="0" width="228" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1" size.down="24"  alpha="0.7"/>
+		<e:Label id="_txt_record_game" text="Label" x="642" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"  alpha="0.7"/>
+		<e:Label id="_txt_record_betamount" text="Label" x="992" y="0" width="127" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1" size.down="24"  alpha="0.7"/>
 		<e:Label id="_txt_record_win" text="Label" x="1231" y="0" width="139" height="76" size="24" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" size.down="24"/>
-		<e:Label id="_txt_record_remark" text="Label" x="1501" y="0" width="66" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_remark" text="Label" x="1501" y="0" width="66" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"  alpha="0.7"/>
 
 
-		<ui:ClampWidthLabel id="_txt_record_finbalance" text="Label" x="1676" y="0" width="120" targetWidth="120" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<ui:ClampWidthLabel id="_txt_record_finbalance" text="Label" x="1676" y="0" width="120" targetWidth="120" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"  alpha="0.7"/>
 		<e:Image x="1976" width="30" height="30" source="d_lobby_button_next_hover_png" y="23" visible.down="false"/>
 		<e:Image width="16" height="10" x="1983" y="33" source="d_lobby_btn_dropdown_png" visible.up="false"/>
 	</e:Group>
@@ -34,10 +34,10 @@
 		<ui:RunTimeLabel id="_txt_round" text="Label" size="20" verticalAlign="middle" height="66" width="104" y="79" targetWidth="104"/>
 		<ui:RunTimeLabel id="_txt_bettype" text="Label" size="20" verticalAlign="middle" height="66" width="104" y="145"  targetWidth="104"/>
 		<ui:RunTimeLabel id="_txt_result" text="Label" size="20" verticalAlign="middle" height="66" width="104" y="211" targetWidth="104"/>
-		<e:Label id="_txt_record_round" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y="79"/>
-		<e:Label id="_txt_record_bettype" text="Label"  height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y="145"/>
+		<e:Label id="_txt_record_round" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y="79" alpha="0.7"/>
+		<e:Label id="_txt_record_bettype" text="Label"  height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y="145" alpha="0.7"/>
 		<e:Label id="_txt_record_orgbalance" text="Label"  height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" visible="false"/>
-		<e:Group x="152" height="76" y="210">
+		<e:Group x="152" height="76" y="210" alpha="0.7">
 			<e:Group id="_record_result" scaleX="1" scaleY="1" x="0" y="0"/>
 			<ui:RoundRectButton id="_btn_replay" width="122" height="44" scaleX="1" scaleY="1" fillAlpha="0" strokeColor="0x979797" cornerTL_TR_BL_BR="22,22,22,22" x="0" y="0">
 				<e:Skin width="122" height="44">
@@ -54,6 +54,7 @@
 				<e:HorizontalLayout verticalAlign="middle" gap="36"/>
 			</e:layout>
 		</e:Group>
+
 	</e:Group>
 	<!--<e:Rect id="_txt_hover_color" includeIn="hover" left="0" right="0" top="0" bottom="0" fillColor="0x4077ab"/>-->
 

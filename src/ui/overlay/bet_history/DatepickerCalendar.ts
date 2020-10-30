@@ -17,14 +17,14 @@ namespace we {
 
         this._headerItems = [];
         for (let w = 0; w < 7; w++) {
-          const headeritem = new Datepickeritem(w);
+          const headeritem = new Datepickeritem(w); 
           this._headerItems.push(headeritem);
           this.addChild(headeritem);
         }
 
         this._dateItems = [];
         for (let d = 0; d < 31; d++) {
-          const dateitem = new Datepickeritem(d + 1);
+          const dateitem = new Datepickeritem(d + 1); 
           this._dateItems.push(dateitem);
           this.addChild(dateitem);
         }
@@ -84,7 +84,10 @@ namespace we {
           this._dateItems[d].date = itemDate;
           this._dateItems[d].isToday = t.isSame(itemDate, 'day');
           this._dateItems[d].lock = itemDate.isAfter(t, 'day');
-          // this.setItemState(d, 'enabled');
+          this.setItemState(d, 'enabled');
+          if( this._dateItems[d].isToday === true) {
+            this.setItemState(d, 'today');
+          }
           c++;
           if (c > 6) {
             c = 0;
@@ -113,23 +116,52 @@ namespace we {
         this.setItemState(this._today, 'today');
         for (let d = 0; d < this._tday; d++) {
           const curr = moment([this._year, this._month, d + 1]);
-          if (curr.isSame(date, 'day')) {
-            if (this._isFirstTime) {
-              this.setItemState(this._today, 'today', false);
-              this._isFirstTime = false;
+          let todaytime = moment()
+            .utcOffset(8)
+            .startOf('day')
+            .unix();
+          let today = moment.unix(todaytime).startOf('day'); // get today's moment,disable it if curr - today > 90
+          let diff = moment(today).diff(curr,"days")
+          if ( diff < 91) {
+            if (curr.isSame(date, 'day')) {
+              // if (this._isFirstTime) {
+              //   this.setItemState(this._today, 'today', false);
+              //   this._isFirstTime = false;
+              // } else {
+                this.setItemState(d, 'single');
+              // }
+            } else if (curr.isBetween(begin, end)) {
+              this.setItemState(d, 'enabled');
+              if (d == this._today) {
+                this.setItemState(this._today, 'today');
+              }
             } else {
-              this.setItemState(d, 'single');
-            }
-          } else if (curr.isBetween(begin, end)) {
-            this.setItemState(d, 'enabled');
-            if (d == this._today) {
-              this.setItemState(this._today, 'today');
+              this.setItemState(d, 'disabled'); // 
+              if (d == this._today) {
+                this.setItemState(this._today, 'today', false);
+              }
             }
           } else {
+            this.setItemState(d, 'disabled'); // 
+          }
+        }
+      }
+
+      public checkIsAvailable() {
+        for (let d = 0; d < this._tday; d++) {
+          const curr = moment([this._year, this._month, d + 1]);
+          let todaytime = moment()
+            .utcOffset(8)
+            .startOf('day')
+            .unix();
+          let today = moment.unix(todaytime).startOf('day'); // get today's moment,disable it if curr - today > 90
+          let diff = moment(today).diff(curr,"days")
+          if (diff >= 91) {
             this.setItemState(d, 'disabled');
-            if (d == this._today) {
-              this.setItemState(this._today, 'today', false);
-            }
+          } else {
+              if (d == this._today) {
+                this.setItemState(this._today, 'today');
+              }
           }
         }
       }
@@ -138,18 +170,29 @@ namespace we {
         this.setItemState(this._today, 'today');
         for (let d = 0; d < this._tday; d++) {
           const curr = moment([this._year, this._month, d + 1]);
-          if (curr.isSame(begin, 'day')) {
-            this.setItemState(d, 'begin');
-          } else if (curr.isSame(end, 'day')) {
-            this.setItemState(d, 'end');
-          } else if (curr.isBetween(begin, end)) {
-            this.setItemState(d, 'multi');
-          } else {
-            if (d == this._today) {
-              this.setItemState(this._today, 'today');
+          let todaytime = moment()
+            .utcOffset(8)
+            .startOf('day')
+            .unix();
+          let today = moment.unix(todaytime).startOf('day'); // get today's moment,disable it if curr - today > 90
+          let diff = moment(today).diff(curr,"days")
+          if (diff < 91) {
+
+            if (curr.isSame(begin, 'day')) {
+              this.setItemState(d, 'begin');
+            } else if (curr.isSame(end, 'day')) {
+              this.setItemState(d, 'end');
+            } else if (curr.isBetween(begin, end)) {
+              this.setItemState(d, 'multi');
             } else {
-              this.setItemState(d, 'enabled');
+              if (d == this._today) {
+                this.setItemState(this._today, 'today');
+              } else {
+                this.setItemState(d, 'enabled');
+              }
             }
+          } else {
+            this.setItemState(d, 'disabled');
           }
         }
       }
