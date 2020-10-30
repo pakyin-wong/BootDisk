@@ -26,7 +26,7 @@ namespace we {
         this._betChipSet.setToggler(this._custombetChip);
 
         this.initBet();
-        this.funbet.reset();
+        this.funbet.reset();        
       }
 
       protected destroy() {
@@ -36,9 +36,7 @@ namespace we {
       }
 
       protected initBet() {
-        // this._denominationList = env.betLimits.Lottery[env.currentSelectedBetLimitIndex].chips;
         this._betChipSet.init();
-        // this.onBetChipChanged();
       }
 
       protected initText() {
@@ -50,7 +48,6 @@ namespace we {
         super.addListeners();
         this._betChipSet.addEventListener('CUSTOMBET_SELECTED', this.onCustomBetSelected, this);
         dir.evtHandler.addEventListener(core.Event.BET_DENOMINATION_CHANGE, this.onBetChipChanged, this);
-        // dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitUpdate, this);
         utils.addButtonListener(this._confirmButton, this.onConfirmPressed, this);
         utils.addButtonListener(this._cancelButton, this.onCancelPressed, this);
         this.funbet.evtHandler.addEventListener('LOTTERY_FUNBET_UPDATE', this.onFunBetUpdate, this);
@@ -66,7 +63,6 @@ namespace we {
         super.removeListeners();
         this._betChipSet.removeEventListener('CUSTOMBET_SELECTED', this.onCustomBetSelected, this);
         dir.evtHandler.removeEventListener(core.Event.BET_DENOMINATION_CHANGE, this.onBetChipChanged, this);
-        // dir.evtHandler.removeEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitUpdate, this);
         utils.removeButtonListener(this._confirmButton, this.onConfirmPressed, this);
         utils.removeButtonListener(this._cancelButton, this.onCancelPressed, this);
         this.funbet.evtHandler.removeEventListener('LOTTERY_FUNBET_UPDATE', this.onFunBetUpdate, this);
@@ -98,13 +94,6 @@ namespace we {
         let denominationList = env.betLimits.Lottery[env.currentSelectedBetLimitIndex].chips;        
         this.funbet.bet = denominationList[env.currentChipSelectedIndex];
       }
-
-      // protected onBetLimitUpdate(evt: egret.Event) {
-      //   // this._custombet.selected = false;
-      //   this._denominationList = env.betLimits.Lottery[env.currentSelectedBetLimitIndex].chips;
-      //   this._betChipSet.init(this._denominationList);
-      //   this.onBetChipChanged();
-      // }
 
       protected onFunBetUpdate() {
         this._confirmButton.enabled = Object.keys(this.funbet.betDetails).length > 0;
