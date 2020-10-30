@@ -290,6 +290,7 @@ namespace we {
         // env.nickname = player.profile.nickname;
         env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
 
+        env.currentChipSelectedIndex = player.profile.settings.currentChipSelectedIndex ? parseInt(player.profile.settings.currentChipSelectedIndex) : 0;
         env.favouriteTableList = env.favouriteTableList ? env.favouriteTableList : [];
         if (player.profile.settings.favouriteTableList) {
           try {
