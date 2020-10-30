@@ -118,7 +118,7 @@ namespace we {
       }
 
       protected onBetConfirmed() {
-        this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
+        this._message && this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
       }
 
       protected onBetFail(result) {

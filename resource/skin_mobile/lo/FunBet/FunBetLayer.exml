@@ -2,7 +2,7 @@
 <e:Skin class="skin_mobile.lo.FunBetLayer" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing">
 	<ui:RoundRectShape width="1242" height="1604" cornerTL_TR_BL_BR="24,24,24,24" fillColor="0x11305549,0x000103" strokeColor="0x214a72" stroke="3"/>
-	<e:ViewStack id="_viewstack" selectedIndex="0" scaleY="1" y="133" left="0" right="0" height="1471">
+	<e:ViewStack id="_viewstack" selectedIndex="0" scaleY="1" y="133" left="0" right="0" height="1293">
 	<e:Scroller left="0" right="0" top="0" bottom="0" id="funPage" name="fun">
 		<e:Group>
 			<e:layout>
