@@ -9,8 +9,8 @@ namespace we {
       protected animXArr;
       protected animYArr;
 
-      protected factory: dragonBones.EgretFactory;
-      protected display: dragonBones.EgretArmatureDisplay;
+      protected _factory: dragonBones.EgretFactory;
+      protected _displays: dragonBones.EgretArmatureDisplay[];
 
       public constructor() {
         super();
@@ -71,40 +71,44 @@ namespace we {
       }
 
       protected createLuckyCoinAnim() {
-        if (!this.factory) {
+        if (!this._factory) {
           const skeletonData = RES.getRes(`roulette_w_game_result_ske_json`);
           const textureData = RES.getRes(`roulette_w_game_result_tex_json`);
           const texture = RES.getRes(`roulette_w_game_result_tex_png`);
           const factory = new dragonBones.EgretFactory();
           factory.parseDragonBonesData(skeletonData);
           factory.parseTextureAtlasData(textureData, texture);
-          this.factory = factory;
+          this._factory = factory;
         }
         if (env.orientation === 'portrait') {
-          return this.factory.buildArmatureDisplay('draw_number_effect_vertical');
+          return this._factory.buildArmatureDisplay('draw_number_effect_vertical');
         } else {
-          return this.factory.buildArmatureDisplay('draw_number_effect_horizontal');
+          return this._factory.buildArmatureDisplay('draw_number_effect_horizontal');
         }
       }
 
       protected destroy() {
         this.clearAnim();
-        this.factory.clear(true);
+        this._factory.clear(true);
         super.destroy();
       }
 
-      protected clearAnim() {
-        if (this.display) {
-          if (this.display.animation) {
-            this.display.animation.stop();
+      public clearAnim() {
+        if (this._displays) {
+          for (const display of this._displays) {
+            if (display) {
+              if (display.animation) {
+                display.animation.stop();
+              }
+              display.armature.dispose();
+              display.dispose();
+              if (display.parent) {
+                display.parent.removeChild(display);
+              }
+            }
           }
-          this.display.armature.dispose();
-          this.display.dispose();
-          if (this.display.parent) {
-            this.display.parent.removeChild(this.display);
-          }
+          this._displays = null;
         }
-        this.display = null;
       }
 
       protected getOddSlotGroup(odd: number) {
@@ -171,7 +175,7 @@ namespace we {
 
       public updateLuckyNumbers(gameData: data.GameData, chipLayer: ui.ChipLayer) {
         this.gameData = <rol.GameData> gameData;
-        this.removeChildren();
+        this.clearAnim();
 
         if (!(this.gameData && this.gameData.luckynumber)) {
           this.isLuckyNo = false;
@@ -185,9 +189,10 @@ namespace we {
 
         let no = 0;
 
+        this._displays = [];
+
         for (const key of Object.keys(luckyNumbers)) {
           const coinAnim = this.createLuckyCoinAnim();
-          this.display = coinAnim;
           coinAnim.x = this.animXArr[no];
           coinAnim.y = this.animYArr[no];
           coinAnim.scaleX = 0.8;
@@ -235,6 +240,8 @@ namespace we {
           coinAnim.visible = false;
           this.addChild(coinAnim);
 
+          this._displays.push(coinAnim);
+
           (async () => {
             await we.utils.sleep(1000);
 
@@ -254,10 +261,6 @@ namespace we {
             this.clearAnim();
           })();
         }
-      }
-
-      public clearLuckyNumbers() {
-        this.removeChildren();
       }
 
       protected fieldToValue(fieldName: string) {

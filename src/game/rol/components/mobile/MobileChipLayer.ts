@@ -250,7 +250,9 @@ namespace we {
 
             coinAnim.removeDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addLuckyGridBg, this);
 
-            if (coinAnim && coinAnim.animation) { coinAnim.animation.play(`bet${color}_loop`, 0); }
+            if (coinAnim && coinAnim.animation) {
+              coinAnim.animation.play(`bet${color}_loop`, 0);
+            }
 
             // p = we.utils.waitDragonBone(coinAnim);
             // coinAnim.animation.play(`bet${color}_loop`, 3);

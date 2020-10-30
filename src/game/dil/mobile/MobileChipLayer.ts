@@ -145,7 +145,9 @@ namespace we {
             // luckyAnim.removeDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addGridBg(grid, +key), luckyAnim);
 
             // p = we.utils.waitDragonBone(luckyAnim);
-            if (luckyAnim && luckyAnim.animation) { luckyAnim.animation.play(`${animName}_loop`, 0); }
+            if (luckyAnim && luckyAnim.animation) {
+              luckyAnim.animation.play(`${animName}_loop`, 0);
+            }
             // await p;
           })();
         });

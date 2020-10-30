@@ -184,6 +184,9 @@ namespace we {
         if (this._flashingOdds) {
           for (const flashingOdd of this._flashingOdds) {
             egret.Tween.removeTweens(flashingOdd);
+            if (flashingOdd.parent) {
+              flashingOdd.parent.removeChild(flashingOdd);
+            }
           }
           this._flashingOdds = null;
         }
@@ -300,7 +303,9 @@ namespace we {
             // luckyAnim.removeDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addGridBg(grid, +key), luckyAnim);
 
             // p = we.utils.waitDragonBone(luckyAnim);
-            if (luckyAnim && luckyAnim.animation) { luckyAnim.animation.play(`${animName}_loop`, 0); }
+            if (luckyAnim && luckyAnim.animation) {
+              luckyAnim.animation.play(`${animName}_loop`, 0);
+            }
             // await p;
           })();
         });

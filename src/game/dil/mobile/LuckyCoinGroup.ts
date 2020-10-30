@@ -6,12 +6,38 @@ namespace we {
       protected animXArr;
       protected animYArr;
 
+      protected _displays: dragonBones.EgretArmatureDisplay[];
+      protected _factory: dragonBones.EgretFactory;
+
       public constructor() {
         super();
       }
 
       protected childrenCreated() {
         super.childrenCreated();
+      }
+
+      protected destroy() {
+        this.clearAnim();
+        if (this._factory) this._factory.clear(true);
+        super.destroy();
+      }
+
+      public clearAnim() {
+        if (this._displays) {
+          for (const display of this._displays) {
+            if (display.animation) {
+              display.animation.stop();
+            }
+            display.armature.dispose();
+            display.dispose();
+            
+            if (display.parent) {
+              display.parent.removeChild(display);
+            }
+          }
+          this._displays = null;
+        }
       }
 
       protected setAnimPositionVer(no: number) {
@@ -49,22 +75,25 @@ namespace we {
       }
 
       protected createLuckyCoinAnim() {
-        const skeletonData = RES.getRes(`dice_w_game_result_ske_json`);
-        const textureData = RES.getRes(`dice_w_game_result_tex_json`);
-        const texture = RES.getRes(`dice_w_game_result_tex_png`);
-        const factory = new dragonBones.EgretFactory();
-        factory.parseDragonBonesData(skeletonData);
-        factory.parseTextureAtlasData(textureData, texture);
+        if (!this._factory) {
+          const skeletonData = RES.getRes(`dice_w_game_result_ske_json`);
+          const textureData = RES.getRes(`dice_w_game_result_tex_json`);
+          const texture = RES.getRes(`dice_w_game_result_tex_png`);
+          const factory = new dragonBones.EgretFactory();
+          factory.parseDragonBonesData(skeletonData);
+          factory.parseTextureAtlasData(textureData, texture);
+          this._factory = factory;
+        }
         if (env.orientation === 'portrait') {
-          return factory.buildArmatureDisplay('draw_number_effect_vertical');
+          return this._factory.buildArmatureDisplay('draw_number_effect_vertical');
         } else {
-          return factory.buildArmatureDisplay('draw_number_effect_horizontal');
+          return this._factory.buildArmatureDisplay('draw_number_effect_horizontal');
         }
       }
 
       public updateLuckyNumbers(gameData: data.GameData, chipLayer: ui.ChipLayer) {
         this.gameData = <dil.GameData> gameData;
-        this.removeChildren();
+        this.clearAnim();
 
         if (!(this.gameData && this.gameData.luckynumber)) {
           return;
@@ -75,6 +104,7 @@ namespace we {
         this.setAnimPositionVer(noOfLuckNum);
 
         let no = 0;
+        this._displays = [];
 
         for (const key of Object.keys(luckyNumbers)) {
           const animName = this.getAnimName(+key);
@@ -98,6 +128,7 @@ namespace we {
 
           coinAnim.visible = false;
           this.addChild(coinAnim);
+          this._displays.push(coinAnim);
 
           if (!chipLayer) {
             return;
@@ -125,21 +156,19 @@ namespace we {
             await we.utils.sleep(400);
 
             let p = we.utils.waitDragonBone(coinAnim);
-            coinAnim.animation.play(`${animName}_in`, 1);
+            if (coinAnim.animation) coinAnim.animation.play(`${animName}_in`, 1);
             coinAnim.visible = true;
             await p;
 
             p = we.utils.waitDragonBone(coinAnim);
-            coinAnim.animation.play(`${animName}_loop`, 4);
+            if (coinAnim.animation) coinAnim.animation.play(`${animName}_loop`, 4);
             await p;
 
             p = we.utils.waitDragonBone(coinAnim);
-            coinAnim.animation.play(`${animName}_out`, 1);
+            if (coinAnim.animation) coinAnim.animation.play(`${animName}_out`, 1);
             await p;
 
-            coinAnim.animation.stop();
-
-            this.removeChildren();
+            this.clearAnim();
           })();
         }
       }
@@ -204,10 +233,6 @@ namespace we {
         group.addChild(coin);
 
         return group;
-      }
-
-      public clearLuckyNumbers() {
-        this.removeChildren();
       }
 
       protected fieldToValue(fieldName: string) {

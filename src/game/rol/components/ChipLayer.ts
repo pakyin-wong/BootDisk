@@ -221,7 +221,9 @@ namespace we {
 
             luckyAnim.removeDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addLuckyGridBg, this);
 
-            if (luckyAnim && luckyAnim.animation) { luckyAnim.animation.play(`bet${color}_loop`, 0); }
+            if (luckyAnim && luckyAnim.animation) {
+              luckyAnim.animation.play(`bet${color}_loop`, 0);
+            }
 
             /*
             p = we.utils.waitDragonBone(this._luckyAnim);
