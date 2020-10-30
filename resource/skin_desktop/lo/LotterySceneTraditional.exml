@@ -2,7 +2,7 @@
 <e:Skin class="skin_desktop.LotterySceneTraditional" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:ro="we.ro.*" xmlns:lo="we.lo.*" xmlns:rc="we.rc.*"
         xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*">
-	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x212425" visible="true" />
+	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x212425" />
 	<e:Image id="_bgImg" x="1560" y="104" width="1024" height="575" source="frame-3_jpg" visible="false" locked="true" />
 	<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" width="2600" height="294" x="0" bottom="0" stroke="0"
 	                   fillColor="0x00000000,0x00000050" />
@@ -11,7 +11,10 @@
 	<ro:ChipLayer id="_chipLayer" width="1208" height="340" x="692" y="986" skinName="skin_desktop.ro.ChipLayerSkin"
 	              isEdgeDismissable="true" />
 	-->
-	<e:Group id="_videoGroup" x="1560" y="104" width="1024" height="575" />
+	<e:Group id="_videoGroup" x="1560" y="104" width="1024" height="575" >
+		<ui:RunTimeImage id="_videoLogo" x="10" y="20" width="87" height="86"/>
+	</e:Group>
+
 	<e:Group id="_bettingPanelGroup" x="16" y="104" />
 	<e:Group id="_betRelatedGroup" x="768.64" y="895.13" visible="false">
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />

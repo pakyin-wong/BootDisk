@@ -2774,6 +2774,74 @@ declare module skin_mobile.lo{
 	class LotteryHistoryIR extends eui.Skin{
 	}
 }
+declare module skin_mobile.lo{
+	class SSCBallButtonRow extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class SSCCheckBoxInput extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class SSCTextAreaInput extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class SSCBetConfirmPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class SSCBetNoteItem extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class SSCChaseBetConfirmPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class SSCTraditionalBetControlPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class SSCBettingControlBar extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class SSCTraditionalBettingOptionButtonRow extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class SSCTraditionalBettingPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class SSCTraditionalBettingTable extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class SSCTraditionalChaseBetPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class SSCTraditionalChaseBetTypePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class SSCTraditionalMobileDropdown extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class SSCNoteControlPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class SSCTradtionalDoubleMultipleChaseBetPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class SSCTradtiionalSameMultipleChaseBetPanel extends eui.Skin{
+	}
+}
 declare module skin_mobile{
 	class LotteryLiveListItemSkin extends eui.Skin{
 	}
@@ -2788,6 +2856,22 @@ declare module skin_mobile{
 }
 declare module skin_mobile{
 	class LotterySceneTraditional extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class AnalysisPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class MobileBottomGamePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class MobileBottomRoadmapPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile.lo{
+	class StatisticChartPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile.lo{

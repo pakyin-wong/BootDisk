@@ -28,7 +28,11 @@ namespace we {
       }
 
       protected initSkin() {
-        this.skinName = 'skin_desktop.lo.SSCTraditionalBettingOptionButtonRow';
+        if (env.isMobile === true) {
+          this.skinName = 'skin_mobile.lo.SSCTraditionalBettingOptionButtonRow';
+        } else {
+          this.skinName = 'skin_desktop.lo.SSCTraditionalBettingOptionButtonRow';
+        }
       }
 
       public updateText() {

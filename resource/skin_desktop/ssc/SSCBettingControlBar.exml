@@ -86,7 +86,7 @@
                         stroke_hover="2" strokeAlpha_hover="1" strokeColor_hover="0x0F9D5D" fillAlpha_hover="0.2" fillColor_hover="0x0F9D5D"
                         stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x00c46d"
                         stroke_active="2" strokeColor_active="0x007842" fillAlpha_active="0" strokeAlpha_active="1"/>                
-                        <ui:RunTimeLabel id="_lblAdd" text="添加" size="20" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
+                        <ui:RunTimeLabel id="_lblAdd" text="加入購物籃" size="20" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
             </e:Group>
             <e:Group width="166" height="50" touchChildren="true">
             	<ui:RoundRectButton id="_btnInstantBet" width="166" height="50" cornerTL_TR_BL_BR="25,25,25,25"

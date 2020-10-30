@@ -52,6 +52,8 @@ namespace we {
         }
         this.addChild(_next);
         this.sceneHeader.addChild(_next.sceneHeader);
+        this.addChild(this._bottomGamePanel);
+        this._bottomGamePanel.manualClose();
         _next.onEnter();
 
         _prev.onExit();

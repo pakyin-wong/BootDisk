@@ -38,7 +38,11 @@ namespace we {
       }
 
       protected initSkin() {
-        this.skinName = 'skin_desktop.SSCBetNoteItem';
+        if(env.isMobile){
+          this.skinName = 'skin_mobile.SSCBetNoteItem';
+        }else{
+          this.skinName = 'skin_desktop.SSCBetNoteItem';
+        }
       }
       // TradNoteData {
       //   public field: string; // field consist of several information: Bet type, bet per note and bet detail
@@ -175,14 +179,26 @@ namespace we {
       protected regenerateBetitemFromField(DataString: string) {
         let newdatastring = '';
         const spliteddatastring = DataString.split('');
-        if (spliteddatastring.length < 16) {
-          newdatastring = DataString;
-        } else {
-          for (let i = 0; i < 16; i++) {
-            newdatastring += spliteddatastring[i];
+        if(env.isMobile){
+          if (spliteddatastring.length < 80) {
+            newdatastring = DataString;
+          } else {
+            for (let i = 0; i < 80; i++) {
+              newdatastring += spliteddatastring[i];
+            }
+            newdatastring += '...';
           }
-          newdatastring += '...';
+        }else{
+          if (spliteddatastring.length < 16) {
+            newdatastring = DataString;
+          } else {
+            for (let i = 0; i < 16; i++) {
+              newdatastring += spliteddatastring[i];
+            }
+            newdatastring += '...';
+          }
         }
+
         return newdatastring;
       }
 
