@@ -725,6 +725,9 @@ namespace we {
       lo_fun_betfield_total_ODD: '總單',
       lo_fun_betfield_total_EVEN: '總雙',
 
+      lo_fun_logo: 'd_lottery_lotto5_ent_logo_tw_png',
+      lo_tri_logo: 'd_lottery_lotto5_trad_logo_tw_png',
+
       lo_trad: {
         highest_win: '單倍最高金額：',
         erase_non_number: '清除錯誤或重複項',

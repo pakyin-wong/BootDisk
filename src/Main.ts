@@ -67,7 +67,7 @@ class Main extends eui.UILayer {
       isMobile = data.ismobile ? parseInt(data.ismobile) > 0 : false;
     } catch (err) { }
 
-    // if (type === 'mobile' || isMobile) {
+    if (type === 'mobile' || isMobile) {
       // if (true) {
       env.isMobile = true;
       // this.updateMobileHitTest();
@@ -82,7 +82,7 @@ class Main extends eui.UILayer {
       // uncomment below when there are both portrait and landscape layout
       this.orientationManager = new we.utils.OrientationManager(this.stage);
       env.orientationManager = this.orientationManager;
-    // }
+    }
 
     dir.evtHandler = new we.core.EventHandler();
     dir.errHandler = new we.core.ErrorHandler();
