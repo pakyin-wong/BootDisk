@@ -279,7 +279,7 @@ namespace we {
         // this._bgImg.visible = false;
         this._video.play();
 
-        this._gameBar.targetScene = this;
+        // this._gameBar.targetScene = this;
 
         if (env.betLimits) {
           this.initDenom();

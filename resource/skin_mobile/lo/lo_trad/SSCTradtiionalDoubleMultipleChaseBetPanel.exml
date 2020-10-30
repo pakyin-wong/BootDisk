@@ -86,7 +86,7 @@
         </e:Group>
 		<e:Rect width="1140" height="3" x="51" y="587" fillColor="0x979797" alpha="0.2"/>
         <e:Group y="621" width="1242" height="100">
-            <ui:RunTimeLabel left="48" id="_lbTitleRoundSeperate" text="間隔期數" textColor="0xffffff" size="48" verticalCenter="0"/>
+            <ui:RunTimeLabel left="48" id="_lblTitleRoundSeperate" text="間隔期數" textColor="0xffffff" size="48" verticalCenter="0"/>
             <e:Group id="_btnRoundSeperateGroup" right="48" width="330" height="100" touchChildren="true">
                 <e:Group width="100" height="100" touchChildren="true">
                     <ui:RoundRectButton id="_btnMinusRoundSeperate" cornerTL_TR_BL_BR="50,0,50,0" width="100" height="100" 
@@ -109,7 +109,7 @@
         </e:Group>
 		<e:Rect width="1140" height="3" x="51" y="752" fillColor="0x979797" alpha="0.2"/>
         <e:Group y="789" width="1242" height="100">
-            <ui:RunTimeLabel left="48" id="_lbTitleSeparateMultiplier" text="變動倍數" textColor="0xffffff" size="48" verticalCenter="0"/>
+            <ui:RunTimeLabel left="48" id="_lblTitleSeparateMultiplier" text="變動倍數" textColor="0xffffff" size="48" verticalCenter="0"/>
             <e:Group id="_btnSeparateMultiplierGroup" right="48" width="330" height="100" touchChildren="true">
                 <e:Group width="100" height="100" touchChildren="true">
                     <ui:RoundRectButton id="_btnMinusSeparateMultiplier" cornerTL_TR_BL_BR="50,0,50,0" width="100" height="100" 

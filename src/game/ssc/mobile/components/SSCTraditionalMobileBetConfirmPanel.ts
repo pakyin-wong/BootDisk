@@ -57,7 +57,11 @@ namespace we {
         }
         return newdatastring;
       }
-      
+
+      public updateText() {
+        super.updateText();
+      }
+
     }
   }
 }

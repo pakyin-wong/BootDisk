@@ -2,30 +2,34 @@
 namespace we {
   export namespace lo {
     export class SSCBettingControlBar extends ABettingControlBar {
-      private _btnConfirm;
-      private _btnAddMultiplier;
-      private _btnMinusMultiplier;
-      private _lblMultiplier;
-      private _lblTitleMultiplier;
-      private _lblMultiplierMinus;
-      private _lblMultiplierAdd;
+      protected _btnConfirm;
+      protected _btnAddMultiplier;
+      protected _btnMinusMultiplier;
+      protected _lblMultiplier;
+      protected _lblTitleMultiplier;
+      protected _lblMultiplierMinus;
+      protected _lblMultiplierAdd;
 
-      private _btnNoteDropDown;
-      private _lblNoteDropDown;
-      private _noteDropDown;
+      protected _btnNoteDropDown;
+      protected _lblNoteDropDown;
+      protected _noteDropDown;
 
-      private _btnBetDescription; // need tooltips????
-      private _lblBetDescription;
+      protected _btnBetDescription; // need tooltips????
+      protected _lblBetDescription;
 
-      private _lblTitleNoteChosen;
-      private _lblNoteChosen;
-      private _lblTitleTotalBet;
-      private _lblTotalBet;
+      protected _lblTitleNoteChosen;
+      protected _lblNoteChosen;
+      protected _lblTitleTotalBet;
+      protected _lblTotalBet;
 
-      private _lblAdd;
-      private _lblInstantBet;
-      private _lblBetDes;
-      private _betDesGrp;
+      protected _lblAdd;
+      protected _lblInstantBet;
+      protected _lblBetDes;
+      protected _betDesGrp;
+
+      protected _lblNote;
+      protected _lblTitleTotalBetChosen;
+      protected _lblTotalBetDollar;
       // constructor(skin, orientationDependent) {
       //   super(skin, orientationDependent);
       constructor() {
@@ -54,10 +58,12 @@ namespace we {
           this.initNoteDropDown();
         }
         this.validateBet();
+        this.updateText();
         // console.log('this.bettingPanel.addNotes0', this.bettingPanel.addNotes);
       }
 
       protected addListeners() {
+        super.addListeners();
         // if (this._btnAddBetFields) {
         //   // this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP,this.bettingPanel.showConfirm,this);
         //   this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this);
@@ -93,12 +99,11 @@ namespace we {
       public updateHighestWin(config: any) {
         // using local config, need to receive server award & winratio later
         const maxWin = config.maxWin;
-        if(!env.isMobile){
-          this._lblHighestWin.renderText = () => `${i18n.t('lo_trad.highest_win')}${utils.formatNumber(maxWin * 100)}`;
-        }
+        this._lblHighestWin.renderText = () => `${i18n.t('lo_trad.highest_win')}${utils.formatNumber(maxWin * 100)}`;
       }
 
       protected removeListeners() {
+        super.removeListeners();
         // if (this._btnAddBetFields) {
         //   // this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP,this.bettingPanel.showConfirm,this);
         //   this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this);
@@ -217,6 +222,17 @@ namespace we {
       public onExit() {
         super.onExit();
         this.removeListeners();
+      }
+
+      protected updateText(){
+        this._lblTitleMultiplier.renderText = () =>`${i18n.t('lo_trad.ui.multiplier')}`;
+        this._lblBetDescription.renderText = () => env.isMobile ? '?': `${i18n.t('lo_trad.bettingcontrol.betdescription')}`;
+        this._lblNote.renderText = () =>`${i18n.t('lo_trad.confirm_panel.notetext')}`;
+        this._lblTitleTotalBetChosen.renderText = () =>`${i18n.t('lo_trad.bettingcontrol.totalbetchosen')}`;
+        this._lblTitleNoteChosen.renderText = () =>`${i18n.t('lo_trad.bettingcontrol.totalnotechosen')}`;
+        this._lblTotalBetDollar.renderText = () =>`${i18n.t('lo_trad.ui.coin')}`;
+        this._lblAdd.renderText = () =>`${i18n.t('lo_trad.bettingcontrol.addbetfields')}`;
+        this._lblInstantBet.renderText = () =>`${i18n.t('lo_trad.bettingcontrol.instantbet')}`;
       }
     }
   }
