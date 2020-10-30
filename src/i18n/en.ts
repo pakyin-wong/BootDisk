@@ -191,6 +191,7 @@ namespace we {
       mobile_game_panel_history: 'History',
       mobile_game_panel_road_sheet: 'Road Sheet',
       mobile_game_panel_statistic_chart: 'Statistic Chart',
+      mobile_game_panel_analysis: 'Analysis',
       mobile_game_panel_table_info: 'Information',
       mobile_table_info_gameID: 'ID',
       mobile_panel_game_Info: 'Game Information',

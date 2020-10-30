@@ -258,6 +258,8 @@ namespace we {
         this._page = 1;
         this._starttime = e.data.starttime;
         this._endtime = e.data.endtime;
+        console.log('bethistory::this._starttime',this._starttime)
+        console.log('bethistory::this._endtime',this._endtime)
         this.search();
       }
 

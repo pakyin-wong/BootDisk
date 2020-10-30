@@ -66,7 +66,7 @@ namespace we {
 
       public updateText() {
         if (this.analysisBtn) {
-          this.analysisBtn.label = i18n.t('mobile_game_panel_history');
+          this.analysisBtn.label = i18n.t('mobile_game_panel_analysis');
         }
         if (this.roadSheetBtn) {
           this.roadSheetBtn.label = i18n.t('mobile_game_panel_road_sheet');
