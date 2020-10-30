@@ -153,6 +153,13 @@ namespace we {
         }
       }
 
+      protected destroy() {
+        if (this._lblBetLimit) {
+          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        }
+        super.destroy();
+      }
+
       protected setStateDeal(isInit: boolean = false) {
         super.setStateDeal(isInit);
         if (this._previousState !== we.core.GameState.DEAL && env.orientation === 'landscape') {
@@ -324,6 +331,7 @@ namespace we {
         const selected = evt.data;
         env.currentSelectedBetLimitIndex = selected;
         dir.evtHandler.dispatch(core.Event.BET_LIMIT_CHANGE);
+        dir.socket.updateSetting('currentSelectedBetLimitIndex', selected.toString());
         this.updateBetLimit(selected);
       }
       protected onBetLimitChanged(evt: egret.Event) {

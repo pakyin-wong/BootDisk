@@ -82,6 +82,7 @@ namespace we {
       }
 
       public onEnter() {
+        super.onEnter();
         this.setupTableInfo();
 
         this.initChildren();
@@ -301,7 +302,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -483,12 +484,9 @@ namespace we {
           }
 
           if (this._message && !isInit) {
-            // ==================================================
-            if (this._gameRoundCountWithoutBet === 1) {
-              // this.showTwoMessage();
+            if (this._gameRoundCountWithoutBet === 3) {
               if (this._expiredMessage) {
                 this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'), this.showTwoMessage.call(this));
-                // this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, '您已3局未下注，2局后踢出');
               }
             } else {
               this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));

@@ -44,6 +44,7 @@ namespace we {
           i18n.drop(this);
           this._isReg = false;
         }
+        this.renderText = null;
         this.once(eui.UIEvent.ADDED_TO_STAGE, this.initRenderText, this);
       }
 

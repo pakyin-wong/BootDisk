@@ -562,6 +562,7 @@ namespace we {
           this.dtBigRoad.parseRoadData(this.tableInfo.roadmap.sideBar[this.dtRoadNames[this.road3Index]]);
         }
       }
+      
       protected onAnalysisChange(e: eui.UIEvent) {
         const radio: eui.RadioButton = e.target;
         this.analysisStack.selectedIndex = radio.value;

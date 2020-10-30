@@ -95,12 +95,12 @@ namespace we {
       }
 
       public updateHighestWin(config: any) {
-        // using local config, need to receive server award & winratio later
+        // // using local config, need to receive server award & winratio later
         const maxWin = config.maxWin;
         this._lblHighestWin.renderText = () => `${i18n.t('lo_trad.highest_win')}${utils.formatNumber(maxWin * 100)}`;
       }
 
-      public updateText() {}
+      protected updateText() {}
 
       public onExit() {}
     }

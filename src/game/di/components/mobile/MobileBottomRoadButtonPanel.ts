@@ -34,6 +34,11 @@ namespace we {
         // this.updateMode();
       }
 
+      protected destroy() {
+        super.destroy();
+        this.removeListeners();
+      }
+
       protected addListeners() {
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
         // this.roadmapSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);

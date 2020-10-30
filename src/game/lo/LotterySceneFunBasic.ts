@@ -41,6 +41,7 @@ namespace we {
         this._betDetails = this._tableInfo.bets;
         this._gameData = this._tableInfo.data;
         this._previousState = this._gameData ? this._gameData.previousstate : null;
+        this.funbet.initRatios(this._tableInfo.betInfo['lotteryRatio']? this._tableInfo.betInfo['lotteryRatio'] : null);
       }
 
       protected mount() {
@@ -77,7 +78,7 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.removeEventListener(core.Event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
         // dir.evtHandler.removeEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
-
+        
         this.funbet.evtHandler.removeEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
       }
 
@@ -104,6 +105,7 @@ namespace we {
       }
 
       protected onGameStatisticUpdated() {}
+      
 
       protected onBetResultReceived(evt: egret.Event) {
         const result: data.PlayerBetResult = evt.data;
@@ -116,7 +118,7 @@ namespace we {
       }
 
       protected onBetConfirmed() {
-        this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
+        this._message && this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
       }
 
       protected onBetFail(result) {

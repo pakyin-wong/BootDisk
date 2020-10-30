@@ -35,6 +35,7 @@ namespace we {
         this.initRoadMap();
         this._roadmapControl.setTableInfo(this._tableInfo);
         this._rightGamePanel.setTableInfo(this._tableInfo);
+        this._rightGamePanel.updateStat();
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
       }
@@ -60,7 +61,6 @@ namespace we {
             this._roadmapControl.updateRoadData();
           }
         }
-        // this._rightGamePanel.updateStat();
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {

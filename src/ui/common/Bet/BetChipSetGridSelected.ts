@@ -38,6 +38,7 @@ namespace we {
       // }
 
       protected destroy() {
+        this.dispose();
         super.destroy();
         dir.evtHandler.removeEventListener(core.Event.BET_DENOMINATION_CHANGE, this.updateSelectedChip, this);
       }

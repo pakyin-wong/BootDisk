@@ -38,7 +38,7 @@ namespace we {
 
       protected childrenCreated() {
         super.childrenCreated();
-        dir.evtHandler.addEventListener(core.Event.ORIENTATION_UPDATE, this.orientationUpdate, this);
+        // dir.evtHandler.addEventListener(core.Event.ORIENTATION_UPDATE, this.orientationUpdate, this);
       }
 
       protected orientationUpdate() {

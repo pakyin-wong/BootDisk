@@ -9,7 +9,7 @@ namespace we {
       // protected _smallRoad: ba.BASmallRoad;
       // protected _cockroachRoad: ba.BACockroachRoad;
 
-      protected _roadmap: ILobbyRoad;
+      protected _roadmap: ILobbyRoad & eui.Component;
       protected _gameType: string;
       protected _gameIdx: string;
       protected _betLimit: ui.RunTimeLabel;
@@ -26,6 +26,12 @@ namespace we {
       protected initChildren() {
         super.initChildren();
       }
+
+      protected destroy() {
+        super.destroy();
+        if (this._roadmap) this._roadmap.parent.removeChild(this._roadmap);
+      }
+
 
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);

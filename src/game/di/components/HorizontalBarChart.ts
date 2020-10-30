@@ -95,7 +95,7 @@ namespace we {
         let lastRank = -1;
         let rankTotal = 0;
         for (const rank of ranksSort) {
-          rankTotal += rank;
+          rankTotal += rank; // 將最大rank做100%
           if (rank !== lastRank) {
             rankArray.push(rank);
             lastRank = rank;

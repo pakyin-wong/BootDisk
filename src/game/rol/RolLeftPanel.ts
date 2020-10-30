@@ -4,6 +4,9 @@ namespace we {
       protected pageRadioBtn4: eui.RadioButton;
       protected _coinGroup: eui.Group;
 
+      protected _factory: dragonBones.EgretFactory;
+      protected _displays: dragonBones.EgretArmatureDisplay[];
+
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'RolLeftPanel');
       }
@@ -23,13 +26,16 @@ namespace we {
       }
 
       protected createLuckyCoinAnim() {
-        const skeletonData = RES.getRes(`roulette_w_game_result_ske_json`);
-        const textureData = RES.getRes(`roulette_w_game_result_tex_json`);
-        const texture = RES.getRes(`roulette_w_game_result_tex_png`);
-        const factory = new dragonBones.EgretFactory();
-        factory.parseDragonBonesData(skeletonData);
-        factory.parseTextureAtlasData(textureData, texture);
-        return factory.buildArmatureDisplay('draw_number_effect');
+        if (!this._factory) {
+          const skeletonData = RES.getRes(`roulette_w_game_result_ske_json`);
+          const textureData = RES.getRes(`roulette_w_game_result_tex_json`);
+          const texture = RES.getRes(`roulette_w_game_result_tex_png`);
+          const factory = new dragonBones.EgretFactory();
+          factory.parseDragonBonesData(skeletonData);
+          factory.parseTextureAtlasData(textureData, texture);
+          this._factory = factory;
+        }
+        return this._factory.buildArmatureDisplay('draw_number_effect');
       }
 
       protected getOddSlotGroup(odd: number) {
@@ -107,6 +113,8 @@ namespace we {
         // 18 = 668 - 5 * 112
         let x = (668 - (noOfLuckNum - 1) * 18 - noOfLuckNum * 112) / 2;
 
+        this._displays = [];
+
         for (const key of Object.keys(luckyNumbers)) {
           const coinAnim = this.createLuckyCoinAnim();
           coinAnim.x = x;
@@ -156,6 +164,8 @@ namespace we {
           coinAnim.visible = false;
           this._coinGroup.addChild(coinAnim);
 
+          this._displays.push(coinAnim);
+
           (async () => {
             await we.utils.sleep(1000);
 
@@ -177,8 +187,29 @@ namespace we {
         }
       }
 
+      public destroy() {
+        this.clearLuckyNumbers();
+        if (this._factory) this._factory.clear(true);
+        super.destroy();
+      }
+
       public clearLuckyNumbers() {
-        this._coinGroup.removeChildren();
+        if (this._displays) {
+          for (const display of this._displays) {
+            if (display) {
+              if (display.animation) {
+                display.animation.stop();
+              }
+              dragonBones.WorldClock.clock.remove(display.armature);
+              display.armature.dispose();
+              display.dispose();
+              if (display.parent) {
+                display.parent.removeChild(display);
+              }
+            }
+          }
+          this._displays = null;
+        }
       }
 
       protected fieldToValue(fieldName: string) {

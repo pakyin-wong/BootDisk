@@ -3,6 +3,8 @@ namespace we {
     export class LotteryMobileSceneBasic extends LotterySceneFunBasic {
 
       protected _btnBack: egret.DisplayObject;
+      protected _btn_sidegamelist: egret.DisplayObject;
+      protected _btn_video: egret.DisplayObject;
 
       protected _roundInfo: FunBetRoundInfo;
       protected _result_toggler: egret.DisplayObject;
@@ -17,6 +19,10 @@ namespace we {
       protected _targetTime;
       protected _counterInterval;
 
+      //bottomGame
+      protected _bottomGamePanel: lo.MobileBottomGamePanel;
+      protected _roadmapControl: lo.LoRoadmapControl;
+
       constructor(data: any) {
         super(data);
         this._tableId = data.tableid;
@@ -25,6 +31,13 @@ namespace we {
       protected mount() {
         super.mount();
         this.initVideo();
+
+        //added bottomGame
+        this._bottomGamePanel.setTableInfo(this._tableInfo);
+        this._bottomGamePanel.setData();
+        this.initRoadMap;
+
+        // this._bottomGamePanel.update();
       }
 
       protected destroy() {
@@ -38,16 +51,41 @@ namespace we {
         this._GameID.renderText = () => `${this._tableInfo.data.gameroundid}`;        
       }
 
+      //added bottomGame
+      protected initRoadMap() {
+        this._roadmapControl = new LoRoadmapControl(this._tableId);
+        // if (this._leftGamePanel) {// for testing
+        this._roadmapControl.setTableInfo(this._tableInfo);
+        this._roadmapControl.setRoads(null, null, this._bottomGamePanel._roadmapPanel);
+      }
+
       protected addListeners() {
         super.addListeners();
         utils.addButtonListener(this._btnBack, this.backToLobby, this);
+        utils.addButtonListener(this._btn_sidegamelist, this.onClickSideGameList, this);
         utils.addButtonListener(this._result_toggler, this.onTogglerResult, this);
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
       }
 
       protected removeListeners() {
         super.removeListeners();
         utils.removeButtonListener(this._btnBack, this.backToLobby, this);
+        utils.removeButtonListener(this._btn_sidegamelist, this.onClickSideGameList, this);
         utils.removeButtonListener(this._result_toggler, this.onTogglerResult, this);
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
+      }
+
+      protected changeHandMode() {
+        if (env.leftHandMode) {
+          this.currentState = 'left';
+        } else {
+          this.currentState = 'right';
+        }
+        this.invalidateState();
+      }
+
+      protected onClickSideGameList() {
+        dir.evtHandler.dispatch(core.Event.TOGGLE_SIDE_GAMELIST);
       }
 
       protected onTogglerResult() {
@@ -104,11 +142,11 @@ namespace we {
         this._video.load('https://gcp.weinfra247.com:443/live/720.flv');
         dir.audioCtr.video = this._video;
         const aspect = 16 / 9;
-        const ratio = this.stage.stageWidth / this.stage.stageHeight;
-        this._video.x = this.stage.stageWidth * 0.5;
-        this._video.y = this.stage.stageHeight * 0.5;
-        this._video.width = ratio < 1 ? this.stage.stageHeight * aspect : this.stage.stageWidth;
-        this._video.height = ratio < 1 ? this.stage.stageHeight : this.stage.stageWidth / aspect;
+        const ratio = 1242 / 2156;
+        this._video.x = 1242 * 0.5;
+        this._video.y = 2156 * 0.5;
+        this._video.width = ratio < 1 ? 2156 * aspect : 1242;
+        this._video.height = ratio < 1 ? 2156 : 1242 / aspect;
         this._video.$anchorOffsetX = this._video.width * 0.5;
         this._video.$anchorOffsetY = this._video.height * 0.5;
         this.addChildAt(this._video, 0);
@@ -129,6 +167,16 @@ namespace we {
         this.update();
       }
 
+      protected onRoadDataUpdate(evt: egret.Event) {
+        super.onRoadDataUpdate(evt);
+        if(evt && evt.data){
+          const stat = <data.TableInfo>evt.data;
+          if(stat.tableid === this._tableId){
+            this._bottomGamePanel.updateInfo();
+          }
+        }
+      }
+
       protected update() {
         const diff = this._targetTime - env.currTime;
 
@@ -142,6 +190,68 @@ namespace we {
       protected resetTimer() {
         this._counter.text = '00:00:00';
         clearInterval(this._counterInterval);
+      }
+
+      //_bottomGamePanel
+      public updateResultDisplayVisible(bottomGamePanelisOpen: boolean) {
+        if (!this._bottomGamePanel._bottomResultDisplayContainer) {
+          return;
+        }
+        /*if (env.orientation === 'landscape') {
+          if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.FINISH) {
+            this._resultDisplay.visible = !bottomGamePanelisOpen;
+            this._bottomGamePanel._bottomResultDisplayContainer.visible = bottomGamePanelisOpen;
+          }
+      }*/
+      }
+
+      protected setStateIdle() {
+        super.setStateIdle();
+        this._bottomGamePanel.manualClose();
+      }
+
+      protected setStateDeal() {
+        super.setStateIdle();
+        this._bottomGamePanel.manualClose();
+      }
+
+      public updateTableLayerPosition(bottomGamePanelisOpen: boolean) {
+ /*       if (env.orientation === 'landscape') {
+          const vlayout = new eui.VerticalLayout();
+          if (this._tableLayer) {
+            switch (env.tableInfos[this._tableId].gametype) {
+              case core.GameType.BAC:
+              case core.GameType.BAS:
+              case core.GameType.BAI:
+                console.log('this._aaaaa', this._tableLayer);
+                if (bottomGamePanelisOpen === true) {
+                  vlayout.gap = -65;
+                  // this._tableLayer.y -= 24;
+                  // this._chipLayer.y -= 24;
+                } else {
+                  vlayout.gap = -40;
+                  // this._tableLayer.y += 24;
+                  // this._chipLayer.y += 24;
+                }
+                this._verticalGroup.layout = vlayout;
+                break;
+              case core.GameType.LW:
+                if (bottomGamePanelisOpen === true) {
+                  vlayout.gap = 0;
+                  // this._tableLayer.y -= 24;
+                  // this._chipLayer.y -= 24;
+                } else {
+                  vlayout.gap = 0;
+                  // this._tableLayer.y += 24;
+                  // this._chipLayer.y += 24;
+                }
+                this._verticalGroup.layout = vlayout;
+                break;
+              default:
+                break;
+            }
+          }
+        }*/
       }
     }
   }

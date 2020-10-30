@@ -65,11 +65,14 @@ namespace we {
         egret.Tween.get(this._betSet).to(this._betSetTween.getTweenPackage(), 250);
       }
 
+      /*
+
       protected mount() {
         super.mount();
 
         this.initBottomBetLimitSelector();
       }
+      */
 
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('DiceScene');

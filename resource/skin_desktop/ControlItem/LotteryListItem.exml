@@ -3,7 +3,7 @@
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing"
         xmlns:lo="we.lo.*">
 	<e:Group id="_contentContainer" width="100%" height="388" x="0" y="0">
-		<e:Image width="90" height="90" x="20" y="14" />
+
 		<ui:RoundRectShape fillColor="0x434343" cornerTL_TR_BL_BR="12,12,12,12" strokeColor="0x434343" stroke="2" width="578"
 		                   height="388" x="0" y="0" />
 		<e:Group id="_rdContainer" sortableChildren="true" y="66" x="124">
@@ -42,6 +42,7 @@
 		                       skinName="skin_desktop.CountdownTimerRoundSkin" />
 		-->
 	</e:Group>
+		<e:Image id="_img" width="90" height="90" x="20" y="14"/>
 </e:Group>
 <!--<e:Component id="_chipLayerNode" width="100%" skinName="skin_desktop.ba.LiveListItemChipLayerSkin" anchorOffsetY="0"
                  alpha="0" y="0" left="0" touchEnabled="false" touchChildren="false" visible="false"

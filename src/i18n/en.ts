@@ -8,7 +8,7 @@ namespace we {
       voice_mandarin: 'Mandarin',
       voice_english: 'English',
 
-      gametype_BAC: 'BAC',
+      gametype_BAC: 'Baccarat',
       gametype_BAS: 'BAS',
       gametype_BAI: 'BAI',
       gametype_BAM: 'BAM',
@@ -86,16 +86,16 @@ namespace we {
       overlaypanel_bethistory_week: 'This week',
       overlaypanel_bethistory_customperiod: 'Custom',
       overlaypanel_bethistory_searchrecord: 'Search Bet ID',
-      overlaypanel_bethistory_recordtab_id: 'ID',
+      overlaypanel_bethistory_recordtab_id: 'Bet ID',
       overlaypanel_bethistory_recordtab_title: 'Record Detail',
       overlaypanel_bethistory_recordtab_date: 'Date',
       overlaypanel_bethistory_recordtab_game: 'Game',
-      overlaypanel_bethistory_recordtab_round: 'Bet ID',
+      overlaypanel_bethistory_recordtab_round: 'Round',
       overlaypanel_bethistory_recordtab_replay: 'Playback',
       overlaypanel_bethistory_recordtab_remark: 'Win / Lose',
       overlaypanel_bethistory_recordtab_bettype: 'Bet Content',
-      overlaypanel_bethistory_recordtab_betamount: 'Bet Amt',
-      overlaypanel_bethistory_recordtab_win: 'Win Amt',
+      overlaypanel_bethistory_recordtab_betamount: 'Bet Amount',
+      overlaypanel_bethistory_recordtab_win: 'Win Amount',
       overlaypanel_bethistory_recordtab_orgbalance: 'Original Balance',
       overlaypanel_bethistory_recordtab_finbalance: 'Balance',
       overlaypanel_bethistory_recordtab_resuit: 'Game Result',
@@ -183,7 +183,7 @@ namespace we {
 
       mobile_lobby_feature_title: 'Featured Games',
       mobile_lobby_hot_game_title: 'Hot Games',
-      mobile_ba_undo: 'Undo',
+      mobile_ba_undo: 'Recovery',
       mobile_ba_clear: 'Clear',
       mobile_ba_double: 'Double',
       mobile_ba_repeat: 'Bet Again',
@@ -191,7 +191,8 @@ namespace we {
       mobile_game_panel_history: 'History',
       mobile_game_panel_road_sheet: 'Road Sheet',
       mobile_game_panel_statistic_chart: 'Statistic Chart',
-      mobile_game_panel_table_info: 'Information',
+      mobile_game_panel_table_info: 'Table Info',
+      mobile_game_panel_analysis: 'Analysis',
       mobile_table_info_gameID: 'ID',
       mobile_panel_game_Info: 'Game Information',
 
@@ -289,15 +290,15 @@ namespace we {
           },
         },
       },
-      gamegroup_tab_live: 'Live',
+      gamegroup_tab_live: 'Live Casino',
       gamegroup_tab_lottery: 'Lottery',
       lobby: {
         header: {
-          lobby: 'Promoted',
+          lobby: 'Home',
           live: 'Live',
           lottery: 'Lottery',
           egame: 'EGame',
-          favourite: 'Favourite',
+          favourite: 'Bookmarks / My Favourites',
         },
         categoryPromotion: 'Promoted',
         categoryBaccarat: 'Baccarat',
@@ -305,7 +306,7 @@ namespace we {
         categoryLuckyWheel: 'Lucky Wheel',
         categoryInstant: 'Instant Open Colour',
         categoryOtherGame: 'Other Games',
-        categoryFavorite: 'My Favorites',
+        categoryFavorite: 'Bookmarks / My Favourites',
       },
       live: {
         tooltip: {
@@ -333,7 +334,7 @@ namespace we {
         gametype: {
           allGame: 'All',
           bacarrat: 'Baccarat',
-          dragontiger: 'DT',
+          dragontiger: 'Dragon Tiger',
           luckywheel: 'Wheel',
           roulette: 'Roulette',
           dice: 'SicBo',
@@ -375,7 +376,7 @@ namespace we {
         rounds: 'rounds',
       },
       luckywheel: {
-        pool: 'Pool',
+        pool: 'Instant Pot',
         east: 'East',
         south: 'South',
         west: 'West',
@@ -533,7 +534,7 @@ namespace we {
         goodroad: 'Good Road',
         allgames: 'All Game',
         noGoodRoad: 'No Good Road',
-        noBet: 'No Already Bet Table',
+        noBet: 'No Bet Table',
       },
       baccarat: {
         statisticChart: {
@@ -600,6 +601,7 @@ namespace we {
         decryptedKey: 'Encrypted Key',
         ssn: 'Serial Number',
         lastRound: 'Last Round',
+        redCardDesc: 'Red Card：After this round, new shoe will be used',
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',
@@ -656,7 +658,7 @@ namespace we {
       lo_fun_bettingRound: 'Betting deadline',
       lo_fun_round: 'Round',
       lo_fun_drawingRound: 'is drawing',
-      lo_fun_lastRound: 'Last draw number',
+      lo_fun_lastRound: 'Round draw number',
 
       lo_fun_overlay_title: 'Confirm bet',
       lo_fun_overlay_table: 'Name',
@@ -670,6 +672,12 @@ namespace we {
       lo_fun_overlay_confirm: 'Confirm',
       lo_fun_overlay_cancel: 'Cancel',
       lo_fun_overlay_betPrefix: 'ENT｜',
+
+      lo_fun_betlayer_info: 'Description',
+      lo_fun_betlayer_info_fun: '大小单双：\n从万位、千位、百位、十位、个位任意位置上至少选择1 个以上形态，所选号码的位置、形态与开奖号码的位置、形态相同，即为中奖\n前三| 中三| 后三：\n所选的号码特殊属性和开奖号码前三的属性一致，即为中奖1、豹子号指的是三位数字全部相同2、顺子号指的是三位数字呈现连号状态（ 09 也属于连号）（ 顺序不限）（ 出现两个相同号即为对子， 不算半顺）（ 出现三个号码呈现连号状态为顺子号， 不算半顺号）3、对子号指的是三位数字中有任两码为相同号（ 出现三个相同号为豹子号， 不算对子号）4、半顺号指的是三位数字中，有两个号码呈现连号状态（ 09 也属于连号）（ 顺序不限）5、杂六号指的是三位数字中， 状态非豹子号、 顺子号、 对子号、 半顺号，即为杂六\n总和：\n从总和大、小、单、双中任意选择1 个号码形态组成一注，只要所选形态与开奖号码的5 位数号码总和（大于等于23：总和大、小于等于22：总和小、单数：总和单、双数：总和双）形态相同，即为中奖',
+      lo_fun_betlayer_info_num: '数字玩法：\n从万位、千位、百位、十位、个位任意位置上至少选择1 个或以上的号码，所选号码与相同位置上的开奖号码一致，即为中奖',
+      lo_fun_betlayer_info_dt: '龙虎和：\n从龙、虎、和中任意选择1 个号码形态组成一注，只要开奖号码的万位大于个位，则为龙；万位小于个位，则为虎；相同号码则为和，若下注龙或虎，开奖结果为和时视为未中奖，且不返回本金',
+      lo_fun_betlayer_info_five1: '全五中一：\n从0 - 9 中选择1 个号码，每注由1 个号码组成，开奖号码的万位、千位、百位、十位、个位中同时包含所选的1 个号码，即为中奖',
 
       lo_fun_betlayer_tab_fun: 'Entertainment',
       lo_fun_betlayer_tab_num: 'Number',
@@ -724,6 +732,9 @@ namespace we {
       lo_fun_betfield_total_ODD: 'Total Odd',
       lo_fun_betfield_total_EVEN: 'Total Even',
 
+      lo_fun_logo: 'd_lottery_lotto5_ent_logo_eng_png',
+      lo_tri_logo: 'd_lottery_lotto5_trad_logo_eng_png',
+
       lo_trad: {
         highest_win: '單倍最高金額：',
         erase_non_number: '清除錯誤或重複項',
@@ -737,6 +748,8 @@ namespace we {
           multiplier: 'multiplier',
           betamount: 'betamount',
           action: 'action',
+          confirmbet:'Confirm Bet',
+          coin:'',
         },
         bigTag: {
           FiveStar: 'FiveStar',
@@ -1105,8 +1118,51 @@ namespace we {
           confirmbet: '確認追號投注',
           lowestProfitRate: '最低收益率 (%)',
 
+          btnround:'期',
+          continuousChase:'連續追',
+          startmulti:'起始倍數',
+          to:'隔',
+          profitnotice:'注意：利潤率計算使用當前用戶最小獎金組展示',
+
           profitmsg_0: '利潤率追號不支持混選\n請確保您的投注都為同一玩法類型\n且元角模式保持一致',
           profitmsg_1: '您設置的參數無法達到盈利，請重新設置',
+        },
+        confirm_panel:{
+          betconfirm:'投注確認',
+          lotterynametitle:'彩種名稱',
+          lotterynametitle_lo:'WG 時時彩',
+          betmodetitle:'玩法投注',
+          winratiotitle:'賠率',
+          singlebetAmountTitle:'單注金額',
+          totalnotetitle:'總注數',
+          notetext:'注',
+          totalbetamountitle:'總投注額',
+          roundnumbertitle:'投注期數',
+          chaseroundtitle:'追號期數',
+          startroundtitle:'起始期数',
+          bettrigger: 'Trad Bet',
+        },
+        bettingcontrol:{
+          betdescription:'中獎說明',
+          totalnotechosen:'已選：',
+          totalbetchosen:'共計：',
+          addbetfields:'加入購物籃',
+          instantbet:'立即購買'
+        },
+        mobile_betcontrol:{
+          currentroundtitle:'訂單起始獎期號：',
+          notecontrol:'訂單詳情',
+          chasebetpanel:'我要追號',
+          multi:'',
+        },
+        mobile_chasebet:{
+          chasebetmode:'追號模式：原訂單倍數自動初始化為1倍',
+          chasetype:'追號類型',
+          chasevalue:'追號參數',
+          multiplierTitle:'起始倍數 ( 注單1倍 )',
+          stopchaseifwon:'追中即停 ( 注單1倍 )',
+          roundseparate:'間隔期數',
+          separatemultiplier:'變動倍數',
         },
         ballresultpos: {
           p1: '萬',

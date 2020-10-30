@@ -16,6 +16,9 @@ namespace we {
       protected _infoGroup: eui.Group;
       protected _chartGroup: eui.Group;
 
+      public _poolPanel: Pool;
+      public _historyPanel1: History;
+      public _historyPanel2: History;
       public beadRoad: DilBeadRoad;
 
       public constructor(skin?: string) {
@@ -41,9 +44,13 @@ namespace we {
         }
 
         this._historyGroup.addChild(this.beadRoad);
+
+        this._historyPanel1.totalResult = 10;
+        this._historyPanel2.totalResult= 50;
       }
 
       public destroy() {
+        this.beadRoad.dispose();
         super.destroy();
 
         this.removeListeners();

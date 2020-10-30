@@ -60,6 +60,7 @@ namespace we {
       getValue();
       setValue(value: number, index: number); // update the chip appearance according to the value
       draw(noAnim?: boolean);
+      dispose?();
       highlight: boolean; // indicate whether the chip is being selected
       type: number;
       chipScale: number;

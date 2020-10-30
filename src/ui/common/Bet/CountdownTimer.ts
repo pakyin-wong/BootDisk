@@ -30,6 +30,13 @@ namespace we {
         if (this.bg_color) {
           // this.bg_flash();
         }
+        this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.destroy, this);
+      }
+
+      public destroy() {
+        this.countdownLabel.text = '0';
+        this.removebg_flash();
+        this.stop();
       }
 
       get countdownValue(): number {
@@ -95,6 +102,7 @@ namespace we {
       }
 
       public start() {
+        this.stop();
         this._previousFrameTime = egret.getTimer();
         this.addEventListener(egret.Event.ENTER_FRAME, this.updateRemainingTime, this);
       }
@@ -109,7 +117,9 @@ namespace we {
         // while not time is out and uncfmBet >0 , do flashing
       }
       public removebg_flash() {
-        egret.Tween.removeTweens(this.bg_color);
+        if (this.bg_color) {
+          egret.Tween.removeTweens(this.bg_color);
+        }
       }
     }
   }

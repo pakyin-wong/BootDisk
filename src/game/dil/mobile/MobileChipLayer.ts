@@ -85,6 +85,7 @@ namespace we {
         const luckyNumbers = env.tableInfos[this._tableId].data.luckynumber;
 
         this._luckyAnims = new Array<dragonBones.EgretArmatureDisplay>();
+        this._flashingOdds = new Array<eui.Label>();
 
         Object.keys(luckyNumbers).map((key, index) => {
           if (!this._mouseAreaMapping[dil.BetField['SUM_' + key]]) {
@@ -100,7 +101,7 @@ namespace we {
           }
 
           const luckyAnim = this.createAnim(this.animString);
-          luckyAnim.addDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addGridBg(grid, +key), luckyAnim);
+          // luckyAnim.addDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addGridBg(grid, +key), luckyAnim);
 
           grid.addChild(luckyAnim);
           luckyAnim.anchorOffsetX = 0;
@@ -113,37 +114,41 @@ namespace we {
             luckyAnim.scaleY = 1.6;
           }
 
-          this._flashingOdd = new eui.Label();
-          this._flashingOdd.verticalCenter = 0;
-          this._flashingOdd.horizontalCenter = 0;
-          this._flashingOdd.fontFamily = 'Barlow';
-          this._flashingOdd.size = 50;
-          this._flashingOdd.textColor = 0x83f3af;
-          this._flashingOdd.text = luckyNumbers[key] + 'x';
+          const flashingOdd = new eui.Label();
+          flashingOdd.verticalCenter = 0;
+          flashingOdd.horizontalCenter = 0;
+          flashingOdd.fontFamily = 'Barlow';
+          flashingOdd.size = 50;
+          flashingOdd.textColor = 0x83f3af;
+          flashingOdd.text = luckyNumbers[key] + 'x';
 
-          grid.addChild(this._flashingOdd);
-          egret.Tween.get(this._flashingOdd)
+          grid.addChild(flashingOdd);
+          egret.Tween.get(flashingOdd)
             .to({ alpha: 0 }, 1000)
             .to({ alpha: 1 }, 1000)
             .to({ alpha: 0 }, 1000)
             .to({ alpha: 1 }, 1000)
-            .to({ alpha: 0 }, 1000);
+            .to({ alpha: 0 }, 1000)
+            .to({ alpha: 1 }, 1000);
 
           this._luckyAnims.push(luckyAnim);
+          this._flashingOdds.push(flashingOdd);
 
           const animName = this.getAnimName(+key);
           // console.log('showLuckyNumber');
 
           (async () => {
-            let p = we.utils.waitDragonBone(luckyAnim);
+            const p = we.utils.waitDragonBone(luckyAnim);
             luckyAnim.animation.play(`${animName}_in`, 1);
             await p;
 
-            luckyAnim.removeDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addGridBg(grid, +key), luckyAnim);
+            // luckyAnim.removeDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addGridBg(grid, +key), luckyAnim);
 
-            p = we.utils.waitDragonBone(luckyAnim);
-            luckyAnim.animation.play(`${animName}_loop`, 0);
-            await p;
+            // p = we.utils.waitDragonBone(luckyAnim);
+            if (luckyAnim && luckyAnim.animation) {
+              luckyAnim.animation.play(`${animName}_loop`, 0);
+            }
+            // await p;
           })();
         });
       }

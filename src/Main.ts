@@ -65,7 +65,7 @@ class Main extends eui.UILayer {
     let isMobile = false;
     try {
       isMobile = data.ismobile ? parseInt(data.ismobile) > 0 : false;
-    } catch (err) { }
+    } catch (err) {}
 
     if (type === 'mobile' || isMobile) {
       // if (true) {
@@ -105,22 +105,22 @@ class Main extends eui.UILayer {
     we.i18n.setLang('cn', true);
     await this.initRes();
     env.initialized = true;
-    if (type !== 'mobile') {
+    if (!env.isMobile) {
       const opt = {
         ba: 8,
-        dt: 8,
-        ro: 8,
-        di: 8,
-        lw: 8,
+        dt: 4,
+        ro: 4,
+        di: 4,
+        lw: 4,
       };
       dir.advancedRoadPool = new we.ui.AdvancedRoadPool(opt);
       dir.analysisPool = new we.ui.AnalysisPool(opt);
       const opt2 = {
         ba: 16,
-        dt: 16,
-        ro: 16,
-        di: 16,
-        lw: 16,
+        dt: 8,
+        ro: 8,
+        di: 8,
+        lw: 8,
       };
       dir.lobbyRoadPool = new we.ui.LobbyRoadPool(opt2);
     }
@@ -176,7 +176,12 @@ class Main extends eui.UILayer {
       await RES.loadConfig(`resource/${env.isMobile ? 'mobile' : 'desktop'}${prodStr}.res.json`, 'resource/');
       await this.loadTheme();
 
-      fontMgr.loadFonts([{ res: 'Barlow-Regular_otf', name: 'Barlow' }, { res: 'BarlowCondensed-SemiBold_otf', name: 'BarlowCondensed' }, { res: 'Barlow-Bold_ttf', name: 'BarlowBold' }, { res: 'NeonOne_otf', name: 'NeonOne' }]);
+      fontMgr.loadFonts([
+        { res: 'Barlow-Regular_otf', name: 'Barlow' },
+        { res: 'BarlowCondensed-SemiBold_otf', name: 'BarlowCondensed' },
+        { res: 'Barlow-Bold_ttf', name: 'BarlowBold' },
+        { res: 'NeonOne_otf', name: 'NeonOne' },
+      ]);
 
       // await RES.loadGroup(we.core.res.EgretBasic);
     } catch (err) {

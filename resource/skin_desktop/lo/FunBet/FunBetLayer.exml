@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.lo.FunBetLayer" xmlns:e="http://ns.egret.com/eui"
-        xmlns:ui="we.ui.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing">
+        xmlns:ui="we.ui.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing" states="on,off" >
 	<ui:RoundRectShape width="2568" height="533" cornerTL_TR_BL_BR="14,14,14,14" fillColor="0x11305050,0x000103,0" strokeColor="0x214a72" locked="true"/>
 	<ui:RoundRectShape width="2568" height="56" cornerTL_TR_BL_BR="14,14,0,0" fillColor="0x0b1725" alpha="0.7" stroke="0"/>
 
@@ -66,6 +66,24 @@
 		</e:layout>
 	</e:TabBar>
 
-        
-</e:Skin>
 
+	<e:Group id="Information" width="170" y="-79" height="79">
+		<e:Group id="_descTogger" x="0" y="16" width="170" height="50">
+			<ui:RoundRectShape fillColor="0x0b1725" cornerTL_TR_BL_BR="25,25,25,25" left="0" right="0" top="0" bottom="0" stroke="0"/>
+			<ui:RunTimeLabel id="_txt_infoToggler" text="" height="36" size="24" horizontalCenter="16" verticalCenter="0" verticalAlign="middle"/>
+			<e:Image width="24" height="24" x="20" y="13" source="d_ba_navbar_icon_info_png"/>
+		</e:Group>
+		<lo:FunBetDescription id="_desc" bottom="79">
+		<e:Skin>
+			<e:Group id="content">
+				<e:Rect bottom="0" ellipseWidth="14" ellipseHeight="14" fillColor="0x0b1725" width="722" top="0" x="0" y="0" scaleX="1" scaleY="1" fillAlpha="0.9"/>
+				<e:Label id="label" text="" top="16" bottom="16" left="25" right="25" maxWidth="672" x="25" y="16" scaleX="1" scaleY="1" size="20" lineSpacing="10"/>
+			</e:Group>
+		</e:Skin>
+		</lo:FunBetDescription>
+	</e:Group>
+	<e:Group id="_toggler" x="2498" y="5">
+		<e:Image id="_arrow" source="d_lobby_button_down_normal_png" width="40" height="40" scaleX="1" scaleY="1" visible.off="false" touchEnabled="false" x="0" y="0"/>
+		<e:Image id="_arrowUp" source="d_lobby_button_down_normal_png" width="40" height="40" scaleX="1" scaleY="1" rotation="180" visible.on="false" touchEnabled="false" x="40" y="40"/>
+	</e:Group>
+</e:Skin>

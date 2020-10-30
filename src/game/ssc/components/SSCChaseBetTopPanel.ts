@@ -2,34 +2,47 @@
 namespace we {
   export namespace lo {
     export class SSCChaseBetTopPanel extends core.BaseEUI {
-      private _currentChaseType: number;
+      protected _currentChaseType: number;
       // same multiple
-      private _btnFiveRound: ui.RoundRectButton;
-      private _btnTenRound: ui.RoundRectButton;
-      private _btnFifthteenRound: ui.RoundRectButton;
-      private _btnTwentyRound: ui.RoundRectButton;
-      private _btnAddMultiplier;
-      private _btnMinusMultiplier;
+      protected _btnFiveRound: ui.RoundRectButton;
+      protected _btnTenRound: ui.RoundRectButton;
+      protected _btnFifthteenRound: ui.RoundRectButton;
+      protected _btnTwentyRound: ui.RoundRectButton;
+      protected _btnAddMultiplier;
+      protected _btnMinusMultiplier;
 
       protected _multiplier = 1;
-      protected _round = 1;
+      protected _round = 20;
+
+      protected _lblContinuousChaseTitle;
+      protected _lblFiveRound;
+      protected _lblTenRound;
+      protected _lblFifthteenRound;
+      protected _lblTwentyRound;
       // Profit
       protected _lblLowestProfitRate;
       protected _etextLowestProfitRate;
+      protected _lblLowestProfitRateTitle;
+      protected _lblNotice;
       /// Double
       private _etextMinMultiplier;
       private _etextRoundSeparate;
       private _etextChaseRound;
 
-      protected _separteRound = 2;
+      protected _separateRound = 2;
       protected _minMultiplier = 1;
       protected _chaseRound = 20;
       protected _separateMultiplier = 2;
 
-      private _lblMultiplier;
-      private _lbTitleMultiplier;
-      private _lblMultiplierMinus;
-      private _lblMultiplierAdd;
+      protected _lblStartMulti;
+      protected _lblGameRound;
+      protected _lblTo;
+      protected _lblChaseRoundTitle;
+
+      protected _lblMultiplier;
+      protected _lbTitleMultiplier;
+      protected _lblMultiplierMinus;
+      protected _lblMultiplierAdd;
 
       protected _chaseBetPanel;
 
@@ -62,6 +75,7 @@ namespace we {
         super.mount();
         this.addListeners();
         this.init();
+        this.updateText();
       }
 
       protected init() {
@@ -74,7 +88,7 @@ namespace we {
             break;
           case SSCChaseType.DOUBLE:
             this._etextMinMultiplier.text = this._minMultiplier;
-            this._etextRoundSeparate.text = this._separteRound;
+            this._etextRoundSeparate.text = this._separateRound;
             this._etextChaseRound.text = this._chaseRound;
             this._lblMultiplier.text = this._separateMultiplier;
             break;
@@ -297,10 +311,23 @@ namespace we {
       public updateText() {
         switch (this._currentChaseType) {
           case lo.SSCChaseType.DOUBLE:
+            this._lblStartMulti.renderText = () =>`${i18n.t('lo_trad.chase.startmulti')}`;
+            this._lblGameRound.renderText = () =>`${i18n.t('lo_trad.chase.btnround')}`;
+            this._lblTo.renderText = () =>`${i18n.t('lo_trad.chase.to')}`;
+            this._lblChaseRoundTitle.renderText = () =>`${i18n.t('lo_trad.chase.chaseround')}`;
             break;
           case lo.SSCChaseType.SAMEMULTIPLE:
+            this._lblContinuousChaseTitle.renderText = () =>`${i18n.t('lo_trad.chase.continuousChase')}`;
+            this._lblFiveRound.renderText = () =>`5${i18n.t('lo_trad.chase.btnround')}`;
+            this._lblTenRound.renderText = () =>`10${i18n.t('lo_trad.chase.btnround')}`;
+            this._lblFifthteenRound.renderText = () =>`15${i18n.t('lo_trad.chase.btnround')}`;
+            this._lblTwentyRound.renderText = () =>`20${i18n.t('lo_trad.chase.btnround')}`;
+            this._lbTitleMultiplier.renderText =()=>`${i18n.t('lo_trad.ui.multiplier')}`;
             break;
           case lo.SSCChaseType.PROFIT:
+            this._lblLowestProfitRateTitle.renderText = () =>`${i18n.t('lo_trad.chase.lowestProfitRate')}`;
+            this._lblChaseRoundTitle.renderText = () =>`${i18n.t('lo_trad.chase.chaseround')}`;
+            this._lblNotice.renderText = () =>`${i18n.t('lo_trad.chase.profitnotice')}`;
             break;
         }
       }

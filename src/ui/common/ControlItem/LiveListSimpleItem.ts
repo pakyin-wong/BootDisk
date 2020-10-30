@@ -47,13 +47,22 @@ namespace we {
       }
 
       public destroy() {
-        super.destroy();
         this.releaseRoadmap();
+        if (this._quickbetButton) {
+          this._quickbetButton.parent.removeChild(this._quickbetButton);
+        }
+        if (this._chipLayer) {
+          this._chipLayer.parent.removeChild(this._chipLayer);
+        }
+        if (this._tableLayer) {
+          this._tableLayer.parent.removeChild(this._tableLayer);
+        }
+        super.destroy();
       }
 
       protected releaseRoadmap() {
         if (this._bigRoad && this.tableInfo) {
-          // this._bigRoad.parent.removeChild(this._bigRoad);
+          this._bigRoad.parent.removeChild(this._bigRoad);
           dir.lobbyRoadPool.release(this._bigRoad, this.tableInfo.gametype);
         }
       }
@@ -147,7 +156,7 @@ namespace we {
       protected onBetDetailUpdate(evt: egret.Event) {
         super.onBetDetailUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._tableInfo.totalBet > 0) {
               this._alreadyBetSign.visible = true;
@@ -361,7 +370,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);

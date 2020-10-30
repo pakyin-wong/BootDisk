@@ -56,6 +56,8 @@ namespace we {
       protected _lblPrevBall3: ui.RunTimeLabel;
       protected _lblPrevBall4: ui.RunTimeLabel;
 
+      protected _logo: ui.RunTimeImage;
+
       constructor(skin: string = null) {
         super(skin);
         this._currentKey = 'lo';
@@ -77,6 +79,9 @@ namespace we {
       protected initComponents() {
         super.initComponents();
         this.createBigTags();
+        if(this._logo){
+          this._logo.renderImage = () => `${i18n.t('lo_tri_logo')}`;
+        }
         // this.createSmallTags();
         // this.initCurrentButtonPanel();
       }
@@ -271,7 +276,7 @@ namespace we {
         for (let i = 0; i < this.smallTagsArray.length; i++) {
           const lbl = this.smallTagsArray[i].getChildAt(0) as ui.RunTimeLabel;
           lbl.alpha = 0.7;
-          lbl.textFlow = <egret.ITextElement[]> [
+          lbl.textFlow = <egret.ITextElement[]>[
             {
               text: lbl.text,
               style: { bold: false, underline: false },
@@ -279,7 +284,7 @@ namespace we {
           ];
           if (i === this._currentSmallTagIndex) {
             lbl.alpha = 1;
-            lbl.textFlow = <egret.ITextElement[]> [
+            lbl.textFlow = <egret.ITextElement[]>[
               {
                 text: lbl.text,
                 style: { bold: true, underline: true },
