@@ -313,7 +313,9 @@ namespace we {
         });
 
         const selectedIndex = env.currentSelectedBetLimitIndex;
-        this._bottomGamePanel._betLimitDropDownBtn.touchEnabled = true;
+        if(this._bottomGamePanel._betLimitDropDownBtn){
+          this._bottomGamePanel._betLimitDropDownBtn.touchEnabled = true;
+        }
         utils.DropdownCreator.new({
           toggler: this._bottomGamePanel._betLimitDropDownBtn,
           review: this._bottomGamePanel._betLimitDropDownBtn,
