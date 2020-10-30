@@ -230,6 +230,8 @@ namespace we {
               const totalBet = betInfo.gameroundid === this._gameData.gameroundid ? betInfo.total : 0;
               this._totalBet.renderText = () => utils.numberToFaceValue(totalBet);
               this._bottomGamePanel._poolPanel.updateTableBetInfo();
+              this._bottomGamePanel._historyPanel1.updateHistoryTableInfo(this.tableInfo);
+              this._bottomGamePanel._historyPanel2.updateHistoryTableInfo(this.tableInfo);
             }
           }
         }

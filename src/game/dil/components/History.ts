@@ -42,8 +42,13 @@ namespace we {
       protected _sum18: ui.ProgressBar;
       protected _data;
 
+      protected _totalResult:number;
       public constructor(skin: string = null) {
         super(skin);
+      }
+
+      public set totalResult (val:number) {
+        this._totalResult = val;
       }
       protected mount() {
         super.mount();
@@ -62,7 +67,7 @@ namespace we {
           this.updateHistoryBar(this._gamestatistic)
         }
       }
-      // update bat chart when bet info update
+      // update history chart when tableinfo info update
        public updateHistoryTableInfo(tableInfo) {
         this._gamestatistic = tableInfo.gamestatistic;
         // console.log('updateTableBetInfo::this.tableInfo.betInfo',this.tableInfo.betInfo)
@@ -102,12 +107,42 @@ namespace we {
           }
         }
       }
-
+      protected updateBarWithTenResult(data){
+        if (!data || !data.dilHistory || !data.dilHistory.round_10 || !data.dilHistory.round_50) {
+          return;
+        }
+        const percentages_10 = we.utils.stat.toPercentages(data.dilHistory.round_10);
+        for (let i = 3; i < 19; i++) {
+            this[`_sum${i}Percent`].text = `${percentages_10[i - 3]}`;
+            (<ui.ProgressBar> this[`_sum${i}`]).proportion = percentages_10[i - 3] / 100;
+            (<ui.ProgressBar> this[`_sum${i}`]).draw();
+          }
+      }
+      protected updateBarWithFiftyResult(data){
+        if (!data || !data.dilHistory || !data.dilHistory.round_10 || !data.dilHistory.round_50) {
+          return;
+        }
+        const percentages_50 = we.utils.stat.toPercentages(data.dilHistory.round_50);
+        for (let i = 3; i < 19; i++) {
+          this[`_sum${i}Percent`].text = `${percentages_50[i - 3]}`;
+          (<ui.ProgressBar> this[`_sum${i}`]).proportion = percentages_50[i - 3] / 100;
+          (<ui.ProgressBar> this[`_sum${i}`]).draw();
+        }
+      }
       protected updateHistoryBar (data) {
         if (env.isMobile) {
           // check is 10 records or 50 records
+          console.log('_totalResult',this._totalResult)
+          if (this._totalResult === 10) {
+            this.updateBarWithTenResult(data);
+            console.log('data',data)
+          } else if (this._totalResult === 50){
+            this.updateBarWithFiftyResult(data);
+             console.log('data',data)
+          }
         } else {
           this.updateBar(data)
+          console.log('data',data)
         }
       };
 

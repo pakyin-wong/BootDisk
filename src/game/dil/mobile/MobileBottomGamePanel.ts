@@ -44,6 +44,9 @@ namespace we {
         }
 
         this._historyGroup.addChild(this.beadRoad);
+
+        this._historyPanel1.totalResult = 10;
+        this._historyPanel2.totalResult= 50;
       }
 
       public destroy() {
