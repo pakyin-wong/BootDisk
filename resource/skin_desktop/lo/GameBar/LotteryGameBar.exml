@@ -30,7 +30,7 @@
 				</e:Skin>
 			</ui:RoundRectButton>
 		</e:Group>
-		<e:Group id="videoButton" tooltipText="'nav.menu.videoSet'">
+		<e:Group id="videoButton" tooltipText="'nav.menu.videoSet'" touchEnabled="false">
 			<ui:RoundRectButton id="videoRoundRect" width="52" height="52" x="0" y="0" fillColor="0x0f1721" strokeIn="2" strokeInColor="0x1D2B3F"
 			                    strokeColor="0x000000" cornerTL_TR_BL_BR="26,26,26,26" fillAlpha_hover="1"
 			                    strokeInAlpha_hover="1" fillAlpha_click="1" strokeInAlpha_click="1" fillAlpha="0" strokeAlpha="0" strokeAlpha_hover="1" strokeInAlpha="0">

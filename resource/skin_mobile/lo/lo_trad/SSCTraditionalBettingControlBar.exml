@@ -36,7 +36,7 @@
                         fillAlpha="1"  fillColor="0x1b416e" stroke="0"/>
                 <e:Group width="308" height="88" touchThrough="true">		
                     <ui:RunTimeLabel id="_lblNoteDropDown" text="2 元" horizontalCenter="0" verticalCenter="0" size="35.2"/>
-                    <e:Image id="_arrow" source="d_lobby_button_down_normal_png" width="31" height="18" verticalCenter="0" x="114"/>
+                    <e:Image id="_arrow" source="m_common_panel_icon_dropdown_png" width="31" height="18" verticalCenter="0" x="114"/>
                     <e:layout>
                         <e:HorizontalLayout paddingLeft="53" verticalAlign="middle" gap="127"/>
                     </e:layout>

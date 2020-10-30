@@ -13,9 +13,17 @@ namespace we {
 
       protected _multiplier = 1;
       protected _round = 20;
+
+      protected _lblContinuousChaseTitle;
+      protected _lblFiveRound;
+      protected _lblTenRound;
+      protected _lblFifthteenRound;
+      protected _lblTwentyRound;
       // Profit
       protected _lblLowestProfitRate;
       protected _etextLowestProfitRate;
+      protected _lblLowestProfitRateTitle;
+      protected _lblNotice;
       /// Double
       private _etextMinMultiplier;
       private _etextRoundSeparate;
@@ -25,6 +33,11 @@ namespace we {
       protected _minMultiplier = 1;
       protected _chaseRound = 20;
       protected _separateMultiplier = 2;
+
+      protected _lblStartMulti;
+      protected _lblGameRound;
+      protected _lblTo;
+      protected _lblChaseRoundTitle;
 
       protected _lblMultiplier;
       protected _lbTitleMultiplier;
@@ -62,6 +75,7 @@ namespace we {
         super.mount();
         this.addListeners();
         this.init();
+        this.updateText();
       }
 
       protected init() {
@@ -297,10 +311,23 @@ namespace we {
       public updateText() {
         switch (this._currentChaseType) {
           case lo.SSCChaseType.DOUBLE:
+            this._lblStartMulti.renderText = () =>`${i18n.t('lo_trad.chase.startmulti')}`;
+            this._lblGameRound.renderText = () =>`${i18n.t('lo_trad.chase.btnround')}`;
+            this._lblTo.renderText = () =>`${i18n.t('lo_trad.chase.to')}`;
+            this._lblChaseRoundTitle.renderText = () =>`${i18n.t('lo_trad.chase.chaseround')}`;
             break;
           case lo.SSCChaseType.SAMEMULTIPLE:
+            this._lblContinuousChaseTitle.renderText = () =>`${i18n.t('lo_trad.chase.continuousChase')}`;
+            this._lblFiveRound.renderText = () =>`5${i18n.t('lo_trad.chase.btnround')}`;
+            this._lblTenRound.renderText = () =>`10${i18n.t('lo_trad.chase.btnround')}`;
+            this._lblFifthteenRound.renderText = () =>`15${i18n.t('lo_trad.chase.btnround')}`;
+            this._lblTwentyRound.renderText = () =>`20${i18n.t('lo_trad.chase.btnround')}`;
+            this._lbTitleMultiplier.renderText =()=>`${i18n.t('lo_trad.ui.multiplier')}`;
             break;
           case lo.SSCChaseType.PROFIT:
+            this._lblLowestProfitRateTitle.renderText = () =>`${i18n.t('lo_trad.chase.lowestProfitRate')}`;
+            this._lblChaseRoundTitle.renderText = () =>`${i18n.t('lo_trad.chase.chaseround')}`;
+            this._lblNotice.renderText = () =>`${i18n.t('lo_trad.chase.profitnotice')}`;
             break;
         }
       }

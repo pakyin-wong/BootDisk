@@ -66,7 +66,7 @@ namespace we {
 
       public updateText() {
         if (this.analysisBtn) {
-          this.analysisBtn.label = i18n.t('mobile_game_panel_history');
+          this.analysisBtn.label = i18n.t('mobile_game_panel_analysis');
         }
         if (this.roadSheetBtn) {
           this.roadSheetBtn.label = i18n.t('mobile_game_panel_road_sheet');
@@ -85,10 +85,15 @@ namespace we {
         this._statisticChartPanel.update();
       }
 
+      public manualOpen() {
+        super.manualOpen();
+        this._middlePart.visible = this.currentState === 'on' ? true : false;
+      }
+
       public manualClose() {
         super.manualClose();
 
-        // this._roadmapPanel.visible = false;
+        this._middlePart.visible = this.currentState === 'on' ? true : false;
         // this._beadroadPanel.visible = false;
       }
 
@@ -101,6 +106,7 @@ namespace we {
         super.onPanelToggle();
         this.viewStack.selectedIndex = Math.max(0, this.viewStack._selectedIndex);
         this.dispatchEvent(new egret.Event('ON_BOTTOM_PANEL_TOGGLE'));
+        this._middlePart.visible = this.currentState === 'on' ? true : false;
       }
 
       // protected onRoadMapChanged(e: eui.UIEvent) {

@@ -9,14 +9,14 @@
                 <e:Group id="_playmodeDropDownButton" width="354" height="88">
                     <ui:RoundRectShape cornerTL_TR_BL_BR="44,44,44,44" width="354" height="88" x="0" y="0" stroke="0" fillColor="0x1b416e"/>
                     <ui:RunTimeLabel id="_lblPlayMode" x="40" y="10" targetWidth="211" height="66" size="44" text="龍虎 - 萬千" textAlign="left" verticalAlign="middle"/>
-                    <e:Image id="_imgPlayModeArrow" source="d_lobby_button_down_normal_png" width="44" height="26" x="286" y="40"/>
+                    <e:Image id="_imgPlayModeArrow" source="m_common_panel_icon_dropdown_png" width="44" height="26" x="286" y="40"/>
                 </e:Group>
                 <e:layout>
                     <e:HorizontalLayout gap="36" paddingLeft="48" verticalAlign="middle"/>
                 </e:layout>
             </e:Group>
             <e:Group id="_bettingTableToggleButton" x="1152" y="67" width="44" height="26" touchEnabled.extend="true" touchEnabled.on="true" touchEnabled.off="false" touchThrough.extend="false" touchThrough.on="false" touchThrough.off="true">
-                <e:Image id="_imgCloseBetTableArrow" source.on="d_lobby_button_down_normal_png" source.off="" source.extend="d_lobby_button_down_normal_png" touchEnabled.on="true" touchEnabled.extend="true" touchEnabled.off="false" width="44" height="26" scaleY.on="-1" scaleY.off="1" rotation.extend="1"/>
+                <e:Image id="_imgCloseBetTableArrow" source.on="m_common_panel_icon_dropdown_png" source.off="" source.extend="m_common_panel_icon_dropdown_png" touchEnabled.on="true" touchEnabled.extend="true" touchEnabled.off="false" width="44" height="26" scaleY.on="-1" scaleY.off="1" rotation.extend="1"/>
             </e:Group>
             <e:Group id="_bettingTableGrp" x="36" y="160" width="1170" height.off="0" height.on="960" height.extend="1527">
                 <ui:Scroller id="_buttonGroup" width="1170" height.on="960" height.extend="1527" height.off="0"> 

@@ -142,11 +142,11 @@ namespace we {
         this._video.load('https://gcp.weinfra247.com:443/live/720.flv');
         dir.audioCtr.video = this._video;
         const aspect = 16 / 9;
-        const ratio = this.stage.stageWidth / this.stage.stageHeight;
-        this._video.x = this.stage.stageWidth * 0.5;
-        this._video.y = this.stage.stageHeight * 0.5;
-        this._video.width = ratio < 1 ? this.stage.stageHeight * aspect : this.stage.stageWidth;
-        this._video.height = ratio < 1 ? this.stage.stageHeight : this.stage.stageWidth / aspect;
+        const ratio = 1242 / 2156;
+        this._video.x = 1242 * 0.5;
+        this._video.y = 2156 * 0.5;
+        this._video.width = ratio < 1 ? 2156 * aspect : 1242;
+        this._video.height = ratio < 1 ? 2156 : 1242 / aspect;
         this._video.$anchorOffsetX = this._video.width * 0.5;
         this._video.$anchorOffsetY = this._video.height * 0.5;
         this.addChildAt(this._video, 0);

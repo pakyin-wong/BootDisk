@@ -33,30 +33,6 @@ namespace we {
       private _winInstructGroup: eui.Group;
       private _lblwinInstruct: ui.RunTimeLabel;
 
-      protected _lblCurrentRound: ui.RunTimeLabel;
-      protected _lblCurrentRoundState: ui.RunTimeLabel;
-
-      protected _lblPrevRound: ui.RunTimeLabel;
-      protected _lblLastRound: ui.RunTimeLabel;
-
-      protected _lblResultBall0: ui.RunTimeLabel;
-      protected _lblResultBall1: ui.RunTimeLabel;
-      protected _lblResultBall2: ui.RunTimeLabel;
-      protected _lblResultBall3: ui.RunTimeLabel;
-      protected _lblResultBall4: ui.RunTimeLabel;
-
-      protected _lblLastBall0: ui.RunTimeLabel;
-      protected _lblLastBall1: ui.RunTimeLabel;
-      protected _lblLastBall2: ui.RunTimeLabel;
-      protected _lblLastBall3: ui.RunTimeLabel;
-      protected _lblLastBall4: ui.RunTimeLabel;
-
-      protected _lblPrevBall0: ui.RunTimeLabel;
-      protected _lblPrevBall1: ui.RunTimeLabel;
-      protected _lblPrevBall2: ui.RunTimeLabel;
-      protected _lblPrevBall3: ui.RunTimeLabel;
-      protected _lblPrevBall4: ui.RunTimeLabel;
-
       // MobileRelated
       protected _footer: eui.Group;
       protected _bettingTableGroup: eui.Group;
@@ -69,8 +45,6 @@ namespace we {
       // protected _betControlPanelGroup: eui.Group;
       // protected _betControlPanel: SSCTraditionalMobileBetControlPanel;
       protected _btnBet : ui.RoundRectButton;
-
-
 
       constructor(skin: string = null) {
         super(skin);
@@ -131,6 +105,7 @@ namespace we {
         super.initComponents();
 
         this.createBetTable();
+        this.updateText();
         // this.createBigTags();
         // this.createSmallTags();
         // this.initCurrentButtonPanel();
@@ -195,7 +170,7 @@ namespace we {
       public openBettingTableState(e = null) {
         super.openBettingTableState(e);
 
-        if (this._currentBettingStateIndex === 1 || this._currentBettingStateIndex === 2 || !this._isStateBet) {
+        if (this._currentBettingStateIndex === 1 || this._currentBettingStateIndex === 2) {
           return;
         }
 
@@ -393,7 +368,9 @@ namespace we {
         }
       }
 
-      
+       protected updateText() {
+         this._btnBet.label.renderText = () => `${i18n.t('lo_trad.confirm_panel.bettrigger')}`;
+       }
     }
   }
 }
