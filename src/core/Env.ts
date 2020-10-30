@@ -256,7 +256,7 @@ namespace we {
             return false;
           }
 
-          if (tableInfo.data != null /* && tableInfo.roadmap != null*/) {
+          if (tableInfo.data != null  && tableInfo.roadmap != null) {
             tableInfo.displayReady = true;
             return true;
           }
