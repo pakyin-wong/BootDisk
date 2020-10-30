@@ -169,18 +169,22 @@ namespace we {
           (async () => {
             await we.utils.sleep(1000);
 
-            let p = we.utils.waitDragonBone(coinAnim);
-            coinAnim.animation.play(`draw_number_${color}${noBet}_in`, 1);
-            coinAnim.visible = true;
-            await p;
-
-            p = we.utils.waitDragonBone(coinAnim);
-            coinAnim.animation.play(`draw_number_${color}${noBet}_loop`, 4);
-            await p;
-
-            p = we.utils.waitDragonBone(coinAnim);
-            coinAnim.animation.play(`draw_number_${color}${noBet}_out`, 1);
-            await p;
+            if (coinAnim.animation) {
+              let p = we.utils.waitDragonBone(coinAnim);
+              coinAnim.animation.play(`draw_number_${color}${noBet}_in`, 1);
+              coinAnim.visible = true;
+              await p;
+            }
+            if (coinAnim.animation) {
+              let p = we.utils.waitDragonBone(coinAnim);
+              coinAnim.animation.play(`draw_number_${color}${noBet}_loop`, 4);
+              await p;
+            }
+            if (coinAnim.animation) {
+              let p = we.utils.waitDragonBone(coinAnim);
+              coinAnim.animation.play(`draw_number_${color}${noBet}_out`, 1);
+              await p;
+            }
 
             coinAnim.animation.stop();
           })();
