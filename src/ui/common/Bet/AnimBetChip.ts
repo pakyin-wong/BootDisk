@@ -76,11 +76,14 @@ namespace we {
       }
 
       public dispose() {
-        this._chipAnim.animation.stop();
-        this._chipAnim.armature.dispose();
-        this._chipAnim.dispose();
-        this._factory.clear(true);
-        this.removeChild(this._chipAnim);
+        if (this._chipAnim) {
+          this._chipAnim.animation.stop();
+          this._chipAnim.armature.dispose();
+          this._chipAnim.dispose();
+          this.removeChild(this._chipAnim);
+          this._chipAnim = null;
+        }
+        if (this._factory) this._factory.clear(true);
       }
 
       protected beep() {
@@ -306,7 +309,7 @@ namespace we {
               await p1;
               if (this._type === we.core.ChipType.FLAT) {
                 // if still equal to FLAT
-                this._chipAnim.animation.play('loop', 0);
+                if (this._chipAnim) this._chipAnim.animation.play('loop', 0);
               }
             })();
             break;
