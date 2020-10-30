@@ -38,6 +38,14 @@ namespace we {
         super.initComponents();
       }
 
+      protected destroy() {
+        if (this._resultMessage) { this._resultMessage.parent.removeChild(this._resultMessage); }
+        if (this._cardHolder) { this._cardHolder.parent.removeChild(this._cardHolder); }
+        if (this._chipLayer) { this._chipLayer.parent.removeChild(this._chipLayer); }
+        if (this._tableLayer) { this._tableLayer.parent.removeChild(this._tableLayer); }
+        super.destroy();
+      }
+
       protected generateTableLayer() {
         if (this.itemInitHelper) {
           this._tableLayer = this.itemInitHelper.generateTableLayer(this._tableLayerNode);
