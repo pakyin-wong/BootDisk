@@ -8,7 +8,7 @@
   </e:Skin>
   </ui:RoundRectButton>
 
-	<ui:Panel id="_betContainer" y="551"  skinName="skin_mobile.lo.FunBetContainer" locked="true"/>
+	<ui:Panel id="_betContainer" y="551"  skinName="skin_mobile.lo.FunBetContainer"/>
   <e:Group id="_betSet" left="0" right="0" touchThrough="true" y="375">
     <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" skinName="skin_mobile.BetChipSkin" labelSize="48" x="269"/>
 		<ui:RoundRectButton id="_custombetChip" width="184" height="184" x="257" labelSize="43" cornerTL_TR_BL_BR="92,92,92,92" stroke="3" strokeIn="6" strokeInColor="0x333c4a" fillColor="0x101720" fillAlpha="1" alpha="0" strokeColor="0x000001" y="-17"/>

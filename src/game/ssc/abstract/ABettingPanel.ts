@@ -10,9 +10,9 @@ namespace we {
       public _noteControl: ANoteControlPanel;
 
       public _currentGameRound: string;
-      private _isStateBet: boolean = false; // is current state allow betting
-      private _isBetCodeValidate: boolean = false; // is current bettingData valid(local checking)
-      private _isBetLimitValidate: boolean = false; // validate betlimit from server
+      protected _isStateBet: boolean = false; // is current state allow betting
+      protected _isBetCodeValidate: boolean = false; // is current bettingData valid(local checking)
+      protected _isBetLimitValidate: boolean = false; // validate betlimit from server
       protected _roundDetailInfo = {};
 
       protected _currentKey = 'lo';
@@ -168,7 +168,7 @@ namespace we {
         const betmodearray = [];
         notes.forEach(data => {
           const result: any = data.field.split(/@/g);
-          const betmode = parseInt(result[1], 10) / 100;
+          const betmode = parseInt(result[1], 10);
           betmodearray.push(betmode);
         });
         return betmodearray;
@@ -177,6 +177,10 @@ namespace we {
       public placeBet(evt: egret.Event) {
         const notes = evt.data.noteData;
         const rounds = evt.data.roundData;
+
+        if(notes.length === 0){
+          return;
+        }
 
         const betdetails = this.generateBetDetail(notes);
         let roundbetdetails = [];
@@ -320,9 +324,6 @@ namespace we {
         //   class: 'SSCChaseBetPanel',
         //   args: [notes, this._roundDetailInfo, this],
         // });
-
-        dir.evtHandler.addEventListener('onLotteryConfirmBet', this.placeBet, this);
-
         // this.addEventListener('LO_TRAD_ON_CONFIRM_CHASEBET',this.onConfirmChaseBet,this);
       }
 
@@ -341,6 +342,9 @@ namespace we {
       }
 
       public updateBetTableInfo(info) {
+        if(!info.betInfo){
+          return;
+        }
         this._currentGameRound = info.betInfo.gameroundid;
         if (info.betInfo.lotteryRatio && this._ratioList === undefined) {
           this._ratioList = info.betInfo.lotteryRatio;
@@ -394,6 +398,14 @@ namespace we {
           dir.evtHandler.dispatchEventWith('LO_TRAD_ON_UPDATE_ROUNDDETAILS', false, this._roundDetailInfo);
         }
       }
+      // for Mobile
+      public updateBettingTableState(e) {}
+
+      public openBettingTableState(e) {}
+
+      public closeBettingTableState(e) {}
+
+      public toggleGameTypeDropdown(e) {}
     }
   }
 }

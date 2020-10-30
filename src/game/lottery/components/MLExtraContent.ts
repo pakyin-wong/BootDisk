@@ -43,6 +43,8 @@ namespace we {
         page['_tabs'].addEventListener('CHANGE', page['onTabChanged'], page);
         page.addChild(page['_tabs']);
         page.roomList.addChildAt(page['_slider'], 0);
+
+        page['_tabs'].setSelectedItem(env.currentTab);
       }
 
       public static destroy(page: Page) {

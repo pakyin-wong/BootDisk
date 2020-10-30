@@ -32,7 +32,7 @@ namespace we {
         shape.y = this.holder.height - 160;
 
         const tabs = new live.DropDownLiveGameTabbar(utils.EnumHelpers.values(core.LotteryTab),'lottery');
-
+        
         page['_tabbarBg'] = shape;
         page['_tabs'] = tabs;
         page['_slider'] = this.holder;
@@ -58,6 +58,8 @@ namespace we {
         page.roomList.addChildAt(page['_tabs'], 0);
         // page.roomList.addChildAt(page['_tabbarBg'], 0);
         page.roomList.addChildAt(page['_slider'], 0);
+
+        page['_tabs'].setSelectedItem(env.currentTab);
       }
 
       public static destroy(page: Page) {

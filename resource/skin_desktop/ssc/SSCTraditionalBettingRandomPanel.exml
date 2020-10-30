@@ -26,7 +26,7 @@
                         stroke_hover="2" strokeAlpha_hover="1" strokeColor_hover="0x4c586e" fillAlpha_hover="0.4" fillColor_hover="0x5f6973"
                         stroke_click="2" fillAlpha_click="1" fillColor_click="0x1b416e" strokeColor_click="0x1b416e" strokeAlpha_click="1"
                         stroke_active="2" strokeColor_active="0x1b416e" fillAlpha_active="1" fillColor_active="0x1b416e" strokeAlpha_active="1"/>
-                        <ui:RunTimeLabel id="_lblAllClear" text="添加" size="20" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
+                        <ui:RunTimeLabel id="_lblAllClear" text="全清" size="20" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
             </e:Group>
     <e:layout>
         <e:HorizontalLayout paddingRight="44" verticalAlign="middle" horizontalAlign="right" gap="12"/>
