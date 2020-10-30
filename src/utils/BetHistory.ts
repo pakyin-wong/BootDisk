@@ -7,9 +7,11 @@ namespace we {
             case we.core.GameType.BAS:
             case we.core.GameType.BAI:
             case we.core.GameType.BAM:
+            case we.core.GameType.BAB:
               return i18n.t(`betfield_baccarat_${bettype.toLowerCase()}`);
 
             case we.core.GameType.DT:
+            case we.core.GameType.DTB:
               return i18n.t(`betfield_dragonTiger_${bettype.toLowerCase()}`);
             case we.core.GameType.DI:
               return i18n.t(`dice.${bettype.toLowerCase()}`);
@@ -103,8 +105,10 @@ namespace we {
             case we.core.GameType.BAS:
             case we.core.GameType.BAI:
             case we.core.GameType.BAM:
+            case we.core.GameType.BAB:
               return new overlay.betHistory.BaResultItem(gameResult);
             case we.core.GameType.DT:
+            case we.core.GameType.DTB:
               return new overlay.betHistory.DtResultItem(gameResult);
             case we.core.GameType.RO:
               return new overlay.betHistory.RoResultItem(gameResult);
