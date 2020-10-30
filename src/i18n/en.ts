@@ -191,6 +191,7 @@ namespace we {
       mobile_game_panel_history: 'History',
       mobile_game_panel_road_sheet: 'Road Sheet',
       mobile_game_panel_statistic_chart: 'Statistic Chart',
+      mobile_game_panel_analysis: 'Analysis',
       mobile_game_panel_table_info: 'Information',
       mobile_table_info_gameID: 'ID',
       mobile_panel_game_Info: 'Game Information',
@@ -671,6 +672,12 @@ namespace we {
       lo_fun_overlay_confirm: 'Confirm',
       lo_fun_overlay_cancel: 'Cancel',
       lo_fun_overlay_betPrefix: 'ENT｜',
+
+      lo_fun_betlayer_info: 'Description',
+      lo_fun_betlayer_info_fun: '大小单双：\n从万位、千位、百位、十位、个位任意位置上至少选择1 个以上形态，所选号码的位置、形态与开奖号码的位置、形态相同，即为中奖\n前三| 中三| 后三：\n所选的号码特殊属性和开奖号码前三的属性一致，即为中奖1、豹子号指的是三位数字全部相同2、顺子号指的是三位数字呈现连号状态（ 09 也属于连号）（ 顺序不限）（ 出现两个相同号即为对子， 不算半顺）（ 出现三个号码呈现连号状态为顺子号， 不算半顺号）3、对子号指的是三位数字中有任两码为相同号（ 出现三个相同号为豹子号， 不算对子号）4、半顺号指的是三位数字中，有两个号码呈现连号状态（ 09 也属于连号）（ 顺序不限）5、杂六号指的是三位数字中， 状态非豹子号、 顺子号、 对子号、 半顺号，即为杂六\n总和：\n从总和大、小、单、双中任意选择1 个号码形态组成一注，只要所选形态与开奖号码的5 位数号码总和（大于等于23：总和大、小于等于22：总和小、单数：总和单、双数：总和双）形态相同，即为中奖',
+      lo_fun_betlayer_info_num: '数字玩法：\n从万位、千位、百位、十位、个位任意位置上至少选择1 个或以上的号码，所选号码与相同位置上的开奖号码一致，即为中奖',
+      lo_fun_betlayer_info_dt: '龙虎和：\n从龙、虎、和中任意选择1 个号码形态组成一注，只要开奖号码的万位大于个位，则为龙；万位小于个位，则为虎；相同号码则为和，若下注龙或虎，开奖结果为和时视为未中奖，且不返回本金',
+      lo_fun_betlayer_info_five1: '全五中一：\n从0 - 9 中选择1 个号码，每注由1 个号码组成，开奖号码的万位、千位、百位、十位、个位中同时包含所选的1 个号码，即为中奖',
 
       lo_fun_betlayer_tab_fun: 'Entertainment',
       lo_fun_betlayer_tab_num: 'Number',

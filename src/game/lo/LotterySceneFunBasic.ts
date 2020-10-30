@@ -41,6 +41,7 @@ namespace we {
         this._betDetails = this._tableInfo.bets;
         this._gameData = this._tableInfo.data;
         this._previousState = this._gameData ? this._gameData.previousstate : null;
+        this.funbet.initRatios(this._tableInfo.betInfo['lotteryRatio']);
       }
 
       protected mount() {
@@ -117,7 +118,7 @@ namespace we {
       }
 
       protected onBetConfirmed() {
-        this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
+        this._message && this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
       }
 
       protected onBetFail(result) {

@@ -21,6 +21,11 @@ namespace we {
       private _end;
 
       public range = 6;
+      public dayRange = 90;
+      
+      private currentMonthIndex: number = 0;
+      private prevCurrentMonthIndex: number = -1;
+      private tempCurrentMonthIndex: number;
 
       constructor() {
         super();
@@ -49,10 +54,10 @@ namespace we {
       }
 
       protected clean() {
+        this._txt_current.text = '';
         this._select = null;
         this._start = null;
         this._end = null;
-        this._txt_current.text = '';
       }
 
       protected update() {
@@ -60,11 +65,13 @@ namespace we {
 
         this._calender_prev.setTo(prev.year(), prev.month());
         this._calender_next.setTo(this._current.year(), this._current.month());
-        this._calender_next.highlightToday = true;
+        
+        this._calender_next.highlightToday = this.currentMonthIndex === 0 ? true : false;
+        this._calender_prev.highlightToday = this.prevCurrentMonthIndex === 0 ? true : false;
+        // this._calender_next.highlightToday = true
 
         this._txt_prev.text = prev.format('YYYY / MM');
         this._txt_next.text = this._current.format('YYYY / MM');
-
         if (this._select) {
           this._txt_current.text = this._select.format('YYYY / MM / DD');
           this._calender_next.pick(this._select, this.range);
@@ -73,6 +80,9 @@ namespace we {
           this._txt_current.text = `${this._start.format('YYYY / MM / DD')} - ${this._end.format('YYYY / MM / DD')}`;
           this._calender_next.select(this._start, this._end);
           this._calender_prev.select(this._start, this._end);
+        } else {
+          this._calender_next.checkIsAvailable();
+          this._calender_prev.checkIsAvailable();
         }
       }
 
@@ -97,11 +107,15 @@ namespace we {
       }
 
       protected nextClicked() {
+        this.currentMonthIndex++;
+        this.prevCurrentMonthIndex++;
         this._current.add(1, 'months');
         this.update();
       }
 
       protected prevClicked() {
+        this.currentMonthIndex--;
+        this.prevCurrentMonthIndex--;
         this._current.subtract(1, 'months');
         this.update();
       }
@@ -112,7 +126,7 @@ namespace we {
       }
 
       protected datePicked(e: egret.Event) {
-        if (!this._select) {
+        if (!this._select) { // need to set range 90days
           this._select = e.data;
         } else {
           this._start = moment.min(e.data, this._select);
@@ -140,12 +154,14 @@ namespace we {
 
         this.hide();
         this.dispatchEvent(new egret.Event('PICKED_DATE', false, false, data));
+    
       }
 
       public setTo(starttime, endtime) {
         this.clean();
         const start = moment.unix(starttime).startOf('day');
         const end = moment.unix(endtime).startOf('day');
+        this.checkDisplayMonth(end)
         if (start.isSame(end, 'day')) {
           this._select = start;
           this._current = moment([start.year(), start.month()]);
@@ -156,6 +172,18 @@ namespace we {
         }
         this.update();
       }
+
+      private checkDisplayMonth(end){
+        let todaytime = moment()
+          .utcOffset(8)
+          .startOf('day')
+          .unix();
+        let today = moment.unix(todaytime).startOf('day');
+        let diff  =  moment(today).diff(end, "months")
+        this.currentMonthIndex = diff * -1;
+        this.prevCurrentMonthIndex = this.currentMonthIndex -1;
+      }
+
     }
   }
 }

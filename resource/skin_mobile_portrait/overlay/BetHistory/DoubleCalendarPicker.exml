@@ -3,7 +3,7 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
 		<e:Rect strokeColor="0x3b4f6c" ellipseHeight="80" ellipseWidth="80" fillColor="0x253343" strokeWeight="2" left="0"
-		        top="0" bottom="0" right="0" />
+		        top="0" bottom="0" right="0"  locked="true"/>
 		<overlay:DatepickerCalendar id="_calender_prev" width="490" height="490" x="39" y="262" visible="false" />
 		<overlay:DatepickerCalendar id="_calender_next" width="952" height="952" y="310" horizontalCenter="0" />
 		<!--<ui:BaseImageButton id="_btn_prev" width="70" height="70" x="96" y="156"
