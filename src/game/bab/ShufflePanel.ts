@@ -143,11 +143,9 @@ namespace we {
         this._firstCard.animation.gotoAndStopByTime('burn_card_center_loop', 0)
         this.showAllCards();
 
-/*
         setTimeout(() => {
           this.hide();
         }, 8000)
-        */
       }
 
       protected initCards(gameData: any) {
