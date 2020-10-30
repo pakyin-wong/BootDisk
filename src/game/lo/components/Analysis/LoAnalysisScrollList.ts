@@ -30,10 +30,12 @@ namespace we {
         this.scrollList = new eui.ListBase();
         this.scrollList.itemRenderer = LoAnalysisScrollListItem;
         this.scrollList.dataProvider = this.collection;
+        this.scrollList.useVirtualLayout = true;
 
         const layout = new eui.HorizontalLayout();
         layout.paddingLeft = this.paddingLeft;
         layout.gap = 16;
+        layout.useVirtualLayout = true;
         this.scrollList.layout = layout;
 
         this.scroller = new eui.Scroller();
