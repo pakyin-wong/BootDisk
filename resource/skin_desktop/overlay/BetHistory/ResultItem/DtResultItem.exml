@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.DtResultItem" height="76" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" >
+	<e:Image id="_pCard3" width="34" height="48" x="0" y="14" scaleX="1" scaleY="1"/>
+	<e:Image id="_pCard2" width="34" height="48" x="40.9" y="14" scaleX="1" scaleY="1"/>
+	<e:Image id="_pCard1" width="34" height="48" x="81.9" y="14" scaleX="1" scaleY="1"/>
+	<e:Image id="_bCard1" width="34" height="48" x="191.9" y="14" scaleX="1" scaleY="1"/>
+	<e:Image id="_bCard2" width="34" height="48" x="230.8" y="14" scaleX="1" scaleY="1"/>
+	<e:Image id="_bCard3" width="34" height="48" x="271.8" y="14" scaleX="1" scaleY="1"/>
+	<e:Rect width="22" height="44" x="121.9" y="16" ellipseHeight="8" ellipseWidth="8" fillColor="0x3e60f8"/>
+	<e:Rect width="22" height="44" x="161.9" y="16" ellipseHeight="8" ellipseWidth="8" fillColor="0xed4c4c"/>
+	<ui:RunTimeLabel id="_txt_player" text="A" x="121.9" y="13" size="18" textAlign="center" verticalAlign="middle" width="21" height="27" bold="true"/>
+	<ui:RunTimeLabel id="_txt_banker" text="B" x="161.9" y="13" size="18" verticalAlign="middle" textAlign="center" width="21" height="27" bold="true"/>
+	<e:Label id="_txt_pPoint" text="0" x="120.9" y="32" fontFamily="Barlow" size="24" width="24" height="29" textAlign="center" verticalAlign="middle"/>
+	<e:Label id="_txt_bPoint" text="0" x="160.4" y="32" fontFamily="Barlow" size="24" width="24" height="29" textAlign="center" verticalAlign="middle"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</e:Skin>
