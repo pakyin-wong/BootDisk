@@ -65,8 +65,8 @@
 			<e:HorizontalLayout horizontalAlign="left" gap="0"/>
 		</e:layout>
 	</e:TabBar>
-		<e:Image id="_arrow" source="d_lobby_button_down_normal_png" width="40" height="40" scaleX="1" scaleY="1"  right="30" top="5" visible.off="false" touchEnabled="false"/>
-		<e:Image id="_arrowUp" source="d_lobby_button_down_normal_png" width="40" height="40" scaleX="1" scaleY="1"  rotation="180"  right="30" top="5" visible.on="false" touchEnabled="false"/>
+
+
 	<e:Group id="Information" width="170" y="-79" height="79">
 		<e:Group id="_descTogger" x="0" y="16" width="170" height="50">
 			<ui:RoundRectShape fillColor="0x0b1725" cornerTL_TR_BL_BR="25,25,25,25" left="0" right="0" top="0" bottom="0" stroke="0"/>
@@ -81,5 +81,9 @@
 			</e:Group>
 		</e:Skin>
 		</lo:FunBetDescription>
+	</e:Group>
+	<e:Group id="_toggler" x="2498" y="5">
+		<e:Image id="_arrow" source="d_lobby_button_down_normal_png" width="40" height="40" scaleX="1" scaleY="1" visible.off="false" touchEnabled="false" x="0" y="0"/>
+		<e:Image id="_arrowUp" source="d_lobby_button_down_normal_png" width="40" height="40" scaleX="1" scaleY="1" rotation="180" visible.on="false" touchEnabled="false" x="40" y="40"/>
 	</e:Group>
 </e:Skin>
