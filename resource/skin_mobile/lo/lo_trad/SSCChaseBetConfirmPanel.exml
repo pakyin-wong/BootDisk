@@ -7,7 +7,7 @@
         <ui:RunTimeLabel id="_lblLotteryName" x="84" y="260" text="彩種名稱" fontFamily="Microsoft YaHei" size="48" alpha="0.7"/>
         <ui:RunTimeLabel id="_lblLotteryNameText" x="360" y="260" text="WG 時時彩" fontFamily="Microsoft YaHei" size="48" alpha="0.7"/>
         <ui:RunTimeLabel id="_lblTitleRoundNumber" x="84" y="354" text="起始期数" fontFamily="Microsoft YaHei" size="48" alpha="0.7"/>
-        <ui:RunTimeLabel id="_lblRoundNumber" x="360" y="354" text="20200606203期" targetWidth="400" fontFamily="Microsoft YaHei" size="48" alpha="0.7"/>
+        <ui:RunTimeLabel id="_lblRoundNumber" x="360" y="354" text="20200606203期" targetWidth="600" fontFamily="Microsoft YaHei" size="48" alpha="0.7"/>
         <e:Rect x="84" y="488" width="1074" height="3" alpha="0.2" fillColor="0x979797"/>
         <ui:RunTimeLabel id="_lblBetModeTitle" x="84" y="539" text="玩法投注" fontFamily="Microsoft YaHei" size="48" alpha="0.7"/>
         <ui:RunTimeLabel id="_lblWinRatioTitle" x="672" y="539" text="賠率" fontFamily="Microsoft YaHei" size="48" alpha="0.7"/>

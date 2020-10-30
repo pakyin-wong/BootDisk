@@ -45,7 +45,6 @@ namespace we {
       // protected _betControlPanelGroup: eui.Group;
       // protected _betControlPanel: SSCTraditionalMobileBetControlPanel;
       protected _btnBet : ui.RoundRectButton;
-      protected _btnBetLabel : ui.RunTimeLabel;
 
       constructor(skin: string = null) {
         super(skin);
@@ -106,6 +105,7 @@ namespace we {
         super.initComponents();
 
         this.createBetTable();
+        this.updateText();
         // this.createBigTags();
         // this.createSmallTags();
         // this.initCurrentButtonPanel();
@@ -170,7 +170,7 @@ namespace we {
       public openBettingTableState(e = null) {
         super.openBettingTableState(e);
 
-        if (this._currentBettingStateIndex === 1 || this._currentBettingStateIndex === 2 || !this._isStateBet) {
+        if (this._currentBettingStateIndex === 1 || this._currentBettingStateIndex === 2) {
           return;
         }
 
@@ -369,7 +369,7 @@ namespace we {
       }
 
        protected updateText() {
-         this._btnBetLabel.renderText = () => `${i18n.t('lo_fun_mobile_bettrigger')}`;
+         this._btnBet.label.renderText = () => `${i18n.t('lo_fun_mobile_bettrigger')}`;
        }
 
       

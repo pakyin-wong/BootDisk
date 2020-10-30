@@ -62,6 +62,13 @@ namespace we {
 
         this._currentBigTagIndex = 0;
         this._currentSmallTagIndex = 0;
+
+        this._betModeList.selectedIndex = 1;
+        this._betTypeList.selectedIndex = 0;
+
+        this.betTypeUpdate();
+        this.betModeUpdate();
+
         this._betModeList.selectedIndex = 0;
         this._betTypeList.selectedIndex = 0;
 
@@ -74,6 +81,8 @@ namespace we {
         this._betTypeList.itemRenderer = lo.SSCTraditionalMobileDropdownItemRender;
         this._betModeList.itemRenderer = lo.SSCTraditionalMobileDropdownItemRender;
 
+        this.betTypeUpdate();
+        this.betModeUpdate();
         this.show();
       }
       protected initOpt() {
@@ -230,19 +239,20 @@ namespace we {
         this._betModeList.itemRenderer = lo.SSCTraditionalMobileDropdownItemRender;
         this._betModeList.selectedIndex = 0;
         this._currentSmallTagIndex = 0;
+        this.betModeUpdate();
       }
 
       protected onBetTypeHandleTap() {
-        this.isBetTypeTapItem = true;
-        this._currentBigTagIndex = this._betTypeList.selectedIndex;
-        this.betTypeUpdate();
-        this.updateBetModeList();
+        // this.isBetTypeTapItem = true;
+        // this._currentBigTagIndex = this._betTypeList.selectedIndex;
+        // this.betTypeUpdate();
+        // this.updateBetModeList();
       }
 
       protected onBetModeHandleTap() {
-        this.isBetModeTapItem = true;
-        this._currentSmallTagIndex = this._betModeList.selectedIndex;
-        this.betModeUpdate();
+        // this.isBetModeTapItem = true;
+        // this._currentSmallTagIndex = this._betModeList.selectedIndex;
+        // this.betModeUpdate();
       }
 
       // -----SCROLLER PART
@@ -278,11 +288,13 @@ namespace we {
 
       protected onBetTypeChange() {
         // this._scroller.stopAnimation();
+        this._betTypeScroller.stopAnimation();
         this.betTypeUpdate();
       }
 
       protected onBetModeChange() {
         // this._scroller.stopAnimation();
+        this._betModeScroller.stopAnimation();
         this.betModeUpdate();
       }
       protected _isBetTypeTapItem = false;

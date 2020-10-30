@@ -54,8 +54,11 @@ namespace we {
         } else {
           _next = new LotteryMobileSceneFun(this._data);
         }
+        this.addChild(this._navLayer);
+
         this.addChild(_next);
         this.sceneHeader.addChild(_next.sceneHeader);
+        
         this.addChild(this._bottomGamePanel);
         this._bottomGamePanel.manualClose();
         _next.onEnter();
@@ -78,7 +81,7 @@ namespace we {
 
         dir.layerCtr.nav.addChildAt(dir.monitor.nav,0);
         dir.monitor.nav.onMoveLayer();
-        
+
         env.orientationManager.resumeTracking();
         env.orientationManager.checkOrientation();
       }

@@ -2,7 +2,7 @@
 <e:Skin class="skin_mobile.lo.SSCTraditionalBettingPanel" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*" xmlns:ui="we.ui.*">
     <ui:RoundRectButton id="_btnBet" width="406" height="128" x="813" y="1815" cornerTL_TR_BL_BR="64,64,64,64" fillColor="0x1b436e" stroke="0" fillAlpha="1" labelSize="50" labelAutoResize="false">
       <e:Skin width="406" height="128">
-        <ui:RunTimeLabel id="_btnBetLabel" text="遊戲投注" height="74" verticalCenter="0" size="50" verticalAlign="middle" textAlign="center" left="112" right="38"/>
+        <ui:RunTimeLabel id="_label" text="遊戲投注" height="74" verticalCenter="0" size="50" verticalAlign="middle" textAlign="center" left="112" right="38"/>
         <e:Image width="74" height="74" x="38" y="27" source="m_lobby_panel_gamelist_tag_icon_betted_png"/>
       </e:Skin>
     </ui:RoundRectButton>

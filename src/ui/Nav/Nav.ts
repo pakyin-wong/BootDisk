@@ -47,6 +47,7 @@ namespace we {
 
       protected mount() {
         this.initNav();
+        this.addListeners();
       }
 
       protected initNav() {
@@ -80,7 +81,6 @@ namespace we {
         this.getPlayerProfileSummary();
         this.updateIconImage();
         this.updateNickname();
-        this.addListeners();
       }
 
       private addListeners() {
@@ -110,7 +110,7 @@ namespace we {
           this._profilePrc.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickInfo, this);
         }
         dir.evtHandler.removeEventListener(core.Event.ICON_UPDATE, this.updateIconImage, this);
-        dir.evtHandler.addEventListener(core.Event.NICKNAME_UPDATE, this.updateNickname, this);
+        dir.evtHandler.removeEventListener(core.Event.NICKNAME_UPDATE, this.updateNickname, this);
         this._refreshButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.updateBalance, this);
         dir.evtHandler.removeEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
         // listen to the event dispatched by some particular scroller and update the background alpha
