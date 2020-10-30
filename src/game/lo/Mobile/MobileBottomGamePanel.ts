@@ -85,10 +85,15 @@ namespace we {
         this._statisticChartPanel.update();
       }
 
+      public manualOpen() {
+        super.manualOpen();
+        this._middlePart.visible = env.isBottomPanelOpen;
+      }
+
       public manualClose() {
         super.manualClose();
 
-        // this._roadmapPanel.visible = false;
+        this._middlePart.visible = env.isBottomPanelOpen;
         // this._beadroadPanel.visible = false;
       }
 
@@ -101,6 +106,7 @@ namespace we {
         super.onPanelToggle();
         this.viewStack.selectedIndex = Math.max(0, this.viewStack._selectedIndex);
         this.dispatchEvent(new egret.Event('ON_BOTTOM_PANEL_TOGGLE'));
+        this._middlePart.visible = env.isBottomPanelOpen;
       }
 
       // protected onRoadMapChanged(e: eui.UIEvent) {
