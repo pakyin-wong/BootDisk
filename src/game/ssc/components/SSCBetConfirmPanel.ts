@@ -64,11 +64,13 @@ namespace we {
       protected addEventListeners() {
         utils.addButtonListener(this._btnConfirmBet, this.onConfirmPressed, this);
         dir.evtHandler.addEventListener('LO_TRAD_CHECK_CURRENT_ROUND_NUMBER', this.checkRound, this);
+        this.addEventListener('close',this.onCancel,this);
       }
 
       protected removeEventListeners() {
         utils.removeButtonListener(this._btnConfirmBet, this.onConfirmPressed, this);
         dir.evtHandler.removeEventListener('LO_TRAD_CHECK_CURRENT_ROUND_NUMBER', this.checkRound, this);
+        this.removeEventListener('close',this.onCancel,this);
       }
 
       protected checkRound(e) {
@@ -88,8 +90,12 @@ namespace we {
 
       protected onCancelPressed(e) {
         utils.removeButtonListener(this._btnErrorCancel, this.onCancelPressed, this);
-        // dir.evtHandler.dispatchEventWith('onLotteryConfirmBet', false, { noteData: this._noteData, roundData: [] });
+        dir.evtHandler.dispatchEventWith('onLotteryConfirmBet', false, { noteData: [], roundData: [] });
         this.destroy();
+      }
+
+      protected onCancel(e){
+        dir.evtHandler.dispatchEventWith('onLotteryConfirmBet', false, { noteData: [], roundData: [] });
       }
 
       protected onConfirmPressed(e) {

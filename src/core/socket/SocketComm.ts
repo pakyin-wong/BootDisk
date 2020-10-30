@@ -390,7 +390,15 @@ namespace we {
         //if (!Array.isArray(env.betLimits)) {
         //env.betLimits = [env.betLimits];
         //}
+        const keys = Object.keys(env.betLimits);
         env.currentSelectedBetLimitIndex = player.profile.settings.currentSelectedBetLimitIndex ? player.profile.settings.currentSelectedBetLimitIndex : 0;
+        let minIdx = env.currentSelectedBetLimitIndex;
+        for (const key of keys) {
+          const count = env.betLimits[key].length;
+          if (minIdx >= count) minIdx = Math.max(0, count - 1);
+        }
+        env.currentSelectedBetLimitIndex = minIdx;
+
         env.language = player.profile.settings.language ? player.profile.settings.language : 'cn';
         we.i18n.setLang(env.language ? env.language : 'cn', true);
         /*

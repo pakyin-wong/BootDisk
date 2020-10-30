@@ -17,7 +17,7 @@ namespace we {
 
       constructor(index: number, config: any) {
         super(index, config);
-
+        this.initSkin();
         // this.bigTagIndex = currentBigTagIndex;
         // this.smallTagIndex = currentSmallTagIndex;
         this.init();
@@ -25,7 +25,11 @@ namespace we {
       }
 
       protected initSkin() {
-        this.skinName = 'skin_desktop.lo.SSCCheckBoxInput';
+        if (env.isMobile === true) {
+          this.skinName = 'skin_mobile.lo.SSCCheckBoxInput';
+        } else {
+          this.skinName = 'skin_desktop.lo.SSCCheckBoxInput';
+        }
       }
 
       public init() {

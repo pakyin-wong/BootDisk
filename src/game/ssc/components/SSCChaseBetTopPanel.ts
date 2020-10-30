@@ -2,17 +2,17 @@
 namespace we {
   export namespace lo {
     export class SSCChaseBetTopPanel extends core.BaseEUI {
-      private _currentChaseType: number;
+      protected _currentChaseType: number;
       // same multiple
-      private _btnFiveRound: ui.RoundRectButton;
-      private _btnTenRound: ui.RoundRectButton;
-      private _btnFifthteenRound: ui.RoundRectButton;
-      private _btnTwentyRound: ui.RoundRectButton;
-      private _btnAddMultiplier;
-      private _btnMinusMultiplier;
+      protected _btnFiveRound: ui.RoundRectButton;
+      protected _btnTenRound: ui.RoundRectButton;
+      protected _btnFifthteenRound: ui.RoundRectButton;
+      protected _btnTwentyRound: ui.RoundRectButton;
+      protected _btnAddMultiplier;
+      protected _btnMinusMultiplier;
 
       protected _multiplier = 1;
-      protected _round = 1;
+      protected _round = 20;
       // Profit
       protected _lblLowestProfitRate;
       protected _etextLowestProfitRate;
@@ -21,15 +21,15 @@ namespace we {
       private _etextRoundSeparate;
       private _etextChaseRound;
 
-      protected _separteRound = 2;
+      protected _separateRound = 2;
       protected _minMultiplier = 1;
       protected _chaseRound = 20;
       protected _separateMultiplier = 2;
 
-      private _lblMultiplier;
-      private _lbTitleMultiplier;
-      private _lblMultiplierMinus;
-      private _lblMultiplierAdd;
+      protected _lblMultiplier;
+      protected _lbTitleMultiplier;
+      protected _lblMultiplierMinus;
+      protected _lblMultiplierAdd;
 
       protected _chaseBetPanel;
 
@@ -74,7 +74,7 @@ namespace we {
             break;
           case SSCChaseType.DOUBLE:
             this._etextMinMultiplier.text = this._minMultiplier;
-            this._etextRoundSeparate.text = this._separteRound;
+            this._etextRoundSeparate.text = this._separateRound;
             this._etextChaseRound.text = this._chaseRound;
             this._lblMultiplier.text = this._separateMultiplier;
             break;

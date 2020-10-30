@@ -118,6 +118,9 @@ namespace we {
           this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
         }
+        if (this._bottomGamePanel._poolPanel) {
+          this._bottomGamePanel._poolPanel.setValue(this._tableInfo);
+        }
         // if (this._bottomGamePanel._betLimitDropDownBtn) {
         //   this.initBottomBetLimitSelector();
         // }

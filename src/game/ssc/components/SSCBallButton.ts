@@ -26,34 +26,51 @@ namespace we {
 
       public initComponents() {
         const text: string = this.isNumeric(this._betValue) ? this._betValue : `${i18n.t('lo_trad.inputs.' + this._betValue)}`;
-        if (text.length > 1) {
-          this.width = 150;
+        if (env.isMobile === true) {
+          if (text.length > 1) {
+            this.width = 450;
+          } else {
+            this.width = 150;
+          }
+
+          this.height = 150;
+          this.stroke = 3;
+          this.cornerTL_TR_BL_BR = '75,75,75,75';
         } else {
-          this.width = 50;
+          if (text.length > 1) {
+            this.width = 150;
+          } else {
+            this.width = 50;
+          }
+
+          this.height = 50;
+
+          this.cornerTL_TR_BL_BR = '25,25,25,25';
+          this.stroke = 1;
+
+          this.strokeAlpha_hover = 0;
+          this.stroke_hover = 0;
+          this.fillColor_hover = '0x1B416E';
+          this.fillAlpha_hover = 0.76;
         }
 
-        this.height = 50;
         this.touchEnabled = true;
         this.touchChildren = true;
 
         // const roundRectButton = new ui.RoundRectButton();
 
-        this.cornerTL_TR_BL_BR = '25,25,25,25';
-
         this.fillAlpha = 0;
-        this.stroke = 1;
         this.strokeColor = 0xffffff;
         this.strokeAlpha = 1;
+
+        this.fillAlpha_idle = 0;
+        this.strokeColor_idle = 0xffffff;
+        this.strokeAlpha_idle = 1;
 
         this.strokeAlpha_click = 0;
         this.stroke_click = 0;
         this.fillColor_click = '0x1B416E';
         this.fillAlpha_click = 0.56;
-
-        this.strokeAlpha_hover = 0;
-        this.stroke_hover = 0;
-        this.fillColor_hover = '0x1B416E';
-        this.fillAlpha_hover = 0.76;
 
         this.stroke_active = 0;
         this.strokeAlpha_active = 0;
@@ -61,14 +78,28 @@ namespace we {
         this.fillAlpha_active = 1;
 
         this._lblValue = new ui.RunTimeLabel();
-
-        if (text.length > 1) {
-          this._lblValue.width = 150;
+        if (env.isMobile === true) {
+          if (text.length > 1) {
+            this._lblValue.width = 450;
+            this._lblValue.targetWidth = 450;
+          } else {
+            this._lblValue.width = 150;
+            this._lblValue.targetWidth = 150;
+          }
+          this._lblValue.height = 150;
+          this._lblValue.size = 90;
         } else {
-          this._lblValue.width = 50;
+          if (text.length > 1) {
+            this._lblValue.width = 150;
+            this._lblValue.targetWidth = 150;
+          } else {
+            this._lblValue.width = 50;
+            this._lblValue.targetWidth = 50;
+          }
+          this._lblValue.height = 50;
+          this._lblValue.size = 34;
         }
-        this._lblValue.height = 50;
-        this._lblValue.size = 34;
+
         this._lblValue.alpha = 0.7;
         this._lblValue.renderText = () => text;
         this._lblValue.textAlign = 'center';
@@ -106,6 +137,30 @@ namespace we {
           this.addChild(this._lblValue);
         }
       }
+
+      // public set buttonEnabled(b: boolean) {
+      //   if (b === this._enabled) {
+      //     return;
+      //   }
+
+      //   if (b) {
+      //     this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
+      //     this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+      //     this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
+      //     this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
+      //     this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+      //     mouse.setButtonMode(this, true);
+      //   } else {
+      //     this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
+      //     this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+      //     this.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
+      //     this.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
+      //     this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+      //     mouse.setButtonMode(this, false);
+      //   }
+      //   this._enabled = b;
+      //   this.update();
+      // }
     }
   }
 }
