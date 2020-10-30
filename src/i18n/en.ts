@@ -8,7 +8,7 @@ namespace we {
       voice_mandarin: 'Mandarin',
       voice_english: 'English',
 
-      gametype_BAC: 'BAC',
+      gametype_BAC: 'Baccarat',
       gametype_BAS: 'BAS',
       gametype_BAI: 'BAI',
       gametype_BAM: 'BAM',
@@ -183,7 +183,7 @@ namespace we {
 
       mobile_lobby_feature_title: 'Featured Games',
       mobile_lobby_hot_game_title: 'Hot Games',
-      mobile_ba_undo: 'Undo',
+      mobile_ba_undo: 'Recovery',
       mobile_ba_clear: 'Clear',
       mobile_ba_double: 'Double',
       mobile_ba_repeat: 'Bet Again',
@@ -191,8 +191,8 @@ namespace we {
       mobile_game_panel_history: 'History',
       mobile_game_panel_road_sheet: 'Road Sheet',
       mobile_game_panel_statistic_chart: 'Statistic Chart',
+      mobile_game_panel_table_info: 'Table Info',
       mobile_game_panel_analysis: 'Analysis',
-      mobile_game_panel_table_info: 'Information',
       mobile_table_info_gameID: 'ID',
       mobile_panel_game_Info: 'Game Information',
 
@@ -290,15 +290,15 @@ namespace we {
           },
         },
       },
-      gamegroup_tab_live: 'Live',
+      gamegroup_tab_live: 'Live Casino',
       gamegroup_tab_lottery: 'Lottery',
       lobby: {
         header: {
-          lobby: 'Promoted',
+          lobby: 'Home',
           live: 'Live',
           lottery: 'Lottery',
           egame: 'EGame',
-          favourite: 'Favourite',
+          favourite: 'Bookmarks / My Favourites',
         },
         categoryPromotion: 'Promoted',
         categoryBaccarat: 'Baccarat',
@@ -306,7 +306,7 @@ namespace we {
         categoryLuckyWheel: 'Lucky Wheel',
         categoryInstant: 'Instant Open Colour',
         categoryOtherGame: 'Other Games',
-        categoryFavorite: 'My Favorites',
+        categoryFavorite: 'Bookmarks / My Favourites',
       },
       live: {
         tooltip: {
@@ -334,7 +334,7 @@ namespace we {
         gametype: {
           allGame: 'All',
           bacarrat: 'Baccarat',
-          dragontiger: 'DT',
+          dragontiger: 'Dragon Tiger',
           luckywheel: 'Wheel',
           roulette: 'Roulette',
           dice: 'SicBo',
@@ -376,7 +376,7 @@ namespace we {
         rounds: 'rounds',
       },
       luckywheel: {
-        pool: 'Pool',
+        pool: 'Instant Pot',
         east: 'East',
         south: 'South',
         west: 'West',
@@ -534,7 +534,7 @@ namespace we {
         goodroad: 'Good Road',
         allgames: 'All Game',
         noGoodRoad: 'No Good Road',
-        noBet: 'No Already Bet Table',
+        noBet: 'No Bet Table',
       },
       baccarat: {
         statisticChart: {

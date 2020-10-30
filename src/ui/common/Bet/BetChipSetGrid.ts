@@ -76,6 +76,7 @@ namespace we {
           this._selectedChipIndex = index;
 
           env.currentChipSelectedIndex = index;
+          dir.socket.updateSetting('currentChipSelectedIndex', index.toString());
           dir.evtHandler.dispatch(core.Event.BET_DENOMINATION_CHANGE);
         }
       }

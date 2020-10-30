@@ -169,29 +169,28 @@ namespace we {
       if (!gameData) {
         return;
       }
-
       const diceResults = [gameData.dice1, gameData.dice2, gameData.dice3];
       const resultsField = [];
-
-      // Size & OddEven
-      if (gameData.odd === 1) {
-        resultsField.push(di.BetField.ODD);
-      } else {
-        resultsField.push(di.BetField.EVEN);
-      }
-
-      if (gameData.size === 1) {
-        resultsField.push(di.BetField.SMALL);
-      } else {
-        resultsField.push(di.BetField.BIG);
-      }
 
       // Triple
       const triple = [di.BetField.TRIPLE_1, di.BetField.TRIPLE_2, di.BetField.TRIPLE_3, di.BetField.TRIPLE_4, di.BetField.TRIPLE_5, di.BetField.TRIPLE_6];
 
-      if ((diceResults[0] === diceResults[1]) === diceResults[2]) {
+      if (diceResults[0] == diceResults[1] == diceResults[2]) {
         resultsField.push(di.BetField.TRIPLE_ALL);
         resultsField.push(triple[diceResults[0] - 1]);
+      } else {
+        // Size & OddEven
+        if (gameData.odd === 1) {
+          resultsField.push(di.BetField.ODD);
+        } else {
+          resultsField.push(di.BetField.EVEN);
+        }
+
+        if (gameData.size === 1) {
+          resultsField.push(di.BetField.SMALL);
+        } else {
+          resultsField.push(di.BetField.BIG);
+        }
       }
 
       // Double
