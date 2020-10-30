@@ -89,14 +89,14 @@ namespace we {
 
       protected destroy() {
         this.clearAnim();
-        this._factory.clear(true);
+        if (this._factory) this._factory.clear(true);
         super.destroy();
       }
 
       public clearAnim() {
         if (this._displays) {
           for (const display of this._displays) {
-            if (display) {
+            // if (display) {
               if (display.animation) {
                 display.animation.stop();
               }
@@ -106,10 +106,11 @@ namespace we {
                 display.parent.removeChild(display);
               }
             }
-          }
+          // }
           this._displays = null;
         }
       }
+      
 
       protected getOddSlotGroup(odd: number) {
         const label = new eui.Label();
@@ -245,18 +246,22 @@ namespace we {
           (async () => {
             await we.utils.sleep(1000);
 
-            let p = we.utils.waitDragonBone(coinAnim);
-            coinAnim.animation.play(`draw_number_${color}${noBet}_in`, 1);
-            coinAnim.visible = true;
-            await p;
-
-            p = we.utils.waitDragonBone(coinAnim);
-            coinAnim.animation.play(`draw_number_${color}${noBet}_loop`, 4);
-            await p;
-
-            p = we.utils.waitDragonBone(coinAnim);
-            coinAnim.animation.play(`draw_number_${color}${noBet}_out`, 1);
-            await p;
+            if (coinAnim.animation) {
+              let p = we.utils.waitDragonBone(coinAnim);
+              coinAnim.animation.play(`draw_number_${color}${noBet}_in`, 1);
+              coinAnim.visible = true;
+              await p;
+            }
+            if (coinAnim.animation) {
+              let p = we.utils.waitDragonBone(coinAnim);
+              coinAnim.animation.play(`draw_number_${color}${noBet}_loop`, 4);
+              await p;
+            }
+            if (coinAnim.animation) {
+              let p = we.utils.waitDragonBone(coinAnim);
+              coinAnim.animation.play(`draw_number_${color}${noBet}_out`, 1);
+              await p;
+            }
 
             this.clearAnim();
           })();
