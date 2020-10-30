@@ -73,7 +73,7 @@
 		</e:layout>
 	</e:TabBar>
 	</e:Scroller>
-	<e:Group id="Information">
+	<e:Group id="Information" touchThrough="true">
 		<e:Group id="_descTogger" width="86" height="86">
 			<e:Image source="d_ba_navbar_icon_info_png" horizontalCenter="0" verticalCenter="0"/>
 		</e:Group>
