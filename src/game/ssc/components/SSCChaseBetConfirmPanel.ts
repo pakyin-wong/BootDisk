@@ -106,12 +106,13 @@ namespace we {
 
       public updateText() {
         super.updateText();
-        this._lblChaseRoundTitle.renderText = () => `${'追號期數'}`;
+        this._lblChaseRoundTitle.renderText = () => `${i18n.t('lo_trad.confirm_panel.chaseroundtitle')}`;
       }
 
       protected destroy() {
         super.destroy();
       }
+      
     }
   }
 }
