@@ -33,8 +33,13 @@
                 </e:Group>
                 <e:Group width="1025" height="195" x="655" y="235">
                         <e:Image id="_encryptedAreaImage" source="d_bcba_panel_verification_encryt_bg_png" width="1025" height="195" />
-                        <ui:BaseImageButton id="_encryptedHelp" x="248" y="35" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
-                        <ui:RunTimeLabel x="24" y="24" size="24" i18n="baccarat.encryptedKey" />
+                        <e:Group x="24" y="24">
+                        <ui:RunTimeLabel size="24" i18n="baccarat.encryptedKey" />
+                        <ui:BaseImageButton id="_encryptedHelp" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
+                        <e:layout>
+                                <e:HorizontalLayout gap="10" verticalAlign="middle"/>
+                        </e:layout>
+                        </e:Group>
                         <e:Label id="_encryptedKeyLabel" x="24" y="70" size="24" />
                         <e:Group id="_copyEncryptedKey" width="172" height="50" x="829" y="128" touchThrough="true"> 
                                 <ui:RoundRectButton width="172" height="50" fillAlpha="0" fillAlpha_hover="1" fillColor_hover="0xA0A0A0" stroke="2" strokeColor="0x1b416e" cornerTL_TR_BL_BR="24,24,24,24"/>
@@ -44,15 +49,26 @@
                 <e:Group width="1025" height="325" x="655" y="466">
                         <e:Image id="_decryptedAreaImage" source="d_bcba_panel_verification_encryt_bg_png" width="1025" height="325"/>
                         <e:Image id="_ssnAreaImage" source="d_bcba_panel_verification_key_bg_png" width="1025" height="150"/>
-                        <ui:BaseImageButton id="_decryptedHelp" x="152" y="163" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
-                        <ui:BaseImageButton id="_ssnHelp" x="128" y="32" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
-                        <ui:RunTimeLabel x="24" y="24" size="24"  i18n="baccarat.ssn"/>
+                        <e:Group x="24" y="24">
+                                <ui:RunTimeLabel  size="24"  i18n="baccarat.ssn"/>
+                                <ui:BaseImageButton id="_ssnHelp" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
+                                <e:layout>
+                                        <e:HorizontalLayout gap="10" verticalAlign="middle"/>
+                                </e:layout>
+                        </e:Group>
                         <e:Label id="_ssnLabel" x="24" y="70" size="24" />
                         <e:Group id="_copySsn" width="172" height="50" x="829" y="56" touchThrough="true">
                                 <ui:RoundRectButton width="172" height="50" fillAlpha="0" fillAlpha_hover="1" fillColor_hover="0xA0A0A0" stroke="2" strokeColor="0x1b416e" cornerTL_TR_BL_BR="24,24,24,24"/>
                                 <ui:RunTimeLabel size="24" i18n="baccarat.copy" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
-                        </e:Group>         
-                        <ui:RunTimeLabel x="24" y="155" size="24"  i18n="baccarat.decryptedKey" />               
+                        </e:Group>
+                        <e:Group x="24" y="160">
+                        <ui:RunTimeLabel size="24"  i18n="baccarat.decryptedKey" />               
+                        <ui:BaseImageButton id="_decryptedHelp" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
+                        
+                                <e:layout>
+                                        <e:HorizontalLayout gap="10" verticalAlign="middle"/>
+                                </e:layout>
+                        </e:Group>
                         <e:Label id="_decryptedKeyLabel" x="24" y="201" size="24" />
                         <e:Group id="_copyDecryptedKey" width="172" height="50" x="829" y="251" touchThrough="true">
                                 <ui:RoundRectButton width="172" height="50" fillAlpha="0" fillAlpha_hover="1" fillColor_hover="0xA0A0A0" stroke="2" strokeColor="0x1b416e" cornerTL_TR_BL_BR="24,24,24,24"/>

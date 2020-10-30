@@ -24,8 +24,13 @@ namespace we {
         const inputConfigs = this._config.input;
         // let isCheckBox = false;
         if (inputConfigs && inputConfigs.length > 0) {
+          let inputComponent;
           for (let i = 0; i < inputConfigs.length; i++) {
-            const inputComponent = InputComponentFactory.generateInputComponent(i, inputConfigs[i]);
+            if (env.isMobile) {
+              inputComponent = InputComponentFactory.generateMobileInputComponent(i, inputConfigs[i]);
+            } else {
+              inputComponent = InputComponentFactory.generateInputComponent(i, inputConfigs[i]);
+            }
             // if (inputConfigs[i].type === InputComponentType.CHECKBOXES) {
             //   isCheckBox = true;
             // }
@@ -152,6 +157,8 @@ namespace we {
       }
 
       public dispose() {}
+
+      public setLabelPlayMode(e) {}
     }
   }
 }

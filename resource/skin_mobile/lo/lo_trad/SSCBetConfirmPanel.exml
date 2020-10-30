@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.SSCBetConfirmPanel" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*">
+    <e:Rect x="0" y="0" width="1242" height="2155" alpha="0.4" fillColor="0x000000"/>
+    <ui:RoundRectShape cornerTL_TR_BL_BR="13,13,0,0" x="0" bottom="0" width="1242" height="1900" fillColor="0x0f1721" stroke="0"/>
+    <e:Group id="_panel" width="1242" height="1900" horizontalCenter="0" bottom="0">
+        <ui:RunTimeLabel id="_lblBetConfirm" x="84" y="93" textColor="0xce925e" text="投注確認" fontFamily="Microsoft YaHei" size="80"/>
+        <ui:RunTimeLabel id="_lblLotteryName" x="84" y="260" text="彩種名稱" fontFamily="Microsoft YaHei" size="48" alpha="0.7"/>
+        <ui:RunTimeLabel id="_lblLotteryNameText" x="360" y="260" text="WG 時時彩" fontFamily="Microsoft YaHei" size="48" alpha="0.7"/>
+        <ui:RunTimeLabel id="_lblTitleRoundNumber" x="84" y="354" text="投注期數" fontFamily="Microsoft YaHei" size="48" alpha="0.7"/>
+        <ui:RunTimeLabel id="_lblRoundNumber" x="360" y="354" text="20200606203期" targetWidth="600" fontFamily="Microsoft YaHei" size="48" alpha="0.7"/>
+        <e:Rect x="84" y="488" width="1074" height="3" alpha="0.2" fillColor="0x979797"/>
+        <ui:RunTimeLabel id="_lblBetModeTitle" x="84" y="539" text="玩法投注" fontFamily="Microsoft YaHei" size="48" alpha="0.7"/>
+        <ui:RunTimeLabel id="_lblWinRatioTitle" x="672" y="539" text="賠率" fontFamily="Microsoft YaHei" size="48" alpha="0.7"/>
+        <ui:RunTimeLabel id="_lblSingleBetAmountTitle" x="1000" y="539" text="單注金額" fontFamily="Microsoft YaHei" size="48" alpha="0.7"/>
+        <ui:Scroller id="_scroller" scrollPolicyV="on" scrollPolicyH="off" width="1242" height="208" x="0" y="639">
+            <e:Group id="_datagroup"/>
+        </ui:Scroller>
+        <e:Rect x="84" y="837" width="1074" height="3" alpha="0.2" fillColor="0x979797"/>
+        <ui:RunTimeLabel id="_lblTotalNoteAmountTitle" x="507" y="900" text="總注數" fontFamily="Microsoft YaHei" size="48" alpha="0.7"/>
+        <e:Group id="_totalNoteGroup" right="84" top="900">
+            <ui:RunTimeLabel id="_lblTotalNoteAmount" text="n" fontFamily="Microsoft YaHei" size="72" textColor="0x33bb7e" textAlign="right"/>
+            <ui:RunTimeLabel id="_lblNoteText" text="注" fontFamily="Microsoft YaHei" size="48" textAlign="right"/>
+            <e:layout>
+                <e:HorizontalLayout verticalAlign="bottom" gap="5"/>
+            </e:layout>
+        </e:Group>
+        <ui:RunTimeLabel id="_lblTotalBetAmountTitle" x="507" y="990" text="總投注額" fontFamily="Microsoft YaHei" size="48" alpha="0.7"/>
+        <ui:RunTimeLabel id="_lblTotalBetAmount" right="84" y="990" text="$200.00" fontFamily="Microsoft YaHei" size="72" textColor="0xe4493a" textAlign="right"/>
+        
+        <e:Group width="471" height="130" touchChildren="true" x="120" y="1671">
+            <ui:RoundRectButton id="close" cornerTL_TR_BL_BR="65,65,65,65" width="471" height="130" 
+                        stroke="2" strokeColor="0x5F7273" fillAlpha="0" strokeAlpha="0.5"
+                        stroke_hover="0" fillAlpha_hover="0.76" fillColor_hover="0x1B416E"
+                        stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x1B416E"
+                        stroke_active="0" fillAlpha_active="0.7" fillColor_active="0x1B416E"/>
+            <ui:RunTimeLabel id="_lblBtnCancel" text="取消" verticalCenter="0" horizontalCenter="0" size="60" touchEnabled="false"/>
+        </e:Group>
+
+        <e:Group width="471" height="130" touchChildren="true" x="651" y="1671">
+            <ui:RoundRectButton id="_btnConfirmBet" width="471" height="130" cornerTL_TR_BL_BR="65,65,65,65"
+                    stroke="2" strokeColor="0x0f9d5d" fillAlpha="0" strokeAlpha="1"
+                    stroke_disabled="2" strokeColor_disabled="0x5f6973" fillAlpha_disabled="0" strokeAlpha_disabled="1"
+                    stroke_hover="2" strokeAlpha_hover="1" strokeColor_hover="0x00c46d" fillAlpha_hover="0.2" fillColor_hover="0x00c46d"
+                    stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x00c46d"
+                    stroke_active="2" strokeColor_active="0x007842" fillAlpha_active="1" fillColor_active="0x007842" strokeAlpha_active="1"/>
+            <ui:RunTimeLabel id="_lblConfirmBet" text="確認購買" size="60" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
+        </e:Group>
+
+    </e:Group>
+    <e:Group id="_errorMsgGrp" top="0" bottom="0" left="0" right="0" touchChildren="false" touchEnabled="false" touchThrough="true" visible="false">
+        <e:Group width="640" height="480" verticalCenter="0" horizontalCenter="0">
+            <ui:RoundRectShape cornerTL_TR_BL_BR="13,13,13,13" top="20" horizontalCenter="0" width="640" height="480" stroke="1" fillColor="0x1b416e" strokeColor="0x214a72"/>
+            <ui:RunTimeLabel id="_lblErrorMsg" text="Round has been expired.\n Please re-selecting bet items." width="640" height="480" size="44" horizontalCenter="0" top="20" touchEnabled="false" textAlign="center" verticalAlign="middle"/>
+            <e:Group width="180" height="68" touchChildren="true" horizontalCenter="0" bottom="20">
+                <ui:RoundRectButton id="_btnErrorCancel" width="180" height="68" cornerTL_TR_BL_BR="34,34,34,34"
+                        stroke="2" strokeColor="0x0f9d5d" fillAlpha="0" strokeAlpha="1"
+                        stroke_disabled="2" strokeColor_disabled="0x5f6973" fillAlpha_disabled="0" strokeAlpha_disabled="1"
+                        stroke_hover="2" strokeAlpha_hover="1" strokeColor_hover="0x00c46d" fillAlpha_hover="0.2" fillColor_hover="0x00c46d"
+                        stroke_click="0" fillAlpha_click="0.56" fillColor_click="0x00c46d"
+                        stroke_active="2" strokeColor_active="0x007842" fillAlpha_active="1" fillColor_active="0x007842" strokeAlpha_active="1"/>
+                <ui:RunTimeLabel id="_lblErrorCancel" text="OK" size="44" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
+            </e:Group>
+        </e:Group>
+    </e:Group>
+</e:Skin>

@@ -4,6 +4,7 @@ namespace we {
       protected tableInfo: data.TableInfo;
       protected leftPanel: LoLeftPanel;
       protected rightPanel: LoRightPanel;
+      protected bottomRoadmapPanel: lo.MobileBottomRoadmapPanel;
       public tableid: string;
 
       protected parser: ro.RORoadParser;
@@ -14,9 +15,11 @@ namespace we {
         this.tableid = tableid;
       }
 
-      public setRoads(leftPanel, rightPanel) {
+      //updated bottomGamePanel
+      public setRoads(leftPanel, rightPanel, bottomRoadmapPanel = null) {
         this.leftPanel = leftPanel;
         this.rightPanel = rightPanel;
+        this.bottomRoadmapPanel = bottomRoadmapPanel;
       }
 
       protected doParserUpdate(state: number) {

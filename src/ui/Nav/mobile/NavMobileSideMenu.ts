@@ -65,6 +65,7 @@ namespace we {
       protected onSwitchLeftHandMode(e) {
         env.leftHandMode = this.switch_leftHandMode.active = !env.leftHandMode;
         dir.evtHandler.dispatch(core.Event.SWITCH_LEFT_HAND_MODE, env.leftHandMode);
+        dir.socket.updateSetting('isLeftHand', env.leftHandMode ? '1' : '0');
       }
 
       protected initOrientationDependentComponent() {

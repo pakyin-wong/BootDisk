@@ -135,7 +135,6 @@ namespace we {
 
       public setValue(tableInfo: data.TableInfo) { //called when bet start
         this.tableInfo = tableInfo;
-        console.log('this.tableinfo',this.tableInfo)
         this._betInfo = this.tableInfo.betInfo;
         // update bar chart 
         this.updateBarChart();

@@ -38,8 +38,7 @@
 			                                hoverResName="d_lobby_quick_bet_notification_follow_hover_png" alpha="0"
 			                                horizontalCenter="0" y="350" width="148" height="42" label1text="快速投注" label2text="X" />
 			-->
-			<live:BetLimitDropdown id="_dropdown" y="204" anchorOffsetX="0" anchorOffsetY="0" skinName="BetLimitDropdownSkin"
-			                       right="1" />
+
 			<ui:InGameMessage id="_message" anchorOffsetX="152" anchorOffsetY="16" skinName="skin_desktop.InGameMessageSkin"
 			                  width="303" height="32" horizontalCenter="0.5" y="195" infoBg="d_ba_gamerecord_playerelement_png"
 			                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />
@@ -49,9 +48,11 @@
 			</e:Group>
 			<ui:CountdownTimer id="_timer" width="80" height="80" x="20" y="20" skinName="skin_desktop.CountdownTimerRoundSkin" />
 			<ui:AnimatedToggleButton id="_favouriteButton" dbClass="lobby_ui" dbDisplay="d_lobby_icon_fav" width="44" height="42"  right="10" top="10" visible="false"/>
+			<e:Rect width="578" fillColor="0x202020" anchorOffsetY="0" ellipseHeight="20" ellipseWidth="20" strokeColor="0x5F6973" strokeWeight="2" height="388" y="0" x="0" fillAlpha="0" touchChildren="false" touchEnabled="false"/>
+			<live:BetLimitDropdown id="_dropdown" y="204" anchorOffsetX="0" anchorOffsetY="0" skinName="BetLimitDropdownSkin" right="1"/>
 		</e:Group>
 	</e:Group>
-	<e:Rect width="578" fillColor="0x202020" anchorOffsetY="0" ellipseHeight="20" ellipseWidth="20" strokeColor="0x5F6973" strokeWeight="2" height="388" y="0" x="0" fillAlpha="0" touchChildren="false" touchEnabled="false"/>
+
 	<e:Component id="_chipLayerNode" width="100%" skinName="skin_desktop.ba.LiveListItemChipLayerSkin" anchorOffsetY="0"
 	             alpha="0" y="0" left="0" touchEnabled="false" touchChildren="false" visible="false"
 	             name="NormalChipLayerNode" />

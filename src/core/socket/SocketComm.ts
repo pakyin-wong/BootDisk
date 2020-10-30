@@ -290,6 +290,8 @@ namespace we {
         // env.nickname = player.profile.nickname;
         env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
 
+        env.currentChipSelectedIndex = player.profile.settings.currentChipSelectedIndex ? parseInt(player.profile.settings.currentChipSelectedIndex) : 0;
+        env.leftHandMode = player.profile.settings.isLeftHand === '1' ? true : false;
         env.favouriteTableList = env.favouriteTableList ? env.favouriteTableList : [];
         if (player.profile.settings.favouriteTableList) {
           try {
@@ -390,7 +392,15 @@ namespace we {
         //if (!Array.isArray(env.betLimits)) {
         //env.betLimits = [env.betLimits];
         //}
+        const keys = Object.keys(env.betLimits);
         env.currentSelectedBetLimitIndex = player.profile.settings.currentSelectedBetLimitIndex ? player.profile.settings.currentSelectedBetLimitIndex : 0;
+        let minIdx = env.currentSelectedBetLimitIndex;
+        for (const key of keys) {
+          const count = env.betLimits[key].length;
+          if (minIdx >= count) minIdx = Math.max(0, count - 1);
+        }
+        env.currentSelectedBetLimitIndex = minIdx;
+
         env.language = player.profile.settings.language ? player.profile.settings.language : 'cn';
         we.i18n.setLang(env.language ? env.language : 'cn', true);
         /*

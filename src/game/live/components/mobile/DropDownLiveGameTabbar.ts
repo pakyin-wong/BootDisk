@@ -61,6 +61,10 @@ namespace we {
         return this.trigger['mDropdownItem'] ? this.items.indexOf(this.trigger['mDropdownItem'].selected) : -1;
       }
 
+      public setSelectedItem(s) {
+        this.setSelectedIndex(this.items.indexOf(s));
+      }
+
       public get selectedItem() {
         return this.items[this.selectedIndex];
       }

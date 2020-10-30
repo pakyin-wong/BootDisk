@@ -191,6 +191,7 @@ namespace we {
       mobile_game_panel_history: '歷史記錄',
       mobile_game_panel_road_sheet: '路紙',
       mobile_game_panel_statistic_chart: '統計圖表',
+      mobile_game_panel_analysis: '分析',
       mobile_game_panel_table_info: '本檯資訊',
       mobile_table_info_gameID: '編號',
       mobile_panel_game_Info: '遊戲資訊',
@@ -601,6 +602,7 @@ namespace we {
         decryptedKey: '卡牌加密文',
         ssn: '卡牌序號',
         lastRound: '上局結果',
+        redCardDesc: '紅卡：該局遊戲結束後進行換靴',
       },
       message: {
         test: '你贏左 $1，$2% 會比左我',
@@ -672,6 +674,12 @@ namespace we {
       lo_fun_overlay_cancel: '取消',
       lo_fun_overlay_betPrefix: '娛樂｜',
 
+      lo_fun_betlayer_info: '中獎說明',
+      lo_fun_betlayer_info_fun: '大小單雙：\n從萬位、千位、百位、十位、個位任意位置上至少選擇 1 個以上形態，所選號碼的位置、形態與開獎號碼的位置、形態相同，即為中獎\n前三| 中三| 後三：\n所選的號碼特殊屬性和開獎號碼前三的屬性一致，即為中獎 1、豹子號指的是三位數字全部相同 2、順子號指的是三位數字呈現連號狀態（ 09 也屬於連號）（ 順序不限）（ 出現兩個相同號即為對子， 不算半順）（ 出現三個號碼呈現連號狀態為順子號， 不算半順號）3、對子號指的是三位數字中有任兩碼為相同號（ 出現三個相同號為豹子號， 不算對子號）4、半順號指的是三位數字中，有兩個號碼呈現連號狀態（ 09 也屬於連號）（ 順序不限）5、雜六號指的是三位數字中， 狀態非豹子號、 順子號、 對子號、 半順號，即為雜六\n總和：\n從總和大、小、單、雙中任意選擇 1 個號碼形態組成一注，只要所選形態與開獎號碼的 5 位數號碼總和（大於等於 23：總和大、小於等於 22：總和小、單數：總和單、雙數：總和雙）形態相同，即為中獎',
+      lo_fun_betlayer_info_num: '數字玩法：\n從萬位、千位、百位、十位、個位任意位置上至少選擇 1 個或以上的號碼，所選號碼與相同位置上的開獎號碼一致，即為中獎',
+      lo_fun_betlayer_info_dt: '龍虎和：\n從龍、虎、和中任意選擇 1 個號碼形態組成一注，只要開獎號碼的萬位大於個位，則為龍；萬位小於個位，則為虎；相同號碼則為和，若下注龍或虎，開獎結果為和時視為未中獎，且不返回本金',
+      lo_fun_betlayer_info_five1: '全五中一：\n從 0 - 9 中選擇 1 個號碼，每注由 1 個號碼組成，開獎號碼的萬位、千位、百位、十位、個位中同時包含所選的 1 個號碼，即為中獎',      
+
       lo_fun_betlayer_tab_fun: '娛樂',
       lo_fun_betlayer_tab_num: '數字',
       lo_fun_betlayer_tab_dt: '龍虎和',
@@ -724,6 +732,9 @@ namespace we {
       lo_fun_betfield_total_SMALL: '總小',
       lo_fun_betfield_total_ODD: '總單',
       lo_fun_betfield_total_EVEN: '總雙',
+
+      lo_fun_logo: 'd_lottery_lotto5_ent_logo_tw_png',
+      lo_tri_logo: 'd_lottery_lotto5_trad_logo_tw_png',
 
       lo_trad: {
         highest_win: '單倍最高金額：',
@@ -908,6 +919,8 @@ namespace we {
           multiplier: '倍數',
           betamount: '金額',
           action: '操作',
+          confirmbet:'確認購買',
+          coin:'元',
         },
         description: {
           checkbox: '請至少選擇$min$位位數，您當前選擇了$count$個位置\n，系統將自動生成$combination$個方案',
@@ -1106,8 +1119,51 @@ namespace we {
           confirmbet: '確認追號投注',
           lowestProfitRate: '最低收益率 (%)',
 
+          btnround:'期',
+          continuousChase:'連續追',
+          startmulti:'起始倍數',
+          to:'隔',
+          profitnotice:'注意：利潤率計算使用當前用戶最小獎金組展示',
+
           profitmsg_0: '利潤率追號不支持混選\n請確保您的投注都為同一玩法類型\n且元角模式保持一致',
           profitmsg_1: '您設置的參數無法達到盈利，請重新設置',
+        },
+        confirm_panel:{
+          betconfirm:'投注確認',
+          lotterynametitle:'彩種名稱',
+          lotterynametitle_lo:'WG 時時彩',
+          betmodetitle:'玩法投注',
+          winratiotitle:'賠率',
+          singlebetAmountTitle:'單注金額',
+          totalnotetitle:'總注數',
+          notetext:'注',
+          totalbetamountitle:'總投注額',
+          roundnumbertitle:'投注期數',
+          chaseroundtitle:'追號期數',
+          startroundtitle:'起始期数',
+          bettrigger: '游戏投注',
+        },
+        bettingcontrol:{
+          betdescription:'中獎說明',
+          totalnotechosen:'已選：',
+          totalbetchosen:'共計：',
+          addbetfields:'加入購物籃',
+          instantbet:'立即購買'
+        },
+        mobile_betcontrol:{
+          currentroundtitle:'訂單起始獎期號：',
+          notecontrol:'訂單詳情',
+          chasebetpanel:'我要追號',
+          multi:'倍',
+        },
+        mobile_chasebet:{
+          chasebetmode:'追號模式：原訂單倍數自動初始化為1倍',
+          chasetype:'追號類型',
+          chasevalue:'追號參數',
+          multiplierTitle:'起始倍數 ( 注單1倍 )',
+          stopchaseifwon:'追中即停 ( 注單1倍 )',
+          roundseparate:'間隔期數',
+          separatemultiplier:'變動倍數',
         },
         ballresultpos: {
           p1: '萬',

@@ -17,16 +17,31 @@
 			<e:Image horizontalCenter="0" verticalCenter="0" source="d_lottery_navbar_icon_record_png"/>
 			</e:Skin>
 		</ui:RoundRectButton>
-		<ui:RoundRectButton width="52" height="52" fillColor="0x0f1721" strokeIn="2" strokeInColor="0x1D2B3F" strokeColor="0x000000" cornerTL_TR_BL_BR="26,26,26,26" fillAlpha_hover="1" strokeInAlpha_hover="1" fillAlpha="0" strokeAlpha="0" strokeAlpha_hover="1" strokeInAlpha="0" id="soundBtn" tooltipText="'nav.menu.soundSet'">
-			<e:Skin width="52" height="52">
-			<ui:BaseAnimationButton width="30" height="30" horizontalCenter="0" verticalCenter="0" dbClass="common_ui" dbDisplay="d_common_gamesetting_sound" />
-			</e:Skin>
-		</ui:RoundRectButton>
-		<ui:RoundRectButton width="52" height="52" fillColor="0x0f1721" strokeIn="2" strokeInColor="0x1D2B3F" strokeColor="0x000000" cornerTL_TR_BL_BR="26,26,26,26" fillAlpha_hover="1" strokeInAlpha_hover="1" fillAlpha="0" strokeAlpha="0" strokeAlpha_hover="1" strokeInAlpha="0" id="videoButton" tooltipText="'nav.menu.videoSet'">
-			<e:Skin width="52" height="52">
-			<ui:BaseAnimationButton width="30" height="30" horizontalCenter="0" verticalCenter="0" dbClass="common_ui" dbDisplay="d_common_gamesetting_video" />
-			</e:Skin>
-		</ui:RoundRectButton>
+		<e:Group id="soundBtn" tooltipText="'nav.menu.soundSet'">
+			<ui:RoundRectButton id="soundRoundRect" width="52" height="52" x="0" y="0" fillColor="0x0f1721" strokeIn="2" strokeInColor="0x1D2B3F"
+			                    strokeColor="0x000000" cornerTL_TR_BL_BR="26,26,26,26" fillAlpha_hover="1"
+			                    strokeInAlpha_hover="1" fillAlpha_click="1" strokeInAlpha_click="1" fillAlpha="0" strokeAlpha="0"
+			                    strokeAlpha_hover="1" strokeInAlpha="0">
+				<e:Skin width="52" height="52">
+					<!--<e:Image width="52" height="52" x="0" y="0" source="d_ba_navbar_icon_hoverelement_png" />
+					-->
+					<ui:SettingAnimationButton id="soundAnimBtn" width="30" height="30" horizontalCenter="0" verticalCenter="0" dbClass="common_ui"
+					                        dbDisplay="d_common_gamesetting_sound" />
+				</e:Skin>
+			</ui:RoundRectButton>
+		</e:Group>
+		<e:Group id="videoButton" tooltipText="'nav.menu.videoSet'" touchEnabled="false">
+			<ui:RoundRectButton id="videoRoundRect" width="52" height="52" x="0" y="0" fillColor="0x0f1721" strokeIn="2" strokeInColor="0x1D2B3F"
+			                    strokeColor="0x000000" cornerTL_TR_BL_BR="26,26,26,26" fillAlpha_hover="1"
+			                    strokeInAlpha_hover="1" fillAlpha_click="1" strokeInAlpha_click="1" fillAlpha="0" strokeAlpha="0" strokeAlpha_hover="1" strokeInAlpha="0">
+				<e:Skin width="52" height="52">
+					<!--<e:Image width="52" height="52" x="0" y="0" source="d_ba_navbar_icon_hoverelement_png" />
+					-->
+					<ui:SettingAnimationButton id="videoAnimBtn" width="30" height="30" horizontalCenter="0" verticalCenter="0" dbClass="common_ui"
+					                        dbDisplay="d_common_gamesetting_video" />
+				</e:Skin>
+			</ui:RoundRectButton>
+		</e:Group>
 		<ui:RoundRectButton id="statBtn" width="52" height="52" fillColor="0x0f1721" strokeIn="2" strokeInColor="0x1D2B3F" strokeColor="0x000000" cornerTL_TR_BL_BR="26,26,26,26" fillAlpha_hover="1" strokeInAlpha_hover="1" fillAlpha="0" strokeAlpha="0" strokeAlpha_hover="1" strokeInAlpha="0">
 			<e:Skin width="52" height="52">
 			<e:Image horizontalCenter="0" verticalCenter="0" source="d_ba_navbar_icon_stat_png"/>

@@ -631,7 +631,7 @@ namespace we {
 
       protected checkLimit(checkBet, betDetail, maxlimit) {
         if (checkBet > maxlimit) {
-          betDetail.amount += maxlimit - checkBet;
+          betDetail.amount += Math.floor(maxlimit - checkBet);
           if (betDetail.amount === 0) {
             return true;
           }

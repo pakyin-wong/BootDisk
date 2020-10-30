@@ -12,6 +12,8 @@ namespace we {
       protected _roadPanel: LoLobbyRoadPanel;
       protected _roadmapNode: eui.Component;
 
+      protected _img: eui.Image;
+
       public constructor(skinName: string = null) {
         super(skinName);
         this._roadPanel = new LoLobbyRoadPanel();
@@ -23,6 +25,7 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this._roadmapNode.addChild(this._roadPanel);
+        this.onLang();
       }
 
       protected addEventListeners() {
@@ -73,9 +76,11 @@ namespace we {
 
       protected onLang() {
         if (env.language === 'en') {
+          this._img.source = "d_lobby_lottery_penal_gamelist_icon_lotto5_eng_png";
           this._rdContainer.setChildIndex(this._tf_round, 1);
           this._rdContainer.setChildIndex(this._txt_round, 0);
         } else {
+          this._img.source = "d_lobby_lottery_penal_gamelist_icon_lotto5_tw_png";
           this._rdContainer.setChildIndex(this._txt_round, 1);
           this._rdContainer.setChildIndex(this._tf_round, 0);
         }

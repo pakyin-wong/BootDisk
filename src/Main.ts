@@ -65,7 +65,7 @@ class Main extends eui.UILayer {
     let isMobile = false;
     try {
       isMobile = data.ismobile ? parseInt(data.ismobile) > 0 : false;
-    } catch (err) { }
+    } catch (err) {}
 
     // if (type === 'mobile' || isMobile) {
       if (true) {
@@ -176,7 +176,12 @@ class Main extends eui.UILayer {
       await RES.loadConfig(`resource/${env.isMobile ? 'mobile' : 'desktop'}${prodStr}.res.json`, 'resource/');
       await this.loadTheme();
 
-      fontMgr.loadFonts([{ res: 'Barlow-Regular_otf', name: 'Barlow' }, { res: 'BarlowCondensed-SemiBold_otf', name: 'BarlowCondensed' }, { res: 'Barlow-Bold_ttf', name: 'BarlowBold' }, { res: 'NeonOne_otf', name: 'NeonOne' }]);
+      fontMgr.loadFonts([
+        { res: 'Barlow-Regular_otf', name: 'Barlow' },
+        { res: 'BarlowCondensed-SemiBold_otf', name: 'BarlowCondensed' },
+        { res: 'Barlow-Bold_ttf', name: 'BarlowBold' },
+        { res: 'NeonOne_otf', name: 'NeonOne' },
+      ]);
 
       // await RES.loadGroup(we.core.res.EgretBasic);
     } catch (err) {

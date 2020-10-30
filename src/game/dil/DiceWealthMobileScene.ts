@@ -118,6 +118,11 @@ namespace we {
           this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
         }
+        if (this._bottomGamePanel._poolPanel) {
+          this._bottomGamePanel._poolPanel.setValue(this._tableInfo);
+          this._bottomGamePanel._historyPanel1.setValue(this._tableInfo);// 10 records
+          this._bottomGamePanel._historyPanel2.setValue(this._tableInfo);// 50 records
+        }
         // if (this._bottomGamePanel._betLimitDropDownBtn) {
         //   this.initBottomBetLimitSelector();
         // }
@@ -224,6 +229,9 @@ namespace we {
             if (this._totalBet) {
               const totalBet = betInfo.gameroundid === this._gameData.gameroundid ? betInfo.total : 0;
               this._totalBet.renderText = () => utils.numberToFaceValue(totalBet);
+              this._bottomGamePanel._poolPanel.updateTableBetInfo();
+              this._bottomGamePanel._historyPanel1.updateHistoryTableInfo(this.tableInfo);
+              this._bottomGamePanel._historyPanel2.updateHistoryTableInfo(this.tableInfo);
             }
           }
         }

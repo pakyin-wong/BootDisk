@@ -209,6 +209,7 @@ namespace we {
       mobile_game_panel_history: '历史记录',
       mobile_game_panel_road_sheet: '路纸',
       mobile_game_panel_statistic_chart: '统计图表',
+      mobile_game_panel_analysis: '分析',
       mobile_game_panel_table_info: '本台资讯',
       mobile_table_info_gameID: '编号',
       mobile_panel_game_Info: '游戏资讯',
@@ -637,6 +638,7 @@ namespace we {
         decryptedKey: '卡牌加密文',
         ssn: '卡牌序号',
         lastRound: '上局结果',
+        redCardDesc: '红卡：该局游戏结束后进行换靴',
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',
@@ -708,6 +710,12 @@ namespace we {
       lo_fun_overlay_cancel: '取消',
       lo_fun_overlay_betPrefix: '娱乐｜',
 
+      lo_fun_betlayer_info: '中奖说明',
+      lo_fun_betlayer_info_fun: '大小单双：\n从万位、千位、百位、十位、个位任意位置上至少选择1 个以上形态，所选号码的位置、形态与开奖号码的位置、形态相同，即为中奖\n前三| 中三| 后三：\n所选的号码特殊属性和开奖号码前三的属性一致，即为中奖1、豹子号指的是三位数字全部相同2、顺子号指的是三位数字呈现连号状态（ 09 也属于连号）（ 顺序不限）（ 出现两个相同号即为对子， 不算半顺）（ 出现三个号码呈现连号状态为顺子号， 不算半顺号）3、对子号指的是三位数字中有任两码为相同号（ 出现三个相同号为豹子号， 不算对子号）4、半顺号指的是三位数字中，有两个号码呈现连号状态（ 09 也属于连号）（ 顺序不限）5、杂六号指的是三位数字中， 状态非豹子号、 顺子号、 对子号、 半顺号，即为杂六\n总和：\n从总和大、小、单、双中任意选择1 个号码形态组成一注，只要所选形态与开奖号码的5 位数号码总和（大于等于23：总和大、小于等于22：总和小、单数：总和单、双数：总和双）形态相同，即为中奖',
+      lo_fun_betlayer_info_num: '数字玩法：\n从万位、千位、百位、十位、个位任意位置上至少选择1 个或以上的号码，所选号码与相同位置上的开奖号码一致，即为中奖',
+      lo_fun_betlayer_info_dt: '龙虎和：\n从龙、虎、和中任意选择1 个号码形态组成一注，只要开奖号码的万位大于个位，则为龙；万位小于个位，则为虎；相同号码则为和，若下注龙或虎，开奖结果为和时视为未中奖，且不返回本金',
+      lo_fun_betlayer_info_five1: '全五中一：\n从0 - 9 中选择1 个号码，每注由1 个号码组成，开奖号码的万位、千位、百位、十位、个位中同时包含所选的1 个号码，即为中奖',
+
       lo_fun_betlayer_tab_fun: '娱乐',
       lo_fun_betlayer_tab_num: '数字',
       lo_fun_betlayer_tab_dt: '龙虎和',
@@ -761,11 +769,14 @@ namespace we {
       lo_fun_betfield_total_ODD: '总单',
       lo_fun_betfield_total_EVEN: '总双',
 
+      lo_fun_logo: 'd_lottery_lotto5_ent_logo_tw_png',
+      lo_tri_logo: 'd_lottery_lotto5_trad_logo_tw_png',
+
       lo_trad: {
-        highest_win: '單倍最高金額：',
-        erase_non_number: '清除錯誤或重複項',
+        highest_win: '单倍最高金额：',
+        erase_non_number: '清除错误或重复项',
         all_clear: '全清',
-        upload_document: '上傳文件',
+        upload_document: '上传文件',
         bigTag: {
           FiveStar: '五星',
           FourStar: '四星',
@@ -944,6 +955,8 @@ namespace we {
           multiplier: '倍数',
           betamount: '金额',
           action: '操作',
+          confirmbet:'确认购买',
+          coin:'元',
         },
         description: {
           checkbox: '请至少选择$min$位位数，您当前选择了$count$个位置\n，系统将自动生成$combination$个方案',
@@ -1142,8 +1155,51 @@ namespace we {
           confirmbet: '确认追号投注',
           lowestProfitRate: '最低收益率 (%)',
 
+          btnround:'期',
+          continuousChase:'连续追',
+          startmulti:'起始倍数',
+          to:'隔',
+          profitnotice:'注意：利润率计算使用当前用户最小奖金组展示',
+
           profitmsg_0: '利润率追号不支持混选\n请确保您的投注都为同一玩法类型\n且元角模式保持一致',
           profitmsg_1: '您设置的参数无法达到盈利，请重新设置',
+        },
+        confirm_panel:{
+          betconfirm:'投注确认',
+          lotterynametitle:'彩种名称',
+          lotterynametitle_lo:'WG 时时彩',
+          betmodetitle:'玩法投注',
+          winratiotitle:'赔率',
+          singlebetAmountTitle:'单注金额',
+          totalnotetitle:'总注数',
+          notetext:'注',
+          totalbetamountitle:'总投注额',
+          roundnumbertitle:'投注期数',
+          chaseroundtitle:'追号期数',
+          startroundtitle:'起始期数',
+          bettrigger: '游戏投注',
+        },
+        bettingcontrol:{
+          betdescription:'中奖说明',
+          totalnotechosen:'已选：',
+          totalbetchosen:'共计：',
+          addbetfields:'加入购物篮',
+          instantbet:'立即购买'
+        },
+        mobile_betcontrol:{
+          currentroundtitle:'订单起始奖期号：',
+          notecontrol:'订单详情',
+          chasebetpanel:'我要追号',
+          multi:'倍',
+        },
+        mobile_chasebet:{
+          chasebetmode:'追号模式：原订单倍数自动初始化为1倍',
+          chasetype:'追号类型',
+          chasevalue:'追号参数',
+          multiplierTitle:'起始倍数 ( 注单1倍 )',
+          stopchaseifwon:'追中即停 ( 注单1倍 )',
+          roundseparate:'间隔期数',
+          separatemultiplier:'变动倍数',
         },
         ballresultpos: {
           p1: '万',

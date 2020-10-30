@@ -11,8 +11,11 @@ namespace we {
 
       protected _smallRedCard: dragonBones.EgretArmatureDisplay;
       protected _smallRedCardGroup: eui.Group;
+      protected _smallRedCardDesc: ui.RunTimeLabel;
 
       protected _infoArray: number[];
+
+      
 
       protected mount() {
         this.reset();
@@ -129,7 +132,7 @@ namespace we {
           this.movePin();
           this.moveShoe();
           console.log('betInitState()');
-          this._ringAnim.animation.fadeIn('round_loop_a', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
+          this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
           if (this._gameData.redcardindex <= this._gameData.currentcardindex + 6) {
             this.getRedCardAnim().animation.gotoAndStopByTime('red_poker_loop', 0);
           }
@@ -341,6 +344,8 @@ namespace we {
         if (!this._smallRedCard) {
           this._smallRedCard = this._factory.buildArmatureDisplay('red_card');
           this._smallRedCardGroup.addChild(this._smallRedCard);
+          this._smallRedCard.addEventListener(mouse.MouseEvent.ROLL_OVER,()=>this._smallRedCardDesc.visible = true, this);
+          this._smallRedCard.addEventListener(mouse.MouseEvent.ROLL_OUT,()=>this._smallRedCardDesc.visible = false, this);
         }
         return this._smallRedCard;
       }

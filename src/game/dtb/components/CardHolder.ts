@@ -227,7 +227,7 @@ namespace we {
             this.getRedCardAnim().animation.gotoAndStopByTime('red_poker_loop', 0);
           }
 
-          this._ringAnim.animation.fadeIn('round_loop_a', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
+          this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
 
           if (isInit) {
             this.movePin();
@@ -337,6 +337,16 @@ namespace we {
         this._ringAnim.animation.fadeIn('poker_round_out', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
         await p3;
 
+        const p4 = we.utils.waitDragonBone(this._ringAnim);
+        this._ringAnim.animation.fadeIn('round_loop_a', 0, 1, 0, 'ROUND_ANIMATION_GROUP');
+        await p4
+
+        const p5 = we.utils.waitDragonBone(this._ringAnim);
+        this._ringAnim.animation.fadeIn('round_last_card', 0, 1, 0, 'ROUND_ANIMATION_GROUP');
+        await p5
+
+        this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
+
         return new Promise(resolve => resolve());
       }
 
@@ -393,7 +403,7 @@ namespace we {
         }
         this.updateAllSum();
 
-        this._ringAnim.animation.fadeIn('round_loop_a', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
+        this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
 
         if (this._gameData.wintype === dt.WinType.DRAGON) {
           (async () => {
@@ -430,8 +440,8 @@ namespace we {
             this.movePin();
             this.moveShoe();
             await this.clearCards();
-            this._ringAnim.animation.fadeIn('round_loop_a', 0, 0, 0);
-            this.dispatchEvent(new egret.Event('OPEN_SHUFFLE_PANEL', false, false, 'init'));
+            this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0);
+            this.dispatchEvent(new egret.Event('OPEN_SHUFFLE_PANEL', false, false, 'init'))
           })();
         } else {
           (async () => {
@@ -474,8 +484,8 @@ namespace we {
               const dragonBlock = utils.waitDragonBone(this._dragonAnim);
               const tigerBlock = utils.waitDragonBone(this._tigerAnim);
 
-              this._dragonAnim.animation.play('shoe_in', 1);
-              this._tigerAnim.animation.play('shoe_int', 1);
+              this._dragonAnim.animation.play('shoe_in',1);
+              this._tigerAnim.animation.play('shoe_in',1);
 
               await dragonBlock;
               await tigerBlock;
@@ -486,7 +496,7 @@ namespace we {
             await p3;
             await p3a;
 
-            this._ringAnim.animation.fadeIn('round_loop_a', 0, 0, 0);
+            this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0);
 
             this.dispatchEvent(new egret.Event('OPEN_SHUFFLE_PANEL', false, false, 'notInit'));
 

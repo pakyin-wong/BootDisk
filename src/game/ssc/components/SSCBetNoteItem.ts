@@ -38,7 +38,11 @@ namespace we {
       }
 
       protected initSkin() {
-        this.skinName = 'skin_desktop.SSCBetNoteItem';
+        if(env.isMobile){
+          this.skinName = 'skin_mobile.SSCBetNoteItem';
+        }else{
+          this.skinName = 'skin_desktop.SSCBetNoteItem';
+        }
       }
       // TradNoteData {
       //   public field: string; // field consist of several information: Bet type, bet per note and bet detail
@@ -51,9 +55,9 @@ namespace we {
         this._txt_record_bgcolor.fillColor = 0x0f1721;
         this._txtGameMode.text = this.gamemode;
         this._txtBetItem.text = this.betitem;
-        this._txtBetMode.text = `${utils.formatNumber(parseInt(this.betmode, 10))} 元`;
-        this._txtNoteCount.text = `${this.data.count} 注`;
-        this._txtMultiplier.text = this.data.multiplier;
+        this._txtBetMode.text = `${utils.formatNumber(parseInt(this.betmode, 10))} ${i18n.t('lo_trad.ui.coin')}`;
+        this._txtNoteCount.text = `${this.data.count} ${i18n.t('lo_trad.confirm_panel.notetext')}`;
+        this._txtMultiplier.text = env.isMobile ? `${this.data.multiplier}${i18n.t('lo_trad.mobile_betcontrol.multi')}` : this.data.multiplier;
         this._txtTotalBet.text = `$${utils.formatNumber(this.data.multiplier * parseInt(this.betmode, 10) * this.data.count)}`;
       }
 
@@ -175,14 +179,26 @@ namespace we {
       protected regenerateBetitemFromField(DataString: string) {
         let newdatastring = '';
         const spliteddatastring = DataString.split('');
-        if (spliteddatastring.length < 16) {
-          newdatastring = DataString;
-        } else {
-          for (let i = 0; i < 16; i++) {
-            newdatastring += spliteddatastring[i];
+        if(env.isMobile){
+          if (spliteddatastring.length < 80) {
+            newdatastring = DataString;
+          } else {
+            for (let i = 0; i < 80; i++) {
+              newdatastring += spliteddatastring[i];
+            }
+            newdatastring += '...';
           }
-          newdatastring += '...';
+        }else{
+          if (spliteddatastring.length < 16) {
+            newdatastring = DataString;
+          } else {
+            for (let i = 0; i < 16; i++) {
+              newdatastring += spliteddatastring[i];
+            }
+            newdatastring += '...';
+          }
         }
+
         return newdatastring;
       }
 

@@ -434,7 +434,7 @@ namespace we {
             this.getRedCardAnim().animation.gotoAndStopByTime('red_poker_loop', 0);
           }
 
-          this._ringAnim.animation.fadeIn('round_loop_a', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
+          this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
 
           if (isInit) {
             this.movePin();
@@ -528,6 +528,16 @@ namespace we {
         this._ringAnim.animation.fadeIn('poker_round_out', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
         await p3;
 
+        const p4 = we.utils.waitDragonBone(this._ringAnim);
+        this._ringAnim.animation.fadeIn('round_loop_a', 0, 1, 0, 'ROUND_ANIMATION_GROUP');
+        await p4
+
+        const p5 = we.utils.waitDragonBone(this._ringAnim);
+        this._ringAnim.animation.fadeIn('round_last_card', 0, 1, 0, 'ROUND_ANIMATION_GROUP');
+        await p5
+
+        this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
+
         this._smallCard2Exist = true;
         this._smallCard1Exist = true;
 
@@ -587,7 +597,7 @@ namespace we {
         }
         this.updateAllSum();
 
-        this._ringAnim.animation.fadeIn('round_loop_a', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
+        this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
 
         if (isInit) {
           this.movePin();
@@ -606,7 +616,7 @@ namespace we {
             this.movePin();
             this.moveShoe();
             await this.clearCards();
-            this._ringAnim.animation.fadeIn('round_loop_a', 0, 0, 0);
+            this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0);
             this.dispatchEvent(new egret.Event('OPEN_SHUFFLE_PANEL', false, false, 'init'));
           })();
         } else {
@@ -634,7 +644,7 @@ namespace we {
             this._ringAnim.animation.fadeIn('shoe_in', 0, 1, 0);
             await p3;
 
-            this._ringAnim.animation.fadeIn('round_loop_a', 0, 0, 0);
+            this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0);
 
             this.dispatchEvent(new egret.Event('OPEN_SHUFFLE_PANEL', false, false, 'notInit'));
 
