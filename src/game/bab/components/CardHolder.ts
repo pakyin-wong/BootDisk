@@ -53,6 +53,24 @@ namespace we {
 
       protected _helper: blockchain.Helper;
 
+      protected _totalCardPerRound: number;
+
+      protected mount(){
+        super.mount();
+        this._totalCardPerRound = 6;
+      }
+
+      public setDefaultStates(){
+        this._playerCard1.animation.gotoAndStopByTime('vertical_in',0)
+        this._playerCard2.animation.gotoAndStopByTime('vertical_in',0)
+        this._playerCard3.animation.gotoAndStopByTime('vertical_in',0)
+        this._bankerCard1.animation.gotoAndStopByTime('vertical_in',0)
+        this._bankerCard2.animation.gotoAndStopByTime('vertical_in',0)
+        this._bankerCard3.animation.gotoAndStopByTime('vertical_in',0)
+        this._smallCard1.animation.gotoAndStopByTime('vertical_in',0)
+        this._smallCard2.animation.gotoAndStopByTime('vertical_in',0)
+      }
+
       protected createChildren() {
         super.createChildren();
         this.skinName = utils.getSkinByClassname('bab.CardHolderSkin');
