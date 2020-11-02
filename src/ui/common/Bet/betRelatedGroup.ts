@@ -24,6 +24,7 @@ namespace we {
         // mouse.setButtonMode(this._btnBack, true);
         mouse.setButtonMode(this._confirmButton, true);
         this.addListeners();
+        this._repeatLabel.text = 'testing';
       }
 
       public destroy() {

@@ -4,7 +4,7 @@ namespace we {
     // base control class that hold and manage the basic item in Ba Item
     export class BaseGameScene extends core.BaseScene {
       protected _header: egret.DisplayObjectContainer;
-      protected _betRelatedGroup: eui.Group;
+      // protected _betRelatedGroup: eui.Group;
 
       protected _tableLayer: ui.TableLayer;
       protected _chipLayer: ui.ChipLayer;
@@ -15,7 +15,7 @@ namespace we {
       protected _message: ui.InGameMessage;
       protected _expiredMessage: ui.InGameMessage;
       protected _dropdown: live.BetLimitDropdown;
-      protected __betRelatedGroup: ui.BetRelatedGroup;
+      protected _betRelatedGroup: ui.BetRelatedGroup;
 
       protected _undoStack: we.utils.UndoStack = new we.utils.UndoStack();
 
@@ -104,8 +104,8 @@ namespace we {
         this.removeEventListeners();
         this.removeChildren();
       }
-      public async onFadeEnter() {}
-      public async onFadeExit() {}
+      public async onFadeEnter() { }
+      public async onFadeExit() { }
 
       protected getSelectedBetLimitIndex() {
         return env.currentSelectedBetLimitIndex;
@@ -143,7 +143,7 @@ namespace we {
         }
 
         this._lblRoomNo.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this._tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
-        this.__betRelatedGroup.changeBtnState(false);
+        this._betRelatedGroup.changeBtnState(false);
 
         // if (this._tableInfoWindow) {
         //   this._tableInfoWindow.setToggler(this._lblRoomInfo);
@@ -212,7 +212,7 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
         if (this._chipLayer) {
-          this._chipLayer.addEventListener('onUnconfirmBet', this.__betRelatedGroup.changeBtnState, this);
+          this._chipLayer.addEventListener('onUnconfirmBet', this._betRelatedGroup.changeBtnState, this);
           this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
           this._chipLayer.addEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         }
@@ -234,11 +234,11 @@ namespace we {
         if (this._btnBack) {
           this._btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
         }
-        this.__betRelatedGroup.addEventListener('ON_CONFIRM_PRESS', this.onConfirmPressed, this);
-        this.__betRelatedGroup.addEventListener('ON_CANCEL_PRESS', this.onCancelPressed, this);
-        this.__betRelatedGroup.addEventListener('ON_REPEAT_PRESS', this.onRepeatPressed, this);
-        this.__betRelatedGroup.addEventListener('ON_DOUBLE_PRESS', this.onDoublePressed, this);
-        this.__betRelatedGroup.addEventListener('ON_UNDO_PRESS', this.onUndoPressed, this);
+        this._betRelatedGroup.addEventListener('ON_CONFIRM_PRESS', this.onConfirmPressed, this);
+        this._betRelatedGroup.addEventListener('ON_CANCEL_PRESS', this.onCancelPressed, this);
+        this._betRelatedGroup.addEventListener('ON_REPEAT_PRESS', this.onRepeatPressed, this);
+        this._betRelatedGroup.addEventListener('ON_DOUBLE_PRESS', this.onDoublePressed, this);
+        this._betRelatedGroup.addEventListener('ON_UNDO_PRESS', this.onUndoPressed, this);
       }
 
       public insufficientBalance() {
@@ -269,7 +269,7 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
         if (this._chipLayer) {
-          this._chipLayer.removeEventListener('onUnconfirmBet', this.__betRelatedGroup.changeBtnState, this);
+          this._chipLayer.removeEventListener('onUnconfirmBet', this._betRelatedGroup.changeBtnState, this);
           this._chipLayer.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
           this._chipLayer.removeEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         }
@@ -289,11 +289,11 @@ namespace we {
         //   this._cancelButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
         // }
 
-        this.__betRelatedGroup.removeEventListener('ON_CONFIRM_PRESS', this.onConfirmPressed, this);
-        this.__betRelatedGroup.removeEventListener('ON_CANCEL_PRESS', this.onCancelPressed, this);
-        this.__betRelatedGroup.removeEventListener('ON_REPEAT_PRESS', this.onRepeatPressed, this);
-        this.__betRelatedGroup.removeEventListener('ON_DOUBLE_PRESS', this.onDoublePressed, this);
-        this.__betRelatedGroup.removeEventListener('ON_UNDO_PRESS', this.onUndoPressed, this);
+        this._betRelatedGroup.removeEventListener('ON_CONFIRM_PRESS', this.onConfirmPressed, this);
+        this._betRelatedGroup.removeEventListener('ON_CANCEL_PRESS', this.onCancelPressed, this);
+        this._betRelatedGroup.removeEventListener('ON_REPEAT_PRESS', this.onRepeatPressed, this);
+        this._betRelatedGroup.removeEventListener('ON_DOUBLE_PRESS', this.onDoublePressed, this);
+        this._betRelatedGroup.removeEventListener('ON_UNDO_PRESS', this.onUndoPressed, this);
 
         this._btnBack.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
       }
@@ -330,18 +330,18 @@ namespace we {
         }
       }
 
-      protected onMatchGoodRoadUpdate() {}
+      protected onMatchGoodRoadUpdate() { }
 
-      protected onTableBetInfoUpdate(evt: egret.Event) {}
+      protected onTableBetInfoUpdate(evt: egret.Event) { }
 
       // item clicked
-      protected onTouchTap(evt: egret.Event) {}
+      protected onTouchTap(evt: egret.Event) { }
 
       protected onBetDetailUpdateInBetState() {
         if (this._betDetails && this._chipLayer) {
           this._chipLayer.updateBetFields(this._betDetails);
           this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
-          this.__betRelatedGroup.changeBtnState(false);
+          this._betRelatedGroup.changeBtnState(false);
         }
       }
       protected onBetDetailUpdateInFinishState() {
@@ -388,7 +388,7 @@ namespace we {
         this._chipLayer.resetUnconfirmedBet();
       }
 
-      protected onRoadDataUpdate(evt: egret.Event) {}
+      protected onRoadDataUpdate(evt: egret.Event) { }
 
       public updateGame(isInit: boolean = false) {
         if (!this._gameData) {
@@ -487,7 +487,7 @@ namespace we {
           if (this._betDetails && this._chipLayer) {
             this._chipLayer.updateBetFields(this._betDetails);
           }
-          this.__betRelatedGroup.changeBtnState(false);
+          this._betRelatedGroup.changeBtnState(false);
         }
 
         if (this._previousState !== we.core.GameState.BET) {
@@ -588,7 +588,7 @@ namespace we {
             this.checkResultMessage();
           }
         }
-        this.__betRelatedGroup.changeBtnState(false);
+        this._betRelatedGroup.changeBtnState(false);
       }
 
       protected setStateRefund(isInit: boolean = false) {
@@ -633,8 +633,8 @@ namespace we {
         // if (this._cancelButton) {
         //   this._cancelButton.touchEnabled = enable;
         // }
-        this.__betRelatedGroup.enableConfirm = true;
-        this.__betRelatedGroup.enableCancel = true;
+        this._betRelatedGroup.enableConfirm = true;
+        this._betRelatedGroup.enableCancel = true;
       }
 
       protected setResultRelatedComponentsEnabled(enable: boolean) {
@@ -706,7 +706,7 @@ namespace we {
         this.playResultSoundEffect(totalWin);
       }
 
-      protected playResultSoundEffect(totalWin) {}
+      protected playResultSoundEffect(totalWin) { }
 
       protected onConfirmPressed(evt: egret.Event) {
         if (this._chipLayer) {
@@ -714,7 +714,7 @@ namespace we {
             if (this._chipLayer.validateBet()) {
               const bets = this._chipLayer.getUnconfirmedBetDetails();
               this._chipLayer.resetUnconfirmedBet(); // Waiting to change to push to waitingforconfirmedbet
-              this.__betRelatedGroup.changeBtnState(false);
+              this._betRelatedGroup.changeBtnState(false);
               this._undoStack.clearStack();
               dir.socket.bet(this._tableId, bets, this.onBetReturned.bind(this));
             }
@@ -775,7 +775,7 @@ namespace we {
         if (this._chipLayer) {
           this._chipLayer.cancelBet();
           this._undoStack.clearStack();
-          this.__betRelatedGroup.changeBtnState(false);
+          this._betRelatedGroup.changeBtnState(false);
         }
       }
 
@@ -783,13 +783,13 @@ namespace we {
         if (this._chipLayer) {
           this._chipLayer.onRepeatPressed();
         }
-        this.__betRelatedGroup.changeBtnState(true);
+        this._betRelatedGroup.changeBtnState(true);
       }
 
       protected onDoublePressed() {
         if (this._chipLayer) {
           this._chipLayer.onDoublePressed();
-          this.__betRelatedGroup.changeBtnState(true);
+          this._betRelatedGroup.changeBtnState(true);
         }
       }
 
@@ -797,7 +797,7 @@ namespace we {
         if (this._chipLayer) {
           this._undoStack.popAndUndo();
           if (!this._chipLayer.getTotalUncfmBetAmount()) {
-            this.__betRelatedGroup.changeBtnState(false);
+            this._betRelatedGroup.changeBtnState(false);
           }
         }
       }
