@@ -67,8 +67,8 @@ class Main extends eui.UILayer {
       isMobile = data.ismobile ? parseInt(data.ismobile) > 0 : false;
     } catch (err) {}
 
-    if (type === 'mobile' || isMobile) {
-      // if (true) {
+    // if (type === 'mobile' || isMobile) {
+      if (true) {
       env.isMobile = true;
       // this.updateMobileHitTest();
       // use these when there is portrait mode only
