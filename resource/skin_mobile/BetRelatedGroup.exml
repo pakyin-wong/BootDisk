@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.BetRelatedGroup" width="984" height="127" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="left_hand_mode,right_hand_mode">
+	<e:Group id="_betRelatedGroup" width="984">
+		<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
+		        fillColor="0x444444" width.left_hand_mode="954" x.right_hand_mode="30" width.right_hand_mode="954" />
+		<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="874"
+		          verticalCenter="0" x.right_hand_mode="682" skinName="skin_mobile_portrait.BetConfirmButtonSkin"
+		          x.left_hand_mode="3" />
+		<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="0"
+		                   colorChange="true" verticalCenter="0" x.right_hand_mode="683" />
+		<e:Group id="_betLabelGroup" height="100%">
+			<e:Group verticalCenter="0" x="788" x.right_hand_mode="66">
+				<ui:RunTimeLabel id="_repeatLabel" text="再次下注" verticalCenter="0" horizontalCenter="0" />
+			</e:Group>
+			<e:Group verticalCenter="0" x="650" x.right_hand_mode="245">
+				<ui:RunTimeLabel id="_doubleLabel" text="雙倍" verticalCenter="0" horizontalCenter="0" />
+			</e:Group>
+			<e:Group verticalCenter="0" x="500" x.right_hand_mode="395">
+				<ui:RunTimeLabel id="_cancelLabel" text="清除" verticalCenter="0" horizontalCenter="0" />
+			</e:Group>
+			<e:Group x="335" verticalCenter="0" x.right_hand_mode="530" width="100">
+				<ui:RunTimeLabel id="_undoLabel" text="復原" verticalCenter="0" horizontalCenter="0" />
+			</e:Group>
+		</e:Group>
+		<ui:BaseImageButton id="_repeatButton" y="0" anchorOffsetX="0" width="128" anchorOffsetY="0" height="120"
+		                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_repeat" x="787"
+		                    x.right_hand_mode="61" />
+		<ui:BaseImageButton id="_doubleButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
+		                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_double" x="651"
+		                    x.right_hand_mode="239" />
+		<ui:BaseImageButton id="_cancelButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
+		                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_cancel" x="500"
+		                    x.right_hand_mode="393" />
+		<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
+		                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo" x="351"
+		                    x.right_hand_mode="545" />
+	</e:Group>
+</e:Skin>

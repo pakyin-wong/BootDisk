@@ -15,14 +15,15 @@ namespace we {
       protected _message: ui.InGameMessage;
       protected _expiredMessage: ui.InGameMessage;
       protected _dropdown: live.BetLimitDropdown;
+      protected __betRelatedGroup: ui.BetRelatedGroup;
 
       protected _undoStack: we.utils.UndoStack = new we.utils.UndoStack();
 
-      protected _confirmButton: eui.Button;
-      protected _repeatButton: ui.BaseImageButton;
-      protected _cancelButton: ui.BaseImageButton;
-      protected _doubleButton: ui.BaseImageButton;
-      protected _undoButton: ui.BaseImageButton;
+      // protected _confirmButton: eui.Button;
+      // protected _repeatButton: ui.BaseImageButton;
+      // protected _cancelButton: ui.BaseImageButton;
+      // protected _doubleButton: ui.BaseImageButton;
+      // protected _undoButton: ui.BaseImageButton;
 
       protected _tableId: string;
       protected _tableInfo: data.TableInfo;
@@ -67,7 +68,7 @@ namespace we {
       protected mount() {
         super.mount();
         mouse.setButtonMode(this._btnBack, true);
-        mouse.setButtonMode(this._confirmButton, true);
+        // mouse.setButtonMode(this.__betRelatedGroup._confirmButton, true);
 
         this._video = dir.videoPool.get();
         this._video.setBrowser(env.UAInfo.browser.name);
@@ -142,7 +143,7 @@ namespace we {
         }
 
         this._lblRoomNo.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this._tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
-        this.changeBtnState(false);
+        this.__betRelatedGroup.changeBtnState(false);
 
         // if (this._tableInfoWindow) {
         //   this._tableInfoWindow.setToggler(this._lblRoomInfo);
@@ -211,28 +212,33 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
         if (this._chipLayer) {
-          this._chipLayer.addEventListener('onUnconfirmBet', this.changeBtnState, this);
+          this._chipLayer.addEventListener('onUnconfirmBet', this.__betRelatedGroup.changeBtnState, this);
           this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
           this._chipLayer.addEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         }
-        if (this._confirmButton) {
-          this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
-        }
-        if (this._repeatButton) {
-          this._repeatButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRepeatPressed, this, true);
-        }
-        if (this._doubleButton) {
-          this._doubleButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDoublePressed, this, true);
-        }
-        if (this._undoButton) {
-          this._undoButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onUndoPressed, this, true);
-        }
-        if (this._cancelButton) {
-          this._cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
-        }
+        // if (this._confirmButton) {
+        //   this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
+        // }
+        // if (this._repeatButton) {
+        //   this._repeatButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRepeatPressed, this, true);
+        // }
+        // if (this._doubleButton) {
+        //   this._doubleButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDoublePressed, this, true);
+        // }
+        // if (this._undoButton) {
+        //   this._undoButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onUndoPressed, this, true);
+        // }
+        // if (this._cancelButton) {
+        //   this._cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
+        // }
         if (this._btnBack) {
           this._btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
         }
+        this.__betRelatedGroup.addEventListener('ON_CONFIRM_PRESS', this.onConfirmPressed, this);
+        this.__betRelatedGroup.addEventListener('ON_CANCEL_PRESS', this.onCancelPressed, this);
+        this.__betRelatedGroup.addEventListener('ON_REPEAT_PRESS', this.onRepeatPressed, this);
+        this.__betRelatedGroup.addEventListener('ON_DOUBLE_PRESS', this.onDoublePressed, this);
+        this.__betRelatedGroup.addEventListener('ON_UNDO_PRESS', this.onUndoPressed, this);
       }
 
       public insufficientBalance() {
@@ -263,25 +269,31 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
         if (this._chipLayer) {
-          this._chipLayer.removeEventListener('onUnconfirmBet', this.changeBtnState, this);
+          this._chipLayer.removeEventListener('onUnconfirmBet', this.__betRelatedGroup.changeBtnState, this);
           this._chipLayer.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
           this._chipLayer.removeEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         }
-        if (this._confirmButton) {
-          this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
-        }
-        if (this._repeatButton) {
-          this._repeatButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRepeatPressed, this, true);
-        }
-        if (this._doubleButton) {
-          this._doubleButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onDoublePressed, this, true);
-        }
-        if (this._undoButton) {
-          this._undoButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onUndoPressed, this, true);
-        }
-        if (this._cancelButton) {
-          this._cancelButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
-        }
+        // if (this._confirmButton) {
+        //   this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
+        // }
+        // if (this._repeatButton) {
+        //   this._repeatButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRepeatPressed, this, true);
+        // }
+        // if (this._doubleButton) {
+        //   this._doubleButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onDoublePressed, this, true);
+        // }
+        // if (this._undoButton) {
+        //   this._undoButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onUndoPressed, this, true);
+        // }
+        // if (this._cancelButton) {
+        //   this._cancelButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
+        // }
+
+        this.__betRelatedGroup.removeEventListener('ON_CONFIRM_PRESS', this.onConfirmPressed, this);
+        this.__betRelatedGroup.removeEventListener('ON_CANCEL_PRESS', this.onCancelPressed, this);
+        this.__betRelatedGroup.removeEventListener('ON_REPEAT_PRESS', this.onRepeatPressed, this);
+        this.__betRelatedGroup.removeEventListener('ON_DOUBLE_PRESS', this.onDoublePressed, this);
+        this.__betRelatedGroup.removeEventListener('ON_UNDO_PRESS', this.onUndoPressed, this);
 
         this._btnBack.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
       }
@@ -329,7 +341,7 @@ namespace we {
         if (this._betDetails && this._chipLayer) {
           this._chipLayer.updateBetFields(this._betDetails);
           this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
-          this.changeBtnState(false);
+          this.__betRelatedGroup.changeBtnState(false);
         }
       }
       protected onBetDetailUpdateInFinishState() {
@@ -343,7 +355,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -475,7 +487,7 @@ namespace we {
           if (this._betDetails && this._chipLayer) {
             this._chipLayer.updateBetFields(this._betDetails);
           }
-          this.changeBtnState(false);
+          this.__betRelatedGroup.changeBtnState(false);
         }
 
         if (this._previousState !== we.core.GameState.BET) {
@@ -576,7 +588,7 @@ namespace we {
             this.checkResultMessage();
           }
         }
-        this.changeBtnState(false);
+        this.__betRelatedGroup.changeBtnState(false);
       }
 
       protected setStateRefund(isInit: boolean = false) {
@@ -615,12 +627,14 @@ namespace we {
         if (this._betChipSet) {
           this._betChipSet.setTouchEnabled(enable);
         }
-        if (this._confirmButton) {
-          this._confirmButton.touchEnabled = enable;
-        }
-        if (this._cancelButton) {
-          this._cancelButton.touchEnabled = enable;
-        }
+        // if (this._confirmButton) {
+        //   this._confirmButton.touchEnabled = enable;
+        // }
+        // if (this._cancelButton) {
+        //   this._cancelButton.touchEnabled = enable;
+        // }
+        this.__betRelatedGroup.enableConfirm = true;
+        this.__betRelatedGroup.enableCancel = true;
       }
 
       protected setResultRelatedComponentsEnabled(enable: boolean) {
@@ -700,7 +714,7 @@ namespace we {
             if (this._chipLayer.validateBet()) {
               const bets = this._chipLayer.getUnconfirmedBetDetails();
               this._chipLayer.resetUnconfirmedBet(); // Waiting to change to push to waitingforconfirmedbet
-              this.changeBtnState(false);
+              this.__betRelatedGroup.changeBtnState(false);
               this._undoStack.clearStack();
               dir.socket.bet(this._tableId, bets, this.onBetReturned.bind(this));
             }
@@ -736,32 +750,32 @@ namespace we {
         }
       }
 
-      protected changeBtnState(isEnable: boolean = true) {
-        this._undoButton.touchChildren = this._undoButton.touchEnabled = isEnable;
-        this._cancelButton.touchChildren = this._cancelButton.touchEnabled = isEnable;
-        this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isEnable;
-        this._doubleButton.touchChildren = this._doubleButton.touchEnabled = this._chipLayer.getTotalCfmBetAmount() ? true : false;
-        this._repeatButton.touchChildren = this._repeatButton.touchEnabled = this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid;
-        this._undoButton.alpha = isEnable ? 1 : 0.5;
-        this._cancelButton.alpha = isEnable ? 1 : 0.5;
-        this._confirmButton.alpha = isEnable ? 1 : 0.3;
-        this._repeatButton.alpha = this._repeatButton.touchEnabled ? 1 : 0.5;
-        this._doubleButton.alpha = this._doubleButton.touchEnabled ? 1 : 0.5;
-        if (this._timer.bg_color) {
-          this._timer.bg_color.alpha = isEnable ? 0.7 : 0;
-          if (isEnable) {
-            this._timer.bg_flash();
-          } else {
-            this._timer.removebg_flash();
-          }
-        }
-      }
+      // protected changeBtnState(isEnable: boolean = true) {
+      //   this._undoButton.touchChildren = this._undoButton.touchEnabled = isEnable;
+      //   this._cancelButton.touchChildren = this._cancelButton.touchEnabled = isEnable;
+      //   this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isEnable;
+      //   this._doubleButton.touchChildren = this._doubleButton.touchEnabled = this._chipLayer.getTotalCfmBetAmount() ? true : false;
+      //   this._repeatButton.touchChildren = this._repeatButton.touchEnabled = this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid;
+      //   this._undoButton.alpha = isEnable ? 1 : 0.5;
+      //   this._cancelButton.alpha = isEnable ? 1 : 0.5;
+      //   this._confirmButton.alpha = isEnable ? 1 : 0.3;
+      //   this._repeatButton.alpha = this._repeatButton.touchEnabled ? 1 : 0.5;
+      //   this._doubleButton.alpha = this._doubleButton.touchEnabled ? 1 : 0.5;
+      //   if (this._timer.bg_color) {
+      //     this._timer.bg_color.alpha = isEnable ? 0.7 : 0;
+      //     if (isEnable) {
+      //       this._timer.bg_flash();
+      //     } else {
+      //       this._timer.removebg_flash();
+      //     }
+      //   }
+      // }
 
       protected onCancelPressed(evt: egret.Event) {
         if (this._chipLayer) {
           this._chipLayer.cancelBet();
           this._undoStack.clearStack();
-          this.changeBtnState(false);
+          this.__betRelatedGroup.changeBtnState(false);
         }
       }
 
@@ -769,13 +783,13 @@ namespace we {
         if (this._chipLayer) {
           this._chipLayer.onRepeatPressed();
         }
-        this.changeBtnState(true);
+        this.__betRelatedGroup.changeBtnState(true);
       }
 
       protected onDoublePressed() {
         if (this._chipLayer) {
           this._chipLayer.onDoublePressed();
-          this.changeBtnState(true);
+          this.__betRelatedGroup.changeBtnState(true);
         }
       }
 
@@ -783,7 +797,7 @@ namespace we {
         if (this._chipLayer) {
           this._undoStack.popAndUndo();
           if (!this._chipLayer.getTotalUncfmBetAmount()) {
-            this.changeBtnState(false);
+            this.__betRelatedGroup.changeBtnState(false);
           }
         }
       }
