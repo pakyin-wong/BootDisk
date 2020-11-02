@@ -769,6 +769,18 @@ namespace we {
       lo_fun_betfield_total_ODD: '总单',
       lo_fun_betfield_total_EVEN: '总双',
 
+      lo_bottom_analysis_today: '今日',
+      lo_bottom_analysis_yesterday: '昨日',
+      lo_bottom_analysis_this_week: '本周',
+      lo_bottom_analysis_last_week: '上周',
+      lo_bottom_analysis_this_month: '本月',
+      lo_bottom_analysis_last_month: '上月',
+
+      lo_bottom_analysis_hot: '连续出现',
+      lo_bottom_analysis_cold: '连续不出',
+      lo_bottom_analysis_30hot: '30期热门',
+      lo_bottom_analysis_30cold: '30期冷门',
+
       lo_fun_logo: 'd_lottery_lotto5_ent_logo_tw_png',
       lo_tri_logo: 'd_lottery_lotto5_trad_logo_tw_png',
 

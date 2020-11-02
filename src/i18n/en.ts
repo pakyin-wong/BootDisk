@@ -732,6 +732,18 @@ namespace we {
       lo_fun_betfield_total_ODD: 'Total Odd',
       lo_fun_betfield_total_EVEN: 'Total Even',
 
+      lo_bottom_analysis_today: 'Today',
+      lo_bottom_analysis_yesterday: 'Yes',
+      lo_bottom_analysis_this_week: 'TWeek',
+      lo_bottom_analysis_last_week: 'LWeek',
+      lo_bottom_analysis_this_month: 'TMonth',
+      lo_bottom_analysis_last_month: 'LMonth',
+
+      lo_bottom_analysis_hot: 'Hot',
+      lo_bottom_analysis_cold: 'Cold',
+      lo_bottom_analysis_30hot: '30Hot',
+      lo_bottom_analysis_30cold: '30Cold',
+
       lo_fun_logo: 'd_lottery_lotto5_ent_logo_eng_png',
       lo_tri_logo: 'd_lottery_lotto5_trad_logo_eng_png',
 
