@@ -79,7 +79,7 @@ namespace we {
         this._video.stop();
         dir.videoPool.release(this._video);
         // this._chipLayer.getSelectedChipIndex = null;
-        this._timer.stop();
+        // this._timer.stop();
         this.removeEventListeners();
         this._bettingPanel.onExit();
         this._bettingPanelGroup.removeChild(this._bettingPanel);
