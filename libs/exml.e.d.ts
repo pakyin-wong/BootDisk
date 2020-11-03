@@ -2675,6 +2675,10 @@ declare module skin_mobile{
 	}
 }
 declare module skin_mobile{
+	class BetRelatedGroupVertical extends eui.Skin{
+	}
+}
+declare module skin_mobile{
 	class LiveListItemSkin extends eui.Skin{
 	}
 }

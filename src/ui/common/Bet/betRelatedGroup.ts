@@ -2,21 +2,30 @@ namespace we {
   export namespace ui {
     export class BetRelatedGroup extends core.BaseGamePanel {
       public _confirmButton: eui.Button;
-      public _repeatButton: ui.BaseImageButton;
-      public _cancelButton: ui.BaseImageButton;
-      public _doubleButton: ui.BaseImageButton;
-      public _undoButton: ui.BaseImageButton;
+      protected _repeatButton: ui.BaseImageButton;
+      protected _cancelButton: ui.BaseImageButton;
+      protected _doubleButton: ui.BaseImageButton;
+      protected _undoButton: ui.BaseImageButton;
 
-      public _repeatLabel: ui.RunTimeLabel;
-      public _cancelLabel: ui.RunTimeLabel;
-      public _doubleLabel: ui.RunTimeLabel;
-      public _undoLabel: ui.RunTimeLabel;
+      protected _repeatLabel: ui.RunTimeLabel;
+      protected _cancelLabel: ui.RunTimeLabel;
+      protected _doubleLabel: ui.RunTimeLabel;
+      protected _undoLabel: ui.RunTimeLabel;
 
-      public _roundPanel: ui.RoundRectShape;
-      public _timer: ui.CountdownTimer;
+      protected _roundPanel: ui.RoundRectShape;
+      protected _timer: ui.CountdownTimer;
 
-      public constructor(skin?: string) {
-        super('BetRelatedGroup');
+      public constructor(skin: string = 'BetRelatedGroup') {
+        if (env.orientation === "portrait") {
+          switch (env._currGameType) {
+            case 12: //DI
+            case 14: //RO
+            case 17: //ROL
+              skin = 'BetRelatedGroupVertical';
+              break;
+          }
+        }
+        super(skin);
       }
 
       protected mount() {
@@ -27,7 +36,7 @@ namespace we {
         this.changeLang();
       }
 
-      public destroy() {
+      protected destroy() {
         super.destroy();
         this.removeListeners();
         this._timer.stop();
