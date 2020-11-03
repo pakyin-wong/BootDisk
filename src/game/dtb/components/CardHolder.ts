@@ -487,56 +487,67 @@ namespace we {
           (async () => {
             await this.clearCards();
             console.log('shuffle start');
-            const p1 = utils.waitDragonBone(this.getRedCardAnim());
-            this.getRedCardAnim().animation.fadeIn('red_poker_out');
-            this._smallRedCardGroup.removeChild(this._smallRedCard);
-            this._smallRedCard = null;
+            // const p1 = utils.waitDragonBone(this.getRedCardAnim());
+            // this.getRedCardAnim().animation.fadeIn('red_poker_out');
+            // this._smallRedCardGroup.removeChild(this._smallRedCard);
+            // this._smallRedCard = null;
 
-            const p2 = utils.waitDragonBone(this._ringAnim);
-            const p2a = (async () => {
-              const dragonBlock = utils.waitDragonBone(this._dragonAnim);
-              const tigerBlock = utils.waitDragonBone(this._tigerAnim);
+            // const p2 = utils.waitDragonBone(this._ringAnim);
+            // const p2a = (async () => {
+            //   const dragonBlock = utils.waitDragonBone(this._dragonAnim);
+            //   const tigerBlock = utils.waitDragonBone(this._tigerAnim);
 
-              this._dragonAnim.animation.play('shoe_out', 1);
-              this._tigerAnim.animation.play('shoe_out', 1);
+            //   this._dragonAnim.animation.play('shoe_out', 1);
+            //   this._tigerAnim.animation.play('shoe_out', 1);
 
-              await dragonBlock;
-              await tigerBlock;
+            //   await dragonBlock;
+            //   await tigerBlock;
 
-              return new Promise(resolve => resolve());
-            })();
-            this._ringAnim.animation.fadeIn('shoe_out', 0, 1, 0);
+            //   return new Promise(resolve => resolve());
+            // })();
+            // this._ringAnim.animation.fadeIn('shoe_out', 0, 1, 0);
 
             await this.collapsePin();
             await this.collapseShoe();
 
-            await p1;
-            await p2;
-            await p2a;
+            // await p1;
+            // await p2;
+            // await p2a;
 
             await utils.playAnimation(this.getRedCardAnim(),'red_poker_out',1);
+            await Promise.all([
+              utils.playAnimation(this._ringAnim,'shoe_out',1),
+              utils.playAnimation(this._dragonAnim,'shoe_out',1),
+              utils.playAnimation(this._tigerAnim,'shoe_out',1),
+            ]);
 
             await this.animateShoe();
             await this.animatePin();
 
-            const p3 = utils.waitDragonBone(this._ringAnim);
-            this._ringAnim.animation.fadeIn('shoe_in', 0, 1, 0);
+            // const p3 = utils.waitDragonBone(this._ringAnim);
+            // this._ringAnim.animation.fadeIn('shoe_in', 0, 1, 0);
 
-            const p3a = (async () => {
-              const dragonBlock = utils.waitDragonBone(this._dragonAnim);
-              const tigerBlock = utils.waitDragonBone(this._tigerAnim);
+            // const p3a = (async () => {
+            //   const dragonBlock = utils.waitDragonBone(this._dragonAnim);
+            //   const tigerBlock = utils.waitDragonBone(this._tigerAnim);
 
-              this._dragonAnim.animation.play('shoe_in',1);
-              this._tigerAnim.animation.play('shoe_in',1);
+            //   this._dragonAnim.animation.play('shoe_in',1);
+            //   this._tigerAnim.animation.play('shoe_in',1);
 
-              await dragonBlock;
-              await tigerBlock;
+            //   await dragonBlock;
+            //   await tigerBlock;
 
-              return new Promise(resolve => resolve());
-            })();
+            //   return new Promise(resolve => resolve());
+            // })();
 
-            await p3;
-            await p3a;
+            // await p3;
+            // await p3a;
+
+            await Promise.all([
+              utils.playAnimation(this._ringAnim,'shoe_in',1),
+              utils.playAnimation(this._dragonAnim,'shoe_in',1),
+              utils.playAnimation(this._tigerAnim,'shoe_in',1),
+            ]);
 
             this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0);
 
