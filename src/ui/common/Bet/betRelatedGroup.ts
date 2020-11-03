@@ -24,15 +24,17 @@ namespace we {
         // mouse.setButtonMode(this._btnBack, true);
         mouse.setButtonMode(this._confirmButton, true);
         this.addListeners();
-        this._repeatLabel.text = 'testing';
+        this.changeLang();
       }
 
       public destroy() {
         super.destroy();
         this.removeListeners();
+        this._timer.stop();
       }
 
       protected addListeners() {
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
         if (this._confirmButton) {
           this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         }
@@ -48,9 +50,13 @@ namespace we {
         if (this._cancelButton) {
           this._cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
         }
+        if (env.isMobile) {
+          dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        }
       }
 
       protected removeListeners() {
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
         if (this._confirmButton) {
           this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         }
@@ -66,14 +72,17 @@ namespace we {
         if (this._cancelButton) {
           this._cancelButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
         }
+        if (env.isMobile) {
+          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        }
       }
 
-      public changeBtnState(isEnable: boolean = true) {
-        this._undoButton.touchChildren = this._undoButton.touchEnabled = isEnable;
+      public changeBtnState(isEnable: boolean = true, totalCfmBetAmount: number = 0, isPrevBet: boolean = false) {
+        this._undoButton.touchEnabled = isEnable;
         this._cancelButton.touchChildren = this._cancelButton.touchEnabled = isEnable;
         this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isEnable;
-        // this._doubleButton.touchChildren = this._doubleButton.touchEnabled = this._chipLayer.getTotalCfmBetAmount() ? true : false;
-        this._repeatButton.touchChildren = this._repeatButton.touchEnabled = this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid;
+        this._doubleButton.touchChildren = this._doubleButton.touchEnabled = totalCfmBetAmount ? true : false;
+        this._repeatButton.touchChildren = this._repeatButton.touchEnabled = isPrevBet;
         this._undoButton.alpha = isEnable ? 1 : 0.5;
         this._cancelButton.alpha = isEnable ? 1 : 0.5;
         this._confirmButton.alpha = isEnable ? 1 : 0.3;
@@ -113,8 +122,44 @@ namespace we {
       set enableConfirm(e: boolean) {
         this._confirmButton.touchEnabled = e;
       }
+
       set enableCancel(e: boolean) {
         this._cancelButton.touchEnabled = e;
+      }
+
+      set isTimerVisible(e: boolean) {
+        if (this._timer) {
+          this._timer.visible = e;
+        }
+      }
+
+      public updateCountdownTimer(gameData: any) {
+        if (this._timer) {
+          this._timer.countdownValue = gameData.countdown * 1000;
+          this._timer.remainingTime = gameData.countdown * 1000 - (env.currTime - gameData.starttime);
+          this._timer.start();
+        }
+      }
+
+      protected changeLang() {
+        // for mobile only
+        this._repeatLabel.text = i18n.t('mobile_ba_repeat');
+        this._repeatLabel.targetWidth = 120;
+        this._cancelLabel.text = i18n.t('mobile_ba_clear');
+        this._cancelLabel.targetWidth = 120;
+        this._doubleLabel.text = i18n.t('mobile_ba_double');
+        this._doubleLabel.targetWidth = 120;
+        this._undoLabel.text = i18n.t('mobile_ba_undo');
+        this._undoLabel.targetWidth = 120;
+      }
+
+      protected changeHandMode() {
+        if (env.leftHandMode) {
+          this.currentState = 'left_hand_mode';
+        } else {
+          this.currentState = 'right_hand_mode';
+        }
+        this.invalidateState();
       }
     }
   }

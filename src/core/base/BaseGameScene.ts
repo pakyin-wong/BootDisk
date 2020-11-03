@@ -30,7 +30,7 @@ namespace we {
       protected _betDetails: data.BetDetail[];
       protected _previousState: number;
       protected _gameData: we.data.GameData;
-      protected _timer: ui.CountdownTimer;
+      // protected _timer: ui.CountdownTimer;
 
       protected _btnBack: egret.DisplayObject;
       protected _lblRoomInfo: egret.DisplayObject;
@@ -68,7 +68,7 @@ namespace we {
       protected mount() {
         super.mount();
         mouse.setButtonMode(this._btnBack, true);
-        // mouse.setButtonMode(this.__betRelatedGroup._confirmButton, true);
+        mouse.setButtonMode(this._betRelatedGroup._confirmButton, true);
 
         this._video = dir.videoPool.get();
         this._video.setBrowser(env.UAInfo.browser.name);
@@ -100,7 +100,7 @@ namespace we {
         this._video.stop();
         dir.videoPool.release(this._video);
         this._chipLayer.getSelectedChipIndex = null;
-        this._timer.stop();
+        // this._timer.stop();
         this.removeEventListeners();
         this.removeChildren();
       }
@@ -212,7 +212,7 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
         if (this._chipLayer) {
-          this._chipLayer.addEventListener('onUnconfirmBet', this._betRelatedGroup.changeBtnState, this);
+          this._chipLayer.addEventListener('onUnconfirmBet', this.changeBetRelatedGroupBtn, this);
           this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
           this._chipLayer.addEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         }
@@ -269,7 +269,7 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
         if (this._chipLayer) {
-          this._chipLayer.removeEventListener('onUnconfirmBet', this._betRelatedGroup.changeBtnState, this);
+          this._chipLayer.removeEventListener('onUnconfirmBet', this.changeBetRelatedGroupBtn, this);
           this._chipLayer.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
           this._chipLayer.removeEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         }
@@ -296,6 +296,14 @@ namespace we {
         this._betRelatedGroup.removeEventListener('ON_UNDO_PRESS', this.onUndoPressed, this);
 
         this._btnBack.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
+      }
+
+      protected changeBetRelatedGroupBtn() {
+        this._betRelatedGroup.changeBtnState(
+          true,
+          this._chipLayer.getTotalCfmBetAmount(),
+          this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
+        );
       }
 
       public backToLobby() {
@@ -341,7 +349,11 @@ namespace we {
         if (this._betDetails && this._chipLayer) {
           this._chipLayer.updateBetFields(this._betDetails);
           this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
-          this._betRelatedGroup.changeBtnState(false);
+          this._betRelatedGroup.changeBtnState(
+            false,
+            this._chipLayer.getTotalCfmBetAmount(),
+            this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
+          );
         }
       }
       protected onBetDetailUpdateInFinishState() {
@@ -487,7 +499,11 @@ namespace we {
           if (this._betDetails && this._chipLayer) {
             this._chipLayer.updateBetFields(this._betDetails);
           }
-          this._betRelatedGroup.changeBtnState(false);
+          this._betRelatedGroup.changeBtnState(
+            false,
+            this._chipLayer.getTotalCfmBetAmount(),
+            this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
+          );
         }
 
         if (this._previousState !== we.core.GameState.BET) {
@@ -507,7 +523,7 @@ namespace we {
           this._undoStack.clearStack();
         }
         // update the countdownTimer
-        this.updateCountdownTimer();
+        this._betRelatedGroup.updateCountdownTimer(this._gameData);
       }
       protected showTwoMessage() {
         this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, i18n.t('expiredmessage_text'));
@@ -605,18 +621,20 @@ namespace we {
         }
       }
 
-      protected updateCountdownTimer() {
-        if (this._timer) {
-          this._timer.countdownValue = this._gameData.countdown * 1000;
-          this._timer.remainingTime = this._gameData.countdown * 1000 - (env.currTime - this._gameData.starttime);
-          this._timer.start();
-        }
-      }
+      // protected updateCountdownTimer() {
+      //   if (this._timer) {
+      //     this._timer.countdownValue = this._gameData.countdown * 1000;
+      //     this._timer.remainingTime = this._gameData.countdown * 1000 - (env.currTime - this._gameData.starttime);
+      //     this._timer.start();
+      //   }
+      // }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
-        if (this._timer) {
-          this._timer.visible = true;
-        }
+        // if (this._timer) {
+        //   this._timer.visible = true;
+        // }
+
+        this._betRelatedGroup.isTimerVisible = true;
 
         if (this._chipLayer) {
           this._chipLayer.setTouchEnabled(enable);
@@ -714,7 +732,11 @@ namespace we {
             if (this._chipLayer.validateBet()) {
               const bets = this._chipLayer.getUnconfirmedBetDetails();
               this._chipLayer.resetUnconfirmedBet(); // Waiting to change to push to waitingforconfirmedbet
-              this._betRelatedGroup.changeBtnState(false);
+              this._betRelatedGroup.changeBtnState(
+                false,
+                this._chipLayer.getTotalCfmBetAmount(),
+                this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
+              );
               this._undoStack.clearStack();
               dir.socket.bet(this._tableId, bets, this.onBetReturned.bind(this));
             }
@@ -775,7 +797,7 @@ namespace we {
         if (this._chipLayer) {
           this._chipLayer.cancelBet();
           this._undoStack.clearStack();
-          this._betRelatedGroup.changeBtnState(false);
+          this._betRelatedGroup.changeBtnState(false, this._chipLayer.getTotalCfmBetAmount(), this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid);
         }
       }
 
@@ -783,13 +805,13 @@ namespace we {
         if (this._chipLayer) {
           this._chipLayer.onRepeatPressed();
         }
-        this._betRelatedGroup.changeBtnState(true);
+        this._betRelatedGroup.changeBtnState(true, this._chipLayer.getTotalCfmBetAmount(), this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid);
       }
 
       protected onDoublePressed() {
         if (this._chipLayer) {
           this._chipLayer.onDoublePressed();
-          this._betRelatedGroup.changeBtnState(true);
+          this._betRelatedGroup.changeBtnState(true, this._chipLayer.getTotalCfmBetAmount(), this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid);
         }
       }
 
@@ -797,7 +819,7 @@ namespace we {
         if (this._chipLayer) {
           this._undoStack.popAndUndo();
           if (!this._chipLayer.getTotalUncfmBetAmount()) {
-            this._betRelatedGroup.changeBtnState(false);
+            this._betRelatedGroup.changeBtnState(false, this._chipLayer.getTotalCfmBetAmount(), this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid);
           }
         }
       }
