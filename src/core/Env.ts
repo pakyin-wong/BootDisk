@@ -172,8 +172,6 @@ namespace we {
         this._livepageLocked = isLock;
       }
 
-      public get 
-
       public get livepageLocked() {
         return this._livepageLocked;
       }
