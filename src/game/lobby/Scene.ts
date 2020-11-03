@@ -98,8 +98,16 @@ namespace we {
       }
 
       private home(e: egret.TouchEvent) {
-        this._selectedIdx = -1;
-        this._list.selectedIndex = -1;
+        // if (env.isMobile) {
+        if (env.isMobile) {
+          this._selectedIdx = 0;
+          this._list.selectedIndex = 0;
+        } else {
+          this._selectedIdx = -1;
+          this._list.selectedIndex = -1;
+        }
+        // }
+
         this.loadPage('lobby');
       } 
 
