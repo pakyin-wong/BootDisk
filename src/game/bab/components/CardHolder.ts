@@ -86,7 +86,6 @@ namespace we {
       }
 
       protected destroy() {
-        /*
         this.destroyAnim(this._playerCard1);
         this.destroyAnim(this._playerCard2);
         this.destroyAnim(this._playerCard3);
@@ -96,7 +95,6 @@ namespace we {
         this.destroyAnim(this._bankerCard3);
         this.destroyAnim(this._smallCard2);
         super.destroy();
-        */
       }
 
       protected createFactory() {
