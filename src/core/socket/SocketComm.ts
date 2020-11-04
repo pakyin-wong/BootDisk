@@ -301,6 +301,9 @@ namespace we {
           }
         }
 
+        env.gameCategories = player.profile.gamecategory;
+        env.gameTypes = player.profile.gametype;
+
         env.blockchain.cosmolink = player.blockchainlinks.cosmoslink
         env.blockchain.thirdPartySHA256 = player.blockchainlinks.thirdpartysha256
 
