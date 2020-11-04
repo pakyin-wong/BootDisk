@@ -616,6 +616,12 @@ namespace we {
               dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
             }
           }
+          if (data.state === core.GameState.DEAL) {
+             if ( tableInfo.bets !== null){
+              tableInfo.prevbets = tableInfo.bets;
+              tableInfo.prevbetsroundid = tableInfo.roundid;
+             }
+          }
           if (data.state === core.GameState.FINISH) {
             this.checkResultNotificationReady(tableInfo);
           }
