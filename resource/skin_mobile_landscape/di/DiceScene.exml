@@ -123,42 +123,10 @@
             <e:VerticalLayout gap="-65" />
         </e:layout>
     </e:Group>
-    <e:Group id="_betSet" left="0" right="0" touchThrough="true" y="200" y.right_hand_mode="200" y.left_hand_mode="200">
-        <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160"
-                                   skinName="skin_mobile.BetChipSkin" labelSize="48" x.right_hand_mode="528"
-                                   x.left_hand_mode="1746" y="20" />
-        <!--<e:Group id="_betRelatedGroup" x.right_hand_mode="762" scaleX="1" scaleY="1" y.right_hand_mode="71"
-                 x.left_hand_mode="600" horizontalCenter="0" verticalCenter="0">
-        <e:Rect id="_roundPanel" width="960" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
-                fillColor="0x444444" right.right_hand_mode="0" left.left_hand_mode="0" />
-        <e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="684"
-                  verticalCenter="0" x.right_hand_mode="684" skinName="skin_mobile_portrait.BetConfirmButtonSkin"
-                  x.left_hand_mode="5" />
-        <ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin"
-                           colorChange="true" x="684" verticalCenter="0" x.right_hand_mode="684" x.left_hand_mode="0" />
-        <e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0"
-                 touchEnabled="false" touchChildren="false">
-            <ui:RunTimeLabel id="_repeatLabel" text="再次下注" verticalCenter="0" x="788" x.right_hand_mode="82" />
-            <ui:RunTimeLabel id="_cancelLabel" text="清除" verticalCenter="0" x="500" x.right_hand_mode="432" />
-            <ui:RunTimeLabel id="_doubleLabel" text="雙倍" verticalCenter="0" x="650" x.right_hand_mode="266" />
-            <ui:RunTimeLabel id="_undoLabel" text="復原" verticalCenter="0" x="349" x.right_hand_mode="588" />
-        </e:Group>
-        <ui:BaseImageButton id="_repeatButton" y="0" anchorOffsetX="0" width="128" anchorOffsetY="0" height="120"
-                            skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel" currentState="b_repeat"
-                            x.right_hand_mode="82" x.left_hand_mode="787" />
-        <ui:BaseImageButton id="_cancelButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
-                            skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel" currentState="b_cancel"
-                            x.right_hand_mode="432" x.left_hand_mode="497" />
-        <ui:BaseImageButton id="_doubleButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
-                            skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel" currentState="b_double"
-                            x.right_hand_mode="264" x.left_hand_mode="650" />
-        <ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
-                            skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel" currentState="b_undo"
-                            x.right_hand_mode="588" x.left_hand_mode="350" />
-    </e:Group>
-    -->
-    <ui:BetRelatedGroup id="_betRelatedGroup" x.right_hand_mode="762" y="65" x.left_hand_mode="600" />
-</e:Group>
+	<e:Group id="_betSet" left="0" right="0" touchThrough="true" y="200" y.right_hand_mode="200" y.left_hand_mode="200">
+		<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" skinName="skin_mobile.BetChipSkin" labelSize="48" x.right_hand_mode="528" x.left_hand_mode="1746" y="50"/>
+		<ui:BetRelatedGroup id="_betRelatedGroup" x.right_hand_mode="762" y="65" x.left_hand_mode="600"/>
+	</e:Group>
 <!--<e:Group id="_betChipSetPanel" width="1566" height="260" scaleY="1" x="366" y="264" y.left_hand_mode="336"
              y.right_hand_mode="336" x.left_hand_mode="390.24" x.right_hand_mode="380">
 <e:Group id="_betPanelGroup" scaleY="1" x="0" height="260" y="0" width="100%" y.right_hand_mode="0">
