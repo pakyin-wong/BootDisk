@@ -336,10 +336,10 @@ namespace we {
               // await block1;
               // await block2;
               
-              await utils.playAnimation(cardAnim,'vertical_in',1);
-              cardAnim.animation.gotoAndStopByFrame('vertical_loop_back', 0);
               await utils.playAnimation(this._ringAnim,'poker_in',1,'POKER_ROUND_ANIMATION_GROUP');
               await utils.playAnimation(this._ringAnim,'poker_out',1,'POKER_ROUND_ANIMATION_GROUP');
+              await utils.playAnimation(cardAnim,'vertical_in',1);
+              cardAnim.animation.gotoAndStopByFrame('vertical_loop_back', 0);
 
           }
 
