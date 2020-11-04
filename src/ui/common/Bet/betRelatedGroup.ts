@@ -13,14 +13,14 @@ namespace we {
       protected _undoLabel: ui.RunTimeLabel;
 
       protected _roundPanel: ui.RoundRectShape;
-      protected _timer: ui.CountdownTimer;
+      public _timer: ui.CountdownTimer;
 
       public constructor(skin: string = 'BetRelatedGroup') {
-        if (env.orientation === "portrait") {
+        if (env.orientation === 'portrait') {
           switch (env._currGameType) {
-            case 12: //DI
-            case 14: //RO
-            case 17: //ROL
+            case 12: // DI
+            case 14: // RO
+            case 17: // ROL
               skin = 'BetRelatedGroupVertical';
               break;
           }
@@ -152,14 +152,16 @@ namespace we {
 
       protected changeLang() {
         // for mobile only
-        this._repeatLabel.text = i18n.t('mobile_ba_repeat');
-        this._repeatLabel.targetWidth = 120;
-        this._cancelLabel.text = i18n.t('mobile_ba_clear');
-        this._cancelLabel.targetWidth = 120;
-        this._doubleLabel.text = i18n.t('mobile_ba_double');
-        this._doubleLabel.targetWidth = 120;
-        this._undoLabel.text = i18n.t('mobile_ba_undo');
-        this._undoLabel.targetWidth = 120;
+        if (env.isMobile) {
+          this._repeatLabel.text = i18n.t('mobile_ba_repeat');
+          this._repeatLabel.targetWidth = 120;
+          this._cancelLabel.text = i18n.t('mobile_ba_clear');
+          this._cancelLabel.targetWidth = 120;
+          this._doubleLabel.text = i18n.t('mobile_ba_double');
+          this._doubleLabel.targetWidth = 120;
+          this._undoLabel.text = i18n.t('mobile_ba_undo');
+          this._undoLabel.targetWidth = 120;
+        }
       }
 
       protected changeHandMode() {

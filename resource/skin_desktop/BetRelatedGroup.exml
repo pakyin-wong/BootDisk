@@ -5,7 +5,6 @@
 	<ui:Group>
 		<e:Rect id="_roundPanel" width="1040" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 		<e:Rect width="1" height="54" fillAlpha="0.3" fillColor="0x000000" verticalCenter="0" right="460"/>
-		<ui:BetChipSetHorizontal id="_betChipSet" width="548" height="64" y="3" anchorOffsetX="0" anchorOffsetY="0" x="15" />
 		<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="150" anchorOffsetY="0" height="64"
 		          skinName="skins_desktop.BetConfirmButtonSkin"  right="293" verticalCenter="0"/>
 		<ui:CountdownTimer id="_timer" width="150" height="64" colorChange="true" skinName="skin_desktop.CountdownTimerSkin"
