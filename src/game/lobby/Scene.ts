@@ -21,9 +21,9 @@ namespace we {
         this._skinKey = 'LobbyScene';
         this.skinName = utils.getSkinByClassname(this._skinKey);
         if (env.isMobile) {
-          this._items = ['lobby', 'live', 'lottery', 'egame', 'favourite'];
+          this._items = ['lobby', ...env.gameCategories, 'favourite']// ['lobby', 'live', 'lottery', 'egame', 'favourite'];
         } else {
-          this._items = ['live', 'lottery', 'egame', 'favourite'];
+          this._items = [...env.gameCategories, 'favourite'];
         }
       }
 
