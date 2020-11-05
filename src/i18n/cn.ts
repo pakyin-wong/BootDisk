@@ -83,6 +83,7 @@ namespace we {
       overlaypanel_customroad_selectall: '全选',
 
       overlaypanel_bethistory_title: '游戏记录',
+      overlaypanel_bethistory_payout: '派彩',
       overlaypanel_bethistory_tab: '分类',
       overlaypanel_bethistory_tab_all: '游戏总览',
       overlaypanel_bethistory_tab_live: '真人游戏',

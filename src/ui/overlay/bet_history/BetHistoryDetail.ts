@@ -68,7 +68,7 @@ namespace we {
           this.setText(this._txt_record_remark, `${i18n.t('overlaypanel_bethistory_recordtab_remark')}`);
           this.setText(this._txt_record_bettype, `${i18n.t('overlaypanel_bethistory_recordtab_bettype')}`);
           this.setText(this._txt_record_betamount, `${i18n.t('overlaypanel_bethistory_recordtab_betamount')}`);
-          this.setText(this._txt_record_win_l, `${i18n.t('overlaypanel_bethistory_recordtab_win')}`);
+          this.setText(this._txt_record_win_l, `${i18n.t('overlaypanel_bethistory_payout')}`);
           this.setText(this._txt_record_finbalance, `${i18n.t('overlaypanel_bethistory_recordtab_finbalance')}`);
           this.setText(this._txt_record_result, `${i18n.t('overlaypanel_bethistory_recordtab_resuit')}`);
 

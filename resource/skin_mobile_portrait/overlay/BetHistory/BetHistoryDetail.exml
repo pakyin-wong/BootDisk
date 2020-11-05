@@ -21,7 +21,7 @@
 		<ui:ClampWidthLabel id="_record_remark" text="輸" x="96" y="1505" height="83" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="800" targetWidth="500" x.lottery="810" y.lottery="1703" width.lottery="336" height.lottery="78"/>
 		<ui:RunTimeLabel id="_txt_record_bettype" text="投注項目" x="96" y="1242" height="74" size="50" verticalAlign="middle" alpha="0.5" anchorOffsetX="0" width="800" targetWidth="500" visible.lottery="false"/>
 		<ui:RunTimeLabel id="_record_bettype" text="閒" x="96" y="1314" height="83" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="800" targetWidth="500" visible.lottery="false"/>
-		<ui:RunTimeLabel id="_txt_record_betamount" text="投注額" x="890" y="1242" height="74" size="50" verticalAlign="middle" alpha="0.5" anchorOffsetX="0" width="246" targetWidth="500" x.lottery="810" y.lottery="1431" width.lottery="336"/>
+		<ui:RunTimeLabel id="_txt_record_betamount" text="投注額" x="890" y="1242" height="74" size="50" verticalAlign="middle" alpha="0.5" anchorOffsetX="0" width="246" targetWidth="500" x.lottery="810" y.lottery="1431" width.lottery="336" width.normal="300"/>
 		<ui:ClampWidthLabel id="_record_betamount" text="00.00" x="890" y="1320" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="246" targetWidth="500" x.lottery="810" y.lottery="1509" width.lottery="336"/>
 
 		<e:Label id="_txt_roundL" text="獎期" size="50" verticalAlign="middle" height="74" width="800" y="1059"  x="96" alpha="0.5" visible.normal="false" width.lottery="700"/>

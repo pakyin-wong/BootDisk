@@ -75,6 +75,7 @@ namespace we {
       overlaypanel_customroad_selectall: 'Select All',
 
       overlaypanel_bethistory_title: 'Bet Log',
+      overlaypanel_bethistory_payout: 'Payout',
       overlaypanel_bethistory_tab: 'Class',
       overlaypanel_bethistory_tab_all: 'All',
       overlaypanel_bethistory_tab_live: 'Live',
