@@ -21,6 +21,10 @@ namespace we {
       public _historyPanel2: History;
       public beadRoad: DilBeadRoad;
 
+      protected test_button1: eui.Group;
+      protected test_button2: eui.Group;
+      protected _historyGroupHolder: ui.HorizontalHolder;
+
       public constructor(skin?: string) {
         super(skin || !env.isMobile ? skin : 'dil.MobileBottomGamePanel');
       }
@@ -66,6 +70,10 @@ namespace we {
         if (this.poolBtn) {
           this.poolBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         }
+        if (this.test_button1 && this.test_button2) {
+          this.test_button2.addEventListener(egret.TouchEvent.TOUCH_TAP,this.NextHistory,this)
+          this.test_button1.addEventListener(egret.TouchEvent.TOUCH_TAP,this.PrevHistory,this)
+        }
       }
 
       protected removeListeners() {
@@ -77,6 +85,10 @@ namespace we {
         }
         if (this.poolBtn) {
           this.poolBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        }
+        if (this.test_button1 && this.test_button2) {
+          this.test_button2.removeEventListener(egret.TouchEvent.TOUCH_TAP,this.NextHistory,this)
+          this.test_button1.removeEventListener(egret.TouchEvent.TOUCH_TAP,this.PrevHistory,this)
         }
       }
 
@@ -113,6 +125,16 @@ namespace we {
         this.tableInfoBtn.selected = true;
         this.viewStack.selectedIndex = this.tableInfoBtn.value;
       }
+
+      protected NextHistory(){
+        console.log('NextHistory')
+      }
+
+      protected PrevHistory(){
+        console.log('PrevHistory')
+      }
+
+
     }
   }
 }
