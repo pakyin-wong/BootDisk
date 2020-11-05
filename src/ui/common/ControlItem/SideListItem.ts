@@ -32,6 +32,7 @@ namespace we {
       protected _tableLayerGroup: eui.Group;
 
       protected _arrowPanel: eui.Image;
+      protected _arrow: eui.Image;
 
       public constructor(skinName: string = null) {
         super(skinName);
@@ -231,20 +232,30 @@ namespace we {
         }
       }
 
+      public onRollover(evt: egret.Event) {
+        super.onRollover(evt);
+        if (this._arrow) {
+          this._arrow.visible = true;
+        }
+      }
+
+      public onRollout(evt: egret.Event) {
+        super.onRollout(evt);
+        if (this._arrow) {
+          this._arrow.visible = false;
+        }
+      }
       protected animateQuickBetButton(show: boolean) {
         super.animateQuickBetButton(show);
         if (!this._quickbetButton) {
           return;
         }
+
         egret.Tween.removeTweens(this._quickbetButton);
         if (show) {
-          egret.Tween.get(this._quickbetButton)
-            .set({ visible: true })
-            .to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
+          egret.Tween.get(this._quickbetButton).set({ visible: true }).to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
         } else {
-          egret.Tween.get(this._quickbetButton)
-            .to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250)
-            .set({ visible: false });
+          egret.Tween.get(this._quickbetButton).to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250).set({ visible: false });
         }
         //   egret.Tween.removeTweens(this._quickbetButton);
         //   if (show) {
