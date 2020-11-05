@@ -252,7 +252,8 @@ namespace we {
       }
 
       public gameTypeFilter(gameType: number, validGameTypes: number[]) {
-        if (validGameTypes.indexOf(gameType) < 0 || this.gameTypes.indexOf(gameType) < 0) {
+        // if (validGameTypes.indexOf(gameType) < 0 || this.gameTypes.indexOf(gameType) < 0) {
+        if (validGameTypes.indexOf(gameType) < 0) {
           return false;
         }
         return true;
