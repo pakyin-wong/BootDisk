@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.BetRelatedGroup" width="1040" height="70" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="left_hand_mode,right_hand_mode">
+	<ui:Group id="_betRelatedGroup" isEdgeDismissable="true">
+	<ui:Group>
+		<e:Rect id="_roundPanel" width="1040" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
+		<e:Rect width="1" height="54" fillAlpha="0.3" fillColor="0x000000" verticalCenter="0" right="460"/>
+		<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="150" anchorOffsetY="0" height="64"
+		          skinName="skins_desktop.BetConfirmButtonSkin"  right="293" verticalCenter="0"/>
+		<ui:CountdownTimer id="_timer" width="150" height="64" colorChange="true" skinName="skin_desktop.CountdownTimerSkin"
+						   tooltipText="'live.tooltip.confirmBet'" tooltipPosition="'above'"  touchEnabled="false" right="293" verticalCenter="0"/>
+		<ui:BaseAnimationButton id="_undoButton" width="55" height="55" verticalCenter="0"
+		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true"
+								tooltipText="'mobile_ba_undo'" tooltipPosition="'above'"  right="220"/>
+		<ui:BaseAnimationButton id="_cancelButton" width="55" height="55" verticalCenter="0"
+		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_clear" useColorFilter="true"
+								tooltipText="'mobile_ba_clear'" tooltipPosition="'above'"  right="154"/>
+		<ui:BaseAnimationButton id="_doubleButton" width="55" height="55" verticalCenter="0"
+		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_double" useColorFilter="true"
+								tooltipText="'mobile_ba_double'" tooltipPosition="'above'"  right="22"/>
+		<ui:BaseAnimationButton id="_repeatButton" width="55" height="55" verticalCenter="0"
+		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_rebet" useColorFilter="true"
+								tooltipText="'mobile_ba_repeat'" tooltipPosition="'above'"  right="88"/>
+	</ui:Group>
+	</ui:Group>
+</e:Skin>
