@@ -23,6 +23,7 @@ namespace we {
       public betInfo?: GameTableBetInfo;
       public displayReady?: boolean = false;
       public goodRoad?: GoodRoadData;
+      public tablelimit?: number;
     }
   }
 }
