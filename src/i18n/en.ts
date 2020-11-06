@@ -29,6 +29,8 @@ namespace we {
       sidegamelist_tab_goodroad: 'GoodRoad',
 
       lobby_footer_text: 'Copyright © 2020 World Entertainment All rights reserved.',
+      lobby_no_favourite_text: 'No favorite game selected',
+      lobby_tag_hint_text: 'Mark your favorite games with heart button',
 
       betfield_baccarat_banker: 'banker',
       betfield_baccarat_player: 'player',

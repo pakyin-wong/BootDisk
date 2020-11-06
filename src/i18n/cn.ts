@@ -29,6 +29,8 @@ namespace we {
       sidegamelist_tab_goodroad: '好路',
 
       lobby_footer_text: 'Copyright © 2020 World Entertainment 保留一切权利。',
+      lobby_no_favourite_text: '没有我的最爱',
+      lobby_tag_hint_text: '将你喜爱的游戏标上爱心',
 
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '闲',
