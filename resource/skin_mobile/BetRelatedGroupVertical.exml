@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.BetRelatedGroupVertical" width="128" height="926" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="left_hand_mode,right_hand_mode">
+    <e:Group id="_betRelatedGroup" width="128">
+      <e:Rect id="_roundPanel" width="128" height="926" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"/>
+      <e:Button id="_confirmButton" label="" anchorOffsetX="0" width="256" anchorOffsetY="0" height="120" horizontalCenter="0" y="675" skinName="skin_mobile_portrait.BetConfirmButtonMobile" rotation="90"/>
+      <ui:CountdownTimer id="_timer" width="256" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" y="675" horizontalCenter="0" rotation="90" currentState="vertical" colorChange="true"/>
+			<ui:RunTimeLabel id="_repeatLabel" text="再次下注" y="154" left="0" right="0" textAlign="center" verticalAlign="middle" size="32" height="47"/>
+			<ui:RunTimeLabel id="_cancelLabel" text="清除" y="445" left="0" right="0" textAlign="center" verticalAlign="middle" size="32" height="47"/>
+			<ui:RunTimeLabel id="_doubleLabel" text="雙倍" y="306" left="0" right="0" textAlign="center" verticalAlign="middle" size="32" height="47"/>
+			<ui:RunTimeLabel id="_undoLabel" text="復原" y="587" left="0" right="0" textAlign="center" verticalAlign="middle" size="32" height="47"/>
+      <ui:BaseImageButton id="_repeatButton" y="81" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_repeat"/>
+      <ui:BaseImageButton id="_cancelButton" y="362" anchorOffsetX="0" anchorOffsetY="0" height="120" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_cancel" horizontalCenter="0"/>
+      <ui:BaseImageButton id="_doubleButton" y="233" anchorOffsetX="0" anchorOffsetY="0" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_double" horizontalCenter="0"/>
+      <ui:BaseImageButton id="_undoButton" y="514" anchorOffsetX="0" anchorOffsetY="0" height="120" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo" horizontalCenter="0"/>
+    </e:Group>
+</e:Skin>

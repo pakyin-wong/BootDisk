@@ -30,6 +30,7 @@ namespace we {
         this._cardInfoPanel.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
         (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         (<any>this._resultDisplay).addEventListener('OPEN_SHUFFLE_PANEL', this.showShufflePanel, this);
+        this.getShoeInfo();
       }
 
       protected setSkinName() {
@@ -56,7 +57,7 @@ namespace we {
 
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-        this.getShoeInfo();
+
         this._historyCardHolder.setCards(this._tableId);
         this._historyCardHolder.setNumber(this._gameData.currentcardindex);
         this._shufflePanel.hide();
@@ -68,7 +69,6 @@ namespace we {
       }
 
       protected setStateDeal(isInit: boolean = false) {
-        this.getShoeInfo();
         this._shufflePanel.hide();
         this._deckPanel.setValue(<bab.GameData>this._gameData);
         super.setStateDeal(isInit);
@@ -76,7 +76,6 @@ namespace we {
       }
 
       protected setStateFinish(isInit: boolean) {
-        this.getShoeInfo();
         this._shufflePanel.hide();
         this._deckPanel.setValue(<bab.GameData>this._gameData);
         super.setStateFinish(isInit);
@@ -84,6 +83,7 @@ namespace we {
       }
 
       protected setStateShuffle(isInit: boolean) {
+        this.getShoeInfo();
         super.setStateShuffle(isInit);
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit)
       }

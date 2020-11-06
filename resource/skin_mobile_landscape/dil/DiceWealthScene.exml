@@ -6,7 +6,7 @@
 	<e:Image id="_bgImg" top="0" bottom="0" x="0" width="2424" source="m_lw_ver_bg_jpg"  locked="true"/>
 	<e:Group id="_verticalGroup" width="2424" x="0" bottom="0">
 		<e:Group id="_verticalTop" width="2424" x="0">
-	<e:Group id="_betRelatedGroup" scaleX="1" scaleY="1" x.left_hand_mode="600" x.right_hand_mode="762" y="250"
+	<!--<e:Group id="_betRelatedGroup" scaleX="1" scaleY="1" x.left_hand_mode="600" x.right_hand_mode="762" y="250"
 	         y.right_hand_mode="257">
 		<e:Rect id="_roundPanel" width="954" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
 		        fillColor="0x444444" right.right_hand_mode="0" left.left_hand_mode="0" />
@@ -33,8 +33,8 @@
 		<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
 		                    skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel" currentState="b_undo"
 		                    x.right_hand_mode="588" x.left_hand_mode="350" />
-	</e:Group>
-	<!-- === -->
+	</e:Group>-->
+	<ui:BetRelatedGroup id="_betRelatedGroup" x.left_hand_mode="600" x.right_hand_mode="762" y="250"/>
 	<e:Rect width="1218" height="324" y="435" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x1b1f22" horizontalCenter="0" ellipseWidth="20" ellipseHeight="20"/>
 	<dil:MobileTableLayer id="_tableLayer" y="435" isEdgeDismissable="true" skinName="skin_mobile_landscape.dil.MobileTableLayerSkin"
 	               scaleX="1" scaleY="1" horizontalCenter="0" alpha="0.7" />

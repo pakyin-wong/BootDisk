@@ -4,7 +4,7 @@
         states="left_hand_mode,right_hand_mode">
 	<w:Config id="17181f4be03" />
 	<e:Rect width="1242" height="2155" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0c111a" visible="false" />
-	<e:Image id="_bgImg" source="m_ba_bg_offvideo_png" x="0" width="1242" height="986"/>
+	<e:Image id="_bgImg" source="m_ba_bg_offvideo_png" x="0" width="1242" height="986" />
 	<e:Group id="_verticalGroup" width="1242" x="0" bottom="0">
 		<e:Group id="_verticalTop" width="1242" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
 		         height.right_hand_mode="707">
@@ -41,10 +41,9 @@
 			</e:Group>
 			<e:Group height="104" x="1088" anchorOffsetX="0" anchorOffsetY="0" y="686" width="104" y.right_hand_mode="-157"
 			         x.right_hand_mode="1109" y.left_hand_mode="-157" x.left_hand_mode="1109">
-
 				<e:ToggleSwitch id="_switchBaMode" label=" " x="0" y="0" scaleX="1" scaleY="1" width="104" height="104"
 				                skinName="skins.MobileToggleSwitchSkin" />
-				<ui:RunTimeLabel id="_lblBaMode" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"/>
+				<ui:RunTimeLabel id="_lblBaMode" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" />
 				<e:layout>
 					<e:BasicLayout/>
 				</e:layout>
@@ -52,7 +51,7 @@
 			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" horizontalCenter="494"
 			                           skinName="skin_mobile.BetChipSkin" horizontalCenter.right_hand_mode="-470"
 			                           horizontalCenter.left_hand_mode="511" labelSize="48" y="76" />
-			<e:Group id="_betRelatedGroup" x="34" y="84" x.right_hand_mode="224" scaleX="1" scaleY="1" width.left_hand_mode="984">
+			<!--<e:Group id="_betRelatedGroup" x="34" y="84" x.right_hand_mode="224" scaleX="1" scaleY="1" width.left_hand_mode="984">
 				<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
 				        fillColor="0x444444" width.left_hand_mode="954" x.right_hand_mode="30" width.right_hand_mode="954" />
 				<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="874"
@@ -62,14 +61,15 @@
 				                   colorChange="true" verticalCenter="0" x.right_hand_mode="683" />
 				<e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0"
 				         touchEnabled="false" touchChildren="false">
+					<e:Group></e:Group>
+					<e:Group></e:Group>
+					<e:Group></e:Group>
 					<ui:RunTimeLabel id="_repeatLabel" text="再次下注" verticalCenter="0" x="788" x.right_hand_mode="66" />
 					<ui:RunTimeLabel id="_doubleLabel" text="雙倍" verticalCenter="0" x="650" x.right_hand_mode="245" />
 					<ui:RunTimeLabel id="_cancelLabel" text="清除" verticalCenter="0" x="500" x.right_hand_mode="395" />
-					<e:Group x="335" verticalCenter="0" x.right_hand_mode="530" width="100" >
+					<e:Group x="335" verticalCenter="0" x.right_hand_mode="530" width="100">
 						<ui:RunTimeLabel id="_undoLabel" text="復原" verticalCenter="0" horizontalCenter="0" />
 					</e:Group>
-					<!--<ui:RunTimeLabel id="_undoLabel" text="復原" verticalCenter="0" x="349" x.right_hand_mode="547" />
-					-->
 				</e:Group>
 				<ui:BaseImageButton id="_repeatButton" y="0" anchorOffsetX="0" width="128" anchorOffsetY="0" height="120"
 				                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_repeat" x="787"
@@ -83,7 +83,8 @@
 				<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
 				                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo" x="351"
 				                    x.right_hand_mode="545" />
-			</e:Group>
+			</e:Group>-->
+			<ui:BetRelatedGroup id="_betRelatedGroup" x="34" y="84" x.right_hand_mode="224"/>
 		</e:Group>
 		<ba:MobileBottomGamePanel skinName="skin_mobile_portrait.ba.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"
 		                          x="0" scaleY="1" y="783" scaleX="1" />
@@ -93,35 +94,37 @@
 	</e:Group>
 	<e:Group id="_betChipSetPanel" width="1182" height="762" scaleY="1" y="986" horizontalCenter="4" touchThrough="true">
 		<e:Group id="_betPanelGroup" horizontalCenter="0" left="0" right="0" touchThrough="true">
-			<e:Image id="_panel" width="100%" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" 
-			         height="790" y="33" x="0"  />
+			<e:Image id="_panel" width="100%" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" height="790" y="33"
+			         x="0" />
 			<e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" left.left_hand_mode="1043"
 			         scaleY="1" width.left_hand_mode="68" y="2" scaleX="1" width.right_hand_mode="70"
 			         right.right_hand_mode="1057" />
 		</e:Group>
-		<ui:BetChipSetGrid id="_betChipSet" alpha="0" horizontalCenter="0" betChipWidth="250"
-		                   betChipHeight="208" y="0" labelSize="48" right="0" left="0" />
+		<ui:BetChipSetGrid id="_betChipSet" alpha="0" horizontalCenter="0" betChipWidth="250" betChipHeight="208" y="0"
+		                   labelSize="48" right="0" left="0" />
 	</e:Group>
 	<e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="1242" touchEnabled="false"
 	         touchChildren="true" touchThrough="true" height="121">
 		<e:Group>
 			<e:Group>
-				<ui:RunTimeLabel id="_lblRoomNo" x="25" y="15" size="40" height="56" verticalAlign="middle"
-								textAlign="left" anchorOffsetX="0" text="Label" />
-				<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Arial" size="40" text="label" x="25" y="65"/>
+				<ui:RunTimeLabel id="_lblRoomNo" x="25" y="15" size="40" height="56" verticalAlign="middle" textAlign="left"
+				                 anchorOffsetX="0" text="Label" />
+				<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Arial" size="40" text="label" x="25" y="65" />
 			</e:Group>
-			<ui:GoodRoadLabel id="_BAgoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin"  x="215" y="23"/>
+			<ui:GoodRoadLabel id="_BAgoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin" x="215" y="23" />
 			<e:layout>
-				<e:HorizontalLayout gap="36" verticalAlign="middle"/>
+				<e:HorizontalLayout gap="36" verticalAlign="middle" />
 			</e:layout>
-		<!--<ui:BAGoodRoadLabel id="_BAGoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin" right="13" bottom="10" />-->
+			<!--<ui:BAGoodRoadLabel id="_BAGoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin" right="13"
+			                        bottom="10" />
+			-->
 		</e:Group>
-					<e:Group y="65" right="15">
-						<ui:RunTimeLabel id="_totalBet" text="0" anchorOffsetX="0" textAlign="right" size="36" right="5" fontFamily="Barlow"/>
-						<ui:RunTimeLabel id="_totalBetText" text="總下注" anchorOffsetX="0" textAlign="right" size="36" alpha="0.7"/>
-						<e:layout>
-							<e:HorizontalLayout/>
-						</e:layout>
+		<e:Group y="65" right="15">
+			<ui:RunTimeLabel id="_totalBet" text="0" anchorOffsetX="0" textAlign="right" size="36" right="5" fontFamily="Barlow" />
+			<ui:RunTimeLabel id="_totalBetText" text="總下注" anchorOffsetX="0" textAlign="right" size="36" alpha="0.7" />
+			<e:layout>
+				<e:HorizontalLayout/>
+			</e:layout>
 		</e:Group>
 		<e:Group id="_btnBack" width="104" height="104" x="31" y="149">
 			<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0"
