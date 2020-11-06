@@ -21,6 +21,15 @@ namespace we {
       public _historyPanel2: History;
       public beadRoad: DilBeadRoad;
 
+      protected prevBtn: eui.Group;
+      protected nextBtn: eui.Group;
+      protected prevArrow: eui.Image;
+      protected nextArrow: eui.Image;
+      protected _historyGroupHolder: ui.HorizontalHolder;
+
+      protected _roundNumber: eui.Label;
+      public round: number;
+
       public constructor(skin?: string) {
         super(skin || !env.isMobile ? skin : 'dil.MobileBottomGamePanel');
       }
@@ -46,7 +55,10 @@ namespace we {
         this._historyGroup.addChild(this.beadRoad);
 
         this._historyPanel1.totalResult = 10;
-        this._historyPanel2.totalResult= 50;
+        this._historyPanel2.totalResult = 50;
+
+        this.round = 10;
+        this._roundNumber.text = this.round.toString();
       }
 
       public destroy() {
@@ -58,6 +70,8 @@ namespace we {
 
       protected addListeners() {
         super.addListeners();
+        this._historyGroupHolder.addEventListener('HOLDER_DO_NEXT', this.arrowBtnState, this);
+        this._historyGroupHolder.addEventListener('HOLDER_DO_PREVIOUS', this.arrowBtnState, this);
         this.chartBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.tableInfoBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         if (this.historyBtn) {
@@ -66,10 +80,16 @@ namespace we {
         if (this.poolBtn) {
           this.poolBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         }
+        if (this.prevBtn && this.nextBtn) {
+          this.nextBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.NextHistory, this);
+          this.prevBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.PrevHistory, this);
+        }
       }
 
       protected removeListeners() {
         super.removeListeners();
+        this._historyGroupHolder.removeEventListener('HOLDER_DO_NEXT', this.arrowBtnState, this);
+        this._historyGroupHolder.removeEventListener('HOLDER_DO_PREVIOUS', this.arrowBtnState, this);
         this.chartBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.tableInfoBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         if (this.historyBtn) {
@@ -77,6 +97,10 @@ namespace we {
         }
         if (this.poolBtn) {
           this.poolBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        }
+        if (this.prevBtn && this.nextBtn) {
+          this.nextBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.NextHistory, this);
+          this.prevBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.PrevHistory, this);
         }
       }
 
@@ -112,6 +136,31 @@ namespace we {
         super.openTableInfo();
         this.tableInfoBtn.selected = true;
         this.viewStack.selectedIndex = this.tableInfoBtn.value;
+      }
+
+      protected NextHistory() {
+        if (this._historyGroupHolder._currentPageIdx != 0) return;
+        this._historyGroupHolder.doNext();
+        this.arrowBtnState();
+      }
+
+      protected PrevHistory() {
+        if (this._historyGroupHolder._currentPageIdx == 0) return;
+        this._historyGroupHolder.doPrevious();
+        this.arrowBtnState();
+      }
+
+      protected arrowBtnState() {
+        if (this._historyGroupHolder._currentPageIdx == 0) {
+          this.prevArrow.source = 'm_common_panel_info_btn_left_active_png';
+          this.nextArrow.source = 'm_common_panel_info_btn_right_png';
+          this.round = 50;
+        } else {
+          this.prevArrow.source = 'm_common_panel_info_btn_left_png';
+          this.nextArrow.source = 'm_common_panel_info_btn_right_active_png';
+          this.round = 10;
+        }
+        this._roundNumber.text = this.round.toString();
       }
     }
   }
