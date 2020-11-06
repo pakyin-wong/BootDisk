@@ -41,12 +41,10 @@ namespace we {
       }
 
       protected destroy() {
-        /*
         this.destroyAnim(this._ringAnim);
         this.destroyAnim(this._smallRedCard);
         super.destroy();
         this._factory.clear(true);
-        */
       }
 
       protected openCardInfo(infoIndex) {
@@ -137,9 +135,10 @@ namespace we {
       protected abstract updateAllSum();
 
       protected async hideCard(cardAnim, orientation, front = '') {
-        const p1 = we.utils.waitDragonBone(cardAnim);
-        cardAnim.animation.play(`${orientation}_out${front}`);
-        await p1;
+        await utils.playAnimation(cardAnim,`${orientation}_out${front}`,1);
+        // const p1 = we.utils.waitDragonBone(cardAnim);
+        // cardAnim.animation.play(`${orientation}_out${front}`);
+        // await p1;
 
         cardAnim.animation.gotoAndStopByTime(`${orientation}_idle`, 0);
 

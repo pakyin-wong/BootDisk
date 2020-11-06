@@ -5,14 +5,16 @@ namespace we {
         target.once(ev, resolve, target);
       });
     }
-    export function waitDragonBone(target) {
-      return we.utils.waitDragonBoneEvent(target, dragonBones.EventObject.COMPLETE);
+    export function waitDragonBone(target, animName: string = null) {
+      return we.utils.waitDragonBoneEvent(target, dragonBones.EventObject.COMPLETE, animName);
     }
-    export function waitDragonBoneEvent(target: dragonBones.IEventDispatcher, ev: string) {
+    export function waitDragonBoneEvent(target: dragonBones.IEventDispatcher, ev: string, animName: string = null) {
       const p = new Promise((resolve, reject) => {
-        const r = () => {
-          target.removeDBEventListener(ev, r, target);
-          resolve();
+        const r = (event) => {
+          if (!(animName && event.animationName != animName)) {
+            target.removeDBEventListener(ev, r, target);
+            resolve();
+          }
         };
         target.addDBEventListener(ev, r, target);
       });

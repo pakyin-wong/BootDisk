@@ -18,7 +18,7 @@ namespace we {
       protected _lblBaMode: ui.RunTimeLabel;
       protected _goodRoadLabel: ui.GoodRoadLabel;
 
-      protected _timer: any;
+      // protected _timer: any;
 
       constructor(data: any) {
         super(data);
@@ -49,7 +49,8 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
-        const test = this._timer.countdownValue;
+        // const test = this._timer.countdownValue;
+        const test = this._betRelatedGroup._timer.countdownValue;
         this._roadmapControl.setTableInfo(this._tableInfo);
 
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
