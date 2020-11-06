@@ -503,6 +503,9 @@ namespace we {
           return;
         }
         env.tableInfos[this._tableId].prevbets.map(value => {
+          if (this._betChipStackMapping[value.field].uncfmBet === value.amount) {
+            return
+          }
           this._betChipStackMapping[value.field].uncfmBet = value.amount * this.getRate(value.field);
           this._betChipStackMapping[value.field].draw();
           for (const detail of this._uncfmBetDetails) {
