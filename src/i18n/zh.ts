@@ -523,6 +523,7 @@ namespace we {
       },
       game: {
         insufficientBalance: '餘額不足',
+        exceedTableLimit: '超過本檯限紅',
         exceedBetUpperLimit: '超過投注上限',
         exceedBetLowerLimit: '低過投注下限',
         startBet: '投注開始',

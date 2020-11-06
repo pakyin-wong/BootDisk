@@ -215,6 +215,7 @@ namespace we {
 
         if (this._chipLayer) {
           this._chipLayer.addEventListener('onUnconfirmBet', this.changeBetRelatedGroupBtn, this);
+          this._chipLayer.addEventListener(core.Event.EXCEED_TABLE_LIMIT, this.exceedTableLimit, this);
           this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
           this._chipLayer.addEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         }
@@ -251,6 +252,13 @@ namespace we {
         }
       }
 
+      public exceedTableLimit() {
+        if (this._message) {
+          this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.exceedTableLimit'));
+        }
+      }
+
+
       public exceedBetLimit(evt: egret.Event) {
         if (this._message) {
           if (evt && evt.data && evt.data.exceedLower) {
@@ -274,6 +282,7 @@ namespace we {
 
         if (this._chipLayer) {
           this._chipLayer.removeEventListener('onUnconfirmBet', this.changeBetRelatedGroupBtn, this);
+          this._chipLayer.removeEventListener(core.Event.EXCEED_TABLE_LIMIT, this.exceedTableLimit, this);
           this._chipLayer.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
           this._chipLayer.removeEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         }
@@ -767,6 +776,11 @@ namespace we {
         // dealing with backend error message
         if (result.error) {
           switch (result.error.id) {
+            case '4001':
+              if (this._chipLayer) {
+                this._chipLayer.dispatchEvent(new egret.Event(core.Event.EXCEED_TABLE_LIMIT));
+              }
+              break;
             case '4002':
               if (this._chipLayer) {
                 this._chipLayer.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
