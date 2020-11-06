@@ -40,7 +40,7 @@
 						<e:Label id="_record_win_l" text="+00.00" x="96" y="447.0000000000001" height="144" size="120" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
 						<e:Group id="ReplayButton" x="96" y="631" scaleX="1" scaleY="1">
 							<e:Image width="24" height="32" x="78" y="32" source="m_common_setting_playerreportlist_detail_result_replay_icon_png"/>
-							<ui:RunTimeLabel id="_txt_record_replay" text="重播" x="124" y="11" height="74" size="50" verticalAlign="middle" textColor="0xd9a170" textAlign="center"/>
+							<ui:RunTimeLabel id="_txt_record_replay" text="重播" x="124" y="11" height="74" size="50" verticalAlign="middle" textColor="0xd9a170" textAlign="center" targetWidth="160"/>
 							<ui:RoundRectButton id="_btn_replay" width="300" height="100" x="0" y="0" fillAlpha="0" strokeColor="0xb1835b" stroke="1" cornerTL_TR_BL_BR="50,50,50,50"/>
 						</e:Group>
 						<e:Label id="_txt_roundL" text="獎期" size="50" verticalAlign="middle" height="74" width="670" y="196" x="1307" alpha="0.5" visible.normal="false" width.lottery="700" scaleX="1" scaleY="1"/>
