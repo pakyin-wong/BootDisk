@@ -58,7 +58,9 @@ namespace we {
         this._historyPanel2.totalResult = 50;
 
         this.round = 10;
-        this._roundNumber.text = this.round.toString();
+        if (this._roundNumber) {
+          this._roundNumber.text = this.round.toString();
+        }
       }
 
       public destroy() {
@@ -70,8 +72,10 @@ namespace we {
 
       protected addListeners() {
         super.addListeners();
-        this._historyGroupHolder.addEventListener('HOLDER_DO_NEXT', this.arrowBtnState, this);
-        this._historyGroupHolder.addEventListener('HOLDER_DO_PREVIOUS', this.arrowBtnState, this);
+        if (this._historyGroupHolder) {
+          this._historyGroupHolder.addEventListener('HOLDER_DO_NEXT', this.arrowBtnState, this);
+          this._historyGroupHolder.addEventListener('HOLDER_DO_PREVIOUS', this.arrowBtnState, this);
+        }
         this.chartBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.tableInfoBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         if (this.historyBtn) {
@@ -88,8 +92,10 @@ namespace we {
 
       protected removeListeners() {
         super.removeListeners();
-        this._historyGroupHolder.removeEventListener('HOLDER_DO_NEXT', this.arrowBtnState, this);
-        this._historyGroupHolder.removeEventListener('HOLDER_DO_PREVIOUS', this.arrowBtnState, this);
+        if (this._historyGroupHolder) {
+          this._historyGroupHolder.removeEventListener('HOLDER_DO_NEXT', this.arrowBtnState, this);
+          this._historyGroupHolder.removeEventListener('HOLDER_DO_PREVIOUS', this.arrowBtnState, this);
+        }
         this.chartBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.tableInfoBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         if (this.historyBtn) {
@@ -160,7 +166,9 @@ namespace we {
           this.nextArrow.source = 'm_common_panel_info_btn_right_active_png';
           this.round = 10;
         }
-        this._roundNumber.text = this.round.toString();
+        if (this._roundNumber) {
+          this._roundNumber.text = this.round.toString();
+        }
       }
     }
   }
