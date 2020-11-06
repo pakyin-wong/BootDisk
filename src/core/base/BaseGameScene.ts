@@ -215,6 +215,7 @@ namespace we {
 
         if (this._chipLayer) {
           this._chipLayer.addEventListener('onUnconfirmBet', this.changeBetRelatedGroupBtn, this);
+          this._chipLayer.addEventListener(core.Event.GENERAL_BET_FAIL, this.generalBetFail, this);
           this._chipLayer.addEventListener(core.Event.EXCEED_TABLE_LIMIT, this.exceedTableLimit, this);
           this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
           this._chipLayer.addEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
@@ -258,6 +259,12 @@ namespace we {
         }
       }
 
+      public generalBetFail() {
+        if (this._message) {
+          this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.generalBetError'));
+        }
+      }
+
 
       public exceedBetLimit(evt: egret.Event) {
         if (this._message) {
@@ -282,6 +289,7 @@ namespace we {
 
         if (this._chipLayer) {
           this._chipLayer.removeEventListener('onUnconfirmBet', this.changeBetRelatedGroupBtn, this);
+          this._chipLayer.removeEventListener(core.Event.GENERAL_BET_FAIL, this.generalBetFail, this);
           this._chipLayer.removeEventListener(core.Event.EXCEED_TABLE_LIMIT, this.exceedTableLimit, this);
           this._chipLayer.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
           this._chipLayer.removeEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
@@ -778,7 +786,7 @@ namespace we {
           switch (result.error.id) {
             case '4001':
               if (this._chipLayer) {
-                this._chipLayer.dispatchEvent(new egret.Event(core.Event.EXCEED_TABLE_LIMIT));
+                this._chipLayer.dispatchEvent(new egret.Event(core.Event.GENERAL_BET_FAIL));
               }
               break;
             case '4002':
