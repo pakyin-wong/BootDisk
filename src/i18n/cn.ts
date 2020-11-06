@@ -379,7 +379,7 @@ namespace we {
         tableNo: '台号',
         roundNo: '局号',
         dealer: '荷官',
-        tableBetLimit: '本檯限紅',
+        tableBetLimit: '本台限红',
         betLimit: '投注限紅',
         bet: '投注',
         max: '最大',
@@ -556,6 +556,8 @@ namespace we {
       },
       game: {
         insufficientBalance: '余额不足',
+        generalBetError: '下注失败',
+        exceedTableLimit: '超过本台限红',
         exceedBetUpperLimit: '超过投注上限',
         exceedBetLowerLimit: '低过投注下限',
         startBet: '投注开始',

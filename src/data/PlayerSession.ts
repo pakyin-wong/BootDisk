@@ -19,6 +19,8 @@ namespace we {
         settings: any;
         currentSelectedBetLimitIndex: number;
         language: string;
+        gamecategory: string[],
+        gametype: number[]
       };
       public blockchainlinks: {
         cosmoslink: string,

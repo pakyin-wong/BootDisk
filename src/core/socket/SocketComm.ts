@@ -301,6 +301,9 @@ namespace we {
           }
         }
 
+        env.gameCategories = player.profile.gamecategory;
+        env.gameTypes = player.profile.gametype;
+
         env.blockchain.cosmolink = player.blockchainlinks.cosmoslink
         env.blockchain.thirdPartySHA256 = player.blockchainlinks.thirdpartysha256
 
@@ -612,6 +615,12 @@ namespace we {
               };
               dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
             }
+          }
+          if (data.state !== core.GameState.IDLE && data.state !== core.GameState.BET && data.state !== core.GameState.SHUFFLE) {
+             if ( tableInfo.bets !== null){
+              tableInfo.prevbets = tableInfo.bets;
+              tableInfo.prevbetsroundid = tableInfo.roundid;
+             }
           }
           if (data.state === core.GameState.FINISH) {
             this.checkResultNotificationReady(tableInfo);

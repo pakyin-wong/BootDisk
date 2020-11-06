@@ -1,6 +1,20 @@
 /*tslint:disable prefer-for-of */
 namespace we {
   export namespace utils {
+    export function nvl(obj, defaultValue, objsForChecking = null){
+      if(objsForChecking){
+        for(let objInChecking of objsForChecking ){
+          if(!objInChecking){
+            return defaultValue;
+          }
+        }
+      }
+      if(!obj) {
+        return defaultValue;
+      }
+      return obj;
+    }
+
     export function varToString(varObj) {
       return Object.keys(varObj)[0];
     }
