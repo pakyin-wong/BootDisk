@@ -127,6 +127,8 @@ namespace we {
           if (target instanceof eui.Group) {
             egret.Tween.removeTweens(target);
             egret.Tween.get(target).to({ y: enable ? 0 : 100, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
+            egret.Tween.removeTweens(this._betChipSet);
+            egret.Tween.get(this._betChipSet).to({ y: enable ? 0 : 100, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
           }
         }
         if ((env.isAutoDismiss || enable) && ui.EdgeDismissableAddon.isDismiss === enable && !this._forceNoDismiss) {
