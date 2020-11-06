@@ -16,6 +16,7 @@ namespace we {
       protected _deckPanel: bab.DeckPanel;
       protected _cardInfoPanel: bab.CardInfoPanel;
       protected _historyCardHolder: we.ui.HistoryCardHolder;
+      protected _resultDisplay : ui.IResultDisplay & we.blockchain.CardHolder;
 
       public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat];
 
@@ -34,6 +35,24 @@ namespace we {
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('BlockchainBaccaratScene');
       }
+
+      public updateGame(isInit: boolean = false) {
+          super.updateGame(isInit);
+          if(isInit){
+            switch(this._gameData.state){
+              case core.GameState.BET:
+              case core.GameState.DEAL:
+              case core.GameState.FINISH:
+              case core.GameState.SHUFFLE:
+                break;
+              default:
+                console.log('default state', this._gameData.state);
+                this._resultDisplay.setDefaultStates()
+                break;
+            }
+          } 
+      }
+
 
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);

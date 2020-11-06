@@ -935,6 +935,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class DtResultItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class LoResultItem extends eui.Skin{
 	}
 }
@@ -1570,6 +1574,10 @@ declare module skin_mobile_landscape{
 }
 declare module skin_mobile_landscape{
 	class LwLeftPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class LwRightPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape.lw{
@@ -2250,6 +2258,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class LwLeftPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class LwRightPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.lw{

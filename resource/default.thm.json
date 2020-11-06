@@ -271,6 +271,7 @@
 		"resource/skin_desktop/overlay/BetHistory/ResultItem/BaResultItem.exml",
 		"resource/skin_desktop/overlay/BetHistory/ResultItem/DilResultItem.exml",
 		"resource/skin_desktop/overlay/BetHistory/ResultItem/DiResultItem.exml",
+		"resource/skin_desktop/overlay/BetHistory/ResultItem/DtResultItem.exml",
 		"resource/skin_desktop/overlay/BetHistory/ResultItem/LoResultItem.exml",
 		"resource/skin_desktop/overlay/BetHistory/ResultItem/LwResultItem.exml",
 		"resource/skin_desktop/overlay/BetHistory/ResultItem/RcResultItem.exml",

@@ -33,6 +33,8 @@ namespace we {
       protected _dragonAnim: dragonBones.EgretArmatureDisplay;
       protected _tigerAnim: dragonBones.EgretArmatureDisplay;
 
+      protected _totalCardPerRound: number;
+
       protected mount() {
         super.mount();
         this._dragonAnim = this.createDragonTigerAnim('dragon', 0.8);
@@ -43,6 +45,12 @@ namespace we {
         this._tigerAnim.animation.play('loop', 0);
         this._centerBurnCard = this.createCardAnim();
         this._centerBurnCardGroup.addChild(this._centerBurnCard);
+        this._totalCardPerRound = 3;
+      }
+
+      public setDefaultStates(){
+        this._dragonCard.animation.gotoAndStopByTime('vertical_in',0)
+        this._tigerCard.animation.gotoAndStopByTime('vertical_in',0)
       }
 
       protected createDragonTigerAnim(skeletonName: string, scale: number) {
@@ -58,12 +66,14 @@ namespace we {
       }
 
       protected destroy() {
+        /*
         this.destroyAnim(this._dragonCard);
         this.destroyAnim(this._tigerCard);
         this.destroyAnim(this._centerBurnCard);
         this.destroyAnim(this._dragonAnim);
         this.destroyAnim(this._tigerAnim);
         super.destroy();
+        */
       }
 
       protected createChildren() {
