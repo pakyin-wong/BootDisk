@@ -3,51 +3,28 @@ namespace we {
   export namespace lo {
     export class SSCTraditionalBettingTable extends ABettingTable {
       // mobile
-      private _bettingTableViewPort: eui.Group;
-      private _bettingTableToggleButton: eui.Group;
-      private _topClose: eui.Group;
-      private _playmodeDropDownButton: eui.Group;
-      private _lblPlayMode : ui.RunTimeLabel;
-      private playMode : string;
+      // private _bettingTableViewPort: eui.Group;
+      // private _bettingTableToggleButton: eui.Group;
+      // private _topClose: eui.Group;
+      // private _playmodeDropDownButton: eui.Group;
+      // private _lblPlayMode : ui.RunTimeLabel;
+      // private playMode : string;
       
-      constructor(config ,playMode = null) {
+      constructor(config ) {
         super(config);
-        if(playMode){
-          this.playMode = playMode;
-        }
-      }
-
-      protected addEventListeners() {
-        if (env.isMobile) {
-          this._bettingTableToggleButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.updateBettingTableState, this.bettingPanel);
-          this._topClose.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.closeBettingTableState, this.bettingPanel);
-          this._playmodeDropDownButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.toggleGameTypeDropdown, this.bettingPanel);
-        }
-      }
-
-      protected removeEventListeners() {
-        if (env.isMobile) {
-          this._bettingTableToggleButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.updateBettingTableState, this.bettingPanel);
-          this._topClose.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.updateBettingTableState, this.bettingPanel);
-          this._playmodeDropDownButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.toggleGameTypeDropdown, this.bettingPanel);
-        }
       }
 
       public init() {
         super.init();
         this.initSkin();
         this.createComponents();
-        this.addEventListeners();
-        if(this.playMode){
-          this._lblPlayMode.renderText = () => this.playMode;
-        }
       }
 
-      public setLabelPlayMode(str){
-        if(this._lblPlayMode){
-          this._lblPlayMode.renderText = () => str;
-        }
-      }
+      // public setLabelPlayMode(str){
+      //   if(this._lblPlayMode){
+      //     this._lblPlayMode.renderText = () => str;
+      //   }
+      // }
 
       public dispose() {
         super.dispose();
@@ -55,24 +32,16 @@ namespace we {
       }
 
       protected initSkin() {
-        if (env.isMobile) {
-          this.skinName = 'skin_mobile.lo.SSCTraditionalBettingTable';
-        } else {
-          this.skinName = '';
-          this.width = 1509;
-          this.height = 478;
-        }
+        this.skinName = '';
+        this.width = 1509;
+        this.height = 478;
       }
 
       protected createComponents() {
         let offsetY = 0;
 
         let container;
-        if (env.isMobile) {
-          container = this._bettingTableViewPort;
-        } else {
-          container = this;
-        }
+        container = this;
 
         for (let i = 0; i < this._inputs.length; i++) {
           container.addChild(this._inputs[i]);
