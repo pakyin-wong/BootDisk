@@ -536,7 +536,22 @@ namespace we {
       // Tick button
       public validateBet(): boolean {
         const fieldAmounts = utils.arrayToKeyValue(this._uncfmBetDetails, 'field', 'amount');
-
+        console.log('******************fieldAmounts',fieldAmounts)
+        let arrFieldAmounts:any = Object.keys(fieldAmounts);
+        console.log('--------------------arrFieldAmounts',arrFieldAmounts)
+        const cfmFieldAmounts = utils.arrayToKeyValue(this._cfmBetDetails,'field', 'amount');
+        console.log('*****************cfmFieldAmounts',cfmFieldAmounts)
+        let arrCfmFieldAmounts:any =  Object.keys(cfmFieldAmounts);
+        console.log('--------------------arrCfmFieldAmounts',arrCfmFieldAmounts)
+        let totalAmount = fieldAmounts
+        arrCfmFieldAmounts.forEach(key => {
+          if (arrFieldAmounts.includes(key)) {
+            console.log('key',key)
+            totalAmount[key] += cfmFieldAmounts[key]
+            console.log('totalAmount',totalAmount)
+          }
+        })
+    
         // clamp bet amount with current balance
         const totalUncfmAmount = this.getTotalUncfmBetAmount();
         const balance = env.balance;
@@ -545,7 +560,8 @@ namespace we {
           return false;
         }
 
-        return this.validateFieldAmounts(fieldAmounts, null, true);
+        // return this.validateFieldAmounts(fieldAmounts, null, true);
+         return this.validateFieldAmounts(totalAmount, null, true);
       }
 
       // check if the current unconfirmed betDetails are valid
