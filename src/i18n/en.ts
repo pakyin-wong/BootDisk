@@ -524,6 +524,7 @@ namespace we {
       },
       game: {
         insufficientBalance: 'Insufficient Balance',
+        exceedTableLimit: 'Exceed Table Limit',
         exceedBetLowerLimit: 'Lower than Bet Lower Limit',
         exceedBetUpperLimit: 'Exceed Bet Upper Limit',
         startBet: 'Start Bet',
