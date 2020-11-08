@@ -3,23 +3,21 @@
 	<e:Rect id="_txt_record_bgcolor" width="2136" height="76" x="0" y="0"/>
 	<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" stroke="0" fillColor="0x13304c,0x4077ab,90" visible="false" visible.hover="true" width="2136" height="76"/>
 	<e:Group id="text" x="0" y="0" alpha="0.7" alpha.hover="1">
-		<e:Label id="_txt_record_round" text="Label" y="0" height="76" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" visible="false"/>
-		<e:Label id="_txt_record_id" text="Label" x="48" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1" width="177"/>
-		<e:Label id="_txt_record_date" text="Label" x="265" y="0" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_game" text="Label" x="533" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_bettype" text="Label" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="1304"/>
-		<e:Label id="_txt_record_betamount" text="Label" x="1452" y="0" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_win" text="Label" x="1610" y="0" height="76" size="24" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_remark" text="Label" x="1808" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_finbalance" text="Label" x="1916" y="0" width="88" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_orgbalance" text="Label" size="20" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="0" y="0" visible="false"/>
+		<e:Label id="_txt_record_id" text="Label" x="48" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1" width="135"/>
+		<e:Label id="_txt_record_date" text="Label" x="215" y="0" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1" width="198"/>
+		<e:Label id="_txt_record_game" text="Label" x="443" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_bettype" text="Label" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="1114" width="258"/>
+		<e:Label id="_txt_record_betamount" text="Label" x="1402" y="0" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_win" text="Label" x="1750" y="0" height="76" size="24" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_vaildbet" text="Label" x="1567" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_finbalance" text="Label" x="1944" y="0" width="88" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
 	</e:Group>
-	<e:Group id="_record_result" scaleX="1" scaleY="1" x="843" width="310" height="76">
+	<e:Group id="_record_result" scaleX="1" scaleY="1" width="308" height="76" x="699">
 		<e:layout>
 		<e:VerticalLayout horizontalAlign="center" verticalAlign="middle" gap="0"/>
 		</e:layout>
 	</e:Group>
-	<e:Image id="_btn_replay" width="37" height="37" x="1179" y="20" source="d_lobby_panel_button_play_normal_png" source.hover="d_lobby_panel_button_play_hover_png"/>
+	<e:Image id="_btn_replay" width="37" height="37" x="1039" y="20" source="d_lobby_panel_button_play_normal_png" source.hover="d_lobby_panel_button_play_hover_png"/>
 
 
 

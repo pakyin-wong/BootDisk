@@ -43,17 +43,18 @@
 		</e:Group>
 		<e:Group id="_label_bar" y="148" left="0" right="0" y.live="208" y.lottery="208" y.lotteryC="208" visible.lotteryC="false">
 			<ui:RunTimeLabel id="_txt_record_id" text="投注編號" x="50" y="0" height="29" size="20" verticalAlign="middle" targetWidth="191" x.live="48" x.lottery="48" x.lotteryC="48"/>
-			<ui:RunTimeLabel id="_txt_record_date" text="日期時間" x="343" y="0" size="20" verticalAlign="middle" height="29" targetWidth="248" x.live="265" x.lottery="426" x.lotteryC="426"/>
-			<ui:RunTimeLabel id="_txt_record_game" text="遊戲" x="692" y="0" height="29" size="20" verticalAlign="middle" targetWidth="123" x.live="533" x.lottery="679" x.lotteryC="679"/>
+			<ui:RunTimeLabel id="_txt_record_date" text="日期時間" x="343" y="0" size="20" verticalAlign="middle" height="29" targetWidth="248" x.live="215" x.lottery="426" x.lotteryC="426"/>
+			<ui:RunTimeLabel id="_txt_record_game" text="遊戲" x="692" y="0" height="29" size="20" verticalAlign="middle" targetWidth="123" x.live="443" x.lottery="679" x.lotteryC="679"/>
 			<ui:RunTimeLabel id="_txt_record_round" text="獎期" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="129" y="0" x="248" visible="false" visible.lottery="true" visible.lotteryC="true"/>
-			<ui:RunTimeLabel id="_txt_record_replay" text="重播" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="79" y="0" x="0" visible="false" visible.live="true" visible.lottery="true" x.live="1177" x.lottery="1258" visible.lotteryC="true" x.lotteryC="1258"/>
-			<ui:RunTimeLabel id="_txt_record_remake" text="嬴輸" x="1551" y="0" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="86" x.live="1808" x.lottery="1709" x.lotteryC="1709"/>
-			<ui:RunTimeLabel id="_txt_record_bettype" text="投注項目" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="129" y="0" x="1304" visible="false" visible.live="true" />
-			<ui:RunTimeLabel id="_txt_record_betamount" text="投注額" x="1042" y="0" size="20" verticalAlign="middle" height="29" scaleX="1" scaleY="1" targetWidth="147" x.live="1452" x.lottery="1376" x.lotteryC="1376"/>
-			<ui:RunTimeLabel id="_txt_record_win" text="派彩" x="1281" y="0" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="159" x.live="1610" x.lottery="1525" x.lotteryC="1525"/>
+			<ui:RunTimeLabel id="_txt_record_replay" text="重播" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="79" y="0" x="0" visible="false" visible.live="true" visible.lottery="true" x.live="1037" x.lottery="1258" visible.lotteryC="true" x.lotteryC="1258"/>
+			<ui:RunTimeLabel id="_txt_record_remake" text="嬴輸" x="1551" y="0" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="86" x.live="1808" x.lottery="1709" x.lotteryC="1709" visible.live="false"/>
+			<ui:RunTimeLabel id="_txt_record_bettype" text="投注項目" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="129" y="0" x="1304" visible="false" visible.live="true"  x.live="1114"/>
+			<ui:RunTimeLabel id="_txt_record_betamount" text="投注額" x="1042" y="0" size="20" verticalAlign="middle" height="29" scaleX="1" scaleY="1" targetWidth="147" x.live="1402" x.lottery="1376" x.lotteryC="1376"/>
+			<ui:RunTimeLabel id="_txt_record_vaildbet" text="投注編號" x="1567" height="29" size="20" verticalAlign="middle" targetWidth="191" visible="false" visible.live="true"/>
+			<ui:RunTimeLabel id="_txt_record_win" text="派彩" x="1281" y="0" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="159" x.live="1750" x.lottery="1525" x.lotteryC="1525"/>
 			<ui:RunTimeLabel id="_txt_record_orgbalance" text="" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="176" y="0" x="0" visible="false"/>
-			<ui:RunTimeLabel id="_txt_record_finbalance" text="本局餘額" x="1726" y="0" size="20" verticalAlign="middle" height="29" scaleX="1" scaleY="1" targetWidth="188" anchorOffsetX="0" x.live="1916" x.lottery="1844" x.lotteryC="1844"/>
-			<ui:RunTimeLabel id="_txt_record_result" text="遊戲結果" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" textAlign="center" targetWidth="390" anchorOffsetX="0" y="0" x="0" visible="false" visible.live="true" visible.lottery="true" x.live="923" x.lottery="986" visible.lotteryC="true" x.lotteryC="986"/>
+			<ui:RunTimeLabel id="_txt_record_finbalance" text="本局餘額" x="1726" y="0" size="20" verticalAlign="middle" height="29" scaleX="1" scaleY="1" targetWidth="188" anchorOffsetX="0" x.live="1944" x.lottery="1844" x.lotteryC="1844"/>
+			<ui:RunTimeLabel id="_txt_record_result" text="遊戲結果" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" textAlign="center" targetWidth="390" anchorOffsetX="0" y="0" x="0" visible="false" visible.live="true" visible.lottery="true" x.live="813" x.lottery="986" visible.lotteryC="true" x.lotteryC="986"/>
 		</e:Group>
 		<e:Group id="_clabel_bar" left="0" right="0" y="208" visible.lotteryC="true" visible="false">
 			<e:Label id="_txt_lcb_cbetid" text="追號編號" x="50" height="29" size="20" verticalAlign="middle"/>

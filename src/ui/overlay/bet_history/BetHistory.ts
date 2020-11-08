@@ -17,6 +17,7 @@ namespace we {
       protected _txt_record_remake: ui.RunTimeLabel;
       protected _txt_record_bettype: ui.RunTimeLabel;
       protected _txt_record_betamount: ui.RunTimeLabel;
+      protected _txt_record_vaildbet: ui.RunTimeLabel;
       protected _txt_record_win: ui.RunTimeLabel;
       protected _txt_record_orgbalance: ui.RunTimeLabel;
       protected _txt_record_finbalance: ui.RunTimeLabel;
@@ -98,6 +99,7 @@ namespace we {
         this.setText(this._txt_record_remake, i18n.t('overlaypanel_bethistory_recordtab_remark'));
         this.setText(this._txt_record_bettype, i18n.t('overlaypanel_bethistory_recordtab_bettype'));
         this.setText(this._txt_record_betamount, i18n.t('overlaypanel_bethistory_recordtab_betamount'));
+        this.setText(this._txt_record_vaildbet, i18n.t('overlaypanel_bethistory_recordtab_vaildbet'));
         this.setText(this._txt_record_win, i18n.t('overlaypanel_bethistory_recordtab_win'));
         this.setText(this._txt_record_orgbalance, i18n.t('overlaypanel_bethistory_recordtab_orgbalance'));
         this.setText(this._txt_record_finbalance, i18n.t('overlaypanel_bethistory_recordtab_finbalance'));

@@ -9,6 +9,7 @@ namespace we {
         protected _txt_record_remark: eui.Label;
         protected _txt_record_bettype: eui.Label;
         protected _txt_record_betamount: eui.Label;
+        protected _txt_record_vaildbet: eui.Label;
         protected _txt_record_win: eui.Label;
         protected _txt_record_orgbalance: eui.Label;
         protected _txt_record_finbalance: eui.Label;
@@ -54,6 +55,7 @@ namespace we {
           this.setText(this._txt_record_remark, utils.BetHistory.formatRemark(this.data.remark));
           this.setText(this._txt_record_bettype, utils.BetHistory.formatBetType(this.data.gametype, this.data.field));
           this.setText(this._txt_record_betamount, utils.formatNumber(this.data.betamount, true));
+          // this.setText(this._txt_record_vaildbet, utils.formatNumber(this.data.???,true));
           this.setText(this._txt_record_orgbalance, utils.formatNumber(this.data.beforebalance, true));
           this.setText(this._txt_record_finbalance, utils.formatNumber(this.data.afterbalance, true));
 
