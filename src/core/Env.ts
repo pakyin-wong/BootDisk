@@ -41,9 +41,9 @@ namespace we {
       public _gameCategories: string[];
       public _gameTypes: number[];
 
-      public blockchain: { thirdPartySHA256: string; cosmolink: string } = {
+      public blockchain: { thirdPartySHA256: string, cosmolink: string } = {
         thirdPartySHA256: '',
-        cosmolink: '',
+        cosmolink: ''
       };
       /**
        * {
@@ -178,11 +178,9 @@ namespace we {
 
       set gameCategories(value: string[]) {
         const validCategories = ['Live', 'Lottery'];
-        this._gameCategories = validCategories
-          .filter(cat => {
-            return value.indexOf(cat) >= 0;
-          })
-          .map((cat: string) => cat.toLowerCase());
+        this._gameCategories = validCategories.filter(cat => {
+          return value.indexOf(cat) >= 0;
+        }).map((cat: string) => cat.toLowerCase());
       }
 
       get gameCategories(): string[] {
@@ -425,6 +423,12 @@ namespace we {
             continue;
           }
           env._groups[_item].push(item);
+        }
+        for (const group in env._groups) {
+          console.log(group);
+          if (env._groups[group].length == 0) {
+            delete env._groups[group];
+          }
         }
       }
 
