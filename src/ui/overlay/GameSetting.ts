@@ -76,6 +76,7 @@ namespace we {
 
       protected onSwitchAutoBet(e) {
         env.autoConfirmBet = this.switch_autoBet.active = !env.autoConfirmBet;
+        dir.socket.updateSetting('autoConfirmBet',env.autoConfirmBet === true?'1':'0');
       }
 
       protected onSendLiveVerCall() {

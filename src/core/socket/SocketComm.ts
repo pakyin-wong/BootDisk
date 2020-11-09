@@ -129,7 +129,6 @@ namespace we {
       protected async asyncUpdateCustomGoodRoad(id: string, data: any) {
         return new Promise((resolve, reject) => {
           function callback(data) {
-            console.log('asyncUpdateCustomGoodRoad', data);
             resolve();
           }
           this.client.updateCustomRoadmap(id, data, callback);
@@ -139,7 +138,6 @@ namespace we {
       protected async asyncUpdateDefaultGoodRoad(ids: string[]) {
         return new Promise((resolve, reject) => {
           function callback(data) {
-            console.log('asyncUpdateDefaultGoodRoad', data);
             resolve();
           }
           this.client.updateDefaultRoadmap(ids, callback);
@@ -290,6 +288,7 @@ namespace we {
         // env.nickname = player.profile.nickname;
         env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
 
+        env.autoConfirmBet = player.profile.settings.autoConfirmBet === '1'? true : false;
         env.currentChipSelectedIndex = player.profile.settings.currentChipSelectedIndex ? parseInt(player.profile.settings.currentChipSelectedIndex) : 0;
         env.leftHandMode = player.profile.settings.isLeftHand === '1' ? true : false;
         env.favouriteTableList = env.favouriteTableList ? env.favouriteTableList : [];
