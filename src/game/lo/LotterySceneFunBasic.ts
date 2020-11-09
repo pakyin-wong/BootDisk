@@ -41,7 +41,10 @@ namespace we {
         this._betDetails = this._tableInfo.bets;
         this._gameData = this._tableInfo.data;
         this._previousState = this._gameData ? this._gameData.previousstate : null;
-        this.funbet.initRatios(this._tableInfo.betInfo['lotteryRatio']? this._tableInfo.betInfo['lotteryRatio'] : null);
+
+        if(tableInfo && tableInfo.betInfo && tableInfo.betInfo['lotteryRatio']) {
+          this.funbet.initRatios(tableInfo.betInfo['lotteryRatio']);
+        }
       }
 
       protected mount() {

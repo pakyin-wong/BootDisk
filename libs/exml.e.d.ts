@@ -221,6 +221,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class BetRelatedGroup extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class LiveListAdvancedItemSkin extends eui.Skin{
 	}
 }
@@ -935,6 +939,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class DtResultItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class LoResultItem extends eui.Skin{
 	}
 }
@@ -1566,6 +1574,14 @@ declare module skin_mobile_portrait.lw{
 }
 declare module skin_mobile_landscape{
 	class LuckyWheelScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class LwLeftPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class LwRightPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape.lw{
@@ -2244,6 +2260,14 @@ declare module skin_mobile_portrait{
 	class LuckyWheelScene extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait{
+	class LwLeftPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class LwRightPanel extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait.lw{
 	class MobileBottomGamePanel extends eui.Skin{
 	}
@@ -2648,6 +2672,14 @@ declare module skin_mobile{
 }
 declare module skin_mobile{
 	class BetChipStackSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class BetRelatedGroup extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class BetRelatedGroupVertical extends eui.Skin{
 	}
 }
 declare module skin_mobile{

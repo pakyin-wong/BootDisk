@@ -16,7 +16,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.11.2';
+      public version: string = '0.11.7';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -37,6 +37,9 @@ namespace we {
       public _nicknames: { [langcode: string]: any } = {};
       public _groups: {};
       public groupName: { [groupKey: string]: string } = {};
+
+      public _gameCategories: string[];
+      public _gameTypes: number[];
 
       public blockchain: { thirdPartySHA256:  string, cosmolink: string} = {
         thirdPartySHA256 : '',
@@ -173,6 +176,26 @@ namespace we {
         return this._livepageLocked;
       }
 
+      set gameCategories(value: string[]) {
+        const validCategories = ['Live', 'Lottery'];
+        this._gameCategories = validCategories.filter(cat=> {
+          return value.indexOf(cat)>=0;
+        }).map((cat:string)=>cat.toLowerCase());
+      }
+
+      get gameCategories(): string[] {
+        return this._gameCategories;
+      }
+
+      set gameTypes(value: any[]) {
+        this._gameTypes = value.map((cat:string)=>parseInt(cat,10));
+      }
+
+      get gameTypes(): any[] {
+        return this._gameTypes;
+      }
+
+
       set currTime(value: number) {
         this._currTime = value;
         this._currTimeLastUpdateTime = Date.now();
@@ -229,6 +252,7 @@ namespace we {
       }
 
       public gameTypeFilter(gameType: number, validGameTypes: number[]) {
+        // if (validGameTypes.indexOf(gameType) < 0 || this.gameTypes.indexOf(gameType) < 0) {
         if (validGameTypes.indexOf(gameType) < 0) {
           return false;
         }
@@ -256,7 +280,7 @@ namespace we {
             return false;
           }
 
-          if (tableInfo.data != null /* && tableInfo.roadmap != null*/) {
+          if (tableInfo.data != null  && tableInfo.roadmap != null) {
             tableInfo.displayReady = true;
             return true;
           }

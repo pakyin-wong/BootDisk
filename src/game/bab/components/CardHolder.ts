@@ -53,6 +53,24 @@ namespace we {
 
       protected _helper: blockchain.Helper;
 
+      protected _totalCardPerRound: number;
+
+      protected mount(){
+        super.mount();
+        this._totalCardPerRound = 6;
+      }
+
+      public setDefaultStates(){
+        this._playerCard1.animation.gotoAndStopByTime('vertical_in',0)
+        this._playerCard2.animation.gotoAndStopByTime('vertical_in',0)
+        this._playerCard3.animation.gotoAndStopByTime('vertical_in',0)
+        this._bankerCard1.animation.gotoAndStopByTime('vertical_in',0)
+        this._bankerCard2.animation.gotoAndStopByTime('vertical_in',0)
+        this._bankerCard3.animation.gotoAndStopByTime('vertical_in',0)
+        this._smallCard1.animation.gotoAndStopByTime('vertical_in',0)
+        this._smallCard2.animation.gotoAndStopByTime('vertical_in',0)
+      }
+
       protected createChildren() {
         super.createChildren();
         this.skinName = utils.getSkinByClassname('bab.CardHolderSkin');
@@ -158,10 +176,12 @@ namespace we {
           console.log('clearCards 6');
         })();
 
-        const p1 = we.utils.waitDragonBone(this._ringAnim);
-        this._ringAnim.animation.fadeIn('round_out', 0, 1, 0, 'ROUND_ANIMATION_GROUP');
-        await p1;
+        await utils.playAnimation(this._ringAnim,'round_out',1,'ROUND_ANIMATION_GROUP');
+        // const p1 = we.utils.waitDragonBone(this._ringAnim);
+        // this._ringAnim.animation.fadeIn('round_out', 0, 1, 0, 'ROUND_ANIMATION_GROUP');
+        // await p1;
 
+        // return Promise.resolve();
         return new Promise(resolve => resolve());
       }
 
@@ -366,12 +386,15 @@ namespace we {
               this.setCardFrontFace(this._playerCard2, dataNames[i], 'vertical', 0);
               this.setLabel(this._playerCard2.armature.getSlot(`card_number_vertical`), this._gameData.currentcardindex);
 
-              const p4 = utils.waitDragonBone(this._playerCard1);
-              const p5 = utils.waitDragonBone(this._playerCard2);
-              this._playerCard1.animation.play(`vertical_flip`, 1);
-              this._playerCard2.animation.play(`vertical_flip`, 1);
-              await p4;
-              await p5;
+              await utils.playAnimation(this._playerCard1,'vertical_flip',1);
+              await utils.playAnimation(this._playerCard2,'vertical_flip',1);
+
+              // const p4 = utils.waitDragonBone(this._playerCard1);
+              // const p5 = utils.waitDragonBone(this._playerCard2);
+              // this._playerCard1.animation.play(`vertical_flip`, 1);
+              // this._playerCard2.animation.play(`vertical_flip`, 1);
+              // await p4;
+              // await p5;
 
               this.updatePlayerSum();
               break;
@@ -379,13 +402,16 @@ namespace we {
               this.setCardFrontFace(this._bankerCard2, dataNames[i], 'vertical', 0);
               this.setLabel(this._bankerCard2.armature.getSlot(`card_number_vertical`), this._gameData.currentcardindex);
 
-              const p6 = utils.waitDragonBone(this._bankerCard1);
-              const p7 = utils.waitDragonBone(this._bankerCard2);
-              this._bankerCard1.animation.play(`vertical_flip`, 1);
-              this._bankerCard2.animation.play(`vertical_flip`, 1);
+              await utils.playAnimation(this._bankerCard1,'vertical_flip',1);
+              await utils.playAnimation(this._bankerCard2,'vertical_flip',1);
 
-              await p6;
-              await p7;
+              // const p6 = utils.waitDragonBone(this._bankerCard1);
+              // const p7 = utils.waitDragonBone(this._bankerCard2);
+              // this._bankerCard1.animation.play(`vertical_flip`, 1);
+              // this._bankerCard2.animation.play(`vertical_flip`, 1);
+
+              // await p6;
+              // await p7;
 
               this.updateBankerSum();
               break;
@@ -450,15 +476,17 @@ namespace we {
       }
 
       protected async distributeCards() {
-        const p1 = we.utils.waitDragonBone(this._ringAnim);
-        this._ringAnim.animation.fadeIn('round_in', 0, 1, 0, 'ROUND_ANIMATION_GROUP');
-        await p1;
+        await utils.playAnimation(this._ringAnim,'round_in',1,'ROUND_ANIMATION_GROUP');
+        // const p1 = we.utils.waitDragonBone(this._ringAnim);
+        // this._ringAnim.animation.fadeIn('round_in', 0, 1, 0, 'ROUND_ANIMATION_GROUP');
+        // await p1;
 
         this._ringAnim.animation.fadeIn('round_loop_a', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
 
-        const p2 = we.utils.waitDragonBone(this._ringAnim);
-        this._ringAnim.animation.fadeIn('poker_round_in', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
-        await p2;
+        await utils.playAnimation(this._ringAnim,'poker_round_in',1,'POKER_ROUND_ANIMATION_GROUP');
+        // const p2 = we.utils.waitDragonBone(this._ringAnim);
+        // this._ringAnim.animation.fadeIn('poker_round_in', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
+        // await p2;
 
         this._ringAnim.animation.fadeIn('poker_round_loop', 0, 0, 0, 'POKER_ROUND_ANIMATION_GROUP');
 
@@ -477,64 +505,78 @@ namespace we {
               const cardAnim = <dragonBones.EgretArmatureDisplay> this[cardAnimNames[i]];
               this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + i + 1);
 
-              const block1 = (async () => {
-                const p1 = we.utils.waitDragonBone(cardAnim);
-                cardAnim.animation.play('vertical_in', 1);
-                await p1;
+              // const block1 = (async () => {
+              //   await utils.playAnimation(cardAnim,'vertical_in',1);
+              //   // const p1 = we.utils.waitDragonBone(cardAnim);
+              //   // cardAnim.animation.play('vertical_in', 1);
+              //   // await p1;
 
-                cardAnim.animation.gotoAndStopByFrame('vertical_loop_back', 0);
+              //   cardAnim.animation.gotoAndStopByFrame('vertical_loop_back', 0);
 
-                return new Promise(resolve => resolve());
-              })();
+              //   return new Promise(resolve => resolve());
+              // })();
 
-              const block2 = (async () => {
-                const p1 = we.utils.waitDragonBone(this._ringAnim);
-                this._ringAnim.animation.fadeIn('poker_in', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
-                await p1;
+              // const block2 = (async () => {
+              //   await utils.playAnimation(this._ringAnim,'poker_in',1,'POKER_ROUND_ANIMATION_GROUP');
+              //   // const p1 = we.utils.waitDragonBone(this._ringAnim);
+              //   // this._ringAnim.animation.fadeIn('poker_in', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
+              //   // await p1;
 
-                const p2 = we.utils.waitDragonBone(this._ringAnim);
-                this._ringAnim.animation.fadeIn('poker_out', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
-                await p2;
+              //   await utils.playAnimation(this._ringAnim,'poker_out',1,'POKER_ROUND_ANIMATION_GROUP');
+              //   // const p2 = we.utils.waitDragonBone(this._ringAnim);
+              //   // this._ringAnim.animation.fadeIn('poker_out', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
+              //   // await p2;
 
-                return new Promise(resolve => resolve());
-              })();
+              //   return new Promise(resolve => resolve());
+              // })();
 
-              await block1;
-              await block2;
+              // await block1;
+              // await block2;
+
+              await utils.playAnimation(cardAnim,'vertical_in',1);
+              cardAnim.animation.gotoAndStopByFrame('vertical_loop_back', 0);
+              await utils.playAnimation(this._ringAnim,'poker_in',1,'POKER_ROUND_ANIMATION_GROUP');
+              await utils.playAnimation(this._ringAnim,'poker_out',1,'POKER_ROUND_ANIMATION_GROUP');
+
           }
 
           if (this._gameData.currentcardindex + i + 1 === this._gameData.redcardindex) {
-            const block1 = (async () => {
-              const p1 = we.utils.waitDragonBone(this._ringAnim);
-              this._ringAnim.animation.fadeIn('red_poker_in', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
-              await p1;
+            // const block1 = (async () => {
+            //   // const p1 = we.utils.waitDragonBone(this._ringAnim);
+            //   // this._ringAnim.animation.fadeIn('red_poker_in', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
+            //   // await p1;
 
-              const p2 = we.utils.waitDragonBone(this._ringAnim);
-              this._ringAnim.animation.fadeIn('red_poker_out', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
-              await p2;
+            //   // const p2 = we.utils.waitDragonBone(this._ringAnim);
+            //   // this._ringAnim.animation.fadeIn('red_poker_out', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
+            //   // await p2;
 
-              return new Promise(resolve => resolve());
-            })();
+            //   return new Promise(resolve => resolve());
+            // })();
+            await utils.playAnimation(this._ringAnim,'red_poker_in',1,'POKER_ROUND_ANIMATION_GROUP');
+            await utils.playAnimation(this._ringAnim,'red_poker_out',1,'POKER_ROUND_ANIMATION_GROUP');
+            
+            await utils.playAnimation(this.getRedCardAnim(),'red_poker_in',1);
+            // const block2 = we.utils.waitDragonBone(this.getRedCardAnim());
+            // this.getRedCardAnim().animation.fadeIn('red_poker_in');
 
-            const block2 = we.utils.waitDragonBone(this.getRedCardAnim());
-            this.getRedCardAnim().animation.fadeIn('red_poker_in');
-
-            await block1;
-            await block2;
+            // await block1;
+            // await block2;
           }
         }
+        await utils.playAnimation(this._ringAnim,'poker_round_out',1,'POKER_ROUND_ANIMATION_GROUP');
+        // const p3 = we.utils.waitDragonBone(this._ringAnim);
+        // this._ringAnim.animation.fadeIn('poker_round_out', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
+        // await p3;
 
-        const p3 = we.utils.waitDragonBone(this._ringAnim);
-        this._ringAnim.animation.fadeIn('poker_round_out', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
-        await p3;
+        await utils.playAnimation(this._ringAnim,'round_loop_a',1,'ROUND_ANIMATION_GROUP');
+        // const p4 = we.utils.waitDragonBone(this._ringAnim);
+        // this._ringAnim.animation.fadeIn('round_loop_a', 0, 1, 0, 'ROUND_ANIMATION_GROUP');
+        // await p4
 
-        const p4 = we.utils.waitDragonBone(this._ringAnim);
-        this._ringAnim.animation.fadeIn('round_loop_a', 0, 1, 0, 'ROUND_ANIMATION_GROUP');
-        await p4
-
-        const p5 = we.utils.waitDragonBone(this._ringAnim);
-        this._ringAnim.animation.fadeIn('round_last_card', 0, 1, 0, 'ROUND_ANIMATION_GROUP');
-        await p5
+        await utils.playAnimation(this._ringAnim,'round_last_card',1,'ROUND_ANIMATION_GROUP');
+        // const p5 = we.utils.waitDragonBone(this._ringAnim);
+        // this._ringAnim.animation.fadeIn('round_last_card', 0, 1, 0, 'ROUND_ANIMATION_GROUP');
+        // await p5
 
         this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
 
@@ -623,26 +665,30 @@ namespace we {
           (async () => {
             await this.clearCards();
             console.log('shuffle start');
-            const p1 = utils.waitDragonBone(this.getRedCardAnim());
-            this.getRedCardAnim().animation.fadeIn('red_poker_out');
+
+            // const p1 = utils.waitDragonBone(this.getRedCardAnim());
+            // this.getRedCardAnim().animation.fadeIn('red_poker_out');
             this._smallRedCardGroup.removeChild(this._smallRedCard);
             this._smallRedCard = null;
 
-            const p2 = utils.waitDragonBone(this._ringAnim);
-            this._ringAnim.animation.fadeIn('shoe_out', 0, 1, 0);
+            // const p2 = utils.waitDragonBone(this._ringAnim);
+            // this._ringAnim.animation.fadeIn('shoe_out', 0, 1, 0);
 
             await this.collapsePin();
             await this.collapseShoe();
 
-            await p1;
-            await p2;
+            await utils.playAnimation(this.getRedCardAnim(),'red_poker_out',1);
+            await utils.playAnimation(this._ringAnim,'shoe_out',1);
+            // await p1;
+            // await p2;
 
             await this.animateShoe();
             await this.animatePin();
 
-            const p3 = utils.waitDragonBone(this._ringAnim);
-            this._ringAnim.animation.fadeIn('shoe_in', 0, 1, 0);
-            await p3;
+            await utils.playAnimation(this._ringAnim,'shoe_in',1);
+            // const p3 = utils.waitDragonBone(this._ringAnim);
+            // this._ringAnim.animation.fadeIn('shoe_in', 0, 1, 0);
+            // await p3;
 
             this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0);
 

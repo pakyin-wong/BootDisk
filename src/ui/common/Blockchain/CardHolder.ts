@@ -14,8 +14,7 @@ namespace we {
       protected _smallRedCardDesc: ui.RunTimeLabel;
 
       protected _infoArray: number[];
-
-      
+      protected abstract _totalCardPerRound: number;
 
       protected mount() {
         this.reset();
@@ -24,23 +23,9 @@ namespace we {
         this.createRingAnim();
         this.createCards();
         this.addEventListeners();
-
-        /// update the card by replacing the MeshDisplayData of the slot
-        // update poker card front by update the texture instead of changing the display
-        /*
-        const card = this._ringAnim.armature.getSlot('card_back_vertical');
-        const cardStr = utils.getCardResName('back');
-        const texture = RES.getRes(cardStr);
-        const meshDistData = card.displayData as dragonBones.MeshDisplayData;
-        const textureData = new dragonBones.EgretTextureData();
-        textureData.renderTexture = texture;
-        meshDistData.texture = textureData;
-        card.armature.replacedTexture == null;
-        card.replaceDisplayData(meshDistData);
-        card.displayIndex = -1;
-        card.displayIndex = 0;
-        */
       }
+
+      public abstract setDefaultStates();
 
       protected destroyAnim(display: dragonBones.EgretArmatureDisplay) {
         if (!display) return;
@@ -119,7 +104,9 @@ namespace we {
           case core.GameState.SHUFFLE:
             this.setStateShuffle(isInit);
             break;
+          case core.GameState.IDLE:
           default:
+            console.log('default updateResult ', gameData)
             break;
         }
       }
@@ -133,7 +120,7 @@ namespace we {
           this.moveShoe();
           console.log('betInitState()');
           this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
-          if (this._gameData.redcardindex <= this._gameData.currentcardindex + 6) {
+          if (this._gameData.redcardindex <= this._gameData.currentcardindex + this._totalCardPerRound) {
             this.getRedCardAnim().animation.gotoAndStopByTime('red_poker_loop', 0);
           }
           await this.betInitState();
@@ -148,9 +135,10 @@ namespace we {
       protected abstract updateAllSum();
 
       protected async hideCard(cardAnim, orientation, front = '') {
-        const p1 = we.utils.waitDragonBone(cardAnim);
-        cardAnim.animation.play(`${orientation}_out${front}`);
-        await p1;
+        await utils.playAnimation(cardAnim,`${orientation}_out${front}`,1);
+        // const p1 = we.utils.waitDragonBone(cardAnim);
+        // cardAnim.animation.play(`${orientation}_out${front}`);
+        // await p1;
 
         cardAnim.animation.gotoAndStopByTime(`${orientation}_idle`, 0);
 

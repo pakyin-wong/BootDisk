@@ -40,7 +40,7 @@ namespace we {
       protected childrenCreated(): void {
         super.childrenCreated();
         utils.disableTouchforChildren(this, obj => {
-          const bool = !!(<any>obj).text;
+          const bool = !!(<any> obj).text;
           return bool;
         });
 
@@ -56,7 +56,7 @@ namespace we {
       protected onBetLimitChange() {
         const betLimitSet = env.betLimits.Live[env.currentSelectedBetLimitIndex];
         if (this.pTableBetLimit && this.pBetLimit) {
-          this.pTableBetLimit.text = utils.numberToFaceValue(betLimitSet.maxlimit);
+          this.pTableBetLimit.text = utils.formatNumber(utils.nvl(this._tableinfo.tablelimit, 0),false);
           this.pBetLimit.text = `${utils.numberToFaceValue(betLimitSet.minlimit)} - ${utils.numberToFaceValue(betLimitSet.maxlimit)}`;
         }
         this.setValue(this._tableinfo);
@@ -109,7 +109,7 @@ namespace we {
 
         const betLimitSet = env.betLimits.Live[env.currentSelectedBetLimitIndex];
         if (this.pTableBetLimit) {
-          this.pTableBetLimit.text = utils.numberToFaceValue(betLimitSet.maxlimit);
+          this.pTableBetLimit.text = utils.formatNumber(utils.nvl(this._tableinfo.tablelimit, 0),false);
         }
         this.pBetLimit.text = `${utils.numberToFaceValue(betLimitSet.minlimit)} - ${utils.numberToFaceValue(betLimitSet.maxlimit)}`;
         // this.pBetLimit.text = `${utils.numberToFaceValue(betLimitSet.chips[0])} - ${utils.numberToFaceValue(betLimitSet.chips[betLimitSet.chips.length - 1])}`;

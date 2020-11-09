@@ -33,28 +33,7 @@
 			</e:Group>
 			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" skinName="skin_mobile.BetChipSkin"
 			                           labelSize="48" x.right_hand_mode="635" y="70" x.left_hand_mode="1610" />
-			<!--<e:Group id="_betRelatedGroup" y="71" scaleX="1" scaleY="1" x="780" x.left_hand_mode="604">
-			<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
-			        fillColor="0x444444" />
-			<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="684"
-			          verticalCenter="0" skinName="skin_mobile_portrait.BetConfirmButtonSkin" x.left_hand_mode="-17" />
-			<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="684"
-			                   verticalCenter="0" x.left_hand_mode="-17" />
-			<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
-			                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo"
-			                    x.left_hand_mode="334" x="585" />
-			<ui:BaseImageButton id="_repeatButton" y="0" anchorOffsetX="0" width="128" anchorOffsetY="0" height="120"
-			                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_repeat" x="64"
-			                    x.left_hand_mode="791" />
-			<ui:BaseImageButton id="_cancelButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
-			                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_cancel" x="430"
-			                    x.left_hand_mode="499" />
-			<ui:BaseImageButton id="_doubleButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
-			                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_double" x="270"
-			                    x.left_hand_mode="651" />
-		</e:Group>
-		-->
-		<e:Group id="_betRelatedGroup" x="762" y="71" x.right_hand_mode="762" scaleX="1" scaleY="1" y.right_hand_mode="71"
+		<!--<e:Group id="_betRelatedGroup" x="762" y="71" x.right_hand_mode="762" scaleX="1" scaleY="1" y.right_hand_mode="71"
 		         x.left_hand_mode="600">
 			<e:Rect id="_roundPanel" width="934" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
 			        fillColor="0x444444" right.right_hand_mode="0" left.left_hand_mode="0" />
@@ -82,7 +61,8 @@
 			<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
 			                    skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel" currentState="b_undo"
 			                    x.right_hand_mode="588" x.left_hand_mode="350" />
-		</e:Group>
+		</e:Group>-->
+		<ui:BetRelatedGroup id="_betRelatedGroup" y="71" x.right_hand_mode="762" x.left_hand_mode="600" />
 		<dt:CardHolder id="_resultDisplay" width="1384" height="152" y="1.5" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
 		               scaleY="1" horizontalCenter="0" />
 	</e:Group>
