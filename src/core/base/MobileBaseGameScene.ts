@@ -275,7 +275,7 @@ namespace we {
 
       protected initDenom() {
         this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
-        const denominationList = env.betLimits.Live[this.getSelectedBetLimitIndex()].chips;
+        const denominationList = env.getBetLimitSet('Live', this.getSelectedBetLimitIndex()).chips;
         this._betChipSet.init(null, denominationList);
       }
 
