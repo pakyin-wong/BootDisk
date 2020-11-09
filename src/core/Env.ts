@@ -195,7 +195,6 @@ namespace we {
         return this._gameTypes;
       }
 
-
       set currTime(value: number) {
         this._currTime = value;
         this._currTimeLastUpdateTime = Date.now();
@@ -401,6 +400,19 @@ namespace we {
 
       public get icons() {
         return this._icons;
+      }
+
+      public getBetLimitSet(category: string, index: number) {
+        const betlimits = this.betLimits[category];
+        if (!betlimits) {
+          throw new Error('Unknown game category: ' + category);
+        }
+
+        if (betlimits.length <= index) {
+          index = betlimits.length - 1;
+        }
+
+        return betlimits[index];
       }
 
       protected groupKeySorting(langcode: string) {

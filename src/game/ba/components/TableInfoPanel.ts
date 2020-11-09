@@ -101,7 +101,7 @@ namespace we {
       }
 
       public getConfig() {
-        const betlimits = env.betLimits.Live[env.currentSelectedBetLimitIndex].limits.ba;
+        const betlimits = env.getBetLimitSet('Live', env.currentSelectedBetLimitIndex).limits.ba;
         if (!betlimits) {
           return [];
         }

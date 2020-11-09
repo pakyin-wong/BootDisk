@@ -54,7 +54,7 @@ namespace we {
       }
 
       protected onBetLimitChange() {
-        const betLimitSet = env.betLimits.Live[env.currentSelectedBetLimitIndex];
+        const betLimitSet = env.getBetLimitSet('Live', env.currentSelectedBetLimitIndex);
         if (this.pTableBetLimit && this.pBetLimit) {
           this.pTableBetLimit.text = utils.formatNumber(utils.nvl(this._tableinfo.tablelimit, 0),false);
           this.pBetLimit.text = `${utils.numberToFaceValue(betLimitSet.minlimit)} - ${utils.numberToFaceValue(betLimitSet.maxlimit)}`;
@@ -107,7 +107,7 @@ namespace we {
         // }
         this.pDealer.text = tableInfo.dealername ? tableInfo.dealername : '-';
 
-        const betLimitSet = env.betLimits.Live[env.currentSelectedBetLimitIndex];
+        const betLimitSet = env.getBetLimitSet('Live', env.currentSelectedBetLimitIndex);
         if (this.pTableBetLimit) {
           this.pTableBetLimit.text = utils.formatNumber(utils.nvl(this._tableinfo.tablelimit, 0),false);
         }
