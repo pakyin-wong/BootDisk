@@ -91,7 +91,7 @@ namespace we {
 
       protected onBetChipChanged() {
         this._custombetChip.alpha = 0;
-        let denominationList = env.betLimits.Lottery[env.currentSelectedBetLimitIndex].chips;        
+        let denominationList = env.getBetLimitSet('Lottery', env.currentSelectedBetLimitIndex).chips;        
         this.funbet.bet = denominationList[env.currentChipSelectedIndex];
       }
 

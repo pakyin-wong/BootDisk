@@ -47,7 +47,7 @@ namespace we {
       public setValue(tableInfo: data.TableInfo) {
         super.setValue(tableInfo);
 
-        const betLimitSet = env.betLimits.Live[env.currentSelectedBetLimitIndex];
+        const betLimitSet = env.getBetLimitSet('Live', env.currentSelectedBetLimitIndex);
         if (betLimitSet.limits && betLimitSet.limits.lw) {
           const limits = betLimitSet.limits.lw;
           const list = [
