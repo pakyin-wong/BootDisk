@@ -557,6 +557,7 @@ namespace we {
       },
       game: {
         insufficientBalance: '余额不足',
+        generalBetError: '下注失败',
         exceedTableLimit: '超过本台限红',
         exceedBetUpperLimit: '超过投注上限',
         exceedBetLowerLimit: '低过投注下限',
