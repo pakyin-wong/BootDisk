@@ -41,9 +41,9 @@ namespace we {
       public _gameCategories: string[];
       public _gameTypes: number[];
 
-      public blockchain: { thirdPartySHA256:  string, cosmolink: string} = {
-        thirdPartySHA256 : '',
-        cosmolink : ''
+      public blockchain: { thirdPartySHA256: string, cosmolink: string } = {
+        thirdPartySHA256: '',
+        cosmolink: ''
       };
       /**
        * {
@@ -178,9 +178,9 @@ namespace we {
 
       set gameCategories(value: string[]) {
         const validCategories = ['Live', 'Lottery'];
-        this._gameCategories = validCategories.filter(cat=> {
-          return value.indexOf(cat)>=0;
-        }).map((cat:string)=>cat.toLowerCase());
+        this._gameCategories = validCategories.filter(cat => {
+          return value.indexOf(cat) >= 0;
+        }).map((cat: string) => cat.toLowerCase());
       }
 
       get gameCategories(): string[] {
@@ -188,7 +188,7 @@ namespace we {
       }
 
       set gameTypes(value: any[]) {
-        this._gameTypes = value.map((cat:string)=>parseInt(cat,10));
+        this._gameTypes = value.map((cat: string) => parseInt(cat, 10));
       }
 
       get gameTypes(): any[] {
@@ -280,7 +280,7 @@ namespace we {
             return false;
           }
 
-          if (tableInfo.data != null  && tableInfo.roadmap != null) {
+          if (tableInfo.data != null && tableInfo.roadmap != null) {
             tableInfo.displayReady = true;
             return true;
           }
@@ -411,6 +411,12 @@ namespace we {
             continue;
           }
           env._groups[_item].push(item);
+        }
+        for (const group in env._groups) {
+          console.log(group);
+          if (env._groups[group].length == 0) {
+            delete env._groups[group];
+          }
         }
       }
 
