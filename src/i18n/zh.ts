@@ -540,6 +540,9 @@ namespace we {
         noBet: '沒有已下注遊戲',
       },
       baccarat: {
+        tooltip: {
+          swapRoadmap: '轉換路紙',
+        },  
         statisticChart: {
           bankerPlayerTie: '庄閒和比例(100局)',
           bankerPlayerTiePair: '庄閒和对比例 (100局)',

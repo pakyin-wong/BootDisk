@@ -540,6 +540,9 @@ namespace we {
         noBet: 'No Bet Table',
       },
       baccarat: {
+        tooltip: {
+          swapRoadmap: 'Swap Roadmap',
+        },
         statisticChart: {
           bankerPlayerTie: 'Banker Player Tie (100 rounds)',
           bankerPlayerTiePair: 'Banker Player Tie pair (100 rounds)',

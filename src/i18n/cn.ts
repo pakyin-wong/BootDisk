@@ -574,7 +574,7 @@ namespace we {
       },
       baccarat: {
         tooltip: {
-          swapRoadmap: '轉換路紙',
+          swapRoadmap: '转换路纸',
         },
         statisticChart: {
           bankerPlayerTie: '庄闲和比例 (100局)',
