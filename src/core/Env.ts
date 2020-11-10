@@ -187,6 +187,20 @@ namespace we {
         return this._gameCategories;
       }
 
+      get sideGameCategories(): string[] {
+        const validCategories = ['live', 'lottery'];
+        // const validCategories = ['lottery'];
+        if (this._gameCategories) {
+          const cats = validCategories.filter(cat => {
+            return this._gameCategories.indexOf(cat) >= 0;
+          });
+          return cats;
+        } else {
+          return validCategories;
+        }
+      }
+
+
       set gameTypes(value: any[]) {
         this._gameTypes = value.map((cat: string) => parseInt(cat, 10));
       }

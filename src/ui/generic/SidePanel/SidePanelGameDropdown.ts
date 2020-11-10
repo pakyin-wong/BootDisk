@@ -38,6 +38,10 @@ namespace we {
         this._dmm.removeEventListener('POPPER_HIDE', this.onRollToDown, this);
       }
 
+      public getSelectedItem(): any {
+        return this._dmm.dropdown.selectedItem;
+      }
+
       protected refresh() {
         const gameListItems = this._source.map(game => {
           return ui.NewDropdownItem(game, () => i18n.t(`${this._group}.gametype.${game}`));
