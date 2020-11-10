@@ -340,7 +340,8 @@ namespace we {
             ? Object.keys(env.icons)[0]
             : player.profile.profileimageurl;
         logger.l(utils.LogTarget.RELEASE, 'PlayerClient::handleReady() ' + player.profile.betlimits);
-
+        
+        env.denomList = player.profile.chips?player.profile.chips:[100, 500, 1000, 2000, 3000, 5000, 10000, 20000, 30000, 50000, 100000, 200000, 300000, 500000, 1000000, 2000000, 3000000, 5000000, 10000000, 20000000];
         env.betLimits = player.profile.betlimits
           ? player.profile.betlimits
           : {
