@@ -26,7 +26,7 @@ namespace we {
 
       protected setIcon() {
         switch (this.itemData) {
-          case 'bacarrat':
+          case 'baccarat':
             this._image.source = 'm_lobby_submenu_icon_baccarat_png';
             break;
           case 'other':

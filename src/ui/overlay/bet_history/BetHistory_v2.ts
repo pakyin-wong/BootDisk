@@ -3,7 +3,7 @@ namespace we {
     export class BetHistory_v2 extends BetHistory {
       private static LIVE = {
         allGame: [GameType.BAC, GameType.BAI, GameType.BAM, GameType.BAB, GameType.DTB, GameType.BAS, GameType.LW, GameType.DT, GameType.RO, GameType.ROL, GameType.DI, GameType.DIL].join(','),
-        bacarrat: [GameType.BAC, GameType.BAI, GameType.BAM, GameType.BAB, GameType.BAS].join(','),
+        baccarat: [GameType.BAC, GameType.BAI, GameType.BAM, GameType.BAB, GameType.BAS].join(','),
         special: [GameType.LW, GameType.ROL, GameType.DIL].join(','),
         dragontiger: [GameType.DT,GameType.DTB].join(','),
         roulette: [GameType.RO, GameType.ROL].join(','),

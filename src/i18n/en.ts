@@ -335,7 +335,7 @@ namespace we {
         },
         gametype: {
           allGame: 'All',
-          bacarrat: 'Baccarat',
+          baccarat: 'Baccarat',
           dragontiger: 'Dragon Tiger',
           luckywheel: 'Wheel',
           roulette: 'Roulette',

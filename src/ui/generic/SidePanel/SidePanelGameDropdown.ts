@@ -12,7 +12,8 @@ namespace we {
       constructor() {
         super();
         this._group = 'live';
-        this._source = utils.EnumHelpers.values(core.LiveGameTab);
+        // this._source = utils.EnumHelpers.values(core.LiveGameTab);
+        this._source = env.liveGameTab;
       }
 
       public mount() {
@@ -59,12 +60,14 @@ namespace we {
         switch (s) {
           case 'live':
             this._group = s;
-            this._source = utils.EnumHelpers.values(core.LiveGameTab);
+            // this._source = utils.EnumHelpers.values(core.LiveGameTab);
+            this._source = env.liveGameTab;
             this.refresh();
             break;
           case 'lottery':
             this._group = s;
-            this._source = utils.EnumHelpers.values(core.LotteryTab);
+            // this._source = utils.EnumHelpers.values(core.LotteryTab);
+            this._source = env.lotteryTab;
             this.refresh();
             break;
         }

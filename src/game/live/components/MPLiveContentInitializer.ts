@@ -97,7 +97,7 @@ namespace we {
         // tabbarBg.percentHeight = 100;
         // tabBarGroup.addChild(tabbarBg);
         // root.tabItems = utils.EnumHelpers.values(core.LiveGameTab);
-        // // ['bacarrat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
+        // // ['baccarat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
         // root.tabs = new LiveGameTabbar(root.tabItems);
         // tabBarGroup.addChild(root.tabs);
 

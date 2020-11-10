@@ -263,12 +263,14 @@ namespace we {
         switch (s) {
           case 'live':
             this._group = s;
-            this._tabSource = utils.EnumHelpers.values(core.LiveGameTab);
+            // this._tabSource = utils.EnumHelpers.values(core.LiveGameTab);
+            this._tabSource = env.liveGameTab;
             this._btnAllGame.updateLabelKey(`gamegroup_tab_${s}`);
             break;
           case 'lottery':
             this._group = s;
-            this._tabSource = utils.EnumHelpers.values(core.LotteryTab);
+            // this._tabSource = utils.EnumHelpers.values(core.LotteryTab);
+            this._tabSource = env.lotteryTab;
             this._btnAllGame.updateLabelKey(`gamegroup_tab_${s}`);
             break;
         }
