@@ -292,6 +292,7 @@ namespace we {
         env.autoConfirmBet = player.profile.settings.autoConfirmBet === '1'? true : false;
         env.currentChipSelectedIndex = player.profile.settings.currentChipSelectedIndex ? parseInt(player.profile.settings.currentChipSelectedIndex) : 0;
         env.leftHandMode = player.profile.settings.isLeftHand === '1' ? true : false;
+        console.log('comm env.leftHandMode',env.leftHandMode)
         env.favouriteTableList = env.favouriteTableList ? env.favouriteTableList : [];
         if (player.profile.settings.favouriteTableList) {
           try {

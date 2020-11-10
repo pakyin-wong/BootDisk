@@ -479,10 +479,16 @@ namespace we {
       }
 
       protected undoRepeatBetFields(betDetails: data.BetDetail[]) {
+        console.log('before betDetails',betDetails)
         betDetails.map(value => {
-          this.getUncfmBetByField(value.field).amount = value.amount;
+          // this.getUncfmBetByField(value.field).amount = value.amount;
+          // this._betChipStackMapping[value.field].draw();
+            this._betChipStackMapping[value.field].uncfmBet = value.amount * this.getRate(value.field);
+            this._betChipStackMapping[value.field].draw();
         });
+        console.log('after betDetails', betDetails)
         this._uncfmBetDetails = betDetails;
+        console.log('this._uncfmBetDetails',this._uncfmBetDetails)
       }
 
       public repeatBetFields() {
@@ -536,19 +542,13 @@ namespace we {
       // Tick button
       public validateBet(): boolean {
         const fieldAmounts = utils.arrayToKeyValue(this._uncfmBetDetails, 'field', 'amount');
-        console.log('******************fieldAmounts',fieldAmounts)
         let arrFieldAmounts:any = Object.keys(fieldAmounts);
-        console.log('--------------------arrFieldAmounts',arrFieldAmounts)
         const cfmFieldAmounts = utils.arrayToKeyValue(this._cfmBetDetails,'field', 'amount');
-        console.log('*****************cfmFieldAmounts',cfmFieldAmounts)
         let arrCfmFieldAmounts:any =  Object.keys(cfmFieldAmounts);
-        console.log('--------------------arrCfmFieldAmounts',arrCfmFieldAmounts)
         let totalAmount = fieldAmounts
         arrCfmFieldAmounts.forEach(key => {
           if (arrFieldAmounts.includes(key)) {
-            console.log('key',key)
             totalAmount[key] += cfmFieldAmounts[key]
-            console.log('totalAmount',totalAmount)
           }
         })
     
