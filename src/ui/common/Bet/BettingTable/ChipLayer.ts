@@ -482,7 +482,7 @@ namespace we {
         console.log('before betDetails',betDetails)
         betDetails.map(value => {
           // this.getUncfmBetByField(value.field).amount = value.amount;
-          // this._betChipStackMapping[value.field].draw();
+          // this._betChipStackMapping[value.field].draw(); 
             this._betChipStackMapping[value.field].uncfmBet = value.amount * this.getRate(value.field);
             this._betChipStackMapping[value.field].draw();
         });

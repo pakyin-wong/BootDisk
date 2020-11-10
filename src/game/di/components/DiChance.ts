@@ -31,29 +31,46 @@ namespace we {
         const color: string[] = new Array(dices.length);
         // require simplification
         let total = 0;
-        for (let i = 0; i < dices.length; i++) {
-          let count = 0;
-          for (let j = 0; j < dices.length; j++) {
-            if (i === j) {
-              continue;
-            }
-            if (count >= 3) {
-              break;
-            }
-            if (dices[i] >= dices[j]) {
-              count++;
-            }
+        console.log('dices',dices)//
+        //==========================
+        // for (let i = 0; i < dices.length; i++) {
+        //   let count = 0;
+        //   for (let j = 0; j < dices.length; j++) {
+        //     if (i === j) {
+        //       continue;
+        //     }
+        //     if (count >= 3) {
+        //       break;
+        //     }
+        //     if (dices[i] >= dices[j]) {
+        //       count++;
+        //     }
+        //   }
+        //   if (count >= 3) {
+        //     color[i] = 'red';
+        //     total++;
+        //   } else {
+        //     color[i] = 'blue';
+        //   }
+        //   console.log('color',color)
+        //   if (total >= 3) {
+        //     break;
+        //   }
+        // }
+        //===========================
+        let diceWithIndex = [];
+        for (let i = 0 ; i < 6 ; i++) {
+            diceWithIndex.push([dices[i],i]) 
           }
-          if (count >= 3) {
-            color[i] = 'red';
-            total++;
-          } else {
-            color[i] = 'blue';
-          }
-          if (total >= 3) {
-            break;
-          }
+        let sortedDiceWithIndex = [];
+        sortedDiceWithIndex = diceWithIndex.sort((a,b) => a[0] - b[0]) // [[dice,index],[dice,index],...]
+        for (let i = 0 ; i < 3 ; i++) {
+          color[sortedDiceWithIndex[i][1]] = 'blue'
         }
+        for (let i = 3 ; i < 6 ; i++) {
+          color[sortedDiceWithIndex[i][1]] = 'red'
+        }
+        console.log('color',color)
 
         for (let i = 0; i < dices.length; i++) {
           this['_dice' + (i + 1) + 'Label'].text = dices[i];
