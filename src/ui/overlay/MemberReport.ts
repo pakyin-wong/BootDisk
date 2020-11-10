@@ -141,9 +141,11 @@ namespace we {
           this._txt_betAmount_value.text = '-';
           this._txt_winAmount_value.text = '-';
         } else {
-          const { bet, winloss } = data;
-          this._txt_betAmount_value.text = utils.formatNumber(bet);
-          this._txt_winAmount_value.text = utils.formatNumber(winloss);
+          const { bet, winloss, rollingcommissionpercentage, rollingcommission, rolling, total } = data;
+          this._txt_betAmount_value.text = utils.formatNumber(utils.nvl(bet, '-'));
+          this._txt_winAmount_value.text = utils.formatNumber(utils.nvl(winloss, '-'));
+          this._txt_washAmount_value.text = utils.formatNumber(utils.nvl(rolling, '-'));
+          this._txt_totalAmount_value.text = utils.formatNumber(utils.nvl(total, '-'));
         }
       }
 

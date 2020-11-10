@@ -117,7 +117,7 @@ namespace we {
       }
 
       protected initDenom() {
-        const denomList = env.betLimits.Live[this.getSelectedBetLimitIndex()].chips;
+        const denomList = env.getBetLimitSet('Live', this.getSelectedBetLimitIndex()).chips;
         if (this._betChipSet) {
           this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
           this._betChipSet.init(null, denomList);

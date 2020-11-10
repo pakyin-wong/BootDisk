@@ -2,4 +2,7 @@
 <e:Skin class="skin_mobile_portrait.FavouritePage" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Rect id="background" width="100%" height="100%" x="0" y="0" fillColor="0x121212" strokeColor="0x121212" />
+        <e:Image id="_emptyImage" width="320" height="320" verticalCenter="0" horizontalCenter="0"/>
+        <ui:RunTimeLabel id="_noFavouriteTag" text="沒有我的最愛" size="72"  verticalCenter="250" horizontalCenter="0"/>
+        <ui:RunTimeLabel id="_tagHint" text="將你喜愛的遊戲標上愛心" size="56"   verticalCenter="350" horizontalCenter="0" alpha="0.5"/>
 </e:Skin>
