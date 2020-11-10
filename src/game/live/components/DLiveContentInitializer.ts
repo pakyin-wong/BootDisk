@@ -132,7 +132,8 @@ namespace we {
         tabBarGroup.addChild(this._tabbarBg);
         tabBarGroup.left = paddingHorizontal;
         tabBarGroup.right = paddingHorizontal;
-        root.tabItems = utils.EnumHelpers.values(core.LiveGameTab); // ['baccarat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
+        // root.tabItems = utils.EnumHelpers.values(core.LiveGameTab); // ['baccarat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
+        root.tabItems = env.liveGameTab;
         root.tabs = new we.live.SegmentedControl(root.tabItems);
         tabBarGroup.addChild(root.tabs);
         tabBarGroup.addChild(new LiveDisplayModeSwitch());

@@ -86,7 +86,8 @@ namespace we {
         root.roomList.setGameFilters(core.LiveGameTab.all);
         root.roomList.setTableList(root.roomIds);
 
-        root.tabItems = utils.EnumHelpers.values(core.LiveGameTab);
+        // root.tabItems = utils.EnumHelpers.values(core.LiveGameTab);
+        root.tabItems = env.liveGameTab;
         root.tabs = new DropDownLiveGameTabbar(root.tabItems);
         root.roomList.addChildAt(root.tabs, 0);
 
