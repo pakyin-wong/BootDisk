@@ -307,8 +307,6 @@ namespace we {
         env.blockchain.cosmolink = player.blockchainlinks.cosmoslink
         env.blockchain.thirdPartySHA256 = player.blockchainlinks.thirdpartysha256
 
-        console.log('blockchain', env.blockchain)
-
         // env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
         // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
         // env.icons = player.profile.settings.icons ? player.profile.settings.icons : player.profile.icons;
