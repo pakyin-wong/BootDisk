@@ -46,14 +46,9 @@ namespace we {
 
       private changeLang() {}
 
-      protected mount() {
-        this.initMemberReport();
-        if (env.accountType==1) {
-          this.currentState = 'credit';
-        } else {
-          this.currentState = 'api';
-        }
-      }
+      // protected mount() {
+      //   this.initMemberReport();
+      // }
 
       private initMemberReport() {
         this._btn_searchType.label.size = env.isMobile ? 50 : 24;
@@ -319,6 +314,12 @@ namespace we {
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
         this.initMemberReport();
+        if (env.accountType==1) {
+          this.currentState = 'credit';
+        } else {
+          this.currentState = 'api';
+        }
+        this.invalidateState();
       }
     }
   }
