@@ -40,11 +40,18 @@
 		         fontFamily="Barlow" visible="false" />
 		<ui:Slider id="_slider_bgm" width="1042" height="70" x="97" y="1508" skinName="skin_mobile_portrait.Slider" scaleX="1"
 		           scaleY="1" />
-		<e:Group id="_btn_currBgm" width="251" height="50" x="205" y="564.5" visible="false" locked="true">
+		<e:Group id="_btn_currBgm" width="609" height="120" x="541" y="1341">
+			<e:Rect fillColor="0xFFFFFF" fillAlpha="0" strokeWeight="3" strokeColor="0x4B535B" ellipseWidth="130"
+			        ellipseHeight="130" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
+			<ui:RunTimeLabel id="_txt_currBgm" text="Label" x="107" y="15" width="394" height="89" verticalAlign="middle"
+			                 textAlign="center" size="60" alpha="0.7" scaleX="1" scaleY="1" textColor="0xb2b2b2" />
+			<e:Image source="d_lobby_button_down_normal_png" width="70" height="70" x="511" y="25" />
+		</e:Group>
+		<!--<e:Group id="_btn_currBgm" width="251" height="50" x="205" y="564.5" locked="true" visible="false">
 			<e:Rect fillColor="0xFFFFFF" fillAlpha="0" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50"
 			        ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
 			<ui:RunTimeLabel id="_txt_currBgm" text="Label" x="48" y="7" width="155" height="36" verticalAlign="middle"
 			                 textAlign="center" size="24" alpha="0.7" scaleX="1" scaleY="1" />
-		</e:Group>
+		</e:Group>-->
 	</e:Group>
 </e:Skin>

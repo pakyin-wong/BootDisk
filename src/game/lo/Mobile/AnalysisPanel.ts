@@ -70,6 +70,9 @@ namespace we {
 
         this.analysisStack.selectedIndex = 0;
 
+        this.gameId = this.tableInfo.roundid;
+        this.gameIdLabel.text = i18n.t('mobile_table_info_gameID') + ": " + this.gameId;
+
         this.listShow.updateList(this.tableInfo.gamestatistic.loHistory.show);
         this.listNoShow.updateList(this.tableInfo.gamestatistic.loHistory.noShow);
         this.listHot.updateList(this.tableInfo.gamestatistic.loHistory.hot);
@@ -100,6 +103,7 @@ namespace we {
           if (this.tableInfo.gamestatistic) {
             if (this.gameId !== this.tableInfo.roundid) {
               this.gameId = this.tableInfo.roundid;
+              this.gameIdLabel.text = i18n.t('mobile_table_info_gameID') + ": " + this.gameId;
               const history = this.tableInfo.gamestatistic.loHistory;
 
               this.listShow.updateList(history.show);

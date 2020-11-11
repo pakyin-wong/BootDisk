@@ -71,12 +71,17 @@ namespace we {
 
       protected onSwitchShowHint(e) {
         env.showGoodRoadHint = this.switch_showHint.active = !env.showGoodRoadHint;
-        dir.socket.updateSetting('showGoodRoadHint',env.showGoodRoadHint === true?'1':'0');
+        console.log('env.showGoodRoadHint', env.showGoodRoadHint);
+
+        const rslt = env.showGoodRoadHint ? "1" : "0";
+        dir.socket.updateSetting('showGoodRoadHint', rslt);
       }
 
       protected onSwitchAutoBet(e) {
         env.autoConfirmBet = this.switch_autoBet.active = !env.autoConfirmBet;
-        dir.socket.updateSetting('autoConfirmBet',env.autoConfirmBet === true?'1':'0');
+
+        const rslt = env.autoConfirmBet ? "1" : "0";
+        dir.socket.updateSetting('autoConfirmBet', rslt);
       }
 
       protected onSendLiveVerCall() {
