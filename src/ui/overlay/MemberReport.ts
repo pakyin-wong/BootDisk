@@ -13,11 +13,15 @@ namespace we {
 
       private _txt_betAmount: ui.RunTimeLabel;
       private _txt_washAmount: ui.RunTimeLabel;
+      private _txt_commissionPercentage: ui.RunTimeLabel;
+      private _txt_commissionTotal: ui.RunTimeLabel;
       private _txt_winAmount: ui.RunTimeLabel;
       private _txt_totalAmount: ui.RunTimeLabel;
 
       private _txt_betAmount_value: ui.RunTimeLabel;
       private _txt_washAmount_value: ui.RunTimeLabel;
+      private _txt_commissionPercentage_value: ui.RunTimeLabel;
+      private _txt_commissionTotal_value: ui.RunTimeLabel;
       private _txt_winAmount_value: ui.RunTimeLabel;
       private _txt_totalAmount_value: ui.RunTimeLabel;
 
@@ -42,36 +46,42 @@ namespace we {
 
       private changeLang() {}
 
-      protected mount() {
-        this.initMemberReport();
-      }
+      // protected mount() {
+      //   this.initMemberReport();
+      // }
 
       private initMemberReport() {
         this._btn_searchType.label.size = env.isMobile ? 50 : 24;
         this._btn_custom.label.size = env.isMobile ? 50 : 24;
 
         this._txt_title.renderText = () => `${i18n.t('overlaypanel_memberreport_title')}`;
-        this._txt_date.renderText = () => `${i18n.t('overlaypanel_memberreport_date')}`;
+        if (this._txt_date) this._txt_date.renderText = () => `${i18n.t('overlaypanel_memberreport_date')}`;
         // mobileonly
         if (env.isMobile) {
           this._btn_date.label.size = 50;
           this._btn_date.label.renderText = () => `${i18n.t('overlaypanel_memberreport_date')}`;
         }
-        // ^mobileonly
-        this._btn_today.label.renderText = () => `${i18n.t('overlaypanel_memberreport_today')}`;
-        this._btn_yesterday.label.renderText = () => `${i18n.t('overlaypanel_memberreport_yesterday')}`;
-        this._btn_week.label.renderText = () => `${i18n.t('overlaypanel_memberreport_week')}`;
+        else {
+          // ^mobileonly
+          this._btn_today.label.renderText = () => `${i18n.t('overlaypanel_memberreport_today')}`;
+          this._btn_yesterday.label.renderText = () => `${i18n.t('overlaypanel_memberreport_yesterday')}`;
+          this._btn_week.label.renderText = () => `${i18n.t('overlaypanel_memberreport_week')}`;
+        }
         this._btn_custom.label.renderText = () => `${i18n.t('overlaypanel_memberreport_customperiod')}`;
 
         this._txt_betAmount.renderText = () => `${i18n.t('overlaypanel_memberreport_amountbet')}`;
         this._txt_washAmount.renderText = () => `${i18n.t('overlaypanel_memberreport_amountwash')}`;
         this._txt_winAmount.renderText = () => `${i18n.t('overlaypanel_memberreport_amountwin')}`;
         this._txt_totalAmount.renderText = () => `${i18n.t('overlaypanel_memberreport_amounttotal')}`;
+        if (this._txt_commissionPercentage) this._txt_commissionPercentage.renderText = () => `${i18n.t('overlaypanel_memberreport_commission_percentage')}`;
+        if (this._txt_commissionTotal) this._txt_commissionTotal.renderText = () => `${i18n.t('overlaypanel_memberreport_commission_total')}`;
 
         this._txt_betAmount_value.renderText = () => `-`;
         this._txt_washAmount_value.renderText = () => `-`;
         this._txt_winAmount_value.renderText = () => `-`;
         this._txt_totalAmount_value.renderText = () => `-`;
+        if (this._txt_commissionPercentage_value) this._txt_commissionPercentage_value.renderText = () => `-`;
+        if (this._txt_commissionTotal_value) this._txt_commissionTotal_value.renderText = () => `-`;
 
         const _arrCol_date = new eui.ArrayCollection([
           ui.NewDropdownItem('today', () => `${i18n.t('overlaypanel_memberreport_today')}`),
@@ -146,13 +156,17 @@ namespace we {
           this._txt_winAmount_value.text = utils.formatNumber(utils.nvl(winloss, '-'));
           this._txt_washAmount_value.text = utils.formatNumber(utils.nvl(rolling, '-'));
           this._txt_totalAmount_value.text = utils.formatNumber(utils.nvl(total, '-'));
+          if (this._txt_commissionPercentage_value) this._txt_commissionPercentage_value.text = utils.formatNumber(utils.nvl(rollingcommissionpercentage, '-'));
+          if (this._txt_commissionTotal_value) this._txt_commissionTotal_value.text = utils.formatNumber(utils.nvl(rollingcommission, '-'));
         }
       }
 
       protected addListeners() {
-        this._btn_today.$addListener('CLICKED', this.searchToday, this);
-        this._btn_yesterday.$addListener('CLICKED', this.searchYesterday, this);
-        this._btn_week.$addListener('CLICKED', this.searchWeek, this);
+        if (!env.isMobile) {
+          this._btn_today.$addListener('CLICKED', this.searchToday, this);
+          this._btn_yesterday.$addListener('CLICKED', this.searchYesterday, this);
+          this._btn_week.$addListener('CLICKED', this.searchWeek, this);
+        }
         this._btn_custom.$addListener('CLICKED', this.showPicker, this);
         this._datepicker.$addListener('PICKED_DATE', this.searchCustomDate, this);
         this._btn_searchType.addEventListener('DROPDOWN_ITEM_CHANGE', this.onTypeChange, this);
@@ -206,8 +220,11 @@ namespace we {
           .utcOffset(8)
           .endOf('day')
           .unix();
-        this._btn_yesterday.active = this._btn_week.active = this._btn_custom.active = false;
-        this._btn_today.active = true;
+        if (!env.isMobile) {
+          this._btn_yesterday.active = this._btn_week.active = false;
+          this._btn_today.active = true;
+        }
+        this._btn_custom.active = false;
         this.search();
       }
 
@@ -222,8 +239,11 @@ namespace we {
           .endOf('day')
           .subtract(1, 'day')
           .unix();
-        this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
-        this._btn_yesterday.active = true;
+        if (!env.isMobile) {
+          this._btn_today.active = this._btn_week.active = false;
+          this._btn_yesterday.active = true;
+        }
+        this._btn_custom.active = false;
         this.search();
       }
 
@@ -241,8 +261,11 @@ namespace we {
           .endOf('day')
           .unix();
         this._endtime = Math.min(this._endtime, today);
-        this._btn_today.active = this._btn_yesterday.active = this._btn_custom.active = false;
-        this._btn_week.active = true;
+        if (!env.isMobile) {
+          this._btn_today.active = this._btn_yesterday.active = false;
+          this._btn_week.active = true;
+        }
+        this._btn_custom.active = false;
         this.search();
       }
 
@@ -252,7 +275,9 @@ namespace we {
         }
         this._starttime = e.data.starttime;
         this._endtime = e.data.endtime;
-        this._btn_today.active = this._btn_week.active = this._btn_yesterday.active = false;
+        if (!env.isMobile) {
+          this._btn_today.active = this._btn_week.active = this._btn_yesterday.active = false;
+        }
         this._btn_custom.active = true;
         if (env.isMobile) {
           this._btn_date.active = false;
@@ -289,6 +314,12 @@ namespace we {
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
         this.initMemberReport();
+        if (env.accountType==1) {
+          this.currentState = 'credit';
+        } else {
+          this.currentState = 'api';
+        }
+        this.invalidateState();
       }
     }
   }
