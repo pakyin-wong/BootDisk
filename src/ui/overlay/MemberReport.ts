@@ -70,16 +70,16 @@ namespace we {
         this._btn_custom.label.renderText = () => `${i18n.t('overlaypanel_memberreport_customperiod')}`;
 
         this._txt_betAmount.renderText = () => `${i18n.t('overlaypanel_memberreport_amountbet')}`;
-        this._txt_washAmount.renderText = () => `${i18n.t('overlaypanel_memberreport_amountwash')}`;
+        if (this._txt_washAmount) this._txt_washAmount.renderText = () => `${i18n.t('overlaypanel_memberreport_amountwash')}`;
         this._txt_winAmount.renderText = () => `${i18n.t('overlaypanel_memberreport_amountwin')}`;
-        this._txt_totalAmount.renderText = () => `${i18n.t('overlaypanel_memberreport_amounttotal')}`;
+        if (this._txt_totalAmount) this._txt_totalAmount.renderText = () => `${i18n.t('overlaypanel_memberreport_amounttotal')}`;
         if (this._txt_commissionPercentage) this._txt_commissionPercentage.renderText = () => `${i18n.t('overlaypanel_memberreport_commission_percentage')}`;
         if (this._txt_commissionTotal) this._txt_commissionTotal.renderText = () => `${i18n.t('overlaypanel_memberreport_commission_total')}`;
 
         this._txt_betAmount_value.renderText = () => `-`;
-        this._txt_washAmount_value.renderText = () => `-`;
+        if (this._txt_washAmount_value) this._txt_washAmount_value.renderText = () => `-`;
         this._txt_winAmount_value.renderText = () => `-`;
-        this._txt_totalAmount_value.renderText = () => `-`;
+        if (this._txt_totalAmount_value) this._txt_totalAmount_value.renderText = () => `-`;
         if (this._txt_commissionPercentage_value) this._txt_commissionPercentage_value.renderText = () => `-`;
         if (this._txt_commissionTotal_value) this._txt_commissionTotal_value.renderText = () => `-`;
 
@@ -154,8 +154,8 @@ namespace we {
           const { bet, winloss, rollingcommissionpercentage, rollingcommission, rolling, total } = data;
           this._txt_betAmount_value.text = utils.formatNumber(utils.nvl(bet, '-'));
           this._txt_winAmount_value.text = utils.formatNumber(utils.nvl(winloss, '-'));
-          this._txt_washAmount_value.text = utils.formatNumber(utils.nvl(rolling, '-'));
-          this._txt_totalAmount_value.text = utils.formatNumber(utils.nvl(total, '-'));
+          if (this._txt_washAmount_value) this._txt_washAmount_value.text = utils.formatNumber(utils.nvl(rolling, '-'));
+          if (this._txt_totalAmount_value) this._txt_totalAmount_value.text = utils.formatNumber(utils.nvl(total, '-'));
           if (this._txt_commissionPercentage_value) this._txt_commissionPercentage_value.text = utils.formatNumber(utils.nvl(rollingcommissionpercentage, '-'));
           if (this._txt_commissionTotal_value) this._txt_commissionTotal_value.text = utils.formatNumber(utils.nvl(rollingcommission, '-'));
         }

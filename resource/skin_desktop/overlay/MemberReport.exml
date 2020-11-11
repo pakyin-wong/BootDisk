@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.MemberReport" width="1689" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:overlay="we.overlay.*" states="api,credit" >
-	<e:Group id="content" left="0" right="0" top="0" anchorOffsetY="0" height="1011" left.api="0" right.api="0" top.api="0" height.api="771">
+	<e:Group id="content" left="0" right="0" top="0" anchorOffsetY="0" height="1011" left.api="0" right.api="0" top.api="0" height.api="447" left.credit="0" right.credit="0" top.credit="0" height.credit="725">
 		<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x14181e" ellipseHeight="48" ellipseWidth="48"
 		        strokeColor="0x333c4a" strokeWeight="2"  locked="true"/>
 		<e:Image id="close" width="48" height="48" right="44" top="44" source="d-lobby-button-close-none_png" />
@@ -40,31 +40,31 @@
 		</e:Group>
 		<e:Group x="871" y="168">
 			<e:Rect width="773" height="227" fillColor="0x1E2126" ellipseHeight="32" ellipseWidth="32" strokeColor="0x2A2D32" strokeWeight="2" x="0" y="0" anchorOffsetY="0" anchorOffsetX="0" scaleX="1" scaleY="1"/>
-			<ui:RunTimeLabel id="_txt_washAmount" text="Label" x="30.970000000000027" y="31.28" textColor="0xB5B9BC" scaleX="1" scaleY="1"/>
-			<ui:RunTimeLabel id="_txt_washAmount_value" text="Label" x="30.970000000000027" y="91.57999999999998" size="60" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-		</e:Group>
-		<e:Group x="44" y="450">
-			<e:Rect width="773" height="227" fillColor="0x1E2126" ellipseHeight="32" ellipseWidth="32" strokeColor="0x2A2D32" strokeWeight="2" x="0" y="0" anchorOffsetY="0" anchorOffsetX="0" scaleX="1" scaleY="1"/>
 			<ui:RunTimeLabel id="_txt_winAmount" text="Label" x="30.299999999999997" y="30.680000000000007" textColor="0xB5B9BC" scaleX="1" scaleY="1"/>
 			<ui:RunTimeLabel id="_txt_winAmount_value" text="Label" x="30.799999999999997" y="90.98000000000002" size="60" fontFamily="Barlow" scaleX="1" scaleY="1"/>
 		</e:Group>
-		<e:Group x="871" y="450">
-			<e:Rect width="773" height="227" fillColor="0x1E2126" ellipseHeight="32" ellipseWidth="32" strokeColor="0x2A2D32" strokeWeight="2" x="0" y="0" anchorOffsetY="0" anchorOffsetX="0" scaleX="1" scaleY="1"/>
-			<ui:RunTimeLabel id="_txt_totalAmount" text="Label" x="30.970000000000027" y="30.680000000000007" textColor="0xB5B9BC" scaleX="1" scaleY="1"/>
-			<ui:RunTimeLabel id="_txt_totalAmount_value" text="Label" x="30.970000000000027" y="90.98000000000002" size="60" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-		</e:Group>
-		<e:Group x="44" y="730" includeIn="credit">
+		<e:Group x="44" y="450" includeIn="credit">
 			<e:Rect width="773" height="227" fillColor="0x1E2126" ellipseHeight="32" ellipseWidth="32" strokeColor="0x2A2D32" strokeWeight="2" x="0" y="0" anchorOffsetY="0" anchorOffsetX="0" scaleX="1" scaleY="1"/>
 			<ui:RunTimeLabel id="_txt_commissionPercentage" text="Label" x="30.299999999999997" y="30.680000000000007" textColor="0xb5b9bc" scaleX="1" scaleY="1"/>
 			<ui:RunTimeLabel id="_txt_commissionPercentage_value" text="Label" x="30.799999999999997" y="90.98000000000002" size="60" fontFamily="Barlow" scaleX="1" scaleY="1"/>
 		</e:Group>
-		<e:Group x="871" y="730" includeIn="credit">
+		<e:Group x="871" y="450" includeIn="credit">
 			<e:Rect width="773" height="227" fillColor="0x1E2126" ellipseHeight="32" ellipseWidth="32" strokeColor="0x2A2D32" strokeWeight="2" x="0" y="0" anchorOffsetY="0" anchorOffsetX="0" scaleX="1" scaleY="1"/>
 			<ui:RunTimeLabel id="_txt_commissionTotal" text="Label" x="30.970000000000027" y="30.680000000000007" textColor="0xB5B9BC" scaleX="1" scaleY="1"/>
 			<ui:RunTimeLabel id="_txt_commissionTotal_value" text="Label" x="30.970000000000027" y="90.98000000000002" size="60" fontFamily="Barlow" scaleX="1" scaleY="1"/>
 		</e:Group>
+		<e:Group x="44" y="730" visible="false">
+			<e:Rect width="773" height="227" fillColor="0x1E2126" ellipseHeight="32" ellipseWidth="32" strokeColor="0x2A2D32" strokeWeight="2" x="0" y="0" anchorOffsetY="0" anchorOffsetX="0" scaleX="1" scaleY="1"/>
+			<ui:RunTimeLabel id="_txt_washAmount" text="Label" x="30.970000000000027" y="31.28" textColor="0xB5B9BC" scaleX="1" scaleY="1"/>
+			<ui:RunTimeLabel id="_txt_washAmount_value" text="Label" x="30.970000000000027" y="91.57999999999998" size="60" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		</e:Group>
+		<e:Group x="871" y="730" visible="false">
+			<e:Rect width="773" height="227" fillColor="0x1E2126" ellipseHeight="32" ellipseWidth="32" strokeColor="0x2A2D32" strokeWeight="2" x="0" y="0" anchorOffsetY="0" anchorOffsetX="0" scaleX="1" scaleY="1"/>
+			<ui:RunTimeLabel id="_txt_totalAmount" text="Label" x="30.970000000000027" y="30.680000000000007" textColor="0xB5B9BC" scaleX="1" scaleY="1"/>
+			<ui:RunTimeLabel id="_txt_totalAmount_value" text="Label" x="30.970000000000027" y="90.98000000000002" size="60" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		</e:Group>
 	</e:Group>
-	<overlay:DoubleCalendarPicker skinName="skin_desktop.DoubleCalendarPicker" id="_datepicker" width="1207" height="795"
-	                              y="-24" x="511" scaleX="1" scaleY="1" anchorOffsetY="0" />
+	<overlay:DoubleCalendarPicker skinName="skin_desktop.DoubleCalendarPicker" id="_datepicker" width="1207" height="0"
+	                              y="-24" x="511" scaleX="1" scaleY="1" anchorOffsetY="0"/>
 	<ui:Panel id="_ddm_searchType" width="370" maxHeight="300" x="348" y="117" skinName="skin_desktop.NavDropdown" />
 </e:Skin>
