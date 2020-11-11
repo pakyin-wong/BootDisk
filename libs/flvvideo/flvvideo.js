@@ -120,6 +120,7 @@ var egret;
                         player1.setView(videoCanvasId)
                         player1.setScaleMode(1)
                         player1.setBufferTime(1000)
+                        player1.setCryptoKey('');
                         player1.volume = 1;
                         _this.startFunc1 = function () {
                             player1.stop()
