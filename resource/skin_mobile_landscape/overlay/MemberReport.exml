@@ -11,21 +11,15 @@
 		<e:Image id="close" width="96" height="96" right="26" top="68" source="d-lobby-button-close-none_png" />
 		<ui:RunTimeLabel id="_txt_title" text="Label" x="114" y="55" width="1000" height="119" verticalAlign="middle"
 		                 textColor="0xc59466" size="80" bold="true" />
-		<ui:RunTimeLabel id="_txt_date" text="d" x="1428" y="58" width="48" height="36" size="24" alpha="0.7"
-		                 verticalAlign="middle" visible="false" />
-		<ui:BaseButton id="_btn_today" width="137" height="60" x="1512" y="47"
-		               skinName="skin_mobile_portrait.OverlayPanelButton" visible="false" />
-		<ui:BaseButton id="_btn_yesterday" width="137" height="60" x="1108" y="45.5"
-		               skinName="skin_desktop.OverlayPanelButton" visible="false" />
-		<ui:BaseButton id="_btn_week" width="137" height="60" x="1669" y="47"
-		               skinName="skin_mobile_portrait.OverlayPanelButton" visible="false" />
-		<ui:RunTimeLabel id="_txt_search" text="Label" x="653" y="58" height="36" verticalAlign="middle" size="24" width="96"
-		                 alpha="0.7" visible="false" />
+
+
+
+
+
 		<!--<ui:BaseImageButton id="_btn_search" width="63" height="63" x="1101" y="345" currentState="search_icon"
 		                        skinName="skin_mobile_portrait.ImageButtonSkinNav" />
 		-->
-		<e:EditableText id="_tf_search" width="200" height="36" text="" x="653" y="58" verticalAlign="middle" size="24"
-		                visible="false" />
+
 		<!--<ui:BaseButton id="_btn_searchType" width="400" height="120" x="740" y="55"
 		                   skinName="skin_mobile_portrait.OverlayPanelButton" active="true" />
 		<ui:BaseButton id="_btn_custom" width="252" height="120" x="1412" y="55"
@@ -67,8 +61,7 @@
 		                 textColor="0xffffff" alpha="0.5" />
 		<ui:RunTimeLabel id="_txt_totalAmount_value" text="Label" x="1284" y="650" size="90" fontFamily="Barlow"
 		                 verticalAlign="middle" height="108" />
-		<ui:Panel id="_ddm_searchType" width="251" x="132" y="250.5" skinName="skin_mobile_landscape.NavDropdown"
-		          maxHeight="200" visible="false" />
+
 	</e:Group>
 	<overlay:DoubleCalendarPicker skinName="skin_mobile_landscape.DoubleCalendarPicker" id="_datepicker" width="1402"
 	                              height="1200" x="511" scaleX="1" scaleY="1" anchorOffsetY="0"  verticalCenter="0"/>

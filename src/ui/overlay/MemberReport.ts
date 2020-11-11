@@ -60,16 +60,18 @@ namespace we {
         this._btn_custom.label.size = env.isMobile ? 50 : 24;
 
         this._txt_title.renderText = () => `${i18n.t('overlaypanel_memberreport_title')}`;
-        this._txt_date.renderText = () => `${i18n.t('overlaypanel_memberreport_date')}`;
+        if (this._txt_date) this._txt_date.renderText = () => `${i18n.t('overlaypanel_memberreport_date')}`;
         // mobileonly
         if (env.isMobile) {
           this._btn_date.label.size = 50;
           this._btn_date.label.renderText = () => `${i18n.t('overlaypanel_memberreport_date')}`;
         }
-        // ^mobileonly
-        this._btn_today.label.renderText = () => `${i18n.t('overlaypanel_memberreport_today')}`;
-        this._btn_yesterday.label.renderText = () => `${i18n.t('overlaypanel_memberreport_yesterday')}`;
-        this._btn_week.label.renderText = () => `${i18n.t('overlaypanel_memberreport_week')}`;
+        else {
+          // ^mobileonly
+          this._btn_today.label.renderText = () => `${i18n.t('overlaypanel_memberreport_today')}`;
+          this._btn_yesterday.label.renderText = () => `${i18n.t('overlaypanel_memberreport_yesterday')}`;
+          this._btn_week.label.renderText = () => `${i18n.t('overlaypanel_memberreport_week')}`;
+        }
         this._btn_custom.label.renderText = () => `${i18n.t('overlaypanel_memberreport_customperiod')}`;
 
         this._txt_betAmount.renderText = () => `${i18n.t('overlaypanel_memberreport_amountbet')}`;
@@ -165,9 +167,11 @@ namespace we {
       }
 
       protected addListeners() {
-        this._btn_today.$addListener('CLICKED', this.searchToday, this);
-        this._btn_yesterday.$addListener('CLICKED', this.searchYesterday, this);
-        this._btn_week.$addListener('CLICKED', this.searchWeek, this);
+        if (!env.isMobile) {
+          this._btn_today.$addListener('CLICKED', this.searchToday, this);
+          this._btn_yesterday.$addListener('CLICKED', this.searchYesterday, this);
+          this._btn_week.$addListener('CLICKED', this.searchWeek, this);
+        }
         this._btn_custom.$addListener('CLICKED', this.showPicker, this);
         this._datepicker.$addListener('PICKED_DATE', this.searchCustomDate, this);
         this._btn_searchType.addEventListener('DROPDOWN_ITEM_CHANGE', this.onTypeChange, this);
@@ -221,8 +225,11 @@ namespace we {
           .utcOffset(8)
           .endOf('day')
           .unix();
-        this._btn_yesterday.active = this._btn_week.active = this._btn_custom.active = false;
-        this._btn_today.active = true;
+        if (!env.isMobile) {
+          this._btn_yesterday.active = this._btn_week.active = false;
+          this._btn_today.active = true;
+        }
+        this._btn_custom.active = false;
         this.search();
       }
 
@@ -237,8 +244,11 @@ namespace we {
           .endOf('day')
           .subtract(1, 'day')
           .unix();
-        this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
-        this._btn_yesterday.active = true;
+        if (!env.isMobile) {
+          this._btn_today.active = this._btn_week.active = false;
+          this._btn_yesterday.active = true;
+        }
+        this._btn_custom.active = false;
         this.search();
       }
 
@@ -256,8 +266,11 @@ namespace we {
           .endOf('day')
           .unix();
         this._endtime = Math.min(this._endtime, today);
-        this._btn_today.active = this._btn_yesterday.active = this._btn_custom.active = false;
-        this._btn_week.active = true;
+        if (!env.isMobile) {
+          this._btn_today.active = this._btn_yesterday.active = false;
+          this._btn_week.active = true;
+        }
+        this._btn_custom.active = false;
         this.search();
       }
 
@@ -267,7 +280,9 @@ namespace we {
         }
         this._starttime = e.data.starttime;
         this._endtime = e.data.endtime;
-        this._btn_today.active = this._btn_week.active = this._btn_yesterday.active = false;
+        if (!env.isMobile) {
+          this._btn_today.active = this._btn_week.active = this._btn_yesterday.active = false;
+        }
         this._btn_custom.active = true;
         if (env.isMobile) {
           this._btn_date.active = false;
