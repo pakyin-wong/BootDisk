@@ -29,6 +29,8 @@ namespace we {
       sidegamelist_tab_goodroad: 'GoodRoad',
 
       lobby_footer_text: 'Copyright © 2020 World Entertainment All rights reserved.',
+      lobby_no_favourite_text: 'No favorite game selected',
+      lobby_tag_hint_text: 'Mark your favorite games with heart button',
 
       betfield_baccarat_banker: 'banker',
       betfield_baccarat_player: 'player',
@@ -69,6 +71,8 @@ namespace we {
       overlaypanel_memberreport_amountwash: 'Amount wash',
       overlaypanel_memberreport_amountwin: 'Amount win',
       overlaypanel_memberreport_amounttotal: 'Amount total',
+      overlaypanel_memberreport_commission_percentage: 'Commission %',
+      overlaypanel_memberreport_commission_total: 'Comission Total',
 
       overlaypanel_customroad_title: 'Good Road Settings',
       overlaypanel_customroad_default: 'Restore Default',
@@ -108,8 +112,10 @@ namespace we {
       overlaypanel_bethistory_limit: 'Record per page',
       overlaypanel_bethistory_total: ' %now% of total %total% record(s)',
 
-      overlaypanel_bethistory_record_round: 'Bet ID',
+      overlaypanel_bethistory_record_round: 'Round',
       overlaypanel_bethistory_record_bettype: 'Bet Content',
+      overlaypanel_bethistory_record_vaildbet: 'Vaild Turnover',
+      overlaypanel_bethistory_record_rolling: 'Rolling Commission',
       overlaypanel_bethistory_record_result: 'Game Result',
       overlaypanel_bethistory_record_replay: 'Playback',
 
@@ -736,6 +742,18 @@ namespace we {
       lo_fun_betfield_total_SMALL: 'Total Small',
       lo_fun_betfield_total_ODD: 'Total Odd',
       lo_fun_betfield_total_EVEN: 'Total Even',
+
+      lo_bottom_analysis_today: 'Today',
+      lo_bottom_analysis_yesterday: 'Yes',
+      lo_bottom_analysis_this_week: 'TWeek',
+      lo_bottom_analysis_last_week: 'LWeek',
+      lo_bottom_analysis_this_month: 'TMonth',
+      lo_bottom_analysis_last_month: 'LMonth',
+
+      lo_bottom_analysis_hot: 'Hot',
+      lo_bottom_analysis_cold: 'Cold',
+      lo_bottom_analysis_30hot: '30Hot',
+      lo_bottom_analysis_30cold: '30Cold',
 
       lo_fun_logo: 'd_lottery_lotto5_ent_logo_eng_png',
       lo_tri_logo: 'd_lottery_lotto5_trad_logo_eng_png',

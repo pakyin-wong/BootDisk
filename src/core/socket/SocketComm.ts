@@ -287,6 +287,7 @@ namespace we {
         this.updateTimestamp(timestamp);
         env.playerID = player.playerid;
         env.currency = player.profile.currency;
+        env.accountType = player.profile.type?player.profile.type: 0;
         // env.nickname = player.profile.nickname;
         env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
 
@@ -306,8 +307,6 @@ namespace we {
 
         env.blockchain.cosmolink = player.blockchainlinks.cosmoslink
         env.blockchain.thirdPartySHA256 = player.blockchainlinks.thirdpartysha256
-
-        console.log('blockchain', env.blockchain)
 
         // env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
         // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
@@ -340,7 +339,8 @@ namespace we {
             ? Object.keys(env.icons)[0]
             : player.profile.profileimageurl;
         logger.l(utils.LogTarget.RELEASE, 'PlayerClient::handleReady() ' + player.profile.betlimits);
-
+        
+        env.denomList = player.profile.chips?player.profile.chips:[100, 500, 1000, 2000, 3000, 5000, 10000, 20000, 30000, 50000, 100000, 200000, 300000, 500000, 1000000, 2000000, 3000000, 5000000, 10000000, 20000000];
         env.betLimits = player.profile.betlimits
           ? player.profile.betlimits
           : {
@@ -428,6 +428,9 @@ namespace we {
         }
 
         logger.l(utils.LogTarget.RELEASE, `${timestamp}: READY`, player);
+
+        env.showGoodRoadHint = player.profile.settings.showGoodRoadHint ? true : false;
+        env.autoConfirmBet = player.profile.settings.autoConfirmBet ? true : false;
 
         dir.evtHandler.dispatch(core.MQTT.CONNECT_SUCCESS);
 

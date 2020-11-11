@@ -22,7 +22,7 @@ namespace we {
       }
 
       public static add(betInfo) {
-        const betLimit = env.betLimits.Lottery[env.currentSelectedBetLimitIndex];
+        const betLimit = env.getBetLimitSet('Lottery', env.currentSelectedBetLimitIndex);
         let rBet = 0;
 
         if (FunBet.totalBet + FunBet.bet > env.balance) {
@@ -71,7 +71,7 @@ namespace we {
       }
 
       public static checkAllAvailable() {
-        const betLimit = env.betLimits.Lottery[env.currentSelectedBetLimitIndex];
+        const betLimit = env.getBetLimitSet('Lottery', env.currentSelectedBetLimitIndex);
 
         if (FunBet.totalBet > env.balance) {
           FunBet.evtHandler.dispatchEvent(new egret.Event('LOTTERY_FUNBET_OVERBALANCE'));

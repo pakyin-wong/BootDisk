@@ -55,7 +55,7 @@ namespace we {
       }
 
       protected checkbetLimit() {
-        const betLimit = env.betLimits.Lottery[env.currentSelectedBetLimitIndex];
+        const betLimit = env.getBetLimitSet('Lottery', env.currentSelectedBetLimitIndex);
         if (this.currentBet < betLimit.minlimit) {
           this.currentBet = betLimit.minlimit;
         } else if (this.currentBet > betLimit.maxlimit) {

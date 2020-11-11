@@ -46,7 +46,7 @@ namespace we {
       }
 
       private onBetLimitUpdate() {
-        let denomList = env.betLimits.Lottery[env.currentSelectedBetLimitIndex].chips;
+        let denomList = env.getBetLimitSet('Lottery', env.currentSelectedBetLimitIndex).chips;
         this._arrcol.removeAll();
         this._arrcol.replaceAll(denomList);
         this._arrcol.addItem(this._custombet);

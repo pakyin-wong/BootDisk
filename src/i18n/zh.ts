@@ -29,6 +29,8 @@ namespace we {
       sidegamelist_tab_goodroad: '好路',
 
       lobby_footer_text: 'Copyright © 2020 World Entertainment 保留一切權利。',
+      lobby_no_favourite_text: '沒有我的最愛',
+      lobby_tag_hint_text: '將你喜愛的遊戲標上愛心',
 
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '閒',
@@ -69,6 +71,8 @@ namespace we {
       overlaypanel_memberreport_amountwash: '洗碼量',
       overlaypanel_memberreport_amountwin: '贏輸金額',
       overlaypanel_memberreport_amounttotal: '總金額',
+      overlaypanel_memberreport_commission_percentage: '洗碼%',
+      overlaypanel_memberreport_commission_total: '洗碼佣金',
 
       overlaypanel_customroad_title: '好路設定',
       overlaypanel_customroad_default: '還原預設',
@@ -739,6 +743,18 @@ namespace we {
       lo_fun_betfield_total_SMALL: '總小',
       lo_fun_betfield_total_ODD: '總單',
       lo_fun_betfield_total_EVEN: '總雙',
+
+      lo_bottom_analysis_today: '今日',
+      lo_bottom_analysis_yesterday: '昨日',
+      lo_bottom_analysis_this_week: '本周',
+      lo_bottom_analysis_last_week: '上周',
+      lo_bottom_analysis_this_month: '本月',
+      lo_bottom_analysis_last_month: '上月',
+
+      lo_bottom_analysis_hot: '連續出現',
+      lo_bottom_analysis_cold: '連續不出',
+      lo_bottom_analysis_30hot: '30期熱門',
+      lo_bottom_analysis_30cold: '30期冷門',
 
       lo_fun_logo: 'd_lottery_lotto5_ent_logo_tw_png',
       lo_tri_logo: 'd_lottery_lotto5_trad_logo_tw_png',

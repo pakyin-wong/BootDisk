@@ -117,7 +117,7 @@ namespace we {
           }
         }
 
-        const denominationList = env.betLimits.Live[this.getSelectedBetLimitIndex()].chips;
+        const denominationList = env.getBetLimitSet('Live', this.getSelectedBetLimitIndex()).chips;
         if (this._betChipSet) {
           this._betChipSet.init(3, denominationList);
         }
@@ -207,7 +207,7 @@ namespace we {
       }
 
       protected runtimeGenerateChipLayer() {
-        const denominationList = env.betLimits.Live[this.getSelectedBetLimitIndex()].chips;
+        const denominationList = env.getBetLimitSet('Live', this.getSelectedBetLimitIndex()).chips;
         this.generateChipLayer();
         for (const att of this._arrangeProperties) {
           if (this._chipLayer && att !== 'height' && att !== 'scaleX') {

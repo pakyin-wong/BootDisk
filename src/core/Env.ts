@@ -23,6 +23,7 @@ namespace we {
       public balanceOnHold: number = 0;
       public currency: Currency;
       public playerID: string;
+      public accountType: number = 0;   // 0-api, 1-credit
 
       public nickname: string;
       public nicknameKey: string;
@@ -41,9 +42,9 @@ namespace we {
       public _gameCategories: string[];
       public _gameTypes: number[];
 
-      public blockchain: { thirdPartySHA256:  string, cosmolink: string} = {
-        thirdPartySHA256 : '',
-        cosmolink : ''
+      public blockchain: { thirdPartySHA256: string, cosmolink: string } = {
+        thirdPartySHA256: '',
+        cosmolink: ''
       };
       /**
        * {
@@ -82,7 +83,7 @@ namespace we {
       public videoOpen: boolean = true;
 
       public betLimits: data.BetLimit;
-      // public wholeDenomList: (value: number) => number;
+      public denomList: number[];
       public goodRoadData: data.GoodRoadMapData;
       public playerLotteryStat: any;
       public isMobile: boolean = false;
@@ -177,10 +178,11 @@ namespace we {
       }
 
       set gameCategories(value: string[]) {
-        const validCategories = ['Live', 'Lottery'];
-        this._gameCategories = validCategories.filter(cat=> {
-          return value.indexOf(cat)>=0;
-        }).map((cat:string)=>cat.toLowerCase());
+        // value = ['Lottery'];    // TODO: this is just for testing, delete it when finish testing
+        const validCategories = ['Live', 'Lottery'];    // categories which support in current version
+        this._gameCategories = validCategories.filter(cat => {
+          return value.indexOf(cat) >= 0;
+        }).map((cat: string) => cat.toLowerCase());
       }
 
       get gameCategories(): string[] {
@@ -188,13 +190,13 @@ namespace we {
       }
 
       set gameTypes(value: any[]) {
-        this._gameTypes = value.map((cat:string)=>parseInt(cat,10));
+        // value = ['0','15','22'];     // TODO: this is just for testing, delete it when finish testing
+        this._gameTypes = value.map((cat: string) => parseInt(cat, 10));
       }
 
       get gameTypes(): any[] {
         return this._gameTypes;
       }
-
 
       set currTime(value: number) {
         this._currTime = value;
@@ -280,7 +282,7 @@ namespace we {
             return false;
           }
 
-          if (tableInfo.data != null  && tableInfo.roadmap != null) {
+          if (tableInfo.data != null && tableInfo.roadmap != null) {
             tableInfo.displayReady = true;
             return true;
           }
@@ -403,6 +405,19 @@ namespace we {
         return this._icons;
       }
 
+      public getBetLimitSet(category: string, index: number) {
+        const betlimits = this.betLimits[category];
+        if (!betlimits) {
+          throw new Error('Unknown game category: ' + category);
+        }
+
+        if (betlimits.length <= index) {
+          index = betlimits.length - 1;
+        }
+
+        return betlimits[index];
+      }
+
       protected groupKeySorting(langcode: string) {
         const list = Object.keys(env._nicknames[langcode]); // [namekey001,namekey002...]
         for (const item of list) {
@@ -411,6 +426,12 @@ namespace we {
             continue;
           }
           env._groups[_item].push(item);
+        }
+        for (const group in env._groups) {
+          console.log(group);
+          if (env._groups[group].length == 0) {
+            delete env._groups[group];
+          }
         }
       }
 
