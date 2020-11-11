@@ -71,6 +71,8 @@ namespace we {
       overlaypanel_memberreport_amountwash: 'Amount wash',
       overlaypanel_memberreport_amountwin: 'Amount win',
       overlaypanel_memberreport_amounttotal: 'Amount total',
+      overlaypanel_memberreport_commission_percentage: 'Commission %',
+      overlaypanel_memberreport_commission_total: 'Comission Total',
 
       overlaypanel_customroad_title: 'Good Road Settings',
       overlaypanel_customroad_default: 'Restore Default',

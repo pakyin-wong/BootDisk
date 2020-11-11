@@ -79,6 +79,8 @@ namespace we {
       overlaypanel_memberreport_amountwash: '洗碼量',
       overlaypanel_memberreport_amountwin: '贏輸金额',
       overlaypanel_memberreport_amounttotal: '总金额',
+      overlaypanel_memberreport_commission_percentage: '洗码%',
+      overlaypanel_memberreport_commission_total: '洗码佣金',
 
       overlaypanel_customroad_title: '好路设定',
       overlaypanel_customroad_default: '还原预设',

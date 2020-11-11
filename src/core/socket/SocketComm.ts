@@ -287,6 +287,7 @@ namespace we {
         this.updateTimestamp(timestamp);
         env.playerID = player.playerid;
         env.currency = player.profile.currency;
+        env.accountType = player.profile.type?player.profile.type: 0;
         // env.nickname = player.profile.nickname;
         env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
 

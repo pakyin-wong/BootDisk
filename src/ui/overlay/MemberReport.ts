@@ -13,11 +13,15 @@ namespace we {
 
       private _txt_betAmount: ui.RunTimeLabel;
       private _txt_washAmount: ui.RunTimeLabel;
+      private _txt_commissionPercentage: ui.RunTimeLabel;
+      private _txt_commissionTotal: ui.RunTimeLabel;
       private _txt_winAmount: ui.RunTimeLabel;
       private _txt_totalAmount: ui.RunTimeLabel;
 
       private _txt_betAmount_value: ui.RunTimeLabel;
       private _txt_washAmount_value: ui.RunTimeLabel;
+      private _txt_commissionPercentage_value: ui.RunTimeLabel;
+      private _txt_commissionTotal_value: ui.RunTimeLabel;
       private _txt_winAmount_value: ui.RunTimeLabel;
       private _txt_totalAmount_value: ui.RunTimeLabel;
 
@@ -44,6 +48,11 @@ namespace we {
 
       protected mount() {
         this.initMemberReport();
+        if (env.accountType==1) {
+          this.currentState = 'credit';
+        } else {
+          this.currentState = 'api';
+        }
       }
 
       private initMemberReport() {
@@ -67,11 +76,15 @@ namespace we {
         this._txt_washAmount.renderText = () => `${i18n.t('overlaypanel_memberreport_amountwash')}`;
         this._txt_winAmount.renderText = () => `${i18n.t('overlaypanel_memberreport_amountwin')}`;
         this._txt_totalAmount.renderText = () => `${i18n.t('overlaypanel_memberreport_amounttotal')}`;
+        if (this._txt_commissionPercentage) this._txt_commissionPercentage.renderText = () => `${i18n.t('overlaypanel_memberreport_commission_percentage')}`;
+        if (this._txt_commissionTotal) this._txt_commissionTotal.renderText = () => `${i18n.t('overlaypanel_memberreport_commission_total')}`;
 
         this._txt_betAmount_value.renderText = () => `-`;
         this._txt_washAmount_value.renderText = () => `-`;
         this._txt_winAmount_value.renderText = () => `-`;
         this._txt_totalAmount_value.renderText = () => `-`;
+        if (this._txt_commissionPercentage_value) this._txt_commissionPercentage_value.renderText = () => `-`;
+        if (this._txt_commissionTotal_value) this._txt_commissionTotal_value.renderText = () => `-`;
 
         const _arrCol_date = new eui.ArrayCollection([
           ui.NewDropdownItem('today', () => `${i18n.t('overlaypanel_memberreport_today')}`),
@@ -146,6 +159,8 @@ namespace we {
           this._txt_winAmount_value.text = utils.formatNumber(utils.nvl(winloss, '-'));
           this._txt_washAmount_value.text = utils.formatNumber(utils.nvl(rolling, '-'));
           this._txt_totalAmount_value.text = utils.formatNumber(utils.nvl(total, '-'));
+          if (this._txt_commissionPercentage_value) this._txt_commissionPercentage_value.text = utils.formatNumber(utils.nvl(rollingcommissionpercentage, '-'));
+          if (this._txt_commissionTotal_value) this._txt_commissionTotal_value.text = utils.formatNumber(utils.nvl(rollingcommission, '-'));
         }
       }
 
