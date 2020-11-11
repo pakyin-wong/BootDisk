@@ -56,7 +56,8 @@ namespace we {
     //   }
     // }
 
-    export function getChipImage(val: number) {
+    export function getChipImage(val: number|string) {
+      val = Number(val);
       let idx = env.denomList.indexOf(val);
       if (idx<0 || idx >= chipImages.length) {
         throw new Error('Wrong chip value');
