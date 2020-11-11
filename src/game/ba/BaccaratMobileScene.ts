@@ -19,7 +19,6 @@ namespace we {
 
       protected _verticalGroup: eui.Group;
       protected _BAgoodRoadLabel: ui.GoodRoadLabel;
-      protected testing: ui.GoodRoadLabel;
       protected _tableInfoPanel: TableInfoPanel;
 
       protected _originBetRelatedGroupY: number;
