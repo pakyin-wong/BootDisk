@@ -151,7 +151,7 @@ namespace we {
           this.setText(this._record_bettype, utils.BetHistory.formatBetType(this.data.gametype, this.data.field));
           this.setText(this._record_betamount, utils.formatNumber(this.data.betamount, true));
           this.setText(this._record_finbalance, utils.formatNumber(this.data.afterbalance, true));
-          // this.setText(this._record_vaildbet, ?????);
+          this.setText(this._record_vaildbet, utils.formatNumber(this.data.validbetamount, true));
 
           this.updateWinText(this.data.remark, this.data.winamount);
           this.createGameResult(this.data.gametype, this.data.result);

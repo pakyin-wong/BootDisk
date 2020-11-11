@@ -167,7 +167,7 @@ namespace we {
         this._ddm_limit && this._ddm_limit.$addListener('DROPDOWN_ITEM_CHANGE', this.onLimitChange, this);
         this._ddm_searchType && this._ddm_searchType.$addListener('DROPDOWN_ITEM_CHANGE', this.onTypeChange, this);
         this._datepicker.$addListener('PICKED_DATE', this.searchCustomDate, this);
-        this._datagroup.addEventListener(egret.Event.CHANGE, this.onSelected, this);
+        // this._datagroup.addEventListener(egret.Event.CHANGE, this.onSelected, this);
       }
 
       protected removeListeners() {
@@ -182,7 +182,7 @@ namespace we {
         this._ddm_limit && this._ddm_limit.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onLimitChange, this);
         this._ddm_searchType && this._ddm_searchType.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onTypeChange, this);
         this._datepicker.removeEventListener('PICKED_DATE', this.searchCustomDate, this);
-        this._datagroup.removeEventListener(egret.Event.CHANGE, this.onSelected, this);
+        // this._datagroup.removeEventListener(egret.Event.CHANGE, this.onSelected, this);
       }
 
       protected genGameTypeList(): any {
@@ -193,9 +193,9 @@ namespace we {
         return list;
       }
 
-      protected onSelected() {
-        this._datagroup.validateNow();
-      }
+      // protected onSelected() {
+      //   this._datagroup.validateNow();
+      // }
 
       protected searchToday() {
         this._page = 1;

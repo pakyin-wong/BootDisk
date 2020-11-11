@@ -74,7 +74,7 @@ namespace we {
       overlaypanel_customroad_default: 'Restore Default',
       overlaypanel_customroad_selectall: 'Select All',
 
-      overlaypanel_bethistory_title: 'Bet Log',
+      overlaypanel_bethistory_title: 'Bet Records',
       overlaypanel_bethistory_tab: 'Class',
       overlaypanel_bethistory_tab_all: 'All',
       overlaypanel_bethistory_tab_live: 'Live',
@@ -86,6 +86,7 @@ namespace we {
       overlaypanel_bethistory_week: 'This week',
       overlaypanel_bethistory_customperiod: 'Custom',
       overlaypanel_bethistory_searchrecord: 'Search Bet ID',
+
       overlaypanel_bethistory_recordtab_id: 'Bet ID',
       overlaypanel_bethistory_recordtab_title: 'Record Detail',
       overlaypanel_bethistory_recordtab_date: 'Date',
@@ -99,17 +100,19 @@ namespace we {
       overlaypanel_bethistory_recordtab_orgbalance: 'Original Balance',
       overlaypanel_bethistory_recordtab_finbalance: 'Balance',
       overlaypanel_bethistory_recordtab_resuit: 'Game Result',
-      overlaypanel_bethistory_recordtab_vaildbet: 'Vaild bet',
       overlaypanel_bethistory_recordtab_noresult: 'No Bet Reult',
+
       overlaypanel_bethistory_remark_win: 'Win',
       overlaypanel_bethistory_remark_lose: 'Lose',
       overlaypanel_bethistory_remark_ties: 'Ties',
-      overlaypanel_bethistory_limit: 'records per page',
+      overlaypanel_bethistory_limit: 'Record per page',
       overlaypanel_bethistory_total: ' %now% of total %total% record(s)',
+
       overlaypanel_bethistory_record_round: 'Bet ID',
       overlaypanel_bethistory_record_bettype: 'Bet Content',
       overlaypanel_bethistory_record_result: 'Game Result',
       overlaypanel_bethistory_record_replay: 'Playback',
+
       overlaypanel_bethistory_btn_next: 'Next',
       overlaypanel_bethistory_btn_prev: 'Previous',
       overlaypanel_bethistory_searchtype_all: 'All',

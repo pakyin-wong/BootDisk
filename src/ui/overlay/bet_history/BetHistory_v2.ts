@@ -56,7 +56,7 @@ namespace we {
 
         this._datagroup.itemRendererFunction = this.getItemRenderer.bind(this);
 
-        this.setText(this._txt_record_id, i18n.t('overlaypanel_bethistorylottery_record_round'));
+        this.setText(this._txt_record_id, i18n.t('overlaypanel_bethistory_recordtab_id'));
         this.setText(this._main_select_all, i18n.t('overlaypanel_bethistory_tab_all'));
         this.setText(this._main_select_live, i18n.t('overlaypanel_bethistory_tab_live'));
         this.setText(this._main_select_lottery, i18n.t('overlaypanel_bethistory_tab_lottery'));
