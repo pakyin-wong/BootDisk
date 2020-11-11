@@ -95,13 +95,12 @@ namespace we {
               this._txt_record_win.textColor = 0x43ce5c;
               break;
           }
-
           if (amt > 0) {
-            this.setText(this._txt_record_win, `+${utils.formatNumber(this.data.winamount, true)}`);
+            this.setText(this._txt_record_win, `+${utils.formatNumber(Math.abs(this.data.winamount), true)}`);
           } else if (amt === 0) {
-            this.setText(this._txt_record_win, `${utils.formatNumber(this.data.winamount, true)}`);
+            this.setText(this._txt_record_win, `${utils.formatNumber(Math.abs(this.data.winamount), true)}`);
           } else {
-            this.setText(this._txt_record_win, `-${utils.formatNumber(this.data.winamount, true)}`);
+            this.setText(this._txt_record_win, `-${utils.formatNumber(Math.abs(this.data.winamount), true)}`);
           }
         }
 

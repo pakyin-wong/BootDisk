@@ -186,9 +186,11 @@ namespace we {
           }
 
           if (amt > 0) {
-            this.setText(this._record_win_l, `+${utils.formatNumber(this.data.winamount, true)}`);
+            this.setText(this._record_win_l, `+${utils.formatNumber(Math.abs(this.data.winamount), true)}`);
+          } else if (amt === 0) {
+            this.setText(this._record_win_l, `${utils.formatNumber(Math.abs(this.data.winamount), true)}`);
           } else {
-            this.setText(this._record_win_l, `${utils.formatNumber(this.data.winamount, true)}`);
+            this.setText(this._record_win_l, `-${utils.formatNumber(Math.abs(this.data.winamount), true)}`);
           }
         }
 
