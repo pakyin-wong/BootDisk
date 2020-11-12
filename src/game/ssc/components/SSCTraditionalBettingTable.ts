@@ -92,7 +92,10 @@ namespace we {
         if (this._config.combinationDataId) {
           switch (this._config.combinationDataId) {
             case 1:
-              inputData.push(this.inputData[1]);
+              // inputData.push(this.inputData[1]);
+              for(let i = 1;i < this.inputData.length;i++){
+                inputData.push(this.inputData[i]);
+              }
               break;
             case 2:
               inputData.push(this.inputData[0]);

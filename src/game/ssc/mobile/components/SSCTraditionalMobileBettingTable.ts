@@ -6,7 +6,11 @@ namespace we {
       private _bettingTableViewPort: eui.Group;
       private _bettingTableToggleButton: eui.Group;
       private _topClose: eui.Group;
+
       private _playmodeDropDownButton: eui.Group;
+      private _playmodeDropDownButtonBg: ui.RoundRectShape;
+      private _playmodeLabelGrp : eui.Group;
+
       private _lblPlayMode : ui.RunTimeLabel;
       private _bottomGroup : eui.Group;
       private _content : eui.Group;
@@ -28,6 +32,9 @@ namespace we {
         this.addEventListeners();
         if(this.playMode){
           this._lblPlayMode.renderText = () => this.playMode;
+          this._playmodeDropDownButton.width = this._playmodeLabelGrp.width;
+          this._playmodeDropDownButtonBg.width = this._playmodeLabelGrp.width;
+          this._playmodeDropDownButtonBg.refresh();
         }
       }
 

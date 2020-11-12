@@ -6,10 +6,15 @@
             <ui:RoundRectShape id="_bg" cornerTL_TR_BL_BR="25,25,0,0" width="1242" height="0" x="0" y="0" stroke="0" fillColor="0x10151b"/>
             <e:Group id="_playmodeGroup" width="1242" height="160">
                 <ui:RunTimeLabel id="_lblPlayModeTitle" height="65" size="44" text="玩法" textAlign="left" verticalAlign="middle"/>
-                <e:Group id="_playmodeDropDownButton" width="354" height="88">
-                    <ui:RoundRectShape cornerTL_TR_BL_BR="44,44,44,44" width="354" height="88" x="0" y="0" stroke="0" fillColor="0x1b416e"/>
-                    <ui:RunTimeLabel id="_lblPlayMode" x="40" y="10" targetWidth="211" height="66" size="44" text="龍虎 - 萬千" textAlign="left" verticalAlign="middle"/>
-                    <e:Image id="_imgPlayModeArrow" source="m_common_panel_icon_dropdown_png" width="44" height="26" x="286" y="40"/>
+                <e:Group id="_playmodeDropDownButton" height="88">
+                    <ui:RoundRectShape id="_playmodeDropDownButtonBg" cornerTL_TR_BL_BR="44,44,44,44" height="88" x="0" y="0" stroke="0" fillColor="0x1b416e"/>
+                    <e:Group id="_playmodeLabelGrp" height="88" touchEnabled="false">
+                        <ui:RunTimeLabel id="_lblPlayMode" x="40" y="10" height="66" size="44" text="龍虎 - 萬千" textAlign="left" verticalAlign="middle"/>
+                        <e:Image id="_imgPlayModeArrow" source="m_common_panel_icon_dropdown_png" width="44" height="26" x="286" y="40"/>
+                        <e:layout>
+                            <e:HorizontalLayout paddingLeft="12" paddingRight="12" gap="0" verticalAlign="middle"/>
+                        </e:layout>
+                    </e:Group>
                 </e:Group>
                 <e:layout>
                     <e:HorizontalLayout gap="36" paddingLeft="48" verticalAlign="middle"/>
