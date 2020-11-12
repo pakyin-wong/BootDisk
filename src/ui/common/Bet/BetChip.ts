@@ -188,17 +188,18 @@ namespace we {
 
       protected getChipSource(type: we.core.ChipType = this._type): string {
         let filename: string;
-        const chipImageStr = utils.getChipImage(this._value);
 
         switch (type) {
           case we.core.ChipType.FLAT:
             if (this._index != null) {
+              const chipImageStr = utils.getChipImage(this._value);
               // filename = `${this.chipImageMapping[this._index]}_png`;
               filename = `${chipImageStr}_png`;
             }
             break;
           case we.core.ChipType.PERSPECTIVE:
             if (this._index != null) {
+              const chipImageStr = utils.getChipImage(this._value);
               // filename = `${this.chipImageMapping[this._index]}_B_png`;
               filename = `${chipImageStr}_B_png`;
             }
