@@ -6,7 +6,7 @@
 		<ui:RoundRectShape width="2278" height="1050" scaleX="1" scaleY="1" fillColor="0x0f1721" strokeColor="0x1d2b3f" stroke="3" y="96" cornerTL="30" cornerTR="30" x="73"/>
 		<e:Scroller width="2278" x="73" height="837" y="302">
 			<e:Group>
-				<e:Group x="-1539" y="14.000000000000028" scaleX="1" scaleY="1">
+				<e:Group x="-1539" y="14" scaleX="1" scaleY="1">
 					<e:Rect width="1" x="1212.5" top="0" bottom="0"/>
 					<e:Label id="_txt_result" text="遊玩結果" x="96" y="16" scaleX="1" scaleY="1" size="50" verticalAlign="middle" height="74" alpha="0.5"/>
 					<e:Label id="_txt_betid" text="投注編號" x="1267" y="16" scaleX="1" scaleY="1" size="50" height="74" verticalAlign="middle" alpha="0.5" width="590"/>

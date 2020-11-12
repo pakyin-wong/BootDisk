@@ -50,13 +50,21 @@
 		<e:Label id="_record_win_l" text="+00.00" x="96" y="583" height="144" size="120" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
 
 
+		<ui:RoundRectButton id="_btn_replay" width="300" height="100" x="846" y="611" fillAlpha="0" strokeColor="0xb1835b" stroke="1" cornerTL_TR_BL_BR="50,50,50,50" labelSize="50" labelAutoResize="false" labelColor="0xD9A170">
+						<e:Skin width="300" height="100">
+						<e:Group left="0" right="0" top="0" bottom="0">
+							<e:Image width="24" height="32" source="m_common_setting_playerreportlist_detail_result_replay_icon_png"/>
+							<ui:RunTimeLabel id="_label" text="重播" height="74" size="50" verticalAlign="middle" textColor="0xd9a170" textAlign="center" targetWidth="204"/>
+							<e:layout>
+								<e:HorizontalLayout gap="12" horizontalAlign="center" verticalAlign="middle"/>
+							</e:layout>
+							</e:Group>
+						</e:Skin>
+						</ui:RoundRectButton>
+
 
 		<!--<e:Image id="_btn_replay" width="300" height="100" x="846" y="689" scaleX="1" scaleY="1" source="m_common_setting_playerreportlist_detail_result_replay_box_png" scale9Grid="51,51,1,1"/>-->
-		<e:Group id="ReplayButton" x="846" y="611">
-			<e:Image width="24" height="32" x="78" y="32" source="m_common_setting_playerreportlist_detail_result_replay_icon_png"/>
-			<ui:RunTimeLabel id="_txt_record_replay" text="重播" x="124" y="11" height="74" size="50" verticalAlign="middle" textColor="0xd9a170" textAlign="center" targetWidth="160"/>
-			<ui:RoundRectButton id="_btn_replay" width="300" height="100" x="0" y="0" fillAlpha="0" strokeColor="0xb1835b" stroke="1" cornerTL_TR_BL_BR="50,50,50,50"/>
-		</e:Group>
+
 
 		<ui:RoundRectButton id="_btn_prev" x="59" y="1963" width="536" height="130" fillColor="0x1b416e" useColorFilter="true"
                                             stroke="0" cornerTL_TR_BL_BR="75,75,75,75" labelSize="60"  fillAlpha="1"/>
