@@ -1,51 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.BetHistoryItemLottery" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*"    states="up,down" >
-	<e:Rect id="_txt_record_bgcolor" width="2136" height="76" x="0" y="0" height.down="286"/>
-	<e:Group id="_hoverGroup" x="48" y="0">
-		<e:Label id="_txt_record_id" text="Label" x="0" y="0" height="76" size="24" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" width="253"/>
-		<e:Label id="_txt_record_date" text="Label" x="293" y="0" width="228" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-		<e:Group x="642" y="0">
-			<e:Label id="_txt_record_game" text="Label" x="0" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
-			<ui:RoundRectShape id="_tab_cbet" width="30" height="30" cornerTL_TR_BL_BR="5,5,5,5" fillColor="0x1b416e" stroke="0">
-				<e:Skin>
-				<e:Label text="追" left="0" right="0" top="0" bottom="0" size="18" verticalAlign="middle" textAlign="center"/>
-				</e:Skin>
-			</ui:RoundRectShape>
-			<e:layout>
-				<e:HorizontalLayout verticalAlign="middle" gap="11"/>
-			</e:layout>
-		</e:Group>
-		<e:Label id="_txt_record_betamount" text="Label" x="992" y="0" width="127" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_win" text="Label" x="1231" y="0" width="139" height="76" size="24" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_remark" text="Label" x="1501" y="0" width="66" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_finbalance" text="Label" x="1676" y="0" width="88" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-		<e:Image x="1976" width="30" height="30" source="d_lobby_button_next_hover_png" y="23" visible.down="false"/>
-		<e:Image width="16" height="10" x="1983" y="33" source="d_lobby_btn_dropdown_png" visible.up="false"/>
-	</e:Group>
-
-	<e:Group x="48" y="0" scaleX="1" scaleY="1" scaleX.up="0" scaleY.up="0" visible.up="false">
-		<e:Rect width="2040" height="1" x="0" fillColor="0x353535" y="76"/>
-		<e:Label id="_txt_round" text="Label" size="24" verticalAlign="middle" height="66" width="104" y="79" />
-		<e:Label id="_txt_record_round" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y="79"/>
-		<e:Label id="_txt_bettype" text="Label" size="24" verticalAlign="middle" height="66" width="104" y="145"/>
-		<e:Label id="_txt_record_bettype" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y="145"/>
-		<e:Label id="_txt_betgroup" text="Label" size="24" verticalAlign="middle" height="66" width="104" y="211"/>
-		<e:Label id="_txt_record_betgroup" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y="211"/>
-		<e:Label id="_txt_betfield" text="Label" size="24" verticalAlign="middle" height="66" width="104" x="464" y="79"/>
-		<e:Label id="_txt_record_betfield" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="568" y="79"/>
-		<e:Label id="_txt_result" text="Label" size="24" verticalAlign="middle" height="66" width="104" y="145" x="464"/>
-
-		<e:Label id="_txt_record_orgbalance" text="Label" y="0" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" visible="false"/>
-		<e:Group x="568" height="76" y="140">
+<e:Skin class="skin_desktop.BetHistoryItemLottery" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*"    >
+	<e:Rect id="_txt_record_bgcolor" left="0" right="0" top="0" bottom="0"/>
+	<e:Group id="_scale" width="2136" height="286">
+		<e:Rect width="2040" height="1" x="48" fillColor="0x353535" y="76" scaleX="1" scaleY="1"/>
+		<ui:ClampWidthLabel id="_txt_round" text="Label" size="20" verticalAlign="middle" height="66" width="40" y="79" x="48" scaleX="1" scaleY="1" targetWidth="40"/>
+		<e:Label id="_txt_record_round" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="112" y="79" alpha="0.7"/>
+		<ui:ClampWidthLabel id="_txt_bettype" text="Label" size="20" verticalAlign="middle" height="66" width="40" y="145" x="48" scaleX="1" scaleY="1" targetWidth="40"/>
+		<e:Label id="_txt_record_bettype" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="112" y="145" alpha="0.7"/>
+		<ui:ClampWidthLabel id="_txt_betgroup" text="Label" size="20" verticalAlign="middle" height="66" width="40" y="211" x="48" scaleX="1" scaleY="1" targetWidth="40"/>
+		<e:Label id="_txt_record_betgroup" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="112" y="211" alpha="0.7"/>
+		<ui:ClampWidthLabel id="_txt_betfield" text="Label" size="20" verticalAlign="middle" height="66" width="80" x="462" y="79" scaleX="1" scaleY="1" targetWidth="80"/>
+		<e:Label id="_txt_record_betfield" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="566" y="79" alpha="0.7"/>
+		<ui:ClampWidthLabel id="_txt_result" text="Label" size="20" verticalAlign="middle" height="66" width="80" y="145" x="462" scaleX="1" scaleY="1" targetWidth="80"/>
+		<e:Group x="566" height="76" y="140" scaleX="1" scaleY="1">
 			<e:Group id="_record_result" scaleX="1" scaleY="1" x="0" y="0"/>
-			<ui:RoundRectButton id="_btn_replay" width="122" height="44" scaleX="1" scaleY="1" fillAlpha="0" strokeColor="0x979797" cornerTL_TR_BL_BR="22,22,22,22" x="0" y="0">
-			<e:Skin width="122" height="44">
+			<ui:RoundRectButton id="_btn_replay" width="120" height="44" scaleX="1" scaleY="1" fillAlpha="0" strokeColor="0x979797" cornerTL_TR_BL_BR="22,22,22,22" x="0" y="0" labelSize="20" labelAutoResize="false">
+			<e:Skin width="120" height="44">
 				<e:Group left="0" right="0" top="0" bottom="0">
-				<e:Image width="12" height="15" source="d_lobby_button_triangle_next_png" scaleX="1" scaleY="1"/>
-				<ui:RunTimeLabel id="_label" text="重播" size="20" height="29" scaleX="1" scaleY="1" verticalAlign="middle"/>
-				<e:layout>
-					<e:HorizontalLayout verticalAlign="middle" horizontalAlign="center"/>
-				</e:layout>
+					<e:Image width="12" height="15" source="d_lobby_button_triangle_next_png" scaleX="1" scaleY="1"/>
+					<ui:RunTimeLabel id="_label" text="重播" size="20" height="29" targetWidth="74" verticalAlign="middle"/>
+					<e:layout>
+						<e:HorizontalLayout verticalAlign="middle" horizontalAlign="center" gap="12"/>
+					</e:layout>
 				</e:Group>
 			</e:Skin>
 			</ui:RoundRectButton>
@@ -53,9 +29,33 @@
 			<e:HorizontalLayout verticalAlign="middle" gap="36"/>
 			</e:layout>
 		</e:Group>
-		<ui:RoundRectButton id="_btn_cbet" width="186" height="44" x="1848" y="159" cornerTL_TR_BL_BR="22,22,22,22" fillAlpha="0" strokeColor="0xffffff" stroke="2" strokeAlpha="0.7" strokeAlpha_hover="1" skinName="RoundRectButtonSample" labelSize="20" labelAutoResize="false"/>
-
+		<ui:RoundRectButton id="_btn_cbet" width="186" height="44" x="1896" y="159" cornerTL_TR_BL_BR="22,22,22,22" fillAlpha="0" strokeColor="0xffffff" stroke="2" strokeAlpha="0.7" strokeAlpha_hover="1" skinName="RoundRectButtonSample" labelSize="20" labelAutoResize="false" scaleX="1" scaleY="1"/>
 	</e:Group>
-	<!--<e:Rect id="_txt_hover_color" includeIn="hover" left="0" right="0" top="0" bottom="0" fillColor="0x4077ab"/>-->
 
+
+
+	<e:Group id="_toggle" width="2136" height="76">
+		<e:Label id="_txt_record_id" text="Label" x="48" y="0" height="76" size="24" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" width="258" alpha="0.7"/>
+		<e:Label id="_txt_record_date" text="Label" x="341" y="0" width="228" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1" alpha="0.7"/>
+		<e:Group x="690" y="0" scaleX="1" scaleY="1">
+		<e:Label id="_txt_record_game" text="Label" x="0" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1" alpha="0.7"/>
+		<ui:RoundRectShape id="_tab_cbet" width="30" height="30" cornerTL_TR_BL_BR="5,5,5,5" fillColor="0x1b416e" stroke="0">
+			<e:Skin>
+			<e:Label text="追" left="0" right="0" top="0" bottom="0" size="18" verticalAlign="middle" textAlign="center"/>
+			</e:Skin>
+		</ui:RoundRectShape>
+		<e:layout>
+			<e:HorizontalLayout verticalAlign="middle" gap="11"/>
+		</e:layout>
+		</e:Group>
+		<e:Label id="_txt_record_betamount" text="Label" x="1040" y="0" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1" alpha="0.7"/>
+		<e:Label id="_txt_record_win" text="Label" x="1366" y="0" height="76" size="24" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_finbalance" text="Label" x="1724" y="0" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1" alpha="0.7"/>
+		<e:Group x="2001" y="0" width="76" height="76">
+			<e:Image id="_arrow" width="30" height="30" source="d_lobby_button_next_hover_png" scaleX="1" scaleY="1" rotation="0"/>
+			<e:layout>
+				<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle"/>
+			</e:layout>
+		</e:Group>
+	</e:Group>
 </e:Skin>

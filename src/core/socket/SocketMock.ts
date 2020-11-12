@@ -735,7 +735,8 @@ namespace we {
               currency: Currency.RMB,
               maxlimit: 1000,
               minlimit: 10,
-              chips: [1, 5, 20, 100, 500],
+              chips: [100,500,1000,2000,3000,50000]
+              //chips: [1, 5, 20, 100, 500],
               // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
             },
           ],
@@ -745,7 +746,8 @@ namespace we {
               currency: Currency.RMB,
               maxlimit: 1000,
               minlimit: 10,
-              chips: [1, 5, 20, 100, 500],
+              chips: [100,500,1000,2000,3000,50000]
+              //chips: [1, 5, 20, 100, 500],
             },
           ],
           'Lottery':
@@ -754,7 +756,8 @@ namespace we {
               currency: Currency.RMB,
               maxlimit: 1000,
               minlimit: 10,
-              chips: [1, 5, 20, 100, 500],
+              chips: [100,500,1000,2000,3000,50000]
+              //chips: [1, 5, 20, 100, 500],
             },
           ],
           'Sportbook':
@@ -763,7 +766,8 @@ namespace we {
               currency: Currency.RMB,
               maxlimit: 1000,
               minlimit: 10,
-              chips: [1, 5, 20, 100, 500],
+              chips: [100,500,1000,2000,3000,50000]
+              //chips: [1, 5, 20, 100, 500],
             },
           ],
           'Chess':
@@ -772,7 +776,8 @@ namespace we {
               currency: Currency.RMB,
               maxlimit: 1000,
               minlimit: 10,
-              chips: [1, 5, 20, 100, 500],
+              chips: [100,500,1000,2000,3000,50000]
+              //chips: [1, 5, 20, 100, 500],
             },
           ],
         };

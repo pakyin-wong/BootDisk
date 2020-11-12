@@ -2,33 +2,33 @@
 <e:Skin class="skin_desktop.RcResultItem" height="76" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" >
 	<e:Group id="_ballContainer" verticalCenter="0">
     	<e:Group>
-		<ui:RoundRectShape width="20" height="20" x="0" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="10,10,10,10" fillColor="0x034a94,00244e,0"/>
-		<ui:RoundRectShape width="20" height="20" x="58" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="10,10,10,10" fillColor="0x034a94,00244e,0"/>
-		<ui:RoundRectShape width="20" height="20" x="116" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="10,10,10,10" fillColor="0x034a94,00244e,0"/>
-		<ui:RoundRectShape width="20" height="20" x="174" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="10,10,10,10" fillColor="0x034a94,00244e,0"/>
-		<ui:RoundRectShape width="20" height="20" x="232" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="10,10,10,10" fillColor="0x034a94,00244e,0"/>
-				<ui:RoundRectShape width="20" height="20" x="242" y="10" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="10,10,10,10" fillColor="0x034a94,00244e,0"/>
-				<ui:RoundRectShape width="20" height="20" x="252" y="20" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="10,10,10,10" fillColor="0x034a94,00244e,0"/>
-				<ui:RoundRectShape width="20" height="20" x="262" y="30" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="10,10,10,10" fillColor="0x034a94,00244e,0"/>
-				<ui:RoundRectShape width="20" height="20" x="272" y="40" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="10,10,10,10" fillColor="0x034a94,00244e,0"/>
-				<ui:RoundRectShape width="20" height="20" x="282" y="50" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="10,10,10,10" fillColor="0x034a94,00244e,0"/>
+		<ui:RoundRectShape width="30" height="30" x="0" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x034a94,00244e,0"/>
+		<ui:RoundRectShape width="30" height="30" x="58" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x034a94,00244e,0"/>
+		<ui:RoundRectShape width="30" height="30" x="116" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x034a94,00244e,0"/>
+		<ui:RoundRectShape width="30" height="30" x="174" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x034a94,00244e,0"/>
+		<ui:RoundRectShape width="30" height="30" x="232" y="0" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x034a94,00244e,0"/>
+				<ui:RoundRectShape width="30" height="30" x="242" y="10" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x034a94,00244e,0"/>
+				<ui:RoundRectShape width="30" height="30" x="252" y="20" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x034a94,00244e,0"/>
+				<ui:RoundRectShape width="30" height="30" x="262" y="30" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x034a94,00244e,0"/>
+				<ui:RoundRectShape width="30" height="30" x="272" y="40" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x034a94,00244e,0"/>
+				<ui:RoundRectShape width="30" height="30" x="282" y="50" stroke="0" strokeIn="0" cornerTL_TR_BL_BR="15,15,15,15" fillColor="0x034a94,00244e,0"/>
 		<e:layout>
-		<e:HorizontalLayout gap="5"/>
+		<e:HorizontalLayout gap="6"/>
 		</e:layout>
 	</e:Group>
 	<e:Group>
-		<e:Label id="b1" width="20" height="20" x="232" y="0" textColor="0xDEA167" size="18" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
-		<e:Label id="b2" width="20" height="20" x="174" y="0" textColor="0xDEA167" size="18" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
-		<e:Label id="b3" width="20" height="20" x="116" y="0" textColor="0xDEA167" size="18" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
-		<e:Label id="b4" width="20" height="20" x="58" y="0" textColor="0xDEA167" size="18" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
-		<e:Label id="b5" width="20" height="20" x="0" y="0" textColor="0xDEA167" size="18" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
-		<e:Label id="b6" width="20" height="20" x="20" y="20" textColor="0xDEA167" size="18" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
-		<e:Label id="b7" width="20" height="20" x="30" y="30" textColor="0xDEA167" size="18" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
-		<e:Label id="b8" width="20" height="20" x="40" y="40" textColor="0xDEA167" size="18" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
-		<e:Label id="b9" width="20" height="20" x="50" y="50" textColor="0xDEA167" size="18" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
-		<e:Label id="b10" width="20" height="20" x="10" y="10" textColor="0xDEA167" size="18" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b1" width="30" height="30" x="232" y="0" textColor="0xDEA167" size="19.2" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b2" width="30" height="30" x="174" y="0" textColor="0xDEA167" size="19.2" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b3" width="30" height="30" x="116" y="0" textColor="0xDEA167" size="19.2" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b4" width="30" height="30" x="58" y="0" textColor="0xDEA167" size="19.2" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b5" width="30" height="30" x="0" y="0" textColor="0xDEA167" size="19.2" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b6" width="30" height="30" x="20" y="20" textColor="0xDEA167" size="19.2" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b7" width="30" height="30" x="30" y="30" textColor="0xDEA167" size="19.2" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b8" width="30" height="30" x="40" y="40" textColor="0xDEA167" size="19.2" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b9" width="30" height="30" x="50" y="50" textColor="0xDEA167" size="19.2" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
+		<e:Label id="b10" width="30" height="30" x="10" y="10" textColor="0xDEA167" size="19.2" fontFamily="Barlow" verticalAlign="middle" textAlign="center" text="-"/>
 		<e:layout>
-		<e:HorizontalLayout gap="5"/>
+		<e:HorizontalLayout gap="6"/>
 		</e:layout>
 	</e:Group>
     </e:Group>

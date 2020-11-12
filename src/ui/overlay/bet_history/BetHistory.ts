@@ -17,6 +17,7 @@ namespace we {
       protected _txt_record_remake: ui.RunTimeLabel;
       protected _txt_record_bettype: ui.RunTimeLabel;
       protected _txt_record_betamount: ui.RunTimeLabel;
+      protected _txt_record_vaildbet: ui.RunTimeLabel;
       protected _txt_record_win: ui.RunTimeLabel;
       protected _txt_record_orgbalance: ui.RunTimeLabel;
       protected _txt_record_finbalance: ui.RunTimeLabel;
@@ -98,6 +99,7 @@ namespace we {
         this.setText(this._txt_record_remake, i18n.t('overlaypanel_bethistory_recordtab_remark'));
         this.setText(this._txt_record_bettype, i18n.t('overlaypanel_bethistory_recordtab_bettype'));
         this.setText(this._txt_record_betamount, i18n.t('overlaypanel_bethistory_recordtab_betamount'));
+        this.setText(this._txt_record_vaildbet, i18n.t('overlaypanel_bethistory_recordtab_vaildbet'));
         this.setText(this._txt_record_win, i18n.t('overlaypanel_bethistory_recordtab_win'));
         this.setText(this._txt_record_orgbalance, i18n.t('overlaypanel_bethistory_recordtab_orgbalance'));
         this.setText(this._txt_record_finbalance, i18n.t('overlaypanel_bethistory_recordtab_finbalance'));
@@ -165,7 +167,7 @@ namespace we {
         this._ddm_limit && this._ddm_limit.$addListener('DROPDOWN_ITEM_CHANGE', this.onLimitChange, this);
         this._ddm_searchType && this._ddm_searchType.$addListener('DROPDOWN_ITEM_CHANGE', this.onTypeChange, this);
         this._datepicker.$addListener('PICKED_DATE', this.searchCustomDate, this);
-        this._datagroup.addEventListener(egret.Event.CHANGE, this.onSelected, this);
+        // this._datagroup.addEventListener(egret.Event.CHANGE, this.onSelected, this);
       }
 
       protected removeListeners() {
@@ -180,7 +182,7 @@ namespace we {
         this._ddm_limit && this._ddm_limit.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onLimitChange, this);
         this._ddm_searchType && this._ddm_searchType.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onTypeChange, this);
         this._datepicker.removeEventListener('PICKED_DATE', this.searchCustomDate, this);
-        this._datagroup.removeEventListener(egret.Event.CHANGE, this.onSelected, this);
+        // this._datagroup.removeEventListener(egret.Event.CHANGE, this.onSelected, this);
       }
 
       protected genGameTypeList(): any {
@@ -191,9 +193,9 @@ namespace we {
         return list;
       }
 
-      protected onSelected() {
-        this._datagroup.validateNow();
-      }
+      // protected onSelected() {
+      //   this._datagroup.validateNow();
+      // }
 
       protected searchToday() {
         this._page = 1;

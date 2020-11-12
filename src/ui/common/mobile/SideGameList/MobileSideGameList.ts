@@ -135,6 +135,7 @@ namespace we {
             case we.core.GameType.BAI:
             case we.core.GameType.BAS:
             case we.core.GameType.BAM:
+            case we.core.GameType.BAB:
               return ba.MobileSideListBetItemHolder;
             case we.core.GameType.RO:
             case we.core.GameType.ROL:
@@ -146,6 +147,7 @@ namespace we {
             case we.core.GameType.LW:
               return lw.MobileSideListBetItemHolder;
             case we.core.GameType.DT:
+            case we.core.GameType.DTB:
               return dt.MobileSideListBetItemHolder;
             case we.core.GameType.LO:
               return;
@@ -167,6 +169,7 @@ namespace we {
             case we.core.GameType.BAI:
             case we.core.GameType.BAS:
             case we.core.GameType.BAM:
+            case we.core.GameType.BAB:
               return ba.MobileSideListItemHolder;
             default:
               throw new Error('Invalid Game Type: ' + tableInfo.gametype);
@@ -186,6 +189,7 @@ namespace we {
             case we.core.GameType.BAI:
             case we.core.GameType.BAS:
             case we.core.GameType.BAM:
+            case we.core.GameType.BAB:
               return ba.MobileSideListItemHolder;
             case we.core.GameType.RO:
             case we.core.GameType.ROL:
@@ -197,6 +201,7 @@ namespace we {
             case we.core.GameType.LW:
               return lw.MobileSideListItemHolder;
             case we.core.GameType.DT:
+            case we.core.GameType.DTB:
               return dt.MobileSideListItemHolder;
             case we.core.GameType.LO:
               return lo.MobileSideListItemHolder;

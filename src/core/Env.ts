@@ -23,6 +23,7 @@ namespace we {
       public balanceOnHold: number = 0;
       public currency: Currency;
       public playerID: string;
+      public accountType: number = 0;   // 0-api, 1-credit
 
       public nickname: string;
       public nicknameKey: string;
@@ -140,6 +141,8 @@ namespace we {
           core.GameType.BAI,
           core.GameType.BAS,
           core.GameType.BAM,
+          core.GameType.BAB,
+          core.GameType.DTB,
           core.GameType.DI,
           core.GameType.DIL,
           core.GameType.DT,
@@ -177,7 +180,8 @@ namespace we {
       }
 
       set gameCategories(value: string[]) {
-        const validCategories = ['Live', 'Lottery'];
+        // value = ['Lottery'];    // TODO: this is just for testing, delete it when finish testing
+        const validCategories = ['Live', 'Lottery'];    // categories which support in current version
         this._gameCategories = validCategories.filter(cat => {
           return value.indexOf(cat) >= 0;
         }).map((cat: string) => cat.toLowerCase());
@@ -188,6 +192,7 @@ namespace we {
       }
 
       set gameTypes(value: any[]) {
+        // value = ['0','15','22'];     // TODO: this is just for testing, delete it when finish testing
         this._gameTypes = value.map((cat: string) => parseInt(cat, 10));
       }
 
