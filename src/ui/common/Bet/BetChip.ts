@@ -193,7 +193,6 @@ namespace we {
           case we.core.ChipType.FLAT:
             if (this._index != null) {
               const chipImageStr = utils.getChipImage(this._value);
-              console.log('FLAT',chipImageStr)
               // filename = `${this.chipImageMapping[this._index]}_png`;
               filename = `${chipImageStr}_png`;
             }
@@ -201,7 +200,6 @@ namespace we {
           case we.core.ChipType.PERSPECTIVE:
             if (this._index != null) {
               const chipImageStr = utils.getChipImage(this._value);
-              console.log('PERSPECTIVE',chipImageStr)
               // filename = `${this.chipImageMapping[this._index]}_B_png`;
               filename = `${chipImageStr}_B_png`;
             }
