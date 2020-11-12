@@ -11,6 +11,8 @@ namespace we {
         data = utils.getQueryParams(query);
         const playerID = data.playerid ? data.playerid : dir.config.playerID;
         const secret = data.secret ? data.secret : dir.config.secret;
+        const token = data.token ? data.token : dir.config.token;
+        const operator = data.operator ? data.operator : dir.config.operator;
         let isMobile = false;
         try {
           isMobile = data.ismobile ? parseInt(data.ismobile) > 0 : false;
@@ -21,6 +23,12 @@ namespace we {
         options.playerID = playerID;
         if (secret) {
           options.secret = secret;
+        }
+        if (token) {
+          options.token = token;
+        }
+        if (operator) {
+          options.operator = operator;
         }
         options.connectTimeout = dir.config.connectTimeout;
         options.endpoint = dir.config.endpoint;
