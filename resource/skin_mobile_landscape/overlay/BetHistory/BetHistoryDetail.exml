@@ -38,7 +38,7 @@
 						<e:Group id="_record_result" width="1069" height="165" x="96" y="138.5" scaleX="1" scaleY="1"/>
 						<ui:RunTimeLabel id="_txt_record_win_l" text="派彩" x="97" y="355" height="74" size="50" verticalAlign="middle" alpha="0.5" scaleX="1" scaleY="1"/>
 						<e:Label id="_record_win_l" text="+00.00" x="96" y="447" height="144" size="120" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-						<ui:RoundRectButton id="_btn_replay" width="300" height="100" x="96" y="631" fillAlpha="0" strokeColor="0xb1835b" stroke="1" cornerTL_TR_BL_BR="50,50,50,50" labelSize="50" labelAutoResize="false">
+						<ui:RoundRectButton id="_btn_replay" width="300" height="100" x="96" y="631" fillAlpha="0" strokeColor="0xb1835b" stroke="1" cornerTL_TR_BL_BR="50,50,50,50" labelSize="50" labelAutoResize="false" labelColor="0xD9A170">
 						<e:Skin width="300" height="100">
 						<e:Group left="0" right="0" top="0" bottom="0">
 							<e:Image width="24" height="32" source="m_common_setting_playerreportlist_detail_result_replay_icon_png"/>
