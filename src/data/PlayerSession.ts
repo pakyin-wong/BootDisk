@@ -21,7 +21,8 @@ namespace we {
         currentSelectedBetLimitIndex: number;
         language: string;
         gamecategory: string[],
-        gametype: number[]
+        gametype: number[],
+        type: number    // account type
       };
       public blockchainlinks: {
         cosmoslink: string,

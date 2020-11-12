@@ -27,14 +27,24 @@ namespace we {
 
         protected _cbetStatus: LoContinuousBetStatus;
 
+        protected _toggle: egret.DisplayObject;
+        protected _scale: egret.DisplayObject;
+        protected _arrow: egret.DisplayObject;
+
+        protected _isOpened = false;
+
         public constructor() {
           super();
           this.skinName = utils.getSkinByClassname('BetHistoryItemLotteryCB');
         }
 
-        protected mount() {}
+        protected mount() {
+          this._toggle && utils.addButtonListener(this._toggle, this.onToggle, this);          
+        }
 
-        protected destroy() {}
+        protected destroy() {
+          this._toggle && utils.removeButtonListener(this._toggle, this.onToggle, this);          
+        }
 
         protected childrenCreated(): void {
           super.childrenCreated();
@@ -50,6 +60,8 @@ namespace we {
         }
 
         protected dataChanged(): void {
+          this.forceClosed();
+
           this._txt_record_bgcolor.fillColor = this.data.colorIndex === 1 ? 0x14181e : 0x1a1f26;
 
           const key = 'overlaypanel_bethistorylottery_continuousbetdetails_';
@@ -84,6 +96,40 @@ namespace we {
           }
 
           this._cbetStatus && (this._cbetStatus.data = d);
+        }
+
+        protected forceOpen() {
+          if(this._scale) {
+            egret.Tween.removeTweens(this._scale);
+            egret.Tween.get(this._scale).set({visible:true,alpha:0}).to({scaleY:1},150).set({alpha:1});
+          }
+          if(this._arrow) {
+            egret.Tween.removeTweens(this._arrow);
+            egret.Tween.get(this._arrow).to({rotation:90},150);
+          }
+        }
+
+        protected forceClosed() {
+          if(this._scale) {
+            egret.Tween.removeTweens(this._scale);
+            this._scale.visible = false;
+            this._scale.scaleY = 0;
+            this._isOpened = false;
+          }
+          if(this._arrow) {
+            egret.Tween.removeTweens(this._arrow);
+            this._arrow.rotation = 0;
+          }
+        }
+
+        protected onToggle() {
+          if(!this._isOpened) {
+            this.forceOpen();
+            this._isOpened = true;
+          } else {
+            this.forceClosed();
+            this._isOpened = false;
+          }
         }
       }
     }
