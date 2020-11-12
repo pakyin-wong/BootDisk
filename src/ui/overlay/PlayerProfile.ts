@@ -246,7 +246,12 @@ namespace we {
         this.removeListeners();
       }
 
+      private onNickNameUpdated() {
+        this._username.renderText = () => env.nickname;
+      }
+
       private addListeners() {
+        dir.evtHandler.addEventListener(core.Event.NICKNAME_UPDATE, this.onNickNameUpdated, this);
         this._sectionBackIcon.addEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToMainSection, this);
         this._changeIcon.addEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToIconSelectSection, this);
         if (env.isMobile) {
@@ -259,6 +264,7 @@ namespace we {
       }
 
       private removeListeners() {
+        dir.evtHandler.removeEventListener(core.Event.NICKNAME_UPDATE, this.onNickNameUpdated, this);
         this._sectionBackIcon.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToMainSection, this);
         this._changeIcon.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToIconSelectSection, this);
         if (env.isMobile) {

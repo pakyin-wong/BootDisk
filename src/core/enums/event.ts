@@ -35,6 +35,7 @@ namespace we {
       INSUFFICIENT_BALANCE: 'INSUFFICIENT_BALANCE',
       EXCEED_BET_LIMIT: 'EXCEED_BET_LIMIT',
       EXCEED_TABLE_LIMIT: 'EXCEED_TABLE_LIMIT',
+      GENERAL_BET_FAIL: 'GENERAL_BET_FAIL',
       BET_CHIP_CHANGE: 'BET_CHIP_CHANGE',
       BET_LIMIT_CHANGE: 'BET_LIMIT_CHANGE',
       BET_DENOMINATION_CHANGE: 'BET_DENOMINATION_CHANGE',
@@ -71,7 +72,7 @@ namespace we {
       CLOSE: 'CLOSE',
     };
 
-    export const Error = {
+    export const Err = {
       WFCABLE_ERROR: 'WFCABLE_ERROR',
     };
   }

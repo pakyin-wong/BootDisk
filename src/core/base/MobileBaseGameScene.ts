@@ -92,8 +92,8 @@ namespace we {
         this._bottomGamePanel.gameScene = this;
         if (this._lblBetLimit) {
           this.initBetLimitSelector();
-          dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-          this.changeLang();
+          // dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+          // this.changeLang();
         }
         if (this._bottomGamePanel._betLimitDropDownBtn) {
           this.initBottomBetLimitSelector();
@@ -154,9 +154,9 @@ namespace we {
       }
 
       protected destroy() {
-        if (this._lblBetLimit) {
-          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        }
+        // if (this._lblBetLimit) {
+        //   dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        // }
         super.destroy();
       }
 
@@ -275,7 +275,7 @@ namespace we {
 
       protected initDenom() {
         this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
-        const denominationList = env.betLimits.Live[this.getSelectedBetLimitIndex()].chips;
+        const denominationList = env.getBetLimitSet('Live', this.getSelectedBetLimitIndex()).chips;
         this._betChipSet.init(null, denominationList);
       }
 
@@ -557,16 +557,20 @@ namespace we {
         this._GameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
       }
 
-      protected changeLang() {
-        this._repeatLabel.text = i18n.t('mobile_ba_repeat');
-        this._repeatLabel.targetWidth = 120;
-        this._cancelLabel.text = i18n.t('mobile_ba_clear');
-        this._cancelLabel.targetWidth = 120;
-        this._doubleLabel.text = i18n.t('mobile_ba_double');
-        this._doubleLabel.targetWidth = 120;
-        this._undoLabel.text = i18n.t('mobile_ba_undo');
-        this._undoLabel.targetWidth = 120;
+      protected onMatchGoodRoadUpdate() {
+        super.onMatchGoodRoadUpdate();
       }
+
+      // protected changeLang() {
+      //   this._repeatLabel.text = i18n.t('mobile_ba_repeat');
+      //   this._repeatLabel.targetWidth = 120;
+      //   this._cancelLabel.text = i18n.t('mobile_ba_clear');
+      //   this._cancelLabel.targetWidth = 120;
+      //   this._doubleLabel.text = i18n.t('mobile_ba_double');
+      //   this._doubleLabel.targetWidth = 120;
+      //   this._undoLabel.text = i18n.t('mobile_ba_undo');
+      //   this._undoLabel.targetWidth = 120;
+      // }
     }
   }
 }

@@ -76,39 +76,20 @@ namespace we {
       public changeLang() {
         super.changeLang();
 
-        if (env.isMobile) {
-          this.threeCountLabel.text = i18n.t('baccarat.totalcount') + ' 3';
-          this.fourCountLabel.text = i18n.t('baccarat.totalcount') + ' 4';
-          this.fiveCountLabel.text = i18n.t('baccarat.totalcount') + ' 5';
-          this.sixCountLabel.text = i18n.t('baccarat.totalcount') + ' 6';
-          this.sevenCountLabel.text = i18n.t('baccarat.totalcount') + ' 7';
-          this.eightCountLabel.text = i18n.t('baccarat.totalcount') + ' 8';
-          this.nineCountLabel.text = i18n.t('baccarat.totalcount') + ' 9';
-          this.tenCountLabel.text = i18n.t('baccarat.totalcount') + ' 10';
-          this.elevenCountLabel.text = i18n.t('baccarat.totalcount') + ' 11';
-          this.twelveCountLabel.text = i18n.t('baccarat.totalcount') + ' 12';
-          this.thirteenCountLabel.text = i18n.t('baccarat.totalcount') + ' 13';
-          this.fourteenCountLabel.text = i18n.t('baccarat.totalcount') + ' 14';
-          this.fifteenCountLabel.text = i18n.t('baccarat.totalcount') + ' 15';
-          this.sixteenCountLabel.text = i18n.t('baccarat.totalcount') + ' 16';
-          this.seventeenCountLabel.text = i18n.t('baccarat.totalcount') + ' 17';
-          this.eighteenCountLabel.text = i18n.t('baccarat.totalcount') + ' 18';
-        } else {
-          this.threeCountLabel.text = i18n.t('baccarat.totalcount') + ' 3 / 18';
-          this.fourCountLabel.text = i18n.t('baccarat.totalcount') + ' 4 / 17';
-          this.fiveCountLabel.text = i18n.t('baccarat.totalcount') + ' 5 / 16';
-          this.sixCountLabel.text = i18n.t('baccarat.totalcount') + ' 6 / 15';
-          this.sevenCountLabel.text = i18n.t('baccarat.totalcount') + ' 7 / 14';
-          this.eightCountLabel.text = i18n.t('baccarat.totalcount') + ' 8 / 13';
-          this.nineCountLabel.text = i18n.t('baccarat.totalcount') + ' 9 / 12';
-          this.tenCountLabel.text = i18n.t('baccarat.totalcount') + ' 10 / 11';
-        }
+        this.threeCountLabel.text = i18n.t('baccarat.totalcount') + ' 3 / 18';
+        this.fourCountLabel.text = i18n.t('baccarat.totalcount') + ' 4 / 17';
+        this.fiveCountLabel.text = i18n.t('baccarat.totalcount') + ' 5 / 16';
+        this.sixCountLabel.text = i18n.t('baccarat.totalcount') + ' 6 / 15';
+        this.sevenCountLabel.text = i18n.t('baccarat.totalcount') + ' 7 / 14';
+        this.eightCountLabel.text = i18n.t('baccarat.totalcount') + ' 8 / 13';
+        this.nineCountLabel.text = i18n.t('baccarat.totalcount') + ' 9 / 12';
+        this.tenCountLabel.text = i18n.t('baccarat.totalcount') + ' 10 / 11';
       }
 
       public setValue(tableInfo: data.TableInfo) {
         super.setValue(tableInfo);
 
-        const betLimitSet = env.betLimits.Live[env.currentSelectedBetLimitIndex];
+        const betLimitSet = env.getBetLimitSet('Live', env.currentSelectedBetLimitIndex);
         if (betLimitSet.limits && betLimitSet.limits.dil) {
           const limits = betLimitSet.limits.dil;
           const list = [
@@ -130,19 +111,15 @@ namespace we {
             { target: this.pEighteenCount, value: limits.SUM_3_18.odd },
             // { target: this.pNineTwelveOdd, value: limits.SUM_9_12.odd },
             // { target: this.pTenElevenOdd, value: limits.SUM_10_11.odd },
+            { target: this.pThreeMax, value: utils.numberToFaceValue(limits.SUM_3_18.maxlimit) },
+            { target: this.pFourMax, value: utils.numberToFaceValue(limits.SUM_4_17.maxlimit) },
+            { target: this.pFiveMax, value: utils.numberToFaceValue(limits.SUM_5_16.maxlimit) },
+            { target: this.pSixMax, value: utils.numberToFaceValue(limits.SUM_6_15.maxlimit) },
+            { target: this.pSevenMax, value: utils.numberToFaceValue(limits.SUM_7_14.maxlimit) },
+            { target: this.pEightMax, value: utils.numberToFaceValue(limits.SUM_8_13.maxlimit) },
+            { target: this.pNineMax, value: utils.numberToFaceValue(limits.SUM_9_12.maxlimit) },
+            { target: this.pTenMax, value: utils.numberToFaceValue(limits.SUM_10_11.maxlimit) },
           ];
-          if (!env.isMobile) {
-            list.push(
-              { target: this.pThreeMax, value: utils.numberToFaceValue(limits.SUM_3_18.maxlimit) },
-              { target: this.pFourMax, value: utils.numberToFaceValue(limits.SUM_4_17.maxlimit) },
-              { target: this.pFiveMax, value: utils.numberToFaceValue(limits.SUM_5_16.maxlimit) },
-              { target: this.pSixMax, value: utils.numberToFaceValue(limits.SUM_6_15.maxlimit) },
-              { target: this.pSevenMax, value: utils.numberToFaceValue(limits.SUM_7_14.maxlimit) },
-              { target: this.pEightMax, value: utils.numberToFaceValue(limits.SUM_8_13.maxlimit) },
-              { target: this.pNineMax, value: utils.numberToFaceValue(limits.SUM_9_12.maxlimit) },
-              { target: this.pTenMax, value: utils.numberToFaceValue(limits.SUM_10_11.maxlimit) }
-            );
-          }
           for (const { target, value } of list) {
             if (target) {
               if (value) {

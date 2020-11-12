@@ -4,7 +4,7 @@
 
     <e:Group width="100%" height="100%" y="0" x="0">
         <e:Image source="m_common_header_goodroad_icon_star_png" x="9" y="14" height="50" width="50" />
-        <ui:RunTimeLabel id="label" text="" x="12" y="7" size="50" />
+        <ui:RunTimeLabel id="label" x="12" y="10" size="50" />
         <e:layout>
             <e:HorizontalLayout />
         </e:layout>

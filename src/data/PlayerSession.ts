@@ -13,12 +13,16 @@ namespace we {
         nickname: string; // Player nickname
         profileimageurl: string; // URL of the profile image
         betlimits: BetLimit;
+        chips:number[];
         mode: number;
         categoryorders: string;
         panelpositions: string;
         settings: any;
         currentSelectedBetLimitIndex: number;
         language: string;
+        gamecategory: string[],
+        gametype: number[],
+        type: number    // account type
       };
       public blockchainlinks: {
         cosmoslink: string,

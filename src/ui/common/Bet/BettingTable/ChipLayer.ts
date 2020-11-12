@@ -343,7 +343,7 @@ namespace we {
       }
 
       protected getOrderAmount() {
-        return env.betLimits.Live[this._getSelectedBetLimitIndex()].chips[this._getSelectedChipIndex()];
+        return env.getBetLimitSet('Live', this._getSelectedBetLimitIndex()).chips[this._getSelectedChipIndex()];
       }
 
       public onBetFieldUpdateEvent(evt: egret.Event) {
@@ -503,6 +503,9 @@ namespace we {
           return;
         }
         env.tableInfos[this._tableId].prevbets.map(value => {
+          if (this._betChipStackMapping[value.field].uncfmBet === value.amount) {
+            return
+          }
           this._betChipStackMapping[value.field].uncfmBet = value.amount * this.getRate(value.field);
           this._betChipStackMapping[value.field].draw();
           for (const detail of this._uncfmBetDetails) {
@@ -547,7 +550,7 @@ namespace we {
 
       // check if the current unconfirmed betDetails are valid
       protected validateFieldAmounts(fieldAmounts: {}, betDetail: data.BetDetail = null, checkLowerLimit: boolean = false): boolean {
-        const betLimit: data.BetLimitSet = env.betLimits.Live[this._getSelectedBetLimitIndex()];
+        const betLimit: data.BetLimitSet = env.getBetLimitSet('Live', this._getSelectedBetLimitIndex());
 
         let exceedBetLimit = false;
         if (checkLowerLimit) {

@@ -15,45 +15,49 @@
 		<lw:TableLayer id="_tableLayer" width="1170" height="304" skinName="skin_desktop.lw.TableLayerSkin" />
 		<lw:ChipLayer id="_chipLayer" width="1170" height="304" skinName="skin_desktop.lw.ChipLayerSkin" />
 	</ui:Group>
-	<ui:Group id="_betRelatedGroup" x="804" y="942" isEdgeDismissable="true">
-	<ui:Group>
-		<e:Rect id="_roundPanel" width="1039" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
-		<e:Rect width="1" height="54" fillAlpha="0.3" fillColor="0x000000" verticalCenter="0" right="460"/>
-		<ui:BetChipSetHorizontal id="_betChipSet" width="548" height="64" y="3" anchorOffsetX="0" anchorOffsetY="0" x="15" />
-		<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="150" anchorOffsetY="0" height="64"
-		          skinName="skins_desktop.BetConfirmButtonSkin"  right="293" verticalCenter="0"/>
-		<ui:CountdownTimer id="_timer" width="150" height="64" colorChange="true" skinName="skin_desktop.CountdownTimerSkin"
-						   tooltipText="'live.tooltip.confirmBet'" tooltipPosition="'above'"  touchEnabled="false" right="293" verticalCenter="0"/>
-		<ui:BaseAnimationButton id="_undoButton" width="55" height="55" verticalCenter="0"
-		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true"
-								tooltipText="'mobile_ba_undo'" tooltipPosition="'above'"  right="220"/>
-		<ui:BaseAnimationButton id="_cancelButton" width="55" height="55" verticalCenter="0"
-		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_clear" useColorFilter="true"
-								tooltipText="'mobile_ba_clear'" tooltipPosition="'above'"  right="154"/>
-		<ui:BaseAnimationButton id="_doubleButton" width="55" height="55" verticalCenter="0"
-		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_double" useColorFilter="true"
-								tooltipText="'mobile_ba_double'" tooltipPosition="'above'"  right="22"/>
-		<ui:BaseAnimationButton id="_repeatButton" width="55" height="55" verticalCenter="0"
-		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_rebet" useColorFilter="true"
-								tooltipText="'mobile_ba_repeat'" tooltipPosition="'above'"  right="88"/>
-	</ui:Group>
+	<ui:Group x="804" y="942" isEdgeDismissable="true">
+		<ui:Group id="_bet">
+			<ui:BetRelatedGroup id="_betRelatedGroup" />
+			<!--<e:Rect id="_roundPanel" width="1039" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
+			<e:Rect width="1" height="54" fillAlpha="0.3" fillColor="0x000000" verticalCenter="0" right="460" />
+			-->
+			<ui:BetChipSetHorizontal id="_betChipSet" width="548" height="64" y="3" anchorOffsetX="0" anchorOffsetY="0" x="15" />
+			<!--<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="150" anchorOffsetY="0" height="64"
+			              skinName="skins_desktop.BetConfirmButtonSkin" right="293" verticalCenter="0" />
+			<ui:CountdownTimer id="_timer" width="150" height="64" colorChange="true" skinName="skin_desktop.CountdownTimerSkin"
+			                   tooltipText="'live.tooltip.confirmBet'" tooltipPosition="'above'" touchEnabled="false" right="293"
+			                   verticalCenter="0" />
+			<ui:BaseAnimationButton id="_undoButton" width="55" height="55" verticalCenter="0" dbClass="common_ui"
+			                        dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true" tooltipText="'mobile_ba_undo'"
+			                        tooltipPosition="'above'" right="220" />
+			<ui:BaseAnimationButton id="_cancelButton" width="55" height="55" verticalCenter="0" dbClass="common_ui"
+			                        dbDisplay="d_common_betcontrol_btn_clear" useColorFilter="true"
+			                        tooltipText="'mobile_ba_clear'" tooltipPosition="'above'" right="154" />
+			<ui:BaseAnimationButton id="_doubleButton" width="55" height="55" verticalCenter="0" dbClass="common_ui"
+			                        dbDisplay="d_common_betcontrol_btn_double" useColorFilter="true"
+			                        tooltipText="'mobile_ba_double'" tooltipPosition="'above'" right="22" />
+			<ui:BaseAnimationButton id="_repeatButton" width="55" height="55" verticalCenter="0" dbClass="common_ui"
+			                        dbDisplay="d_common_betcontrol_btn_rebet" useColorFilter="true"
+			                        tooltipText="'mobile_ba_repeat'" tooltipPosition="'above'" right="88" />
+			-->
+		</ui:Group>
 	</ui:Group>
 	<lw:LwLeftPanel id="_leftGamePanel" width="717" height="304" x="16" anchorOffsetX="0" anchorOffsetY="0"
-	                dismissPosX="16" dismissPosY="1298" isEdgeDismissable="true"  y="1024"/>
+	                dismissPosX="16" dismissPosY="1298" isEdgeDismissable="true" y="1024" />
 	<lw:LwRightPanel id="_rightGamePanel" width="657" height="304" dismissPosX="1927" dismissPosY="1298"
-	                 isEdgeDismissable="true" x="1927"  y="1024"/>
+	                 isEdgeDismissable="true" x="1927" y="1024" />
 	<e:Group id="_titleHeader" touchEnabled="false" touchChildren="true" touchThrough="true">
 		<ui:BaseAnimationButton id="_btnBack" dbClass="common_ui" dbDisplay="d_common_icon_back" width="30" height="30" x="35"
 		                        y="17" tooltipText="'nav.tooltip.back'" />
 		<e:Group height="110">
-			<ui:RunTimeLabel id="_lblRoomNo" y="9" size="28" height="40" verticalAlign="middle"
-							textAlign="right" anchorOffsetX="0"  right="30" text=""/>
-			<live:BetLimitDropdown y="44" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0"  right="-10"/>
+			<ui:RunTimeLabel id="_lblRoomNo" y="9" size="28" height="40" verticalAlign="middle" textAlign="right"
+			                 anchorOffsetX="0" right="30" text="" />
+			<live:BetLimitDropdown y="44" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" right="-10" />
 			<e:Image id="_lblRoomInfo" width="24" height="24" y="19" source="d_ba_navbar_icon_info_png"
-					tooltipText="'nav.tooltip.roominfo'"  right="0"/>
+			         tooltipText="'nav.tooltip.roominfo'" right="0" />
 		</e:Group>
 		<e:layout>
-			<e:HorizontalLayout verticalAlign="middle" gap="33" paddingLeft="33"/>
+			<e:HorizontalLayout verticalAlign="middle" gap="33" paddingLeft="33" />
 		</e:layout>
 	</e:Group>
 	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2600" touchEnabled="false"

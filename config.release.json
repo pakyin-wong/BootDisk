@@ -1,5 +1,5 @@
 {
-    "target": "staging",
+    "target": "release",
     "mode": "comm",
     "playerID": "BNC9O6DH5S5JNQTG8PR5",
     "endpoint": "https://release-rest-gateway.weapi247.com",

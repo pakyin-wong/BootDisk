@@ -11,6 +11,8 @@ namespace we {
         data = utils.getQueryParams(query);
         const playerID = data.playerid ? data.playerid : dir.config.playerID;
         const secret = data.secret ? data.secret : dir.config.secret;
+        const token = data.token ? data.token : dir.config.token;
+        const operator = data.operator ? data.operator : dir.config.operator;
         let isMobile = false;
         try {
           isMobile = data.ismobile ? parseInt(data.ismobile) > 0 : false;
@@ -21,6 +23,12 @@ namespace we {
         options.playerID = playerID;
         if (secret) {
           options.secret = secret;
+        }
+        if (token) {
+          options.token = token;
+        }
+        if (operator) {
+          options.operator = operator;
         }
         options.connectTimeout = dir.config.connectTimeout;
         options.endpoint = dir.config.endpoint;
@@ -287,6 +295,7 @@ namespace we {
         this.updateTimestamp(timestamp);
         env.playerID = player.playerid;
         env.currency = player.profile.currency;
+        env.accountType = player.profile.type?player.profile.type: 0;
         // env.nickname = player.profile.nickname;
         env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
 
@@ -301,10 +310,11 @@ namespace we {
           }
         }
 
+        env.gameCategories = player.profile.gamecategory;
+        env.gameTypes = player.profile.gametype;
+
         env.blockchain.cosmolink = player.blockchainlinks.cosmoslink
         env.blockchain.thirdPartySHA256 = player.blockchainlinks.thirdpartysha256
-
-        console.log('blockchain', env.blockchain)
 
         // env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
         // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
@@ -337,7 +347,8 @@ namespace we {
             ? Object.keys(env.icons)[0]
             : player.profile.profileimageurl;
         logger.l(utils.LogTarget.RELEASE, 'PlayerClient::handleReady() ' + player.profile.betlimits);
-
+        
+        env.denomList = player.profile.chips?player.profile.chips:[100, 500, 1000, 2000, 3000, 5000, 10000, 20000, 30000, 50000, 100000, 200000, 300000, 500000, 1000000, 2000000, 3000000, 5000000, 10000000, 20000000];
         env.betLimits = player.profile.betlimits
           ? player.profile.betlimits
           : {
@@ -425,6 +436,10 @@ namespace we {
         }
 
         logger.l(utils.LogTarget.RELEASE, `${timestamp}: READY`, player);
+
+        env.showGoodRoadHint = player.profile.settings.showGoodRoadHint ? true : false;
+        env.showGoodRoadHint = player.profile.settings.showGoodRoadHint =='1' ? true : false;
+        env.autoConfirmBet = player.profile.settings.autoConfirmBet ? true : false;
 
         dir.evtHandler.dispatch(core.MQTT.CONNECT_SUCCESS);
 
@@ -612,6 +627,12 @@ namespace we {
               };
               dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
             }
+          }
+          if (data.state !== core.GameState.IDLE && data.state !== core.GameState.BET && data.state !== core.GameState.SHUFFLE) {
+             if ( tableInfo.bets !== null){
+              tableInfo.prevbets = tableInfo.bets;
+              tableInfo.prevbetsroundid = tableInfo.roundid;
+             }
           }
           if (data.state === core.GameState.FINISH) {
             this.checkResultNotificationReady(tableInfo);

@@ -193,8 +193,8 @@ namespace we {
       }
 
       private _updateNavigationDisplay() {
-        this._leftNav.visible = this._startIndex > 0;
-        this._rightNav.visible = this._startIndex + this._visibleDenomNum < this._chipList.length;
+        this._leftNav.visible = this._leftNavGroup.touchEnabled = this._leftNavGroup.touchChildren = this._startIndex > 0;
+        this._rightNav.visible = this._rightNavGroup.touchEnabled = this._rightNavGroup.touchChildren = this._rightNav.touchEnabled = this._startIndex + this._visibleDenomNum < this._chipList.length;
       }
 
       private _renderItems() {

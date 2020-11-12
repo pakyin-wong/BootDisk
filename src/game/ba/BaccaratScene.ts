@@ -18,7 +18,7 @@ namespace we {
       protected _lblBaMode: ui.RunTimeLabel;
       protected _goodRoadLabel: ui.GoodRoadLabel;
 
-      protected _timer: any;
+      // protected _timer: any;
 
       constructor(data: any) {
         super(data);
@@ -49,7 +49,8 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
-        const test = this._timer.countdownValue;
+        // const test = this._timer.countdownValue;
+        const test = this._betRelatedGroup._timer.countdownValue;
         this._roadmapControl.setTableInfo(this._tableInfo);
 
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
@@ -87,9 +88,10 @@ namespace we {
         // if (env.isMobile) {
         //   dir.moniter._sideGameList.setToggler(this._common_listpanel);
         // }
-        if (this._goodRoadLabel) {
-          this._goodRoadLabel.visible = false;
-        }
+        // if (this._goodRoadLabel) {
+        //   this._goodRoadLabel.visible = false;
+        // }
+        this.onMatchGoodRoadUpdate();
       }
 
       protected onTableInfoUpdate(evt: egret.Event) {
@@ -134,6 +136,7 @@ namespace we {
       }
 
       protected onMatchGoodRoadUpdate() {
+        super.onMatchGoodRoadUpdate();
         if (this._goodRoadLabel) {
           if (this._tableInfo.goodRoad) {
             this._goodRoadLabel.visible = true;
@@ -170,6 +173,11 @@ namespace we {
             this._minimizedTableLayer.updateBetLabel(false, betInfo);
           }
         }
+      }
+
+      protected setStateShuffle(isInit: boolean = false) {
+        super.setStateShuffle(isInit);
+        this._message.showMessage(ui.InGameMessage.INFO, i18n.t('baccarat.shuffling'),null, true);
       }
 
       public checkResultMessage() {
