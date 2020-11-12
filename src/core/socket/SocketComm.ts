@@ -430,6 +430,7 @@ namespace we {
         logger.l(utils.LogTarget.RELEASE, `${timestamp}: READY`, player);
 
         env.showGoodRoadHint = player.profile.settings.showGoodRoadHint ? true : false;
+        env.showGoodRoadHint = player.profile.settings.showGoodRoadHint =='1' ? true : false;
         env.autoConfirmBet = player.profile.settings.autoConfirmBet ? true : false;
 
         dir.evtHandler.dispatch(core.MQTT.CONNECT_SUCCESS);
