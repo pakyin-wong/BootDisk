@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.ListItemStateLabelSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Group x="0" y="0">
+		<e:layout>
+			<e:HorizontalLayout verticalAlign="middle" gap="50"/>
+		</e:layout>
+		<e:Image width="104" height="41" x="126" y="128" scaleX="1" scaleY="1" source="d_lobby_title_left_png"/>
+		<ui:RunTimeLabel id="_label" text="Label" x="175" y="104" scaleX="1" scaleY="1" height="77" verticalAlign="middle" textColor="0x666666"/>
+		<e:Image width="104" height="41" x="206" y="224" scaleX="1" scaleY="1" source="d_lobby_title_right_png"/>
+	</e:Group>
+</e:Skin>

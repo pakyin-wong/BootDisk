@@ -574,6 +574,7 @@ namespace we {
         totalcount: '總數',
         betSuccess: '下注成功',
         betFail: '下注失敗',
+        shuffling: '洗牌中',
         addNewGoodRoad: '新增好路',
         newGoodRoadName: '我的好路',
         removeGoodRoad: '刪除路紙？',

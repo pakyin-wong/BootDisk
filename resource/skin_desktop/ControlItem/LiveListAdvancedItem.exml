@@ -14,6 +14,7 @@
 			<live:BetLimitDropdown id="_dropdown" width="200" x="13" y="388" skinName="BetLimitDropdownSkin"  horizontalAlign="left"/>
 			<e:Component id="_analysisNode" right="0" y="0" width="290" height="441" />
 			<e:Component id="_advancedRoadNode" width="580" height="441" x="345" y="0" />
+			<ui:ListItemStateLabel id="_stateLabel"  horizontalCenter="26" verticalCenter="0"/>
 			<e:Group id="_alreadyBetSign" x="243" y="299" visible="false">
 				<e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0" width="100" height="30"/>
 				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="18"/>

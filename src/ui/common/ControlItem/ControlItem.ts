@@ -36,6 +36,8 @@ namespace we {
       public itemInitHelper: IListItemHelper;
       protected _betMessageEnable = true;
 
+      protected _stateLabel: ListItemStateLabel;
+
       public constructor(skinName: string = null) {
         super();
         if (skinName) {
@@ -291,6 +293,7 @@ namespace we {
           return;
         }
         this.updateCountdownTimer();
+        if (this._stateLabel) this._stateLabel.visible = false;
         switch (this._gameData.state) {
           case core.GameState.IDLE:
             this.setStateIdle(isInit);
@@ -426,16 +429,27 @@ namespace we {
           }
         }
       }
+
       protected setStateRefund(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.REFUND || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(false);
         }
       }
+
       protected setStateShuffle(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.SHUFFLE || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(false);
+          if (this._stateLabel) {
+            this._stateLabel.visible = true;
+            this._stateLabel.renderText = ()=>i18n.t('baccarat.shuffling');
+          }
+          if (this._timer) {
+            this._timer.countdownValue = 10 * 1000;
+            this._timer.remainingTime = 0;
+            this._timer.start();
+          }
         }
       }
 

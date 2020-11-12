@@ -574,6 +574,7 @@ namespace we {
         totalcount: 'Total',
         betSuccess: 'betSuccess',
         betFail: 'Bet fail',
+        shuffling: 'Shuffling',
         addNewGoodRoad: 'New Good Road',
         newGoodRoadName: 'My Road',
         removeGoodRoad: 'Delete Road Sheet?',
