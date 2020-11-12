@@ -67,9 +67,12 @@ namespace we {
 
       protected mount() {
         super.mount();
+        this.setupTableInfo();
         if (!env.isMobile) {
           mouse.setButtonMode(this._btnBack, true);
-          if (this._betRelatedGroup && this._betRelatedGroup._confirmButton) { mouse.setButtonMode(this._betRelatedGroup._confirmButton, true); }
+          if (this._betRelatedGroup && this._betRelatedGroup._confirmButton) {
+            mouse.setButtonMode(this._betRelatedGroup._confirmButton, true);
+          }
         }
 
         this._video = dir.videoPool.get();

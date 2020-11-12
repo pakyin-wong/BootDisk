@@ -557,6 +557,10 @@ namespace we {
         this._GameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
       }
 
+      protected onMatchGoodRoadUpdate() {
+        super.onMatchGoodRoadUpdate();
+      }
+
       // protected changeLang() {
       //   this._repeatLabel.text = i18n.t('mobile_ba_repeat');
       //   this._repeatLabel.targetWidth = 120;

@@ -176,7 +176,7 @@ namespace we {
       overlaypanel_gameSet_autoBet: 'Auto-Betting',
       overlaypanel_gameSet_sendLiveVerfication: 'Send On-site Verification',
 
-      expiredmessage_text: 'You have not bet for 3 rounds, and will be back to lobby after 2 rounds',
+      expiredmessage_text: 'You have not bet for 3 rounds, and will be back to lobby after 2 rounds.',
 
       // customerservicehotlinenumber_text: 'The customer service hotline number is updated to +63 9250898888',
 
@@ -545,7 +545,7 @@ namespace we {
         goodroad: 'Good Road',
         allgames: 'All Game',
         noGoodRoad: 'No Good Road',
-        noBet: 'No Bet Table',
+        noBet: 'No Bet Game',
       },
       baccarat: {
         statisticChart: {

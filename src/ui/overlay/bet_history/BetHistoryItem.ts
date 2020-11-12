@@ -133,7 +133,7 @@ namespace we {
             this._txt_record_bgcolor.fillColor = this.data.colorIndex === 1 ? 0x14181e : 0x1a1f26;
           }
         }
-
+        
         protected onClickReplay(e: egret.Event) {
           if (this.data && this.data.replayurl) {
             window.open(this.data.replayurl, '_blank');

@@ -109,7 +109,7 @@
 			</e:Group>
 		</e:Group>
 		<e:Group>
-			<e:Group y="24" right="0">
+			<e:Group y="24" left="0">
 				<ui:RunTimeLabel id="_GameIDText" text="Game ID :" bottom="0" left="0" alpha=".7" verticalAlign="top" size="26" />
 				<ui:RunTimeLabel id="_GameID" text="ID0000000000000001" bottom="0" left="0" verticalAlign="top" size="26" />
 				<ui:TimeLabel bottom="0" left="0" verticalAlign="top" size="26" />
@@ -117,8 +117,7 @@
 					<e:HorizontalLayout gap="8" />
 				</e:layout>
 			</e:Group>
-			<ui:GoodRoadLabel id="_BAgoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin" y="54"
-			                  x.right_hand_mode="183" y.right_hand_mode="59" x.left_hand_mode="183" x="0" />
+			<ui:GoodRoadLabel id="_BAgoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin" y="54" x="0" />
 		</e:Group>
 		<e:layout>
 			<e:HorizontalLayout gap="36" />
