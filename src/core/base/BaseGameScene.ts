@@ -74,7 +74,11 @@ namespace we {
             mouse.setButtonMode(this._betRelatedGroup._confirmButton, true);
           }
         }
+        this.instantiateVideo();
+        this.touchEnabled = true;
+      }
 
+      protected instantiateVideo() {
         this._video = dir.videoPool.get();
         this._video.setBrowser(env.UAInfo.browser.name);
         // this._video.width = this.stage.stageWidth;
@@ -84,7 +88,6 @@ namespace we {
         this._video.load('https://gcp.weinfra247.com:443/live/720.flv');
 
         dir.audioCtr.video = this._video;
-        this.touchEnabled = true;
       }
 
       public onEnter() {
@@ -101,9 +104,11 @@ namespace we {
       public onExit() {
         super.onExit();
         this.stage.frameRate = env.frameRate;
-        dir.audioCtr.video = null;
-        this._video.stop();
-        dir.videoPool.release(this._video);
+        if (this._video) {
+          dir.audioCtr.video = null;
+          this._video.stop();
+          dir.videoPool.release(this._video);
+        }
         this._chipLayer.getSelectedChipIndex = null;
         // this._timer.stop();
         this.removeEventListeners();
@@ -117,21 +122,23 @@ namespace we {
       }
 
       protected initChildren() {
-        this.addChild(this._video);
-        this.setChildIndex(this._video, 0);
-        // this.playVideo();
-        const aspect = 16 / 9;
-        const ratio = this.stage.stageWidth / this.stage.stageHeight;
-        this._video.x = this.stage.stageWidth * 0.5;
-        this._video.y = this.stage.stageHeight * 0.5;
-        this._video.width = ratio < 1 ? this.stage.stageHeight * aspect : this.stage.stageWidth;
-        this._video.height = ratio < 1 ? this.stage.stageHeight : this.stage.stageWidth / aspect;
-        this._video.$anchorOffsetX = this._video.width * 0.5;
-        this._video.$anchorOffsetY = this._video.height * 0.5;
-        if (!env.videoOpen) {
-          this.stopVideo();
-        } else {
-          this.playVideo();
+        if (this._video) {
+          this.addChild(this._video);
+          this.setChildIndex(this._video, 0);
+          // this.playVideo();
+          const aspect = 16 / 9;
+          const ratio = this.stage.stageWidth / this.stage.stageHeight;
+          this._video.x = this.stage.stageWidth * 0.5;
+          this._video.y = this.stage.stageHeight * 0.5;
+          this._video.width = ratio < 1 ? this.stage.stageHeight * aspect : this.stage.stageWidth;
+          this._video.height = ratio < 1 ? this.stage.stageHeight : this.stage.stageWidth / aspect;
+          this._video.$anchorOffsetX = this._video.width * 0.5;
+          this._video.$anchorOffsetY = this._video.height * 0.5;
+          if (!env.videoOpen) {
+            this.stopVideo();
+          } else {
+            this.playVideo();
+          }
         }
 
         // this._video.play();
