@@ -218,6 +218,7 @@ namespace we {
 
         if (this._chipLayer) {
           this._chipLayer.addEventListener('onUnconfirmBet', this.changeBetRelatedGroupBtn, this);
+          this._chipLayer.addEventListener('resetUnconfirmBet', this.resetBetRelatedGroupBtn, this);
           this._chipLayer.addEventListener(core.Event.GENERAL_BET_FAIL, this.generalBetFail, this);
           this._chipLayer.addEventListener(core.Event.EXCEED_TABLE_LIMIT, this.exceedTableLimit, this);
           this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
@@ -291,6 +292,7 @@ namespace we {
 
         if (this._chipLayer) {
           this._chipLayer.removeEventListener('onUnconfirmBet', this.changeBetRelatedGroupBtn, this);
+          this._chipLayer.removeEventListener('resetUnconfirmBet', this.resetBetRelatedGroupBtn, this);
           this._chipLayer.removeEventListener(core.Event.GENERAL_BET_FAIL, this.generalBetFail, this);
           this._chipLayer.removeEventListener(core.Event.EXCEED_TABLE_LIMIT, this.exceedTableLimit, this);
           this._chipLayer.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
@@ -330,6 +332,17 @@ namespace we {
             this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
           );
         }
+      }
+
+      protected resetBetRelatedGroupBtn(){
+        console.log('test')
+          if (this._betRelatedGroup) {
+            this._betRelatedGroup.changeBtnState(
+              false,
+              this._chipLayer.getTotalCfmBetAmount(),
+              this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
+            );
+          }
       }
 
       public backToLobby() {

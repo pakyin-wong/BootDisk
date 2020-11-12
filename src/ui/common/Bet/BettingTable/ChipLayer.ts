@@ -571,12 +571,20 @@ namespace we {
         let exceedBetLimit = false;
         if (checkLowerLimit) {
           exceedBetLimit = this.isExceedLowerBetLimit(fieldAmounts, betLimit);
+          console.log('isExceedLowerBetLimit',exceedBetLimit)
           if (exceedBetLimit) {
             this.resetUnconfirmedBet();
-            this.dispatchEvent(new egret.Event('onUnconfirmBet'));
+            this.dispatchEvent(new egret.Event('resetUnconfirmBet'));
           }
         } else {
           exceedBetLimit = this.isExceedUpperBetLimit(fieldAmounts, betLimit, betDetail);
+          console.log('isExceedUpperBetLimit',exceedBetLimit)
+          // if (exceedBetLimit) {
+          //   this.resetUnconfirmedBet();
+          //   this.dispatchEvent(new egret.Event('onUnconfirmBet'));
+          //   console.log(' this.resetUnconfirmedBet();')
+          //   console.log('this.dispatchEvent(new egret.Event(onUnconfirmBet));')
+          // }
         }
 
         if (exceedBetLimit) {
