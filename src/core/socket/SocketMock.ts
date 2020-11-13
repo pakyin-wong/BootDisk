@@ -794,7 +794,7 @@ namespace we {
           });
         env.wholeDenomList = denominationList;
         */
-
+        env.gameCategories = ['Live','Lottery']
         env.mode = null || -1;
         env.categorySortOrder = '{}';
         env.storedPositions = JSON.parse('{"TableInfoPanel":{"x":200,"y":400}}');
