@@ -175,7 +175,8 @@ namespace we {
       // Triple
       const triple = [di.BetField.TRIPLE_1, di.BetField.TRIPLE_2, di.BetField.TRIPLE_3, di.BetField.TRIPLE_4, di.BetField.TRIPLE_5, di.BetField.TRIPLE_6];
 
-      if (diceResults[0] == diceResults[1] == diceResults[2]) {
+      //if (diceResults[0] == diceResults[1] == diceResults[2]) {
+      if (diceResults[0] === diceResults[1] && diceResults[1] === diceResults[2]) {
         resultsField.push(di.BetField.TRIPLE_ALL);
         resultsField.push(triple[diceResults[0] - 1]);
       } else {

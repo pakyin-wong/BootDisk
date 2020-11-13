@@ -87,6 +87,7 @@ namespace we {
       overlaypanel_customroad_selectall: '全选',
 
       overlaypanel_bethistory_title: '游戏记录',
+      overlaypanel_bethistory_payout: '派彩',
       overlaypanel_bethistory_tab: '分类',
       overlaypanel_bethistory_tab_all: '游戏总览',
       overlaypanel_bethistory_tab_live: '真人游戏',
@@ -194,7 +195,9 @@ namespace we {
       overlaypanel_gameSet_autoBet: '自动确认投注',
       overlaypanel_gameSet_sendLiveVerfication: '发送现场验证',
 
+
       expiredmessage_text: '您已3局未投注，将于2局后返回游戏大堂',
+
 
       // customerservicehotlinenumber_text: '客服热线号码更新为＋63 9250898888',
 
@@ -351,7 +354,7 @@ namespace we {
           undo: '还原',
           fullscreen: '视频全莹幕',
           autoFullscreenToggleOn: '开启自动隐藏界面',
-          autoFullscreenToggleOff: '投注结东后, 界面将自动隐藏',
+          autoFullscreenToggleOff: '投注结束后, 界面将自动隐藏',
           roadmapBankerRound: '庄局数',
           roadmapPlayerRound: '閒局数',
           roadmapTierRound: '和局数',
@@ -582,7 +585,7 @@ namespace we {
       },
       baccarat: {
         tooltip: {
-          swapRoadmap: '轉換路紙',
+          swapRoadmap: '转换路纸',
         },
         statisticChart: {
           bankerPlayerTie: '庄闲和比例 (100局)',

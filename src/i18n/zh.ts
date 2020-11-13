@@ -79,6 +79,7 @@ namespace we {
       overlaypanel_customroad_selectall: '全選',
 
       overlaypanel_bethistory_title: '遊戲記錄',
+      overlaypanel_bethistory_payout: '派彩',
       overlaypanel_bethistory_tab: '分類',
       overlaypanel_bethistory_tab_all: '遊戲總覽',
       overlaypanel_bethistory_tab_live: '真人遊戲',
@@ -548,6 +549,9 @@ namespace we {
         noBet: '沒有已下注遊戲',
       },
       baccarat: {
+        tooltip: {
+          swapRoadmap: '轉換路紙',
+        },  
         statisticChart: {
           bankerPlayerTie: '庄閒和比例(100局)',
           bankerPlayerTiePair: '庄閒和对比例 (100局)',

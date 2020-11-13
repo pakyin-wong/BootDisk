@@ -91,9 +91,9 @@ namespace we {
 
       public checkResultMessage(resultData = null) {
         (<any> this._gameData).hasBet = this.hasBet();
+        (this._tableLayer as dil.TableLayer).flashFields(this._gameData);
         super.checkResultMessage(resultData);
       }
-
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
@@ -117,8 +117,6 @@ namespace we {
       //     }
       //   }
       // }
-
-
     }
   }
 }

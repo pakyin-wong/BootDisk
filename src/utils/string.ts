@@ -29,7 +29,7 @@ namespace we {
 
     export function formatNumber(target: string | number, withDP: boolean = true): string {
       const str = `${target}`;
-      const regex = RegExp('[^0-9]');
+      const regex = RegExp('[^0-9-]');
       if (regex.test(str)) {
         return str;
       }

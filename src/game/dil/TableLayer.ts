@@ -82,6 +82,62 @@ namespace we {
       }
 
       public async animateToState(collapsed: boolean) {}
+
+      public async flashFields(data: we.data.GameData) {
+        const winningFields = `SUM_${(data as dil.GameData).total}`;
+        const initRectPromises = [];
+        // init dim rects
+        for (const field of Object.keys(this._groupMapping)) {
+          const group = this._groupMapping[field];
+          const isWin = field == winningFields;
+          // try remove existing
+          let rect = group.getChildByName('dim');
+          if (rect) {
+            group.removeChild(rect);
+          }
+          rect = new eui.Rect();
+          rect.name = 'dim';
+          rect.alpha = 0;
+          rect.fillColor = isWin ? 0xffffff : 0x000000;
+          rect.percentWidth = 100;
+          rect.percentHeight = 100;
+          group.addChildAt(rect, 1);
+          const promise = new Promise(resolve => {
+            if (rect) {
+              egret.Tween.get(rect)
+                .to({ alpha: isWin ? 0 : 0.5 }, 125)
+                .call(resolve);
+            }
+          });
+          initRectPromises.push(promise);
+        }
+        await Promise.all(initRectPromises);
+        // start flashing
+        const run = 1;
+
+        await utils.sleep(3000);
+
+        const fadeOutPromises = [];
+        for (const field of Object.keys(this._groupMapping)) {
+          const group = this._groupMapping[field];
+          const rect = group.getChildByName('dim');
+          const promise = new Promise(resolve => {
+            if (rect) {
+              egret.Tween.get(rect)
+                .to({ alpha: 0 }, 125)
+                .call(() => {
+                  if (rect.parent) {
+                    rect.parent.removeChild(rect);
+                  }
+                  resolve();
+                });
+            }
+          });
+          fadeOutPromises.push(promise);
+        }
+        await Promise.all(fadeOutPromises);
+        return;
+      }
     }
   }
 }

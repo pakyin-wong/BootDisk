@@ -71,7 +71,6 @@
                 <e:Group id="_btnBetDescription" width="48" height="50" verticalCenter="0">
                     <ui:RoundRectButton cornerTL_TR_BL_BR="24,25,24,25" width="48" height="50" 
                         fillAlpha="0"  fillColor="0xffffff" stroke="1" strokeColor="0xffffff"/>
-                    <!--//<e:Image source="d_lobby_button_down_normal_png" width="40" height="40" verticalCenter="0" x="8"/>-->
                     <ui:RunTimeLabel id="_lblBetDescription" text="?" width="48" height="48" verticalAlign="middle" textAlign="center" size="32" scaleX="1" scaleY="1" verticalCenter="0" touchEnabled="false"/>
                 </e:Group>
                 <e:layout>

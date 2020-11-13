@@ -8,7 +8,7 @@ namespace we {
   export namespace ba {
     export class MobileScene extends core.MobileBaseGameScene {
       protected _roadmapControl: BARoadmapControl;
-      protected _bottomGamePanel: MobileBottomGamePanel;
+      protected _bottomGamePanel: ui.MobileBottomCommonPanel;
       protected _beadRoadResultPanel: BaBeadRoadResultPanel;
 
       protected _switchBaMode: eui.ToggleSwitch;
@@ -23,7 +23,7 @@ namespace we {
 
       protected _originBetRelatedGroupY: number;
 
-      private _common_listpanel: ui.BaseImageButton;
+      protected _common_listpanel: ui.BaseImageButton;
 
       constructor(data: any) {
         super(data);
@@ -107,8 +107,13 @@ namespace we {
           egret.Tween.get(this._betRelatedGroup).to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
         }
 
+        this.setSwitchBAMode(enable);
+      }
+
+      protected setSwitchBAMode(enable: boolean){
         this._switchBaMode.enabled = enable;
       }
+
       protected setResultRelatedComponentsEnabled(enable: boolean) {
         super.setResultRelatedComponentsEnabled(enable);
         if (this._resultDisplay && env.orientation === 'portrait') {
@@ -117,6 +122,10 @@ namespace we {
       }
 
       protected showResultDisplay(isShow: boolean) {
+        if(this._alwaysShowResult){
+          this._resultDisplay.visible = true;
+          return;
+        }
         egret.Tween.removeTweens(this._resultDisplay);
         if (isShow) {
           egret.Tween.get(this._resultDisplay).to({ y: 40, alpha: 1 }, 400);
@@ -170,7 +179,7 @@ namespace we {
         this.changeHandMode();
 
         this.setChipPanelPos();
-        // this._BAgoodRoadLabel.visible = false;
+        this.setGoodRoadLabel();
 
         // this._baGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
         // this._baGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
@@ -179,6 +188,12 @@ namespace we {
         }
         // dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
       }
+
+      protected setGoodRoadLabel(){
+        this._BAgoodRoadLabel.visible = false;
+      }
+
+      
 
       protected addEventListeners() {
         super.addEventListeners();
@@ -253,13 +268,13 @@ namespace we {
       protected initRoadMap() {
         this._roadmapControl = new BARoadmapControl(this._tableId);
         this._roadmapControl.setRoads(
-          this._bottomGamePanel._roadmapPanel.beadRoad,
-          this._bottomGamePanel._roadmapPanel.bigRoad,
-          this._bottomGamePanel._roadmapPanel.bigEyeRoad,
-          this._bottomGamePanel._roadmapPanel.smallRoad,
-          this._bottomGamePanel._roadmapPanel.cockroachRoad,
+          (<ba.MobileBottomGamePanel> this._bottomGamePanel)._roadmapPanel.beadRoad,
+          (<ba.MobileBottomGamePanel> this._bottomGamePanel)._roadmapPanel.bigRoad,
+          (<ba.MobileBottomGamePanel> this._bottomGamePanel)._roadmapPanel.bigEyeRoad,
+          (<ba.MobileBottomGamePanel> this._bottomGamePanel)._roadmapPanel.smallRoad,
+          (<ba.MobileBottomGamePanel> this._bottomGamePanel)._roadmapPanel.cockroachRoad,
           [16, 33, 66, 34, 32],
-          this._bottomGamePanel._roadmapPanel,
+          (<ba.MobileBottomGamePanel> this._bottomGamePanel)._roadmapPanel,
           this._beadRoadResultPanel
         );
       }

@@ -78,6 +78,7 @@ namespace we {
       overlaypanel_customroad_default: 'Restore Default',
       overlaypanel_customroad_selectall: 'Select All',
 
+      overlaypanel_bethistory_payout: 'Payout',
       overlaypanel_bethistory_title: 'Bet Records',
       overlaypanel_bethistory_tab: 'Class',
       overlaypanel_bethistory_tab_all: 'All',
@@ -548,6 +549,9 @@ namespace we {
         noBet: 'No Bet Game',
       },
       baccarat: {
+        tooltip: {
+          swapRoadmap: 'Swap Roadmap',
+        },
         statisticChart: {
           bankerPlayerTie: 'Banker Player Tie (100 rounds)',
           bankerPlayerTiePair: 'Banker Player Tie pair (100 rounds)',
