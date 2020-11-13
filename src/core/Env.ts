@@ -16,14 +16,14 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.12.1';
+      public version: string = '0.12.2';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
       public balanceOnHold: number = 0;
       public currency: Currency;
       public playerID: string;
-      public accountType: number = 0;   // 0-api, 1-credit
+      public accountType: number = 0; // 0-api, 1-credit
 
       public nickname: string;
       public nicknameKey: string;
@@ -44,9 +44,9 @@ namespace we {
       protected _liveGameTab: string[] = [];
       protected _lotteryTab: string[] = [];
 
-      public blockchain: { thirdPartySHA256: string, cosmolink: string } = {
+      public blockchain: { thirdPartySHA256: string; cosmolink: string } = {
         thirdPartySHA256: '',
-        cosmolink: ''
+        cosmolink: '',
       };
       /**
        * {
@@ -143,8 +143,8 @@ namespace we {
           core.GameType.BAI,
           core.GameType.BAS,
           core.GameType.BAM,
-          core.GameType.BAB,
-          core.GameType.DTB,
+          // core.GameType.BAB,
+          // core.GameType.DTB,
           core.GameType.DI,
           core.GameType.DIL,
           core.GameType.DT,
@@ -183,10 +183,12 @@ namespace we {
 
       set gameCategories(value: string[]) {
         // value = ['Lottery'];    // TODO: this is just for testing, delete it when finish testing
-        const validCategories = ['Live', 'Lottery'];    // categories which support in current version
-        this._gameCategories = validCategories.filter(cat => {
-          return value.indexOf(cat) >= 0;
-        }).map((cat: string) => cat.toLowerCase());
+        const validCategories = ['Live', 'Lottery']; // categories which support in current version
+        this._gameCategories = validCategories
+          .filter(cat => {
+            return value.indexOf(cat) >= 0;
+          })
+          .map((cat: string) => cat.toLowerCase());
       }
 
       // used for lobby
@@ -196,7 +198,7 @@ namespace we {
 
       // used for side panel dropdown
       get sideGameCategories(): string[] {
-        const validCategories = ['live', 'lottery'];    // categories which support in current version side game panel
+        const validCategories = ['live', 'lottery']; // categories which support in current version side game panel
         if (this._gameCategories) {
           const cats = validCategories.filter(cat => {
             return this._gameCategories.indexOf(cat) >= 0;
@@ -209,6 +211,7 @@ namespace we {
 
       set gameTypes(value: any[]) {
         // value = ['0', '15', '22'];     // TODO: this is just for testing, delete it when finish testing
+        value = value.concat('27', '28'); // TODO: temp add BAB and DTB
         // console.log(JSON.stringify(value));
         this._gameTypes = value.map((cat: string) => parseInt(cat, 10));
         this.generateLiveGameTab();
@@ -226,8 +229,8 @@ namespace we {
           dragontiger: [],
           roulette: [],
           dice: [],
-          luckywheel: []
-        }
+          luckywheel: [],
+        };
         for (const type of this._gameTypes) {
           switch (type) {
             case core.GameType.BAB:
@@ -269,7 +272,7 @@ namespace we {
           allLotteryGame: [1],
           lottery: [],
           race: [],
-        }
+        };
         for (const type of this._gameTypes) {
           switch (type) {
             case core.GameType.LO:
