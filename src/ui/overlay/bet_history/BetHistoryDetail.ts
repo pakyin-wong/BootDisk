@@ -41,7 +41,7 @@ namespace we {
 
         protected _btn_prev: ui.RoundRectButton;
         protected _btn_next: ui.RoundRectButton;
-        protected _btn_replay: egret.DisplayObject;
+        protected _btn_replay: ui.RoundRectButton;
         protected _record_result: egret.DisplayObjectContainer;
         protected _source: any;
         protected _index: number;
@@ -64,11 +64,10 @@ namespace we {
           this.setText(this._txt_record_date, `${i18n.t('overlaypanel_bethistory_recordtab_date')}`);
           this.setText(this._txt_record_game, `${i18n.t('overlaypanel_bethistory_recordtab_game')}`);
           this.setText(this._txt_record_round, `${i18n.t('overlaypanel_bethistory_recordtab_round')}`);
-          this.setText(this._txt_record_replay, `${i18n.t('overlaypanel_bethistory_recordtab_replay')}`);
           this.setText(this._txt_record_remark, `${i18n.t('overlaypanel_bethistory_recordtab_remark')}`);
           this.setText(this._txt_record_bettype, `${i18n.t('overlaypanel_bethistory_recordtab_bettype')}`);
           this.setText(this._txt_record_betamount, `${i18n.t('overlaypanel_bethistory_recordtab_betamount')}`);
-          this.setText(this._txt_record_win_l, `${i18n.t('overlaypanel_bethistory_recordtab_win')}`);
+          this.setText(this._txt_record_win_l, `${i18n.t('overlaypanel_bethistory_payout')}`);
           this.setText(this._txt_record_finbalance, `${i18n.t('overlaypanel_bethistory_recordtab_finbalance')}`);
           this.setText(this._txt_record_result, `${i18n.t('overlaypanel_bethistory_recordtab_resuit')}`);
 
@@ -82,15 +81,19 @@ namespace we {
 
           if (this._btn_next) {
             this.setText(this._btn_next.label, `${i18n.t('overlaypanel_bethistory_btn_next')}`);
-            this._btn_next.addEventListener(egret.TouchEvent.TOUCH_TAP, this.nextPage, this);
+            utils.addButtonListener(this._btn_next, this.nextPage, this);
           }
 
           if (this._btn_prev) {
             this.setText(this._btn_prev.label, `${i18n.t('overlaypanel_bethistory_btn_prev')}`);
-            this._btn_prev.addEventListener(egret.TouchEvent.TOUCH_TAP, this.prevPage, this);
+            utils.addButtonListener(this._btn_prev, this.prevPage, this);
           }
 
-          utils.addButtonListener(this._btn_replay, this.onClickReplay, this);
+          if(this._btn_replay) {
+            this.setText(this._btn_replay.label, `${i18n.t('overlaypanel_bethistory_recordtab_replay')}`);
+            utils.addButtonListener(this._btn_replay, this.onClickReplay, this);
+          }
+
           utils.addButtonListener(this._btn_cbet, this.onCbet, this);
         }
 
@@ -112,7 +115,9 @@ namespace we {
 
         protected destroy() {
           super.destroy();
-          utils.removeButtonListener(this._btn_replay, this.onClickReplay, this);
+          this._btn_next && utils.removeButtonListener(this._btn_next, this.nextPage, this);
+          this._btn_prev && utils.removeButtonListener(this._btn_prev, this.prevPage, this);
+          this._btn_replay && utils.removeButtonListener(this._btn_replay, this.onClickReplay, this);
           utils.removeButtonListener(this._btn_cbet, this.onCbet, this);
         }
 
@@ -151,9 +156,9 @@ namespace we {
           this.setText(this._record_bettype, utils.BetHistory.formatBetType(this.data.gametype, this.data.field));
           this.setText(this._record_betamount, utils.formatNumber(this.data.betamount, true));
           this.setText(this._record_finbalance, utils.formatNumber(this.data.afterbalance, true));
-          // this.setText(this._record_vaildbet, ?????);
+          this.setText(this._record_vaildbet, utils.formatNumber(this.data.validbetamount, true));
 
-          this.updateWinText(this.data.remark, this.data.winamount);
+          utils.BetHistory.updateWinText(this._record_win_l, this.data.remark, this.data.winamount);
           this.createGameResult(this.data.gametype, this.data.result);
         }
 
@@ -172,23 +177,6 @@ namespace we {
               this.currentState = 'normal';
               this.validateNow();
               return false;
-          }
-        }
-
-        protected updateWinText(remark, amt) {
-          switch (remark) {
-            case -1:
-              this._record_win_l.textColor = 0xff5555;
-              break;
-            default:
-              this._record_win_l.textColor = 0x43ce5c;
-              break;
-          }
-
-          if (amt > 0) {
-            this.setText(this._record_win_l, `+${utils.formatNumber(this.data.winamount, true)}`);
-          } else {
-            this.setText(this._record_win_l, `${utils.formatNumber(this.data.winamount, true)}`);
           }
         }
 

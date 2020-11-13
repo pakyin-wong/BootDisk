@@ -88,9 +88,10 @@ namespace we {
         // if (env.isMobile) {
         //   dir.moniter._sideGameList.setToggler(this._common_listpanel);
         // }
-        if (this._goodRoadLabel) {
-          this._goodRoadLabel.visible = false;
-        }
+        // if (this._goodRoadLabel) {
+        //   this._goodRoadLabel.visible = false;
+        // }
+        this.onMatchGoodRoadUpdate();
       }
 
       protected onTableInfoUpdate(evt: egret.Event) {
@@ -135,6 +136,7 @@ namespace we {
       }
 
       protected onMatchGoodRoadUpdate() {
+        super.onMatchGoodRoadUpdate();
         if (this._goodRoadLabel) {
           if (this._tableInfo.goodRoad) {
             this._goodRoadLabel.visible = true;
@@ -171,6 +173,11 @@ namespace we {
             this._minimizedTableLayer.updateBetLabel(false, betInfo);
           }
         }
+      }
+
+      protected setStateShuffle(isInit: boolean = false) {
+        super.setStateShuffle(isInit);
+        this._message.showMessage(ui.InGameMessage.INFO, i18n.t('baccarat.shuffling'),null, true);
       }
 
       public checkResultMessage() {

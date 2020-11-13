@@ -1,6 +1,6 @@
 <e:Skin class="skin_mobile.MobileSideGameListItemRenderer" xmlns:e="http://ns.egret.com/eui" states="up,down" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" height="86">
 	<e:Group y="12" horizontalCenter="0">
 		<ui:RunTimeLabel id="label" text="{data}" textColor="0xffffff" alpha.up="0.7" bold.up="false" bold="true" size="42" textAlign="center" height="62" verticalAlign="middle" y="0" x="0"/>
-		<e:Image id="highlight" height="8" visible.up="false" y="60" left="0" right="0" source="m_lobby_header_submenu_hl_png" scale9Grid="5,1,130,6"/>
+		<e:Image id="highlight" height="8" visible.up="false" y="60" left="0" right="0" source="m_lobby_header_submenu_hl_png"/>
 	</e:Group>
 </e:Skin>

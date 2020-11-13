@@ -196,7 +196,7 @@ namespace we {
 
       public updateTableBetInfo() {
         if (this.tableInfo.betInfo) {
-          this.totalBet = this.tableInfo.betInfo.gameroundid === this.tableInfo.data.gameroundid ? this.tableInfo.betInfo.total : 0;
+          this.totalBet = this.tableInfo.betInfo.gameroundid === this.tableInfo.data.gameroundid ? this.tableInfo.totalBet : 0;
           this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
         }
       }
@@ -296,18 +296,18 @@ namespace we {
             }
 
             if (coinAnim.animation) {
-              let p = we.utils.waitDragonBone(coinAnim);
+              const p = we.utils.waitDragonBone(coinAnim);
               coinAnim.animation.play(`${animName}_in`, 1);
               coinAnim.visible = true;
               await p;
             }
             if (coinAnim.animation) {
-              let p = we.utils.waitDragonBone(coinAnim);
+              const p = we.utils.waitDragonBone(coinAnim);
               coinAnim.animation.play(`${animName}_loop`, 4);
               await p;
             }
             if (coinAnim.animation) {
-              let p = we.utils.waitDragonBone(coinAnim);
+              const p = we.utils.waitDragonBone(coinAnim);
               coinAnim.animation.play(`${animName}_out`, 1);
               await p;
             }
@@ -384,7 +384,7 @@ namespace we {
 
       public destroy() {
         this.clearLuckyNumbers();
-        if (this._factory) this._factory.clear(true);
+        if (this._factory) { this._factory.clear(true); }
         super.destroy();
 
         egret.Tween.removeTweens(this.activeLine);

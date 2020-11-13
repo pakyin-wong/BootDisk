@@ -1,103 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_landscape.dil.TableInfoPanel" width="2086" height="308" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-        <e:Rect id="_bg" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" locked="true"/>
+    <e:Rect id="_bg" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" locked="true" />
     <e:Scroller scrollPolicyH="on" width="2086" height="308">
         <e:Group id="content" left="0" top="0" width="100%" height="100%">
-		    <e:Image id="moveArea" source="popover_png" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7" visible="false"/>
-            <e:Label id="lblTableInfo" text="本檯資訊" left="50" top="50" x="50" y="50" scaleX="1" scaleY="1" size="20" textColor="0xc59466" visible="false"/>
-            <e:Label id="timeLabel" text="時間" y="220" left="50" x="50" scaleX="1" scaleY="1" size="20" visible="false"/>
-            <e:Label id="pTime" text="-" y="220" textAlign="right" scaleX="1" scaleY="1" size="20" right="237" visible="false"/>
-            <e:Label id="close" text="x" x="555" y="20" touchEnabled="true" scaleY="0.8" visible="false"/>
-            <e:Group id="column1" x="0" y="0" width="521.5" height="100%" >
-                <ui:RunTimeLabel id="tableNoLabel" text="檯號" y="40" x="24" scaleX="1" scaleY="1" size="44"/>
-                <ui:RunTimeLabel id="roundNoLabel" text="局號" y="120" x="24" scaleX="1" scaleY="1" size="44"/>
-                <ui:RunTimeLabel id="gameIdLabel" text="編號" y="200" x="24" scaleX="1" scaleY="1" size="44"/>
-                <ui:RunTimeLabel id="pTableID" text="-" y="40" textAlign="right" size="44"
-                                     alpha="0.7"  fontFamily="Barlow" x="325"/>
-                <e:Label id="pRoundID" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44" right="27.5" width="280" anchorOffsetX="0" alpha=".7"/>
+            <e:Image id="moveArea" source="popover_png" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7"
+                     visible="false" />
+            <e:Label id="lblTableInfo" text="本檯資訊" left="50" top="50" x="50" y="50" scaleX="1" scaleY="1" size="20"
+                     textColor="0xc59466" visible="false" />
+            <e:Label id="timeLabel" text="時間" y="220" left="50" x="50" scaleX="1" scaleY="1" size="20" visible="false" />
+            <e:Label id="pTime" text="-" y="220" textAlign="right" scaleX="1" scaleY="1" size="20" right="237"
+                     visible="false" />
+            <e:Label id="close" text="x" x="555" y="20" touchEnabled="true" scaleY="0.8" visible="false" />
+            <e:Group id="column1" x="0" y="0" width="521.5" height="100%">
+                <ui:RunTimeLabel id="tableNoLabel" text="檯號" y="40" x="24" scaleX="1" scaleY="1" size="44" />
+                <ui:RunTimeLabel id="roundNoLabel" text="局號" y="120" x="24" scaleX="1" scaleY="1" size="44" />
+                <ui:RunTimeLabel id="gameIdLabel" text="編號" y="200" x="24" scaleX="1" scaleY="1" size="44" />
+                <ui:RunTimeLabel id="pTableID" text="-" y="40" textAlign="right" size="44" alpha="0.7"
+                                 fontFamily="Barlow" x="325" />
+                <e:Label id="pRoundID" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44" right="27.5"
+                         width="280" anchorOffsetX="0" alpha=".7" />
                 <ui:ClampWidthLabel id="pGameID" text="000-000-000000000" x="147" y="200" textAlign="right" size="44"
-                    targetWidth="350" alpha="0.7"  anchorOffsetX="0" width="350" anchorOffsetY="0" height="46" fontFamily="Barlow"/>
-                <e:Image id="btnDetail" right="28" height="58" x="465" y="36" source="m_ba_tag_btn_detail_png"/>
-                <e:Rect width="1" height="100%" fillColor="0xd8d8d8" fillAlpha="1" right="0"/>
+                                    targetWidth="350" alpha="0.7" anchorOffsetX="0" width="350" anchorOffsetY="0"
+                                    height="46" fontFamily="Barlow" />
+                <e:Image id="btnDetail" right="28" height="58" x="465" y="36" source="m_ba_tag_btn_detail_png" />
+                <e:Rect width="1" height="100%" fillColor="0xd8d8d8" fillAlpha="1" right="0" />
             </e:Group>
             <e:Group id="column2" x="521.5" width="521.5" height="100%">
-                <ui:RunTimeLabel id="dealerLabel" text="荷官" y="40" x="24" scaleX="1" scaleY="1" size="44"/>
-                <ui:RunTimeLabel id="tableBetLimitLabel" text="限紅" y="120" x="24" scaleX="1" scaleY="1" size="44"/>
-                <ui:RunTimeLabel id="betLimitLabel" text="限紅" y="200" x="24" scaleX="1" scaleY="1" size="44"/>
+                <ui:RunTimeLabel id="dealerLabel" text="荷官" y="40" x="24" scaleX="1" scaleY="1" size="44" />
+                <ui:RunTimeLabel id="tableBetLimitLabel" text="限紅" y="120" x="24" scaleX="1" scaleY="1" size="44" />
+                <ui:RunTimeLabel id="betLimitLabel" text="限紅" y="200" x="24" scaleX="1" scaleY="1" size="44" />
                 <e:Group id="betLimitBtnGroup" width="304" height="74" y="190" right="27.5">
-                    <e:Image id="limitBg" width="304" height="74" y="0" source="m_ba_tag_redlimit_bg_png" scaleX="1" scaleY="1" x="0"/>
-                    <e:Image id="dropdownBtn" width="27" height="16" x="248" y="31" source="m_ba_tag_redlimit_btn_dropdown_png"/>
+                    <e:Image id="limitBg" width="304" height="74" y="0" source="m_ba_tag_redlimit_bg_png" scaleX="1"
+                             scaleY="1" x="0" />
+                    <e:Image id="dropdownBtn" width="27" height="16" x="248" y="31"
+                             source="m_ba_tag_redlimit_btn_dropdown_png" />
                 </e:Group>
-                <ui:RunTimeLabel id="pBetLimit" text="Label" y="190" width="304" height="74" size="44" verticalAlign="middle" textAlign="center" right="27.5"/>
-                <e:Label id="pTableBetLimit" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44" width="440" verticalAlign="middle" right="28" alpha=".7"/>
-                <e:Label id="pDealer" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="44" width="440" verticalAlign="middle" right="28" alpha=".7"/>
-                <e:Rect width="1" height="100%" fillColor="0xd8d8d8" fillAlpha="1" right="0"/>
+                <ui:RunTimeLabel id="pBetLimit" text="Label" y="190" width="304" height="74" size="44"
+                                 verticalAlign="middle" textAlign="center" right="27.5" />
+                <e:Label id="pTableBetLimit" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44"
+                         width="440" verticalAlign="middle" right="28" alpha=".7" />
+                <e:Label id="pDealer" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="44" width="440"
+                         verticalAlign="middle" right="28" alpha=".7" />
+                <e:Rect width="1" height="100%" fillColor="0xd8d8d8" fillAlpha="1" right="0" />
             </e:Group>
-            <e:Group id="column3" x="1043" width="521.5" height="100%" >
-                <ui:RunTimeLabel id="threeCountLabel" text="大 / 小" y="40" x="24" scaleX="1" scaleY="1" size="44"/>
-                <ui:RunTimeLabel id="fourCountLabel" text="單 / 雙" y="120" textAlign="left" x="24" scaleX="1" scaleY="1" size="44"/>
-                <ui:RunTimeLabel id="fiveCountLabel" text="圍骰" y="200" x="24" scaleX="1" scaleY="1" size="44"/>
-                <e:Label id="pThreeCount" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="44" width="301" right="28" alpha=".7"/>
-
-                <e:Label id="pFourCount" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44" width="301" right="28" alpha=".7"/>
-
-                <e:Label id="pFiveCount" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" width="301" right="28" alpha=".7"/>
-
-                <e:Rect width="1" height="100%" fillColor="0xd8d8d8" fillAlpha="1" right="0"/>
+            <e:Group id="column3" x="1043" width="521.5" height="100%">
+                <ui:RunTimeLabel id="threeCountLabel" text="大 / 小" y="40" x="24" scaleX="1" scaleY="1" size="44" />
+                <ui:RunTimeLabel id="fourCountLabel" text="單 / 雙" y="120" textAlign="left" x="24" scaleX="1" scaleY="1"
+                                 size="44" />
+                <ui:RunTimeLabel id="fiveCountLabel" text="圍骰" y="200" x="24" scaleX="1" scaleY="1" size="44" />
+                <!--<e:Label id="pThreeCount" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="44"
+                             width="301" right="28" alpha=".7" />
+                -->
+                <ui:ClampWidthLabel id="pThreeCount" text="1.50:1.00" y="40" textAlign="right" size="44"
+                                    targetWidth="120" right="28" alpha=".7" fontFamily="Barlow" />
+                <ui:ClampWidthLabel id="pThreeMax" text="000" y="40" textAlign="right" size="44" targetWidth="80"
+                                    right="140" alpha=".7" fontFamily="Barlow" />
+                <!--<e:Label id="pFourCount" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44"
+                             width="301" right="28" alpha=".7" />
+                -->
+                <ui:ClampWidthLabel id="pFourCount" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44"
+                                    targetWidth="120" right="28" alpha=".7" fontFamily="Barlow" />
+                <ui:ClampWidthLabel id="pFourMax" text="-" y="120" textAlign="right" size="44" targetWidth="80"
+                                    right="140" alpha=".7" fontFamily="Barlow" />
+                <!--<e:Label id="pFiveCount" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44"
+                             width="301" right="28" alpha=".7" />
+                -->
+                <ui:ClampWidthLabel id="pFiveCount" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44"
+                                    targetWidth="120" right="28" alpha=".7" fontFamily="Barlow" />
+                <ui:ClampWidthLabel id="pFiveMax" text="-" y="200" textAlign="right" size="44" targetWidth="80"
+                                    right="140" alpha=".7" fontFamily="Barlow" />
+                <e:Rect width="1" height="100%" fillColor="0xd8d8d8" fillAlpha="1" right="0" />
             </e:Group>
             <e:Group id="column4" x="1564.5" width="521.5" height="100%">
-                <ui:RunTimeLabel id="sixCountLabel" text="全圍" y="40" x="24" scaleX="1" scaleY="1" size="44"/>
-                <ui:RunTimeLabel id="sevenCountLabel" text="雙骰" y="120" x="24" scaleX="1" scaleY="1" size="44"/>
-                <ui:RunTimeLabel id="eightCountLabel" text="直接注" y="200" x="24" scaleX="1" scaleY="1" size="44"/>
-                <e:Label id="pSixCount" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="44" width="301" right="28" alpha=".7"/>
-
-                <e:Label id="pSevenCount" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44" width="301" right="28" alpha=".7"/>
-
-                <e:Label id="pEightCount" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" height="44" right="28" alpha=".7"/>
-
-                <e:Rect width="1" height="100%" fillColor="0xd8d8d8" fillAlpha="1" right="0"/>
+                <ui:RunTimeLabel id="sixCountLabel" text="全圍" y="40" x="24" scaleX="1" scaleY="1" size="44" />
+                <ui:RunTimeLabel id="sevenCountLabel" text="雙骰" y="120" x="24" scaleX="1" scaleY="1" size="44" />
+                <ui:RunTimeLabel id="eightCountLabel" text="直接注" y="200" x="24" scaleX="1" scaleY="1" size="44" />
+                <!--<e:Label id="pSixCount" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="44"
+                             width="301" right="28" alpha=".7" />
+                -->
+                <ui:ClampWidthLabel id="pSixCount" text="-" y="40" textAlign="right" size="44" targetWidth="120"
+                                    right="28" alpha=".7" fontFamily="Barlow" />
+                <ui:ClampWidthLabel id="pSixMax" text="-" y="40" textAlign="right" size="44" targetWidth="80"
+                                    right="140" alpha=".7" fontFamily="Barlow" />
+                <!--<e:Label id="pSevenCount" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44"
+                             width="301" right="28" alpha=".7" />
+                -->
+                <ui:ClampWidthLabel id="pSevenCount" text="-" y="120" textAlign="right" size="44" targetWidth="120"
+                                    right="28" alpha=".7" fontFamily="Barlow" />
+                <ui:ClampWidthLabel id="pSevenMax" text="-" y="120" textAlign="right" size="44" targetWidth="80"
+                                    right="140" alpha=".7" fontFamily="Barlow" />
+                <!--<e:Label id="pEightCount" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44"
+                             width="202" height="44" right="28" alpha=".7" />
+                -->
+                <ui:ClampWidthLabel id="pEightCount" text="-" y="200" textAlign="right" size="44" targetWidth="120"
+                                    height="44" right="28" alpha=".7" fontFamily="Barlow" />
+                <ui:ClampWidthLabel id="pEightMax" text="-" y="200" textAlign="right" size="44" targetWidth="80"
+                                    height="44" right="140" alpha=".7" fontFamily="Barlow" />
+                <e:Rect width="1" height="100%" fillColor="0xd8d8d8" fillAlpha="1" right="0" />
             </e:Group>
             <e:Group id="column5" x="2086" width="521.5" height="100%">
-                <ui:RunTimeLabel id="nineCountLabel" text="總數4 / 17" y="40" x="24" scaleX="1" scaleY="1" size="44"/>
-                <e:Label id="pNineCount" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" right="28" alpha=".7"/>
-
-                <ui:RunTimeLabel id="tenCountLabel" text="總數5 / 16" y="120" x="24" scaleX="1" scaleY="1" size="44"/>
-                <e:Label id="pTenCount" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" right="28" alpha=".7"/>
-
-                <ui:RunTimeLabel id="elevenCountLabel" text="總數7 / 14" y="200" x="24" scaleX="1" scaleY="1" size="44"/>
-                <e:Label id="pElevenCount" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" right="28" alpha=".7"/>
-
-                <e:Rect width="1" height="100%" fillColor="0xd8d8d8" fillAlpha="1" right="0"/>
+                <ui:RunTimeLabel id="nineCountLabel" text="總數4 / 17" y="40" x="24" scaleX="1" scaleY="1" size="44" />
+                <!--<e:Label id="pNineCount" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="44"
+                             width="202" right="28" alpha=".7" />
+                -->
+                <ui:ClampWidthLabel id="pNineCount" text="-" y="40" textAlign="right" size="44" targetWidth="120"
+                                    right="28" alpha=".7" fontFamily="Barlow" />
+                <ui:ClampWidthLabel id="pNineMax" text="-" y="40" textAlign="right" size="44" targetWidth="80"
+                                    right="140" alpha=".7" fontFamily="Barlow" />
+                <ui:RunTimeLabel id="tenCountLabel" text="總數5 / 16" y="120" x="24" scaleX="1" scaleY="1" size="44" />
+                <!--<e:Label id="pTenCount" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44"
+                             width="202" right="28" alpha=".7" />
+                -->
+                <ui:ClampWidthLabel id="pTenCount" text="-" y="120" textAlign="right" size="44" targetWidth="120"
+                                    right="28" alpha=".7" fontFamily="Barlow" />
+                <ui:ClampWidthLabel id="pTenMax" text="-" y="120" textAlign="right" size="44" targetWidth="80"
+                                    right="140" alpha=".7" fontFamily="Barlow" />
+                <!--<ui:RunTimeLabel id="elevenCountLabel" text="總數7 / 14" y="200" x="24" scaleX="1" scaleY="1" size="44" />
+                <ui:ClampWidthLabel id="pElevenCount" text="-" y="200" textAlign="right" size="44" targetWidth="120"
+                                    height="44" right="28" alpha=".7" fontFamily="Barlow" />
+                <ui:ClampWidthLabel id="pElevenMax" text="-" y="200" textAlign="right" size="44" targetWidth="80"
+                                    height="44" right="140" alpha=".7" fontFamily="Barlow" />-->
+                <e:Rect width="1" height="100%" fillColor="0xd8d8d8" fillAlpha="1" right="0" />
             </e:Group>
-            <e:Group id="column6" x="2607.5" width="421.5" height="100%">
-                <ui:RunTimeLabel id="twelveCountLabel" text="總數8 / 13" y="40" x="24" scaleX="1" scaleY="1" size="44"/>
-                <e:Label id="pTwelveCount" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" right="28" alpha=".7"/>
-
-                <ui:RunTimeLabel id="thirteenCountLabel" text="總數9 / 10,11 / 12" y="120" textAlign="left" x="24" scaleX="1" scaleY="1" size="44"/>
-                <e:Label id="pThirteenCount" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" right="28" alpha=".7"/>
-
-                <ui:RunTimeLabel id="fourteenCountLabel" text="牌九式" y="200" x="24" scaleX="1" scaleY="1" size="44"/>
-                <e:Label id="pFourteenCount" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" right="28" alpha=".7"/>
-                <e:Rect width="1" height="100%" fillColor="0xd8d8d8" fillAlpha="1" right="0"/>
-            </e:Group>
-            <e:Group id="column7" x="3029" width="421.5" height="100%">
-                <ui:RunTimeLabel id="fifteenCountLabel" text="指定單骰" y="40" x="24" scaleX="1" scaleY="1" size="44"/>
-                <e:Label id="pFifteenCount" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" right="28" alpha=".7"/>
-
-                <ui:RunTimeLabel id="sixteenCountLabel" text="指定雙骰" y="120" textAlign="left" x="24" scaleX="1" scaleY="1" size="44"/>
-                <e:Label id="pSixteenCount" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" right="28" alpha=".7"/>
-
-                <ui:RunTimeLabel id="seventeenCountLabel" text="指定三骰" y="200" x="24" scaleX="1" scaleY="1" size="44"/>
-                <e:Label id="pSeventeenCount" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" right="28" alpha=".7"/>
-                <e:Rect width="1" height="100%" fillColor="0xd8d8d8" fillAlpha="1" right="0"/>
-            </e:Group>
-            <e:Group id="column8" x="3450.5" width="421.5" height="100%">
-                <ui:RunTimeLabel id="eighteenCountLabel" text="指定單骰" y="40" x="24" scaleX="1" scaleY="1" size="44"/>
-                <e:Label id="pEighteenCount" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" right="28" alpha=".7"/>
-            </e:Group>
+            <!--<e:Group id="column6" x="2607.5" width="421.5" height="100%">
+            <ui:RunTimeLabel id="twelveCountLabel" text="總數8 / 13" y="40" x="24" scaleX="1" scaleY="1" size="44" />
+            <ui:ClampWidthLabel id="pTwelveCount" text="-" y="40" textAlign="right" size="44" targetWidth="120"
+                                right="28" alpha=".7" fontFamily="Barlow" />
+            <ui:ClampWidthLabel id="pTwelveMax" text="-" y="40" textAlign="right                " size="44"
+                                targetWidth="80" right="140" alpha=".7" fontFamily="Barlow" />
+            <ui:RunTimeLabel id="thirteenCountLabel" text="總數9 / 10,11 / 12" y="120" textAlign="left" x="24" scaleX="1"
+                             scaleY="1" size="44" />
+            <ui:ClampWidthLabel id="pThirteenCount" text="-" y="120" textAlign="right" size="44" targetWidth="120"
+                                right="28" alpha=".7" fontFamily="Barlow" />
+            <ui:ClampWidthLabel id="pSThirteennMax" text="-" y="120" textAlign="right" size="44" targetWidth="80"
+                                right="140" alpha=".7" fontFamily="Barlow" />
+            <ui:RunTimeLabel id="fourteenCountLabel" text="牌九式" y="200" x="24" scaleX="1" scaleY="1" size="44" />
+            <ui:ClampWidthLabel id="pFourteenCount" text="-" y="200" textAlign="right" size="44" targetWidth="120"
+                                height="44" right="28" alpha=".7" fontFamily="Barlow" />
+            <ui:ClampWidthLabel id="pFourteenMax" text="-" y="200" textAlign="right" size="44" targetWidth="80"
+                                height="44" right="140" alpha=".7" fontFamily="Barlow" />
+            <e:Rect width="1" height="100%" fillColor="0xd8d8d8" fillAlpha="1" right="0" />
         </e:Group>
-    </e:Scroller>
-    <e:Rect id="_gradient" width="5%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" fillAlpha="0.5" right="0" visible="true"/>
-    <e:Rect id="_gradient2" width="2%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" fillAlpha="0.5" right="0" visible="true"/>
+        <e:Group id="column7" x="3029" width="421.5" height="100%">
+            <ui:RunTimeLabel id="fifteenCountLabel" text="指定單骰" y="40" x="24" scaleX="1" scaleY="1" size="44" />
+            <ui:ClampWidthLabel id="pFifteenCount" text="-" y="40" textAlign="right" size="44" targetWidth="120"
+                                right="28" alpha=".7" fontFamily="Barlow" />
+            <ui:ClampWidthLabel id="pFifteenMax" text="-" y="40" textAlign="right" size="44" targetWidth="80"
+                                right="140" alpha=".7" fontFamily="Barlow" />
+            <ui:RunTimeLabel id="sixteenCountLabel" text="指定雙骰" y="120" textAlign="left" x="24" scaleX="1" scaleY="1"
+                             size="44" />
+            <ui:ClampWidthLabel id="pSixteenCount" text="-" y="120" textAlign="right" size="44" targetWidth="120"
+                                right="28" alpha=".7" fontFamily="Barlow" />
+            <ui:ClampWidthLabel id="pSixteenMax" text="-" y="120" textAlign="right" size="44" targetWidth="80"
+                                right="140" alpha=".7" fontFamily="Barlow" />
+            <ui:RunTimeLabel id="seventeenCountLabel" text="指定三骰" y="200" x="24" scaleX="1" scaleY="1" size="44" />
+            <ui:ClampWidthLabel id="pSeventeenCount" text="-" y="200" textAlign="right" size="44" targetWidth="120"
+                                height="44" right="28" alpha=".7" fontFamily="Barlow" />
+            <ui:ClampWidthLabel id="pSeventeenMax" text="-" y="200" textAlign="right" size="44" targetWidth="80"
+                                height="44" right="140" alpha=".7" fontFamily="Barlow" />
+            <e:Rect width="1" height="100%" fillColor="0xd8d8d8" fillAlpha="1" right="0" />
+        </e:Group>
+        <e:Group id="column8" x="3450.5" width="421.5" height="100%">
+            <ui:RunTimeLabel id="eighteenCountLabel" text="指定單骰" y="40" x="24" scaleX="1" scaleY="1" size="44" />
+            <ui:ClampWidthLabel id="pEighteenCount" text="-" y="40" textAlign="right" size="44" targetWidth="120"
+                                right="28" alpha=".7" fontFamily="Barlow" />
+            <ui:ClampWidthLabel id="pEighteenMax" text="-" y="40" textAlign="right" size="44" targetWidth="80"
+                                right="140" alpha=".7" fontFamily="Barlow" />
+        </e:Group>
+        -->
+    </e:Group>
+</e:Scroller>
+<e:Rect id="_gradient" width="5%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" fillAlpha="0.5"
+        right="0" visible="true" />
+<e:Rect id="_gradient2" width="2%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" fillAlpha="0.5"
+        right="0" visible="true" />
 </e:Skin>

@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.ImageButtonSkinGoodRoad" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="b_clear,b_player,b_remove,b_banker,b_removeAll,b_save,b_bin,b_add,b_edit,b_reset">
-	<e:Image id="_background" left="0" right="0" top="0" bottom="0"
-	        
-		  
-		  
-		   source.b_add="d_lobby_goodroadsetting_normal_png"  source.b_reset="m_common_setting_goodroad_btn_reset_png" scale9Grid.b_reset="46,44,1,1" source.b_banker="m_common_setting_goodroad_panel_addroad_btn_banker_png" source.b_player="m_common_setting_goodroad_panel_addroad_btn_palyer_png" source.b_remove="m_common_setting_goodroad_panel_addroad_btn_deduct_png" source.b_removeAll="m_common_setting_goodroad_panel_addroad_btn_clear_png" source.b_save="m_common_setting_goodroad_panel_addroad_btn_confirm_bg_png" scale9Grid.b_save="76,74,1,1" source.b_clear="m_common_setting_goodroad_panel_addroad_typebox_close_png" source.b_bin="m_common_setting_goodroad_btn_delete_png" source.b_edit="m_common_setting_goodroad_btn_edit_png"/>
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*"
+        states="b_clear,b_player,b_remove,b_banker,b_removeAll,b_save,b_bin,b_add,b_edit,b_reset">
+	<e:Image id="_background" left="0" right="0" top="0" bottom="0" source.b_add="d_lobby_goodroadsetting_normal_png"
+	         source.b_reset="m_common_setting_goodroad_btn_reset_png" scale9Grid.b_reset="46,44,1,1"
+	         source.b_banker="m_common_setting_goodroad_panel_addroad_btn_banker_png"
+	         source.b_player="m_common_setting_goodroad_panel_addroad_btn_palyer_png"
+	         source.b_remove="m_common_setting_goodroad_panel_addroad_btn_deduct_png"
+	         source.b_removeAll="m_common_setting_goodroad_panel_addroad_btn_clear_png" source.b_save=""
+	         source.b_clear="m_common_setting_goodroad_panel_addroad_typebox_close_png"
+	         source.b_bin="m_common_setting_goodroad_btn_delete_png" source.b_edit="m_common_setting_goodroad_btn_edit_png" />
+	<ui:RoundRectShape width="254" height="150" cornerTL_TR_BL_BR="75,75,75,75" fillColor="0x1b416e" stroke="0"
+	                   includeIn="b_save" />
 	<e:Group id="_group" left="0" right="0" top="0" bottom="0">
 		<e:Label id="_label" textAlign="center" verticalAlign="justify" scaleX="1" scaleY="1" left="0" right="0" top="0"
-		         bottom="0"  left.b_reset="60" right.b_reset="60" size.b_reset="50" text.b_reset="" verticalAlign.b_reset="middle"/>
-		<e:Image includeIn="b_save" horizontalCenter="0" verticalCenter="0" source="m_common_setting_goodroad_panel_addroad_btn_confirm_icon_png"/>
+		         bottom="0" left.b_reset="60" right.b_reset="60" size.b_reset="50" text.b_reset=""
+		         verticalAlign.b_reset="middle" />
+		<e:Image includeIn="b_save" horizontalCenter="0" verticalCenter="0" width="66" height="45"
+		         source="m_common_setting_goodroad_panel_addroad_btn_confirm_icon_png" />
 	</e:Group>
 </e:Skin>

@@ -3,7 +3,7 @@
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*" xmlns:ns1="*"
         states="left_hand_mode,right_hand_mode">
 	<e:Rect width="2424" height="1242" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
-	<e:Image id="_bgImg" top="0" bottom="0" source="m_ba_bg_offvideo_png" x="0" width="2424" />
+	<e:Image id="_bgImg" top="0" bottom="0" source="m_ba_bg_offvideo_png" x="0" width="2424"  locked="true"/>
 	<e:Group id="_verticalGroup" width="2424" x="0" anchorOffsetY="0" bottom="0">
 		<e:Group id="_verticalTop" width="2424" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
 			<ba:TableLayer id="_tableLayer" isEdgeDismissable="true" skinName="skin_mobile_landscape.ba.TableLayerSkin"
@@ -109,7 +109,7 @@
 			</e:Group>
 		</e:Group>
 		<e:Group>
-			<e:Group y="24" right="0">
+			<e:Group y="24" left="0">
 				<ui:RunTimeLabel id="_GameIDText" text="Game ID :" bottom="0" left="0" alpha=".7" verticalAlign="top" size="26" />
 				<ui:RunTimeLabel id="_GameID" text="ID0000000000000001" bottom="0" left="0" verticalAlign="top" size="26" />
 				<ui:TimeLabel bottom="0" left="0" verticalAlign="top" size="26" />
@@ -117,8 +117,7 @@
 					<e:HorizontalLayout gap="8" />
 				</e:layout>
 			</e:Group>
-			<ui:GoodRoadLabel id="_BAgoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin" y="54"
-			                  x.right_hand_mode="183" y.right_hand_mode="59" x.left_hand_mode="183" x="0" />
+			<ui:GoodRoadLabel id="_BAgoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin" y="54" x="0" />
 		</e:Group>
 		<e:layout>
 			<e:HorizontalLayout gap="36" />

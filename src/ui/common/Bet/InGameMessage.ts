@@ -70,11 +70,11 @@ namespace we {
         return this._expiredBg;
       }
 
-      public showMessage(type: string, message: string, callback?: () => void) {
+      public showMessage(type: string, message: string, callback?: () => void, isHold: boolean = false) {
         if (this._bg) {
           this.setBackground(type);
         }
-        this.start(type, message, callback);
+        this.start(type, message, callback, isHold);
       }
 
       protected setBackground(type: string) {
@@ -94,7 +94,7 @@ namespace we {
         }
       }
 
-      protected start(type: string, message: string, callback?: () => void) {
+      protected start(type: string, message: string, callback?: () => void, isHold: boolean = false) {
         egret.Tween.removeTweens(this);
         this._isAnimating = true;
         if (type === InGameMessage.EXPIRED) {
@@ -112,7 +112,7 @@ namespace we {
               this._label.visible = true;
               this._label.text = message;
             })
-            .wait(this.duration)
+            .wait(this.duration*(isHold?100:1))
             .call(() => {
               this.endAnimation(type);
             });
@@ -124,7 +124,7 @@ namespace we {
             this._label.visible = true;
             this._label.text = message;
           })
-          .wait(this.duration)
+          .wait(this.duration*(isHold?100:1))
           .call(() => {
             this.endAnimation(type);
           })

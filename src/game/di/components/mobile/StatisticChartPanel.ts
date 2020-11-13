@@ -241,16 +241,34 @@ namespace we {
         if (!tableInfo || !tableInfo.gamestatistic) {
           return;
         }
-        if (tableInfo.gamestatistic.diOdd) {
-          this._diPie.setPieOdd([tableInfo.gamestatistic.diOdd.odd, tableInfo.gamestatistic.diOdd.even, tableInfo.gamestatistic.diOdd.tie]);
-          this._diPie.setOddValues(tableInfo.gamestatistic.diOdd);
+        const stat = tableInfo.gamestatistic;
+
+        if (stat.diOdd) {
+          const odd = stat.diOdd.odd;
+          const even = stat.diOdd.even;
+          const oddTie = stat.diOdd.tie;
+          const result = we.utils.stat.toPercentages([odd, even, oddTie]);
+          this._diPie.setPieOdd([odd, oddTie, even]);
+          this._diPie.setOddValues({ odd: result[0], even: result[1], tie: result[2] });
         }
-        if (tableInfo.gamestatistic.diSize) {
-          this._diPie.setPieSize([tableInfo.gamestatistic.diSize.small, tableInfo.gamestatistic.diSize.big, tableInfo.gamestatistic.diSize.tie]);
-          this._diPie.setSizeValues(tableInfo.gamestatistic.diSize);
+
+        if (stat.diSize) {
+          const small = stat.diSize.small;
+          const big = stat.diSize.big;
+          const sizeTie = stat.diSize.tie;
+          const result = we.utils.stat.toPercentages([small, big, sizeTie]);
+          this._diPie.setPieSize([small, sizeTie, big]);
+          this._diPie.setSizeValues({ small: result[0], big: result[1], tie: result[2] });
         }
-        if (tableInfo.gamestatistic.points) {
-          this._diChance.setDiceValues(tableInfo.gamestatistic.points);
+
+        if (stat.points) {
+          const result = we.utils.stat.toPercentages(stat.points);
+          this._diChance.setDiceValues(result);
+          if(env.isMobile && env.orientation === egret.OrientationMode.LANDSCAPE){
+            this._diChance.setMaxWidth(180);
+          }else{
+            this._diChance.setMaxWidth(300);
+          }
         }
       }
 

@@ -7,17 +7,17 @@
 		</e:Group>
         <ui:RunTimeLabel id="_title" text="Label" y="17" height="95" textAlign="center" verticalAlign="middle" size="70" left="45"/>
         <e:Group id="_scrollerGroup" y="143" width="1242" height="622">
-            <e:Scroller id="_betTypeScroller" width="280" height="622" left="45" scrollPolicyH="off">
-                <e:List id="_betTypeList">
+            <e:Scroller id="_betTypeScroller" width="607" height="622" left="0" scrollPolicyH="off">
+                <e:List id="_betTypeList" width="400" horizontalCenter="0">
                     <e:layout>
-                        <e:VerticalLayout paddingTop="92" paddingBottom="311" gap="10" horizontalAlign="center"/>
+                        <e:VerticalLayout paddingLeft="40" paddingTop="92" paddingBottom="311" gap="10" horizontalAlign="center"/>
                     </e:layout>
                 </e:List>
             </e:Scroller>
-            <e:Scroller id="_betModeScroller" width="817" height="622" right="100" scrollPolicyH="off">
-                <e:List id="_betModeList">
+            <e:Scroller id="_betModeScroller" width="635" height="622" right="0" scrollPolicyH="off">
+                <e:List id="_betModeList" width="400" horizontalCenter="0">
                     <e:layout>
-                        <e:VerticalLayout paddingTop="92" paddingBottom="417" gap="10" horizontalAlign="right"/>
+                        <e:VerticalLayout paddingRight="100" paddingTop="92" paddingBottom="417" gap="10" horizontalAlign="center"/>
                     </e:layout>
                 </e:List>
             </e:Scroller>

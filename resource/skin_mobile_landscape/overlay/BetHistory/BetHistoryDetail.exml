@@ -9,45 +9,51 @@
 				<e:Image id="close" width="30" height="54" x="0" y="34" source="m_common_btn_previous_png"/>
 				<ui:RunTimeLabel id="_txt_title" text="記錄詳情" y="0" size="80" height="119" textAlign="center" textColor="0xce925e" verticalAlign="middle" x="70"/>
 			</e:Group>
-			<ui:RoundRectButton id="_btn_prev" x="650" y="35" width="536" height="130" fillColor="0x1b416e" useColorFilter="true" stroke="0" cornerTL_TR_BL_BR="75,75,75,75" labelSize="60" fillAlpha="1"/>
-			<ui:RoundRectButton id="_btn_next" x="1238" y="35" width="536" height="130" fillColor="0x1b416e" useColorFilter="true" stroke="0" cornerTL_TR_BL_BR="75,75,75,75" labelSize="60" fillAlpha="1"/>
+			<ui:RoundRectButton id="_btn_prev" x="650" y="35" width="536" height="130" fillColor="0x1b416e" useColorFilter="true" stroke="0" cornerTL_TR_BL_BR="70,70,70,70" labelSize="60" fillAlpha="1"/>
+			<ui:RoundRectButton id="_btn_next" x="1238" y="35" width="536" height="130" fillColor="0x1b416e" useColorFilter="true" stroke="0" cornerTL_TR_BL_BR="70,70,70,70" labelSize="60" fillAlpha="1"/>
 			<e:Scroller left="0" right="0" top="231" bottom="0">
 				<e:Group>
 					<e:Group width="2424">
-						<e:Rect width="1" height="888" x="1232" y="21.000000000000057" fillColor="0x979797" scaleX="1" scaleY="1"/>
+						<e:Rect width="1" height="888" x="1232" y="21" fillColor="0x979797" scaleX="1" scaleY="1"/>
 						<ui:RoundRectButton id="_btn_cbet" width="424" height="100" x="356" y="0" cornerTL_TR_BL_BR="50,50,50,50" fillAlpha="0" strokeColor="0xffffff" stroke="2" strokeAlpha="0.7" strokeAlpha_hover="1" skinName="RoundRectButtonSample" labelSize="50" labelAutoResize="false" visible.normal="false" scaleX="1" scaleY="1"/>
 						<ui:RunTimeLabel id="_txt_record_id" text="投注編號" x="1307" y="13" height="74" size="50" verticalAlign="middle" alpha="0.5" anchorOffsetX="0" width="720" targetWidth="500" width.lottery="670" scaleX="1" scaleY="1"/>
 						<ui:ClampWidthLabel id="_record_id" text="0000000000" x="1307" y="95" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="720" targetWidth="500" width.lottery="670"/>
 						<ui:RunTimeLabel id="_txt_record_date" text="日期時間" x="1307" y="196" height="74" size="50" verticalAlign="middle" alpha="0.5" anchorOffsetX="0" width="720" targetWidth="500" y.lottery="379" width.lottery="670" scaleX="1" scaleY="1"/>
-						<ui:ClampWidthLabel id="_record_date" text="2019/07/21" x="1307" y="279.0000000000001" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="720" targetWidth="500" y.lottery="460" width.lottery="670"/>
-						<ui:RunTimeLabel id="_txt_record_game" text="遊戲" x="2034" y="13" height="74" size="50" verticalAlign="middle" alpha="0.5" anchorOffsetX="0" width="340" targetWidth="500" x.lottery="1984" y.lottery="13" width.lottery="390" scaleX="1" scaleY="1"/>
-						<ui:ClampWidthLabel id="_record_game" text="百家樂" x="2034" y="91" height="83" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="340" targetWidth="500" x.lottery="1984" width.lottery="390" y.lottery="91"/>
-						<ui:RunTimeLabel id="_txt_record_vaildbet" text="有效投注" x="2034" y="568" height="74" size="50" verticalAlign="middle" alpha="0.5" anchorOffsetX="0" width="340" targetWidth="500" visible.lottery="false" scaleX="1" scaleY="1"/>
-						<ui:ClampWidthLabel id="_record_vaildbet" text="00,000.00" x="2034" y="651.0000000000002" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="340" targetWidth="500" visible.lottery="false"/>
-						<ui:RunTimeLabel id="_txt_record_round" text="局數" x="2034" y="196" height="74" size="50" verticalAlign="middle" alpha="0.5" anchorOffsetX="0" width="340" targetWidth="500" visible.lottery="false" scaleX="1" scaleY="1"/>
-						<ui:ClampWidthLabel id="_record_round" text="1-2" x="2034" y="279.0000000000001" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="340" targetWidth="500" visible.lottery="false"/>
+						<ui:ClampWidthLabel id="_record_date" text="2019/07/21" x="1307" y="279" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="720" targetWidth="500" y.lottery="460" width.lottery="670"/>
+						<ui:RunTimeLabel id="_txt_record_game" text="遊戲" x="1950" y="13" height="74" size="50" verticalAlign="middle" alpha="0.5" anchorOffsetX="0" width="340" targetWidth="500" x.lottery="1984" y.lottery="13" width.lottery="390" scaleX="1" scaleY="1"/>
+						<ui:ClampWidthLabel id="_record_game" text="百家樂" x="1950" y="91" height="83" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="340" targetWidth="400" x.lottery="1984" width.lottery="390" y.lottery="91"/>
+						<ui:RunTimeLabel id="_txt_record_vaildbet" text="有效投注" x="1950" y="568" height="74" size="50" verticalAlign="middle" alpha="0.5" anchorOffsetX="0" width="340" targetWidth="500" visible.lottery="false" scaleX="1" scaleY="1"/>
+						<ui:ClampWidthLabel id="_record_vaildbet" text="00,000.00" x="1950" y="651" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="340" targetWidth="500" visible.lottery="false"/>
+						<ui:RunTimeLabel id="_txt_record_round" text="局數" x="1950" y="196" height="74" size="50" verticalAlign="middle" alpha="0.5" anchorOffsetX="0" width="340" targetWidth="500" visible.lottery="false" scaleX="1" scaleY="1"/>
+						<ui:ClampWidthLabel id="_record_round" text="1-2" x="1950" y="279" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="340" targetWidth="400" visible.lottery="false"/>
 						<ui:RunTimeLabel id="_txt_record_remark" text="嬴輸" x="1307" y="568" height="74" size="50" verticalAlign="middle" alpha="0.5" anchorOffsetX="0" width="720" targetWidth="500" x.lottery="1984" y.lottery="751" width.lottery="390" scaleX="1" scaleY="1"/>
 						<ui:ClampWidthLabel id="_record_remark" text="輸" x="1307" y="642" height="83" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="720" targetWidth="500" x.lottery="1984" y.lottery="825" width.lottery="390" height.lottery="78"/>
-						<ui:RunTimeLabel id="_txt_record_bettype" text="投注項目" x="1307" y="379.0000000000001" height="74" size="50" verticalAlign="middle" alpha="0.5" anchorOffsetX="0" width="720" targetWidth="500" visible.lottery="false" scaleX="1" scaleY="1"/>
+						<ui:RunTimeLabel id="_txt_record_bettype" text="投注項目" x="1307" y="379" height="74" size="50" verticalAlign="middle" alpha="0.5" anchorOffsetX="0" width="720" targetWidth="500" visible.lottery="false" scaleX="1" scaleY="1"/>
 						<ui:RunTimeLabel id="_record_bettype" text="閒" x="1307" y="457" height="83" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="720" targetWidth="500" visible.lottery="false"/>
-						<ui:RunTimeLabel id="_txt_record_betamount" text="投注額" x="2034" y="379.0000000000001" height="74" size="50" verticalAlign="middle" alpha="0.5" anchorOffsetX="0" width="340" targetWidth="500" x.lottery="1984" y.lottery="568" width.lottery="390" scaleX="1" scaleY="1"/>
-						<ui:ClampWidthLabel id="_record_betamount" text="00.00" x="2034" y="460" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="340" targetWidth="500" x.lottery="1984" y.lottery="651" width.lottery="390"/>
-						<ui:RunTimeLabel id="_txt_record_finbalance" text="本局餘額" x="1307" y="751.0000000000002" height="74" size="50" verticalAlign="middle" alpha="0.5" anchorOffsetX="0" width="720" targetWidth="500" scaleX="1" scaleY="1" width.lottery="670"/>
+						<ui:RunTimeLabel id="_txt_record_betamount" text="投注額" x="1950" y="379" height="74" size="50" verticalAlign="middle" alpha="0.5" anchorOffsetX="0" width="340" targetWidth="500" x.lottery="1984" y.lottery="568" width.lottery="390" scaleX="1" scaleY="1"/>
+						<ui:ClampWidthLabel id="_record_betamount" text="00.00" x="1950" y="460" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="340" targetWidth="500" x.lottery="1984" y.lottery="651" width.lottery="390"/>
+						<ui:RunTimeLabel id="_txt_record_finbalance" text="本局餘額" x="1307" y="751" height="74" size="50" verticalAlign="middle" alpha="0.5" anchorOffsetX="0" width="720" targetWidth="500" scaleX="1" scaleY="1" width.lottery="670"/>
 						<ui:ClampWidthLabel id="_record_finbalance" text="000,000.00" x="1307" y="834" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" anchorOffsetX="0" width="720" targetWidth="500" width.lottery="670"/>
 						<ui:RunTimeLabel id="_txt_record_result" text="遊戲結果" x="96" y="13" height="74" size="50" verticalAlign="middle" alpha="0.5" scaleX="1" scaleY="1"/>
 						<e:Group id="_record_result" width="1069" height="165" x="96" y="138.5" scaleX="1" scaleY="1"/>
 						<ui:RunTimeLabel id="_txt_record_win_l" text="派彩" x="97" y="355" height="74" size="50" verticalAlign="middle" alpha="0.5" scaleX="1" scaleY="1"/>
-						<e:Label id="_record_win_l" text="+00.00" x="96" y="447.0000000000001" height="144" size="120" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-						<e:Group id="ReplayButton" x="96" y="631" scaleX="1" scaleY="1">
-							<e:Image width="24" height="32" x="78" y="32" source="m_common_setting_playerreportlist_detail_result_replay_icon_png"/>
-							<ui:RunTimeLabel id="_txt_record_replay" text="重播" x="124" y="11" height="74" size="50" verticalAlign="middle" textColor="0xd9a170" textAlign="center" targetWidth="160"/>
-							<ui:RoundRectButton id="_btn_replay" width="300" height="100" x="0" y="0" fillAlpha="0" strokeColor="0xb1835b" stroke="1" cornerTL_TR_BL_BR="50,50,50,50"/>
-						</e:Group>
+						<e:Label id="_record_win_l" text="+00.00" x="96" y="447" height="144" size="120" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+						<ui:RoundRectButton id="_btn_replay" width="300" height="100" x="96" y="631" fillAlpha="0" strokeColor="0xb1835b" stroke="1" cornerTL_TR_BL_BR="50,50,50,50" labelSize="50" labelAutoResize="false" labelColor="0xD9A170">
+						<e:Skin width="300" height="100">
+						<e:Group left="0" right="0" top="0" bottom="0">
+							<e:Image width="24" height="32" source="m_common_setting_playerreportlist_detail_result_replay_icon_png"/>
+							<ui:RunTimeLabel id="_label" text="重播" height="74" size="50" verticalAlign="middle" textColor="0xd9a170" textAlign="center" targetWidth="204"/>
+							<e:layout>
+								<e:HorizontalLayout gap="12" horizontalAlign="center" verticalAlign="middle"/>
+							</e:layout>
+							</e:Group>
+						</e:Skin>
+						</ui:RoundRectButton>
 						<e:Label id="_txt_roundL" text="獎期" size="50" verticalAlign="middle" height="74" width="670" y="196" x="1307" alpha="0.5" visible.normal="false" width.lottery="700" scaleX="1" scaleY="1"/>
 						<ui:ClampWidthLabel id="_record_roundL" text="000000000" height="67" size="56" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="1307" y="279.0000000000001" width="670" visible.normal="false" width.lottery="700"/>
 						<e:Label id="_txt_bettypeL" text="類型" size="50" verticalAlign="middle" height="74" width="390" y="196" alpha="0.5" x="1984" visible.normal="false" scaleX="1" scaleY="1"/>
 						<ui:ClampWidthLabel id="_record_bettypeL" text="大小單雙" height="83" size="56" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="1984" y="269" width="390" visible.normal="false"/>
-						<e:Label id="_txt_betgroupL" text="玩法" size="50" verticalAlign="middle" height="74" width="390" y="379.0000000000001" x="1984" alpha="0.5" visible.normal="false" scaleX="1" scaleY="1"/>
+						<e:Label id="_txt_betgroupL" text="玩法" size="50" verticalAlign="middle" height="74" width="390" y="379" x="1984" alpha="0.5" visible.normal="false" scaleX="1" scaleY="1"/>
 						<ui:ClampWidthLabel id="_record_betgroupL" text="後二大小單雙" height="83" size="56" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="1984" y="457" width="390" visible.normal="false"/>
 						<e:Label id="_txt_betfieldL" text="投注項目" size="50" verticalAlign="middle" height="74" width="670" x="1307" y="568" alpha="0.5" visible.normal="false" width.lottery="700" scaleX="1" scaleY="1"/>
 						<ui:ClampWidthLabel id="_record_betfieldL" text="單 | 大" height="78" size="56" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="1307" y="642" visible.normal="false" width.lottery="700" width="670"/>
