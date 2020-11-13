@@ -479,16 +479,16 @@ namespace we {
       }
 
       protected undoRepeatBetFields(betDetails: data.BetDetail[]) {
-        console.log('before betDetails',betDetails)
+        // console.log('before betDetails',betDetails)
         betDetails.map(value => {
           // this.getUncfmBetByField(value.field).amount = value.amount;
           // this._betChipStackMapping[value.field].draw(); 
             this._betChipStackMapping[value.field].uncfmBet = value.amount * this.getRate(value.field);
             this._betChipStackMapping[value.field].draw();
         });
-        console.log('after betDetails', betDetails)
+        // console.log('after betDetails', betDetails)
         this._uncfmBetDetails = betDetails;
-        console.log('this._uncfmBetDetails',this._uncfmBetDetails)
+        // console.log('this._uncfmBetDetails',this._uncfmBetDetails)
       }
 
       public repeatBetFields() {
@@ -571,14 +571,14 @@ namespace we {
         let exceedBetLimit = false;
         if (checkLowerLimit) {
           exceedBetLimit = this.isExceedLowerBetLimit(fieldAmounts, betLimit);
-          console.log('isExceedLowerBetLimit',exceedBetLimit)
+          // console.log('isExceedLowerBetLimit',exceedBetLimit)
           if (exceedBetLimit) {
             this.resetUnconfirmedBet();
             this.dispatchEvent(new egret.Event('resetUnconfirmBet'));
           }
         } else {
           exceedBetLimit = this.isExceedUpperBetLimit(fieldAmounts, betLimit, betDetail);
-          console.log('isExceedUpperBetLimit',exceedBetLimit)
+          // console.log('isExceedUpperBetLimit',exceedBetLimit)
           // if (exceedBetLimit) {
           //   this.resetUnconfirmedBet();
           //   this.dispatchEvent(new egret.Event('onUnconfirmBet'));
