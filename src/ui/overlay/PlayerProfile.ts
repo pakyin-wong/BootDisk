@@ -208,13 +208,15 @@ namespace we {
 
         this._maxWinCount.text = env.maxWinCount.toString();
         this._maxWinAmount.text = we.utils.formatNumber(env.maxWinAmount, true).toString();
-        // create mask
-        const shape = new egret.Shape();
-        shape.graphics.beginFill(0xffffff, 1);
-        shape.graphics.drawRect(0, 0, this._maskContainer.width, this._maskContainer.height);
-        shape.graphics.endFill();
-        this._maskContainer.addChild(shape);
-        this._maskContainer.mask = shape;
+        // create mask for desktop
+        if (!env.isMobile) {
+          const shape = new egret.Shape();
+          shape.graphics.beginFill(0xffffff, 1);
+          shape.graphics.drawRect(0, 0, this._maskContainer.width, this._maskContainer.height);
+          shape.graphics.endFill();
+          this._maskContainer.addChild(shape);
+          this._maskContainer.mask = shape;
+        }
         // init icon scroller
         this._iconList.itemRenderer = ui.IconItemRenderer;
         this._iconList.itemRendererSkinName = utils.getSkinByClassname('PlayerProfileIconItem');
