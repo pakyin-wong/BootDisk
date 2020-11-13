@@ -594,9 +594,9 @@ namespace we {
         }
 
         // LS-77
-        // TODO: change 999999999 to tableLimit from server.
         // TODO: change ui/common/TableInfoPanel.ts 's tableLimit from server (now copy from betlimit and it is incorrect)
-        if (this.isExceedTableLimit(fieldAmounts, 99999999999999999)) {
+        //done: change 999999999 to tableLimit from server.
+        if (this.isExceedTableLimit(fieldAmounts, env.tableInfos[this._tableId].tablelimit)) {
           // dispatchEvent tableLimit
           this.dispatchEvent(new egret.Event(core.Event.EXCEED_TABLE_LIMIT, false, false, data));
           return false;
