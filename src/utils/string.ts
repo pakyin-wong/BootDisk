@@ -29,6 +29,10 @@ namespace we {
 
     export function formatNumber(target: string | number, withDP: boolean = true): string {
       const str = `${target}`;
+      const regex = RegExp('[^0-9-]');
+      if (regex.test(str)) {
+        return str;
+      }
       let result = zeroPad(str, 3);
       result = result.replace(/(\d)(?=(\d{2})(?!\d))/g, '$1.');
       result = result.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');

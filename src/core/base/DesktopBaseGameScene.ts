@@ -13,6 +13,8 @@ namespace we {
 
       protected _titleHeader: eui.Group;
 
+      protected _bet: eui.Group;
+
       constructor(data: any) {
         super(data);
       }
@@ -122,23 +124,27 @@ namespace we {
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
-        if (this._betRelatedGroup) {
-          const target = this._betRelatedGroup.$children[0];
-          if (target instanceof eui.Group) {
-            egret.Tween.removeTweens(target);
-            egret.Tween.get(target).to({ y: enable ? 0 : 100, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
-          }
+        if (this._bet) {
+          egret.Tween.removeTweens(this._bet);
+          egret.Tween.get(this._bet).to({ y: enable ? 0 : 100, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
         }
         if ((env.isAutoDismiss || enable) && ui.EdgeDismissableAddon.isDismiss === enable && !this._forceNoDismiss) {
           // console.log(ui.EdgeDismissableAddon.isDismiss);
           ui.EdgeDismissableAddon.toggle();
+          // if (this._betRelatedGroup) {
+          //   const target = this._betRelatedGroup.$children[0];
+          //   if (target instanceof eui.Group) {
+          //     egret.Tween.removeTweens(target);
+          //     egret.Tween.get(target).to({ y: enable ? 0 : 100, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
+          //   }
+          // }
         }
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo> evt.data;
+          const stat = <data.TableInfo>evt.data;
           if (stat.tableid === this._tableId) {
             this._leftGamePanel.updateStat();
             this._rightGamePanel.updateStat();
@@ -169,6 +175,9 @@ namespace we {
           }
         }
         super.updateGame(isInit);
+      }
+      protected onMatchGoodRoadUpdate() {
+        super.onMatchGoodRoadUpdate();
       }
     }
   }

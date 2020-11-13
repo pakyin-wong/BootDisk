@@ -202,8 +202,8 @@ namespace we {
         gr.endFill();
 
         shape.x = 0;
-        this.mask = shape;
-        this.addChild(shape);
+        // this.mask = shape;
+        // this.addChild(shape);
 
         this._touchArea = new egret.DisplayObjectContainer();
         this._touchArea.width = this.slideWidth;
@@ -219,8 +219,9 @@ namespace we {
         gr.endFill();
 
         shape.x = 0;
+        shape.y = 100; // to be revised
         shape.alpha = 0;
-        this._touchArea.addChild(shape);
+        this._touchArea.addChild(shape); //
 
         this.addChildAt(this._touchArea, this.touchAreaAtBottom ? 0 : this.$children.length);
       }
@@ -333,6 +334,7 @@ namespace we {
             duration
           )
           .call(this.onMoveFinished, this, [1]);
+        this.dispatchEvent(new egret.Event('HOLDER_DO_NEXT'));
       }
 
       protected onMoveFinished(e: number) {
@@ -392,6 +394,7 @@ namespace we {
             duration
           )
           .call(this.onMoveFinished, this, [-1]);
+        this.dispatchEvent(new egret.Event('HOLDER_DO_PREVIOUS'));
       }
 
       protected doAuto() {
@@ -428,12 +431,12 @@ namespace we {
         // this._previousPosition = this._startPosition;
 
         if (env.isMobile) {
-          (<any> canvas).addEventListener('touchmove', this.onTouchMove, { passive: false });
-          (<any> canvas).addEventListener('touchend', this.onTouchEnd, { passive: false });
+          (<any>canvas).addEventListener('touchmove', this.onTouchMove, { passive: false });
+          (<any>canvas).addEventListener('touchend', this.onTouchEnd, { passive: false });
           // console.log('mobile :' + this._startPosition);
         } else {
-          (<any> window).addEventListener('mousemove', this.onTouchMove, { passive: false });
-          (<any> window).addEventListener('mouseup', this.onTouchEnd, { passive: false });
+          (<any>window).addEventListener('mousemove', this.onTouchMove, { passive: false });
+          (<any>window).addEventListener('mouseup', this.onTouchEnd, { passive: false });
           // console.log('desktop :' + this._startPosition);
         }
 
@@ -660,11 +663,11 @@ namespace we {
         const canvas = document.getElementsByTagName('canvas')[0];
 
         if (env.isMobile) {
-          (<any> canvas).removeEventListener('touchmove', this.onTouchMove, { passive: false });
-          (<any> canvas).removeEventListener('touchend', this.onTouchEnd, { passive: false });
+          (<any>canvas).removeEventListener('touchmove', this.onTouchMove, { passive: false });
+          (<any>canvas).removeEventListener('touchend', this.onTouchEnd, { passive: false });
         } else {
-          (<any> window).removeEventListener('mousemove', this.onTouchMove, { passive: false });
-          (<any> window).removeEventListener('mouseup', this.onTouchEnd, { passive: false });
+          (<any>window).removeEventListener('mousemove', this.onTouchMove, { passive: false });
+          (<any>window).removeEventListener('mouseup', this.onTouchEnd, { passive: false });
         }
 
         // (<any>window).removeEventListener('mousemove', this.onTouchMove, { passive: false });

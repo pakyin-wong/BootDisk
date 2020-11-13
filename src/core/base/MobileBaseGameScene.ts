@@ -275,7 +275,7 @@ namespace we {
 
       protected initDenom() {
         this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
-        const denominationList = env.betLimits.Live[this.getSelectedBetLimitIndex()].chips;
+        const denominationList = env.getBetLimitSet('Live', this.getSelectedBetLimitIndex()).chips;
         this._betChipSet.init(null, denominationList);
       }
 
@@ -555,6 +555,10 @@ namespace we {
           this._totalBet.renderText = () => utils.numberToFaceValue(totalBet);
         }
         this._GameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
+      }
+
+      protected onMatchGoodRoadUpdate() {
+        super.onMatchGoodRoadUpdate();
       }
 
       // protected changeLang() {

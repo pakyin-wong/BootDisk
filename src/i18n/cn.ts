@@ -29,6 +29,8 @@ namespace we {
       sidegamelist_tab_goodroad: '好路',
 
       lobby_footer_text: 'Copyright © 2020 World Entertainment 保留一切权利。',
+      lobby_no_favourite_text: '没有我的最爱',
+      lobby_tag_hint_text: '将你喜爱的游戏标上爱心',
 
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '闲',
@@ -77,12 +79,15 @@ namespace we {
       overlaypanel_memberreport_amountwash: '洗碼量',
       overlaypanel_memberreport_amountwin: '贏輸金额',
       overlaypanel_memberreport_amounttotal: '总金额',
+      overlaypanel_memberreport_commission_percentage: '洗码%',
+      overlaypanel_memberreport_commission_total: '洗码佣金',
 
       overlaypanel_customroad_title: '好路设定',
       overlaypanel_customroad_default: '还原预设',
       overlaypanel_customroad_selectall: '全选',
 
       overlaypanel_bethistory_title: '游戏记录',
+      overlaypanel_bethistory_payout: '派彩',
       overlaypanel_bethistory_tab: '分类',
       overlaypanel_bethistory_tab_all: '游戏总览',
       overlaypanel_bethistory_tab_live: '真人游戏',
@@ -94,6 +99,7 @@ namespace we {
       overlaypanel_bethistory_week: '本周',
       overlaypanel_bethistory_customperiod: '自订',
       overlaypanel_bethistory_searchrecord: '搜索纪录',
+
       overlaypanel_bethistory_recordtab_title: '记录详情',
       overlaypanel_bethistory_recordtab_id: '投注编号',
       overlaypanel_bethistory_recordtab_date: '日期时间',
@@ -105,19 +111,23 @@ namespace we {
       overlaypanel_bethistory_recordtab_betamount: '投注额',
       overlaypanel_bethistory_recordtab_win: '派彩',
       overlaypanel_bethistory_recordtab_orgbalance: '开局余额',
-      overlaypanel_bethistory_recordtab_finbalance: '本局余额',
+      overlaypanel_bethistory_recordtab_finbalance: '余额',
       overlaypanel_bethistory_recordtab_resuit: '游戏结果',
-      overlaypanel_bethistory_recordtab_vaildbet: '有效投注',
       overlaypanel_bethistory_recordtab_noresult: '没有游戏纪录',
+
       overlaypanel_bethistory_remark_win: '嬴',
       overlaypanel_bethistory_remark_lose: '输',
       overlaypanel_bethistory_remark_ties: '和',
       overlaypanel_bethistory_limit: '每贡显示项目：',
       overlaypanel_bethistory_total: '现在显示：%now% 项 共 %total% 项记录',
+
       overlaypanel_bethistory_record_round: '局数',
       overlaypanel_bethistory_record_bettype: '投注项目',
+      overlaypanel_bethistory_record_vaildbet: '有效投注',
+      overlaypanel_bethistory_record_rolling: '洗码佣金',
       overlaypanel_bethistory_record_result: '游戏结果',
       overlaypanel_bethistory_record_replay: '重播',
+
       overlaypanel_bethistory_btn_next: '下一则',
       overlaypanel_bethistory_btn_prev: '上一则',
       overlaypanel_bethistory_searchtype_all: '全部游戏',
@@ -185,7 +195,9 @@ namespace we {
       overlaypanel_gameSet_autoBet: '自动确认投注',
       overlaypanel_gameSet_sendLiveVerfication: '发送现场验证',
 
-      expiredmessage_text: '您已3局未下注，2局后踢出',
+
+      expiredmessage_text: '您已3局未投注，将于2局后返回游戏大堂',
+
 
       // customerservicehotlinenumber_text: '客服热线号码更新为＋63 9250898888',
 
@@ -342,7 +354,7 @@ namespace we {
           undo: '还原',
           fullscreen: '视频全莹幕',
           autoFullscreenToggleOn: '开启自动隐藏界面',
-          autoFullscreenToggleOff: '投注结东后, 界面将自动隐藏',
+          autoFullscreenToggleOff: '投注结束后, 界面将自动隐藏',
           roadmapBankerRound: '庄局数',
           roadmapPlayerRound: '閒局数',
           roadmapTierRound: '和局数',
@@ -573,7 +585,7 @@ namespace we {
       },
       baccarat: {
         tooltip: {
-          swapRoadmap: '轉換路紙',
+          swapRoadmap: '转换路纸',
         },
         statisticChart: {
           bankerPlayerTie: '庄闲和比例 (100局)',
@@ -606,6 +618,7 @@ namespace we {
         totalcount: '总数',
         betSuccess: '下注成功',
         betFail: '下注失败',
+        shuffling: '洗牌中',
         addNewGoodRoad: '新增好路',
         newGoodRoadName: '我的好路',
         removeGoodRoad: '删除路纸？',
@@ -770,6 +783,18 @@ namespace we {
       lo_fun_betfield_total_SMALL: '总小',
       lo_fun_betfield_total_ODD: '总单',
       lo_fun_betfield_total_EVEN: '总双',
+
+      lo_bottom_analysis_today: '今日',
+      lo_bottom_analysis_yesterday: '昨日',
+      lo_bottom_analysis_this_week: '本周',
+      lo_bottom_analysis_last_week: '上周',
+      lo_bottom_analysis_this_month: '本月',
+      lo_bottom_analysis_last_month: '上月',
+
+      lo_bottom_analysis_hot: '连续出现',
+      lo_bottom_analysis_cold: '连续不出',
+      lo_bottom_analysis_30hot: '30期热门',
+      lo_bottom_analysis_30cold: '30期冷门',
 
       lo_fun_logo: 'd_lottery_lotto5_ent_logo_tw_png',
       lo_tri_logo: 'd_lottery_lotto5_trad_logo_tw_png',

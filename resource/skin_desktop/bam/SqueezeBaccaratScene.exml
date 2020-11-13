@@ -12,7 +12,7 @@
 		<ba:ChipLayer id="_chipLayer" width="1146" height="304" skinName="skin_desktop.ba.ChipLayerSkin" />
 	</ui:Group>
 	<ui:Group x="769" y="939" isEdgeDismissable="true">
-		<ui:Group>
+		<ui:Group id="_bet">
 			<ui:BetRelatedGroup id="_betRelatedGroup" />
 			<!--<e:Rect id="_roundPanel" width="1039" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 			<e:Rect width="1" height="54" fillAlpha="0.3" fillColor="0x000000" verticalCenter="0" right="460" />

@@ -29,6 +29,8 @@ namespace we {
       sidegamelist_tab_goodroad: 'GoodRoad',
 
       lobby_footer_text: 'Copyright © 2020 World Entertainment All rights reserved.',
+      lobby_no_favourite_text: 'No favorite game selected',
+      lobby_tag_hint_text: 'Mark your favorite games with heart button',
 
       betfield_baccarat_banker: 'banker',
       betfield_baccarat_player: 'player',
@@ -69,12 +71,15 @@ namespace we {
       overlaypanel_memberreport_amountwash: 'Amount wash',
       overlaypanel_memberreport_amountwin: 'Amount win',
       overlaypanel_memberreport_amounttotal: 'Amount total',
+      overlaypanel_memberreport_commission_percentage: 'Commission %',
+      overlaypanel_memberreport_commission_total: 'Comission Total',
 
       overlaypanel_customroad_title: 'Good Road Settings',
       overlaypanel_customroad_default: 'Restore Default',
       overlaypanel_customroad_selectall: 'Select All',
 
-      overlaypanel_bethistory_title: 'Bet Log',
+      overlaypanel_bethistory_payout: 'Payout',
+      overlaypanel_bethistory_title: 'Bet Records',
       overlaypanel_bethistory_tab: 'Class',
       overlaypanel_bethistory_tab_all: 'All',
       overlaypanel_bethistory_tab_live: 'Live',
@@ -86,6 +91,7 @@ namespace we {
       overlaypanel_bethistory_week: 'This week',
       overlaypanel_bethistory_customperiod: 'Custom',
       overlaypanel_bethistory_searchrecord: 'Search Bet ID',
+
       overlaypanel_bethistory_recordtab_id: 'Bet ID',
       overlaypanel_bethistory_recordtab_title: 'Record Detail',
       overlaypanel_bethistory_recordtab_date: 'Date',
@@ -99,17 +105,21 @@ namespace we {
       overlaypanel_bethistory_recordtab_orgbalance: 'Original Balance',
       overlaypanel_bethistory_recordtab_finbalance: 'Balance',
       overlaypanel_bethistory_recordtab_resuit: 'Game Result',
-      overlaypanel_bethistory_recordtab_vaildbet: 'Vaild bet',
       overlaypanel_bethistory_recordtab_noresult: 'No Bet Reult',
+
       overlaypanel_bethistory_remark_win: 'Win',
       overlaypanel_bethistory_remark_lose: 'Lose',
       overlaypanel_bethistory_remark_ties: 'Ties',
-      overlaypanel_bethistory_limit: 'records per page',
+      overlaypanel_bethistory_limit: 'Record per page',
       overlaypanel_bethistory_total: ' %now% of total %total% record(s)',
-      overlaypanel_bethistory_record_round: 'Bet ID',
+
+      overlaypanel_bethistory_record_round: 'Round',
       overlaypanel_bethistory_record_bettype: 'Bet Content',
+      overlaypanel_bethistory_record_vaildbet: 'Vaild Turnover',
+      overlaypanel_bethistory_record_rolling: 'Rolling Commission',
       overlaypanel_bethistory_record_result: 'Game Result',
       overlaypanel_bethistory_record_replay: 'Playback',
+
       overlaypanel_bethistory_btn_next: 'Next',
       overlaypanel_bethistory_btn_prev: 'Previous',
       overlaypanel_bethistory_searchtype_all: 'All',
@@ -167,7 +177,7 @@ namespace we {
       overlaypanel_gameSet_autoBet: 'Auto-Betting',
       overlaypanel_gameSet_sendLiveVerfication: 'Send On-site Verification',
 
-      expiredmessage_text: 'You have not bet for 3 rounds, and will be back to lobby after 2 rounds',
+      expiredmessage_text: 'You have not bet for 3 rounds, and will be back to lobby after 2 rounds.',
 
       // customerservicehotlinenumber_text: 'The customer service hotline number is updated to +63 9250898888',
 
@@ -536,9 +546,12 @@ namespace we {
         goodroad: 'Good Road',
         allgames: 'All Game',
         noGoodRoad: 'No Good Road',
-        noBet: 'No Bet Table',
+        noBet: 'No Bet Game',
       },
       baccarat: {
+        tooltip: {
+          swapRoadmap: 'Swap Roadmap',
+        },
         statisticChart: {
           bankerPlayerTie: 'Banker Player Tie (100 rounds)',
           bankerPlayerTiePair: 'Banker Player Tie pair (100 rounds)',
@@ -570,6 +583,7 @@ namespace we {
         totalcount: 'Total',
         betSuccess: 'betSuccess',
         betFail: 'Bet fail',
+        shuffling: 'Shuffling',
         addNewGoodRoad: 'New Good Road',
         newGoodRoadName: 'My Road',
         removeGoodRoad: 'Delete Road Sheet?',
@@ -733,6 +747,18 @@ namespace we {
       lo_fun_betfield_total_SMALL: 'Total Small',
       lo_fun_betfield_total_ODD: 'Total Odd',
       lo_fun_betfield_total_EVEN: 'Total Even',
+
+      lo_bottom_analysis_today: 'Today',
+      lo_bottom_analysis_yesterday: 'Yes',
+      lo_bottom_analysis_this_week: 'TWeek',
+      lo_bottom_analysis_last_week: 'LWeek',
+      lo_bottom_analysis_this_month: 'TMonth',
+      lo_bottom_analysis_last_month: 'LMonth',
+
+      lo_bottom_analysis_hot: 'Hot',
+      lo_bottom_analysis_cold: 'Cold',
+      lo_bottom_analysis_30hot: '30Hot',
+      lo_bottom_analysis_30cold: '30Cold',
 
       lo_fun_logo: 'd_lottery_lotto5_ent_logo_eng_png',
       lo_tri_logo: 'd_lottery_lotto5_trad_logo_eng_png',

@@ -66,7 +66,7 @@ namespace we {
       }
 
       protected initDenom() {
-        this._denominationList = env.betLimits.Lottery[env.currentSelectedBetLimitIndex].chips;
+        this._denominationList = env.getBetLimitSet('Lottery', env.currentSelectedBetLimitIndex).chips;
         this._betChipSet.init(5, this._denominationList);
         this._betChipSet.selectedChipIndex = 0;
         this.onBetChipChanged();
@@ -140,7 +140,7 @@ namespace we {
 
       protected onBetLimitUpdate(evt: egret.Event) {
         this._custombet.selected = false;
-        this._denominationList = env.betLimits.Lottery[env.currentSelectedBetLimitIndex].chips;
+        this._denominationList = env.getBetLimitSet('Lottery', env.currentSelectedBetLimitIndex).chips;
         this._betChipSet.resetDenominationList(this._denominationList);
         this.onBetChipChanged();
       }

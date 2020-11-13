@@ -17,7 +17,7 @@
 		<ba:ChipLayer id="_chipLayer" width="1170" height="304" skinName="skin_desktop.ba.ChipLayerSkin" />
 	</ui:Group>
 	<ui:Group x="769" y="939" isEdgeDismissable="true">
-	<ui:Group>
+	<ui:Group id="_bet">
 		<ui:BetRelatedGroup id="_betRelatedGroup" />
 		<!--<e:Rect id="_roundPanel" width="1039" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 		<e:Rect width="1" height="54" fillAlpha="0.3" fillColor="0x000000" verticalCenter="0" right="460"/>-->
@@ -61,7 +61,7 @@
 	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2600" touchEnabled="false"
 	         touchChildren="true" touchThrough="true">
 		<ui:GameBar width="251" height="52" x="1874" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
-		            skinName="skin_desktop.GameBar" />
+		            skinName="skin_desktop.GameBar"  currentState="no_video"/>
 	</e:Group>
 	<bab:GameResultMessage id="_resultMessage" x="0" y="676" width="1" height="1" horizontalCenter="0" />
 	<ui:InGameMessage id="_expiredMessage" x="1300" y="831" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
@@ -69,9 +69,6 @@
 	<ui:InGameMessage id="_message" x="1300" y="831" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
 	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_chipvalue_png" successBg="d_ba_gamerecord_tieelement_png"
 	                  errorBg="d_ba_gamerecord_bankerelement_png" />
-	<ba:TableInfoPanel width="434" height="566" x="0" y="90" id="_tableInfoWindow" isPoppable="true"
-	                   isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true"
-	                   anchorOffsetY="0" skinName="skin_desktop.ba.TableInfoPanel" />
 	<ui:AnimatedToggleButton id="_panelDismissToggleBtn" dbClass="common_ui" dbDisplay="d_common_hide_ui" width="30"
 	                         height="30" x="2526" y="949" dismissPosY="1222" dismissPosX="2526" isEdgeDismissable="true"
 	                         tooltipText="'live.tooltip.fullscreen'" tooltipPosition="'before'" />
@@ -105,6 +102,7 @@
 	</e:Group>
 	<bab:HistoryCardHolder id="_historyCardHolder" width="385" height="125" x="22" y="151"
 	                       skinName="skin_desktop.bab.CornerHistoryHolderSkin" />
+	<ba:TableInfoPanel width="434" height="566" x="0" y="90" id="_tableInfoWindow" isPoppable="true" isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" anchorOffsetY="0" skinName="skin_desktop.ba.TableInfoPanel"/>
 	<bab:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true" skeletonName="blockchain"
 	                  isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
 	                  skinName="skin_desktop.bab.ShufflePanelSkin" />

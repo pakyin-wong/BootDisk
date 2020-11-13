@@ -38,6 +38,7 @@ namespace we {
 
       protected mount() {
         super.mount();
+        this.onMatchGoodRoadUpdate();
         // this.addListeners();
       }
 
@@ -169,7 +170,7 @@ namespace we {
         this.changeHandMode();
 
         this.setChipPanelPos();
-        this._BAgoodRoadLabel.visible = false;
+        // this._BAgoodRoadLabel.visible = false;
 
         // this._baGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
         // this._baGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
@@ -293,6 +294,7 @@ namespace we {
       }
 
       protected onMatchGoodRoadUpdate() {
+        super.onMatchGoodRoadUpdate();
         if (this._tableInfo.goodRoad) {
           this._BAgoodRoadLabel.visible = true;
           this._BAgoodRoadLabel.label.size = 36;
@@ -308,6 +310,7 @@ namespace we {
         // this.onExit();
         const temp = this._switchBaMode.selected;
         super.onOrientationChange(temp);
+        this.onMatchGoodRoadUpdate();
         // this._switchBaMode.selected = temp;
         // this.onEnter();
         // this.updateSkin('BaccaratScene', true);

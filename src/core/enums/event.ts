@@ -72,7 +72,7 @@ namespace we {
       CLOSE: 'CLOSE',
     };
 
-    export const Error = {
+    export const Err = {
       WFCABLE_ERROR: 'WFCABLE_ERROR',
     };
   }
