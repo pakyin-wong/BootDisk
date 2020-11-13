@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.BlockchainDragonTigerScene" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
-        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:dt="we.dt.*" xmlns:w="http://ns.egret.com/wing"
+        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:dt="we.dt.*" xmlns:dtb="we.dtb.*" xmlns:w="http://ns.egret.com/wing"
         xmlns:live="we.live.*" states="left_hand_mode,right_hand_mode">
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0c111a" visible="false" />
 	<e:Image id="_bgImg" source="m_ba_bg_offvideo_png" x="0" width="1242" height="734" />
@@ -67,7 +67,7 @@
 		</e:Group>
 		-->
 <ui:BetRelatedGroup id="_betRelatedGroup" y="71" x.right_hand_mode="214" x.left_hand_mode="43" />
-		<dt:CardHolder id="_resultDisplay" width="412" height="152" y="40" horizontalCenter="0" anchorOffsetX="0"
+		<dtb:CardHolder id="_resultDisplay" width="412" height="152" y="40" horizontalCenter="0" anchorOffsetX="0"
 		               anchorOffsetY="0" x="415" scaleX="1" scaleY="1" />
 	</e:Group>
 	<dt:MobileBottomGamePanel skinName="skin_mobile_portrait.dt.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"

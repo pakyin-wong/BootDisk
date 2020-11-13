@@ -206,7 +206,7 @@ namespace we {
         super.setResultRelatedComponentsEnabled(enable);
         if (this._bottomGamePanel._bottomResultDisplayContainer && env.orientation === 'landscape') {
           if (this._bottomGamePanel.isPanelOpen) {
-            this._resultDisplay.visible = false;
+            this._resultDisplay.visible = this._alwaysShowResult || false;
             if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.FINISH) {
               this._bottomGamePanel._bottomResultDisplayContainer.visible = true;
             } else {
@@ -227,7 +227,7 @@ namespace we {
         }
         if (env.orientation === 'landscape') {
           if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.FINISH) {
-            this._resultDisplay.visible = !bottomGamePanelisOpen;
+            this._resultDisplay.visible = this._alwaysShowResult || !bottomGamePanelisOpen;
             this._bottomGamePanel._bottomResultDisplayContainer.visible = bottomGamePanelisOpen;
           }
         }
