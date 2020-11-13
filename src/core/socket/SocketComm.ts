@@ -137,7 +137,7 @@ namespace we {
 			protected async asyncUpdateCustomGoodRoad(id: string, data: any) {
 				return new Promise((resolve, reject) => {
 					function callback(data) {
-						console.log('asyncUpdateCustomGoodRoad', data);
+						// console.log('asyncUpdateCustomGoodRoad', data);
 						resolve();
 					}
 					this.client.updateCustomRoadmap(id, data, callback);
@@ -147,7 +147,7 @@ namespace we {
 			protected async asyncUpdateDefaultGoodRoad(ids: string[]) {
 				return new Promise((resolve, reject) => {
 					function callback(data) {
-						console.log('asyncUpdateDefaultGoodRoad', data);
+						// console.log('asyncUpdateDefaultGoodRoad', data);
 						resolve();
 					}
 					this.client.updateDefaultRoadmap(ids, callback);
@@ -218,7 +218,7 @@ namespace we {
 				});
 			}
 			private _goodRoadUpdateCallback(data: any) {
-				console.log('_goodRoadUpdateCallback', data);
+				// console.log('_goodRoadUpdateCallback', data);
 				if (!data.error) {
 					// if the data is an error, do not update the data
 					env.goodRoadData = ba.GoodRoadParser.CreateGoodRoadMapDataFromObject(data);
@@ -318,7 +318,7 @@ namespace we {
 				env.blockchain.cosmolink = player.blockchainlinks.cosmoslink
 				env.blockchain.thirdPartySHA256 = player.blockchainlinks.thirdpartysha256
 
-				console.log('blockchain', env.blockchain)
+				// console.log('blockchain', env.blockchain)
 
 				// env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
 				// env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
@@ -616,7 +616,7 @@ namespace we {
 						dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, tableInfo.bets);
 
 						// check good road notification
-						if (tableInfo.displayReady && tableInfo.goodRoad && !tableInfo.goodRoad.alreadyShown) {
+						if (env.showGoodRoadHint && tableInfo.displayReady && tableInfo.goodRoad && !tableInfo.goodRoad.alreadyShown) {
 							tableInfo.goodRoad.alreadyShown = true;
 							const data = {
 								tableid: tableInfo.tableid,
