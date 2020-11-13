@@ -202,8 +202,8 @@ namespace we {
         gr.endFill();
 
         shape.x = 0;
-        // this.mask = shape;
-        // this.addChild(shape);
+        this.mask = shape;
+        this.addChild(shape);
 
         this._touchArea = new egret.DisplayObjectContainer();
         this._touchArea.width = this.slideWidth;
