@@ -20,7 +20,7 @@ namespace we {
 
       protected initRoadMap() {
         this._roadmapControl = new dt.DTRoadmapControl(this._tableId);
-        this._roadmapControl.setRoads(
+        (<dt.DTRoadmapControl>this._roadmapControl).setRoads(
           this._leftGamePanel.beadRoad,
           this._rightGamePanel.bigRoad,
           this._rightGamePanel.bigEyeRoad,

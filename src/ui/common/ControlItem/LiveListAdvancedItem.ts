@@ -198,7 +198,18 @@ namespace we {
         }
       }
 
-      protected addRoundCornerMask() {}
+      protected addRoundCornerMask() {
+        const shape = new egret.Shape();
+        shape.graphics.beginFill(0xffffff, 1);
+        // shape.graphics.drawRoundRect(0, 0, this.width, this.height, 16, 16);
+        RoundRect.drawRoundRect(shape.graphics, 0, 0, this.dealerImage.width, this.dealerImage.height, { tl: 10, tr: 0, bl: 10, br: 0 });
+        shape.graphics.endFill();
+
+        this._contentContainer.addChildAt(shape, 0);
+        // this._contentContainer.mask = shape;
+        this.dealerImage.mask = shape;
+
+      }
 
       protected tweenChipLayer(isShow: boolean) {}
 
