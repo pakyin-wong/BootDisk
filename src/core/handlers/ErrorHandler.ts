@@ -41,8 +41,13 @@ namespace we {
         this.errorDisplaying = error;
         if (error.code >= 1000) {
           // known error
+          let errText = i18n.t("error.error_" + error.code);
+          if (errText === ("error.error_" + error.code)) {
+            errText = error.detail;
+          }
+
           if (error.action === 'retry') {
-            this.createDialog(error.detail, {
+            this.createDialog(errText, {
               dismiss: {
                 text: i18n.t("message.cancel"),
                 onClick: async function () {
@@ -59,7 +64,7 @@ namespace we {
               },
             });
           } else if (error.action === 'restart') {
-            this.createDialog(error.detail, {
+            this.createDialog(errText, {
               dismiss: {
                 text: i18n.t("message.restart"),
                 onClick: async function () {
@@ -68,7 +73,7 @@ namespace we {
               },
             });
           } else {
-            this.createDialog(error.detail, {
+            this.createDialog(errText, {
               dismiss: {
                 text: i18n.t("message.cancel"),
                 onClick: async function () {
