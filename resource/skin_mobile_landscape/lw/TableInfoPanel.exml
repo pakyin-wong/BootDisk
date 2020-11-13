@@ -99,17 +99,17 @@
 					</e:layout>
 				</e:Group>
 				<e:Group x="1717" anchorOffsetX="0" width="350" y="25">
-					<ui:ClampWidthLabel id="pNorthOdd" text="-" y="178" right="0" textAlign="right" targetWidth="120" size="44"
+					<ui:ClampWidthLabel id="pRedOdd" text="-" y="178" right="0" textAlign="right" targetWidth="120" size="44"
 					                    alpha="0.7"  fontFamily="Barlow"/>
-					<ui:ClampWidthLabel id="pNorthMax" text="000" y="178" right="150" textAlign="right" size="44" targetWidth="80"
+					<ui:ClampWidthLabel id="pRedMax" text="000" y="178" right="150" textAlign="right" size="44" targetWidth="80"
 					                    alpha="0.7"  fontFamily="Barlow"/>
-					<ui:ClampWidthLabel id="pWhiteOdd" text="-" y="0" right="0" textAlign="right" targetWidth="120" size="44"
+					<ui:ClampWidthLabel id="pNorthOdd" text="-" y="0" right="0" textAlign="right" targetWidth="120" size="44"
 					                    alpha="0.7"  fontFamily="Barlow"/>
-					<ui:ClampWidthLabel id="pWhiteMax" text="000" y="0" right="150" textAlign="right" size="44" targetWidth="80"
+					<ui:ClampWidthLabel id="pNorthMax" text="000" y="0" right="150" textAlign="right" size="44" targetWidth="80"
 					                    alpha="0.7"  fontFamily="Barlow"/>
-					<ui:ClampWidthLabel id="pRedOdd" text="-" y="90" right="0" textAlign="right" targetWidth="120" size="44"
+					<ui:ClampWidthLabel id="pWhiteOdd" text="-" y="90" right="0" textAlign="right" targetWidth="120" size="44"
 					                    alpha="0.7"  fontFamily="Barlow"/>
-					<ui:ClampWidthLabel id="pRedMax" text="000" y="90" right="150" textAlign="right" size="44" targetWidth="80"
+					<ui:ClampWidthLabel id="pWhiteMax" text="000" y="90" right="150" textAlign="right" size="44" targetWidth="80"
 					                    alpha="0.7"  fontFamily="Barlow"/>
 				</e:Group>
 				<e:Group x="2223" anchorOffsetX="0" width="350" y="25">

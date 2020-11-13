@@ -177,7 +177,7 @@ namespace we {
       overlaypanel_gameSet_autoBet: '自動確認投注',
       overlaypanel_gameSet_sendLiveVerfication: '發送現場驗證',
 
-      expiredmessage_text: '您已3局未下注，將於2局後返回遊戲大堂',
+      expiredmessage_text: '您已3局未投注，將於2局後返回遊戲大堂',
 
       // customerservicehotlinenumber_text: '客服熱線號碼更新為＋63 9250898888',
 
@@ -583,6 +583,7 @@ namespace we {
         totalcount: '總數',
         betSuccess: '下注成功',
         betFail: '下注失敗',
+        shuffling: '洗牌中',
         addNewGoodRoad: '新增好路',
         newGoodRoadName: '我的好路',
         removeGoodRoad: '刪除路紙？',

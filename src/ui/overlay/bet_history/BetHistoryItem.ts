@@ -76,7 +76,7 @@ namespace we {
           this.setText(this._txt_record_finbalance, utils.formatNumber(this.data.afterbalance, true));
 
           this.updateBg();
-          this.updateWinText(this.data.remark, this.data.winamount);
+          utils.BetHistory.updateWinText(this._txt_record_win, this.data.remark, this.data.winamount);
           this.createGameResult(this.data.gametype, this.data.result);
         }
 
@@ -133,30 +133,7 @@ namespace we {
             this._txt_record_bgcolor.fillColor = this.data.colorIndex === 1 ? 0x14181e : 0x1a1f26;
           }
         }
-
-        protected updateWinText(remark, amt) {
-          if (!this._txt_record_win) {
-            return;
-          }
-
-          switch (remark) {
-            case -1:
-              this._txt_record_win.textColor = 0xff5555;
-              break;
-            default:
-              this._txt_record_win.textColor = 0x43ce5c;
-              break;
-          }
-
-          if (amt > 0) {
-            this.setText(this._txt_record_win, `+${utils.formatNumber(this.data.winamount, true)}`);
-          } else if (amt === 0) {
-            this.setText(this._txt_record_win, `${utils.formatNumber(this.data.winamount, true)}`);
-          } else {
-            this.setText(this._txt_record_win, `-${utils.formatNumber(this.data.winamount, true)}`);
-          }
-        }
-
+        
         protected onClickReplay(e: egret.Event) {
           if (this.data && this.data.replayurl) {
             window.open(this.data.replayurl, '_blank');

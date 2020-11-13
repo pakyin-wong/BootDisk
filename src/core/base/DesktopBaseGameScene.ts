@@ -176,6 +176,9 @@ namespace we {
         }
         super.updateGame(isInit);
       }
+      protected onMatchGoodRoadUpdate() {
+        super.onMatchGoodRoadUpdate();
+      }
     }
   }
 }

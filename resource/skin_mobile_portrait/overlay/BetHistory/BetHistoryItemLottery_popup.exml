@@ -12,16 +12,16 @@
 			<e:Label id="_txt_record_betfield" text="投注項目" x="810" y="1205" scaleX="1" scaleY="1" height="83" verticalAlign="middle" size="56" width="336"/>
 			<e:Label id="_txt_record_betamount" text="投注額" x="810" y="1403" scaleX="1" scaleY="1" height="67" verticalAlign="middle" size="56" width="336"/>
 			<e:Group id="_record_result" scaleX="1" scaleY="1" x="96" y="324.5" height="165"/>
-			<ui:RoundRectButton id="_btn_replay" width="300" height="100" scaleX="1" scaleY="1" fillAlpha="0" strokeColor="0x979797" cornerTL_TR_BL_BR="50,50,50,50" x="94" y="521" labelSize="50" labelAutoResize="false">
-				<e:Skin width="300" height="100">
-				<e:Group left="0" right="0" top="0" bottom="0">
-					<e:Image width="24" height="32" source="m_common_setting_playerreportlist_detail_result_replay_icon_png" scaleX="1" scaleY="1"/>
-					<ui:RunTimeLabel id="_label" text="重播" size="50" height="74" scaleX="1" scaleY="1" verticalAlign="middle" textColor="0xd9a170"/>
-					<e:layout>
-					<e:HorizontalLayout verticalAlign="middle" horizontalAlign="center"/>
-					</e:layout>
-				</e:Group>
-				</e:Skin>
-			</ui:RoundRectButton>
+			<ui:RoundRectButton id="_btn_replay" width="300" height="100" scaleX="1" scaleY="1" fillAlpha="0" strokeColor="0x979797" cornerTL_TR_BL_BR="50,50,50,50" x="94" y="521" labelSize="50" labelAutoResize="false" labelColor="0xD9A170">
+						<e:Skin width="300" height="100">
+						<e:Group left="0" right="0" top="0" bottom="0">
+							<e:Image width="24" height="32" source="m_common_setting_playerreportlist_detail_result_replay_icon_png"/>
+							<ui:RunTimeLabel id="_label" text="重播" height="74" size="50" verticalAlign="middle" textColor="0xd9a170" textAlign="center" targetWidth="204"/>
+							<e:layout>
+								<e:HorizontalLayout gap="12" horizontalAlign="center" verticalAlign="middle"/>
+							</e:layout>
+							</e:Group>
+						</e:Skin>
+						</ui:RoundRectButton>
 		</e:Group>        
         </e:Skin>
