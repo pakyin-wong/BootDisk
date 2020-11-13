@@ -266,7 +266,7 @@ namespace we {
 
       public updateTableBetInfo() {
         if (this.tableInfo.betInfo) {
-          this.totalBet = this.tableInfo.betInfo.gameroundid === this.tableInfo.data.gameroundid ? this.tableInfo.betInfo.total : 0;
+          this.totalBet = this.tableInfo.betInfo.gameroundid === this.tableInfo.data.gameroundid ? this.tableInfo.totalBet : 0;
           this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
         }
       }
