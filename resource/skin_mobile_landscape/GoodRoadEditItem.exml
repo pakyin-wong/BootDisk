@@ -2,38 +2,40 @@
 <e:Skin class="skin_mobile_landscape.GoodRoadEditItem" width="1016" height="935" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Group id="content" width="100%" height="100%" x="0" y="0">
-		<e:Image left="0" right="0" top="0" bottom="0" source="m_common_setting_goodroad_panel_addroad_png" scale9Grid="33,30,1,896"/>
+		<ui:RoundRectShape width="1016" height="935" cornerTL_TR_BL_BR="30,30,30,30" fillColor="0x253343,0x101720" stroke="3"
+		                   strokeColor="0x000000" strokeIn="6" strokeInColor="0x3b4f6c" />
 		<e:Rect id="_textBg" width="756" height="130" x="56" y="37" anchorOffsetX="0" anchorOffsetY="0" ellipseHeight="10"
 		        ellipseWidth="10" fillColor="0x14181e" strokeColor="0x333c4a" strokeWeight="1" />
 		<e:EditableText id="_titleLabel" width="614" height="98" text="New Road" x="101" y="52" anchorOffsetX="0"
-		                anchorOffsetY="0" size="70" maxChars="20" multiline="false"  verticalAlign="middle"/>
+		                anchorOffsetY="0" size="70" maxChars="20" multiline="false" verticalAlign="middle" />
 		<e:Rect id="_bigRoadMask" width="903" height="543" x="56" y="201" anchorOffsetX="0" anchorOffsetY="0"
 		        ellipseHeight="40" ellipseWidth="40" alpha="0" />
-		<ba:GoodRoadmapEdit id="_bigRoad" width="903" height="543" y="201" x="56"  gridSize="90" gridLine="3"/>
+		<ba:GoodRoadmapEdit id="_bigRoad" width="903" height="543" y="201" x="56" gridSize="90" gridLine="3" />
 		<e:Group id="_editHint" width="450" height="60" horizontalCenter="0" verticalCenter="0">
-				<ui:RoundRectShape cornerTL_TR_BL_BR="6,6,6,6" width="450" height="60" stroke="0" fillColor="0x202730" fillAlpha="0.5" />
-				<e:Group width="450" height="60" horizontalCenter="0" verticalCenter="0">
-					<ui:RunTimeLabel id="_editHintLeft" textAlign="left" text="Press" size="35" targetWidth="100"/>
-					<e:Image source="m_ba_goodroad_info_ring_banker_png" />
-					<ui:RunTimeLabel id="_editHintCenter" textAlign="left" text="or" size="35"  targetWidth="50"/>
-					<e:Image source="m_ba_goodroad_info_ring_player_png" />
-					<ui:RunTimeLabel id="_editHintRight" textAlign="left" text="to set." size="35"  targetWidth="120"/>
-					<e:layout>
-						<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle" />
-					</e:layout>
-				</e:Group>
+			<ui:RoundRectShape cornerTL_TR_BL_BR="6,6,6,6" width="450" height="60" stroke="0" fillColor="0x202730"
+			                   fillAlpha="0.5" />
+			<e:Group width="450" height="60" horizontalCenter="0" verticalCenter="0">
+				<ui:RunTimeLabel id="_editHintLeft" textAlign="left" text="Press" size="35" targetWidth="100" />
+				<e:Image source="m_ba_goodroad_info_ring_banker_png" />
+				<ui:RunTimeLabel id="_editHintCenter" textAlign="left" text="or" size="35" targetWidth="50" />
+				<e:Image source="m_ba_goodroad_info_ring_player_png" />
+				<ui:RunTimeLabel id="_editHintRight" textAlign="left" text="to set." size="35" targetWidth="120" />
+				<e:layout>
+					<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle" />
+				</e:layout>
+			</e:Group>
 		</e:Group>
 		<ui:BaseImageButton id="_clearButton" currentState="b_clear" y="74" width="60" height="60" anchorOffsetX="0" x="715"
 		                    skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" />
 		<e:Image id="close" width="98" height="98" x="852.5" y="57.5" source="d-lobby-button-close-none_png" />
-		<ui:BaseImageButton id="_playerButton" currentState="b_player" width="130" height="130" anchorOffsetX="0" y="786" x="216"
-		                    skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" />
+		<ui:BaseImageButton id="_playerButton" currentState="b_player" width="130" height="130" anchorOffsetX="0" y="786"
+		                    x="216" skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" />
 		<ui:BaseImageButton id="_removeButton" currentState="b_remove" width="130" height="130" anchorOffsetX="0" y="786"
 		                    x="379" skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" />
-		<ui:BaseImageButton id="_bankerButton" currentState="b_banker" width="130" height="130" anchorOffsetX="0" y="786" x="53"
-		                    skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" />
-		<ui:BaseImageButton id="_removeAllButton" currentState="b_removeAll" width="130" height="130" anchorOffsetX="0" x="543"
-		                    y="786" skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" />
+		<ui:BaseImageButton id="_bankerButton" currentState="b_banker" width="130" height="130" anchorOffsetX="0" y="786"
+		                    x="53" skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" />
+		<ui:BaseImageButton id="_removeAllButton" currentState="b_removeAll" width="130" height="130" anchorOffsetX="0"
+		                    x="543" y="786" skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" />
 		<ui:BaseImageButton id="_saveButton" currentState="b_save" width="254" height="150" anchorOffsetX="0" x="706" y="774"
 		                    skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" />
 	</e:Group>
