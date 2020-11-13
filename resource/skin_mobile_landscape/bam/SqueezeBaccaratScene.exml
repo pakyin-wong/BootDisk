@@ -86,39 +86,50 @@
 		                   betChipHeight="208" numChipsInRow="6" chipSizeScale="0.75" horizontalGapSize="-20"
 		                   verticalGapSize="-20" left="0" labelSize="48" y="35" />
 	</e:Group>
-	<e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2424" touchEnabled="false"
-	         touchChildren="true" touchThrough="true" height="121">
-		<e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3" />
-		<ui:RunTimeLabel id="_lblRoomNo" x="25" y="15" size="40" height="56" verticalAlign="middle" width="200"
-		                 textAlign="left" anchorOffsetX="0" text="Label" />
-		<ui:GoodRoadLabel id="_BAgoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin" x="152" y="54"
-		                  x.right_hand_mode="183" y.right_hand_mode="59" x.left_hand_mode="183" />
-		<e:Group x="25" y="65">
-			<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Barlow" size="40" text="label" />
-			<e:Image source="m_common_panel_icon_dropdown_png" width="34" height="19" visible="false" />
-			<e:layout>
-				<e:HorizontalLayout verticalAlign="middle" />
-			</e:layout>
+<e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2424" touchEnabled="false"
+         touchChildren="true" touchThrough="true" height="121">
+	<e:Group>
+		<e:Group>
+			<ui:RunTimeLabel id="_lblRoomNo" x="25" y="15" size="40" height="56" verticalAlign="middle" textAlign="left"
+			                 anchorOffsetX="0" text="Label" />
+			<e:Group x="25" y="65">
+				<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Arial" size="40" text="label" />
+				<e:layout>
+					<e:HorizontalLayout verticalAlign="middle" />
+				</e:layout>
+			</e:Group>
 		</e:Group>
-		<e:Group height="48" y="73" right="0">
-			<ui:RunTimeLabel id="_totalBet" text="0" y="0" height="100%" right="0" anchorOffsetX="0" textAlign="right" />
-			<ui:RunTimeLabel id="_totalBetText" text="bet AMOUNT vfghj" y="0" height="100%" right="0" anchorOffsetX="0"
-			                 textAlign="right" />
-			<e:layout>
-				<e:HorizontalLayout horizontalAlign="right" gap="20" gap.left_hand_mode="20" />
-			</e:layout>
+		<e:Group>
+			<e:Group y="24" left="0">
+				<ui:RunTimeLabel id="_GameIDText" text="Game ID :" bottom="0" left="0" alpha=".7" verticalAlign="top" size="26" />
+				<ui:RunTimeLabel id="_GameID" text="ID0000000000000001" bottom="0" left="0" verticalAlign="top" size="26" />
+				<ui:TimeLabel bottom="0" left="0" verticalAlign="top" size="26" />
+				<e:layout>
+					<e:HorizontalLayout gap="8" />
+				</e:layout>
+			</e:Group>
+			<ui:GoodRoadLabel id="_BAgoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin" y="54" x="0" />
 		</e:Group>
-		<e:Group id="_btnBack" width="104" height="104" x="31" y="149">
-			<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0"
-			        ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.4" />
-			<e:Image width="41" height="33" source="d_ba_navbar_chevron_png" scaleX="1" scaleY="1" horizontalCenter="0"
-			         verticalCenter="0" />
-		</e:Group>
-		<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" x="0"
-		                       visible="false" />
-		<ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
-		            skinName="skin_mobile_portrait.GameBar" visible="false" />
+		<e:layout>
+			<e:HorizontalLayout gap="36" />
+		</e:layout>
 	</e:Group>
+	<e:Group height="48" y="73" right="15">
+		<ui:RunTimeLabel id="_totalBet" text="0" y="0" height="100%" right="0" anchorOffsetX="0" textAlign="right" size="36"
+		                 fontFamily="Barlow" />
+		<ui:RunTimeLabel id="_totalBetText" text="bet AMOUNT vfghj" y="0" height="100%" right="0" anchorOffsetX="0"
+		                 textAlign="right" size="36" alpha="0.7" />
+		<e:layout>
+			<e:HorizontalLayout horizontalAlign="right" gap="20" gap.left_hand_mode="20" />
+		</e:layout>
+	</e:Group>
+	<e:Group id="_btnBack" width="104" height="104" x="31" y="149">
+		<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0"
+		        ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.4" />
+		<e:Image width="41" height="33" source="d_ba_navbar_chevron_png" scaleX="1" scaleY="1" horizontalCenter="0"
+		         verticalCenter="0" />
+	</e:Group>
+</e:Group>
 	<ba:GameResultMessage id="_resultMessage" y="239" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
 	                      height="229" horizontalCenter="0" />
 	<ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
@@ -131,15 +142,6 @@
 	                      y.right_hand_mode="550" bottom="0" />
 	<bam:MobileFlipCardHolder id="_resultCard" width="2424" height="900" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
 	                          scaleY="1" y="83" horizontalCenter="0" />
-	<e:Group y="13" x="250">
-		<ui:RunTimeLabel id="_GameIDText" text="Game ID :" bottom="0" left="0" alpha=".7" height="56" verticalAlign="top"
-		                 size="26" />
-		<ui:RunTimeLabel id="_GameID" text="ID0000000000000001" bottom="0" left="0" height="56" verticalAlign="top"
-		                 fontFamily="Barlow" size="26" />
-		<e:layout>
-			<e:HorizontalLayout/>
-		</e:layout>
-	</e:Group>
 </e:Skin>
 
 
