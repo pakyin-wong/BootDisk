@@ -195,9 +195,9 @@ namespace we {
 
       protected setupTableInfo() {
         const tableInfo = env.tableInfos[this._tableId];
-        let time = moment().format('HH:mm:ss')
-        console.log('current time',time)
-        console.log('setupTableInfo,',tableInfo)
+        // let time = moment().format('HH:mm:ss')
+        // console.log('current time',time)
+        // console.log('setupTableInfo,',tableInfo)
         this.setData(tableInfo);
       }
 
