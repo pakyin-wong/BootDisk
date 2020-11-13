@@ -48,8 +48,6 @@ namespace we {
 
       protected getGameType(){
         this.GameType = this._targetScene.tableInfo.gametype
-        console.log('GameType',this.GameType)
-        console.log('this._targetScene.tableInfo',this._targetScene.tableInfo)
         this.updateSoundSetting(this.GameType);
       }
 

@@ -129,8 +129,6 @@ namespace we {
 		  } else {
 			this._ddm_currLang.addEventListener('DROPDOWN_ITEM_CHANGE', this.onLangSelect, this);
 			this._ddm_presetBgm.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBgmSelect, this);
-			// this.addEventListener('enableLiveRecord',this.enableLiveRecord,this)
-			// this.addEventListener('disableLiveRecord',this.disableLiveRecord,this)
 		  }
 		}
   
@@ -145,8 +143,6 @@ namespace we {
 		  } else {
 			this._ddm_currLang.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onLangSelect, this);
 			this._ddm_presetBgm.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onBgmSelect, this);
-			// this.removeEventListener('enableLiveRecord',this.enableLiveRecord,this)
-			// this.removeEventListener('disableLiveRecord',this.disableLiveRecord,this)
 		  }
 		}
 
