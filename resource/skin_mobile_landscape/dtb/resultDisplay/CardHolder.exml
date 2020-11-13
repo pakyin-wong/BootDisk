@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.dtb.CardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" width="1242" height="2424">
+<e:Skin class="skin_mobile_landscape.dtb.CardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" width="2424" height="1242">
         <e:Group id="_particleGroup" width="100%" height="100%"/>
         <e:Group id="_animRingGroup" x="1300" y="670"/>
         <e:Group x="218" y="347" width="637" height="98">
