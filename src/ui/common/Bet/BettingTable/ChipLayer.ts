@@ -313,7 +313,8 @@ namespace we {
 
       public updateBetFields(betDetails: data.BetDetail[]) {
         this._cfmBetDetails = betDetails;
-        this._doubleBetDetails = this._cfmBetDetails;
+        // console.log('updateBetFieldsthis._doubleBetDetails ',this._doubleBetDetails )
+        // this._doubleBetDetails = this._uncfmBetDetails;
 
         // update the already bet amount of each bet field
         this._cfmBetDetails.map((value, index) => {
@@ -389,7 +390,7 @@ namespace we {
           this.addBetToBetField(fieldName, betDetail.amount);
           this.undoStack.push(hashkey, we.utils.clone({ field: fieldName, amount: betDetail.amount }), this.undoBetFieldUpdate.bind(this));
           this.updateBetChipUncfmBet(fieldName, this.getUncfmBetByField(fieldName).amount);
-
+          this._doubleBetDetails = this.uncfmBetDetails;
           if (env.autoConfirmBet && this.onConfirmPressed) {
             this.onConfirmPressed(null);
           }
@@ -426,10 +427,10 @@ namespace we {
 
       public doubleBetFields() {
         let reactMax = true;
-
+        console.log('this._uncfmBetDetails',this._uncfmBetDetails)
         const betfields = this._doubleBetDetails.map(detail => {
           const uncfmBetDetail = this.getUncfmBetByField(detail.field);
-          const amount = uncfmBetDetail ? uncfmBetDetail.amount + detail.amount : detail.amount;
+          const amount = detail.amount;
           // double the bet amounts
           const betDetail = { field: detail.field, amount };
           if (this.validateBetAction(betDetail)) {
@@ -520,6 +521,7 @@ namespace we {
               break;
             }
           }
+          this._doubleBetDetails = this._uncfmBetDetails
         });
       }
 
@@ -559,7 +561,8 @@ namespace we {
           this.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
           return false;
         }
-
+        this._doubleBetDetails = this._uncfmBetDetails
+        console.log('this._doubleBetDetails',this._doubleBetDetails)
         // return this.validateFieldAmounts(fieldAmounts, null, true);
          return this.validateFieldAmounts(totalAmount, null, true);
       }

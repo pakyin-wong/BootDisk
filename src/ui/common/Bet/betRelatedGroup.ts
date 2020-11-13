@@ -97,7 +97,7 @@ namespace we {
         this._cancelButton.alpha = isEnable ? 1 : 0.5;
         this._confirmButton.alpha = isEnable ? 1 : 0.3;
         this._repeatButton.alpha = this._repeatButton.touchEnabled ? 1 : 0.5;
-        this._doubleButton.alpha = this._doubleButton.touchChildren ? 1 : 0.5;
+        this._doubleButton.alpha = totalUncfmBetAmount ? 1 : 0.5;
         if (this._timer.bg_color) {
           this._timer.bg_color.alpha = isEnable ? 0.7 : 0;
           if (isEnable) {
@@ -112,16 +112,16 @@ namespace we {
       }
       protected onCancelPressed(evt: egret.Event) {
         this.dispatchEvent(new egret.Event('ON_CANCEL_PRESS'));
-        this.changeBtnState(false);
+        // this.changeBtnState(false);
       }
 
       protected onRepeatPressed() {
         this.dispatchEvent(new egret.Event('ON_REPEAT_PRESS'));
-        this.changeBtnState(true);
+                // this.changeBtnState(true);
       }
 
       protected onDoublePressed() {
-        this.changeBtnState(true);
+        // this.changeBtnState(true);
         this.dispatchEvent(new egret.Event('ON_DOUBLE_PRESS'));
       }
 
