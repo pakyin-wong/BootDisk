@@ -16,14 +16,14 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.12.1';
+      public version: string = '0.12.2';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
       public balanceOnHold: number = 0;
       public currency: Currency;
       public playerID: string;
-      public accountType: number = 0;   // 0-api, 1-credit
+      public accountType: number = 0; // 0-api, 1-credit
 
       public nickname: string;
       public nicknameKey: string;
@@ -39,12 +39,14 @@ namespace we {
       public _groups: {};
       public groupName: { [groupKey: string]: string } = {};
 
-      public _gameCategories: string[];
-      public _gameTypes: number[];
+      protected _gameCategories: string[];
+      protected _gameTypes: number[];
+      protected _liveGameTab: string[] = [];
+      protected _lotteryTab: string[] = [];
 
-      public blockchain: { thirdPartySHA256: string, cosmolink: string } = {
+      public blockchain: { thirdPartySHA256: string; cosmolink: string } = {
         thirdPartySHA256: '',
-        cosmolink: ''
+        cosmolink: '',
       };
       /**
        * {
@@ -83,7 +85,7 @@ namespace we {
       public videoOpen: boolean = true;
 
       public betLimits: data.BetLimit;
-      public denomList: number[];
+      public denomList: string[];
       public goodRoadData: data.GoodRoadMapData;
       public playerLotteryStat: any;
       public isMobile: boolean = false;
@@ -141,8 +143,8 @@ namespace we {
           core.GameType.BAI,
           core.GameType.BAS,
           core.GameType.BAM,
-          core.GameType.BAB,
-          core.GameType.DTB,
+          // core.GameType.BAB,
+          // core.GameType.DTB,
           core.GameType.DI,
           core.GameType.DIL,
           core.GameType.DT,
@@ -181,23 +183,113 @@ namespace we {
 
       set gameCategories(value: string[]) {
         // value = ['Lottery'];    // TODO: this is just for testing, delete it when finish testing
-        const validCategories = ['Live', 'Lottery'];    // categories which support in current version
-        this._gameCategories = validCategories.filter(cat => {
-          return value.indexOf(cat) >= 0;
-        }).map((cat: string) => cat.toLowerCase());
+        const validCategories = ['Live', 'Lottery']; // categories which support in current version
+        this._gameCategories = validCategories
+          .filter(cat => {
+            return value.indexOf(cat) >= 0;
+          })
+          .map((cat: string) => cat.toLowerCase());
       }
 
+      // used for lobby
       get gameCategories(): string[] {
         return this._gameCategories;
       }
 
+      // used for side panel dropdown
+      get sideGameCategories(): string[] {
+        const validCategories = ['live', 'lottery']; // categories which support in current version side game panel
+        if (this._gameCategories) {
+          const cats = validCategories.filter(cat => {
+            return this._gameCategories.indexOf(cat) >= 0;
+          });
+          return cats;
+        } else {
+          return validCategories;
+        }
+      }
+
       set gameTypes(value: any[]) {
-        // value = ['0','15','22'];     // TODO: this is just for testing, delete it when finish testing
+        // value = ['0', '15', '22'];     // TODO: this is just for testing, delete it when finish testing
+        value = value.concat('27', '28'); // TODO: temp add BAB and DTB
+        // console.log(JSON.stringify(value));
         this._gameTypes = value.map((cat: string) => parseInt(cat, 10));
+        this.generateLiveGameTab();
+        this.generateLotteryTab();
       }
 
       get gameTypes(): any[] {
         return this._gameTypes;
+      }
+
+      protected generateLiveGameTab() {
+        const gameSubcats = {
+          allGame: [1],
+          baccarat: [],
+          dragontiger: [],
+          roulette: [],
+          dice: [],
+          luckywheel: [],
+        };
+        for (const type of this._gameTypes) {
+          switch (type) {
+            case core.GameType.BAB:
+            case core.GameType.BAC:
+            case core.GameType.BAI:
+            case core.GameType.BAM:
+            case core.GameType.BAS:
+              gameSubcats.baccarat.push(type);
+              break;
+            case core.GameType.DT:
+            case core.GameType.DTB:
+              gameSubcats.dragontiger.push(type);
+              break;
+            case core.GameType.RO:
+            case core.GameType.ROL:
+              gameSubcats.roulette.push(type);
+              break;
+            case core.GameType.DI:
+            case core.GameType.DIL:
+              gameSubcats.dice.push(type);
+              break;
+            case core.GameType.LW:
+              gameSubcats.luckywheel.push(type);
+              break;
+          }
+        }
+        const tabs = Object.keys(gameSubcats).filter(cat => {
+          return gameSubcats[cat].length > 0;
+        });
+        this._liveGameTab = tabs;
+      }
+
+      get liveGameTab(): any[] {
+        return this._liveGameTab;
+      }
+
+      protected generateLotteryTab() {
+        const gameSubcats = {
+          allLotteryGame: [1],
+          lottery: [],
+          race: [],
+        };
+        for (const type of this._gameTypes) {
+          switch (type) {
+            case core.GameType.LO:
+              gameSubcats.lottery.push(type);
+              break;
+            case core.GameType.RC:
+              gameSubcats.race.push(type);
+              break;
+          }
+        }
+        const tabs = Object.keys(gameSubcats).filter(cat => {
+          return gameSubcats[cat].length > 0;
+        });
+        this._lotteryTab = tabs;
+      }
+      get lotteryTab(): any[] {
+        return this._lotteryTab;
       }
 
       set currTime(value: number) {
@@ -256,8 +348,8 @@ namespace we {
       }
 
       public gameTypeFilter(gameType: number, validGameTypes: number[]) {
-        // if (validGameTypes.indexOf(gameType) < 0 || this.gameTypes.indexOf(gameType) < 0) {
-        if (validGameTypes.indexOf(gameType) < 0) {
+        if (validGameTypes.indexOf(gameType) < 0 || this.gameTypes.indexOf(gameType) < 0) {
+          // if (validGameTypes.indexOf(gameType) < 0) {
           return false;
         }
         return true;

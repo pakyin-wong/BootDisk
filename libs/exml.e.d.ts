@@ -225,6 +225,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class ListItemStateLabelSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class LiveListAdvancedItemSkin extends eui.Skin{
 	}
 }
@@ -1356,6 +1360,10 @@ declare module skin_mobile_landscape{
 	class BlockchainBaccaratScene extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape.bab{
+	class CardHolderSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_landscape.bam{
 	class FlipCardHolderSkin extends eui.Skin{
 	}
@@ -1902,6 +1910,10 @@ declare module skin_mobile_portrait{
 	class BlockchainBaccaratScene extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait.bab{
+	class CardHolderSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait{
 	class BAGoodRoadLabelSkin extends eui.Skin{
 	}
@@ -2182,6 +2194,10 @@ declare module skin_mobile_portrait.dt{
 }
 declare module skin_mobile_portrait{
 	class BlockchainDragonTigerScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dtb{
+	class CardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

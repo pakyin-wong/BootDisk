@@ -28,9 +28,9 @@ namespace we {
     }
 
     export function formatNumber(target: string | number, withDP: boolean = true): string {
+      const num = Number(target);
       const str = `${target}`;
-      const regex = RegExp('[^0-9-]');
-      if (regex.test(str)) {
+      if (isNaN(num)) {
         return str;
       }
       let result = zeroPad(str, 3);

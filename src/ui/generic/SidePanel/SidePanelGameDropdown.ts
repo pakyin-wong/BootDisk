@@ -12,7 +12,8 @@ namespace we {
       constructor() {
         super();
         this._group = 'live';
-        this._source = utils.EnumHelpers.values(core.LiveGameTab);
+        // this._source = utils.EnumHelpers.values(core.LiveGameTab);
+        this._source = env.liveGameTab;
       }
 
       public mount() {
@@ -38,6 +39,10 @@ namespace we {
         this._dmm.removeEventListener('POPPER_HIDE', this.onRollToDown, this);
       }
 
+      public getSelectedItem(): any {
+        return this._dmm.dropdown.selectedItem;
+      }
+
       protected refresh() {
         const gameListItems = this._source.map(game => {
           return ui.NewDropdownItem(game, () => i18n.t(`${this._group}.gametype.${game}`));
@@ -55,12 +60,14 @@ namespace we {
         switch (s) {
           case 'live':
             this._group = s;
-            this._source = utils.EnumHelpers.values(core.LiveGameTab);
+            // this._source = utils.EnumHelpers.values(core.LiveGameTab);
+            this._source = env.liveGameTab;
             this.refresh();
             break;
           case 'lottery':
             this._group = s;
-            this._source = utils.EnumHelpers.values(core.LotteryTab);
+            // this._source = utils.EnumHelpers.values(core.LotteryTab);
+            this._source = env.lotteryTab;
             this.refresh();
             break;
         }

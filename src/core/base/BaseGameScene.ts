@@ -74,7 +74,11 @@ namespace we {
             mouse.setButtonMode(this._betRelatedGroup._confirmButton, true);
           }
         }
+        this.instantiateVideo();
+        this.touchEnabled = true;
+      }
 
+      protected instantiateVideo() {
         this._video = dir.videoPool.get();
         this._video.setBrowser(env.UAInfo.browser.name);
         // this._video.width = this.stage.stageWidth;
@@ -84,7 +88,6 @@ namespace we {
         this._video.load('https://gcp.weinfra247.com:443/live/720.flv');
 
         dir.audioCtr.video = this._video;
-        this.touchEnabled = true;
       }
 
       public onEnter() {
@@ -101,9 +104,11 @@ namespace we {
       public onExit() {
         super.onExit();
         this.stage.frameRate = env.frameRate;
-        dir.audioCtr.video = null;
-        this._video.stop();
-        dir.videoPool.release(this._video);
+        if (this._video) {
+          dir.audioCtr.video = null;
+          this._video.stop();
+          dir.videoPool.release(this._video);
+        }
         this._chipLayer.getSelectedChipIndex = null;
         // this._timer.stop();
         this.removeEventListeners();
@@ -117,21 +122,23 @@ namespace we {
       }
 
       protected initChildren() {
-        this.addChild(this._video);
-        this.setChildIndex(this._video, 0);
-        // this.playVideo();
-        const aspect = 16 / 9;
-        const ratio = this.stage.stageWidth / this.stage.stageHeight;
-        this._video.x = this.stage.stageWidth * 0.5;
-        this._video.y = this.stage.stageHeight * 0.5;
-        this._video.width = ratio < 1 ? this.stage.stageHeight * aspect : this.stage.stageWidth;
-        this._video.height = ratio < 1 ? this.stage.stageHeight : this.stage.stageWidth / aspect;
-        this._video.$anchorOffsetX = this._video.width * 0.5;
-        this._video.$anchorOffsetY = this._video.height * 0.5;
-        if (!env.videoOpen) {
-          this.stopVideo();
-        } else {
-          this.playVideo();
+        if (this._video) {
+          this.addChild(this._video);
+          this.setChildIndex(this._video, 0);
+          // this.playVideo();
+          const aspect = 16 / 9;
+          const ratio = this.stage.stageWidth / this.stage.stageHeight;
+          this._video.x = this.stage.stageWidth * 0.5;
+          this._video.y = this.stage.stageHeight * 0.5;
+          this._video.width = ratio < 1 ? this.stage.stageHeight * aspect : this.stage.stageWidth;
+          this._video.height = ratio < 1 ? this.stage.stageHeight : this.stage.stageWidth / aspect;
+          this._video.$anchorOffsetX = this._video.width * 0.5;
+          this._video.$anchorOffsetY = this._video.height * 0.5;
+          if (!env.videoOpen) {
+            this.stopVideo();
+          } else {
+            this.playVideo();
+          }
         }
 
         // this._video.play();
@@ -188,6 +195,9 @@ namespace we {
 
       protected setupTableInfo() {
         const tableInfo = env.tableInfos[this._tableId];
+        // let time = moment().format('HH:mm:ss')
+        // console.log('current time',time)
+        // console.log('setupTableInfo,',tableInfo)
         this.setData(tableInfo);
       }
 
@@ -218,6 +228,7 @@ namespace we {
 
         if (this._chipLayer) {
           this._chipLayer.addEventListener('onUnconfirmBet', this.changeBetRelatedGroupBtn, this);
+          this._chipLayer.addEventListener('resetUnconfirmBet', this.resetBetRelatedGroupBtn, this);
           this._chipLayer.addEventListener(core.Event.GENERAL_BET_FAIL, this.generalBetFail, this);
           this._chipLayer.addEventListener(core.Event.EXCEED_TABLE_LIMIT, this.exceedTableLimit, this);
           this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
@@ -291,6 +302,7 @@ namespace we {
 
         if (this._chipLayer) {
           this._chipLayer.removeEventListener('onUnconfirmBet', this.changeBetRelatedGroupBtn, this);
+          this._chipLayer.removeEventListener('resetUnconfirmBet', this.resetBetRelatedGroupBtn, this);
           this._chipLayer.removeEventListener(core.Event.GENERAL_BET_FAIL, this.generalBetFail, this);
           this._chipLayer.removeEventListener(core.Event.EXCEED_TABLE_LIMIT, this.exceedTableLimit, this);
           this._chipLayer.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
@@ -326,10 +338,20 @@ namespace we {
         if (this._betRelatedGroup) {
           this._betRelatedGroup.changeBtnState(
             true,
-            this._chipLayer.getTotalCfmBetAmount(),
+            this._chipLayer.getTotalUncfmBetAmount(),
             this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
           );
         }
+      }
+
+      protected resetBetRelatedGroupBtn(){
+          if (this._betRelatedGroup) {
+            this._betRelatedGroup.changeBtnState(
+              false,
+              this._chipLayer.getTotalUncfmBetAmount(),
+              this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
+            );
+          }
       }
 
       public backToLobby() {
@@ -372,13 +394,14 @@ namespace we {
       protected onTouchTap(evt: egret.Event) {}
 
       protected onBetDetailUpdateInBetState() {
+        console.log('onBetDetailUpdateInBetState')
         if (this._betDetails && this._chipLayer) {
           this._chipLayer.updateBetFields(this._betDetails);
           this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
           if (this._betRelatedGroup) {
             this._betRelatedGroup.changeBtnState(
               false,
-              this._chipLayer.getTotalCfmBetAmount(),
+              0,
               this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
             );
           }
@@ -530,7 +553,8 @@ namespace we {
           if (this._betRelatedGroup) {
             this._betRelatedGroup.changeBtnState(
               false,
-              this._chipLayer.getTotalCfmBetAmount(),
+              this._chipLayer.getTotalUncfmBetAmount(),
+              // this._chipLayer.getTotalCfmBetAmount(),
               this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
             );
           }
@@ -766,7 +790,7 @@ namespace we {
               if (this._betRelatedGroup) {
                 this._betRelatedGroup.changeBtnState(
                   false,
-                  this._chipLayer.getTotalCfmBetAmount(),
+                  0,
                   this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
                 );
               }
@@ -838,7 +862,7 @@ namespace we {
           if (this._betRelatedGroup) {
             this._betRelatedGroup.changeBtnState(
               false,
-              this._chipLayer.getTotalCfmBetAmount(),
+              this._chipLayer.getTotalUncfmBetAmount(),
               this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
             );
           }
@@ -852,8 +876,8 @@ namespace we {
         if (this._betRelatedGroup) {
           this._betRelatedGroup.changeBtnState(
             true,
-            this._chipLayer.getTotalCfmBetAmount(),
-            this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
+            this._chipLayer.getTotalUncfmBetAmount(),
+            false
           );
         }
       }
@@ -864,7 +888,7 @@ namespace we {
           if (this._betRelatedGroup) {
             this._betRelatedGroup.changeBtnState(
               true,
-              this._chipLayer.getTotalCfmBetAmount(),
+              this._chipLayer.getTotalUncfmBetAmount(),
               this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
             );
           }
@@ -878,7 +902,7 @@ namespace we {
             if (this._betRelatedGroup) {
               this._betRelatedGroup.changeBtnState(
                 false,
-                this._chipLayer.getTotalCfmBetAmount(),
+                this._chipLayer.getTotalUncfmBetAmount(),
                 this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
               );
             }

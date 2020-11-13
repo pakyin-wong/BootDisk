@@ -16,10 +16,12 @@ namespace we {
         return command;
       }
       public popAndUndo() {
+        console.log('this._stack',JSON.stringify(this._stack))
         if (!this._stack || this._stack.length === 0) {
           return;
         }
         const command = this._stack.pop();
+        console.log('command',command)
         if (command) {
           command.undoCallback(command.undoData);
           if (command.hashkey) {

@@ -117,6 +117,10 @@ namespace we {
         }
       }
 
+      public get selectedItem(): any {
+        return this._list?this._list.selectedItem: null;
+      }
+
       public clearSelection() {
         this._list.selectedIndex = -1;
         this._review.renderText = this._reviewRenderText ? this._reviewRenderText(() => '-') : () => '-';

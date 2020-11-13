@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.GameBar" width="251" height="52" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="no_video" >
 	<e:Group right="0">
 		<e:Group id="soundBtn" tooltipText="'nav.menu.soundSet'">
 			<ui:RoundRectButton id="soundRoundRect" width="52" height="52" x="0" y="0" fillColor="0x0f1721" strokeIn="2" strokeInColor="0x1D2B3F"
@@ -15,7 +15,7 @@
 				</e:Skin>
 			</ui:RoundRectButton>
 		</e:Group>
-		<e:Group id="videoButton" tooltipText="'nav.menu.videoSet'">
+		<e:Group id="videoButton" tooltipText="'nav.menu.videoSet'" includeIn="">
 			<ui:RoundRectButton id="videoRoundRect" width="52" height="52" x="0" y="0" fillColor="0x0f1721" strokeIn="2" strokeInColor="0x1D2B3F"
 			                    strokeColor="0x000000" cornerTL_TR_BL_BR="26,26,26,26" fillAlpha_hover="1"
 			                    strokeInAlpha_hover="1" fillAlpha_click="1" strokeInAlpha_click="1" fillAlpha="0" strokeAlpha="0" strokeAlpha_hover="1" strokeInAlpha="0">

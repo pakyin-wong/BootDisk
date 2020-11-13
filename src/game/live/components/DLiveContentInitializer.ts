@@ -52,7 +52,7 @@ namespace we {
 
         // const tabBarGroup = new eui.Group();
         // tabBarGroup.percentWidth = 100;
-        // root.tabItems = utils.EnumHelpers.values(core.LiveGameTab); // ['bacarrat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
+        // root.tabItems = utils.EnumHelpers.values(core.LiveGameTab); // ['baccarat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
         // root.tabs = new we.live.SegmentedControl(root.tabItems);
         // tabBarGroup.addChild(root.tabs);
         // tabBarGroup.addChild(new LiveDisplayModeSwitch());
@@ -132,7 +132,8 @@ namespace we {
         tabBarGroup.addChild(this._tabbarBg);
         tabBarGroup.left = paddingHorizontal;
         tabBarGroup.right = paddingHorizontal;
-        root.tabItems = utils.EnumHelpers.values(core.LiveGameTab); // ['bacarrat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
+        // root.tabItems = utils.EnumHelpers.values(core.LiveGameTab); // ['baccarat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
+        root.tabItems = env.liveGameTab;
         root.tabs = new we.live.SegmentedControl(root.tabItems);
         tabBarGroup.addChild(root.tabs);
         tabBarGroup.addChild(new LiveDisplayModeSwitch());

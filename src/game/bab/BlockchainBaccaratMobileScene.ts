@@ -18,6 +18,8 @@ namespace we {
       protected _historyCardHolder: we.ui.HistoryCardHolder;
       protected _resultDisplay : ui.IResultDisplay & we.blockchain.CardHolder;
 
+      public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat];
+
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('BlockchainBaccaratScene');
         this._skinKey = 'BlockchainBaccaratScene';        
@@ -25,6 +27,7 @@ namespace we {
 
       protected mount(){
         super.mount();
+        
       }
     }
   }

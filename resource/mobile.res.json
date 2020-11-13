@@ -39,6 +39,18 @@
 		{
 			"keys": "d_lottery_ent_penal_betarea_betpenal_five_bet_hover_png,d_lottery_ent_penal_betarea_betpenal_five_bet_active_png,d_lottery_ent_penal_betarea_betpenal_bg_blue_png,d_lottery_ent_penal_betarea_betpenal_bg_green_title_png,d_lottery_ent_penal_betarea_betpenal_bg_green_png,d_lottery_ent_penal_betarea_betpenal_bg_blue_title_png,d_lottery_ent_penal_betarea_betpenal_bg_purple_png,d_lottery_ent_penal_betarea_betpenal_bg_purple_title_png",
 			"name": "scene_lottery"
+		},
+		{
+			"keys": "m_sq_bab_small_poker_backside_png,m_sq_bac_small_poker_club2_vertical_png,m_bcba_red_card_png,m_bcba_CardPanel_png,m_sq_bac_small_poker_club3_vertical_png,m_sq_bac_small_poker_club4_vertical_png,m_sq_bac_small_poker_club6_vertical_png,m_sq_bac_small_poker_club7_vertical_png,m_sq_bac_small_poker_club5_vertical_png,m_sq_bac_small_poker_club8_vertical_png,m_sq_bac_small_poker_club10_vertical_png,m_sq_bac_small_poker_club9_vertical_png,m_sq_bac_small_poker_clubJ_vertical_png,m_sq_bac_small_poker_clubA_vertical_png,m_sq_bac_small_poker_clubK_vertical_png,m_sq_bac_small_poker_clubQ_vertical_png,m_sq_bac_small_poker_diamond2_vertical_png,m_sq_bac_small_poker_diamond3_vertical_png,m_sq_bac_small_poker_diamond4_vertical_png,m_sq_bac_small_poker_diamond6_vertical_png,m_sq_bac_small_poker_diamond5_vertical_png,m_sq_bac_small_poker_diamond8_vertical_png,m_sq_bac_small_poker_diamond7_vertical_png,m_sq_bac_small_poker_diamond9_vertical_png,m_sq_bac_small_poker_diamond10_vertical_png,m_sq_bac_small_poker_diamondA_vertical_png,m_sq_bac_small_poker_diamondJ_vertical_png,m_sq_bac_small_poker_diamondK_vertical_png,m_sq_bac_small_poker_heart2_vertical_png,m_sq_bac_small_poker_diamondQ_vertical_png,m_sq_bac_small_poker_heart4_vertical_png,m_sq_bac_small_poker_heart3_vertical_png,m_sq_bac_small_poker_heart5_vertical_png,m_sq_bac_small_poker_heart6_vertical_png,m_sq_bac_small_poker_heart7_vertical_png,m_sq_bac_small_poker_heart8_vertical_png,m_sq_bac_small_poker_heart9_vertical_png,m_sq_bac_small_poker_heartA_vertical_png,m_sq_bac_small_poker_heart10_vertical_png,m_sq_bac_small_poker_heartK_vertical_png,m_sq_bac_small_poker_heartJ_vertical_png,m_sq_bac_small_poker_heartQ_vertical_png,m_sq_bac_small_poker_spade3_vertical_png,m_sq_bac_small_poker_spade2_vertical_png,m_sq_bac_small_poker_spade4_vertical_png,m_sq_bac_small_poker_spade5_vertical_png,m_sq_bac_small_poker_spade6_vertical_png,m_sq_bac_small_poker_spade7_vertical_png,m_sq_bac_small_poker_spade8_vertical_png,m_sq_bac_small_poker_spade9_vertical_png,m_sq_bac_small_poker_spade10_vertical_png,m_sq_bac_small_poker_spadeA_vertical_png,m_sq_bac_small_poker_spadeJ_vertical_png,m_sq_bac_small_poker_spadeK_vertical_png,m_sq_bac_small_poker_spadeQ_vertical_png,bg_mask_png,bg_png",
+			"name": "scene_bc"
+		},
+		{
+			"keys": "blockchain_tex_png,blockchain_tex_json,blockchain_ske_json",
+			"name": "scene_bc_baccarat"
+		},
+		{
+			"keys": "dragon_tex_png,tiger_tex_png,blockchain_dt_tex_png,dragon_tex_json,tiger_tex_json,dragon_ske_json,tiger_ske_json,blockchain_dt_tex_json,blockchain_dt_ske_json",
+			"name": "scene_bc_dragontiger"
 		}
 	],
 	"resources": [
@@ -5847,6 +5859,351 @@
 			"url": "assets/images/m/lobby/common/m-lobby-favorite-empty-icon.png",
 			"type": "image",
 			"name": "m-lobby-favorite-empty-icon_png"
+		},
+		{
+			"url": "assets/dragonbones/d/bab/blockchain_tex.png",
+			"type": "image",
+			"name": "blockchain_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/d/bab/blockchain_tex.json",
+			"type": "json",
+			"name": "blockchain_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/d/bab/blockchain_ske.json",
+			"type": "json",
+			"name": "blockchain_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/d/dtb/dragon_tex.png",
+			"type": "image",
+			"name": "dragon_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/d/dtb/tiger_tex.png",
+			"type": "image",
+			"name": "tiger_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/d/dtb/blockchain_dt_tex.png",
+			"type": "image",
+			"name": "blockchain_dt_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/d/dtb/dragon_tex.json",
+			"type": "json",
+			"name": "dragon_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/d/dtb/tiger_tex.json",
+			"type": "json",
+			"name": "tiger_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/d/dtb/dragon_ske.json",
+			"type": "json",
+			"name": "dragon_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/d/dtb/tiger_ske.json",
+			"type": "json",
+			"name": "tiger_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/d/dtb/blockchain_dt_tex.json",
+			"type": "json",
+			"name": "blockchain_dt_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/d/dtb/blockchain_dt_ske.json",
+			"type": "json",
+			"name": "blockchain_dt_ske_json"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_backside.png",
+			"type": "image",
+			"name": "m_sq_bab_small_poker_backside_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_club2_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_club2_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_bcba_red_card.png",
+			"type": "image",
+			"name": "m_bcba_red_card_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_bcba_CardPanel.png",
+			"type": "image",
+			"name": "m_bcba_CardPanel_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_club3_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_club3_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_club4_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_club4_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_club6_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_club6_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_club7_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_club7_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_club5_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_club5_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_club8_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_club8_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_club10_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_club10_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_club9_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_club9_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_clubJ_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_clubJ_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_clubA_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_clubA_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_clubK_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_clubK_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_clubQ_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_clubQ_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_diamond2_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamond2_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_diamond3_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamond3_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_diamond4_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamond4_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_diamond6_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamond6_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_diamond5_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamond5_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_diamond8_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamond8_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_diamond7_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamond7_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_diamond9_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamond9_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_diamond10_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamond10_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_diamondA_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamondA_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_diamondJ_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamondJ_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_diamondK_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamondK_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_heart2_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heart2_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_diamondQ_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamondQ_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_heart4_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heart4_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_heart3_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heart3_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_heart5_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heart5_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_heart6_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heart6_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_heart7_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heart7_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_heart8_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heart8_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_heart9_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heart9_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_heartA_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heartA_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_heart10_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heart10_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_heartK_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heartK_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_heartJ_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heartJ_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_heartQ_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heartQ_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_spade3_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spade3_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_spade2_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spade2_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_spade4_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spade4_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_spade5_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spade5_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_spade6_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spade6_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_spade7_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spade7_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_spade8_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spade8_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_spade9_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spade9_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_spade10_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spade10_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_spadeA_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spadeA_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_spadeJ_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spadeJ_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_spadeK_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spadeK_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_spadeQ_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spadeQ_vertical_png"
+		},
+		{
+			"url": "assets/images/m/bc/bg_mask.png",
+			"type": "image",
+			"name": "bg_mask_png"
+		},
+		{
+			"url": "assets/images/m/bc/bg.png",
+			"type": "image",
+			"name": "bg_png"
 		}
 	]
 }

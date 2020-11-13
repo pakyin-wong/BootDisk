@@ -87,6 +87,7 @@ namespace we {
       overlaypanel_customroad_selectall: '全选',
 
       overlaypanel_bethistory_title: '游戏记录',
+      overlaypanel_bethistory_payout: '派彩',
       overlaypanel_bethistory_tab: '分类',
       overlaypanel_bethistory_tab_all: '游戏总览',
       overlaypanel_bethistory_tab_live: '真人游戏',
@@ -194,7 +195,9 @@ namespace we {
       overlaypanel_gameSet_autoBet: '自动确认投注',
       overlaypanel_gameSet_sendLiveVerfication: '发送现场验证',
 
+
       expiredmessage_text: '您已3局未投注，将于2局后返回游戏大堂',
+
 
       // customerservicehotlinenumber_text: '客服热线号码更新为＋63 9250898888',
 
@@ -351,7 +354,7 @@ namespace we {
           undo: '还原',
           fullscreen: '视频全莹幕',
           autoFullscreenToggleOn: '开启自动隐藏界面',
-          autoFullscreenToggleOff: '投注结东后, 界面将自动隐藏',
+          autoFullscreenToggleOff: '投注结束后, 界面将自动隐藏',
           roadmapBankerRound: '庄局数',
           roadmapPlayerRound: '閒局数',
           roadmapTierRound: '和局数',
@@ -367,7 +370,7 @@ namespace we {
         },
         gametype: {
           allGame: '全部',
-          bacarrat: '百家乐',
+          baccarat: '百家乐',
           dragontiger: '龙虎',
           luckywheel: '幸运轮',
           roulette: '轮盘',
@@ -582,7 +585,7 @@ namespace we {
       },
       baccarat: {
         tooltip: {
-          swapRoadmap: '轉換路紙',
+          swapRoadmap: '转换路纸',
         },
         statisticChart: {
           bankerPlayerTie: '庄闲和比例 (100局)',
@@ -659,6 +662,37 @@ namespace we {
         restart: '重启游戏',
         retry: '重试',
         cancel: '取消',
+      },
+      error: {
+        error_1001: '用户於其他装置上登录',
+        error_1002: '玩家闲置逾时',
+        error_1003: '授权错误',
+
+        error_2000: '系统维护中',
+        error_2001: '用户帐号被停用',
+        error_2002: '网络不稳定／正在连接网络',
+        error_2003: '不能连接网络',
+
+        error_3000: '获取游戏列表失败',
+        error_3001: '游戏枱无效',
+        error_3010: '获取系统设定失败',
+        error_3011: '储存系统设定失败',
+        error_3012: '获取玩家馀额失败',
+        error_3020: '获取自定好路失败',
+        error_3021: '储存自定好路失败',
+        error_3022: '移除自定好路失败',
+        error_3030: '获取自选投注组合失败',
+        error_3031: '储存自选投注组合失败',
+        error_3032: '移除自选投注组合失败',
+
+        error_3013: 'Get player bet log error',
+        error_3023: 'Add custom roadmap error',
+
+        error_4001: 'Bet failed',
+        error_4002: 'Balance is not enough',
+        error_4003: 'Bet timeout',
+        error_4004: 'Bet amount below limit',
+        error_4005: 'Bet amount beyound limit',
       },
       winType: {
         ba: {
@@ -979,8 +1013,8 @@ namespace we {
           multiplier: '倍数',
           betamount: '金额',
           action: '操作',
-          confirmbet:'确认购买',
-          coin:'元',
+          confirmbet: '确认购买',
+          coin: '元',
         },
         description: {
           checkbox: '请至少选择$min$位位数，您当前选择了$count$个位置\n，系统将自动生成$combination$个方案',
@@ -1179,51 +1213,51 @@ namespace we {
           confirmbet: '确认追号投注',
           lowestProfitRate: '最低收益率 (%)',
 
-          btnround:'期',
-          continuousChase:'连续追',
-          startmulti:'起始倍数',
-          to:'隔',
-          profitnotice:'注意：利润率计算使用当前用户最小奖金组展示',
+          btnround: '期',
+          continuousChase: '连续追',
+          startmulti: '起始倍数',
+          to: '隔',
+          profitnotice: '注意：利润率计算使用当前用户最小奖金组展示',
 
           profitmsg_0: '利润率追号不支持混选\n请确保您的投注都为同一玩法类型\n且元角模式保持一致',
           profitmsg_1: '您设置的参数无法达到盈利，请重新设置',
         },
-        confirm_panel:{
-          betconfirm:'投注确认',
-          lotterynametitle:'彩种名称',
-          lotterynametitle_lo:'WG 时时彩',
-          betmodetitle:'玩法投注',
-          winratiotitle:'赔率',
-          singlebetAmountTitle:'单注金额',
-          totalnotetitle:'总注数',
-          notetext:'注',
-          totalbetamountitle:'总投注额',
-          roundnumbertitle:'投注期数',
-          chaseroundtitle:'追号期数',
-          startroundtitle:'起始期数',
+        confirm_panel: {
+          betconfirm: '投注确认',
+          lotterynametitle: '彩种名称',
+          lotterynametitle_lo: 'WG 时时彩',
+          betmodetitle: '玩法投注',
+          winratiotitle: '赔率',
+          singlebetAmountTitle: '单注金额',
+          totalnotetitle: '总注数',
+          notetext: '注',
+          totalbetamountitle: '总投注额',
+          roundnumbertitle: '投注期数',
+          chaseroundtitle: '追号期数',
+          startroundtitle: '起始期数',
           bettrigger: '游戏投注',
         },
-        bettingcontrol:{
-          betdescription:'中奖说明',
-          totalnotechosen:'已选：',
-          totalbetchosen:'共计：',
-          addbetfields:'加入购物篮',
-          instantbet:'立即购买'
+        bettingcontrol: {
+          betdescription: '中奖说明',
+          totalnotechosen: '已选：',
+          totalbetchosen: '共计：',
+          addbetfields: '加入购物篮',
+          instantbet: '立即购买'
         },
-        mobile_betcontrol:{
-          currentroundtitle:'订单起始奖期号：',
-          notecontrol:'订单详情',
-          chasebetpanel:'我要追号',
-          multi:'倍',
+        mobile_betcontrol: {
+          currentroundtitle: '订单起始奖期号：',
+          notecontrol: '订单详情',
+          chasebetpanel: '我要追号',
+          multi: '倍',
         },
-        mobile_chasebet:{
-          chasebetmode:'追号模式：原订单倍数自动初始化为1倍',
-          chasetype:'追号类型',
-          chasevalue:'追号参数',
-          multiplierTitle:'起始倍数 ( 注单1倍 )',
-          stopchaseifwon:'追中即停 ( 注单1倍 )',
-          roundseparate:'间隔期数',
-          separatemultiplier:'变动倍数',
+        mobile_chasebet: {
+          chasebetmode: '追号模式：原订单倍数自动初始化为1倍',
+          chasetype: '追号类型',
+          chasevalue: '追号参数',
+          multiplierTitle: '起始倍数 ( 注单1倍 )',
+          stopchaseifwon: '追中即停 ( 注单1倍 )',
+          roundseparate: '间隔期数',
+          separatemultiplier: '变动倍数',
         },
         ballresultpos: {
           p1: '万',

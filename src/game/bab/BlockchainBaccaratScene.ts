@@ -32,6 +32,9 @@ namespace we {
         (<any>this._resultDisplay).addEventListener('OPEN_SHUFFLE_PANEL', this.showShufflePanel, this);
         this.getShoeInfo();
       }
+      
+      protected instantiateVideo() {
+      }
 
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('BlockchainBaccaratScene');

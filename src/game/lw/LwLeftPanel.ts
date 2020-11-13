@@ -30,11 +30,11 @@ namespace we {
         this.beadRoad.y = 43;
         this.beadRoad.scaleX = 689 / 689;
         this.beadRoad.scaleY = 689 / 689;
-        this.beadRoad.numRowCollapse = 4;//number of row when collapse
+        this.beadRoad.numRowCollapse = 4; // number of row when collapse
         this.beadRoad.setGridCorners({ tl: 0, tr: 0, bl: 14, br: 14 });
 
         this.beadRoad.parseRoadData([{ v: '01', gameRoundID: 'cde345' }, { v: '02', gameRoundID: 'g34345' }, { v: '03', gameRoundID: 'g45454' }]);
-        //this.beadRoad.expandRoad(true);
+        // this.beadRoad.expandRoad(true);
         this.addChild(this.beadRoad);
 
         this.toggleUpDownButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggleUpDown, this, true);
@@ -93,7 +93,7 @@ namespace we {
       public updateTableBetInfo() {
         if (this.tableInfo && this.tableInfo.data) {
           if (this.tableInfo.betInfo) {
-            this._totalBet = this.tableInfo.betInfo.gameroundid === this.tableInfo.data.gameroundid ? this.tableInfo.betInfo.total : 0;
+            this._totalBet = this.tableInfo.betInfo.gameroundid === this.tableInfo.data.gameroundid ? this.tableInfo.totalBet : 0;
             this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this._totalBet);
           }
         }

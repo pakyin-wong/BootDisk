@@ -34,6 +34,7 @@ namespace we {
         // For the update event
         this.currency = [core.Currency.EUR, core.Currency.JPY, core.Currency.RMB, core.Currency.HKD];
         this.balances = [3000, 6000, 99999999999999, 2000];
+        env.gameTypes = ["13", "16", "18", "19", "0", "2", "14", "5", "1", "12", "15", "17", "23", "24", "25", "21", "22", "20", "26"];
         this.balance_index = 0;
         // end
         const value = window.location.search;
@@ -727,7 +728,7 @@ namespace we {
           // iconKey08: 'd_lobby_profile_pic_08_png',
         };
         env.profileimage = ''; // 'iconKey01';
-        env.denomList = [100, 500, 1000, 2000, 3000, 5000, 10000, 20000, 30000, 50000, 100000, 200000, 300000, 500000, 1000000, 2000000, 3000000, 5000000, 10000000, 20000000];
+        env.denomList = ["100", "500", "1000", "2000", "3000", "5000", "10000", "20000", "30000", "50000", "100000", "200000", "300000", "500000", "1000000", "2000000", "3000000", "5000000", "10000000", "20000000"];
         env.betLimits = {
           'Live':
           [
@@ -794,7 +795,9 @@ namespace we {
           });
         env.wholeDenomList = denominationList;
         */
+
         env.gameCategories = ["Live", "Lottery"];
+        env.gameTypes = ["13", "16", "18", "19", "0", "2", "14", "5", "1", "12", "15", "17", "23", "24", "25", "21", "22", "20", "26"];
         env.mode = null || -1;
         env.categorySortOrder = '{}';
         env.storedPositions = JSON.parse('{"TableInfoPanel":{"x":200,"y":400}}');
