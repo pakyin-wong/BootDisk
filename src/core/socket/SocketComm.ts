@@ -614,7 +614,7 @@ namespace we {
 			  dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, tableInfo.bets);
   
 			  // check good road notification
-			  if (tableInfo.goodRoad && !tableInfo.goodRoad.alreadyShown) {
+			  if (env.showGoodRoadHint && tableInfo.goodRoad && !tableInfo.goodRoad.alreadyShown) {
 				tableInfo.goodRoad.alreadyShown = true;
 				const data = {
 				  tableid: tableInfo.tableid,
