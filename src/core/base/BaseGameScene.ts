@@ -338,7 +338,7 @@ namespace we {
         if (this._betRelatedGroup) {
           this._betRelatedGroup.changeBtnState(
             true,
-            this._chipLayer.getTotalCfmBetAmount(),
+            this._chipLayer.getTotalUncfmBetAmount(),
             this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
           );
         }
@@ -348,7 +348,7 @@ namespace we {
           if (this._betRelatedGroup) {
             this._betRelatedGroup.changeBtnState(
               false,
-              this._chipLayer.getTotalCfmBetAmount(),
+              this._chipLayer.getTotalUncfmBetAmount(),
               this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
             );
           }
@@ -552,7 +552,8 @@ namespace we {
           if (this._betRelatedGroup) {
             this._betRelatedGroup.changeBtnState(
               false,
-              this._chipLayer.getTotalCfmBetAmount(),
+              this._chipLayer.getTotalUncfmBetAmount(),
+              // this._chipLayer.getTotalCfmBetAmount(),
               this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
             );
           }
@@ -788,7 +789,7 @@ namespace we {
               if (this._betRelatedGroup) {
                 this._betRelatedGroup.changeBtnState(
                   false,
-                  this._chipLayer.getTotalCfmBetAmount(),
+                  this._chipLayer.getTotalUncfmBetAmount(),
                   this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
                 );
               }
@@ -860,7 +861,7 @@ namespace we {
           if (this._betRelatedGroup) {
             this._betRelatedGroup.changeBtnState(
               false,
-              this._chipLayer.getTotalCfmBetAmount(),
+              this._chipLayer.getTotalUncfmBetAmount(),
               this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
             );
           }
@@ -874,7 +875,7 @@ namespace we {
         if (this._betRelatedGroup) {
           this._betRelatedGroup.changeBtnState(
             true,
-            this._chipLayer.getTotalCfmBetAmount(),
+            this._chipLayer.getTotalUncfmBetAmount(),
             this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
           );
         }
@@ -886,7 +887,7 @@ namespace we {
           if (this._betRelatedGroup) {
             this._betRelatedGroup.changeBtnState(
               true,
-              this._chipLayer.getTotalCfmBetAmount(),
+              this._chipLayer.getTotalUncfmBetAmount(),
               this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
             );
           }
@@ -900,7 +901,7 @@ namespace we {
             if (this._betRelatedGroup) {
               this._betRelatedGroup.changeBtnState(
                 false,
-                this._chipLayer.getTotalCfmBetAmount(),
+                this._chipLayer.getTotalUncfmBetAmount(),
                 this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
               );
             }

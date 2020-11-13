@@ -86,17 +86,18 @@ namespace we {
         }
       }
 
-      public changeBtnState(isEnable: boolean = true, totalCfmBetAmount: number = 0, isPrevBet: boolean = false) {
+      public changeBtnState(isEnable: boolean = true, totalUncfmBetAmount: number = 0, isPrevBet: boolean = false) {
         this._undoButton.touchEnabled = isEnable;
         this._cancelButton.touchChildren = this._cancelButton.touchEnabled = isEnable;
         this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isEnable;
-        this._doubleButton.touchChildren = this._doubleButton.touchEnabled = totalCfmBetAmount ? true : false;
+        // double btn check uncfm btn , not cfmbtn
+        this._doubleButton.touchChildren = this._doubleButton.touchEnabled = totalUncfmBetAmount ? true : false;
         this._repeatButton.touchChildren = this._repeatButton.touchEnabled = isPrevBet;
         this._undoButton.alpha = isEnable ? 1 : 0.5;
         this._cancelButton.alpha = isEnable ? 1 : 0.5;
         this._confirmButton.alpha = isEnable ? 1 : 0.3;
         this._repeatButton.alpha = this._repeatButton.touchEnabled ? 1 : 0.5;
-        this._doubleButton.alpha = this._doubleButton.touchEnabled ? 1 : 0.5;
+        this._doubleButton.alpha = this._doubleButton.touchChildren ? 1 : 0.5;
         if (this._timer.bg_color) {
           this._timer.bg_color.alpha = isEnable ? 0.7 : 0;
           if (isEnable) {
