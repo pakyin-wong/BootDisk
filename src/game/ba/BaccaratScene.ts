@@ -175,6 +175,11 @@ namespace we {
         }
       }
 
+      protected setStateShuffle(isInit: boolean = false) {
+        super.setStateShuffle(isInit);
+        this._message.showMessage(ui.InGameMessage.INFO, i18n.t('baccarat.shuffling'),null, true);
+      }
+
       public checkResultMessage() {
         if (this._gameData.wintype == 0) {
           return;

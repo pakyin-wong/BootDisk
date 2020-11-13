@@ -735,7 +735,7 @@ namespace we {
               currency: Currency.RMB,
               maxlimit: 1000,
               minlimit: 10,
-              chips: [100,500,1000,2000,3000,50000]
+              chips: [100, 500, 1000, 2000, 3000, 50000]
               //chips: [1, 5, 20, 100, 500],
               // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
             },
@@ -746,7 +746,7 @@ namespace we {
               currency: Currency.RMB,
               maxlimit: 1000,
               minlimit: 10,
-              chips: [100,500,1000,2000,3000,50000]
+              chips: [100, 500, 1000, 2000, 3000, 50000]
               //chips: [1, 5, 20, 100, 500],
             },
           ],
@@ -756,7 +756,7 @@ namespace we {
               currency: Currency.RMB,
               maxlimit: 1000,
               minlimit: 10,
-              chips: [100,500,1000,2000,3000,50000]
+              chips: [100, 500, 1000, 2000, 3000, 50000]
               //chips: [1, 5, 20, 100, 500],
             },
           ],
@@ -766,7 +766,7 @@ namespace we {
               currency: Currency.RMB,
               maxlimit: 1000,
               minlimit: 10,
-              chips: [100,500,1000,2000,3000,50000]
+              chips: [100, 500, 1000, 2000, 3000, 50000]
               //chips: [1, 5, 20, 100, 500],
             },
           ],
@@ -776,7 +776,7 @@ namespace we {
               currency: Currency.RMB,
               maxlimit: 1000,
               minlimit: 10,
-              chips: [100,500,1000,2000,3000,50000]
+              chips: [100, 500, 1000, 2000, 3000, 50000]
               //chips: [1, 5, 20, 100, 500],
             },
           ],
@@ -794,7 +794,7 @@ namespace we {
           });
         env.wholeDenomList = denominationList;
         */
-
+        env.gameCategories = ["Live", "Lottery"];
         env.mode = null || -1;
         env.categorySortOrder = '{}';
         env.storedPositions = JSON.parse('{"TableInfoPanel":{"x":200,"y":400}}');

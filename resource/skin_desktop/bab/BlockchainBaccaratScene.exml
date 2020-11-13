@@ -61,7 +61,7 @@
 	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2600" touchEnabled="false"
 	         touchChildren="true" touchThrough="true">
 		<ui:GameBar width="251" height="52" x="1874" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
-		            skinName="skin_desktop.GameBar" />
+		            skinName="skin_desktop.GameBar"  currentState="no_video"/>
 	</e:Group>
 	<bab:GameResultMessage id="_resultMessage" x="0" y="676" width="1" height="1" horizontalCenter="0" />
 	<ui:InGameMessage id="_expiredMessage" x="1300" y="831" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
