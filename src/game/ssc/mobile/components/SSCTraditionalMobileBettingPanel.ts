@@ -151,13 +151,13 @@ namespace we {
         const playmode = `${i18n.t('lo_trad.bigTag.'+currentBigTag.name)} - ${i18n.t('lo_trad.smallTag.'+config.name)}`;      
 
         
-        const bettingTable = new SSCTraditionalBettingTable(config, playmode);
+        const bettingTable = new SSCTraditionalMobileBettingTable(config, playmode);
         if (this._bettingControl) {
           this._bettingControl.updateHighestWin(config);
         }
         this._currentBettingTable = bettingTable;
+
         this.initCurrentBettingTable();
-        this._currentBettingTable.init();
       }
 
       protected clearCurrentBettingTable() {
@@ -203,22 +203,26 @@ namespace we {
       protected changeBettingTableState(idx: number) {
 
         this._currentBettingStateIndex = idx;
+        this._currentBettingTable.switchState(this.bettingTableStates[idx]);
         this._currentBettingTable.currentState = this.bettingTableStates[idx];
         this._currentBettingTable.invalidateState();
+
+        egret.Tween.removeTweens(this._footer);
 
         if (this._bettingControl) {
           switch (this._currentBettingStateIndex) {
             case 1:
             case 2:
-              //   this._bettingControl.visible = false;
-              this._footer.visible = true;
-              this._footer.touchEnabled = true;
-              this._footer.touchThrough = false;
+              egret.Tween.get(this._footer).to({y:1659, visible:true, touchEnabled:true, touchThrough:false},250)
+              // this._footer.visible = true;
+              // this._footer.touchEnabled = true;
+              // this._footer.touchThrough = false;
               break;
             case 0:
-              this._footer.visible = false;
-              this._footer.touchEnabled = false;
-              this._footer.touchThrough = true;
+              egret.Tween.get(this._footer).to({y:2155, visible:true, touchEnabled:false, touchThrough:true},150)
+              // this._footer.visible = false;
+              // this._footer.touchEnabled = false;
+              // this._footer.touchThrough = true;
               break;
           }
         }
@@ -231,6 +235,7 @@ namespace we {
 
       protected initCurrentBettingTable() {
         super.initCurrentBettingTable();
+        this._currentBettingTable.init();
         this._bettingTableGroup.addChild(this._currentBettingTable);
         this._currentBettingTable.x = this._currentBettingTable.y = 0;
         if (this._currentBettingStateIndex < 0) {

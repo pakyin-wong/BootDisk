@@ -88,7 +88,7 @@ namespace we {
 
         if (this._btnBetDescription) {
           if(env.isMobile){
-
+            this._btnBetDescription.addEventListener(egret.TouchEvent.TOUCH_TAP, this.showBetDescription, this);
           }else
           {
             this._btnBetDescription.addEventListener(mouse.MouseEvent.ROLL_OVER, this.showBetDescription, this);
@@ -131,7 +131,7 @@ namespace we {
         }
         if (this._btnBetDescription) {
           if(env.isMobile){
-
+            this._btnBetDescription.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.showBetDescription, this);
           }else{
             this._btnBetDescription.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.showBetDescription, this);
           }
@@ -168,7 +168,11 @@ namespace we {
 
         this._lblBetDes.renderText = () => `${i18n.t('lo_trad.bigTag.' + bigTag)} | ${i18n.t('lo_trad.smallTag.' + smallTag)}\n${i18n.t('lo_trad.betDescription.' + bigTag + '.' + smallTag)}`;
         this._betDesGrp.visible = true;
-        this._btnBetDescription.once(mouse.MouseEvent.ROLL_OUT, this.hideBetDescription, this);
+        if(env.isMobile){
+          this.bettingPanel.once(egret.TouchEvent.TOUCH_BEGIN, this.hideBetDescription, this);
+        }else {
+          this._btnBetDescription.once(mouse.MouseEvent.ROLL_OUT, this.hideBetDescription, this);
+        }
       }
 
       protected hideBetDescription(e) {

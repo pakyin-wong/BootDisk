@@ -158,7 +158,10 @@ namespace we {
 
       public dispose() {}
 
+      //mobile
       public setLabelPlayMode(e) {}
+
+      public switchState(to : string){}
     }
   }
 }
