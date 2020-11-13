@@ -56,10 +56,10 @@ namespace we {
     //   }
     // }
 
-    export function getChipImage(val: number|string) {
-      val = Number(val);
+    export function getChipImage(val: number | string) {
+      val = val.toString();
       let idx = env.denomList.indexOf(val);
-      if (idx<0 || idx >= chipImages.length) {
+      if (idx < 0 || idx >= chipImages.length) {
         throw new Error('Wrong chip value');
       }
       return chipImages[idx];
