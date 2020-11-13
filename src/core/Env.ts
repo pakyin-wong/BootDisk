@@ -182,7 +182,7 @@ namespace we {
       }
 
       set gameCategories(value: string[]) {
-        // value = ['Live'];    // TODO: this is just for testing, delete it when finish testing
+        // value = ['Lottery'];    // TODO: this is just for testing, delete it when finish testing
         const validCategories = ['Live', 'Lottery'];    // categories which support in current version
         this._gameCategories = validCategories.filter(cat => {
           return value.indexOf(cat) >= 0;
@@ -208,7 +208,8 @@ namespace we {
       }
 
       set gameTypes(value: any[]) {
-        // value = ['0','15','22'];     // TODO: this is just for testing, delete it when finish testing
+        // value = ['0', '15', '22'];     // TODO: this is just for testing, delete it when finish testing
+        // console.log(JSON.stringify(value));
         this._gameTypes = value.map((cat: string) => parseInt(cat, 10));
         this.generateLiveGameTab();
         this.generateLotteryTab();
