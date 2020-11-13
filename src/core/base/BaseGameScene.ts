@@ -338,7 +338,7 @@ namespace we {
         if (this._betRelatedGroup) {
           this._betRelatedGroup.changeBtnState(
             true,
-            this._chipLayer.getTotalCfmBetAmount(),
+            this._chipLayer.getTotalUncfmBetAmount(),
             this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
           );
         }
@@ -348,7 +348,7 @@ namespace we {
           if (this._betRelatedGroup) {
             this._betRelatedGroup.changeBtnState(
               false,
-              this._chipLayer.getTotalCfmBetAmount(),
+              this._chipLayer.getTotalUncfmBetAmount(),
               this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
             );
           }
@@ -394,13 +394,14 @@ namespace we {
       protected onTouchTap(evt: egret.Event) {}
 
       protected onBetDetailUpdateInBetState() {
+        console.log('onBetDetailUpdateInBetState')
         if (this._betDetails && this._chipLayer) {
           this._chipLayer.updateBetFields(this._betDetails);
           this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
           if (this._betRelatedGroup) {
             this._betRelatedGroup.changeBtnState(
               false,
-              this._chipLayer.getTotalCfmBetAmount(),
+              0,
               this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
             );
           }
@@ -552,7 +553,8 @@ namespace we {
           if (this._betRelatedGroup) {
             this._betRelatedGroup.changeBtnState(
               false,
-              this._chipLayer.getTotalCfmBetAmount(),
+              this._chipLayer.getTotalUncfmBetAmount(),
+              // this._chipLayer.getTotalCfmBetAmount(),
               this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
             );
           }
@@ -788,7 +790,7 @@ namespace we {
               if (this._betRelatedGroup) {
                 this._betRelatedGroup.changeBtnState(
                   false,
-                  this._chipLayer.getTotalCfmBetAmount(),
+                  0,
                   this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
                 );
               }
@@ -860,7 +862,7 @@ namespace we {
           if (this._betRelatedGroup) {
             this._betRelatedGroup.changeBtnState(
               false,
-              this._chipLayer.getTotalCfmBetAmount(),
+              this._chipLayer.getTotalUncfmBetAmount(),
               this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
             );
           }
@@ -874,8 +876,8 @@ namespace we {
         if (this._betRelatedGroup) {
           this._betRelatedGroup.changeBtnState(
             true,
-            this._chipLayer.getTotalCfmBetAmount(),
-            this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
+            this._chipLayer.getTotalUncfmBetAmount(),
+            false
           );
         }
       }
@@ -886,7 +888,7 @@ namespace we {
           if (this._betRelatedGroup) {
             this._betRelatedGroup.changeBtnState(
               true,
-              this._chipLayer.getTotalCfmBetAmount(),
+              this._chipLayer.getTotalUncfmBetAmount(),
               this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
             );
           }
@@ -900,7 +902,7 @@ namespace we {
             if (this._betRelatedGroup) {
               this._betRelatedGroup.changeBtnState(
                 false,
-                this._chipLayer.getTotalCfmBetAmount(),
+                this._chipLayer.getTotalUncfmBetAmount(),
                 this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
               );
             }

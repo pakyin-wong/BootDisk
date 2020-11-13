@@ -83,7 +83,7 @@ namespace we {
       public videoOpen: boolean = true;
 
       public betLimits: data.BetLimit;
-      public denomList: number[];
+      public denomList: string[];
       public goodRoadData: data.GoodRoadMapData;
       public playerLotteryStat: any;
       public isMobile: boolean = false;
