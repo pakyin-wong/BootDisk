@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.dil.HistorySkin" width="610" height="270" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal">
-        <e:Group horizontalCenter="0" y="18">
-                <ui:RunTimeLabel id="_recent" size="22" i18n="dice.recent"/>
-                <e:Label id="_roundNumber" size="22" />
-                <ui:RunTimeLabel id="_roundResult" size="22" i18n="dice.roundResult" />
-                <e:layout>
-                        <e:HorizontalLayout gap="10" />
-                </e:layout>
-        </e:Group>
+
         <e:Group horizontalCenter="0" y="60">
                 <e:Group width="34" height="206">
                         <e:Label id="_sum3Percent" horizontalCenter="0" y="0" size="16" text="10%" />
@@ -126,4 +119,24 @@
                         <e:HorizontalLayout gap="2" />
                 </e:layout>
         </e:Group>
+
+	<e:Group y="18" width="610" touchChildren="true" touchThrough="true">
+		<e:Group id="_prevbtn" width="37" height="37" x="86" scaleX="1" scaleY="1">
+			<e:Image id="_prevbtnImage"/>
+		</e:Group>
+		<e:Group horizontalCenter="0" y="0" x="295" scaleX="1" scaleY="1">
+			<ui:RunTimeLabel id="_recent" size="22" i18n="dice.recent"/>
+			<e:Label id="_roundNumber" size="22"/>
+			<ui:RunTimeLabel id="_roundResult" size="22" i18n="dice.roundResult"/>
+			<e:layout>
+			<e:HorizontalLayout gap="10"/>
+			</e:layout>
+		</e:Group>
+		<e:Group id="_nextbtn" width="37" height="37" x="347" scaleX="1" scaleY="1">
+			<e:Image id="_nextbtnImage"/>
+		</e:Group>
+		<e:layout>
+			<e:HorizontalLayout horizontalAlign="center" gap="54"/>
+		</e:layout>
+	</e:Group>
 </e:Skin>

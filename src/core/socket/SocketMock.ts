@@ -794,6 +794,7 @@ namespace we {
           });
         env.wholeDenomList = denominationList;
         */
+
         env.gameCategories = ["Live", "Lottery"];
         env.mode = null || -1;
         env.categorySortOrder = '{}';

@@ -74,14 +74,14 @@ namespace we {
         console.log('env.showGoodRoadHint', env.showGoodRoadHint);
 
         const rslt = env.showGoodRoadHint ? "1" : "0";
-        dir.socket.updateSetting('showGoodRoadHint', rslt);
+        dir.socket.updateSetting('showGoodRoadHint', env.showGoodRoadHint === true? "1":"0");
       }
 
       protected onSwitchAutoBet(e) {
         env.autoConfirmBet = this.switch_autoBet.active = !env.autoConfirmBet;
 
         const rslt = env.autoConfirmBet ? "1" : "0";
-        dir.socket.updateSetting('autoConfirmBet', rslt);
+        dir.socket.updateSetting('autoConfirmBet', env.autoConfirmBet === true? "1":"0")
       }
 
       protected onSendLiveVerCall() {

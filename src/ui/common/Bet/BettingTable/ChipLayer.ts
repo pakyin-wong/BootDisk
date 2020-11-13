@@ -479,10 +479,16 @@ namespace we {
       }
 
       protected undoRepeatBetFields(betDetails: data.BetDetail[]) {
+        console.log('before betDetails',betDetails)
         betDetails.map(value => {
-          this.getUncfmBetByField(value.field).amount = value.amount;
+          // this.getUncfmBetByField(value.field).amount = value.amount;
+          // this._betChipStackMapping[value.field].draw(); 
+            this._betChipStackMapping[value.field].uncfmBet = value.amount * this.getRate(value.field);
+            this._betChipStackMapping[value.field].draw();
         });
+        console.log('after betDetails', betDetails)
         this._uncfmBetDetails = betDetails;
+        console.log('this._uncfmBetDetails',this._uncfmBetDetails)
       }
 
       public repeatBetFields() {
@@ -536,7 +542,16 @@ namespace we {
       // Tick button
       public validateBet(): boolean {
         const fieldAmounts = utils.arrayToKeyValue(this._uncfmBetDetails, 'field', 'amount');
-
+        let arrFieldAmounts:any = Object.keys(fieldAmounts);
+        const cfmFieldAmounts = utils.arrayToKeyValue(this._cfmBetDetails,'field', 'amount');
+        let arrCfmFieldAmounts:any =  Object.keys(cfmFieldAmounts);
+        let totalAmount = fieldAmounts
+        arrCfmFieldAmounts.forEach(key => {
+          if (arrFieldAmounts.includes(key)) {
+            totalAmount[key] += cfmFieldAmounts[key]
+          }
+        })
+    
         // clamp bet amount with current balance
         const totalUncfmAmount = this.getTotalUncfmBetAmount();
         const balance = env.balance;
@@ -545,7 +560,8 @@ namespace we {
           return false;
         }
 
-        return this.validateFieldAmounts(fieldAmounts, null, true);
+        // return this.validateFieldAmounts(fieldAmounts, null, true);
+         return this.validateFieldAmounts(totalAmount, null, true);
       }
 
       // check if the current unconfirmed betDetails are valid
@@ -555,12 +571,20 @@ namespace we {
         let exceedBetLimit = false;
         if (checkLowerLimit) {
           exceedBetLimit = this.isExceedLowerBetLimit(fieldAmounts, betLimit);
+          console.log('isExceedLowerBetLimit',exceedBetLimit)
           if (exceedBetLimit) {
             this.resetUnconfirmedBet();
-            this.dispatchEvent(new egret.Event('onUnconfirmBet'));
+            this.dispatchEvent(new egret.Event('resetUnconfirmBet'));
           }
         } else {
           exceedBetLimit = this.isExceedUpperBetLimit(fieldAmounts, betLimit, betDetail);
+          console.log('isExceedUpperBetLimit',exceedBetLimit)
+          // if (exceedBetLimit) {
+          //   this.resetUnconfirmedBet();
+          //   this.dispatchEvent(new egret.Event('onUnconfirmBet'));
+          //   console.log(' this.resetUnconfirmedBet();')
+          //   console.log('this.dispatchEvent(new egret.Event(onUnconfirmBet));')
+          // }
         }
 
         if (exceedBetLimit) {
