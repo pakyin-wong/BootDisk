@@ -345,7 +345,6 @@ namespace we {
       }
 
       protected resetBetRelatedGroupBtn(){
-        console.log('test')
           if (this._betRelatedGroup) {
             this._betRelatedGroup.changeBtnState(
               false,
