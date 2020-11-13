@@ -62,10 +62,13 @@ namespace we {
           dir.layerCtr.overlay.addChild(this._overlay);
           dir.layerCtr.overlay.addChild(this._mDropdown);
 
-          this._notificationController = new ui.MobileNotificationController();
-          this._notificationController.x = 0;
-          this._notificationController.y = 0;
-          dir.layerCtr.notification.addChild(this._notificationController);
+          if (env.gameCategories.indexOf('live')>=0) {
+            // if live category enabled
+            this._notificationController = new ui.MobileNotificationController();
+            this._notificationController.x = 0;
+            this._notificationController.y = 0;
+            dir.layerCtr.notification.addChild(this._notificationController);
+          }
         } else {
           this._liveSidePanel = new ui.LiveSidePanel();
           this._liveSidePanel.right = 25;
@@ -79,10 +82,13 @@ namespace we {
           this._nav.addChildAt(this._liveSidePanel, idx);
           dir.layerCtr.overlay.addChild(this._overlay);
 
-          this._notificationController = new ui.NotificationController();
-          this._notificationController.x = stage.stageWidth - 410;
-          this._notificationController.y = 180;
-          dir.layerCtr.notification.addChild(this._notificationController);
+          if (env.gameCategories.indexOf('live')>=0) {
+            // if live category enabled
+            this._notificationController = new ui.NotificationController();
+            this._notificationController.x = stage.stageWidth - 410;
+            this._notificationController.y = 180;
+            dir.layerCtr.notification.addChild(this._notificationController);
+          }
         }
 
         // this._nav.touchEnabled = false;

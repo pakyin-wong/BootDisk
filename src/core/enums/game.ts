@@ -45,14 +45,14 @@ namespace we {
       live = 'live',
     }
 
-    export enum GameGroupTab {
-      live = 'live',
-      lottery = 'lottery',
-    }
+    // export enum GameGroupTab {
+    //   live = 'live',
+    //   lottery = 'lottery',
+    // }
 
     export enum LiveGameTab {
       all = 'allGame',
-      ba = 'bacarrat',
+      ba = 'baccarat',
       dt = 'dragontiger',
       ro = 'roulette',
       di = 'dice',

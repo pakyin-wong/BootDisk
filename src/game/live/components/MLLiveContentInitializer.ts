@@ -79,7 +79,8 @@ namespace we {
         root.scroller.viewport.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.touchContinue, this, true, -1);
         root.scroller.viewport.addEventListener(egret.TouchEvent.TOUCH_END, this.touchContinue, this, true, -1);
 
-        root.tabItems = utils.EnumHelpers.values(core.LiveGameTab);
+        // root.tabItems = utils.EnumHelpers.values(core.LiveGameTab);
+        root.tabItems = env.liveGameTab;
         root.tabs = new DropDownLiveGameTabbar(root.tabItems);
         root.addChild(root.tabs);
 

@@ -343,7 +343,7 @@ namespace we {
         },
         gametype: {
           allGame: '全部',
-          bacarrat: '百家樂',
+          baccarat: '百家樂',
           dragontiger: '龍虎',
           luckywheel: '幸運輪',
           roulette: '輪盤',

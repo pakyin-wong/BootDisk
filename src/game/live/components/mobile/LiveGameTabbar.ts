@@ -25,7 +25,7 @@ namespace we {
         // https://developer.egret.com/en/apidoc/index/name/eui.TabBar
         //   this.tabBar.touchChildren = false;
 
-        // ['live.gametype.bacarrat', 'live.gametype.dragontiger', 'live.gametype.luckywheel', 'live.gametype.wheel', 'live.gametype.dice', 'live.gametype.goodroad'];
+        // ['live.gametype.baccarat', 'live.gametype.dragontiger', 'live.gametype.luckywheel', 'live.gametype.wheel', 'live.gametype.dice', 'live.gametype.goodroad'];
 
         this.collection = new eui.ArrayCollection(this.items);
         this.tabBar.itemRenderer = LiveGameTabItem;

@@ -86,7 +86,8 @@ namespace we {
         root.roomList.setGameFilters(core.LiveGameTab.all);
         root.roomList.setTableList(root.roomIds);
 
-        root.tabItems = utils.EnumHelpers.values(core.LiveGameTab);
+        // root.tabItems = utils.EnumHelpers.values(core.LiveGameTab);
+        root.tabItems = env.liveGameTab;
         root.tabs = new DropDownLiveGameTabbar(root.tabItems);
         root.roomList.addChildAt(root.tabs, 0);
 
@@ -97,7 +98,7 @@ namespace we {
         // tabbarBg.percentHeight = 100;
         // tabBarGroup.addChild(tabbarBg);
         // root.tabItems = utils.EnumHelpers.values(core.LiveGameTab);
-        // // ['bacarrat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
+        // // ['baccarat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
         // root.tabs = new LiveGameTabbar(root.tabItems);
         // tabBarGroup.addChild(root.tabs);
 

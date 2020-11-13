@@ -137,6 +137,7 @@ namespace we {
 			protected async asyncUpdateCustomGoodRoad(id: string, data: any) {
 				return new Promise((resolve, reject) => {
 					function callback(data) {
+						// console.log('asyncUpdateCustomGoodRoad', data);
 						resolve();
 					}
 					this.client.updateCustomRoadmap(id, data, callback);
@@ -146,6 +147,7 @@ namespace we {
 			protected async asyncUpdateDefaultGoodRoad(ids: string[]) {
 				return new Promise((resolve, reject) => {
 					function callback(data) {
+						// console.log('asyncUpdateDefaultGoodRoad', data);
 						resolve();
 					}
 					this.client.updateDefaultRoadmap(ids, callback);
@@ -216,7 +218,7 @@ namespace we {
 				});
 			}
 			private _goodRoadUpdateCallback(data: any) {
-				console.log('_goodRoadUpdateCallback', data);
+				// console.log('_goodRoadUpdateCallback', data);
 				if (!data.error) {
 					// if the data is an error, do not update the data
 					env.goodRoadData = ba.GoodRoadParser.CreateGoodRoadMapDataFromObject(data);
@@ -296,12 +298,11 @@ namespace we {
 				env.accountType = player.profile.type ? player.profile.type : 0;
 				// env.nickname = player.profile.nickname;
 				env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
-
 				env.showGoodRoadHint = player.profile.settings.showGoodRoadHint === '1' ? true : false;
 				env.autoConfirmBet = player.profile.settings.autoConfirmBet === '1' ? true : false;
+
 				env.currentChipSelectedIndex = player.profile.settings.currentChipSelectedIndex ? parseInt(player.profile.settings.currentChipSelectedIndex) : 0;
 				env.leftHandMode = player.profile.settings.isLeftHand === '1' ? true : false;
-				console.log('comm env.leftHandMode', env.leftHandMode)
 				env.favouriteTableList = env.favouriteTableList ? env.favouriteTableList : [];
 				if (player.profile.settings.favouriteTableList) {
 					try {
@@ -316,6 +317,8 @@ namespace we {
 
 				env.blockchain.cosmolink = player.blockchainlinks.cosmoslink
 				env.blockchain.thirdPartySHA256 = player.blockchainlinks.thirdpartysha256
+
+				// console.log('blockchain', env.blockchain)
 
 				// env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
 				// env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
@@ -415,18 +418,18 @@ namespace we {
 
 				env.language = player.profile.settings.language ? player.profile.settings.language : 'cn';
 				we.i18n.setLang(env.language ? env.language : 'cn', true);
-				/*
-				let denominationList = [];
-				for (const betLimit of env.betLimits) {
-				denominationList.push(...betLimit.chips);
-				}
-				denominationList = denominationList
-				.filter((v, i) => denominationList.indexOf(v) === i)
-				.sort((a, b) => {
-					return a < b ? -1 : 1;
-				});
-				env.wholeDenomList = denominationList;
-				*/
+        /*
+        let denominationList = [];
+        for (const betLimit of env.betLimits) {
+          denominationList.push(...betLimit.chips);
+        }
+        denominationList = denominationList
+          .filter((v, i) => denominationList.indexOf(v) === i)
+          .sort((a, b) => {
+            return a < b ? -1 : 1;
+          });
+        env.wholeDenomList = denominationList;
+        */
 
 				env.mode = player.profile.settings.mode ? Math.round(player.profile.settings.mode) : -1;
 				if (player.profile.categoryorders) {
@@ -437,7 +440,6 @@ namespace we {
 				}
 
 				logger.l(utils.LogTarget.RELEASE, `${timestamp}: READY`, player);
-
 
 				dir.evtHandler.dispatch(core.MQTT.CONNECT_SUCCESS);
 
@@ -561,11 +563,11 @@ namespace we {
 				const tableInfo = env.getOrCreateTableInfo(gameStatus.tableid);
 				gameStatus.previousstate = tableInfo.data ? tableInfo.data.state : null;
 				gameStatus.starttime = Math.floor(gameStatus.starttime / 1000000);
-				/*
-				if (tableInfo && tableInfo.tableid && tableInfo.tableid.indexOf('BAB') && tableInfo.data){
-				console.log('BAB tableid ' + tableInfo.tableid + ':' + tableInfo.data)
-				}
-				*/
+        /*
+        if (tableInfo && tableInfo.tableid && tableInfo.tableid.indexOf('BAB') && tableInfo.data){
+          console.log('BAB tableid ' + tableInfo.tableid + ':' + tableInfo.data)
+        }
+		*/
 				if (tableInfo.roundid !== gameStatus.gameroundid) {
 					tableInfo.prevroundid = tableInfo.roundid;
 					tableInfo.roundid = gameStatus.gameroundid;
@@ -614,7 +616,7 @@ namespace we {
 						dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, tableInfo.bets);
 
 						// check good road notification
-						if (env.showGoodRoadHint && tableInfo.goodRoad && !tableInfo.goodRoad.alreadyShown) {
+						if (env.showGoodRoadHint && tableInfo.displayReady && tableInfo.goodRoad && !tableInfo.goodRoad.alreadyShown) {
 							tableInfo.goodRoad.alreadyShown = true;
 							const data = {
 								tableid: tableInfo.tableid,
@@ -657,15 +659,15 @@ namespace we {
 				// update gameStatus of corresponding tableInfo object in env.tableInfoArray
 				const tableInfo = env.getOrCreateTableInfo(tableid);
 
-				/*
-				if (gameStatistic) {
-				if (gameStatistic.statistic) {
-					console.log('SocketComm::onGameStatisticUpdate');
-					console.log(tableid);
-					console.log(gameStatistic.statistic);
-				}
-				}
-				*/
+        /*
+        if (gameStatistic) {
+          if (gameStatistic.statistic) {
+            console.log('SocketComm::onGameStatisticUpdate');
+            console.log(tableid);
+            console.log(gameStatistic.statistic);
+          }
+        }
+        */
 
 				function getStatistic(field: string) {
 					if (!gameStatistic || !gameStatistic.statistic) {
@@ -1213,15 +1215,15 @@ namespace we {
 			}
 
 			public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {
-				/*
-				console.log(
-				'SocketComm::createCustomBetCombination title/betOptions ',
-				title,
-				betOptions.map(value => {
-					return { field: value.betcode, amount: value.amount };
-				})
-				);
-				*/
+        /*
+        console.log(
+          'SocketComm::createCustomBetCombination title/betOptions ',
+          title,
+          betOptions.map(value => {
+            return { field: value.betcode, amount: value.amount };
+          })
+        );
+        */
 				this.client.createBetTemplate(
 					title,
 					betOptions.map(value => {

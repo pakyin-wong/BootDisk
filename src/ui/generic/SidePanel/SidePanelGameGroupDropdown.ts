@@ -10,7 +10,8 @@ namespace we {
 
       constructor() {
         super();
-        this._source = utils.EnumHelpers.values(core.GameGroupTab);
+        this._source = env.sideGameCategories;
+        // this._source = utils.EnumHelpers.values(core.GameGroupTab);
       }
 
       public mount() {

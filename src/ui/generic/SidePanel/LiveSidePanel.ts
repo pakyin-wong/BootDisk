@@ -136,6 +136,9 @@ namespace we {
         this.allTableList.addEventListener(TableList.LOCK, this.onLockChanged, this, false, 10);
         this.allTableList.addEventListener(TableList.UNLOCK, this.onLockChanged, this, false, 10);
 
+        this._subdropdown.gamegroup = env.sideGameCategories.length>0?env.sideGameCategories[0]:'live';
+        this.allTableList.setGameFilters(this._subdropdown.getSelectedItem().key);
+
         this._tabbar.dataProvider = this._viewStack;
         this._tabbar.validateNow();
       }
