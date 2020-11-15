@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.BlockchainDragonTigerScene" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
-        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*"  xmlns:bab="we.bab.*" xmlns:dt="we.dt.*" xmlns:dtb="we.dtb.*" xmlns:w="http://ns.egret.com/wing"
+        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*"  xmlns:bab="we.bab.*" xmlns:dt="we.dt.*" xmlns:dtb="we.dtb.*" xmlns:bc="we.blockchain.*" xmlns:w="http://ns.egret.com/wing"
         xmlns:live="we.live.*">
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" />
@@ -80,13 +80,13 @@
 	</e:Group>
 	<dtb:HistoryCardHolder id="_historyCardHolder" width="190" height="125" x="22" y="151" skinName="skin_desktop.dtb.CornerHistoryHolderSkin" />
 	<dt:TableInfoPanel width="434" height="430" x="0" y="91" id="_tableInfoWindow" isPoppable="true" isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" anchorOffsetY="0" skinName="skin_desktop.dt.TableInfoPanel"/>	
-	<bab:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true" skeletonName="blockchain_dt"
-	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bab.ShufflePanelSkin" />
-	<bab:DeckPanel id="_deckPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
-	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bab.DeckPanelSkin" />
-	<bab:HelpPanel id="_helpPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
-	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bab.HelpPanelSkin" />
-	<bab:CardInfoPanel id="_cardInfoPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
-	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bab.CardInfoPanelSkin" />
+	<bc:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true" skeletonName="blockchain_dt"
+	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bc.ShufflePanelSkin" />
+	<bc:DeckPanel id="_deckPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
+	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bc.DeckPanelSkin" />
+	<bc:HelpPanel id="_helpPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
+	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bc.HelpPanelSkin" />
+	<bc:CardInfoPanel id="_cardInfoPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
+	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bc.CardInfoPanelSkin" />
 </e:Skin>
 

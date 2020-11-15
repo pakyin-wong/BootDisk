@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.bc.DeckPanelSkin" width="1853" height="1025" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:bab="we.bab.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*">
+        <e:Group id="content" width="100%">
+                <e:Image id="close" source="d-lobby-button-close-none_png" x="1785" y="44" width="44" height="44" />
+                <ui:RunTimeLabel i18n="baccarat.fullShoe" horizontalCenter="0" y="44" size="48" textColor="0xc59466"/>
+                <ui:Scroller width="100%" y="130" height="850">
+                        <e:Group width="100%" horizontalCenter="0">
+                                <ui:RunTimeLabel id="_descrptionLabel" i18n="baccarat.deckDesc" x="57" width="1538" height="150" wordWrap="true"/>
+                                <e:List id="_list" y="200" horizontalCenter="0" >
+                                        <e:layout>
+                                                <e:TileLayout paddingTop="10" requestedColumnCount="17" horizontalGap="15" verticalGap="24" />
+                                        </e:layout>
+                                </e:List>
+                        </e:Group>
+                </ui:Scroller>
+        </e:Group>
+</e:Skin>
+

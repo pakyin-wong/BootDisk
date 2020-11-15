@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_landscape.bab.CardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" width="2424" height="1242">
         <e:Group id="_particleGroup" width="100%" height="100%"/>
-        <e:Group id="_animRingGroup" x="0" y="0"/>
-        <e:Group x="68" y="347" width="637" height="98">
+        <e:Group id="_animRingGroup" y="0" horizontalCenter="0"/>
+        <e:Group x="557" y="372" width="587" height="104">
                 <e:Image source="d_bcba_resultarea_player_png" width="100%" height="100%" />
                 <ui:RunTimeLabel right="159" i18n="baccarat.player" textAlign="center" verticalAlign="middle" size="68" height="100%"/>
                 <e:Label id="_playerSum" x="485" y="0" textAlign="center" verticalAlign="middle" size="96" height="100%" name="b1/playerSum"/>
         </e:Group>
-        <e:Group x="1895" y="347" width="637" height="98">
-                <e:Image source="d_bcba_resultarea_banker_png" width="100%" height="100%"  />
+        <e:Group right="557" y="372" width="587" height="104">
+                <e:Image source="d_bcba_resultarea_banker_png" width="100%" height="100%" />
                 <ui:RunTimeLabel x="159" i18n="baccarat.banker" textAlign="center" verticalAlign="middle" size="68" height="100%"/>
                 <e:Label id="_bankerSum" x="97" y="0" textAlign="center" verticalAlign="middle" size="96" height="100%" name="a1/bankerSumn"/>
         </e:Group>
@@ -42,4 +42,5 @@
         <e:Group x="444" y="150" id="_smallRedCardGroup" >
         </e:Group>
         <ui:RunTimeLabel x="540" y="150" id="_smallRedCardDesc" visible="false" i18n="baccarat.redCardDesc"/>
+        <e:Label size="190" text="BAB LANDSCAPE CARDHOLER" />
 </e:Skin>

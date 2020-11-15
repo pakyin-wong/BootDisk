@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.bab.CardInfoPanelSkin" width="1853" height="1025" xmlns:e="http://ns.egret.com/eui"
-        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:bab="we.bab.*" xmlns:w="http://ns.egret.com/wing"
+<e:Skin class="skin_mobile_landscape.bc.CardInfoPanelSkin" width="1853" height="1025" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:bc="we.blockchain.*" xmlns:bab="we.bab.*" xmlns:w="http://ns.egret.com/wing"
         xmlns:live="we.live.*">
         <e:Group id="content" width="100%" height="100%">
                 <e:Group id="_backButton"  width="40" height="40" x="52" y="66">
@@ -75,7 +75,7 @@
                                 <ui:RunTimeLabel size="24" i18n="baccarat.copy" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
                         </e:Group>                        
                 </e:Group>
-                <bab:BaseCard id="_cardImage" skinName="skin_desktop.bab.CardInfoCard" x="239" y="225"/>
+                <bc:BaseCard id="_cardImage" skinName="skin_mobile_landscape.bc.CardInfoCard" x="239" y="225"/>
                 <ui:BaseImageButton id="_prevButton" width="22" height="43" x="150" y="360" currentState="b_bab_prev" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
                 <ui:BaseImageButton id="_nextButton" width="22" height="43" x="511" y="360" currentState="b_bab_next" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
         </e:Group>
