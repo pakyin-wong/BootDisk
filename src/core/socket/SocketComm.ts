@@ -682,6 +682,7 @@ namespace we {
 					case core.GameType.BAI:
 					case core.GameType.BAS:
 					case core.GameType.BAB:
+					case core.GameType.BAMB:
 					case core.GameType.DTB:
 					case core.GameType.DT: {
 						// const roadmapData = parseAscString(gameStatistic.roadmapdata);

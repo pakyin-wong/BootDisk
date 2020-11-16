@@ -68,6 +68,7 @@ namespace we {
           this._isLiveRecordEnable = true;
             break;
           case core.GameType.BAB:
+          case core.GameType.BAMB:
           case core.GameType.DTB:
           this._isLiveRecordEnable = false;
             break;

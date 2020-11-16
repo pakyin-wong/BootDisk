@@ -13,6 +13,7 @@ namespace we {
       gametype_BAI: 'BAI',
       gametype_BAM: 'Squeeze Baccarat ',
       gametype_BAB: 'BAB',
+      gametype_BAMB: 'Blockchain Squeeze Baccarat ',
       gametype_DI: 'Sic-bo',
       gametype_DIL: 'GOF Sic-bo',
       gametype_MJ: 'MJ',
