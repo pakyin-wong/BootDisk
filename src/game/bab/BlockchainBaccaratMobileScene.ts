@@ -113,8 +113,8 @@ namespace we {
         console.log('Blockchain scene bet state', this._gameData);
         if (isInit || this.previousState !== core.GameState.BET) {
           this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
-          (<we.bab.MobileCardHolder>this._resultDisplay).hideSumGroup();
         }
+        (<we.bab.MobileCardHolder>this._resultDisplay).hideSumGroup();
         this.toggleBottomGamePanel();
       }
 
@@ -122,9 +122,7 @@ namespace we {
         this._shufflePanel.hide();
         this._deckPanel.setValue(<bab.GameData>this._gameData);
         super.setStateDeal(isInit);
-        if (this.previousState === core.GameState.BET || isInit) {
-          (<we.bab.MobileCardHolder>this._resultDisplay).showSumGroup()
-        }
+        (<we.bab.MobileCardHolder>this._resultDisplay).showSumGroup()
         console.log('Blockchain scene deal state', this._gameData);
         this.toggleBottomGamePanel();
       }

@@ -5,10 +5,8 @@
 	<w:Config id="17181f4be03" />
 	<e:Rect width="1242" height="2155" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0c111a" visible="false" />
 	<e:Image id="_bgImg" />
-	<e:Image width="4000" height="1600" source="blockchain_bg_jpg" horizontalCenter="0" y="0" locked="true" />
-	<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" width="4000" height="2155" horizontalCenter="0" y="0" stroke="0"
-	                   fillColor="0x00000000,0x00000050" />
-	<e:Image top="0" bottom="0" left="0" right="0" source="blockchain_bg_mask_png" x="0" locked="true" />
+	<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" width="1242" height="2155" x="0" bottom="0" stroke="0"
+	                   fillColor="0x000000" />
 	<bab:MobileCardHolder id="_resultDisplay" horizontalCenter="0" anchorOffsetX="0" anchorOffsetY="0"
 		x="0" y="0" scaleX="1" scaleY="1" y.right_hand_mode="0" width="1242" height="2155" />
 	<e:Group id="_verticalGroup" width="1242" x="0" bottom="0">
