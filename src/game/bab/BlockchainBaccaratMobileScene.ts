@@ -11,6 +11,7 @@ namespace we {
       protected _alwaysShowResult = true;
       protected _helpButton: eui.Group;
       protected _deckButton: eui.Group;
+      protected _lastRoundButton: eui.Group;
       protected _shufflePanel: blockchain.ShufflePanel;
       protected _helpPanel: blockchain.HelpPanel;
       protected _deckPanel: blockchain.DeckPanel;
@@ -29,6 +30,14 @@ namespace we {
         super.mount();
         this._helpPanel.setToggler(this._helpButton);
         this._deckPanel.setToggler(this._deckButton);
+        (<we.bab.HistoryCardHolder>this._historyCardHolder).setToggler(this._lastRoundButton)
+        this._deckPanel.setValue(<bab.GameData>this._gameData);
+        this._deckPanel.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
+        this._cardInfoPanel.addEventListener('OPEN_DECK_PANEL', this.showDeckPanel, this);
+        this._cardInfoPanel.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
+        (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
+        (<any>this._resultDisplay).addEventListener('OPEN_SHUFFLE_PANEL', this.showShufflePanel, this);
+        this.getShoeInfo();
       }
 
       public updateGame(isInit: boolean = false) {

@@ -168,6 +168,10 @@ declare module skin_desktop.bab{
 	class CornerHistoryHolderSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait.bab{
+	class HistoryHolderSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop.bam{
 	class CardHolderSkin extends eui.Skin{
 	}
@@ -1362,6 +1366,10 @@ declare module skin_mobile_landscape{
 }
 declare module skin_mobile_landscape.bab{
 	class CardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.bab{
+	class HistoryHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape.bam{
