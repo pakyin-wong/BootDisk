@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.bab.CardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" width="1242" height="2155">
         <e:Group id="_particleGroup" width="100%" height="100%"/>
-        <e:Group id="_animRingGroup" y="0" horizontalCenter="0"/>
+        <e:Group id="_animRingGroup" y="60" horizontalCenter="0"/>
         <e:Group x="0" y="805" width="550" height="104">
                 <e:Image source="d_bcba_resultarea_player_png" width="100%" height="100%" />
                 <ui:RunTimeLabel right="159" i18n="baccarat.player" textAlign="center" verticalAlign="middle" size="68" height="100%"/>
