@@ -3,7 +3,6 @@ namespace we {
     export class DeckCard extends blockchain.BaseCard {
       public constructor() {
         super();
-        console.log('skin',utils.getSkinByClassname('bc.DeckCard'))
         this.skinName = utils.getSkinByClassname('bc.DeckCard');
       }
 

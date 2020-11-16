@@ -45,11 +45,11 @@
 			"name": "scene_bc"
 		},
 		{
-			"keys": "blockchain_tex_png,blockchain_tex_json,blockchain_ske_json",
+			"keys": "blockchain_tex_json,blockchain_tex_png,blockchain_ske_json",
 			"name": "scene_bc_baccarat"
 		},
 		{
-			"keys": "dragon_tex_png,tiger_tex_png,blockchain_dt_tex_png,dragon_tex_json,tiger_tex_json,dragon_ske_json,tiger_ske_json,blockchain_dt_tex_json,blockchain_dt_ske_json",
+			"keys": "blockchain_dt_tex_png,dragon_ske_json,dragon_tex_png,dragon_tex_json,tiger_ske_json,tiger_tex_json,tiger_tex_png,blockchain_dt_ske_json,blockchain_dt_tex_json",
 			"name": "scene_bc_dragontiger"
 		}
 	],
@@ -5856,66 +5856,6 @@
 			"name": "m-lobby-favorite-empty-icon_png"
 		},
 		{
-			"url": "assets/dragonbones/d/bab/blockchain_tex.png",
-			"type": "image",
-			"name": "blockchain_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/d/bab/blockchain_tex.json",
-			"type": "json",
-			"name": "blockchain_tex_json"
-		},
-		{
-			"url": "assets/dragonbones/d/bab/blockchain_ske.json",
-			"type": "json",
-			"name": "blockchain_ske_json"
-		},
-		{
-			"url": "assets/dragonbones/d/dtb/dragon_tex.png",
-			"type": "image",
-			"name": "dragon_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/d/dtb/tiger_tex.png",
-			"type": "image",
-			"name": "tiger_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/d/dtb/blockchain_dt_tex.png",
-			"type": "image",
-			"name": "blockchain_dt_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/d/dtb/dragon_tex.json",
-			"type": "json",
-			"name": "dragon_tex_json"
-		},
-		{
-			"url": "assets/dragonbones/d/dtb/tiger_tex.json",
-			"type": "json",
-			"name": "tiger_tex_json"
-		},
-		{
-			"url": "assets/dragonbones/d/dtb/dragon_ske.json",
-			"type": "json",
-			"name": "dragon_ske_json"
-		},
-		{
-			"url": "assets/dragonbones/d/dtb/tiger_ske.json",
-			"type": "json",
-			"name": "tiger_ske_json"
-		},
-		{
-			"url": "assets/dragonbones/d/dtb/blockchain_dt_tex.json",
-			"type": "json",
-			"name": "blockchain_dt_tex_json"
-		},
-		{
-			"url": "assets/dragonbones/d/dtb/blockchain_dt_ske.json",
-			"type": "json",
-			"name": "blockchain_dt_ske_json"
-		},
-		{
 			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_backside.png",
 			"type": "image",
 			"name": "m_sq_bab_small_poker_backside_png"
@@ -7009,6 +6949,66 @@
 			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_cloverQ_vertical.png",
 			"type": "image",
 			"name": "m_sq_bac_small_poker_cloverQ_vertical_png"
+		},
+		{
+			"url": "assets/dragonbones/m/bab/blockchain_tex.png",
+			"type": "image",
+			"name": "blockchain_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/m/bab/blockchain_tex.json",
+			"type": "json",
+			"name": "blockchain_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/m/bab/blockchain_ske.json",
+			"type": "json",
+			"name": "blockchain_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/m/dtb/tiger_tex.png",
+			"type": "image",
+			"name": "tiger_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/m/dtb/blockchain_dt_tex.png",
+			"type": "image",
+			"name": "blockchain_dt_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/m/dtb/dragon_tex.png",
+			"type": "image",
+			"name": "dragon_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/m/dtb/blockchain_dt_tex.json",
+			"type": "json",
+			"name": "blockchain_dt_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/m/dtb/tiger_ske.json",
+			"type": "json",
+			"name": "tiger_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/m/dtb/dragon_ske.json",
+			"type": "json",
+			"name": "dragon_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/m/dtb/tiger_tex.json",
+			"type": "json",
+			"name": "tiger_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/m/dtb/dragon_tex.json",
+			"type": "json",
+			"name": "dragon_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/m/dtb/blockchain_dt_ske.json",
+			"type": "json",
+			"name": "blockchain_dt_ske_json"
 		}
 	]
 }

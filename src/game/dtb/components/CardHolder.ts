@@ -45,6 +45,9 @@ namespace we {
         this._tigerAnim.animation.play('loop', 0);
         this._centerBurnCard = this.createCardAnim();
         this._centerBurnCardGroup.addChild(this._centerBurnCard);
+      }
+
+      protected initVariables(){
         this._totalCardPerRound = 3;
       }
 

@@ -15,12 +15,10 @@ namespace we {
       }
 
       if (resName === 'back') {
-        console.log('m_sq_bac_small_poker_backside_png');
-        return 'm_sq_bac_small_poker_backside_png';
+        return 'm_sq_bab_small_poker_backside_png';
       } else if (resName === 'red') {
           return 'm_bcba_red_card_png';
         } else {
-          console.log(`m_sq_bac_small_poker_${resName}_vertical_png`);
         return `m_sq_bac_small_poker_${resName}_vertical_png`;
       }
     }

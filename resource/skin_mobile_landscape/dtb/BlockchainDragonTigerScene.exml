@@ -63,7 +63,7 @@
 			                    x.right_hand_mode="588" x.left_hand_mode="350" />
 		</e:Group>-->
 		<ui:BetRelatedGroup id="_betRelatedGroup" y="71" x.right_hand_mode="762" x.left_hand_mode="600" />
-		<dtb:CardHolder id="_resultDisplay" width="1384" height="152" y="1.5" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
+		<dtb:MobileCardHolder id="_resultDisplay" width="1384" height="152" y="1.5" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
 		               scaleY="1" horizontalCenter="0" />
 	</e:Group>
 	<dt:MobileBottomGamePanel skinName="skin_mobile_landscape.dt.MobileBottomGamePanel" id="_bottomGamePanel" width="2424"

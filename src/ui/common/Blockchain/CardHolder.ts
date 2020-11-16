@@ -18,6 +18,7 @@ namespace we {
 
       protected mount() {
         this.reset();
+        this.initVariables();
         this.createFactory();
         this.createParticles();
         this.createRingAnim();
@@ -26,6 +27,8 @@ namespace we {
       }
 
       public abstract setDefaultStates();
+
+      protected abstract initVariables();
 
       protected destroyAnim(display: dragonBones.EgretArmatureDisplay) {
         if (!display) return;
@@ -196,34 +199,7 @@ namespace we {
         const textureData = new dragonBones.EgretTextureData();
         textureData.renderTexture = bitmap.texture;
         meshDistData.texture = textureData;
-        /*
-        } else {
-          bitmap.anchorOffsetX = bitmap.height / 2
-          bitmap.anchorOffsetY = bitmap.width / 2
-
-          const group = new eui.Group();
-          group.addChild(bitmap);
-          group.width = bitmap.height
-          group.height = bitmap.width
-
-          const renderTexture = new egret.RenderTexture();
-          renderTexture.drawToTexture(group)
-
-          const textureData = new dragonBones.EgretTextureData();
-          textureData.renderTexture = renderTexture;
-          textureData.region.x = 0;
-          textureData.region.y = 0;
-          textureData.region.width = textureData.renderTexture.textureWidth;
-          textureData.region.height = textureData.renderTexture.textureHeight;
-
-          meshDistData.texture = textureData;
-          //meshDistData.pivot.x = 0.5;
-          //meshDistData.pivot.y = 0.5;
-
-          //.texture = textureData;
-
-        }
-        */
+        
         cardSlot.armature.replacedTexture == null;
         cardSlot.replaceDisplayData(meshDistData);
         cardSlot.displayIndex = -1;
@@ -339,6 +315,10 @@ namespace we {
       }
 
       public reset() {}
+
+      public collapseBottom(){}
+
+      public expandBottom(){}
     }
   }
 }
