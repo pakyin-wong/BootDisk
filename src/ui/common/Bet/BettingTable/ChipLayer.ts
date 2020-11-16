@@ -427,7 +427,7 @@ namespace we {
 
       public doubleBetFields() {
         let reactMax = true;
-        console.log('this._uncfmBetDetails',this._uncfmBetDetails)
+        console.log('this._uncfmBetDetails', this._uncfmBetDetails)
         const betfields = this._doubleBetDetails.map(detail => {
           const uncfmBetDetail = this.getUncfmBetByField(detail.field);
           const amount = detail.amount;
@@ -484,8 +484,8 @@ namespace we {
         betDetails.map(value => {
           // this.getUncfmBetByField(value.field).amount = value.amount;
           // this._betChipStackMapping[value.field].draw(); 
-            this._betChipStackMapping[value.field].uncfmBet = value.amount * this.getRate(value.field);
-            this._betChipStackMapping[value.field].draw();
+          this._betChipStackMapping[value.field].uncfmBet = value.amount * this.getRate(value.field);
+          this._betChipStackMapping[value.field].draw();
         });
         // console.log('after betDetails', betDetails)
         this._uncfmBetDetails = betDetails;
@@ -544,16 +544,16 @@ namespace we {
       // Tick button
       public validateBet(): boolean {
         const fieldAmounts = utils.arrayToKeyValue(this._uncfmBetDetails, 'field', 'amount');
-        let arrFieldAmounts:any = Object.keys(fieldAmounts);
-        const cfmFieldAmounts = utils.arrayToKeyValue(this._cfmBetDetails,'field', 'amount');
-        let arrCfmFieldAmounts:any =  Object.keys(cfmFieldAmounts);
+        let arrFieldAmounts: any = Object.keys(fieldAmounts);
+        const cfmFieldAmounts = utils.arrayToKeyValue(this._cfmBetDetails, 'field', 'amount');
+        let arrCfmFieldAmounts: any = Object.keys(cfmFieldAmounts);
         let totalAmount = fieldAmounts
         arrCfmFieldAmounts.forEach(key => {
           if (arrFieldAmounts.includes(key)) {
             totalAmount[key] += cfmFieldAmounts[key]
           }
         })
-    
+
         // clamp bet amount with current balance
         const totalUncfmAmount = this.getTotalUncfmBetAmount();
         const balance = env.balance;
@@ -562,9 +562,9 @@ namespace we {
           return false;
         }
         this._doubleBetDetails = this._uncfmBetDetails
-        console.log('this._doubleBetDetails',this._doubleBetDetails)
+        console.log('this._doubleBetDetails', this._doubleBetDetails)
         // return this.validateFieldAmounts(fieldAmounts, null, true);
-         return this.validateFieldAmounts(totalAmount, null, true);
+        return this.validateFieldAmounts(totalAmount, null, true);
       }
 
       // check if the current unconfirmed betDetails are valid
@@ -596,14 +596,14 @@ namespace we {
           return false;
         }
 
-        // LS-77
-        // TODO: change ui/common/TableInfoPanel.ts 's tableLimit from server (now copy from betlimit and it is incorrect)
-        //done: change 999999999 to tableLimit from server.
-        if (this.isExceedTableLimit(fieldAmounts, env.tableInfos[this._tableId].tablelimit)) {
-          // dispatchEvent tableLimit
-          this.dispatchEvent(new egret.Event(core.Event.EXCEED_TABLE_LIMIT, false, false, data));
-          return false;
-        }
+        // // LS-77
+        // // TODO: change ui/common/TableInfoPanel.ts 's tableLimit from server (now copy from betlimit and it is incorrect)
+        // //done: change 999999999 to tableLimit from server.
+        // if (this.isExceedTableLimit(fieldAmounts, env.tableInfos[this._tableId].tablelimit)) {
+        //   // dispatchEvent tableLimit
+        //   this.dispatchEvent(new egret.Event(core.Event.EXCEED_TABLE_LIMIT, false, false, data));
+        //   return false;
+        // }
 
         return true;
       }
