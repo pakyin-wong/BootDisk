@@ -3,13 +3,13 @@
         width="1242" height="2155">
         <e:Group id="_particleGroup" width="100%" height="100%" />
         <e:Group id="_wholeMoveGroup" width="100%" height="100%" y="0">
-                <e:Image source="m_blockchain_bg_png" horizontalCenter="0" y="50" width="2421" height="1621"/>
-                <e:Group id="_animRingGroup" y="860" horizontalCenter="0" />
+                <e:Image source="m_blockchain_bg_png" horizontalCenter="0" y="45" width="2421" height="1621"/>
+                <e:Group id="_animRingGroup" y="870" horizontalCenter="0" />
                 <e:Group x="0" y="805" width="550" height="104" id="_playerSumGroup">
                         <e:Image source="d_bcba_resultarea_player_png" width="100%" height="100%" />
                         <ui:RunTimeLabel right="159" i18n="baccarat.player" textAlign="center" verticalAlign="middle"
                                          size="68" height="100%" />
-                        <e:Label id="_playerSum" x="485" y="0" textAlign="center" verticalAlign="middle" size="96"
+                        <e:Label id="_playerSum" x="420" y="0" textAlign="center" verticalAlign="middle" size="96"
                                  height="100%" name="b1/playerSum" />
                 </e:Group>
                 <e:Group right="0" y="805" width="550" height="104" id="_bankerSumGroup">
@@ -27,7 +27,7 @@
                                 <e:Group id="_playerCard2Info" left="0" bottom="0" width="40" height="40" />
                         </e:Group>
                 </e:Group>
-                <e:Group x="143" y="862" id="_playerCard3Group" visible="false" width="170" height="117"
+                <e:Group x="143" y="810" id="_playerCard3Group" visible="false" width="170" height="117"
                          touchThrough="true">
                         <e:Group id="_playerCard3Info" left="0" bottom="0" width="40" height="40" />
                 </e:Group>
@@ -39,7 +39,7 @@
                                 <e:Group id="_bankerCard2Info" left="0" bottom="0" width="40" height="40" />
                         </e:Group>
                 </e:Group>
-                <e:Group x="930" y="862" id="_bankerCard3Group" visible="false" width="350" height="220"
+                <e:Group x="930" y="810" id="_bankerCard3Group" visible="false" width="350" height="220"
                          touchThrough="true">
                         <e:Group id="_bankerCard3Info" left="0" bottom="0" width="40" height="40" />
                 </e:Group>

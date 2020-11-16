@@ -10,7 +10,17 @@ namespace we {
 
       protected initVariables(){
         super.initVariables();
+        this._pinInterval = 81.5;
+        this._pinStartAngle = -81.5;
+        this._roundLoopA = 'round_loop';
+        this._roundLoopB = 'round_loop';
+        this._verticalFlip = 'vertical_filp';
         this.cardAnimNames = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2']
+      }
+
+      protected mount(){
+        super.mount();
+        this._ringAnim.animation.gotoAndStopByFrame('icon_loop',0);
       }
 
       public expandBottom(){
@@ -31,8 +41,8 @@ namespace we {
           this._bankerSumGroup.visible = true;
           this._playerCardMoveGroup.y = 931;
           this._bankerCardMoveGroup.y = 931;
-          this._playerCard3Group.y = 985;
-          this._bankerCard3Group.y = 985;
+          this._playerCard3Group.y = 933;
+          this._bankerCard3Group.y = 933;
         }
       }
 
@@ -42,8 +52,8 @@ namespace we {
           this._bankerSumGroup.visible = false;
           this._playerCardMoveGroup.y = 808;
           this._bankerCardMoveGroup.y = 808;
-          this._playerCard3Group.y = 862;
-          this._bankerCard3Group.y = 862;          
+          this._playerCard3Group.y = 810;
+          this._bankerCard3Group.y = 810;          
         }
       }
 
@@ -71,6 +81,9 @@ namespace we {
 
       }
 
+      protected pokerRoundLoop(){
+      }
+
       protected async lastCard(){
         return new Promise(resolve=>resolve())
       }
@@ -82,6 +95,8 @@ namespace we {
       protected async roundIn(){
         return new Promise(resolve=>resolve())
       }
+
+
     }
   }
 }

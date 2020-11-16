@@ -59,12 +59,18 @@ namespace we {
 
       protected cardAnimNames;
 
-      protected _roundLoopA = 'round_loop_a';
-      protected _roundLoopB = 'round_loop_b';
+      protected _roundLoopA : string;
+      protected _roundLoopB : string;
+      protected _verticalFlip : string;
 
       protected initVariables(){
+        super.initVariables();
         this._totalCardPerRound = 6;
         this._smallCardScale = 0.35;
+        this._roundLoopA = 'round_loop_a';
+        this._roundLoopB = 'round_loop_b';
+        this._verticalFlip = 'vertical_flip';
+
         this.cardAnimNames = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2', '_smallCard1', '_smallCard2']
       }
 
@@ -399,6 +405,8 @@ namespace we {
           if (!this._gameData[dataNames[i]]) {
             continue;
           }
+          console.log('flipCards loop ', i);
+
           switch (dataNames[i]) {
             case 'b1':
               this.setCardFrontFace(this._playerCard1, dataNames[i], 'vertical', 0);
@@ -412,8 +420,8 @@ namespace we {
               this.setCardFrontFace(this._playerCard2, dataNames[i], 'vertical', 0);
               this.setLabel(this._playerCard2.armature.getSlot(`card_number_vertical`), this._gameData.currentcardindex);
 
-              await utils.playAnimation(this._playerCard1,'vertical_flip',1);
-              await utils.playAnimation(this._playerCard2,'vertical_flip',1);
+              await utils.playAnimation(this._playerCard1,this._verticalFlip,1);
+              await utils.playAnimation(this._playerCard2,this._verticalFlip,1);
 
               // const p4 = utils.waitDragonBone(this._playerCard1);
               // const p5 = utils.waitDragonBone(this._playerCard2);
@@ -428,16 +436,8 @@ namespace we {
               this.setCardFrontFace(this._bankerCard2, dataNames[i], 'vertical', 0);
               this.setLabel(this._bankerCard2.armature.getSlot(`card_number_vertical`), this._gameData.currentcardindex);
 
-              await utils.playAnimation(this._bankerCard1,'vertical_flip',1);
-              await utils.playAnimation(this._bankerCard2,'vertical_flip',1);
-
-              // const p6 = utils.waitDragonBone(this._bankerCard1);
-              // const p7 = utils.waitDragonBone(this._bankerCard2);
-              // this._bankerCard1.animation.play(`vertical_flip`, 1);
-              // this._bankerCard2.animation.play(`vertical_flip`, 1);
-
-              // await p6;
-              // await p7;
+              await utils.playAnimation(this._bankerCard1,this._verticalFlip,1);
+              await utils.playAnimation(this._bankerCard2,this._verticalFlip,1);
 
               this.updateBankerSum();
               break;
@@ -447,7 +447,9 @@ namespace we {
               this.draw(2)
               //this._ringAnim.animation.fadeIn('draw', 0, 2, 0, 'DRAW_GROUP');
               this._smallCard1Exist = false;
-              this._smallCard1.animation.play('vertical_out_back', 1);
+              if(this._smallCard1Group){
+                this._smallCard1.animation.play('vertical_out_back', 1);
+              }
               this.setLabel(this._playerCard3.armature.getSlot(`card_number_horizontal`), this._gameData.currentcardindex);
               this._playerCard3.animation.play(`horizontal_flip`, 1);
               this.updatePlayerSum();
@@ -509,13 +511,17 @@ namespace we {
         this._ringAnim.animation.fadeIn('draw', 0, loop, 0, 'DRAW_GROUP');
       }
 
+      protected pokerRoundLoop(){
+        this._ringAnim.animation.fadeIn('poker_round_loop', 0, 0, 0, 'POKER_ROUND_ANIMATION_GROUP');
+      }
+
       protected async distributeCards() {
         await this.roundIn();
 
         this._ringAnim.animation.fadeIn(this._roundLoopA, 0, 0, 0, 'ROUND_ANIMATION_GROUP');
 
         await utils.playAnimation(this._ringAnim,'poker_round_in',1,'POKER_ROUND_ANIMATION_GROUP');
-        this._ringAnim.animation.fadeIn('poker_round_loop', 0, 0, 0, 'POKER_ROUND_ANIMATION_GROUP');
+        this.pokerRoundLoop();
 
         for (let i = 0; i < this.cardAnimNames.length; i++) {
           switch (this.cardAnimNames[i]) {
@@ -531,11 +537,9 @@ namespace we {
               this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + i + 1);
               await utils.playAnimation(this._ringAnim,'poker_in',1,'POKER_ROUND_ANIMATION_GROUP');
               await utils.playAnimation(this._ringAnim,'poker_out',1,'POKER_ROUND_ANIMATION_GROUP');
-              
+
               await utils.playAnimation(cardAnim,'vertical_in',1);
               cardAnim.animation.gotoAndStopByFrame('vertical_loop_back', 0);
-
-
           }
 
           if (this._gameData.currentcardindex + i + 1 === this._gameData.redcardindex) {

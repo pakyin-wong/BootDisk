@@ -134,7 +134,7 @@
 		<ui:RunTimeLabel i18n="baccarat.lastRound" verticalCenter="0" horizontalCenter="0" touchEnabled="false" />
 	</e:Group>
 	<bab:HistoryCardHolder id="_historyCardHolder" width="385" height="125" x="22" y="151"
-	                       skinName="skin_mobile_portrait.bab.HistoryHolderSkin" />
+	                       skinName="skin_mobile_portrait.bab.HistoryHolderSkin" isPoppable="true"  hideOnStart="true" />
 	<bc:ShufflePanel id="_shufflePanel" width="1242" height="2155" isPoppable="true" skeletonName="blockchain"
 	                  isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
 	                  skinName="skin_mobile_portrait.bc.ShufflePanelSkin" />

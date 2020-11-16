@@ -48,6 +48,7 @@ namespace we {
       }
 
       protected initVariables(){
+        super.initVariables();
         this._totalCardPerRound = 3;
       }
 

@@ -16,6 +16,11 @@ namespace we {
       protected _infoArray: number[];
       protected abstract _totalCardPerRound: number;
 
+      protected _pinStartAngle:number;
+      protected _pinInterval:number;
+
+      protected _verticalFlip : string;
+
       protected mount() {
         this.reset();
         this.initVariables();
@@ -28,7 +33,10 @@ namespace we {
 
       public abstract setDefaultStates();
 
-      protected abstract initVariables();
+      protected initVariables(){
+        this._pinStartAngle = -131;
+        this._pinInterval = 82;
+      }
 
       protected destroyAnim(display: dragonBones.EgretArmatureDisplay) {
         if (!display) return;
@@ -256,16 +264,16 @@ namespace we {
 
       protected getPinRad(num = this._gameData.currentcardindex) {
         const proportion = num / this._gameData.maskedcardssnList.length;
-        const angleOffset = 82 * proportion; // -40 to 41 / 131 to 49
-        const destAngle = -131 + angleOffset;
+        const angleOffset = this._pinInterval * proportion; // -40 to 41 / 131 to 49
+        const destAngle = this._pinStartAngle + angleOffset;
         const destRad = (destAngle * Math.PI) / 180;
         return destRad;
       }
 
       protected getShoeRad(num = this._gameData.redcardindex) {
         const proportion = num / this._gameData.maskedcardssnList.length;
-        const angleOffset = 82 * proportion; // -72 to 9
-        const destAngle = -131 + angleOffset;
+        const angleOffset = this._pinInterval * proportion; // -72 to 9
+        const destAngle = this._pinStartAngle + angleOffset;
         const destRad = (destAngle * Math.PI) / 180;
         return destRad;
       }
