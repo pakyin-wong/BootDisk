@@ -5,6 +5,19 @@ namespace we {
         target.once(ev, resolve, target);
       });
     }
+    function onDBSoundEvent(event: dragonBones.Event) {
+      const evtName = event.eventObject.name;
+      const type = evtName.split('_')[0];
+      if (type === 'audio') {
+        const audioResName = evtName.substr(6);
+        dir.audioCtr.play(audioResName);
+      }
+    }
+
+    export function dblistenToSoundEffect(target: dragonBones.IEventDispatcher) {
+      target.addDBEventListener(dragonBones.Event.ANIMATION_FRAME_EVENT, onDBSoundEvent, null);
+    }
+
     export function waitDragonBone(target, animName: string = null) {
       return we.utils.waitDragonBoneEvent(target, dragonBones.EventObject.COMPLETE, animName);
     }
