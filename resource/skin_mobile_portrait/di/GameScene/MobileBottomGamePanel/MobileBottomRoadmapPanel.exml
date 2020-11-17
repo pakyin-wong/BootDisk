@@ -2,14 +2,14 @@
 <e:Skin class="skin_mobile_portrait.di.MobileBottomRoadmapPanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:di="we.di.*">
 	<e:Group id="content" width="100%" height="100%">
-		<e:Component id="_roadmapBg" height="509" left="8" right="8" bottom="0">
+		<e:Component id="_roadmapBg" height="532" bottom="0" left="0" right="0">
 			<e:skinName>
 				<e:Skin states="dark,light">
 					<e:Rect width="100%" height="100%" fillColor.light="0xffffff" fillColor.dark="0x262a2b"/>
 				</e:Skin>
 			</e:skinName>
 		</e:Component>
-		<e:ViewStack id="_roadmapView" scaleX="1" scaleY="1" left="8" right="8" height="413" y="20">
+		<e:ViewStack id="_roadmapView" scaleX="1" scaleY="1" left="8" right="8" height="413" y="20" locked="true">
 			<e:Group name="size" left="0" right="0" top="0" bottom="0">
 				<di:RoadMapConfig id="sizeBigRoadConfig" scaleX="1" scaleY="1" roadmap_col="18" roadmap_gridSize="68"/>
 			</e:Group>
