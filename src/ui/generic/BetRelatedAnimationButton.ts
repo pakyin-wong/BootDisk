@@ -24,7 +24,6 @@ namespace we {
             this.active = true;
             this.isSwitch = true;
             this.isSetting = false;
-            this.checkEnable();
             break;
         }
 
@@ -36,44 +35,24 @@ namespace we {
         this.removeEventListeners();
       }
 
-      protected addEventListeners() {
-      }
+      protected addEventListeners() { }
 
-      protected removeEventListeners() { 
-      }
+      protected removeEventListeners() { }
 
       protected onRollover() {
         super.onRollover();
-        console.log('to be relase');
-        this.playPromise('release', 5);
+        this.playPromise('idle_to_hover', 1);
       }
 
       protected onRollout() {
         super.onRollout();
         console.log('rollOut');
-        const oldState = [this._down, this._hover];
-        this._down = false;
-        this._hover = false;
-        this.update(oldState);
-      }
-
-      protected checkEnable() {
         this.playPromise('release', 5);
+        // const oldState = [this._down, this._hover];
+        // this._down = false;
+        // this._hover = false;
+        // this.update(oldState);
       }
-      public onIdle() {
-        this.playPromise('idle', 5);
-      }
-      public onHover() {
-        this.playPromise('hover', 5);
-      }
-      public onRelease() {
-        console.log('.......release');
-        this.playPromise('release', 5);
-      }
-      public onDisable() {
-        this.playPromise('disable', 5);
-      }
-
     }
   }
 }

@@ -89,15 +89,22 @@ namespace we {
       public changeBtnState(isEnable: boolean = true, totalUncfmBetAmount: number = 0, isPrevBet: boolean = false) {
         this._undoButton.touchEnabled = isEnable;
         this._cancelButton.touchChildren = this._cancelButton.touchEnabled = isEnable;
-        this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isEnable;
+
         // double btn check uncfm btn , not cfmbtn
         this._doubleButton.touchChildren = this._doubleButton.touchEnabled = totalUncfmBetAmount ? true : false;
         this._repeatButton.touchChildren = this._repeatButton.touchEnabled = isPrevBet;
-        this._undoButton.alpha = isEnable ? 1 : 0.5;
-        this._cancelButton.alpha = isEnable ? 1 : 0.5;
+        // this._undoButton.alpha = isEnable ? 1 : 0.5;
+        // this._cancelButton.alpha = isEnable ? 1 : 0.5;
+        // this._repeatButton.alpha = this._repeatButton.touchEnabled ? 1 : 0.5;
+        // this._doubleButton.alpha = totalUncfmBetAmount ? 1 : 0.5;
+
+        this._undoButton.buttonEnabled = isEnable;
+        this._cancelButton.buttonEnabled = isEnable;
+        this._repeatButton.buttonEnabled = isEnable;
+        this._doubleButton.buttonEnabled = isEnable;
+
+        this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isEnable;
         this._confirmButton.alpha = isEnable ? 1 : 0.3;
-        this._repeatButton.alpha = this._repeatButton.touchEnabled ? 1 : 0.5;
-        this._doubleButton.alpha = totalUncfmBetAmount ? 1 : 0.5;
         if (this._timer.bg_color) {
           this._timer.bg_color.alpha = isEnable ? 0.7 : 0;
           if (isEnable) {
@@ -117,7 +124,7 @@ namespace we {
 
       protected onRepeatPressed() {
         this.dispatchEvent(new egret.Event('ON_REPEAT_PRESS'));
-                // this.changeBtnState(true);
+        // this.changeBtnState(true);
       }
 
       protected onDoublePressed() {
