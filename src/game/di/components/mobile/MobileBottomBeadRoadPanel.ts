@@ -84,24 +84,30 @@ namespace we {
       }
 
       protected addListeners() {
-        this.beadRoadSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
-        this.beadRoadOddEvenBtn.addEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
+        if (env.orientation === "portrait") {
+          this.beadRoadSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
+          this.beadRoadOddEvenBtn.addEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
+        }
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
         dir.evtHandler.addEventListener(core.Event.MODE_UPDATE, this.updateMode, this);
       }
 
       protected removeListeners() {
-        this.beadRoadSizeBtn.removeEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
-        this.beadRoadOddEvenBtn.removeEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
+        if (env.orientation === "portrait") {
+          this.beadRoadSizeBtn.removeEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
+          this.beadRoadOddEvenBtn.removeEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
+        }
 
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
         dir.evtHandler.removeEventListener(core.Event.MODE_UPDATE, this.updateMode, this);
       }
 
       public updateText() {
+        if (env.orientation === "portrait") {
         this.beadRoadSizeBtn.label = i18n.t('dice.roadBig') + '/' + i18n.t('dice.roadSmall');
         this.beadRoadOddEvenBtn.label = i18n.t('dice.roadOdd') + '/' + i18n.t('dice.roadEven');
+        }
       }
 
       public onBeadRoadChanged(e) {

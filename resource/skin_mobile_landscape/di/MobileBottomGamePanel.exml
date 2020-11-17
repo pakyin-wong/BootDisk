@@ -20,7 +20,7 @@
 			<e:Rect fillColor="0x212425" ellipseHeight="40" ellipseWidth="40" strokeColor="0x212425" right="0" left="0" top="0"
 			        bottom="0" visible="false" />
 			<e:Rect id="viewStackMask" width="100%" y="0" scaleX="1" scaleY="1" top="0" bottom="0" left="0" right="0" />
-			<e:Group id="_topPart" y="0" scaleX="1" scaleY="1" anchorOffsetX="0" x="2140" right="0"
+			<e:Group id="_topPart" y="0" visible.off="false" scaleX="1" scaleY="1" anchorOffsetX="0" x="2140" right="0"
 			         width="338" height="100%">
 				<e:Rect id="top_bg" width="100%" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
 				        fillColor="0x212425" strokeColor="0x212425" x="0" height="307"  bottom="0"/>
@@ -72,7 +72,7 @@
 				</e:Group>
 			</e:ViewStack>
 			<di:MobileBottomRoadButtonPanel id="_roadButtonPanel" skinName="skin_mobile_landscape.di.MobileButtonRoadPanel"
-			                                scaleX="1" scaleY="1" left="0"  height="307" bottom="0"/>
+			                                scaleX="1" scaleY="1" left="0"  visible.off="false" height="307" bottom="0"/>
 		</e:Group>
 	</e:Group>
 </e:Skin>

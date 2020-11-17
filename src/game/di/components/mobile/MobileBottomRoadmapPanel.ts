@@ -69,27 +69,32 @@ namespace we {
       }
 
       protected addListeners() {
-        this.roadmapSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-        this.roadmapOddevenBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-        this.roadmapSumBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+        if (env.orientation === "portrait") {
+          this.roadmapSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+          this.roadmapOddevenBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+          this.roadmapSumBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+        }
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
         dir.evtHandler.addEventListener(core.Event.MODE_UPDATE, this.updateMode, this);
       }
 
       protected removeListeners() {
-        this.roadmapSizeBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-        this.roadmapOddevenBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-        this.roadmapSumBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-
+        if (env.orientation === "portrait") {
+          this.roadmapSizeBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+          this.roadmapOddevenBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+          this.roadmapSumBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+        }
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
         dir.evtHandler.removeEventListener(core.Event.MODE_UPDATE, this.updateMode, this);
       }
 
       public updateText() {
+        if (env.orientation === "portrait") {
         this.roadmapSizeBtn.label = i18n.t('dice.roadBig') + '/' + i18n.t('dice.roadSmall');
         this.roadmapOddevenBtn.label = i18n.t('dice.roadOdd') + '/' + i18n.t('dice.roadEven');
         this.roadmapSumBtn.label = i18n.t('dice.total');
+        }
       }
 
       public onRoadMapChanged(e) {
