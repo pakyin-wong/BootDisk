@@ -12,6 +12,11 @@ namespace we {
        *        (e.g. player "release" -> state to hovered -> state to idle -> "release" completed -> check if "release_to_idle" exist, else play "idle")
        *        when playing "release", user press the button again (i.e. followed by another "release" animation), the new "release" animation will be played immediately
        **/
+      public constructor() {
+        super();
+        this.orientationDependent = false;
+      }
+
     }
   }
 }
