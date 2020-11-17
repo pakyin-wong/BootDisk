@@ -43,7 +43,7 @@
                          touchThrough="true">
                         <e:Group id="_bankerCard3Info" left="0" bottom="0" width="40" height="40" />
                 </e:Group>
-                <e:Group x="193" y="147" id="_smallRedCardGroup"></e:Group>
-                <ui:RunTimeLabel x="350" y="147" id="_smallRedCardDesc" visible="false" i18n="baccarat.redCardDesc" />
         </e:Group>
+        <e:Group x="193" y="147" id="_smallRedCardGroup"></e:Group>
+        <ui:RunTimeLabel x="350" y="147" id="_smallRedCardDesc" visible="false" i18n="baccarat.redCardDesc" />
 </e:Skin>

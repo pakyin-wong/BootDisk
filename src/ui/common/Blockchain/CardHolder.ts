@@ -21,6 +21,9 @@ namespace we {
 
       protected _verticalFlip : string;
 
+      protected _roundLoopA : string;
+      protected _roundLoopB : string;
+
       protected mount() {
         this.reset();
         this.initVariables();
@@ -34,6 +37,8 @@ namespace we {
       public abstract setDefaultStates();
 
       protected initVariables(){
+        this._roundLoopA = 'round_loop_a';
+        this._roundLoopB = 'round_loop_b';
         this._pinStartAngle = -131;
         this._pinInterval = 82;
       }
@@ -130,7 +135,8 @@ namespace we {
           this.movePin();
           this.moveShoe();
           console.log('betInitState()');
-          this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
+
+          this._ringAnim.animation.fadeIn(this._roundLoopB, 0, 0, 0, 'ROUND_ANIMATION_GROUP');
           if (this._gameData.redcardindex <= this._gameData.currentcardindex + this._totalCardPerRound) {
             this.getRedCardAnim().animation.gotoAndStopByTime('red_poker_loop', 0);
           }

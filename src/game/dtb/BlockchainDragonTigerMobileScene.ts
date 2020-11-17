@@ -20,6 +20,9 @@ namespace we {
       //private _common_listpanel: ui.BaseImageButton;
       protected _originBetRelatedGroupY: number;
 
+      public static resGroups = [core.res.Blockchain, core.res.BlockchainDragonTiger];
+
+
       constructor(data: any) {
         super(data);
       }
@@ -29,11 +32,31 @@ namespace we {
         this.addListeners();
       }
 
+      protected showSumGroup(){
+        (<we.dtb.MobileCardHolder>this._resultDisplay).showSumGroup()
+      }
+
+      protected hideSumGroup(){
+          (<we.dtb.MobileCardHolder>this._resultDisplay).hideSumGroup();
+
+      }
+
+      protected initVariables(){
+        this._portraitButtonExpandedDealY = 947;
+        this._portraitButtonExpandedBetY = 800;
+        this._portraitButtonCollapsedDealY = 1455;        
+        this._portraitButtonCollapsedBetY = 1307;
+      }
+
       protected setGoodRoadLabel(){
       }
 
       protected setSwitchBAMode(enable: boolean){
       }
+
+      protected onMatchGoodRoadUpdate() {
+      }
+
 
       public destroy() {
         super.destroy();
@@ -269,6 +292,14 @@ namespace we {
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('BlockchainDragonTigerScene');
         this._skinKey = 'BlockchainDragonTigerScene';
+      }
+
+      protected getSelectedBA(){
+        return false;
+      }
+
+      protected checkGameMode(value: boolean) {
+        return null;
       }
     }
   }

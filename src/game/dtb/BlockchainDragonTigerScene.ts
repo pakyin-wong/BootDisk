@@ -13,7 +13,6 @@ namespace we {
 
       public static resGroups = [core.res.Blockchain, core.res.BlockchainDragonTiger];
 
-
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('BlockchainDragonTigerScene');
       }

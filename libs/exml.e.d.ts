@@ -2260,6 +2260,10 @@ declare module skin_mobile_portrait.dtb{
 	class CardHolderSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait.dtb{
+	class HistoryHolderSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait{
 	class FavouritePage extends eui.Skin{
 	}
