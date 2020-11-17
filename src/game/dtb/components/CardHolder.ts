@@ -120,12 +120,18 @@ namespace we {
         this.updateTigerSum();
       }
 
+      protected async roundOut(){
+        await utils.playAnimation(this._ringAnim,'round_out',1,'ROUND_ANIMATION_GROUP');
+        return new Promise(resolve=>resolve())
+      }
+
       protected async clearCards() {
         console.log('clearCards');
         this.hideCard(this._dragonCard, 'vertical', '_front');
         this.hideCard(this._tigerCard, 'vertical', '_front');
 
-        await utils.playAnimation(this._ringAnim,'round_out',1,'ROUND_ANIMATION_GROUP');
+        await this.roundOut();
+        
         // const p1 = we.utils.waitDragonBone(this._ringAnim);
         // this._ringAnim.animation.fadeIn('round_out', 0, 1, 0, 'ROUND_ANIMATION_GROUP');
         // await p1;
@@ -249,7 +255,7 @@ namespace we {
             this.getRedCardAnim().animation.gotoAndStopByTime('red_poker_loop', 0);
           }
 
-          this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
+          this._ringAnim.animation.fadeIn(this._roundLoopB, 0, 0, 0, 'ROUND_ANIMATION_GROUP');
 
           if (isInit) {
             this.movePin();
@@ -268,11 +274,16 @@ namespace we {
         this._ringAnim.animation.fadeIn('poker_round_loop', 0, 0, 0, 'POKER_ROUND_ANIMATION_GROUP');
       }
 
+      protected async roundIn(){
+        await utils.playAnimation(this._ringAnim,'round_in',1,'ROUND_ANIMATION_GROUP');
+        return new Promise(resolve=>resolve())
+      }
+
       protected async distributeCards() {
         this._dragonAnim.animation.play('loop', 0);
         this._tigerAnim.animation.play('loop', 0);
 
-        await utils.playAnimation(this._ringAnim,'round_in',1,'ROUND_ANIMATION_GROUP');
+        await this.roundIn();
         // const p1 = we.utils.waitDragonBone(this._ringAnim);
         // this._ringAnim.animation.fadeIn('round_in', 0, 1, 0, 'ROUND_ANIMATION_GROUP');
         // await p1;
@@ -391,7 +402,7 @@ namespace we {
         // this._ringAnim.animation.fadeIn('round_loop_a', 0, 1, 0, 'ROUND_ANIMATION_GROUP');
         // await p4
 
-        await utils.playAnimation(this._ringAnim,'round_last_card',1,'ROUND_ANIMATION_GROUP');
+        this.lastCard();
         // const p5 = we.utils.waitDragonBone(this._ringAnim);
         // this._ringAnim.animation.fadeIn('round_last_card', 0, 1, 0, 'ROUND_ANIMATION_GROUP');
         // await p5
@@ -399,6 +410,11 @@ namespace we {
         this._ringAnim.animation.fadeIn(this._roundLoopB, 0, 0, 0, 'ROUND_ANIMATION_GROUP');
 
         return new Promise(resolve => resolve());
+      }
+
+      protected async lastCard(){
+        await utils.playAnimation(this._ringAnim,'round_last_card',1,'ROUND_ANIMATION_GROUP');
+        return new Promise(resolve=>resolve())
       }
 
       protected updateDragonSum() {
