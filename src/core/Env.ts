@@ -79,7 +79,7 @@ namespace we {
       public language: string;
 
       public voice: string = 'mandarin';
-      public bgm = 1;
+      // public bgm = 1;
       // public liveVolume = 1;
       // public soundEffect = 1;
       public videoOpen: boolean = true;
