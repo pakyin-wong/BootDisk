@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.dtb.CornerHistoryHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
-        xmlns:w="http://ns.egret.com/wing" width="190" height="125">
+<e:Skin class="skin_mobile_portrait.dtb.HistoryHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
+        xmlns:w="http://ns.egret.com/wing" width="731" height="373">
         <e:Group id="content" width="100%">
                 <e:Image source="d_bcba_resultarea_panel_prevresult_png" width="190" height="125"/>
                 <ui:RunTimeLabel i18n="baccarat.lastRound" size="20" y="8" horizontalCenter="0" textColor="0x6ee4ff" />

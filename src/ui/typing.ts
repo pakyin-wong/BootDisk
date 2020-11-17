@@ -26,6 +26,9 @@ namespace we {
     export interface HistoryCardHolder {
       setCards(tableId: string);
       setNumber(number: number);
+      setToggler(toggler);
+      show();
+      hide();
     }
 
     export interface IListItemHelper {

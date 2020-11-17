@@ -16,7 +16,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.12.3';
+      public version: string = '0.12.3f1';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -143,8 +143,8 @@ namespace we {
           core.GameType.BAI,
           core.GameType.BAS,
           core.GameType.BAM,
-          // core.GameType.BAB,
-          // core.GameType.DTB,
+          core.GameType.BAB,
+          core.GameType.DTB,
           core.GameType.DI,
           core.GameType.DIL,
           core.GameType.DT,
@@ -159,6 +159,7 @@ namespace we {
           core.GameType.BAS,
           core.GameType.BAM,
           core.GameType.BAB,
+          core.GameType.BAMB,
           core.GameType.DTB,
           core.GameType.DI,
           core.GameType.DIL,
@@ -211,7 +212,7 @@ namespace we {
 
       set gameTypes(value: any[]) {
         // value = ['0', '15', '22'];     // TODO: this is just for testing, delete it when finish testing
-        value = value.concat('27', '28', '15', '22'); // TODO: temp add BAB and DTB
+        value = value.concat('27', '28', '29', '15', '22'); // TODO: temp add BAB and DTB
         // console.log(JSON.stringify(value));
         this._gameTypes = value.map((cat: string) => parseInt(cat, 10));
         this.generateLiveGameTab();
@@ -237,6 +238,7 @@ namespace we {
             case core.GameType.BAC:
             case core.GameType.BAI:
             case core.GameType.BAM:
+            case core.GameType.BAMB:
             case core.GameType.BAS:
               gameSubcats.baccarat.push(type);
               break;
@@ -432,6 +434,9 @@ namespace we {
             dir.sceneCtr.goto('bam', { tableid: tableId });
             break;
           case core.GameType.BAB:
+            dir.sceneCtr.goto('bab', { tableid: tableId });
+            break;
+          case core.GameType.BAMB:
             dir.sceneCtr.goto('bab', { tableid: tableId });
             break;
           case core.GameType.DT:

@@ -1,6 +1,6 @@
 namespace we {
   export namespace dtb {
-    export class HistoryCardHolder extends core.BaseEUI implements ui.HistoryCardHolder {
+    export class HistoryCardHolder extends ui.Panel implements ui.HistoryCardHolder {
       protected _dragonSum: eui.Label;
       protected _tigerSum: eui.Label;
 

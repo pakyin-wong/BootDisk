@@ -16,8 +16,17 @@ namespace we {
       protected _infoArray: number[];
       protected abstract _totalCardPerRound: number;
 
+      protected _pinStartAngle:number;
+      protected _pinInterval:number;
+
+      protected _verticalFlip : string;
+
+      protected _roundLoopA : string;
+      protected _roundLoopB : string;
+
       protected mount() {
         this.reset();
+        this.initVariables();
         this.createFactory();
         this.createParticles();
         this.createRingAnim();
@@ -26,6 +35,13 @@ namespace we {
       }
 
       public abstract setDefaultStates();
+
+      protected initVariables(){
+        this._roundLoopA = 'round_loop_a';
+        this._roundLoopB = 'round_loop_b';
+        this._pinStartAngle = -131;
+        this._pinInterval = 82;
+      }
 
       protected destroyAnim(display: dragonBones.EgretArmatureDisplay) {
         if (!display) return;
@@ -119,7 +135,8 @@ namespace we {
           this.movePin();
           this.moveShoe();
           console.log('betInitState()');
-          this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
+
+          this._ringAnim.animation.fadeIn(this._roundLoopB, 0, 0, 0, 'ROUND_ANIMATION_GROUP');
           if (this._gameData.redcardindex <= this._gameData.currentcardindex + this._totalCardPerRound) {
             this.getRedCardAnim().animation.gotoAndStopByTime('red_poker_loop', 0);
           }
@@ -196,34 +213,7 @@ namespace we {
         const textureData = new dragonBones.EgretTextureData();
         textureData.renderTexture = bitmap.texture;
         meshDistData.texture = textureData;
-        /*
-        } else {
-          bitmap.anchorOffsetX = bitmap.height / 2
-          bitmap.anchorOffsetY = bitmap.width / 2
-
-          const group = new eui.Group();
-          group.addChild(bitmap);
-          group.width = bitmap.height
-          group.height = bitmap.width
-
-          const renderTexture = new egret.RenderTexture();
-          renderTexture.drawToTexture(group)
-
-          const textureData = new dragonBones.EgretTextureData();
-          textureData.renderTexture = renderTexture;
-          textureData.region.x = 0;
-          textureData.region.y = 0;
-          textureData.region.width = textureData.renderTexture.textureWidth;
-          textureData.region.height = textureData.renderTexture.textureHeight;
-
-          meshDistData.texture = textureData;
-          //meshDistData.pivot.x = 0.5;
-          //meshDistData.pivot.y = 0.5;
-
-          //.texture = textureData;
-
-        }
-        */
+        
         cardSlot.armature.replacedTexture == null;
         cardSlot.replaceDisplayData(meshDistData);
         cardSlot.displayIndex = -1;
@@ -280,16 +270,16 @@ namespace we {
 
       protected getPinRad(num = this._gameData.currentcardindex) {
         const proportion = num / this._gameData.maskedcardssnList.length;
-        const angleOffset = 82 * proportion; // -40 to 41 / 131 to 49
-        const destAngle = -131 + angleOffset;
+        const angleOffset = this._pinInterval * proportion; // -40 to 41 / 131 to 49
+        const destAngle = this._pinStartAngle + angleOffset;
         const destRad = (destAngle * Math.PI) / 180;
         return destRad;
       }
 
       protected getShoeRad(num = this._gameData.redcardindex) {
         const proportion = num / this._gameData.maskedcardssnList.length;
-        const angleOffset = 82 * proportion; // -72 to 9
-        const destAngle = -131 + angleOffset;
+        const angleOffset = this._pinInterval * proportion; // -72 to 9
+        const destAngle = this._pinStartAngle + angleOffset;
         const destRad = (destAngle * Math.PI) / 180;
         return destRad;
       }
@@ -339,6 +329,10 @@ namespace we {
       }
 
       public reset() {}
+
+      public collapseBottom(){}
+
+      public expandBottom(){}
     }
   }
 }
