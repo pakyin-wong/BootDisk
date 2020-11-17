@@ -53,7 +53,7 @@ namespace we {
         this.addListeners();
         this.updateText();
         this.updateStat();
-        this._middlePart.mask = this.viewStackMask;
+        // this._middlePart.mask = this.viewStackMask;
         this.getMiddlePartHeight();
         this.onPanelToggle(this.isFirstTime);
       }
