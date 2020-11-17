@@ -45,7 +45,7 @@
 			"name": "scene_lottery"
 		},
 		{
-			"keys": "d_lobby_panel_betcontrol_btn_confirm_bg_png,d_lobby_panel_betcontrol_btn_confirm_icon_png,d_lobby_button_down_normal2_png,d_common_liveverification_emoji_icon13_png,d_common_liveverification_emoji_icon102_png,d_common_liveverification_emoji_icon122_png,d_common_liveverification_emoji_icon112_png,d_common_liveverification_emoji_icon22_png,d_common_liveverification_emoji_icon32_png,d_common_liveverification_emoji_icon42_png,d_common_liveverification_emoji_icon52_png,d_common_liveverification_emoji_icon62_png,d_common_liveverification_emoji_icon72_png,d_common_liveverification_emoji_icon82_png,d_common_liveverification_emoji_icon92_png,m_common_liveverification_emoji_icon1_png,m_common_liveverification_emoji_icon10_png,m_common_liveverification_emoji_icon11_png,m_common_liveverification_emoji_icon12_png,m_common_liveverification_emoji_icon2_png,m_common_liveverification_emoji_icon3_png,m_common_liveverification_emoji_icon4_png,m_common_liveverification_emoji_icon5_png,m_common_liveverification_emoji_icon6_png,m_common_liveverification_emoji_icon7_png,m_common_liveverification_emoji_icon8_png,m_common_liveverification_emoji_icon9_png,SicBo_Game_Result_ske_json,SicBo_Game_Result_tex_json,SicBo_Game_Result_tex_png,dice12_png,dice22_png,dice32_png,dice42_png,dice52_png,dice62_png,dice13_png,dice23_png,dice33_png,dice43_png,dice53_png,dice63_png,flash_png,Base_Dice_22_png,Base_Dice_12_png,Base_Dice_32_png,Base_Dice_42_png,Base_Dice_52_png,Base_Dice_62_png,Base_Dice_13_png,Base_Dice_23_png,Base_Dice_33_png,Base_Dice_43_png,Base_Dice_53_png,Base_Dice_63_png,m_common_slide_bar_active_png,m_common_slide_bar_base_png,m_bam_instruction_card_group_landscape_1_png,m_bam_instruction_card_group_landscape_2_png,m_bam_button_close_none_png,m_bam_instruction_card_group_landscape_12_png,m_bam_instruction_card_group_landscape_22_png,m_bam_instruction_crad_group_png,m_bam_instruction_large_crad_png,m_bam_instruction_large_crad_HL_png,m_bam_instruction_reveal_all_btn_png,m_bam_instruction_swtich_crad_group_png,m_bam_panel_btn_bg_Inactive_png,m_bam_touch_icon_png,m_lw_listpenal_result_money_bg_west_png,m_bam_button_close_none2_png,m_bam_instruction_card_group_landscape_13_png,m_bam_instruction_card_group_landscape_23_png,m_bam_instruction_crad_group2_png,m_bam_instruction_large_crad2_png,m_bam_instruction_large_crad_HL2_png,m_bam_instruction_reveal_all_btn2_png,m_bam_instruction_swtich_crad_group2_png,m_bam_panel_btn_bg_Inactive2_png,m_bam_touch_icon2_png,m_lw_listpenal_result_money_bg_west2_png,m_ba_btn_info_png,d_common_video_verification_icon_correct_png,d_sq_ba_timer_bg_png,d_ba_betarea_chipsbg_triangle_png,d_lobby_panel_gamelist_goodroad_remark_icon_png",
+			"keys": "d_lobby_panel_betcontrol_btn_confirm_bg_png,d_lobby_panel_betcontrol_btn_confirm_icon_png,d_lobby_button_down_normal2_png,d_common_liveverification_emoji_icon13_png,d_common_liveverification_emoji_icon102_png,d_common_liveverification_emoji_icon122_png,d_common_liveverification_emoji_icon112_png,d_common_liveverification_emoji_icon22_png,d_common_liveverification_emoji_icon32_png,d_common_liveverification_emoji_icon42_png,d_common_liveverification_emoji_icon52_png,d_common_liveverification_emoji_icon62_png,d_common_liveverification_emoji_icon72_png,d_common_liveverification_emoji_icon82_png,d_common_liveverification_emoji_icon92_png,m_common_liveverification_emoji_icon1_png,m_common_liveverification_emoji_icon10_png,m_common_liveverification_emoji_icon11_png,m_common_liveverification_emoji_icon12_png,m_common_liveverification_emoji_icon2_png,m_common_liveverification_emoji_icon3_png,m_common_liveverification_emoji_icon4_png,m_common_liveverification_emoji_icon5_png,m_common_liveverification_emoji_icon6_png,m_common_liveverification_emoji_icon7_png,m_common_liveverification_emoji_icon8_png,m_common_liveverification_emoji_icon9_png,SicBo_Game_Result_ske_json,SicBo_Game_Result_tex_json,SicBo_Game_Result_tex_png,dice12_png,dice22_png,dice32_png,dice42_png,dice52_png,dice62_png,dice13_png,dice23_png,dice33_png,dice43_png,dice53_png,dice63_png,flash_png,Base_Dice_22_png,Base_Dice_12_png,Base_Dice_32_png,Base_Dice_42_png,Base_Dice_52_png,Base_Dice_62_png,Base_Dice_13_png,Base_Dice_23_png,Base_Dice_33_png,Base_Dice_43_png,Base_Dice_53_png,Base_Dice_63_png,m_common_slide_bar_active_png,m_common_slide_bar_base_png,m_bam_instruction_card_group_landscape_1_png,m_bam_instruction_card_group_landscape_2_png,m_bam_button_close_none_png,m_bam_instruction_card_group_landscape_12_png,m_bam_instruction_card_group_landscape_22_png,m_bam_instruction_crad_group_png,m_bam_instruction_large_crad_png,m_bam_instruction_large_crad_HL_png,m_bam_instruction_reveal_all_btn_png,m_bam_instruction_swtich_crad_group_png,m_bam_panel_btn_bg_Inactive_png,m_bam_touch_icon_png,m_lw_listpenal_result_money_bg_west_png,m_bam_button_close_none2_png,m_bam_instruction_card_group_landscape_13_png,m_bam_instruction_card_group_landscape_23_png,m_bam_instruction_crad_group2_png,m_bam_instruction_large_crad2_png,m_bam_instruction_large_crad_HL2_png,m_bam_instruction_reveal_all_btn2_png,m_bam_instruction_swtich_crad_group2_png,m_bam_panel_btn_bg_Inactive2_png,m_bam_touch_icon2_png,m_lw_listpenal_result_money_bg_west2_png,m_ba_btn_info_png,d_common_video_verification_icon_correct_png,d_sq_ba_timer_bg_png,d_ba_betarea_chipsbg_triangle_png,d_lobby_panel_gamelist_goodroad_remark_icon_png,blockchain_mobile_ske_json,blockchain_mobile_tex_json,blockchain_mobile_tex_png,blockchain_dt_mobile_ske_json,blockchain_dt_mobile_tex_json,blockchain_dt_mobile_tex_png,dragon_ske2_json,dragon_tex2_json,dragon_tex2_png,tiger_ske2_json,tiger_tex2_json,tiger_tex2_png,bg_png,bg_mask_png,d_bcba_btn_hover2_png,d_bcba_btn_normal2_png,d_bcba_panel_shoe_card_fill_hover2_png,d_bcba_panel_shoe_card_random_dim2_png,d_bcba_panel_shoe_card_red2_png,d_bcba_resultarea_banker2_png,m_sq_bac_small_poker_clover10_vertical_png,d_bcba_resultarea_player2_png,m_sq_bac_small_poker_clover2_vertical_png,m_sq_bac_small_poker_clover3_vertical_png,m_sq_bac_small_poker_clover4_vertical_png,m_sq_bac_small_poker_clover5_vertical_png,m_sq_bac_small_poker_clover6_vertical_png,m_sq_bac_small_poker_clover7_vertical_png,m_sq_bac_small_poker_clover8_vertical_png,m_sq_bac_small_poker_clover9_vertical_png,m_sq_bac_small_poker_cloverA_vertical_png,m_sq_bac_small_poker_cloverJ_vertical_png,m_sq_bac_small_poker_cloverK_vertical_png,m_sq_bac_small_poker_cloverQ_vertical_png,we_bcba_sfx_card_generate_mp3,we_bcba_sfx_card_icontocontainer_mp3,we_bcba_sfx_card_move_mp3,we_bcba_sfx_card_open_mp3,we_bcba_sfx_card_popup_mp3,we_bcba_sfx_card_removeall_mp3,we_bcba_sfx_card_smallcard_mp3,we_bcba_sfx_card_teleport_mp3,we_bcba_sfx_container_fadeout_mp3,we_bcba_sfx_container_icon_mp3,we_bcba_sfx_newshoe_mp3,we_bcba_sfx_result_mp3,we_bcba_sfx_shoeout_mp3,we_bcdt_sfx_result_dragonwin_mp3,we_bcdt_sfx_result_tigerwin_mp3,we_bcdt_sfx_scanning_loop_mp3,we_bcdt_sfx_shoe_in_mp3,we_bcdt_sfx_shoe_out_mp3,we_bcba_sfx_card_generate2_mp3,we_bcba_sfx_card_icontocontainer2_mp3,we_bcba_sfx_card_move2_mp3,we_bcba_sfx_card_open2_mp3,we_bcba_sfx_card_popup2_mp3,we_bcba_sfx_card_removeall2_mp3,we_bcba_sfx_card_smallcard2_mp3,we_bcba_sfx_card_teleport2_mp3,we_bcba_sfx_container_fadeout2_mp3,we_bcba_sfx_container_icon2_mp3,we_bcba_sfx_newshoe2_mp3,we_bcba_sfx_result2_mp3,we_bcba_sfx_shoeout2_mp3",
 			"name": "preload"
 		},
 		{
@@ -7755,6 +7755,331 @@
 			"name": "d_lobby_panel_gamelist_goodroad_remark_icon_png",
 			"type": "image",
 			"url": "assets/images/d/common/game_panel/common/d_lobby_panel_gamelist_goodroad_remark_icon.png"
+		},
+		{
+			"name": "blockchain_mobile_ske_json",
+			"type": "json",
+			"url": "assets/dragonbones/m/bab/blockchain_mobile_ske.json"
+		},
+		{
+			"name": "blockchain_mobile_tex_json",
+			"type": "json",
+			"url": "assets/dragonbones/m/bab/blockchain_mobile_tex.json"
+		},
+		{
+			"name": "blockchain_mobile_tex_png",
+			"type": "image",
+			"url": "assets/dragonbones/m/bab/blockchain_mobile_tex.png"
+		},
+		{
+			"name": "blockchain_dt_mobile_ske_json",
+			"type": "json",
+			"url": "assets/dragonbones/m/dtb/blockchain_dt_mobile_ske.json"
+		},
+		{
+			"name": "blockchain_dt_mobile_tex_json",
+			"type": "json",
+			"url": "assets/dragonbones/m/dtb/blockchain_dt_mobile_tex.json"
+		},
+		{
+			"name": "blockchain_dt_mobile_tex_png",
+			"type": "image",
+			"url": "assets/dragonbones/m/dtb/blockchain_dt_mobile_tex.png"
+		},
+		{
+			"name": "dragon_ske2_json",
+			"type": "json",
+			"url": "assets/dragonbones/m/dtb/dragon_ske.json"
+		},
+		{
+			"name": "dragon_tex2_json",
+			"type": "json",
+			"url": "assets/dragonbones/m/dtb/dragon_tex.json"
+		},
+		{
+			"name": "dragon_tex2_png",
+			"type": "image",
+			"url": "assets/dragonbones/m/dtb/dragon_tex.png"
+		},
+		{
+			"name": "tiger_ske2_json",
+			"type": "json",
+			"url": "assets/dragonbones/m/dtb/tiger_ske.json"
+		},
+		{
+			"name": "tiger_tex2_json",
+			"type": "json",
+			"url": "assets/dragonbones/m/dtb/tiger_tex.json"
+		},
+		{
+			"name": "tiger_tex2_png",
+			"type": "image",
+			"url": "assets/dragonbones/m/dtb/tiger_tex.png"
+		},
+		{
+			"name": "bg_png",
+			"type": "image",
+			"url": "assets/images/m/bc/bg.png"
+		},
+		{
+			"name": "bg_mask_png",
+			"type": "image",
+			"url": "assets/images/m/bc/bg_mask.png"
+		},
+		{
+			"name": "d_bcba_btn_hover2_png",
+			"type": "image",
+			"url": "assets/images/m/bc/d_bcba_btn_hover.png"
+		},
+		{
+			"name": "d_bcba_btn_normal2_png",
+			"type": "image",
+			"url": "assets/images/m/bc/d_bcba_btn_normal.png"
+		},
+		{
+			"name": "d_bcba_panel_shoe_card_fill_hover2_png",
+			"type": "image",
+			"url": "assets/images/m/bc/d_bcba_panel_shoe_card_fill_hover.png"
+		},
+		{
+			"name": "d_bcba_panel_shoe_card_random_dim2_png",
+			"type": "image",
+			"url": "assets/images/m/bc/d_bcba_panel_shoe_card_random_dim.png"
+		},
+		{
+			"name": "d_bcba_panel_shoe_card_red2_png",
+			"type": "image",
+			"url": "assets/images/m/bc/d_bcba_panel_shoe_card_red.png"
+		},
+		{
+			"name": "d_bcba_resultarea_banker2_png",
+			"type": "image",
+			"url": "assets/images/m/bc/d_bcba_resultarea_banker.png"
+		},
+		{
+			"name": "m_sq_bac_small_poker_clover10_vertical_png",
+			"type": "image",
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_clover10_vertical.png"
+		},
+		{
+			"name": "d_bcba_resultarea_player2_png",
+			"type": "image",
+			"url": "assets/images/m/bc/d_bcba_resultarea_player.png"
+		},
+		{
+			"name": "m_sq_bac_small_poker_clover2_vertical_png",
+			"type": "image",
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_clover2_vertical.png"
+		},
+		{
+			"name": "m_sq_bac_small_poker_clover3_vertical_png",
+			"type": "image",
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_clover3_vertical.png"
+		},
+		{
+			"name": "m_sq_bac_small_poker_clover4_vertical_png",
+			"type": "image",
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_clover4_vertical.png"
+		},
+		{
+			"name": "m_sq_bac_small_poker_clover5_vertical_png",
+			"type": "image",
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_clover5_vertical.png"
+		},
+		{
+			"name": "m_sq_bac_small_poker_clover6_vertical_png",
+			"type": "image",
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_clover6_vertical.png"
+		},
+		{
+			"name": "m_sq_bac_small_poker_clover7_vertical_png",
+			"type": "image",
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_clover7_vertical.png"
+		},
+		{
+			"name": "m_sq_bac_small_poker_clover8_vertical_png",
+			"type": "image",
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_clover8_vertical.png"
+		},
+		{
+			"name": "m_sq_bac_small_poker_clover9_vertical_png",
+			"type": "image",
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_clover9_vertical.png"
+		},
+		{
+			"name": "m_sq_bac_small_poker_cloverA_vertical_png",
+			"type": "image",
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_cloverA_vertical.png"
+		},
+		{
+			"name": "m_sq_bac_small_poker_cloverJ_vertical_png",
+			"type": "image",
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_cloverJ_vertical.png"
+		},
+		{
+			"name": "m_sq_bac_small_poker_cloverK_vertical_png",
+			"type": "image",
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_cloverK_vertical.png"
+		},
+		{
+			"name": "m_sq_bac_small_poker_cloverQ_vertical_png",
+			"type": "image",
+			"url": "assets/images/m/bc/m_small_poker_card/m_sq_bac_small_poker_cloverQ_vertical.png"
+		},
+		{
+			"name": "we_bcba_sfx_card_generate_mp3",
+			"type": "sound",
+			"url": "assets/sounds/bab/we_bcba_sfx_card_generate.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_card_icontocontainer_mp3",
+			"type": "sound",
+			"url": "assets/sounds/bab/we_bcba_sfx_card_icontocontainer.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_card_move_mp3",
+			"type": "sound",
+			"url": "assets/sounds/bab/we_bcba_sfx_card_move.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_card_open_mp3",
+			"type": "sound",
+			"url": "assets/sounds/bab/we_bcba_sfx_card_open.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_card_popup_mp3",
+			"type": "sound",
+			"url": "assets/sounds/bab/we_bcba_sfx_card_popup.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_card_removeall_mp3",
+			"type": "sound",
+			"url": "assets/sounds/bab/we_bcba_sfx_card_removeall.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_card_smallcard_mp3",
+			"type": "sound",
+			"url": "assets/sounds/bab/we_bcba_sfx_card_smallcard.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_card_teleport_mp3",
+			"type": "sound",
+			"url": "assets/sounds/bab/we_bcba_sfx_card_teleport.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_container_fadeout_mp3",
+			"type": "sound",
+			"url": "assets/sounds/bab/we_bcba_sfx_container_fadeout.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_container_icon_mp3",
+			"type": "sound",
+			"url": "assets/sounds/bab/we_bcba_sfx_container_icon.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_newshoe_mp3",
+			"type": "sound",
+			"url": "assets/sounds/bab/we_bcba_sfx_newshoe.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_result_mp3",
+			"type": "sound",
+			"url": "assets/sounds/bab/we_bcba_sfx_result.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_shoeout_mp3",
+			"type": "sound",
+			"url": "assets/sounds/bab/we_bcba_sfx_shoeout.mp3"
+		},
+		{
+			"name": "we_bcdt_sfx_result_dragonwin_mp3",
+			"type": "sound",
+			"url": "assets/sounds/dtb/bcdt/we_bcdt_sfx_result_dragonwin.mp3"
+		},
+		{
+			"name": "we_bcdt_sfx_result_tigerwin_mp3",
+			"type": "sound",
+			"url": "assets/sounds/dtb/bcdt/we_bcdt_sfx_result_tigerwin.mp3"
+		},
+		{
+			"name": "we_bcdt_sfx_scanning_loop_mp3",
+			"type": "sound",
+			"url": "assets/sounds/dtb/bcdt/we_bcdt_sfx_scanning_loop.mp3"
+		},
+		{
+			"name": "we_bcdt_sfx_shoe_in_mp3",
+			"type": "sound",
+			"url": "assets/sounds/dtb/bcdt/we_bcdt_sfx_shoe_in.mp3"
+		},
+		{
+			"name": "we_bcdt_sfx_shoe_out_mp3",
+			"type": "sound",
+			"url": "assets/sounds/dtb/bcdt/we_bcdt_sfx_shoe_out.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_card_generate2_mp3",
+			"type": "sound",
+			"url": "assets/sounds/dtb/we_bcba_sfx_card_generate.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_card_icontocontainer2_mp3",
+			"type": "sound",
+			"url": "assets/sounds/dtb/we_bcba_sfx_card_icontocontainer.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_card_move2_mp3",
+			"type": "sound",
+			"url": "assets/sounds/dtb/we_bcba_sfx_card_move.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_card_open2_mp3",
+			"type": "sound",
+			"url": "assets/sounds/dtb/we_bcba_sfx_card_open.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_card_popup2_mp3",
+			"type": "sound",
+			"url": "assets/sounds/dtb/we_bcba_sfx_card_popup.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_card_removeall2_mp3",
+			"type": "sound",
+			"url": "assets/sounds/dtb/we_bcba_sfx_card_removeall.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_card_smallcard2_mp3",
+			"type": "sound",
+			"url": "assets/sounds/dtb/we_bcba_sfx_card_smallcard.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_card_teleport2_mp3",
+			"type": "sound",
+			"url": "assets/sounds/dtb/we_bcba_sfx_card_teleport.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_container_fadeout2_mp3",
+			"type": "sound",
+			"url": "assets/sounds/dtb/we_bcba_sfx_container_fadeout.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_container_icon2_mp3",
+			"type": "sound",
+			"url": "assets/sounds/dtb/we_bcba_sfx_container_icon.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_newshoe2_mp3",
+			"type": "sound",
+			"url": "assets/sounds/dtb/we_bcba_sfx_newshoe.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_result2_mp3",
+			"type": "sound",
+			"url": "assets/sounds/dtb/we_bcba_sfx_result.mp3"
+		},
+		{
+			"name": "we_bcba_sfx_shoeout2_mp3",
+			"type": "sound",
+			"url": "assets/sounds/dtb/we_bcba_sfx_shoeout.mp3"
 		}
 	]
 }
