@@ -3,10 +3,11 @@ namespace we {
     export class DeckPanel extends BasePanel {
       protected _list: eui.List;
       protected _gameData: data.GameData & data.BlockchainGameData;
+      protected _scroller: ui.Scroller;
 
       protected mount() {
         super.mount();
-        this._list.itemRenderer = DeckCard;
+        this._list.itemRenderer = this.getItemRenderer();
         this._list.addEventListener(
           'OPEN_CARDINFO_PANEL',
           (evt: egret.Event) => {
@@ -30,8 +31,12 @@ namespace we {
         }
 
         const data = new eui.ArrayCollection(this.convertMaskedCardSsnList());
-        this._list.itemRenderer = DeckCard;
+        this._list.itemRenderer = this.getItemRenderer();
         this._list.dataProvider = data;
+      }
+
+      protected getItemRenderer(){
+        return DeckCard;
       }
 
       protected convertMaskedCardSsnList() {
@@ -47,6 +52,14 @@ namespace we {
           }
         }
         return arr;
+      }
+
+      public resizeHeight(height: number){
+        const diff = height - this.height
+        this.height = height
+        this._scroller.height += diff;
+        this._scroller.invalidateSize();
+        this._scroller.invalidateProperties();
       }
     }
   }

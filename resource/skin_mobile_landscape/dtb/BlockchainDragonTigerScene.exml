@@ -156,13 +156,13 @@
 <bc:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true" skeletonName="blockchain_dt"
                  isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
                  skinName="skin_mobile_landscape.bc.ShufflePanelSkin" />
-<bc:DeckPanel id="_deckPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
+<bc:DeckPanel id="_deckPanel" width="1242" height="1966" verticalCenter="0" horizontalCenter="0" isPoppable="true"
               isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
               skinName="skin_mobile_landscape.bc.DeckPanelSkin" />
-<bc:HelpPanel id="_helpPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
+<bc:HelpPanel id="_helpPanel" width="1242" height="1966" verticalCenter="0" horizontalCenter="0" isPoppable="true"
               isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
               skinName="skin_mobile_landscape.bc.HelpPanelSkin" />
-<bc:CardInfoPanel id="_cardInfoPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0"
+<bc:CardInfoPanel id="_cardInfoPanel" width="1242" height="1966" verticalCenter="0" horizontalCenter="0"
                   isPoppable="true" isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false"
                   hideOnStart="true" skinName="skin_mobile_landscape.bc.CardInfoPanelSkin" />
 </e:Skin>

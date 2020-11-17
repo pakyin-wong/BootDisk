@@ -138,13 +138,13 @@
 	<bc:ShufflePanel id="_shufflePanel" width="1242" height="2155" isPoppable="true" skeletonName="blockchain"
 	                  isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
 	                  skinName="skin_mobile_portrait.bc.ShufflePanelSkin" />
-	<bc:DeckPanel id="_deckPanel" width="1242" height="1343" verticalCenter="0" horizontalCenter="0" isPoppable="true"
-	               isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
+	<bc:DeckPanel id="_deckPanel" width="1242" height="1966" verticalCenter="0" horizontalCenter="0" isPoppable="true"
+	               isEdgeDismissable="true" dismissOnClickOutside="true" isDraggable="false" hideOnStart="true"
 	               skinName="skin_mobile_portrait.bc.DeckPanelSkin" />
-	<bc:HelpPanel id="_helpPanel" width="1242" height="1343" verticalCenter="0" horizontalCenter="0" isPoppable="true"
-	               isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
+	<bc:HelpPanel id="_helpPanel" width="1242" height="1966" verticalCenter="0" horizontalCenter="0" isPoppable="true"
+	               isEdgeDismissable="true" dismissOnClickOutside="true" isDraggable="false" hideOnStart="true"
 	               skinName="skin_mobile_portrait.bc.HelpPanelSkin" />
-	<bc:CardInfoPanel id="_cardInfoPanel" width="1242" height="1343" verticalCenter="0" horizontalCenter="0"
-	                   isPoppable="true" isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false"
+	<bc:CardInfoPanel id="_cardInfoPanel" width="1242" height="1966" verticalCenter="0" horizontalCenter="0"
+	                   isPoppable="true" isEdgeDismissable="true" dismissOnClickOutside="true" isDraggable="false"
 	                   hideOnStart="true" skinName="skin_mobile_portrait.bc.CardInfoPanelSkin" />
 </e:Skin>
