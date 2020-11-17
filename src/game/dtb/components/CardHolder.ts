@@ -35,8 +35,7 @@ namespace we {
 
       protected _totalCardPerRound: number;
 
-      protected _roundLoopA : string;
-      protected _roundLoopB : string;
+
       protected _verticalFlip : string;
 
       protected mount() {
@@ -53,8 +52,7 @@ namespace we {
 
       protected initVariables(){
         super.initVariables();
-        this._roundLoopA = 'round_loop_a';
-        this._roundLoopB = 'round_loop_b';
+
         this._verticalFlip = 'vertical_flip';
         this._totalCardPerRound = 3;
       }
