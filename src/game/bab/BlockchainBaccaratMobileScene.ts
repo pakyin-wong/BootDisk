@@ -79,7 +79,7 @@ namespace we {
             switch (this._gameData.state) {
               case core.GameState.DEAL:
               case core.GameState.FINISH:
-                this._deckButton.y = this._helpButton.y = this._lastRoundButton.y =  this._portraitButtonExpandedDealY;
+                this._deckButton.y = this._helpButton.y = this._lastRoundButton.y =  this._portraitButtonCollapsedDealY;
                 break;
               case core.GameState.BET:
               case core.GameState.IDLE:

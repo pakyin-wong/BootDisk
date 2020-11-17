@@ -42,7 +42,7 @@ namespace we {
       }
 
       protected initVariables(){
-                this._portraitButtonExpandedDealY = 947;
+        this._portraitButtonExpandedDealY = 947;
         this._portraitButtonExpandedBetY = 800;
         this._portraitButtonCollapsedDealY = 1455;        
         this._portraitButtonCollapsedBetY = 1307;
