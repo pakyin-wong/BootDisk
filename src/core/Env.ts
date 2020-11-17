@@ -24,6 +24,7 @@ namespace we {
       public currency: Currency;
       public playerID: string;
       public accountType: number = 0; // 0-api, 1-credit
+      public redirecturl: string;
 
       public nickname: string;
       public nicknameKey: string;

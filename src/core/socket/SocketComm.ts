@@ -297,6 +297,7 @@ namespace we {
 				env.currency = player.profile.currency;
 				env.accountType = player.profile.type ? player.profile.type : 0;
 				// env.nickname = player.profile.nickname;
+				env.redirecturl = player.redirecturl;
 				env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
 				env.showGoodRoadHint = player.profile.settings.showGoodRoadHint === '1' ? true : false;
 				env.autoConfirmBet = player.profile.settings.autoConfirmBet === '1' ? true : false;
