@@ -4,7 +4,7 @@ namespace we {
       private _soundBGM: egret.Sound;
       private _channelBGM: egret.SoundChannel;
       // private _channelFX: egret.SoundChannel;
-      private _activeChannel: egret.SoundChannel[];
+      private _activeChannels: egret.SoundChannel[];
 
       private _video: egret.FlvVideo;
 
@@ -54,7 +54,7 @@ namespace we {
       public set volumeFX(vol: number) {
         logger.l(utils.LogTarget.DEBUG, `Setting volumeFX to ${vol}`);
         this._volumeFX = vol;
-        for (const sfx of this._activeChannel) {
+        for (const sfx of this._activeChannels) {
           sfx.volume = vol;
         }
       }
@@ -82,6 +82,8 @@ namespace we {
       public init() {
         // this._soundBGM = RES.getRes('sn_bgm002_mp3');
         // this._channelBGM = this._soundBGM.play();
+        this._activeChannels = [];
+        this.playBGM('bgm_comfort_mp3');
       }
       
       public playBGM(resName: string = null) {
@@ -105,20 +107,21 @@ namespace we {
       public play(resName: string) {
         const soundFx = RES.getRes(resName);
         if (!soundFx) {
+          RES.getResAsync(resName);
           return;
         }
         const sfx = soundFx.play(0, 1);
         // set initial volume to current fx volume
         sfx.volume = this._volumeFX;
-        this._activeChannel.push(sfx);
+        this._activeChannels.push(sfx);
         logger.l(utils.LogTarget.DEBUG, 'playing', resName);
         sfx.addEventListener(
           egret.Event.SOUND_COMPLETE,
           () => {
             logger.l(utils.LogTarget.DEBUG, 'play end', resName);
-            const idx = this._activeChannel.indexOf(sfx);
+            const idx = this._activeChannels.indexOf(sfx);
             if (idx >= 0) {
-              this._activeChannel.splice(idx,1);
+              this._activeChannels.splice(idx,1);
             }
           },
           this
@@ -137,16 +140,16 @@ namespace we {
             const sfx = soundFx.play(0, 1);
             // set initial volume to current fx volume
             sfx.volume = this._volumeFX;
-            this._activeChannel.push(sfx);
+            this._activeChannels.push(sfx);
             logger.l(utils.LogTarget.DEBUG, 'playing', `sn_${name}_${env.voice}_mp3`);
             return new Promise<void>(resolve => {
               sfx.addEventListener(
                 egret.Event.SOUND_COMPLETE,
                 () => {
                   logger.l(utils.LogTarget.DEBUG, 'play end', `sn_${name}_${env.voice}_mp3`);
-                  const idx = this._activeChannel.indexOf(sfx);
+                  const idx = this._activeChannels.indexOf(sfx);
                   if (idx >= 0) {
-                    this._activeChannel.splice(idx,1);
+                    this._activeChannels.splice(idx,1);
                   }
                   resolve();
                 },

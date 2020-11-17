@@ -7009,6 +7009,121 @@
 			"url": "assets/dragonbones/m/dtb/blockchain_dt_ske.json",
 			"type": "json",
 			"name": "blockchain_dt_ske_json"
+		},
+		{
+			"url": "assets/sounds/common/bgm_chinese.mp3",
+			"type": "sound",
+			"name": "bgm_chinese_mp3"
+		},
+		{
+			"url": "assets/sounds/common/bgm_comfort.mp3",
+			"type": "sound",
+			"name": "bgm_comfort_mp3"
+		},
+		{
+			"url": "assets/sounds/common/bgm_nature.mp3",
+			"type": "sound",
+			"name": "bgm_nature_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_enter_game_opening.mp3",
+			"type": "sound",
+			"name": "ui_enter_game_opening_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_bet_btn_double.mp3",
+			"type": "sound",
+			"name": "ui_sfx_bet_btn_double_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_bet_chips_01.mp3",
+			"type": "sound",
+			"name": "ui_sfx_bet_chips_01_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_bet_chips_add.mp3",
+			"type": "sound",
+			"name": "ui_sfx_bet_chips_add_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_bet_stop.mp3",
+			"type": "sound",
+			"name": "ui_sfx_bet_stop_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_bet_success.mp3",
+			"type": "sound",
+			"name": "ui_sfx_bet_success_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_bet_time_out.mp3",
+			"type": "sound",
+			"name": "ui_sfx_bet_time_out_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_btn_cancel.mp3",
+			"type": "sound",
+			"name": "ui_sfx_btn_cancel_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_btn_disable.mp3",
+			"type": "sound",
+			"name": "ui_sfx_btn_disable_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_btn_ok.mp3",
+			"type": "sound",
+			"name": "ui_sfx_btn_ok_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_btn_switch.mp3",
+			"type": "sound",
+			"name": "ui_sfx_btn_switch_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_info_error_warning.mp3",
+			"type": "sound",
+			"name": "ui_sfx_info_error_warning_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_info_message.mp3",
+			"type": "sound",
+			"name": "ui_sfx_info_message_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_info_notice.mp3",
+			"type": "sound",
+			"name": "ui_sfx_info_notice_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_penal_close.mp3",
+			"type": "sound",
+			"name": "ui_sfx_penal_close_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_penal_open.mp3",
+			"type": "sound",
+			"name": "ui_sfx_penal_open_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_result_card_flip.mp3",
+			"type": "sound",
+			"name": "ui_sfx_result_card_flip_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_result_card_send.mp3",
+			"type": "sound",
+			"name": "ui_sfx_result_card_send_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_result_chips_balance_add.mp3",
+			"type": "sound",
+			"name": "ui_sfx_result_chips_balance_add_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_result_win.mp3",
+			"type": "sound",
+			"name": "ui_sfx_result_win_mp3"
 		}
 	]
 }
