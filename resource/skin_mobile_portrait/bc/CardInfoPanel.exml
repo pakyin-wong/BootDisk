@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.bc.CardInfoPanelSkin" width="1853" height="1025" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.bc.CardInfoPanelSkin" width="1242" height="1966" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:bc="we.blockchain.*" xmlns:w="http://ns.egret.com/wing"
         xmlns:live="we.live.*">
         <e:Group id="content" width="100%" height="100%">
