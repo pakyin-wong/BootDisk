@@ -19,6 +19,11 @@ namespace we {
       protected _historyCardHolder: we.ui.HistoryCardHolder;
       protected _resultDisplay: ui.IResultDisplay & we.blockchain.CardHolder;
 
+      protected _portraitButtonExpandedBetY: number;
+      protected _portraitButtonExpandedDealY: number;
+      protected _portraitButtonCollapsedBetY: number;
+      protected _portraitButtonCollapsedDealY: number;
+
       public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat];
 
       protected setSkinName() {
@@ -28,6 +33,7 @@ namespace we {
 
       protected mount() {
         super.mount();
+        this.initVariables();
         this._helpPanel.setToggler(this._helpButton);
         this._deckPanel.setToggler(this._deckButton);
         this._historyCardHolder.setToggler(this._lastRoundButton);
@@ -40,6 +46,14 @@ namespace we {
         this.getShoeInfo();
         this._bottomGamePanel.addEventListener('TOGGLE', this.toggleBottomGamePanel, this)
         this.toggleBottomGamePanel();
+
+      }
+
+      protected initVariables(){
+        this._portraitButtonExpandedDealY = 832;
+        this._portraitButtonExpandedBetY = 684;
+        this._portraitButtonCollapsedDealY = 1340;        
+        this._portraitButtonCollapsedBetY = 1192;
       }
 
       protected toggleBottomGamePanel() {
@@ -49,17 +63,13 @@ namespace we {
             switch (this._gameData.state) {
               case core.GameState.DEAL:
               case core.GameState.FINISH:
-                this._deckButton.y = 832;
-                this._helpButton.y = 832;
-                this._lastRoundButton.y = 832;
+                this._deckButton.y = this._helpButton.y = this._lastRoundButton.y = this._portraitButtonExpandedDealY;
                 break;
               case core.GameState.BET:
               case core.GameState.IDLE:
               case core.GameState.SHUFFLE:
               default:
-                this._deckButton.y = 684;
-                this._helpButton.y = 684;
-                this._lastRoundButton.y = 684;
+                this._deckButton.y = this._helpButton.y =  this._lastRoundButton.y = this._portraitButtonExpandedBetY;
                 break;
             }
           }
@@ -69,17 +79,13 @@ namespace we {
             switch (this._gameData.state) {
               case core.GameState.DEAL:
               case core.GameState.FINISH:
-                this._deckButton.y = 1340;
-                this._helpButton.y = 1340;
-                this._lastRoundButton.y = 1340;
+                this._deckButton.y = this._helpButton.y = this._lastRoundButton.y =  this._portraitButtonExpandedDealY;
                 break;
               case core.GameState.BET:
               case core.GameState.IDLE:
               case core.GameState.SHUFFLE:
               default:
-                this._deckButton.y = 1192;
-                this._helpButton.y = 1192;
-                this._lastRoundButton.y = 1192;
+                this._deckButton.y = this._helpButton.y = this._lastRoundButton.y = this._portraitButtonCollapsedBetY;
                 break;
             }
           }
@@ -113,7 +119,7 @@ namespace we {
         if (isInit || this.previousState !== core.GameState.BET) {
           this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         }
-        (<we.bab.MobileCardHolder>this._resultDisplay).hideSumGroup();
+        this.hideSumGroup();
         this.toggleBottomGamePanel();
       }
 
@@ -121,7 +127,7 @@ namespace we {
         this._shufflePanel.hide();
         this._deckPanel.setValue(<bab.GameData>this._gameData);
         super.setStateDeal(isInit);
-        (<we.bab.MobileCardHolder>this._resultDisplay).showSumGroup()
+        this.showSumGroup();
         console.log('Blockchain scene deal state', this._gameData);
         this.toggleBottomGamePanel();
       }
@@ -130,7 +136,7 @@ namespace we {
         this._shufflePanel.hide();
         this._deckPanel.setValue(<bab.GameData>this._gameData);
         super.setStateFinish(isInit);
-        (<we.bab.MobileCardHolder>this._resultDisplay).showSumGroup()
+        this.showSumGroup();
         console.log('Blockchain scene finish state', this._gameData);
         this.toggleBottomGamePanel();
       }
@@ -139,7 +145,7 @@ namespace we {
         this.getShoeInfo();
         super.setStateShuffle(isInit);
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit)
-          (<we.bab.MobileCardHolder>this._resultDisplay).hideSumGroup();
+        this.hideSumGroup();
         this.toggleBottomGamePanel();
       }
 
@@ -164,6 +170,15 @@ namespace we {
           this._shufflePanel.show();
           this._shufflePanel.showAnim(this._gameData);
         }
+      }
+
+      protected showSumGroup(){
+        (<we.bab.MobileCardHolder>this._resultDisplay).showSumGroup()
+      }
+
+      protected hideSumGroup(){
+          (<we.bab.MobileCardHolder>this._resultDisplay).hideSumGroup();
+
       }
 
       protected async getShoeInfo() {

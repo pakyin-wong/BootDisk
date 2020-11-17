@@ -35,6 +35,10 @@ namespace we {
 
       protected _totalCardPerRound: number;
 
+      protected _roundLoopA : string;
+      protected _roundLoopB : string;
+      protected _verticalFlip : string;
+
       protected mount() {
         super.mount();
         this._dragonAnim = this.createDragonTigerAnim('dragon', 0.8);
@@ -49,6 +53,9 @@ namespace we {
 
       protected initVariables(){
         super.initVariables();
+        this._roundLoopA = 'round_loop_a';
+        this._roundLoopB = 'round_loop_b';
+        this._verticalFlip = 'vertical_flip';
         this._totalCardPerRound = 3;
       }
 
@@ -212,7 +219,7 @@ namespace we {
         if (this._gameData.d) {
           this.setCardFrontFace(this._dragonCard, 'd', 'vertical', 0);
           this.setLabel(this._dragonCard.armature.getSlot(`card_number_vertical`), this.getCurrentDIndex());
-          await utils.playAnimation(this._dragonCard,'vertical_flip',1);
+          await utils.playAnimation(this._dragonCard,this._verticalFlip,1);
           // const p4 = utils.waitDragonBone(this._dragonCard);
           // this._dragonCard.animation.play(`vertical_flip`, 1);
           // await p4;
@@ -223,7 +230,7 @@ namespace we {
           console.log('dealInitState t');
           this.setCardFrontFace(this._tigerCard, 't', 'vertical', 0);
           this.setLabel(this._tigerCard.armature.getSlot(`card_number_vertical`), this.getCurrentTIndex());
-          await utils.playAnimation(this._tigerCard,'vertical_flip',1);
+          await utils.playAnimation(this._tigerCard,this._verticalFlip,1);
           // const p5 = utils.waitDragonBone(this._tigerCard);
           // this._tigerCard.animation.play(`vertical_flip`, 1);
           // await p5;
@@ -257,6 +264,10 @@ namespace we {
         })();
       }
 
+      protected pokerRoundLoop(){
+        this._ringAnim.animation.fadeIn('poker_round_loop', 0, 0, 0, 'POKER_ROUND_ANIMATION_GROUP');
+      }
+
       protected async distributeCards() {
         this._dragonAnim.animation.play('loop', 0);
         this._tigerAnim.animation.play('loop', 0);
@@ -266,14 +277,14 @@ namespace we {
         // this._ringAnim.animation.fadeIn('round_in', 0, 1, 0, 'ROUND_ANIMATION_GROUP');
         // await p1;
 
-        this._ringAnim.animation.fadeIn('round_loop_a', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
+        this._ringAnim.animation.fadeIn(this._roundLoopA, 0, 0, 0, 'ROUND_ANIMATION_GROUP');
 
         await utils.playAnimation(this._ringAnim,'poker_round_in',1,'POKER_ROUND_ANIMATION_GROUP');
         // const p2 = we.utils.waitDragonBone(this._ringAnim);
         // this._ringAnim.animation.fadeIn('poker_round_in', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
         // await p2;
 
-        this._ringAnim.animation.fadeIn('poker_round_loop', 0, 0, 0, 'POKER_ROUND_ANIMATION_GROUP');
+        this.pokerRoundLoop();
 
         // await (async () => {
         //   this.setLabel(this._ringAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + 1);
@@ -375,7 +386,7 @@ namespace we {
         // this._ringAnim.animation.fadeIn('poker_round_out', 0, 1, 0, 'POKER_ROUND_ANIMATION_GROUP');
         // await p3;
 
-        await utils.playAnimation(this._ringAnim,'round_loop_a',1,'ROUND_ANIMATION_GROUP');
+        await utils.playAnimation(this._ringAnim,this._roundLoopA,1,'ROUND_ANIMATION_GROUP');
         // const p4 = we.utils.waitDragonBone(this._ringAnim);
         // this._ringAnim.animation.fadeIn('round_loop_a', 0, 1, 0, 'ROUND_ANIMATION_GROUP');
         // await p4
@@ -385,7 +396,7 @@ namespace we {
         // this._ringAnim.animation.fadeIn('round_last_card', 0, 1, 0, 'ROUND_ANIMATION_GROUP');
         // await p5
 
-        this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
+        this._ringAnim.animation.fadeIn(this._roundLoopB, 0, 0, 0, 'ROUND_ANIMATION_GROUP');
 
         return new Promise(resolve => resolve());
       }
@@ -443,7 +454,7 @@ namespace we {
         }
         this.updateAllSum();
 
-        this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0, 'ROUND_ANIMATION_GROUP');
+        this._ringAnim.animation.fadeIn(this._roundLoopB, 0, 0, 0, 'ROUND_ANIMATION_GROUP');
 
         if (this._gameData.wintype === dt.WinType.DRAGON) {
           (async () => {
@@ -482,7 +493,7 @@ namespace we {
             this.movePin();
             this.moveShoe();
             await this.clearCards();
-            this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0);
+            this._ringAnim.animation.fadeIn(this._roundLoopB, 0, 0, 0);
             this.dispatchEvent(new egret.Event('OPEN_SHUFFLE_PANEL', false, false, 'init'))
           })();
         } else {
@@ -551,7 +562,7 @@ namespace we {
               utils.playAnimation(this._tigerAnim,'shoe_in',1),
             ]);
 
-            this._ringAnim.animation.fadeIn('round_loop_b', 0, 0, 0);
+            this._ringAnim.animation.fadeIn(this._roundLoopB, 0, 0, 0);
 
             this.dispatchEvent(new egret.Event('OPEN_SHUFFLE_PANEL', false, false, 'notInit'));
 
