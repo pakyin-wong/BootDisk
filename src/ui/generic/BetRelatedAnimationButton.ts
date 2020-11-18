@@ -22,7 +22,6 @@ namespace we {
         switch (this._dbDisplay) {
           default:
             this.active = true;
-            this.isSwitch = true;
             this.isSetting = false;
             break;
         }
@@ -35,23 +34,70 @@ namespace we {
         this.removeEventListeners();
       }
 
-      protected addEventListeners() { }
+      protected addEventListeners() {
+      }
 
-      protected removeEventListeners() { }
+      protected removeEventListeners() {}
 
       protected onRollover() {
-        super.onRollover();
+        super.onRollover;
         this.playPromise('idle_to_hover', 1);
       }
 
       protected onRollout() {
-        super.onRollout();
-        console.log('rollOut');
-        this.playPromise('release', 5);
-        // const oldState = [this._down, this._hover];
-        // this._down = false;
-        // this._hover = false;
-        // this.update(oldState);
+        super.onRollout;
+        this.playPromise('hover_to_idle', 1);
+      }
+
+      protected onTouchDown() {
+        super.onTouchDown;
+        this.playPromise('release', 1);
+      }
+
+      protected onTouchUp() {
+        super.onTouchUp;
+        this.playPromise('release', 1);
+      }
+
+      protected async update([oldDown, oldHover]: boolean[]) {
+        super.update;
+
+        if (!this._display) {
+          return;
+        }
+        if (this.isSetting) {
+          return;
+        }
+        await this.prevProm;
+
+        if (!this._enabled) {
+          // if disable
+          this.playPromise('disable', 0);
+          console.log('disable');
+        } else if (!oldDown && this._down) {
+          // if press down
+          this.playPromise('release', 1);
+          this.prevProm = this.playPromise('release', 1);
+          console.log('release');
+        } else if (this._hover && oldDown && !this._down) {
+          // if press up
+          this.prevProm = this.playPromise('release', 1);
+          console.log('release');
+        } else if (!oldHover && this._hover) {
+          // if roll over
+          this.playPromise('idle_to_hover', 1);
+          console.log('idle to hover');
+        } else if (oldHover && !this._hover) {
+          // if roll out
+          //   if (oldDown) {
+          //     await this.playPromise('release', 1);
+          //   }
+          this.playPromise('hover_to_idle', 1);
+          console.log('hover to idle');
+        } else {
+          this.playPromise('idle', 0);
+          console.log('idle');
+        }
       }
     }
   }
