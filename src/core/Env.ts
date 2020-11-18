@@ -212,7 +212,7 @@ namespace we {
 
       set gameTypes(value: any[]) {
         // value = ['0', '15', '22'];     // TODO: this is just for testing, delete it when finish testing
-        value = value.concat('27', '28', '15', '22'); // TODO: temp add BAB and DTB
+        value = value.concat('27', '28', '29', '15', '22'); // TODO: temp add BAB and DTB
         // console.log(JSON.stringify(value));
         this._gameTypes = value.map((cat: string) => parseInt(cat, 10));
         this.generateLiveGameTab();
@@ -238,6 +238,7 @@ namespace we {
             case core.GameType.BAC:
             case core.GameType.BAI:
             case core.GameType.BAM:
+            case core.GameType.BAMB:
             case core.GameType.BAS:
               gameSubcats.baccarat.push(type);
               break;
