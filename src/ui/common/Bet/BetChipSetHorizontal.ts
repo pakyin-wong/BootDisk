@@ -243,6 +243,7 @@ namespace we {
       private _onChipSelected(index: number) {
         this.setChip(index);
         env.currentChipSelectedIndex = index;
+        dir.audioCtr.play('ui_sfx_bet_chips_01_mp3');
         dir.evtHandler.dispatch(core.Event.BET_DENOMINATION_CHANGE);
       }
 
