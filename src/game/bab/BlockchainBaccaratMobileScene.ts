@@ -64,12 +64,15 @@ namespace we {
               case core.GameState.DEAL:
               case core.GameState.FINISH:
                 this._deckButton.y = this._helpButton.y = this._lastRoundButton.y = this._portraitButtonExpandedDealY;
+                this._deckPanel.resizeHeight(1343);
                 break;
               case core.GameState.BET:
               case core.GameState.IDLE:
               case core.GameState.SHUFFLE:
               default:
                 this._deckButton.y = this._helpButton.y =  this._lastRoundButton.y = this._portraitButtonExpandedBetY;
+                this._deckPanel.resizeHeight(1966);
+
                 break;
             }
           }
@@ -79,13 +82,17 @@ namespace we {
             switch (this._gameData.state) {
               case core.GameState.DEAL:
               case core.GameState.FINISH:
-                this._deckButton.y = this._helpButton.y = this._lastRoundButton.y =  this._portraitButtonExpandedDealY;
+                this._deckButton.y = this._helpButton.y = this._lastRoundButton.y =  this._portraitButtonCollapsedDealY;
+                this._deckPanel.resizeHeight(1343);
+
                 break;
               case core.GameState.BET:
               case core.GameState.IDLE:
               case core.GameState.SHUFFLE:
               default:
                 this._deckButton.y = this._helpButton.y = this._lastRoundButton.y = this._portraitButtonCollapsedBetY;
+                this._deckPanel.resizeHeight(1966);
+
                 break;
             }
           }

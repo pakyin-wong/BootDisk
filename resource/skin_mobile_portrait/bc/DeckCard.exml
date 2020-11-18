@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.bc.DeckCard" width="89" height="138" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
+<e:Skin class="skin_mobile_portrait.bc.DeckCard" width="117" height="170" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
         xmlns:ba="we.ba.*" xmlns:bab="we.bab.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*">
                 <e:Image id="_cardImage" horizontalCenter="0" verticalCenter="0" width="89" height="138" />
-                <e:Group horizontalCenter="0" width="53" height="24" y="107">
-                        <ui:RoundRectShape id="_cardIndexBg" horizontalCenter="0" width="53" height="24" cornerTL_TR_BL_BR="10,10,10,10" fillColor="0x00518c" stroke="0" alpha="0.8"/>
+                <e:Group horizontalCenter="0" width="117" height="30" y="170">
                         <e:Label id="_cardIndexLabel" horizontalCenter="0" size="21" textColor="0xFFFFFF" />
                 </e:Group>
 
