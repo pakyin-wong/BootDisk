@@ -75,15 +75,11 @@ namespace we {
         for (let i = 0; i < dices.length; i++) {
           this['_dice' + (i + 1) + 'Label'].text = dices[i];
           if (color[i] === 'red') {
-            if (!env.isMobile) {
               this['_line' + (i + 1)].gradientColors = '[0xeb632c,0xfdc071]';
               console.log('red [0xeb632c,0xfdc071]')
-            }
           } else if (color[i] === 'blue') {
-            if (!env.isMobile) {
               this['_line' + (i + 1)].gradientColors = '[0x5273ef,0x52d7ff]';
               console.log('blue [0x5273ef,0x52d7ff]')
-            }     
           }
           this['_line' + (i + 1)].width = 10 + (this._maxWidth * dices[i]) / maxDice;
         }

@@ -84,7 +84,7 @@ namespace we {
       }
 
       protected addListeners() {
-        if (env.orientation === "portrait") {
+        if (this.beadRoadSizeBtn && this.beadRoadOddEvenBtn) {
           this.beadRoadSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
           this.beadRoadOddEvenBtn.addEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
         }
@@ -94,7 +94,7 @@ namespace we {
       }
 
       protected removeListeners() {
-        if (env.orientation === "portrait") {
+        if (this.beadRoadSizeBtn && this.beadRoadOddEvenBtn) {
           this.beadRoadSizeBtn.removeEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
           this.beadRoadOddEvenBtn.removeEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
         }
@@ -104,7 +104,7 @@ namespace we {
       }
 
       public updateText() {
-        if (env.orientation === "portrait") {
+        if (this.beadRoadSizeBtn && this.beadRoadOddEvenBtn) {
         this.beadRoadSizeBtn.label = i18n.t('dice.roadBig') + '/' + i18n.t('dice.roadSmall');
         this.beadRoadOddEvenBtn.label = i18n.t('dice.roadOdd') + '/' + i18n.t('dice.roadEven');
         }

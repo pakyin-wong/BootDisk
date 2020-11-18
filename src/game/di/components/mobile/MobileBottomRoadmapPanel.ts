@@ -69,7 +69,7 @@ namespace we {
       }
 
       protected addListeners() {
-        if (env.orientation === "portrait") {
+        if (this.roadmapSizeBtn && this.roadmapOddevenBtn && this.roadmapSumBtn) {
           this.roadmapSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
           this.roadmapOddevenBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
           this.roadmapSumBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
@@ -80,7 +80,7 @@ namespace we {
       }
 
       protected removeListeners() {
-        if (env.orientation === "portrait") {
+        if (this.roadmapSizeBtn && this.roadmapOddevenBtn && this.roadmapSumBtn) {
           this.roadmapSizeBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
           this.roadmapOddevenBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
           this.roadmapSumBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
@@ -90,7 +90,7 @@ namespace we {
       }
 
       public updateText() {
-        if (env.orientation === "portrait") {
+        if (this.roadmapSizeBtn && this.roadmapOddevenBtn && this.roadmapSumBtn) {
         this.roadmapSizeBtn.label = i18n.t('dice.roadBig') + '/' + i18n.t('dice.roadSmall');
         this.roadmapOddevenBtn.label = i18n.t('dice.roadOdd') + '/' + i18n.t('dice.roadEven');
         this.roadmapSumBtn.label = i18n.t('dice.total');
