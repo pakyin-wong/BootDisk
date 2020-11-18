@@ -22,7 +22,7 @@ namespace we {
         this._volumeBGMStored = this._volumeBGM;
         this._volumeFXStored = this._volumeFX;
         this._volumeLiveStored = this._volumeLive;
-        this.volumeBGM = 0;
+        this._volumeBGM = 0;
         this._volumeFX = 0;
         this._volumeLive = 0;
       }
@@ -43,6 +43,10 @@ namespace we {
 
       public set volumeBGM(vol: number) {
         logger.l(utils.LogTarget.DEBUG, `Setting volumeBGM to ${vol}`);
+        if (env.notYetInteract) {
+          env.notYetInteract = false;
+          dir.audioCtr.playBGMWithIndex(dir.audioCtr.bgmIdx);
+        }
         this._volumeBGM = vol;
         if (this._channelBGM) {
           this._channelBGM.volume = this._volumeBGM;

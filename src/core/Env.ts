@@ -14,6 +14,7 @@ namespace we {
         return env;
       }
       public UAInfo: any;
+      public notYetInteract: boolean = false;
 
       /* Global Environment Variable */
       public version: string = '0.12.3f1';
