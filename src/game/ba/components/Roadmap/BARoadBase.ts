@@ -96,7 +96,7 @@ namespace we {
               let isDifferent: boolean = false;
               for (let i = 0; i < this.roadData.length; i++) {
                 if (roadData[i]) {
-                  if (this.roadData[i].v !== roadData[i].v) {
+                  if (this.roadData[i].v !== roadData[i].v || this.roadData[i].t !== roadData[i].t) {
                     isDifferent = true;
                     break;
                   }
