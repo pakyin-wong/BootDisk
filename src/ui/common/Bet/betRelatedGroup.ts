@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
     export class BetRelatedGroup extends core.BaseGamePanel {
-      public _confirmButton: eui.Button;
+      public _confirmButton: eui.Button | ui.BetConfirmButton;
       protected _repeatButton: ui.BaseImageButton;
       protected _cancelButton: ui.BaseImageButton;
       protected _doubleButton: ui.BaseImageButton;
@@ -103,8 +103,13 @@ namespace we {
         this._repeatButton.buttonEnabled = isEnable;
         this._doubleButton.buttonEnabled = isEnable;
 
-        this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isEnable;
-        this._confirmButton.alpha = isEnable ? 1 : 0.3;
+        if (env.isMobile) {
+          this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isEnable;
+          this._confirmButton.alpha = isEnable ? 1 : 0.3;
+        } else {
+          (this._confirmButton as ui.BetConfirmButton).buttonEnabled = isEnable;
+        }
+
         if (this._timer.bg_color) {
           this._timer.bg_color.alpha = isEnable ? 0.7 : 0;
           if (isEnable) {
@@ -137,7 +142,11 @@ namespace we {
       }
 
       set enableConfirm(e: boolean) {
-        this._confirmButton.touchEnabled = e;
+        if (env.isMobile) {
+          this._confirmButton.touchEnabled = e;
+        } else {
+          (this._confirmButton as ui.BetConfirmButton).buttonEnabled = e;
+        }
       }
 
       set enableCancel(e: boolean) {

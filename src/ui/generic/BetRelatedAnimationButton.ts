@@ -19,38 +19,14 @@ namespace we {
 
       protected mount() {
         super.mount();
-        switch (this._dbDisplay) {
-          default:
-            this.active = true;
-            this.isSetting = false;
-            break;
-        }
-
-        this.addEventListeners();
       }
 
       public destroy() {
         super.destroy();
-        this.removeEventListeners();
       }
-
-      protected addEventListeners() {
-      }
-
-      protected removeEventListeners() { }
 
       protected async update([oldDown, oldHover]: boolean[]) {
-        console.log(`.....oldDown = ${oldDown}......oldHover = ${oldHover}..`);
-        console.log(`.....down = ${this._down}......hover = ${this._hover}..`);
         super.update;
-
-        if (!this._display) {
-          return;
-        }
-        if (this.isSetting) {
-          return;
-        }
-        
 
         if (!this._enabled) {
           // if disable

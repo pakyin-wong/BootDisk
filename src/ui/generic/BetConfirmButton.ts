@@ -1,6 +1,6 @@
 namespace we {
   export namespace ui {
-    export class BetConfirmButton extends we.core.BaseEUI {
+    export class BetConfirmButton extends BaseAnimationButton implements IButton {
       /**
        * requirement:
        * support mode: auto_confirm, normal
@@ -15,6 +15,50 @@ namespace we {
       public constructor() {
         super();
         this.orientationDependent = false;
+      }
+      protected mount() {
+        super.mount();
+      }
+
+      public destroy() {
+        super.destroy();
+      }
+
+      protected async update([oldDown, oldHover]: boolean[]) {
+        super.update;
+
+        if (!this._enabled) {
+          // if disable
+          await this.prevProm;
+          this.playPromise('disable', 0);
+          console.log('disable');
+        } else if (!oldDown && this._down) {
+          // if press down
+          this.prevProm = this.playPromise('press', 1);
+          console.log('press');
+        } else if (this._hover && oldDown && !this._down) {
+          // if press up
+          await this.prevProm;
+          this.playPromise('hover', 1);
+          console.log('hover');
+        } else if (!oldHover && this._hover) {
+          // if roll over
+          await this.prevProm;
+          this.playPromise('idle_to_hover', 1);
+          console.log('idle_to_hover');
+        } else if (oldHover && !this._hover) {
+          // if roll out
+          //   if (oldDown) {
+          //     await this.playPromise('release', 1);
+          //   }
+          await this.prevProm;
+          this.playPromise('hover_to_idle', 1);
+          console.log('hover to idle');
+        } else {
+          await this.prevProm;
+          this.playPromise('idle', 0);
+          console.log('idle');
+        }
       }
     }
   }
