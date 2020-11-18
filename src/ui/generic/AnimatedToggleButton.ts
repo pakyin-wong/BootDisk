@@ -89,6 +89,7 @@ namespace we {
           this._group.verticalCenter = 0;
           this._group.horizontalCenter = 0;
 
+          utils.dblistenToSoundEffect(this._display);
           this._group.addChild(this._display);
           this.addChild(this._group);
         }

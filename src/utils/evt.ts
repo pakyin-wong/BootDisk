@@ -5,16 +5,16 @@ namespace we {
         target.once(ev, resolve, target);
       });
     }
-    function onDBSoundEvent(event: dragonBones.Event) {
-      const evtName = event.eventObject.name;
-      const type = evtName.split('_')[0];
-      if (type === 'audio') {
-        const audioResName = evtName.substr(6);
-        dir.audioCtr.play(audioResName);
-      }
-    }
 
     export function dblistenToSoundEffect(target: dragonBones.IEventDispatcher) {
+      function onDBSoundEvent(event: dragonBones.Event) {
+        const evtName = event.eventObject.name;
+        const type = evtName.split('_')[0];
+        if (type === 'audio') {
+          const audioResName = evtName.substr(6);
+          dir.audioCtr.play(audioResName);
+        }
+      }
       target.addDBEventListener(dragonBones.Event.ANIMATION_FRAME_EVENT, onDBSoundEvent, null);
     }
 

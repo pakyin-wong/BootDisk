@@ -53,7 +53,7 @@ namespace we {
         factory.parseTextureAtlasData(textureData, texture);
         // const chip = factory.buildArmatureDisplay('poker');
         const chip: dragonBones.EgretArmatureDisplay = factory.buildArmatureDisplay('blockchain');
-
+        utils.dblistenToSoundEffect(chip);
         chip.x = 1300;
         chip.y = 670;
         this.addChild(chip);

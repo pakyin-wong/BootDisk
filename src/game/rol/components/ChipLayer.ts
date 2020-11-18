@@ -93,6 +93,7 @@ namespace we {
         const grid = this._mouseAreaMapping[ro.BetField['DIRECT_' + key]];
 
         this._winningAnim = this.createAnim();
+        utils.dblistenToSoundEffect(this._winningAnim);
 
         this.clearLuckyAnim();
 
@@ -175,6 +176,7 @@ namespace we {
           grid.removeChildren();
 
           const luckyAnim = this.createAnim();
+          utils.dblistenToSoundEffect(this._winningAnim);
           let color: string;
           switch (we.ro.RACETRACK_COLOR[+key]) {
             case we.ro.Color.GREEN:
