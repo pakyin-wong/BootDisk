@@ -114,10 +114,10 @@ namespace we {
       public update() {
         if (this.tableInfo) {
           if (this.tableInfo.gamestatistic) {
-            this.bankerCountLabel.text = this.tableInfo.gamestatistic.bankerCount.toString();
-            this.playerCountLabel.text = this.tableInfo.gamestatistic.playerCount.toString();
-            this.tieCountLabel.text = this.tableInfo.gamestatistic.tieCount.toString();
-            this.totalCount = this.tableInfo.gamestatistic.totalCount;
+            this.bankerCountLabel.text = this.tableInfo.gamestatistic.shoeBankerCount.toString();
+            this.playerCountLabel.text = this.tableInfo.gamestatistic.shoePlayerCount.toString();
+            this.tieCountLabel.text = this.tableInfo.gamestatistic.shoeTieCount.toString();
+            this.totalCount = this.tableInfo.gamestatistic.shoeTotalCount;
             this.changeLang();
           }
         }
