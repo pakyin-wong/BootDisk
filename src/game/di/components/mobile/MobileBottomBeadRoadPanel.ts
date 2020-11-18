@@ -43,7 +43,7 @@ namespace we {
               diceSize: 66,
               highlightRadius: 8,
             };
-            this.beadRoad = new DiBeadRoad(1242, 1, 9, 120, 1, options); // in game
+            this.beadRoad = new DiBeadRoad(1242, 1, 9, 120, 1, options, true); // in game
             // this.beadRoad.x = 29;
             // this.beadRoad.y = 16;
             this.beadRoad.scaleX = 689 / 689;
@@ -65,7 +65,7 @@ namespace we {
               diceSize: 34,
               highlightRadius: 8,
             };
-            this.beadRoad = new DiBeadRoad(845, 1, 8, 70, 1, options); // in game
+            this.beadRoad = new DiBeadRoad(845, 1, 8, 70, 1, options,true); // in game
             // this.beadRoad.x = 29;
             // this.beadRoad.y = 16;
             this.beadRoad.scaleX = 689 / 689;

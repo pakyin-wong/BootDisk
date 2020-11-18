@@ -21,7 +21,9 @@ namespace we {
 
       protected layout: number; // layout 0 = inGame.Size, layout 1 = inGame.Odd, layout 3 = side bar
 
-      public constructor(width: number, _numRow: number = 1, _numCol: number = 10, gridSize: number = 30, scale: number = 1, options: any) {
+      private isInGame: boolean = false;
+
+      public constructor(width: number, _numRow: number = 1, _numCol: number = 10, gridSize: number = 30, scale: number = 1, options: any, isInGame?: boolean) {
         super(_numCol, gridSize, scale);
         const { paddingX, paddingY, gapX, gapY, textSize, diceSize, firstItemPadding, textPadding, highlightRadius, iconHeight, iconItemYOffset, iconItemColors, showGrid, showOuterGrid } = options;
         this.width = width;
@@ -41,6 +43,10 @@ namespace we {
         this.showGrid = showGrid;
         this.showOuterGrid = showOuterGrid;
         this.isExpanded = true;
+        if(isInGame) { // to switch highlight bg color
+          this.isInGame = isInGame;
+          console.log('is in game')
+        }
       }
 
       public setLayout(layout: number) {
@@ -52,7 +58,7 @@ namespace we {
       }
 
       protected createIcon(size: number, width: number = 0, height: number = 0): DiBeadRoadIcon {
-        const icon = new DiBeadRoadIcon(width, height, this.iconItemColors, this.textSize, this.diceSize, this.iconItemYOffset, this.textPadding, this.highlightRadius);
+        const icon = new DiBeadRoadIcon(width, height, this.iconItemColors, this.textSize, this.diceSize, this.iconItemYOffset, this.textPadding, this.highlightRadius, this.isInGame);
         return icon;
       }
 
