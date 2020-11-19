@@ -439,7 +439,7 @@ namespace we {
             dir.sceneCtr.goto('bab', { tableid: tableId });
             break;
           case core.GameType.BAMB:
-            dir.sceneCtr.goto('bab', { tableid: tableId });
+            dir.sceneCtr.goto('bamb', { tableid: tableId });
             break;
           case core.GameType.DT:
             dir.sceneCtr.goto('dt', { tableid: tableId });
