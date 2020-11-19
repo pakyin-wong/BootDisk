@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.bc.CardInfoPanelSkin" width="1853" height="1025" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:bc="we.blockchain.*" xmlns:w="http://ns.egret.com/wing"
+        xmlns:live="we.live.*">
+        <e:Group id="content" width="100%" height="100%">
+                <e:Group id="_backButton"  width="40" height="40" x="52" y="66">
+		        <ui:BaseAnimationButton  dbClass="common_ui" dbDisplay="d_common_icon_back" width="30" height="30" verticalCenter="0" x="0" tooltipText="'nav.tooltip.back'" />
+                        <ui:RunTimeLabel i18n="baccarat.fullShoe" size="30"  verticalCenter="0" x="50" textColor="0xc59466"/>
+                </e:Group>
+                <e:Group x="239" y="557" width="204" height="42" >
+                        <e:Label id="_cardIndexLabel" size="36" horizontalCenter="0" verticalCenter="0"/>
+                </e:Group>
+
+                <e:Image id="close" source="d-lobby-button-close-none_png" x="1785" y="44" width="44" height="44" />
+                <ui:RunTimeLabel i18n="baccarat.verification" horizontalCenter="0" y="44" size="48" textColor="0xc59466" />
+                <e:Group id="_helpButton" x="198" y="683" width="282" height="49" touchThrough="true">
+                        <ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab"
+                                            skinName="skin_desktop.ImageButtonSkinBettingPanel" />
+                        <ui:RunTimeLabel i18n="baccarat.mechanismHelp" verticalCenter="0" horizontalCenter="0" touchEnabled="false" />
+                </e:Group>
+                <e:Group id="_thirdPartyButton" x="198" y="756" width="282" height="49" touchThrough="true">
+                        <ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab"
+                                            skinName="skin_desktop.ImageButtonSkinBettingPanel" />
+                        <ui:RunTimeLabel i18n="baccarat.thirdParty" verticalCenter="0" horizontalCenter="0" touchEnabled="false"/>
+                </e:Group>
+                <e:Group id="_sha256SuccessfulGroup" x="223" y="619">
+                        <e:Image source="d_bcba_panel_verification_success_png" x="20" width="33" height="40"/>
+                        <ui:RunTimeLabel x="58" verticalCenter="0" verticalAlign="middle" i18n="baccarat.sha256VerifySuccess" />
+                </e:Group>
+                <e:Group id="_sha256FailGroup" x="223" y="619">
+                        <e:Image source="d_bcba_resultarea_player_png" x="20" width="33" height="40"/>
+                        <ui:RunTimeLabel x="58" verticalCenter="0" verticalAlign="middle" i18n="baccarat.sha256VerifyFail" />
+                </e:Group>
+                <e:Group width="1025" height="195" x="655" y="235">
+                        <e:Image id="_encryptedAreaImage" source="d_bcba_panel_verification_encryt_bg_png" width="1025" height="195" />
+                        <e:Group x="24" y="24">
+                        <ui:RunTimeLabel size="24" i18n="baccarat.encryptedKey" />
+                        <ui:BaseImageButton id="_encryptedHelp" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
+                        <e:layout>
+                                <e:HorizontalLayout gap="10" verticalAlign="middle"/>
+                        </e:layout>
+                        </e:Group>
+                        <e:Label id="_encryptedKeyLabel" x="24" y="70" size="24" />
+                        <e:Group id="_copyEncryptedKey" width="172" height="50" x="829" y="128" touchThrough="true"> 
+                                <ui:RoundRectButton width="172" height="50" fillAlpha="0" fillAlpha_hover="1" fillColor_hover="0xA0A0A0" stroke="2" strokeColor="0x1b416e" cornerTL_TR_BL_BR="24,24,24,24"/>
+                                <ui:RunTimeLabel size="24" i18n="baccarat.copy" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
+                        </e:Group>                        
+                </e:Group>
+                <e:Group width="1025" height="325" x="655" y="466">
+                        <e:Image id="_decryptedAreaImage" source="d_bcba_panel_verification_encryt_bg_png" width="1025" height="325"/>
+                        <e:Image id="_ssnAreaImage" source="d_bcba_panel_verification_key_bg_png" width="1025" height="150"/>
+                        <e:Group x="24" y="24">
+                                <ui:RunTimeLabel  size="24"  i18n="baccarat.ssn"/>
+                                <ui:BaseImageButton id="_ssnHelp" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
+                                <e:layout>
+                                        <e:HorizontalLayout gap="10" verticalAlign="middle"/>
+                                </e:layout>
+                        </e:Group>
+                        <e:Label id="_ssnLabel" x="24" y="70" size="24" />
+                        <e:Group id="_copySsn" width="172" height="50" x="829" y="56" touchThrough="true">
+                                <ui:RoundRectButton width="172" height="50" fillAlpha="0" fillAlpha_hover="1" fillColor_hover="0xA0A0A0" stroke="2" strokeColor="0x1b416e" cornerTL_TR_BL_BR="24,24,24,24"/>
+                                <ui:RunTimeLabel size="24" i18n="baccarat.copy" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
+                        </e:Group>
+                        <e:Group x="24" y="160">
+                        <ui:RunTimeLabel size="24"  i18n="baccarat.decryptedKey" />               
+                        <ui:BaseImageButton id="_decryptedHelp" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
+                        
+                                <e:layout>
+                                        <e:HorizontalLayout gap="10" verticalAlign="middle"/>
+                                </e:layout>
+                        </e:Group>
+                        <e:Label id="_decryptedKeyLabel" x="24" y="201" size="24" />
+                        <e:Group id="_copyDecryptedKey" width="172" height="50" x="829" y="251" touchThrough="true">
+                                <ui:RoundRectButton width="172" height="50" fillAlpha="0" fillAlpha_hover="1" fillColor_hover="0xA0A0A0" stroke="2" strokeColor="0x1b416e" cornerTL_TR_BL_BR="24,24,24,24"/>
+                                <ui:RunTimeLabel size="24" i18n="baccarat.copy" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
+                        </e:Group>                        
+                </e:Group>
+                <bc:BaseCard id="_cardImage" skinName="skin_desktop.bc.CardInfoCard" x="239" y="225"/>
+                <ui:BaseImageButton id="_prevButton" width="22" height="43" x="150" y="360" currentState="b_bab_prev" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
+                <ui:BaseImageButton id="_nextButton" width="22" height="43" x="511" y="360" currentState="b_bab_next" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
+        </e:Group>
+</e:Skin>
+

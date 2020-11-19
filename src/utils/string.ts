@@ -98,6 +98,7 @@ namespace we {
         case we.core.GameType.BAI:
         case we.core.GameType.BAM:
         case we.core.GameType.BAB:
+        case we.core.GameType.BAMB:
           return `winType.ba${shortStr}.${ba.WinType[winType]}`;
         case we.core.GameType.DT:
         case we.core.GameType.DTB:
@@ -117,6 +118,7 @@ namespace we {
         case core.GameType.BAS:
         case core.GameType.BAM:
         case core.GameType.BAB:
+        case core.GameType.BAMB:
           return 'ba';
         case core.GameType.DT:
         case core.GameType.DTB:

@@ -21,6 +21,7 @@ namespace we {
           case core.GameType.BAS:
           case core.GameType.BAM:
           case core.GameType.BAB:
+          case core.GameType.BAMB:
             switch (winType) {
               case ba.WinType.BANKER:
                 return 'r';
@@ -61,6 +62,7 @@ namespace we {
         factory.parseTextureAtlasData(textureData, texture);
 
         this._display = factory.buildArmatureDisplay(this._armatureName);
+        utils.dblistenToSoundEffect(this._display);
         this._display.x = this.width / 2;
         this._display.y = this.height / 2;
         this.addChild(this._display);

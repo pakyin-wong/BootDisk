@@ -22,6 +22,7 @@ namespace we {
           case core.GameType.BAI:
           case core.GameType.BAM:
           case core.GameType.BAB:
+          case we.core.GameType.BAMB:
             this._content = new BAResultNotificationContent(); // BA
             break;
           case core.GameType.DT:

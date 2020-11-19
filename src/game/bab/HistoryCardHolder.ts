@@ -1,6 +1,6 @@
 namespace we {
   export namespace bab {
-    export class HistoryCardHolder extends core.BaseEUI implements ui.HistoryCardHolder {
+    export class HistoryCardHolder extends ui.Panel implements ui.HistoryCardHolder {
       protected _bankerSum: eui.Label;
       protected _playerSum: eui.Label;
 

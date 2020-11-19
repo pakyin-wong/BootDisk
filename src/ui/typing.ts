@@ -26,6 +26,9 @@ namespace we {
     export interface HistoryCardHolder {
       setCards(tableId: string);
       setNumber(number: number);
+      setToggler(toggler);
+      show();
+      hide();
     }
 
     export interface IListItemHelper {
@@ -79,6 +82,8 @@ namespace we {
         originX: number;
         originY: number;
       };
+      showSFX?:string;
+      hideSFX?:string;
     }
 
     export interface IMessageDialogOpt {

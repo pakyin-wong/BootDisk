@@ -323,13 +323,17 @@ namespace we {
 
       protected async onOrientationChange() {
         // this.onExit();
-        const temp = this._switchBaMode.selected;
+        const temp = this.getSelectedBA();
         super.onOrientationChange(temp);
         this.onMatchGoodRoadUpdate();
         // this._switchBaMode.selected = temp;
         // this.onEnter();
         // this.updateSkin('BaccaratScene', true);
         // this.changeHandMode();
+      }
+
+      protected getSelectedBA(){
+        return this._switchBaMode.selected;
       }
 
       // check if game mode btn (e.g. BA) is selected

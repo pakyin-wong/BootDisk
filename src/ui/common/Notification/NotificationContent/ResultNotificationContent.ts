@@ -99,25 +99,7 @@ namespace we {
 
       protected enterRoom() {
         {
-          switch (this.tableInfo.gametype) {
-            case core.GameType.BAC:
-            case core.GameType.BAI:
-            case core.GameType.BAS:
-              dir.sceneCtr.goto('ba', { tableid: this.tableId });
-              break;
-            case core.GameType.DT:
-              dir.sceneCtr.goto('dt', { tableid: this.tableId });
-              break;
-            case core.GameType.RO:
-              dir.sceneCtr.goto('ro', { tableid: this.tableId });
-              break;
-            case core.GameType.DI:
-              dir.sceneCtr.goto('di', { tableid: this.tableId });
-              break;
-            case core.GameType.DIL:
-              dir.sceneCtr.goto('dil', { tableid: this.tableId });
-              break;
-          }
+          env.gotoScene(this.tableId);
           this.removeSelf();
         }
       }

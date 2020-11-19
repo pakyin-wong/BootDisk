@@ -147,11 +147,11 @@ namespace we {
             this._btn_cbet && (this._btn_cbet.label.text = i18n.t('overlaypanel_bethistorylottery_record_continuousbetdetail'));
             this._btn_cbet && (this._btn_cbet.visible = this.data.result.a2 == '1');
           };
-
+          let gameround = `${this.data.round} - ${this.data.shoe}`
           this.setText(this._record_id, this.data.betid);
           this.setText(this._record_date, utils.formatTime(this.data.datetime.toFixed(0)));
           this.setText(this._record_game, `${i18n.t('gametype_' + we.core.GameType[this.data.gametype])} ${this.data.tablename}`);
-          this.setText(this._record_round, this.data.gameroundid);
+          this.setText(this._record_round, gameround);
           this.setText(this._record_remark, utils.BetHistory.formatRemark(this.data.remark));
           this.setText(this._record_bettype, utils.BetHistory.formatBetType(this.data.gametype, this.data.field));
           this.setText(this._record_betamount, utils.formatNumber(this.data.betamount, true));

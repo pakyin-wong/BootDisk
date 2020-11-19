@@ -13,6 +13,7 @@ namespace we {
       gametype_BAI: '保险百家乐',
       gametype_BAM: '咪牌百家乐',
       gametype_BAB: '区块链百家乐',
+      gametype_BAMB: '区块链咪牌百家乐',
       gametype_DI: '骰宝',
       gametype_DIL: '财神骰宝',
       gametype_MJ: '麻将',

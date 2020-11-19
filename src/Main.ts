@@ -161,7 +161,8 @@ class Main extends eui.UILayer {
   private async initRes() {
     const versionController = new we.core.VersionController();
     await versionController.init();
-
+    RES.setMaxLoadingThread(10);
+    
     egret.registerImplementation('eui.IAssetAdapter', new AssetAdapter());
     egret.registerImplementation('eui.IThemeAdapter', new ThemeAdapter());
     RES.registerVersionController(versionController);

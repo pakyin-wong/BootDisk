@@ -11,10 +11,10 @@ namespace we {
       protected _alwaysShowResult = true;
       protected _helpButton: eui.Group;
       protected _deckButton: eui.Group;
-      protected _shufflePanel: bab.ShufflePanel;
-      protected _helpPanel: bab.HelpPanel;
-      protected _deckPanel: bab.DeckPanel;
-      protected _cardInfoPanel: bab.CardInfoPanel;
+      protected _shufflePanel: blockchain.ShufflePanel;
+      protected _helpPanel: blockchain.HelpPanel;
+      protected _deckPanel: blockchain.DeckPanel;
+      protected _cardInfoPanel: blockchain.CardInfoPanel;
       protected _historyCardHolder: we.ui.HistoryCardHolder;
       protected _resultDisplay : ui.IResultDisplay & we.blockchain.CardHolder;
 
@@ -56,6 +56,8 @@ namespace we {
             }
           } 
       }
+
+      
 
 
       protected setStateBet(isInit: boolean = false) {

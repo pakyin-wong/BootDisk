@@ -140,6 +140,26 @@ namespace we {
       }
 
       protected initComponents() {
+        this._touchArea = new egret.DisplayObjectContainer();
+        this._touchArea.width = this.slideWidth;
+        this._touchArea.height = this.slideHeight;
+        this._touchArea.touchThrough = false;
+        this._touchArea.touchEnabled = true;
+        this._touchArea.touchChildren = false;
+        let shape = new egret.Shape();
+        let gr = shape.graphics;
+        gr.clear();
+        gr.beginFill(0x00ff00, 0);
+        gr.drawRect(0, 0, this.slideWidth, this.slideHeight);
+        gr.endFill();
+
+        shape.x = 0;
+        shape.y = 0; // to be revised
+        shape.alpha = 0;
+        this._touchArea.addChild(shape); //
+
+        this.addChildAt(this._touchArea, this.touchAreaAtBottom ? 0 : this.$children.length);
+
         if (this.isBullet) {
           this._bulletGroup = new eui.Group();
 
@@ -190,8 +210,8 @@ namespace we {
           this.updateBullets();
         }
 
-        let shape = new egret.Shape();
-        let gr = shape.graphics;
+        shape = new egret.Shape();
+        gr = shape.graphics;
         gr.clear();
         gr.beginFill(0x00ff00, 1);
         if (this.maskRadius > 0) {
@@ -204,26 +224,6 @@ namespace we {
         shape.x = 0;
         this.mask = shape;
         this.addChild(shape);
-
-        this._touchArea = new egret.DisplayObjectContainer();
-        this._touchArea.width = this.slideWidth;
-        this._touchArea.height = this.slideHeight;
-        this._touchArea.touchThrough = false;
-        this._touchArea.touchEnabled = true;
-        this._touchArea.touchChildren = false;
-        shape = new egret.Shape();
-        gr = shape.graphics;
-        gr.clear();
-        gr.beginFill(0x00ff00, 0);
-        gr.drawRect(0, 0, this.slideWidth, this.slideHeight);
-        gr.endFill();
-
-        shape.x = 0;
-        shape.y = 100; // to be revised
-        shape.alpha = 0;
-        this._touchArea.addChild(shape); //
-
-        this.addChildAt(this._touchArea, this.touchAreaAtBottom ? 0 : this.$children.length);
       }
 
       protected updateBullets() {
