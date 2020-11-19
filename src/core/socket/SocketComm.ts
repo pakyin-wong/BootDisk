@@ -302,6 +302,8 @@ namespace we {
 				env.showGoodRoadHint = settings.showGoodRoadHint === '1' ? true : false;
 				env.autoConfirmBet = settings.autoConfirmBet === '1' ? true : false;
 
+				env.redirecturl = player.redirecturl;
+
 				env.currentChipSelectedIndex = settings.currentChipSelectedIndex ? parseInt(settings.currentChipSelectedIndex) : 0;
 				env.leftHandMode = settings.isLeftHand === '1' ? true : false;
 				env.favouriteTableList = env.favouriteTableList ? env.favouriteTableList : [];
