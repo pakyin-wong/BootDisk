@@ -34,30 +34,27 @@ namespace we {
           console.log('disable');
         } else if (!oldDown && this._down) {
           // if press down
-          this.prevProm = this.playPromise('press', 1);
-          console.log('press');
+          this.prevProm = this.playPromise('hover_to_press', 1);
+          console.log('hover_to_press');
         } else if (this._hover && oldDown && !this._down) {
           // if press up
           await this.prevProm;
-          this.playPromise('hover', 1);
-          console.log('hover');
+          this.prevProm = this.playPromise('press_to_disable', 1);
+          console.log('press_to_disable');
         } else if (!oldHover && this._hover) {
           // if roll over
           await this.prevProm;
           this.playPromise('idle_to_hover', 1);
           console.log('idle_to_hover');
         } else if (oldHover && !this._hover) {
-          // if roll out
-          //   if (oldDown) {
-          //     await this.playPromise('release', 1);
-          //   }
+          // roll out
           await this.prevProm;
           this.playPromise('hover_to_idle', 1);
           console.log('hover to idle');
         } else {
           await this.prevProm;
-          this.playPromise('idle', 0);
-          console.log('idle');
+          this.playPromise('disble_to_idle', 1);
+          console.log('disable_to_idle');
         }
       }
     }

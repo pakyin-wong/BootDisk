@@ -32,21 +32,17 @@ namespace we {
           // if disable
           await this.prevProm;
           this.playPromise('disable', 0);
-          console.log('disable');
         } else if (!oldDown && this._down) {
           // if press down
           this.prevProm = this.playPromise('release', 1);
-          console.log('release');
         } else if (this._hover && oldDown && !this._down) {
           // if press up
           await this.prevProm;
           this.playPromise('hover', 1);
-          console.log('hover');
         } else if (!oldHover && this._hover) {
           // if roll over
           await this.prevProm;
           this.playPromise('idle_to_hover', 1);
-          console.log('idle to hover');
         } else if (oldHover && !this._hover) {
           // if roll out
           //   if (oldDown) {
@@ -54,11 +50,9 @@ namespace we {
           //   }
           await this.prevProm;
           this.playPromise('hover_to_idle', 1);
-          console.log('hover to idle');
         } else {
           await this.prevProm;
           this.playPromise('idle', 0);
-          console.log('idle');
         }
       }
     }
