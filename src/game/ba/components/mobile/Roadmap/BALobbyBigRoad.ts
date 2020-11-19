@@ -53,6 +53,12 @@ namespace we {
         }
       }
 
+      public clearRoadData() {
+        if (this.bigRoad) {
+          this.bigRoad.clearRoadData();
+        }
+      }
+
       public updateLobbyRoadData(roadmapData: any) {
         if (roadmapData) {
           if (this.bigRoad) {

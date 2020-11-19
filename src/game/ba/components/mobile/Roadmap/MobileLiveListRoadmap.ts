@@ -90,6 +90,21 @@ namespace we {
         this._roadmapControl.updateRoadData();
       }
 
+      public clearRoadData() {
+        if (this._bigRoadMap) {
+          this._bigRoadMap.clearRoadData();
+        }
+        if (this._smallRoad) {
+          this._smallRoad.clearRoadData();
+        }
+        if (this._bigEyeRoad) {
+          this._bigEyeRoad.clearRoadData();
+        }
+        if (this._cockroachRoad) {
+          this._cockroachRoad.clearRoadData();
+        }
+      }
+
       protected destroy() {
         super.destroy();
         dir.evtHandler.removeEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChange, this);
