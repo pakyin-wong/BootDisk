@@ -45,9 +45,6 @@ namespace we {
           this.playPromise('idle_to_hover', 1);
         } else if (oldHover && !this._hover) {
           // if roll out
-          //   if (oldDown) {
-          //     await this.playPromise('release', 1);
-          //   }
           await this.prevProm;
           this.playPromise('hover_to_idle', 1);
         } else {
