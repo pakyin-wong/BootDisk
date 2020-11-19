@@ -664,6 +664,7 @@ namespace we {
         restart: '重启游戏',
         retry: '重试',
         cancel: '取消',
+        urlcopied:'第三方验证网站已复制',
       },
       error: {
         error_1001: '用户於其他装置上登录',

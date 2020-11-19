@@ -629,6 +629,7 @@ namespace we {
         restart: '重啟遊戲',
         retry: '重試',
         cancel: '取消',
+        urlcopied:'第三方驗證網站已複製',
       },
       error: {
         error_1001: '用戶於其他裝置上登錄',

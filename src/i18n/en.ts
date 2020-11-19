@@ -628,6 +628,7 @@ namespace we {
         restart: 'Restart',
         retry: 'Retry',
         cancel: 'Cancel',
+        urlcopied:'3rd party verification siteurl copied.',
       },
       error: {
         error_1001: 'Other session logged in',
