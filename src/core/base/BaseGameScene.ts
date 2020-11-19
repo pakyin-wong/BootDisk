@@ -600,6 +600,7 @@ namespace we {
                   dismiss: { text: i18n.t('nav.menu.confirm') },
                 },
               ],
+              showSFX:'ui_sfx_info_message_mp3'
             });
           } else {
             this.showInGameMessage();
