@@ -387,6 +387,7 @@ namespace we {
         const betDetail = { field: fieldName, amount: this.getOrderAmount() };
         // validate bet action
         if (this.validateBetAction(betDetail)) {
+          dir.audioCtr.play('ui_sfx_bet_chips_add_mp3');
           this.addBetToBetField(fieldName, betDetail.amount);
           this.undoStack.push(hashkey, we.utils.clone({ field: fieldName, amount: betDetail.amount }), this.undoBetFieldUpdate.bind(this));
           this.updateBetChipUncfmBet(fieldName, this.getUncfmBetByField(fieldName).amount);
@@ -434,6 +435,7 @@ namespace we {
           // double the bet amounts
           const betDetail = { field: detail.field, amount };
           if (this.validateBetAction(betDetail)) {
+            dir.audioCtr.play('ui_sfx_bet_chips_add_mp3');
             this.addBetToBetField(detail.field, betDetail.amount);
             this.updateBetChipUncfmBet(detail.field, this.getUncfmBetByField(detail.field).amount);
             reactMax = false;
@@ -509,6 +511,7 @@ namespace we {
         if (!validRepeatBet) {
           return;
         }
+        dir.audioCtr.play('ui_sfx_bet_chips_add_mp3');
         env.tableInfos[this._tableId].prevbets.map(value => {
           if (this._betChipStackMapping[value.field].uncfmBet === value.amount) {
             return

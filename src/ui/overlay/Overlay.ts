@@ -45,6 +45,8 @@ namespace we {
         try {
           const opt: IOverlayOpt = e.data;
           panel = new we.overlay[opt.class](...opt.args);
+          panel.showSFX = opt.showSFX;
+          panel.hideSFX = opt.hideSFX;
         } catch (err) {
           logger.l(utils.LogTarget.UAT, `panel ${e.data} defined error`, e.data, err);
           return;

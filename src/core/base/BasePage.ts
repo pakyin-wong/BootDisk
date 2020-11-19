@@ -18,6 +18,10 @@ namespace we {
 
       public onEnter() {
         dir.evtHandler.dispatch(core.Event.UPDATE_NAVBAR_OPACITY, 0);
+        if (env.notYetInteract) {
+          env.notYetInteract = false;
+          dir.audioCtr.playBGMWithIndex(dir.audioCtr.bgmIdx);
+        }
       }
 
       public async onFadeEnter() {}

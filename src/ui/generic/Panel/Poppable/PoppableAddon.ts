@@ -12,6 +12,10 @@ namespace we {
       protected _contentPos: egret.Point;
       public isPixelFit: boolean = false;
       private onToggleCallback: (value: boolean) => void;
+
+      public showSFX: string;
+      public hideSFX: string;
+
       constructor(displayObject: egret.DisplayObject & IPoppable) {
         super(displayObject);
       }
@@ -108,6 +112,8 @@ namespace we {
         this.isShow = true;
         this.target.dispatchEvent(new egret.Event('POPPER_SHOW'));
 
+        if (!skipAnimation) dir.audioCtr.play(this.showSFX?this.showSFX:'ui_sfx_penal_open_mp3');
+
         this.isFocusItem && this.target.stage['inFocusItems'].push(this.target);
         this.inFocusIdx = this.target.stage['inFocusItems'].length;
 
@@ -131,6 +137,8 @@ namespace we {
         }
         this.isShow = false;
         this.target.dispatchEvent(new egret.Event('POPPER_HIDE'));
+
+        if (!skipAnimation) dir.audioCtr.play(this.hideSFX?this.hideSFX:'ui_sfx_penal_close_mp3');
 
         await this.onHide(skipAnimation);
       }

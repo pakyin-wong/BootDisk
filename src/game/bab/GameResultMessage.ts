@@ -62,6 +62,7 @@ namespace we {
         factory.parseTextureAtlasData(textureData, texture);
 
         this._display = factory.buildArmatureDisplay(this._armatureName);
+        utils.dblistenToSoundEffect(this._display);
         this._display.x = this.width / 2;
         this._display.y = this.height / 2;
         this.addChild(this._display);

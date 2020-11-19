@@ -82,6 +82,8 @@ namespace we {
         originX: number;
         originY: number;
       };
+      showSFX?:string;
+      hideSFX?:string;
     }
 
     export interface IMessageDialogOpt {

@@ -54,9 +54,9 @@ namespace we {
   
 		  const _arrCol_currLang = new eui.ArrayCollection([ui.NewDropdownItem('cn', () => `简体中文`), ui.NewDropdownItem('zh', () => `繁體中文`), ui.NewDropdownItem('en', () => `English`)]);
 		  const _arrCol_presetBgm = new eui.ArrayCollection([
-			ui.NewDropdownItem('1', () => `${i18n.t('nav.system.bgm')} 01`),
-			ui.NewDropdownItem('2', () => `${i18n.t('nav.system.bgm')} 02`),
-			ui.NewDropdownItem('3', () => `${i18n.t('nav.system.bgm')} 03`),
+			ui.NewDropdownItem(0, () => `${i18n.t('nav.system.bgm')} 01`),
+			ui.NewDropdownItem(1, () => `${i18n.t('nav.system.bgm')} 02`),
+			ui.NewDropdownItem(2, () => `${i18n.t('nav.system.bgm')} 03`),
 		  ]);
   
 		  if (this._ddm_currLang) {
@@ -75,7 +75,7 @@ namespace we {
 			this._ddm_presetBgm.setToggler(this._btn_presetBgm);
 			this._ddm_presetBgm.dropdown.review = this._txt_presetBgm;
 			this._ddm_presetBgm.dropdown.data.replaceAll(_arrCol_presetBgm.source);
-			this._ddm_presetBgm.dropdown.select(env.bgm.toString());
+			this._ddm_presetBgm.dropdown.select(dir.audioCtr.bgmIdx);
 		  }
 		  utils.DropdownCreator.new({
 			toggler: this._btn_currLang,
@@ -89,14 +89,14 @@ namespace we {
 			review: this._txt_presetBgm,
 			arrCol: _arrCol_presetBgm,
 			title: () => ``,
-			selected: env.bgm,
+			selected: dir.audioCtr.bgmIdx,
 		  });
   
 		  this._slider_liveRecord.value = dir.audioCtr.volumeLive;
 		  this._slider_soundfx.value = dir.audioCtr.volumeFX;
 		  this._slider_bgm.value = dir.audioCtr.volumeBGM;
   
-		  if (env.bgm === 0 && dir.audioCtr.volumeLive === 0 && dir.audioCtr.volumeBGM === 0 && dir.audioCtr.volumeFX === 0) {
+		  if (dir.audioCtr.bgmIdx === 0 && dir.audioCtr.volumeLive === 0 && dir.audioCtr.volumeBGM === 0 && dir.audioCtr.volumeFX === 0) {
 			this._isOn = false;
 		  } else {
 			this._isOn = true;
@@ -171,9 +171,9 @@ namespace we {
 		}
   
 		private onBgmSelect(e) {
-		  env.bgm = e.data;
+		  dir.audioCtr.bgmIdx = e.data;
 		  dir.evtHandler.dispatch(core.Event.BGM_UPDATE, e.data);
-		  this._ddm_presetBgm && this._ddm_presetBgm.dropdown.select(env.bgm);
+		  this._ddm_presetBgm && this._ddm_presetBgm.dropdown.select(dir.audioCtr.bgmIdx);
 		  this.checkChange();
 		}
   

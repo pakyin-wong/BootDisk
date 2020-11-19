@@ -14,6 +14,7 @@ namespace we {
         return env;
       }
       public UAInfo: any;
+      public notYetInteract: boolean = false;
 
       /* Global Environment Variable */
       public version: string = '0.12.3f1';
@@ -79,7 +80,7 @@ namespace we {
       public language: string;
 
       public voice: string = 'mandarin';
-      public bgm = 1;
+      // public bgm = 1;
       // public liveVolume = 1;
       // public soundEffect = 1;
       public videoOpen: boolean = true;
