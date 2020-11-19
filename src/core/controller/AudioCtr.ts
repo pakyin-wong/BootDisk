@@ -123,6 +123,7 @@ namespace we {
         if (this._soundBGM) {
           if (this._channelBGM) {
             this._channelBGM.stop();
+            this._channelBGM = null;
           }
           this._channelBGM = this._soundBGM.play();
           this._channelBGM.volume = this._volumeBGM;
