@@ -12,26 +12,56 @@ namespace we {
        * betting logic: play "betting" when there is unconfirm bet exists
        * use animation.fadeIn with different group name instead of animation.play to play the animation so that you can play multiple animation at the same time ("betting" in one group and others in another group)
        **/
+
+      protected _oldHover: boolean;
+      protected _oldDown: boolean;
+
       public constructor() {
         super();
         this.orientationDependent = false;
       }
       protected mount() {
         super.mount();
+        this.addEventListeners();
       }
 
       public destroy() {
         super.destroy();
+        this.removeEventListeners();
+      }
+
+      protected addEventListeners() {
+        dir.evtHandler.addEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.switchAutoConfirm, this);
+      }
+
+      protected removeEventListeners() {
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.switchAutoConfirm, this);
+      }
+
+      protected async switchAutoConfirm() {
+        let status = '';
+
+        if (!this._enabled) {
+          status = env.autoConfirmBet ? 'disable_switch_to_on' : 'disable_switch_to_off';
+          this.playPromise(status, 1);
+        } else {
+          status = env.autoConfirmBet ? 'idle_switch_to_on' : 'idle_switch_to_off';
+          this.playPromise(status, 1);
+        }
       }
 
       protected async update([oldDown, oldHover]: boolean[]) {
         super.update;
+        let status = '';
+        this._oldDown = oldDown;
+        this._oldHover = oldHover;
 
         if (!this._enabled) {
           // if disable
+          status = env.autoConfirmBet ? 'auto_confirm_disable' : 'disable';
           await this.prevProm;
-          this.playPromise('disable', 0);
-          console.log('disable');
+          this.playPromise(status, 1);
+          console.log(status);
         } else if (!oldDown && this._down) {
           // if press down
           this.prevProm = this.playPromise('hover_to_press', 1);
@@ -52,9 +82,11 @@ namespace we {
           this.playPromise('hover_to_idle', 1);
           console.log('hover to idle');
         } else {
+          // if idle on bet state
+          status = env.autoConfirmBet ? 'auto_confirm_idle' : 'disble_to_idle';
           await this.prevProm;
-          this.playPromise('disble_to_idle', 1);
-          console.log('disable_to_idle');
+          this.playPromise(status, 1);
+          console.log(status);
         }
       }
     }
