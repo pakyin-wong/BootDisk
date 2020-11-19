@@ -575,6 +575,7 @@ namespace we {
         exceedBetLowerLimit: '低于下限',
         startBet: '投注开始',
         stopBet: '投注停止',
+        betTimeout: '下注逾时',
       },
       sidePanel: {
         changeChip: '切换筹码',

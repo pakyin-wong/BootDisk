@@ -378,7 +378,11 @@ namespace we {
           }
 
           if (this._previousState === core.GameState.BET && this._message && !isInit && this._betMessageEnable) {
-            this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
+            if (this._chipLayer.getTotalUncfmBetAmount()>0) {
+              this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.betTimeout'));
+            } else {
+              this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
+            }
           }
 
           if (this._betDetails && this._chipLayer) {

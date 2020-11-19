@@ -540,6 +540,7 @@ namespace we {
         exceedBetUpperLimit: 'Exceed Bet Upper Limit',
         startBet: 'Start Bet',
         stopBet: 'Stop Bet',
+        betTimeout: 'Bet Timeout',
       },
       sidePanel: {
         changeChip: 'Change Betchips',

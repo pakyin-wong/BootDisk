@@ -540,6 +540,7 @@ namespace we {
         exceedBetLowerLimit: '低於下限',
         startBet: '投注開始',
         stopBet: '投注停止',
+        betTimeout: '下注逾時',
       },
       sidePanel: {
         changeChip: '切換籌碼',
