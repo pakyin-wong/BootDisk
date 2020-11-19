@@ -571,10 +571,10 @@ namespace we {
         insufficientBalance: '余额不足',
         generalBetError: '下注失败',
         exceedTableLimit: '超过本台限红',
-        exceedBetUpperLimit: '超过上限',
-        exceedBetLowerLimit: '低过下限',
+        exceedBetUpperLimit: '高于上限',
+        exceedBetLowerLimit: '低于下限',
         startBet: '投注开始',
-        stopBet: '停止下注',
+        stopBet: '投注停止',
       },
       sidePanel: {
         changeChip: '切换筹码',
