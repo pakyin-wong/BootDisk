@@ -500,7 +500,7 @@ namespace we {
 
       public checkResultMessage() {
         let totalWin: number = NaN;
-        if (isNaN(this._tableInfo.totalWin)) {
+        if (!isNaN(this._tableInfo.totalWin)) {
           totalWin = this._tableInfo.totalWin;
         }
         let pass1: boolean = false;
