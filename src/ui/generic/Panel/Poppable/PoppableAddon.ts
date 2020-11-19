@@ -108,6 +108,8 @@ namespace we {
         this.isShow = true;
         this.target.dispatchEvent(new egret.Event('POPPER_SHOW'));
 
+        dir.audioCtr.play('ui_sfx_penal_open_mp3');
+
         this.isFocusItem && this.target.stage['inFocusItems'].push(this.target);
         this.inFocusIdx = this.target.stage['inFocusItems'].length;
 
@@ -131,6 +133,8 @@ namespace we {
         }
         this.isShow = false;
         this.target.dispatchEvent(new egret.Event('POPPER_HIDE'));
+
+        dir.audioCtr.play('ui_sfx_penal_close_mp3');
 
         await this.onHide(skipAnimation);
       }
