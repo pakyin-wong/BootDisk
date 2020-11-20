@@ -87,28 +87,28 @@ namespace we {
       }
 
       public changeBtnState(isEnable: boolean = true, totalUncfmBetAmount: number = 0, isPrevBet: boolean = false, isBetState: boolean = true) {
+        let hasCfmBet = totalUncfmBetAmount !== 0; //change to boolean
+        
         this._undoButton.touchEnabled = isEnable;
         this._cancelButton.touchChildren = this._cancelButton.touchEnabled = isEnable;
-
         // double btn check uncfm btn , not cfmbtn
         this._doubleButton.touchChildren = this._doubleButton.touchEnabled = totalUncfmBetAmount ? true : false;
         this._repeatButton.touchChildren = this._repeatButton.touchEnabled = isPrevBet;
-        // this._undoButton.alpha = isEnable ? 1 : 0.5;
-        // this._cancelButton.alpha = isEnable ? 1 : 0.5;
-        // this._repeatButton.alpha = this._repeatButton.touchEnabled ? 1 : 0.5;
-        // this._doubleButton.alpha = totalUncfmBetAmount ? 1 : 0.5;
-
-        this._undoButton.buttonEnabled = isEnable;
-        this._cancelButton.buttonEnabled = isEnable;
-        this._repeatButton.buttonEnabled = this._repeatButton.touchEnabled;
-        this._doubleButton.buttonEnabled = (totalUncfmBetAmount !== 0);
 
         if (env.isMobile) {
+          this._undoButton.alpha = isEnable ? 1 : 0.5;
+          this._cancelButton.alpha = isEnable ? 1 : 0.5;
+          this._repeatButton.alpha = this._repeatButton.touchEnabled ? 1 : 0.5;
+          this._doubleButton.alpha = totalUncfmBetAmount ? 1 : 0.5;
           this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isEnable;
           this._confirmButton.alpha = isEnable ? 1 : 0.3;
         } else {
-          // in desktop , confirm button is determined by betState/finishState ONLY
-          (this._confirmButton as ui.BetConfirmButton).buttonEnabled = isBetState;
+          this._undoButton.buttonEnabled = isEnable;
+          this._cancelButton.buttonEnabled = isEnable;
+          this._repeatButton.buttonEnabled = this._repeatButton.touchEnabled;
+          this._doubleButton.buttonEnabled = hasCfmBet;
+          this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isBetState && hasCfmBet;
+          (this._confirmButton as ui.BetConfirmButton).buttonEnabled = isBetState && hasCfmBet;
         }
 
         if (this._timer.bg_color) {

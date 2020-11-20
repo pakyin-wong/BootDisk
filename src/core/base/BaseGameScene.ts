@@ -344,14 +344,14 @@ namespace we {
         }
       }
 
-      protected resetBetRelatedGroupBtn(){
-          if (this._betRelatedGroup) {
-            this._betRelatedGroup.changeBtnState(
-              false,
-              this._chipLayer.getTotalUncfmBetAmount(),
-              this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
-            );
-          }
+      protected resetBetRelatedGroupBtn() {
+        if (this._betRelatedGroup) {
+          this._betRelatedGroup.changeBtnState(
+            false,
+            this._chipLayer.getTotalUncfmBetAmount(),
+            this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid, false
+          );
+        }
       }
 
       public backToLobby() {
@@ -872,16 +872,15 @@ namespace we {
         }
       }
 
-      protected onRepeatPressed() {
+      protected onRepeatPressed(evt: egret.Event) {
         if (this._chipLayer) {
           this._chipLayer.onRepeatPressed();
-        }
-        if (this._betRelatedGroup) {
-          this._betRelatedGroup.changeBtnState(
-            true,
-            this._chipLayer.getTotalUncfmBetAmount(),
-            false
-          );
+          if (this._betRelatedGroup) {
+            this._betRelatedGroup.changeBtnState(true, this._chipLayer.getTotalUncfmBetAmount(), false);
+          }
+          if (env.autoConfirmBet) {
+            this.onConfirmPressed(evt);
+          }
         }
       }
 
