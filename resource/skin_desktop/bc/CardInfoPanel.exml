@@ -42,7 +42,7 @@
                         </e:Group>
                         <e:Label id="_encryptedKeyLabel" x="24" y="70" size="24" />
                         <e:Group id="_copyEncryptedKey" width="172" height="50" x="829" y="128" touchThrough="true"> 
-                                <ui:RoundRectButton width="172" height="50" fillAlpha="0" fillAlpha_hover="1" fillColor_hover="0xA0A0A0" stroke="2" strokeColor="0x1b416e" cornerTL_TR_BL_BR="24,24,24,24"/>
+                                <ui:RoundRectButton width="172" height="50" fillAlpha="0" fillAlpha_hover="1" fillColor_hover="0x1b416e" stroke="2" strokeColor="0x1b416e" cornerTL_TR_BL_BR="24,24,24,24"/>
                                 <ui:RunTimeLabel size="24" i18n="baccarat.copy" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
                         </e:Group>                        
                 </e:Group>
@@ -58,7 +58,7 @@
                         </e:Group>
                         <e:Label id="_ssnLabel" x="24" y="70" size="24" />
                         <e:Group id="_copySsn" width="172" height="50" x="829" y="56" touchThrough="true">
-                                <ui:RoundRectButton width="172" height="50" fillAlpha="0" fillAlpha_hover="1" fillColor_hover="0xA0A0A0" stroke="2" strokeColor="0x1b416e" cornerTL_TR_BL_BR="24,24,24,24"/>
+                                <ui:RoundRectButton width="172" height="50" fillAlpha="0" fillAlpha_hover="1" fillColor_hover="0x1b416e" stroke="2" strokeColor="0x1b416e" cornerTL_TR_BL_BR="24,24,24,24"/>
                                 <ui:RunTimeLabel size="24" i18n="baccarat.copy" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
                         </e:Group>
                         <e:Group x="24" y="160">
@@ -71,7 +71,7 @@
                         </e:Group>
                         <e:Label id="_decryptedKeyLabel" x="24" y="201" size="24" />
                         <e:Group id="_copyDecryptedKey" width="172" height="50" x="829" y="251" touchThrough="true">
-                                <ui:RoundRectButton width="172" height="50" fillAlpha="0" fillAlpha_hover="1" fillColor_hover="0xA0A0A0" stroke="2" strokeColor="0x1b416e" cornerTL_TR_BL_BR="24,24,24,24"/>
+                                <ui:RoundRectButton width="172" height="50" fillAlpha="0" fillAlpha_hover="1" fillColor_hover="0x1b416e" stroke="2" strokeColor="0x1b416e" cornerTL_TR_BL_BR="24,24,24,24"/>
                                 <ui:RunTimeLabel size="24" i18n="baccarat.copy" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
                         </e:Group>                        
                 </e:Group>
