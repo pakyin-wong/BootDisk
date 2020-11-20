@@ -581,7 +581,7 @@ namespace we {
           }
         } else {
           exceedBetLimit = this.isExceedUpperBetLimit(fieldAmounts, betLimit, betDetail);
-          // console.log('isExceedUpperBetLimit',exceedBetLimit)
+          console.log('isExceedUpperBetLimit',exceedBetLimit)
           // if (exceedBetLimit) {
           //   this.resetUnconfirmedBet();
           //   this.dispatchEvent(new egret.Event('onUnconfirmBet'));

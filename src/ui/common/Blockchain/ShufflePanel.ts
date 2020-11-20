@@ -130,6 +130,7 @@ namespace we {
         }
 
         this.hide();
+        console.log('showAnim end')
 
         return new Promise(resolve=>resolve()) 
       }
@@ -145,6 +146,7 @@ namespace we {
 
         setTimeout(() => {
           this.hide();
+          console.log('this.hide')
         }, 8000)
       }
 
