@@ -621,6 +621,7 @@ namespace we {
         ssn: '卡牌序號',
         lastRound: '上局結果',
         redCardDesc: '紅卡：該局遊戲結束後進行換靴',
+        announceAfterDisclose:'將於開牌後公佈...',
       },
       message: {
         test: '你贏左 $1，$2% 會比左我',
