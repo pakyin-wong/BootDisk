@@ -86,7 +86,7 @@ namespace we {
         }
       }
 
-      public changeBtnState(isEnable: boolean = true, totalUncfmBetAmount: number = 0, isPrevBet: boolean = false) {
+      public changeBtnState(isEnable: boolean = true, totalUncfmBetAmount: number = 0, isPrevBet: boolean = false, isBetState: boolean = true) {
         this._undoButton.touchEnabled = isEnable;
         this._cancelButton.touchChildren = this._cancelButton.touchEnabled = isEnable;
 
@@ -107,7 +107,8 @@ namespace we {
           this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isEnable;
           this._confirmButton.alpha = isEnable ? 1 : 0.3;
         } else {
-          (this._confirmButton as ui.BetConfirmButton).buttonEnabled = isEnable;
+          // in desktop , confirm button is determined by betState/finishState ONLY
+          (this._confirmButton as ui.BetConfirmButton).buttonEnabled = isBetState;
         }
 
         if (this._timer.bg_color) {

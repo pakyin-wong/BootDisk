@@ -13,9 +13,6 @@ namespace we {
        * use animation.fadeIn with different group name instead of animation.play to play the animation so that you can play multiple animation at the same time ("betting" in one group and others in another group)
        **/
 
-      protected _oldHover: boolean;
-      protected _oldDown: boolean;
-
       public constructor() {
         super();
         this.orientationDependent = false;
@@ -53,31 +50,33 @@ namespace we {
       protected async update([oldDown, oldHover]: boolean[]) {
         super.update;
         let status = '';
-        this._oldDown = oldDown;
-        this._oldHover = oldHover;
 
         if (!this._enabled) {
-          // if disable
-          status = env.autoConfirmBet ? 'auto_confirm_disable' : 'disable';
+          // if not in bet state
+          status = env.autoConfirmBet ? 'auto_confirm_idle' : 'idle';
           await this.prevProm;
           this.playPromise(status, 1);
           console.log(status);
         } else if (!oldDown && this._down) {
           // if press down
+          if (env.autoConfirmBet) return;
           this.prevProm = this.playPromise('hover_to_press', 1);
           console.log('hover_to_press');
         } else if (this._hover && oldDown && !this._down) {
           // if press up
+          if (env.autoConfirmBet) return;
           await this.prevProm;
           this.prevProm = this.playPromise('press_to_disable', 1);
           console.log('press_to_disable');
         } else if (!oldHover && this._hover) {
           // if roll over
+          if (env.autoConfirmBet) return;
           await this.prevProm;
           this.playPromise('idle_to_hover', 1);
           console.log('idle_to_hover');
         } else if (oldHover && !this._hover) {
           // roll out
+          if (env.autoConfirmBet) return;
           await this.prevProm;
           this.playPromise('hover_to_idle', 1);
           console.log('hover to idle');

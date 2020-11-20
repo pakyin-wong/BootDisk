@@ -555,7 +555,8 @@ namespace we {
               false,
               this._chipLayer.getTotalUncfmBetAmount(),
               // this._chipLayer.getTotalCfmBetAmount(),
-              this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
+              this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid,
+              true
             );
           }
         }
@@ -654,11 +655,12 @@ namespace we {
           }
 
           if (this._resultMessage) {
-            console.log('no message');
             this.checkResultMessage();
           }
         }
-        if (this._betRelatedGroup) { this._betRelatedGroup.changeBtnState(false); }
+        if (this._betRelatedGroup) {
+          this._betRelatedGroup.changeBtnState(false, 0, false, false);
+        }
       }
 
       protected setStateRefund(isInit: boolean = false) {
