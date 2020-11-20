@@ -9,18 +9,18 @@
 					<e:Group horizontalCenter="0" top="40">
 
 						<e:Label text="1" y="369" textColor="0x00CAD0" size="110" left="129"/>
-						<e:Image source="d_bcba_panel_instructions_step1_png" y="70" width="840" height="272" left="218"/>
+						<e:Image y="70" width="840" height="272" left="218" source="m_bcba_panel_instructions_step1_"/>
 						<ui:RunTimeLabel i18n="baccarat.mechanismHelp1" y="369" width="850" height="112" size="40" textColor="0xFFFFFF" wordWrap="true" left="218"/>
 						<e:Label text="2" y="913" textColor="0x00CAD0" size="110" left="129"/>
-						<e:Image source="d_bcba_panel_instructions_step2_png" y="614" width="840" height="272" left="218"/>
+						<e:Image y="614" width="840" height="272" left="218" source="m_bcba_panel_instructions_step2_png"/>
 						<ui:RunTimeLabel i18n="baccarat.mechanismHelp2" y="913" width="850" height="112" size="40" textColor="0xFFFFFF" wordWrap="true" left="218"/>
 						<e:Label text="3" y="1458" textColor="0x00CAD0" size="110" left="129"/>
-						<e:Image source="d_bcba_panel_instructions_step3_png" y="1163" width="840" height="272" left="218"/>
+						<e:Image y="1163" width="840" height="272" left="218" source="m_bcba_panel_instructions_step3_png"/>
 						<ui:RunTimeLabel i18n="baccarat.mechanismHelp3" y="1458" width="850" height="112" size="40" textColor="0xFFFFFF" wordWrap="true" left="218"/>
 						<e:Label text="4" y="2003" textColor="0x00CAD0" size="110" left="129"/>
-						<e:Image source="d_bcba_panel_instructions_step4_png" y="1712" width="840" height="272" left="218"/>
+						<e:Image y="1712" width="840" height="272" left="218" source="m_bcba_panel_instructions_step4_png"/>
 						<ui:RunTimeLabel i18n="baccarat.mechanismHelp4" y="2003" width="850" height="112" size="40" textColor="0xFFFFFF" wordWrap="true" left="218"/>
-						<e:Image source="d_bcba_panel_instructions_step4_png" y="2150" width="850" height="50" left="218"/>
+
 					</e:Group>
                 </ui:Scroller>
         </e:Group>
