@@ -100,8 +100,8 @@ namespace we {
 
         this._undoButton.buttonEnabled = isEnable;
         this._cancelButton.buttonEnabled = isEnable;
-        this._repeatButton.buttonEnabled = isEnable;
-        this._doubleButton.buttonEnabled = isEnable;
+        this._repeatButton.buttonEnabled = this._repeatButton.touchEnabled;
+        this._doubleButton.buttonEnabled = (totalUncfmBetAmount !== 0);
 
         if (env.isMobile) {
           this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isEnable;
