@@ -40,7 +40,8 @@ namespace we {
         this._deckPanel.setValue(<bab.GameData>this._gameData);
         this._deckPanel.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
                 //========
-        this._deckPanel.addEventListener('ENABLE_DECK_BTN', this.enableDeckBtn, this);
+        // this._deckPanel.addEventListener('ENABLE_DECK_BTN', this.enableDeckBtn, this);
+        //  this._message.addEventListener('DRAW_RED_CARD',this.newShoeMessage,this)
                         //========
         this._cardInfoPanel.addEventListener('OPEN_DECK_PANEL', this.showDeckPanel, this);
         this._cardInfoPanel.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
@@ -118,7 +119,9 @@ namespace we {
           }
         }
       }
-
+      protected newShoeMessage() {
+        this._message.showMessage(ui.InGameMessage.NEWSHOE, i18n.t('baccarat.redCardDesc'),null, true)
+      }
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
         this._historyCardHolder.setCards(this._tableId);
@@ -153,8 +156,8 @@ namespace we {
 
       protected setStateShuffle(isInit: boolean) {
         this.getShoeInfo();
-                //========
-        this.enableDeckGroup(false)
+        //         //========
+        // this.enableDeckGroup(false)
         super.setStateShuffle(isInit);
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit)
         this.hideSumGroup();
@@ -166,9 +169,9 @@ namespace we {
         this._cardInfoPanel.show();
       }
               //========
-      protected enableDeckBtn(){
-        this.enableDeckGroup(true)
-      }
+      // protected enableDeckBtn(){
+      //   this.enableDeckGroup(true)
+      // }
       protected showDeckPanel(evt: egret.Event) {
         this._deckPanel.show();
       }
@@ -187,10 +190,10 @@ namespace we {
         }
       }
               //========
-      protected enableDeckGroup(enable:boolean) {
-        this._deckPanel.touchEnabled = enable;
-        this._deckPanel.alpha = enable? 1 : 0.5;
-      }
+      // protected enableDeckGroup(enable:boolean) {
+      //   this._deckPanel.touchEnabled = enable;
+      //   this._deckPanel.alpha = enable? 1 : 0.5;
+      // }
       protected showSumGroup(){
         (<we.bab.MobileCardHolder>this._resultDisplay).showSumGroup()
       }

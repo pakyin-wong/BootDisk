@@ -133,7 +133,7 @@ namespace we {
         this.hide();
         console.log('showAnim end')
         //========
-        this.dispatchEvent(new egret.Event('ENABLE_DECK_BTN'));
+        // this.dispatchEvent(new egret.Event('ENABLE_DECK_BTN'));
         //========
         return new Promise(resolve=>resolve()) 
       }
@@ -151,7 +151,7 @@ namespace we {
           this.hide();
           console.log('this.hide')
                   //========
-          this.dispatchEvent(new egret.Event('ENABLE_DECK_BTN'));
+          // this.dispatchEvent(new egret.Event('ENABLE_DECK_BTN'));
                   //========
         }, 8000)
       }
