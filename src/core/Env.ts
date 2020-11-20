@@ -14,6 +14,7 @@ namespace we {
         return env;
       }
       public UAInfo: any;
+      public notYetInteract: boolean = false;
 
       /* Global Environment Variable */
       public version: string = '0.12.3f1';
@@ -24,6 +25,7 @@ namespace we {
       public currency: Currency;
       public playerID: string;
       public accountType: number = 0; // 0-api, 1-credit
+      public redirecturl: string;
 
       public nickname: string;
       public nicknameKey: string;
@@ -79,7 +81,7 @@ namespace we {
       public language: string;
 
       public voice: string = 'mandarin';
-      public bgm = 1;
+      // public bgm = 1;
       // public liveVolume = 1;
       // public soundEffect = 1;
       public videoOpen: boolean = true;
@@ -437,7 +439,7 @@ namespace we {
             dir.sceneCtr.goto('bab', { tableid: tableId });
             break;
           case core.GameType.BAMB:
-            dir.sceneCtr.goto('bab', { tableid: tableId });
+            dir.sceneCtr.goto('bamb', { tableid: tableId });
             break;
           case core.GameType.DT:
             dir.sceneCtr.goto('dt', { tableid: tableId });

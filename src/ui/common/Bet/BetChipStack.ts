@@ -144,6 +144,8 @@ namespace we {
           const chip = this.getNewChip(total);
           chip.touchEnabled = false;
           this._chips.push(chip);
+          this.drawChips();
+          this.drawTotal(false);
         } else {
           // No uncfmBet, show stack and total
           this._cfmDenomList = this.getBettingTableGridDenom(this._denomList, total);
@@ -153,7 +155,8 @@ namespace we {
           // this._cfmDenomList.slice(this._cfmDenomList.length - this._stackLimit).map(value => {
 
           this._cfmDenomList.map((value, index) => {
-            if (this._useStackLimit && this._cfmDenomList.length - index <= this._stackLimit) {
+            // if (this._useStackLimit && this._cfmDenomList.length - index <= this._stackLimit) {
+            if (this._useStackLimit && index < this._stackLimit) {
               const chip = this.getNewChip(value[0], value[1], we.core.ChipType.PERSPECTIVE);
               chip.touchEnabled = false;
               // chip.labelSize = this._chipLabelSize;
@@ -161,17 +164,17 @@ namespace we {
               this._chips.push(chip);
             }
           });
+          this.drawChips();
+          this.drawTotal();
         }
-        this.drawChips();
-        this.drawTotal();
       }
 
-      protected drawTotal() {
+      protected drawTotal(hasDP: boolean = true) {
         this._betSumBackground.visible = true;
         this._betSumLabel.visible = true;
         this._betSumBackground.verticalCenter = this._uncfmBet === 0 ? this.totalCfmOffset : this.totalUncfmOffset;
         this._betSumLabel.verticalCenter = this._uncfmBet === 0 ? this.totalCfmOffset : this.totalUncfmOffset;
-        this._betSumLabel.text = utils.formatNumber(this._uncfmBet + this._cfmBet, false);
+        this._betSumLabel.text = utils.formatNumber(this._uncfmBet + this._cfmBet, hasDP);
         this.setChildIndex(this._betSumBackground, 100);
         this.setChildIndex(this._betSumLabel, 101);
       }
@@ -289,7 +292,7 @@ namespace we {
         const wholeDenomMapKeyArr = Object.keys(wholeDenomMap).sort((a, b) => +a - +b);
         let index = wholeDenomMapKeyArr.length - 1;
         const result = new Array();
-        while (total > 0) {
+        while (total >= wholeDenomMapKeyArr[0]) {
           const denomValue = +wholeDenomMapKeyArr[index];
           if (total >= denomValue) {
             total -= denomValue;

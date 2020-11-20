@@ -571,10 +571,11 @@ namespace we {
         insufficientBalance: '余额不足',
         generalBetError: '下注失败',
         exceedTableLimit: '超过本台限红',
-        exceedBetUpperLimit: '超过投注上限',
-        exceedBetLowerLimit: '低过投注下限',
+        exceedBetUpperLimit: '高于上限',
+        exceedBetLowerLimit: '低于下限',
         startBet: '投注开始',
-        stopBet: '停止下注',
+        stopBet: '投注停止',
+        betTimeout: '下注逾时',
       },
       sidePanel: {
         changeChip: '切换筹码',
@@ -655,6 +656,7 @@ namespace we {
         ssn: '卡牌序号',
         lastRound: '上局结果',
         redCardDesc: '红卡：该局游戏结束后进行换靴',
+        announceAfterDisclose:'将于开牌后公布...',
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',
@@ -663,6 +665,7 @@ namespace we {
         restart: '重启游戏',
         retry: '重试',
         cancel: '取消',
+        urlcopied:'第三方验证网站已复制',
       },
       error: {
         error_1001: '用户於其他装置上登录',

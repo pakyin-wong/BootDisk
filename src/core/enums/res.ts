@@ -14,7 +14,8 @@ namespace we {
       Lottery: 'scene_lottery',
       Blockchain: 'scene_bc',
       BlockchainBaccarat: 'scene_bc_baccarat',
-      BlockchainDragonTiger: 'scene_bc_dragontiger'
+      BlockchainDragonTiger: 'scene_bc_dragontiger',
+      BlockchainSqueezeBaccarat: 'scene_bc_sq_baccarat'
     };
   }
 }

@@ -52,6 +52,7 @@ namespace we {
           this._factory = factory;
         }
         this._display = this._factory.buildArmatureDisplay(this._armatureName);
+        utils.dblistenToSoundEffect(this._display);
         this._display.x = this.width / 2;
         this._display.y = this.height / 2;
         this.addChild(this._display);

@@ -378,7 +378,11 @@ namespace we {
           }
 
           if (this._previousState === core.GameState.BET && this._message && !isInit && this._betMessageEnable) {
-            this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
+            if (this._chipLayer.getTotalUncfmBetAmount()>0) {
+              this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.betTimeout'));
+            } else {
+              this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
+            }
           }
 
           if (this._betDetails && this._chipLayer) {
@@ -500,7 +504,7 @@ namespace we {
 
       public checkResultMessage() {
         let totalWin: number = NaN;
-        if (this._tableInfo.totalWin) {
+        if (!isNaN(this._tableInfo.totalWin)) {
           totalWin = this._tableInfo.totalWin;
         }
         let pass1: boolean = false;
@@ -510,7 +514,10 @@ namespace we {
           case core.GameType.BAI:
           case core.GameType.BAS:
           case core.GameType.BAM:
+          case core.GameType.BAB:
+          case core.GameType.BAMB:
           case core.GameType.DT:
+          case core.GameType.DTB:
             pass1 = this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin);
             pass2 = this._gameData && this._gameData.wintype != 0;
             break;

@@ -125,6 +125,7 @@ namespace we {
       }
 
       private onClick() {
+        dir.audioCtr.play('ui_sfx_btn_ok_mp3');
         this.dispatchEvent(new egret.Event('CLICKED'));
       }
 

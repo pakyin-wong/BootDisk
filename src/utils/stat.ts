@@ -99,12 +99,12 @@ namespace we {
           const playerPairCount = gamestatistic[playerPairName];
           const remainingCount = totalCount - bankerPairCount - playerPairCount;
 
-          const bankerPercentage = bankerCount / totalCount;
-          const playerPercentage = playerCount / totalCount;
-          const tiePercentage = tieCount / totalCount;
-          const bankerPairPercentage = bankerPairCount / totalCount;
-          const playerPairPercentage = playerPairCount / totalCount;
-          const remainingPercentage = remainingCount / totalCount;
+          const bankerPercentage = (totalCount===0)?0:bankerCount / totalCount;
+          const playerPercentage = (totalCount===0)?0:playerCount / totalCount;
+          const tiePercentage = (totalCount===0)?0:tieCount / totalCount;
+          const bankerPairPercentage = (totalCount===0)?0:bankerPairCount / totalCount;
+          const playerPairPercentage = (totalCount===0)?0:playerPairCount / totalCount;
+          const remainingPercentage = (totalCount===0)?0:remainingCount / totalCount;
 
           return {
             bankerCount,

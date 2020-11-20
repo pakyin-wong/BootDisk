@@ -250,6 +250,7 @@ namespace we {
           coinGroup.height = 213;
 
           const coinAnim = this.createLuckyCoinAnim();
+          utils.dblistenToSoundEffect(coinAnim);
           coinAnim.width = 175;
           coinAnim.height = 213;
           // 112 + 18

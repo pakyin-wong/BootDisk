@@ -49,11 +49,6 @@ namespace we {
         //     break;
         // }
       }
-
-      protected enterRoom() {
-        dir.sceneCtr.goto('ro', { tableid: this.tableId });
-        this.removeSelf();
-      }
     }
   }
 }

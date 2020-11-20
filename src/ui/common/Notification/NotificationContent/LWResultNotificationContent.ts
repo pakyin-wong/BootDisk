@@ -35,11 +35,6 @@ namespace we {
             break;
         }
       }
-
-      protected enterRoom() {
-        dir.sceneCtr.goto('lw', { tableid: this.tableId });
-        this.removeSelf();
-      }
     }
   }
 }

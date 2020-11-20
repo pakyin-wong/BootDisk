@@ -70,6 +70,7 @@ namespace we {
         factory.parseDragonBonesData(skeletonData);
         factory.parseTextureAtlasData(textureData, texture);
         const anim = factory.buildArmatureDisplay(skeletonName);
+        utils.dblistenToSoundEffect(anim);
         anim.scaleX = anim.scaleY = scale;
         return anim;
       }
