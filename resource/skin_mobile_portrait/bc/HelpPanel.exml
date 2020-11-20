@@ -3,23 +3,24 @@
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:bab="we.bab.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*">
         <e:Group id="content" width="1242" height="1966">
                 <e:Image id="close" source="d-lobby-button-close-none_png" width="44" height="44"  right="30" top="30"/>
-					<ui:RunTimeLabel i18n="baccarat.mechanismHelp" size="80" textColor="0xc59466" horizontalCenter="0" top="40"/>
+		<ui:RunTimeLabel i18n="baccarat.mechanismHelp" size="80" textColor="0xc59466" horizontalCenter="0" top="40"/>
 
                 <ui:Scroller width="100%" height="1775" id="_scroller" y="191">
 					<e:Group horizontalCenter="0" top="40">
 
-						<e:Label text="1" y="369" textColor="0x00CAD0" size="110" left="129"/>
-						<e:Image y="70" width="840" height="272" left="218" source="m_bcba_panel_instructions_step1_"/>
-						<ui:RunTimeLabel i18n="baccarat.mechanismHelp1" y="369" width="850" height="112" size="40" textColor="0xFFFFFF" wordWrap="true" left="218"/>
-						<e:Label text="2" y="913" textColor="0x00CAD0" size="110" left="129"/>
+
+						<e:Image y="369" width="80" height="81" left="129" source="m_bcba_panel_instructions_number1_png"/>
+						<e:Image y="70" width="840" height="272" left="218" source="m_bcba_panel_instructions_step1_png"/>
+						<ui:RunTimeLabel i18n="baccarat.mechanismHelp1" y="369" width="850" height="112" size="40" textColor="0xFFFFFF" wordWrap="true" left="230"/>
+						<e:Image y="913" width="80" height="81" left="129" source="m_bcba_panel_instructions_number2_png"/>
 						<e:Image y="614" width="840" height="272" left="218" source="m_bcba_panel_instructions_step2_png"/>
-						<ui:RunTimeLabel i18n="baccarat.mechanismHelp2" y="913" width="850" height="112" size="40" textColor="0xFFFFFF" wordWrap="true" left="218"/>
-						<e:Label text="3" y="1458" textColor="0x00CAD0" size="110" left="129"/>
+						<ui:RunTimeLabel i18n="baccarat.mechanismHelp2" y="913" width="850" height="112" size="40" textColor="0xFFFFFF" wordWrap="true" left="230"/>
+						<e:Image y="1458" width="80" height="81" left="129" source="m_bcba_panel_instructions_number3_png"/>
 						<e:Image y="1163" width="840" height="272" left="218" source="m_bcba_panel_instructions_step3_png"/>
-						<ui:RunTimeLabel i18n="baccarat.mechanismHelp3" y="1458" width="850" height="112" size="40" textColor="0xFFFFFF" wordWrap="true" left="218"/>
-						<e:Label text="4" y="2003" textColor="0x00CAD0" size="110" left="129"/>
+						<ui:RunTimeLabel i18n="baccarat.mechanismHelp3" y="1458" width="850" height="112" size="40" textColor="0xFFFFFF" wordWrap="true" left="230"/>
+						<e:Image y="2003" width="80" height="81" left="129" source="m_bcba_panel_instructions_number4_png"/>
 						<e:Image y="1712" width="840" height="272" left="218" source="m_bcba_panel_instructions_step4_png"/>
-						<ui:RunTimeLabel i18n="baccarat.mechanismHelp4" y="2003" width="850" height="112" size="40" textColor="0xFFFFFF" wordWrap="true" left="218"/>
+						<ui:RunTimeLabel i18n="baccarat.mechanismHelp4" y="2003" width="850" height="112" size="40" textColor="0xFFFFFF" wordWrap="true" left="230"/>
 
 					</e:Group>
                 </ui:Scroller>
