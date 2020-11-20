@@ -223,7 +223,7 @@ namespace we {
         const cardData = ['b1','a1','b2','a2','b3','a3']
         for (let i = 0; i < this.cardAnimNames.length; i++) {
           const cardAnim = <dragonBones.EgretArmatureDisplay>this[this.cardAnimNames[i]];
-          this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this.getCardIndex(cardData[i],gameState));
+          this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this.getCardIndex(cardData[i],core.GameState.BET));
           this.showVerticalLoopBack(cardAnim, 0);
         }
 
@@ -267,7 +267,7 @@ namespace we {
         const cardDataNames = ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
         const total = 0;
         for (let i = 0; i < 6; i++) {
-          indices[cardDataNames[i]] = this._gameData.currentcardindex + i + 1;
+          indices[cardDataNames[i]] = this._gameData.currentcardindex - this.getCurrentIndexOffsetToFirstCard() + i;
         }
         return indices;
       }
