@@ -729,59 +729,8 @@ namespace we {
         };
         env.profileimage = ''; // 'iconKey01';
         env.denomList = ["100", "500", "1000", "2000", "3000", "5000", "10000", "20000", "30000", "50000", "100000", "200000", "300000", "500000", "1000000", "2000000", "3000000", "5000000", "10000000", "20000000"];
-        env.betLimits = {
-          'Live':
-          [
-            {
-              currency: Currency.RMB,
-              maxlimit: 1000,
-              minlimit: 10,
-              chips: [100, 500, 1000, 2000, 3000, 50000]
-              //chips: [1, 5, 20, 100, 500],
-              // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
-            },
-          ],
-          'Electronic':
-          [
-            {
-              currency: Currency.RMB,
-              maxlimit: 1000,
-              minlimit: 10,
-              chips: [100, 500, 1000, 2000, 3000, 50000]
-              //chips: [1, 5, 20, 100, 500],
-            },
-          ],
-          'Lottery':
-          [
-            {
-              currency: Currency.RMB,
-              maxlimit: 1000,
-              minlimit: 10,
-              chips: [100, 500, 1000, 2000, 3000, 50000]
-              //chips: [1, 5, 20, 100, 500],
-            },
-          ],
-          'Sportbook':
-          [
-            {
-              currency: Currency.RMB,
-              maxlimit: 1000,
-              minlimit: 10,
-              chips: [100, 500, 1000, 2000, 3000, 50000]
-              //chips: [1, 5, 20, 100, 500],
-            },
-          ],
-          'Chess':
-          [
-            {
-              currency: Currency.RMB,
-              maxlimit: 1000,
-              minlimit: 10,
-              chips: [100, 500, 1000, 2000, 3000, 50000]
-              //chips: [1, 5, 20, 100, 500],
-            },
-          ],
-        };
+        env.betLimits = we.mockLimits;
+        
 
         /*
         let denominationList = [];
