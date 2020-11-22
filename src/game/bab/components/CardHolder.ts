@@ -252,7 +252,6 @@ namespace we {
 
       protected getCurrentCard() {
         const cardDataNames = ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
-        const total = 0;
         for (let i = cardDataNames.length - 1; i >= 0; i--) {
           if (this._gameData[cardDataNames[i]]) {
             return cardDataNames[i];
@@ -261,7 +260,7 @@ namespace we {
         return null;
       }
 
-      protected getBetCardIndices() {
+      protected getBetCardIndices() { // for first four cards and small cards .. actually not for b3/a3
         // not for bet state
         const indices = { b1: 0, a1: 0, b2: 0, a2: 0, b3: 0, a3: 0 };
         const cardDataNames = ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
