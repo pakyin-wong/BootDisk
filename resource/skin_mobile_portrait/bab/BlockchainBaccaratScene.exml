@@ -143,7 +143,7 @@
 	               skinName="skin_mobile_portrait.bc.DeckPanelSkin"  bottom="30"/>
 	<bc:HelpPanel id="_helpPanel" width="1242" height="1966" horizontalCenter="0" isPoppable="true"
 	               isEdgeDismissable="true" dismissOnClickOutside="true" isDraggable="false" hideOnStart="true"
-	               skinName="skin_mobile_portrait.bc.HelpPanelSkin"  bottom="30"/>
+	               skinName="skin_mobile_portrait.bc.HelpPanelSkin"  maxYPos="1000" minYPos="159" y="1000"/>
 	<bc:CardInfoPanel id="_cardInfoPanel" width="1242" height="1966" horizontalCenter="0"
 	                   isPoppable="true" isEdgeDismissable="true" dismissOnClickOutside="true" isDraggable="false"
 	                   hideOnStart="true" skinName="skin_mobile_portrait.bc.CardInfoPanelSkin"  bottom="30"/>
