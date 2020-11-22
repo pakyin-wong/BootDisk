@@ -54,7 +54,9 @@ namespace we {
         this._startYPos = e.stageY;
         if(this._scroller.viewport.scrollV == 0){
 
-        } 
+        }else if(this._scroller.viewport.scrollV > 0){
+
+        }
       }
 
       protected draggableCheck(e: egret.TouchEvent){
@@ -65,6 +67,19 @@ namespace we {
 
       protected draggableEnd(e: egret.TouchEvent){
         this._endYPos = e.stageY;
+        const diff = this._startYPos - this._endYPos;
+        this.autoMove(diff);
+      }
+
+      protected autoMove(diff: number){
+        if(diff === 0 || diff < 5 && diff > -5)
+          return;
+
+        if(diff > 0){
+          // up tween
+        }else if(diff < 0){
+          // down tween
+        }
       }
     }
   }
