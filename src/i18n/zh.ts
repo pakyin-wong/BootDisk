@@ -552,6 +552,10 @@ namespace we {
       baccarat: {
         tooltip: {
           swapRoadmap: '轉換路紙',
+          cardIDHelp: '發牌編號： \n系統會為本靴牌訂立發牌編號，發牌次序根據發牌編號的順序發牌。',
+          encryptedKeyHelp: '提前公佈卡牌加密文： \n每靴洗牌後，系統對每張「卡牌序號」進行區塊鏈技術加密並提前公開展示，一\n旦生成即不能更改。',
+          decryptedKeyHelp: '卡牌加密文： \n開牌後，系統會顯示根據「卡牌序號」而生成的「卡牌加密文」，並自動與「提\n前公佈卡牌加密文」進行驗証。',
+          ssnHelp: '卡牌序號：\n(i)首兩位字元為卡牌的「點數」\nA為1點；J為11點；Q為12點；K為13點；其它牌(2、3、4、5、6、7、8、9)\n依牌面數字面值 \n \n(ii)第三位字元為卡牌的「花色」：\nH為紅心(Heart)\nD為方塊(Diamond)\nS為黑桃(Spade)\nC為梅花(Clubs)\n \n(iii)其後會加入一串「隨機字符」，保證序號的唯一性；每次「隨機字符」均會\n重新生成，即「本局」黑桃A的「隨機字符」與「上局」黑桃A的隨機字符不\n同。\n \n(iv)例子：黑桃A\n「01」代表點數─A\n「C」代表花色─黑桃\n「fhjkssadfhkh32iuhksdhfkjasJC」為隨機字符',
         },
         statisticChart: {
           bankerPlayerTie: '庄閒和比例(100局)',
