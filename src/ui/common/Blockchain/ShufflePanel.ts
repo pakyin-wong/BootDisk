@@ -34,6 +34,32 @@ namespace we {
         this.createFactory();
       }
 
+      protected checkMobile(){
+        if(!env.isMobile)
+          return;
+
+          this._firstCardWidth = 169;
+          this._firstCardHeight = 245;
+          this._smallCardWidth = 117;
+          this._smallCardHeight = 170;
+        
+        if(env.orientation === "portrait"){
+          this._oneRowFirstCardY = 265 + this._firstCardHeight / 2;
+          this._oneRowFirstRowY = 642 + this._firstCardHeight / 2;
+
+          this._twoRowFirstCardY = 265 + this._firstCardHeight / 2;
+          this._twoRowFirstRowY = 642 + this._firstCardHeight / 2;
+          this._twoRowSecondRowY = 920 + this._firstCardHeight / 2;
+        }else{
+          this._oneRowFirstCardY = 265 + this._firstCardHeight / 2;
+          this._oneRowFirstRowY = 642 + this._firstCardHeight / 2;
+
+          this._twoRowFirstCardY = 265 + this._firstCardHeight / 2;
+          this._twoRowFirstRowY = 642 + this._firstCardHeight / 2;
+          this._twoRowSecondRowY = 920 + this._firstCardHeight / 2;
+        }
+      }
+
       protected createFirstCard() {
         const firstCardFront = this.getFirstCardFront(this._gameData.firstcard);
         firstCardFront.anchorOffsetX = this._firstCardWidth / 2;
