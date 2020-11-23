@@ -75,6 +75,7 @@ namespace we {
 
       protected setStateDeal(isInit: boolean) {
         if (isInit) {
+          console.log('setStateDeal isInit')
           this.betInitState(core.GameState.DEAL);
         }
       }
@@ -157,8 +158,8 @@ namespace we {
 
 
       protected setStatePeek(isInit: boolean) {
-        //this.setFirst4Cards();
         if(isInit){
+          console.log('setStatePeek isInit')
           this.betInitState(core.GameState.DEAL);
         }
         if (this.isPlayerFlipAllowed()) {
@@ -223,6 +224,7 @@ namespace we {
 
       protected setStatePeekPlayer(isInit: boolean) {
         if(isInit){
+          console.log('setStatePeekPlayer isInit')
           this.betInitState(core.GameState.DEAL);
         }
         this._smallCard1Exist = false;
@@ -255,6 +257,7 @@ namespace we {
 
       protected setStatePeekBanker(isInit: boolean) {
         if(isInit){
+          console.log('setStatePeekBanker isInit')
           this.betInitState(core.GameState.DEAL);
         }
         this._smallCard2Exist = false;

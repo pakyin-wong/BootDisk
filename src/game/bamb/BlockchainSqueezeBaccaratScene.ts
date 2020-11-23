@@ -27,7 +27,7 @@ namespace we {
 
       protected setStatePeek(isInit: boolean = false) {
         // console.log('PEEK ' + new Date(Date.now()).toString());
-        this._resultDisplay.updateResult(this._gameData, this._chipLayer);
+        this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         if (this._previousState !== we.core.GameState.PEEK || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
@@ -41,7 +41,7 @@ namespace we {
 
       protected setStatePeekPlayer(isInit: boolean = false) {
         // console.log('PEEK_PLAYER ' + new Date(Date.now()).toString());
-        this._resultDisplay.updateResult(this._gameData, this._chipLayer);
+        this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
 
         if (this._previousState !== we.core.GameState.PEEK_PLAYER || isInit) {
           this.setBetRelatedComponentsEnabled(false);
@@ -56,7 +56,7 @@ namespace we {
 
       protected setStatePeekBanker(isInit: boolean = false) {
         // console.log('PEEK_BANKER ' + new Date(Date.now()).toString());
-        this._resultDisplay.updateResult(this._gameData, this._chipLayer);
+        this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         if (this._previousState !== we.core.GameState.PEEK_BANKER || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
@@ -71,7 +71,7 @@ namespace we {
       protected setStateFinish(isInit: boolean = false) {
         // console.log('FINISH ' + new Date(Date.now()).toString());
         super.setStateFinish(isInit);
-        this._resultDisplay.updateResult(this._gameData, this._chipLayer);
+        this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         this.setResultRelatedComponentsEnabled(true);
       }
 
