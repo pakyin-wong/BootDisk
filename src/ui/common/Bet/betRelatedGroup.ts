@@ -88,7 +88,7 @@ namespace we {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }
         if (!env.isMobile) {
-          dir.evtHandler.addEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.timerFlash, this);
+          dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.timerFlash, this);
         }
       }
 
