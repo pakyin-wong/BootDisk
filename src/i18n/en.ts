@@ -613,7 +613,7 @@ namespace we {
         thirdParty: 'Verification',
         sha256VerifySuccess: 'SHA256 Verified',
         sha256VerifyFail: 'Cannot be verified by SHA256',
-        deckDesc: '416 cards',
+        deckDesc: '"All Cards" consists of a total of 8 decks of playing cards, a total of 416 cards. Before the start of the first round, the system will randomly insert a red card in "All Cards". When the card is dealt to the red card, it means that the shoe will be changed after the game ends. After the cards are shuffled, the "Card serial number" and "Card encryption text" will be regenerated to ensure the authenticity of the game.',
         copy: 'Copy',
         encryptedKey: 'Encrypted Key Before Distribution',
         decryptedKey: 'Encrypted Key',
