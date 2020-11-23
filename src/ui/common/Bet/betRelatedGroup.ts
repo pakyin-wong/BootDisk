@@ -16,6 +16,7 @@ namespace we {
       public _timer: ui.CountdownTimer;
 
       public constructor(skin: string = 'BetRelatedGroup') {
+        super(skin);
         if (env.orientation === 'portrait') {
           switch (env._currGameType) {
             case 12: // DI
@@ -25,7 +26,6 @@ namespace we {
               break;
           }
         }
-        super(skin);
       }
 
       protected mount() {
@@ -87,7 +87,7 @@ namespace we {
       }
 
       public changeBtnState(isEnable: boolean = true, totalUncfmBetAmount: number = 0, isPrevBet: boolean = false, isBetState: boolean = true) {
-        const hasCfmBet = totalUncfmBetAmount !== 0; // change to boolean
+        const hasUncfmBet = totalUncfmBetAmount !== 0; // change to boolean
 
         this._undoButton.touchEnabled = isEnable;
         this._cancelButton.touchChildren = this._cancelButton.touchEnabled = isEnable;
@@ -106,9 +106,10 @@ namespace we {
           this._undoButton.buttonEnabled = isEnable;
           this._cancelButton.buttonEnabled = isEnable;
           this._repeatButton.buttonEnabled = this._repeatButton.touchEnabled;
-          this._doubleButton.buttonEnabled = hasCfmBet;
-          this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isBetState && hasCfmBet;
-          (this._confirmButton as ui.BetConfirmButton).buttonEnabled = isBetState && hasCfmBet;
+          this._doubleButton.buttonEnabled = hasUncfmBet;
+          // this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isBetState && hasCfmBet;
+          (this._confirmButton as ui.BetConfirmButton).buttonEnabled = isBetState && hasUncfmBet;
+          (this._confirmButton as ui.BetConfirmButton).isBetState = isBetState;
         }
 
         if (this._timer.bg_color) {
