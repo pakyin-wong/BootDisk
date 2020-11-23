@@ -593,7 +593,7 @@ namespace we {
           this._gameRoundCountWithoutBet += 1;
         }
 
-        if (this._gameRoundCountWithoutBet === 1) {
+        if (this._gameRoundCountWithoutBet === 3) {
           // <<<<<<< HEAD
           if (env.isMobile) {
             dir.evtHandler.showMessage({
