@@ -81,7 +81,6 @@ namespace we {
         env.autoConfirmBet = this.switch_autoBet.active = !env.autoConfirmBet;
 
         const rslt = env.autoConfirmBet ? '1' : '0';
-        console.log('autoConfirmBet');
         dir.evtHandler.dispatch(core.Event.SWITCH_AUTO_CONFIRM_BET, env.autoConfirmBet);
         dir.socket.updateSetting('autoConfirmBet', env.autoConfirmBet === true ? '1' : '0');
       }
