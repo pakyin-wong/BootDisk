@@ -110,17 +110,19 @@ namespace we {
       public stop() {
         this.removeEventListener(egret.Event.ENTER_FRAME, this.updateRemainingTime, this);
       }
+
       public bg_flash() {
-        // if (env.isMobile) {
-        this.bg_color.alpha = 0.7;
-        this.removebg_flash();
-        egret.Tween.get(this.bg_color, { loop: true }).to({ alpha: 0 }, 200);
-        // } else {
-        //   this.bg_color.alpha = 1;
-        //   this.removebg_flash();
-        //   this.bg_color.fillColor = '0x0x0e1721';
-        //   egret.Tween.get(this.bg_color, { loop: true }).to({ fillColor: 0 }, 200);
-        // }
+        console.log(`bg_flash`);
+        if (env.isMobile) {
+          this.bg_color.alpha = 0.7;
+          this.removebg_flash();
+          egret.Tween.get(this.bg_color, { loop: true }).to({ alpha: 0 }, 200);
+        } else {
+          this.bg_color.alpha = 1;
+          this.bg_color.fillColor = '0xFF0BFF';
+          this.removebg_flash();
+          // egret.Tween.get(this.bg_color, { loop: true }).to({ fillColor: '0x101720' }, 200);
+        }
         // while not time is out and uncfmBet >0 , do flashing
       }
       public removebg_flash() {
