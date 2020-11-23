@@ -70,11 +70,6 @@ namespace we {
         //     break;
         // }
       }
-
-      protected enterRoom() {
-        dir.sceneCtr.goto('di', { tableid: this.tableId });
-        this.removeSelf();
-      }
     }
   }
 }

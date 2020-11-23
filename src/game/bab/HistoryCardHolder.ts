@@ -26,7 +26,7 @@ namespace we {
         }
         const gameInfos = env.tableInfos[tableId].roadmap.gameInfo;
         const keys = Object.keys(gameInfos);
-        if(!keys || keys.length === 0){
+        if (!keys || keys.length === 0) {
           return;
         }
         const latestGameInfo = gameInfos[keys[keys.length - 1]];
@@ -40,60 +40,59 @@ namespace we {
       }
 
       public setNumber(number: number) {
-        console.log('number',number);
-        this.setAllNums(true)
-        if(this._bankerCard3.visible){
+        console.log('number', number);
+        this.setAllNums(true);
+        if (this._bankerCard3.visible) {
           this._bankerNum3.text = number.toString();
           number--;
-        }else{
+        } else {
           this._bankerNum3.visible = false;
         }
-        if(this._playerCard3.visible){
+        if (this._playerCard3.visible) {
           this._playerNum3.text = number.toString();
           number--;
-        }else{
+        } else {
           this._playerNum3.visible = false;
         }
         this._bankerNum2.text = number.toString();
-        number--
+        number--;
         this._playerNum2.text = number.toString();
-        number--
+        number--;
         this._bankerNum1.text = number.toString();
-        number--
+        number--;
         this._playerNum1.text = number.toString();
-        number--
-        
+        number--;
       }
 
-      protected setAllSums(state: boolean){
-        this._bankerSum.visible = state
-        this._playerSum.visible = state
+      protected setAllSums(state: boolean) {
+        this._bankerSum.visible = state;
+        this._playerSum.visible = state;
       }
 
-      protected setAllCards(state: boolean){
-          this._playerCard1.visible = state;
-          this._playerCard2.visible = state;
-          this._playerCard3.visible = state;
-          this._bankerCard1.visible = state;
-          this._bankerCard2.visible = state;
-          this._bankerCard3.visible = state;
+      protected setAllCards(state: boolean) {
+        this._playerCard1.visible = state;
+        this._playerCard2.visible = state;
+        this._playerCard3.visible = state;
+        this._bankerCard1.visible = state;
+        this._bankerCard2.visible = state;
+        this._bankerCard3.visible = state;
       }
 
-      protected setAllNums(state: boolean){
-          this._playerNum1.visible = state;
-          this._playerNum2.visible = state;
-          this._playerNum3.visible = state;  
-          this._bankerNum1.visible = state;
-          this._bankerNum2.visible = state;
-          this._bankerNum3.visible = state;
+      protected setAllNums(state: boolean) {
+        this._playerNum1.visible = state;
+        this._playerNum2.visible = state;
+        this._playerNum3.visible = state;
+        this._bankerNum1.visible = state;
+        this._bankerNum2.visible = state;
+        this._bankerNum3.visible = state;
       }
 
-      protected setCardGroup(cards:  ui.Card[], datas) {
-        for(let i = 0; i < datas.length; i++){
+      protected setCardGroup(cards: ui.Card[], datas) {
+        for (let i = 0; i < datas.length; i++) {
           if (datas[i]) {
             cards[i].visible = true;
             cards[i].setCard(utils.formatCard(datas[i]));
-          } 
+          }
         }
       }
     }

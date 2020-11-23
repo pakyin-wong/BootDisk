@@ -77,10 +77,19 @@ namespace we {
         }
       }
 
+      protected setStateShuffle(isInit: boolean = false) {
+        super.setStateShuffle(isInit);
+        if (this._previousState !== we.core.GameState.SHUFFLE || isInit) {
+          if (this._bigRoad) {
+            this._bigRoad.clearRoadData && this._bigRoad.clearRoadData();
+          }
+        }
+      }
+
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const tableBetInfo = <data.GameTableBetInfo> evt.data;
+          const tableBetInfo = <data.GameTableBetInfo>evt.data;
           if (tableBetInfo.tableid === this._tableId) {
             if (this.tableInfo.totalBet > 0) {
               this._alreadyBetSign.visible = true;
@@ -129,7 +138,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);

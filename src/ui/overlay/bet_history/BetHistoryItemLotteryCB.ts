@@ -39,11 +39,11 @@ namespace we {
         }
 
         protected mount() {
-          this._toggle && utils.addButtonListener(this._toggle, this.onToggle, this);          
+          this._toggle && utils.addButtonListener(this._toggle, this.onToggle, this);
         }
 
         protected destroy() {
-          this._toggle && utils.removeButtonListener(this._toggle, this.onToggle, this);          
+          this._toggle && utils.removeButtonListener(this._toggle, this.onToggle, this);
         }
 
         protected childrenCreated(): void {
@@ -99,31 +99,31 @@ namespace we {
         }
 
         protected forceOpen() {
-          if(this._scale) {
+          if (this._scale) {
             egret.Tween.removeTweens(this._scale);
-            egret.Tween.get(this._scale).set({visible:true,alpha:0}).to({scaleY:1},150).set({alpha:1});
+            egret.Tween.get(this._scale).set({ visible: true, alpha: 0 }).to({ scaleY: 1 }, 150).set({ alpha: 1 });
           }
-          if(this._arrow) {
+          if (this._arrow) {
             egret.Tween.removeTweens(this._arrow);
-            egret.Tween.get(this._arrow).to({rotation:90},150);
+            egret.Tween.get(this._arrow).to({ rotation: 90 }, 150);
           }
         }
 
         protected forceClosed() {
-          if(this._scale) {
+          if (this._scale) {
             egret.Tween.removeTweens(this._scale);
             this._scale.visible = false;
             this._scale.scaleY = 0;
             this._isOpened = false;
           }
-          if(this._arrow) {
+          if (this._arrow) {
             egret.Tween.removeTweens(this._arrow);
             this._arrow.rotation = 0;
           }
         }
 
         protected onToggle() {
-          if(!this._isOpened) {
+          if (!this._isOpened) {
             this.forceOpen();
             this._isOpened = true;
           } else {

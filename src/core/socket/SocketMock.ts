@@ -18,6 +18,7 @@ namespace we {
       protected totalTableCount = {
         [we.core.GameType.BAC]: 1,
         [we.core.GameType.BAB]: 1,
+        [we.core.GameType.BAMB]: 1,
         // [we.core.GameType.BAI]: 1,
         // [we.core.GameType.BAS]: 1,
         [we.core.GameType.DT]: 1,
@@ -34,7 +35,7 @@ namespace we {
         // For the update event
         this.currency = [core.Currency.EUR, core.Currency.JPY, core.Currency.RMB, core.Currency.HKD];
         this.balances = [3000, 6000, 99999999999999, 2000];
-        env.gameTypes = ["13", "16", "18", "19", "0", "2", "14", "5", "1", "12", "15", "17", "23", "24", "25", "21", "22", "20", "26"];
+        env.gameTypes = ['13', '16', '18', '19', '0', '2', '14', '5', '1', '12', '15', '17', '23', '24', '25', '21', '22', '20', '26'];
         this.balance_index = 0;
         // end
         const value = window.location.search;
@@ -79,7 +80,7 @@ namespace we {
         }, 6000);
       }
 
-      public getBalance() { }
+      public getBalance() {}
 
       public getPlayerLotteryStatistic(filter: any) {
         // 0: favourite bet, 1: favourite game, 2: lucky time, 3: lucky game
@@ -337,6 +338,38 @@ namespace we {
 
               data.bets = [];
               const mockProcess = new MockProcessBaccaratBlockchain(this, core.GameType.BAB);
+              if (idx !== count - 1) {
+                mockProcess.startRand = idx;
+                mockProcess.endRand = idx + 1;
+              }
+              mockProcess.start(data);
+              this.mockProcesses.push(mockProcess);
+
+              idx++;
+              return data;
+            });
+            break;
+          }
+          case we.core.GameType.BAMB: {
+            tables = Array.apply(null, { length: count }).map((value, idx) => {
+              const data = new we.data.TableInfo();
+              data.tableid = (++this._tempIdx).toString();
+              data.tablename = data.tableid;
+              data.state = TableState.ONLINE;
+              data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockBARoadData);
+              data.gametype = core.GameType.BAMB;
+
+              data.gamestatistic = this.generateDummyStatistic(data);
+
+              data.betInfo = new we.data.GameTableBetInfo();
+              data.betInfo.tableid = data.tableid; // Unique table id
+              data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
+              data.betInfo.total = 10000; // Total bet amount for this gameround
+              data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
+              data.betInfo.ranking = [];
+
+              data.bets = [];
+              const mockProcess = new MockProcessSqueezeBaccaratBlockchain(this, core.GameType.BAMB);
               if (idx !== count - 1) {
                 mockProcess.startRand = idx;
                 mockProcess.endRand = idx + 1;
@@ -728,57 +761,73 @@ namespace we {
           // iconKey08: 'd_lobby_profile_pic_08_png',
         };
         env.profileimage = ''; // 'iconKey01';
-        env.denomList = ["100", "500", "1000", "2000", "3000", "5000", "10000", "20000", "30000", "50000", "100000", "200000", "300000", "500000", "1000000", "2000000", "3000000", "5000000", "10000000", "20000000"];
+        env.denomList = [
+          '100',
+          '500',
+          '1000',
+          '2000',
+          '3000',
+          '5000',
+          '10000',
+          '20000',
+          '30000',
+          '50000',
+          '100000',
+          '200000',
+          '300000',
+          '500000',
+          '1000000',
+          '2000000',
+          '3000000',
+          '5000000',
+          '10000000',
+          '20000000',
+        ];
         env.betLimits = {
-          'Live':
-          [
+          Live: [
             {
               currency: Currency.RMB,
               maxlimit: 1000,
               minlimit: 10,
-              chips: [100, 500, 1000, 2000, 3000, 50000]
-              //chips: [1, 5, 20, 100, 500],
+              chips: [100, 500, 1000, 2000, 3000, 50000],
+              // chips: [1, 5, 20, 100, 500],
               // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
             },
           ],
-          'Electronic':
-          [
+          Electronic: [
             {
               currency: Currency.RMB,
               maxlimit: 1000,
               minlimit: 10,
-              chips: [100, 500, 1000, 2000, 3000, 50000]
-              //chips: [1, 5, 20, 100, 500],
+              chips: [100, 500, 1000, 2000, 3000, 50000],
+              // chips: [1, 5, 20, 100, 500],
             },
           ],
-          'Lottery':
-          [
+          Lottery: [
             {
               currency: Currency.RMB,
               maxlimit: 1000,
               minlimit: 10,
-              chips: [100, 500, 1000, 2000, 3000, 50000]
-              //chips: [1, 5, 20, 100, 500],
+              chips: [100, 500, 1000, 2000, 3000, 50000],
+              // chips: [1, 5, 20, 100, 500],
             },
           ],
-          'Sportbook':
-          [
+          Sportbook: [
             {
               currency: Currency.RMB,
               maxlimit: 1000,
               minlimit: 10,
-              chips: [100, 500, 1000, 2000, 3000, 50000]
-              //chips: [1, 5, 20, 100, 500],
+              chips: [100, 500, 1000, 2000, 3000, 50000],
+              // chips: [1, 5, 20, 100, 500],
             },
           ],
-          'Chess':
-          [
+          Chess: [
             {
               currency: Currency.RMB,
               maxlimit: 1000,
               minlimit: 10,
-              chips: [100, 500, 1000, 2000, 3000, 50000]
-              //chips: [1, 5, 20, 100, 500],
+              chips: [100, 500, 1000, 2000, 3000, 50000],
+              // chips: [1, 5, 20, 100, 500],
             },
           ],
         };
@@ -796,8 +845,8 @@ namespace we {
         env.wholeDenomList = denominationList;
         */
 
-        env.gameCategories = ["Live", "Lottery"];
-        env.gameTypes = ["13", "16", "18", "19", "0", "2", "14", "5", "1", "12", "15", "17", "23", "24", "25", "21", "22", "20", "26"];
+        env.gameCategories = ['Live', 'Lottery'];
+        env.gameTypes = ['13', '16', '18', '19', '0', '2', '14', '5', '1', '12', '15', '17', '23', '24', '25', '21', '22', '20', '26'];
         env.mode = null || -1;
         env.categorySortOrder = '{}';
         env.storedPositions = JSON.parse('{"TableInfoPanel":{"x":200,"y":400}}');
@@ -835,7 +884,7 @@ namespace we {
         */
       }
 
-      public leaveTable(tableID: string) { }
+      public leaveTable(tableID: string) {}
 
       public getTableList(filter: string) {
         /*
@@ -1482,7 +1531,7 @@ namespace we {
         // return promise.resolve with BetResult
       }
 
-      public lotteryContinuousBet(tableID: string, betDetails: data.BetDetail[], roundBetDetails: data.LotteryBetCommand[], callback: (result) => void) { }
+      public lotteryContinuousBet(tableID: string, betDetails: data.BetDetail[], roundBetDetails: data.LotteryBetCommand[], callback: (result) => void) {}
 
       private onGoodRoadMatch() {
         // random get a ba table
@@ -1755,13 +1804,13 @@ namespace we {
         });
       }
 
-      public getLotteryContinuousBetDetail(betid: string, callback: (res: any) => void, thisArg: any) { }
+      public getLotteryContinuousBetDetail(betid: string, callback: (res: any) => void, thisArg: any) {}
 
-      public getLotteryContinuousBetHistory(filter: any, callback: (res: any) => void, thisArg: any) { }
+      public getLotteryContinuousBetHistory(filter: any, callback: (res: any) => void, thisArg: any) {}
 
-      public getLotteryBetDetail(filter: any, callback: (res: any) => void, thisArg: any) { }
+      public getLotteryBetDetail(filter: any, callback: (res: any) => void, thisArg: any) {}
 
-      public cancelBet(tableID: string, betID: string, gametype: string, callback: (res: any) => void, thisArg: any) { }
+      public cancelBet(tableID: string, betID: string, gametype: string, callback: (res: any) => void, thisArg: any) {}
 
       public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {
         const betCombination = new we.data.BetCombination();
@@ -1774,7 +1823,7 @@ namespace we {
         dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);
       }
 
-      public sendVerifyInfo(id: string, pattern: string[], callback: (data: any) => void, thisArg) { }
+      public sendVerifyInfo(id: string, pattern: string[], callback: (data: any) => void, thisArg) {}
 
       public getBetCombination() {
         dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);

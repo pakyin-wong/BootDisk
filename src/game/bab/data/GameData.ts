@@ -1,6 +1,6 @@
 namespace we {
   export namespace bab {
-    export class GameData extends ba.GameData implements data.BlockchainGameData{
+    export class GameData extends ba.GameData implements data.BlockchainGameData {
       public currentcardindex;
       public redcardindex;
       public hashedcardsList;

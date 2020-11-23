@@ -62,7 +62,7 @@ namespace we {
           dir.layerCtr.overlay.addChild(this._overlay);
           dir.layerCtr.overlay.addChild(this._mDropdown);
 
-          if (env.gameCategories.indexOf('live')>=0) {
+          if (env.gameCategories.indexOf('live') >= 0) {
             // if live category enabled
             this._notificationController = new ui.MobileNotificationController();
             this._notificationController.x = 0;
@@ -82,7 +82,7 @@ namespace we {
           this._nav.addChildAt(this._liveSidePanel, idx);
           dir.layerCtr.overlay.addChild(this._overlay);
 
-          if (env.gameCategories.indexOf('live')>=0) {
+          if (env.gameCategories.indexOf('live') >= 0) {
             // if live category enabled
             this._notificationController = new ui.NotificationController();
             this._notificationController.x = stage.stageWidth - 410;
@@ -118,7 +118,7 @@ namespace we {
         }
       }
 
-      public get nav(){
+      public get nav() {
         return this._nav;
       }
     }

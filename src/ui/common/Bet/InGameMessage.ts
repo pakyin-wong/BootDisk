@@ -112,7 +112,7 @@ namespace we {
               this._label.visible = true;
               this._label.text = message;
             })
-            .wait(this.duration*(isHold?100:1))
+            .wait(this.duration * (isHold ? 100 : 1))
             .call(() => {
               this.endAnimation(type);
             });
@@ -124,7 +124,7 @@ namespace we {
             this._label.visible = true;
             this._label.text = message;
           })
-          .wait(this.duration*(isHold?100:1))
+          .wait(this.duration * (isHold ? 100 : 1))
           .call(() => {
             this.endAnimation(type);
           })

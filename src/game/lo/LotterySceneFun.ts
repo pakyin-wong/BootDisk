@@ -202,11 +202,11 @@ namespace we {
       protected set betLayerEnabled(enabled: boolean) {
         if (enabled) {
           this._betLayerTween.currentState = 'open';
-          this._betLayer.currentState = "on";
+          this._betLayer.currentState = 'on';
           this._betLayerEnabled = true;
         } else {
           this._betLayerTween.currentState = 'close';
-          this._betLayer.currentState = "off";
+          this._betLayer.currentState = 'off';
           this._betLayerEnabled = false;
         }
         egret.Tween.removeTweens(this._betLayer);
@@ -214,14 +214,14 @@ namespace we {
       }
 
       protected onBetLayerToggler() {
-        if(!this._betLayerEnabled) return;
+        if (!this._betLayerEnabled) return;
 
-        if (this._betLayer.currentState == "off") {
+        if (this._betLayer.currentState == 'off') {
           this._betLayerTween.currentState = 'open';
-          this._betLayer.currentState = "on";
+          this._betLayer.currentState = 'on';
         } else {
           this._betLayerTween.currentState = 'close';
-          this._betLayer.currentState = "off";
+          this._betLayer.currentState = 'off';
         }
         egret.Tween.removeTweens(this._betLayer);
         egret.Tween.get(this._betLayer).to(this._betLayerTween.getTweenPackage(), 250);
@@ -279,7 +279,6 @@ namespace we {
         dir.videoPool.release(this._video);
       }
 
-      
       public get isVideoStopped() {
         return this._video.paused;
       }

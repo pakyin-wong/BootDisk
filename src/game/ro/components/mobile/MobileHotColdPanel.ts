@@ -30,15 +30,14 @@ namespace we {
 
       protected destroy() {
         let icons = this._hotnum.$children;
-        for (let i=0, length = icons.length;i<length;i++) {
+        for (let i = 0, length = icons.length; i < length; i++) {
           (icons[i] as ROBeadRoadIcon).dispose();
         }
         icons = this._coldnum.$children;
-        for (let i=0, length = icons.length;i<length;i++) {
+        for (let i = 0, length = icons.length; i < length; i++) {
           (icons[i] as ROBeadRoadIcon).dispose();
         }
         super.destroy();
-
       }
 
       public setHotCold(hotNumbers: number[], coldNumbers: number[]) {

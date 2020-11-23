@@ -1,12 +1,11 @@
 namespace we {
   export namespace lo {
     export class FunBetLayer extends core.BaseEUI {
-
       protected _toggler: egret.DisplayObject;
 
       protected _tabbar: eui.TabBar;
       protected _viewstack: eui.ViewStack;
-      
+
       protected _descTogger: egret.DisplayObject;
       protected _desc: FunBetDescription;
 
@@ -30,7 +29,7 @@ namespace we {
         this._tabbar.itemRenderer = FunBetTabItemRenderer;
         this._tabbar.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.handleTap, this);
 
-        this._txt_infoToggler && (this._txt_infoToggler.renderText = ()=> i18n.t(`lo_fun_betlayer_info`));
+        this._txt_infoToggler && (this._txt_infoToggler.renderText = () => i18n.t(`lo_fun_betlayer_info`));
 
         this._desc.setToggler(this._descTogger);
         utils.addButtonListener(this._descTogger, this.onDescTogger, this);

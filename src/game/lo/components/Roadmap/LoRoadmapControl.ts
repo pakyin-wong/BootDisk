@@ -15,7 +15,7 @@ namespace we {
         this.tableid = tableid;
       }
 
-      //updated bottomGamePanel
+      // updated bottomGamePanel
       public setRoads(leftPanel, rightPanel, bottomRoadmapPanel = null) {
         this.leftPanel = leftPanel;
         this.rightPanel = rightPanel;

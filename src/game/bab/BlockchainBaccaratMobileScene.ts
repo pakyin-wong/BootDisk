@@ -7,7 +7,7 @@
 namespace we {
   export namespace bab {
     export class MobileScene extends ba.MobileScene {
-      protected _gameData: data.GameData & data.BlockchainGameData
+      protected _gameData: data.GameData & data.BlockchainGameData;
       protected _alwaysShowResult = true;
       protected _helpButton: eui.Group;
       protected _deckButton: eui.Group;
@@ -44,15 +44,14 @@ namespace we {
         (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         (<any>this._resultDisplay).addEventListener('OPEN_SHUFFLE_PANEL', this.showShufflePanel, this);
         this.getShoeInfo();
-        this._bottomGamePanel.addEventListener('TOGGLE', this.toggleBottomGamePanel, this)
+        this._bottomGamePanel.addEventListener('TOGGLE', this.toggleBottomGamePanel, this);
         this.toggleBottomGamePanel();
-
       }
 
-      protected initVariables(){
+      protected initVariables() {
         this._portraitButtonExpandedDealY = 832;
         this._portraitButtonExpandedBetY = 684;
-        this._portraitButtonCollapsedDealY = 1340;        
+        this._portraitButtonCollapsedDealY = 1340;
         this._portraitButtonCollapsedBetY = 1192;
       }
 
@@ -70,7 +69,7 @@ namespace we {
               case core.GameState.IDLE:
               case core.GameState.SHUFFLE:
               default:
-                this._deckButton.y = this._helpButton.y =  this._lastRoundButton.y = this._portraitButtonExpandedBetY;
+                this._deckButton.y = this._helpButton.y = this._lastRoundButton.y = this._portraitButtonExpandedBetY;
                 this._deckPanel.resizeHeight(1966);
 
                 break;
@@ -82,7 +81,7 @@ namespace we {
             switch (this._gameData.state) {
               case core.GameState.DEAL:
               case core.GameState.FINISH:
-                this._deckButton.y = this._helpButton.y = this._lastRoundButton.y =  this._portraitButtonCollapsedDealY;
+                this._deckButton.y = this._helpButton.y = this._lastRoundButton.y = this._portraitButtonCollapsedDealY;
                 this._deckPanel.resizeHeight(1343);
 
                 break;
@@ -110,7 +109,7 @@ namespace we {
               break;
             default:
               console.log('default state', this._gameData.state);
-              this._resultDisplay.setDefaultStates()
+              this._resultDisplay.setDefaultStates();
               break;
           }
         }
@@ -151,7 +150,7 @@ namespace we {
       protected setStateShuffle(isInit: boolean) {
         this.getShoeInfo();
         super.setStateShuffle(isInit);
-        this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit)
+        this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         this.hideSumGroup();
         this.toggleBottomGamePanel();
       }
@@ -179,13 +178,12 @@ namespace we {
         }
       }
 
-      protected showSumGroup(){
-        (<we.bab.MobileCardHolder>this._resultDisplay).showSumGroup()
+      protected showSumGroup() {
+        (<we.bab.MobileCardHolder>this._resultDisplay).showSumGroup();
       }
 
-      protected hideSumGroup(){
-          (<we.bab.MobileCardHolder>this._resultDisplay).hideSumGroup();
-
+      protected hideSumGroup() {
+        (<we.bab.MobileCardHolder>this._resultDisplay).hideSumGroup();
       }
 
       protected async getShoeInfo() {
@@ -195,13 +193,13 @@ namespace we {
           text = await utils.getText(`${env.blockchain.cosmolink}${this._gameData.cosmosshoeid}`);
           obj = JSON.parse(text);
           if (obj.result.cards) {
-            this._gameData.hashedcardsList = obj.result.cards
-            console.log('get cosmo succeeded')
+            this._gameData.hashedcardsList = obj.result.cards;
+            console.log('get cosmo succeeded');
           }
-          return new Promise(resolve => resolve())
+          return new Promise(resolve => resolve());
         } catch (error) {
           console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
-          return new Promise(resolve => resolve())
+          return new Promise(resolve => resolve());
         }
       }
     }

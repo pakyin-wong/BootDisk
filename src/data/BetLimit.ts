@@ -9,7 +9,6 @@ namespace we {
       public Chess: BetLimitSet[];
     }
 
-
     export class BetLimitSet {
       public currency: core.Currency;
       public maxlimit: number;

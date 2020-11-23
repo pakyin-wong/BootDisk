@@ -540,6 +540,7 @@ namespace we {
         exceedBetUpperLimit: 'Exceed Bet Upper Limit',
         startBet: 'Start Bet',
         stopBet: 'Stop Bet',
+        betTimeout: 'Bet Timeout',
       },
       sidePanel: {
         changeChip: 'Change Betchips',
@@ -554,10 +555,10 @@ namespace we {
           swapRoadmap: 'Swap Roadmap',
         },
         statisticChart: {
-          bankerPlayerTie: 'Banker Player Tie (100 rounds)',
-          bankerPlayerTiePair: 'Banker Player Tie pair (100 rounds)',
-          shoeBankerPlayerTie: 'Banker Player Tie (shoe)',
-          shoeBankerPlayerTiePair: 'Banker Player Tie pair (shoe)',
+          bankerPlayerTie: 'BPT ratio (100 Rounds)',
+          bankerPlayerTiePair: 'Pair ratio (100 Rounds)',
+          shoeBankerPlayerTie: 'BPT ratio (Shoe)',
+          shoeBankerPlayerTiePair: 'Pair ratio (Shoe)',
         },
         playerPair: 'Player Pair',
         bankerPair: 'Banker Pair',
@@ -594,10 +595,10 @@ namespace we {
         clickToSeeVideo: 'Click to see video for this round',
         askBanker: 'Ask B',
         askPlayer: 'Ask P',
-        statType100: '100局',
-        statTypeShoe: '本靴',
-        BankerPlayerRatio: 'Banker:Player:Tie ratio',
-        PairRatio: 'Banker pair:Player pair ratio',
+        statType100: '100 Rounds',
+        statTypeShoe: 'Shoe',
+        BankerPlayerRatio: 'BPT ratio',
+        PairRatio: 'Pair ratio',
         round: 'round',
         rounds: 'rounds',
         playersqueeze: 'Squeeze',
@@ -619,6 +620,7 @@ namespace we {
         ssn: 'Serial Number',
         lastRound: 'Last Round',
         redCardDesc: 'Red Card：After this round, new shoe will be used',
+        announceAfterDisclose: 'Announce after card disclosed...',
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',
@@ -627,6 +629,7 @@ namespace we {
         restart: 'Restart',
         retry: 'Retry',
         cancel: 'Cancel',
+        urlcopied: '3rd party verification siteurl copied.',
       },
       error: {
         error_1001: 'Other session logged in',
@@ -722,9 +725,11 @@ namespace we {
       lo_fun_overlay_betPrefix: 'ENT｜',
 
       lo_fun_betlayer_info: 'Description',
-      lo_fun_betlayer_info_fun: '大小单双：\n从万位、千位、百位、十位、个位任意位置上至少选择1 个以上形态，所选号码的位置、形态与开奖号码的位置、形态相同，即为中奖\n前三| 中三| 后三：\n所选的号码特殊属性和开奖号码前三的属性一致，即为中奖1、豹子号指的是三位数字全部相同2、顺子号指的是三位数字呈现连号状态（ 09 也属于连号）（ 顺序不限）（ 出现两个相同号即为对子， 不算半顺）（ 出现三个号码呈现连号状态为顺子号， 不算半顺号）3、对子号指的是三位数字中有任两码为相同号（ 出现三个相同号为豹子号， 不算对子号）4、半顺号指的是三位数字中，有两个号码呈现连号状态（ 09 也属于连号）（ 顺序不限）5、杂六号指的是三位数字中， 状态非豹子号、 顺子号、 对子号、 半顺号，即为杂六\n总和：\n从总和大、小、单、双中任意选择1 个号码形态组成一注，只要所选形态与开奖号码的5 位数号码总和（大于等于23：总和大、小于等于22：总和小、单数：总和单、双数：总和双）形态相同，即为中奖',
+      lo_fun_betlayer_info_fun:
+        '大小单双：\n从万位、千位、百位、十位、个位任意位置上至少选择1 个以上形态，所选号码的位置、形态与开奖号码的位置、形态相同，即为中奖\n前三| 中三| 后三：\n所选的号码特殊属性和开奖号码前三的属性一致，即为中奖1、豹子号指的是三位数字全部相同2、顺子号指的是三位数字呈现连号状态（ 09 也属于连号）（ 顺序不限）（ 出现两个相同号即为对子， 不算半顺）（ 出现三个号码呈现连号状态为顺子号， 不算半顺号）3、对子号指的是三位数字中有任两码为相同号（ 出现三个相同号为豹子号， 不算对子号）4、半顺号指的是三位数字中，有两个号码呈现连号状态（ 09 也属于连号）（ 顺序不限）5、杂六号指的是三位数字中， 状态非豹子号、 顺子号、 对子号、 半顺号，即为杂六\n总和：\n从总和大、小、单、双中任意选择1 个号码形态组成一注，只要所选形态与开奖号码的5 位数号码总和（大于等于23：总和大、小于等于22：总和小、单数：总和单、双数：总和双）形态相同，即为中奖',
       lo_fun_betlayer_info_num: '数字玩法：\n从万位、千位、百位、十位、个位任意位置上至少选择1 个或以上的号码，所选号码与相同位置上的开奖号码一致，即为中奖',
-      lo_fun_betlayer_info_dt: '龙虎和：\n从龙、虎、和中任意选择1 个号码形态组成一注，只要开奖号码的万位大于个位，则为龙；万位小于个位，则为虎；相同号码则为和，若下注龙或虎，开奖结果为和时视为未中奖，且不返回本金',
+      lo_fun_betlayer_info_dt:
+        '龙虎和：\n从龙、虎、和中任意选择1 个号码形态组成一注，只要开奖号码的万位大于个位，则为龙；万位小于个位，则为虎；相同号码则为和，若下注龙或虎，开奖结果为和时视为未中奖，且不返回本金',
       lo_fun_betlayer_info_five1: '全五中一：\n从0 - 9 中选择1 个号码，每注由1 个号码组成，开奖号码的万位、千位、百位、十位、个位中同时包含所选的1 个号码，即为中奖',
 
       lo_fun_betlayer_tab_fun: 'Entertainment',
@@ -989,7 +994,7 @@ namespace we {
             DirectionSelection: '所选号码与开奖号码全部相同且顺序一致，即中奖',
             DirectMenu: '所选号码与开奖号码全部相同且顺序一致，即中奖',
             DirectCombination:
-            '所选号码的个位与开奖号码相同则中五等奖，十位和个位相同\n则中四等奖，百位、十位和个位相同则中三等奖，千位、百\n位、十位和个位相同则中二等奖，万位、千位、百位、十位和\n个位相同则中一等奖',
+              '所选号码的个位与开奖号码相同则中五等奖，十位和个位相同\n则中四等奖，百位、十位和个位相同则中三等奖，千位、百\n位、十位和个位相同则中二等奖，万位、千位、百位、十位和\n个位相同则中一等奖',
             Group120: '所选号码与开奖号码的万位、千位、百位、十位、个位相同且\n顺序不限，即中奖',
             Group60: '所选的单号号码与开奖号码相同，且所选二重号在开奖号码中\n出现2次且顺序不限，即中奖',
             Group30: '所选的单号号码与开奖号码相同，且所选2个二重号码分别在开\n奖号码中出现了2次且顺序不限，即中奖',
@@ -1207,7 +1212,7 @@ namespace we {
           totalnotechosen: '已選：',
           totalbetchosen: '共計：',
           addbetfields: '加入購物籃',
-          instantbet: '立即購買'
+          instantbet: '立即購買',
         },
         mobile_betcontrol: {
           currentroundtitle: '訂單起始獎期號：',

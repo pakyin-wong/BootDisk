@@ -34,7 +34,7 @@ namespace we {
         // dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
       }
 
-      public onTableListUpdate() { }
+      public onTableListUpdate() {}
 
       set betField(value: any) {
         this._betField = value;
@@ -101,7 +101,7 @@ namespace we {
         return this._undoStack;
       }
 
-      protected createMapping() { }
+      protected createMapping() {}
 
       protected passDenomListToBetChipStack() {
         if (!this._betChipStackMapping) {
@@ -267,7 +267,7 @@ namespace we {
         this.currentState = state;
       }
 
-      protected changeLang() { }
+      protected changeLang() {}
 
       public setTouchEnabled(enable: boolean) {
         this.touchEnabled = enable;
@@ -387,6 +387,7 @@ namespace we {
         const betDetail = { field: fieldName, amount: this.getOrderAmount() };
         // validate bet action
         if (this.validateBetAction(betDetail)) {
+          dir.audioCtr.play('ui_sfx_bet_chips_add_mp3');
           this.addBetToBetField(fieldName, betDetail.amount);
           this.undoStack.push(hashkey, we.utils.clone({ field: fieldName, amount: betDetail.amount }), this.undoBetFieldUpdate.bind(this));
           this.updateBetChipUncfmBet(fieldName, this.getUncfmBetByField(fieldName).amount);
@@ -427,13 +428,14 @@ namespace we {
 
       public doubleBetFields() {
         let reactMax = true;
-        console.log('this._uncfmBetDetails', this._uncfmBetDetails)
+        console.log('this._uncfmBetDetails', this._uncfmBetDetails);
         const betfields = this._doubleBetDetails.map(detail => {
           const uncfmBetDetail = this.getUncfmBetByField(detail.field);
           const amount = detail.amount;
           // double the bet amounts
           const betDetail = { field: detail.field, amount };
           if (this.validateBetAction(betDetail)) {
+            dir.audioCtr.play('ui_sfx_bet_chips_add_mp3');
             this.addBetToBetField(detail.field, betDetail.amount);
             this.updateBetChipUncfmBet(detail.field, this.getUncfmBetByField(detail.field).amount);
             reactMax = false;
@@ -483,7 +485,7 @@ namespace we {
         // console.log('before betDetails',betDetails)
         betDetails.map(value => {
           // this.getUncfmBetByField(value.field).amount = value.amount;
-          // this._betChipStackMapping[value.field].draw(); 
+          // this._betChipStackMapping[value.field].draw();
           this._betChipStackMapping[value.field].uncfmBet = value.amount * this.getRate(value.field);
           this._betChipStackMapping[value.field].draw();
         });
@@ -509,9 +511,10 @@ namespace we {
         if (!validRepeatBet) {
           return;
         }
+        dir.audioCtr.play('ui_sfx_bet_chips_add_mp3');
         env.tableInfos[this._tableId].prevbets.map(value => {
           if (this._betChipStackMapping[value.field].uncfmBet === value.amount) {
-            return
+            return;
           }
           this._betChipStackMapping[value.field].uncfmBet = value.amount * this.getRate(value.field);
           this._betChipStackMapping[value.field].draw();
@@ -521,7 +524,7 @@ namespace we {
               break;
             }
           }
-          this._doubleBetDetails = this._uncfmBetDetails
+          this._doubleBetDetails = this._uncfmBetDetails;
         });
       }
 
@@ -544,15 +547,15 @@ namespace we {
       // Tick button
       public validateBet(): boolean {
         const fieldAmounts = utils.arrayToKeyValue(this._uncfmBetDetails, 'field', 'amount');
-        let arrFieldAmounts: any = Object.keys(fieldAmounts);
+        const arrFieldAmounts: any = Object.keys(fieldAmounts);
         const cfmFieldAmounts = utils.arrayToKeyValue(this._cfmBetDetails, 'field', 'amount');
-        let arrCfmFieldAmounts: any = Object.keys(cfmFieldAmounts);
-        let totalAmount = fieldAmounts
+        const arrCfmFieldAmounts: any = Object.keys(cfmFieldAmounts);
+        const totalAmount = fieldAmounts;
         arrCfmFieldAmounts.forEach(key => {
           if (arrFieldAmounts.includes(key)) {
-            totalAmount[key] += cfmFieldAmounts[key]
+            totalAmount[key] += cfmFieldAmounts[key];
           }
-        })
+        });
 
         // clamp bet amount with current balance
         const totalUncfmAmount = this.getTotalUncfmBetAmount();
@@ -561,8 +564,8 @@ namespace we {
           this.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
           return false;
         }
-        this._doubleBetDetails = this._uncfmBetDetails
-        console.log('this._doubleBetDetails', this._doubleBetDetails)
+        this._doubleBetDetails = this._uncfmBetDetails;
+        console.log('this._doubleBetDetails', this._doubleBetDetails);
         // return this.validateFieldAmounts(fieldAmounts, null, true);
         return this.validateFieldAmounts(totalAmount, null, true);
       }
@@ -661,7 +664,7 @@ namespace we {
 
       protected checkLimit(checkBet, betDetail, maxlimit) {
         if (checkBet > maxlimit) {
-          betDetail.amount += Math.floor(maxlimit - checkBet);
+          betDetail.amount += maxlimit - checkBet;
           if (betDetail.amount === 0) {
             return true;
           }
@@ -678,7 +681,7 @@ namespace we {
         const totalUncfmAmount = this.getTotalUncfmBetAmount() + betDetail.amount;
         const balance = env.balance;
         if (balance < totalUncfmAmount) {
-          betDetail.amount += Math.floor(balance - totalUncfmAmount);
+          betDetail.amount += balance - totalUncfmAmount;
           if (betDetail.amount <= 0) {
             this.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
             return false;

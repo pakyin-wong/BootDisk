@@ -73,7 +73,7 @@ namespace we {
         super.updateTableBetInfo();
       }
 
-      public updateRoad() { }
+      public updateRoad() {}
     }
   }
 }

@@ -15,7 +15,7 @@ namespace we {
       private _rightNav: eui.Image;
       private _leftNavGroup: eui.Group;
       private _rightNavGroup: eui.Group;
-      private _chipList: Array<IBetChip & core.BaseEUI> = [];
+      private _chipList: (IBetChip & core.BaseEUI)[] = [];
       protected _chipContainer: eui.Component;
       protected _chipScale: number = 1;
 
@@ -243,6 +243,8 @@ namespace we {
       private _onChipSelected(index: number) {
         this.setChip(index);
         env.currentChipSelectedIndex = index;
+        dir.socket.updateSetting('currentChipSelectedIndex', index.toString());
+        dir.audioCtr.play('ui_sfx_bet_chips_01_mp3');
         dir.evtHandler.dispatch(core.Event.BET_DENOMINATION_CHANGE);
       }
 

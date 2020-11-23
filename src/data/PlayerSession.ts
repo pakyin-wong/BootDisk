@@ -5,6 +5,7 @@ namespace we {
       public sessionid: string;
       public icons: any;
       public fallbacknicknames: any;
+      public redirecturl: string;
       public profile: {
         // Store the information of the player
         playerid: string;
@@ -20,13 +21,13 @@ namespace we {
         settings: any;
         currentSelectedBetLimitIndex: number;
         language: string;
-        gamecategory: string[],
-        gametype: number[],
-        type: number    // account type
+        gamecategory: string[];
+        gametype: number[];
+        type: number; // account type
       };
       public blockchainlinks: {
-        cosmoslink: string,
-        thirdpartysha256: string
+        cosmoslink: string;
+        thirdpartysha256: string;
       };
     }
   }

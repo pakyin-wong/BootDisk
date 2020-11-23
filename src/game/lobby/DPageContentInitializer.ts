@@ -105,7 +105,7 @@ namespace we {
         group.addChild(gridsContainer);
 
         this.reloadBanners();
-        
+
         // init footer
         const footer = new eui.Group();
         footer.width = this._root.stage.stageWidth;
@@ -171,7 +171,7 @@ namespace we {
         this._smallBanner.removeChildren();
 
         this._root._bannerSlider.configSlides(dir.lobbyResources.homeHeroBanners);
-        
+
         for (let i = 0, len = Math.min(dir.lobbyResources.homeLargeBanners.length, 4); i < len; i++) {
           const { image, link } = dir.lobbyResources.homeLargeBanners[i];
           const poster = new LobbyBannerItem();

@@ -1,7 +1,7 @@
 namespace we {
   export namespace utils {
     export class UndoStack {
-      protected _stack: Array<{ hashkey: string; undoData: any; undoCallback: (undoData: any) => void }>;
+      protected _stack: { hashkey: string; undoData: any; undoCallback: (undoData: any) => void }[];
       public push(hashkey, undoData, undoCallback) {
         if (!this._stack) {
           this._stack = new Array<{ hashkey: string; undoData: any; undoCallback: (undoData: any) => void }>();
@@ -16,12 +16,12 @@ namespace we {
         return command;
       }
       public popAndUndo() {
-        console.log('this._stack',JSON.stringify(this._stack))
+        console.log('this._stack', JSON.stringify(this._stack));
         if (!this._stack || this._stack.length === 0) {
           return;
         }
         const command = this._stack.pop();
-        console.log('command',command)
+        console.log('command', command);
         if (command) {
           command.undoCallback(command.undoData);
           if (command.hashkey) {

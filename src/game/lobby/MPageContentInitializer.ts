@@ -2,7 +2,6 @@
 namespace we {
   export namespace lobby {
     export class MPageContentInitializer implements core.IContentInitializer {
-
       protected _root: ILobbyPage;
       protected _shouldTouchFocus: boolean = true;
 
@@ -58,7 +57,6 @@ namespace we {
           poster.hoverScale = 1;
           this._root._hotgameContainer.addChild(poster);
         });
-
       }
 
       protected touchBegin(e: egret.TouchEvent) {
@@ -77,7 +75,6 @@ namespace we {
           e.preventDefault();
         }
       }
-
     }
   }
 }

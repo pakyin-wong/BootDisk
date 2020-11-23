@@ -44,15 +44,14 @@ namespace we {
       }
 
       protected initBetHistoryMobile() {
-
         utils.DropdownCreator.new({
           toggler: this._btn_searchType,
           review: this._btn_searchType.label,
           arrCol: new eui.ArrayCollection([
-            ui.NewDropdownItem('all', ()=>`${i18n.t('overlaypanel_bethistory_tab_all')}`),
-            ui.NewDropdownItem('live', ()=>`${i18n.t('overlaypanel_bethistory_tab_live')}`),
-            ui.NewDropdownItem('lottery', ()=>`${i18n.t('overlaypanel_bethistory_tab_lottery')}`),
-            ui.NewDropdownItem('egame', ()=>`${i18n.t('overlaypanel_bethistory_tab_egame')}`),
+            ui.NewDropdownItem('all', () => `${i18n.t('overlaypanel_bethistory_tab_all')}`),
+            ui.NewDropdownItem('live', () => `${i18n.t('overlaypanel_bethistory_tab_live')}`),
+            ui.NewDropdownItem('lottery', () => `${i18n.t('overlaypanel_bethistory_tab_lottery')}`),
+            ui.NewDropdownItem('egame', () => `${i18n.t('overlaypanel_bethistory_tab_egame')}`),
           ]),
           title: () => `${i18n.t('overlaypanel_bethistory_tab')}`,
           selected: this._mainTab,
@@ -86,29 +85,29 @@ namespace we {
           live_submenu_index: this._live_submenu.selectedIndex,
           lottery_switch_index: this._lottery_switch.selectedIndex,
           lottery_submenu_index: this._lottery_submenu.selectedIndex,
-          detailIndex: this._detail.isShowed? this._detail.sourceIndex : -1,
-          cbetDetailSrc: this._cbet_details.isShowed? this._cbet_details.source : null,
+          detailIndex: this._detail.isShowed ? this._detail.sourceIndex : -1,
+          cbetDetailSrc: this._cbet_details.isShowed ? this._cbet_details.source : null,
           cbetdetailState: this._cbet_details.currentState,
-          bPopDetailSrc: this._popupbet_detail.isShowed? this._popupbet_detail.source : null,
+          bPopDetailSrc: this._popupbet_detail.isShowed ? this._popupbet_detail.source : null,
         };
       }
 
       protected recovery() {
         this._btn_date.active = this._mobileRecovery.dateActive;
         this._btn_custom.active = this._mobileRecovery.customActive;
-        
-        switch(this._mainTab) {
-          case "all":
+
+        switch (this._mainTab) {
+          case 'all':
             this.currentState = 'all';
-          break;
-          case "live":
+            break;
+          case 'live':
             this.currentState = 'live';
-          break;
-          case "lottery":
-            this.currentState = this._loTab == 'single'? 'lottery' : 'lotteryC';
-          break;
-          case "egame":
-          break;
+            break;
+          case 'lottery':
+            this.currentState = this._loTab == 'single' ? 'lottery' : 'lotteryC';
+            break;
+          case 'egame':
+            break;
         }
         this.invalidateState();
 
@@ -116,30 +115,30 @@ namespace we {
         this._lottery_switch.selectedIndex = this._mobileRecovery.lottery_switch_index;
         this._lottery_submenu.selectedIndex = this._mobileRecovery.lottery_submenu_index;
 
-        if(this._res){
+        if (this._res) {
           this.update(this._res);
         }
 
-        if(this._mobileRecovery.starttime && this._mobileRecovery.endtime) {
+        if (this._mobileRecovery.starttime && this._mobileRecovery.endtime) {
           this._datepicker.setTo(this._mobileRecovery.starttime, this._mobileRecovery.endtime);
         }
 
-        if(this._mobileRecovery.detailIndex >= 0) {
+        if (this._mobileRecovery.detailIndex >= 0) {
           this._detail.dataChanged(this._dataColl.source, this._mobileRecovery.detailIndex);
           this._detail.show();
         }
 
-        if(this._mobileRecovery.cbetDetailSrc) {
+        if (this._mobileRecovery.cbetDetailSrc) {
           this._cbet_details.updateDetails({
-            data:{
-              value: this._mobileRecovery.cbetDetailSrc
-            } 
+            data: {
+              value: this._mobileRecovery.cbetDetailSrc,
+            },
           });
           this._cbet_details.currentState = this._mobileRecovery.cbetdetailState;
           this._cbet_details.show();
         }
 
-        if(this._mobileRecovery.bPopDetailSrc) {
+        if (this._mobileRecovery.bPopDetailSrc) {
           this._popupbet_detail.updateDetail(this._mobileRecovery.bPopDetailSrc);
           this._popupbet_detail.show();
         }
@@ -165,20 +164,20 @@ namespace we {
         this._datagroup.removeEventListener(eui.ItemTapEvent.ITEM_TAP, this.onClickResult, this);
       }
 
-      protected onGameTypeDropdownSelected(e:egret.Event) {
-        switch(e.data) {
+      protected onGameTypeDropdownSelected(e: egret.Event) {
+        switch (e.data) {
           case 'all':
-          this.onSelectAll();
-          break;
+            this.onSelectAll();
+            break;
           case 'live':
-          this.onSelectLive();
-          break;
+            this.onSelectLive();
+            break;
           case 'lottery':
-          this.onSelectLottery();
-          break;
+            this.onSelectLottery();
+            break;
           case 'egame':
-          this.onSelectEgame();
-          break;
+            this.onSelectEgame();
+            break;
         }
       }
 
@@ -270,11 +269,11 @@ namespace we {
       }
 
       protected onClickResult(e) {
-        if(this._mainTab == 'lottery' && this._loTab == 'multi') {
+        if (this._mainTab == 'lottery' && this._loTab == 'multi') {
           this._cbet_details.updateDetails({
-            data:{
-              value: this._dataColl.source[e.itemIndex]
-            } 
+            data: {
+              value: this._dataColl.source[e.itemIndex],
+            },
           });
           this._cbet_details.currentState = 'm';
           this._cbet_details.show();

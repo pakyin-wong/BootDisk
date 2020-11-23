@@ -17,8 +17,8 @@ namespace we {
 
       protected mount() {
         super.mount();
-        
-        if(env.currentPage != 'lottery') {
+
+        if (env.currentPage != 'lottery') {
           env.currentPage = 'lottery';
           env.currentTab = 'allLotteryGame';
         }
@@ -53,7 +53,7 @@ namespace we {
 
         this._roomList.layout = this._roomListRefer.layout;
         this._roomList.itemRendererFunction = item => {
-          if(env.isMobile) {
+          if (env.isMobile) {
             return MobileLotteryListHolder;
           }
           const tableInfo = env.tableInfos[item];
@@ -83,7 +83,7 @@ namespace we {
           }
         } else {
           DExtraContent.mount(this);
-          this._extra = 'desktop'
+          this._extra = 'desktop';
         }
       }
 

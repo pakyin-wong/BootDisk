@@ -9,8 +9,8 @@ namespace we {
       }
 
       protected onLang() {
-          super.onLang();
-          this._img.source = "d_lobby_lottery_penal_gamelist_icon_pk10_eng_png";
+        super.onLang();
+        this._img.source = 'd_lobby_lottery_penal_gamelist_icon_pk10_eng_png';
       }
     }
   }

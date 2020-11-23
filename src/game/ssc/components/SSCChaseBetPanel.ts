@@ -87,7 +87,7 @@ namespace we {
       }
 
       protected initData() {
-        if(this._profitMsg){
+        if (this._profitMsg) {
           this._profitMsg.visible = false;
         }
         switch (this._currentChaseType) {
@@ -115,7 +115,11 @@ namespace we {
         this._lblRoundCountDown.text = this._bettingPanel._timer.text;
       }
       protected initChaseTypeDropDown() {
-        const _arr = new eui.ArrayCollection([ui.NewDropdownItem(0, () => `${i18n.t('lo_trad.chase.SAMEMULTIPLE')}`), ui.NewDropdownItem(1, () => `${i18n.t('lo_trad.chase.PROFIT')}`), ui.NewDropdownItem(2, () => `${i18n.t('lo_trad.chase.DOUBLE')}`)]);
+        const _arr = new eui.ArrayCollection([
+          ui.NewDropdownItem(0, () => `${i18n.t('lo_trad.chase.SAMEMULTIPLE')}`),
+          ui.NewDropdownItem(1, () => `${i18n.t('lo_trad.chase.PROFIT')}`),
+          ui.NewDropdownItem(2, () => `${i18n.t('lo_trad.chase.DOUBLE')}`),
+        ]);
         this._chaseTypeDropDown.isDropdown = true;
         this._chaseTypeDropDown.isPoppable = true;
         this._chaseTypeDropDown.dismissOnClickOutside = true;
@@ -240,7 +244,7 @@ namespace we {
       }
 
       protected remappingData() {
-        if(this._profitMsg){
+        if (this._profitMsg) {
           this._profitMsg.visible = false;
         }
         let totalBet = this.computeTotalCount(this._noteData);

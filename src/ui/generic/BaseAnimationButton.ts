@@ -69,6 +69,7 @@ namespace we {
         if (!this._display) {
           const factory = BaseAnimationButton.getFactory(this._dbClass);
           this._display = factory.buildArmatureDisplay(this._dbDisplay);
+          utils.dblistenToSoundEffect(this._display);
           this._group = new eui.Group();
           this._group.width = 0;
           this._group.height = 0;

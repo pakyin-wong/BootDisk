@@ -3,7 +3,7 @@ namespace we {
     export class dbTestPage extends core.BasePage {
       private progressbar: eui.ProgressBar;
       protected factory: dragonBones.EgretFactory;
-      
+
       public onEnter() {
         this.addEventListener(eui.UIEvent.COMPLETE, this.mount, this);
       }
@@ -53,7 +53,7 @@ namespace we {
         factory.parseTextureAtlasData(textureData, texture);
         // const chip = factory.buildArmatureDisplay('poker');
         const chip: dragonBones.EgretArmatureDisplay = factory.buildArmatureDisplay('blockchain');
-
+        utils.dblistenToSoundEffect(chip);
         chip.x = 1300;
         chip.y = 670;
         this.addChild(chip);
@@ -61,13 +61,12 @@ namespace we {
         // update rotation of bone by updating the origin.rotation
         const bar = chip.armature.getBone('bar_group');
         bar.origin.rotation = -110;
-        egret.Tween.get(bar.origin)
-          .to({ rotation: -50 }, 5000, t => {
-            bar.invalidUpdate();
-            return t;
-          });
+        egret.Tween.get(bar.origin).to({ rotation: -50 }, 5000, t => {
+          bar.invalidUpdate();
+          return t;
+        });
 
-        chip.animation.timeScale=0.1;
+        chip.animation.timeScale = 0.1;
         this.animChip(chip);
 
         // touch event handling
@@ -79,22 +78,23 @@ namespace we {
         infoBtnClone.scaleX = infoBtn.globalTransformMatrix.a;
         infoBtnClone.scaleY = infoBtn.globalTransformMatrix.d;
         infoBtnClone.x = infoBtn.globalTransformMatrix.tx;
-        infoBtnClone.y = infoBtn.globalTransformMatrix.ty - (mesh.height*infoBtnClone.scaleY);
+        infoBtnClone.y = infoBtn.globalTransformMatrix.ty - mesh.height * infoBtnClone.scaleY;
         infoBtnClone.texture = mesh.texture;
         infoBtnClone.alpha = 0;
         infoBtnClone.pixelHitTest = true;
         infoBtnClone.touchEnabled = true;
         chip.addChild(infoBtnClone);
-        mouse.setButtonMode(infoBtnClone,true);
-        infoBtnClone.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{
-          console.log("Hello world");
-        }, this);
-
-        
+        mouse.setButtonMode(infoBtnClone, true);
+        infoBtnClone.addEventListener(
+          egret.TouchEvent.TOUCH_TAP,
+          () => {
+            console.log('Hello world');
+          },
+          this
+        );
       }
 
       protected async animChip(chip: dragonBones.EgretArmatureDisplay) {
-
         /// update the label by replacing the ImageDisplayData of the slot
         // create the new texture
         const cardLabel = new ui.LabelImage();
@@ -103,7 +103,7 @@ namespace we {
         cardLabel.fontFamily = 'BarlowBold';
         cardLabel.bold = true;
         cardLabel.hasShadow = true;
-        cardLabel.text = Math.floor(Math.random()*200).toString();
+        cardLabel.text = Math.floor(Math.random() * 200).toString();
 
         // get the slot
         const slot = chip.armature.getSlot('card_number_vertical');
@@ -126,7 +126,7 @@ namespace we {
         displayData.type = 0;
 
         // replace the original displayData
-        slot.replaceDisplayData(displayData,0);
+        slot.replaceDisplayData(displayData, 0);
 
         // set the displayIndex to non zero since new value == current index will not trigger redraw
         slot.displayIndex = -1;
@@ -135,7 +135,7 @@ namespace we {
         /// update the card by replacing the MeshDisplayData of the slot
         // update poker card front by update the texture instead of changing the display
         const card = chip.armature.getSlot('card_back_vertical');
-        const cardStr = utils.getCardResName(utils.formatCardForFlip(`diamond${Math.floor(Math.random()*6+3)}`));
+        const cardStr = utils.getCardResName(utils.formatCardForFlip(`diamond${Math.floor(Math.random() * 6 + 3)}`));
         const texture = RES.getRes(cardStr);
         const meshDistData = card.displayData as dragonBones.MeshDisplayData;
         textureData = new dragonBones.EgretTextureData();
@@ -163,7 +163,6 @@ namespace we {
 
         // console.log(card);
         // console.log(card._deformVertices);
-
 
         // const p3 = we.utils.waitDragonBone(chip);
         // chip.animation.play('shoe_out', 1);

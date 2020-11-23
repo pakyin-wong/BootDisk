@@ -47,7 +47,6 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
 
-
       protected changeLang(e: egret.Event) {
         this._contentInitializer.reloadBanners();
       }

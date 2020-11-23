@@ -1,10 +1,9 @@
 namespace we {
   export namespace lottery {
     export class MPExtraContent {
-      protected static holder : ui.HorizontalHolder;
+      protected static holder: ui.HorizontalHolder;
 
       public static mount(page: Page) {
-
         page.scroller.headerOffset = 220;
 
         this.holder = new we.ui.HorizontalHolder();
@@ -31,8 +30,8 @@ namespace we {
         shape.graphics.drawRect(0, 0, page.width, 160);
         shape.y = this.holder.height - 160;
 
-        const tabs = new live.DropDownLiveGameTabbar(utils.EnumHelpers.values(core.LotteryTab),'lottery');
-        
+        const tabs = new live.DropDownLiveGameTabbar(utils.EnumHelpers.values(core.LotteryTab), 'lottery');
+
         page['_tabbarBg'] = shape;
         page['_tabs'] = tabs;
         page['_slider'] = this.holder;
@@ -82,7 +81,6 @@ namespace we {
           holder.addChild(image);
         });
       }
-
     }
   }
 }

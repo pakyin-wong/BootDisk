@@ -7,7 +7,7 @@
 namespace we {
   export namespace bab {
     export class Scene extends ba.Scene {
-      protected _gameData: data.GameData & data.BlockchainGameData
+      protected _gameData: data.GameData & data.BlockchainGameData;
       protected _alwaysShowResult = true;
       protected _helpButton: eui.Group;
       protected _deckButton: eui.Group;
@@ -16,7 +16,7 @@ namespace we {
       protected _deckPanel: blockchain.DeckPanel;
       protected _cardInfoPanel: blockchain.CardInfoPanel;
       protected _historyCardHolder: we.ui.HistoryCardHolder;
-      protected _resultDisplay : ui.IResultDisplay & we.blockchain.CardHolder;
+      protected _resultDisplay: ui.IResultDisplay & we.blockchain.CardHolder;
 
       public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat];
 
@@ -32,33 +32,29 @@ namespace we {
         (<any>this._resultDisplay).addEventListener('OPEN_SHUFFLE_PANEL', this.showShufflePanel, this);
         this.getShoeInfo();
       }
-      
-      protected instantiateVideo() {
-      }
+
+      protected instantiateVideo() {}
 
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('BlockchainBaccaratScene');
       }
 
       public updateGame(isInit: boolean = false) {
-          super.updateGame(isInit);
-          if(isInit){
-            switch(this._gameData.state){
-              case core.GameState.BET:
-              case core.GameState.DEAL:
-              case core.GameState.FINISH:
-              case core.GameState.SHUFFLE:
-                break;
-              default:
-                console.log('default state', this._gameData.state);
-                this._resultDisplay.setDefaultStates()
-                break;
-            }
-          } 
+        super.updateGame(isInit);
+        if (isInit) {
+          switch (this._gameData.state) {
+            case core.GameState.BET:
+            case core.GameState.DEAL:
+            case core.GameState.FINISH:
+            case core.GameState.SHUFFLE:
+              break;
+            default:
+              console.log('default state', this._gameData.state);
+              this._resultDisplay.setDefaultStates();
+              break;
+          }
+        }
       }
-
-      
-
 
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
@@ -90,7 +86,7 @@ namespace we {
       protected setStateShuffle(isInit: boolean) {
         this.getShoeInfo();
         super.setStateShuffle(isInit);
-        this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit)
+        this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
       }
 
       protected showCardInfoPanel(evt: egret.Event) {
@@ -122,16 +118,16 @@ namespace we {
         try {
           text = await utils.getText(`${env.blockchain.cosmolink}${this._gameData.cosmosshoeid}`);
           obj = JSON.parse(text);
-          if(obj.result.cards){
-            this._gameData.hashedcardsList = obj.result.cards
-            console.log('get cosmo succeeded')
+          if (obj.result.cards) {
+            this._gameData.hashedcardsList = obj.result.cards;
+            console.log('get cosmo succeeded');
           }
-          return new Promise(resolve=>resolve())
+          return new Promise(resolve => resolve());
         } catch (error) {
           console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
-          return new Promise(resolve=>resolve())
+          return new Promise(resolve => resolve());
         }
-     }
+      }
     }
   }
 }

@@ -7,8 +7,8 @@ namespace we {
       protected _roundData: any[];
       protected _roundCount: number;
 
-    //   protected _lblChaseRoundTitle: ui.RunTimeLabel;
-    //   protected _lblChaseRoundCount: ui.RunTimeLabel;
+      //   protected _lblChaseRoundTitle: ui.RunTimeLabel;
+      //   protected _lblChaseRoundCount: ui.RunTimeLabel;
 
       protected _betPanel;
       //   protected _datagroup: eui.Group;
@@ -41,7 +41,7 @@ namespace we {
         this._betPanel = betPanel;
       }
 
-      protected initSkin(){
+      protected initSkin() {
         this.skinName = 'skin_mobile.SSCChaseBetConfirmPanel';
       }
 

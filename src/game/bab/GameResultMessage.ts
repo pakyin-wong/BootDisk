@@ -2,7 +2,7 @@ namespace we {
   export namespace bab {
     export class GameResultMessage extends ui.GameResultMessage implements ui.IGameResultMessage {
       protected _dbClass = 'baccarat';
-      protected _skeletonName = 'blockchain'
+      protected _skeletonName = 'blockchain';
 
       public constructor() {
         super();
@@ -49,9 +49,7 @@ namespace we {
         }
       }
 
-      protected createFactory() {
-
-      }
+      protected createFactory() {}
 
       protected createAniamtionObject() {
         const skeletonData = RES.getRes(`${this._skeletonName}_ske_json`);
@@ -62,6 +60,7 @@ namespace we {
         factory.parseTextureAtlasData(textureData, texture);
 
         this._display = factory.buildArmatureDisplay(this._armatureName);
+        utils.dblistenToSoundEffect(this._display);
         this._display.x = this.width / 2;
         this._display.y = this.height / 2;
         this.addChild(this._display);
@@ -116,12 +115,12 @@ namespace we {
         slotName = 'result';
         slot = this._display.armature.getSlot(slotName);
         winText = this.getWinText(background);
-        this.setLabel(slot, winText, 60, 0xFFFFFF, 'Microsoft JhengHei');
+        this.setLabel(slot, winText, 60, 0xffffff, 'Microsoft JhengHei');
 
         if (!isNaN(winAmount)) {
           slotName = 'credit';
           slot = this._display.armature.getSlot(slotName);
-          this.setLabel(slot, utils.formatNumber(winAmount))
+          this.setLabel(slot, `${winAmount > 0 ? '+' : ''}${utils.formatNumber(winAmount)}`);
         }
       }
 
@@ -129,10 +128,10 @@ namespace we {
         let winText;
         switch (background) {
           case 'r':
-            winText = i18n.t('winType.ba.BANKER')
+            winText = i18n.t('winType.ba.BANKER');
             break;
           case 'b':
-            winText = i18n.t('winType.ba.PLAYER')
+            winText = i18n.t('winType.ba.PLAYER');
             break;
           case 'g':
           default:
@@ -163,7 +162,7 @@ namespace we {
 
         // create a new ImageDisplayData with a EgretTextureData holding the new texture
         const displayData: dragonBones.ImageDisplayData = new dragonBones.ImageDisplayData();
-        let textureData: dragonBones.EgretTextureData = new dragonBones.EgretTextureData();
+        const textureData: dragonBones.EgretTextureData = new dragonBones.EgretTextureData();
         textureData.renderTexture = r.texture;
         textureData.region.x = 0;
         textureData.region.y = 0;
@@ -184,8 +183,6 @@ namespace we {
         slot.displayIndex = -1;
         slot.displayIndex = 0;
       }
-
-
     }
   }
 }

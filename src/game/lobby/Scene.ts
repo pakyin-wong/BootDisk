@@ -21,7 +21,7 @@ namespace we {
         this._skinKey = 'LobbyScene';
         this.skinName = utils.getSkinByClassname(this._skinKey);
         if (env.isMobile) {
-          this._items = ['lobby', ...env.gameCategories, 'favourite']// ['lobby', 'live', 'lottery', 'egame', 'favourite'];
+          this._items = ['lobby', ...env.gameCategories, 'favourite']; // ['lobby', 'live', 'lottery', 'egame', 'favourite'];
         } else {
           this._items = [...env.gameCategories, 'favourite'];
         }
@@ -50,7 +50,7 @@ namespace we {
         this._list.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.handleTap, this);
         if (env.isMobile) {
           dir.monitor._sideGameList.setToggler(this._common_listpanel);
-           this._logo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.home, this);
+          this._logo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.home, this);
         } else {
           this._logo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.home, this);
           mouse.setButtonMode(this._logo, true);
@@ -64,7 +64,7 @@ namespace we {
         if (!env.isMobile) {
           this._logo.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.home, this);
         }
-         this._logo.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.home, this);
+        this._logo.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.home, this);
       }
 
       public onEnter() {
@@ -109,7 +109,7 @@ namespace we {
         // }
 
         this.loadPage('lobby');
-      } 
+      }
 
       private async loadPage(name: string, data: any = null) {
         const groups = we[name].Page.resGroups;

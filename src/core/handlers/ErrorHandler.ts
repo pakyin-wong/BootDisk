@@ -41,22 +41,22 @@ namespace we {
         this.errorDisplaying = error;
         if (error.code >= 1000) {
           // known error
-          let errText = i18n.t("error.error_" + error.code);
-          if (errText === ("error.error_" + error.code)) {
+          let errText = i18n.t('error.error_' + error.code);
+          if (errText === 'error.error_' + error.code) {
             errText = error.detail;
           }
 
           if (error.action === 'retry') {
             this.createDialog(errText, {
               dismiss: {
-                text: i18n.t("message.cancel"),
+                text: i18n.t('message.cancel'),
                 onClick: async function () {
                   error.args[error.args.length - 1](error);
                   this.doFinish();
                 }.bind(this),
               },
               action: {
-                text: i18n.t("message.retry"),
+                text: i18n.t('message.retry'),
                 onClick: async function () {
                   this.doRetryFunction(error.method, error.args);
                   this.doFinish();
@@ -66,7 +66,7 @@ namespace we {
           } else if (error.action === 'restart') {
             this.createDialog(errText, {
               dismiss: {
-                text: i18n.t("message.restart"),
+                text: i18n.t('message.restart'),
                 onClick: async function () {
                   this.doRestart();
                 }.bind(this),
@@ -75,7 +75,7 @@ namespace we {
           } else {
             this.createDialog(errText, {
               dismiss: {
-                text: i18n.t("message.cancel"),
+                text: i18n.t('message.cancel'),
                 onClick: async function () {
                   this.doFinish();
                 }.bind(this),
@@ -86,7 +86,7 @@ namespace we {
           // unknown error
           this.createDialog(`${i18n.t('message.unknownError')} (Code: ${error.code}) (Debug: ${error.debug})`, {
             dismiss: {
-              text: i18n.t("message.cancel"),
+              text: i18n.t('message.cancel'),
             },
           });
         }
@@ -111,6 +111,7 @@ namespace we {
           class: 'MessageDialog',
           replace: true,
           args: [title, buttons],
+          showSFX: 'ui_sfx_info_error_warning_mp3',
         });
       }
 

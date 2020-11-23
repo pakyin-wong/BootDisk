@@ -18,7 +18,7 @@ namespace we {
         }
         const gameInfos = env.tableInfos[tableId].roadmap.gameInfo;
         const keys = Object.keys(gameInfos);
-        if(!keys || keys.length === 0){
+        if (!keys || keys.length === 0) {
           return;
         }
         const latestGameInfo = gameInfos[keys[keys.length - 1]];
@@ -32,34 +32,34 @@ namespace we {
       }
 
       public setNumber(number: number) {
-        this.setAllNums(true)
+        this.setAllNums(true);
         this._tigerNum.text = number.toString();
-        number--
+        number--;
         this._dragonNum.text = number.toString();
-        number--       
+        number--;
       }
 
-      protected setAllSums(state: boolean){
-        this._dragonSum.visible = state
-        this._tigerSum.visible = state
+      protected setAllSums(state: boolean) {
+        this._dragonSum.visible = state;
+        this._tigerSum.visible = state;
       }
 
-      protected setAllCards(state: boolean){
-          this._tigerCard.visible = state;
-          this._dragonCard.visible = state;
+      protected setAllCards(state: boolean) {
+        this._tigerCard.visible = state;
+        this._dragonCard.visible = state;
       }
 
-      protected setAllNums(state: boolean){
-          this._tigerNum.visible = state;
-          this._dragonNum.visible = state;
+      protected setAllNums(state: boolean) {
+        this._tigerNum.visible = state;
+        this._dragonNum.visible = state;
       }
 
-      protected setCardGroup(cards:  ui.Card[], datas) {
-        for(let i = 0; i < datas.length; i++){
+      protected setCardGroup(cards: ui.Card[], datas) {
+        for (let i = 0; i < datas.length; i++) {
           if (datas[i]) {
             cards[i].visible = true;
             cards[i].setCard(utils.formatCard(datas[i]));
-          } 
+          }
         }
       }
     }

@@ -1,7 +1,7 @@
 namespace we {
   export namespace lottery {
     export class DExtraContent {
-      protected static slider : ui.ImageSlider;
+      protected static slider: ui.ImageSlider;
 
       public static mount(page: Page) {
         const tabBarGroup = new eui.Group();

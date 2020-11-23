@@ -32,7 +32,6 @@ namespace we {
         if (this._roadmap) this._roadmap.parent.removeChild(this._roadmap);
       }
 
-
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
         if (tableInfo.roadmap) {
@@ -72,6 +71,15 @@ namespace we {
           this._betLimit.renderText = () => `${i18n.t('baccarat.betLimitshort')}`;
           this._toggler.renderText = () => `${items.length > 0 ? items[idx] : ''}`;
           // this._toggler.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${items.length > 0 ? items[idx] : ''}`;
+        }
+      }
+
+      protected setStateShuffle(isInit: boolean = false) {
+        super.setStateShuffle(isInit);
+        if (this._previousState !== we.core.GameState.SHUFFLE || isInit) {
+          if (this._roadmap) {
+            this._roadmap.clearRoadData && this._roadmap.clearRoadData();
+          }
         }
       }
 

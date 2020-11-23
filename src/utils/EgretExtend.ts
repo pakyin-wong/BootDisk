@@ -160,5 +160,23 @@ namespace we {
       }
       return null;
     };
+
+    egret['web'].HtmlSoundChannel.prototype.$play = function () {
+      if (this.isStopped) {
+        egret.$error(1036);
+        return;
+      }
+      try {
+        // this.audio.pause();
+        this.audio.volume = this._volume;
+        this.audio.currentTime = this.$startTime;
+      } catch (e) {
+        this.audio.addEventListener('canplay', this.canPlay);
+        return;
+      }
+      this.audio.play().catch(err => {
+        env.notYetInteract = true;
+      });
+    };
   }
 }

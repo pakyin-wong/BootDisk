@@ -5,12 +5,25 @@ namespace we {
         target.once(ev, resolve, target);
       });
     }
+
+    export function dblistenToSoundEffect(target: dragonBones.IEventDispatcher) {
+      function onDBSoundEvent(event: dragonBones.Event) {
+        const evtName = event.eventObject.name;
+        const type = evtName.split('_')[0];
+        if (type === 'audio') {
+          const audioResName = evtName.substr(6);
+          dir.audioCtr.play(audioResName);
+        }
+      }
+      target.addDBEventListener(dragonBones.Event.ANIMATION_FRAME_EVENT, onDBSoundEvent, null);
+    }
+
     export function waitDragonBone(target, animName: string = null) {
       return we.utils.waitDragonBoneEvent(target, dragonBones.EventObject.COMPLETE, animName);
     }
     export function waitDragonBoneEvent(target: dragonBones.IEventDispatcher, ev: string, animName: string = null) {
       const p = new Promise((resolve, reject) => {
-        const r = (event) => {
+        const r = event => {
           if (!(animName && event.animationName != animName)) {
             target.removeDBEventListener(ev, r, target);
             resolve();

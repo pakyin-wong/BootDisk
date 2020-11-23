@@ -69,29 +69,7 @@ namespace we {
       }
 
       protected enterRoom() {
-        switch (this.tableInfo.gametype) {
-          case 0:
-          case 1:
-          case 2:
-            dir.sceneCtr.goto('ba', { tableid: this.tableId }); // BA
-            break;
-          case 5:
-            dir.sceneCtr.goto('dt', { tableid: this.tableId }); // DT
-            break;
-          case 16:
-            dir.sceneCtr.goto('lw', { tableid: this.tableId }); // LW
-            break;
-          case 14:
-            dir.sceneCtr.goto('ro', { tableid: this.tableId }); // RO
-            break;
-          case 12:
-            dir.sceneCtr.goto('di', { tableid: this.tableId }); // DI
-            break;
-          default:
-            console.log('not yet done');
-            break;
-        }
-        // dir.sceneCtr.goto('ba', { tableid: this.tableId });
+        env.gotoScene(this.tableId);
         this.removeSelf();
       }
     }

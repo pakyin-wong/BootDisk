@@ -16,7 +16,7 @@ namespace we {
         protected _txt_field: eui.Label;
         protected _txt_result: eui.Label;
         protected _txt_remark: eui.Label;
-        protected _txt_betamount:eui.Label;
+        protected _txt_betamount: eui.Label;
 
         protected _source: null;
 

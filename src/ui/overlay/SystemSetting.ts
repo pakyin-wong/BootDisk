@@ -81,9 +81,9 @@ namespace we {
         });
 
         const _arrCol_currBgm = new eui.ArrayCollection([
-          ui.NewDropdownItem(1, () => `${i18n.t('nav.system.bgm')} 01`),
-          ui.NewDropdownItem(2, () => `${i18n.t('nav.system.bgm')} 02`),
-          ui.NewDropdownItem(3, () => `${i18n.t('nav.system.bgm')} 03`),
+          ui.NewDropdownItem(0, () => `${i18n.t('nav.system.bgm')} 01`),
+          ui.NewDropdownItem(1, () => `${i18n.t('nav.system.bgm')} 02`),
+          ui.NewDropdownItem(2, () => `${i18n.t('nav.system.bgm')} 03`),
         ]);
         if (this._ddm_currBgm) {
           this._ddm_currBgm.isDropdown = true;
@@ -92,14 +92,14 @@ namespace we {
           this._ddm_currBgm.setToggler(this._btn_currBgm);
           this._ddm_currBgm.dropdown.review = this._txt_currBgm;
           this._ddm_currBgm.dropdown.data.replaceAll(_arrCol_currBgm.source);
-          this._ddm_currBgm.dropdown.select(env.bgm);
+          this._ddm_currBgm.dropdown.select(dir.audioCtr.bgmIdx);
         }
         utils.DropdownCreator.new({
           toggler: this._btn_currBgm,
           review: this._txt_currBgm,
           arrCol: _arrCol_currBgm,
           title: () => ``,
-          selected: env.bgm,
+          selected: dir.audioCtr.bgmIdx,
         });
 
         this._txt_version.text = env.version;
@@ -176,9 +176,9 @@ namespace we {
       }
 
       private onBgmSelect(e) {
-        env.bgm = e.data;
+        dir.audioCtr.bgmIdx = e.data;
         dir.evtHandler.dispatch(core.Event.BGM_UPDATE, e.data);
-        this._ddm_currBgm && this._ddm_currBgm.dropdown.select(env.bgm);
+        this._ddm_currBgm && this._ddm_currBgm.dropdown.select(dir.audioCtr.bgmIdx);
       }
 
       protected initOrientationDependentComponent() {

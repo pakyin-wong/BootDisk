@@ -38,9 +38,9 @@ namespace we {
       }
 
       protected initSkin() {
-        if(env.isMobile){
+        if (env.isMobile) {
           this.skinName = 'skin_mobile.SSCBetNoteItem';
-        }else{
+        } else {
           this.skinName = 'skin_desktop.SSCBetNoteItem';
         }
       }
@@ -179,7 +179,7 @@ namespace we {
       protected regenerateBetitemFromField(DataString: string) {
         let newdatastring = '';
         const spliteddatastring = DataString.split('');
-        if(env.isMobile){
+        if (env.isMobile) {
           if (spliteddatastring.length < 80) {
             newdatastring = DataString;
           } else {
@@ -188,7 +188,7 @@ namespace we {
             }
             newdatastring += '...';
           }
-        }else{
+        } else {
           if (spliteddatastring.length < 16) {
             newdatastring = DataString;
           } else {

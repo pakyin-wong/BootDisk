@@ -36,7 +36,7 @@ namespace we {
         this.removeListeners();
       }
 
-      public setData(){
+      public setData() {
         this._roadmapPanel.setTableInfo(this.tableInfo);
         this._statisticChartPanel.setTableInfo(this.tableInfo);
         this._analysisPanel.setTableInfo(this.tableInfo);

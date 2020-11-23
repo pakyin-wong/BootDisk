@@ -111,19 +111,11 @@ namespace we {
 
         if (isAnimate) {
           if (direction) {
-            this._tw1 = egret.Tween.get(this._label1)
-              .to({ alpha: 0 }, 250)
-              .set({ visible: false });
-            this._tw2 = egret.Tween.get(this._image)
-              .to({ width: 0 }, 250)
-              .set({ visible: false });
+            this._tw1 = egret.Tween.get(this._label1).to({ alpha: 0 }, 250).set({ visible: false });
+            this._tw2 = egret.Tween.get(this._image).to({ width: 0 }, 250).set({ visible: false });
           } else {
-            this._tw1 = egret.Tween.get(this._label1)
-              .set({ visible: true })
-              .to({ alpha: 1 }, 250);
-            this._tw2 = egret.Tween.get(this._image)
-              .set({ visible: true })
-              .to({ width: 148 }, 250);
+            this._tw1 = egret.Tween.get(this._label1).set({ visible: true }).to({ alpha: 1 }, 250);
+            this._tw2 = egret.Tween.get(this._image).set({ visible: true }).to({ width: 148 }, 250);
           }
           return [this._tw1, this._tw2];
         } else {

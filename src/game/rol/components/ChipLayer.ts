@@ -93,6 +93,7 @@ namespace we {
         const grid = this._mouseAreaMapping[ro.BetField['DIRECT_' + key]];
 
         this._winningAnim = this.createAnim();
+        utils.dblistenToSoundEffect(this._winningAnim);
 
         this.clearLuckyAnim();
 
@@ -175,6 +176,7 @@ namespace we {
           grid.removeChildren();
 
           const luckyAnim = this.createAnim();
+          utils.dblistenToSoundEffect(this._winningAnim);
           let color: string;
           switch (we.ro.RACETRACK_COLOR[+key]) {
             case we.ro.Color.GREEN:
@@ -203,13 +205,7 @@ namespace we {
           flashingOdd.text = luckyNumbers[key] + 'x';
 
           grid.addChild(flashingOdd);
-          egret.Tween.get(flashingOdd)
-            .to({ alpha: 0 }, 1000)
-            .to({ alpha: 1 }, 1000)
-            .to({ alpha: 0 }, 1000)
-            .to({ alpha: 1 }, 1000)
-            .to({ alpha: 0 }, 1000)
-            .to({ alpha: 1 }, 1000);
+          egret.Tween.get(flashingOdd).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000);
 
           this._luckyAnims.push(luckyAnim);
           this._flashingOdds.push(flashingOdd);

@@ -216,6 +216,7 @@ namespace we {
         this.clearLuckyAnim();
 
         this._winningAnim = this.createAnim('bet_effect');
+        utils.dblistenToSoundEffect(this._winningAnim);
         const grid = this._mouseAreaMapping[dil.BetField['SUM_' + sum]];
         grid.addChild(this._winningAnim);
         this._winningAnim.anchorOffsetX = 3;
@@ -266,6 +267,7 @@ namespace we {
           const grid = this._mouseAreaMapping[dil.BetField['SUM_' + key]];
 
           const luckyAnim = this.createAnim('bet_effect');
+          utils.dblistenToSoundEffect(luckyAnim);
           // luckyAnim.addDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addGridBg(grid, +key), luckyAnim);
 
           grid.addChild(luckyAnim);
@@ -281,13 +283,7 @@ namespace we {
           flashingOdd.text = luckyNumbers[key] + 'x';
 
           grid.addChild(flashingOdd);
-          egret.Tween.get(flashingOdd)
-            .to({ alpha: 0 }, 1000)
-            .to({ alpha: 1 }, 1000)
-            .to({ alpha: 0 }, 1000)
-            .to({ alpha: 1 }, 1000)
-            .to({ alpha: 0 }, 1000)
-            .to({ alpha: 1 }, 1000);
+          egret.Tween.get(flashingOdd).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000);
 
           this._luckyAnims.push(luckyAnim);
           this._flashingOdds.push(flashingOdd);

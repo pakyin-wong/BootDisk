@@ -2,8 +2,7 @@
 namespace we {
   export namespace overlay {
     export class SSCTraditionalMobileBetConfirmPanel extends SSCBetConfirmPanel {
-
-      protected initSkin(){
+      protected initSkin() {
         this.skinName = 'skin_mobile.SSCBetConfirmPanel';
       }
 
@@ -61,7 +60,6 @@ namespace we {
       public updateText() {
         super.updateText();
       }
-
     }
   }
 }

@@ -3,10 +3,10 @@ namespace we {
     export class ShufflePanel extends BasePanel {
       protected _firstGroup: eui.Group;
       protected _firstCard: dragonBones.EgretArmatureDisplay;
-      protected _firstCardWidth = 204
-      protected _firstCardHeight = 312
-      protected _smallCardWidth = 169
-      protected _smallCardHeight = 246
+      protected _firstCardWidth = 204;
+      protected _firstCardHeight = 312;
+      protected _smallCardWidth = 169;
+      protected _smallCardHeight = 246;
 
       protected _oneRowFirstCardY = 230 + this._firstCardHeight / 2;
       protected _oneRowFirstRowY = 687 + this._firstCardHeight / 2;
@@ -25,8 +25,8 @@ namespace we {
 
       protected _skeletonName: string;
 
-      public set skeletonName(value: string){
-        this._skeletonName = value
+      public set skeletonName(value: string) {
+        this._skeletonName = value;
       }
 
       protected mount() {
@@ -40,12 +40,13 @@ namespace we {
         firstCardFront.anchorOffsetY = this._firstCardHeight / 2;
 
         this._firstCard = this._factory.buildArmatureDisplay('poker');
+        utils.dblistenToSoundEffect(this._firstCard);
         this._firstCard.armature.getSlot('card_number_vertical').display = this.createIndexLabel(1);
         this._firstCard.armature.getSlot('card_front_vertical').display = firstCardFront;
-        this._firstCard.animation.gotoAndStopByTime('burn_card_center_in', 0)
+        this._firstCard.animation.gotoAndStopByTime('burn_card_center_in', 0);
         this._firstCard.visible = false;
-        //this._firstCard.anchorOffsetX = this._firstCardWidth / 2;
-        //this._firstCard.anchorOffsetY = this._firstCardHeight / 2;
+        // this._firstCard.anchorOffsetX = this._firstCardWidth / 2;
+        // this._firstCard.anchorOffsetY = this._firstCardHeight / 2;
 
         this._firstGroup = new eui.Group();
         this._firstGroup.horizontalCenter = 0;
@@ -53,8 +54,7 @@ namespace we {
         this._allCardsGroup.addChild(this._firstGroup);
 
         const skipped = utils.stat.ba.translateCardToNumber(this._gameData.firstcard);
-        this._firstGroup.y = (skipped > 7)? this._twoRowFirstCardY: this._oneRowFirstCardY;
-        
+        this._firstGroup.y = skipped > 7 ? this._twoRowFirstCardY : this._oneRowFirstCardY;
       }
 
       protected createIndexLabel(num: number) {
@@ -64,8 +64,8 @@ namespace we {
         const labelGroup = new eui.Group();
         labelGroup.addChild(label);
 
-        label.anchorOffsetX = label.width / 2
-        label.anchorOffsetY = label.height / 2
+        label.anchorOffsetX = label.width / 2;
+        label.anchorOffsetY = label.height / 2;
 
         return labelGroup;
       }
@@ -93,45 +93,45 @@ namespace we {
           return;
         }
 
-        const firstGroupOriginalY = this._firstGroup.y
-        this._firstGroup.y = 550
+        const firstGroupOriginalY = this._firstGroup.y;
+        this._firstGroup.y = 550;
 
-        await utils.sleep(1500)
+        await utils.sleep(1500);
         this._firstCard.visible = true;
 
-        const p1 = utils.waitDragonBone(this._firstCard)
+        const p1 = utils.waitDragonBone(this._firstCard);
         this._firstCard.animation.play('burn_card_center_in', 1);
         await p1;
 
-        await new Promise(resolve => egret.Tween.get(this._firstGroup).to({y: firstGroupOriginalY},1000).call(resolve))
+        await new Promise(resolve => egret.Tween.get(this._firstGroup).to({ y: firstGroupOriginalY }, 1000).call(resolve));
 
-        for (let i = 0; i < this._cards.length; i++){
+        for (let i = 0; i < this._cards.length; i++) {
           this._cards[i].visible = true;
 
-          const block = utils.waitDragonBone(this._cards[i])
+          const block = utils.waitDragonBone(this._cards[i]);
           this._cards[i].animation.play('burn_card_in');
           await block;
         }
 
         await utils.sleep(2500);
 
-        const firstCardBlock = utils.waitDragonBone(this._firstCard)
+        const firstCardBlock = utils.waitDragonBone(this._firstCard);
         this._firstCard.animation.play('burn_card_center_out', 1);
 
-        let blocks = new Array;
-        for (let i = 0; i < this._cards.length; i++){
-          blocks.push(utils.waitDragonBone(this._firstCard))
+        const blocks = new Array();
+        for (let i = 0; i < this._cards.length; i++) {
+          blocks.push(utils.waitDragonBone(this._firstCard));
           this._cards[i].animation.play('burn_card_out');
         }
 
-        await firstCardBlock
-        for (let i = 0; i < this._cards.length; i++){
-          await blocks[i]
+        await firstCardBlock;
+        for (let i = 0; i < this._cards.length; i++) {
+          await blocks[i];
         }
 
         this.hide();
 
-        return new Promise(resolve=>resolve()) 
+        return new Promise(resolve => resolve());
       }
 
       public showStatic(gameData: any) {
@@ -140,12 +140,12 @@ namespace we {
         }
 
         this._firstCard.visible = true;
-        this._firstCard.animation.gotoAndStopByTime('burn_card_center_loop', 0)
+        this._firstCard.animation.gotoAndStopByTime('burn_card_center_loop', 0);
         this.showAllCards();
 
         setTimeout(() => {
           this.hide();
-        }, 8000)
+        }, 8000);
       }
 
       protected initCards(gameData: any) {
@@ -174,10 +174,11 @@ namespace we {
 
       protected createBurnCard(num: number) {
         const card = this._factory.buildArmatureDisplay('poker');
+        utils.dblistenToSoundEffect(card);
         card.scaleX = card.scaleY = 0.72;
 
         const label = new eui.Label();
-        label.size = 65
+        label.size = 65;
         label.text = num.toString();
         label.anchorOffsetX = label.width / 2;
         label.anchorOffsetY = label.height / 2;
@@ -201,7 +202,7 @@ namespace we {
         const skipped = utils.stat.ba.translateCardToNumber(this._gameData.firstcard);
         console.log('ShufflePanel::createGroups:skipped', skipped);
 
-        this.createGroup('_firstRowGroup', (skipped > 7) ? this._twoRowFirstRowY : this._oneRowFirstRowY);
+        this.createGroup('_firstRowGroup', skipped > 7 ? this._twoRowFirstRowY : this._oneRowFirstRowY);
         this.createGroup('_secondRowGroup', this._twoRowSecondRowY);
 
         for (let i = 1; i < 8 && i <= skipped; i++) {
@@ -221,13 +222,13 @@ namespace we {
         }
       }
 
-      protected showAllCards(){
-        if(!this._cards){
+      protected showAllCards() {
+        if (!this._cards) {
           return;
         }
-        this._cards.map(value=>{
+        this._cards.map(value => {
           value.visible = true;
-        })
+        });
       }
 
       protected createGroup(group, y) {
@@ -243,7 +244,6 @@ namespace we {
         layout.gap = 213;
         return layout;
       }
-
     }
   }
 }

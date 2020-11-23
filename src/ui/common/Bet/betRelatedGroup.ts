@@ -87,8 +87,8 @@ namespace we {
       }
 
       public changeBtnState(isEnable: boolean = true, totalUncfmBetAmount: number = 0, isPrevBet: boolean = false, isBetState: boolean = true) {
-        let hasCfmBet = totalUncfmBetAmount !== 0; //change to boolean
-        
+        const hasCfmBet = totalUncfmBetAmount !== 0; // change to boolean
+
         this._undoButton.touchEnabled = isEnable;
         this._cancelButton.touchChildren = this._cancelButton.touchEnabled = isEnable;
         // double btn check uncfm btn , not cfmbtn

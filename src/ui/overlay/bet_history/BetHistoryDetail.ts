@@ -89,7 +89,7 @@ namespace we {
             utils.addButtonListener(this._btn_prev, this.prevPage, this);
           }
 
-          if(this._btn_replay) {
+          if (this._btn_replay) {
             this.setText(this._btn_replay.label, `${i18n.t('overlaypanel_bethistory_recordtab_replay')}`);
             utils.addButtonListener(this._btn_replay, this.onClickReplay, this);
           }
@@ -122,7 +122,6 @@ namespace we {
         }
 
         public dataChanged(source, index): void {
-
           this._source = source;
           this._index = index;
           this.data = source[index];
@@ -134,7 +133,7 @@ namespace we {
             this._btn_prev.visible = this._index - 1 >= 0;
           }
 
-          if(this.isLottery(this.data.gametype)) {
+          if (this.isLottery(this.data.gametype)) {
             const betinfo = utils.BetTypeParser.parse(this.data.gametype, this.data.field);
 
             this.setText(this._record_roundL, this.data.gameroundid);
@@ -146,8 +145,8 @@ namespace we {
 
             this._btn_cbet && (this._btn_cbet.label.text = i18n.t('overlaypanel_bethistorylottery_record_continuousbetdetail'));
             this._btn_cbet && (this._btn_cbet.visible = this.data.result.a2 == '1');
-          };
-          let gameround = `${this.data.round} - ${this.data.shoe}`
+          }
+          const gameround = `${this.data.round} - ${this.data.shoe}`;
           this.setText(this._record_id, this.data.betid);
           this.setText(this._record_date, utils.formatTime(this.data.datetime.toFixed(0)));
           this.setText(this._record_game, `${i18n.t('gametype_' + we.core.GameType[this.data.gametype])} ${this.data.tablename}`);
@@ -167,7 +166,7 @@ namespace we {
         }
 
         protected isLottery(gametype) {
-          switch(gametype) {
+          switch (gametype) {
             case we.core.GameType.LO:
             case we.core.GameType.RC:
               this.currentState = 'lottery';
@@ -192,7 +191,7 @@ namespace we {
         }
 
         private createGameResult(gametype, gameResult) {
-          let p: eui.Component = utils.BetHistory.createGameResult(gametype,gameResult);
+          const p: eui.Component = utils.BetHistory.createGameResult(gametype, gameResult);
           this._record_result.removeChildren();
           this._record_result.addChild(p);
         }

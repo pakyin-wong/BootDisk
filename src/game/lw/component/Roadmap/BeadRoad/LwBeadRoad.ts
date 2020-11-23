@@ -56,7 +56,6 @@ namespace we {
               (this.roadMapIconList[i] as LwBeadRoadIcon).visible = false;
             }
           }
-
         }
         this.isExpanded = expand;
         this.renderGrid();
@@ -134,7 +133,7 @@ namespace we {
 
       // override for base class
       protected renderGrid() {
-        const numRow = (this.isExpanded) ? this.numRow : this.numRowCollapse;
+        const numRow = this.isExpanded ? this.numRow : this.numRowCollapse;
         const bgColors = [0xfafafa, 0x17181a];
         const gridColors = [0xafafaf, 0x1f2022];
 
@@ -182,7 +181,7 @@ namespace we {
         }
         (this.roadMapIconList[0] as LwBeadRoadIcon).showHighLight();
 
-        //if not set numRowCollapse, set it to numRow
+        // if not set numRowCollapse, set it to numRow
         if (this.numRowCollapse === -1) {
           this.numRowCollapse = this.numRow;
         }

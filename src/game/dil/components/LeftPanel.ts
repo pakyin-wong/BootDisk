@@ -250,6 +250,7 @@ namespace we {
           coinGroup.height = 213;
 
           const coinAnim = this.createLuckyCoinAnim();
+          utils.dblistenToSoundEffect(coinAnim);
           coinAnim.width = 175;
           coinAnim.height = 213;
           // 112 + 18
@@ -384,7 +385,9 @@ namespace we {
 
       public destroy() {
         this.clearLuckyNumbers();
-        if (this._factory) { this._factory.clear(true); }
+        if (this._factory) {
+          this._factory.clear(true);
+        }
         super.destroy();
 
         egret.Tween.removeTweens(this.activeLine);

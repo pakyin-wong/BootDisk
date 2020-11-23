@@ -17,11 +17,10 @@ namespace we {
 
       protected _verticalGroup: eui.Group;
 
-      //private _common_listpanel: ui.BaseImageButton;
+      // private _common_listpanel: ui.BaseImageButton;
       protected _originBetRelatedGroupY: number;
 
       public static resGroups = [core.res.Blockchain, core.res.BlockchainDragonTiger];
-
 
       constructor(data: any) {
         super(data);
@@ -32,31 +31,26 @@ namespace we {
         this.addListeners();
       }
 
-      protected showSumGroup(){
-        (<we.dtb.MobileCardHolder>this._resultDisplay).showSumGroup()
+      protected showSumGroup() {
+        (<we.dtb.MobileCardHolder>this._resultDisplay).showSumGroup();
       }
 
-      protected hideSumGroup(){
-          (<we.dtb.MobileCardHolder>this._resultDisplay).hideSumGroup();
-
+      protected hideSumGroup() {
+        (<we.dtb.MobileCardHolder>this._resultDisplay).hideSumGroup();
       }
 
-      protected initVariables(){
+      protected initVariables() {
         this._portraitButtonExpandedDealY = 947;
         this._portraitButtonExpandedBetY = 800;
-        this._portraitButtonCollapsedDealY = 1455;        
+        this._portraitButtonCollapsedDealY = 1455;
         this._portraitButtonCollapsedBetY = 1307;
       }
 
-      protected setGoodRoadLabel(){
-      }
+      protected setGoodRoadLabel() {}
 
-      protected setSwitchBAMode(enable: boolean){
-      }
+      protected setSwitchBAMode(enable: boolean) {}
 
-      protected onMatchGoodRoadUpdate() {
-      }
-
+      protected onMatchGoodRoadUpdate() {}
 
       public destroy() {
         super.destroy();
@@ -91,8 +85,8 @@ namespace we {
         // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.dt.TableLayer> this._tableLayer).totalAmount = { DRAGON: 0, TIGER: 0 };
-            (<we.dt.TableLayer> this._tableLayer).totalPerson = { DRAGON: 0, TIGER: 0 };
+            (<we.dt.TableLayer>this._tableLayer).totalAmount = { DRAGON: 0, TIGER: 0 };
+            (<we.dt.TableLayer>this._tableLayer).totalPerson = { DRAGON: 0, TIGER: 0 };
           }
         }
         if (this._resultDisplay && env.orientation === 'portrait') {
@@ -255,7 +249,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo> evt.data;
+          const stat = <data.TableInfo>evt.data;
           if (stat.tableid === this._tableId) {
             this._roadmapControl.updateRoadData();
           }
@@ -265,10 +259,10 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
-            (<we.dt.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-            (<we.dt.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+            (<we.dt.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+            (<we.dt.TableLayer>this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }
@@ -294,7 +288,7 @@ namespace we {
         this._skinKey = 'BlockchainDragonTigerScene';
       }
 
-      protected getSelectedBA(){
+      protected getSelectedBA() {
         return false;
       }
 

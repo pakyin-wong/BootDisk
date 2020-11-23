@@ -33,7 +33,7 @@ namespace we {
         if (!this.tableInfo.gamestatistic) {
           return;
         } else {
-          if(!this.listShow){
+          if (!this.listShow) {
             this.initContent();
           }
         }
@@ -71,7 +71,7 @@ namespace we {
         this.analysisStack.selectedIndex = 0;
 
         this.gameId = this.tableInfo.roundid;
-        this.gameIdLabel.text = i18n.t('mobile_table_info_gameID') + ": " + this.gameId;
+        this.gameIdLabel.text = i18n.t('mobile_table_info_gameID') + ': ' + this.gameId;
 
         this.listShow.updateList(this.tableInfo.gamestatistic.loHistory.show);
         this.listNoShow.updateList(this.tableInfo.gamestatistic.loHistory.noShow);
@@ -100,20 +100,20 @@ namespace we {
       }
 
       public update() {
-          if (this.tableInfo.gamestatistic) {
-            if (this.gameId !== this.tableInfo.roundid) {
-              this.gameId = this.tableInfo.roundid;
-              this.gameIdLabel.text = i18n.t('mobile_table_info_gameID') + ": " + this.gameId;
-              const history = this.tableInfo.gamestatistic.loHistory;
+        if (this.tableInfo.gamestatistic) {
+          if (this.gameId !== this.tableInfo.roundid) {
+            this.gameId = this.tableInfo.roundid;
+            this.gameIdLabel.text = i18n.t('mobile_table_info_gameID') + ': ' + this.gameId;
+            const history = this.tableInfo.gamestatistic.loHistory;
 
-              this.listShow.updateList(history.show);
-              this.listNoShow.updateList(history.noShow);
-              this.listHot.updateList(history.hot);
-              this.listCold.updateList(history.cold);
-            }
+            this.listShow.updateList(history.show);
+            this.listNoShow.updateList(history.noShow);
+            this.listHot.updateList(history.hot);
+            this.listCold.updateList(history.cold);
           }
+        }
 
-       if (this.tableInfo && this.tableInfo.gamestatistic) {
+        if (this.tableInfo && this.tableInfo.gamestatistic) {
           this.setTableInfo(this.tableInfo);
         }
 
