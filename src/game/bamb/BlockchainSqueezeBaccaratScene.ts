@@ -8,6 +8,7 @@ namespace we {
   export namespace bamb {
     export class Scene extends bab.Scene {
       protected _squeezeTimer: ui.CountdownTimer;
+      protected _timeMultiple: number = 1000;
       public static resGroups = [core.res.Blockchain, core.res.BlockchainSqueezeBaccarat];
 
       protected setSkinName() {
@@ -26,16 +27,15 @@ namespace we {
       }
 
       protected setStatePeek(isInit: boolean = false) {
-        // console.log('PEEK ' + new Date(Date.now()).toString());
+        console.log('PEEK', this._gameData.state, this._gameData.gameroundid, (<any>this._gameData).peekstarttime)
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         if (this._previousState !== we.core.GameState.PEEK || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
         }
 
-
-        const countdownValue = (<any>this._gameData).countdownA * 1000;
-        const remainingTime = (<any>this._gameData).countdownA * 1000 - (env.currTime - (<any>this._gameData).peekstarttime);
+        const countdownValue = (<any>this._gameData).countdownA * this._timeMultiple;
+        const remainingTime = (<any>this._gameData).countdownA * this._timeMultiple - (env.currTime - (<any>this._gameData).peekstarttime);
         this.startTimer(countdownValue, remainingTime)
       }
 
@@ -48,8 +48,8 @@ namespace we {
           this.setResultRelatedComponentsEnabled(true);
         }
 
-        const countdownValue = (<any>this._gameData).countdownB * 1000;
-        const remainingTime = (<any>this._gameData).countdownB * 1000 - (env.currTime - (<any>this._gameData).peekstarttime);
+        const countdownValue = (<any>this._gameData).countdownB * this._timeMultiple;
+        const remainingTime = (<any>this._gameData).countdownB * this._timeMultiple - (env.currTime - (<any>this._gameData).peekstarttime);
         this.startTimer(countdownValue, remainingTime)
 
       }
@@ -62,8 +62,8 @@ namespace we {
           this.setResultRelatedComponentsEnabled(true);
         }
 
-        const countdownValue = (<any>this._gameData).countdownB * 1000;
-        const remainingTime = (<any>this._gameData).countdownB * 1000 - (env.currTime - (<any>this._gameData).starttime - (<any>this._gameData).peekstarttime);
+        const countdownValue = (<any>this._gameData).countdownB * this._timeMultiple;
+        const remainingTime = (<any>this._gameData).countdownB * this._timeMultiple - (env.currTime - (<any>this._gameData).starttime - (<any>this._gameData).peekstarttime);
         this.startTimer(countdownValue, remainingTime)
 
       }
