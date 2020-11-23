@@ -47,7 +47,7 @@ namespace we {
           status = this._enabled ? 'idle_switch_to_on' : 'disable_switch_to_on';
         } else {
           status = this._enabled ? 'auto_confirm_idle_to_hover' : 'auto_confirm_idle_to_hover';
-          // status = this._enabled ? 'idle_switch_to_on' : '白字轉灰V';
+          // status = this._enabled ? 'idle_switch_to_on' : outstanding ****'白字轉灰V';
         }
         this.playPromise(status, 1);
       }
@@ -63,32 +63,26 @@ namespace we {
             if (!this._enabled) {
               // if not in bet state
               await this.prevProm;
-              this.playPromise('idle', 1);
-              console.log(status);
+              this.playPromise('disable', 1);
             } else if (!oldDown && this._down) {
               // if press down
               this.prevProm = this.playPromise('hover_to_press', 1);
-              console.log('hover_to_press');
             } else if (this._hover && oldDown && !this._down) {
               // if press up
               await this.prevProm;
               this.prevProm = this.playPromise('press_to_disable', 1);
-              console.log('press_to_disable');
             } else if (!oldHover && this._hover) {
               // if roll over
               await this.prevProm;
               this.playPromise('idle_to_hover', 1);
-              console.log('idle_to_hover');
             } else if (oldHover && !this._hover) {
               // roll out
               await this.prevProm;
               this.playPromise('hover_to_idle', 1);
-              console.log('hover to idle');
             } else {
               // if idle on bet state
               await this.prevProm;
               this.playPromise('disble_to_idle', 1);
-              console.log(status);
             }
             break;
         }
