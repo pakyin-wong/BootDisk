@@ -16,13 +16,13 @@ namespace we {
       protected _infoArray: number[];
       protected abstract _totalCardPerRound: number;
 
-      protected _pinStartAngle:number;
-      protected _pinInterval:number;
+      protected _pinStartAngle: number;
+      protected _pinInterval: number;
 
-      protected _verticalFlip : string;
+      protected _verticalFlip: string;
 
-      protected _roundLoopA : string;
-      protected _roundLoopB : string;
+      protected _roundLoopA: string;
+      protected _roundLoopB: string;
 
       protected mount() {
         this.reset();
@@ -36,7 +36,7 @@ namespace we {
 
       public abstract setDefaultStates();
 
-      protected initVariables(){
+      protected initVariables() {
         this._roundLoopA = 'round_loop_a';
         this._roundLoopB = 'round_loop_b';
         this._pinStartAngle = -131;
@@ -44,7 +44,7 @@ namespace we {
       }
 
       protected destroyAnim(display: dragonBones.EgretArmatureDisplay) {
-        if (!display) return;
+        if (!display) { return; }
         if (display.animation) {
           display.animation.stop();
         }
@@ -90,6 +90,7 @@ namespace we {
 
       protected createRingAnim() {
         this._ringAnim = this._factory.buildArmatureDisplay('blockchain');
+        utils.dblistenToSoundEffect(this._ringAnim);
         this._animRingGroup.addChild(this._ringAnim);
       }
 
@@ -97,13 +98,14 @@ namespace we {
 
       protected createCardAnim() {
         const cardAnim = this._factory.buildArmatureDisplay('poker');
+        utils.dblistenToSoundEffect(cardAnim);
         return cardAnim;
       }
 
       public updateResult(gameData: data.GameData, chipLayer: ui.ChipLayer, isInit: boolean) {
         console.log(' cardholder::updateResult ', gameData, isInit);
 
-        this._gameData = <bab.GameData> gameData;
+        this._gameData = <bab.GameData>gameData;
         this.updateCardInfoButtons();
         // check prev data == current data?
         switch (gameData.state) {
@@ -122,7 +124,7 @@ namespace we {
             break;
           case core.GameState.IDLE:
           default:
-            console.log('default updateResult ', gameData)
+            console.log('default updateResult ', gameData);
             break;
         }
       }
@@ -140,7 +142,7 @@ namespace we {
           if (this._gameData.redcardindex <= this._gameData.currentcardindex + this._totalCardPerRound) {
             this.getRedCardAnim().animation.gotoAndStopByTime('red_poker_loop', 0);
           }
-          await this.betInitState();
+          await this.betInitState(core.GameState.BET);
         } else {
           console.log('clearCards()');
           await this.clearCards();
@@ -152,7 +154,7 @@ namespace we {
       protected abstract updateAllSum();
 
       protected async hideCard(cardAnim, orientation, front = '') {
-        await utils.playAnimation(cardAnim,`${orientation}_out${front}`,1);
+        await utils.playAnimation(cardAnim, `${orientation}_out${front}`, 1);
         // const p1 = we.utils.waitDragonBone(cardAnim);
         // cardAnim.animation.play(`${orientation}_out${front}`);
         // await p1;
@@ -197,7 +199,7 @@ namespace we {
         slot.displayIndex = 0;
       }
 
-      protected abstract async betInitState();
+      protected abstract async betInitState(gameState: core.GameState) : Promise<{}>;
 
       protected abstract async dealInitState();
 
@@ -213,7 +215,7 @@ namespace we {
         const textureData = new dragonBones.EgretTextureData();
         textureData.renderTexture = bitmap.texture;
         meshDistData.texture = textureData;
-        
+
         cardSlot.armature.replacedTexture == null;
         cardSlot.replaceDisplayData(meshDistData);
         cardSlot.displayIndex = -1;
@@ -269,7 +271,8 @@ namespace we {
       protected abstract updateCardInfoButtons();
 
       protected getPinRad(num = this._gameData.currentcardindex) {
-        const proportion = num / this._gameData.maskedcardssnList.length;
+        const totalCount = this._gameData.maskedcardssnList.length;
+        const proportion = (totalCount - num) / totalCount;
         const angleOffset = this._pinInterval * proportion; // -40 to 41 / 131 to 49
         const destAngle = this._pinStartAngle + angleOffset;
         const destRad = (destAngle * Math.PI) / 180;
@@ -277,7 +280,8 @@ namespace we {
       }
 
       protected getShoeRad(num = this._gameData.redcardindex) {
-        const proportion = num / this._gameData.maskedcardssnList.length;
+        const totalCount = this._gameData.maskedcardssnList.length;
+        const proportion = (totalCount - num) / totalCount;
         const angleOffset = this._pinInterval * proportion; // -72 to 9
         const destAngle = this._pinStartAngle + angleOffset;
         const destRad = (destAngle * Math.PI) / 180;
@@ -321,18 +325,19 @@ namespace we {
       protected getRedCardAnim() {
         if (!this._smallRedCard) {
           this._smallRedCard = this._factory.buildArmatureDisplay('red_card');
+          utils.dblistenToSoundEffect(this._smallRedCard);
           this._smallRedCardGroup.addChild(this._smallRedCard);
-          this._smallRedCard.addEventListener(mouse.MouseEvent.ROLL_OVER,()=>this._smallRedCardDesc.visible = true, this);
-          this._smallRedCard.addEventListener(mouse.MouseEvent.ROLL_OUT,()=>this._smallRedCardDesc.visible = false, this);
+          this._smallRedCard.addEventListener(mouse.MouseEvent.ROLL_OVER, () => (this._smallRedCardDesc.visible = true), this);
+          this._smallRedCard.addEventListener(mouse.MouseEvent.ROLL_OUT, () => (this._smallRedCardDesc.visible = false), this);
         }
         return this._smallRedCard;
       }
 
-      public reset() {}
+      public reset() { }
 
-      public collapseBottom(){}
+      public collapseBottom() { }
 
-      public expandBottom(){}
+      public expandBottom() { }
     }
   }
 }

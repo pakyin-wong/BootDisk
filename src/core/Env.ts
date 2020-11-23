@@ -14,6 +14,7 @@ namespace we {
         return env;
       }
       public UAInfo: any;
+      public notYetInteract: boolean = false;
 
       /* Global Environment Variable */
       public version: string = '0.12.3f1';
@@ -24,6 +25,7 @@ namespace we {
       public currency: Currency;
       public playerID: string;
       public accountType: number = 0; // 0-api, 1-credit
+      public redirecturl: string;
 
       public nickname: string;
       public nicknameKey: string;
@@ -79,7 +81,7 @@ namespace we {
       public language: string;
 
       public voice: string = 'mandarin';
-      public bgm = 1;
+      // public bgm = 1;
       // public liveVolume = 1;
       // public soundEffect = 1;
       public videoOpen: boolean = true;
@@ -212,7 +214,7 @@ namespace we {
 
       set gameTypes(value: any[]) {
         // value = ['0', '15', '22'];     // TODO: this is just for testing, delete it when finish testing
-        value = value.concat('27', '28', '15', '22'); // TODO: temp add BAB and DTB
+        value = value.concat('27', '28', '29', '15', '22'); // TODO: temp add BAB and DTB
         // console.log(JSON.stringify(value));
         this._gameTypes = value.map((cat: string) => parseInt(cat, 10));
         this.generateLiveGameTab();
@@ -238,6 +240,7 @@ namespace we {
             case core.GameType.BAC:
             case core.GameType.BAI:
             case core.GameType.BAM:
+            case core.GameType.BAMB:
             case core.GameType.BAS:
               gameSubcats.baccarat.push(type);
               break;
@@ -436,7 +439,7 @@ namespace we {
             dir.sceneCtr.goto('bab', { tableid: tableId });
             break;
           case core.GameType.BAMB:
-            dir.sceneCtr.goto('bab', { tableid: tableId });
+            dir.sceneCtr.goto('bamb', { tableid: tableId });
             break;
           case core.GameType.DT:
             dir.sceneCtr.goto('dt', { tableid: tableId });

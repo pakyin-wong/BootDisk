@@ -207,15 +207,15 @@ namespace we {
         if (this.tableInfo) {
           if (this.tableInfo.gamestatistic) {
             console.log('dt :: this.tableInfo.gamestatistic', console.log('dt :: this.tableInfo.gamestatistic', this.tableInfo.gamestatistic));
-            if (this.tableInfo.gamestatistic.bankerCount) {
-              this.bankerCountLabel.text = this.tableInfo.gamestatistic.bankerCount.toString();
+            if (this.tableInfo.gamestatistic.shoeBankerCount) {
+              this.bankerCountLabel.text = this.tableInfo.gamestatistic.shoeBankerCount.toString();
             }
-            if (this.tableInfo.gamestatistic.playerCount) {
-              this.playerCountLabel.text = this.tableInfo.gamestatistic.playerCount.toString();
+            if (this.tableInfo.gamestatistic.shoePlayerCount) {
+              this.playerCountLabel.text = this.tableInfo.gamestatistic.shoePlayerCount.toString();
             }
-            if (this.tableInfo.gamestatistic.tieCount) {
+            if (this.tableInfo.gamestatistic.shoeTieCount) {
               if (this.tieCountLabel) {
-                this.tieCountLabel.text = this.tableInfo.gamestatistic.tieCount.toString();
+                this.tieCountLabel.text = this.tableInfo.gamestatistic.shoeTieCount.toString();
               }
             }
             // if (this.tableInfo.gamestatistic.bankerPairCount) {
@@ -224,9 +224,9 @@ namespace we {
             // if (this.tableInfo.gamestatistic.playerPairCount) {
             //   this.playerPairCountLabel.text = this.tableInfo.gamestatistic.playerPairCount.toString();
             // }
-            if (this.tableInfo.gamestatistic.totalCount) {
-              this.totalCount = this.tableInfo.gamestatistic.totalCount;
-              this.totalCountLabel.text = this.tableInfo.gamestatistic.totalCount.toString();
+            if (this.tableInfo.gamestatistic.shoeTotalCount) {
+              this.totalCount = this.tableInfo.gamestatistic.shoeTotalCount;
+              this.totalCountLabel.text = this.tableInfo.gamestatistic.shoeTotalCount.toString();
             }
           }
         }

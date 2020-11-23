@@ -77,6 +77,15 @@ namespace we {
         }
       }
 
+      protected setStateShuffle(isInit: boolean = false) {
+        super.setStateShuffle(isInit);
+        if (this._previousState !== we.core.GameState.SHUFFLE || isInit) {
+          if (this._bigRoad) {
+            this._bigRoad.clearRoadData && this._bigRoad.clearRoadData();
+          }
+        }
+      }
+
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
