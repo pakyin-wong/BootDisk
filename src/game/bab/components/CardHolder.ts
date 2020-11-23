@@ -218,21 +218,20 @@ namespace we {
         return new Promise(resolve => resolve());
       }
 
-      protected async betInitState(currentIndexOffsetToFirstCard = -1) {
+      protected async betInitState(gameState: core.GameState) {
         console.log('betInitState() begin');
+        const cardData = ['b1','a1','b2','a2','b3','a3']
         for (let i = 0; i < this.cardAnimNames.length; i++) {
           const cardAnim = <dragonBones.EgretArmatureDisplay>this[this.cardAnimNames[i]];
-          this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex - currentIndexOffsetToFirstCard + i);
+          this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this.getCardIndex(cardData[i],core.GameState.BET));
           this.showVerticalLoopBack(cardAnim, 0);
-          // cardAnim.animation.gotoAndStopByTime('vertical_loop_back', 0);
         }
-        this.setLabel(this._playerCard3.armature.getSlot('card_number_horizontal'), this._gameData.currentcardindex - currentIndexOffsetToFirstCard + 4);
 
+        //the following two only for DEAL State
+        this.setLabel(this._playerCard3.armature.getSlot('card_number_horizontal'), this.getCardIndex('b3',core.GameState.DEAL));
         this.showHorizontalLoopBack(this._playerCard3, 0);
-        // this._playerCard3.animation.gotoAndStopByTime('horizontal_loop_back', 0);
-        this.setLabel(this._bankerCard3.armature.getSlot('card_number_horizontal'), this._gameData.currentcardindex - currentIndexOffsetToFirstCard + 5);
+        this.setLabel(this._bankerCard3.armature.getSlot('card_number_horizontal'), this.getCardIndex('a3',core.GameState.DEAL));
         this.showHorizontalLoopBack(this._bankerCard3, 0);
-        // this._bankerCard3.animation.gotoAndStopByTime('horizontal_loop_back', 0);
 
         this._smallCard2Exist = true;
         this._smallCard1Exist = true;
@@ -253,7 +252,6 @@ namespace we {
 
       protected getCurrentCard() {
         const cardDataNames = ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
-        const total = 0;
         for (let i = cardDataNames.length - 1; i >= 0; i--) {
           if (this._gameData[cardDataNames[i]]) {
             return cardDataNames[i];
@@ -262,13 +260,13 @@ namespace we {
         return null;
       }
 
-      protected getBetCardIndices() {
+      protected getBetCardIndices() { // for first four cards and small cards .. actually not for b3/a3
         // not for bet state
         const indices = { b1: 0, a1: 0, b2: 0, a2: 0, b3: 0, a3: 0 };
         const cardDataNames = ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
         const total = 0;
         for (let i = 0; i < 6; i++) {
-          indices[cardDataNames[i]] = this._gameData.currentcardindex + i + 1;
+          indices[cardDataNames[i]] = this._gameData.currentcardindex - this.getCurrentIndexOffsetToFirstCard() + i;
         }
         return indices;
       }
@@ -277,12 +275,21 @@ namespace we {
         // not for bet state
         const indices = { b1: 0, a1: 0, b2: 0, a2: 0, b3: 0, a3: 0 };
         const cardDataNames = ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
-        const currentCard = this.getCurrentCard();
-        let total = 0;
-        for (let i = cardDataNames.length - 1; i >= 0; i--) {
+        let total = -1;
+        //let currentDataIndex = 0;
+        for (let i = 0; i < 5; i++) {
           if (this._gameData[cardDataNames[i]]) {
-            indices[cardDataNames[i]] = this._gameData.currentcardindex - total;
+            //currentDataIndex = i
             total++;
+          }
+        }
+        for(let i = 0; i < 4; i++){
+          indices[cardDataNames[i]] = this._gameData.currentcardindex - total + i;
+        }
+        for(let i = 4, j = 4; i < 6; i++){
+          if (this._gameData[cardDataNames[i]]) {
+            indices[cardDataNames[i]] = this._gameData.currentcardindex - total + j;
+            j++;
           }
         }
         return indices;
@@ -290,8 +297,10 @@ namespace we {
 
       protected getCardIndex(cardName: string, state: core.GameState) {
         if (state === core.GameState.BET) {
+          console.log('betCardIndices',this.getBetCardIndices());
           return this.getBetCardIndices()[cardName];
         }
+        console.log('dealCardIndices',this.getDealCardIndices());
         return this.getDealCardIndices()[cardName];
       }
 
@@ -560,7 +569,7 @@ namespace we {
             this.movePin();
             this.moveShoe();
             console.log('dealInitState()');
-            await this.betInitState(currentIndexOffsetToFirstCard);
+            await this.betInitState(core.GameState.DEAL);
             await this.dealInitState();
           } else {
             console.log('flipCards()');
@@ -687,8 +696,8 @@ namespace we {
         if (isInit) {
           this.movePin();
           this.moveShoe();
-          const currentIndexOffsetToFirstCard = this.getCurrentIndexOffsetToFirstCard();
-          this.betInitState(currentIndexOffsetToFirstCard);
+          //const currentIndexOffsetToFirstCard = this.getCurrentIndexOffsetToFirstCard();
+          this.betInitState(core.GameState.DEAL);
           this.dealInitState();
         }
       }

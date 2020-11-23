@@ -530,7 +530,7 @@ namespace we {
             pass2 = !!this._gameData && this._gameData.state === core.GameState.FINISH;
             break;
           default:
-            logger.e(utils.LogTarget.DEBUG, 'No gametype found in ControlItem::checkResultMessage');
+            logger.e(utils.LogTarget.DEBUG, 'No gametype found in ControlItem::checkResultMessage->' , this._tableInfo.gametype);
             break;
         }
 

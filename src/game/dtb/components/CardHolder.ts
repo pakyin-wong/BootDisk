@@ -138,13 +138,23 @@ namespace we {
         return new Promise(resolve => resolve());
       }
 
-      protected async betInitState(currentIndexOffsetToFirstCard = -1) {
+      protected async betInitState(gameState: core.GameState) {
         console.log('betInitState() begin');
 
-        this.setLabel(this._dragonCard.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + 2);
+        let dNum : number ;
+        let tNum : number ;
+        if(gameState === core.GameState.BET){
+          dNum = this._gameData.currentcardindex + 2;
+          tNum = this._gameData.currentcardindex + 3;
+        }else{
+          dNum = this.getCurrentDIndex();
+          tNum = this.getCurrentTIndex();
+        }
+
+        this.setLabel(this._dragonCard.armature.getSlot('card_number_vertical'), dNum);
         this._dragonCard.animation.gotoAndStopByTime('vertical_loop_back', 0);
 
-        this.setLabel(this._tigerCard.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + 3);
+        this.setLabel(this._tigerCard.armature.getSlot('card_number_vertical'), tNum);
         this._tigerCard.animation.gotoAndStopByTime('vertical_loop_back', 0);
 
         console.log('betInitState() end');
@@ -260,7 +270,7 @@ namespace we {
             this.movePin();
             this.moveShoe();
             console.log('dealInitState()');
-            await this.betInitState(currentIndexOffsetToFirstCard);
+            await this.betInitState(core.GameState.DEAL);
             await this.dealInitState();
           } else {
             console.log('flipCards()');
@@ -496,8 +506,8 @@ namespace we {
         if (isInit) {
           this.movePin();
           this.moveShoe();
-          const currentIndexOffsetToFirstCard = this.getCurrentIndexOffsetToFirstCard();
-          this.betInitState(currentIndexOffsetToFirstCard);
+          //const currentIndexOffsetToFirstCard = this.getCurrentIndexOffsetToFirstCard();
+          this.betInitState(core.GameState.DEAL);
           this.dealInitState();
         }
       }

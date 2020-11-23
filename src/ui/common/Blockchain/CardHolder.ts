@@ -142,7 +142,7 @@ namespace we {
           if (this._gameData.redcardindex <= this._gameData.currentcardindex + this._totalCardPerRound) {
             this.getRedCardAnim().animation.gotoAndStopByTime('red_poker_loop', 0);
           }
-          await this.betInitState();
+          await this.betInitState(core.GameState.BET);
         } else {
           console.log('clearCards()');
           await this.clearCards();
@@ -199,7 +199,7 @@ namespace we {
         slot.displayIndex = 0;
       }
 
-      protected abstract async betInitState();
+      protected abstract async betInitState(gameState: core.GameState) : Promise<{}>;
 
       protected abstract async dealInitState();
 

@@ -4,6 +4,8 @@ namespace we {
       protected _centerVCard: ba.FlipCard;
       protected _centerHCard: ba.FlipCard;
       protected _chipLayer: ui.ChipLayer
+      protected _openAllPlayerGroup: eui.Group;
+      protected _openAllBankerGroup: eui.Group;
 
       protected _currentFocusCard: dragonBones.EgretArmatureDisplay;
 
@@ -26,8 +28,56 @@ namespace we {
         }
       }
 
-      protected setStateDeal(isInit: boolean) {
+      protected updatePlayerSum() {
+        const getPointFromCard = (card: dragonBones.EgretArmatureDisplay, data: string) => {
+          if (card.name === 'flipped') {
+            return utils.stat.ba.translateCardToPoint(data)
+          }
+          return 0;
+        }
 
+        if (this._gameData.state === core.GameState.BET) {
+          this._playerSum.visible = false;
+          this._playerSum.text = '0';
+        } else {
+          this._playerSum.visible = true;
+        }
+        let playerSum = 0;
+        playerSum += getPointFromCard(this._playerCard1, this._gameData.b1)
+        playerSum += getPointFromCard(this._playerCard2, this._gameData.b2)
+        playerSum += getPointFromCard(this._playerCard3, this._gameData.b3)
+        playerSum = playerSum % 10;
+        this._playerSum.text = playerSum.toString();
+      }
+
+      protected updateBankerSum() {
+        const getPointFromCard = (card: dragonBones.EgretArmatureDisplay, data: string) => {
+          if (card.name === 'flipped') {
+            return utils.stat.ba.translateCardToPoint(data)
+          }
+          return 0;
+        }
+        if (this._gameData.state === core.GameState.BET) {
+          this._bankerSum.visible = false;
+          this._bankerSum.text = '0';
+        } else {
+          this._bankerSum.visible = true;
+        }
+
+        let bankerSum = 0;
+        bankerSum += getPointFromCard(this._bankerCard1, this._gameData.a1)
+        bankerSum += getPointFromCard(this._bankerCard2, this._gameData.a2)
+        bankerSum += getPointFromCard(this._bankerCard3, this._gameData.a3)
+        bankerSum = bankerSum % 10;
+        this._bankerSum.text = bankerSum.toString();
+
+      }
+
+      protected setStateDeal(isInit: boolean) {
+        if (isInit) {
+          console.log('setStateDeal isInit')
+          this.betInitState(core.GameState.DEAL);
+        }
       }
 
       protected setFirst4Cards() {
@@ -43,7 +93,7 @@ namespace we {
         this.setCardFrontFace(this._bankerCard2, 'a2', 'vertical', 0);
         this.setLabel(this._bankerCard2.armature.getSlot(`card_number_vertical`), this.getCardIndex('a2', core.GameState.DEAL));
       }
-
+      
       protected setPlayerB3Card() {
         this.setCardFrontFace(this._playerCard3, 'b3', 'horizontal', 0);
         this.setLabel(this._playerCard3.armature.getSlot(`card_number_horizontal`), this.getCardIndex('b3', core.GameState.DEAL));
@@ -65,26 +115,33 @@ namespace we {
       }
 
       protected flipRemainingFirst4Card() {
-        this.flipCard(this._playerCard1, 'vertical')
-        this.flipCard(this._playerCard2, 'vertical')
-        this.flipCard(this._bankerCard1, 'vertical')
-        this.flipCard(this._bankerCard2, 'vertical')
+        const darkPlayer = this.isPlayerFlipAllowed() ? '' : 'dark_'
+        this.flipCard(this._playerCard1, 'vertical', darkPlayer)
+        this.flipCard(this._playerCard2, 'vertical', darkPlayer)
+
+        const darkBanker = this.isPlayerFlipAllowed() ? '' : 'dark_'
+        this.flipCard(this._bankerCard1, 'vertical', darkBanker)
+        this.flipCard(this._bankerCard2, 'vertical', darkBanker)
       }
 
-      protected flipAll(){
-        this.flipCard(this._playerCard1, 'vertical')
-        this.flipCard(this._playerCard2, 'vertical')
-        this.flipCard(this._playerCard3, 'horizontal')
-        this.flipCard(this._bankerCard1, 'vertical')
-        this.flipCard(this._bankerCard2, 'vertical')
-        this.flipCard(this._bankerCard3, 'horizontal')
+      protected flipAll() {
+        const darkPlayer = this.isPlayerFlipAllowed() ? '' : 'dark_'
+        this.flipCard(this._playerCard1, 'vertical', darkPlayer)
+        this.flipCard(this._playerCard2, 'vertical', darkPlayer)
+        this.flipCard(this._playerCard3, 'horizontal', darkPlayer)
+
+        const darkBanker = this.isPlayerFlipAllowed() ? '' : 'dark_'
+        this.flipCard(this._bankerCard1, 'vertical', darkBanker)
+        this.flipCard(this._bankerCard2, 'vertical', darkBanker)
+        this.flipCard(this._bankerCard3, 'horizontal', darkBanker)
 
       }
 
-      protected flipCard(card: dragonBones.EgretArmatureDisplay, orientation: string) {
+      protected flipCard(card: dragonBones.EgretArmatureDisplay, orientation: string, dark = '') {
         if (card.name !== 'flipped') {
           card.name = 'flipped';
-          card.animation.play(`sq_${orientation}_flip`, 1)
+          card.animation.play(`sq_${orientation}_${dark}flip`, 1)
+          this.updateAllSum();
         }
       }
 
@@ -99,61 +156,137 @@ namespace we {
         return result;
       }
 
+
       protected setStatePeek(isInit: boolean) {
-        this.setFirst4Cards();
-        if (isInit) {
-
-        } else {
-
+        if(isInit){
+          console.log('setStatePeek isInit')
+          this.betInitState(core.GameState.DEAL);
         }
-        this.setCardsFlipAllowed();
-      }
-
-      protected setStatePeekBanker(isInit: boolean) {
-        if (isInit) {
-
-        } else {
-          this.setBankerA3Card();
-          this.moveAndShowA3(400);
-          this.flipRemainingFirst4Card();
-          this.flipCard(this._bankerCard2, 'vertical')
-
-          if (this.isBankerFlipAllowed()) {
-            this._currentFocusCard = this._bankerCard3
-            this.setCenterFlipCard('a3', 'horizontal')
-            this._bankerCard3Group.touchEnabled = true;
-            this._centerHCard.visible = true;
-            this._centerHCard.touchEnabled = true;
-            this._centerVCard.visible = false;
-            this._centerVCard.touchEnabled = false;
-            this.focusCard(this._bankerCard3, 'a3', 'horizontal')()
+        if (this.isPlayerFlipAllowed()) {
+          this._playerCard1Group.touchEnabled = true;
+          this._playerCard2Group.touchEnabled = true;
+          this._openAllPlayerGroup.visible = true;
+          this._currentFocusCard = this._playerCard1;
+          if (isInit) {
+            this._playerCard1.animation.gotoAndStopByFrame('sq_vertical_select_loop', 0);
           } else {
-            this._bankerCard3.animation.gotoAndStopByFrame('sq_horizontal_dark_loop_back', 0)
+            this._playerCard1.animation.play('sq_vertical_select_in', 1);
+          }
+          this.setCenterFlipCard('b1', 'vertical')
+          this._centerVCard.visible = true;
+          this._centerVCard.touchEnabled = true;
+        } else {
+          this._playerCard1Group.touchEnabled = false;
+          this._playerCard2Group.touchEnabled = false;
+          this._openAllPlayerGroup.visible = false;
+
+          if (isInit) {
+            this._playerCard1.animation.gotoAndStopByFrame('sq_vertical_dark_loop_back', 0)
+            this._playerCard2.animation.gotoAndStopByFrame('sq_vertical_dark_loop_back', 0)
+            
+          } else {
+            this._playerCard1.animation.play('sq_vertical_dark_in', 1)
+            this._playerCard2.animation.play('sq_vertical_dark_in', 1)
+            
+          }
+        }
+        if (this.isBankerFlipAllowed()) {
+          this._bankerCard1Group.touchEnabled = true;
+          this._bankerCard2Group.touchEnabled = true;
+          this._openAllBankerGroup.visible = true;
+          this._centerVCard.visible = true;
+          this._centerVCard.touchEnabled = true;
+        } else {
+          this._bankerCard1Group.touchEnabled = false;
+          this._bankerCard2Group.touchEnabled = false;
+          this._openAllBankerGroup.visible = false;
+
+          if (isInit) {
+            this._bankerCard1.animation.gotoAndStopByFrame('sq_vertical_dark_loop_back', 0)
+            this._bankerCard2.animation.gotoAndStopByFrame('sq_vertical_dark_loop_back', 0)
+          } else {
+            this._bankerCard1.animation.play('sq_vertical_dark_in', 1)
+            this._bankerCard2.animation.play('sq_vertical_dark_in', 1)
+
+          }
+        }
+
+        if (this.isBankerFlipAllowed() && !this.isPlayerFlipAllowed()) {
+          this.setCenterFlipCard('a1', 'vertical');
+          this._currentFocusCard = this._bankerCard1;
+          if (isInit) {
+            this._bankerCard1.animation.gotoAndStopByFrame('sq_vertical_select_loop', 0);
+          } else {
+            this._bankerCard1.animation.play('sq_vertical_select_in', 1);
           }
         }
       }
 
       protected setStatePeekPlayer(isInit: boolean) {
-        if (isInit) {
-
-        } else {
-          this.setPlayerB3Card();
-          this.moveAndShowB3(400);
-          this.flipRemainingFirst4Card();
-          if (this.isPlayerFlipAllowed()) {
-            this._currentFocusCard = this._playerCard3
-            this.setCenterFlipCard('b3', 'horizontal')
-            this._playerCard3Group.touchEnabled = true;
-            this._centerHCard.visible = true;
-            this._centerHCard.touchEnabled = true;
-            this._centerVCard.visible = false;
-            this._centerVCard.touchEnabled = false;
-            this.focusCard(this._playerCard3, 'b3', 'horizontal')()
-          } else {
-            this._playerCard3.animation.gotoAndStopByFrame('sq_horizontal_dark_loop_back', 0)
-          }
+        if(isInit){
+          console.log('setStatePeekPlayer isInit')
+          this.betInitState(core.GameState.DEAL);
         }
+        this._smallCard1Exist = false;
+        this.setPlayerB3Card();
+        this.flipRemainingFirst4Card();
+        this._openAllBankerGroup.visible = false;
+        this._centerVCard.visible = false;
+        this._centerVCard.touchEnabled = false;
+        if (this.isPlayerFlipAllowed()) {
+          if(isInit){
+
+          }
+          this._openAllPlayerGroup.visible = true;
+          this._currentFocusCard = this._playerCard3
+          this.setCenterFlipCard('b3', 'horizontal')
+          this._playerCard3Group.touchEnabled = true;
+          this._centerHCard.visible = true;
+          this._centerHCard.touchEnabled = true;
+          this._openAllPlayerGroup.visible = true;
+          this.focusCard(this._playerCard3, 'b3', 'horizontal')()
+        } else {
+          this._openAllPlayerGroup.visible = false;
+          this._centerHCard.visible = false;
+          this._centerHCard.touchEnabled = false;
+          this._playerCard3Group.touchEnabled = false;
+          this._playerCard3.animation.gotoAndStopByFrame('sq_horizontal_dark_loop_back', 0)
+        }
+        this.moveAndShowB3(400);
       }
+
+      protected setStatePeekBanker(isInit: boolean) {
+        if(isInit){
+          console.log('setStatePeekBanker isInit')
+          this.betInitState(core.GameState.DEAL);
+        }
+        this._smallCard2Exist = false;
+        this.setBankerA3Card();
+        this.flipRemainingFirst4Card();
+        this._openAllPlayerGroup.visible = false;
+        this._centerVCard.visible = false;
+        this._centerVCard.touchEnabled = false;
+        const darkPlayer = this.isPlayerFlipAllowed() ? '' : 'dark_'
+        this.flipCard(this._playerCard3, 'horizontal', darkPlayer)
+        if (this.isBankerFlipAllowed()) {
+          this._openAllBankerGroup.visible = true;
+          this._currentFocusCard = this._bankerCard3
+          this.setCenterFlipCard('a3', 'horizontal')
+          this._bankerCard3Group.touchEnabled = true;
+          this._centerHCard.visible = true;
+          this._centerHCard.touchEnabled = true;
+          this.focusCard(this._bankerCard3, 'a3', 'horizontal')()
+        } else {
+          this._openAllBankerGroup.visible = false;
+          this._centerHCard.visible = false;
+          this._centerHCard.touchEnabled = false;
+          this._bankerCard3Group.touchEnabled = false;
+          this._bankerCard3.animation.gotoAndStopByFrame('sq_horizontal_dark_loop_back', 0)
+        }
+        this.moveAndShowA3(400);
+      }
+
+
 
       protected flipPlayerB3() {
         this.flipCard(this._playerCard3, 'horizontal')
@@ -199,7 +332,7 @@ namespace we {
       }
 
       protected showHorizontalLoopBack(display: dragonBones.EgretArmatureDisplay, time: number) {
-        display.animation.gotoAndStopByTime('horizontal_out_back', time)
+        display.animation.gotoAndStopByTime('horizontal_out', time)
         //display.animation.gotoAndStopByTime('horizontal_loop_back', time)
       }
 
@@ -213,6 +346,36 @@ namespace we {
         this._bankerCard1Group.addEventListener(egret.TouchEvent.TOUCH_TAP, this.focusCard(this._bankerCard1, 'a1', 'vertical'), this)
         this._bankerCard2Group.addEventListener(egret.TouchEvent.TOUCH_TAP, this.focusCard(this._bankerCard2, 'a2', 'vertical'), this)
         this._bankerCard3Group.addEventListener(egret.TouchEvent.TOUCH_TAP, this.focusCard(this._bankerCard3, 'a3', 'horizontal'), this)
+        this._openAllBankerGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openAllBanker, this);
+        this._openAllPlayerGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openAllPlayer, this);
+      }
+
+      protected openAllBanker() {
+        if (this._gameData.state === core.GameState.PEEK) {
+          this.flipCard(this._bankerCard1, 'vertical')
+          this.flipCard(this._bankerCard2, 'vertical')
+        }
+        if (this._gameData.state === core.GameState.PEEK_BANKER) {
+          this.flipCard(this._bankerCard3, 'horizontal')
+        }
+        const nextCard = this.nextCard();
+        if (nextCard) {
+          nextCard.animation.play(`sq_vertical_select_in`)
+          this.setCenterFlipCard(this.cardToData(this._currentFocusCard), 'vertical')
+        } else {
+          this._centerHCard.visible = false;
+          this._centerVCard.visible = false;
+        }
+      }
+
+      protected openAllPlayer() {
+        if (this._gameData.state === core.GameState.PEEK) {
+          this.flipCard(this._playerCard1, 'vertical')
+          this.flipCard(this._playerCard2, 'vertical')
+        }
+        if (this._gameData.state === core.GameState.PEEK_PLAYER) {
+          this.flipCard(this._playerCard3, 'horizontal')
+        }
       }
 
       protected resetFlipped() {
@@ -224,6 +387,10 @@ namespace we {
         this._bankerCard3.name = ''
         this.setSideCardsTouchEnabled(false)
         this.setCenterCardsTouchEnabled(false)
+        this._openAllBankerGroup.visible = false;
+        this._openAllPlayerGroup.visible = false;
+        this._smallCard1Exist = true;
+        this._smallCard2Exist = true;
       }
 
       protected setSideCardsTouchEnabled(enable: boolean) {
@@ -246,13 +413,14 @@ namespace we {
         return () => {
           this._currentFocusCard.animation.play(`sq_${orientation}_flip`, 1)
           this._currentFocusCard.name = 'flipped'
+          this.updateAllSum();
           const nextCard = this.nextCard();
           if (nextCard) {
             nextCard.animation.play(`sq_${orientation}_select_in`)
-            setTimeout(()=>{
+            setTimeout(() => {
               this._currentFocusCard = nextCard
               this.setCenterFlipCard(this.cardToData(this._currentFocusCard), orientation)
-            },400)
+            }, 800)
           }
         }
       }
@@ -295,46 +463,11 @@ namespace we {
         }
       }
 
-      protected setCardsFlipAllowed() {
-        if (this.isPlayerFlipAllowed()) {
-          this._playerCard1Group.touchEnabled = true;
-          this._playerCard2Group.touchEnabled = true;
-          this._currentFocusCard = this._playerCard1;
-          this._playerCard1.animation.gotoAndStopByFrame('sq_vertical_select_loop', 0);
-          this.setCenterFlipCard('b1', 'vertical')
-          this._centerVCard.visible = true;
-          this._centerVCard.touchEnabled = true;
-        } else {
-          this._playerCard1Group.touchEnabled = false;
-          this._playerCard2Group.touchEnabled = false;
-          this._playerCard1.animation.gotoAndStopByFrame('sq_vertical_dark_loop_back', 0)
-          this._playerCard2.animation.gotoAndStopByFrame('sq_vertical_dark_loop_back', 0)
-        }
-        if (this.isBankerFlipAllowed()) {
-          this._bankerCard1Group.touchEnabled = true;
-          this._bankerCard2Group.touchEnabled = true;
-          this._centerVCard.visible = true;
-          this._centerVCard.touchEnabled = true;
-        } else {
-          this._bankerCard1Group.touchEnabled = false;
-          this._bankerCard2Group.touchEnabled = false;
-          this._bankerCard1.animation.gotoAndStopByFrame('sq_vertical_dark_loop_back', 0)
-          this._bankerCard2.animation.gotoAndStopByFrame('sq_vertical_dark_loop_back', 0)
-        }
-
-        if (this.isBankerFlipAllowed() && !this.isPlayerFlipAllowed()) {
-          this.setCenterFlipCard('a1', 'vertical');
-          this._currentFocusCard = this._bankerCard1;
-          this._bankerCard1.animation.gotoAndStopByFrame('sq_vertical_select_loop', 0);
-        }
-
-
-      }
-
       protected setStateFinish(isInit: boolean) {
         super.setStateFinish(isInit);
+        this._openAllBankerGroup.visible = false;
+        this._openAllPlayerGroup.visible = false;
         this.flipAll();
-
       }
 
       protected isPlayerFlipAllowed() {
