@@ -3,6 +3,8 @@ namespace we {
     export class SideListBetItemCardHolder extends CardHolder implements ui.IResultDisplay {
       protected _playerPanel: eui.Image;
       protected _bankerPanel: eui.Image;
+      protected _playertxtbg:eui.Image;
+      protected _bankertxtbg:eui.Image;      
 
       protected lblPlayerName: ui.RunTimeLabel;
       protected lblBankerName: ui.RunTimeLabel;
@@ -132,6 +134,7 @@ namespace we {
       }
       public setPlayerBgColor(value: boolean) {
         if (value) {
+          this._bankertxtbg.texture = RES.getRes('d_lobby_panel_gamelist_betresult_bankerbg_png')
           this._playerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_playwinbg_png');
         } else {
           this._playerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_playbg_png');
@@ -140,6 +143,7 @@ namespace we {
 
       public setBankerBgColor(value: boolean) {
         if (value) {
+          this._playertxtbg.texture = RES.getRes('d_lobby_panel_gamelist_betresult_playbg_png');
           this._bankerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_bankwinbg_png');
         } else {
           this._bankerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_bankerbg_png');
