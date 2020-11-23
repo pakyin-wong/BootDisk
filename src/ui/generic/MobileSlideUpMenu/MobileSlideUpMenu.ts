@@ -32,7 +32,9 @@ namespace we {
 
         this._root.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
         this._scroller.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onScrollerTouchBegin, this);
-        // this._scroller.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onScrollerTouchEnd, this);
+        this._scroller.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onScrollerTouchMove, this);
+        this._scroller.addEventListener(egret.TouchEvent.TOUCH_END, this.onScrollerTouchEnd, this);
+        this._scroller.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onScrollerTouchCancel, this);
       }
 
       protected destroy() {
@@ -117,22 +119,19 @@ namespace we {
       }
 
       protected onTouchMove(evt: egret.TouchEvent) {
-        if (this._isScrollerTouched && this._scroller.viewport.scrollV >= 20) {
-          return;
-        }
         const touchY = evt.stageY;
         this._diff = touchY - this._startY;
         this._velocity = touchY - this._prevTouchY;
         this._prevTouchY = evt.stageY;
 
+        // prevent expand/ collapse if scroller touched, is expanded, or !(scrollV == 0 && diff<=0)
+        if (this._root.y==0 && this._isScrollerTouched && this._scroller.viewport.scrollV > 0) return;
         this._root.y = Math.max(0, this._startPosY + this._diff);
         this._root.height = Math.min(this._startHeight - this._diff, this.expandHeight);
       }
 
       protected onTouchEnd(evt: egret.TouchEvent) {
-        if (this._isScrollerTouched && this._scroller.viewport.scrollV >= 20) {
-          return;
-        }
+        if (this._root.y==0 && this._isScrollerTouched && this._scroller.viewport.scrollV > 0) return;
         const tempY = this._root.y;
         const expandDiff = tempY;
         const collapseDiff = Math.abs(tempY - (this.expandHeight - this.collapseHeight));
@@ -203,28 +202,34 @@ namespace we {
       }
 
       protected _isScrollerTouched: boolean = false;
+      protected _preventScroll: boolean = false;
       protected onScrollerTouchBegin(evt: egret.TouchEvent) {
         this._isScrollerTouched = true;
-        if (this._root.y > 0 && this._scroller.viewport.scrollV < 0) {
+
+        // prevent scroll if not expand, and scrollV < 10
+        if (this._root.y > 0 && this._scroller.viewport.scrollV < 10) {
           this._scroller.viewport.scrollV = 0;
+          this._preventScroll = true;
           evt.preventDefault();
+        } else {
+          this._preventScroll = false;
         }
       }
       protected onScrollerTouchMove(evt: egret.TouchEvent) {
-        if (this._root.y > 0 && this._scroller.viewport.scrollV < 0) {
+        if (this._preventScroll) {
           evt.preventDefault();
           this._scroller.viewport.scrollV = 0;
         }
       }
       protected onScrollerTouchEnd(evt: egret.TouchEvent) {
         this._isScrollerTouched = false;
-        if (this._root.y > 0 && this._scroller.viewport.scrollV < 0) {
+        if (this._preventScroll) {
           evt.preventDefault();
           this._scroller.viewport.scrollV = 0;
         }
       }
       protected onScrollerTouchCancel(evt: egret.TouchEvent) {
-        if (this._root.y > 0 && this._scroller.viewport.scrollV < 0) {
+        if (this._preventScroll) {
           evt.preventDefault();
           this._scroller.viewport.scrollV = 0;
         }
