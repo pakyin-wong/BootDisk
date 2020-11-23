@@ -46,8 +46,7 @@ namespace we {
         if (env.autoConfirmBet) {
           status = this._enabled ? 'idle_switch_to_on' : 'disable_switch_to_on';
         } else {
-          status = this._enabled ? 'auto_confirm_idle_to_hover' : 'auto_confirm_idle_to_hover';
-          // status = this._enabled ? 'idle_switch_to_on' : outstanding ****'白字轉灰V';
+          status = this._enabled ? 'auto_confirm_idle_to_hover' : 'disable_switch_to_off';
         }
         this.playPromise(status, 1);
       }

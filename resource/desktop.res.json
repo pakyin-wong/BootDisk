@@ -8109,6 +8109,21 @@
 			"name": "ui_sfx_result_win2_mp3",
 			"type": "sound",
 			"url": "assets/sounds/common/ui_sfx_result_win.mp3"
+		},
+		{
+			"name": "common_ui_ske2_json",
+			"type": "json",
+			"url": "assets/dragonbones/common/common_ui/old/common_ui_ske.json"
+		},
+		{
+			"name": "common_ui_tex2_json",
+			"type": "json",
+			"url": "assets/dragonbones/common/common_ui/old/common_ui_tex.json"
+		},
+		{
+			"name": "common_ui_tex2_png",
+			"type": "image",
+			"url": "assets/dragonbones/common/common_ui/old/common_ui_tex.png"
 		}
 	]
 }
