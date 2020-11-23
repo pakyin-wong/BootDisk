@@ -332,7 +332,7 @@ namespace we {
       }
 
       protected showHorizontalLoopBack(display: dragonBones.EgretArmatureDisplay, time: number) {
-        display.animation.gotoAndStopByTime('horizontal_out_back', time)
+        display.animation.gotoAndStopByTime('horizontal_out', time)
         //display.animation.gotoAndStopByTime('horizontal_loop_back', time)
       }
 
