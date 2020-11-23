@@ -108,6 +108,13 @@ namespace we {
           this._repeatButton.buttonEnabled = this._repeatButton.touchEnabled;
           this._doubleButton.buttonEnabled = hasUncfmBet;
           // this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isBetState && hasCfmBet;
+          if (env.autoConfirmBet) {
+            // this._timer.bg_color.fillColor = '0x0e1721';
+            // this._timer.bg_color.fillAlpha = 0.4;
+            console.log(`change bg color`);
+            this._timer.bg_color.fillColor = '0xFF0BFF';
+            this._timer.bg_color.fillAlpha = 1;
+          }
           (this._confirmButton as ui.BetConfirmButton).buttonEnabled = isBetState && hasUncfmBet;
           (this._confirmButton as ui.BetConfirmButton).isBetState = isBetState;
         }
