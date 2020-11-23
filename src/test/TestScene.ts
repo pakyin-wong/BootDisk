@@ -4,8 +4,9 @@ namespace we {
       private _page: eui.Group;
       private _pageIndex: number;
       private _items: string[] = [
-        'dbTest',
+        'MobileSlideupMenuTest',
         'BetChipSetHorizontalTest',
+        'dbTest',
         'AnimBetChipTest',
         'RoadmapTest',
         'LoadingManagerTest',

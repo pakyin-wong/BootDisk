@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.SlideUpMenuSkin" width="1242" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" height="1966">
+	<e:Group id="_root" left="0" right="0" height="1966" y="0">
+		<e:Rect id="_touchArea" right="0" top="0" left="0" bottom="0" fillAlpha="0" locked="true"/>
+		<e:Rect id="_btnClose" width="80" height="80" right="31" top="31"/>
+		<ui:RunTimeLabel id="_lblTitle" text="Label" horizontalCenter="0" height="119" size="80" textAlign="center" verticalAlign="middle" textColor="0xc59466" touchEnabled="false" top="31"/>
+		<e:Group id="_backBtnGroup" width="260" height="136" left="31" top="31" anchorOffsetX="0" anchorOffsetY="0">
+			<e:Rect width="80" height="80" right="31" top="31" x="1100" y="0" scaleX="1" scaleY="1" fillColor="0xffbf00"/>
+			<ui:RunTimeLabel id="_lblBackButton" text="Label" horizontalCenter="0" height="65" size="44" verticalCenter="-892.5" textAlign="center" verticalAlign="middle" textColor="0xc59466"/>
+			<e:layout>
+				<e:HorizontalLayout horizontalAlign="left" verticalAlign="middle"/>
+			</e:layout>
+		</e:Group>
+		<e:Scroller id="_scroller" left="0" right="0" bottom="0" top="198">
+			<e:Group id="_content"/>
+		</e:Scroller>
+	</e:Group>
+</e:Skin>
