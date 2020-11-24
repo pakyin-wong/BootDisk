@@ -124,14 +124,24 @@ namespace we {
         this._velocity = touchY - this._prevTouchY;
         this._prevTouchY = evt.stageY;
 
+        if (this._root.y==0 || this._scroller.viewport.scrollV > 0) {
+          this._scroller.enabled = true;
+          this._scroller.touchEnabled = true;
+        } else {
+          this._scroller.enabled = false;
+          this._scroller.touchEnabled = false;
+        }
         // prevent expand/ collapse if scroller touched, is expanded, or !(scrollV == 0 && diff<=0)
-        if (this._root.y==0 && this._isScrollerTouched && this._scroller.viewport.scrollV > 0) return;
+        if (this._isScrollerTouched && !this._preventScroll) return;
         this._root.y = Math.max(0, this._startPosY + this._diff);
         this._root.height = Math.min(this._startHeight - this._diff, this.expandHeight);
       }
 
       protected onTouchEnd(evt: egret.TouchEvent) {
-        if (this._root.y==0 && this._isScrollerTouched && this._scroller.viewport.scrollV > 0) return;
+        if (this._isScrollerTouched && !this._preventScroll) {
+          this._isScrollerTouched = false;
+          return;
+        }
         const tempY = this._root.y;
         const expandDiff = tempY;
         const collapseDiff = Math.abs(tempY - (this.expandHeight - this.collapseHeight));
@@ -203,35 +213,35 @@ namespace we {
 
       protected _isScrollerTouched: boolean = false;
       protected _preventScroll: boolean = false;
+
       protected onScrollerTouchBegin(evt: egret.TouchEvent) {
         this._isScrollerTouched = true;
+        evt.preventDefault();
 
         // prevent scroll if not expand, and scrollV < 10
         if (this._root.y > 0 && this._scroller.viewport.scrollV < 10) {
           this._scroller.viewport.scrollV = 0;
           this._preventScroll = true;
-          evt.preventDefault();
         } else {
           this._preventScroll = false;
         }
       }
       protected onScrollerTouchMove(evt: egret.TouchEvent) {
+        console.log('scroll move');
         if (this._preventScroll) {
           evt.preventDefault();
-          this._scroller.viewport.scrollV = 0;
         }
       }
       protected onScrollerTouchEnd(evt: egret.TouchEvent) {
-        this._isScrollerTouched = false;
+        console.log('scroll end');
         if (this._preventScroll) {
           evt.preventDefault();
-          this._scroller.viewport.scrollV = 0;
         }
       }
       protected onScrollerTouchCancel(evt: egret.TouchEvent) {
+        console.log('scroll cancel');
         if (this._preventScroll) {
           evt.preventDefault();
-          this._scroller.viewport.scrollV = 0;
         }
       }
     }

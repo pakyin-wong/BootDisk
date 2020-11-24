@@ -21,6 +21,8 @@ namespace we {
         this.height = this.stage.stageHeight;
 
         const testPage: ui.MobileSlideUpMenuPage = new ui.MobileSlideUpMenuPage();
+        const pageContent = new overlay.SystemSetting();
+        testPage.addChild(pageContent);
         const menu: ui.MobileSlideUpMenu = new ui.MobileSlideUpMenu();
         menu.bottom = 0;
         this.addChild(menu);
