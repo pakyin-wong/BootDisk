@@ -65,7 +65,9 @@ namespace we {
                 this.playPromise('disable', 1);
               } else if (!oldDown && this._down) {
                 // if press down
-                this.prevProm = this.playPromise('hover_to_press', 1);
+                this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
+                this._display.animation.fadeIn('hover_to_press', 0, 1, 0, 'CONFIRM_GROUP2');
+                // this.prevProm = this.playPromise('hover_to_press', 1);
               } else if (this._hover && oldDown && !this._down) {
                 // if press up
                 await this.prevProm;
@@ -73,18 +75,20 @@ namespace we {
               } else if (!oldHover && this._hover) {
                 // if roll over
                 await this.prevProm;
-                this.playPromise('idle_to_hover', 1);
+                this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
+                this._display.animation.fadeIn('idle_to_hover', 0, 1, 0, 'CONFIRM_GROUP2');
+                // this.playPromise('idle_to_hover', 1);
               } else if (oldHover && !this._hover) {
                 // roll out
                 await this.prevProm;
-                this.playPromise('hover_to_idle', 1);
+                this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
+                this._display.animation.fadeIn('hover_to_idle', 0, 1, 0, 'CONFIRM_GROUP2');
+                // this.playPromise('hover_to_idle', 1);
               } else {
                 // if idle on bet state
                 await this.prevProm;
-                // console.log('this._display.animation',this._display.animation)
-                  this._display.animation.fadeIn('betting',0,0,0,'CONFIRM_GROUP1')
-                  this._display.animation.fadeIn('disble_to_idle',0,0,0,'CONFIRM_GROUP2')
-                // console.log('this._display',this._display)
+                this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
+                this._display.animation.fadeIn('disble_to_idle', 0, 1, 0, 'CONFIRM_GROUP2');
                 // this.playPromise('disble_to_idle', 0);
               }
               break;
