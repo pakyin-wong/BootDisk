@@ -45,6 +45,7 @@ namespace we {
       //   this._playerCard3.visible = false;
       // }
       public updateResult(gameData) {
+        console.log('updateResultupdateResultupdateResultupdateResult')
         if (this._timer) {
           // this.card1Banker.visible = false;
           // this.card2Banker.visible = false;
@@ -137,6 +138,7 @@ namespace we {
           this._bankertxtbg.texture = RES.getRes('d_lobby_panel_gamelist_betresult_bankerbg_png')
           this._playerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_playwinbg_png');
         } else {
+          this._playertxtbg.texture = RES.getRes('d_lobby_panel_gamelist_betresult_playwinbg_png');
           this._playerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_playbg_png');
         }
       }
@@ -146,7 +148,8 @@ namespace we {
           this._playertxtbg.texture = RES.getRes('d_lobby_panel_gamelist_betresult_playbg_png');
           this._bankerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_bankwinbg_png');
         } else {
-          this._bankerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_bankerbg_png');
+          this._bankerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_bankwinbg_png');
+          this._bankertxtbg.texture = RES.getRes('d_lobby_panel_gamelist_betresult_bankerbg_png')
         }
       }
     }
