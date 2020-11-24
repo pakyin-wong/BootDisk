@@ -571,6 +571,10 @@ namespace we {
 				const tableInfo = env.getOrCreateTableInfo(gameStatus.tableid);
 				gameStatus.previousstate = tableInfo.data ? tableInfo.data.state : null;
 				gameStatus.starttime = Math.floor(gameStatus.starttime / 1000000);
+				if(gameStatus.peekstarttime){
+					gameStatus.peekstarttime = Math.floor(gameStatus.peekstarttime / 1000000);
+					console.log('peekstarttime xxx', gameStatus.tableid, gameStatus.gameroundid,  gameStatus.peekstarttime , gameStatus.starttime)
+				}
         /*
         if (tableInfo && tableInfo.tableid && tableInfo.tableid.indexOf('BAB') && tableInfo.data){
           console.log('BAB tableid ' + tableInfo.tableid + ':' + tableInfo.data)
