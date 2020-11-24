@@ -114,30 +114,29 @@ namespace we {
           this._doubleButton.alpha = totalUncfmBetAmount ? 1 : 0.5;
           this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isEnable;
           this._confirmButton.alpha = isEnable ? 1 : 0.3;
+          if (this._timer.bg_color) {
+            this._timer.bg_color.alpha = isEnable ? 0.7 : 0;
+            if (isEnable) {
+              this._timer.bg_flash();
+            } else {
+              this._timer.removebg_flash();
+            }
+          }
         } else {
           this._undoButton.buttonEnabled = isEnable;
           this._cancelButton.buttonEnabled = isEnable;
           this._repeatButton.buttonEnabled = this._repeatButton.touchEnabled;
           this._doubleButton.buttonEnabled = hasUncfmBet;
           // this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isBetState && hasCfmBet;
-          if (env.autoConfirmBet) {
-            // this._timer.bg_color.fillColor = '0x0e1721';
-            // this._timer.bg_color.fillAlpha = 0.4;
-            console.log(`change bg color`);
-            this._timer.bg_color.fillColor = '0xFF0BFF';
+          this._timer.bg_color.fillColor = '0x101720';
+          this._timer.bg_color.fillAlpha = 0.4;
+          if (!env.autoConfirmBet && isEnable) {
             this._timer.bg_color.fillAlpha = 1;
           }
           (this._confirmButton as ui.BetConfirmButton).buttonEnabled = isBetState && hasUncfmBet;
           (this._confirmButton as ui.BetConfirmButton).isBetState = isBetState;
-        }
 
-        if (this._timer.bg_color) {
-          this._timer.bg_color.alpha = isEnable ? 0.7 : 0;
-          if (isEnable) {
-            this._timer.bg_flash();
-          } else {
-            this._timer.removebg_flash();
-          }
+          this._timer.bg_color.refresh();
         }
       }
       protected onConfirmPressed() {

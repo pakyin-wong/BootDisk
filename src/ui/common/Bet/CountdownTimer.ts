@@ -112,18 +112,18 @@ namespace we {
       }
 
       public bg_flash() {
-        console.log(`bg_flash`);
         if (env.isMobile) {
           this.bg_color.alpha = 0.7;
           this.removebg_flash();
           egret.Tween.get(this.bg_color, { loop: true }).to({ alpha: 0 }, 200);
         } else {
-          this.bg_color.alpha = 1;
-          this.bg_color.fillColor = '0xFF0BFF';
-          this.removebg_flash();
-          // egret.Tween.get(this.bg_color, { loop: true }).to({ fillColor: '0x101720' }, 200);
+          if (env.autoConfirmBet) {
+            // in desktop antoConfirm state, confirmBtn bg is always gray in color
+            this.bg_color.fillColor = '0x101720';
+            this.bg_color.fillAlpha = 0.4;
+            this.bg_color.refresh();
+          }
         }
-        // while not time is out and uncfmBet >0 , do flashing
       }
       public removebg_flash() {
         if (this.bg_color) {
