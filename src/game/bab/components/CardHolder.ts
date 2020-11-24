@@ -277,7 +277,7 @@ namespace we {
         const cardDataNames = ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
         let total = -1;
         //let currentDataIndex = 0;
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 6; i++) {
           if (this._gameData[cardDataNames[i]]) {
             //currentDataIndex = i
             total++;

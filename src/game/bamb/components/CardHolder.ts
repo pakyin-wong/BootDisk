@@ -127,6 +127,27 @@ namespace we {
         this.setLabel(this._playerCard3.armature.getSlot(`card_number_horizontal`), this.getCardIndex('b3', core.GameState.DEAL));
       }
 
+      protected disableFlippedCardMouseEvent(){
+        if(this.isPlayerFlipAllowed()){
+          this._playerCard1Group.touchEnabled = !(this._playerCard1.name === 'flipped') 
+          this._playerCard2Group.touchEnabled = !(this._playerCard2.name === 'flipped') 
+          this._playerCard3Group.touchEnabled = !(this._playerCard3.name === 'flipped') 
+        }else{
+          this._playerCard1Group.touchEnabled = false;
+          this._playerCard2Group.touchEnabled = false;
+          this._playerCard3Group.touchEnabled = false;
+        }
+        if(this.isBankerFlipAllowed()){
+          this._bankerCard1Group.touchEnabled = !(this._bankerCard1.name === 'flipped') 
+          this._bankerCard2Group.touchEnabled = !(this._bankerCard2.name === 'flipped') 
+          this._bankerCard3Group.touchEnabled = !(this._bankerCard3.name === 'flipped')
+        }else{
+          this._bankerCard1Group.touchEnabled = false;
+          this._bankerCard2Group.touchEnabled = false;
+          this._bankerCard3Group.touchEnabled = false;
+        }
+      }
+
 
       protected setBankerA3Card() {
         this.setCardFrontFace(this._bankerCard3, 'a3', 'horizontal', 0);
@@ -589,17 +610,21 @@ namespace we {
 
           group.visible = false;
 
+          this.setSideCardsTouchEnabled(false)
+          this.setCenterCardsTouchEnabled(false)
+
           await this.flipCard(card1, 'vertical')
           await this.flipCard(card2, 'vertical')
           
-
           const nextCard = this.nextCard();
           if (nextCard) {
+            this.disableFlippedCardMouseEvent();
             nextCard.animation.play(`sq_vertical_select_in`)
             this.changeCenterCardBackAnim('vertical')
             this._currentFocusCard = nextCard
             this.setCenterFlipCard(this.cardToData(nextCard), 'vertical')
             this._centerVCard.visible = true;
+            this._centerVCard.touchEnabled = true;
             
           } 
         }
@@ -683,6 +708,9 @@ namespace we {
 
       protected focusCard(card: dragonBones.EgretArmatureDisplay, dataName: string, orientation: string) {
         return () => {
+          if(card.name === 'flipped'){
+            return;
+          }
           if (this._currentFocusCard) {
             if (this._currentFocusCard.name === 'flipped') {
               this._currentFocusCard.animation.gotoAndStopByFrame(`sq_${orientation}_loop_front`, 0)
