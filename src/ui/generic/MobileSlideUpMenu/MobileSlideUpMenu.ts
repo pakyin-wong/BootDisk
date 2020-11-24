@@ -90,6 +90,7 @@ namespace we {
             scroller.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onScrollerTouchMove, this);
             scroller.addEventListener(egret.TouchEvent.TOUCH_END, this.onScrollerTouchEnd, this);
             scroller.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onScrollerTouchCancel, this);
+            scroller.bounces = false;
           }
         }
 
@@ -161,6 +162,7 @@ namespace we {
           scroller.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onScrollerTouchMove, this);
           scroller.addEventListener(egret.TouchEvent.TOUCH_END, this.onScrollerTouchEnd, this);
           scroller.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onScrollerTouchCancel, this);
+          scroller.bounces = false;
         }
 
       }
@@ -194,6 +196,7 @@ namespace we {
 
         // prevent expand/ collapse if scroller touched, is expanded, or !(scrollV == 0 && diff<=0)
         if (this._isScrollerTouched && !this._preventScroll) {
+          if (!(this._diff > 0 && this._scroller.viewport.scrollV == 0))
           return;
         }
         if (Math.abs(this._diff) < 50) {
@@ -211,6 +214,7 @@ namespace we {
         this.isEnd = true;
         if (this._isScrollerTouched && !this._preventScroll) {
           this._isScrollerTouched = false;
+          if (!(this._diff > 0 && this._scroller.viewport.scrollV == 0))
           return;
         }
         const tempY = this._root.y;

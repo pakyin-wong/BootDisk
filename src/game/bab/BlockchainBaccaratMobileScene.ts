@@ -35,6 +35,11 @@ namespace we {
 
       protected mount() {
         super.mount();
+
+      }
+
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
         this.initVariables();
         // this._helpPanel.setToggler(this._helpButton);
         // this._deckPanel.setToggler(this._deckButton);
@@ -50,7 +55,6 @@ namespace we {
         this.getShoeInfo();
         this._bottomGamePanel.addEventListener('TOGGLE', this.toggleBottomGamePanel, this)
         this.toggleBottomGamePanel();
-
       }
 
       protected initVariables(){
