@@ -473,13 +473,6 @@ namespace we {
               await utils.playAnimation(this._playerCard1, this._verticalFlip, 1);
               await utils.playAnimation(this._playerCard2, this._verticalFlip, 1);
 
-              // const p4 = utils.waitDragonBone(this._playerCard1);
-              // const p5 = utils.waitDragonBone(this._playerCard2);
-              // this._playerCard1.animation.play(`vertical_flip`, 1);
-              // this._playerCard2.animation.play(`vertical_flip`, 1);
-              // await p4;
-              // await p5;
-
               this.updatePlayerSum();
               break;
             case 'a2':

@@ -100,6 +100,8 @@ namespace we {
       }
 
       protected setStateDeal(isInit: boolean) {
+        this.movePin();
+        this.moveShoe();
         if (isInit) {
           console.log('setStateDeal isInit')
           this.betInitState(core.GameState.DEAL);
@@ -202,6 +204,8 @@ namespace we {
 
 
       protected setStatePeek(isInit: boolean) {
+        this.movePin();
+        this.moveShoe();
         if (isInit) {
           console.log('setStatePeek isInit')
           this.betInitState(core.GameState.DEAL);
@@ -274,6 +278,8 @@ namespace we {
       }
 
       protected setStatePeekPlayer(isInit: boolean) {
+        this.movePin();
+        this.moveShoe();
         if (isInit) {
           console.log('setStatePeekPlayer isInit')
           this.betInitState(core.GameState.DEAL);
@@ -282,6 +288,7 @@ namespace we {
         this._smallCard1Exist = false;
         this.setPlayerB3Card();
         this.flipRemainingFirst4Card();
+        this.showVerticalOutBack(this._smallCard1, 1);
         this._openAllBankerGroup.visible = false;
         this._centerVCard.visible = false;
         this._centerVCard.touchEnabled = false;
@@ -306,13 +313,25 @@ namespace we {
       }
 
       protected setStatePeekBanker(isInit: boolean) {
+        this.movePin();
+        this.moveShoe();
         if (isInit) {
           console.log('setStatePeekBanker isInit')
           this.betInitState(core.GameState.DEAL);
           this.setFirst4Cards();
           this.setPlayerB3Card();
+          if(!this._gameData.b3 && this._smallCard1Exist){
+            this._smallCard1Exist = false
+          }
         }
-        this._smallCard2Exist = false;
+        if(this._smallCard1Exist){
+          this._smallCard1Exist = false;
+          this.showVerticalOutBack(this._smallCard1, 1);                    
+        }else{
+          this._smallCard2Exist = false;
+          this.showVerticalOutBack(this._smallCard2, 1);          
+        }
+        
         this.setBankerA3Card();
         this.flipRemainingFirst4Card();
         this._openAllPlayerGroup.visible = false;
