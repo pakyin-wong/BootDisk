@@ -17,8 +17,8 @@ namespace we {
       protected _pageStack: MobileSlideUpMenuPage[];
       protected _currentPage: MobileSlideUpMenuPage;
 
-      public expandHeight: number = 1966;
-      public collapseHeight: number = 1343;
+      // protected _expandHeight: number = 1966;
+      // protected _collapseHeight: number = 1343;
       public tweenDuration: number = 200;
 
       constructor() {
@@ -26,7 +26,42 @@ namespace we {
         this._pageStack = [];
       }
 
+      protected get expandHeight() : number {
+        if (env.orientation == egret.OrientationMode.PORTRAIT) {
+          return 1966;
+        } else {
+          return 1095;
+        }
+      }
+
+      protected get collapseHeight() : number {
+        if (env.orientation == egret.OrientationMode.PORTRAIT) {
+          return 1343;
+        } else {
+          return 671;
+        }
+      }
+
       protected mount() {
+      }
+
+      protected clearOrientationDependentComponent() {
+        this._btnClose.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.hide, this);
+
+        this._root.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
+        this._scroller.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onScrollerTouchBegin, this);
+        this._scroller.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onScrollerTouchMove, this);
+        this._scroller.removeEventListener(egret.TouchEvent.TOUCH_END, this.onScrollerTouchEnd, this);
+        this._scroller.removeEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onScrollerTouchCancel, this);
+
+        if (this._currentPage) {
+          this._currentPage.exitPage();
+        }
+        this._content.removeChildren();
+
+      }
+
+      protected initOrientationDependentComponent() {
         this._btnClose.addEventListener(egret.TouchEvent.TOUCH_TAP, this.hide, this);
         this._root.y = this.expandHeight;
 
@@ -35,7 +70,17 @@ namespace we {
         this._scroller.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onScrollerTouchMove, this);
         this._scroller.addEventListener(egret.TouchEvent.TOUCH_END, this.onScrollerTouchEnd, this);
         this._scroller.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onScrollerTouchCancel, this);
+
+        if (this._pageStack.length > 0) {
+          const page = this._pageStack[this._pageStack.length-1];
+          this._content.addChild(page);
+          this._currentPage = page;
+          this._currentPage.left = 0;
+          this._currentPage.right = 0;
+          this._currentPage.enterPage();
+        }
       }
+
 
       protected destroy() {
         super.destroy();
@@ -63,6 +108,7 @@ namespace we {
         this._content.removeChildren();
         this._pageStack = [];
 
+        page.menu = this;
         // add page to stack and add to _content
         this._pageStack.push(page);
         this._content.addChild(page);
@@ -77,6 +123,9 @@ namespace we {
           this._currentPage.exitPage();
         }
         this._content.removeChildren();
+
+        page.menu = this;
+
         this._pageStack.push(page);
         this._content.addChild(page);
         this._currentPage = page;
@@ -88,6 +137,7 @@ namespace we {
       public popPage() {
         if (this._pageStack.length > 1) {
           this._currentPage.exitPage();
+          this._currentPage.menu = null;
           this._content.removeChildren();
           const page = this._pageStack.pop();
           this._content.addChild(page);
