@@ -672,6 +672,7 @@
 		"resource/skin_mobile_portrait/overlay/BetHistory/LoPopupBetDetail.exml",
 		"resource/skin_mobile_portrait/overlay/BetHistory/BetHistorySearch.exml",
 		"resource/skin_mobile_portrait/overlay/BetHistory/BetHistory.exml",
+		"resource/skin_mobile_portrait/overlay/BetHistory/BetHistoryDetailIR.exml",
 		"resource/skin_mobile_portrait/overlay/BetHistory/BetHistoryItem.exml",
 		"resource/skin_mobile_portrait/overlay/BetHistory/BetHistoryItemLottery_popup.exml",
 		"resource/skin_mobile_portrait/overlay/BetHistory/BetHistoryItemLottery.exml",
