@@ -2,6 +2,12 @@
 namespace we {
   export namespace ui {
     export class MobileSlideUpMenu extends core.BaseEUI {
+      public static Status = {
+        closed: -1,
+        collapse: 0,
+        expand: 1,
+      };
+
       protected _root: eui.Group;
 
       protected _lblTitle: RunTimeLabel;
@@ -14,8 +20,9 @@ namespace we {
       protected _scroller: eui.Scroller;
       protected _content: eui.Group;
 
-      protected _pageStack: MobileSlideUpMenuPage[];
-      protected _currentPage: MobileSlideUpMenuPage;
+      protected _currentOpt: any;
+      protected _currentPage: ui.Panel;
+      protected _currentStatus: number = -1;
 
       // protected _expandHeight: number = 1966;
       // protected _collapseHeight: number = 1343;
@@ -23,10 +30,9 @@ namespace we {
 
       constructor() {
         super('SlideUpMenuSkin', false);
-        this._pageStack = [];
       }
 
-      protected get expandHeight() : number {
+      protected get expandHeight(): number {
         if (env.orientation == egret.OrientationMode.PORTRAIT) {
           return 1966;
         } else {
@@ -34,7 +40,7 @@ namespace we {
         }
       }
 
-      protected get collapseHeight() : number {
+      protected get collapseHeight(): number {
         if (env.orientation == egret.OrientationMode.PORTRAIT) {
           return 1343;
         } else {
@@ -42,45 +48,56 @@ namespace we {
         }
       }
 
-      protected mount() {
-      }
-
       protected clearOrientationDependentComponent() {
         this._btnClose.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.hide, this);
 
         this._root.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
-        this._scroller.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onScrollerTouchBegin, this);
-        this._scroller.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onScrollerTouchMove, this);
-        this._scroller.removeEventListener(egret.TouchEvent.TOUCH_END, this.onScrollerTouchEnd, this);
-        this._scroller.removeEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onScrollerTouchCancel, this);
 
-        if (this._currentPage) {
-          this._currentPage.exitPage();
-        }
         this._content.removeChildren();
-
       }
 
       protected initOrientationDependentComponent() {
         this._btnClose.addEventListener(egret.TouchEvent.TOUCH_TAP, this.hide, this);
         this._root.y = this.expandHeight;
+        this.height = this.expandHeight;
 
         this._root.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
-        this._scroller.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onScrollerTouchBegin, this);
-        this._scroller.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onScrollerTouchMove, this);
-        this._scroller.addEventListener(egret.TouchEvent.TOUCH_END, this.onScrollerTouchEnd, this);
-        this._scroller.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onScrollerTouchCancel, this);
 
-        if (this._pageStack.length > 0) {
-          const page = this._pageStack[this._pageStack.length-1];
+        if (this._currentOpt) {
+          const page = new this._currentOpt.class();
           this._content.addChild(page);
           this._currentPage = page;
           this._currentPage.left = 0;
           this._currentPage.right = 0;
-          this._currentPage.enterPage();
+
+          this._lblTitle.renderText = () => i18n.t(this._currentOpt.title ? this._currentOpt.title : '');
+
+          if (this._currentOpt.backClass) {
+            this._backBtnGroup.visible = true;
+            this._lblBackButton.renderText = () => i18n.t(this._currentOpt.backTitle ? this._currentOpt.backTitle : '');
+          } else {
+            this._backBtnGroup.visible = false;
+          }
+
+          // if page has scroller, add listeners
+          const scroller = this._currentPage['_scroller'];
+          if (scroller) {
+            scroller.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onScrollerTouchBegin, this);
+            scroller.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onScrollerTouchMove, this);
+            scroller.addEventListener(egret.TouchEvent.TOUCH_END, this.onScrollerTouchEnd, this);
+            scroller.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onScrollerTouchCancel, this);
+          }
+        }
+
+        switch (this._currentStatus) {
+          case MobileSlideUpMenu.Status.collapse:
+            this.tweenTo(this.expandHeight - this.collapseHeight);
+            break;
+          case MobileSlideUpMenu.Status.expand:
+            this.tweenTo(0);
+            break;
         }
       }
-
 
       protected destroy() {
         super.destroy();
@@ -88,64 +105,43 @@ namespace we {
 
       public show() {
         // tween root
-        this.tweenTo(this.expandHeight - this.collapseHeight);
+        if (this._currentStatus<0) {
+          this.tweenTo(this.expandHeight - this.collapseHeight);
+          this._currentStatus = 0;
+        }
+
       }
 
       public hide() {
         egret.Tween.removeTweens(this._root);
         if (this._root.y >= this.expandHeight) {
+          this._currentStatus = -1;
         } else {
-          const targetY = this._root.y > this.collapseHeight ? this.collapseHeight : this.expandHeight;
-          egret.Tween.get(this._root).to({ y: targetY }, this.tweenDuration);
+          egret.Tween.get(this._root).to({ y: this.expandHeight }, this.tweenDuration).call(()=>{this._currentStatus = -1});
         }
       }
 
-      public setPage(page: MobileSlideUpMenuPage) {
+      public setPage(opt: any) {
         // clear previous pages
-        if (this._currentPage) {
-          this._currentPage.exitPage();
-        }
+        this._currentPage = null;
         this._content.removeChildren();
-        this._pageStack = [];
+        this._currentOpt = opt;
+        const page = new opt.class();
 
-        page.menu = this;
+        this._lblTitle.renderText = () => i18n.t(this._currentOpt.title ? this._currentOpt.title : '');
+
+        if (this._currentOpt.backClass) {
+          this._backBtnGroup.visible = true;
+          this._lblBackButton.renderText = () => i18n.t(this._currentOpt.backTitle ? this._currentOpt.backTitle : '');
+        } else {
+          this._backBtnGroup.visible = false;
+        }
+
         // add page to stack and add to _content
-        this._pageStack.push(page);
         this._content.addChild(page);
         this._currentPage = page;
         this._currentPage.left = 0;
         this._currentPage.right = 0;
-        this._currentPage.enterPage();
-      }
-
-      public pushPage(page: MobileSlideUpMenuPage) {
-        if (this._currentPage) {
-          this._currentPage.exitPage();
-        }
-        this._content.removeChildren();
-
-        page.menu = this;
-
-        this._pageStack.push(page);
-        this._content.addChild(page);
-        this._currentPage = page;
-        this._currentPage.left = 0;
-        this._currentPage.right = 0;
-        this._currentPage.enterPage();
-      }
-
-      public popPage() {
-        if (this._pageStack.length > 1) {
-          this._currentPage.exitPage();
-          this._currentPage.menu = null;
-          this._content.removeChildren();
-          const page = this._pageStack.pop();
-          this._content.addChild(page);
-          this._currentPage = page;
-          this._currentPage.left = 0;
-          this._currentPage.right = 0;
-          this._currentPage.enterPage();
-        }
       }
 
       protected _startY: number;
@@ -174,15 +170,13 @@ namespace we {
         this._velocity = touchY - this._prevTouchY;
         this._prevTouchY = evt.stageY;
 
-        if (this._root.y==0 || this._scroller.viewport.scrollV > 0) {
-          this._scroller.enabled = true;
-          this._scroller.touchEnabled = true;
-        } else {
-          this._scroller.enabled = false;
-          this._scroller.touchEnabled = false;
-        }
         // prevent expand/ collapse if scroller touched, is expanded, or !(scrollV == 0 && diff<=0)
-        if (this._isScrollerTouched && !this._preventScroll) return;
+        if (this._isScrollerTouched && !this._preventScroll) {
+          return;
+        }
+        if (Math.abs(this._diff) < 50) {
+          return;
+        }
         this._root.y = Math.max(0, this._startPosY + this._diff);
         this._root.height = Math.min(this._startHeight - this._diff, this.expandHeight);
       }
@@ -204,6 +198,7 @@ namespace we {
             switch (minDiff) {
               case expandDiff:
                 this.tweenTo(this.expandHeight - this.collapseHeight);
+                this._currentStatus = 0;
                 break;
               case collapseDiff:
                 this.hide();
@@ -217,12 +212,15 @@ namespace we {
             switch (minDiff) {
               case expandDiff:
                 this.tweenTo(0);
+                this._currentStatus = 1;
                 break;
               case collapseDiff:
                 this.tweenTo(0);
+                this._currentStatus = 1;
                 break;
               case closeDiff:
                 this.tweenTo(this.expandHeight - this.collapseHeight);
+                this._currentStatus = 0;
                 break;
             }
           }
@@ -231,9 +229,11 @@ namespace we {
           switch (minDiff) {
             case expandDiff:
               this.tweenTo(0);
+              this._currentStatus = 1;
               break;
             case collapseDiff:
               this.tweenTo(this.expandHeight - this.collapseHeight);
+              this._currentStatus = 0;
               break;
             case closeDiff:
               this.hide();

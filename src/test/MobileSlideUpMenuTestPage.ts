@@ -20,13 +20,15 @@ namespace we {
         this.removeEventListener(eui.UIEvent.COMPLETE, this.mount, this);
         this.height = this.stage.stageHeight;
 
-        const testPage: ui.MobileSlideUpMenuPage = new ui.MobileSlideUpMenuPage();
-        const pageContent = new overlay.SystemSetting();
-        testPage.addChild(pageContent);
         const menu: ui.MobileSlideUpMenu = new ui.MobileSlideUpMenu();
         menu.bottom = 0;
         this.addChild(menu);
-        menu.setPage(testPage);
+        menu.setPage({
+          class: overlay.SystemSetting,
+          title: 'System Setting',
+          backClass: overlay.MemberReport,
+          backTitle: 'Member Report',
+        });
         menu.show();
       }
 
