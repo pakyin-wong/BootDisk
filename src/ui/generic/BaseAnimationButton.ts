@@ -67,6 +67,15 @@ namespace we {
           throw new Error('Missing property dbDisplay in BaseAnimationButton');
         }
         if (!this._display) {
+          this.initDisplay();
+        }
+
+        // call update on mount to set initial button state
+        const oldState = [this._down, this._hover];
+        this.update(oldState);
+      }
+
+      protected initDisplay() {
           const factory = BaseAnimationButton.getFactory(this._dbClass);
           this._display = factory.buildArmatureDisplay(this._dbDisplay);
           utils.dblistenToSoundEffect(this._display);
@@ -80,11 +89,6 @@ namespace we {
 
           this._group.addChild(this._display);
           this.addChild(this._group);
-        }
-
-        // call update on mount to set initial button state
-        const oldState = [this._down, this._hover];
-        this.update(oldState);
       }
 
       public destroy() {

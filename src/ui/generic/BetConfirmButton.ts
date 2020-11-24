@@ -22,6 +22,16 @@ namespace we {
       protected mount() {
         super.mount();
         this.addEventListeners();
+
+      }
+
+      protected initDisplay() {
+          const factory = BaseAnimationButton.getFactory(this._dbClass);
+          this._display = factory.buildArmatureDisplay(this._dbDisplay);
+          utils.dblistenToSoundEffect(this._display);
+          this._display.x = 0;
+          this._display.y = 0;
+          this.addChild(this._display);
       }
 
       public destroy() {
@@ -52,7 +62,7 @@ namespace we {
       }
 
       protected async update([oldDown, oldHover]: boolean[]) {
-        super.update;
+        // super.update([oldDown, oldHover]);
         const status = '';
         if (this._display){
           switch (env.autoConfirmBet) {
@@ -63,7 +73,8 @@ namespace we {
               if (!this._enabled) {
                 // if not in bet state
                 await this.prevProm;
-                this.playPromise('disable', 1);
+                // this.playPromise('disable', 1);
+                this._display.animation.fadeIn('disable', 0, 1, 0, 'CONFIRM_GROUP2');
               } else if (!oldDown && this._down) {
                 // if press down
                 this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
