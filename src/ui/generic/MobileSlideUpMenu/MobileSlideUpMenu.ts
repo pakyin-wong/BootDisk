@@ -65,6 +65,9 @@ namespace we {
 
         if (this._currentOpt) {
           const page = new this._currentOpt.class();
+          if (this._currentOpt.skinName) {
+            page.skinName = this._currentOpt.skinName;
+          }
           this._content.addChild(page);
           this._currentPage = page;
           this._currentPage.left = 0;
@@ -105,11 +108,10 @@ namespace we {
 
       public show() {
         // tween root
-        if (this._currentStatus<0) {
+        if (this._currentStatus < 0) {
           this.tweenTo(this.expandHeight - this.collapseHeight);
           this._currentStatus = 0;
         }
-
       }
 
       public hide() {
@@ -117,7 +119,11 @@ namespace we {
         if (this._root.y >= this.expandHeight) {
           this._currentStatus = -1;
         } else {
-          egret.Tween.get(this._root).to({ y: this.expandHeight }, this.tweenDuration).call(()=>{this._currentStatus = -1});
+          egret.Tween.get(this._root)
+            .to({ y: this.expandHeight }, this.tweenDuration)
+            .call(() => {
+              this._currentStatus = -1;
+            });
         }
       }
 
@@ -127,6 +133,9 @@ namespace we {
         this._content.removeChildren();
         this._currentOpt = opt;
         const page = new opt.class();
+        if (this._currentOpt.skinName) {
+          page.skinName = this._currentOpt.skinName;
+        }
 
         this._lblTitle.renderText = () => i18n.t(this._currentOpt.title ? this._currentOpt.title : '');
 

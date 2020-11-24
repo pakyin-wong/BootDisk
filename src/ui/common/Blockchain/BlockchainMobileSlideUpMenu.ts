@@ -22,6 +22,7 @@ namespace we {
         this.setPage({
           class: blockchain.CardInfoPanel,
           title: 'cardinfo',
+          skinName: "skin_mobile_portrait.bc.CardInfoPanelSkin",
           backClass: blockchain.DeckPanel,
           backTitle: 'deckpanel',
         });
@@ -30,6 +31,7 @@ namespace we {
       public showDeckPanel() {
         this.setPage({
           class: blockchain.DeckPanel,
+          skinName: "skin_mobile_portrait.bc.DeckPanelSkin",
           title: 'deckpanel',
         });
         this.show();
@@ -37,6 +39,7 @@ namespace we {
       public showHelpPanel() {
         this.setPage({
           class: blockchain.HelpPanel,
+          skinName: "skin_mobile_portrait.bc.HelpPanelSkin",
           title: 'helppanel',
         });
         this.show();
