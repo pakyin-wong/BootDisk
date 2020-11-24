@@ -446,12 +446,15 @@ namespace we {
         tripleLong: 'tripleLong',
         doubleLong: 'doubleLong',
         combine: 'combine',
+        specific: 'specific',
         specificSingle: 'specificSingle',
         specificDouble: 'specificDouble',
         specificTriple: 'specificTriple',
 
         betLimitShort: 'Bet Limit',
         gameId: 'ID',
+
+        combines: 'combine',
 
         betGroup: {
           color: 'Red / Black',

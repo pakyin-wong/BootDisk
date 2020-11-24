@@ -454,12 +454,15 @@ namespace we {
         tripleLong: '围骰',
         doubleLong: '對子 (雙骰、長牌)',
         combine: '牌九式 (骨牌)',
+        specific: '指定骰子',
         specificSingle: '指定骰子: 单骰',
         specificDouble: '指定骰子: 双骰',
         specificTriple: '指定骰子: 三骰',
 
         betLimitShort: '限红',
         gameId: '编号',
+
+        combines: '組合',
 
         betGroup: {
           color: '红 / 黑',
