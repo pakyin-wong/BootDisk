@@ -85,6 +85,7 @@ namespace we {
           // if page has scroller, add listeners
           const scroller = this._currentPage['_scroller'];
           if (scroller) {
+            this._scroller = scroller;
             scroller.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onScrollerTouchBegin, this);
             scroller.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onScrollerTouchMove, this);
             scroller.addEventListener(egret.TouchEvent.TOUCH_END, this.onScrollerTouchEnd, this);
@@ -130,6 +131,7 @@ namespace we {
       public setPage(opt: any) {
         // clear previous pages
         this._currentPage = null;
+        this._scroller = null;
         this._content.removeChildren();
         this._currentOpt = opt;
         const page = new opt.class();
@@ -151,6 +153,16 @@ namespace we {
         this._currentPage = page;
         this._currentPage.left = 0;
         this._currentPage.right = 0;
+
+        const scroller = this._currentPage['_scroller'];
+        if (scroller) {
+          this._scroller = scroller;
+          scroller.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onScrollerTouchBegin, this);
+          scroller.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onScrollerTouchMove, this);
+          scroller.addEventListener(egret.TouchEvent.TOUCH_END, this.onScrollerTouchEnd, this);
+          scroller.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onScrollerTouchCancel, this);
+        }
+
       }
 
       protected _startY: number;
@@ -171,6 +183,7 @@ namespace we {
         this._startHeight = this._root.height;
         this._diff = 0;
         this._velocity = 0;
+        this.isEnd = false;
       }
 
       protected onTouchMove(evt: egret.TouchEvent) {
@@ -190,7 +203,12 @@ namespace we {
         this._root.height = Math.min(this._startHeight - this._diff, this.expandHeight);
       }
 
+      protected isEnd:boolean = false;
       protected onTouchEnd(evt: egret.TouchEvent) {
+        if (this.isEnd) {
+          return;
+        }
+        this.isEnd = true;
         if (this._isScrollerTouched && !this._preventScroll) {
           this._isScrollerTouched = false;
           return;

@@ -18,7 +18,7 @@ namespace we {
         this._currentPage.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
       }
 
-      public showCardInfoPanel() {
+      public showCardInfoPanel(idx: number) {
         this.setPage({
           class: blockchain.CardInfoPanel,
           title: 'cardinfo',
@@ -26,14 +26,16 @@ namespace we {
           backClass: blockchain.DeckPanel,
           backTitle: 'deckpanel',
         });
+        (this._currentPage as blockchain.CardInfoPanel);
         this.show();
       }
-      public showDeckPanel() {
+      public showDeckPanel(data:bab.GameData) {
         this.setPage({
           class: blockchain.DeckPanel,
           skinName: "skin_mobile_portrait.bc.DeckPanelSkin",
           title: 'deckpanel',
         });
+        (this._currentPage as blockchain.DeckPanel).setValue(data);
         this.show();
       }
       public showHelpPanel() {
