@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.MobileBlockchainBar" width="1242" height="54" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*">
-  <e:Group id="_content" width="1242" height="70" touchEnabled="false">
+  <e:Group id="_content" width="1242" height="54" touchEnabled="false" touchChildren="false">
     <e:Group id="_labelGrp" width="1242" height="39">
       <e:Group id="_blueLabelGroup" left="16">
         <e:Image source="d_ba_betarea_icon_bet_png" width="32" height="32"/>
@@ -17,7 +17,7 @@
         </e:layout>
       </e:Group>
     </e:Group>
-    <e:Group id="_barGrp" width="1242" height="50" bottom="0">
+    <e:Group id="_barGrp" width="1242" height="28" horizontalCenter="0" bottom="0">
       <e:layout>
         <e:HorizontalLayout paddingLeft="31" paddingRight="31" verticalAlign="middle"/>
       </e:layout>

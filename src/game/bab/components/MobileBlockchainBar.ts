@@ -9,8 +9,12 @@ namespace we {
 
       protected _redBarLimit ;
       protected _blueBarLimit;
-      protected _blueBarLimitX ;
-      protected _redBarLimitX ;
+
+      protected _blueEffectInitX;
+      protected _redEffectInitX;
+
+      protected _blueBarEffectOriginX ;
+      protected _redBarEffectOriginX ;
       protected _centerControl :dragonBones.Bone;
       protected _redBarEffect;
       protected _blueBarEffect;
@@ -19,7 +23,8 @@ namespace we {
       protected _effectCenter = 553;
       protected _centerOriginX = 0;
 
-
+      protected _labelGrp : eui.Group;
+      protected _content : eui.Group;
       protected _lblRed : ui.RunTimeLabel;
       protected _lblBlue : ui.RunTimeLabel;
 
@@ -30,12 +35,15 @@ namespace we {
 
       protected currentProgress : number = 0;
       protected _barGrp : eui.Group;
-      
-      constructor(blue : number, red : number){
+      protected _gameType : string;
+
+      constructor(blue : number, red : number, gameType : string){
         super();
 
         this._blueTargetNumber = blue;
         this._redTargetNumber = red;
+
+        this._gameType = gameType;
 
         this.initSkin();
       }
@@ -43,8 +51,10 @@ namespace we {
       protected initSkin(){
         if(env.orientation === 'portrait'){
           this.skinName = 'skin_mobile_portrait.MobileBlockchainBar';
+          this._skinKey = 'skin_mobile_portrait.MobileBlockchainBar';
         }else{
           this.skinName = 'skin_mobile_landscape.MobileBlockchainBar';
+          this._skinKey = 'skin_mobile_landscape.MobileBlockchainBar';
         }
       }
 
@@ -64,14 +74,25 @@ namespace we {
         // const chip = factory.buildArmatureDisplay('poker');
         this._anim = factory.buildArmatureDisplay('bet_bar');
 
-        // this.anim.x = this.stage.width/2;
-        // this.anim.y = this.stage.height/2;
+        const bar = this._anim.armature.getBone('bar_group');
+        this._centerControl = bar.armature.getBone('bar_center_control');
+
+        this._redBarLimit = bar.armature.getBone('red_bar_limit');
+        this._blueBarLimit = bar.armature.getBone('blue_bar_limit');
+
+        this._redBarEffect = this._redBarLimit.armature.getBone('red_effect_position');
+        this._blueBarEffect = this._blueBarLimit.armature.getBone('blue_effect_position');
+
+        this._blueEffectInitX = this._blueBarEffect.origin.x;
+        this._redEffectInitX = this._redBarEffect.origin.x;
 
         this._barGrp.addChild(this._anim);
-        this._anim.x = this._anim.width/2;
-        this._anim.y = -this._anim.height/2;
-        this._anim.anchorOffsetX = 0;
-        this._anim.anchorOffsetY = 0;
+        this._barGrp.width = this._anim.width;
+        this._barGrp.horizontalCenter = 0;
+      }
+
+      protected arrangeComponents(){
+        super.arrangeComponents();
 
         const bar = this._anim.armature.getBone('bar_group');
         this._centerControl = bar.armature.getBone('bar_center_control');
@@ -81,12 +102,15 @@ namespace we {
 
         this._redBarEffect = this._redBarLimit.armature.getBone('red_effect_position');
         this._blueBarEffect = this._blueBarLimit.armature.getBone('blue_effect_position');
-        
-        this._blueBarLimitX = this._redBarEffect.origin.x;
-        this._redBarLimitX = this._blueBarEffect.origin.x;
 
         this._centerControl.origin.x = 0;
         this._centerOriginX = this._centerControl.origin.x;
+
+        this._anim.x = this._anim.width/2;
+        this._anim.y = -this._anim.height/2;
+
+        this._blueBarEffect.origin.x = this._blueEffectInitX;
+        this._redBarEffect.origin.x = this._redEffectInitX;
 
         dir.meterCtr.register('blockchainlblblue',this._lblBlue);
         dir.meterCtr.register('blockchainlblred',this._lblRed);
@@ -94,24 +118,91 @@ namespace we {
         this.initBarProgress();
       }
 
-      protected initBarProgress(){
-        // if(env.orientation === 'portrait'){
-        //   this._barOffsetX = 555;
-        //   this._effectCenter = 553;
-        // }else{
+      public resetAnimation(){
+        this._blueTargetNumber = 0;
+        this._redTargetNumber = 0;
 
-        // }
-        this._barOffsetX = 555;
-        this._effectCenter = 553;
+        this.initBarProgress();
+      }
+
+      protected initBarProgress(){
+        egret.Tween.removeTweens(this._centerControl.origin);
+        egret.Tween.removeTweens(this._redBarEffect.origin);
+        egret.Tween.removeTweens(this._blueBarEffect.origin);
+
+        switch(this._gameType){
+          case 'dt':
+            if(env.orientation === 'portrait'){
+              this._barOffsetX = 553;
+              this._effectCenter = 555;
+              this.width = 1242;
+              this.y = 190;
+            }else{
+              this._barOffsetX = 603;
+              this._effectCenter = 553;
+              this.width = 1372;
+              this.y = 175;
+            }
+          break;
+          case 'ba':
+            if(env.orientation === 'portrait'){
+              this._barOffsetX = 553;
+              this._effectCenter = 553;
+              this.width = 1242;
+              this.y = 190;
+            }else{
+              this._barOffsetX = 813;
+              this._effectCenter = 553;
+              this.width = 2424;
+              this.horizontalCenter = 0;
+              this.y = 175;
+            }
+          break;
+        }
+        this._anim.x = this._anim.width/2;
+
+        this._redBarEffect.origin.x = this._redEffectInitX + (this._barOffsetX - this._effectCenter);
+        this._blueBarEffect.origin.x = this._blueEffectInitX - (this._barOffsetX - this._effectCenter);
+
+        this._blueBarEffectOriginX = this._redBarEffect.origin.x;
+        this._redBarEffectOriginX = this._blueBarEffect.origin.x;
+
+        this._redBarLimit.origin.x = this._barOffsetX;
+        this._blueBarLimit.origin.x = -this._barOffsetX;
 
         this.currentProgress = (this._blueTargetNumber - this._redTargetNumber ) / (this._redTargetNumber + this._blueTargetNumber);
+        
+        if(isNaN(this.currentProgress)){
+          this.currentProgress = 0;
+        }
+
         this._centerControl.origin.x = this._centerOriginX + this.currentProgress * this._barOffsetX;
+
+        if(this._redTargetNumber === 0 && this._blueTargetNumber === 0){
+          this._centerControl.origin.x = this._centerOriginX;
+        }
+
+        this._centerControl.invalidUpdate();
+        this._blueBarLimit.invalidUpdate();
+        this._redBarLimit.invalidUpdate();
+        this._blueBarEffect.invalidUpdate();
+        this._redBarEffect.invalidUpdate();
+        
+        this._labelGrp.width = this.width;
+        this._content.width = this.width;
+
+        this._barGrp.width = this._anim.width;
+        this._barGrp.horizontalCenter = 0;
 
         this._lblBlue.renderText = () => `${utils.formatNumber(this._blueTargetNumber, true)}`;
         this._lblRed.renderText = () => `${utils.formatNumber(this._redTargetNumber, true)}`;
       }
 
       public playAnim(red : number, blue : number){
+        if(this._redTargetNumber === red && this._blueTargetNumber === blue){
+          return;
+        }
+
         this.updateBarInfo(red, blue);
       }
 
@@ -128,7 +219,19 @@ namespace we {
         dir.meterCtr.rackTo('blockchainlblred',this._redTargetNumber,700);
 
         this.currentProgress = (this._blueTargetNumber - this._redTargetNumber ) / (this._redTargetNumber + this._blueTargetNumber);
-        const des = this._centerOriginX + this.currentProgress * this._barOffsetX;;
+        if(isNaN(this.currentProgress)){
+          this.currentProgress = 0;
+        }
+        
+        let des = Math.floor(this._centerOriginX + this.currentProgress * this._barOffsetX);
+
+        if(r === 0 && b ===0){
+          des = this._centerOriginX;
+        }
+
+        const tweenComplete = function (): void {
+          this.onTweenFinished();
+        }.bind(this); 
 
         egret.Tween.get(this._centerControl.origin)
           .to({ x: des }, 230, t => {
@@ -146,7 +249,7 @@ namespace we {
           .to({ x: (-this._effectCenter + des)}, 230, t => {
             this._redBarEffect.invalidUpdate();
             return t;
-        });
+        }).wait(100).call(tweenComplete);
       }
 
       protected updateBarInfo(red : number, blue : number){
@@ -163,48 +266,67 @@ namespace we {
         // const effectDes = this._effectCenter  * effectOffset + des;
         // const barAnim = des > 0 ? 'effect_blue' : 'effect_red';
 
-        this._anim.once(dragonBones.AnimationEvent.COMPLETE,this.onAnimCompleted,this);
+        // this._anim.once(dragonBones.AnimationEvent.COMPLETE,this.onAnimCompleted,this);
 
         // this._anim.animation.play(barAnim,1);
         this._anim.animation.fadeIn('effect_red',0,1,0,'redeffectgroup');
         this._anim.animation.fadeIn('effect_blue',0,1,0,'blueeffectgroup');
+        // this._anim.animation.fadeIn('effect_center',230,1,0,'centereffect');
       }
 
-      protected async onAnimCompleted(e = null){
-        const anim : dragonBones.EgretArmatureDisplay = e.target;
-        await utils.sleep(1);
-        anim.animation.reset();
-        anim.once(dragonBones.AnimationEvent.COMPLETE,this.resetAnim,this);
-        anim.animation.play('effect_center',1);
+      protected onTweenFinished(e = null){
+        if(!this._anim){
+          return;
+        }
+        // this.resetAnim();
+        // this._anim.animation.reset();
+        this._centerControl.invalidUpdate();
+        this._redBarEffect.invalidUpdate();
+        this._blueBarEffect.invalidUpdate();
+
+        egret.Tween.removeTweens(this._centerControl.origin);
+        egret.Tween.removeTweens(this._redBarEffect.origin);
+        egret.Tween.removeTweens(this._blueBarEffect.origin);
+        
+        this._anim.once(dragonBones.AnimationEvent.COMPLETE,this.resetAnim,this);
+        this._anim.animation.play('effect_center',1);
       }
 
       protected resetAnim(e:dragonBones.AnimationEvent = null){
-        const anim : dragonBones.EgretArmatureDisplay = e.target;
-        anim.animation.reset();
+        if(!this._anim){
+          return;
+        }
+        // const anim : dragonBones.EgretArmatureDisplay = e.target;
+        if(this._anim.animation){
+          this._anim.animation.stop();
+        }
 
-        this._lblBlue.renderText = () =>`${this._blueTargetNumber}`;
-        this._lblRed.renderText = () =>`${this._redTargetNumber}`;
+        this._lblBlue.renderText = () => `${utils.formatNumber(this._blueTargetNumber, true)}`;
+        this._lblRed.renderText = () => `${utils.formatNumber(this._redTargetNumber, true)}`;
 
-        this._blueBarEffect.origin.x = this._blueBarLimitX;
-        this._redBarEffect.origin.x = this._redBarLimitX;
+        this._redBarEffect.origin.x = this._redEffectInitX + (this._barOffsetX - this._effectCenter);
+        this._blueBarEffect.origin.x = this._blueEffectInitX - (this._barOffsetX - this._effectCenter);
+
+        this._blueBarEffectOriginX = this._redBarEffect.origin.x;
+        this._redBarEffectOriginX = this._blueBarEffect.origin.x;
 
         this._isUpdating = false;
 
-        const a = 1000;
-        const red = 500 - this.factor;
+        // const a = 1000;
+        // const red = 500 - this.factor;
 
-        this.playAnim(red,1000);
-        this.factor *= -1;
+        // this.playAnim(red,1000);
+        // this.factor *= -1;
       }
 
       protected destroy(){
         this.resetAnim();
+        this._anim.dispose();
         super.destroy();
 
         dir.meterCtr.drop('blockchainlblblue',this._lblBlue);
         dir.meterCtr.drop('blockchainlblred',this._lblRed);      
       }
-
     }
   }
 }
