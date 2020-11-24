@@ -154,13 +154,13 @@ namespace we {
 
       protected onRollover() {
         if ((this._confirmButton as ui.BetConfirmButton).buttonEnabled) {
-          this._timer.bg_flash(true);
+          this._timer.bg_flash(true, true);
         }
       }
 
       protected onRollout() {
         if ((this._confirmButton as ui.BetConfirmButton).buttonEnabled) {
-          this._timer.bg_flash(false);
+          this._timer.bg_flash(false, true);
         }
       }
 
