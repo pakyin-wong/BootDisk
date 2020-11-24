@@ -111,18 +111,24 @@ namespace we {
         this.removeEventListener(egret.Event.ENTER_FRAME, this.updateRemainingTime, this);
       }
 
-      public bg_flash() {
+      public bg_flash(isHover: boolean = false, isEnable: boolean = false) {
         if (env.isMobile) {
           this.bg_color.alpha = 0.7;
           this.removebg_flash();
           egret.Tween.get(this.bg_color, { loop: true }).to({ alpha: 0 }, 200);
         } else {
-          if (env.autoConfirmBet) {
-            // in desktop antoConfirm state, confirmBtn bg is always gray in color
-            this.bg_color.fillColor = '0x101720';
-            this.bg_color.fillAlpha = 0.4;
-            this.bg_color.refresh();
+          switch (env.autoConfirmBet) {
+            case true:
+              // in desktop antoConfirm state, confirmBtn bg is always gray in color
+              this.bg_color.fillColor = '0x101720';
+              this.bg_color.fillAlpha = 0.4;
+              break;
+            case false:
+              this.bg_color.fillAlpha = isEnable ? 1 : 0.4;
+              this.bg_color.fillColor = isHover ? '0x0DA154' : '0x101720';
+              break;
           }
+          this.bg_color.refresh();
         }
       }
       public removebg_flash() {

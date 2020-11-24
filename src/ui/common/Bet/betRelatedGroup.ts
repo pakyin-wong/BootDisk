@@ -46,6 +46,8 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
         if (this._confirmButton) {
           this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
+          this._confirmButton.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
+          this._confirmButton.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
         }
         if (this._repeatButton) {
           this._repeatButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRepeatPressed, this, true);
@@ -63,7 +65,7 @@ namespace we {
           dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }
         if (!env.isMobile) {
-          dir.evtHandler.addEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.timerFlash, this);
+          dir.evtHandler.addEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.changeTimerBg, this);
         }
       }
 
@@ -71,6 +73,8 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
         if (this._confirmButton) {
           this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
+          this._confirmButton.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
+          this._confirmButton.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
         }
         if (this._repeatButton) {
           this._repeatButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRepeatPressed, this, true);
@@ -88,13 +92,7 @@ namespace we {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }
         if (!env.isMobile) {
-          dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.timerFlash, this);
-        }
-      }
-
-      protected timerFlash() {
-        if (this._timer) {
-          this._timer.bg_flash();
+          dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.changeTimerBg, this);
         }
       }
 
@@ -127,16 +125,9 @@ namespace we {
           this._cancelButton.buttonEnabled = isEnable;
           this._repeatButton.buttonEnabled = this._repeatButton.touchEnabled;
           this._doubleButton.buttonEnabled = hasUncfmBet;
-          // this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isBetState && hasCfmBet;
-          this._timer.bg_color.fillColor = '0x101720';
-          this._timer.bg_color.fillAlpha = 0.4;
-          if (!env.autoConfirmBet && isEnable) {
-            this._timer.bg_color.fillAlpha = 1;
-          }
           (this._confirmButton as ui.BetConfirmButton).buttonEnabled = isBetState && hasUncfmBet;
           (this._confirmButton as ui.BetConfirmButton).isBetState = isBetState;
-
-          this._timer.bg_color.refresh();
+          this._timer.bg_flash(false, isEnable);
         }
       }
       protected onConfirmPressed() {
@@ -159,6 +150,24 @@ namespace we {
 
       protected onUndoPressed() {
         this.dispatchEvent(new egret.Event('ON_UNDO_PRESS'));
+      }
+
+      protected onRollover() {
+        if ((this._confirmButton as ui.BetConfirmButton).buttonEnabled) {
+          this._timer.bg_flash(true);
+        }
+      }
+
+      protected onRollout() {
+        if ((this._confirmButton as ui.BetConfirmButton).buttonEnabled) {
+          this._timer.bg_flash(false);
+        }
+      }
+
+      protected changeTimerBg() {
+        if (this._timer) {
+          this._timer.bg_flash(false);
+        }
       }
 
       set enableConfirm(e: boolean) {
