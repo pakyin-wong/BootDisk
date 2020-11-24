@@ -48,6 +48,9 @@ namespace we {
               case core.GameState.DEAL:
               case core.GameState.FINISH:
               case core.GameState.SHUFFLE:
+              case core.GameState.PEEK:
+              case core.GameState.PEEK_BANKER:
+              case core.GameState.PEEK_PLAYER:
                 break;
               default:
                 console.log('default state', this._gameData.state);

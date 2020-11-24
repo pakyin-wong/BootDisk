@@ -162,14 +162,17 @@ namespace we {
           console.log('setStatePeek isInit')
           this.betInitState(core.GameState.DEAL);
         }
+        this.setFirst4Cards();
         if (this.isPlayerFlipAllowed()) {
           this._playerCard1Group.touchEnabled = true;
           this._playerCard2Group.touchEnabled = true;
           this._openAllPlayerGroup.visible = true;
           this._currentFocusCard = this._playerCard1;
           if (isInit) {
+            console.log('isinit setstatepeek play')
             this._playerCard1.animation.gotoAndStopByFrame('sq_vertical_select_loop', 0);
           } else {
+            console.log('isinit setstatepeek play 2')
             this._playerCard1.animation.play('sq_vertical_select_in', 1);
           }
           this.setCenterFlipCard('b1', 'vertical')
@@ -181,10 +184,15 @@ namespace we {
           this._openAllPlayerGroup.visible = false;
 
           if (isInit) {
+            console.log('isinit setstatepeek play 3')
+
             this._playerCard1.animation.gotoAndStopByFrame('sq_vertical_dark_loop_back', 0)
             this._playerCard2.animation.gotoAndStopByFrame('sq_vertical_dark_loop_back', 0)
             
           } else {
+            console.log('isinit setstatepeek play 4')
+
+
             this._playerCard1.animation.play('sq_vertical_dark_in', 1)
             this._playerCard2.animation.play('sq_vertical_dark_in', 1)
             
@@ -226,6 +234,7 @@ namespace we {
         if(isInit){
           console.log('setStatePeekPlayer isInit')
           this.betInitState(core.GameState.DEAL);
+          this.setFirst4Cards();
         }
         this._smallCard1Exist = false;
         this.setPlayerB3Card();
@@ -234,9 +243,6 @@ namespace we {
         this._centerVCard.visible = false;
         this._centerVCard.touchEnabled = false;
         if (this.isPlayerFlipAllowed()) {
-          if(isInit){
-
-          }
           this._openAllPlayerGroup.visible = true;
           this._currentFocusCard = this._playerCard3
           this.setCenterFlipCard('b3', 'horizontal')
@@ -259,6 +265,8 @@ namespace we {
         if(isInit){
           console.log('setStatePeekBanker isInit')
           this.betInitState(core.GameState.DEAL);
+          this.setFirst4Cards();
+          this.setPlayerB3Card();
         }
         this._smallCard2Exist = false;
         this.setBankerA3Card();
@@ -327,7 +335,19 @@ namespace we {
       }
 
       protected showVerticalLoopBack(display: dragonBones.EgretArmatureDisplay, time: number) {
-        display.animation.gotoAndStopByTime('vertical_out_back', time)
+            display.animation.gotoAndStopByTime('vertical_out_back', time)
+            /*
+        if(cardIndex === 0 || cardIndex === 2){
+          if(this.isPlayerFlipAllowed()){
+            display.animation.gotoAndStopByTime('vertical_out_back', time)
+          }
+          return;
+        }
+        if(this.isBankerFlipAllowed()){
+          display.animation.gotoAndStopByFrame('vertical_out_back', time)
+          return;
+        }
+        */
         //display.animation.gotoAndStopByTime('vertical_loop_back', time)
       }
 
