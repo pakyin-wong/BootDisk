@@ -13,8 +13,8 @@ namespace we {
        * use animation.fadeIn with different group name instead of animation.play to play the animation so that you can play multiple animation at the same time ("betting" in one group and others in another group)
        **/
 
-      protected _isBetState = true;
-
+      protected _isBetState = true; // check if betting(have uncfm bet) if true,disable hover animation
+      //remarks: if u want to display 2 animations in the same time ,just use fadein with 2 groupnames(whatever you like)
       public constructor() {
         super();
         this.orientationDependent = false;
