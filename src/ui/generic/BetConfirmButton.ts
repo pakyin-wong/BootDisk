@@ -57,6 +57,7 @@ namespace we {
         if (this._display){
           switch (env.autoConfirmBet) {
             case true:
+            this.playPromise('auto_confirm_idle', 1);
               break;
             case false:
               if (!this._enabled) {
