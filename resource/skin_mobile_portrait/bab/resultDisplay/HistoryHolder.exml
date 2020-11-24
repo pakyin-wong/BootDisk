@@ -2,7 +2,7 @@
 <e:Skin class="skin_mobile_portrait.bab.HistoryHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
         xmlns:w="http://ns.egret.com/wing" width="1146" height="373">
         <e:Group id="content" width="100%">
-                <e:Image source="d_bcba_resultarea_panel_prevresult_png" width="1146" height="373" />
+                <e:Image id="close" source="d-lobby-button-close-none_png" width="44" height="44"  right="30" top="30"/>
                 <ui:RunTimeLabel i18n="baccarat.lastRound" size="60" y="30" horizontalCenter="0" textColor="0x6ee4ff" />
                 <e:Group width="65" height="131" x="484" y="134">
                         <ui:RoundRectShape width="65" height="131" cornerTL_TR_BL_BR="4,4,4,4" fillColor="0x3e60f8"

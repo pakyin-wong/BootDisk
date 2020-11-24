@@ -34,9 +34,9 @@ namespace we {
         this.createBg();
         if(env.isMobile){
           if(this.draggableArea){
-            this.draggableArea.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.draggableBegin, this);
-            this.draggableArea.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.draggableCheck, this);
-            this.draggableArea.addEventListener(egret.TouchEvent.TOUCH_END, this.draggableEnd, this);
+            this.stage.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.draggableBegin, this);
+            this.stage.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.draggableCheck, this);
+            this.stage.addEventListener(egret.TouchEvent.TOUCH_END, this.draggableEnd, this);
           }
         }
       }
@@ -60,8 +60,8 @@ namespace we {
       }
 
       protected draggableCheck(e: egret.TouchEvent){
-        if(e.stageY > this._maxYPos || e.stageY < this._minYPos)
-         return;
+        // if(e.stageY > this._maxYPos || e.stageY < this._minYPos)
+        //  return;
         this.y = e.stageY;
       }
 
