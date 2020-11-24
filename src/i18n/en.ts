@@ -107,6 +107,8 @@ namespace we {
       overlaypanel_bethistory_recordtab_finbalance: 'Balance',
       overlaypanel_bethistory_recordtab_resuit: 'Game Result',
       overlaypanel_bethistory_recordtab_noresult: 'No Bet Reult',
+      overlaypanel_bethistory_recordtab_gameno:'Game No.',
+      overlaypanel_bethistory_recordtab_shoe: 'Round',
 
       overlaypanel_bethistory_remark_win: 'Win',
       overlaypanel_bethistory_remark_lose: 'Lose',

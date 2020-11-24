@@ -107,6 +107,8 @@ namespace we {
       overlaypanel_bethistory_recordtab_finbalance: '餘額',
       overlaypanel_bethistory_recordtab_resuit: '遊戲結果',
       overlaypanel_bethistory_recordtab_noresult: '沒有遊戲紀錄',
+      overlaypanel_bethistory_recordtab_gameno:'遊戲編號',
+      overlaypanel_bethistory_recordtab_shoe: '局數',
 
       overlaypanel_bethistory_remark_win: '嬴',
       overlaypanel_bethistory_remark_lose: '輸',

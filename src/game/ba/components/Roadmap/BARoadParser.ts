@@ -720,6 +720,12 @@ namespace we {
         if (data.video !== undefined) {
           roadInfo.video = data.video;
         }
+        if (data.round !== undefined) {
+          roadInfo.round = data.round;
+        }
+        if (data.shoe !== undefined) {
+          roadInfo.shoe = data.shoe;
+        }
 
         // ro
         if (data.v !== undefined) {

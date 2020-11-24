@@ -1310,7 +1310,7 @@ namespace we {
 						tableid: goodRoadData.tableid,
 						goodRoad: goodRoadData,
 					};
-				});
+				}).filter(item=>!(item.goodRoad.name=='' && item.goodRoad.roadmapid==''));
 				env.mergeTableInfoList(tableInfos);
 				// save the list to env.goodRoadTableList
 				const goodRoadTableList = tableInfos.map(data => data.tableid);
@@ -1321,15 +1321,17 @@ namespace we {
 				for (const tableid of added) {
 					const tableInfo = env.tableInfos[tableid];
 					if (tableInfo.data && tableInfo.data.state === core.GameState.BET) {
-						tableInfo.goodRoad.alreadyShown = true;
-						const data = {
-							tableid,
-						};
-						const notification: data.Notification = {
-							type: core.NotificationType.GoodRoad,
-							data,
-						};
-						dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+						if (env.showGoodRoadHint && tableInfo.displayReady && tableInfo.goodRoad && !tableInfo.goodRoad.alreadyShown) {
+							tableInfo.goodRoad.alreadyShown = true;
+							const data = {
+								tableid,
+							};
+							const notification: data.Notification = {
+								type: core.NotificationType.GoodRoad,
+								data,
+							};
+							dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+						}
 					}
 				}
 				for (const tableid of removed) {
