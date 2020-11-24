@@ -160,6 +160,10 @@ declare module skin_desktop{
 	class BlockchainBaccaratScene extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class CopyInfoMessageSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop.bab{
 	class CardHolderSkin extends eui.Skin{
 	}
@@ -190,6 +194,14 @@ declare module skin_desktop.bam{
 }
 declare module skin_desktop{
 	class SqueezeTutorial extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BlockchainSqueezeBaccaratScene extends eui.Skin{
+	}
+}
+declare module skin_desktop.bamb{
+	class CardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.bc{

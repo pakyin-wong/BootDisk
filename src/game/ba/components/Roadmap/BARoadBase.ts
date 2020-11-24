@@ -81,6 +81,7 @@ namespace we {
       }
 
       public clearRoadData() {
+        if (!this.roadMapIconList) return;
         for (const elem of this.roadMapIconList) {
           elem.setByObject({});
           elem.stopAnimate();

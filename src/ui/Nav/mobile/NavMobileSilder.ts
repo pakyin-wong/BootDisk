@@ -49,20 +49,23 @@ namespace we {
         if (this.visible) {
           return;
         }
-
-        this.visible = true;
-        this._overlayMask.alpha = 0;
-        egret.Tween.removeTweens(this._overlayMask);
-        egret.Tween.get(this._overlayMask).to({ alpha: 1 }, 250);
-
-        this._sliderMenu.once('close', this.onItemClose, this);
         this._sliderMenu.show();
+        if (this._sliderMenu.isShowed) {
+          this.visible = true;
+          this._overlayMask.alpha = 0;
+          egret.Tween.removeTweens(this._overlayMask);
+          egret.Tween.get(this._overlayMask).to({ alpha: 1 }, 250);
+
+          this._sliderMenu.once('close', this.onItemClose, this);
+        }
       }
 
       public hide() {
-        this._sliderMenu.removeEventListener('close', this.onItemClose, this);
         this._sliderMenu.hide();
-        this.fadeout();
+        if (this._sliderMenu.isShowed) {
+          this._sliderMenu.removeEventListener('close', this.onItemClose, this);
+          this.fadeout();
+        }
       }
 
       private onItemClose() {

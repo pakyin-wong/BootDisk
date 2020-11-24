@@ -111,6 +111,7 @@ namespace we {
           class: 'MessageDialog',
           replace: true,
           args: [title, buttons],
+          showSFX:'ui_sfx_info_error_warning_mp3'
         });
       }
 

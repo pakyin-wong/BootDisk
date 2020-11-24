@@ -49,6 +49,7 @@ namespace we {
         this._touchArea.percentHeight = 100;
 
         this._chipAnim = this.createChipAnim();
+        // utils.dblistenToSoundEffect(this._chipAnim);
         this.touchEnabled = true;
         this.touchChildren = false;
         this._chipAnim.touchEnabled = false;

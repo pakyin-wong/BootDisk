@@ -46,6 +46,22 @@ namespace we {
       public get isPoppable(): boolean {
         return this._isPoppable;
       }
+
+      public set showSFX(val: string) {
+        this.poppableAddon.showSFX = val;
+      }
+
+      public get showSFX(): string {
+        return this.poppableAddon.showSFX;
+      }
+
+      public set hideSFX(val: string) {
+        this.poppableAddon.hideSFX = val;
+      }
+
+      public get hideSFX(): string {
+        return this.poppableAddon.hideSFX;
+      }
       // public set isEdgeDismissable(value: boolean) {
       //   this._isEdgeDismissable = value;
       //   this.edgeDismissableAddon.active = value;

@@ -44,6 +44,9 @@ namespace we {
           case core.GameType.BAC:
           case core.GameType.BAI:
           case core.GameType.BAS:
+          case core.GameType.BAM:
+          case core.GameType.BAMB:
+          case core.GameType.BAB:
             switch (winType) {
               case ba.WinType.BANKER:
                 this.setBackgroundImage('ba', 'red', isWin);
@@ -57,6 +60,7 @@ namespace we {
             }
             break;
           case core.GameType.DT:
+          case core.GameType.DTB:
             switch (winType) {
               case dt.WinType.DRAGON:
                 this.setBackgroundImage('dt', 'blue', isWin);
