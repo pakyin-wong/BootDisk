@@ -2,9 +2,13 @@ namespace we {
   export namespace dil {
     export class DilBeadRoadResultPanel extends ui.Panel {
       protected gameRoundID: string;
+      protected round:number;
+      protected shoe:number;
       protected _gameLabel: ui.RunTimeLabel;
       protected _gameNumLabel: ui.RunTimeLabel;
       public _gameInfoLabel: ui.RunTimeLabel;
+      protected _gameShoeTextLabel: ui.RunTimeLabel;
+      protected _gameShoeLabel: ui.RunTimeLabel;
       protected dice1: eui.Image;
       protected dice2: eui.Image;
       protected dice3: eui.Image;
@@ -51,6 +55,8 @@ namespace we {
         //     }
 
         //     this.tripleLabel.text = i18n.t('dice.tripleShort');
+        this._gameShoeTextLabel.text = i18n.t('overlaypanel_bethistory_recordtab_shoe');
+        this._gameShoeLabel.text = this.shoe+"-"+this.round;
       }
 
       constructor() {
@@ -66,6 +72,8 @@ namespace we {
 
         // { gameRoundID: 'cde345', dice1:1, dice2:2, dice3:3, total:6, odd:2, size:2, tie:0, video: 'null' }
         this.gameRoundID = result.gameRoundID;
+        this.round = result.round;
+        this.shoe = result.shoe;
         this.dice1.source = 'd_sic_history_lv3_dice-' + dice[0] + '_png';
         this.dice2.source = 'd_sic_history_lv3_dice-' + dice[1] + '_png';
         this.dice3.source = 'd_sic_history_lv3_dice-' + dice[2] + '_png';

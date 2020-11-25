@@ -115,6 +115,8 @@ namespace we {
       overlaypanel_bethistory_recordtab_finbalance: '余额',
       overlaypanel_bethistory_recordtab_resuit: '游戏结果',
       overlaypanel_bethistory_recordtab_noresult: '没有游戏纪录',
+      overlaypanel_bethistory_recordtab_gameno:'遊戏编号',
+      overlaypanel_bethistory_recordtab_shoe: '局数',
 
       overlaypanel_bethistory_remark_win: '嬴',
       overlaypanel_bethistory_remark_lose: '输',
