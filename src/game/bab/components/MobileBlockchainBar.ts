@@ -133,39 +133,36 @@ namespace we {
         switch(this._gameType){
           case 'dt':
             if(env.orientation === 'portrait'){
-              this._barOffsetX = 553;
-              this._effectCenter = 555;
+              this._barOffsetX = 551;
+              this._effectCenter = 551;
               this.width = 1242;
               this.y = 190;
             }else{
-              this._barOffsetX = 603;
-              this._effectCenter = 553;
-              this.width = 1372;
+              this._barOffsetX = 551;
+              this._effectCenter = 551;
+              this.width = 2424;
               this.y = 175;
             }
           break;
           case 'ba':
             if(env.orientation === 'portrait'){
-              this._barOffsetX = 553;
-              this._effectCenter = 553;
+              this._barOffsetX = 551;
+              this._effectCenter = 551;
               this.width = 1242;
               this.y = 190;
             }else{
-              this._barOffsetX = 813;
-              this._effectCenter = 553;
+              this._barOffsetX = 761;
+              this._effectCenter = 761;
               this.width = 2424;
               this.horizontalCenter = 0;
-              this.y = 175;
+              this.y = 170;
             }
           break;
         }
         this._anim.x = this._anim.width/2;
 
-        this._redBarEffect.origin.x = this._redEffectInitX + (this._barOffsetX - this._effectCenter);
-        this._blueBarEffect.origin.x = this._blueEffectInitX - (this._barOffsetX - this._effectCenter);
-
-        this._blueBarEffectOriginX = this._redBarEffect.origin.x;
-        this._redBarEffectOriginX = this._blueBarEffect.origin.x;
+        this._redBarEffect.origin.x = this._redEffectInitX;
+        this._blueBarEffect.origin.x = this._blueEffectInitX;
 
         this._redBarLimit.origin.x = this._barOffsetX;
         this._blueBarLimit.origin.x = -this._barOffsetX;
@@ -222,9 +219,8 @@ namespace we {
         if(isNaN(this.currentProgress)){
           this.currentProgress = 0;
         }
-        
-        let des = Math.floor(this._centerOriginX + this.currentProgress * this._barOffsetX);
 
+        let des = Math.floor(this._centerOriginX + this.currentProgress * this._barOffsetX);
         if(r === 0 && b ===0){
           des = this._centerOriginX;
         }
@@ -239,14 +235,18 @@ namespace we {
             return t;
         });
 
+        const desBlue = this._effectCenter + des;
+
         egret.Tween.get(this._blueBarEffect.origin)
-          .to({ x: (this._effectCenter + des)}, 230, t => {
+          .to({ x: desBlue}, 230, t => {
             this._blueBarEffect.invalidUpdate();
             return t;
         });
 
+        const desRed = -this._effectCenter + des;
+
         egret.Tween.get(this._redBarEffect.origin)
-          .to({ x: (-this._effectCenter + des)}, 230, t => {
+          .to({ x: desRed}, 230, t => {
             this._redBarEffect.invalidUpdate();
             return t;
         }).wait(100).call(tweenComplete);
@@ -304,8 +304,8 @@ namespace we {
         this._lblBlue.renderText = () => `${utils.formatNumber(this._blueTargetNumber, true)}`;
         this._lblRed.renderText = () => `${utils.formatNumber(this._redTargetNumber, true)}`;
 
-        this._redBarEffect.origin.x = this._redEffectInitX + (this._barOffsetX - this._effectCenter);
-        this._blueBarEffect.origin.x = this._blueEffectInitX - (this._barOffsetX - this._effectCenter);
+        this._redBarEffect.origin.x = this._redEffectInitX;
+        this._blueBarEffect.origin.x = this._blueEffectInitX;
 
         this._blueBarEffectOriginX = this._redBarEffect.origin.x;
         this._redBarEffectOriginX = this._blueBarEffect.origin.x;

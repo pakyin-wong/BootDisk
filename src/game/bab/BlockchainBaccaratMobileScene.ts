@@ -24,6 +24,8 @@ namespace we {
       protected _portraitButtonCollapsedBetY: number;
       protected _portraitButtonCollapsedDealY: number;
 
+      protected _mobileBlockchainBar : blockchain.MobileBlockchainBar;
+
       public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat];
 
       protected setSkinName() {
@@ -128,6 +130,17 @@ namespace we {
         }
         this.hideSumGroup();
         this.toggleBottomGamePanel();
+
+        if(this._mobileBlockchainBar){
+          if (env.orientation === 'landscape') {
+            egret.Tween.removeTweens(this._mobileBlockchainBar);
+            egret.Tween.get(this._mobileBlockchainBar).to({ scaleX: 1, scaleY: 1 }, 250);
+            //egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+          }
+          if(!isInit){
+            this._mobileBlockchainBar.resetAnimation();
+          }
+        }
       }
 
       protected setStateDeal(isInit: boolean = false) {
@@ -137,6 +150,13 @@ namespace we {
         this.showSumGroup();
         console.log('Blockchain scene deal state', this._gameData);
         this.toggleBottomGamePanel();
+
+        if(this._mobileBlockchainBar){
+          if (env.orientation === 'landscape') {
+            egret.Tween.get(this._mobileBlockchainBar).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+            //egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+          }
+        }
       }
 
       protected setStateFinish(isInit: boolean) {
@@ -154,6 +174,16 @@ namespace we {
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit)
         this.hideSumGroup();
         this.toggleBottomGamePanel();
+      }
+
+      protected setStateIdle(isInit: boolean) {
+        super.setStateIdle(isInit);
+        if(this._mobileBlockchainBar){
+          if (env.orientation === 'landscape') {
+            egret.Tween.get(this._mobileBlockchainBar).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+            //egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+          }
+        }
       }
 
       protected showCardInfoPanel(evt: egret.Event) {
@@ -202,6 +232,31 @@ namespace we {
         } catch (error) {
           console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
           return new Promise(resolve => resolve())
+        }
+      }
+
+      protected initChildren(){
+        super.initChildren();
+        
+        this._mobileBlockchainBar = new blockchain.MobileBlockchainBar(0,0,'ba');
+        this._mobileBlockchainBar.x = 0;
+        this._mobileBlockchainBar.y = 180;
+
+        this._verticalTop.addChildAt(this._mobileBlockchainBar,0);
+      }
+
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
+        if (evt && evt.data) {
+        const betInfo = <data.GameTableBetInfo> evt.data;
+          if (betInfo.tableid === this._tableId) {
+            if(this._mobileBlockchainBar){
+              const bankerTotalAmount = evt.data.amount[ba.BetField.BANKER] ? evt.data.amount[ba.BetField.BANKER] : 0;
+              const playerTotalAmount = evt.data.amount[ba.BetField.PLAYER]? evt.data.amount[ba.BetField.PLAYER] : 0;
+
+              this._mobileBlockchainBar.playAnim(bankerTotalAmount, playerTotalAmount);
+            }
+          }
         }
       }
     }
