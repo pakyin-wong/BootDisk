@@ -78,6 +78,10 @@ namespace we {
           console.log("Hello world");
         }, this);
 
+        const toolTip = this.createTooltip();
+        toolTip.y = -320;
+        chip.addChild(toolTip);
+
         // update rotation of bone by updating the origin.rotation
         const bar = chip.armature.getBone('bar_group');
         bar.origin.rotation = -110;
@@ -122,22 +126,29 @@ namespace we {
         const tooltipGroup = new eui.Group();
         tooltipGroup.width = 0;
 
-        // const text = new we.ui.RunTimeLabel();
-        // text.renderText = () => i18n.t(message);
-        // text.size = 20;
-        // text.textColor = 0xffffff;
-        // text.x = this.paddingHorizontal;
-        // text.y = this.paddingVertical;
-        // tooltipGroup.addChild(text);
-        // // add background
-        // const bg = new we.ui.RoundRectShape();
-        // bg.cornerTL_TR_BL_BR = '6,6,6,6';
-        // bg.fillColor = '0x171b20';
-        // bg.fillAlpha = 0.8;
-        // bg.stroke = 0;
-        // bg.width = text.width + this.paddingHorizontal * 2;
-        // bg.height = text.height + this.paddingVertical * 2;
-        // tooltipGroup.addChildAt(bg, 0);
+        const group = new eui.Group();
+        group.horizontalCenter = 0;
+        tooltipGroup.addChild(group);
+
+        const text = new we.ui.RunTimeLabel();
+        text.renderText = () => i18n.t('hello world');
+        text.size = 20;
+        text.textColor = 0xffffff;
+        text.horizontalCenter = 0;
+        text.verticalCenter = 0;
+        text.verticalAlign = 'middle';
+        group.addChild(text);
+        // add background
+        const bg = new we.ui.RoundRectShape();
+        bg.cornerTL_TR_BL_BR = '6,6,6,6';
+        bg.fillColor = '0x171b20';
+        bg.fillAlpha = 0.8;
+        bg.stroke = 0;
+        bg.top = -8;
+        bg.bottom = -8;
+        bg.left = -20;
+        bg.right = -20;
+        group.addChildAt(bg, 0);
 
         return tooltipGroup;
       }

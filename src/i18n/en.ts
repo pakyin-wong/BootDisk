@@ -621,6 +621,7 @@ namespace we {
         lastRound: 'Last Round',
         redCardDesc: 'Red Card：After this round, new shoe will be used',
         announceAfterDisclose:'Announce after card disclosed...',
+        cardUsed: 'Shoe: $1 used'
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',
