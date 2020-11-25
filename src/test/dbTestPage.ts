@@ -122,22 +122,22 @@ namespace we {
         const tooltipGroup = new eui.Group();
         tooltipGroup.width = 0;
 
-        const text = new we.ui.RunTimeLabel();
-        text.renderText = () => i18n.t(message);
-        text.size = 20;
-        text.textColor = 0xffffff;
-        text.x = this.paddingHorizontal;
-        text.y = this.paddingVertical;
-        tooltipGroup.addChild(text);
-        // add background
-        const bg = new we.ui.RoundRectShape();
-        bg.cornerTL_TR_BL_BR = '6,6,6,6';
-        bg.fillColor = '0x171b20';
-        bg.fillAlpha = 0.8;
-        bg.stroke = 0;
-        bg.width = text.width + this.paddingHorizontal * 2;
-        bg.height = text.height + this.paddingVertical * 2;
-        tooltipGroup.addChildAt(bg, 0);
+        // const text = new we.ui.RunTimeLabel();
+        // text.renderText = () => i18n.t(message);
+        // text.size = 20;
+        // text.textColor = 0xffffff;
+        // text.x = this.paddingHorizontal;
+        // text.y = this.paddingVertical;
+        // tooltipGroup.addChild(text);
+        // // add background
+        // const bg = new we.ui.RoundRectShape();
+        // bg.cornerTL_TR_BL_BR = '6,6,6,6';
+        // bg.fillColor = '0x171b20';
+        // bg.fillAlpha = 0.8;
+        // bg.stroke = 0;
+        // bg.width = text.width + this.paddingHorizontal * 2;
+        // bg.height = text.height + this.paddingVertical * 2;
+        // tooltipGroup.addChildAt(bg, 0);
 
         return tooltipGroup;
       }
