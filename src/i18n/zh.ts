@@ -321,6 +321,7 @@ namespace we {
       },
       live: {
         tooltip: {
+          waitForNextRound: '開牌中，請等候下一局',
           confirmBet: '確認投注',
           repeat: '重複下注',
           cancel: '取消',

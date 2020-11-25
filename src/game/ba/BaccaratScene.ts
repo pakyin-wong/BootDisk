@@ -61,7 +61,7 @@ namespace we {
               // remove existing tooltip
               clearTimeout(this.hideTooltipTimeout);
               dir.tooltipCtr.removeTooltips();
-              dir.tooltipCtr.displayTooltip(stageX, stageY, '请等候下一局');
+              dir.tooltipCtr.displayTooltip(stageX, stageY, `${i18n.t('live.tooltip.waitForNextRound')}`);
               this.hideTooltipTimeout = setTimeout(() => {
                 dir.tooltipCtr.removeTooltips();
               }, 2000);

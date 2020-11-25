@@ -321,6 +321,7 @@ namespace we {
       },
       live: {
         tooltip: {
+          waitForNextRound: 'Drawing, please wait for the next round',
           confirmBet: 'Confirm Bet',
           repeat: 'Repeat',
           cancel: 'Cancel',

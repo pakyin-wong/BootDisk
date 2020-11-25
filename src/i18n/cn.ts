@@ -348,6 +348,7 @@ namespace we {
       gamegroup_tab_lottery: '彩票游戏',
       live: {
         tooltip: {
+          waitForNextRound: '开牌中，请等候下一局',
           confirmBet: '确认投注',
           repeat: '重複下注',
           cancel: '取消',
