@@ -9,7 +9,7 @@
 	                   fillColor="0x00000000,0x00000050" />
 	<e:Image top="0" bottom="0" left="0" right="0" source="blockchain_bg_mask_png" x="0" locked="true" />
 	<bab:CardHolder id="_resultDisplay" width="2600" height="1340" x="0" y="0" />
-	<ba:MinimizedTableLayer id="_minimizedTableLayer" skinName="skin_desktop.ba.BAMinimizedTableLayerSkin" x="724" y="1340"
+	<ba:MinimizedTableLayer id="_BAminimizedTableLayer" skinName="skin_desktop.ba.BAMinimizedTableLayerSkin" x="724" y="1340"
 	                        isEdgeDismissable="true" dismissPosX="724" dismissPosY="1297" />
 	<ui:Group x="724" y="1024" isEdgeDismissable="true" dismissPosX="724" dismissPosY="1340">
 		<ba:TableLayer id="_tableLayer" width="1170" height="304" skinName="skin_desktop.ba.TableLayerSkin"

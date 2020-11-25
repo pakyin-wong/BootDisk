@@ -11,7 +11,7 @@ namespace we {
       protected _leftGamePanel: BARoadmapLeftPanel;
       protected _rightGamePanel: BARoadmapRightPanel;
       protected _beadRoadResultPanel: BaBeadRoadResultPanel;
-      protected _minimizedTableLayer: MinimizedTableLayer;
+      protected _BAminimizedTableLayer: ba.MinimizedTableLayer;
 
       // protected _switchBaMode: eui.ToggleSwitch;
       protected _switchBaMode: ui.BaseButton;
@@ -39,8 +39,8 @@ namespace we {
             (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
           }
         }
-        if (this._minimizedTableLayer) {
-          this._minimizedTableLayer.updateBetLabel(true);
+        if (this._BAminimizedTableLayer) {
+          this._BAminimizedTableLayer.updateBetLabel(true);
         }
       }
 
@@ -114,8 +114,8 @@ namespace we {
           this._switchBaMode.active = !this._switchBaMode.active;
           this._chipLayer.currentState = this._switchBaMode.active ? 'SuperSix' : 'Normal';
           this._tableLayer.currentState = this._switchBaMode.active ? 'SuperSix' : 'Normal';
-          if (this._minimizedTableLayer) {
-            this._minimizedTableLayer.currentState = this._switchBaMode.active ? 'SuperSix' : 'Normal';
+          if (this._BAminimizedTableLayer) {
+            this._BAminimizedTableLayer.currentState = this._switchBaMode.active ? 'SuperSix' : 'Normal';
           }
           this._chipLayer.cancelBet();
         }
@@ -169,8 +169,8 @@ namespace we {
           // update the scene
           (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
           (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
-          if (this._minimizedTableLayer) {
-            this._minimizedTableLayer.updateBetLabel(false, betInfo);
+          if (this._BAminimizedTableLayer) {
+            this._BAminimizedTableLayer.updateBetLabel(false, betInfo);
           }
         }
       }
