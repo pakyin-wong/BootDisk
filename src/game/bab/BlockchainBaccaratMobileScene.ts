@@ -50,7 +50,7 @@ namespace we {
         // this._cardInfoPanel.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
         this._helpButton.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{this._slideUpMenu.showHelpPanel()}, this);
         this._deckButton.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{this._slideUpMenu.showDeckPanel(<bab.GameData>this._gameData)}, this);
-        (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
+        // (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         (<any>this._resultDisplay).addEventListener('OPEN_SHUFFLE_PANEL', this.showShufflePanel, this);
         this.getShoeInfo();
         this._bottomGamePanel.addEventListener('TOGGLE', this.toggleBottomGamePanel, this)
@@ -157,7 +157,7 @@ namespace we {
         this.toggleBottomGamePanel();
       }
 
-      protected showCardInfoPanel(evt: egret.Event) {
+      public showCardInfoPanel(evt: egret.Event) {
         this._slideUpMenu.showCardInfoPanel(<bab.GameData>this._gameData, evt.data);
         // this._cardInfoPanel.setValue(this._gameData, evt.data);
         // this._cardInfoPanel.show();
@@ -204,6 +204,13 @@ namespace we {
         } catch (error) {
           console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
           return new Promise(resolve => resolve())
+        }
+      }
+
+      protected initChildren() {
+        super.initChildren();
+        if(this._slideUpMenu){
+          this._slideUpMenu.setCurrentScene(this);
         }
       }
     }

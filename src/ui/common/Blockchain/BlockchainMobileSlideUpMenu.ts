@@ -2,20 +2,34 @@
 namespace we {
   export namespace ui {
     export class BlockchainMobileSlideUpMenu extends MobileSlideUpMenu {
+      protected _currentScene : we.bab.MobileScene;
+
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
         if (this._currentPage) {
-          this._currentPage.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
+          if(this._currentScene){
+            this._currentPage.addEventListener('OPEN_CARDINFO_PANEL', this.getGameDataInfo, this);
+          }          
           this._currentPage.addEventListener('OPEN_DECK_PANEL', this.showDeckPanel, this);
           this._currentPage.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
         }
       }
 
+      public setCurrentScene(scene : we.bab.MobileScene){
+        this._currentScene = scene;
+      }
+
       public setPage(opt: any) {
         super.setPage(opt);
-        this._currentPage.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
+        if(this._currentScene){
+          this._currentPage.addEventListener('OPEN_CARDINFO_PANEL', this.getGameDataInfo, this);
+        }
         this._currentPage.addEventListener('OPEN_DECK_PANEL', this.showDeckPanel, this);
         this._currentPage.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
+      }
+
+      protected getGameDataInfo(evt: egret.Event){
+        this._currentScene.showCardInfoPanel(evt);
       }
 
       public showCardInfoPanel(data:bab.GameData, idx: number) {
