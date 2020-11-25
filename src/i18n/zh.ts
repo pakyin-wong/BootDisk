@@ -119,6 +119,7 @@ namespace we {
       overlaypanel_bethistory_record_round: '局數',
       overlaypanel_bethistory_record_bettype: '投注項目',
       overlaypanel_bethistory_record_vaildbet: '有效投注',
+      overlaypanel_bethistory_record_rollingRate: '洗碼率',
       overlaypanel_bethistory_record_rolling: '洗碼佣金',
       overlaypanel_bethistory_record_result: '遊戲結果',
       overlaypanel_bethistory_record_replay: '重播',

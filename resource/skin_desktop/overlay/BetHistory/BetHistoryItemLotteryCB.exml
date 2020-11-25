@@ -4,32 +4,36 @@
 
 
 
-	<e:Group id="_scale" width="2136" y="0" x="0" height="598">
+	<e:Group id="_scale" width="2266" y="0" x="0" height="598">
 		<e:Rect width="2040" height="1" x="48" fillColor="0x353535" y="76"/>
 		<ui:ClampWidthLabel id="_txt_bettype" text="類型" size="20" verticalAlign="middle" height="66" y="83"  x="48" width="80" targetWidth="80"/>
-		<e:Label id="_txt_record_bettype" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y="83" alpha="0.7"/>
 		<ui:ClampWidthLabel id="_txt_betgroup" text="玩法" size="20" verticalAlign="middle" height="66" y="149" x="48" width="80" targetWidth="80"/>
-		<e:Label id="_txt_record_betgroup" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y="149" alpha="0.7"/>
 		<ui:ClampWidthLabel id="_txt_betfield" text="投注項目" size="20" verticalAlign="middle" height="66" x="48" y="215" width="80" targetWidth="80"/>
+		<e:Label id="_txt_record_bettype" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y="83" alpha="0.7"/>
+
+		<e:Label id="_txt_record_betgroup" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y="149" alpha="0.7"/>
+
 		<e:Label id="_txt_record_betfield" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y="215" alpha="0.7"/>
 		<ui:ClampWidthLabel id="_txt_autostop" text="追中即停" size="20" verticalAlign="middle" height="66" y="83" x="582" width="80" targetWidth="80"/>
-		<e:Label id="_txt_record_autostop" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="686" y="83" alpha="0.7"/>
 		<ui:ClampWidthLabel id="_txt_cancelled" text="取消期數" size="20" verticalAlign="middle" height="66" y="149" x="582" width="80" targetWidth="80"/>
-		<e:Label id="_txt_record_cancelled" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="686" y="149" alpha="0.7"/>
 		<ui:ClampWidthLabel id="_txt_finAmount" text="完成金額" size="20" verticalAlign="middle" height="66" x="582" y="215" width="80" targetWidth="80"/>
+		<e:Label id="_txt_record_autostop" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="686" y="83" alpha="0.7"/>
+
+		<e:Label id="_txt_record_cancelled" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="686" y="149" alpha="0.7"/>
+
 		<e:Label id="_txt_record_finAmount" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="686" y="215" alpha="0.7"/>
-		<bh:LoContinuousBetStatus id="_cbetStatus" width="700" height="456" y="119" x="1237"/>
+		<bh:LoContinuousBetStatus id="_cbetStatus" width="700" height="456" y="114" x="1350"/>
 	</e:Group>
-	<e:Group id="_toggle" width="2136" x="0" height="76" y="0">
-		<e:Label id="_txt_record_id" text="Label" x="48" y="0" height="76" size="24" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" alpha="0.7" width="239"/>
-		<e:Label id="_txt_record_date" text="Label" x="317" y="0" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1" alpha="0.7"/>
-		<e:Label id="_txt_record_game" text="Label" x="640" y="0" height="76" size="24" verticalAlign="middle" scaleX="1" scaleY="1" alpha="0.7" width="268"/>
-		<e:Label id="_txt_record_round" text="Label" y="0" height="76" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="938" alpha="0.7" width="260"/>
-		<e:Label id="_txt_record_totalRound" text="Label" y="0" height="76" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="1220" alpha="0.7"/>
-		<e:Label id="_txt_record_currRound" text="Label" y="0" height="76" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="1435" alpha="0.7"/>
-		<e:Label id="_txt_record_betamount" text="Label" x="1645" y="0" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1" alpha="0.7"/>
-		<e:Label id="_txt_record_remark" text="Label" x="1869" y="0" height="76" size="24" verticalAlign="middle" scaleX="1" scaleY="1" alpha="0.7"/>
-		<e:Group x="2001" y="0" width="76" height="76">
+	<e:Group id="_toggle" width="2266" x="0" height="76" y="0">
+		<e:Label id="_txt_record_id" text="Label" x="50" y="0" height="76" size="24" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" alpha="0.7" width="239"/>
+		<e:Label id="_txt_record_date" text="Label" x="319" y="0" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1" alpha="0.7" width="293"/>
+		<e:Label id="_txt_record_game" text="Label" x="642" y="0" height="76" size="24" verticalAlign="middle" scaleX="1" scaleY="1" alpha="0.7" width="268"/>
+		<e:Label id="_txt_record_round" text="Label" height="76" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="940" alpha="0.7" width="252"/>
+		<e:Label id="_txt_record_totalRound" text="Label" y="0" height="76" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="1222" alpha="0.7" width="219"/>
+		<e:Label id="_txt_record_currRound" text="Label" y="0" height="76" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="1471" alpha="0.7" width="235"/>
+		<e:Label id="_txt_record_betamount" text="Label" x="1736" y="0" size="24" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1" alpha="0.7" width="235"/>
+		<e:Label id="_txt_record_remark" text="Label" x="2001" y="0" height="76" size="24" verticalAlign="middle" scaleX="1" scaleY="1" alpha="0.7" width="155"/>
+		<e:Group x="2131" y="0" width="76" height="76">
 			<e:Image id="_arrow" width="30" height="30" source="d_lobby_button_next_hover_png" scaleX="1" scaleY="1" rotation="0"/>
 			<e:layout>
 				<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle"/>
