@@ -29,9 +29,7 @@ namespace we {
         super.update;
 
         if (!this._enabled) {
-          // if disable
           await this.prevProm;
-          // this._display.animation.fadeIn('disable',0,0,0,'CONFIRM_GROUP')
           this.playPromise('disable', 0);
         } else if (!oldDown && this._down) {
           // if press down
@@ -39,21 +37,17 @@ namespace we {
         } else if (this._hover && oldDown && !this._down) {
           // if press up
           await this.prevProm;
-          // this._display.animation.fadeIn('hover',0,1,0,'CONFIRM_GROUP')
           this.playPromise('hover', 1);
         } else if (!oldHover && this._hover) {
           // if roll over
           await this.prevProm;
-          // this._display.animation.fadeIn('idle_to_hover',0,1,0,'CONFIRM_GROUP')
           this.playPromise('idle_to_hover', 1);
         } else if (oldHover && !this._hover) {
           // if roll out
           await this.prevProm;
-          // this._display.animation.fadeIn('hover_to_idle',0,1,0,'CONFIRM_GROUP')
           this.playPromise('hover_to_idle', 1);
         } else {
           await this.prevProm;
-          // this._display.animation.fadeIn('idle',0,0,0,'CONFIRM_GROUP')
           this.playPromise('idle', 0);
         }
       }
