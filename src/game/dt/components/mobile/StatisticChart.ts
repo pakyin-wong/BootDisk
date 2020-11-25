@@ -82,15 +82,15 @@ namespace we {
         this.chart.thirdColor = this._thirdColor;
         this.chart.drawChart(this.isGrey);
 
-        this.render();
+        // this.render();
       }
 
       public render() {
-        this._content.visible = true;
-        this._content.validateNow();
-        this.containerRT.drawToTexture(this._content, this._content.getBounds(), 1);
-        this._content.visible = false;
-        this.containerDisplay.visible = true;
+        // this._content.visible = true;
+        // this._content.validateNow();
+        // this.containerRT.drawToTexture(this._content, this._content.getBounds(), 1);
+        // this._content.visible = false;
+        // this.containerDisplay.visible = true;
       }
     }
   }

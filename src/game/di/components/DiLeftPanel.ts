@@ -73,7 +73,7 @@ namespace we {
           highlightRadius: 8,
         };
 
-        this.beadRoad = new DiBeadRoad(580, 2, 8, 48, 1, options); // in game
+        this.beadRoad = new DiBeadRoad(580, 2, 8, 48, 1, options,true); // in game
         // this.beadRoad.x = 29;
         // this.beadRoad.y = 16;
         this.beadRoad.scaleX = 689 / 689;

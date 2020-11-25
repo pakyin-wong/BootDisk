@@ -59,13 +59,13 @@ namespace we {
 
         switch (betDetail.field) {
           case ba.BetField.BANKER:
-            val = Math.abs(banker + betDetail.amount - player);
+            val = Math.abs(banker + betDetail.amount);
             return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'ba', 'BANKER'));
           case ba.BetField.BANKER_PAIR:
             val = bankerPair + betDetail.amount;
             return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'ba', 'BANKER_PAIR'));
           case ba.BetField.PLAYER:
-            val = Math.abs(player + betDetail.amount - banker);
+            val = Math.abs(player + betDetail.amount);
             return this.checkLimit(val, betDetail, utils.getBetLimit(betLimit, 'ba', 'PLAYER'));
           case ba.BetField.PLAYER_PAIR:
             val = playerPair + betDetail.amount;
