@@ -151,23 +151,24 @@ namespace we {
       public update() {
         if (this.tableInfo) {
           if (this.tableInfo.gamestatistic) {
-            if (this.tableInfo.gamestatistic.bankerCount !== null && this.tableInfo.gamestatistic.bankerCount !== undefined) {
-              this.bankerCountLabel.text = this.tableInfo.gamestatistic.bankerCount.toString();
+            if (this.tableInfo.gamestatistic.shoeBankerCount !== null && this.tableInfo.gamestatistic.shoeBankerCount !== undefined) {
+              this.bankerCountLabel.text = this.tableInfo.gamestatistic.shoeBankerCount.toString();
             }
-            if (this.tableInfo.gamestatistic.playerCount !== null && this.tableInfo.gamestatistic.playerCount !== undefined) {
-              this.playerCountLabel.text = this.tableInfo.gamestatistic.playerCount.toString();
+            if (this.tableInfo.gamestatistic.shoePlayerCount !== null && this.tableInfo.gamestatistic.shoePlayerCount !== undefined) {
+              this.playerCountLabel.text = this.tableInfo.gamestatistic.shoePlayerCount.toString();
             }
-            if (this.tableInfo.gamestatistic.tieCount !== null && this.tableInfo.gamestatistic.tieCount !== undefined) {
-              this.tieCountLabel.text = this.tableInfo.gamestatistic.tieCount.toString();
+            if (this.tableInfo.gamestatistic.shoeTieCount !== null && this.tableInfo.gamestatistic.shoeTieCount !== undefined) {
+              this.tieCountLabel.text = this.tableInfo.gamestatistic.shoeTieCount.toString();
             }
-            if (this.tableInfo.gamestatistic.bankerPairCount !== null && this.tableInfo.gamestatistic.bankerPairCount !== undefined) {
-              this.bankerPairCountLabel.text = this.tableInfo.gamestatistic.bankerPairCount.toString();
+            if (this.tableInfo.gamestatistic.shoeBankerPairCount !== null && this.tableInfo.gamestatistic.shoeBankerPairCount !== undefined) {
+              this.bankerPairCountLabel.text = this.tableInfo.gamestatistic.shoeBankerPairCount.toString();
             }
-            if (this.tableInfo.gamestatistic.playerPairCount !== null && this.tableInfo.gamestatistic.playerPairCount !== undefined) {
-              this.playerPairCountLabel.text = this.tableInfo.gamestatistic.playerPairCount.toString();
+            if (this.tableInfo.gamestatistic.shoePlayerPairCount !== null && this.tableInfo.gamestatistic.shoePlayerPairCount !== undefined) {
+              this.playerPairCountLabel.text = this.tableInfo.gamestatistic.shoePlayerPairCount.toString();
             }
+            
 
-            this.totalCount = this.tableInfo.gamestatistic.totalCount;
+            this.totalCount = this.tableInfo.gamestatistic.shoeTotalCount;
 
             this.changeLang();
           }

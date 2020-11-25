@@ -110,6 +110,7 @@ namespace we {
           const animName = this.getAnimName(+key);
 
           const coinAnim = this.createLuckyCoinAnim();
+          utils.dblistenToSoundEffect(coinAnim);
           coinAnim.x = this.animXArr[no];
           if (env.orientation === 'portrait' && env.isBottomPanelOpen === false) {
             coinAnim.y = this.animYArr[no] + 530;

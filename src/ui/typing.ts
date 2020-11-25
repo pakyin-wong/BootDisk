@@ -8,12 +8,14 @@ namespace we {
       updateLobbyRoadData(roadmapData: any);
       updateSideBarRoadData(roadmapData: any);
       setTableInfo?(tableInfo: data.TableInfo);
+      clearRoadData?();
     }
 
     export interface IAdvancedRoad {
       tableInfo;
       analysis: IAnalysis;
       update(roadmapData: any);
+      clearRoadData?();
     }
 
     export interface IAnalysis {
@@ -82,6 +84,8 @@ namespace we {
         originX: number;
         originY: number;
       };
+      showSFX?:string;
+      hideSFX?:string;
     }
 
     export interface IMessageDialogOpt {

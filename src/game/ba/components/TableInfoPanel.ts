@@ -101,19 +101,23 @@ namespace we {
       }
 
       public getConfig() {
-        const betlimits = env.getBetLimitSet('Live', env.currentSelectedBetLimitIndex).limits.ba;
-        if (!betlimits) {
-          return [];
+        const betLimitSet = env.getBetLimitSet('Live', env.currentSelectedBetLimitIndex);
+        if (betLimitSet.limits && betLimitSet.limits.dil) {
+          const betlimits = betLimitSet.limits.ba;
+          if (!betlimits) {
+            return [];
+          }
+          return [
+            { data: betlimits.BANKER, lblMax: this.pBankerMax, lblOdd: this.pBankerOdd },
+            { data: betlimits.PLAYER, lblMax: this.pPlayerMax, lblOdd: this.pPlayerOdd },
+            { data: betlimits.BANKER_PAIR, lblMax: this.pBankerPairMax, lblOdd: this.pBankerPairOdd },
+            { data: betlimits.PLAYER_PAIR, lblMax: this.pPlayerPairMax, lblOdd: this.pPlayerPairOdd },
+            { data: betlimits.TIE, lblMax: this.pTieMax, lblOdd: this.pTieOdd },
+            { data: betlimits.SUPER_SIX, lblMax: this.pSuperSixMax, lblOdd: this.pSuperSixOdd },
+            { data: betlimits.SUPER_SIX_BANKER, lblMax: this.pSuperSixBankerMax, lblOdd: this.pSuperSixBankerOdd },
+          ];
         }
-        return [
-          { data: betlimits.BANKER, lblMax: this.pBankerMax, lblOdd: this.pBankerOdd },
-          { data: betlimits.PLAYER, lblMax: this.pPlayerMax, lblOdd: this.pPlayerOdd },
-          { data: betlimits.BANKER_PAIR, lblMax: this.pBankerPairMax, lblOdd: this.pBankerPairOdd },
-          { data: betlimits.PLAYER_PAIR, lblMax: this.pPlayerPairMax, lblOdd: this.pPlayerPairOdd },
-          { data: betlimits.TIE, lblMax: this.pTieMax, lblOdd: this.pTieOdd },
-          { data: betlimits.SUPER_SIX, lblMax: this.pSuperSixMax, lblOdd: this.pSuperSixOdd },
-          { data: betlimits.SUPER_SIX_BANKER, lblMax: this.pSuperSixBankerMax, lblOdd: this.pSuperSixBankerOdd },
-        ];
+        return [];
         // =======
         //       public setValue(tableInfo: data.TableInfo) {
         //         super.setValue(tableInfo);

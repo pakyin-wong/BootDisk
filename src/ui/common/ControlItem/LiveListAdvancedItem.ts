@@ -227,6 +227,16 @@ namespace we {
           }
         }
       }
+
+      protected setStateShuffle(isInit: boolean = false) {
+        super.setStateShuffle(isInit);
+        if (this._previousState !== we.core.GameState.SHUFFLE || isInit) {
+          if (this._advancedRoad) {
+            this._advancedRoad.clearRoadData();
+          }
+        }
+      }
+
     }
   }
 }

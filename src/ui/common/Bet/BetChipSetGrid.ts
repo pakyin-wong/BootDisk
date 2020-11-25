@@ -62,6 +62,7 @@ namespace we {
       }
 
       private onChipChange() {
+        dir.audioCtr.play('ui_sfx_bet_chips_01_mp3');
         this.setSelectedChip(this._chipsetList.selectedIndex);
       }
 
@@ -75,8 +76,10 @@ namespace we {
           // this._setSelectedChip(this._denomList[index], index);
           this._selectedChipIndex = index;
 
+          if (env.currentChipSelectedIndex !== index) {
+            dir.socket.updateSetting('currentChipSelectedIndex', index.toString());
+          }
           env.currentChipSelectedIndex = index;
-          dir.socket.updateSetting('currentChipSelectedIndex', index.toString());
           dir.evtHandler.dispatch(core.Event.BET_DENOMINATION_CHANGE);
         }
       }

@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_btn_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_warnbtn_hover_png,d_common_popup_warnbtn_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,m_lobby_header_submenu_bg_png,m_lobby_roadmap_1column_btn_png,m_lobby_roadmap_2column_btn_png,popover_png,common_chips_json,common_game_panel_json,common_menu_json,preload_json,m_lobby_panel_gamelist_tag_bg_allgame_png,m_lobby_panel_gamelist_tag_bg_betted_png,m_lobby_panel_gamelist_tag_bg_goodroad_png,common_general_json,common_cards_big_json,common_cards_small_json,dbjson_zip,m_common_notification_bg_png,common_ui_tex_png,m_ba_betarea_chipsbg_round_png,NeonOne_otf,chips_select_tex_png,m_h_placeholder_ba_jpg,m_h_placeholder_dt_jpg,m_h_placeholder_gof_ro_jpg,m_h_placeholder_gof_sicbo_jpg,m_h_placeholder_lw_jpg,m_h_placeholder_ro_jpg,m_h_placeholder_sicbo_jpg,m_h_placeholder_sq_ba_jpg,m_v_placeholder_ba_jpg,m_v_placeholder_dt_jpg,m_v_placeholder_dt_overlay_png,m_v_placeholder_gof_ro_jpg,m_v_placeholder_gof_sicbo_jpg,m_v_placeholder_lw_jpg,m_v_placeholder_lw_overlay_png,m_v_placeholder_overlay_common_png,m_v_placeholder_ro_jpg,m_v_placeholder_ro_overlay_png,m_v_placeholder_sicbo_jpg,m_v_placeholder_sq_ba_jpg",
+			"keys": "d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_btn_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_warnbtn_hover_png,d_common_popup_warnbtn_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,m_lobby_header_submenu_bg_png,m_lobby_roadmap_1column_btn_png,m_lobby_roadmap_2column_btn_png,popover_png,common_chips_json,common_game_panel_json,common_menu_json,preload_json,m_lobby_panel_gamelist_tag_bg_allgame_png,m_lobby_panel_gamelist_tag_bg_betted_png,m_lobby_panel_gamelist_tag_bg_goodroad_png,common_general_json,common_cards_big_json,common_cards_small_json,dbjson_zip,m_common_notification_bg_png,common_ui_tex_png,m_ba_betarea_chipsbg_round_png,NeonOne_otf,chips_select_tex_png,m_h_placeholder_ba_jpg,m_h_placeholder_dt_jpg,m_h_placeholder_gof_ro_jpg,m_h_placeholder_gof_sicbo_jpg,m_h_placeholder_lw_jpg,m_h_placeholder_ro_jpg,m_h_placeholder_sicbo_jpg,m_h_placeholder_sq_ba_jpg,m_v_placeholder_ba_jpg,m_v_placeholder_dt_jpg,m_v_placeholder_dt_overlay_png,m_v_placeholder_gof_ro_jpg,m_v_placeholder_gof_sicbo_jpg,m_v_placeholder_lw_jpg,m_v_placeholder_lw_overlay_png,m_v_placeholder_overlay_common_png,m_v_placeholder_ro_jpg,m_v_placeholder_ro_overlay_png,m_v_placeholder_sicbo_jpg,m_v_placeholder_sq_ba_jpg,bgm_chinese_mp3,bgm_comfort_mp3,bgm_nature_mp3",
 			"name": "common"
 		},
 		{
@@ -39,6 +39,18 @@
 		{
 			"keys": "d_lottery_ent_penal_betarea_betpenal_bg_blue_png,d_lottery_ent_penal_betarea_betpenal_bg_blue_title_png,d_lottery_ent_penal_betarea_betpenal_bg_green_png,d_lottery_ent_penal_betarea_betpenal_bg_green_title_png,d_lottery_ent_penal_betarea_betpenal_bg_purple_png,d_lottery_ent_penal_betarea_betpenal_bg_purple_title_png,d_lottery_ent_penal_betarea_betpenal_five_bet_active_png,d_lottery_ent_penal_betarea_betpenal_five_bet_hover_png",
 			"name": "scene_lottery"
+		},
+		{
+			"keys": "blockchain_tex_json,blockchain_tex_png,blockchain_ske_json",
+			"name": "scene_bc_baccarat"
+		},
+		{
+			"keys": "blockchain_dt_tex_png,dragon_ske_json,dragon_tex_png,dragon_tex_json,tiger_ske_json,tiger_tex_json,tiger_tex_png,blockchain_dt_ske_json,blockchain_dt_tex_json,we_bcdt_sfx_result_dragonwin_mp3,we_bcdt_sfx_result_tigerwin_mp3,we_bcdt_sfx_scanning_loop_mp3,we_bcdt_sfx_shoe_in_mp3,we_bcdt_sfx_shoe_out_mp3",
+			"name": "scene_bc_dragontiger"
+		},
+		{
+			"keys": "we_bcba_sfx_card_generate_mp3,we_bcba_sfx_card_icontocontainer_mp3,we_bcba_sfx_card_move_mp3,we_bcba_sfx_card_open_mp3,we_bcba_sfx_card_popup_mp3,we_bcba_sfx_card_removeall_mp3,we_bcba_sfx_card_smallcard_mp3,we_bcba_sfx_card_teleport_mp3,we_bcba_sfx_container_fadeout_mp3,we_bcba_sfx_container_icon_mp3,we_bcba_sfx_newshoe_mp3,we_bcba_sfx_result_mp3,we_bcba_sfx_shoeout_mp3",
+			"name": "scene_bc"
 		}
 	],
 	"resources": [
@@ -652,6 +664,271 @@
 			"url": "assets/nmimages/m/common/general/ingamebg/m_v_placeholder_sq_ba.jpg",
 			"type": "image",
 			"name": "m_v_placeholder_sq_ba_jpg"
+		},
+		{
+			"url": "assets/sounds/common/bgm_chinese.mp3",
+			"type": "sound",
+			"name": "bgm_chinese_mp3"
+		},
+		{
+			"url": "assets/sounds/common/bgm_comfort.mp3",
+			"type": "sound",
+			"name": "bgm_comfort_mp3"
+		},
+		{
+			"url": "assets/sounds/common/bgm_nature.mp3",
+			"type": "sound",
+			"name": "bgm_nature_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_enter_game_opening.mp3",
+			"type": "sound",
+			"name": "ui_enter_game_opening_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_bet_btn_double.mp3",
+			"type": "sound",
+			"name": "ui_sfx_bet_btn_double_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_bet_chips_01.mp3",
+			"type": "sound",
+			"name": "ui_sfx_bet_chips_01_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_bet_chips_add.mp3",
+			"type": "sound",
+			"name": "ui_sfx_bet_chips_add_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_bet_stop.mp3",
+			"type": "sound",
+			"name": "ui_sfx_bet_stop_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_bet_success.mp3",
+			"type": "sound",
+			"name": "ui_sfx_bet_success_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_bet_time_out.mp3",
+			"type": "sound",
+			"name": "ui_sfx_bet_time_out_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_btn_cancel.mp3",
+			"type": "sound",
+			"name": "ui_sfx_btn_cancel_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_btn_disable.mp3",
+			"type": "sound",
+			"name": "ui_sfx_btn_disable_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_btn_ok.mp3",
+			"type": "sound",
+			"name": "ui_sfx_btn_ok_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_btn_switch.mp3",
+			"type": "sound",
+			"name": "ui_sfx_btn_switch_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_info_error_warning.mp3",
+			"type": "sound",
+			"name": "ui_sfx_info_error_warning_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_info_message.mp3",
+			"type": "sound",
+			"name": "ui_sfx_info_message_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_info_notice.mp3",
+			"type": "sound",
+			"name": "ui_sfx_info_notice_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_penal_close.mp3",
+			"type": "sound",
+			"name": "ui_sfx_penal_close_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_penal_open.mp3",
+			"type": "sound",
+			"name": "ui_sfx_penal_open_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_result_card_flip.mp3",
+			"type": "sound",
+			"name": "ui_sfx_result_card_flip_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_result_card_send.mp3",
+			"type": "sound",
+			"name": "ui_sfx_result_card_send_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_result_chips_balance_add.mp3",
+			"type": "sound",
+			"name": "ui_sfx_result_chips_balance_add_mp3"
+		},
+		{
+			"url": "assets/sounds/common/ui_sfx_result_win.mp3",
+			"type": "sound",
+			"name": "ui_sfx_result_win_mp3"
+		},
+		{
+			"url": "assets/sounds/bab/we_bcba_sfx_card_generate.mp3",
+			"type": "sound",
+			"name": "we_bcba_sfx_card_generate_mp3"
+		},
+		{
+			"url": "assets/sounds/bab/we_bcba_sfx_card_icontocontainer.mp3",
+			"type": "sound",
+			"name": "we_bcba_sfx_card_icontocontainer_mp3"
+		},
+		{
+			"url": "assets/sounds/bab/we_bcba_sfx_card_move.mp3",
+			"type": "sound",
+			"name": "we_bcba_sfx_card_move_mp3"
+		},
+		{
+			"url": "assets/sounds/bab/we_bcba_sfx_card_open.mp3",
+			"type": "sound",
+			"name": "we_bcba_sfx_card_open_mp3"
+		},
+		{
+			"url": "assets/sounds/bab/we_bcba_sfx_card_popup.mp3",
+			"type": "sound",
+			"name": "we_bcba_sfx_card_popup_mp3"
+		},
+		{
+			"url": "assets/sounds/bab/we_bcba_sfx_card_removeall.mp3",
+			"type": "sound",
+			"name": "we_bcba_sfx_card_removeall_mp3"
+		},
+		{
+			"url": "assets/sounds/bab/we_bcba_sfx_card_smallcard.mp3",
+			"type": "sound",
+			"name": "we_bcba_sfx_card_smallcard_mp3"
+		},
+		{
+			"url": "assets/sounds/bab/we_bcba_sfx_card_teleport.mp3",
+			"type": "sound",
+			"name": "we_bcba_sfx_card_teleport_mp3"
+		},
+		{
+			"url": "assets/sounds/bab/we_bcba_sfx_container_fadeout.mp3",
+			"type": "sound",
+			"name": "we_bcba_sfx_container_fadeout_mp3"
+		},
+		{
+			"url": "assets/sounds/bab/we_bcba_sfx_container_icon.mp3",
+			"type": "sound",
+			"name": "we_bcba_sfx_container_icon_mp3"
+		},
+		{
+			"url": "assets/sounds/bab/we_bcba_sfx_newshoe.mp3",
+			"type": "sound",
+			"name": "we_bcba_sfx_newshoe_mp3"
+		},
+		{
+			"url": "assets/sounds/bab/we_bcba_sfx_result.mp3",
+			"type": "sound",
+			"name": "we_bcba_sfx_result_mp3"
+		},
+		{
+			"url": "assets/sounds/bab/we_bcba_sfx_shoeout.mp3",
+			"type": "sound",
+			"name": "we_bcba_sfx_shoeout_mp3"
+		},
+		{
+			"url": "assets/sounds/dtb/bcdt/we_bcdt_sfx_result_dragonwin.mp3",
+			"type": "sound",
+			"name": "we_bcdt_sfx_result_dragonwin_mp3"
+		},
+		{
+			"url": "assets/sounds/dtb/bcdt/we_bcdt_sfx_result_tigerwin.mp3",
+			"type": "sound",
+			"name": "we_bcdt_sfx_result_tigerwin_mp3"
+		},
+		{
+			"url": "assets/sounds/dtb/bcdt/we_bcdt_sfx_scanning_loop.mp3",
+			"type": "sound",
+			"name": "we_bcdt_sfx_scanning_loop_mp3"
+		},
+		{
+			"url": "assets/sounds/dtb/bcdt/we_bcdt_sfx_shoe_in.mp3",
+			"type": "sound",
+			"name": "we_bcdt_sfx_shoe_in_mp3"
+		},
+		{
+			"url": "assets/sounds/dtb/bcdt/we_bcdt_sfx_shoe_out.mp3",
+			"type": "sound",
+			"name": "we_bcdt_sfx_shoe_out_mp3"
+		},
+		{
+			"url": "assets/dragonbones/m/bab/blockchain_tex.png",
+			"type": "image",
+			"name": "blockchain_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/m/bab/blockchain_tex.json",
+			"type": "json",
+			"name": "blockchain_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/m/bab/blockchain_ske.json",
+			"type": "json",
+			"name": "blockchain_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/m/dtb/blockchain_dt_tex.png",
+			"type": "image",
+			"name": "blockchain_dt_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/m/dtb/dragon_tex.png",
+			"type": "image",
+			"name": "dragon_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/m/dtb/tiger_tex.png",
+			"type": "image",
+			"name": "tiger_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/m/dtb/blockchain_dt_tex.json",
+			"type": "json",
+			"name": "blockchain_dt_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/m/dtb/dragon_ske.json",
+			"type": "json",
+			"name": "dragon_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/m/dtb/blockchain_dt_ske.json",
+			"type": "json",
+			"name": "blockchain_dt_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/m/dtb/tiger_ske.json",
+			"type": "json",
+			"name": "tiger_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/m/dtb/dragon_tex.json",
+			"type": "json",
+			"name": "dragon_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/m/dtb/tiger_tex.json",
+			"type": "json",
+			"name": "tiger_tex_json"
 		}
 	]
 }

@@ -66,6 +66,7 @@ namespace we {
         firstCardFront.anchorOffsetY = this._firstCardHeight / 2;
 
         this._firstCard = this._factory.buildArmatureDisplay('poker');
+        utils.dblistenToSoundEffect(this._firstCard);
         this._firstCard.armature.getSlot('card_number_vertical').display = this.createIndexLabel(1);
         this._firstCard.armature.getSlot('card_front_vertical').display = firstCardFront;
         this._firstCard.animation.gotoAndStopByTime('burn_card_center_in', 0)
@@ -200,6 +201,7 @@ namespace we {
 
       protected createBurnCard(num: number) {
         const card = this._factory.buildArmatureDisplay('poker');
+        utils.dblistenToSoundEffect(card);
         card.scaleX = card.scaleY = 0.72;
 
         const label = new eui.Label();

@@ -62,6 +62,7 @@ namespace we {
         factory.parseTextureAtlasData(textureData, texture);
 
         this._display = factory.buildArmatureDisplay(this._armatureName);
+        utils.dblistenToSoundEffect(this._display);
         this._display.x = this.width / 2;
         this._display.y = this.height / 2;
         this.addChild(this._display);
@@ -121,7 +122,7 @@ namespace we {
         if (!isNaN(winAmount)) {
           slotName = 'credit';
           slot = this._display.armature.getSlot(slotName);
-          this.setLabel(slot, utils.formatNumber(winAmount))
+          this.setLabel(slot, `${winAmount>0?'+':''}${utils.formatNumber(winAmount)}`)
         }
       }
 
