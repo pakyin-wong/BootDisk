@@ -58,6 +58,14 @@ namespace we {
 
       protected initOrientationDependentComponent() {
         this._btnClose.addEventListener(egret.TouchEvent.TOUCH_TAP, this.hide, this);
+        this._backBtnGroup.addEventListener(
+          egret.TouchEvent.TOUCH_TAP,
+          () => {
+            //this.dispatchEvent(new egret.Event('OPEN_DECK_PANEL'));
+            this.hide();
+          },
+          this
+        );
         this._root.y = this.expandHeight;
         this.height = this.expandHeight;
 

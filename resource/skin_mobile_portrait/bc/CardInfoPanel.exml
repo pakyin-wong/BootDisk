@@ -4,31 +4,31 @@
         xmlns:live="we.live.*">
         <e:Group id="content" width="100%" height="1789">
 
-                <e:Group x="254" y="557" width="180" height="55" >
+                <e:Group x="254" y="457" width="180" height="55" >
                         <e:Label id="_cardIndexLabel" size="55" horizontalCenter="0" verticalCenter="0"/>
                 </e:Group>
 
 
 
-                <e:Group id="_helpButton" x="669" y="266" width="463" height="96" touchThrough="true">
+                <e:Group id="_helpButton" x="669" y="166" width="463" height="96" touchThrough="true">
                         <ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab"
                                             skinName="skin_desktop.ImageButtonSkinBettingPanel" />
                         <ui:RunTimeLabel i18n="baccarat.mechanismHelp" verticalCenter="0" horizontalCenter="0" touchEnabled="false"  size="50"/>
                 </e:Group>
-                <e:Group id="_thirdPartyButton" x="669" y="410" width="463" height="96" touchThrough="true">
+                <e:Group id="_thirdPartyButton" x="669" y="310" width="463" height="96" touchThrough="true">
                         <ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab"
                                             skinName="skin_desktop.ImageButtonSkinBettingPanel" />
                         <ui:RunTimeLabel i18n="baccarat.thirdParty" verticalCenter="0" horizontalCenter="0" touchEnabled="false" size="50"/>
                 </e:Group>
-                <e:Group id="_sha256SuccessfulGroup" x="223" y="620">
+                <e:Group id="_sha256SuccessfulGroup" x="223" y="520">
                         <e:Image source="d_bcba_panel_verification_success_png" x="20" width="33" height="40"/>
                         <ui:RunTimeLabel x="58" verticalCenter="0" verticalAlign="middle" i18n="baccarat.sha256VerifySuccess" />
                 </e:Group>
-                <e:Group id="_sha256FailGroup" x="223" y="620">
+                <e:Group id="_sha256FailGroup" x="223" y="520">
                         <e:Image source="d_bcba_resultarea_player_png" x="20" width="33" height="40"/>
                         <ui:RunTimeLabel x="58" verticalCenter="0" verticalAlign="middle" i18n="baccarat.sha256VerifyFail" />
                 </e:Group>
-                <e:Group width="1146" height="350" x="48" y="668">
+                <e:Group width="1146" height="350" x="48" y="568">
                         <e:Image id="_encryptedAreaImage" source="d_bcba_panel_verification_encryt_bg_png" width="1146" height="350" />
                         <e:Group x="42" y="22">
                         <ui:RunTimeLabel size="48" i18n="baccarat.encryptedKey" />
@@ -43,7 +43,7 @@
                                 <ui:RunTimeLabel size="38" i18n="baccarat.copy" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
                         </e:Group>                        
                 </e:Group>
-                <e:Group width="1146" height="569" x="48" y="1066">
+                <e:Group width="1146" height="569" x="48" y="966">
                         <e:Image id="_decryptedAreaImage" source="d_bcba_panel_verification_encryt_bg_png" width="1146" height="569"/>
                         <e:Image id="_ssnAreaImage" source="d_bcba_panel_verification_key_bg_png" width="1146" height="210"/>
                         <e:Group x="36" y="39">
@@ -72,9 +72,9 @@
                                 <ui:RunTimeLabel size="38" i18n="baccarat.copy" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
                         </e:Group>                        
                 </e:Group>
-                <bc:BaseCard id="_cardImage" skinName="skin_mobile_portrait.bc.CardInfoCard" x="254" y="257" width="180" height="261"/>
-                <ui:BaseImageButton id="_prevButton" width="28" height="53" x="138" y="361" currentState="b_bab_prev" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
-                <ui:BaseImageButton id="_nextButton" width="28" height="53" x="524" y="361" currentState="b_bab_next" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
+                <bc:BaseCard id="_cardImage" skinName="skin_mobile_portrait.bc.CardInfoCard" x="254" y="157" width="180" height="261"/>
+                <ui:BaseImageButton id="_prevButton" width="28" height="53" x="138" y="261" currentState="b_bab_prev" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
+                <ui:BaseImageButton id="_nextButton" width="28" height="53" x="524" y="261" currentState="b_bab_next" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
         </e:Group>
 </e:Skin>
 
