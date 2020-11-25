@@ -96,7 +96,7 @@ namespace we {
       public expandRoad(expand: boolean) {
         if (this.roadMapIconList && this.roadData) {
           // const min = Math.min(this.roadData.length, this.roadMapIconList.length);
-          const numPage = Math.ceil(this.numCol * this.numRow * 0.5); // number of icon in each page when not expand
+          const numPage = Math.ceil(this.numCol * this.numRow * 3/7); // number of icon in each page when not expand
           if (expand) {
             for (let i = numPage; i < this.roadMapIconList.length; i++) {
               (this.roadMapIconList[i] as DilBeadRoadIcon).layerVisible = true;
