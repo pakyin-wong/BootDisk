@@ -783,54 +783,7 @@ namespace we {
           '10000000',
           '20000000',
         ];
-        env.betLimits = {
-          Live: [
-            {
-              currency: Currency.RMB,
-              maxlimit: 1000,
-              minlimit: 10,
-              chips: [100, 500, 1000, 2000, 3000, 50000],
-              // chips: [1, 5, 20, 100, 500],
-              // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
-            },
-          ],
-          Electronic: [
-            {
-              currency: Currency.RMB,
-              maxlimit: 1000,
-              minlimit: 10,
-              chips: [100, 500, 1000, 2000, 3000, 50000],
-              // chips: [1, 5, 20, 100, 500],
-            },
-          ],
-          Lottery: [
-            {
-              currency: Currency.RMB,
-              maxlimit: 1000,
-              minlimit: 10,
-              chips: [100, 500, 1000, 2000, 3000, 50000],
-              // chips: [1, 5, 20, 100, 500],
-            },
-          ],
-          Sportbook: [
-            {
-              currency: Currency.RMB,
-              maxlimit: 1000,
-              minlimit: 10,
-              chips: [100, 500, 1000, 2000, 3000, 50000],
-              // chips: [1, 5, 20, 100, 500],
-            },
-          ],
-          Chess: [
-            {
-              currency: Currency.RMB,
-              maxlimit: 1000,
-              minlimit: 10,
-              chips: [100, 500, 1000, 2000, 3000, 50000],
-              // chips: [1, 5, 20, 100, 500],
-            },
-          ],
-        };
+        env.betLimits = we.mockLimits;
 
         /*
         let denominationList = [];

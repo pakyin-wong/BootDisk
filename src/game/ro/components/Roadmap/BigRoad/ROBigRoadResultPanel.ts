@@ -2,9 +2,13 @@ namespace we {
   export namespace ro {
     export class ROBigRoadResultPanel extends ui.Panel {
       protected gameRoundID: string;
+      protected round: number;
+      protected shoe: number;
       protected _gameLabel: ui.RunTimeLabel;
       protected _gameNumLabel: ui.RunTimeLabel;
       public _gameInfoLabel: ui.RunTimeLabel;
+      protected _gameShoeTextLabel: ui.RunTimeLabel;
+      protected _gameShoeLabel: ui.RunTimeLabel;
       protected _beadRoadIcon: ROBeadRoadIcon;
 
       protected createChildren() {
@@ -27,6 +31,10 @@ namespace we {
         } else {
           this._gameLabel.text = `${i18n.t('overlaypanel_bethistory_recordtab_round') + this.gameRoundID}`;
         }
+        if (this._gameShoeTextLabel) {
+          this._gameShoeTextLabel.text = i18n.t('overlaypanel_bethistory_recordtab_shoe');
+          this._gameShoeLabel.text = this.shoe + '-' + this.round;
+        }
       }
 
       constructor() {
@@ -35,6 +43,8 @@ namespace we {
 
       public setResult(result: any) {
         this.gameRoundID = result.gameRoundID;
+        this.round = result.round;
+        this.shoe = result.shoe;
         this._beadRoadIcon.setByObject({ v: result.v });
         this.changeLang();
       }

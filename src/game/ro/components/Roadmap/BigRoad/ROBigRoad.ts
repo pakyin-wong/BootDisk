@@ -74,6 +74,15 @@ namespace we {
         // dispatch rolled out result
         this.dispatchEvent(new egret.Event('RollOutResult'));
       }
+
+      public dispose() {
+        super.dispose();
+        if (this.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+          this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onOver, this);
+          this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onOut, this);
+        }
+      }
     }
   }
 }

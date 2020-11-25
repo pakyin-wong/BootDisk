@@ -244,7 +244,7 @@ namespace we {
         this.setChip(index);
         env.currentChipSelectedIndex = index;
         dir.socket.updateSetting('currentChipSelectedIndex', index.toString());
-        dir.audioCtr.play('ui_sfx_bet_chips_01_mp3');
+        dir.audioCtr.play('ui_sfx_btn_switch_mp3');
         dir.evtHandler.dispatch(core.Event.BET_DENOMINATION_CHANGE);
       }
 

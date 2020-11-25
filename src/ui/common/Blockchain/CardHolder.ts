@@ -24,12 +24,16 @@ namespace we {
       protected _roundLoopA: string;
       protected _roundLoopB: string;
 
+      protected _cardUsedMessage: CardUsedMessage;
+      protected _clonedPin: egret.Bitmap;
+
       protected mount() {
         this.reset();
         this.initVariables();
         this.createFactory();
         this.createParticles();
         this.createRingAnim();
+        this.clonePin();
         this.createCards();
         this.addEventListeners();
       }
@@ -93,7 +97,40 @@ namespace we {
       protected createRingAnim() {
         this._ringAnim = this._factory.buildArmatureDisplay('blockchain');
         utils.dblistenToSoundEffect(this._ringAnim);
+        this._cardUsedMessage = new CardUsedMessage();
+        this._cardUsedMessage.width = 0;
+        this._cardUsedMessage.y = -320;
+        this._ringAnim.addChild(this._cardUsedMessage);
         this._animRingGroup.addChild(this._ringAnim);
+      }
+
+      protected clonePin() {
+        const redPin = this._ringAnim.armature.getSlot('red_card');
+        const redPinMesh: egret.Mesh = redPin.display;
+        const redPinClone: egret.Bitmap = new egret.Bitmap();
+        // redPinClone.width = redPinMesh.width;
+        // redPinClone.height = redPinMesh.height;
+        redPinClone.rotation = 90 + (Math.atan2(redPin.globalTransformMatrix.b, redPin.globalTransformMatrix.a) * 180) / Math.PI;
+        redPinClone.texture = redPinMesh.texture;
+        redPinClone.x = redPin.globalTransformMatrix.tx;
+        redPinClone.y = redPin.globalTransformMatrix.ty;
+        redPinClone.anchorOffsetX = 14;
+        redPinClone.anchorOffsetY = 111 + redPinClone.texture.textureHeight * redPinClone.scaleY;
+        redPinClone.alpha = 0.7;
+        // redPinClone.pixelHitTest = true;
+        redPinClone.touchEnabled = true;
+        this._ringAnim.addChild(redPinClone);
+
+        this._clonedPin = redPinClone;
+        this._clonedPin.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onPinRollOver, this);
+        this._clonedPin.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onPinRollOut, this);
+      }
+
+      protected onPinRollOver() {
+        this._cardUsedMessage.show();
+      }
+      protected onPinRollOut() {
+        this._cardUsedMessage.hide();
       }
 
       protected abstract createCards();
@@ -109,6 +146,11 @@ namespace we {
 
         this._gameData = <bab.GameData>gameData;
         this.updateCardInfoButtons();
+        this._cardUsedMessage.value = this._gameData.currentcardindex;
+        if (isInit) {
+          this.movePin();
+          this.moveShoe();
+        }
         // check prev data == current data?
         switch (gameData.state) {
           case core.GameState.BET:
@@ -227,17 +269,20 @@ namespace we {
       protected abstract setStateDeal(isInit: boolean);
 
       protected async collapsePin() {
+        this._clonedPin.touchEnabled = false;
         const bone = this._ringAnim.armature.getBone('red_card');
         const destRad = this.getPinRad(0);
         await new Promise(resolve =>
           egret.Tween.get(bone.origin)
             .to({ rotation: destRad }, 1000, function (t) {
               bone.invalidUpdate();
+              this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
               return t;
             })
             .call(resolve)
         );
         bone.invalidUpdate();
+        this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
       }
 
       protected async collapseShoe() {
@@ -259,6 +304,7 @@ namespace we {
         const destRad = this.getPinRad();
         bone.origin.rotation = destRad;
         bone.invalidUpdate();
+        this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
       }
 
       protected moveShoe() {
@@ -297,10 +343,14 @@ namespace we {
           egret.Tween.get(bone.origin)
             .to({ rotation: destRad }, 1000, function (t) {
               bone.invalidUpdate();
+              this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
               return t;
             })
             .call(resolve)
         );
+        this._clonedPin.touchEnabled = true;
+        bone.invalidUpdate();
+        this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
 
         return new Promise(resolve => resolve());
       }

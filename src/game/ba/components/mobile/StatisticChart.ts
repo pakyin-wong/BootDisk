@@ -82,7 +82,7 @@ namespace we {
         this.chart.thirdColor = this._thirdColor;
         this.chart.drawChart(this.isGrey);
 
-        this.render();
+        // this.render();
       }
 
       public render() {

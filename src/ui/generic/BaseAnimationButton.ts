@@ -76,19 +76,19 @@ namespace we {
       }
 
       protected initDisplay() {
-          const factory = BaseAnimationButton.getFactory(this._dbClass);
-          this._display = factory.buildArmatureDisplay(this._dbDisplay);
-          utils.dblistenToSoundEffect(this._display);
-          this._group = new eui.Group();
-          this._group.width = 0;
-          this._group.height = 0;
-          this._display.x = this.width / -2;
-          this._display.y = this.height / -2;
-          this._group.verticalCenter = 0;
-          this._group.horizontalCenter = 0;
+        const factory = BaseAnimationButton.getFactory(this._dbClass);
+        this._display = factory.buildArmatureDisplay(this._dbDisplay);
+        utils.dblistenToSoundEffect(this._display);
+        this._group = new eui.Group();
+        this._group.width = 0;
+        this._group.height = 0;
+        this._display.x = this.width / -2;
+        this._display.y = this.height / -2;
+        this._group.verticalCenter = 0;
+        this._group.horizontalCenter = 0;
 
-          this._group.addChild(this._display);
-          this.addChild(this._group);
+        this._group.addChild(this._display);
+        this.addChild(this._group);
       }
 
       public destroy() {

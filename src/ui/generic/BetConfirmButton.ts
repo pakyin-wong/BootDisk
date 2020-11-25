@@ -21,16 +21,15 @@ namespace we {
       protected mount() {
         super.mount();
         this.addEventListeners();
-
       }
 
       protected initDisplay() {
-          const factory = BaseAnimationButton.getFactory(this._dbClass);
-          this._display = factory.buildArmatureDisplay(this._dbDisplay);
-          utils.dblistenToSoundEffect(this._display);
-          this._display.x = 0;
-          this._display.y = 0;
-          this.addChild(this._display);
+        const factory = BaseAnimationButton.getFactory(this._dbClass);
+        this._display = factory.buildArmatureDisplay(this._dbDisplay);
+        utils.dblistenToSoundEffect(this._display);
+        this._display.x = 0;
+        this._display.y = 0;
+        this.addChild(this._display);
       }
 
       public destroy() {

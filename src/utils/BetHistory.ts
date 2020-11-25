@@ -1,6 +1,16 @@
 namespace we {
   export namespace utils {
     export class BetHistory {
+      public static isLottery(gametype) {
+        switch (gametype) {
+          case we.core.GameType.LO:
+          case we.core.GameType.RC:
+            return true;
+          default:
+            return false;
+        }
+      }
+
       public static formatBetType(gametype, bettype: string) {
         switch (gametype) {
           case we.core.GameType.BAC:

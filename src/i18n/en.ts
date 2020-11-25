@@ -93,8 +93,8 @@ namespace we {
       overlaypanel_bethistory_customperiod: 'Custom',
       overlaypanel_bethistory_searchrecord: 'Search Bet ID',
 
-      overlaypanel_bethistory_recordtab_id: 'Bet ID',
       overlaypanel_bethistory_recordtab_title: 'Record Detail',
+      overlaypanel_bethistory_recordtab_id: 'Bet ID',
       overlaypanel_bethistory_recordtab_date: 'Date',
       overlaypanel_bethistory_recordtab_game: 'Game',
       overlaypanel_bethistory_recordtab_round: 'Round',
@@ -107,6 +107,8 @@ namespace we {
       overlaypanel_bethistory_recordtab_finbalance: 'Balance',
       overlaypanel_bethistory_recordtab_resuit: 'Game Result',
       overlaypanel_bethistory_recordtab_noresult: 'No Bet Reult',
+      overlaypanel_bethistory_recordtab_gameno: 'Game No.',
+      overlaypanel_bethistory_recordtab_shoe: 'Round',
 
       overlaypanel_bethistory_remark_win: 'Win',
       overlaypanel_bethistory_remark_lose: 'Lose',
@@ -117,6 +119,7 @@ namespace we {
       overlaypanel_bethistory_record_round: 'Round',
       overlaypanel_bethistory_record_bettype: 'Bet Content',
       overlaypanel_bethistory_record_vaildbet: 'Vaild Turnover',
+      overlaypanel_bethistory_record_rollingRate: 'Rolling Percentage',
       overlaypanel_bethistory_record_rolling: 'Rolling Commission',
       overlaypanel_bethistory_record_result: 'Game Result',
       overlaypanel_bethistory_record_replay: 'Playback',
@@ -621,6 +624,7 @@ namespace we {
         lastRound: 'Last Round',
         redCardDesc: 'Red Card：After this round, new shoe will be used',
         announceAfterDisclose: 'Announce after card disclosed...',
+        cardUsed: 'Shoe: $1 used',
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',

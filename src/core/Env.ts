@@ -41,6 +41,8 @@ namespace we {
       public _groups: {};
       public groupName: { [groupKey: string]: string } = {};
 
+      public localization: any;
+
       protected _gameCategories: string[];
       protected _gameTypes: number[];
       protected _liveGameTab: string[] = [];
