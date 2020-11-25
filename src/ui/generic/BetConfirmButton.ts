@@ -14,7 +14,6 @@ namespace we {
        **/
 
       protected _isBetState = true; // check if betting(have uncfm bet) if true,disable hover animation
-      //remarks: if u want to display 2 animations in the same time ,just use fadein with 2 groupnames(whatever you like)
       public constructor() {
         super();
         this.orientationDependent = false;
@@ -73,13 +72,11 @@ namespace we {
               if (!this._enabled) {
                 // if not in bet state
                 await this.prevProm;
-                // this.playPromise('disable', 1);
                 this._display.animation.fadeIn('disable', 0, 1, 0, 'CONFIRM_GROUP2');
               } else if (!oldDown && this._down) {
                 // if press down
                 this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
                 this._display.animation.fadeIn('hover_to_press', 0, 1, 0, 'CONFIRM_GROUP2');
-                // this.prevProm = this.playPromise('hover_to_press', 1);
               } else if (this._hover && oldDown && !this._down) {
                 // if press up
                 // await this.prevProm;
@@ -89,19 +86,16 @@ namespace we {
                 await this.prevProm;
                 this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
                 this._display.animation.fadeIn('idle_to_hover', 0, 1, 0, 'CONFIRM_GROUP2');
-                // this.playPromise('idle_to_hover', 1);
               } else if (oldHover && !this._hover) {
                 // roll out
                 await this.prevProm;
                 this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
                 this._display.animation.fadeIn('hover_to_idle', 0, 1, 0, 'CONFIRM_GROUP2');
-                // this.playPromise('hover_to_idle', 1);
               } else {
                 // if idle on bet state
                 await this.prevProm;
                 this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
                 this._display.animation.fadeIn('disble_to_idle', 0, 1, 0, 'CONFIRM_GROUP2');
-                // this.playPromise('disble_to_idle', 0);
               }
               break;
           }
