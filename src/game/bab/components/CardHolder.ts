@@ -277,7 +277,7 @@ namespace we {
         const cardDataNames = ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
         let total = -1;
         //let currentDataIndex = 0;
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 6; i++) {
           if (this._gameData[cardDataNames[i]]) {
             //currentDataIndex = i
             total++;
@@ -472,13 +472,6 @@ namespace we {
 
               await utils.playAnimation(this._playerCard1, this._verticalFlip, 1);
               await utils.playAnimation(this._playerCard2, this._verticalFlip, 1);
-
-              // const p4 = utils.waitDragonBone(this._playerCard1);
-              // const p5 = utils.waitDragonBone(this._playerCard2);
-              // this._playerCard1.animation.play(`vertical_flip`, 1);
-              // this._playerCard2.animation.play(`vertical_flip`, 1);
-              // await p4;
-              // await p5;
 
               this.updatePlayerSum();
               break;
