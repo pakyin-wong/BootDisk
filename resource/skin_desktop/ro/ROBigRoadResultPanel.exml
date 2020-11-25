@@ -14,6 +14,15 @@
                         <e:HorizontalLayout gap="4" verticalAlign="middle" />
                 </e:layout>
         </e:Group>
+        <e:Group y="12" right="15">
+                <ui:RunTimeLabel id="_gameShoeTextLabel" text="Round" x="16" y="12" textAlign="right" anchorOffsetX="0"
+                                 size="18" anchorOffsetY="0" height="23" scaleX="1" scaleY="1" alpha=".7" />
+                <ui:RunTimeLabel id="_gameShoeLabel" text="00_00" x="16" y="12" anchorOffsetX="0" size="18"
+                                 anchorOffsetY="0" height="23" scaleX="1" scaleY="1" textAlign="right"/>
+                <e:layout>
+                        <e:HorizontalLayout gap="4" verticalAlign="middle" />
+                </e:layout>
+        </e:Group>
         <ui:RunTimeLabel id="_gameInfoLabel" text="click to see video of this round" x="16" y="205" textAlign="left"
                          anchorOffsetX="0" width="316" size="16" anchorOffsetY="0" height="18" />
 </e:Skin>

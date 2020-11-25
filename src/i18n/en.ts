@@ -107,6 +107,8 @@ namespace we {
       overlaypanel_bethistory_recordtab_finbalance: 'Balance',
       overlaypanel_bethistory_recordtab_resuit: 'Game Result',
       overlaypanel_bethistory_recordtab_noresult: 'No Bet Reult',
+      overlaypanel_bethistory_recordtab_gameno:'Game No.',
+      overlaypanel_bethistory_recordtab_shoe: 'Round',
 
       overlaypanel_bethistory_remark_win: 'Win',
       overlaypanel_bethistory_remark_lose: 'Lose',
@@ -622,6 +624,7 @@ namespace we {
         lastRound: 'Last Round',
         redCardDesc: 'Red Card：After this round, new shoe will be used',
         announceAfterDisclose:'Announce after card disclosed...',
+        cardUsed: 'Shoe: $1 used'
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',

@@ -101,6 +101,8 @@ namespace we {
       overlaypanel_bethistory_recordtab_finbalance: '余额',
       overlaypanel_bethistory_recordtab_resuit: '游戏结果',
       overlaypanel_bethistory_recordtab_noresult: '没有游戏纪录',
+      overlaypanel_bethistory_recordtab_gameno:'遊戏编号',
+      overlaypanel_bethistory_recordtab_shoe: '局数',
 
       overlaypanel_bethistory_remark_win: '嬴',
       overlaypanel_bethistory_remark_lose: '输',
@@ -607,7 +609,7 @@ namespace we {
         totalcount: '总数',
         betSuccess: '下注成功',
         betFail: '下注失败',
-        shuffling: '洗牌中',
+        shuffling: '更换新牌靴',
         addNewGoodRoad: '新增好路',
         newGoodRoadName: '我的好路',
         removeGoodRoad: '删除路纸？',
@@ -644,6 +646,7 @@ namespace we {
         lastRound: '上局结果',
         redCardDesc: '红卡：该局游戏结束后进行换靴',
         announceAfterDisclose:'将于开牌后公布...',
+        cardUsed: '牌靴: 已使用$1张'
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',
