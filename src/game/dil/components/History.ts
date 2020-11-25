@@ -170,6 +170,7 @@ namespace we {
         }
       }
       protected updateHistoryBar (data) {
+        console.log('---------------------------------------------------------------updatehistorybar',data)
         if (env.isMobile) {
           // check is 10 records or 50 records
           if (this._totalResult === 10) {

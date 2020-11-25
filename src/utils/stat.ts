@@ -8,7 +8,7 @@ namespace we {
           total += value;
         });
         result = args.map(value => {
-          return Math.round((value / total) * 100);
+          return total === 0? 0 : Math.round((value / total) * 100);
         });
         return result;
       }
