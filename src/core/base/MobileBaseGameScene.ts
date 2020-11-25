@@ -19,7 +19,7 @@ namespace we {
       protected _doubleLabel: ui.RunTimeLabel;
       protected _undoLabel: ui.RunTimeLabel;
 
-      protected _veritcalTop: eui.Group;
+      protected _verticalTop: eui.Group;
       protected _verticalGroup: eui.Group;
 
       protected _GameID: ui.RunTimeLabel;
@@ -356,7 +356,7 @@ namespace we {
 
       protected onClickBetChipSelected() {
         const testpoint: egret.Point = this._betChipSetGridSelected.localToGlobal(0, 0); // _betChipSetGridSelected(0,0)=> global x and y
-        // console.log(' this._veritcalTop.localToGlobal(49,61)', testpoint);
+        // console.log(' this._verticalTop.localToGlobal(49,61)', testpoint);
         this._betChipSetGridEnabled ? this.hideBetChipPanel() : this.showBetChipPanel();
       }
 
