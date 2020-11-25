@@ -5,8 +5,7 @@ var __reflect = (this && this.__reflect) || function (p, c, t) {
 var mouse;
 (function (mouse) {
     var MouseEvent = (function () {
-        function MouseEvent() {
-        }
+        function MouseEvent() {}
         MouseEvent.MOUSE_MOVE = "mouseMove";
         // MouseEvent.MOUSE_OVER = "mouseOver";
         // MouseEvent.MOUSE_OUT = "mouseOut";
@@ -75,8 +74,8 @@ var mouse;
             // }
 
             /*
-            **  Comparison: https://patrickhlauke.github.io/touch/touch-limit/
-            */
+             **  Comparison: https://patrickhlauke.github.io/touch/touch-limit/
+             */
             // function throttle(callback, limit) {
             //     var waiting = false;
             //     return function () {
@@ -90,15 +89,16 @@ var mouse;
             //     }
             // };
             var debugPath = true;
+
             function debounce(callback, time) {
                 var timeout;
-                return function() {
+                return function () {
                     var context = this;
                     var args = arguments;
                     if (timeout) {
                         clearTimeout(timeout);
                     }
-                    timeout = setTimeout(function() {
+                    timeout = setTimeout(function () {
                         timeout = null;
                         callback.apply(context, args);
                     }, time);
@@ -157,6 +157,7 @@ var mouse;
             };
 
             var timeout;
+
             function triggerTooltip(displayObject, eventType, point) {
                 if (eventType === 'TOOLTIP_HIDE') {
                     stageObj.dispatchEvent(new egret.Event(eventType));
@@ -166,7 +167,7 @@ var mouse;
                     return;
                 }
                 clearTimeout(timeout);
-                timeout = setTimeout(function() {
+                timeout = setTimeout(function () {
                     stageObj.dispatchEvent(new egret.Event(eventType, false, false, {
                         displayObject,
                         x: point.x,
@@ -175,9 +176,9 @@ var mouse;
                 }, 50);
             }
 
-            var addedListenerMap =  {};
-            var timeoutIdMap =  {};
-            var canvasMouseHandler = debounce(function(event) {
+            var addedListenerMap = {};
+            var timeoutIdMap = {};
+            var canvasMouseHandler = debounce(function (event) {
                 var point = stageObj.$screen.webTouchHandler.getLocation(event);
                 var r = checkContainer(point, stageObj, egret.getQualifiedClassName(stageObj));
 
@@ -236,7 +237,7 @@ var mouse;
                         // e.selectTarget(r)
                         // console.log('mouse | down', r)
                 }
-            }, 500);
+            }, 400);
             stageObj.$screen.webTouchHandler.canvas.addEventListener("mousemove", canvasMouseHandler);
             stageObj.$screen.webTouchHandler.canvas.addEventListener("mouseleave", canvasMouseHandler);
             stageObj.$screen.webTouchHandler.canvas.addEventListener("mousedown", canvasMouseHandler);
@@ -247,7 +248,7 @@ var mouse;
             var pointer = false;
             var targetList = [];
             var detectRollOver = function (displayObject) {
-                if(!displayObject["isRollOver"]) {
+                if (!displayObject["isRollOver"]) {
                     egret.TouchEvent.dispatchTouchEvent(displayObject, mouse.MouseEvent.ROLL_OVER, false, false, x, y, null);
                     displayObject["isRollOver"] = true;
                     // if (egret.getQualifiedClassName(displayObject).indexOf('TooltipMessageWrapper') > 0) {
@@ -277,7 +278,7 @@ var mouse;
                 !this.$touchChildren && touchChildrenLock++;
                 var rs = $hitTest.call(this, stageX, stageY);
                 !this.$touchChildren && touchChildrenLock--;
-                if (touchChildrenLock == 0){
+                if (touchChildrenLock == 0) {
                     if (rs != null) {
                         detectRollOver(this);
                         targetList.push(this);
@@ -287,15 +288,15 @@ var mouse;
                 }
                 return rs;
             }
-            var target = stageObj.$hitTest(x,y);
+            var target = stageObj.$hitTest(x, y);
             // console.log(x,y);
             if (target != null) {
                 detectRollOver(target);
                 targetList.push(target);
             }
 
-            currentTarget.forEach(function(i){
-                if(targetList.indexOf(i) < 0) {
+            currentTarget.forEach(function (i) {
+                if (targetList.indexOf(i) < 0) {
                     detectRollOut(i);
                 }
             })
@@ -306,25 +307,22 @@ var mouse;
                     var canvas = stageObj.$displayList.renderBuffer.surface;
                     if (pointer) {
                         canvas.style.cursor = "pointer";
-                    }
-                    else {
+                    } else {
                         canvas.style.cursor = "auto";
                     }
-                }
-                catch (e) {
-                }
+                } catch (e) {}
             }
             egret.DisplayObjectContainer.prototype.$hitTest = $hitTest;
         };
 
         var time = Date.now();
         var throttle = (callback, timeout) => {
-            return function() {
+            return function () {
                 var context = this;
                 var args = arguments;
                 const currTime = Date.now();
                 const dt = currTime - time;
-                if (dt>timeout) {
+                if (dt > timeout) {
                     callback.apply(this, arguments);
                     time = currTime;
                 }
@@ -333,7 +331,7 @@ var mouse;
 
         var mouseX = NaN;
         var mouseY = NaN;
-        
+
         var onTouchMove = egret.sys.TouchHandler.prototype.onTouchMove;
         egret.sys.TouchHandler.prototype.onTouchMove = function (x, y, touchPointID) {
             onTouchMove.call(this, x, y, touchPointID);
@@ -359,10 +357,10 @@ var mouse;
                 }
                 check(mouseX, mouseY);
             }
-        },100);
+        }, 50);
 
-        document.querySelector('canvas').addEventListener('mouseleave', function() {
-            check(NaN,NaN);
+        document.querySelector('canvas').addEventListener('mouseleave', function () {
+            check(NaN, NaN);
         });
     };
     /**
@@ -380,7 +378,7 @@ var mouse;
     mouse.setButtonMode = function (displayObjcet, buttonMode) {
         displayObjcet["buttonModeForMouse"] = buttonMode;
     };
-    
+
     var mouseMoveEnabled = false;
     /**
      * @language en_US

@@ -542,6 +542,7 @@ namespace we {
         exceedBetUpperLimit: 'Exceed Bet Upper Limit',
         startBet: 'Start Bet',
         stopBet: 'Stop Bet',
+        betTimeout: 'Bet Timeout',
       },
       sidePanel: {
         changeChip: 'Change Betchips',
@@ -621,6 +622,8 @@ namespace we {
         ssn: 'Serial Number',
         lastRound: 'Last Round',
         redCardDesc: 'Red Card：After this round, new shoe will be used',
+        announceAfterDisclose:'Announce after card disclosed...',
+        cardUsed: 'Shoe: $1 used'
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',
@@ -629,6 +632,7 @@ namespace we {
         restart: 'Restart',
         retry: 'Retry',
         cancel: 'Cancel',
+        urlcopied:'3rd party verification siteurl copied.',
       },
       error: {
         error_1001: 'Other session logged in',

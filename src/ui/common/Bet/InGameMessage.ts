@@ -5,6 +5,7 @@ namespace we {
       public static readonly SUCCESS: string = 'SUCCESS';
       public static readonly ERROR: string = 'ERROR';
       public static readonly EXPIRED: string = 'EXPIRED';
+      public static readonly NEWSHOE: string = 'NEWSHOE';
 
       public _infoBg: string;
       public _successBg: string;
@@ -80,6 +81,7 @@ namespace we {
       protected setBackground(type: string) {
         switch (type) {
           case InGameMessage.INFO:
+          case InGameMessage.NEWSHOE:
             this._bg.source = this.infoBg;
             break;
           case InGameMessage.SUCCESS:

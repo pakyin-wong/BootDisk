@@ -122,7 +122,7 @@ namespace we {
         if (!isNaN(winAmount)) {
           slotName = 'credit';
           slot = this._display.armature.getSlot(slotName);
-          this.setLabel(slot, utils.formatNumber(winAmount))
+          this.setLabel(slot, `${winAmount>0?'+':''}${utils.formatNumber(winAmount)}`)
         }
       }
 

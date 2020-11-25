@@ -623,14 +623,6 @@ namespace we {
         }
       }
       protected setStateDeal(isInit: boolean = false) {
-        if (this._previousState !== we.core.GameState.DEAL || isInit) {
-          this.setBetRelatedComponentsEnabled(false);
-          this.setResultRelatedComponentsEnabled(true);
-
-          if (this._betDetails) {
-            this._chipLayer.updateBetFields(this._betDetails);
-          }
-        }
 
         if (this._previousState !== we.core.GameState.DEAL) {
           dir.audioCtr.play('ui_sfx_bet_stop_mp3');
@@ -641,9 +633,24 @@ namespace we {
           }
 
           if (this._previousState === core.GameState.BET && this._message && !isInit) {
-            this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
+            if (this._chipLayer.getTotalUncfmBetAmount()>0) {
+              this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.betTimeout'));
+            } else {
+              this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
+            }
+          }
+
+        }
+
+        if (this._previousState !== we.core.GameState.DEAL || isInit) {
+          this.setBetRelatedComponentsEnabled(false);
+          this.setResultRelatedComponentsEnabled(true);
+
+          if (this._betDetails) {
+            this._chipLayer.updateBetFields(this._betDetails);
           }
         }
+
         if (this._resultDisplay) {
           this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         }
