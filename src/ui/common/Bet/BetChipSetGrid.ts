@@ -62,7 +62,7 @@ namespace we {
       }
 
       private onChipChange() {
-        dir.audioCtr.play('ui_sfx_bet_chips_01_mp3');
+        dir.audioCtr.play('ui_sfx_btn_switch_mp3');
         this.setSelectedChip(this._chipsetList.selectedIndex);
       }
 
