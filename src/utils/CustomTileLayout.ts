@@ -26,13 +26,13 @@ module uilayout {
                 }
 
                 if(i%this.numOfColumn == 0) {
-                    maxY += diffY + this.gapY;
+                    maxY += diffY;
                     diffY = 0;
                 }
 
                 var bounds = egret.$TempRectangle;
                 layoutElement.getPreferredBounds(bounds);
-                diffY = Math.max(diffY, bounds.height);
+                diffY = Math.max(diffY, bounds.height + this.gapY);
 
                 var childX = (i%this.numOfColumn) * (this.columnWidth + this.gayX);
                 var childY = maxY;

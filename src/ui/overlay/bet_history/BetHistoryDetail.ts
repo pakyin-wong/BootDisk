@@ -144,9 +144,13 @@ namespace we {
           }
           
           this._arrcol.replaceAll(this._arr);
+          this._scroller.viewport.scrollV = 0;
 
           utils.BetHistory.updateWinText(this._record_win_l, this.data.remark, this.data.winamount);
           this.createGameResult(this.data.gametype, this.data.result);
+
+          egret.Tween.removeTweens(this._scroller.viewport);
+          egret.Tween.get(this._scroller.viewport).set({alpha:0}).wait(100).set({alpha:1});
         }
 
         protected additem(t,v) {
