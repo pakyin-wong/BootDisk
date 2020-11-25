@@ -58,17 +58,42 @@ namespace we {
         chip.y = 670;
         this.addChild(chip);
 
+        const redPin = chip.armature.getSlot('red_card');
+        const redPinMesh: egret.Mesh = redPin.display;
+        const redPinClone: egret.Bitmap = new egret.Bitmap();
+        // redPinClone.width = redPinMesh.width;
+        // redPinClone.height = redPinMesh.height;
+        redPinClone.rotation = 90 + Math.atan2(redPin.globalTransformMatrix.b, redPin.globalTransformMatrix.a)*180/Math.PI;
+        redPinClone.texture = redPinMesh.texture;
+        redPinClone.x = redPin.globalTransformMatrix.tx;
+        redPinClone.y = redPin.globalTransformMatrix.ty;
+        redPinClone.anchorOffsetX = 14;
+        redPinClone.anchorOffsetY = 111 + (redPinClone.texture.textureHeight*redPinClone.scaleY);
+        redPinClone.alpha = 0.7;
+        // redPinClone.pixelHitTest = true;
+        redPinClone.touchEnabled = true;
+        chip.addChild(redPinClone);
+        mouse.setButtonMode(redPinClone,true);
+        redPinClone.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{
+          console.log("Hello world");
+        }, this);
+
         // update rotation of bone by updating the origin.rotation
         const bar = chip.armature.getBone('bar_group');
         bar.origin.rotation = -110;
         egret.Tween.get(bar.origin)
           .to({ rotation: -50 }, 5000, t => {
             bar.invalidUpdate();
+            redPinClone.rotation = 90 + Math.atan2(redPin.globalTransformMatrix.b, redPin.globalTransformMatrix.a)*180/Math.PI;
             return t;
+          }).call(()=>{
+            bar.invalidUpdate();
+            redPinClone.rotation = 90 + Math.atan2(redPin.globalTransformMatrix.b, redPin.globalTransformMatrix.a)*180/Math.PI;
           });
 
         chip.animation.timeScale=0.1;
         this.animChip(chip);
+
 
         // touch event handling
         const infoBtn = chip.armature.getSlot('card_info');
@@ -91,6 +116,30 @@ namespace we {
         }, this);
 
         
+      }
+
+      protected createTooltip() {
+        const tooltipGroup = new eui.Group();
+        tooltipGroup.width = 0;
+
+        const text = new we.ui.RunTimeLabel();
+        text.renderText = () => i18n.t(message);
+        text.size = 20;
+        text.textColor = 0xffffff;
+        text.x = this.paddingHorizontal;
+        text.y = this.paddingVertical;
+        tooltipGroup.addChild(text);
+        // add background
+        const bg = new we.ui.RoundRectShape();
+        bg.cornerTL_TR_BL_BR = '6,6,6,6';
+        bg.fillColor = '0x171b20';
+        bg.fillAlpha = 0.8;
+        bg.stroke = 0;
+        bg.width = text.width + this.paddingHorizontal * 2;
+        bg.height = text.height + this.paddingVertical * 2;
+        tooltipGroup.addChildAt(bg, 0);
+
+        return tooltipGroup;
       }
 
       protected async animChip(chip: dragonBones.EgretArmatureDisplay) {
