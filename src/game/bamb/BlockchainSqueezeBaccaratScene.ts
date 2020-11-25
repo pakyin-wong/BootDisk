@@ -12,6 +12,20 @@ namespace we {
       protected _timeMultiple: number = 1000;
       public static resGroups = [core.res.Blockchain, core.res.BlockchainSqueezeBaccarat];
 
+      protected initChildren(){
+        super.initChildren();
+        this._forceNoDismiss = true;
+        if (!env.isFirstTimeBam) {
+          const tutorial = new bam.SqueezeTutorial('SqueezeTutorial');
+          tutorial.x = 106;
+          tutorial.y = 171;
+          tutorial.isDraggable = true;
+          tutorial.isEdgeDismissable = true;
+          this.addChild(tutorial);
+          env.isFirstTimeBam = true;
+        }
+      }
+
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('BlockchainSqueezeBaccaratScene');
         this._skinKey = 'BlockchainBaccaratScene';
