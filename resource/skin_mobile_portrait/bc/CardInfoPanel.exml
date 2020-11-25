@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.bc.CardInfoPanelSkin" width="1242" height="1966" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.bc.CardInfoPanelSkin" width="1242" height="1789" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:bc="we.blockchain.*" xmlns:w="http://ns.egret.com/wing"
         xmlns:live="we.live.*">
-        <e:Group id="content" width="100%" height="100%">
-                <e:Group id="_backButton"  width="44" height="44" x="52" y="66">
-		        <ui:BaseAnimationButton  dbClass="common_ui" dbDisplay="d_common_icon_back" width="44" height="44" verticalCenter="0" x="0" tooltipText="'nav.tooltip.back'" />
-                        <ui:RunTimeLabel i18n="baccarat.fullShoe" size="44"  verticalCenter="0" x="50" textColor="0xc59466"/>
-                </e:Group>
+        <e:Group id="content" width="100%" height="1789">
+
                 <e:Group x="254" y="557" width="180" height="55" >
                         <e:Label id="_cardIndexLabel" size="55" horizontalCenter="0" verticalCenter="0"/>
                 </e:Group>
 
-                <e:Image id="close" source="d-lobby-button-close-none_png" width="60" height="60"  right="30" top="30"/>
-                <ui:RunTimeLabel i18n="baccarat.verification" horizontalCenter="0" y="35" size="80" textColor="0xc59466" />
-                <e:Group id="_helpButton" x="661" y="266" width="463" height="96" touchThrough="true">
+
+
+                <e:Group id="_helpButton" x="669" y="266" width="463" height="96" touchThrough="true">
                         <ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab"
                                             skinName="skin_desktop.ImageButtonSkinBettingPanel" />
                         <ui:RunTimeLabel i18n="baccarat.mechanismHelp" verticalCenter="0" horizontalCenter="0" touchEnabled="false"  size="50"/>

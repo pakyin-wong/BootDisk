@@ -3058,3 +3058,7 @@ declare module skin_mobile{
 	class SidePanelDropdownIR extends eui.Skin{
 	}
 }
+declare module skin_mobile{
+	class SlideUpMenuSkin extends eui.Skin{
+	}
+}

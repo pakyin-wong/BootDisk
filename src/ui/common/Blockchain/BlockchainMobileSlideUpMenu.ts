@@ -18,22 +18,22 @@ namespace we {
         this._currentPage.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
       }
 
-      public showCardInfoPanel(idx: number) {
+      public showCardInfoPanel(data:bab.GameData, idx: number) {
         this.setPage({
           class: blockchain.CardInfoPanel,
-          title: 'cardinfo',
+          title: 'baccarat.verification',
           skinName: "skin_mobile_portrait.bc.CardInfoPanelSkin",
           backClass: blockchain.DeckPanel,
-          backTitle: 'deckpanel',
+          backTitle: 'baccarat.fullShoe',
         });
-        (this._currentPage as blockchain.CardInfoPanel);
+        (this._currentPage as blockchain.CardInfoPanel).setValue(data, idx);
         this.show();
       }
       public showDeckPanel(data:bab.GameData) {
         this.setPage({
           class: blockchain.DeckPanel,
           skinName: "skin_mobile_portrait.bc.DeckPanelSkin",
-          title: 'deckpanel',
+          title: 'baccarat.fullShoe',
         });
         (this._currentPage as blockchain.DeckPanel).setValue(data);
         this.show();
@@ -42,7 +42,7 @@ namespace we {
         this.setPage({
           class: blockchain.HelpPanel,
           skinName: "skin_mobile_portrait.bc.HelpPanelSkin",
-          title: 'helppanel',
+          title: 'baccarat.mechanismHelp',
         });
         this.show();
       }

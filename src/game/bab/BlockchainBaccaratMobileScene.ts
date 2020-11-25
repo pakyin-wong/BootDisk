@@ -15,7 +15,7 @@ namespace we {
       protected _shufflePanel: blockchain.ShufflePanel;
       // protected _helpPanel: blockchain.HelpPanel;
       // protected _deckPanel: blockchain.DeckPanel;
-      protected _cardInfoPanel: blockchain.CardInfoPanel;
+      // protected _cardInfoPanel: blockchain.CardInfoPanel;
       protected _historyCardHolder: we.ui.HistoryCardHolder;
       protected _resultDisplay: ui.IResultDisplay & we.blockchain.CardHolder;
 
@@ -67,43 +67,36 @@ namespace we {
       protected toggleBottomGamePanel() {
         if (env.isBottomPanelOpen) {
           this._resultDisplay.expandBottom();
-          if (env.orientation === 'portrait') {
-            switch (this._gameData.state) {
-              case core.GameState.DEAL:
-              case core.GameState.FINISH:
-                this._deckButton.y = this._helpButton.y = this._lastRoundButton.y = this._portraitButtonExpandedDealY;
-                // this._deckPanel.resizeHeight(1343);
-                break;
-              case core.GameState.BET:
-              case core.GameState.IDLE:
-              case core.GameState.SHUFFLE:
-              default:
-                this._deckButton.y = this._helpButton.y =  this._lastRoundButton.y = this._portraitButtonExpandedBetY;
-                // this._deckPanel.resizeHeight(1966);
-
-                break;
-            }
-          }
+          // if (env.orientation === 'portrait') {
+          //   switch (this._gameData.state) {
+          //     case core.GameState.DEAL:
+          //     case core.GameState.FINISH:
+          //       this._deckButton.y = this._helpButton.y = this._lastRoundButton.y = this._portraitButtonExpandedDealY;
+          //       break;
+          //     case core.GameState.BET:
+          //     case core.GameState.IDLE:
+          //     case core.GameState.SHUFFLE:
+          //     default:
+          //       this._deckButton.y = this._helpButton.y =  this._lastRoundButton.y = this._portraitButtonExpandedBetY;
+          //       break;
+          //   }
+          // }
         } else {
           this._resultDisplay.collapseBottom();
-          if (env.orientation === 'portrait') {
-            switch (this._gameData.state) {
-              case core.GameState.DEAL:
-              case core.GameState.FINISH:
-                this._deckButton.y = this._helpButton.y = this._lastRoundButton.y =  this._portraitButtonCollapsedDealY;
-                // this._deckPanel.resizeHeight(1343);
-
-                break;
-              case core.GameState.BET:
-              case core.GameState.IDLE:
-              case core.GameState.SHUFFLE:
-              default:
-                this._deckButton.y = this._helpButton.y = this._lastRoundButton.y = this._portraitButtonCollapsedBetY;
-                // this._deckPanel.resizeHeight(1966);
-
-                break;
-            }
-          }
+          // if (env.orientation === 'portrait') {
+          //   switch (this._gameData.state) {
+          //     case core.GameState.DEAL:
+          //     case core.GameState.FINISH:
+          //       this._deckButton.y = this._helpButton.y = this._lastRoundButton.y =  this._portraitButtonCollapsedDealY;
+          //       break;
+          //     case core.GameState.BET:
+          //     case core.GameState.IDLE:
+          //     case core.GameState.SHUFFLE:
+          //     default:
+          //       this._deckButton.y = this._helpButton.y = this._lastRoundButton.y = this._portraitButtonCollapsedBetY;
+          //       break;
+          //   }
+          // }
         }
       }
 
@@ -165,8 +158,9 @@ namespace we {
       }
 
       protected showCardInfoPanel(evt: egret.Event) {
-        this._cardInfoPanel.setValue(this._gameData, evt.data);
-        this._cardInfoPanel.show();
+        this._slideUpMenu.showCardInfoPanel(<bab.GameData>this._gameData, evt.data);
+        // this._cardInfoPanel.setValue(this._gameData, evt.data);
+        // this._cardInfoPanel.show();
       }
 
       // protected showDeckPanel(evt: egret.Event) {
