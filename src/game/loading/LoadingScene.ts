@@ -119,6 +119,10 @@ namespace we {
             if (res.Nicknames) {
               env.nicknameSet = res.Nicknames;
             }
+
+            if (res.Localizations) {
+              env.localization = res.Localizations;
+            }
           }
         }, this);
         this.next();
