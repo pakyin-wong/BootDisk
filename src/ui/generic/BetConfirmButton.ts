@@ -58,16 +58,16 @@ namespace we {
         } else {
           status = this._enabled ? 'auto_confirm_idle_to_hover' : 'disable_switch_to_off';
         }
-        this.playPromise(status, 1);
+        this._display.animation.fadeIn(status, 0, 1, 0, 'CONFIRM_GROUP2');
       }
 
       protected async update([oldDown, oldHover]: boolean[]) {
         // super.update([oldDown, oldHover]);
         const status = '';
-        if (this._display){
+        if (this._display) {
           switch (env.autoConfirmBet) {
             case true:
-            this.playPromise('auto_confirm_idle', 1);
+              this._display.animation.fadeIn('auto_confirm_idle', 0, 1, 0, 'CONFIRM_GROUP2');
               break;
             case false:
               if (!this._enabled) {
@@ -82,8 +82,8 @@ namespace we {
                 // this.prevProm = this.playPromise('hover_to_press', 1);
               } else if (this._hover && oldDown && !this._down) {
                 // if press up
-                await this.prevProm;
-                this.prevProm = this.playPromise('press_to_disable', 1);
+                // await this.prevProm;
+                // this._display.animation.fadeIn('press_to_disable', 0, 1, 0, 'CONFIRM_GROUP1');
               } else if (!oldHover && this._hover) {
                 // if roll over
                 await this.prevProm;
