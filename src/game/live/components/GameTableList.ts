@@ -111,6 +111,8 @@ namespace we {
 
         this.scroller.validateNow();
         this.scroller.viewport.scrollV = scrollV;
+
+        dir.audioCtr.play('ui_sfx_btn_switch_mp3');
       }
 
       public selectGameType(game: string = null) {

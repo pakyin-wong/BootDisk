@@ -491,6 +491,16 @@
       "sourceW": 43,
       "sourceH": 75
     },
+    "d_lobby_panel_gamelist_goodroad_remark_icon_png": {
+      "x": 972,
+      "y": 1308,
+      "w": 54,
+      "h": 51,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 54,
+      "sourceH": 51
+    },
     "d_sic_game result_blue_png": {
       "x": 1436,
       "y": 1135,

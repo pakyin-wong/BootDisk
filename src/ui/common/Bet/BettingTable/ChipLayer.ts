@@ -387,7 +387,7 @@ namespace we {
         const betDetail = { field: fieldName, amount: this.getOrderAmount() };
         // validate bet action
         if (this.validateBetAction(betDetail)) {
-          dir.audioCtr.play('ui_sfx_bet_chips_add_mp3');
+          this.playBetChipSfx(fieldName);
           this.addBetToBetField(fieldName, betDetail.amount);
           this.undoStack.push(hashkey, we.utils.clone({ field: fieldName, amount: betDetail.amount }), this.undoBetFieldUpdate.bind(this));
           this.updateBetChipUncfmBet(fieldName, this.getUncfmBetByField(fieldName).amount);
@@ -511,7 +511,7 @@ namespace we {
         if (!validRepeatBet) {
           return;
         }
-        dir.audioCtr.play('ui_sfx_bet_chips_add_mp3');
+        dir.audioCtr.play('ui_sfx_bet_chips_01_mp3');
         env.tableInfos[this._tableId].prevbets.map(value => {
           if (this._betChipStackMapping[value.field].uncfmBet === value.amount) {
             return;
@@ -584,7 +584,7 @@ namespace we {
           }
         } else {
           exceedBetLimit = this.isExceedUpperBetLimit(fieldAmounts, betLimit, betDetail);
-          // console.log('isExceedUpperBetLimit',exceedBetLimit)
+          console.log('isExceedUpperBetLimit',exceedBetLimit)
           // if (exceedBetLimit) {
           //   this.resetUnconfirmedBet();
           //   this.dispatchEvent(new egret.Event('onUnconfirmBet'));
@@ -764,6 +764,14 @@ namespace we {
 
       protected getRate(fieldName): number {
         return 1;
+      }
+
+      protected playBetChipSfx(field: string) {
+        if (this._betChipStackMapping[field].uncfmBet>0) {
+          dir.audioCtr.play('ui_sfx_bet_chips_add_mp3');
+        } else {
+          dir.audioCtr.play('ui_sfx_bet_chips_01_mp3');
+        }
       }
     }
   }

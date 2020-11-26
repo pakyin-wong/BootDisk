@@ -25,7 +25,7 @@
                         <e:Group id="_playerCard2Info" left="0" bottom="0" width="40" height="40" />
                 </e:Group>
         </e:Group>
-        <e:Group x="398" y="899" width="189" height="48" id="_openAllPlayerGroup">
+        <e:Group x="398" y="899" width="189" height="48" id="_openAllPlayerGroup" visible="false">
                 <ui:RoundRectButton id="_openAllPlayerButton" width="189" height="48" fillAlpha="1" fillAlpha_hover="1"
                                     fillColor="0x0066AD" fillColor_hover="0x008CD5" stroke="0"
                                     cornerTL_TR_BL_BR="25,25,25,25"/>
@@ -43,7 +43,7 @@
                         <e:Group id="_bankerCard2Info" left="0" bottom="0" width="40" height="40" />
                 </e:Group>
         </e:Group>
-        <e:Group width="189" height="48" x="2013" y="899" id="_openAllBankerGroup">
+        <e:Group width="189" height="48" x="2013" y="899" id="_openAllBankerGroup" visible="false">
                 <ui:RoundRectButton id="_openAllBankerButton" width="189" height="48" fillAlpha="1" fillAlpha_hover="1"
                                     fillColor="0x93232A" fillColor_hover="0xFF435A" stroke="0"
                                     cornerTL_TR_BL_BR="25,25,25,25"/>
@@ -55,10 +55,14 @@
         <e:Group x="1900" y="159" id="_smallCard2Group"></e:Group>
         <e:Group x="444" y="150" id="_smallRedCardGroup"></e:Group>
         <ui:RunTimeLabel x="540" y="150" id="_smallRedCardDesc" visible="false" i18n="baccarat.redCardDesc" />
-        <e:Group horizontalCenter="0" y="327" width="341" height="520" touchThrough="true" touchEnabled="false">
-                <ba:FlipCard cardWidth="341" cardHeight="520" id="_centerVCard" />
+        <e:Group horizontalCenter="0" y="327" width="341" height="520" touchThrough="true" touchEnabled="false" id="_centerVCardGroup">
+                <ba:FlipCard cardWidth="341" cardHeight="520" id="_centerVCard"/>
         </e:Group>
-        <e:Group horizontalCenter="0" y="712" width="520" height="341" touchThrough="true" touchEnabled="false">
+        <e:Group horizontalCenter="0" y="712" width="520" height="341" touchThrough="true" touchEnabled="false" id="_centerHCardGroup">
                 <ba:FlipCard cardWidth="341" cardHeight="520" id="_centerHCard" rotation="270" />
         </e:Group>
+        <e:Image id="_centerVTweenCardBack" source="d_sq_ba_card_back_png" width="357" height="548" horizontalCenter="0" y="313" visible="false" touchEnabled="false"/>
+        <e:Image id="_centerVTweenCardFront" source="" width="341" height="520" horizontalCenter="0" y="327" visible="false" touchEnabled="false"/>
+        <e:Image id="_centerHTweenCardBack" source="d_sq_ba_card_back_png" width="357" height="548" horizontalCenter="0" y="720" visible="false" touchEnabled="false" rotation="270"/>
+        <e:Image id="_centerHTweenCardFront" source="" width="341" height="520" horizontalCenter="0" y="714" visible="false" touchEnabled="false" rotation="270"/>
 </e:Skin>

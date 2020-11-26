@@ -43,7 +43,7 @@ namespace we {
               diceSize: 66,
               highlightRadius: 8,
             };
-            this.beadRoad = new DiBeadRoad(1242, 1, 9, 120, 1, options); // in game
+            this.beadRoad = new DiBeadRoad(1242, 1, 9, 120, 1, options, true); // in game
             // this.beadRoad.x = 29;
             // this.beadRoad.y = 16;
             this.beadRoad.scaleX = 689 / 689;
@@ -65,7 +65,7 @@ namespace we {
               diceSize: 34,
               highlightRadius: 8,
             };
-            this.beadRoad = new DiBeadRoad(845, 1, 8, 70, 1, options); // in game
+            this.beadRoad = new DiBeadRoad(845, 1, 8, 70, 1, options,true); // in game
             // this.beadRoad.x = 29;
             // this.beadRoad.y = 16;
             this.beadRoad.scaleX = 689 / 689;
@@ -84,24 +84,30 @@ namespace we {
       }
 
       protected addListeners() {
-        // this.beadRoadSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
-        // this.beadRoadOddEvenBtn.addEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
+        if (this.beadRoadSizeBtn && this.beadRoadOddEvenBtn) {
+          this.beadRoadSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
+          this.beadRoadOddEvenBtn.addEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
+        }
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
         dir.evtHandler.addEventListener(core.Event.MODE_UPDATE, this.updateMode, this);
       }
 
       protected removeListeners() {
-        // this.beadRoadSizeBtn.removeEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
-        // this.beadRoadOddEvenBtn.removeEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
+        if (this.beadRoadSizeBtn && this.beadRoadOddEvenBtn) {
+          this.beadRoadSizeBtn.removeEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
+          this.beadRoadOddEvenBtn.removeEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
+        }
 
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
         dir.evtHandler.removeEventListener(core.Event.MODE_UPDATE, this.updateMode, this);
       }
 
       public updateText() {
-        // this.beadRoadSizeBtn.label = i18n.t('dice.roadBig') + '/' + i18n.t('dice.roadSmall');
-        // this.beadRoadOddEvenBtn.label = i18n.t('dice.roadOdd') + '/' + i18n.t('dice.roadEven');
+        if (this.beadRoadSizeBtn && this.beadRoadOddEvenBtn) {
+        this.beadRoadSizeBtn.label = i18n.t('dice.roadBig') + '/' + i18n.t('dice.roadSmall');
+        this.beadRoadOddEvenBtn.label = i18n.t('dice.roadOdd') + '/' + i18n.t('dice.roadEven');
+        }
       }
 
       public onBeadRoadChanged(e) {
