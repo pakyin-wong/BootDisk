@@ -32,7 +32,6 @@ namespace we {
       }
 
       public playBtn(btnState: string, animState: string, playAnim: string, count: number) {
-
         if (!this._display) {
           return;
         }
@@ -44,19 +43,18 @@ namespace we {
         if (!this.canPlayNext && playAnim !== 'release') {
           // force to complete playing "release" animation, except new "release"
           return;
-        } else {
-          if (playAnim == 'release') {
-            // if animation is "release", listen to its completion
-            this.canPlayNext = false;
-            this._display.armature.eventDispatcher.addDBEventListener(dragonBones.EventObject.COMPLETE, listener, this);
-          }
-          this._display.animation.play(playAnim, count);
         }
+        if (playAnim == 'release') {
+          // if animation is "release", listen to its completion
+          this.canPlayNext = false;
+          this._display.armature.eventDispatcher.addDBEventListener(dragonBones.EventObject.COMPLETE, listener, this);
+        }
+        this._display.animation.play(playAnim, count);
 
         function listener() {
           this.canPlayNext = true;
           this._display.armature.eventDispatcher.removeDBEventListener(dragonBones.EventObject.COMPLETE, listener, this);
-          this.playBtn(this._btnState, this._animState, this._animState, 1); 
+          this.playBtn(this._btnState, this._animState, this._animState, 1);
           // after finish "release", play animationState
         }
       }
@@ -71,13 +69,13 @@ namespace we {
           this.playBtn('hover', 'hover', 'release', 1);
         } else if (this._hover && oldDown && !this._down) {
           // if press up
-          this.playBtn('hover', 'hover', 'hover', 1);
+          this.playBtn('hover', 'hover', 'hover_to_idle', 1);
         } else if (!oldHover && this._hover) {
           // if roll over
-          this.playBtn('idle_to_hover', 'hover', 'idle_to_hover', 1);
+          this.playBtn('hover', 'hover', 'idle_to_hover', 1);
         } else if (oldHover && !this._hover) {
           // if roll out
-          this.playBtn('hover_to_idle', 'idle', 'hover_to_idle', 1);
+          this.playBtn('idle', 'hover_to_idle', 'hover_to_idle', 1);
         } else {
           this.playBtn('idle', 'idle', 'idle', 0);
         }
