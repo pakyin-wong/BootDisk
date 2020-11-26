@@ -69,6 +69,7 @@ namespace we {
           },
           this
         );
+        if(this._backButton){
         this._backButton.addEventListener(
           egret.TouchEvent.TOUCH_TAP,
           () => {
@@ -77,6 +78,7 @@ namespace we {
           },
           this
         );
+        }
         this._helpButton.addEventListener(
           egret.TouchEvent.TOUCH_TAP,
           () => {

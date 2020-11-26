@@ -135,12 +135,12 @@
 	                    skinName="skin_desktop.ImageButtonSkinBettingPanel" />
 	<ui:RunTimeLabel i18n="baccarat.lastRound" verticalCenter="0" horizontalCenter="0" touchEnabled="false" />
 </e:Group>
-<bab:HistoryCardHolder id="_historyCardHolder" width="385" height="125" x="22" y="151"
-                       skinName="skin_mobile_portrait.bab.HistoryHolderSkin" isPoppable="true" hideOnStart="true" />
+<bab:MobileHistoryCardHolder id="_historyCardHolder" width="1146" height="373"
+                       skinName="skin_mobile_portrait.bab.HistoryHolderSkin" isPoppable="true" hideOnStart="true"  top="450" horizontalCenter="0"/>
 <bc:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true" skeletonName="blockchain"
                  isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
                  skinName="skin_mobile_landscape.bc.ShufflePanelSkin" />
-<bc:DeckPanel id="_deckPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
+<!--<bc:DeckPanel id="_deckPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
               isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
               skinName="skin_mobile_landscape.bc.DeckPanelSkin" />
 <bc:HelpPanel id="_helpPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
@@ -148,7 +148,8 @@
               skinName="skin_mobile_landscape.bc.HelpPanelSkin" />
 <bc:CardInfoPanel id="_cardInfoPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0"
                   isPoppable="true" isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false"
-                  hideOnStart="true" skinName="skin_mobile_landscape.bc.CardInfoPanelSkin" />
+                  hideOnStart="true" skinName="skin_mobile_landscape.bc.CardInfoPanelSkin" />-->
+	<ui:BlockchainMobileSlideUpMenu id="_slideUpMenu" bottom="0" right="0" left="0"/>
 </e:Skin>
 
 
