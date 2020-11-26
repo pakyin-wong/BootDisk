@@ -35,6 +35,8 @@ namespace we {
 
       protected currentProgress : number = 0;
       protected _barGrp : eui.Group;
+      protected _redLabelGroup : eui.Group;
+      protected _blueLabelGroup : eui.Group;
       protected _gameType : string;
 
       constructor(blue : number, red : number, gameType : string){
@@ -51,10 +53,10 @@ namespace we {
       protected initSkin(){
         if(env.orientation === 'portrait'){
           this.skinName = 'skin_mobile_portrait.MobileBlockchainBar';
-          this._skinKey = 'skin_mobile_portrait.MobileBlockchainBar';
+          this._skinKey = 'MobileBlockchainBar';
         }else{
           this.skinName = 'skin_mobile_landscape.MobileBlockchainBar';
-          this._skinKey = 'skin_mobile_landscape.MobileBlockchainBar';
+          this._skinKey = 'MobileBlockchainBar';
         }
       }
 
@@ -65,9 +67,20 @@ namespace we {
       protected initComponents(){
         super.initComponents();
 
-        const skeletonData = RES.getRes(`blockchain_ske_json`);
-        const textureData = RES.getRes(`blockchain_tex_json`);
-        const texture = RES.getRes(`blockchain_tex_png`);
+        let skeletonData = RES.getRes(`blockchain_ske_json`);
+        let textureData = RES.getRes(`blockchain_tex_json`);
+        let texture = RES.getRes(`blockchain_tex_png`);        
+        switch(this._gameType){
+          case 'ba':
+          break;
+          case 'dt':
+            skeletonData = RES.getRes(`blockchain_dt_ske_json`);
+            textureData = RES.getRes(`blockchain_dt_tex_json`);
+            texture = RES.getRes(`blockchain_dt_tex_png`);
+          break;
+        }
+        
+
         const factory: dragonBones.EgretFactory = new dragonBones.EgretFactory();
         factory.parseDragonBonesData(skeletonData);
         factory.parseTextureAtlasData(textureData, texture);
@@ -138,10 +151,13 @@ namespace we {
               this.width = 1242;
               this.y = 190;
             }else{
-              this._barOffsetX = 551;
-              this._effectCenter = 551;
+              this._barOffsetX = 661;
+              this._effectCenter = 661;
               this.width = 2424;
-              this.y = 175;
+              this.horizontalCenter = 0;
+              this.y = 170;
+              this._redLabelGroup.right = 496
+              this._blueLabelGroup.left = 496
             }
           break;
           case 'ba':
@@ -322,10 +338,9 @@ namespace we {
       protected destroy(){
         this.resetAnim();
         this._anim.dispose();
-        super.destroy();
-
         dir.meterCtr.drop('blockchainlblblue',this._lblBlue);
-        dir.meterCtr.drop('blockchainlblred',this._lblRed);      
+        dir.meterCtr.drop('blockchainlblred',this._lblRed);     
+        super.destroy();
       }
     }
   }

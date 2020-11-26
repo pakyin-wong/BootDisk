@@ -29,6 +29,7 @@ namespace we {
       protected _mobileBlockchainBar : blockchain.MobileBlockchainBar;
       protected _playerTotalAmount : number = 0;
       protected _bankerTotalAmount : number = 0;
+      protected _mobileBlockchainBarType : string  = 'ba';
 
       public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat];
 
@@ -243,11 +244,8 @@ namespace we {
         if(this._slideUpMenu){
           this._slideUpMenu.setCurrentScene(this);
         }
-        this._mobileBlockchainBar = new blockchain.MobileBlockchainBar(this._playerTotalAmount,this._bankerTotalAmount,'ba');
-        this._mobileBlockchainBar.x = 0;
-        this._mobileBlockchainBar.y = 180;
 
-        this._verticalTop.addChildAt(this._mobileBlockchainBar,0);
+        this.createMobileBlockChainBar();
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
@@ -255,16 +253,28 @@ namespace we {
         if (evt && evt.data) {
         const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
-            if(this._mobileBlockchainBar){
-              const bankerTotalAmount = evt.data.amount[ba.BetField.BANKER] ? evt.data.amount[ba.BetField.BANKER] : 0;
-              const playerTotalAmount = evt.data.amount[ba.BetField.PLAYER]? evt.data.amount[ba.BetField.PLAYER] : 0;
-
-              this._playerTotalAmount = playerTotalAmount;
-              this._bankerTotalAmount = bankerTotalAmount;
-
-              this._mobileBlockchainBar.playAnim(bankerTotalAmount, playerTotalAmount);
-            }
+            this.updateMobileBlockchainBar(evt);
           }
+        }
+      }
+
+      protected createMobileBlockChainBar(){
+        this._mobileBlockchainBar = new blockchain.MobileBlockchainBar(this._playerTotalAmount,this._bankerTotalAmount,'ba');
+        this._mobileBlockchainBar.x = 0;
+        this._mobileBlockchainBar.y = 180;
+
+        this._verticalTop.addChildAt(this._mobileBlockchainBar,0);
+      }
+
+      protected updateMobileBlockchainBar(evt: egret.Event){
+        if(this._mobileBlockchainBar){
+          const bankerTotalAmount = evt.data.amount[ba.BetField.BANKER] ? evt.data.amount[ba.BetField.BANKER] : 0;
+          const playerTotalAmount = evt.data.amount[ba.BetField.PLAYER]? evt.data.amount[ba.BetField.PLAYER] : 0;
+
+          this._playerTotalAmount = playerTotalAmount;
+          this._bankerTotalAmount = bankerTotalAmount;
+
+          this._mobileBlockchainBar.playAnim(bankerTotalAmount, playerTotalAmount);
         }
       }
     }

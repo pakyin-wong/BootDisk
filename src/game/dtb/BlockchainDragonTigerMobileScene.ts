@@ -108,17 +108,6 @@ namespace we {
           //   egret.Tween.get(this._betRelatedGroup)
           // .to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
         }
-
-        if(this._mobileBlockchainBar){
-          if (env.orientation === 'landscape') {
-            egret.Tween.removeTweens(this._mobileBlockchainBar);
-            egret.Tween.get(this._mobileBlockchainBar).to({ scaleX: 1, scaleY: 1 }, 250);
-            //egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
-          }
-          if(!isInit){
-            this._mobileBlockchainBar.resetAnimation();
-          }
-        }
       }
 
       protected setStateDeal(isInit: boolean) {
@@ -171,13 +160,6 @@ namespace we {
         dir.monitor._sideGameList.setToggler(this._common_listpanel);
 
         this.setChipPanelPos();
-
-        //mobileBlockchainbar
-        this._mobileBlockchainBar = new blockchain.MobileBlockchainBar(this._tigerTotalAmount, this._dragonTotalAmount,'ba');
-        this._mobileBlockchainBar.x = 0;
-        this._mobileBlockchainBar.y = 180;
-
-        this._verticalTop.addChildAt(this._mobileBlockchainBar,0);
       }
 
       // protected initBottomBetLimitSelector() {
@@ -294,15 +276,6 @@ namespace we {
           if (betInfo.tableid === this._tableId) {
             (<we.dt.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
             (<we.dt.TableLayer> this._tableLayer).totalPerson = evt.data.count;
-            if(this._mobileBlockchainBar){
-              const dragonTotalAmount = evt.data.amount[dt.BetField.DRAGON] ? evt.data.amount[dt.BetField.DRAGON] : 0;
-              const tigerTotalAmount = evt.data.amount[dt.BetField.TIGER] ? evt.data.amount[dt.BetField.TIGER] : 0;
-
-              this._dragonTotalAmount = dragonTotalAmount;
-              this._tigerTotalAmount = tigerTotalAmount;
-
-              this._mobileBlockchainBar.playAnim(this._tigerTotalAmount, this._dragonTotalAmount);
-            }
           }
         }
       }
@@ -334,6 +307,26 @@ namespace we {
 
       protected checkGameMode(value: boolean) {
         return null;
+      }
+
+      protected createMobileBlockChainBar(){
+        this._mobileBlockchainBar = new blockchain.MobileBlockchainBar(this._tigerTotalAmount,this._dragonTotalAmount,'dt');
+        this._mobileBlockchainBar.x = 0;
+        this._mobileBlockchainBar.y = 180;
+
+        this._verticalTop.addChildAt(this._mobileBlockchainBar,0);
+      }
+
+      protected updateMobileBlockchainBar(evt: egret.Event){
+        if(this._mobileBlockchainBar){
+          const dragonTotalAmount = evt.data.amount[dt.BetField.DRAGON] ? evt.data.amount[dt.BetField.DRAGON] : 0;
+          const tigerTotalAmount = evt.data.amount[dt.BetField.TIGER] ? evt.data.amount[dt.BetField.TIGER] : 0;
+
+          this._dragonTotalAmount = dragonTotalAmount;
+          this._tigerTotalAmount = tigerTotalAmount;
+
+          this._mobileBlockchainBar.playAnim(this._tigerTotalAmount, this._dragonTotalAmount);
+        }
       }
     }
   }
