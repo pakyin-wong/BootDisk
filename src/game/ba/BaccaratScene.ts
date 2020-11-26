@@ -35,8 +35,8 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer | we.dt.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0, DRAGON: 0, TIGER: 0 };
+            (<we.ba.TableLayer | we.dt.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0, DRAGON: 0, TIGER: 0 };
           }
         }
         if (this._BAminimizedTableLayer) {
@@ -178,6 +178,10 @@ namespace we {
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
         this._message.showMessage(ui.InGameMessage.INFO, i18n.t('baccarat.shuffling'),null, true);
+        if (this._tableLayer) {
+          (<we.ba.TableLayer | we.dt.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0, DRAGON: 0, TIGER: 0 };
+          (<we.ba.TableLayer | we.dt.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0, DRAGON: 0, TIGER: 0 };
+        }
       }
 
       public checkResultMessage() {

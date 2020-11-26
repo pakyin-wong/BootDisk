@@ -2,6 +2,8 @@ namespace we {
   export namespace data {
     export class RoadmapGameInfo {
       public gameRoundID: string;
+      public round: number;
+      public shoe: number;
       public a1?: string;
       public a2?: string;
       public a3?: string;

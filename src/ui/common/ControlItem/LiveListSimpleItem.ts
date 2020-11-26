@@ -172,6 +172,10 @@ namespace we {
               if (this._button) {
                 this._button.label1text = i18n.t('mobile_quick_bet_button_add_label');
               }
+              if (this._chipLayer) {
+                this._chipLayer.updateBetFields(this._betDetails);
+              }
+
             } else {
               this._alreadyBetSign.visible = false;
               if (this._button) {
@@ -232,7 +236,9 @@ namespace we {
         this._chipLayer.init();
         this._chipLayer.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
         this._chipLayer.getSelectedChipIndex = () => this._betChipSet.selectedChipIndex;
-
+        if (this._betDetails) {
+          this._chipLayer.updateBetFields(this._betDetails);
+        }
         this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
         this._chipLayer.addEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
       }

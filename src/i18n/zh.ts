@@ -107,6 +107,8 @@ namespace we {
       overlaypanel_bethistory_recordtab_finbalance: '餘額',
       overlaypanel_bethistory_recordtab_resuit: '遊戲結果',
       overlaypanel_bethistory_recordtab_noresult: '沒有遊戲紀錄',
+      overlaypanel_bethistory_recordtab_gameno:'遊戲編號',
+      overlaypanel_bethistory_recordtab_shoe: '局數',
 
       overlaypanel_bethistory_remark_win: '嬴',
       overlaypanel_bethistory_remark_lose: '輸',
@@ -117,6 +119,7 @@ namespace we {
       overlaypanel_bethistory_record_round: '局數',
       overlaypanel_bethistory_record_bettype: '投注項目',
       overlaypanel_bethistory_record_vaildbet: '有效投注',
+      overlaypanel_bethistory_record_rollingRate: '洗碼率',
       overlaypanel_bethistory_record_rolling: '洗碼佣金',
       overlaypanel_bethistory_record_result: '遊戲結果',
       overlaypanel_bethistory_record_replay: '重播',
@@ -622,6 +625,7 @@ namespace we {
         lastRound: '上局結果',
         redCardDesc: '紅卡：該局遊戲結束後進行換靴',
         announceAfterDisclose:'將於開牌後公佈...',
+        cardUsed: '牌靴: 已使用$1張',
       },
       message: {
         test: '你贏左 $1，$2% 會比左我',

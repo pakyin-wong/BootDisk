@@ -545,6 +545,7 @@ namespace we {
         super.setStateBet(isInit);
         this.movePin();
         this.moveShoe();
+        return new Promise(resolve=>resolve())
       }
 
       protected setStateDeal(isInit: boolean) {
