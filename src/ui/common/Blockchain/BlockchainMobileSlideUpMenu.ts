@@ -4,6 +4,8 @@ namespace we {
     export class BlockchainMobileSlideUpMenu extends MobileSlideUpMenu {
       protected _currentScene : we.bab.MobileScene;
 
+      protected _currentData;
+
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
         if (this._currentPage) {
@@ -13,6 +15,17 @@ namespace we {
           this._currentPage.addEventListener('OPEN_DECK_PANEL', this.showDeckPanel, this);
           this._currentPage.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
         }
+
+        this._backBtnGroup.addEventListener(
+          egret.TouchEvent.TOUCH_TAP,
+          () => {
+            // this.hide();
+            if(this._currentData){
+              this.showDeckPanel(this._currentData);
+            }
+          },
+          this
+        );
       }
 
       public setCurrentScene(scene : we.bab.MobileScene){
@@ -33,6 +46,7 @@ namespace we {
       }
 
       public showCardInfoPanel(data:bab.GameData, idx: number) {
+        this._currentData = data;
         let currentSkinName = "";
         if(env.orientation === "portrait"){
           currentSkinName = "skin_mobile_portrait.bc.CardInfoPanelSkin";
@@ -50,6 +64,7 @@ namespace we {
         this.show();
       }
       public showDeckPanel(data:bab.GameData) {
+        this._currentData = data;
         let currentSkinName = "";
         if(env.orientation === "portrait"){
           currentSkinName = "skin_mobile_portrait.bc.DeckPanelSkin";
