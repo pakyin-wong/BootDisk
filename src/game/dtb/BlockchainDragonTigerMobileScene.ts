@@ -24,6 +24,9 @@ namespace we {
 
       protected _mobileBlockchainBar : blockchain.MobileBlockchainBar;
 
+      protected _dragonTotalAmount : number = 0;
+      protected _tigerTotalAmount : number = 0;
+
       constructor(data: any) {
         super(data);
       }
@@ -170,7 +173,7 @@ namespace we {
         this.setChipPanelPos();
 
         //mobileBlockchainbar
-        this._mobileBlockchainBar = new blockchain.MobileBlockchainBar(0,0,'ba');
+        this._mobileBlockchainBar = new blockchain.MobileBlockchainBar(this._tigerTotalAmount, this._dragonTotalAmount,'ba');
         this._mobileBlockchainBar.x = 0;
         this._mobileBlockchainBar.y = 180;
 
@@ -295,7 +298,10 @@ namespace we {
               const dragonTotalAmount = evt.data.amount[dt.BetField.DRAGON] ? evt.data.amount[dt.BetField.DRAGON] : 0;
               const tigerTotalAmount = evt.data.amount[dt.BetField.TIGER] ? evt.data.amount[dt.BetField.TIGER] : 0;
 
-              this._mobileBlockchainBar.playAnim(tigerTotalAmount, dragonTotalAmount);
+              this._dragonTotalAmount = dragonTotalAmount;
+              this._tigerTotalAmount = tigerTotalAmount;
+
+              this._mobileBlockchainBar.playAnim(this._tigerTotalAmount, this._dragonTotalAmount);
             }
           }
         }

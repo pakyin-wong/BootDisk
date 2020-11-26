@@ -27,6 +27,8 @@ namespace we {
       protected _slideUpMenu: ui.BlockchainMobileSlideUpMenu;
 
       protected _mobileBlockchainBar : blockchain.MobileBlockchainBar;
+      protected _playerTotalAmount : number = 0;
+      protected _bankerTotalAmount : number = 0;
 
       public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat];
 
@@ -186,13 +188,12 @@ namespace we {
           }
         }
       }
-      
+
       public showCardInfoPanel(evt: egret.Event) {
         this._slideUpMenu.showCardInfoPanel(<bab.GameData>this._gameData, evt.data);
         // this._cardInfoPanel.setValue(this._gameData, evt.data);
         // this._cardInfoPanel.show();
       }
-
       // protected showDeckPanel(evt: egret.Event) {
       //   this._deckPanel.show();
       // }
@@ -242,7 +243,7 @@ namespace we {
         if(this._slideUpMenu){
           this._slideUpMenu.setCurrentScene(this);
         }
-        this._mobileBlockchainBar = new blockchain.MobileBlockchainBar(0,0,'ba');
+        this._mobileBlockchainBar = new blockchain.MobileBlockchainBar(this._playerTotalAmount,this._bankerTotalAmount,'ba');
         this._mobileBlockchainBar.x = 0;
         this._mobileBlockchainBar.y = 180;
 
@@ -257,6 +258,9 @@ namespace we {
             if(this._mobileBlockchainBar){
               const bankerTotalAmount = evt.data.amount[ba.BetField.BANKER] ? evt.data.amount[ba.BetField.BANKER] : 0;
               const playerTotalAmount = evt.data.amount[ba.BetField.PLAYER]? evt.data.amount[ba.BetField.PLAYER] : 0;
+
+              this._playerTotalAmount = playerTotalAmount;
+              this._bankerTotalAmount = bankerTotalAmount;
 
               this._mobileBlockchainBar.playAnim(bankerTotalAmount, playerTotalAmount);
             }
