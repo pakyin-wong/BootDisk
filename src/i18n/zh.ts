@@ -182,7 +182,7 @@ namespace we {
       overlaypanel_gameSet_sendLiveVerfication: '發送現場驗證',
 
       expiredmessage_text: '您已3局未投注，將於2局後返回遊戲大堂',
-
+      kickoutmessage_text: '您已5局未投注，現在返回遊戲大堂',
       // customerservicehotlinenumber_text: '客服熱線號碼更新為＋63 9250898888',
 
       datePicker_clean: '清除',

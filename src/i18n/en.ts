@@ -182,7 +182,7 @@ namespace we {
       overlaypanel_gameSet_sendLiveVerfication: 'Send On-site Verification',
 
       expiredmessage_text: 'You have not bet for 3 rounds, and will be back to lobby after 2 rounds.',
-
+       kickoutmessage_text: 'You have not betted for 5 rounds, back to lobby now.',
       // customerservicehotlinenumber_text: 'The customer service hotline number is updated to +63 9250898888',
 
       datePicker_clean: 'Clean',

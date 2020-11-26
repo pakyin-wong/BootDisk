@@ -187,6 +187,7 @@ namespace we {
 
 
       expiredmessage_text: '您已3局未投注，将于2局后返回游戏大堂',
+      kickoutmessage_text: '您已5局未下注，现在返回游戏大堂',
 
 
       // customerservicehotlinenumber_text: '客服热线号码更新为＋63 9250898888',
