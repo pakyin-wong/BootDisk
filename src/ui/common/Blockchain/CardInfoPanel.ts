@@ -54,6 +54,7 @@ namespace we {
       protected _decryptedKeyHelpLabel: ui.RunTimeLabel;
 
       protected _message: ui.InGameMessage;
+      protected _closePanel: eui.Rect;
 
       public constructor() {
         super();
@@ -143,10 +144,8 @@ namespace we {
         if(env.isMobile){
           this.changeFontSize();
 
-          this._indexHelpGroup.visible = false;
-          this._encryptedKeyHelpGroup.visible = false;
-          this._ssnHelpGroup.visible = false;
-          this._decryptedKeyHelpGroup.visible = false;
+          this.closeAllHint();
+
           this._cardHelp.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openIndexHint, this);
           this._encryptedHelp.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openEncryptedKeyHint, this);
           this._ssnHelp.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openSsnHint, this);
@@ -223,12 +222,30 @@ namespace we {
         }
       }
 
+      protected closeAllHint(){
+          this._indexHelpGroup.visible = false;
+          this._encryptedKeyHelpGroup.visible = false;
+          this._ssnHelpGroup.visible = false;
+          this._decryptedKeyHelpGroup.visible = false;
+
+          if(this._closePanel)
+            this._closePanel.touchEnabled = false;
+      }
+
       protected openIndexHint(){
         if(this._indexHelpGroup.visible){
           this._indexHelpGroup.visible = false;
         }else{
           if(env.orientation === "portrait"){
+            this._helpArrow.visible = true;
             this._helpArrow.left = this._cardIndexGroup.x + this._cardIndexLabel.width + (this._cardHelp.width / 2) - this._indexHelpGroup.x;
+          }else{
+            this._helpArrow.visible = false;
+
+            if(this._closePanel){
+              this._closePanel.once(egret.TouchEvent.TOUCH_BEGIN, this.closeAllHint, this);
+              this._closePanel.touchEnabled = true;
+            }
           }
           this._encryptedKeyHelpGroup.visible = false;
           this._ssnHelpGroup.visible = false;
@@ -244,7 +261,15 @@ namespace we {
         }else{
           // this._encryptedKeyHelpArrow.left = this._encryptedAreaGroup.x + this._encryptedAreaGroup.x + this._encryptedLabel.width + (this._encryptedHelp.width / 2) - this._encryptedKeyHelpGroup.x;
           if(env.orientation === "portrait"){
+            this._encryptedKeyHelpArrow.visible = true;
             this._encryptedKeyHelpArrow.left = this._encryptedAreaGroup.x + this._encryptedAreaGroup.x + this._encryptedLabel.width - this._encryptedKeyHelpGroup.x;
+          }else{
+            this._encryptedKeyHelpArrow.visible = false;
+            
+            if(this._closePanel){
+              this._closePanel.once(egret.TouchEvent.TOUCH_BEGIN, this.closeAllHint, this);
+              this._closePanel.touchEnabled = true;
+            }
           }
 
           this._indexHelpGroup.visible = false;
@@ -261,7 +286,15 @@ namespace we {
         }else{
           // this._ssnHelpArrow.left = this._ssnDeGroup.x + this._ssnGroup.x + this._ssnRuntimeLabel.width + (this._ssnHelp.width / 2) - this._ssnHelpGroup.x;
           if(env.orientation === "portrait"){
+            this._ssnHelpArrow.visible = true;
             this._ssnHelpArrow.left = this._ssnDeGroup.x + this._ssnGroup.x + this._ssnRuntimeLabel.width - this._ssnHelpGroup.x;
+          }else{
+            this._ssnHelpArrow.visible = false;
+            
+            if(this._closePanel){
+              this._closePanel.once(egret.TouchEvent.TOUCH_BEGIN, this.closeAllHint, this);
+              this._closePanel.touchEnabled = true;
+            }
           }
 
           this._indexHelpGroup.visible = false;
@@ -278,7 +311,15 @@ namespace we {
         }else{
           // this._decryptedKeyArrow.left = this._ssnDeGroup.x + this._ssnGroup.x + this._decryptedRuntimeLabel.width + (this._decryptedHelp.width / 2) - this._decryptedKeyHelpGroup.x;
           if(env.orientation === "portrait"){
+            this._decryptedKeyArrow.visible = true;
             this._decryptedKeyArrow.left = this._ssnDeGroup.x + this._ssnGroup.x + this._decryptedRuntimeLabel.width - this._decryptedKeyHelpGroup.x;
+          }else{
+            this._decryptedKeyArrow.visible = false;
+            
+            if(this._closePanel){
+              this._closePanel.once(egret.TouchEvent.TOUCH_BEGIN, this.closeAllHint, this);
+              this._closePanel.touchEnabled = true;
+            }
           }
 
           this._indexHelpGroup.visible = false;
