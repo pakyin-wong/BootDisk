@@ -26,6 +26,8 @@ namespace we {
 
       protected _slideUpMenu: ui.BlockchainMobileSlideUpMenu;
 
+      protected _mobileBlockchainBar : blockchain.MobileBlockchainBar;
+
       public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat];
 
       protected setSkinName() {
@@ -129,6 +131,17 @@ namespace we {
         }
         this.hideSumGroup();
         this.toggleBottomGamePanel();
+
+        if(this._mobileBlockchainBar){
+          if (env.orientation === 'landscape') {
+            egret.Tween.removeTweens(this._mobileBlockchainBar);
+            egret.Tween.get(this._mobileBlockchainBar).to({ scaleX: 1, scaleY: 1 }, 250);
+            //egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+          }
+          if(!isInit){
+            this._mobileBlockchainBar.resetAnimation();
+          }
+        }
       }
 
       protected setStateDeal(isInit: boolean = false) {
@@ -138,6 +151,13 @@ namespace we {
         this.showSumGroup();
         console.log('Blockchain scene deal state', this._gameData);
         this.toggleBottomGamePanel();
+
+        if(this._mobileBlockchainBar){
+          if (env.orientation === 'landscape') {
+            egret.Tween.get(this._mobileBlockchainBar).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+            //egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+          }
+        }
       }
 
       protected setStateFinish(isInit: boolean) {
@@ -157,6 +177,16 @@ namespace we {
         this.toggleBottomGamePanel();
       }
 
+      protected setStateIdle(isInit: boolean) {
+        super.setStateIdle(isInit);
+        if(this._mobileBlockchainBar){
+          if (env.orientation === 'landscape') {
+            egret.Tween.get(this._mobileBlockchainBar).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+            //egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+          }
+        }
+      }
+      
       public showCardInfoPanel(evt: egret.Event) {
         this._slideUpMenu.showCardInfoPanel(<bab.GameData>this._gameData, evt.data);
         // this._cardInfoPanel.setValue(this._gameData, evt.data);
@@ -211,6 +241,26 @@ namespace we {
         super.initChildren();
         if(this._slideUpMenu){
           this._slideUpMenu.setCurrentScene(this);
+        }
+        this._mobileBlockchainBar = new blockchain.MobileBlockchainBar(0,0,'ba');
+        this._mobileBlockchainBar.x = 0;
+        this._mobileBlockchainBar.y = 180;
+
+        this._verticalTop.addChildAt(this._mobileBlockchainBar,0);
+      }
+
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
+        if (evt && evt.data) {
+        const betInfo = <data.GameTableBetInfo> evt.data;
+          if (betInfo.tableid === this._tableId) {
+            if(this._mobileBlockchainBar){
+              const bankerTotalAmount = evt.data.amount[ba.BetField.BANKER] ? evt.data.amount[ba.BetField.BANKER] : 0;
+              const playerTotalAmount = evt.data.amount[ba.BetField.PLAYER]? evt.data.amount[ba.BetField.PLAYER] : 0;
+
+              this._mobileBlockchainBar.playAnim(bankerTotalAmount, playerTotalAmount);
+            }
+          }
         }
       }
     }
