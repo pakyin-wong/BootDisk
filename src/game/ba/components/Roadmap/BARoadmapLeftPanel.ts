@@ -21,6 +21,16 @@ namespace we {
         this.gameIdLabel.text = this.gameId;
         this.totalBetText.text = i18n.t('baccarat.totalbet') + ' ';
         this.totalBetLabel.text = utils.numberToFaceValue(this.totalBet);
+
+        if (this.beadRoad.Mode === 1) {
+          this.modeLabel.size = 18;
+          this.modeLabel.text = i18n.t('baccarat.bankerShort');
+          this.modeLayer.anchorOffsetX = this.modeLabel.width * 0.55;
+        } else {
+          this.modeLabel.size = 22;
+          this.modeLabel.text = '9';
+          this.modeLayer.anchorOffsetX = this.modeLabel.width * 0.5;
+        }
       }
 
       protected init() {
@@ -61,15 +71,8 @@ namespace we {
 
       protected onSwitchModeClick(e: egret.TouchEvent) {
         this.beadRoad.Mode = ++this.beadRoad.Mode % 2;
-        if (this.beadRoad.Mode === 1) {
-          this.modeLabel.size = 18;
-          this.modeLabel.text = i18n.t('baccarat.bankerShort');
-          this.modeLayer.anchorOffsetX = this.modeLabel.width * 0.55;
-        } else {
-          this.modeLabel.size = 22;
-          this.modeLabel.text = '9';
-          this.modeLayer.anchorOffsetX = this.modeLabel.width * 0.5;
-        }
+        
+        this.changeLang();
       }
 
       public update() {

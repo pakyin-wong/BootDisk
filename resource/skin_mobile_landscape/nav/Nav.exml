@@ -18,7 +18,7 @@
 
 
 	</e:Group>
-	<e:Group height="63" includeIn="Game" y="17" right="15">
+	<e:Group height="63" visible.Lobby="false" y="17" right="15">
 		<ui:RunTimeLabel id="_balanceGame" text="123,456,789" x.Lobby="108" y="49" height="47" fontFamily="Barlow" size="36" textColor="0xffffff" verticalAlign="middle" maxWidth="202" y.Game="0"  x.Game="81" scaleX="1" scaleY="1"/>
 		<ui:RunTimeLabel id="_balanceText" text="餘額" includeIn="Game" x="418" y="4.97" anchorOffsetY="0" height="47" size="36" verticalAlign="middle" alpha="0.7"/>
 		<e:layout>

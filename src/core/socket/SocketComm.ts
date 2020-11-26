@@ -296,6 +296,7 @@ namespace we {
 				env.playerID = player.playerid;
 				env.currency = player.profile.currency;
 				env.accountType = player.profile.type ? player.profile.type : 0;
+				// env.accountType = 1;
 				// env.nickname = player.profile.nickname;
 				const settings = player.profile.settings;
 				env.nickname = settings.nickname ? settings.nickname : player.profile.nickname;
@@ -1314,7 +1315,7 @@ namespace we {
 						tableid: goodRoadData.tableid,
 						goodRoad: goodRoadData,
 					};
-				});
+				}).filter(item=>!(item.goodRoad.name=='' && item.goodRoad.roadmapid==''));
 				env.mergeTableInfoList(tableInfos);
 				// save the list to env.goodRoadTableList
 				const goodRoadTableList = tableInfos.map(data => data.tableid);
@@ -1325,15 +1326,17 @@ namespace we {
 				for (const tableid of added) {
 					const tableInfo = env.tableInfos[tableid];
 					if (tableInfo.data && tableInfo.data.state === core.GameState.BET) {
-						tableInfo.goodRoad.alreadyShown = true;
-						const data = {
-							tableid,
-						};
-						const notification: data.Notification = {
-							type: core.NotificationType.GoodRoad,
-							data,
-						};
-						dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+						if (env.showGoodRoadHint && tableInfo.displayReady && tableInfo.goodRoad && !tableInfo.goodRoad.alreadyShown) {
+							tableInfo.goodRoad.alreadyShown = true;
+							const data = {
+								tableid,
+							};
+							const notification: data.Notification = {
+								type: core.NotificationType.GoodRoad,
+								data,
+							};
+							dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+						}
 					}
 				}
 				for (const tableid of removed) {

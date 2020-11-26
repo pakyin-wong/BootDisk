@@ -71,7 +71,7 @@ namespace we {
 
         const page1Group = this.pageStack.getChildAt(0) as eui.Group;
 
-        this.beadRoad = new DilBeadRoad(6, 8, 56, 1, 16, 18, 0x262a2b, 1, true); // in game
+        this.beadRoad = new DilBeadRoad(7, 8, 56, 1, 16, 18, 0x262a2b, 1, true); // in game
         this.beadRoad.x = 10;
         this.beadRoad.y = 20;
         this.beadRoad.scaleX = 689 / 689;
@@ -96,49 +96,50 @@ namespace we {
       }
 
       public expandPanel(expand: boolean) {
+        const diffHeight = 297;
         if (!this.isExpanded && expand) {
-          this.bg.height = 340 + 202;
-          this.bg.setRoundRectStyle(580, 340 + 202, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', 1, 0);
-          this.bg.y -= 202;
-          this.border.height = 340 + 202;
-          this.border.setRoundRectStyle(580, 340 + 202, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', -1, 2, 0x3a3f48);
-          this.border.y -= 202;
-          this._page2Bg.height = 250 + 202;
-          this._page2Bg.y -= 202;
+          this.bg.height = 340 + diffHeight;
+          this.bg.setRoundRectStyle(580, 340 + diffHeight, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', 1, 0);
+          this.bg.y -= diffHeight;
+          this.border.height = 340 + diffHeight;
+          this.border.setRoundRectStyle(580, 340 + diffHeight, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', -1, 2, 0x3a3f48);
+          this.border.y -= diffHeight;
+          this._page2Bg.height = 250 + diffHeight;
+          this._page2Bg.y -= diffHeight;
 
-          (this.pageStack.getChildAt(0) as eui.Group).height += 202;
-          (this.pageStack.getChildAt(0) as eui.Group).y -= 202;
+          (this.pageStack.getChildAt(0) as eui.Group).height += diffHeight;
+          (this.pageStack.getChildAt(0) as eui.Group).y -= diffHeight;
 
-          this.gameIdLabel.y -= 202;
-          this.totalBetLabel.y -= 202;
+          this.gameIdLabel.y -= diffHeight;
+          this.totalBetLabel.y -= diffHeight;
 
-          // this.beadRadioBtn1.y += 202;
-          // this.beadRadioBtn2.y += 202;
+          // this.beadRadioBtn1.y += diffHeight;
+          // this.beadRadioBtn2.y += diffHeight;
           this.beadRoad.expandRoad(true);
-          this.beadRoad.y -= 202;
+          this.beadRoad.y -= diffHeight;
           this.isExpanded = true;
 
           this.toggleUpDownButton.currentState = 'b_down';
         } else if (this.isExpanded && !expand) {
           this.bg.height = 340;
           this.bg.setRoundRectStyle(580, 340, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', 1, 0);
-          this.bg.y += 202;
+          this.bg.y += diffHeight;
           this.border.height = 340;
           this.border.setRoundRectStyle(580, 340, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', -1, 2, 0x3a3f48);
-          this.border.y += 202;
+          this.border.y += diffHeight;
           this._page2Bg.height = 250;
-          this._page2Bg.y += 202;
+          this._page2Bg.y += diffHeight;
 
-          (this.pageStack.getChildAt(0) as eui.Group).height -= 202;
-          (this.pageStack.getChildAt(0) as eui.Group).y += 202;
+          (this.pageStack.getChildAt(0) as eui.Group).height -= diffHeight;
+          (this.pageStack.getChildAt(0) as eui.Group).y += diffHeight;
 
-          this.gameIdLabel.y += 202;
-          this.totalBetLabel.y += 202;
+          this.gameIdLabel.y += diffHeight;
+          this.totalBetLabel.y += diffHeight;
 
-          // this.beadRadioBtn1.y -= 202;
-          // this.beadRadioBtn2.y -= 202;
+          // this.beadRadioBtn1.y -= diffHeight;
+          // this.beadRadioBtn2.y -= diffHeight;
           this.beadRoad.expandRoad(false);
-          this.beadRoad.y += 202;
+          this.beadRoad.y += diffHeight;
           this.isExpanded = false;
 
           this.toggleUpDownButton.currentState = 'b_up';

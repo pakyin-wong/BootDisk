@@ -400,6 +400,7 @@ namespace we {
           this._centerVCard.visible = false;
           this._centerHCard.visible = false;
         }
+        return new Promise(resolve=>resolve())
       }
 
       protected changeCenterCardBackAnim(orientation: string) {

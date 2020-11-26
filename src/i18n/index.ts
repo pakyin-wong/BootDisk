@@ -39,7 +39,7 @@ namespace we {
     }
 
     function replace(output: string, variables: any[]): string {
-      for (let i = 1; i <= replace.length; i++) {
+      for (let i = 1; i <= variables.length; i++) {
         output = output.replace('$' + i, variables[i - 1]);
       }
       return output;
@@ -65,6 +65,9 @@ namespace we {
               } else {
                 if (res.Nicknames) {
                   env.nicknameSet = res.Nicknames;
+                }
+                if (res.Localizations) {
+                  env.localization = res.Localizations;
                 }
               }
             }, this),

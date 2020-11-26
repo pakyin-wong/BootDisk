@@ -71,6 +71,15 @@ namespace we {
         }
       }
 
+      protected async setStateBet(isInit: boolean) {
+        await super.setStateBet(isInit);
+        if(isInit){
+          await utils.playAnimation(this._ringAnim,'icon_loop',1)
+        }
+        return new Promise(resolve=>resolve())
+      }
+
+
       protected async moveAndHideA3(interval: number){
         this._bankerCard3Group.visible = false;
         return new Promise(resolve => resolve())

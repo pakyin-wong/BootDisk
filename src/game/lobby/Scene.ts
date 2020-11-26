@@ -10,7 +10,7 @@ namespace we {
 
       private _common_listpanel: ui.BaseImageButton;
 
-      private _selectedIdx: number = -1;
+      private _selectedIdx: number = 0;
 
       private _data: any;
 
@@ -20,11 +20,12 @@ namespace we {
         this.sceneHeaderPlacement = core.BaseScene.HEADER_PLACEMENT_LOBBY;
         this._skinKey = 'LobbyScene';
         this.skinName = utils.getSkinByClassname(this._skinKey);
-        if (env.isMobile) {
+        /// 20201125: as design has changed again. Now 'lobby' is reappeared in desktop version again
+        // if (env.isMobile) {
           this._items = ['lobby', ...env.gameCategories, 'favourite']// ['lobby', 'live', 'lottery', 'egame', 'favourite'];
-        } else {
-          this._items = [...env.gameCategories, 'favourite'];
-        }
+        // } else {
+        //   this._items = [...env.gameCategories, 'favourite'];
+        // }
       }
 
       public get data() {
@@ -81,6 +82,8 @@ namespace we {
         this._selectedIdx = itemIdx;
         const pageStr = itemIdx > -1 ? this._items[itemIdx] : 'lobby';
         this.loadPage(pageStr, this._data);
+
+        dir.audioCtr.play('ui_enter_game_opening_mp3');
       }
 
       public async onFadeEnter() {}
@@ -93,19 +96,19 @@ namespace we {
       public async onFadeExit() {}
 
       private handleTap(event: eui.ItemTapEvent) {
+        dir.audioCtr.play('ui_sfx_btn_switch_mp3');
         this._selectedIdx = this._list.selectedIndex;
         this.loadPage(this._list.selectedItem);
       }
 
       private home(e: egret.TouchEvent) {
+        /// 20201125: as design has changed again. Now 'lobby' is reappeared in desktop version again
         // if (env.isMobile) {
-        if (env.isMobile) {
           this._selectedIdx = 0;
           this._list.selectedIndex = 0;
-        } else {
-          this._selectedIdx = -1;
-          this._list.selectedIndex = -1;
-        }
+        // } else {
+        //   this._selectedIdx = -1;
+        //   this._list.selectedIndex = -1;
         // }
 
         this.loadPage('lobby');
