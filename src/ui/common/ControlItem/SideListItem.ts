@@ -186,7 +186,7 @@ namespace we {
           }
         }
 
-        if (this.tableInfo.goodRoad) {
+        if (this.tableInfo.goodRoad && this.tableInfo.goodRoad.roadmapid !== "") {
           this._goodRoadLabel.visible = true;
           const goodRoadData = this.tableInfo.goodRoad;
           const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
@@ -221,7 +221,7 @@ namespace we {
       }
 
       protected onMatchGoodRoadUpdate() {
-        if (this.tableInfo.goodRoad) {
+        if (this.tableInfo.goodRoad && this.tableInfo.goodRoad.roadmapid !== "") {
           this._goodRoadLabel.visible = true;
           const goodRoadData = this.tableInfo.goodRoad;
           const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);

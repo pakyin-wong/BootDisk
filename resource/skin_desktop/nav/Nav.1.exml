@@ -38,7 +38,7 @@
 		</e:Group>
 		<e:Rect width="2" height="40" width.Game="1" fillColor.Game="0x4c4c4c" height.Game="60" visible.Lobby="false"/>
 		<e:Group x="0" y="12" anchorOffsetX="0" anchorOffsetY="0" x.Lobby="1394">
-			<ui:NavLantern id="_lantern" width="698" height="29" x="1394" y="16.4" x.Game="34" anchorOffsetY="0" y.Game="0" scaleX.Game="1" scaleY.Game="1" x.Lobby="0" y.Lobby="0"/>
+			<ui:NavLantern id="_lantern" width="1000" height="29" x="1092" y="16.4" x.Game="34" anchorOffsetY="0" y.Game="0" scaleX.Game="1" scaleY.Game="1" x.Lobby="-302" y.Lobby="0"/>
 			<e:Image source="d_lobby_navbar_time_png" width="22" height="22" x="2104" y="60" x.Game="0" x.Lobby="710" y.Game="44" scaleX.Game="1" scaleY.Game="1" y.Lobby="42"/>
 			<e:Image source="d_ba_navbar_icon_rss_png" width="22" height="22" x.Game="0" y.Game="5" x.Lobby="710" y.Lobby="3" scaleX.Game="1" scaleY.Game="1"/>
 			<e:Label id="_time" text="yyyy/mm/dd 00:00:00" x="1394" x.Game="34" y="53" size="28" textColor="0xffffff" fontFamily="Barlow" width="698" height="34" textAlign="right" anchorOffsetX="0" verticalAlign="middle" y.Game="37" scaleX.Game="1" scaleY.Game="1" x.Lobby="0" y.Lobby="35"/>

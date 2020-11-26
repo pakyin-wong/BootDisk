@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.BetHistory_v2" width="2140" height="1128" currentState="all" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*" xmlns:betHistory="we.overlay.betHistory.*" states="all,live,lottery,lotteryC" >
+<e:Skin class="skin_desktop.BetHistory_v2" width="2270" height="1128" currentState="all" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*" xmlns:betHistory="we.overlay.betHistory.*" states="all,live,liveCredit,lottery,lotteryC" >
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
 		<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x14181e" ellipseHeight="48" ellipseWidth="48"
-		        strokeColor="0x333c4a" strokeWeight="2" locked="true" />
-		<e:Rect width="1" height="30" x="321" y="141" fillColor="0xffffff" alpha="0.5" visible="false" visible.lottery="true" visible.lotteryC="true"/>
+		        strokeColor="0x333c4a" strokeWeight="2" />
+		<e:Rect width="1" height="30" x="321" y="141" fillColor="0xffffff" alpha="0.5" visible.lottery="true" visible.lotteryC="true" visible="false"/>
 		<e:Image id="close" width="48" height="48" right="32" top="32" source="d-lobby-button-close-none_png" />
 		<e:Group id="header" x="50" y="40" touchThrough="true">
 			<ui:RunTimeLabel id="_txt_title" text="遊玩記錄" x="0" y="0" verticalAlign="middle" textColor="0xc59466" size="48" bold="true" targetWidth="220"/>
 			<e:Group id="main_select_bar" x="252" y="7" touchThrough="true">
 				<ui:RoundRectShape id="main_select_bar_bg" width="690" height="60" x="0" y="0" fillColor="0x5f6973" cornerTL_TR_BL_BR="30,30,30,30" stroke="0" alpha="0.2"/>
-				<ui:RoundRectShape id="main_select_bar_hl" width="180" height="60" x="0" y="0" fillColor="0x1b416e" cornerTL_TR_BL_BR="30,30,30,30" stroke="0" x.live="170" x.lottery="340" x.lotteryC="340"/>
+				<ui:RoundRectShape id="main_select_bar_hl" width="180" height="60" x="0" y="0" fillColor="0x1b416e" cornerTL_TR_BL_BR="30,30,30,30" stroke="0" x.live="170" x.lottery="340" x.lotteryC="340" x.liveCredit="170"/>
 				<e:Label id="_main_select_all" text="遊戲總覽" x="0" y="0" width="180" height="60" verticalAlign="middle" textAlign="center" size="24" alpha="0.7" alpha.all="1"/>
-				<e:Label id="_main_select_live" text="現場遊戲" x="170" y="0" width="180" height="60" verticalAlign="middle" textAlign="center" size="24" alpha="0.7" alpha.live="1"/>
+				<e:Label id="_main_select_live" text="現場遊戲" x="170" y="0" width="180" height="60" verticalAlign="middle" textAlign="center" size="24" alpha="0.7" alpha.live="1" alpha.liveCredit="1"/>
 				<e:Label id="_main_select_lottery" text="彩票遊戲" x="340" y="0" width="180" height="60" verticalAlign="middle" textAlign="center" size="24" alpha="0.7" alpha.lottery="1" alpha.lotteryC="1"/>
 				<e:Label id="_main_select_egame" text="電子遊戲" x="510" y="0" width="180" height="60" verticalAlign="middle" textAlign="center" size="24" alpha="0.7"/>
 			</e:Group>
@@ -25,65 +25,60 @@
 				<e:HorizontalLayout verticalAlign="middle" gap="60"/>
 			</e:layout>
 		</e:Group>
-		<!--<ui:RoundRectShape cornerTL_TR_BL_BR="10,10,0,0" width="137" height="60" x="1512" y="147" stroke="2"
-		                       strokeColor="0x00ff00" fillColor="0x0000ff" strokeIn="2" strokeInColor="0xff0000" />
-		<ui:RoundRectShape cornerTL_TR_BL_BR="30,30,30,30" width="300" height="60" x="1712" y="147" stroke="2"
-		                   strokeColor="0x000000" fillColor="0x23282e" strokeIn="2" strokeInColor="0x3a3f48" />
-		-->
-		<e:Group id="date_select_bar" x="1487" y="47" touchThrough="true">
+		<e:Group id="date_select_bar" x="1617" y="47" touchThrough="true">
 			<ui:RunTimeLabel id="_txt_date" text="日期" y="11" height="36" size="24" alpha="0.7" verticalAlign="middle" x="0"/>
 			<ui:RoundRectButton id="_btn_today" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="84" y="0" stroke="2" fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x1B416E" fillAlpha_click="1" stroke_active="0" fillColor_active="0x1B416E" fillAlpha_active="1"/>
 			<ui:RoundRectButton id="_btn_week" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="241" y="0" stroke="2" fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x1B416E" fillAlpha_click="1" stroke_active="0" fillColor_active="0x1B416E" fillAlpha_active="1"/>
 			<ui:RoundRectButton id="_btn_custom" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="399" y="0" stroke="2" fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x1B416E" fillAlpha_click="1" stroke_active="0" fillColor_active="0x1B416E" fillAlpha_active="1"/>
 		</e:Group>
-		<e:Group id="_label_bar" y="148" left="0" right="0" y.live="208" y.lottery="208" y.lotteryC="208" visible.lotteryC="false">
-			<ui:RunTimeLabel id="_txt_record_id" text="投注編號" x="50" y="0" height="29" size="20" verticalAlign="middle" targetWidth="191" x.live="48" x.lottery="48" x.lotteryC="48"/>
-			<ui:RunTimeLabel id="_txt_record_date" text="日期時間" x="343" y="0" size="20" verticalAlign="middle" height="29" targetWidth="248" x.live="215" x.lottery="426" x.lotteryC="426"/>
-			<ui:RunTimeLabel id="_txt_record_game" text="遊戲" x="692" y="0" height="29" size="20" verticalAlign="middle" targetWidth="123" x.live="443" x.lottery="679" x.lotteryC="679"/>
-			<ui:RunTimeLabel id="_txt_record_round" text="獎期" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="129" y="0" x="248" visible="false" visible.lottery="true" visible.lotteryC="true"/>
-			<ui:RunTimeLabel id="_txt_record_replay" text="重播" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="79" y="0" x.all="0" visible.live="true" visible.lottery="true" x.live="1002" visible.lotteryC="true" x.lotteryC="1258" textAlign="center" width="112" visible="false" x.lottery="1242.5"/>
-			<ui:RunTimeLabel id="_txt_record_remake" text="嬴輸" x="1551" y="0" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="86" x.live="1808" x.lottery="1709" x.lotteryC="1709" visible.live="false" visible.all="false" visible.lottery="false"/>
-			<ui:RunTimeLabel id="_txt_record_bettype" text="投注項目" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="129" y="0" x="1304" visible="false" visible.live="true"  x.live="1114"/>
-			<ui:RunTimeLabel id="_txt_record_betamount" text="投注額" x="1042" y="0" size="20" verticalAlign="middle" height="29" scaleX="1" scaleY="1" targetWidth="147" x.live="1402" x.lottery="1396" x.lotteryC="1376"/>
-			<ui:RunTimeLabel id="_txt_record_vaildbet" text="投注編號" x="1567" height="29" size="20" verticalAlign="middle" targetWidth="191" visible="false" visible.live="true"/>
-			<ui:RunTimeLabel id="_txt_record_win" text="派彩" x="1281" y="0" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="159" x.live="1750" x.lottery="1605" x.lotteryC="1525" x.all="1368"/>
-			<ui:RunTimeLabel id="_txt_record_orgbalance" text="" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="176" y="0" x="0" visible="false"/>
-			<ui:RunTimeLabel id="_txt_record_finbalance" text="本局餘額" x="1726" y="0" size="20" verticalAlign="middle" height="29" scaleX="1" scaleY="1" targetWidth="188" anchorOffsetX="0" x.live="1944" x.lottery="1834" x.lotteryC="1844"/>
-			<ui:RunTimeLabel id="_txt_record_result" text="遊戲結果" height="29" size="20" verticalAlign="middle" scaleX="1" scaleY="1" textAlign="center" targetWidth="390" anchorOffsetX="0" y="0" x="0" visible.live="true" visible.lottery="true" x.live="699" x.lottery="882" visible.lotteryC="true" x.lotteryC="986" width="308" visible="false"/>
+		<e:Group id="_label_bar" left="2" right="2" bottom="951" bottom.live="891" bottom.liveCredit="891" bottom.lottery="891" visible.lotteryC="false">
+			<ui:RunTimeLabel id="_txt_record_id" text="投注編號" size="20" bottom="0" x.all="50" width.all="351" x.live="48" width.live="137" x.liveCredit="48" width.liveCredit="139" x.lottery="50" width.lottery="168"/>
+			<ui:RunTimeLabel id="_txt_record_date" text="日期時間" size="20" bottom="0" x.all="431" width.all="351" x.live="215" width.live="198" x.liveCredit="217" width.liveCredit="196" x.lottery="426" width.lottery="223"/>
+			<ui:RunTimeLabel id="_txt_record_game" text="遊戲" size="20" bottom="0" x.all="812" width.all="310" x.live="443" width.live="232" x.liveCredit="443" width.liveCredit="232" x.lottery="679" width.lottery="145"/>
+			<ui:RunTimeLabel id="_txt_record_round" text="獎期" size="20" bottom="0" visible.all="false" visible.live="false" visible.liveCredit="false" x.lottery="248" width.lottery="148"/>
+			<ui:RunTimeLabel id="_txt_record_replay" text="重播" size="20" bottom="0" visible.all="false" x.live="1031" width.live="117" textAlign.live="center" x.liveCredit="1031" width.liveCredit="53" textAlign.liveCredit="center" x.lottery="1248" width.lottery="101" textAlign.lottery="center"/>
+			<ui:RunTimeLabel id="_txt_record_bettype" text="投注項目" size="20" bottom="0" visible.all="false" x.live="1178" width.live="278" x.liveCredit="1114" width.liveCredit="258" visible.lottery="false"/>
+			<ui:RunTimeLabel id="_txt_record_betamount" text="投注額" size="20" bottom="0" x.all="1152" width.all="331" x.live="1486" width.live="178" x.liveCredit="1402" width.liveCredit="107" x.lottery="1507" width.lottery="207"/>
+			<ui:RunTimeLabel id="_txt_record_vaildbet" text="有效投注" size="20" bottom="0" visible.all="false" x.live="1694" width.live="170" x.liveCredit="1539" width.liveCredit="120" visible.lottery="false"/>
+			<ui:RunTimeLabel id="_txt_record_rollingRate" text="洗碼率" size="20" bottom="0"  visible.all="false" visible.live="false" x.liveCredit="1689" width.liveCredit="101" visible.lottery="false"/>
+			<ui:RunTimeLabel id="_txt_record_rolling" text="洗碼佣金" size="20" bottom="0"  visible.all="false" visible.live="false" x.liveCredit="1820" width.liveCredit="121" visible.lottery="false"/>
+			<ui:RunTimeLabel id="_txt_record_win" text="派彩" size="20" bottom="0" x.all="1513" width.all="311" x.live="1894" width.live="186" x.liveCredit="1971" width.liveCredit="109" x.lottery="1744" width.lottery="188"/>
+			<ui:RunTimeLabel id="_txt_record_finbalance" text="本局餘額" size="20" bottom="0" x.all="1854" width.all="270" x.live="2110" width.live="126" x.liveCredit="2110" width.liveCredit="126" x.lottery="1962" width.lottery="194"/>
+			<ui:RunTimeLabel id="_txt_record_result" text="遊戲結果" size="20" bottom="0" visible.all="false" width.live="296" x.live="705" textAlign.live="center" width.liveCredit="296" x.liveCredit="705" textAlign.liveCredit="center" x.lottery="854" width.lottery="364" textAlign.lottery="center"/>
 		</e:Group>
-		<e:Group id="_clabel_bar" left="0" right="0" y="208" visible.lotteryC="true" visible="false">
-			<e:Label id="_txt_lcb_cbetid" text="追號編號" x="50" height="29" size="20" verticalAlign="middle"/>
-			<e:Label id="_txt_lcb_date" text="日期時間" x="319" height="29" size="20" verticalAlign="middle"/>
-			<e:Label id="_txt_lcb_game" text="遊戲" x="642" height="29" size="20" verticalAlign="middle"/>
-			<e:Label id="_txt_lcb_start" text="起始獎期" x="940" height="29" size="20" verticalAlign="middle"/>
-			<e:Label id="_txt_lcb_total" text="追號期數" x="1222" height="29" size="20" verticalAlign="middle"/>
-			<e:Label id="_txt_lcb_count" text="追號進度" x="1437" height="29" size="20" verticalAlign="middle"/>
-			<e:Label id="_txt_lcb_betamount" text="總投注額" x="1647" height="29" size="20" verticalAlign="middle"/>
-			<e:Label id="_txt_lcb_status" text="狀態" x="1871" height="29" size="20" verticalAlign="middle"/>
+		<e:Group id="_clabel_bar" left="0" right="0" visible.lotteryC="true" bottom="891" visible="false">
+			<e:Label id="_txt_lcb_cbetid" text="追號編號" x="50" size="20" bottom="0" width="239"/>
+			<e:Label id="_txt_lcb_date" text="日期時間" x="319" size="20" bottom="0" width="293"/>
+			<e:Label id="_txt_lcb_game" text="遊戲" x="642" size="20" bottom="0" width="268"/>
+			<e:Label id="_txt_lcb_start" text="起始獎期" x="940" size="20" bottom="0" width="252"/>
+			<e:Label id="_txt_lcb_total" text="追號期數" x="1222" size="20" bottom="0" width="219"/>
+			<e:Label id="_txt_lcb_count" text="追號進度" x="1471" size="20" bottom="0" width="235"/>
+			<e:Label id="_txt_lcb_betamount" text="總投注額" x="1736" size="20" bottom="0" width="235"/>
+			<e:Label id="_txt_lcb_status" text="狀態" x="2001" size="20" bottom="0" width="155"/>
 		</e:Group>
-		<e:List id="_live_submenu" height="64" y="137" left="0" right="0" visible="false" visible.live="true">
+		<e:List id="_live_submenu" height="64" y="137" left="0" right="0" visible.live="true" visible.liveCredit="true" visible="false">
 			<e:layout>
 				<e:HorizontalLayout gap="31" paddingLeft="50"/>
 			</e:layout>
 		</e:List>
-		<e:List id="_lottery_switch" height="64" y="137" width="370" visible.lottery="true" visible="false" visible.lotteryC="true">
+		<e:List id="_lottery_switch" height="64" y="137" width="370" visible.lottery="true" visible.lotteryC="true" visible="false">
 			<e:layout>
 			<e:HorizontalLayout gap="31" paddingLeft="50"/>
 			</e:layout>
 		</e:List>
-		<e:List id="_lottery_submenu" height="64" y="137" left="370" visible.lottery="true" right="0" visible="false" visible.lotteryC="true">
+		<e:List id="_lottery_submenu" height="64" y="137" left="370" visible.lottery="true" right="0" visible.lotteryC="true" visible="false">
 			<e:layout>
 			<e:HorizontalLayout gap="31"/>
 			</e:layout>
 		</e:List>
-		<e:Group id="_noHistoryResult" height="283" width="2140" y="404" horizontalCenter="0">
+		<e:Group id="_noHistoryResult" height="283" y="404" horizontalCenter="0">
 			<e:Image x="1135" y="35.5" width="130" height="130" source="d_lobby_panel_betrecord_empty_icon_png"/>
 			<ui:RunTimeLabel id="_txt_noHistoryResult" text="no bet result" height="59" size="55" verticalAlign="middle" scaleX="1" scaleY="1" horizontalCenter="0" y="182"/>
 			<e:layout>
 			<e:VerticalLayout verticalAlign="middle" gap="16" horizontalAlign="center"/>
 			</e:layout>
 		</e:Group>
-		<ui:Scroller height="863" y="197" width="2136" horizontalCenter="0" height.live="803" y.live="257" y.lottery="257" height.lottery="803" y.lotteryC="257" height.lotteryC="803">
+		<ui:Scroller height="863" y="197" width="2266" horizontalCenter="0" height.live="803" y.live="257" y.lottery="257" height.lottery="803" y.lotteryC="257" height.lotteryC="803" height.liveCredit="803" y.liveCredit="257">
 			<e:List id="_datagroup">
 				<e:layout>
 					<e:VerticalLayout gap="0"/>
@@ -97,18 +92,24 @@
 
 
 		<e:Group id="footer" x="0" y="1060" height="68">
-			<e:Rect height="2" fillColor="0x333c4a" y="0" x="0" width="2140"/>
-			<e:Label id="_txt_limit" text="每頁顯示項目: " x="50" size="22" height="31" verticalAlign="middle" bottom="19"/>
-			<e:Group id="_btn_limit" right="1863" bottom="19">
+			<e:Rect height="2" fillColor="0x333c4a" y="0" x="0" width="2270"/>
+			<e:Label id="_txt_limit" text="每頁顯示項目: " x="50" size="22" height="31" verticalAlign="middle" bottom="20"/>
+			<e:Group id="_btn_limit" right="2002" bottom="20">
 				<ui:RunTimeLabel id="_tf_limit" text="100" height="31" verticalAlign="middle" size="26" y="0" right="36"/>
 				<e:Image width="16" height="10" source="d_lobby_btn_dropup_popover_png" right="0" verticalCenter="0" rotation="180"/>
+				<e:layout>
+					<e:HorizontalLayout gap="16" horizontalAlign="right" verticalAlign="middle"/>
+				</e:layout>
 			</e:Group>
-			<e:Label id="_txt_total" text="現在顯示: 0-0 項 共 0 項記錄" x="292" size="26" height="37" verticalAlign="middle" alpha="0.7" bottom="18"/>
-			<ui:BaseAnimationButton id="_btn_prev" width="40" height="40" dbClass="lobby_ui" dbDisplay="d_lobby_betrecord_icon_prev" tooltipText="'overlaypanel_bethistory_btn_prev'" tooltipPosition="'above'" right="112" bottom="14"/>
-			<ui:BaseAnimationButton id="_btn_next" width="40" height="40" dbClass="lobby_ui" dbDisplay="d_lobby_betrecord_icon_next" tooltipText="'overlaypanel_bethistory_btn_next'" tooltipPosition="'above'" right="52" bottom="14"/>
-			<e:Group id="_btn_page" height="30" right="178" bottom="19">
+			<e:Label id="_txt_total" text="現在顯示: 0-0 項 共 0 項記錄" x="292" size="26" height="37" verticalAlign="middle" alpha="0.7" bottom="19"/>
+			<ui:BaseAnimationButton id="_btn_prev" width="40" height="40" dbClass="lobby_ui" dbDisplay="d_lobby_betrecord_icon_prev" tooltipText="'overlaypanel_bethistory_btn_prev'" tooltipPosition="'above'" right="111" bottom="15"/>
+			<ui:BaseAnimationButton id="_btn_next" width="40" height="40" dbClass="lobby_ui" dbDisplay="d_lobby_betrecord_icon_next" tooltipText="'overlaypanel_bethistory_btn_next'" tooltipPosition="'above'" right="51" bottom="15"/>
+			<e:Group id="_btn_page" height="30" right="177" bottom="20">
 				<ui:RunTimeLabel id="_txt_page" text="00/00" fontFamily="Barlow" size="24" verticalAlign="middle" textAlign="right" height="29" right="38" verticalCenter="0"/>
 				<e:Image width="16" height="10" source="d_lobby_btn_dropup_popover_png" right="0" verticalCenter="0" rotation="" />
+				<e:layout>
+					<e:HorizontalLayout horizontalAlign="right" verticalAlign="middle" gap="16"/>
+				</e:layout>
 			</e:Group>
 		</e:Group>
 
@@ -116,10 +117,10 @@
 		                              horizontalCenter="0" verticalCenter="0" />
 		<betHistory:LoContinuousBetDetails id="_cbet_details" scaleX="1" scaleY="1" verticalCenter="0" horizontalCenter="0" skinName="skin_desktop.LoContinuousBetDetails"/>
 		<betHistory:LoPopupBetDetail id="_popupbet_detail" skinName="skin_desktop.LoPopupBetDetail" horizontalCenter="0" verticalCenter="0"/>
-		<e:Group width="150" bottom="64" right="168">
+		<e:Group width="150" bottom="64" right="167">
 			<ui:Panel id="_ddm_page" width="150" x="0" skinName="skin_desktop.NavDropdown" maxHeight="400" scaleX="1" scaleY="1" bottom="0" isDropdownFullWidth="true"/>
 		</e:Group>
-		<e:Group width="150" bottom="64" x="128">
+		<e:Group width="150" bottom="64" x="130">
 			<ui:Panel id="_ddm_limit" width="150" x="0" skinName="skin_desktop.NavDropdown" maxHeight="400" scaleX="1" scaleY="1" bottom="0" isDropdownFullWidth="true"/>
 		</e:Group>
 	</e:Group>

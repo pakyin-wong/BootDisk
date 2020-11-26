@@ -2,6 +2,8 @@ namespace we {
   export namespace overlay {
     export namespace betHistory {
       export class BetHistoryItem_v2 extends BetHistoryItem {
+        protected _hover: egret.DisplayObject;
+
         public constructor() {
           super();
           this.skinName = utils.getSkinByClassname('BetHistoryItem_v2');
@@ -20,11 +22,11 @@ namespace we {
         }
 
         protected onHover() {
-          this.currentState = 'hover';
+          this._hover.visible = true;
         }
 
         protected onRollOut() {
-          this.currentState = 'normal';
+          this._hover.visible = false;
         }
       }
     }

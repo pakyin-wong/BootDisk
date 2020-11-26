@@ -27,6 +27,8 @@ namespace we {
 
       protected layout: number; // layout 0 = inGame.Size, layout 1 = inGame.Odd, layout 3 = side bar/lobby
 
+      protected isInGame: boolean;
+
       public constructor(
         width: number,
         height: number,
@@ -35,7 +37,8 @@ namespace we {
         diceDisplaySize: number = 30,
         itemYOffset: number = 6,
         textPadding: number = 1,
-        highlightRadius: number = 8
+        highlightRadius: number = 8,
+        isInGame: boolean = false
       ) {
         super(size);
         this.width = width;
@@ -45,6 +48,7 @@ namespace we {
         this.textPadding = textPadding;
         this.itemYOffset = itemYOffset;
         this.itemColors = itemColors;
+        this.isInGame = isInGame;
         this.initGraphics();
         this.setByObject({});
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
@@ -115,7 +119,11 @@ namespace we {
         // draw the hightlight
         // this.iconHightLight.graphics.lineStyle(2, 0x2da1fe, 1, true);
         // this.iconHightLight.graphics.beginFill(this.itemColors[3], this.itemColors[4]);
-        this.iconHightLight.graphics.beginFill(0xededed, 1);
+        if (this.isInGame === true) {
+          this.iconHightLight.graphics.beginFill(0x184077, 1);
+        } else {
+          this.iconHightLight.graphics.beginFill(0xededed, 1);
+        }
         this.iconHightLight.graphics.drawRoundRect(0, 0, this.width, this.height, this.highlightRadius, this.highlightRadius);
         this.iconHightLight.graphics.endFill();
         this.iconHightLight.visible = false;

@@ -121,8 +121,8 @@ namespace we {
       }
 
       protected clearPredict() {
-        this.roadsContainer.visible = false;
-        this.roadsContainerDisplay.visible = true;
+        // this.roadsContainer.visible = false;
+        // this.roadsContainerDisplay.visible = true;
       }
 
       // render text by tableInfo
