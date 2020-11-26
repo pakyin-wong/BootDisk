@@ -61,7 +61,7 @@ namespace we {
         this._backBtnGroup.addEventListener(
           egret.TouchEvent.TOUCH_TAP,
           () => {
-            //this.dispatchEvent(new egret.Event('OPEN_DECK_PANEL'));
+            this.dispatchEvent(new egret.Event('OPEN_DECK_PANEL'));
             this.hide();
           },
           this

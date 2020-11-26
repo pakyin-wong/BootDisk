@@ -54,7 +54,7 @@ namespace we {
         (<any>this._resultDisplay).addEventListener('OPEN_SHUFFLE_PANEL', this.showShufflePanel, this);
         this.getShoeInfo();
         this._bottomGamePanel.addEventListener('TOGGLE', this.toggleBottomGamePanel, this)
-        this.toggleBottomGamePanel();
+        //this.toggleBottomGamePanel();
       }
 
       protected initVariables(){
@@ -67,36 +67,36 @@ namespace we {
       protected toggleBottomGamePanel() {
         if (env.isBottomPanelOpen) {
           this._resultDisplay.expandBottom();
-          // if (env.orientation === 'portrait') {
-          //    switch (this._gameData.state) {
-          //      case core.GameState.DEAL:
-          //      case core.GameState.FINISH:
-          //        this._deckButton.y = this._helpButton.y = this._lastRoundButton.y = this._portraitButtonExpandedDealY;
-          // 　      break;
-          //      case core.GameState.BET:
-          //      case core.GameState.IDLE:
-          //      case core.GameState.SHUFFLE:
-          //      default:
-          //        this._deckButton.y = this._helpButton.y =  this._lastRoundButton.y = this._portraitButtonExpandedBetY;
-          //        break;
-          //    }
-          //  }
+          if (env.orientation === 'portrait') {
+             switch (this._gameData.state) {
+               case core.GameState.DEAL:
+               case core.GameState.FINISH:
+                 this._deckButton.y = this._helpButton.y = this._lastRoundButton.y = this._portraitButtonExpandedDealY;
+          　      break;
+               case core.GameState.BET:
+               case core.GameState.IDLE:
+               case core.GameState.SHUFFLE:
+               default:
+                 this._deckButton.y = this._helpButton.y =  this._lastRoundButton.y = this._portraitButtonExpandedBetY;
+                 break;
+             }
+           }
         } else {
           this._resultDisplay.collapseBottom();
-          //  if (env.orientation === 'portrait') {
-          //    switch (this._gameData.state) {
-          //      case core.GameState.DEAL:
-          //      case core.GameState.FINISH:
-          //        this._deckButton.y = this._helpButton.y = this._lastRoundButton.y =  this._portraitButtonCollapsedDealY;
-          //        break;
-          //      case core.GameState.BET:
-          //      case core.GameState.IDLE:
-          //      case core.GameState.SHUFFLE:
-          //      default:
-          //        this._deckButton.y = this._helpButton.y = this._lastRoundButton.y = this._portraitButtonCollapsedBetY;
-          //        break;
-          //    }
-          //  }
+           if (env.orientation === 'portrait') {
+             switch (this._gameData.state) {
+               case core.GameState.DEAL:
+               case core.GameState.FINISH:
+                 this._deckButton.y = this._helpButton.y = this._lastRoundButton.y =  this._portraitButtonCollapsedDealY;
+                 break;
+               case core.GameState.BET:
+               case core.GameState.IDLE:
+               case core.GameState.SHUFFLE:
+               default:
+                 this._deckButton.y = this._helpButton.y = this._lastRoundButton.y = this._portraitButtonCollapsedBetY;
+                 break;
+             }
+           }
         }
       }
 

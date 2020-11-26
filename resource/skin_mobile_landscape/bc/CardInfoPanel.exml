@@ -3,16 +3,11 @@
         xmlns:ui="we.ui.*" xmlns:bc="we.blockchain.*" xmlns:bab="we.bab.*" xmlns:w="http://ns.egret.com/wing"
         xmlns:live="we.live.*">
         <e:Group id="content" width="100%" height="100%">
-                <!--<e:Group id="_backButton"  width="44" height="44" left="33" top="33">
-		        <ui:BaseAnimationButton  dbClass="common_ui" dbDisplay="d_common_icon_back" width="44" height="44" verticalCenter="0" x="0" tooltipText="'nav.tooltip.back'" />
-                        <ui:RunTimeLabel i18n="baccarat.fullShoe" size="44"  verticalCenter="0" x="50" textColor="0xc59466"/>
-                </e:Group>-->
+                <ui:Scroller width="100%" y="0" height="904">
+                <e:Group>
                 <e:Group x="308" y="426" width="204" height="42" >
-                        <e:Label id="_cardIndexLabel" size="555" horizontalCenter="0" verticalCenter="0"/>
+                        <e:Label id="_cardIndexLabel" size="55" horizontalCenter="0" verticalCenter="0"/>
                 </e:Group>
-
-                <!--<e:Image id="close" source="d-lobby-button-close-none_png" width="50" height="50"  right="30" top="30"/>
-                <ui:RunTimeLabel i18n="baccarat.verification" horizontalCenter="0" y="50" size="80" textColor="0xc59466" />-->
                 <e:Group id="_helpButton" x="172" y="555" width="463" height="96" touchThrough="true">
                         <ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab"
                                             skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" />
@@ -78,6 +73,8 @@
                 <bc:BaseCard id="_cardImage" skinName="skin_mobile_landscape.bc.CardInfoCard" x="308" y="145"/>
                 <ui:BaseImageButton id="_prevButton" width="28" height="53" x="192" y="249" currentState="b_bab_prev" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel"/>
                 <ui:BaseImageButton id="_nextButton" width="28" height="53" x="578" y="249" currentState="b_bab_next" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel"/>
+                </e:Group>
+                </ui:Scroller>
         </e:Group>
 </e:Skin>
 

@@ -33,10 +33,16 @@ namespace we {
       }
 
       public showCardInfoPanel(data:bab.GameData, idx: number) {
+        let currentSkinName = "";
+        if(env.orientation === "portrait"){
+          currentSkinName = "skin_mobile_portrait.bc.CardInfoPanelSkin";
+        }else{
+          currentSkinName = "skin_mobile_landscape.bc.CardInfoPanelSkin";
+        }
         this.setPage({
           class: blockchain.CardInfoPanel,
           title: 'baccarat.verification',
-          skinName: "skin_mobile_portrait.bc.CardInfoPanelSkin",
+          skinName: currentSkinName,
           backClass: blockchain.DeckPanel,
           backTitle: 'baccarat.fullShoe',
         });
@@ -44,18 +50,30 @@ namespace we {
         this.show();
       }
       public showDeckPanel(data:bab.GameData) {
+        let currentSkinName = "";
+        if(env.orientation === "portrait"){
+          currentSkinName = "skin_mobile_portrait.bc.DeckPanelSkin";
+        }else{
+          currentSkinName = "skin_mobile_landscape.bc.DeckPanelSkin";
+        }
         this.setPage({
           class: blockchain.DeckPanel,
-          skinName: "skin_mobile_portrait.bc.DeckPanelSkin",
+          skinName: currentSkinName,
           title: 'baccarat.fullShoe',
         });
         (this._currentPage as blockchain.DeckPanel).setValue(data);
         this.show();
       }
       public showHelpPanel() {
+        let currentSkinName = "";
+        if(env.orientation === "portrait"){
+          currentSkinName = "skin_mobile_portrait.bc.HelpPanelSkin";
+        }else{
+          currentSkinName = "skin_mobile_landscape.bc.HelpPanelSkin";
+        }
         this.setPage({
           class: blockchain.HelpPanel,
-          skinName: "skin_mobile_portrait.bc.HelpPanelSkin",
+          skinName: currentSkinName,
           title: 'baccarat.mechanismHelp',
         });
         this.show();
