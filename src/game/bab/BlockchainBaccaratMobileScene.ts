@@ -32,6 +32,7 @@ namespace we {
       protected _mobileBlockchainBarType : string  = 'ba';
 
       public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat];
+      protected _navLayer : eui.Group;
 
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('BlockchainBaccaratScene');
@@ -40,7 +41,6 @@ namespace we {
 
       protected mount() {
         super.mount();
-
       }
 
       protected initOrientationDependentComponent() {
@@ -60,6 +60,12 @@ namespace we {
         this.getShoeInfo();
         this._bottomGamePanel.addEventListener('TOGGLE', this.toggleBottomGamePanel, this)
         //this.toggleBottomGamePanel();
+        if(this._navLayer){
+          this._navLayer.addChild(dir.monitor.nav);
+          dir.monitor.nav.onMoveLayer();
+        }
+        this._navLayer && this._header && dir.layerCtr.nav && this._navLayer.addChild(this._header);
+
       }
 
       protected initVariables(){
@@ -276,6 +282,12 @@ namespace we {
 
           this._mobileBlockchainBar.playAnim(bankerTotalAmount, playerTotalAmount);
         }
+      }
+
+      public onExit(){
+        super.onExit();
+        dir.layerCtr.nav.addChildAt(dir.monitor.nav,0);
+        dir.monitor.nav.onMoveLayer();
       }
     }
   }

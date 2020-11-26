@@ -161,4 +161,5 @@
 <bc:CardInfoPanel id="_cardInfoPanel" width="1242" height="1966" verticalCenter="0" horizontalCenter="0"
                   isPoppable="true" isEdgeDismissable="true" dismissOnClickOutside="true" isDraggable="false"
                   hideOnStart="true" skinName="skin_mobile_portrait.bc.CardInfoPanelSkin" />
+<e:Group id="_navLayer" touchChildren="true" touchThrough="true"/>
 </e:Skin>
