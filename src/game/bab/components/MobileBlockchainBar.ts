@@ -51,10 +51,10 @@ namespace we {
       protected initSkin(){
         if(env.orientation === 'portrait'){
           this.skinName = 'skin_mobile_portrait.MobileBlockchainBar';
-          this._skinKey = 'skin_mobile_portrait.MobileBlockchainBar';
+          this._skinKey = 'MobileBlockchainBar';
         }else{
           this.skinName = 'skin_mobile_landscape.MobileBlockchainBar';
-          this._skinKey = 'skin_mobile_landscape.MobileBlockchainBar';
+          this._skinKey = 'MobileBlockchainBar';
         }
       }
 

@@ -37,7 +37,6 @@ namespace we {
 
       protected mount() {
         super.mount();
-
       }
 
       protected initOrientationDependentComponent() {
