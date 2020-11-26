@@ -47,7 +47,7 @@ namespace we {
           (<we.dt.TableLayer> this._tableLayer).totalPerson = evt.data.count;
           // this._leftGamePanel.totalBet = evt.data.total;
           if (this._DTminimizedTableLayer) {
-            this._DTminimizedTableLayer.updateBetLabel(true);
+            this._DTminimizedTableLayer.updateBetLabel(false, betInfo);
           }          
         }
       }
