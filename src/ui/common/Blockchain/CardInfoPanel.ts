@@ -22,6 +22,22 @@ namespace we {
       protected _sha256SuccessfulGroup: eui.Group;
       protected _sha256FailGroup: eui.Group;
 
+      protected _cardHelp: ui.BaseImageButton;
+      protected _indexHelpGroup: eui.Group;
+      protected _helpArrow: eui.Image;
+
+      protected _encryptedHelp: ui.BaseImageButton;
+      protected _encryptedKeyHelpGroup: eui.Group;
+      protected _encryptedKeyHelpArrow: eui.Image;
+
+      protected _ssnHelp: ui.BaseImageButton;
+      protected _ssnHelpGroup: eui.Group;
+      protected _ssnHelpArrow: eui.Image;
+
+      protected _decryptedHelp: ui.BaseImageButton;
+      protected _decryptedKeyHelpGroup: eui.Group;
+      protected _decryptedKeyArrow: eui.Image;
+
       protected _message: ui.InGameMessage;
 
       public constructor() {
@@ -52,6 +68,9 @@ namespace we {
           egret.TouchEvent.TOUCH_TAP,
           () => {
             utils.copyToClipboard(this._gameData.hashedcardsList[this._cardIndex - 1]);
+            if (this._message) {
+              this._message.showMessage(ui.InGameMessage.INFO,i18n.t('message.keycopied'));
+            }
           },
           this
         );
@@ -59,6 +78,9 @@ namespace we {
           egret.TouchEvent.TOUCH_TAP,
           () => {
             utils.copyToClipboard(this._gameData.hashedcardsList[this._cardIndex - 1]);
+            if (this._message) {
+              this._message.showMessage(ui.InGameMessage.INFO,i18n.t('message.keycopied'));
+            }
           },
           this
         );
@@ -66,6 +88,9 @@ namespace we {
           egret.TouchEvent.TOUCH_TAP,
           () => {
             utils.copyToClipboard(this._gameData.maskedcardssnList[this._cardIndex - 1]);
+            if (this._message) {
+              this._message.showMessage(ui.InGameMessage.INFO,i18n.t('message.keycopied'));
+            }
           },
           this
         );
@@ -98,6 +123,18 @@ namespace we {
           },
           this
         );
+
+        //mobile Help Group
+        if(env.isMobile){
+          this._indexHelpGroup.visible = false;
+          this._encryptedKeyHelpGroup.visible = false;
+          this._ssnHelpGroup.visible = false;
+          this._decryptedKeyHelpGroup.visible = false;
+          this._cardHelp.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openIndexHint, this);
+          this._encryptedHelp.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openEncryptedKeyHint, this);
+          this._ssnHelp.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openSsnHint, this);
+          this._decryptedHelp.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openDecryptedKeyHint, this);
+        }
       }
 
       public setValue(gameData: any, index: number) {
@@ -142,6 +179,58 @@ namespace we {
         if (this._cardIndex + 1 > this._gameData.maskedcardssnList.length || this._cardIndex === 1) {
           this._nextButton.active = false;
           this._nextButton.enabled = false;
+        }
+      }
+
+      protected openIndexHint(){
+        if(this._indexHelpGroup.visible){
+          this._indexHelpGroup.visible = false;
+        }else{
+          // this._helpArrow.x = this._cardHelp.x;
+          this._encryptedKeyHelpGroup.visible = false;
+          this._ssnHelpGroup.visible = false;
+          this._decryptedKeyHelpGroup.visible = false;
+
+          this._indexHelpGroup.visible = true;
+        }
+      }
+
+      protected openEncryptedKeyHint(){
+        if(this._encryptedKeyHelpGroup.visible){
+          this._encryptedKeyHelpGroup.visible = false;
+        }else{
+          // this._helpArrow.x = this._cardHelp.x;
+          this._indexHelpGroup.visible = false;
+          this._ssnHelpGroup.visible = false;
+          this._decryptedKeyHelpGroup.visible = false;
+
+          this._encryptedKeyHelpGroup.visible = true;
+        }
+      }
+
+      protected openSsnHint(){
+        if(this._ssnHelpGroup.visible){
+          this._ssnHelpGroup.visible = false;
+        }else{
+          // this._helpArrow.x = this._cardHelp.x;
+          this._indexHelpGroup.visible = false;
+          this._encryptedKeyHelpGroup.visible = false;
+          this._decryptedKeyHelpGroup.visible = false;
+
+          this._ssnHelpGroup.visible = true;
+        }
+      }
+
+      protected openDecryptedKeyHint(){
+        if(this._decryptedKeyHelpGroup.visible){
+          this._decryptedKeyHelpGroup.visible = false;
+        }else{
+          // this._helpArrow.x = this._cardHelp.x;
+          this._indexHelpGroup.visible = false;
+          this._encryptedKeyHelpGroup.visible = false;
+          this._ssnHelpGroup.visible = false;
+
+          this._decryptedKeyHelpGroup.visible = true;
         }
       }
     }

@@ -558,8 +558,11 @@ namespace we {
           swapRoadmap: 'Swap Roadmap',
           cardIDHelp:'License number: \nThe system will set a license number for this boot card, and the order of the card will be based on the order of the card number. ',
           encryptedKeyHelp:'Announce the card encrypted text in advance: \nAfter each boot is shuffled, the system encrypts each "card serial number" with blockchain technology and publicly displays it in advance. Once generated, it cannot be changed. ',
+          mobileEncryptedKeyHelp:'Announce the card encrypted text in advance: \nAfter each boot is shuffled, the system encrypts each "card serial number" with blockchain technology and publicly displays it in advance. Once generated, it cannot be changed. ',
           decryptedKeyHelp:'Card encrypted text: \nAfter the card is opened, the system will display the "card encrypted text" generated according to the "card serial number", and automatically verify it with the "Publish Card Encrypted Document Before Claiming". ',
+          mobileDecryptedKeyHelp:'Card encrypted text: \nAfter the card is opened, the system will display the "card encrypted text" generated according to the "card serial number", and automatically verify it with the "Publish Card Encrypted Document Before Claiming". ',
           ssnHelp: 'Card serial number: \n(i) The first two characters are the "points" of the card\nA is 1 point; J is 11 points; Q is 12 points; K is 13 points; other cards (2, 3, 4, 5, 6, 7, 8, 9)\nAccording to the face value of the card\n \n(ii) The third character is the "suit" of the card:\nH is the heart\nD is the square (Diamond)\nS is Spade\nC is Clubs\n \n(iii) A string of "random characters" will be added later to ensure the uniqueness of the serial number; each time "random characters" will be \nRegenerate, that is, the "random character" of the ace of spades in "this game" is not the same as the random character of the ace of spades in "the last game". \n \n(iv) Example: A of spades\n "01" represents the number of points-A\n "C" represents the suit-spades\n "fhjkssadfhkh32iuhksdhfkjasJC" is a random character',
+          mobileSsnHelp: 'Card serial number: \n(i) The first two characters are the "points" of the card\nA is 1 point; J is 11 points; Q is 12 points; K is 13 points; other cards (2, 3, 4, 5, 6, 7, 8, 9)\nAccording to the face value of the card\n \n(ii) The third character is the "suit" of the card:\nH is the heart\nD is the square (Diamond)S is Spade\nC is Clubs\n \n(iii) A string of "random characters" will be added later to ensure the uniqueness of the serial number; each time "random characters" will be \nRegenerate, that is, the "random character" of the ace of spades in "this game" is not the same as the random character of the ace of spades in "the last game". \n \n(iv) Example: A of spades\n "01" represents the number of points-A\n "C" represents the suit-spades\n "fhjkssadfhkh32iuhksdhfkjasJC" is a random character',
         },
         statisticChart: {
           bankerPlayerTie: 'BPT ratio (100 Rounds)',
@@ -637,7 +640,8 @@ namespace we {
         restart: 'Restart',
         retry: 'Retry',
         cancel: 'Cancel',
-        urlcopied:'3rd party verification siteurl copied.',
+        urlcopied:'3rd party verification siteurl urlcopied',
+        keycopied:'Key copied',
       },
       error: {
         error_1001: 'Other session logged in',

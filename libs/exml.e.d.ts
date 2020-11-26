@@ -1372,6 +1372,10 @@ declare module skin_mobile_landscape{
 	class BlockchainBaccaratScene extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape{
+	class MobileBlockchainBar extends eui.Skin{
+	}
+}
 declare module skin_mobile_landscape.bab{
 	class CardHolderSkin extends eui.Skin{
 	}
@@ -1952,6 +1956,10 @@ declare module skin_mobile_portrait.ba{
 }
 declare module skin_mobile_portrait{
 	class BlockchainBaccaratScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class MobileBlockchainBar extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.bab{

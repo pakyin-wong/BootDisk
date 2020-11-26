@@ -7,6 +7,10 @@
                 <e:Group>
                 <e:Group x="308" y="426" width="204" height="42" >
                         <e:Label id="_cardIndexLabel" size="55" horizontalCenter="0" verticalCenter="0"/>
+                        <ui:BaseImageButton id="_cardHelp" currentState="b_bab_help" width="53" height="63" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" />
+		        <e:layout>
+			        <e:HorizontalLayout verticalAlign="middle" horizontalAlign="center"/>
+			</e:layout>
                 </e:Group>
                 <e:Group id="_helpButton" x="172" y="555" width="463" height="96" touchThrough="true">
                         <ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab"
@@ -59,7 +63,6 @@
                         <e:Group x="39" y="250">
                         <ui:RunTimeLabel size="42"  i18n="baccarat.decryptedKey" />               
                         <ui:BaseImageButton id="_decryptedHelp" currentState="b_bab_help" width="53" height="63" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel"/>
-                        
                                 <e:layout>
                                         <e:HorizontalLayout gap="10" verticalAlign="middle"/>
                                 </e:layout>
@@ -73,6 +76,7 @@
                 <bc:BaseCard id="_cardImage" skinName="skin_mobile_landscape.bc.CardInfoCard" x="308" y="145"/>
                 <ui:BaseImageButton id="_prevButton" width="28" height="53" x="192" y="249" currentState="b_bab_prev" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel"/>
                 <ui:BaseImageButton id="_nextButton" width="28" height="53" x="578" y="249" currentState="b_bab_next" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel"/>
+                <ui:InGameMessage id="_message" skinName="skin_desktop.CopyInfoMessageSkin" height="112" horizontalCenter="0" verticalCenter="0" touchEnabled="false" touchChildren="false"/>
                 </e:Group>
                 </ui:Scroller>
         </e:Group>
