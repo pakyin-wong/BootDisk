@@ -1,6 +1,6 @@
 namespace we {
   export namespace dt {
-    export class MinimizedTableLayer extends core.BaseEUI {
+    export class MinimizedTableLayer extends core.BaseEUI implements ui.IMinimizedTableLayer {
       protected _dragonLabel:ui.RunTimeLabel;
       protected _dragonBetLabel;
       protected _tigerLabel:ui.RunTimeLabel;
@@ -35,10 +35,10 @@ namespace we {
         for (const prop in betInfo.amount) {
           switch (prop) {
             case 'DRAGON':
-              this._dragonBetLabel.text = we.utils.formatNumber(betInfo.amount.PLAYER, true);
+              this._dragonBetLabel.text = we.utils.formatNumber(betInfo.amount.DRAGON, true);
               break;
             case 'TIGER':
-              this._tigerBetLabel.text = we.utils.formatNumber(betInfo.amount.BANKER, true);
+              this._tigerBetLabel.text = we.utils.formatNumber(betInfo.amount.TIGER, true);
               break;
             case 'TIE':
               this._tieBetLabel.text = we.utils.formatNumber(betInfo.amount.TIE, true);

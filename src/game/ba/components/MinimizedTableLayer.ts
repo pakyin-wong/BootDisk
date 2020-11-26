@@ -1,6 +1,6 @@
 namespace we {
   export namespace ba {
-    export class MinimizedTableLayer extends core.BaseEUI {
+    export class MinimizedTableLayer extends core.BaseEUI implements ui.IMinimizedTableLayer {
       protected _bankerLabel;
       protected _bankerBetLabel;
       protected _playerLabel;
