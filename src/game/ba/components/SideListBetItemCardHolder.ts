@@ -45,7 +45,6 @@ namespace we {
       //   this._playerCard3.visible = false;
       // }
       public updateResult(gameData) {
-        console.log('updateResultupdateResultupdateResultupdateResult')
         if (this._timer) {
           // this.card1Banker.visible = false;
           // this.card2Banker.visible = false;
@@ -67,25 +66,88 @@ namespace we {
         // }
         switch (gameData.wintype) {
           case we.ba.WinType.PLAYER:
-            this.setPlayerBgColor(true);
-            this.setBankerBgColor(false);
+            this.setBgColor('PLAYER')
+            // this.setPlayerBgColor(true);
+            // this.setBankerBgColor(false);
             break;
           case we.ba.WinType.BANKER:
-            this.setPlayerBgColor(false);
-            this.setBankerBgColor(true);
+            this.setBgColor('BANKER')
+            // this.setPlayerBgColor(false);
+            // this.setBankerBgColor(true);
             break;
           case we.ba.WinType.TIE:
-            this.setPlayerBgColor(false);
-            this.setBankerBgColor(false);
+            this.setBgColor('TIE')
+            // this.setPlayerBgColor(false);
+            // this.setBankerBgColor(false);
             break;
           case we.ba.WinType.NONE:
           default:
-            this.setPlayerBgColor(false);
-            this.setBankerBgColor(false);
+            this.setBgColor('NONE')
+            // this.setPlayerBgColor(false);
+            // this.setBankerBgColor(false);
             break;
         }
       }
-
+      public setBgColor(wintype: string) {
+        switch (wintype) {
+          case 'PLAYER':
+            this._bankertxtbg.texture = RES.getRes('d_lobby_panel_gamelist_betresult_bankerbg_png');
+            this._playertxtbg.texture = RES.getRes('d_lobby_panel_gamelist_betresult_player_png');
+            this._bankerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_bankerbg_png');
+            this._playerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_playwinbg_png');
+          break;
+          case 'BANKER':
+            this._bankertxtbg.texture = RES.getRes('d_lobby_panel_gamelist_betresult_banker_png');
+            this._playertxtbg.texture = RES.getRes('d_lobby_panel_gamelist_betresult_playbg_png');
+            this._bankerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_bankwinbg_png');
+            this._playerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_playbg_png');
+          break;
+          case 'TIE':
+            this._bankertxtbg.texture = RES.getRes('d_lobby_panel_gamelist_betresult_banker_png');
+            this._playertxtbg.texture = RES.getRes('d_lobby_panel_gamelist_betresult_player_png' );                     
+            this._bankerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_bankerbg_png');
+            this._playerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_playbg_png');
+          break;
+          case 'NONE':
+            this._bankertxtbg.texture = RES.getRes('d_lobby_panel_gamelist_betresult_banker_png');
+            this._playertxtbg.texture = RES.getRes('d_lobby_panel_gamelist_betresult_player_png');                   
+            this._bankerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_bankerbg_png');
+            this._playerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_playbg_png');
+          break;
+        }
+      }
+      // public setBgColor(wintype: string) {
+      //   switch (wintype) {
+      //     case 'PLAYER':
+      //                 console.log('/////////////////////////////////////////////////////PLAYER')
+      //       this._bankertxtbg.source = 'd_lobby_panel_gamelist_betresult_bankerbg_png'
+      //       this._playertxtbg.source = 'd_lobby_panel_gamelist_betresult_player_png' 
+      //       this._bankerPanel.source = 'd_lobby_panel_gamelist_betresult_bankerbg_png'
+      //       this._playerPanel.source = 'd_lobby_panel_gamelist_betresult_playwinbg_png'
+      //     break;
+      //     case 'BANKER':
+      //                 console.log('/////////////////////////////////////////////////////BANKER')
+      //       this._bankertxtbg.source = 'd_lobby_panel_gamelist_betresult_banker_png'
+      //       this._playertxtbg.source = 'd_lobby_panel_gamelist_betresult_playbg_png'
+      //       this._bankerPanel.source = 'd_lobby_panel_gamelist_betresult_bankwinbg_png'
+      //       this._playerPanel.source = 'd_lobby_panel_gamelist_betresult_playbg_png'
+      //     break;
+      //     case 'TIE':
+      //                 console.log('/////////////////////////////////////////////////////TIE')
+      //       this._bankertxtbg.source = 'd_lobby_panel_gamelist_betresult_banker_png'
+      //       this._playertxtbg.source = 'd_lobby_panel_gamelist_betresult_player_png'                      
+      //       this._bankerPanel.source = 'd_lobby_panel_gamelist_betresult_bankerbg_png'
+      //       this._playerPanel.source = 'd_lobby_panel_gamelist_betresult_playbg_png'
+      //     break;
+      //     case 'NONE':
+      //       console.log('/////////////////////////////////////////////////////NONE')
+      //       this._bankertxtbg.source = 'd_lobby_panel_gamelist_betresult_banker_png'
+      //       this._playertxtbg.source = 'd_lobby_panel_gamelist_betresult_player_png'                      
+      //       this._bankerPanel.source = 'd_lobby_panel_gamelist_betresult_bankerbg_png'
+      //       this._playerPanel.source = 'd_lobby_panel_gamelist_betresult_playbg_png'
+      //     break;
+      //   }
+      // }
       // public updateTimer(gameData) {
       //   switch (gameData.state) {
       //     case core.GameState.PEEK:
