@@ -1769,6 +1769,10 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape{
+	class ModeSelect extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class PlayerProfile extends eui.Skin{
 	}
 }
