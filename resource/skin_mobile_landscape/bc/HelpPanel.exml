@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_landscape.bc.HelpPanelSkin" width="2424" height="1095" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_landscape.bc.HelpPanelSkin" width="2424" height="901" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:bab="we.bab.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*">
-        <e:Group id="content" width="2424" height="1095">
-                <e:Image id="close" source="d-lobby-button-close-none_png" width="50" height="50"  right="30" top="30"/>
-                <ui:RunTimeLabel i18n="baccarat.mechanismHelp" horizontalCenter="0" size="80" textColor="0xc59466" top="45"/>
+        <e:Group id="content" width="2424" height="901">
 
-                <ui:Scroller width="100%" height="903" id="_scroller" y="192" anchorOffsetY="0">
+
+
+                <ui:Scroller width="100%" height="903" id="_scroller" y="0" anchorOffsetY="0">
 			<e:Group horizontalCenter="0" top="40">
 				<e:Image y="363" width="80" height="81" left="160" source="m_bcba_panel_instructions_number1_png"/>
 				<e:Image y="50" width="840" height="272" left="260" source="m_bcba_panel_instructions_step1_png"/>

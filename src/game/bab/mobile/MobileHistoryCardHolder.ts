@@ -18,6 +18,15 @@ namespace we {
       protected _bankerNum2: eui.Label;
       protected _bankerNum3: eui.Label;
 
+      protected createBg(){
+        const image = new eui.Image();
+        image.width = this.width;
+        image.height = this.height;
+        image.source = this._panelBgSource;
+        image.scale9Grid = new egret.Rectangle(169, 118, 2, 802);
+        this.content && this.content.addChildAt(image, 0);
+      }
+
       public setCards(tableId: string) {
         this.setAllCards(false);
         this.setAllSums(false);
