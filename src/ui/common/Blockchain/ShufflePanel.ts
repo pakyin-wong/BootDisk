@@ -25,12 +25,19 @@ namespace we {
 
       protected _skeletonName: string;
 
+      protected _firstCardScaleX : number = 1;
+      protected _firstCardScaleY : number = 1;
+
+      protected _smallCardScaleX : number = 1;
+      protected _smallCardScaleY : number = 1;
+
       public set skeletonName(value: string){
         this._skeletonName = value
       }
 
       protected mount() {
         super.mount();
+        this.checkMobile();
         this.createFactory();
       }
 
@@ -38,26 +45,38 @@ namespace we {
         if(!env.isMobile)
           return;
 
-          this._firstCardWidth = 169;
-          this._firstCardHeight = 245;
-          this._smallCardWidth = 117;
-          this._smallCardHeight = 170;
-        
+          const firstCardWidth = 169;
+          const firstCardHeight = 245;
+          const smallCardWidth = 117;
+          const smallCardHeight = 170;
+
+          this._firstCardWidth = firstCardWidth;
+          this._firstCardHeight = firstCardHeight;
+          this._smallCardWidth = smallCardWidth;
+          this._smallCardHeight = smallCardHeight;
+
+          this._firstCardScaleX = 169/204;
+          this._firstCardScaleY = 245/312;
+
+          this._smallCardScaleX = 169/117;
+          this._smallCardScaleY = 246/170;
+
         if(env.orientation === "portrait"){
-          this._oneRowFirstCardY = 265 + this._firstCardHeight / 2;
-          this._oneRowFirstRowY = 642 + this._firstCardHeight / 2;
+          this._oneRowFirstCardY = 265 + firstCardHeight / 2;
+          this._oneRowFirstRowY = 642 + firstCardHeight / 2;
 
-          this._twoRowFirstCardY = 265 + this._firstCardHeight / 2;
-          this._twoRowFirstRowY = 642 + this._firstCardHeight / 2;
-          this._twoRowSecondRowY = 920 + this._firstCardHeight / 2;
+          this._twoRowFirstCardY = 265 + firstCardHeight / 2;
+          this._twoRowFirstRowY = 642 + firstCardHeight / 2;
+          this._twoRowSecondRowY = 920 + firstCardHeight / 2;
         }else{
-          this._oneRowFirstCardY = 265 + this._firstCardHeight / 2;
-          this._oneRowFirstRowY = 642 + this._firstCardHeight / 2;
+          this._oneRowFirstCardY = 265 + firstCardHeight / 2;
+          this._oneRowFirstRowY = 642 + firstCardHeight / 2;
 
-          this._twoRowFirstCardY = 265 + this._firstCardHeight / 2;
-          this._twoRowFirstRowY = 642 + this._firstCardHeight / 2;
-          this._twoRowSecondRowY = 920 + this._firstCardHeight / 2;
+          this._twoRowFirstCardY = 265 + firstCardHeight / 2;
+          this._twoRowFirstRowY = 642 + firstCardHeight / 2;
+          this._twoRowSecondRowY = 920 + firstCardHeight / 2;
         }
+
       }
 
       protected createFirstCard() {
@@ -81,7 +100,6 @@ namespace we {
 
         const skipped = utils.stat.ba.translateCardToNumber(this._gameData.firstcard);
         this._firstGroup.y = (skipped > 7)? this._twoRowFirstCardY: this._oneRowFirstCardY;
-        
       }
 
       protected createIndexLabel(num: number) {
@@ -94,6 +112,10 @@ namespace we {
         label.anchorOffsetX = label.width / 2
         label.anchorOffsetY = label.height / 2
 
+        if(env.isMobile){
+          label.size = 44;
+        }
+
         return labelGroup;
       }
 
@@ -102,6 +124,7 @@ namespace we {
         const image = new eui.Image();
         image.width = this._firstCardWidth;
         image.height = this._firstCardHeight;
+
         image.source = utils.getCardResName(resName);
         return image;
       }
@@ -213,6 +236,9 @@ namespace we {
 
         const label = new eui.Label();
         label.size = 65
+        if(env.isMobile){
+          label.size = 56;
+        }
         label.text = num.toString();
         label.anchorOffsetX = label.width / 2;
         label.anchorOffsetY = label.height / 2;
@@ -276,6 +302,9 @@ namespace we {
       protected getHLayout() {
         const layout = new eui.HorizontalLayout();
         layout.gap = 213;
+        if(env.isMobile){
+          layout.gap = 126;
+        }
         return layout;
       }
 
