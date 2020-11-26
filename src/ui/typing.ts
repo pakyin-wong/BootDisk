@@ -29,8 +29,10 @@ namespace we {
       setCards(tableId: string);
       setNumber(number: number);
       setToggler(toggler);
+      setValue(gameData);
       show();
       hide();
+      update(gameData,tableId);
     }
 
     export interface IListItemHelper {

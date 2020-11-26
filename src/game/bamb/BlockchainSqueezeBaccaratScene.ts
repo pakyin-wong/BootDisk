@@ -89,6 +89,7 @@ namespace we {
         // console.log('FINISH ' + new Date(Date.now()).toString());
         super.setStateFinish(isInit);
         //this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
+        this._squeezeTimer.visible = false;
         this.setResultRelatedComponentsEnabled(true);
       }
 
