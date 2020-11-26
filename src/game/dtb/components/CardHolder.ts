@@ -255,6 +255,13 @@ namespace we {
         return new Promise(resolve => resolve());
       }
 
+      protected async setStateBet(isInit: boolean) {
+        super.setStateBet(isInit);
+        this.movePin();
+        this.moveShoe();
+        return new Promise(resolve=>resolve())
+      }
+
       protected setStateDeal(isInit: boolean) {
         console.log('setStateDeal()', this._gameData);
 

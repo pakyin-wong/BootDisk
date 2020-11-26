@@ -114,7 +114,7 @@ namespace we {
         redPinClone.y = redPin.globalTransformMatrix.ty;
         redPinClone.anchorOffsetX = 14;
         redPinClone.anchorOffsetY = 111 + (redPinClone.texture.textureHeight*redPinClone.scaleY);
-        redPinClone.alpha = 0.7;
+        redPinClone.alpha = 0;
         // redPinClone.pixelHitTest = true;
         redPinClone.touchEnabled = true;
         this._ringAnim.addChild(redPinClone);
