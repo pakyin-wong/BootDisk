@@ -10,6 +10,7 @@ namespace we {
       public _sliderBullet: ui.ImageSliderBullet;
       public _posterContainer: eui.Group;
       public _hotgameContainer: eui.Group;
+      public _hotGameGroup: eui.Group;
 
       public _contentInitializer: core.IContentInitializer;
 
