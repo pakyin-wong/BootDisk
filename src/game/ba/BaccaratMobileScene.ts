@@ -90,6 +90,14 @@ namespace we {
         }
       }
 
+      protected setStateShuffle(isInit: boolean = false) {
+        super.setStateShuffle(isInit);
+        if (this._tableLayer) {
+          (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+          (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+        }
+      }
+
       // protected setStateFinish(isInit: boolean) {
       //   super.setStateFinish(isInit);
       //   console.log('hihi');

@@ -538,22 +538,19 @@ namespace we {
       // check if game mode btn (e.g. BA) is selected when orientation
       protected checkGameMode(value: boolean) {}
 
-      protected setStateIdle(isInit: boolean) {
-        super.setStateIdle(isInit);
+      public updateGame(isInit: boolean = false) {
+        super.updateGame(isInit);
+        if (!this._gameData) {
+          return;
+        }
         if (this._totalBet && this.tableInfo.betInfo) {
-          const totalBet = this.tableInfo.betInfo.gameroundid === this._gameData.gameroundid ? this.tableInfo.betInfo.total : 0;
-          // this._totalBet.renderText = () => `${totalBet}`;
+          const totalBet = this.tableInfo.betInfo.gameroundid === this._gameData.gameroundid ? this.tableInfo.totalBet : 0;
           this._totalBet.renderText = () => utils.numberToFaceValue(totalBet);
         }
       }
 
       protected setStateBet(isInit: boolean) {
         super.setStateBet(isInit);
-        if (this._totalBet && this.tableInfo.betInfo) {
-          const totalBet = this.tableInfo.betInfo.gameroundid === this._gameData.gameroundid ? this.tableInfo.betInfo.total : 0;
-          // this._totalBet.renderText = () => `${totalBet}`;
-          this._totalBet.renderText = () => utils.numberToFaceValue(totalBet);
-        }
         this._GameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
       }
 

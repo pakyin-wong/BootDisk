@@ -142,7 +142,11 @@ namespace we {
           const notification = this.notificationList[idx];
           if (this.isTypeAvailable(notification.type)) {
             // check if type is goodRoad && remainingBetTime<5s
-            if ((notification.type === 0 && !this.isCountDownAvailble(notification.data.tableid)) || notification.data.tableid === env._currTableId) {
+            if (
+              (notification.type === 0 && !this.isCountDownAvailble(notification.data.tableid)) ||
+              notification.data.tableid === env._currTableId ||
+              (notification.type === 1 && env.isShowingAlreadyBetPanel)
+            ) {
               this.notificationList.splice(idx, 1);
               continue;
             } else {

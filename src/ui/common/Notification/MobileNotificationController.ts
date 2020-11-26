@@ -203,7 +203,7 @@ namespace we {
         let idx = 0;
         for (const notification of this.notificationList) {
           if (this.isTypeAvailable(notification.type)) {
-            if ((notification.type === 0 && !this.isCountDownAvailble(notification.data.tableid)) || notification.data.tableid === env._currTableId) {
+            if ((notification.type === 0 && !this.isCountDownAvailble(notification.data.tableid)) || notification.data.tableid === env._currTableId || (notification.type === 1 && env.isShowingAlreadyBetPanel)) {
               this.notificationList.splice(idx, 1);
               continue;
             } else {

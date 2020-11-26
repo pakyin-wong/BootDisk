@@ -236,6 +236,7 @@ namespace we {
 
       protected onClearSelection() {
         super.onClearSelection();
+        env.isShowingAlreadyBetPanel = false;
         this._dropdown.visible = false;
         this._dropdown.hide();
         this._subdropdown.hide();
@@ -274,7 +275,7 @@ namespace we {
         this.isLock = false;
         console.log('sidepanel _targetHeight :', this._viewStack.selectedIndex, this._targetHeight);
         super.onSelected();
-
+        env.isShowingAlreadyBetPanel = this._viewStack.selectedIndex == 0;
         switch (this._viewStack.selectedIndex) {
           case 0:
           case 1:
