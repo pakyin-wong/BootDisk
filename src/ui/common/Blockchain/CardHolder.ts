@@ -276,13 +276,13 @@ namespace we {
           egret.Tween.get(bone.origin)
             .to({ rotation: destRad }, 1000, function (t) {
               bone.invalidUpdate();
-              this._clonedPin.rotation = 90 + Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a)*180/Math.PI;
+              // this._clonedPin.rotation = 90 + Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a)*180/Math.PI;
               return t;
             })
             .call(resolve)
         );
-        bone.invalidUpdate();
-        this._clonedPin.rotation = 90 + Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a)*180/Math.PI;
+        // bone.invalidUpdate();
+        // this._clonedPin.rotation = 90 + Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a)*180/Math.PI;
       }
 
       protected async collapseShoe() {
@@ -318,16 +318,16 @@ namespace we {
 
       protected abstract updateCardInfoButtons();
 
-      protected getPinRad(num = this._gameData.currentcardindex) {
+      protected getPinRad(num = this._gameData.redcardindex) {
         const totalCount = this._gameData.maskedcardssnList.length;
-        const proportion = (totalCount - num) / totalCount;
+        const proportion = (num - this._gameData.currentcardindex) / totalCount;
         const angleOffset = this._pinInterval * proportion; // -40 to 41 / 131 to 49
         const destAngle = this._pinStartAngle + angleOffset;
         const destRad = (destAngle * Math.PI) / 180;
         return destRad;
       }
 
-      protected getShoeRad(num = this._gameData.redcardindex) {
+      protected getShoeRad(num = this._gameData.currentcardindex) {
         const totalCount = this._gameData.maskedcardssnList.length;
         const proportion = (totalCount - num) / totalCount;
         const angleOffset = this._pinInterval * proportion; // -72 to 9
@@ -343,7 +343,7 @@ namespace we {
           egret.Tween.get(bone.origin)
             .to({ rotation: destRad }, 1000, function (t) {
               bone.invalidUpdate();
-              this._clonedPin.rotation = 90 + Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a)*180/Math.PI;
+              // this._clonedPin.rotation = 90 + Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a)*180/Math.PI;
               return t;
             })
             .call(resolve)
