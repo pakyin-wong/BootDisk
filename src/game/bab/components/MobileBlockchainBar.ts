@@ -102,19 +102,6 @@ namespace we {
         this._barGrp.addChild(this._anim);
         this._barGrp.width = this._anim.width;
         this._barGrp.horizontalCenter = 0;
-      }
-
-      protected arrangeComponents(){
-        super.arrangeComponents();
-
-        const bar = this._anim.armature.getBone('bar_group');
-        this._centerControl = bar.armature.getBone('bar_center_control');
-
-        this._redBarLimit = bar.armature.getBone('red_bar_limit');
-        this._blueBarLimit = bar.armature.getBone('blue_bar_limit');
-
-        this._redBarEffect = this._redBarLimit.armature.getBone('red_effect_position');
-        this._blueBarEffect = this._blueBarLimit.armature.getBone('blue_effect_position');
 
         this._centerControl.origin.x = 0;
         this._centerOriginX = this._centerControl.origin.x;
@@ -130,6 +117,33 @@ namespace we {
 
         this.initBarProgress();
       }
+
+      // protected arrangeComponents(){
+      //   super.arrangeComponents();
+
+      //   const bar = this._anim.armature.getBone('bar_group');
+      //   this._centerControl = bar.armature.getBone('bar_center_control');
+
+      //   this._redBarLimit = bar.armature.getBone('red_bar_limit');
+      //   this._blueBarLimit = bar.armature.getBone('blue_bar_limit');
+
+      //   this._redBarEffect = this._redBarLimit.armature.getBone('red_effect_position');
+      //   this._blueBarEffect = this._blueBarLimit.armature.getBone('blue_effect_position');
+
+      //   this._centerControl.origin.x = 0;
+      //   this._centerOriginX = this._centerControl.origin.x;
+
+      //   this._anim.x = this._anim.width/2;
+      //   this._anim.y = -this._anim.height/2;
+
+      //   this._blueBarEffect.origin.x = this._blueEffectInitX;
+      //   this._redBarEffect.origin.x = this._redEffectInitX;
+
+      //   dir.meterCtr.register('blockchainlblblue',this._lblBlue);
+      //   dir.meterCtr.register('blockchainlblred',this._lblRed);
+
+      //   this.initBarProgress();
+      // }
 
       public resetAnimation(){
         this._blueTargetNumber = 0;
