@@ -216,6 +216,7 @@ namespace we {
           dir.monitor.start(this.stage);
           dir.sceneCtr.goto('lobby');
           dir.audioCtr.init();
+          dir.audioCtr.play('ui_enter_game_opening_mp3');
         }
       }
 

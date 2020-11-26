@@ -149,5 +149,9 @@ namespace we {
       showNextNotification();
       dismissNotification(type: number);
     }
+
+    export interface IMinimizedTableLayer {
+      updateBetLabel(isinit: boolean, betInfo?: any);
+    }
   }
 }
