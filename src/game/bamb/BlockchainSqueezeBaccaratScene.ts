@@ -88,7 +88,7 @@ namespace we {
       protected setStateFinish(isInit: boolean = false) {
         // console.log('FINISH ' + new Date(Date.now()).toString());
         super.setStateFinish(isInit);
-        this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
+        //this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         this.setResultRelatedComponentsEnabled(true);
       }
 
