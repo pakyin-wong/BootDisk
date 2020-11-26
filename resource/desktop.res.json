@@ -37,7 +37,7 @@
 			"name": "scene_luckywheel"
 		},
 		{
-			"keys": "sn_win_tc_mp3,sn_win_sc_mp3,sn_win_en_mp3,sn_player_tc_mp3,sn_player_sc_mp3,sn_player_en_mp3,sn_bgm002_mp3,sn_banker_tc_mp3,sn_banker_sc_mp3,sn_banker_en_mp3",
+			"keys": "sn_win_en_mp3,sn_player_en_mp3,sn_bgm002_mp3,sn_banker_en_mp3,sn_banker_zh_mp3,sn_win_zh_mp3,sn_win_cn_mp3,sn_banker_cn_mp3,sn_player_cn_mp3,sn_player_zh_mp3",
 			"name": "audio"
 		},
 		{
@@ -87,16 +87,6 @@
 			"name": "sn_banker_en_mp3"
 		},
 		{
-			"url": "assets/sounds/sn_banker_sc.mp3",
-			"type": "sound",
-			"name": "sn_banker_sc_mp3"
-		},
-		{
-			"url": "assets/sounds/sn_banker_tc.mp3",
-			"type": "sound",
-			"name": "sn_banker_tc_mp3"
-		},
-		{
 			"url": "assets/sounds/sn_bgm002.mp3",
 			"type": "sound",
 			"name": "sn_bgm002_mp3"
@@ -107,29 +97,9 @@
 			"name": "sn_player_en_mp3"
 		},
 		{
-			"url": "assets/sounds/sn_player_sc.mp3",
-			"type": "sound",
-			"name": "sn_player_sc_mp3"
-		},
-		{
-			"url": "assets/sounds/sn_player_tc.mp3",
-			"type": "sound",
-			"name": "sn_player_tc_mp3"
-		},
-		{
 			"url": "assets/sounds/sn_win_en.mp3",
 			"type": "sound",
 			"name": "sn_win_en_mp3"
-		},
-		{
-			"url": "assets/sounds/sn_win_sc.mp3",
-			"type": "sound",
-			"name": "sn_win_sc_mp3"
-		},
-		{
-			"url": "assets/sounds/sn_win_tc.mp3",
-			"type": "sound",
-			"name": "sn_win_tc_mp3"
 		},
 		{
 			"url": "assets/images/d/loading/d-lobby-loading-progress-bar-active.png",
@@ -7979,6 +7949,36 @@
 			"url": "assets/dragonbones/d/bamb/blockchain_sqba_ske.json",
 			"type": "json",
 			"name": "blockchain_sqba_ske_json"
+		},
+		{
+			"url": "assets/sounds/sn_banker_zh.mp3",
+			"type": "sound",
+			"name": "sn_banker_zh_mp3"
+		},
+		{
+			"url": "assets/sounds/sn_win_zh.mp3",
+			"type": "sound",
+			"name": "sn_win_zh_mp3"
+		},
+		{
+			"url": "assets/sounds/sn_win_cn.mp3",
+			"type": "sound",
+			"name": "sn_win_cn_mp3"
+		},
+		{
+			"url": "assets/sounds/sn_banker_cn.mp3",
+			"type": "sound",
+			"name": "sn_banker_cn_mp3"
+		},
+		{
+			"url": "assets/sounds/sn_player_cn.mp3",
+			"type": "sound",
+			"name": "sn_player_cn_mp3"
+		},
+		{
+			"url": "assets/sounds/sn_player_zh.mp3",
+			"type": "sound",
+			"name": "sn_player_zh_mp3"
 		}
 	]
 }
