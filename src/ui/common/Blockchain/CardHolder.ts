@@ -193,6 +193,8 @@ namespace we {
           console.log('distributeCards()');
           await this.distributeCards();
         }
+
+        return new Promise(resolve => resolve());
       }
 
       protected abstract updateAllSum();

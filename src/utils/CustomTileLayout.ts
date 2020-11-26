@@ -1,5 +1,5 @@
 namespace uilayout {
-  let UIComponentClass = 'eui.UIComponent';
+  const UIComponentClass = 'eui.UIComponent';
 
   export class CustomTileLayout extends eui.LayoutBase {
     public gayX: number = 6;
@@ -11,12 +11,12 @@ namespace uilayout {
     public updateDisplayList(unscaledWidth: number, unscaledHeight: number): void {
       super.updateDisplayList(unscaledWidth, unscaledHeight);
       if (this.target == null) return;
-      let count: number = this.target.numElements;
+      const count: number = this.target.numElements;
       let diffY: number = 0;
-      let maxX: number = this.target.width;
+      const maxX: number = this.target.width;
       let maxY: number = 0;
       for (let i: number = 0; i < count; i++) {
-        let layoutElement: eui.UIComponent = <eui.UIComponent>this.target.getElementAt(i);
+        const layoutElement: eui.UIComponent = <eui.UIComponent>this.target.getElementAt(i);
         if (!egret.is(layoutElement, UIComponentClass) || !layoutElement.includeInLayout) {
           continue;
         }
@@ -26,12 +26,12 @@ namespace uilayout {
           diffY = 0;
         }
 
-        let bounds = egret.$TempRectangle;
+        const bounds = egret.$TempRectangle;
         layoutElement.getPreferredBounds(bounds);
         diffY = Math.max(diffY, bounds.height + this.gapY);
 
-        let childX = (i % this.numOfColumn) * (this.columnWidth + this.gayX);
-        let childY = maxY;
+        const childX = (i % this.numOfColumn) * (this.columnWidth + this.gayX);
+        const childY = maxY;
         layoutElement.setLayoutBoundsSize(this.columnWidth, bounds.height);
         layoutElement.setLayoutBoundsPosition(childX, childY);
       }
