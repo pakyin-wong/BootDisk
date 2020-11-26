@@ -32,6 +32,11 @@ namespace we {
       }
 
       public playBtn(btnState: string, animState: string, playAnim: string, count: number) {
+
+        if (!this._display) {
+          return;
+        }
+
         this._btnState = btnState;
         this._animState = animState;
         this._anim = playAnim;
