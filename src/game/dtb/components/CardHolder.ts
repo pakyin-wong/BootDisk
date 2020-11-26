@@ -450,7 +450,7 @@ namespace we {
         if (this._gameData.state === core.GameState.BET) {
           this._infoArray = new Array();
           for (let i = 0; i < 2; i++) {
-            this._infoArray.push(this._gameData.currentcardindex + 1 + i);
+            this._infoArray.push(this._gameData.currentcardindex + 2 + i);
           }
           console.log('BET infoArray', this._infoArray);
           return;

@@ -38,8 +38,10 @@ namespace we {
         } else {
           this._gameLabel.text = `${i18n.t('overlaypanel_bethistory_recordtab_gameno') + this.gameRoundID}`;
         }
-        this._gameShoeTextLabel.text = i18n.t('overlaypanel_bethistory_recordtab_shoe');
-        this._gameShoeLabel.text = this.shoe+"-"+this.round;
+        if(this._gameShoeTextLabel){
+          this._gameShoeTextLabel.text = i18n.t('overlaypanel_bethistory_recordtab_shoe');
+          this._gameShoeLabel.text = this.shoe+"-"+this.round;
+        }
         if (this.diceSize === 1) {
           // small
           this.sizeLabel.text = i18n.t('dice.smallShort');

@@ -41,6 +41,8 @@ namespace we {
       public _groups: {};
       public groupName: { [groupKey: string]: string } = {};
 
+      public localization: any;
+
       protected _gameCategories: string[];
       protected _gameTypes: number[];
       protected _liveGameTab: string[] = [];
@@ -132,6 +134,7 @@ namespace we {
       // check if mobilebottomGamePanel is open
       public isBottomPanelOpen = true;
       public bottomPanelSelectedIdx: number = 0;
+      public isShowingAlreadyBetPanel: boolean = false;
 
       public isAutoDismiss: boolean = true;
 

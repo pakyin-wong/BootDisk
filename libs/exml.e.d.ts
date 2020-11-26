@@ -496,6 +496,10 @@ declare module skin_desktop{
 	class DTBeadRoadResultPanel extends eui.Skin{
 	}
 }
+declare module skin_desktop.dt{
+	class DTMinimizedTableLayerSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class DTRoadmapLeftPanel extends eui.Skin{
 	}

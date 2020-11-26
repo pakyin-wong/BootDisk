@@ -158,6 +158,7 @@
 		"resource/skin_desktop/dt/StatisticChartPanelDealer.exml",
 		"resource/skin_desktop/dt/Analysis.exml",
 		"resource/skin_desktop/dt/ChipLayer.exml",
+		"resource/skin_desktop/dt/DTMinimizedTableLayer.exml",
 		"resource/skin_desktop/dt/TableLayer.exml",
 		"resource/skin_desktop/dt/TableInfoPanel.exml",
 		"resource/skin_desktop/dt/DragonTigerScene.exml",

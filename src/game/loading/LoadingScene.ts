@@ -119,6 +119,10 @@ namespace we {
             if (res.Nicknames) {
               env.nicknameSet = res.Nicknames;
             }
+
+            if (res.Localizations) {
+              env.localization = res.Localizations;
+            }
           }
         }, this);
         this.next();
@@ -212,6 +216,7 @@ namespace we {
           dir.monitor.start(this.stage);
           dir.sceneCtr.goto('lobby');
           dir.audioCtr.init();
+          dir.audioCtr.play('ui_enter_game_opening_mp3');
         }
       }
 
