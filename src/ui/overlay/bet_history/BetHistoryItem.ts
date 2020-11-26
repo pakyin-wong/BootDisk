@@ -10,6 +10,7 @@ namespace we {
         protected _txt_record_bettype: eui.Label;
         protected _txt_record_betamount: eui.Label;
         protected _txt_record_vaildbet: eui.Label;
+        protected _txt_record_rollingRate:eui.Label;
         protected _txt_record_rolling:eui.Label;
         protected _txt_record_win: eui.Label;
         protected _txt_record_orgbalance: eui.Label;
@@ -23,6 +24,7 @@ namespace we {
         protected _txt_bettype: eui.Label;
         protected _txt_result: eui.Label;
         protected _txt_vaildbet: eui.Label;
+        protected _txt_rollingRate: eui.Label;
         protected _txt_rolling: eui.Label;
 
         protected _toggle: egret.DisplayObject;
@@ -60,18 +62,19 @@ namespace we {
           this.setText(this._txt_bettype, i18n.t('overlaypanel_bethistory_record_bettype'));
           this.setText(this._txt_result, i18n.t('overlaypanel_bethistory_record_result'));
           this.setText(this._txt_vaildbet, i18n.t('overlaypanel_bethistory_record_vaildbet'));
+          this.setText(this._txt_rollingRate, i18n.t('overlaypanel_bethistory_record_rollingRate'));
           this.setText(this._txt_rolling, i18n.t('overlaypanel_bethistory_record_rolling'));
           this._btn_replay && this.setText(this._btn_replay['label'], i18n.t('overlaypanel_bethistory_record_replay'));
           
-          let gameround = `${this.data.round} - ${this.data.shoe}`
           this.setText(this._txt_record_id, this.data.betid);
           this.setText(this._txt_record_date, utils.formatTime(this.data.datetime.toFixed(0)));
           this.setText(this._txt_record_game, i18n.t('gametype_' + we.core.GameType[this.data.gametype]) + (this.data.tablename ? ' ' + this.data.tablename : ''));
-          this.setText(this._txt_record_round, gameround);
+          this.setText(this._txt_record_round, `${this.data.round} - ${this.data.shoe}`);
           this.setText(this._txt_record_remark, utils.BetHistory.formatRemark(this.data.remark));
           this.setText(this._txt_record_bettype, utils.BetHistory.formatBetType(this.data.gametype, this.data.field));
           this.setText(this._txt_record_betamount, utils.formatNumber(this.data.betamount, true));
           this.setText(this._txt_record_vaildbet, utils.formatNumber(this.data.validbetamount,true));
+          this.setText(this._txt_record_rollingRate,`${this.data.commissionrate * 0.01}%`);
           this.setText(this._txt_record_rolling, utils.formatNumber(this.data.commission, true));
           this.setText(this._txt_record_orgbalance, utils.formatNumber(this.data.beforebalance, true));
           this.setText(this._txt_record_finbalance, utils.formatNumber(this.data.afterbalance, true));
@@ -79,6 +82,8 @@ namespace we {
           this.updateBg();
           utils.BetHistory.updateWinText(this._txt_record_win, this.data.remark, this.data.winamount);
           this.createGameResult(this.data.gametype, this.data.result);
+
+          this.currentState = env.accountType == 1? 'credit':'api';
         }
 
         protected forceOpen() {

@@ -35,6 +35,7 @@ namespace we {
 
           const betinfo = utils.BetTypeParser.parse(this.data.gametype, this.data.field);
 
+          this.setText(this._txt_record_round, this.data.gameroundid);
           this.setText(this._txt_record_bettype, betinfo['type']);
           this.setText(this._txt_record_betgroup, betinfo['group']);
           this.setText(this._txt_record_betfield, betinfo['field']);

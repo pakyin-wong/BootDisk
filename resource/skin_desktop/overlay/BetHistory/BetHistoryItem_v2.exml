@@ -1,37 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.BetHistoryItem_v2" currentState="normal" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*"     states="normal,hover" >
-	<e:Rect id="_txt_record_bgcolor" width="2136" height="76" x="0" y="0"/>
-	<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" stroke="0" fillColor="0x13304c,0x4077ab,90" visible="false" visible.hover="true" width="2136" height="76"/>
-	<e:Group id="text" x="0" y="0" alpha="0.7" alpha.hover="1">
-		<e:Label id="_txt_record_id" text="Label" x="48" size="22" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1" width="135"/>
-		<e:Label id="_txt_record_date" text="Label" x="215" y="0" size="22" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1" width="198"/>
-		<e:Label id="_txt_record_game" text="Label" x="443" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_bettype" text="Label" y="0" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="1114" width="258"/>
-		<e:Label id="_txt_record_betamount" text="Label" x="1402" y="0" size="22" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_win" text="Label" x="1750" y="0" height="76" size="22" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_vaildbet" text="Label" x="1567" y="0" height="76" size="22" verticalAlign="middle" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_finbalance" text="Label" x="1944" y="0" size="22" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+<e:Skin class="skin_desktop.BetHistoryItem_v2" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*"       states="api,credit" >
+	<e:Rect id="_txt_record_bgcolor" width="2266" height="76" x="0" y="0"/>
+	<ui:RoundRectShape id="_hover" cornerTL_TR_BL_BR="0,0,0,0" stroke="0" fillColor="0x13304c,0x4077ab,90" visible="false" width="2266" height="76"/>
+	<e:Group id="text" x="0" y="0" alpha="0.7" left="0" right="0">
+		<e:Label id="_txt_record_id" text="Label" size="22" verticalAlign="middle" height="76" fontFamily="Barlow" x.api="48" width.api="137" x.credit="48" width.credit="139"/>
+		<e:Label id="_txt_record_date" text="Label" size="22" verticalAlign="middle" height="76" fontFamily="Barlow" x.api="215" width.api="198" x.credit="217" width.credit="196"/>
+		<e:Label id="_txt_record_game" text="Label" height="76" size="20" verticalAlign="middle" x.api="443" width.api="232" x.credit="443" width.credit="232"/>
+		<e:Label id="_txt_record_bettype" text="Label" height="76" size="20" verticalAlign="middle" x.api="1178" width.api="278" x.credit="1114" width.credit="258"/>
+		<e:Label id="_txt_record_betamount" text="Label" height="76" size="22" verticalAlign="middle" fontFamily="Barlow" x.api="1486" width.api="178" x.credit="1402" width.credit="107"/>
+		<e:Label id="_txt_record_win" text="Label" height="76" size="22" verticalAlign="middle" fontFamily="Barlow" x.api="1894" width.api="186" x.credit="1971" width.credit="109"/>
+		<e:Label id="_txt_record_vaildbet" text="Label" height="76" size="22" verticalAlign="middle" fontFamily="Barlow" x.api="1694" width.api="170" x.credit="1539" width.credit="120"/>
+		<e:Label id="_txt_record_rollingRate" text="Label" height="76" size="22" verticalAlign="middle" fontFamily="Barlow" visible.api="false" x.credit="1689" width.credit="101"/>
+		<e:Label id="_txt_record_rolling" text="Label" height="76" size="22" verticalAlign="middle" fontFamily="Barlow" visible.api="false" x.credit="1820" width.credit="101"/>
+		<e:Label id="_txt_record_finbalance" text="Label" height="76" size="22" verticalAlign="middle" fontFamily="Barlow" x.api="2110" width.api="126" x.credit="2110" width.credit="126"/>
 	</e:Group>
-	<e:Group id="_record_result" scaleX="1" scaleY="1" width="308" height="76" x="699">
+	<e:Group id="_record_result" height="76" width="296" x.api="705" x.credit="705">
 		<e:layout>
 		<e:VerticalLayout horizontalAlign="center" verticalAlign="middle" gap="0"/>
 		</e:layout>
 	</e:Group>
-	<e:Image id="_btn_replay" width="37" height="37" x="1039" y="20" source="d_lobby_panel_button_play_normal_png" source.hover="d_lobby_panel_button_play_hover_png"/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<!--<e:Rect id="_txt_hover_color" includeIn="hover" left="0" right="0" top="0" bottom="0" fillColor="0x4077ab"/>-->
-
+	<e:Image id="_btn_replay" width="40" height="40" source="d_lobby_panel_button_play_normal_png" verticalCenter="0" x.api="1069.5" x.credit="1037.5"/>
 </e:Skin>

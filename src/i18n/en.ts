@@ -93,8 +93,8 @@ namespace we {
       overlaypanel_bethistory_customperiod: 'Custom',
       overlaypanel_bethistory_searchrecord: 'Search Bet ID',
 
-      overlaypanel_bethistory_recordtab_id: 'Bet ID',
       overlaypanel_bethistory_recordtab_title: 'Record Detail',
+      overlaypanel_bethistory_recordtab_id: 'Bet ID',
       overlaypanel_bethistory_recordtab_date: 'Date',
       overlaypanel_bethistory_recordtab_game: 'Game',
       overlaypanel_bethistory_recordtab_round: 'Round',
@@ -119,6 +119,7 @@ namespace we {
       overlaypanel_bethistory_record_round: 'Round',
       overlaypanel_bethistory_record_bettype: 'Bet Content',
       overlaypanel_bethistory_record_vaildbet: 'Vaild Turnover',
+      overlaypanel_bethistory_record_rollingRate: 'Rolling Percentage',
       overlaypanel_bethistory_record_rolling: 'Rolling Commission',
       overlaypanel_bethistory_record_result: 'Game Result',
       overlaypanel_bethistory_record_replay: 'Playback',

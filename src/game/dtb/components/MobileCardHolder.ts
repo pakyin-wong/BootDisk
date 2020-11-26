@@ -19,6 +19,14 @@ namespace we {
         this._ringAnim.animation.gotoAndStopByFrame('icon_loop',0);
       }
 
+      protected async setStateBet(isInit: boolean) {
+        await super.setStateBet(isInit);
+        if(isInit){
+          await utils.playAnimation(this._ringAnim,'icon_loop',1)
+        }
+        return new Promise(resolve=>resolve())
+      }
+
       protected createChildren() {
 
 

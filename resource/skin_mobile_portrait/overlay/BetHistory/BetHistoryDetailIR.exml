@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.BetHistoryDetailIR" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+        <e:Group y="0" left="0" right="0">
+          <e:Label id="_title" text="title" y="0" size="50" verticalAlign="middle" alpha="0.5" left="0" right="0"/>
+          <e:Label id="_value" text="value" y="83" size="56" verticalAlign="middle" fontFamily="Barlow" left="3" right="-3"/>
+					<e:layout>
+						<e:VerticalLayout horizontalAlign="justify" gap="9"/>
+					</e:layout>
+
+        </e:Group>
+</e:Skin>

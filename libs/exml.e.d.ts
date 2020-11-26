@@ -496,6 +496,10 @@ declare module skin_desktop{
 	class DTBeadRoadResultPanel extends eui.Skin{
 	}
 }
+declare module skin_desktop.dt{
+	class DTMinimizedTableLayerSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class DTRoadmapLeftPanel extends eui.Skin{
 	}
@@ -1769,6 +1773,10 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape{
+	class ModeSelect extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class PlayerProfile extends eui.Skin{
 	}
 }
@@ -2450,6 +2458,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class BetHistoryDetail extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class BetHistoryDetailIR extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
