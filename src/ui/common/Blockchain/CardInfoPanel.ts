@@ -203,15 +203,19 @@ namespace we {
 
       protected changeFontSize(){
         if(env.language === "en"){
+          this._helpLabel.size = 34;
+          this._encryptedKeyHelpLabel.size = 34;
+          this._ssnHelpLabel.size = 34;
+          this._decryptedKeyHelpLabel.size = 34;
           this._helpLabel.lineSpacing = 12;
           this._encryptedKeyHelpLabel.lineSpacing = 12;
           this._ssnHelpLabel.lineSpacing = 12;
           this._decryptedKeyHelpLabel.lineSpacing = 12;
         }else{
-          // this._helpLabel.size = 36;
-          // this._encryptedKeyHelpLabel.size = 36;
-          // this._ssnHelpLabel.size = 36;
-          // this._decryptedKeyHelpLabel.size = 36;
+          this._helpLabel.size = 36;
+          this._encryptedKeyHelpLabel.size = 36;
+          this._ssnHelpLabel.size = 36;
+          this._decryptedKeyHelpLabel.size = 36;
           this._helpLabel.lineSpacing = 15;
           this._encryptedKeyHelpLabel.lineSpacing = 15;
           this._ssnHelpLabel.lineSpacing = 15;
@@ -223,7 +227,9 @@ namespace we {
         if(this._indexHelpGroup.visible){
           this._indexHelpGroup.visible = false;
         }else{
-          this._helpArrow.left = this._cardIndexGroup.x + this._cardIndexLabel.width + (this._cardHelp.width / 2) - this._indexHelpGroup.x;
+          if(env.orientation === "portrait"){
+            this._helpArrow.left = this._cardIndexGroup.x + this._cardIndexLabel.width + (this._cardHelp.width / 2) - this._indexHelpGroup.x;
+          }
           this._encryptedKeyHelpGroup.visible = false;
           this._ssnHelpGroup.visible = false;
           this._decryptedKeyHelpGroup.visible = false;
@@ -237,7 +243,9 @@ namespace we {
           this._encryptedKeyHelpGroup.visible = false;
         }else{
           // this._encryptedKeyHelpArrow.left = this._encryptedAreaGroup.x + this._encryptedAreaGroup.x + this._encryptedLabel.width + (this._encryptedHelp.width / 2) - this._encryptedKeyHelpGroup.x;
-          this._encryptedKeyHelpArrow.left = this._encryptedAreaGroup.x + this._encryptedAreaGroup.x + this._encryptedLabel.width - this._encryptedKeyHelpGroup.x;
+          if(env.orientation === "portrait"){
+            this._encryptedKeyHelpArrow.left = this._encryptedAreaGroup.x + this._encryptedAreaGroup.x + this._encryptedLabel.width - this._encryptedKeyHelpGroup.x;
+          }
 
           this._indexHelpGroup.visible = false;
           this._ssnHelpGroup.visible = false;
@@ -252,7 +260,9 @@ namespace we {
           this._ssnHelpGroup.visible = false;
         }else{
           // this._ssnHelpArrow.left = this._ssnDeGroup.x + this._ssnGroup.x + this._ssnRuntimeLabel.width + (this._ssnHelp.width / 2) - this._ssnHelpGroup.x;
-          this._ssnHelpArrow.left = this._ssnDeGroup.x + this._ssnGroup.x + this._ssnRuntimeLabel.width - this._ssnHelpGroup.x;
+          if(env.orientation === "portrait"){
+            this._ssnHelpArrow.left = this._ssnDeGroup.x + this._ssnGroup.x + this._ssnRuntimeLabel.width - this._ssnHelpGroup.x;
+          }
 
           this._indexHelpGroup.visible = false;
           this._encryptedKeyHelpGroup.visible = false;
@@ -267,7 +277,10 @@ namespace we {
           this._decryptedKeyHelpGroup.visible = false;
         }else{
           // this._decryptedKeyArrow.left = this._ssnDeGroup.x + this._ssnGroup.x + this._decryptedRuntimeLabel.width + (this._decryptedHelp.width / 2) - this._decryptedKeyHelpGroup.x;
-          this._decryptedKeyArrow.left = this._ssnDeGroup.x + this._ssnGroup.x + this._decryptedRuntimeLabel.width - this._decryptedKeyHelpGroup.x;
+          if(env.orientation === "portrait"){
+            this._decryptedKeyArrow.left = this._ssnDeGroup.x + this._ssnGroup.x + this._decryptedRuntimeLabel.width - this._decryptedKeyHelpGroup.x;
+          }
+
           this._indexHelpGroup.visible = false;
           this._encryptedKeyHelpGroup.visible = false;
           this._ssnHelpGroup.visible = false;
