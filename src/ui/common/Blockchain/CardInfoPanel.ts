@@ -22,6 +22,9 @@ namespace we {
       protected _sha256SuccessfulGroup: eui.Group;
       protected _sha256FailGroup: eui.Group;
 
+      protected _sha256SuccessfulLabel: ui.RunTimeLabel;
+      protected _sha256FailLabel: ui.RunTimeLabel;
+
       protected _message: ui.InGameMessage;
 
       public constructor() {

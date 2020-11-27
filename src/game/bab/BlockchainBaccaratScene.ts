@@ -26,6 +26,8 @@ namespace we {
         this._deckPanel.setToggler(this._deckButton);
         this._deckPanel.setValue(this._gameData);
         this._deckPanel.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
+        this._shufflePanel.addEventListener('ENABLE_DECK_BTN', this.enableDeckBtn, this);
+        this._message.addEventListener('DRAW_RED_CARD',this.newShoeMessage,this)
         this._historyCardHolder.setValue(this._gameData)
                 //========
         // this._deckButton.addEventListener('ENABLE_DECK_BTN', this.enableDeckBtn, this);
@@ -134,6 +136,7 @@ namespace we {
 
       protected enableDeckButton(enable:boolean) {
         this._deckButton.touchEnabled = enable;
+        this._deckButton.touchChildren = enable;
         this._deckButton.alpha = enable? 1 : 0.5;
       }
       protected async getShoeInfo() {

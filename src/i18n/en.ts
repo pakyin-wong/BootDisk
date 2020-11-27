@@ -182,7 +182,7 @@ namespace we {
       overlaypanel_gameSet_sendLiveVerfication: 'Send On-site Verification',
 
       expiredmessage_text: 'You have not bet for 3 rounds, and will be back to lobby after 2 rounds.',
-
+       kickoutmessage_text: 'You have not betted for 5 rounds, back to lobby now.',
       // customerservicehotlinenumber_text: 'The customer service hotline number is updated to +63 9250898888',
 
       datePicker_clean: 'Clean',
@@ -215,7 +215,7 @@ namespace we {
       mobile_notification_next_button_label: 'Next',
 
       mobile_quick_bet_button_label: 'QuickBet',
-      mobile_quick_bet_button_add_label: 'Raise',
+      mobile_quick_bet_button_add_label: 'Bet Again',
       mobile_enter_table_button_label: 'Enter',
 
       mobile_game_panel_bet_hint_label: 'Hint: Press to add bet or enter room',
@@ -324,6 +324,7 @@ namespace we {
       },
       live: {
         tooltip: {
+          waitForNextRound: 'Drawing, please wait for the next round',
           confirmBet: 'Confirm Bet',
           repeat: 'Repeat',
           cancel: 'Cancel',
@@ -449,12 +450,15 @@ namespace we {
         tripleLong: 'tripleLong',
         doubleLong: 'doubleLong',
         combine: 'combine',
+        specific: 'specific',
         specificSingle: 'specificSingle',
         specificDouble: 'specificDouble',
         specificTriple: 'specificTriple',
 
         betLimitShort: 'Bet Limit',
         gameId: 'ID',
+
+        combines: 'combine',
 
         betGroup: {
           color: 'Red / Black',
@@ -616,7 +620,7 @@ namespace we {
         thirdParty: 'Verification',
         sha256VerifySuccess: 'SHA256 Verified',
         sha256VerifyFail: 'Cannot be verified by SHA256',
-        deckDesc: '416 cards',
+        deckDesc: '"All Cards" consists of a total of 8 decks of playing cards, a total of 416 cards. Before the start of the first round, the system will randomly insert a red card in "All Cards". When the card is dealt to the red card, it means that the shoe will be changed after the game ends. After the cards are shuffled, the "Card serial number" and "Card encryption text" will be regenerated to ensure the authenticity of the game.',
         copy: 'Copy',
         encryptedKey: 'Encrypted Key Before Distribution',
         decryptedKey: 'Encrypted Key',

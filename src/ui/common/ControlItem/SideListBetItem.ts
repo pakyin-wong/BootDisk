@@ -6,7 +6,7 @@ namespace we {
       protected _betChipSetGroup: eui.Group;
       protected _resultGroup: eui.Group;
       protected _betEnabled: boolean = false;
-      protected _quickbetButton: ui.BaseImageButton;
+      protected _quickbetButton: we.ui.RoundRectButton;
       protected _closeButton: ui.BaseImageButton;
       protected _prevButton: ui.BaseImageButton;
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
@@ -34,7 +34,9 @@ namespace we {
         this.generateChipLayer();
         this.generateResultMessage();
         this.generateResultDisplay();
-
+        this._quickbetButton.label.renderText = () => {
+          return i18n.t('mobile_quick_bet_button_add_label');
+        };
         super.initComponents();
       }
 
