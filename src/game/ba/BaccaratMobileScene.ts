@@ -70,6 +70,9 @@ namespace we {
       protected setStateBet(isInit: boolean) {
         super.setStateBet(isInit);
         if (env.orientation === 'landscape') {
+          egret.Tween.removeTweens(this._tableLayer);
+          egret.Tween.removeTweens(this._chipLayer);
+
           egret.Tween.get(this._tableLayer).to({ scaleX: 1, scaleY: 1 }, 250);
           egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
         }

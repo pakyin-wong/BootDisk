@@ -25,29 +25,97 @@ namespace we {
 
       protected _skeletonName: string;
 
+      protected _firstCardScaleX : number = 1;
+      protected _firstCardScaleY : number = 1;
+
+      protected _smallCardScaleX : number = 1;
+      protected _smallCardScaleY : number = 1;
+
       public set skeletonName(value: string){
         this._skeletonName = value
       }
 
       protected mount() {
         super.mount();
+        this.checkMobile();
         this.createFactory();
       }
 
-      protected createFirstCard() {
-        const firstCardFront = this.getFirstCardFront(this._gameData.firstcard);
-        firstCardFront.anchorOffsetX = this._firstCardWidth / 2;
-        firstCardFront.anchorOffsetY = this._firstCardHeight / 2;
+      protected checkMobile(){
+        if(!env.isMobile)
+          return;
 
+          const firstCardWidth = 169;
+          const firstCardHeight = 245;
+          const smallCardWidth = 117;
+          const smallCardHeight = 170;
+
+          this._firstCardWidth = firstCardWidth;
+          this._firstCardHeight = firstCardHeight;
+          this._smallCardWidth = smallCardWidth;
+          this._smallCardHeight = smallCardHeight;
+
+          this._firstCardScaleX = 169/204;
+          this._firstCardScaleY = 245/312;
+
+          this._smallCardScaleX = 169/117;
+          this._smallCardScaleY = 246/170;
+
+        if(env.orientation === "portrait"){
+          this._oneRowFirstCardY = 265 + firstCardHeight / 2;
+          this._oneRowFirstRowY = 642 + firstCardHeight / 2;
+
+          this._twoRowFirstCardY = 265 + firstCardHeight / 2;
+          this._twoRowFirstRowY = 642 + firstCardHeight / 2;
+          this._twoRowSecondRowY = 920 + firstCardHeight / 2;
+        }else{
+          this._oneRowFirstCardY = 265 + firstCardHeight / 2;
+          this._oneRowFirstRowY = 642 + firstCardHeight / 2;
+
+          this._twoRowFirstCardY = 265 + firstCardHeight / 2;
+          this._twoRowFirstRowY = 642 + firstCardHeight / 2;
+          this._twoRowSecondRowY = 920 + firstCardHeight / 2;
+        }
+
+      }
+
+      // protected createFirstCard() {
+      //   const firstCardFront = this.getFirstCardFront(this._gameData.firstcard);
+
+      //   firstCardFront.anchorOffsetX = this._firstCardWidth / 2;
+      //   firstCardFront.anchorOffsetY = this._firstCardHeight / 2;
+
+      //   this._firstCard = this._factory.buildArmatureDisplay('poker');
+        
+      //   utils.dblistenToSoundEffect(this._firstCard);
+      //   this._firstCard.armature.getSlot('card_number_vertical').display = this.createIndexLabel(1);
+      //   this._firstCard.armature.getSlot('card_front_vertical').display = firstCardFront;
+      //   this._firstCard.animation.gotoAndStopByTime('burn_card_center_in', 0)
+      //   this._firstCard.visible = false;
+      //   //this._firstCard.anchorOffsetX = this._firstCardWidth / 2;
+      //   //this._firstCard.anchorOffsetY = this._firstCardHeight / 2;
+
+      //   this._firstGroup = new eui.Group();
+      //   this._firstGroup.horizontalCenter = 0;
+      //   this._firstGroup.addChild(this._firstCard);
+      //   this._allCardsGroup.addChild(this._firstGroup);
+
+      //   const skipped = utils.stat.ba.translateCardToNumber(this._gameData.firstcard);
+      //   this._firstGroup.y = (skipped > 7)? this._twoRowFirstCardY: this._oneRowFirstCardY;
+      // }
+
+      protected createFirstCard() {
         this._firstCard = this._factory.buildArmatureDisplay('poker');
+        
         utils.dblistenToSoundEffect(this._firstCard);
         this._firstCard.armature.getSlot('card_number_vertical').display = this.createIndexLabel(1);
-        this._firstCard.armature.getSlot('card_front_vertical').display = firstCardFront;
+        this.getFirstCardFront(this._gameData.firstcard, this._firstCard.armature.getSlot('card_front_vertical'));
+        // this._firstCard.armature.getSlot('card_front_vertical').display = firstCardFront;
         this._firstCard.animation.gotoAndStopByTime('burn_card_center_in', 0)
         this._firstCard.visible = false;
         //this._firstCard.anchorOffsetX = this._firstCardWidth / 2;
         //this._firstCard.anchorOffsetY = this._firstCardHeight / 2;
-
+        
         this._firstGroup = new eui.Group();
         this._firstGroup.horizontalCenter = 0;
         this._firstGroup.addChild(this._firstCard);
@@ -55,7 +123,10 @@ namespace we {
 
         const skipped = utils.stat.ba.translateCardToNumber(this._gameData.firstcard);
         this._firstGroup.y = (skipped > 7)? this._twoRowFirstCardY: this._oneRowFirstCardY;
-        
+        if(env.isMobile){
+          this._firstCard.scaleX = this._firstCardScaleX;
+          this._firstCard.scaleY = this._firstCardScaleY;
+        }
       }
 
       protected createIndexLabel(num: number) {
@@ -68,16 +139,36 @@ namespace we {
         label.anchorOffsetX = label.width / 2
         label.anchorOffsetY = label.height / 2
 
+        if(env.isMobile){
+          label.size = 44;
+        }
+
         return labelGroup;
       }
 
-      protected getFirstCardFront(cardString: string) {
+      // protected getFirstCardFront(cardString: string) {
+      //   const resName = cardString === 'back' ? 'back' : utils.formatCardForFlip(cardString);
+      //   const image = new eui.Image();
+      //   image.width = this._firstCardWidth;
+      //   image.height = this._firstCardHeight;
+
+      //   image.source = utils.getCardResName(resName);
+      //   return image;
+      // }
+
+      protected getFirstCardFront(cardString: string, card){
         const resName = cardString === 'back' ? 'back' : utils.formatCardForFlip(cardString);
         const image = new eui.Image();
-        image.width = this._firstCardWidth;
-        image.height = this._firstCardHeight;
-        image.source = utils.getCardResName(resName);
-        return image;
+        const texture = RES.getRes(utils.getCardResName(resName));
+        const meshDistData = card.displayData as dragonBones.MeshDisplayData;
+
+        let textureData = new dragonBones.EgretTextureData();
+        textureData.renderTexture = texture;
+        meshDistData.texture = textureData;
+        card.armature.replacedTexture == null;
+        card.replaceDisplayData(meshDistData);
+        card.displayIndex = -1;
+        card.displayIndex = 0;
       }
 
       protected createBg() {
@@ -183,6 +274,9 @@ namespace we {
 
         const label = new eui.Label();
         label.size = 65
+        if(env.isMobile){
+          label.size = 56;
+        }
         label.text = num.toString();
         label.anchorOffsetX = label.width / 2;
         label.anchorOffsetY = label.height / 2;
@@ -246,6 +340,9 @@ namespace we {
       protected getHLayout() {
         const layout = new eui.HorizontalLayout();
         layout.gap = 213;
+        if(env.isMobile){
+          layout.gap = 126;
+        }
         return layout;
       }
 

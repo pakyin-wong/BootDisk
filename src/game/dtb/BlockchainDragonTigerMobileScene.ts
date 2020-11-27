@@ -22,6 +22,12 @@ namespace we {
 
       public static resGroups = [core.res.Blockchain, core.res.BlockchainDragonTiger];
 
+      protected _mobileBlockchainBar : blockchain.MobileBlockchainBar;
+
+      protected _dragonTotalAmount : number = 0;
+      protected _tigerTotalAmount : number = 0;
+
+
       constructor(data: any) {
         super(data);
       }
@@ -78,6 +84,9 @@ namespace we {
       protected setStateBet(isInit: boolean) {
         super.setStateBet(isInit);
         if (env.orientation === 'landscape') {
+          egret.Tween.removeTweens(this._tableLayer);
+          egret.Tween.removeTweens(this._chipLayer);
+
           egret.Tween.get(this._tableLayer).to({ scaleX: 1, scaleY: 1 }, 250);
           egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
         }
@@ -294,6 +303,26 @@ namespace we {
 
       protected checkGameMode(value: boolean) {
         return null;
+      }
+
+      protected createMobileBlockChainBar(){
+        this._mobileBlockchainBar = new blockchain.MobileBlockchainBar(this._tigerTotalAmount,this._dragonTotalAmount,'dt');
+        this._mobileBlockchainBar.x = 0;
+        this._mobileBlockchainBar.y = 180;
+
+        this._verticalTop.addChildAt(this._mobileBlockchainBar,0);
+      }
+
+      protected updateMobileBlockchainBar(evt: egret.Event){
+        if(this._mobileBlockchainBar){
+          const dragonTotalAmount = evt.data.amount[dt.BetField.DRAGON] ? evt.data.amount[dt.BetField.DRAGON] : 0;
+          const tigerTotalAmount = evt.data.amount[dt.BetField.TIGER] ? evt.data.amount[dt.BetField.TIGER] : 0;
+
+          this._dragonTotalAmount = dragonTotalAmount;
+          this._tigerTotalAmount = tigerTotalAmount;
+
+          this._mobileBlockchainBar.playAnim(this._tigerTotalAmount, this._dragonTotalAmount);
+        }
       }
     }
   }

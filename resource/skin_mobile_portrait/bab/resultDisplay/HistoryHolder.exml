@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.bab.HistoryHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
+        xmlns:w="http://ns.egret.com/wing" width="1146" height="373">
+        <e:Group id="content" width="100%">
+                <e:Image id="close" source="d-lobby-button-close-none_png" width="44" height="44"  right="30" top="30"/>
+                <ui:RunTimeLabel i18n="baccarat.lastRound" size="60" y="30" horizontalCenter="0" textColor="0x6ee4ff" />
+                <e:Group width="65" height="131" x="484" y="134">
+                        <ui:RoundRectShape width="65" height="131" cornerTL_TR_BL_BR="4,4,4,4" fillColor="0x3e60f8"
+                                           stroke="0" />
+                        <ui:RunTimeLabel id="lblPlayerName" i18n="baccarat.playerShort" horizontalCenter="0" size="54"
+                                          top="5"/>
+                        <e:Label id="_playerSum" text="" bottom="5" horizontalCenter="0" size="54" />
+                </e:Group>
+                <e:Group width="65" height="131" y="134" x="597">
+                        <ui:RoundRectShape width="65" height="131" cornerTL_TR_BL_BR="4,4,4,4" fillColor="0xed4c4c"
+                                           stroke="0" />
+                        <ui:RunTimeLabel id="lblBankerName" i18n="baccarat.bankerShort" horizontalCenter="0" size="54"
+                                          top="5"/>
+                        <e:Label id="_bankerSum" text="" bottom="5" horizontalCenter="0" size="54" />
+                </e:Group>
+                <e:Group x="241" y="128" width="99" height="144">
+                        <ui:Card id="_playerCard1" width="99" height="144" horizontalCenter="0" />
+                        <e:Label id="_playerNum1" bottom="0" horizontalCenter="0" size="54" textColor="0xd2fdff" />
+									<e:layout>
+										<e:VerticalLayout gap="10" horizontalAlign="center"/>
+									</e:layout>
+                </e:Group>
+                <e:Group x="362" y="128" width="99" height="144">
+                        <ui:Card id="_playerCard2" width="99" height="144" />
+                        <e:Label id="_playerNum2" bottom="0" horizontalCenter="0" size="54" textColor="0xd2fdff" />
+									<e:layout>
+										<e:VerticalLayout gap="10" horizontalAlign="center"/>
+									</e:layout>
+                </e:Group>
+                <e:Group y="172" left="74">
+                        <ui:Card id="_playerCard3" width="99" height="144" x="94" rotation="90" />
+                        <e:Label id="_playerNum3" bottom="0" horizontalCenter="0" size="54" textColor="0xd2fdff" />
+									<e:layout>
+										<e:VerticalLayout verticalAlign="middle" horizontalAlign="center" gap="10"/>
+									</e:layout>
+                </e:Group>
+                <e:Group x="686" y="128" width="99" height="144">
+                        <ui:Card id="_bankerCard1" width="99" height="144" />
+                        <e:Label id="_bankerNum1" bottom="0" horizontalCenter="0" size="54" textColor="0xd2fdff" />
+									<e:layout>
+										<e:VerticalLayout gap="10" horizontalAlign="center"/>
+									</e:layout>
+                </e:Group>
+                <e:Group x="808" y="128" width="99" height="144">
+                        <ui:Card id="_bankerCard2" width="99" height="144" />
+                        <e:Label id="_bankerNum2" bottom="0" horizontalCenter="0" size="54" textColor="0xd2fdff" />
+									<e:layout>
+										<e:VerticalLayout horizontalAlign="center"/>
+									</e:layout>
+                </e:Group>
+                <e:Group y="172" right="74">
+                        <ui:Card id="_bankerCard3" width="99" height="144" x="48" rotation="90" />
+                        <e:Label id="_bankerNum3" bottom="0" horizontalCenter="0" size="54" textColor="0xd2fdff" />
+									<e:layout>
+										<e:VerticalLayout gap="10" horizontalAlign="center"/>
+									</e:layout>
+                </e:Group>
+        </e:Group>
+</e:Skin>

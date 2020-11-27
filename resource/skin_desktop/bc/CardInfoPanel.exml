@@ -9,6 +9,10 @@
                 </e:Group>
                 <e:Group x="239" y="557" width="204" height="42" >
                         <e:Label id="_cardIndexLabel" size="36" horizontalCenter="0" verticalCenter="0"/>
+                        <ui:BaseImageButton id="_cardHelp" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel" tooltipText="'baccarat.tooltip.cardIDHelp'" />
+									<e:layout>
+										<e:HorizontalLayout verticalAlign="middle" horizontalAlign="center"/>
+									</e:layout>
                 </e:Group>
 
                 <e:Image id="close" source="d-lobby-button-close-none_png" x="1785" y="44" width="44" height="44" />
@@ -35,7 +39,7 @@
                         <e:Image id="_encryptedAreaImage" source="d_bcba_panel_verification_encryt_bg_png" width="1025" height="195" />
                         <e:Group x="24" y="24">
                         <ui:RunTimeLabel size="24" i18n="baccarat.encryptedKey" />
-                        <ui:BaseImageButton id="_encryptedHelp" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
+                        <ui:BaseImageButton id="_encryptedHelp" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel" tooltipText="'baccarat.tooltip.encryptedKeyHelp'"/>
                         <e:layout>
                                 <e:HorizontalLayout gap="10" verticalAlign="middle"/>
                         </e:layout>
@@ -51,7 +55,7 @@
                         <e:Image id="_ssnAreaImage" source="d_bcba_panel_verification_key_bg_png" width="1025" height="150"/>
                         <e:Group x="24" y="24">
                                 <ui:RunTimeLabel  size="24"  i18n="baccarat.ssn"/>
-                                <ui:BaseImageButton id="_ssnHelp" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
+                                <ui:BaseImageButton id="_ssnHelp" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel" tooltipText="'baccarat.tooltip.ssnHelp'"/>
                                 <e:layout>
                                         <e:HorizontalLayout gap="10" verticalAlign="middle"/>
                                 </e:layout>
@@ -63,8 +67,7 @@
                         </e:Group>
                         <e:Group x="24" y="160">
                         <ui:RunTimeLabel size="24"  i18n="baccarat.decryptedKey" />               
-                        <ui:BaseImageButton id="_decryptedHelp" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
-                        
+                        <ui:BaseImageButton id="_decryptedHelp" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel" tooltipText="'baccarat.tooltip.decryptedKeyHelp'"/>
                                 <e:layout>
                                         <e:HorizontalLayout gap="10" verticalAlign="middle"/>
                                 </e:layout>
