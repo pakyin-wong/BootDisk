@@ -297,7 +297,8 @@ namespace we {
 				env.nickname = settings.nickname ? settings.nickname : player.profile.nickname;
 				env.showGoodRoadHint = settings.showGoodRoadHint === '1' ? true : false;
 				env.autoConfirmBet = settings.autoConfirmBet === '1' ? true : false;
-
+				env.voice = settings.voice? settings.voice: 'cn';
+				env.isAutoDismiss = settings.isAutoDismiss === '1' ? true : false;
 				env.redirecturl = player.redirecturl;
 
 				env.currentChipSelectedIndex = settings.currentChipSelectedIndex ? parseInt(settings.currentChipSelectedIndex) : 0;

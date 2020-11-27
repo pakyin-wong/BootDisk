@@ -25,24 +25,29 @@
 					</e:layout>
 				</e:Group>
 			</e:Group>
-			<e:Group id="_rectGroup" height="1242" width="132">
-				<e:Rect  height="1116" width="1.5" strokeAlpha="0" fillColor="0xb0936d" horizontalCenter="0" y="63"/>
-			</e:Group>
 			<e:Group id="_hotGameGroup" height="1242">
-				<e:Group id="_title_hotgame" y="93">
-					<e:Image width="234" height="79" source="m_lobby_title_left_png"/>
-					<ui:RunTimeLabel id="_txt_hotgame" text="熱門遊戲" i18n="mobile_lobby_hot_game_title" horizontalCenter="0" size="64" height="110" verticalAlign="middle"/>
-					<e:Image width="234" height="79" source="m_lobby_title_right_png"/>
-					<e:layout>
-						<e:HorizontalLayout horizontalAlign="center" gap="34" verticalAlign="middle" paddingLeft="44" paddingRight="44"/>
-					</e:layout>
+				<e:Group id="_rectGroup" height="1242" width="132">
+					<e:Rect  height="1116" width="1.5" strokeAlpha="0" fillColor="0xb0936d" horizontalCenter="0" y="63"/>
 				</e:Group>
-				<e:Group id="_hotgameContainer" x="0" y="280" height="706">
-					<e:layout>
-						<e:HorizontalLayout gap="77"/>
-					</e:layout>
+				<e:Group id="_hotGameGroupInner" height="1242">
+					<e:Group id="_title_hotgame" y="93">
+						<e:Image width="234" height="79" source="m_lobby_title_left_png"/>
+						<ui:RunTimeLabel id="_txt_hotgame" text="熱門遊戲" i18n="mobile_lobby_hot_game_title" horizontalCenter="0" size="64" height="110" verticalAlign="middle"/>
+						<e:Image width="234" height="79" source="m_lobby_title_right_png"/>
+						<e:layout>
+							<e:HorizontalLayout horizontalAlign="center" gap="34" verticalAlign="middle" paddingLeft="44" paddingRight="44"/>
+						</e:layout>
+					</e:Group>
+					<e:Group id="_hotgameContainer" x="0" y="280" height="706">
+						<e:layout>
+							<e:HorizontalLayout gap="77"/>
+						</e:layout>
 
+					</e:Group>
 				</e:Group>
+				<e:layout>
+					<e:HorizontalLayout gap="81" paddingLeft="0" verticalAlign="middle" />
+				</e:layout>
 			</e:Group>
 			<e:Group id="_footer" x="1189" verticalCenter="0" y="531" scaleX="1" scaleY="1">
 				<ui:RunTimeLabel id="_txt_copyright" textKey="lobby_footer_text" scaleX="1" scaleY="1" size="46" text="1234567" rotation="270" verticalCenter="0" left="66"/>

@@ -17,7 +17,7 @@ namespace we {
       public notYetInteract: boolean = false;
 
       /* Global Environment Variable */
-      public version: string = '0.12.3f1';
+      public version: string = '0.12.5';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -134,6 +134,7 @@ namespace we {
       // check if mobilebottomGamePanel is open
       public isBottomPanelOpen = true;
       public bottomPanelSelectedIdx: number = 0;
+      public isShowingAlreadyBetPanel: boolean = false;
 
       public isAutoDismiss: boolean = true;
 

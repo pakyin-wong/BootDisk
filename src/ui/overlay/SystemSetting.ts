@@ -59,9 +59,9 @@ namespace we {
         });
 
         const _arrCol_currFx = new eui.ArrayCollection([
-          ui.NewDropdownItem('cantonese', () => `${i18n.t('voice_cantonese')}`),
-          ui.NewDropdownItem('mandarin', () => `${i18n.t('voice_mandarin')}`),
-          ui.NewDropdownItem('english', () => `${i18n.t('voice_english')}`),
+          ui.NewDropdownItem('cn', () => `${i18n.t('voice_mandarin')}`),
+          ui.NewDropdownItem('zh', () => `${i18n.t('voice_cantonese')}`),
+          ui.NewDropdownItem('en', () => `${i18n.t('voice_english')}`),
         ]);
         if (this._ddm_currFx) {
           this._ddm_currFx.isDropdown = true;
@@ -173,6 +173,7 @@ namespace we {
         env.voice = e.data;
         dir.evtHandler.dispatch(core.Event.VOICE_UPDATE, e.data);
         this._ddm_currFx && this._ddm_currFx.dropdown.select(env.voice);
+        dir.socket.updateSetting('voice', env.voice);
       }
 
       private onBgmSelect(e) {

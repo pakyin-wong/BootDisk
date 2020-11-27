@@ -96,6 +96,8 @@ namespace we {
         // listen to bet list update
         dir.evtHandler.addEventListener(core.Event.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
 
+        this.addEventListener('POPPER_HIDE', this.onHide, this);
+
         utils.addButtonListener(this._btnAlreadyBet, this.onClickBet, this);
         utils.addButtonListener(this._btnGoodRoad, this.onClickGoodRoad, this);
         utils.addButtonListener(this._btnAllGame, this.onClickAllGame, this);
@@ -235,8 +237,14 @@ namespace we {
         return clone;
       }
 
+      protected onHide() {
+        env.isShowingAlreadyBetPanel = false;
+      }
+      
       protected updateView() {
         this._dmm.removeToggler();
+
+        env.isShowingAlreadyBetPanel = this._pageIds == 'bet';
 
         switch (this._pageIds) {
           case 'bet':

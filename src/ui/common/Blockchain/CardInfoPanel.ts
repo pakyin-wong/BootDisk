@@ -94,7 +94,7 @@ namespace we {
             // window.open(env.blockchain.thirdPartySHA256);
             utils.copyToClipboard(env.blockchain.thirdPartySHA256);
             if (this._message) {
-              this._message.showMessage(ui.InGameMessage.INFO,i18n.t('message.urlcopied'));
+              this._message.showMessage(ui.InGameMessage.INFO, i18n.t('message.urlcopied'));
             }
           },
           this
@@ -110,15 +110,7 @@ namespace we {
         // set cardIndexLabel
         this._cardIndexLabel.text = this._cardIndex.toString();
 
-        // set Key
-        this._encryptedKeyLabel.text = this._gameData.hashedcardsList[this._cardIndex - 1];
-        if (this._gameData.maskedcardssnList[this._cardIndex - 1][0] === '*') {
-          this._decryptedKeyLabel.renderText = ()=>i18n.t('baccarat.announceAfterDisclose');
-        } else {
-          this._decryptedKeyLabel.renderText = ()=>this._gameData.hashedcardsList[this._cardIndex - 1];
-        }
-        this._ssnLabel.text = this._gameData.maskedcardssnList[this._cardIndex - 1];
-
+        let isVerifySuccess: number = 0;
         // set sha256 Group
         if (this._gameData.maskedcardssnList[this._cardIndex - 1][0] === '*') {
           this._sha256SuccessfulGroup.visible = false;
@@ -130,12 +122,26 @@ namespace we {
           this._encryptedKeyLabel.textColor = 0x0f9d5d;
           this._decryptedKeyLabel.textColor = 0x0f9d5d;
           this._sha256FailGroup.visible = false;
+          isVerifySuccess = 1;
         } else {
           this._sha256SuccessfulGroup.visible = false;
           this._encryptedKeyLabel.textColor = 0xd83642;
           this._decryptedKeyLabel.textColor = 0xd83642;
           this._sha256FailGroup.visible = true;
+          isVerifySuccess = -1;
         }
+
+        // set Key
+        this._encryptedKeyLabel.text = this._gameData.hashedcardsList[this._cardIndex - 1];
+        if (this._gameData.maskedcardssnList[this._cardIndex - 1][0] === '*') {
+          this._decryptedKeyLabel.renderText = () => i18n.t('baccarat.announceAfterDisclose');
+        } else {
+          this._decryptedKeyLabel.renderText = () => this._gameData.hashedcardsList[this._cardIndex - 1];
+        }
+        const color = isVerifySuccess > 0 ? 0x0f9d5d : isVerifySuccess < 0 ? 0xd83642 : 0xffffff;
+        this._decryptedKeyLabel.textColor = color;
+        this._encryptedKeyLabel.textColor = color;
+        this._ssnLabel.text = this._gameData.maskedcardssnList[this._cardIndex - 1];
 
         // enable/disable next/prev Button
         this._prevButton.active = true;

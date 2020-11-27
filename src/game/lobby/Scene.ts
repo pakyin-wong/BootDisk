@@ -82,8 +82,6 @@ namespace we {
         this._selectedIdx = itemIdx;
         const pageStr = itemIdx > -1 ? this._items[itemIdx] : 'lobby';
         this.loadPage(pageStr, this._data);
-
-        dir.audioCtr.play('ui_enter_game_opening_mp3');
       }
 
       public async onFadeEnter() {}

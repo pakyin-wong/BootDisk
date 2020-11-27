@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.ModeSelect" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="light,dark" >
+	<e:Group id="content" left="0" right="0" top="0" bottom="0">
+		<!--<e:Image left="0" right="0" top="0" bottom="0" source="popover_png" width="916" height="921" />
+		-->
+		<ui:RoundRectShape cornerTL_TR_BL_BR="30,30,30,30" width="1338" height="847" x="0" y="0" fillColor="0x0f1721"
+		                   strokeColor="0x1d2b3f" />
+		<ui:RunTimeLabel id="txt_selectMode" text="Label" y="60" anchorOffsetX="0" anchorOffsetY="0" textAlign="center"
+		                 verticalAlign="middle" height="119" size="80" textColor="0xcf925e"  left="0" right="0"/>
+		<e:Group id="btn_lightMode" x="164" y="225">
+			<e:Image width="382" height="194" y="20" x="20" source="m_h_lobby_colormode_light_png"/>
+			<e:Image scaleX="1" scaleY="1" width="422" height="234" x="0" y="0" visible.light="true" source="m_h_lobby_colormode_select_png" visible="false"/>
+			<ui:RunTimeLabel id="txt_lightMode" text="l" textAlign="center" verticalAlign="middle" y="262" size="56" height="83" x="191"/>
+			<e:Image width="47" height="47" x="119" y="284" source="m_lobby_btn_select_enable_png" source.light="m_lobby_btn_select_active_png"/>
+		</e:Group>
+		<e:Group id="btn_darkMode" x="752" y="225">
+			<e:Image width="382" height="194" y="20" x="20" source="m_h_lobby_colormode_dark_png"/>
+			<e:Image scaleX="1" scaleY="1" width="422" height="234" x="0" y="0" visible.dark="true" source="m_h_lobby_colormode_select_png" visible="false"/>
+			<ui:RunTimeLabel id="txt_darkMode" text="l" textAlign="center" verticalAlign="middle" y="262" size="56" height="83" x="191"/>
+			<e:Image width="47" height="47" x="119" y="284" source="m_lobby_btn_select_enable_png" source.dark="m_lobby_btn_select_active_png"/>
+		</e:Group>
+
+
+		<!--<ui:BaseImageButton id="close" y="694" skinName="ImageButtonSkinDialog" horizontalCenter="0" width="764"
+		                        height="130" />
+		-->
+		<ui:RoundRectButton id="close" cornerTL_TR_BL_BR="65,65,65,65" width="764" height="130" y="645"
+		                    strokeIn="0" strokeColor="0x5f6973" horizontalCenter="0" fillAlpha="1"
+		                    fillColor="0x1b416e"  stroke="0"/>
+	</e:Group>
+</e:Skin>

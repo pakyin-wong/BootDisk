@@ -29,8 +29,10 @@ namespace we {
       setCards(tableId: string);
       setNumber(number: number);
       setToggler(toggler);
+      setValue(gameData);
       show();
       hide();
+      update(gameData,tableId);
     }
 
     export interface IListItemHelper {
@@ -148,6 +150,10 @@ namespace we {
       setFocus(holder: NotificationItemHolder);
       showNextNotification();
       dismissNotification(type: number);
+    }
+
+    export interface IMinimizedTableLayer {
+      updateBetLabel(isinit: boolean, betInfo?: any);
     }
   }
 }
