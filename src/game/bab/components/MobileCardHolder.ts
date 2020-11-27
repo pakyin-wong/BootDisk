@@ -21,11 +21,12 @@ namespace we {
       protected mount(){
         super.mount();
         this._ringAnim.animation.gotoAndStopByFrame('icon_loop',0);
+        this.expandBottom();
       }
 
       public expandBottom(){
         if(env.orientation === 'portrait'){
-          this._wholeMoveGroup.y = -408
+          this._wholeMoveGroup.y = -510
         }else{
           this._wholeMoveGroup.y = -260
         }
@@ -45,10 +46,10 @@ namespace we {
             this._playerCard3Group.y = 933;
             this._bankerCard3Group.y = 933;
           }else{
-            this._playerCardMoveGroup.y = 726;
-            this._bankerCardMoveGroup.y = 726;
-            this._playerCard3Group.y = 728;
-            this._bankerCard3Group.y = 728;
+            this._playerCardMoveGroup.y = 776;
+            this._bankerCardMoveGroup.y = 776;
+            this._playerCard3Group.y = 778;
+            this._bankerCard3Group.y = 778;
           }
         }
       }
@@ -63,10 +64,10 @@ namespace we {
             this._playerCard3Group.y = 810;
             this._bankerCard3Group.y = 810;          
           }else{
-            this._playerCardMoveGroup.y = 575;
-            this._bankerCardMoveGroup.y = 575;
-            this._playerCard3Group.y = 577;
-            this._bankerCard3Group.y = 577;     
+            this._playerCardMoveGroup.y = 625;
+            this._bankerCardMoveGroup.y = 625;
+            this._playerCard3Group.y = 627;
+            this._bankerCard3Group.y = 627;     
           }
         }
       }

@@ -131,7 +131,8 @@
 	<ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 	            skinName="skin_mobile_portrait.GameBar" visible="false" />
 </e:Group>
-<dt:GameResultMessage id="_resultMessage" y="239" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" height="229"
+<ui:ShuffleMessage id="_shuffleMessage" skinName="skin_mobile_portrait.ShuffleMessage" horizontalCenter="0" y="696"/>
+<dtb:GameResultMessage id="_resultMessage" y="169" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" height="229"
                       horizontalCenter="0" />
 <ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
                   infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
@@ -151,18 +152,21 @@
 	                    skinName="skin_desktop.ImageButtonSkinBettingPanel" />
 	<ui:RunTimeLabel i18n="baccarat.lastRound" verticalCenter="0" horizontalCenter="0" touchEnabled="false" />
 </e:Group>
-<dtb:HistoryCardHolder id="_historyCardHolder" width="385" height="125" x="22" y="151"
-                       skinName="skin_mobile_portrait.dtb.HistoryHolderSkin" isPoppable="true" hideOnStart="true" />
+<dtb:MobileHistoryCardHolder id="_historyCardHolder" width="731" height="373"
+                       skinName="skin_mobile_portrait.dtb.HistoryHolderSkin" isPoppable="true" hideOnStart="true"  verticalCenter="0" horizontalCenter="0"/>
 <bc:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true" skeletonName="blockchain_dt"
                  isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
                  skinName="skin_mobile_landscape.bc.ShufflePanelSkin" />
-<bc:DeckPanel id="_deckPanel" width="1242" height="1966" verticalCenter="0" horizontalCenter="0" isPoppable="true"
+<!--<bc:DeckPanel id="_deckPanel" width="1242" height="1966" verticalCenter="0" horizontalCenter="0" isPoppable="true"
               isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
               skinName="skin_mobile_landscape.bc.DeckPanelSkin" />
 <bc:HelpPanel id="_helpPanel" width="1242" height="1966" verticalCenter="0" horizontalCenter="0" isPoppable="true"
               isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
               skinName="skin_mobile_landscape.bc.HelpPanelSkin" />
+
 <bc:CardInfoPanel id="_cardInfoPanel" width="1242" height="1966" verticalCenter="0" horizontalCenter="0"
                   isPoppable="true" isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false"
-                  hideOnStart="true" skinName="skin_mobile_landscape.bc.CardInfoPanelSkin" />
+                  hideOnStart="true" skinName="skin_mobile_landscape.bc.CardInfoPanelSkin" />-->
+<e:Group id="_navLayer" touchChildren="true" touchThrough="true"/>
+<ui:BlockchainMobileSlideUpMenu id="_slideUpMenu" bottom="0" right="0" left="0"/>
 </e:Skin>

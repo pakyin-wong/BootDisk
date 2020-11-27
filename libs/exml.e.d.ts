@@ -92,6 +92,10 @@ declare module skin_desktop{
 	class InGameMessageSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class ShuffleMessage extends eui.Skin{
+	}
+}
 declare module skin_desktop.ba{
 	class LiveListAdvancedItemChipLayerSkin extends eui.Skin{
 	}
@@ -170,10 +174,6 @@ declare module skin_desktop.bab{
 }
 declare module skin_desktop.bab{
 	class CornerHistoryHolderSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait.bab{
-	class HistoryHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.bam{
@@ -1384,6 +1384,10 @@ declare module skin_mobile_landscape{
 	class BlockchainBaccaratScene extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape{
+	class MobileBlockchainBar extends eui.Skin{
+	}
+}
 declare module skin_mobile_landscape.bab{
 	class CardHolderSkin extends eui.Skin{
 	}
@@ -1898,6 +1902,10 @@ declare module skin_mobile_portrait{
 	class GameResultWinSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait{
+	class ShuffleMessage extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait.ba{
 	class LiveListItemChipLayerSkin extends eui.Skin{
 	}
@@ -1970,8 +1978,16 @@ declare module skin_mobile_portrait{
 	class BlockchainBaccaratScene extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait{
+	class MobileBlockchainBar extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait.bab{
 	class CardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.bab{
+	class HistoryHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -3072,5 +3088,9 @@ declare module skin_mobile{
 }
 declare module skin_mobile{
 	class SidePanelDropdownIR extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class SlideUpMenuSkin extends eui.Skin{
 	}
 }

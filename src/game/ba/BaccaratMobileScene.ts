@@ -25,6 +25,8 @@ namespace we {
 
       protected _common_listpanel: ui.BaseImageButton;
 
+      protected _shuffleMessage: ui.ShuffleMessage;
+
       constructor(data: any) {
         super(data);
         // dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
@@ -68,6 +70,9 @@ namespace we {
       protected setStateBet(isInit: boolean) {
         super.setStateBet(isInit);
         if (env.orientation === 'landscape') {
+          egret.Tween.removeTweens(this._tableLayer);
+          egret.Tween.removeTweens(this._chipLayer);
+
           egret.Tween.get(this._tableLayer).to({ scaleX: 1, scaleY: 1 }, 250);
           egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
         }
@@ -90,8 +95,22 @@ namespace we {
         }
       }
 
+      public updateGame(isInit: boolean = false) {
+        if (!this._gameData) {
+          return;
+        }
+        this._shuffleMessage && this._shuffleMessage.hide();
+        super.updateGame(isInit);
+      }
+
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
+        
+        if(this._shuffleMessage) {
+          this._shuffleMessage.show();
+        }else{
+          this._message.showMessage(ui.InGameMessage.INFO, i18n.t('baccarat.shuffling'), null, true);
+        }
         if (this._tableLayer) {
           (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
           (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
