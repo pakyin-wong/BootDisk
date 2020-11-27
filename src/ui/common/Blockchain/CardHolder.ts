@@ -144,7 +144,7 @@ namespace we {
       public updateResult(gameData: data.GameData, chipLayer: ui.ChipLayer, isInit: boolean) {
         console.log(' cardholder::updateResult ', gameData, isInit);
 
-        this._gameData = <bab.GameData>gameData;
+        this._gameData = <bab.GameData> gameData;
         this.updateCardInfoButtons();
         this._cardUsedMessage.value = this._gameData.currentcardindex;
         if (isInit) {
@@ -320,7 +320,6 @@ namespace we {
 
       protected abstract updateCardInfoButtons();
 
-      /*
       protected getPinRad(num = this._gameData.redcardindex) {
         const totalCount = this._gameData.maskedcardssnList.length;
         const proportion = (num - this._gameData.currentcardindex) / totalCount;
@@ -338,22 +337,22 @@ namespace we {
         const destRad = (destAngle * Math.PI) / 180;
         return destRad;
       }
-      */
-      protected getPinRad(num = this._gameData.currentcardindex) {
-        const proportion = num / this._gameData.maskedcardssnList.length;
-        const angleOffset = this._pinInterval * proportion; // -40 to 41 / 131 to 49
-        const destAngle = this._pinStartAngle + angleOffset;
-        const destRad = (destAngle * Math.PI) / 180;
-        return destRad;
-      }
 
-      protected getShoeRad(num = this._gameData.redcardindex) {
-        const proportion = num / this._gameData.maskedcardssnList.length;
-        const angleOffset = this._pinInterval * proportion; // -72 to 9
-        const destAngle = this._pinStartAngle + angleOffset;
-        const destRad = (destAngle * Math.PI) / 180;
-        return destRad;
-      }
+      // protected getPinRad(num = this._gameData.currentcardindex) {
+      //   const proportion = num / this._gameData.maskedcardssnList.length;
+      //   const angleOffset = this._pinInterval * proportion; // -40 to 41 / 131 to 49
+      //   const destAngle = this._pinStartAngle + angleOffset;
+      //   const destRad = (destAngle * Math.PI) / 180;
+      //   return destRad;
+      // }
+
+      // protected getShoeRad(num = this._gameData.redcardindex) {
+      //   const proportion = num / this._gameData.maskedcardssnList.length;
+      //   const angleOffset = this._pinInterval * proportion; // -72 to 9
+      //   const destAngle = this._pinStartAngle + angleOffset;
+      //   const destRad = (destAngle * Math.PI) / 180;
+      //   return destRad;
+      // }
 
       protected async animatePin() {
         const bone = this._ringAnim.armature.getBone('red_card');

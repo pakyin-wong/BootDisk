@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.dil.AnalysisHistorySkin" height="212" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal">
+	<w:Config id="17608011383"/>
         <e:Group x="10" y="18">
                 <ui:RoundRectShape width="148" height="148" stroke="0" fillColor="0x909090" cornerTL_TR_BL_BR="4,4,4,4" />
                 <ui:HorizontalHolder id="_holder" bulletHorizontalCenter="0" bulletGap="10" bulletBottom="0" bulletHeight="8" bulletWidth="8"

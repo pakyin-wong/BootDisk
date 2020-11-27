@@ -47,9 +47,12 @@
 			<e:Component id="_tableLayerNode" width="337" anchorOffsetY="0" horizontalCenter="0" bottom="1" top="46" />
 			<e:Component id="_chipLayerNode" width="337" anchorOffsetY="0" horizontalCenter="0" bottom="1" top="46" />
 			<e:Group id="_quickBetButtonGroup" height="0" left="0" right="0">
-				<ui:BaseImageButton id="_quickbetButton" currentState="lobby_quick_bet_notification"
+				<!--<ui:BaseImageButton id="_quickbetButton" currentState="lobby_quick_bet_notification"
 				                    skinName="skin_desktop.ImageButtonSkinLobby" alpha="0" horizontalCenter="0" width="148" y="168"
-				                    height="42" text="追注" />
+				                    height="42" text="追注" />-->
+				<ui:RoundRectButton id="_quickbetButton" width="148" height="42"
+									 cornerTL_TR_BL_BR="21,21,21,21" stroke="0" strokeIn="0" fillColor="00AA5E" fillAlpha="1"
+									 fillAlpha_hover="0.7" labelSize="21"  horizontalCenter="0" y="168"/>
 			</e:Group>
 			<ui:InGameMessage id="_message" anchorOffsetX="152" anchorOffsetY="16" skinName="skin_desktop.InGameMessageSkin"
 			                  width="303" height="32" horizontalCenter="0.5" y="120" infoBg="d_ba_gamerecord_playerelement_png"

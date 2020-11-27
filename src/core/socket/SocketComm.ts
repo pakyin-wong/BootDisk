@@ -1,451 +1,428 @@
 namespace we {
-  export namespace core {
-    export class SocketComm implements ISocket {
-      private client: PlayerClient;
+export namespace core {
+		export class SocketComm implements ISocket {
+			private client: PlayerClient;
 
-      constructor() {
-        const value = window.location.search;
+			constructor() {
+				const value = window.location.search;
 
-        const query = value.replace('?', '');
-        let data: any = {};
-        data = utils.getQueryParams(query);
-        const playerID = data.playerid ? data.playerid : dir.config.playerID;
-        const secret = data.secret ? data.secret : dir.config.secret;
-        const token = data.token ? data.token : dir.config.token;
-        const operator = data.operator ? data.operator : dir.config.operator;
-        let isMobile = false;
-        try {
-          isMobile = data.ismobile ? parseInt(data.ismobile) > 0 : false;
-        } catch (err) {}
+				const query = value.replace('?', '');
+				let data: any = {};
+				data = utils.getQueryParams(query);
+				const playerID = data.playerid ? data.playerid : dir.config.playerID;
+				const secret = data.secret ? data.secret : dir.config.secret;
+				const token = data.token ? data.token : dir.config.token;
+				const operator = data.operator ? data.operator : dir.config.operator;
+				let isMobile = false;
+				try {
+					isMobile = data.ismobile ? parseInt(data.ismobile) > 0 : false;
+				} catch (err) { }
 
-        logger.l(utils.LogTarget.RELEASE, `playerID: ${playerID}`);
-        const options: any = {};
-        options.playerID = playerID;
-        if (secret) {
-          options.secret = secret;
-        }
-        if (token) {
-          options.token = token;
-        }
-        if (operator) {
-          options.operator = operator;
-        }
-        options.connectTimeout = dir.config.connectTimeout;
-        options.endpoint = dir.config.endpoint;
-        if (dir.config.rabbitmqhostname) {
-          options.rabbitmqhostname = dir.config.rabbitmqhostname;
-        }
-        if (dir.config.rabbitmqport) {
-          options.rabbitmqport = dir.config.rabbitmqport;
-        }
-        if (dir.config.rabbitmqprotocol) {
-          options.rabbitmqprotocol = dir.config.rabbitmqprotocol;
-        }
-        if (dir.config.rabbitmqvirtualhost) {
-          options.rabbitmqvirtualhost = dir.config.rabbitmqvirtualhost;
-        }
-        if (dir.config.path) {
-          options.path = dir.config.path;
-        }
+				logger.l(utils.LogTarget.RELEASE, `playerID: ${playerID}`);
+				const options: any = {};
+				options.playerID = playerID;
+				if (secret) {
+					options.secret = secret;
+				}
+				if (token) {
+					options.token = token;
+				}
+				if (operator) {
+					options.operator = operator;
+				}
+				options.connectTimeout = dir.config.connectTimeout;
+				options.endpoint = dir.config.endpoint;
+				if (dir.config.rabbitmqhostname) {
+					options.rabbitmqhostname = dir.config.rabbitmqhostname;
+				}
+				if (dir.config.rabbitmqport) {
+					options.rabbitmqport = dir.config.rabbitmqport;
+				}
+				if (dir.config.rabbitmqprotocol) {
+					options.rabbitmqprotocol = dir.config.rabbitmqprotocol;
+				}
+				if (dir.config.rabbitmqvirtualhost) {
+					options.rabbitmqvirtualhost = dir.config.rabbitmqvirtualhost;
+				}
+				if (dir.config.path) {
+					options.path = dir.config.path;
+				}
 
-        if (env.isMobile || isMobile) {
-          options.layout = 'mobile_web';
-        } else {
-          options.layout = 'desktop_web';
-        }
+				if (env.isMobile || isMobile) {
+					options.layout = 'mobile_web';
+				} else {
+					options.layout = 'desktop_web';
+				}
 
-        this.client = new PlayerClient(options);
+				this.client = new PlayerClient(options);
 
-        logger.l(utils.LogTarget.RELEASE, 'MQTTSocketComm is created', this.client);
-      }
+				logger.l(utils.LogTarget.RELEASE, 'MQTTSocketComm is created', this.client);
+			}
 
-      // public updateMaxWinAmountAndCount(){
-      //   this.getPlayerProfileSummary(this._getPlayerProfileSummaryCallback);
-      // }
+			// public updateMaxWinAmountAndCount(){
+			//   this.getPlayerProfileSummary(this._getPlayerProfileSummaryCallback);
+			// }
 
-      public getPlayerProfileSummary(callback: (data: any) => void) {
-        this.client.getPlayerProfileSummary(callback);
-      }
+			public getPlayerProfileSummary(callback: (data: any) => void) {
+				this.client.getPlayerProfileSummary(callback);
+			}
 
-      // private _getPlayerProfileSummaryCallback(data: any){
-      //   if (data.error){
-      //     return;
-      //   }
-      //   let { maxwin , winningstreak } = data;
-      //   console.log('maxwin , winningstreak',[maxwin,winningstreak])
-      //   env.maxWinCount = winningstreak;
-      //   env.maxWinAmount = maxwin;
-      // }
+			// private _getPlayerProfileSummaryCallback(data: any){
+			//   if (data.error){
+			//     return;
+			//   }
+			//   let { maxwin , winningstreak } = data;
+			//   console.log('maxwin , winningstreak',[maxwin,winningstreak])
+			//   env.maxWinCount = winningstreak;
+			//   env.maxWinAmount = maxwin;
+			// }
 
-      public getPlayerStatistic(filter: any, callback: (data: any) => void) {
-        this.client.getPlayerStatistic(filter, this.warpServerCallback(callback));
-      }
+			public getPlayerStatistic(filter: any, callback: (data: any) => void) {
+				this.client.getPlayerStatistic(filter, this.warpServerCallback(callback));
+			}
 
-      protected subscribeEvents() {
-        this.client.subscribe(core.MQTT.READY, this.handleReady, this);
-        this.client.subscribe(core.MQTT.TABLE_LIST_UPDATE, this.onTableListUpdate, this);
-        this.client.subscribe(core.MQTT.GAME_STATUS_UPDATE, this.onGameStatusUpdate, this);
-        this.client.subscribe(core.MQTT.GAME_STATISTIC_UPDATE, this.onGameStatisticUpdate, this);
-        this.client.subscribe(core.MQTT.PLAYER_BET_INFO_UPDATE, this.onBetInfoUpdate, this);
-        // this.client.subscribe(core.MQTT.PLAYER_BET_RESULT, this.onBetResultReceived, this);
-        this.client.subscribe(core.MQTT.BALANCE_UPDATE, this.onBalanceUpdate, this);
-        this.client.subscribe(core.MQTT.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
-        this.client.subscribe(core.MQTT.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
-        this.client.subscribe(core.MQTT.ERROR, this.onError, this);
-        this.client.subscribe(core.MQTT.NOTIFICATION_ROADMAP_MATCH, this.onGoodRoadMatch, this);
-        this.client.subscribe(core.MQTT.CLOSE, this.onConnectionClose, this);
-      }
+			protected subscribeEvents() {
+				this.client.subscribe(core.MQTT.READY, this.handleReady, this);
+				this.client.subscribe(core.MQTT.TABLE_LIST_UPDATE, this.onTableListUpdate, this);
+				this.client.subscribe(core.MQTT.GAME_STATUS_UPDATE, this.onGameStatusUpdate, this);
+				this.client.subscribe(core.MQTT.GAME_STATISTIC_UPDATE, this.onGameStatisticUpdate, this);
+				this.client.subscribe(core.MQTT.PLAYER_BET_INFO_UPDATE, this.onBetInfoUpdate, this);
+				// this.client.subscribe(core.MQTT.PLAYER_BET_RESULT, this.onBetResultReceived, this);
+				this.client.subscribe(core.MQTT.BALANCE_UPDATE, this.onBalanceUpdate, this);
+				this.client.subscribe(core.MQTT.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
+				this.client.subscribe(core.MQTT.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
+				this.client.subscribe(core.MQTT.ERROR, this.onError, this);
+				this.client.subscribe(core.MQTT.NOTIFICATION_ROADMAP_MATCH, this.onGoodRoadMatch, this);
+				this.client.subscribe(core.MQTT.CLOSE, this.onConnectionClose, this);
+			}
 
-      public onConnectionClose(value: any) {
-        const err = {
-          code: 1000,
-          error: 'CONNECTION_CLOSE',
-          detail: i18n.t('message.connectionError'),
-          priority: 10,
-          action: 'restart',
-          timestamp: egret.getTimer(),
-        };
-        dir.errHandler.handleError(err);
-      }
+			public onConnectionClose(value: any) {
+				const err = {
+					code: 1000,
+					error: "CONNECTION_CLOSE",
+					detail: i18n.t("message.connectionError"),
+					priority: 10,
+					action: 'restart',
+					timestamp: egret.getTimer()
+				}
+				dir.errHandler.handleError(err);
+			}
 
-      public onError(value: any) {
-        logger.l(utils.LogTarget.RELEASE, 'PlayerClient::onError ', value);
-        if (value.action !== 'retry' || value.method === 'getBalance' || value.method === 'getTableList' || value.method === 'updateSetting') {
-          dir.errHandler.handleError(value);
-        }
-        // console.dir(value);
-      }
-      public getPlayerLotteryStatistic(filter: any) {
-        this.client.getPlayerLotteryStatistic(filter, this.warpServerCallback(this._playerLotteryStatisticCallback));
-        // this.client.getPlayerLotteryStatistic(filter, this._playerLotteryStatisticCallback);
-      }
+			public onError(value: any) {
+				logger.l(utils.LogTarget.RELEASE, 'PlayerClient::onError ', value);
+				if (value.action !== 'retry' || value.method === 'getBalance' || value.method === 'getTableList' || value.method === 'updateSetting') {
+					dir.errHandler.handleError(value);
+				}
+				// console.dir(value);
+			}
+			public getPlayerLotteryStatistic(filter: any) {
+				this.client.getPlayerLotteryStatistic(filter, this.warpServerCallback(this._playerLotteryStatisticCallback));
+				// this.client.getPlayerLotteryStatistic(filter, this._playerLotteryStatisticCallback);
+			}
 
-      private _playerLotteryStatisticCallback(data: any) {
-        if (!data.error) {
-          // if the data is an error, do not update the data
-          env.playerLotteryStat = data;
-          // env.playerLotteryStat = { day: { dataarrayList: [{ key: '10:00', value: 10 }, { key: '11:00', value: 5 }, { key: '12:00', value: 1 }] } };
-          dir.evtHandler.dispatch(core.Event.PLAYER_LOTTERY_STAT);
-        }
-      }
+			private _playerLotteryStatisticCallback(data: any) {
+				if (!data.error) {
+					// if the data is an error, do not update the data
+					env.playerLotteryStat = data;
+					// env.playerLotteryStat = { day: { dataarrayList: [{ key: '10:00', value: 10 }, { key: '11:00', value: 5 }, { key: '12:00', value: 1 }] } };
+					dir.evtHandler.dispatch(core.Event.PLAYER_LOTTERY_STAT);
+				}
+			}
 
-      // Good Road
-      public getGoodRoad() {
-        this.client.getRoadmap(this.warpServerCallback(this._goodRoadUpdateCallback));
-      }
+			// Good Road
+			public getGoodRoad() {
+				this.client.getRoadmap(this.warpServerCallback(this._goodRoadUpdateCallback));
+			}
 
-      protected async asyncUpdateCustomGoodRoad(id: string, data: any) {
-        return new Promise((resolve, reject) => {
-          function callback(data) {
-            // console.log('asyncUpdateCustomGoodRoad', data);
-            resolve();
-          }
-          this.client.updateCustomRoadmap(id, data, callback);
-        });
-      }
+			protected async asyncUpdateCustomGoodRoad(id: string, data: any) {
+				return new Promise((resolve, reject) => {
+					function callback(data) {
+						resolve();
+					}
+					this.client.updateCustomRoadmap(id, data, callback);
+				});
+			}
 
-      protected async asyncUpdateDefaultGoodRoad(ids: string[]) {
-        return new Promise((resolve, reject) => {
-          function callback(data) {
-            // console.log('asyncUpdateDefaultGoodRoad', data);
-            resolve();
-          }
-          this.client.updateDefaultRoadmap(ids, callback);
-        });
-      }
+			protected async asyncUpdateDefaultGoodRoad(ids: string[]) {
+				return new Promise((resolve, reject) => {
+					function callback(data) {
+						resolve();
+					}
+					this.client.updateDefaultRoadmap(ids, callback);
+				});
+			}
 
-      public async batchUpdateAllGoodRoad(updatedefaultItem: any[], updatecustomItem: any[]) {
-        // [[id,id,id,id],[id: string, data: any],[id,data],[id,data],...] only last input update env.
+			public async batchUpdateAllGoodRoad(updatedefaultItem: any[], updatecustomItem: any[]) {
+				// [[id,id,id,id],[id: string, data: any],[id,data],[id,data],...] only last input update env.
 
-        if (!updatedefaultItem) {
-          return;
-        }
-        if (updatecustomItem.length === 0) {
-          // if custom goodroad not exist ,just update default goodroad
-          this.client.updateDefaultRoadmap(updatedefaultItem, this.warpServerCallback(this._goodRoadUpdateCallback));
-        } else if (updatecustomItem.length > 0) {
-          // if custom goodroad exist
-          // console.log('await this.asyncUpdateDefaultGoodRoad(updatedefaultItem);', updatedefaultItem);
-          await this.asyncUpdateDefaultGoodRoad(updatedefaultItem);
-          if (updatecustomItem.length === 1) {
-            this.client.updateCustomRoadmap(updatecustomItem[0][0], updatecustomItem[0][1], this.warpServerCallback(this._goodRoadUpdateCallback));
-          } else {
-            for (let i = 0; i < updatecustomItem.length; i++) {
-              // if more than one, call update custom goodroad in the last loop
-              if (i === updatecustomItem.length - 1) {
-                // console.log('last', [i, updatecustomItem[i][0], updatecustomItem[i][1]]);
-                await this.client.updateCustomRoadmap(updatecustomItem[i][0], updatecustomItem[i][1], this.warpServerCallback(this._goodRoadUpdateCallback));
-              } else {
-                // console.log('wait ', [i, updatecustomItem[i][0], updatecustomItem[i][1]]);
-                await this.asyncUpdateCustomGoodRoad(updatecustomItem[i][0], updatecustomItem[i][1]);
-              }
-            }
-          }
-        }
-        // await wait(id, data);
-        // await wait()
-        // await this.client.updateCustomRoadmap(id, data, this.warpServerCallback(this._batchGoodRoadUpdateCallback));
-      }
+				if (!updatedefaultItem) {
+					return;
+				}
+				if (updatecustomItem.length === 0) {
+					// if custom goodroad not exist ,just update default goodroad
+					this.client.updateDefaultRoadmap(updatedefaultItem, this.warpServerCallback(this._goodRoadUpdateCallback));
+				} else if (updatecustomItem.length > 0) {
+					// if custom goodroad exist
+					await this.asyncUpdateDefaultGoodRoad(updatedefaultItem);
+					if (updatecustomItem.length === 1) {
+						this.client.updateCustomRoadmap(updatecustomItem[0][0], updatecustomItem[0][1], this.warpServerCallback(this._goodRoadUpdateCallback));
+					} else {
+						for (let i = 0; i < updatecustomItem.length; i++) {
+							// if more than one, call update custom goodroad in the last loop
+							if (i === updatecustomItem.length - 1) {
+								await this.client.updateCustomRoadmap(updatecustomItem[i][0], updatecustomItem[i][1], this.warpServerCallback(this._goodRoadUpdateCallback));
+							} else {
+								await this.asyncUpdateCustomGoodRoad(updatecustomItem[i][0], updatecustomItem[i][1]);
+							}
+						}
+					}
+				}
+				// await wait(id, data);
+				// await wait()
+				// await this.client.updateCustomRoadmap(id, data, this.warpServerCallback(this._batchGoodRoadUpdateCallback));
+			}
 
-      public updateCustomGoodRoad(id: string, data: any) {
-        this.client.updateCustomRoadmap(id, data, this.warpServerCallback(this._goodRoadUpdateCallback));
-      }
+			public updateCustomGoodRoad(id: string, data: any) {
+				this.client.updateCustomRoadmap(id, data, this.warpServerCallback(this._goodRoadUpdateCallback));
+			}
 
-      public updateDefaultGoodRoad(ids: string[]) {
-        this.client.updateDefaultRoadmap(ids, this.warpServerCallback(this._goodRoadUpdateCallback));
-      }
+			public updateDefaultGoodRoad(ids: string[]) {
+				this.client.updateDefaultRoadmap(ids, this.warpServerCallback(this._goodRoadUpdateCallback));
+			}
 
-      public createGoodRoad(name: string, pattern: string) {
-        this.client.createCustomRoadmap(name, pattern, this.warpServerCallback(this._goodRoadUpdateCallback));
-      }
+			public createGoodRoad(name: string, pattern: string) {
+				this.client.createCustomRoadmap(name, pattern, this.warpServerCallback(this._goodRoadUpdateCallback));
+			}
 
-      public removeGoodRoadmap(id: string) {
-        this.client.removeCustomRoadmap(id, this.warpServerCallback(this._goodRoadUpdateCallback));
-      }
+			public removeGoodRoadmap(id: string) {
+				this.client.removeCustomRoadmap(id, this.warpServerCallback(this._goodRoadUpdateCallback));
+			}
 
-      public resetGoodRoadmap() {
-        this.client.resetRoadmap(this.warpServerCallback(this._goodRoadUpdateCallback));
-      }
+			public resetGoodRoadmap() {
+				this.client.resetRoadmap(this.warpServerCallback(this._goodRoadUpdateCallback));
+			}
 
-      private _batchGoodRoadUpdateCallback(data: any) {
-        return new Promise((resolve, reject) => {
-          if (!data.error) {
-            // if the data is an error, do not update the data
-            env.goodRoadData = ba.GoodRoadParser.CreateGoodRoadMapDataFromObject(data);
-          }
-          dir.evtHandler.dispatch(core.Event.GOOD_ROAD_DATA_UPDATE);
-          resolve();
-        });
-      }
-      private _goodRoadUpdateCallback(data: any) {
-        // console.log('_goodRoadUpdateCallback', data);
-        if (!data.error) {
-          // if the data is an error, do not update the data
-          env.goodRoadData = ba.GoodRoadParser.CreateGoodRoadMapDataFromObject(data);
-        }
-        dir.evtHandler.dispatch(core.Event.GOOD_ROAD_DATA_UPDATE);
-      }
+			private _batchGoodRoadUpdateCallback(data: any) {
+				return new Promise((resolve, reject) => {
+					if (!data.error) {
+						// if the data is an error, do not update the data
+						env.goodRoadData = ba.GoodRoadParser.CreateGoodRoadMapDataFromObject(data);
+					}
+					dir.evtHandler.dispatch(core.Event.GOOD_ROAD_DATA_UPDATE);
+					resolve();
+				});
+			}
+			private _goodRoadUpdateCallback(data: any) {
+				// console.log('_goodRoadUpdateCallback', data);
+				if (!data.error) {
+					// if the data is an error, do not update the data
+					env.goodRoadData = ba.GoodRoadParser.CreateGoodRoadMapDataFromObject(data);
+				}
+				dir.evtHandler.dispatch(core.Event.GOOD_ROAD_DATA_UPDATE);
+			}
 
-      public getStaticInitData(callback: (res: any) => void, thisArg) {
-        this.client.init(env.language, this.warpServerCallback(callback.bind(thisArg)));
-      }
+			public getStaticInitData(callback: (res: any) => void, thisArg) {
+				this.client.init(env.language, this.warpServerCallback(callback.bind(thisArg)));
+			}
 
-      public async getStaticInitDataAsync(callback, thisArg) {
-        return new Promise((resolve, reject) => {
-          const resolveFunc = async (res: any) => {
-            await callback.bind(thisArg)(res);
-            resolve();
-          };
-          this.client.init(env.language, this.warpServerCallback(resolveFunc));
-        });
-      }
+			public async getStaticInitDataAsync(callback, thisArg) {
+				return new Promise((resolve, reject) => {
+					const resolveFunc = async (res: any) => {
+						await callback.bind(thisArg)(res);
+						resolve();
+					};
+					this.client.init(env.language, this.warpServerCallback(resolveFunc));
+				});
+			}
 
-      public getLobbyMaterial(callback: (res: LobbyMaterial) => void) {
-        if (dir.config.resource && dir.config.resource === 'local') {
-          callback({
-            logourl: '', // logo image url
-            homeherobanners: [],
-            homelargebanners: [],
-            homebanners: [],
-            liveherobanners: [],
-            lotteryherobanners: [],
-            egameherobanners: [],
-            favouriteherobanners: [],
-            messages: [],
-          });
-        } else {
-          this.client.getLobbyMaterial(this.warpServerCallback(callback), env.language);
-        }
-      }
+			public getLobbyMaterial(callback: (res: LobbyMaterial) => void) {
+				if (dir.config.resource && dir.config.resource === 'local') {
+					callback({
+						logourl: '', // logo image url
+						homeherobanners: [],
+						homelargebanners: [],
+						homebanners: [],
+						liveherobanners: [],
+						lotteryherobanners: [],
+						egameherobanners: [],
+						favouriteherobanners: [],
+						messages: [],
+					});
+				} else {
+					this.client.getLobbyMaterial(this.warpServerCallback(callback), env.language);
+				}
+			}
 
-      public async getLobbyMaterialAsync(callback, thisArg) {
-        return new Promise((resolve, reject) => {
-          const resolveFunc = async (res: any) => {
-            await callback.bind(thisArg)(res);
-            resolve();
-          };
-          this.client.getLobbyMaterial(this.warpServerCallback(resolveFunc), env.language);
-          // this.client.getLobbyMaterial(env.language, this.warpServerCallback(resolveFunc));
-        });
-      }
+			public async getLobbyMaterialAsync(callback, thisArg) {
+				return new Promise((resolve, reject) => {
+					const resolveFunc = async (res: any) => {
+						await callback.bind(thisArg)(res);
+						resolve();
+					};
+					this.client.getLobbyMaterial(this.warpServerCallback(resolveFunc), env.language);
+					// this.client.getLobbyMaterial(env.language, this.warpServerCallback(resolveFunc));
+				});
+			}
 
-      public updateSetting(key: string, value: string) {
-        this.client.updateSetting(key, value);
-      }
+			public updateSetting(key: string, value: string) {
+				this.client.updateSetting(key, value);
+			}
 
-      public connect() {
-        this.subscribeEvents();
-        this.client.connect(
-          this.warpServerCallback(err => {
-            this.onConnectError(err);
-          })
-        );
-      }
+			public connect() {
+				this.subscribeEvents();
+				this.client.connect(
+					this.warpServerCallback(err => {
+						this.onConnectError(err);
+					})
+				);
+			}
 
-      protected onConnectError(err) {
-        logger.e(utils.LogTarget.RELEASE, err);
-      }
+			protected onConnectError(err) {
+				logger.e(utils.LogTarget.RELEASE, err);
+			}
 
-      // Handler for Ready event
-      protected handleReady(player: data.PlayerSession, timestamp: string) {
-        // return data with struct data.PlayerSession
+			// Handler for Ready event
+			protected handleReady(player: data.PlayerSession, timestamp: string) {
+				// return data with struct data.PlayerSession
 
-        // console.log('player',player);
+				//console.log('player',player);
 
-        this.updateTimestamp(timestamp);
-        env.playerID = player.playerid;
-        env.currency = player.profile.currency;
-        env.accountType = player.profile.type ? player.profile.type : 0;
-        // env.accountType = 1;
-        // env.nickname = player.profile.nickname;
-        const settings = player.profile.settings;
-        env.nickname = settings.nickname ? settings.nickname : player.profile.nickname;
-        env.showGoodRoadHint = settings.showGoodRoadHint === '1' ? true : false;
-        env.autoConfirmBet = settings.autoConfirmBet === '1' ? true : false;
-        env.voice = settings.voice ? settings.voice : 'cn';
-        env.isAutoDismiss = settings.isAutoDismiss === '1' ? true : false;
-        env.redirecturl = player.redirecturl;
+				this.updateTimestamp(timestamp);
+				env.playerID = player.playerid;
+				env.currency = player.profile.currency;
+				env.accountType = player.profile.type ? player.profile.type : 0;
+				// env.accountType = 1;
+				// env.nickname = player.profile.nickname;
+				const settings = player.profile.settings;
+				env.nickname = settings.nickname ? settings.nickname : player.profile.nickname;
+				env.showGoodRoadHint = settings.showGoodRoadHint === '1' ? true : false;
+				env.autoConfirmBet = settings.autoConfirmBet === '1' ? true : false;
+				env.voice = settings.voice? settings.voice: 'cn';
+				env.isAutoDismiss = settings.isAutoDismiss === '1' ? true : false;
+				env.redirecturl = player.redirecturl;
 
-        env.currentChipSelectedIndex = settings.currentChipSelectedIndex ? parseInt(settings.currentChipSelectedIndex) : 0;
-        env.leftHandMode = settings.isLeftHand === '1' ? true : false;
-        env.favouriteTableList = env.favouriteTableList ? env.favouriteTableList : [];
-        if (settings.favouriteTableList) {
-          try {
-            env.favouriteTableList = JSON.parse(settings.favouriteTableList);
-          } catch (err) {
-            env.favouriteTableList = [];
-          }
-        }
+				env.currentChipSelectedIndex = settings.currentChipSelectedIndex ? parseInt(settings.currentChipSelectedIndex) : 0;
+				env.leftHandMode = settings.isLeftHand === '1' ? true : false;
+				env.favouriteTableList = env.favouriteTableList ? env.favouriteTableList : [];
+				if (settings.favouriteTableList) {
+					try {
+						env.favouriteTableList = JSON.parse(settings.favouriteTableList);
+					} catch (err) {
+						env.favouriteTableList = [];
+					}
+				}
 
-        dir.audioCtr.bgmIdx = settings.bgmIdx ? Number(settings.bgmIdx) : 0;
-        dir.audioCtr.volumeFX = settings.volumeFX ? Number(settings.volumeFX) : 0.5;
-        dir.audioCtr.volumeBGM = settings.volumeBGM ? Number(settings.volumeBGM) : 0.5;
-        dir.audioCtr.volumeLive = settings.volumeLive ? Number(settings.volumeLive) : 0.5;
+				dir.audioCtr.bgmIdx = settings.bgmIdx?Number(settings.bgmIdx):0;
+				dir.audioCtr.volumeFX = settings.volumeFX?Number(settings.volumeFX):0.5;
+				dir.audioCtr.volumeBGM = settings.volumeBGM?Number(settings.volumeBGM):0.5;
+				dir.audioCtr.volumeLive = settings.volumeLive?Number(settings.volumeLive):0.5;
 
-        env.gameCategories = player.profile.gamecategory;
-        env.gameTypes = player.profile.gametype;
+				env.gameCategories = player.profile.gamecategory;
+				env.gameTypes = player.profile.gametype;
 
-        env.blockchain.cosmolink = player.blockchainlinks.cosmoslink;
-        env.blockchain.thirdPartySHA256 = player.blockchainlinks.thirdpartysha256;
+				env.blockchain.cosmolink = player.blockchainlinks.cosmoslink
+				env.blockchain.thirdPartySHA256 = player.blockchainlinks.thirdpartysha256
 
-        // console.log('blockchain', env.blockchain)
+				// console.log('blockchain', env.blockchain)
 
-        // env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
-        // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
-        // env.icons = player.profile.settings.icons ? player.profile.settings.icons : player.profile.icons;
-        env.fallbacknicknames = player.fallbacknicknames;
-        env.icons = player.icons;
-        // env.fallbacknicknames = {
-        //   nicknames: {},
-        //   groups: {},
-        // };
-        // env.icons = {};
+				// env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
+				// env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
+				// env.icons = player.profile.settings.icons ? player.profile.settings.icons : player.profile.icons;
+				env.fallbacknicknames = player.fallbacknicknames;
+				env.icons = player.icons;
+				// env.fallbacknicknames = {
+				//   nicknames: {},
+				//   groups: {},
+				// };
+				// env.icons = {};
 
-        // env.nicknameKey = player.profile.nickname;
-        // env.nickname = player.profile.settings.nickname;
-        env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
-        // env.icons = {
-        //   iconKey01: 'd_lobby_profile_pic_01_png',
-        //   iconKey02: 'd_lobby_profile_pic_02_png',
-        //   iconKey03: 'd_lobby_profile_pic_03_png',
-        //   iconKey04: 'd_lobby_profile_pic_04_png',
-        //   iconKey05: 'd_lobby_profile_pic_05_png',
-        //   iconKey06: 'd_lobby_profile_pic_06_png',
-        //   iconKey07: 'd_lobby_profile_pic_07_png',
-        //   iconKey08: 'd_lobby_profile_pic_08_png',
-        // };
+				// env.nicknameKey = player.profile.nickname;
+				// env.nickname = player.profile.settings.nickname;
+				env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
+				// env.icons = {
+				//   iconKey01: 'd_lobby_profile_pic_01_png',
+				//   iconKey02: 'd_lobby_profile_pic_02_png',
+				//   iconKey03: 'd_lobby_profile_pic_03_png',
+				//   iconKey04: 'd_lobby_profile_pic_04_png',
+				//   iconKey05: 'd_lobby_profile_pic_05_png',
+				//   iconKey06: 'd_lobby_profile_pic_06_png',
+				//   iconKey07: 'd_lobby_profile_pic_07_png',
+				//   iconKey08: 'd_lobby_profile_pic_08_png',
+				// };
 
-        env.profileimage = player.profile.settings.profileimage
-          ? player.profile.settings.profileimage
-          : player.profile.profileimageurl === ''
-          ? Object.keys(env.icons)[0]
-          : player.profile.profileimageurl;
-        logger.l(utils.LogTarget.RELEASE, 'PlayerClient::handleReady() ' + player.profile.betlimits);
+				env.profileimage = player.profile.settings.profileimage
+					? player.profile.settings.profileimage
+					: player.profile.profileimageurl === ''
+						? Object.keys(env.icons)[0]
+						: player.profile.profileimageurl;
+				logger.l(utils.LogTarget.RELEASE, 'PlayerClient::handleReady() ' + player.profile.betlimits);
 
-        env.denomList = player.profile.chips
-          ? player.profile.chips
-          : [
-              '100',
-              '500',
-              '1000',
-              '2000',
-              '3000',
-              '5000',
-              '10000',
-              '20000',
-              '30000',
-              '50000',
-              '100000',
-              '200000',
-              '300000',
-              '500000',
-              '1000000',
-              '2000000',
-              '3000000',
-              '5000000',
-              '10000000',
-              '20000000',
-            ];
-        env.betLimits = player.profile.betlimits
-          ? player.profile.betlimits
-          : {
-              Live: [
-                {
-                  currency: Currency.RMB,
-                  maxlimit: 1000,
-                  minlimit: 10,
-                  chips: [1, 5, 20, 100, 500],
-                  // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
-                },
-              ],
-              Electronic: [
-                {
-                  currency: Currency.RMB,
-                  maxlimit: 1000,
-                  minlimit: 10,
-                  chips: [1, 5, 20, 100, 500],
-                },
-              ],
-              Lottery: [
-                {
-                  currency: Currency.RMB,
-                  maxlimit: 1000,
-                  minlimit: 10,
-                  chips: [1, 5, 20, 100, 500],
-                },
-              ],
-              Sportbook: [
-                {
-                  currency: Currency.RMB,
-                  maxlimit: 1000,
-                  minlimit: 10,
-                  chips: [1, 5, 20, 100, 500],
-                },
-              ],
-              Chess: [
-                {
-                  currency: Currency.RMB,
-                  maxlimit: 1000,
-                  minlimit: 10,
-                  chips: [1, 5, 20, 100, 500],
-                },
-              ],
-            };
+				env.denomList = player.profile.chips ? player.profile.chips : ["100", "500", "1000", "2000", "3000", "5000", "10000", "20000", "30000", "50000", "100000", "200000", "300000", "500000", "1000000", "2000000", "3000000", "5000000", "10000000", "20000000"];
+				env.betLimits = player.profile.betlimits
+					? player.profile.betlimits
+					: {
+						'Live':
+						[
+							{
+								currency: Currency.RMB,
+								maxlimit: 1000,
+								minlimit: 10,
+								chips: [1, 5, 20, 100, 500],
+								// chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
+							},
+						],
+						'Electronic':
+						[
+							{
+								currency: Currency.RMB,
+								maxlimit: 1000,
+								minlimit: 10,
+								chips: [1, 5, 20, 100, 500],
+							},
+						],
+						'Lottery':
+						[
+							{
+								currency: Currency.RMB,
+								maxlimit: 1000,
+								minlimit: 10,
+								chips: [1, 5, 20, 100, 500],
+							},
+						],
+						'Sportbook':
+						[
+							{
+								currency: Currency.RMB,
+								maxlimit: 1000,
+								minlimit: 10,
+								chips: [1, 5, 20, 100, 500],
+							},
+						],
+						'Chess':
+						[
+							{
+								currency: Currency.RMB,
+								maxlimit: 1000,
+								minlimit: 10,
+								chips: [1, 5, 20, 100, 500],
+							},
+						],
+					};
 
-        // if (!Array.isArray(env.betLimits)) {
-        // env.betLimits = [env.betLimits];
-        // }
-        const keys = Object.keys(env.betLimits);
-        env.currentSelectedBetLimitIndex = player.profile.settings.currentSelectedBetLimitIndex ? player.profile.settings.currentSelectedBetLimitIndex : 0;
-        let minIdx = env.currentSelectedBetLimitIndex;
-        for (const key of keys) {
-          const count = env.betLimits[key].length;
-          if (minIdx >= count) minIdx = Math.max(0, count - 1);
-        }
-        env.currentSelectedBetLimitIndex = minIdx;
+				//if (!Array.isArray(env.betLimits)) {
+				//env.betLimits = [env.betLimits];
+				//}
+				const keys = Object.keys(env.betLimits);
+				env.currentSelectedBetLimitIndex = player.profile.settings.currentSelectedBetLimitIndex ? player.profile.settings.currentSelectedBetLimitIndex : 0;
+				let minIdx = env.currentSelectedBetLimitIndex;
+				for (const key of keys) {
+					const count = env.betLimits[key].length;
+					if (minIdx >= count) minIdx = Math.max(0, count - 1);
+				}
+				env.currentSelectedBetLimitIndex = minIdx;
 
-        env.language = player.profile.settings.language ? player.profile.settings.language : 'cn';
-        we.i18n.setLang(env.language ? env.language : 'cn', true);
+				env.language = player.profile.settings.language ? player.profile.settings.language : 'cn';
+				we.i18n.setLang(env.language ? env.language : 'cn', true);
         /*
         let denominationList = [];
         for (const betLimit of env.betLimits) {
@@ -458,143 +435,142 @@ namespace we {
           });
         env.wholeDenomList = denominationList;
         */
+				env.mode = player.profile.settings.mode ? Math.round(player.profile.settings.mode) : -1;
+				if (player.profile.categoryorders) {
+					env.categorySortOrder = player.profile.categoryorders;
+				}
+				if (player.profile.panelpositions) {
+					env.storedPositions = JSON.parse(player.profile.panelpositions);
+				}
 
-        env.mode = player.profile.settings.mode ? Math.round(player.profile.settings.mode) : -1;
-        if (player.profile.categoryorders) {
-          env.categorySortOrder = player.profile.categoryorders;
-        }
-        if (player.profile.panelpositions) {
-          env.storedPositions = JSON.parse(player.profile.panelpositions);
-        }
+				logger.l(utils.LogTarget.RELEASE, `${timestamp}: READY`, player);
 
-        logger.l(utils.LogTarget.RELEASE, `${timestamp}: READY`, player);
+				dir.evtHandler.dispatch(core.MQTT.CONNECT_SUCCESS);
 
-        dir.evtHandler.dispatch(core.MQTT.CONNECT_SUCCESS);
+				this.getBalance();
+			}
 
-        this.getBalance();
-      }
+			public getBalance() {
+				this.client.getBalance();
+			}
 
-      public getBalance() {
-        this.client.getBalance();
-      }
+			public enterTable(tableID: string) {
+				this.client.enterTable(tableID);
+			}
 
-      public enterTable(tableID: string) {
-        this.client.enterTable(tableID);
-      }
+			public leaveTable(tableID: string) {
+				this.client.leaveTable(tableID);
+			}
 
-      public leaveTable(tableID: string) {
-        this.client.leaveTable(tableID);
-      }
+			public getTableList(filter?: string) {
+				logger.l(utils.LogTarget.RELEASE, 'Request Table List from server...');
+				this.client.getTableList(filter);
+			}
 
-      public getTableList(filter?: string) {
-        logger.l(utils.LogTarget.RELEASE, 'Request Table List from server...');
-        this.client.getTableList(filter);
-      }
+			public onTableBetInfoUpdate(betInfo: we.data.GameTableBetInfo) {
+				// update gameStatus of corresponding tableInfo object in env.tableInfoArray
+				const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
+				tableInfo.betInfo = betInfo;
+				dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, betInfo);
 
-      public onTableBetInfoUpdate(betInfo: we.data.GameTableBetInfo) {
-        // update gameStatus of corresponding tableInfo object in env.tableInfoArray
-        const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
-        tableInfo.betInfo = betInfo;
-        dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, betInfo);
+				//   if (!env.tableInfos) {
+				//     return;
+				//   }
+				//   const e = env;
+				//   const tableInfo: data.TableInfo = env.tableInfos[betInfo.tableid];
+				//   if (tableInfo) {
+				//     tableInfo.betInfo = betInfo;
+				//     this.dispatchListUpdateEvent();
+				//     dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, betInfo);
+				//   } else {
+				//     const tableInfo: data.TableInfo = new data.TableInfo();
+				//     tableInfo.tableid = betInfo.tableid;
+				//     tableInfo.betInfo = betInfo;
+				//     env.addTableInfo(tableInfo);
+				//   }
+			}
 
-        //   if (!env.tableInfos) {
-        //     return;
-        //   }
-        //   const e = env;
-        //   const tableInfo: data.TableInfo = env.tableInfos[betInfo.tableid];
-        //   if (tableInfo) {
-        //     tableInfo.betInfo = betInfo;
-        //     this.dispatchListUpdateEvent();
-        //     dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, betInfo);
-        //   } else {
-        //     const tableInfo: data.TableInfo = new data.TableInfo();
-        //     tableInfo.tableid = betInfo.tableid;
-        //     tableInfo.betInfo = betInfo;
-        //     env.addTableInfo(tableInfo);
-        //   }
-      }
+			public onTableListUpdate(tableList: data.GameTableList, timestamp: string) {
+				this.updateTimestamp(timestamp);
+				// merge the new tableList to tableListArray
+				const tableInfos: data.TableInfo[] = tableList.tablesList;
+				env.mergeTableInfoList(tableInfos);
+				// save the list to env.allTableList
+				const allTableList = tableInfos.map(data => data.tableid);
+				// const added = utils.arrayDiff(allTableList, env.allTableList);
+				// const removed = utils.arrayDiff(env.allTableList, allTableList);
+				env.allTableList = allTableList;
+				// filter all the display ready table
+				// dispatch TABLE_LIST_UPDATE
+				this.filterAndDispatch(allTableList, core.Event.TABLE_LIST_UPDATE);
 
-      public onTableListUpdate(tableList: data.GameTableList, timestamp: string) {
-        this.updateTimestamp(timestamp);
-        // merge the new tableList to tableListArray
-        const tableInfos: data.TableInfo[] = tableList.tablesList;
-        env.mergeTableInfoList(tableInfos);
-        // save the list to env.allTableList
-        const allTableList = tableInfos.map(data => data.tableid);
-        // const added = utils.arrayDiff(allTableList, env.allTableList);
-        // const removed = utils.arrayDiff(env.allTableList, allTableList);
-        env.allTableList = allTableList;
-        // filter all the display ready table
-        // dispatch TABLE_LIST_UPDATE
-        this.filterAndDispatch(allTableList, core.Event.TABLE_LIST_UPDATE);
+				logger.l(utils.LogTarget.RELEASE, `Table list updated`, allTableList);
 
-        logger.l(utils.LogTarget.RELEASE, `Table list updated`, allTableList);
+				// console.log('PlayerClient::onTableListUpdate');
+				// console.log(tableList.tablesList);
+				// const tableInfos: data.TableInfo[] = tableList.tablesList;
+				// const featureds: string[] = tableList.featureds;
+				// const news: string[] = tableList.news;
 
-        // console.log('PlayerClient::onTableListUpdate');
-        // console.log(tableList.tablesList);
-        // const tableInfos: data.TableInfo[] = tableList.tablesList;
-        // const featureds: string[] = tableList.featureds;
-        // const news: string[] = tableList.news;
+				// const mergedTableInfos: data.TableInfo[] = [];
 
-        // const mergedTableInfos: data.TableInfo[] = [];
+				// if (env.tableInfos) {
+				//   for (const tableInfo of tableInfos) {
+				//     const prevTableInfo = env.tableInfos[tableInfo.tableid];
 
-        // if (env.tableInfos) {
-        //   for (const tableInfo of tableInfos) {
-        //     const prevTableInfo = env.tableInfos[tableInfo.tableid];
+				//     if (prevTableInfo) {
+				//       const mergedInfo: data.TableInfo = utils.mergeObjects(prevTableInfo, tableInfo);
+				//       mergedTableInfos.push(mergedInfo);
+				//     } else {
+				//       mergedTableInfos.push(tableInfo);
+				//     }
+				//   }
+				//   env.tableInfoArray = mergedTableInfos;
+				// } else {
+				//   env.tableInfoArray = tableInfos;
+				// }
 
-        //     if (prevTableInfo) {
-        //       const mergedInfo: data.TableInfo = utils.mergeObjects(prevTableInfo, tableInfo);
-        //       mergedTableInfos.push(mergedInfo);
-        //     } else {
-        //       mergedTableInfos.push(tableInfo);
-        //     }
-        //   }
-        //   env.tableInfoArray = mergedTableInfos;
-        // } else {
-        //   env.tableInfoArray = tableInfos;
-        // }
+				// this.dispatchListUpdateEvent();
+			}
 
-        // this.dispatchListUpdateEvent();
-      }
+			protected filterAndDispatch(tableList: string[], eventName: string) {
+				const list = tableList.filter(tableid => {
+					const tableInfo = env.tableInfos[tableid];
+					if (tableInfo) {
+						return tableInfo.displayReady;
+					} else {
+						return false;
+					}
+				});
+				dir.evtHandler.dispatch(eventName, list);
+			}
 
-      protected filterAndDispatch(tableList: string[], eventName: string) {
-        const list = tableList.filter(tableid => {
-          const tableInfo = env.tableInfos[tableid];
-          if (tableInfo) {
-            return tableInfo.displayReady;
-          } else {
-            return false;
-          }
-        });
-        dir.evtHandler.dispatch(eventName, list);
-      }
+			protected checkAndDispatch(tableid) {
+				if (env.allTableList.indexOf(tableid) > -1) {
+					this.filterAndDispatch(env.allTableList, core.Event.TABLE_LIST_UPDATE);
+				}
+				if (env.goodRoadTableList.indexOf(tableid) > -1) {
+					this.filterAndDispatch(env.goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
+				}
+				if (env.betTableList.indexOf(tableid) > -1) {
+					this.filterAndDispatch(env.betTableList, core.Event.BET_TABLE_LIST_UPDATE);
+				}
+				if (env.favouriteTableList.indexOf(tableid) > -1) {
+					this.filterAndDispatch(env.favouriteTableList, core.Event.FAVOURITE_TABLE_LIST_UPDATE);
+				}
+			}
 
-      protected checkAndDispatch(tableid) {
-        if (env.allTableList.indexOf(tableid) > -1) {
-          this.filterAndDispatch(env.allTableList, core.Event.TABLE_LIST_UPDATE);
-        }
-        if (env.goodRoadTableList.indexOf(tableid) > -1) {
-          this.filterAndDispatch(env.goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
-        }
-        if (env.betTableList.indexOf(tableid) > -1) {
-          this.filterAndDispatch(env.betTableList, core.Event.BET_TABLE_LIST_UPDATE);
-        }
-        if (env.favouriteTableList.indexOf(tableid) > -1) {
-          this.filterAndDispatch(env.favouriteTableList, core.Event.FAVOURITE_TABLE_LIST_UPDATE);
-        }
-      }
+			protected onGameStatusUpdate(gameStatus: any, timestamp: string) {
+				this.updateTimestamp(timestamp);
 
-      protected onGameStatusUpdate(gameStatus: any, timestamp: string) {
-        this.updateTimestamp(timestamp);
-
-        // update gameStatus of corresponding tableInfo object in env.tableInfoArray
-        const tableInfo = env.getOrCreateTableInfo(gameStatus.tableid);
-        gameStatus.previousstate = tableInfo.data ? tableInfo.data.state : null;
-        gameStatus.starttime = Math.floor(gameStatus.starttime / 1000000);
-        if (gameStatus.peekstarttime) {
-          gameStatus.peekstarttime = Math.floor(gameStatus.peekstarttime / 1000000);
-          console.log('peekstarttime xxx', gameStatus.tableid, gameStatus.gameroundid, gameStatus.peekstarttime, gameStatus.starttime);
-        }
+				// update gameStatus of corresponding tableInfo object in env.tableInfoArray
+				const tableInfo = env.getOrCreateTableInfo(gameStatus.tableid);
+				gameStatus.previousstate = tableInfo.data ? tableInfo.data.state : null;
+				gameStatus.starttime = Math.floor(gameStatus.starttime / 1000000);
+				if(gameStatus.peekstarttime){
+					gameStatus.peekstarttime = Math.floor(gameStatus.peekstarttime );
+					console.log('peekstarttime xxx', gameStatus.tableid, gameStatus.gameroundid,  gameStatus.peekstarttime , gameStatus.starttime)
+				}
         /*
         if (tableInfo && tableInfo.tableid && tableInfo.tableid.indexOf('BAB') && tableInfo.data){
           console.log('BAB tableid ' + tableInfo.tableid + ':' + tableInfo.data)

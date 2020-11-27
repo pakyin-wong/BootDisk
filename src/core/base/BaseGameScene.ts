@@ -574,6 +574,10 @@ namespace we {
               if (this._expiredMessage) {
                 this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'), this.showTwoMessage.call(this));
               }
+            } else if (this._gameRoundCountWithoutBet === 5) {
+              if (this._expiredMessage) {
+                this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'), this.showTwoMessage.call(this));
+              }
             } else {
               this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
             }
@@ -586,7 +590,11 @@ namespace we {
         }
       }
       protected showTwoMessage() {
-        this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, i18n.t('expiredmessage_text'));
+         if (this._gameRoundCountWithoutBet === 3) { 
+          this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, i18n.t('expiredmessage_text'));
+         } else if (this._gameRoundCountWithoutBet === 5) {
+          this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, i18n.t('kickoutmessage_text'));   
+         }
       }
       protected checkRoundCountWithoutBet() {
         if (this.tableInfo.totalBet > 0) {
@@ -596,7 +604,6 @@ namespace we {
         }
 
         if (this._gameRoundCountWithoutBet === 3) {
-          // <<<<<<< HEAD
           if (env.isMobile) {
             dir.evtHandler.showMessage({
               class: 'MessageDialog',
@@ -614,7 +621,19 @@ namespace we {
         }
 
         if (this._gameRoundCountWithoutBet >= 5) {
-          this.backToLobby();
+          if (env.isMobile) {
+            dir.evtHandler.showMessage({
+              class: 'MessageDialog',
+              args: [
+                i18n.t('kickoutmessage_text'),
+                {
+                  dismiss: { text: i18n.t('nav.menu.confirm') },
+                },
+              ],
+              showSFX:'ui_sfx_info_message_mp3'
+            });
+            this.backToLobby();
+          } 
         }
       }
 
@@ -626,9 +645,11 @@ namespace we {
       }
       protected setStateDeal(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.DEAL) {
-          dir.audioCtr.play('ui_sfx_bet_stop_mp3');
           this.checkRoundCountWithoutBet();
-
+          dir.audioCtr.play('ui_sfx_bet_stop_mp3');
+          if (this._gameRoundCountWithoutBet >= 5 && !env.isMobile ) {
+            this.backToLobby();
+          }
           if (this._resultDisplay) {
             this._resultDisplay.reset();
           }

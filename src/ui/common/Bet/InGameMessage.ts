@@ -79,6 +79,7 @@ namespace we {
       }
 
       protected setBackground(type: string) {
+
         switch (type) {
           case InGameMessage.INFO:
           case InGameMessage.NEWSHOE:
@@ -113,6 +114,7 @@ namespace we {
               this.visible = true;
               this._label.visible = true;
               this._label.text = message;
+              this._bg.width = this.label.width
             })
             .wait(this.duration * (isHold ? 100 : 1))
             .call(() => {

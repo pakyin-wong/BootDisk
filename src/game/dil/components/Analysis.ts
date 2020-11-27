@@ -19,8 +19,18 @@ namespace we {
         super(env.isMobile ? null : 'dil.Analysis');
       }
 
-      public updateTableBetInfo() {}
+      protected mount() {
+        this._history.addEventListener(egret.TouchEvent.TOUCH_TAP, this.stopProg, this);
+        this._history.addEventListener(egret.TouchEvent.TOUCH_TAP, this.switchHistory, this);
+      }
 
+      public stopProg(evt: egret.Event) {
+        evt.stopPropagation();
+      }
+      public updateTableBetInfo() {}
+      protected switchHistory() {
+        this._history.touchFinishAction(true)
+      }
       public updateRoad() {
         if (!env.tableInfos[this._tableId] || !env.tableInfos[this._tableId].gamestatistic) {
           return;

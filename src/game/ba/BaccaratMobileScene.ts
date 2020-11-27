@@ -74,7 +74,7 @@ namespace we {
         // this._baGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
 
-        if (this._previousState !== we.core.GameState.BET) {
+        if (this._previousState !== we.core.GameState.BET || isInit) {
           if (this._tableLayer) {
             (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
             (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };

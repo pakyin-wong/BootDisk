@@ -39,6 +39,7 @@ namespace we {
       public constructor(skin) {
         super('dt.StatisticChart', false);
         this.orientationDependent = false;
+        this.cacheAsBitmap = true;
       }
 
       public set thirdColor(value: number) {

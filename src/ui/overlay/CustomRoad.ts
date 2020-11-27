@@ -8,8 +8,8 @@ namespace we {
       protected _editRoadPanel: ba.GoodRoadEditItem;
       protected _cover: eui.Rect;
       protected _defaultButton: ui.RoundRectButton;
-      protected _selectAllButton: ui.ToggleButton;
-      protected _selectAllLabel: ui.RunTimeLabel;
+      // protected _selectAllButton: ui.ToggleButton;
+      // protected _selectAllLabel: ui.RunTimeLabel;
 
       constructor() {
         super('CustomRoad');
@@ -21,7 +21,7 @@ namespace we {
 
       protected initCustomRoad() {
         this._txt_title.renderText = () => `${i18n.t('overlaypanel_customroad_title')}`;
-        this._selectAllLabel.renderText = () => `${i18n.t('overlaypanel_customroad_selectall')}`;
+        // this._selectAllLabel.renderText = () => `${i18n.t('overlaypanel_customroad_selectall')}`;
         this.collection = new eui.ArrayCollection([]); // road ids
         this.roomList.dataProvider = this.collection;
         this.roomList.itemRenderer = we.ba.GoodRoadListHolder;
@@ -35,7 +35,7 @@ namespace we {
 
         this._editRoadPanel.addEventListener('close', this.onEditPanelClosed, this);
         // this._selectAllButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.selectAll, this);
-        this._selectAllButton.addEventListener('onToggle', this.selectAll, this);
+        // this._selectAllButton.addEventListener('onToggle', this.selectAll, this);
         // get the Good Road Data from server or env if it exist
         dir.evtHandler.addEventListener(core.Event.GOOD_ROAD_DATA_UPDATE, this.onRoadDataUpdated, this);
         if (!env.goodRoadData) {
@@ -51,9 +51,9 @@ namespace we {
 
         this._defaultButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDefaultClicked, this);
 
-        if (this._selectAllButton) {
-          this._selectAllButton.setInitButtonState(1);
-        }
+        // if (this._selectAllButton) {
+          // this._selectAllButton.setInitButtonState(1);
+        // }
       }
 
       protected onDefaultClicked(e: egret.TouchEvent) {
@@ -82,10 +82,10 @@ namespace we {
           dir.evtHandler.removeEventListener(core.Event.GOOD_ROAD_DATA_UPDATE, this.onRoadDataUpdated, this);
         }
 
-        if (this._selectAllButton.hasEventListener('onToggle')) {
+        // if (this._selectAllButton.hasEventListener('onToggle')) {
           // this._selectAllButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.selectAll, this);
-          this._selectAllButton.removeEventListener('onToggle', this.selectAll, this);
-        }
+          // this._selectAllButton.removeEventListener('onToggle', this.selectAll, this);
+        // }
         this._editRoadPanel.removeEventListener('close', this.onEditPanelClosed, this);
       }
 
@@ -93,30 +93,30 @@ namespace we {
         this._cover.visible = false;
         this.renderFromGoodRoadData();
       }
-      protected selectAll() {
-        const customRoadHolderList = this.roomList.$children;
-        if (customRoadHolderList.length > 0) {
-          if (this._selectAllButton._buttonState === 0) {
-            this.setAllRoadEnable(true);
-          } else if (this._selectAllButton._buttonState === 1) {
-            this.setAllRoadEnable(false);
-          }
-          customRoadHolderList.forEach(holder => {
-            const element = <ba.GoodRoadListHolder>holder;
-            // this.onAllRoadModify(element)
-            const activebutton = element.item.activeButton;
-            if (this._selectAllButton._buttonState === 0) {
-              // activebutton.setInitButtonState(0)
-              // element.item.setRoadEnabled(true);
-            } else if (this._selectAllButton._buttonState === 1) {
-              element.item.setRoadEnabled(false);
-              // activebutton.setInitButtonState(1)
-            }
-          });
-        } else {
-          return;
-        }
-      }
+      // protected selectAll() {
+      //   const customRoadHolderList = this.roomList.$children;
+      //   if (customRoadHolderList.length > 0) {
+      //     if (this._selectAllButton._buttonState === 0) {
+      //       this.setAllRoadEnable(true);
+      //     } else if (this._selectAllButton._buttonState === 1) {
+      //       this.setAllRoadEnable(false);
+      //     }
+      //     customRoadHolderList.forEach(holder => {
+      //       const element = <ba.GoodRoadListHolder> holder;
+      //       // this.onAllRoadModify(element)
+      //       const activebutton = element.item.activeButton;
+      //       if (this._selectAllButton._buttonState === 0) {
+      //         // activebutton.setInitButtonState(0)
+      //         // element.item.setRoadEnabled(true);
+      //       } else if (this._selectAllButton._buttonState === 1) {
+      //         element.item.setRoadEnabled(false);
+      //         // activebutton.setInitButtonState(1)
+      //       }
+      //     });
+      //   } else {
+      //     return;
+      //   }
+      // }
 
       protected setAllRoadEnable(setEnable: boolean) {
         const defaultarray = []; // [id,id,id,id...]

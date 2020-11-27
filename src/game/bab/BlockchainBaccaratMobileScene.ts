@@ -7,7 +7,7 @@
 namespace we {
   export namespace bab {
     export class MobileScene extends ba.MobileScene {
-      protected _gameData: data.GameData & data.BlockchainGameData;
+      protected _gameData: data.GameData & data.BlockchainGameData
       protected _alwaysShowResult = true;
       protected _helpButton: eui.Group;
       protected _deckButton: eui.Group;
@@ -39,23 +39,22 @@ namespace we {
         this._historyCardHolder.setToggler(this._lastRoundButton);
         this._deckPanel.setValue(<bab.GameData>this._gameData);
         this._deckPanel.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
-        // ========
-        // this._deckPanel.addEventListener('ENABLE_DECK_BTN', this.enableDeckBtn, this);
-        //  this._message.addEventListener('DRAW_RED_CARD',this.newShoeMessage,this)
-        // ========
+        this._shufflePanel.addEventListener('ENABLE_DECK_BTN', this.enableDeckBtn, this);
+        this._message.addEventListener('DRAW_RED_CARD',this.newShoeMessage,this)
         this._cardInfoPanel.addEventListener('OPEN_DECK_PANEL', this.showDeckPanel, this);
         this._cardInfoPanel.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
         (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         (<any>this._resultDisplay).addEventListener('OPEN_SHUFFLE_PANEL', this.showShufflePanel, this);
         this.getShoeInfo();
-        this._bottomGamePanel.addEventListener('TOGGLE', this.toggleBottomGamePanel, this);
+        this._bottomGamePanel.addEventListener('TOGGLE', this.toggleBottomGamePanel, this)
         this.toggleBottomGamePanel();
+
       }
 
-      protected initVariables() {
+      protected initVariables(){
         this._portraitButtonExpandedDealY = 832;
         this._portraitButtonExpandedBetY = 684;
-        this._portraitButtonCollapsedDealY = 1340;
+        this._portraitButtonCollapsedDealY = 1340;        
         this._portraitButtonCollapsedBetY = 1192;
       }
 
@@ -73,7 +72,7 @@ namespace we {
               case core.GameState.IDLE:
               case core.GameState.SHUFFLE:
               default:
-                this._deckButton.y = this._helpButton.y = this._lastRoundButton.y = this._portraitButtonExpandedBetY;
+                this._deckButton.y = this._helpButton.y =  this._lastRoundButton.y = this._portraitButtonExpandedBetY;
                 this._deckPanel.resizeHeight(1966);
 
                 break;
@@ -85,7 +84,7 @@ namespace we {
             switch (this._gameData.state) {
               case core.GameState.DEAL:
               case core.GameState.FINISH:
-                this._deckButton.y = this._helpButton.y = this._lastRoundButton.y = this._portraitButtonCollapsedDealY;
+                this._deckButton.y = this._helpButton.y = this._lastRoundButton.y =  this._portraitButtonCollapsedDealY;
                 this._deckPanel.resizeHeight(1343);
 
                 break;
@@ -113,13 +112,13 @@ namespace we {
               break;
             default:
               console.log('default state', this._gameData.state);
-              this._resultDisplay.setDefaultStates();
+              this._resultDisplay.setDefaultStates()
               break;
           }
         }
       }
       protected newShoeMessage() {
-        this._message.showMessage(ui.InGameMessage.NEWSHOE, i18n.t('baccarat.redCardDesc'), null, true);
+        this._message.showMessage(ui.InGameMessage.NEWSHOE, i18n.t('baccarat.redCardDesc'),null, true)
       }
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
@@ -156,9 +155,9 @@ namespace we {
       protected setStateShuffle(isInit: boolean) {
         this.getShoeInfo();
         //         //========
-        // this.enableDeckGroup(false)
+        this.enableDeckGroup(false)
         super.setStateShuffle(isInit);
-        this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
+        this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit)
         this.hideSumGroup();
         this.toggleBottomGamePanel();
       }
@@ -167,10 +166,9 @@ namespace we {
         this._cardInfoPanel.setValue(this._gameData, evt.data);
         this._cardInfoPanel.show();
       }
-      // ========
-      // protected enableDeckBtn(){
-      //   this.enableDeckGroup(true)
-      // }
+      protected enableDeckBtn(){
+        this.enableDeckGroup(true)
+      }
       protected showDeckPanel(evt: egret.Event) {
         this._deckPanel.show();
       }
@@ -188,17 +186,19 @@ namespace we {
           this._shufflePanel.showAnim(this._gameData);
         }
       }
-      // ========
-      // protected enableDeckGroup(enable:boolean) {
-      //   this._deckPanel.touchEnabled = enable;
-      //   this._deckPanel.alpha = enable? 1 : 0.5;
-      // }
-      protected showSumGroup() {
-        (<we.bab.MobileCardHolder>this._resultDisplay).showSumGroup();
+      protected enableDeckGroup(enable:boolean) {
+        this._deckPanel.touchEnabled = enable;
+        this._deckButton.touchChildren = enable;
+        this._deckPanel.alpha = enable? 1 : 0.5;
       }
 
-      protected hideSumGroup() {
-        (<we.bab.MobileCardHolder>this._resultDisplay).hideSumGroup();
+      protected showSumGroup(){
+        (<we.bab.MobileCardHolder>this._resultDisplay).showSumGroup()
+      }
+
+      protected hideSumGroup(){
+          (<we.bab.MobileCardHolder>this._resultDisplay).hideSumGroup();
+
       }
 
       protected async getShoeInfo() {
@@ -208,13 +208,13 @@ namespace we {
           text = await utils.getText(`${env.blockchain.cosmolink}${this._gameData.cosmosshoeid}`);
           obj = JSON.parse(text);
           if (obj.result.cards) {
-            this._gameData.hashedcardsList = obj.result.cards;
-            console.log('get cosmo succeeded');
+            this._gameData.hashedcardsList = obj.result.cards
+            console.log('get cosmo succeeded')
           }
-          return new Promise(resolve => resolve());
+          return new Promise(resolve => resolve())
         } catch (error) {
           console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
-          return new Promise(resolve => resolve());
+          return new Promise(resolve => resolve())
         }
       }
     }
