@@ -54,7 +54,6 @@ namespace we {
       protected _decryptedKeyHelpLabel: ui.RunTimeLabel;
 
       protected _message: ui.InGameMessage;
-      protected _closePanel: eui.Rect;
 
       public constructor() {
         super();
@@ -227,26 +226,21 @@ namespace we {
           this._encryptedKeyHelpGroup.visible = false;
           this._ssnHelpGroup.visible = false;
           this._decryptedKeyHelpGroup.visible = false;
-
-          if(this._closePanel)
-            this._closePanel.touchEnabled = false;
       }
 
       protected openIndexHint(){
         if(this._indexHelpGroup.visible){
           this._indexHelpGroup.visible = false;
         }else{
-          if(env.orientation === "portrait"){
-            this._helpArrow.visible = true;
-            this._helpArrow.left = this._cardIndexGroup.x + this._cardIndexLabel.width + (this._cardHelp.width / 2) - this._indexHelpGroup.x;
-          }else{
-            this._helpArrow.visible = false;
+          // if(env.orientation === "portrait"){
+          //   this._helpArrow.visible = true;
+          //   this._helpArrow.left = this._cardIndexGroup.x + this._cardIndexLabel.width + (this._cardHelp.width / 2) - this._indexHelpGroup.x;
+          // }else{
+          //   this._helpArrow.visible = false;
+          //}
 
-            if(this._closePanel){
-              this._closePanel.once(egret.TouchEvent.TOUCH_BEGIN, this.closeAllHint, this);
-              this._closePanel.touchEnabled = true;
-            }
-          }
+          this.stage.once(egret.TouchEvent.TOUCH_BEGIN, this.closeAllHint, this);
+
           this._encryptedKeyHelpGroup.visible = false;
           this._ssnHelpGroup.visible = false;
           this._decryptedKeyHelpGroup.visible = false;
@@ -260,17 +254,14 @@ namespace we {
           this._encryptedKeyHelpGroup.visible = false;
         }else{
           // this._encryptedKeyHelpArrow.left = this._encryptedAreaGroup.x + this._encryptedAreaGroup.x + this._encryptedLabel.width + (this._encryptedHelp.width / 2) - this._encryptedKeyHelpGroup.x;
-          if(env.orientation === "portrait"){
-            this._encryptedKeyHelpArrow.visible = true;
-            this._encryptedKeyHelpArrow.left = this._encryptedAreaGroup.x + this._encryptedAreaGroup.x + this._encryptedLabel.width - this._encryptedKeyHelpGroup.x;
-          }else{
-            this._encryptedKeyHelpArrow.visible = false;
-            
-            if(this._closePanel){
-              this._closePanel.once(egret.TouchEvent.TOUCH_BEGIN, this.closeAllHint, this);
-              this._closePanel.touchEnabled = true;
-            }
-          }
+          // if(env.orientation === "portrait"){
+          //   this._encryptedKeyHelpArrow.visible = true;
+          //   this._encryptedKeyHelpArrow.left = this._encryptedAreaGroup.x + this._encryptedAreaGroup.x + this._encryptedLabel.width - this._encryptedKeyHelpGroup.x;
+          // }else{
+          //   this._encryptedKeyHelpArrow.visible = false;
+          //}
+
+          this.stage.once(egret.TouchEvent.TOUCH_BEGIN, this.closeAllHint, this);
 
           this._indexHelpGroup.visible = false;
           this._ssnHelpGroup.visible = false;
@@ -285,17 +276,14 @@ namespace we {
           this._ssnHelpGroup.visible = false;
         }else{
           // this._ssnHelpArrow.left = this._ssnDeGroup.x + this._ssnGroup.x + this._ssnRuntimeLabel.width + (this._ssnHelp.width / 2) - this._ssnHelpGroup.x;
-          if(env.orientation === "portrait"){
-            this._ssnHelpArrow.visible = true;
-            this._ssnHelpArrow.left = this._ssnDeGroup.x + this._ssnGroup.x + this._ssnRuntimeLabel.width - this._ssnHelpGroup.x;
-          }else{
-            this._ssnHelpArrow.visible = false;
-            
-            if(this._closePanel){
-              this._closePanel.once(egret.TouchEvent.TOUCH_BEGIN, this.closeAllHint, this);
-              this._closePanel.touchEnabled = true;
-            }
-          }
+          // if(env.orientation === "portrait"){
+          //   this._ssnHelpArrow.visible = true;
+          //   this._ssnHelpArrow.left = this._ssnDeGroup.x + this._ssnGroup.x + this._ssnRuntimeLabel.width - this._ssnHelpGroup.x;
+          // }else{
+          //   this._ssnHelpArrow.visible = false;
+          //}
+                      
+          this.stage.once(egret.TouchEvent.TOUCH_BEGIN, this.closeAllHint, this);
 
           this._indexHelpGroup.visible = false;
           this._encryptedKeyHelpGroup.visible = false;
@@ -310,17 +298,14 @@ namespace we {
           this._decryptedKeyHelpGroup.visible = false;
         }else{
           // this._decryptedKeyArrow.left = this._ssnDeGroup.x + this._ssnGroup.x + this._decryptedRuntimeLabel.width + (this._decryptedHelp.width / 2) - this._decryptedKeyHelpGroup.x;
-          if(env.orientation === "portrait"){
-            this._decryptedKeyArrow.visible = true;
-            this._decryptedKeyArrow.left = this._ssnDeGroup.x + this._ssnGroup.x + this._decryptedRuntimeLabel.width - this._decryptedKeyHelpGroup.x;
-          }else{
-            this._decryptedKeyArrow.visible = false;
-            
-            if(this._closePanel){
-              this._closePanel.once(egret.TouchEvent.TOUCH_BEGIN, this.closeAllHint, this);
-              this._closePanel.touchEnabled = true;
-            }
-          }
+          // if(env.orientation === "portrait"){
+          //   this._decryptedKeyArrow.visible = true;
+          //   this._decryptedKeyArrow.left = this._ssnDeGroup.x + this._ssnGroup.x + this._decryptedRuntimeLabel.width - this._decryptedKeyHelpGroup.x;
+          // }else{
+          //   this._decryptedKeyArrow.visible = false;
+          //}
+
+          this.stage.once(egret.TouchEvent.TOUCH_BEGIN, this.closeAllHint, this);
 
           this._indexHelpGroup.visible = false;
           this._encryptedKeyHelpGroup.visible = false;
