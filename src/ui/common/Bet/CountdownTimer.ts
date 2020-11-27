@@ -14,6 +14,7 @@ namespace we {
       public bg_color: ui.RoundRectShape;
 
       protected isHover: boolean = false;
+      protected isPress: boolean = false;
 
       public constructor() {
         super();
@@ -105,15 +106,17 @@ namespace we {
       }
 
       protected changeTextColor() {
-        if (this.isHover) {
+        if (this.isPress) {
+          this.countdownLabel.textColor = 0x003418;
+        } else if (this.isHover) {
           this.countdownLabel.textColor = 0xffffff;
         } else {
           if (this._colorChange && this.progressIndicator.progress < 5000 / this.countdownValue) {
             this.countdownLabel.textColor = 0xff0000;
           } else if (this._colorChange && this.progressIndicator.progress < 10000 / this.countdownValue) {
-            this.countdownLabel.textColor = env.isMobile ? 0x15d688 : 0xEDCD44;
+            this.countdownLabel.textColor = env.isMobile ? 0x15d688 : 0xedcd44;
           } else if (this._colorChange && this.progressIndicator.progress >= 10000 / this.countdownValue) {
-            this.countdownLabel.textColor = env.isMobile ? 0x15d688 : 0x1EE59D;
+            this.countdownLabel.textColor = env.isMobile ? 0x15d688 : 0x1ee59d;
           }
         }
       }
@@ -128,13 +131,14 @@ namespace we {
         this.removeEventListener(egret.Event.ENTER_FRAME, this.updateRemainingTime, this);
       }
 
-      public bg_flash(isHover: boolean = false, isEnable: boolean = false) {
+      public bg_flash(isHover: boolean = false, isEnable: boolean = false, isPress: boolean = false) {
         if (env.isMobile) {
           this.bg_color.alpha = 0.7;
           this.removebg_flash();
           egret.Tween.get(this.bg_color, { loop: true }).to({ alpha: 0 }, 200);
         } else {
           this.isHover = isHover;
+          this.isPress = isPress;
           switch (env.autoConfirmBet) {
             case true:
               // in desktop antoConfirm state, confirmBtn bg is always gray in color
