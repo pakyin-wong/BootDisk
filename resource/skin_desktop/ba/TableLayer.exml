@@ -7,10 +7,20 @@
 		                gradientType="RADIAL" gradientPosition="topRight" />
 		<ui:RunTimeLabel id="_playerLabel" y="30" horizontalCenter="0" size="68"  bold="true" scaleY="1.05"/>
 		<e:Label text="1:1" verticalCenter="28" horizontalCenter="0" size="34" alpha=".7" />
-		<e:Image source="d_ba_betarea_icon_bet_png" horizontalCenter="-100" verticalCenter="65" />
-		<e:Label id="_playerTotalAmount" verticalCenter="65" size="20"  left="206"/>
-		<e:Image source="d_ba_betarea_icon_person_png" verticalCenter="65"  horizontalCenter="50.5"/>
-		<e:Label id="_playerTotalPerson" verticalCenter="65" size="20"  left="357"/>
+		<e:Group  horizontalCenter="-80" verticalCenter="65">
+			<e:Image source="d_ba_betarea_icon_bet_png" />
+			<e:Label id="_playerTotalAmount" size="20" />
+			<e:layout>
+				<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle"/>
+			</e:layout>
+		</e:Group>
+		<e:Group  horizontalCenter="80" verticalCenter="65">
+			<e:Image source="d_ba_betarea_icon_person_png" />
+			<e:Label id="_playerTotalPerson" size="20" />
+			<e:layout>
+				<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle"/>
+			</e:layout>
+		</e:Group>
 	</e:Group>
 	<e:Group id="_bankerGroup" includeIn="Normal" x="585" y="0" width="585" height="191">
 		<ui:BettingGrid id="_bankerImage" width="585" height="191" roundCorner="[0,14,0,0]"
@@ -18,10 +28,20 @@
 		                gradientRatio="[0,50,255]" gradientPosition="topLeft" />
 		<ui:RunTimeLabel id="_bankerLabel" y="30" horizontalCenter="0" size="68"  bold="true" scaleY="1.05"/>
 		<e:Label text="0.95:1" verticalCenter="28" horizontalCenter="0" size="30"  alpha=".7"/>
-		<e:Image source="d_ba_betarea_icon_bet_png" horizontalCenter="-100" verticalCenter="65" />
-		<e:Label id="_bankerTotalAmount" verticalCenter="65" size="20"  left="206"/>
-		<e:Image source="d_ba_betarea_icon_person_png" horizontalCenter="50" verticalCenter="65" />
-		<e:Label id="_bankerTotalPerson" verticalCenter="65" size="20"  left="356"/>
+		<e:Group  horizontalCenter="-80" verticalCenter="65">
+			<e:Image source="d_ba_betarea_icon_bet_png"  />
+			<e:Label id="_bankerTotalAmount" size="20" />
+			<e:layout>
+				<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle"/>
+			</e:layout>
+		</e:Group>
+		<e:Group  horizontalCenter="80" verticalCenter="65">
+			<e:Image source="d_ba_betarea_icon_person_png" />
+			<e:Label id="_bankerTotalPerson" size="20" />
+			<e:layout>
+				<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle"/>
+			</e:layout>
+		</e:Group>
 	</e:Group>
 	<e:Group id="_playerPairGroup" x="0" y="191" width="382" height="113" width.Normal="390" width.SuperSix="292">
 		<ui:BettingGrid id="_playerPairImage" width="382" height="113" width.Normal="390" width.SuperSix="292"
