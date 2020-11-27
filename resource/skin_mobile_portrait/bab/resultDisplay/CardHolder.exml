@@ -19,7 +19,7 @@
                         <e:Label id="_bankerSum" x="97" y="0" textAlign="center" verticalAlign="middle" size="96"
                                  height="100%" name="a1/bankerSumn" />
                 </e:Group>
-                <e:Group x="333" y="808" id="_playerCardMoveGroup">
+                <e:Group x="333" y="931" id="_playerCardMoveGroup">
                         <e:Group x="0" y="0" id="_playerCard1Group" width="117" height="170" touchThrough="true">
                                 <e:Group id="_playerCard1Info" left="0" bottom="0" width="40" height="40" />
                         </e:Group>
@@ -31,7 +31,7 @@
                          touchThrough="true">
                         <e:Group id="_playerCard3Info" left="0" bottom="0" width="40" height="40" />
                 </e:Group>
-                <e:Group x="656" y="808" id="_bankerCardMoveGroup">
+                <e:Group x="656" y="931" id="_bankerCardMoveGroup">
                         <e:Group x="0" y="0" id="_bankerCard1Group" width="204" height="350" touchThrough="true">
                                 <e:Group id="_bankerCard1Info" left="0" bottom="0" width="40" height="40" />
                         </e:Group>
