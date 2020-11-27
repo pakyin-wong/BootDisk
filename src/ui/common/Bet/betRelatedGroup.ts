@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
     export class BetRelatedGroup extends core.BaseGamePanel {
-      public _confirmButton: ui.BetConfirmButton;
+      public _confirmButton: ui.IButton | ui.BetConfirmButton;
       protected _repeatButton: ui.BaseImageButton;
       protected _cancelButton: ui.BaseImageButton;
       protected _doubleButton: ui.BaseImageButton;
@@ -45,13 +45,16 @@ namespace we {
       }
 
       protected onRemainingTimeUpdate(evt: egret.Event) {
-        const remainingTime: number = evt.data;
-        if (remainingTime>10000) {
-          this._confirmButton.setColor(0,1,0);
-        } else if (remainingTime>5000) {
-          this._confirmButton.setColor(1,1,0);
-        } else {
-          this._confirmButton.setColor(1,0,0);
+        const confirmButton = this._confirmButton as ui.BetConfirmButton;
+        if (confirmButton && confirmButton.setColor) {
+          const remainingTime: number = evt.data;
+          if (remainingTime>10000) {
+            confirmButton.setColor(0,1,0);
+          } else if (remainingTime>5000) {
+            confirmButton.setColor(1,1,0);
+          } else {
+            confirmButton.setColor(1,0,0);
+          }
         }
       }
 
