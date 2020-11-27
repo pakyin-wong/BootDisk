@@ -159,9 +159,7 @@ namespace we {
           return;
         }
         if (env && env.tableInfos && env.tableInfos[this._tableId] && env.tableInfos[this._tableId].gamestatistic) {
-          console.log('BABABABABABABABABABABABAenv.tableInfos[this._tableId].gamestatistic',env.tableInfos[this._tableId].gamestatistic)
           const normalInfo = we.utils.stat.ba.getStatInfo(false, env.tableInfos[this._tableId].gamestatistic);
-          console.log("BABAnormalInfo",normalInfo)
           this._normalChartPanel.firstCount = normalInfo.bankerCount;
           this._normalChartPanel.secondCount = normalInfo.playerCount;
           this._normalChartPanel.thirdCount = normalInfo.tieCount;
@@ -181,7 +179,6 @@ namespace we {
           this._normalPairChartPanel.update();
 
           const shoeInfo = we.utils.stat.ba.getStatInfo(true, env.tableInfos[this._tableId].gamestatistic);
-          console.log('BABABABABshoeInfo',shoeInfo)
           this._shoeChartPanel.firstCount = shoeInfo.bankerCount;
           this._shoeChartPanel.secondCount = shoeInfo.playerCount;
           this._shoeChartPanel.thirdCount = shoeInfo.tieCount;
