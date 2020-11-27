@@ -136,6 +136,42 @@ namespace we {
           case 'landscape':
             const gridSizeF = 43;
 
+            this.iconBankerBigEye = new BABigEyeRoadIcon(27);
+            this.iconBankerBigEye.x = 2034;
+            this.iconBankerBigEye.y = 85;
+            this.iconBankerBigEye.setByObject({ v: 'b' });
+            this.addChild(this.iconBankerBigEye);
+
+            this.iconBankerSmall = new BASmallRoadIcon(27);
+            this.iconBankerSmall.x = 2069;
+            this.iconBankerSmall.y = 85;
+            this.iconBankerSmall.setByObject({ v: 'b' });
+            this.addChild(this.iconBankerSmall);
+
+            this.iconBankerCockroach = new BACockroachRoadIcon(27);
+            this.iconBankerCockroach.x = 2104;
+            this.iconBankerCockroach.y = 85;
+            this.iconBankerCockroach.setByObject({ v: 'b' });
+            this.addChild(this.iconBankerCockroach);
+
+            this.iconPlayerBigEye = new BABigEyeRoadIcon(27);
+            this.iconPlayerBigEye.x = 2034;
+            this.iconPlayerBigEye.y = 215;
+            this.iconPlayerBigEye.setByObject({ v: 'p' });
+            this.addChild(this.iconPlayerBigEye);
+
+            this.iconPlayerSmall = new BASmallRoadIcon(27);
+            this.iconPlayerSmall.x = 2069;
+            this.iconPlayerSmall.y = 215;
+            this.iconPlayerSmall.setByObject({ v: 'p' });
+            this.addChild(this.iconPlayerSmall);
+
+            this.iconPlayerCockroach = new BACockroachRoadIcon(27);
+            this.iconPlayerCockroach.x = 2104;
+            this.iconPlayerCockroach.y = 215;
+            this.iconPlayerCockroach.setByObject({ v: 'p' });
+            this.addChild(this.iconPlayerCockroach);
+
             this.beadRoad = new BABeadRoad(numColumn, gridSizeF, 1, true);
             this.beadRoad.x = 0;
             this.beadRoad.y = 0;
@@ -190,15 +226,13 @@ namespace we {
       }
 
       public setPredictIcons(b1: any, b2: any, b3: any, p1: any, p2: any, p3: any) {
-        if (env.orientation === 'portrait') {
           this.iconBankerBigEye.setByObject(b1);
           this.iconBankerSmall.setByObject(b2);
           this.iconBankerCockroach.setByObject(b3);
           this.iconPlayerBigEye.setByObject(p1);
           this.iconPlayerSmall.setByObject(p2);
           this.iconPlayerCockroach.setByObject(p3);
-          this.update();
-        }
+         this.update();
       }
 
       public update() {

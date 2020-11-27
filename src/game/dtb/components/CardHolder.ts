@@ -335,13 +335,11 @@ namespace we {
 
         await utils.playAnimation(this._ringAnim,'poker_in',1,'POKER_ROUND_ANIMATION_GROUP');
 
-        if(!env.isMobile){
-          this.setLabel(this._centerBurnCard.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + 1);
-          this._centerBurnCardGroup.visible = true;
+        this.setLabel(this._centerBurnCard.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + 1);
+        this._centerBurnCardGroup.visible = true;
 
-          await utils.playAnimation(this._centerBurnCard,'dt_burn_card_center',1,'POKER_ROUND_ANIMATION_GROUP');
-          this._centerBurnCardGroup.visible = false;
-        }
+        await utils.playAnimation(this._centerBurnCard,'dt_burn_card_center',1,'POKER_ROUND_ANIMATION_GROUP');
+        this._centerBurnCardGroup.visible = false;
 
         const cardAnimNames = ['_dragonCard', '_tigerCard'];
         for (let i = 0; i < cardAnimNames.length; i++) {

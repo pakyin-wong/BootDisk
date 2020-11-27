@@ -46,10 +46,10 @@ namespace we {
             this._playerCard3Group.y = 933;
             this._bankerCard3Group.y = 933;
           }else{
-            this._playerCardMoveGroup.y = 726;
-            this._bankerCardMoveGroup.y = 726;
-            this._playerCard3Group.y = 728;
-            this._bankerCard3Group.y = 728;
+            this._playerCardMoveGroup.y = 826;
+            this._bankerCardMoveGroup.y = 826;
+            this._playerCard3Group.y = 828;
+            this._bankerCard3Group.y = 828;
           }
         }
       }
@@ -64,10 +64,10 @@ namespace we {
             this._playerCard3Group.y = 810;
             this._bankerCard3Group.y = 810;          
           }else{
-            this._playerCardMoveGroup.y = 575;
-            this._bankerCardMoveGroup.y = 575;
-            this._playerCard3Group.y = 577;
-            this._bankerCard3Group.y = 577;     
+            this._playerCardMoveGroup.y = 675;
+            this._bankerCardMoveGroup.y = 675;
+            this._playerCard3Group.y = 677;
+            this._bankerCard3Group.y = 677;     
           }
         }
       }

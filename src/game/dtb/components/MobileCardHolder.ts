@@ -58,8 +58,8 @@ namespace we {
             this._dragonCardGroup.y = 951;
             this._tigerCardGroup.y = 951;
           }else{
-            this._dragonCardGroup.y = 726;
-            this._tigerCardGroup.y = 726;
+            this._dragonCardGroup.y = 826;
+            this._tigerCardGroup.y = 826;
           }
         }
       }
@@ -72,8 +72,8 @@ namespace we {
             this._dragonCardGroup.y = 858;
             this._tigerCardGroup.y = 858;
           }else{
-            this._dragonCardGroup.y = 498;
-            this._tigerCardGroup.y = 498;
+            this._dragonCardGroup.y = 598;
+            this._tigerCardGroup.y = 598;
           }
         }
       }

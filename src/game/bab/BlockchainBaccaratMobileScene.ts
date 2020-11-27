@@ -218,7 +218,6 @@ namespace we {
           this._shufflePanel.showAnim(this._gameData);
         }
       }
-
       protected showSumGroup(){
         (<we.bab.MobileCardHolder>this._resultDisplay).showSumGroup()
       }

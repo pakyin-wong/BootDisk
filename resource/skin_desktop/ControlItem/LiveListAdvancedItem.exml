@@ -14,6 +14,11 @@
 			<live:BetLimitDropdown id="_dropdown" width="200" x="13" y="388" skinName="BetLimitDropdownSkin"  horizontalAlign="left"/>
 			<e:Component id="_analysisNode" right="0" y="0" width="290" height="441" />
 			<e:Component id="_advancedRoadNode" width="580" height="441" x="345" y="0" />
+			<e:Group id="_shuffleMask" width="580" height="441" x="345" y="0">
+				<ui:RoundRectShape left="0" right="0" top="0" bottom="0" fillColor="0x1e2126" alpha="0.8" cornerBL="8" cornerBR="8" cornerTL="8" cornerTR="8" stroke="0"/>
+				<e:Image width="83" height="72" horizontalCenter="0" y="164" source="icon-shuffle_png"/>
+				<ui:RunTimeLabel id="_shuffleLabel" text="洗牌中" horizontalCenter="0" size="26" height="38" y="236" verticalAlign="middle" textAlign="center" textColor="0xcea56f"/>
+			</e:Group>
 			<ui:ListItemStateLabel id="_stateLabel"  horizontalCenter="26" verticalCenter="0"/>
 			<e:Group id="_alreadyBetSign" x="243" y="299" visible="false">
 				<e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0" width="100" height="30"/>
@@ -47,6 +52,10 @@
 
 
 	</e:Group>
-			<ui:AnimatedToggleButton id="_favouriteButton" dbClass="lobby_ui" dbDisplay="d_lobby_icon_fav" width="44" height="42"  left="280" top="20" visible="false"/>
-
+			<ui:AnimatedToggleButton id="_favouriteButton" dbClass="lobby_ui" dbDisplay="d_lobby_icon_fav" width="44" height="42"  left="295" top="30" visible="false"/>
+	<e:Group id="_maintenanceMask" width="100%" height="441" x="0" scaleX="1" scaleY="1" visible="false">
+		<ui:RoundRectShape left="0" right="0" top="0" bottom="0" fillColor="0x1e2126" alpha="0.8" cornerBL="20" cornerBR="20" cornerTR="20" cornerTL="20" strokeColor="0x3a3f48" stroke="2"/>
+		<e:Image width="66" height="66" y="165" source="icon-maintenance_png" horizontalCenter="0" x="256"/>
+		<ui:RunTimeLabel id="_matntenanceLabel" text="維護中" size="26" height="38" y="234" verticalAlign="middle" textAlign="center" textColor="0xffffff" horizontalCenter="0" x="250"/>
+	</e:Group>
 </e:Skin>
