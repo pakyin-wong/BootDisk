@@ -21,11 +21,12 @@ namespace we {
       protected mount(){
         super.mount();
         this._ringAnim.animation.gotoAndStopByFrame('icon_loop',0);
+        this.expandBottom();
       }
 
       public expandBottom(){
         if(env.orientation === 'portrait'){
-          this._wholeMoveGroup.y = -408
+          this._wholeMoveGroup.y = -510
         }else{
           this._wholeMoveGroup.y = -260
         }

@@ -58,8 +58,8 @@ namespace we {
         // (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         (<any>this._resultDisplay).addEventListener('OPEN_SHUFFLE_PANEL', this.showShufflePanel, this);
         this.getShoeInfo();
-        this._bottomGamePanel.addEventListener('TOGGLE', this.toggleBottomGamePanel, this)
-        //this.toggleBottomGamePanel();
+        this._bottomGamePanel.addEventListener('TOGGLE', this.toggleBottomGamePanel, this);
+        
         if(this._navLayer){
           this._navLayer.addChild(dir.monitor.nav);
           dir.monitor.nav.onMoveLayer();

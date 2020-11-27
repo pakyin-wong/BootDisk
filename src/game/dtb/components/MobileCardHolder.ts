@@ -17,6 +17,7 @@ namespace we {
       protected mount(){
         super.mount();
         this._ringAnim.animation.gotoAndStopByFrame('icon_loop',0);
+        this.expandBottom();
       }
 
       protected async setStateBet(isInit: boolean) {
@@ -39,7 +40,7 @@ namespace we {
 
       public expandBottom(){
         if(env.orientation === 'portrait'){
-          this._wholeMoveGroup.y = -408
+          this._wholeMoveGroup.y = -508
         }else{
           this._wholeMoveGroup.y = -260
         }

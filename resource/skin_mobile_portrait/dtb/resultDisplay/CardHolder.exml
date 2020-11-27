@@ -30,5 +30,5 @@
         </e:Group>
         <e:Group x="100" y="100" id="_smallRedCardGroup" />
         <ui:RunTimeLabel x="540" y="150" id="_smallRedCardDesc" i18n="baccarat.redCardDesc"  visible="false"/>
-        <e:Group id="_centerBurnCardGroup" y="700"  x="1000"/>
+        <e:Group id="_centerBurnCardGroup" y="700"  x="1000" visible="false"/>
 </e:Skin>
