@@ -58,7 +58,6 @@ namespace we {
 
         this._display.animation.reset();
         if (env.autoConfirmBet) {
-          this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
           status = this._enabled ? 'idle_switch_to_on' : 'disable_switch_to_on';
         } else {
           status = this._enabled ? 'auto_confirm_idle_to_hover' : 'disable_switch_to_off';
@@ -72,7 +71,7 @@ namespace we {
         if (this._display) {
           switch (env.autoConfirmBet) {
             case true:
-              this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
+              this._display.animation.reset();
               this._display.animation.fadeIn('auto_confirm_idle', 0, 1, 0, 'CONFIRM_GROUP2');
               break;
             case false:
