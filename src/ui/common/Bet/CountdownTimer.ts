@@ -13,6 +13,8 @@ namespace we {
 
       public bg_color: ui.RoundRectShape;
 
+      protected isHover: boolean = false;
+
       public constructor() {
         super();
         // this.once(eui.UIEvent.REMOVED_FROM_STAGE, () => this.stop(), this);
@@ -88,15 +90,30 @@ namespace we {
           remainingTime = 0;
         }
         this.remainingTime = remainingTime;
+        this.changeTextColor();
         // console.log('5000/this.countdownValue', 5000 / this.countdownValue);
         // console.log('progressIndicator.progresds', this.progressIndicator.progress);
-        if (this._colorChange && this.progressIndicator.progress < 5000 / this.countdownValue) {
-          this.countdownLabel.textColor = 0xff0000;
-        } else if (this._colorChange && this.progressIndicator.progress >= 5000 / this.countdownValue) {
-          if (env.isMobile) {
-            this.countdownLabel.textColor = 0x15d688;
-          } else {
-            this.countdownLabel.textColor = 0xffffff;
+
+        // } else if (this._colorChange && this.progressIndicator.progress >= 5000 / this.countdownValue) {
+        //   if (env.isMobile) {
+
+        //     this.countdownLabel.textColor = 0x15d688;
+        //   } else {
+        //     this.countdownLabel.textColor = 0xffffff;
+        //   }
+        // }
+      }
+
+      protected changeTextColor() {
+        if (this.isHover) {
+          this.countdownLabel.textColor = 0xffffff;
+        } else {
+          if (this._colorChange && this.progressIndicator.progress < 5000 / this.countdownValue) {
+            this.countdownLabel.textColor = 0xff0000;
+          } else if (this._colorChange && this.progressIndicator.progress < 10000 / this.countdownValue) {
+            this.countdownLabel.textColor = env.isMobile ? 0x15d688 : 0xEDCD44;
+          } else if (this._colorChange && this.progressIndicator.progress >= 10000 / this.countdownValue) {
+            this.countdownLabel.textColor = env.isMobile ? 0x15d688 : 0x1EE59D;
           }
         }
       }
@@ -117,6 +134,7 @@ namespace we {
           this.removebg_flash();
           egret.Tween.get(this.bg_color, { loop: true }).to({ alpha: 0 }, 200);
         } else {
+          this.isHover = isHover;
           switch (env.autoConfirmBet) {
             case true:
               // in desktop antoConfirm state, confirmBtn bg is always gray in color
