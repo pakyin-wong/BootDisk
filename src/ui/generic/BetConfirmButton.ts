@@ -30,11 +30,12 @@ namespace we {
         this._display.x = 0;
         this._display.y = 0;
         this.addChild(this._display);
+        this.addColorFilter();
       }
 
       public destroy() {
-        super.destroy();
         this.removeEventListeners();
+        super.destroy();
       }
 
       protected addEventListeners() {
@@ -42,8 +43,31 @@ namespace we {
       }
 
       protected removeEventListeners() {
-        dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.switchAutoConfirm, this);
+        if (dir.evtHandler.hasEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET)) {
+          dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.switchAutoConfirm, this);
+        }
       }
+
+      protected addColorFilter() {
+        const slot = this._display.armature.getSlot('blur');
+        const layer: eui.Group = new eui.Group();
+        const bitmap: egret.Bitmap = slot.display as egret.Bitmap;
+        const colorFilter = new egret.ColorMatrixFilter([
+          0, 1, 0, 0, 0,
+          0, 0, 1, 0, 0,
+          1, 0, 0, 0, 0,
+          0, 0, 0, 1, 0]);
+        bitmap.filters = [colorFilter];
+        layer.addChild(bitmap);
+        slot.display = layer;
+      }
+
+      // const bitmap: egret.Bitmap = slot.display as egret.Bitmap;
+      // const group: eui.Group = new eui.Group();
+      // const colorFilter = new egret.ColorMatrixFilter();
+      // bitmap.filters = [colorFilter];
+      // group.addChild(bitmap);
+      // slot.display = group;
 
       public set isBetState(e: boolean) {
         this._isBetState = e;
