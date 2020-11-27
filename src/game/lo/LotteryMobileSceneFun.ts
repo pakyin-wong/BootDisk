@@ -1,7 +1,6 @@
 namespace we {
   export namespace lo {
     export class LotteryMobileSceneFun extends LotterySceneFunBasic {
-
       protected _betTogger: ui.RoundRectButton;
       protected _betContainer: ui.Panel;
 
@@ -26,7 +25,7 @@ namespace we {
         this._betChipSet.setToggler(this._custombetChip);
 
         this.initBet();
-        this.funbet.reset();        
+        this.funbet.reset();
       }
 
       protected destroy() {
@@ -83,7 +82,7 @@ namespace we {
         this._betChipSet.hide();
       }
 
-      protected onCustomBetSelected(e:egret.Event) {
+      protected onCustomBetSelected(e: egret.Event) {
         this._custombetChip.label.text = (e.data * 0.01).toString(10);
         this._custombetChip.alpha = 1;
         this.funbet.bet = e.data;
@@ -91,7 +90,7 @@ namespace we {
 
       protected onBetChipChanged() {
         this._custombetChip.alpha = 0;
-        let denominationList = env.getBetLimitSet('Lottery', env.currentSelectedBetLimitIndex).chips;        
+        const denominationList = env.getBetLimitSet('Lottery', env.currentSelectedBetLimitIndex).chips;
         this.funbet.bet = denominationList[env.currentChipSelectedIndex];
       }
 
@@ -144,7 +143,7 @@ namespace we {
         }
       }
 
-      protected setResultRelatedComponentsEnabled(enable: boolean) { }
+      protected setResultRelatedComponentsEnabled(enable: boolean) {}
 
       protected set betLayerEnabled(enabled: boolean) {
         if (enabled) {

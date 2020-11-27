@@ -102,7 +102,7 @@ namespace we {
 
           this._scroller && (this._scroller.viewport.scrollV = 0);
 
-          const d = this._source = res.data.value;
+          const d = (this._source = res.data.value);
           const betinfo = utils.BetTypeParser.parse(d.gametype, d.field);
 
           this._data_cbetid.text = d.continuousbetid;
@@ -128,7 +128,7 @@ namespace we {
           this._cbetStatus.data = d;
         }
 
-        public get source(){
+        public get source() {
           return this._source;
         }
       }

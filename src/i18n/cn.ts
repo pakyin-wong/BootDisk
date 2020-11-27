@@ -33,6 +33,9 @@ namespace we {
       lobby_no_favourite_text: '没有我的最爱',
       lobby_tag_hint_text: '将你喜爱的游戏标上爱心',
 
+      gameIcon_shuffle: '洗牌中',
+      gameIcon_maintenance: '维护中',
+
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '闲',
       betfield_baccarat_tie: '和',
@@ -101,7 +104,7 @@ namespace we {
       overlaypanel_bethistory_recordtab_finbalance: '余额',
       overlaypanel_bethistory_recordtab_resuit: '游戏结果',
       overlaypanel_bethistory_recordtab_noresult: '没有游戏纪录',
-      overlaypanel_bethistory_recordtab_gameno:'遊戏编号',
+      overlaypanel_bethistory_recordtab_gameno: '遊戏编号',
       overlaypanel_bethistory_recordtab_shoe: '局数',
 
       overlaypanel_bethistory_remark_win: '嬴',
@@ -185,9 +188,8 @@ namespace we {
       overlaypanel_gameSet_autoBet: '自动确认投注',
       overlaypanel_gameSet_sendLiveVerfication: '发送现场验证',
 
-
       expiredmessage_text: '您已3局未投注，将于2局后返回游戏大堂',
-
+      kickoutmessage_text: '您已5局未下注，现在返回游戏大堂',
 
       // customerservicehotlinenumber_text: '客服热线号码更新为＋63 9250898888',
 
@@ -337,6 +339,7 @@ namespace we {
       gamegroup_tab_lottery: '彩票游戏',
       live: {
         tooltip: {
+          waitForNextRound: '开牌中，请等候下一局',
           confirmBet: '确认投注',
           repeat: '重複下注',
           cancel: '取消',
@@ -443,12 +446,15 @@ namespace we {
         tripleLong: '围骰',
         doubleLong: '對子 (雙骰、長牌)',
         combine: '牌九式 (骨牌)',
+        specific: '指定骰子',
         specificSingle: '指定骰子: 单骰',
         specificDouble: '指定骰子: 双骰',
         specificTriple: '指定骰子: 三骰',
 
         betLimitShort: '限红',
         gameId: '编号',
+
+        combines: '組合',
 
         betGroup: {
           color: '红 / 黑',
@@ -577,6 +583,13 @@ namespace we {
       baccarat: {
         tooltip: {
           swapRoadmap: '转换路纸',
+          cardIDHelp: '发牌编号： \n系统会为本靴牌订立发牌编号，发牌次序根据发牌编号的顺序发牌。',
+          encryptedKeyHelp: '提前公布卡牌加密文： \n每靴洗牌后，系统对每张「卡牌序号」进行区块链技术加密并提前公开展示，一\n旦生成即不能更改。 ',
+          mobileEncryptedKeyHelp: '提前公布卡牌加密文： \n每靴洗牌后，系统对每张「卡牌序号」进行区块链技术加密并提前公开展示，一旦生成即不能更改。 ',
+          decryptedKeyHelp: '卡牌加密文： \n开牌后，系统会显示根据「卡牌序号」而生成的「卡牌加密文」，并自动与「提\n前公布卡牌加密文」进行验证。 ',
+          mobileDecryptedKeyHelp: '卡牌加密文： \n开牌后，系统会显示根据「卡牌序号」而生成的「卡牌加密文」，并自动与「提前公布卡牌加密文」进行验证。 ',
+          ssnHelp: '卡牌序号：\n(i)首两位字元为卡牌的「点数」\nA为1点；J为11点；Q为12点；K为13点；其它牌(2、3、 4、5、6、7、8、9)\n依牌面数字面值\n \n(ii)第三位字元为卡牌的「花色」：\nH为红心(Heart)\nD为方块(Diamond)\nS为黑桃(Spade)\nC为梅花(Clubs)\n \n(iii)其后会加入一串「随机字符」，保证序号的唯一性；每次「随机字符」均会\n重新生成，即「本局」黑桃A的「随机字符」与「上局」黑桃A的随机字符不\n同。 \n \n(iv)例子：黑桃A\n「01」代表点数─A\n「C」代表花色─黑桃\n「fhjkssadfhkh32iuhksdhfkjasJC」为随机字符',
+          mobileSsnHelp: '卡牌序号：\n(i)首两位字元为卡牌的「点数」\nA为1点；J为11点；Q为12点；K为13点；其它牌(2、3、 4、5、6、7、8、9)\n依牌面数字面值\n \n(ii)第三位字元为卡牌的「花色」：\nH为红心(Heart)\nD为方块(Diamond)\nS为黑桃(Spade)\nC为梅花(Clubs)\n \n(iii)其后会加入一串「随机字符」，保证序号的唯一性；每次「随机字符」均会重新生成，即「本局」黑桃A的「随机字符」与「上局」黑桃A的随机字符不同。 \n \n(iv)例子：黑桃A\n「01」代表点数─A\n「C」代表花色─黑桃\n「fhjkssadfhkh32iuhksdhfkjasJC」为随机字符',
         },
         statisticChart: {
           bankerPlayerTie: '庄闲和比例 (100局)',
@@ -605,7 +618,7 @@ namespace we {
         betLimitshort: '限红',
         baccarat: '百家樂',
         gameroundid: '遊戏编号',
-        totalbet: '总投注',
+        totalbet: '总下注',
         totalcount: '总数',
         betSuccess: '下注成功',
         betFail: '下注失败',
@@ -622,7 +635,7 @@ namespace we {
         statType100: '100局',
         statTypeShoe: '本靴',
         BankerPlayerRatio: '庄闲和比例',
-        PairRatio: '庄对闲对比例',
+        PairRatio: '庄闲和比例',
         round: '局',
         rounds: '局',
         playersqueeze: '咪牌中',
@@ -638,15 +651,15 @@ namespace we {
         sha256VerifySuccess: 'SHA256已验证',
         sha256VerifyFail: 'SHA256验证失败',
         deckDesc:
-        '完整牌靴共由8副扑克牌组成，合计416张。首局开始前，系统会在完整牌靴中随机插入红牌，发牌至红卡时，代表该局游戏结束后将进行换靴。洗牌后，将重新生成「卡牌序号」及「卡牌加密文」，确保游戏的真确性。 ',
+          '完整牌靴共由8副扑克牌组成，合计416张。首局开始前，系统会在完整牌靴中随机插入红牌，发牌至红卡时，代表该局游戏结束后将进行换靴。洗牌后，将重新生成「卡牌序号」及「卡牌加密文」，确保游戏的真确性。 ',
         copy: '复制',
         encryptedKey: '提前公布卡牌加密文',
         decryptedKey: '卡牌加密文',
         ssn: '卡牌序号',
         lastRound: '上局结果',
         redCardDesc: '红卡：该局游戏结束后进行换靴',
-        announceAfterDisclose:'将于开牌后公布...',
-        cardUsed: '牌靴: 已使用$1张'
+        announceAfterDisclose: '将于开牌后公布...',
+        cardUsed: '牌靴: 已使用$1张',
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',
@@ -656,6 +669,7 @@ namespace we {
         retry: '重试',
         cancel: '取消',
         urlcopied:'第三方验证网站已复制',
+        keycopied:'已复制',
       },
       error: {
         error_1001: '用户於其他装置上登录',
@@ -751,9 +765,11 @@ namespace we {
       lo_fun_overlay_betPrefix: '娱乐｜',
 
       lo_fun_betlayer_info: '中奖说明',
-      lo_fun_betlayer_info_fun: '大小单双：\n从万位、千位、百位、十位、个位任意位置上至少选择1 个以上形态，所选号码的位置、形态与开奖号码的位置、形态相同，即为中奖\n前三| 中三| 后三：\n所选的号码特殊属性和开奖号码前三的属性一致，即为中奖1、豹子号指的是三位数字全部相同2、顺子号指的是三位数字呈现连号状态（ 09 也属于连号）（ 顺序不限）（ 出现两个相同号即为对子， 不算半顺）（ 出现三个号码呈现连号状态为顺子号， 不算半顺号）3、对子号指的是三位数字中有任两码为相同号（ 出现三个相同号为豹子号， 不算对子号）4、半顺号指的是三位数字中，有两个号码呈现连号状态（ 09 也属于连号）（ 顺序不限）5、杂六号指的是三位数字中， 状态非豹子号、 顺子号、 对子号、 半顺号，即为杂六\n总和：\n从总和大、小、单、双中任意选择1 个号码形态组成一注，只要所选形态与开奖号码的5 位数号码总和（大于等于23：总和大、小于等于22：总和小、单数：总和单、双数：总和双）形态相同，即为中奖',
+      lo_fun_betlayer_info_fun:
+        '大小单双：\n从万位、千位、百位、十位、个位任意位置上至少选择1 个以上形态，所选号码的位置、形态与开奖号码的位置、形态相同，即为中奖\n前三| 中三| 后三：\n所选的号码特殊属性和开奖号码前三的属性一致，即为中奖1、豹子号指的是三位数字全部相同2、顺子号指的是三位数字呈现连号状态（ 09 也属于连号）（ 顺序不限）（ 出现两个相同号即为对子， 不算半顺）（ 出现三个号码呈现连号状态为顺子号， 不算半顺号）3、对子号指的是三位数字中有任两码为相同号（ 出现三个相同号为豹子号， 不算对子号）4、半顺号指的是三位数字中，有两个号码呈现连号状态（ 09 也属于连号）（ 顺序不限）5、杂六号指的是三位数字中， 状态非豹子号、 顺子号、 对子号、 半顺号，即为杂六\n总和：\n从总和大、小、单、双中任意选择1 个号码形态组成一注，只要所选形态与开奖号码的5 位数号码总和（大于等于23：总和大、小于等于22：总和小、单数：总和单、双数：总和双）形态相同，即为中奖',
       lo_fun_betlayer_info_num: '数字玩法：\n从万位、千位、百位、十位、个位任意位置上至少选择1 个或以上的号码，所选号码与相同位置上的开奖号码一致，即为中奖',
-      lo_fun_betlayer_info_dt: '龙虎和：\n从龙、虎、和中任意选择1 个号码形态组成一注，只要开奖号码的万位大于个位，则为龙；万位小于个位，则为虎；相同号码则为和，若下注龙或虎，开奖结果为和时视为未中奖，且不返回本金',
+      lo_fun_betlayer_info_dt:
+        '龙虎和：\n从龙、虎、和中任意选择1 个号码形态组成一注，只要开奖号码的万位大于个位，则为龙；万位小于个位，则为虎；相同号码则为和，若下注龙或虎，开奖结果为和时视为未中奖，且不返回本金',
       lo_fun_betlayer_info_five1: '全五中一：\n从0 - 9 中选择1 个号码，每注由1 个号码组成，开奖号码的万位、千位、百位、十位、个位中同时包含所选的1 个号码，即为中奖',
 
       lo_fun_betlayer_tab_fun: '娱乐',
@@ -1018,7 +1034,7 @@ namespace we {
             DirectionSelection: '所选号码与开奖号码全部相同且顺序一致，即中奖',
             DirectMenu: '所选号码与开奖号码全部相同且顺序一致，即中奖',
             DirectCombination:
-            '所选号码的个位与开奖号码相同则中五等奖，十位和个位相同\n则中四等奖，百位、十位和个位相同则中三等奖，千位、百\n位、十位和个位相同则中二等奖，万位、千位、百位、十位和\n个位相同则中一等奖',
+              '所选号码的个位与开奖号码相同则中五等奖，十位和个位相同\n则中四等奖，百位、十位和个位相同则中三等奖，千位、百\n位、十位和个位相同则中二等奖，万位、千位、百位、十位和\n个位相同则中一等奖',
             Group120: '所选号码与开奖号码的万位、千位、百位、十位、个位相同且\n顺序不限，即中奖',
             Group60: '所选的单号号码与开奖号码相同，且所选二重号在开奖号码中\n出现2次且顺序不限，即中奖',
             Group30: '所选的单号号码与开奖号码相同，且所选2个二重号码分别在开\n奖号码中出现了2次且顺序不限，即中奖',
@@ -1236,7 +1252,7 @@ namespace we {
           totalnotechosen: '已选：',
           totalbetchosen: '共计：',
           addbetfields: '加入购物篮',
-          instantbet: '立即购买'
+          instantbet: '立即购买',
         },
         mobile_betcontrol: {
           currentroundtitle: '订单起始奖期号：',

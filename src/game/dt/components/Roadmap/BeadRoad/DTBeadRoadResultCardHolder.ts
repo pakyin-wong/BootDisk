@@ -16,8 +16,8 @@ namespace we {
         this.playerSum.text = gameData.playerpoint >= 0 ? gameData.playerpoint.toString() : '';
         this.bankerSum.text = gameData.bankerpoint >= 0 ? gameData.bankerpoint.toString() : '';
 
-        this.card1Player.setCard(utils.formatCard(gameData.b1))
-        this.card1Banker.setCard(utils.formatCard(gameData.a1))
+        this.card1Player.setCard(utils.formatCard(gameData.b1));
+        this.card1Banker.setCard(utils.formatCard(gameData.a1));
 
         this.card2Banker.visible = false;
         this.card3Banker.visible = false;
@@ -26,7 +26,6 @@ namespace we {
         this.card2Player.visible = false;
         this.card3Player.visible = false;
         this.playerSumGroup.x = -48;
-
       }
     }
   }

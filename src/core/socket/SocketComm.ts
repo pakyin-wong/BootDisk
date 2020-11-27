@@ -1,5 +1,5 @@
 namespace we {
-	export namespace core {
+export namespace core {
 		export class SocketComm implements ISocket {
 			private client: PlayerClient;
 
@@ -137,7 +137,6 @@ namespace we {
 			protected async asyncUpdateCustomGoodRoad(id: string, data: any) {
 				return new Promise((resolve, reject) => {
 					function callback(data) {
-						// console.log('asyncUpdateCustomGoodRoad', data);
 						resolve();
 					}
 					this.client.updateCustomRoadmap(id, data, callback);
@@ -147,7 +146,6 @@ namespace we {
 			protected async asyncUpdateDefaultGoodRoad(ids: string[]) {
 				return new Promise((resolve, reject) => {
 					function callback(data) {
-						// console.log('asyncUpdateDefaultGoodRoad', data);
 						resolve();
 					}
 					this.client.updateDefaultRoadmap(ids, callback);
@@ -165,7 +163,6 @@ namespace we {
 					this.client.updateDefaultRoadmap(updatedefaultItem, this.warpServerCallback(this._goodRoadUpdateCallback));
 				} else if (updatecustomItem.length > 0) {
 					// if custom goodroad exist
-					// console.log('await this.asyncUpdateDefaultGoodRoad(updatedefaultItem);', updatedefaultItem);
 					await this.asyncUpdateDefaultGoodRoad(updatedefaultItem);
 					if (updatecustomItem.length === 1) {
 						this.client.updateCustomRoadmap(updatecustomItem[0][0], updatecustomItem[0][1], this.warpServerCallback(this._goodRoadUpdateCallback));
@@ -173,10 +170,8 @@ namespace we {
 						for (let i = 0; i < updatecustomItem.length; i++) {
 							// if more than one, call update custom goodroad in the last loop
 							if (i === updatecustomItem.length - 1) {
-								// console.log('last', [i, updatecustomItem[i][0], updatecustomItem[i][1]]);
 								await this.client.updateCustomRoadmap(updatecustomItem[i][0], updatecustomItem[i][1], this.warpServerCallback(this._goodRoadUpdateCallback));
 							} else {
-								// console.log('wait ', [i, updatecustomItem[i][0], updatecustomItem[i][1]]);
 								await this.asyncUpdateCustomGoodRoad(updatecustomItem[i][0], updatecustomItem[i][1]);
 							}
 						}
@@ -440,7 +435,6 @@ namespace we {
           });
         env.wholeDenomList = denominationList;
         */
-
 				env.mode = player.profile.settings.mode ? Math.round(player.profile.settings.mode) : -1;
 				if (player.profile.categoryorders) {
 					env.categorySortOrder = player.profile.categoryorders;
@@ -574,7 +568,7 @@ namespace we {
 				gameStatus.previousstate = tableInfo.data ? tableInfo.data.state : null;
 				gameStatus.starttime = Math.floor(gameStatus.starttime / 1000000);
 				if(gameStatus.peekstarttime){
-					gameStatus.peekstarttime = Math.floor(gameStatus.peekstarttime / 1000000);
+					gameStatus.peekstarttime = Math.floor(gameStatus.peekstarttime );
 					console.log('peekstarttime xxx', gameStatus.tableid, gameStatus.gameroundid,  gameStatus.peekstarttime , gameStatus.starttime)
 				}
         /*
@@ -582,96 +576,96 @@ namespace we {
           console.log('BAB tableid ' + tableInfo.tableid + ':' + tableInfo.data)
         }
 		*/
-				if (tableInfo.roundid !== gameStatus.gameroundid) {
-					tableInfo.prevroundid = tableInfo.roundid;
-					tableInfo.roundid = gameStatus.gameroundid;
-				}
-				tableInfo.data = gameStatus;
+        if (tableInfo.roundid !== gameStatus.gameroundid) {
+          tableInfo.prevroundid = tableInfo.roundid;
+          tableInfo.roundid = gameStatus.gameroundid;
+        }
+        tableInfo.data = gameStatus;
 
-				logger.l(utils.LogTarget.DEBUG, `Table ${gameStatus.tableid} data updated`, tableInfo.data);
+        logger.l(utils.LogTarget.DEBUG, `Table ${gameStatus.tableid} data updated`, tableInfo.data);
 
-				this.localActions(tableInfo);
-				dir.evtHandler.dispatch(core.Event.TABLE_INFO_UPDATE, tableInfo);
-				// check if the tableInfo display ready change from false to true
-				const isJustReady: boolean = env.validateTableInfoDisplayReady(gameStatus.tableid);
-				// if true, check if the corresponding tableid is presented in allTableList, goodRoadTableList or betTableList
-				// dispatch corresponding event of true (i.e. dispatch TABLE_LIST_UPDATE if it is in allTableList, dispatch GOOD_ROAD_TABLE_LIST_UPDATE if it is in goodRoadTableList)
-				if (isJustReady) {
-					this.checkAndDispatch(gameStatus.tableid);
-				}
+        this.localActions(tableInfo);
+        dir.evtHandler.dispatch(core.Event.TABLE_INFO_UPDATE, tableInfo);
+        // check if the tableInfo display ready change from false to true
+        const isJustReady: boolean = env.validateTableInfoDisplayReady(gameStatus.tableid);
+        // if true, check if the corresponding tableid is presented in allTableList, goodRoadTableList or betTableList
+        // dispatch corresponding event of true (i.e. dispatch TABLE_LIST_UPDATE if it is in allTableList, dispatch GOOD_ROAD_TABLE_LIST_UPDATE if it is in goodRoadTableList)
+        if (isJustReady) {
+          this.checkAndDispatch(gameStatus.tableid);
+        }
 
-				// if (!env.tableInfos) {
-				//   return;
-				// }
-				// const e = env;
-				// const tableInfo: data.TableInfo = env.tableInfos[gameStatus.tableid];
-				// if (tableInfo) {
-				//   gameStatus.previousstate = tableInfo.data ? tableInfo.state : null;
-				//   tableInfo.data = gameStatus;
-				//   this.localActions(tableInfo);
-				//   this.dispatchListUpdateEvent();
-				//   dir.evtHandler.dispatch(core.Event.TABLE_INFO_UPDATE, tableInfo);
-				// } else {
-				//   const tableInfo: data.TableInfo = new data.TableInfo();
-				//   tableInfo.tableid = gameStatus.tableid;
-				//   tableInfo.data = gameStatus;
-				//   env.addTableInfo(tableInfo);
-				// }
-			}
+        // if (!env.tableInfos) {
+        //   return;
+        // }
+        // const e = env;
+        // const tableInfo: data.TableInfo = env.tableInfos[gameStatus.tableid];
+        // if (tableInfo) {
+        //   gameStatus.previousstate = tableInfo.data ? tableInfo.state : null;
+        //   tableInfo.data = gameStatus;
+        //   this.localActions(tableInfo);
+        //   this.dispatchListUpdateEvent();
+        //   dir.evtHandler.dispatch(core.Event.TABLE_INFO_UPDATE, tableInfo);
+        // } else {
+        //   const tableInfo: data.TableInfo = new data.TableInfo();
+        //   tableInfo.tableid = gameStatus.tableid;
+        //   tableInfo.data = gameStatus;
+        //   env.addTableInfo(tableInfo);
+        // }
+      }
 
-			protected localActions(tableInfo: data.TableInfo) {
-				if (tableInfo.data) {
-					const data: data.GameData = tableInfo.data as data.GameData;
-					if (data.state === core.GameState.BET && data.previousstate !== core.GameState.BET) {
-						// reset the betDetails
-						tableInfo.bets = null;
-						tableInfo.totalWin = NaN;
-						tableInfo.totalBet = 0;
-						dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, tableInfo.bets);
+      protected localActions(tableInfo: data.TableInfo) {
+        if (tableInfo.data) {
+          const data: data.GameData = tableInfo.data as data.GameData;
+          if (data.state === core.GameState.BET && data.previousstate !== core.GameState.BET) {
+            // reset the betDetails
+            tableInfo.bets = null;
+            tableInfo.totalWin = NaN;
+            tableInfo.totalBet = 0;
+            dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, tableInfo.bets);
 
-						// check good road notification
-						if (env.showGoodRoadHint && tableInfo.displayReady && tableInfo.goodRoad && !tableInfo.goodRoad.alreadyShown) {
-							tableInfo.goodRoad.alreadyShown = true;
-							const data = {
-								tableid: tableInfo.tableid,
-							};
-							const notification: data.Notification = {
-								type: core.NotificationType.GoodRoad,
-								data,
-							};
-							dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
-						}
-					}
-					if (data.state !== core.GameState.IDLE && data.state !== core.GameState.BET && data.state !== core.GameState.SHUFFLE) {
-						if (tableInfo.bets !== null) {
-							tableInfo.prevbets = tableInfo.bets;
-							tableInfo.prevbetsroundid = tableInfo.roundid;
-						}
-					}
-					if (data.state === core.GameState.FINISH) {
-						this.checkResultNotificationReady(tableInfo);
-					}
+            // check good road notification
+            if (env.showGoodRoadHint && tableInfo.displayReady && tableInfo.goodRoad && !tableInfo.goodRoad.alreadyShown) {
+              tableInfo.goodRoad.alreadyShown = true;
+              const data = {
+                tableid: tableInfo.tableid,
+              };
+              const notification: data.Notification = {
+                type: core.NotificationType.GoodRoad,
+                data,
+              };
+              dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+            }
+          }
+          if (data.state !== core.GameState.IDLE && data.state !== core.GameState.BET && data.state !== core.GameState.SHUFFLE) {
+            if (tableInfo.bets !== null) {
+              tableInfo.prevbets = tableInfo.bets;
+              tableInfo.prevbetsroundid = tableInfo.roundid;
+            }
+          }
+          if (data.state === core.GameState.FINISH) {
+            this.checkResultNotificationReady(tableInfo);
+          }
 
-					// switch (tableInfo.gametype) {
-					//   case core.GameType.BAC:
-					//   case core.GameType.BAS:
-					//     break;
-					//   case core.GameType.DT:
+          // switch (tableInfo.gametype) {
+          //   case core.GameType.BAC:
+          //   case core.GameType.BAS:
+          //     break;
+          //   case core.GameType.DT:
 
-					//     break;
-					//   default:
-					//     break;
-					// }
-				}
-			}
+          //     break;
+          //   default:
+          //     break;
+          // }
+        }
+      }
 
-			protected onGameStatisticUpdate(gameStatistic: any, timestamp: string) {
-				this.updateTimestamp(timestamp);
-				const tableid = gameStatistic.tableid;
-				delete gameStatistic.tableid;
+      protected onGameStatisticUpdate(gameStatistic: any, timestamp: string) {
+        this.updateTimestamp(timestamp);
+        const tableid = gameStatistic.tableid;
+        delete gameStatistic.tableid;
 
-				// update gameStatus of corresponding tableInfo object in env.tableInfoArray
-				const tableInfo = env.getOrCreateTableInfo(tableid);
+        // update gameStatus of corresponding tableInfo object in env.tableInfoArray
+        const tableInfo = env.getOrCreateTableInfo(tableid);
 
         /*
         if (gameStatistic) {
@@ -683,553 +677,553 @@ namespace we {
         }
         */
 
-				function getStatistic(field: string) {
-					if (!gameStatistic || !gameStatistic.statistic) {
-						return 0;
-					}
-					return gameStatistic.statistic[field] ? gameStatistic.statistic[field] : 0;
-				}
+        function getStatistic(field: string) {
+          if (!gameStatistic || !gameStatistic.statistic) {
+            return 0;
+          }
+          return gameStatistic.statistic[field] ? gameStatistic.statistic[field] : 0;
+        }
 
-				switch (gameStatistic.gametype) {
-					case core.GameType.BAM:
-					case core.GameType.BAC:
-					case core.GameType.BAI:
-					case core.GameType.BAS:
-					case core.GameType.BAB:
-					case core.GameType.BAMB:
-					case core.GameType.DTB:
-					case core.GameType.DT: {
-						// const roadmapData = parseAscString(gameStatistic.roadmapdata);
-						const roadmapData = gameStatistic.roadmapdata;
-						const bankerCount: number = getStatistic('bankerwincount');
-						const playerCount: number = getStatistic('playerwincount');
-						const tieCount: number = getStatistic('tiewincount');
-						const playerPairCount: number = getStatistic('playerpairwincount');
-						const bankerPairCount: number = getStatistic('bankerpairwincount');
-						const totalCount: number = bankerCount + playerCount + tieCount;
-						const shoeBankerPairCount: number = getStatistic('shoebankerpairwincount');
-						const shoeBankerCount: number = getStatistic('shoebankerwincount');
-						const shoePlayerPairCount: number = getStatistic('shoeplayerpairwincount');
-						const shoePlayerCount: number = getStatistic('shoeplayerwincount');
-						const shoeTieCount: number = getStatistic('shoetiewincount');
-						const shoeTotalCount: number = shoeBankerCount + shoePlayerCount + shoeTieCount;
+        switch (gameStatistic.gametype) {
+          case core.GameType.BAM:
+          case core.GameType.BAC:
+          case core.GameType.BAI:
+          case core.GameType.BAS:
+          case core.GameType.BAB:
+          case core.GameType.BAMB:
+          case core.GameType.DTB:
+          case core.GameType.DT: {
+            // const roadmapData = parseAscString(gameStatistic.roadmapdata);
+            const roadmapData = gameStatistic.roadmapdata;
+            const bankerCount: number = getStatistic('bankerwincount');
+            const playerCount: number = getStatistic('playerwincount');
+            const tieCount: number = getStatistic('tiewincount');
+            const playerPairCount: number = getStatistic('playerpairwincount');
+            const bankerPairCount: number = getStatistic('bankerpairwincount');
+            const totalCount: number = bankerCount + playerCount + tieCount;
+            const shoeBankerPairCount: number = getStatistic('shoebankerpairwincount');
+            const shoeBankerCount: number = getStatistic('shoebankerwincount');
+            const shoePlayerPairCount: number = getStatistic('shoeplayerpairwincount');
+            const shoePlayerCount: number = getStatistic('shoeplayerwincount');
+            const shoeTieCount: number = getStatistic('shoetiewincount');
+            const shoeTotalCount: number = shoeBankerCount + shoePlayerCount + shoeTieCount;
 
-						tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(roadmapData);
+            tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(roadmapData);
 
-						const stats = new we.data.GameStatistic();
-						stats.bankerCount = bankerCount;
-						stats.playerCount = playerCount;
-						stats.tieCount = tieCount;
-						stats.playerPairCount = playerPairCount;
-						stats.bankerPairCount = bankerPairCount;
-						stats.totalCount = totalCount;
-						stats.shoeTieCount = shoeTieCount;
-						stats.shoePlayerPairCount = shoePlayerPairCount;
-						stats.shoePlayerCount = shoePlayerCount;
-						stats.shoeBankerPairCount = shoeBankerPairCount;
-						stats.shoeBankerCount = shoeBankerCount;
-						stats.shoeTotalCount = shoeTotalCount;
+            const stats = new we.data.GameStatistic();
+            stats.bankerCount = bankerCount;
+            stats.playerCount = playerCount;
+            stats.tieCount = tieCount;
+            stats.playerPairCount = playerPairCount;
+            stats.bankerPairCount = bankerPairCount;
+            stats.totalCount = totalCount;
+            stats.shoeTieCount = shoeTieCount;
+            stats.shoePlayerPairCount = shoePlayerPairCount;
+            stats.shoePlayerCount = shoePlayerCount;
+            stats.shoeBankerPairCount = shoeBankerPairCount;
+            stats.shoeBankerCount = shoeBankerCount;
+            stats.shoeTotalCount = shoeTotalCount;
 
-						tableInfo.gamestatistic = stats;
-						break;
-					}
-					case core.GameType.ROL:
-					case core.GameType.RO: {
-						gameStatistic.tableID = tableid;
-						gameStatistic.shoeID = gameStatistic.shoeid;
+            tableInfo.gamestatistic = stats;
+            break;
+          }
+          case core.GameType.ROL:
+          case core.GameType.RO: {
+            gameStatistic.tableID = tableid;
+            gameStatistic.shoeID = gameStatistic.shoeid;
 
-						// add the odds from gameInfo to bead for ROL
-						gameStatistic.roadmapdata.inGame.bead.forEach(e1 => {
-							const gameRoundID1 = e1.gameRoundID;
-							const info = gameStatistic.roadmapdata.gameInfo[gameRoundID1];
-							if (info !== undefined) {
-								if (info.odds !== undefined) {
-									e1.odds = info.odds;
-								}
-							}
-						});
+            // add the odds from gameInfo to bead for ROL
+            gameStatistic.roadmapdata.inGame.bead.forEach(e1 => {
+              const gameRoundID1 = e1.gameRoundID;
+              const info = gameStatistic.roadmapdata.gameInfo[gameRoundID1];
+              if (info !== undefined) {
+                if (info.odds !== undefined) {
+                  e1.odds = info.odds;
+                }
+              }
+            });
 
-						tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
+            tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
 
-						const stats = new we.data.GameStatistic();
-						stats.coldNumbers = getStatistic('cold');
-						stats.hotNumbers = getStatistic('hot');
-						stats.roOdd = getStatistic('odd');
-						stats.roRed = getStatistic('red');
-						stats.roSmall = getStatistic('small');
-						stats.roShoeOdd = getStatistic('shoeodd');
-						stats.roShoeRed = getStatistic('shoered');
-						stats.roShoeSmall = getStatistic('shoesmall');
-						tableInfo.gamestatistic = stats;
+            const stats = new we.data.GameStatistic();
+            stats.coldNumbers = getStatistic('cold');
+            stats.hotNumbers = getStatistic('hot');
+            stats.roOdd = getStatistic('odd');
+            stats.roRed = getStatistic('red');
+            stats.roSmall = getStatistic('small');
+            stats.roShoeOdd = getStatistic('shoeodd');
+            stats.roShoeRed = getStatistic('shoered');
+            stats.roShoeSmall = getStatistic('shoesmall');
+            tableInfo.gamestatistic = stats;
 
-						break;
-					}
-					case core.GameType.DI: {
-						gameStatistic.tableID = tableid;
-						gameStatistic.shoeID = gameStatistic.shoeid;
-						tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
+            break;
+          }
+          case core.GameType.DI: {
+            gameStatistic.tableID = tableid;
+            gameStatistic.shoeID = gameStatistic.shoeid;
+            tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
 
-						const stats = new we.data.GameStatistic();
-						stats.coldNumbers = getStatistic('cold');
-						stats.hotNumbers = getStatistic('hot');
-						stats.diOdd = getStatistic('odd');
-						stats.diSize = getStatistic('size');
-						stats.points = getStatistic('points');
-						tableInfo.gamestatistic = stats;
-						break;
-					}
-					case core.GameType.DIL: {
-						gameStatistic.roadmapdata.inGame.bead.forEach(e1 => {
-							e1.v = e1.dice[0] + e1.dice[1] + e1.dice[2];
+            const stats = new we.data.GameStatistic();
+            stats.coldNumbers = getStatistic('cold');
+            stats.hotNumbers = getStatistic('hot');
+            stats.diOdd = getStatistic('odd');
+            stats.diSize = getStatistic('size');
+            stats.points = getStatistic('points');
+            tableInfo.gamestatistic = stats;
+            break;
+          }
+          case core.GameType.DIL: {
+            gameStatistic.roadmapdata.inGame.bead.forEach(e1 => {
+              e1.v = e1.dice[0] + e1.dice[1] + e1.dice[2];
 
-							const gameRoundID1 = e1.gameRoundID;
-							const info = gameStatistic.roadmapdata.gameInfo[gameRoundID1];
-							if (info !== undefined) {
-								if (info.odds !== undefined) {
-									e1.odds = info.odds;
-								}
-							}
-						});
+              const gameRoundID1 = e1.gameRoundID;
+              const info = gameStatistic.roadmapdata.gameInfo[gameRoundID1];
+              if (info !== undefined) {
+                if (info.odds !== undefined) {
+                  e1.odds = info.odds;
+                }
+              }
+            });
 
-						gameStatistic.tableID = tableid;
-						gameStatistic.shoeID = gameStatistic.shoeid;
-						tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
+            gameStatistic.tableID = tableid;
+            gameStatistic.shoeID = gameStatistic.shoeid;
+            tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
 
-						const stats = new we.data.GameStatistic();
-						stats.coldNumbers = getStatistic('cold');
-						stats.hotNumbers = getStatistic('hot');
-						stats.diOdd = getStatistic('odd');
-						stats.diSize = getStatistic('size');
-						stats.points = getStatistic('points');
-						stats.dilHistory = getStatistic('history');
-						tableInfo.gamestatistic = stats;
-						break;
-					}
-					case core.GameType.LW: {
-						gameStatistic.tableID = tableid;
-						gameStatistic.shoeID = gameStatistic.shoeid;
-						tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
+            const stats = new we.data.GameStatistic();
+            stats.coldNumbers = getStatistic('cold');
+            stats.hotNumbers = getStatistic('hot');
+            stats.diOdd = getStatistic('odd');
+            stats.diSize = getStatistic('size');
+            stats.points = getStatistic('points');
+            stats.dilHistory = getStatistic('history');
+            tableInfo.gamestatistic = stats;
+            break;
+          }
+          case core.GameType.LW: {
+            gameStatistic.tableID = tableid;
+            gameStatistic.shoeID = gameStatistic.shoeid;
+            tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
 
-						const stats = new we.data.GameStatistic();
-						stats.totalCount = getStatistic('totalCount');
-						tableInfo.gamestatistic = stats;
-						break;
-					}
-					case core.GameType.RC:
-					case core.GameType.LO: {
-						gameStatistic.tableID = tableid;
-						gameStatistic.shoeID = gameStatistic.shoeid;
-						tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
+            const stats = new we.data.GameStatistic();
+            stats.totalCount = getStatistic('totalCount');
+            tableInfo.gamestatistic = stats;
+            break;
+          }
+          case core.GameType.RC:
+          case core.GameType.LO: {
+            gameStatistic.tableID = tableid;
+            gameStatistic.shoeID = gameStatistic.shoeid;
+            tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
 
-						const stats = new we.data.GameStatistic();
-						stats.roundId = gameStatistic.roundnumber;
-						stats.loHistory = gameStatistic.lohistory;
-						stats.loChart = this.mockLoRoadData.loChart; // gameStatistic.lochart;
-						stats.loresults = gameStatistic.loresults;
-						tableInfo.gamestatistic = stats;
-						break;
-					}
-					default: {
-						// gameStatistic.tableID = tableid;
-						// gameStatistic.shoeID = gameStatistic.shoeid;
-						// const stats = new we.data.GameStatistic();
-						// stats.totalCount = getStatistic('totalCount');
-						// tableInfo.gamestatistic = stats;
-					}
-				}
-				logger.l(utils.LogTarget.DEBUG, `Table ${tableid} statistic and roadmap data updated`, tableInfo.gamestatistic, tableInfo.roadmap);
+            const stats = new we.data.GameStatistic();
+            stats.roundId = gameStatistic.roundnumber;
+            stats.loHistory = gameStatistic.lohistory;
+            stats.loChart = this.mockLoRoadData.loChart; // gameStatistic.lochart;
+            stats.loresults = gameStatistic.loresults;
+            tableInfo.gamestatistic = stats;
+            break;
+          }
+          default: {
+            // gameStatistic.tableID = tableid;
+            // gameStatistic.shoeID = gameStatistic.shoeid;
+            // const stats = new we.data.GameStatistic();
+            // stats.totalCount = getStatistic('totalCount');
+            // tableInfo.gamestatistic = stats;
+          }
+        }
+        logger.l(utils.LogTarget.DEBUG, `Table ${tableid} statistic and roadmap data updated`, tableInfo.gamestatistic, tableInfo.roadmap);
 
-				dir.evtHandler.dispatch(core.Event.ROADMAP_UPDATE, tableInfo);
+        dir.evtHandler.dispatch(core.Event.ROADMAP_UPDATE, tableInfo);
 
-				// check if the tableInfo display ready change from false to true
-				const isJustReady: boolean = env.validateTableInfoDisplayReady(tableid);
-				// if true, check if the corresponding tableid is presented in allTableList, goodRoadTableList or betTableList
-				// dispatch corresponding event of true (i.e. dispatch TABLE_LIST_UPDATE if it is in allTableList, dispatch GOOD_ROAD_TABLE_LIST_UPDATE if it is in goodRoadTableList)
-				if (isJustReady) {
-					this.checkAndDispatch(tableid);
-				}
+        // check if the tableInfo display ready change from false to true
+        const isJustReady: boolean = env.validateTableInfoDisplayReady(tableid);
+        // if true, check if the corresponding tableid is presented in allTableList, goodRoadTableList or betTableList
+        // dispatch corresponding event of true (i.e. dispatch TABLE_LIST_UPDATE if it is in allTableList, dispatch GOOD_ROAD_TABLE_LIST_UPDATE if it is in goodRoadTableList)
+        if (isJustReady) {
+          this.checkAndDispatch(tableid);
+        }
 
-				// const tableid = gameStatistic.tableid;
-				// delete gameStatistic.tableid;
+        // const tableid = gameStatistic.tableid;
+        // delete gameStatistic.tableid;
 
-				// // workaround 1-1-1
-				// if (!env.tableInfos) {
-				//   return;
-				// }
+        // // workaround 1-1-1
+        // if (!env.tableInfos) {
+        //   return;
+        // }
 
-				// const tableInfo: data.TableInfo = env.tableInfos[tableid];
-				// const roadmapData = this.getRoadMapData(gameStatistic);
+        // const tableInfo: data.TableInfo = env.tableInfos[tableid];
+        // const roadmapData = this.getRoadMapData(gameStatistic);
 
-				// let bankerCount: number = 0;
-				// let playerCount: number = 0;
-				// let tieCount: number = 0;
-				// let playerPairCount: number = 0;
-				// let bankerPairCount: number = 0;
+        // let bankerCount: number = 0;
+        // let playerCount: number = 0;
+        // let tieCount: number = 0;
+        // let playerPairCount: number = 0;
+        // let bankerPairCount: number = 0;
 
-				// roadmapData.bead.forEach(item => {
-				//   if (item.v === 'b') {
-				//     bankerCount++;
-				//   } else if (item.v === 'p') {
-				//     playerCount++;
-				//   } else if (item.v === 't') {
-				//     tieCount++;
-				//   }
-				//   if (item.b > 0) {
-				//     bankerPairCount++;
-				//   }
-				//   if (item.p > 0) {
-				//     playerPairCount++;
-				//   }
-				// });
+        // roadmapData.bead.forEach(item => {
+        //   if (item.v === 'b') {
+        //     bankerCount++;
+        //   } else if (item.v === 'p') {
+        //     playerCount++;
+        //   } else if (item.v === 't') {
+        //     tieCount++;
+        //   }
+        //   if (item.b > 0) {
+        //     bankerPairCount++;
+        //   }
+        //   if (item.p > 0) {
+        //     playerPairCount++;
+        //   }
+        // });
 
-				// const totalCount: number = bankerCount + playerCount + tieCount;
+        // const totalCount: number = bankerCount + playerCount + tieCount;
 
-				// if (tableInfo) {
-				//   tableInfo.roadmap = roadmapData;
+        // if (tableInfo) {
+        //   tableInfo.roadmap = roadmapData;
 
-				//   const stats = new we.data.GameStatistic();
-				//   stats.bankerCount = bankerCount;
-				//   stats.playerCount = playerCount;
-				//   stats.tieCount = tieCount;
-				//   stats.playerPairCount = playerPairCount;
-				//   stats.bankerPairCount = bankerPairCount;
-				//   stats.totalCount = totalCount;
+        //   const stats = new we.data.GameStatistic();
+        //   stats.bankerCount = bankerCount;
+        //   stats.playerCount = playerCount;
+        //   stats.tieCount = tieCount;
+        //   stats.playerPairCount = playerPairCount;
+        //   stats.bankerPairCount = bankerPairCount;
+        //   stats.totalCount = totalCount;
 
-				//   tableInfo.gamestatistic = stats;
-				//   this.dispatchListUpdateEvent();
-				//   dir.evtHandler.dispatch(core.Event.ROADMAP_UPDATE, tableInfo);
-				// } else {
-				//   const tableInfo: data.TableInfo = new data.TableInfo();
+        //   tableInfo.gamestatistic = stats;
+        //   this.dispatchListUpdateEvent();
+        //   dir.evtHandler.dispatch(core.Event.ROADMAP_UPDATE, tableInfo);
+        // } else {
+        //   const tableInfo: data.TableInfo = new data.TableInfo();
 
-				//   const stats = new we.data.GameStatistic();
-				//   stats.bankerCount = bankerCount;
-				//   stats.playerCount = playerCount;
-				//   stats.tieCount = tieCount;
-				//   stats.playerPairCount = playerPairCount;
-				//   stats.bankerPairCount = bankerPairCount;
-				//   stats.totalCount = totalCount;
-				//   tableInfo.gamestatistic = stats;
+        //   const stats = new we.data.GameStatistic();
+        //   stats.bankerCount = bankerCount;
+        //   stats.playerCount = playerCount;
+        //   stats.tieCount = tieCount;
+        //   stats.playerPairCount = playerPairCount;
+        //   stats.bankerPairCount = bankerPairCount;
+        //   stats.totalCount = totalCount;
+        //   tableInfo.gamestatistic = stats;
 
-				//   tableInfo.tableid = tableid;
-				//   tableInfo.roadmap = roadmapData;
-				//   env.addTableInfo(tableInfo);
-				// }
-			}
+        //   tableInfo.tableid = tableid;
+        //   tableInfo.roadmap = roadmapData;
+        //   env.addTableInfo(tableInfo);
+        // }
+      }
 
-			private mockLoRoadData: any = {
-				gametype: 15,
+      private mockLoRoadData: any = {
+        gametype: 15,
 
-				inGame: {
-					dt1v2: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }], // 0 = tie, 1 = dragon, 2 = tiger
-					dt1v3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt1v4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt1v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt2v3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt2v4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt2v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt3v4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt3v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt4v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+        inGame: {
+          dt1v2: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }], // 0 = tie, 1 = dragon, 2 = tiger
+          dt1v3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt1v4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt1v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt2v3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt2v4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt2v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt3v4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt3v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt4v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
 
-					size1: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }], // 1 = small, 2 = big
-					size2: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					size3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					size4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					size5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          size1: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }], // 1 = small, 2 = big
+          size2: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          size3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          size4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          size5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
 
-					odd1: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }], // 1 = odd, 2 = even
-					odd2: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					odd3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					odd4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					odd5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-				},
+          odd1: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }], // 1 = odd, 2 = even
+          odd2: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          odd3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          odd4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          odd5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+        },
 
-				sideBar: {
-					dt1v2: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }], // 0 = tie, 1 = dragon, 2 = tiger
-					dt1v3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt1v4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt1v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt2v3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt2v4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt2v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt3v4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt3v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt4v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+        sideBar: {
+          dt1v2: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }], // 0 = tie, 1 = dragon, 2 = tiger
+          dt1v3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt1v4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt1v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt2v3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt2v4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt2v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt3v4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt3v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt4v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
 
-					size1: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }], // 1 = small, 2 = big
-					size2: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					size3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					size4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					size5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          size1: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }], // 1 = small, 2 = big
+          size2: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          size3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          size4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          size5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
 
-					odd1: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }], // 1 = odd, 2 = even
-					odd2: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					odd3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					odd4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					odd5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-				},
+          odd1: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }], // 1 = odd, 2 = even
+          odd2: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          odd3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          odd4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          odd5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+        },
 
-				lobbyUnPro: {
-					dt1v2: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }], // 0 = tie, 1 = dragon, 2 = tiger
-					dt1v3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt1v4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt1v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt2v3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt2v4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt2v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt3v4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt3v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					dt4v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+        lobbyUnPro: {
+          dt1v2: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }], // 0 = tie, 1 = dragon, 2 = tiger
+          dt1v3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt1v4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt1v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt2v3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt2v4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt2v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt3v4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt3v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          dt4v5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
 
-					size1: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }], // 1 = small, 2 = big
-					size2: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					size3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					size4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					size5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          size1: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }], // 1 = small, 2 = big
+          size2: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          size3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          size4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          size5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
 
-					odd1: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }], // 1 = odd, 2 = even
-					odd2: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					odd3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					odd4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-					odd5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
-				},
+          odd1: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }], // 1 = odd, 2 = even
+          odd2: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          odd3: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          odd4: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          odd5: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+        },
 
-				gameInfo: {
-					cde345: { gameRoundID: 'cde345', v: '12345', video: 'null' },
-					g34345: { gameRoundID: 'g34345', v: '34512', video: 'null' },
-					g45454: { gameRoundID: 'g45454', v: '15634', video: 'null' },
-				},
+        gameInfo: {
+          cde345: { gameRoundID: 'cde345', v: '12345', video: 'null' },
+          g34345: { gameRoundID: 'g34345', v: '34512', video: 'null' },
+          g45454: { gameRoundID: 'g45454', v: '15634', video: 'null' },
+        },
 
-				roundId: 'A2020041408B',
-				loHistory: {
-					show: [
-						{
-							count: 4, // number of continues show
-							data: [
-								'INTEREST1SPECIAL_0', // ???? - 0
-								'45DT2_DRAGON', // ?? - ?
-								'THOUSIZEPARITY2_ODD', // ?? - ?
-								'HUNSIZEPARITY2_EVEN', // ?? - ?
-								'TENSIZEPARITY2_BIG', // ?? - ?
-								'SINSIZEPARITY2_SMALL', // ?? - ?
-							],
-						},
-					],
-					noshow: [],
-					hot: [],
-					cold: [],
-				},
-				loChart: {
-					fav_bet: {
-						day: {
-							dataarrayList: [
-								{
-									key: 'INTEREST1SPECIAL',
-									value: 15.7,
-								}, // bet code:value
-							],
-						},
-						pday: { dataarrayList: [] },
-						week: { dataarrayList: [] },
-						pweek: { dataarrayList: [] },
-						month: { dataarrayList: [] },
-						pmonth: { dataarrayList: [] },
-					},
-					fav_game: {
-						day: {
-							dataarrayList: [
-								{
-									key: '18',
-									value: 5000,
-								}, // game id:value
-							],
-						},
-						pday: { dataarrayList: [] },
-						week: { dataarrayList: [] },
-						pweek: { dataarrayList: [] },
-						month: { dataarrayList: [] },
-						pmonth: { dataarrayList: [] },
-					},
-					lucky_time: {
-						day: {
-							dataarrayList: [
-								{
-									key: '10:00',
-									value: 15.8,
-								}, // time slot:value
-							],
-						},
-						pday: { dataarrayList: [] },
-						week: { dataarrayList: [] },
-						pweek: { dataarrayList: [] },
-						month: { dataarrayList: [] },
-						pmonth: { dataarrayList: [] },
-					},
-					lucky_game: {
-						day: {
-							dataarrayList: [
-								{
-									key: '18',
-									value: 5000,
-								}, // game id: value
-							],
-						},
-						pday: { dataarrayList: [] },
-						week: { dataarrayList: [] },
-						pweek: { dataarrayList: [] },
-						month: { dataarrayList: [] },
-						pmonth: { dataarrayList: [] },
-					},
-				},
-			};
+        roundId: 'A2020041408B',
+        loHistory: {
+          show: [
+            {
+              count: 4, // number of continues show
+              data: [
+                'INTEREST1SPECIAL_0', // ???? - 0
+                '45DT2_DRAGON', // ?? - ?
+                'THOUSIZEPARITY2_ODD', // ?? - ?
+                'HUNSIZEPARITY2_EVEN', // ?? - ?
+                'TENSIZEPARITY2_BIG', // ?? - ?
+                'SINSIZEPARITY2_SMALL', // ?? - ?
+              ],
+            },
+          ],
+          noshow: [],
+          hot: [],
+          cold: [],
+        },
+        loChart: {
+          fav_bet: {
+            day: {
+              dataarrayList: [
+                {
+                  key: 'INTEREST1SPECIAL',
+                  value: 15.7,
+                }, // bet code:value
+              ],
+            },
+            pday: { dataarrayList: [] },
+            week: { dataarrayList: [] },
+            pweek: { dataarrayList: [] },
+            month: { dataarrayList: [] },
+            pmonth: { dataarrayList: [] },
+          },
+          fav_game: {
+            day: {
+              dataarrayList: [
+                {
+                  key: '18',
+                  value: 5000,
+                }, // game id:value
+              ],
+            },
+            pday: { dataarrayList: [] },
+            week: { dataarrayList: [] },
+            pweek: { dataarrayList: [] },
+            month: { dataarrayList: [] },
+            pmonth: { dataarrayList: [] },
+          },
+          lucky_time: {
+            day: {
+              dataarrayList: [
+                {
+                  key: '10:00',
+                  value: 15.8,
+                }, // time slot:value
+              ],
+            },
+            pday: { dataarrayList: [] },
+            week: { dataarrayList: [] },
+            pweek: { dataarrayList: [] },
+            month: { dataarrayList: [] },
+            pmonth: { dataarrayList: [] },
+          },
+          lucky_game: {
+            day: {
+              dataarrayList: [
+                {
+                  key: '18',
+                  value: 5000,
+                }, // game id: value
+              ],
+            },
+            pday: { dataarrayList: [] },
+            week: { dataarrayList: [] },
+            pweek: { dataarrayList: [] },
+            month: { dataarrayList: [] },
+            pmonth: { dataarrayList: [] },
+          },
+        },
+      };
 
-			protected onBalanceUpdate(balance: any, timestamp: string) {
-				this.updateTimestamp(timestamp);
-				env.balance = balance.balance;
-				env.balanceOnHold = balance.amountOnHold;
-				env.currency = balance.currency;
+      protected onBalanceUpdate(balance: any, timestamp: string) {
+        this.updateTimestamp(timestamp);
+        env.balance = balance.balance;
+        env.balanceOnHold = balance.amountOnHold;
+        env.currency = balance.currency;
 
-				logger.l(utils.LogTarget.RELEASE, `On balance update: ${balance.balance}`);
-				logger.l(utils.LogTarget.RELEASE, `On balanceOnHold update: ${balance.balanceOnHold}`);
+        logger.l(utils.LogTarget.RELEASE, `On balance update: ${balance.balance}`);
+        logger.l(utils.LogTarget.RELEASE, `On balanceOnHold update: ${balance.balanceOnHold}`);
 
-				dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
-			}
+        dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
+      }
 
-			protected onBetResultReceived(betResult: data.PlayerBetResult, timestamp: string) {
-				// this.updateTimestamp(timestamp);
-				// dir.evtHandler.dispatch(core.Event.PLAYER_BET_RESULT, betResult);
-			}
+      protected onBetResultReceived(betResult: data.PlayerBetResult, timestamp: string) {
+        // this.updateTimestamp(timestamp);
+        // dir.evtHandler.dispatch(core.Event.PLAYER_BET_RESULT, betResult);
+      }
 
-			protected onBetInfoUpdate(betInfo: data.PlayerBetInfo, timestamp: string) {
-				this.updateTimestamp(timestamp);
-				// update gameStatus of corresponding tableInfo object in env.tableInfoArray
-				const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
-				tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-					const betDetail: data.BetDetail = (<any>Object).assign({}, value);
-					return betDetail;
-				});
+      protected onBetInfoUpdate(betInfo: data.PlayerBetInfo, timestamp: string) {
+        this.updateTimestamp(timestamp);
+        // update gameStatus of corresponding tableInfo object in env.tableInfoArray
+        const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
+        tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
+          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
+          return betDetail;
+        });
 
-				tableInfo.totalBet = this.computeTotalBet(tableInfo.bets);
+        tableInfo.totalBet = this.computeTotalBet(tableInfo.bets);
 
-				if (betInfo.finish) {
-					tableInfo.totalWin = betInfo.winamount; // this.computeTotalWin(tableInfo.bets);
-					this.checkResultNotificationReady(tableInfo);
-				}
+        if (betInfo.finish) {
+          tableInfo.totalWin = betInfo.winamount; // this.computeTotalWin(tableInfo.bets);
+          this.checkResultNotificationReady(tableInfo);
+        }
 
-				logger.l(utils.LogTarget.DEBUG, `Table ${tableInfo.tableid} on bet info update`, betInfo);
+        logger.l(utils.LogTarget.DEBUG, `Table ${tableInfo.tableid} on bet info update`, betInfo);
 
-				dir.evtHandler.dispatch(core.Event.PLAYER_BET_INFO_UPDATE, tableInfo);
+        dir.evtHandler.dispatch(core.Event.PLAYER_BET_INFO_UPDATE, tableInfo);
 
-				// // workaround 1-1-1
-				// if (!env.tableInfos) {
-				//   return;
-				// }
-				// const tableInfo: data.TableInfo = env.tableInfos[betInfo.tableid];
-				// // tableInfo.bets = betInfo.bets;
-				// logger.l(utils.LoggerTarget.DEBUG, 'BetInfoUpdate:', betInfo);
-				// tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-				//   const betDetail: data.BetDetail = (<any>Object).assign({}, value);
-				//   return betDetail;
-				// });
-				// logger.l(utils.LoggerTarget.DEBUG, 'BetInfoUpdate:', tableInfo.bets);
+        // // workaround 1-1-1
+        // if (!env.tableInfos) {
+        //   return;
+        // }
+        // const tableInfo: data.TableInfo = env.tableInfos[betInfo.tableid];
+        // // tableInfo.bets = betInfo.bets;
+        // logger.l(utils.LoggerTarget.DEBUG, 'BetInfoUpdate:', betInfo);
+        // tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
+        //   const betDetail: data.BetDetail = (<any>Object).assign({}, value);
+        //   return betDetail;
+        // });
+        // logger.l(utils.LoggerTarget.DEBUG, 'BetInfoUpdate:', tableInfo.bets);
 
-				// dir.evtHandler.dispatch(core.Event.PLAYER_BET_INFO_UPDATE, tableInfo);
-			}
+        // dir.evtHandler.dispatch(core.Event.PLAYER_BET_INFO_UPDATE, tableInfo);
+      }
 
-			protected hasBet(tableInfo: data.TableInfo): boolean {
-				if (tableInfo.bets) {
-					for (const betDetail of tableInfo.bets) {
-						if (betDetail.amount > 0) {
-							return true;
-						}
-					}
-				}
-				return false;
-			}
-			public checkResultNotificationReady(tableInfo: data.TableInfo) {
-				if (tableInfo.data) {
-					if (this.hasBet(tableInfo)) {
-						const TableInfo = we.utils.clone(tableInfo);
-						if (tableInfo.data && tableInfo.data.state === core.GameState.FINISH && !isNaN(tableInfo.totalWin)) {
-							const data = {
-								tableid: tableInfo.tableid,
-								tableInfo: TableInfo,
-							};
-							const notification: data.Notification = {
-								type: core.NotificationType.Result,
-								data,
-							};
-							dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
-						}
-					}
-				}
-			}
+      protected hasBet(tableInfo: data.TableInfo): boolean {
+        if (tableInfo.bets) {
+          for (const betDetail of tableInfo.bets) {
+            if (betDetail.amount > 0) {
+              return true;
+            }
+          }
+        }
+        return false;
+      }
+      public checkResultNotificationReady(tableInfo: data.TableInfo) {
+        if (tableInfo.data) {
+          if (this.hasBet(tableInfo)) {
+            const TableInfo = we.utils.clone(tableInfo);
+            if (tableInfo.data && tableInfo.data.state === core.GameState.FINISH && !isNaN(tableInfo.totalWin)) {
+              const data = {
+                tableid: tableInfo.tableid,
+                tableInfo: TableInfo,
+              };
+              const notification: data.Notification = {
+                type: core.NotificationType.Result,
+                data,
+              };
+              dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+            }
+          }
+        }
+      }
 
-			protected computeTotalBet(betDetails: data.BetDetail[]) {
-				let totalWin = 0;
-				if (betDetails) {
-					for (const betDetail of betDetails) {
-						totalWin += betDetail.amount;
-					}
-				}
-				return totalWin;
-			}
+      protected computeTotalBet(betDetails: data.BetDetail[]) {
+        let totalWin = 0;
+        if (betDetails) {
+          for (const betDetail of betDetails) {
+            totalWin += betDetail.amount;
+          }
+        }
+        return totalWin;
+      }
 
-			protected updateTimestamp(timestamp: string) {
-				env.currTime = Math.floor(parseInt(timestamp, 10) / 1000000);
-			}
+      protected updateTimestamp(timestamp: string) {
+        env.currTime = Math.floor(parseInt(timestamp, 10) / 1000000);
+      }
 
-			// protected dispatchListUpdateEvent() {
-			//   const list = env.tableInfoArray
-			//     .filter(info => {
-			//       return info.data != null && info.roadmap != null;
-			//     })
-			//     .map(info => {
-			//       return info.tableid;
-			//     });
-			//   dir.evtHandler.dispatch(core.Event.TABLE_LIST_UPDATE, list);
-			// }
+      // protected dispatchListUpdateEvent() {
+      //   const list = env.tableInfoArray
+      //     .filter(info => {
+      //       return info.data != null && info.roadmap != null;
+      //     })
+      //     .map(info => {
+      //       return info.tableid;
+      //     });
+      //   dir.evtHandler.dispatch(core.Event.TABLE_LIST_UPDATE, list);
+      // }
 
-			public bet(tableID: string, betDetails: data.BetDetail[], callback: (result) => void) {
-				const betCommands: data.BetCommand[] = betDetails
-					.filter(data => {
-						return data.amount > 0;
-					})
-					.map(data => {
-						return {
-							field: data.field,
-							amount: data.amount,
-						};
-					});
-				this.client.bet(tableID, betCommands, callback);
-				logger.l(utils.LogTarget.RELEASE, `Table ${tableID} Placed bet`, betDetails);
-			}
+      public bet(tableID: string, betDetails: data.BetDetail[], callback: (result) => void) {
+        const betCommands: data.BetCommand[] = betDetails
+          .filter(data => {
+            return data.amount > 0;
+          })
+          .map(data => {
+            return {
+              field: data.field,
+              amount: data.amount,
+            };
+          });
+        this.client.bet(tableID, betCommands, callback);
+        logger.l(utils.LogTarget.RELEASE, `Table ${tableID} Placed bet`, betDetails);
+      }
 
-			public lotteryContinuousBet(tableID: string, betDetails: data.BetDetail[], roundBetDetails: data.LotteryBetCommand[], callback: (result) => void) {
-				const betCommands: data.BetCommand[] = betDetails
-					.filter(data => {
-						return data.amount > 0;
-					})
-					.map(data => {
-						return {
-							field: data.field,
-							amount: data.amount,
-						};
-					});
+      public lotteryContinuousBet(tableID: string, betDetails: data.BetDetail[], roundBetDetails: data.LotteryBetCommand[], callback: (result) => void) {
+        const betCommands: data.BetCommand[] = betDetails
+          .filter(data => {
+            return data.amount > 0;
+          })
+          .map(data => {
+            return {
+              field: data.field,
+              amount: data.amount,
+            };
+          });
 
-				const roundBetCommands: data.LotteryBetCommand[] = roundBetDetails.map(data => {
-					return {
-						round: data.round,
-						multiplier: data.multiplier,
-						isStopWon: data.isStopWon,
-					};
-				});
+        const roundBetCommands: data.LotteryBetCommand[] = roundBetDetails.map(data => {
+          return {
+            round: data.round,
+            multiplier: data.multiplier,
+            isStopWon: data.isStopWon,
+          };
+        });
 
-				this.client.lotteryContinuousBet(tableID, betCommands, roundBetDetails, callback);
-				logger.l(utils.LogTarget.RELEASE, `Table ${tableID} Placed bet`, betDetails, roundBetDetails);
-			}
+        this.client.lotteryContinuousBet(tableID, betCommands, roundBetDetails, callback);
+        logger.l(utils.LogTarget.RELEASE, `Table ${tableID} Placed bet`, betDetails, roundBetDetails);
+      }
 
-			public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {
+      public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {
         /*
         console.log(
           'SocketComm::createCustomBetCombination title/betOptions ',
@@ -1239,167 +1233,169 @@ namespace we {
           })
         );
         */
-				this.client.createBetTemplate(
-					title,
-					betOptions.map(value => {
-						return { field: value.betcode, amount: value.amount };
-					}),
-					this.warpServerCallback((data: any) => {
-						if (data.error) {
-							// TODO: handle error on cancel
-						} else {
-							dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
-						}
-					})
-				);
-			}
+        this.client.createBetTemplate(
+          title,
+          betOptions.map(value => {
+            return { field: value.betcode, amount: value.amount };
+          }),
+          this.warpServerCallback((data: any) => {
+            if (data.error) {
+              // TODO: handle error on cancel
+            } else {
+              dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
+            }
+          })
+        );
+      }
 
-			public getBetCombination() {
-				this.client.getBetTemplate(
-					this.warpServerCallback((data: any) => {
-						if (data.error) {
-							// TODO:  handle error on cancel
-						} else {
-							// console.log('SocketComm::getBetCombination data ', data);
-							dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
-						}
-					})
-				);
-			}
+      public getBetCombination() {
+        this.client.getBetTemplate(
+          this.warpServerCallback((data: any) => {
+            if (data.error) {
+              // TODO:  handle error on cancel
+            } else {
+              // console.log('SocketComm::getBetCombination data ', data);
+              dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
+            }
+          })
+        );
+      }
 
-			public removeBetCombination(id: string) {
-				this.client.removeBetTemplate(
-					id,
-					this.warpServerCallback((data: any) => {
-						if (data.error) {
-							// TODO:  handle error on cancel
-						} else {
-							dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
-						}
-					})
-				);
-			}
+      public removeBetCombination(id: string) {
+        this.client.removeBetTemplate(
+          id,
+          this.warpServerCallback((data: any) => {
+            if (data.error) {
+              // TODO:  handle error on cancel
+            } else {
+              dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
+            }
+          })
+        );
+      }
 
-			public sendVerifyInfo(id: string, pattern: string[], callback: (data: any) => void, thisArg) {
-				this.client.sendVerifyInfo(id, pattern, this.warpServerCallback(callback.bind(thisArg)));
-			}
+      public sendVerifyInfo(id: string, pattern: string[], callback: (data: any) => void, thisArg) {
+        this.client.sendVerifyInfo(id, pattern, this.warpServerCallback(callback.bind(thisArg)));
+      }
 
-			public getTableHistory() { }
+      public getTableHistory() {}
 
-			protected onBetTableListUpdate(tableList: data.GameTableList, timestamp: string) {
-				this.updateTimestamp(timestamp);
+      protected onBetTableListUpdate(tableList: data.GameTableList, timestamp: string) {
+        this.updateTimestamp(timestamp);
 
-				// merge the new tableList to tableListArray
-				const tableInfos: data.TableInfo[] = tableList.tablesList;
-				env.mergeTableInfoList(tableInfos);
-				// save the list to env.betTableList
-				const betTableList = tableInfos.map(data => data.tableid);
-				env.betTableList = betTableList;
-				// filter all the display ready table
-				logger.l(utils.LogTarget.RELEASE, `Already Bet Table list updated`, betTableList);
+        // merge the new tableList to tableListArray
+        const tableInfos: data.TableInfo[] = tableList.tablesList;
+        env.mergeTableInfoList(tableInfos);
+        // save the list to env.betTableList
+        const betTableList = tableInfos.map(data => data.tableid);
+        env.betTableList = betTableList;
+        // filter all the display ready table
+        logger.l(utils.LogTarget.RELEASE, `Already Bet Table list updated`, betTableList);
 
-				// dispatch BET_TABLE_LIST_UPDATE
-				this.filterAndDispatch(betTableList, core.Event.BET_TABLE_LIST_UPDATE);
+        // dispatch BET_TABLE_LIST_UPDATE
+        this.filterAndDispatch(betTableList, core.Event.BET_TABLE_LIST_UPDATE);
 
-				// dir.evtHandler.dispatch(core.Event.BET_TABLE_LIST_UPDATE, null);
-			}
+        // dir.evtHandler.dispatch(core.Event.BET_TABLE_LIST_UPDATE, null);
+      }
 
-			protected onGoodRoadMatch(data: data.RoadmapNotification, timestamp: string) {
-				this.updateTimestamp(timestamp);
-				// if (!(data instanceof we.data.RoadmapNotification)) {
-				//   return;
-				// }
-				// merge the new tableList to tableListArray
-				const tableInfos: data.TableInfo[] = data.match.map(goodRoadData => {
-					goodRoadData.alreadyShown = false;
-					return {
-						tableid: goodRoadData.tableid,
-						goodRoad: goodRoadData,
-					};
-				}).filter(item=>!(item.goodRoad.name=='' && item.goodRoad.roadmapid==''));
-				env.mergeTableInfoList(tableInfos);
-				// save the list to env.goodRoadTableList
-				const goodRoadTableList = tableInfos.map(data => data.tableid);
-				const added = utils.arrayDiff(goodRoadTableList, env.goodRoadTableList);
-				const removed = utils.arrayDiff(env.goodRoadTableList, goodRoadTableList);
-				env.goodRoadTableList = goodRoadTableList;
+      protected onGoodRoadMatch(data: data.RoadmapNotification, timestamp: string) {
+        this.updateTimestamp(timestamp);
+        // if (!(data instanceof we.data.RoadmapNotification)) {
+        //   return;
+        // }
+        // merge the new tableList to tableListArray
+        const tableInfos: data.TableInfo[] = data.match
+          .map(goodRoadData => {
+            goodRoadData.alreadyShown = false;
+            return {
+              tableid: goodRoadData.tableid,
+              goodRoad: goodRoadData,
+            };
+          })
+          .filter(item => !(item.goodRoad.name == '' && item.goodRoad.roadmapid == ''));
+        env.mergeTableInfoList(tableInfos);
+        // save the list to env.goodRoadTableList
+        const goodRoadTableList = tableInfos.map(data => data.tableid);
+        const added = utils.arrayDiff(goodRoadTableList, env.goodRoadTableList);
+        const removed = utils.arrayDiff(env.goodRoadTableList, goodRoadTableList);
+        env.goodRoadTableList = goodRoadTableList;
 
-				for (const tableid of added) {
-					const tableInfo = env.tableInfos[tableid];
-					if (tableInfo.data && tableInfo.data.state === core.GameState.BET) {
-						if (env.showGoodRoadHint && tableInfo.displayReady && tableInfo.goodRoad && !tableInfo.goodRoad.alreadyShown) {
-							tableInfo.goodRoad.alreadyShown = true;
-							const data = {
-								tableid,
-							};
-							const notification: data.Notification = {
-								type: core.NotificationType.GoodRoad,
-								data,
-							};
-							dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
-						}
-					}
-				}
-				for (const tableid of removed) {
-					const tableInfo = env.tableInfos[tableid];
-					if (tableInfo) {
-						tableInfo.goodRoad = null;
-					}
-				}
-				logger.l(utils.LogTarget.RELEASE, `GoodRoad Table list updated`, goodRoadTableList);
-				// filter all the display ready table
-				// dispatch GOOD_ROAD_TABLE_LIST_UPDATE
-				dir.evtHandler.dispatch(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, tableInfos);
-				this.filterAndDispatch(goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
-			}
+        for (const tableid of added) {
+          const tableInfo = env.tableInfos[tableid];
+          if (tableInfo.data && tableInfo.data.state === core.GameState.BET) {
+            if (env.showGoodRoadHint && tableInfo.displayReady && tableInfo.goodRoad && !tableInfo.goodRoad.alreadyShown) {
+              tableInfo.goodRoad.alreadyShown = true;
+              const data = {
+                tableid,
+              };
+              const notification: data.Notification = {
+                type: core.NotificationType.GoodRoad,
+                data,
+              };
+              dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+            }
+          }
+        }
+        for (const tableid of removed) {
+          const tableInfo = env.tableInfos[tableid];
+          if (tableInfo) {
+            tableInfo.goodRoad = null;
+          }
+        }
+        logger.l(utils.LogTarget.RELEASE, `GoodRoad Table list updated`, goodRoadTableList);
+        // filter all the display ready table
+        // dispatch GOOD_ROAD_TABLE_LIST_UPDATE
+        dir.evtHandler.dispatch(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, tableInfos);
+        this.filterAndDispatch(goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
+      }
 
-			public getBetHistory(filter, callback: (res: any) => void, thisArg) {
-				this.client.getBetHistory(filter, this.warpServerCallback(callback.bind(thisArg)));
-			}
-			public getLotteryContinuousBetHistory(filter: any, callback: (res: any) => void, thisArg: any) {
-				this.client.getLotteryContinuousBetHistory(filter, this.warpServerCallback(callback.bind(thisArg)));
-			}
-			public getLotteryContinuousBetDetail(betid: string, callback: (res: any) => void, thisArg: any) {
-				this.client.getLotteryContinuousBetDetail(betid, this.warpServerCallback(callback.bind(thisArg)));
-			}
-			public getLotteryBetDetail(filter: any, callback: (res: any) => void, thisArg: any) {
-				this.client.getLotteryBetDetail(filter, this.warpServerCallback(callback.bind(thisArg)));
-			}
-			public cancelBet(tableID: string, betID: string, gametype: string, callback: (res: any) => void, thisArg: any) {
-				this.client.cancelBet(tableID, betID, gametype, this.warpServerCallback(callback.bind(thisArg)));
-			}
+      public getBetHistory(filter, callback: (res: any) => void, thisArg) {
+        this.client.getBetHistory(filter, this.warpServerCallback(callback.bind(thisArg)));
+      }
+      public getLotteryContinuousBetHistory(filter: any, callback: (res: any) => void, thisArg: any) {
+        this.client.getLotteryContinuousBetHistory(filter, this.warpServerCallback(callback.bind(thisArg)));
+      }
+      public getLotteryContinuousBetDetail(betid: string, callback: (res: any) => void, thisArg: any) {
+        this.client.getLotteryContinuousBetDetail(betid, this.warpServerCallback(callback.bind(thisArg)));
+      }
+      public getLotteryBetDetail(filter: any, callback: (res: any) => void, thisArg: any) {
+        this.client.getLotteryBetDetail(filter, this.warpServerCallback(callback.bind(thisArg)));
+      }
+      public cancelBet(tableID: string, betID: string, gametype: string, callback: (res: any) => void, thisArg: any) {
+        this.client.cancelBet(tableID, betID, gametype, this.warpServerCallback(callback.bind(thisArg)));
+      }
 
-			public warpServerCallback(callback: any) {
-				return data => {
-					if (data.error) {
-						// if data is an error
-						if (!data.args) {
-							console.error('Missing Arguments on retry.');
-							callback(data);
-							return;
-							// data.args = [];
-						}
-						data.args.push(callback);
-						dir.errHandler.handleError(data);
-					} else {
-						// data is a result
-						callback(data);
-					}
-				};
-			}
+      public warpServerCallback(callback: any) {
+        return data => {
+          if (data.error) {
+            // if data is an error
+            if (!data.args) {
+              console.error('Missing Arguments on retry.');
+              callback(data);
+              return;
+              // data.args = [];
+            }
+            data.args.push(callback);
+            dir.errHandler.handleError(data);
+          } else {
+            // data is a result
+            callback(data);
+          }
+        };
+      }
 
-			public retryPlayerClient(functionName: string, args: any[]) {
-				// switch (functionName.toLowerCase()) {
-				//   case 'removecustomroadmap':
-				//   case 'updatecustomroadmap':
-				//     args.push(this._goodRoadUpdateCallback);
-				//     break;
-				// }
-				const callback = args.splice(args.length - 1, 1)[0];
-				this.client[functionName](...args, this.warpServerCallback(callback));
-				// args.push(this.warpServerCallback(callback));
-				// this.client[functionName].apply(this, args);
-			}
-		}
-	}
+      public retryPlayerClient(functionName: string, args: any[]) {
+        // switch (functionName.toLowerCase()) {
+        //   case 'removecustomroadmap':
+        //   case 'updatecustomroadmap':
+        //     args.push(this._goodRoadUpdateCallback);
+        //     break;
+        // }
+        const callback = args.splice(args.length - 1, 1)[0];
+        this.client[functionName](...args, this.warpServerCallback(callback));
+        // args.push(this.warpServerCallback(callback));
+        // this.client[functionName].apply(this, args);
+      }
+    }
+  }
 }

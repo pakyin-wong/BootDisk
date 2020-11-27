@@ -2,7 +2,6 @@
 namespace we {
   export namespace lobby {
     export class MPageContentInitializer implements core.IContentInitializer {
-
       protected _root: ILobbyPage;
       protected _shouldTouchFocus: boolean = true;
 
@@ -16,7 +15,7 @@ namespace we {
           root._sliderBullet.imageSlider = root._bannerSlider;
         }
 
-        if (dir.lobbyResources.homeBanners.length==0) {
+        if (dir.lobbyResources.homeBanners.length == 0) {
           this._root._hotGameGroup.parent.removeChild(this._root._hotGameGroup);
         }
 
@@ -34,11 +33,10 @@ namespace we {
       }
 
       public reloadBanners() {
-
         // init image slider
         this._root._bannerSlider.configSlides(dir.lobbyResources.homeHeroBanners);
 
-        if (dir.lobbyResources.homeLargeBanners.length>0) {
+        if (dir.lobbyResources.homeLargeBanners.length > 0) {
           this._root._posterContainer.removeChildren();
           for (let i = 0, len = Math.min(dir.lobbyResources.homeLargeBanners.length, 4); i < len; i++) {
             const { image, link } = dir.lobbyResources.homeLargeBanners[i];
@@ -51,9 +49,9 @@ namespace we {
           }
         }
 
-        if (dir.lobbyResources.homeBanners.length>0) {
+        if (dir.lobbyResources.homeBanners.length > 0) {
           this._root._hotgameContainer.removeChildren();
-        // init 3 grids
+          // init 3 grids
           dir.lobbyResources.homeBanners.forEach(banner => {
             const { image, link, title, description } = banner;
             const poster = new LobbyBannerItem();
@@ -66,7 +64,6 @@ namespace we {
             this._root._hotgameContainer.addChild(poster);
           });
         }
-
       }
 
       protected touchBegin(e: egret.TouchEvent) {
@@ -85,7 +82,6 @@ namespace we {
           e.preventDefault();
         }
       }
-
     }
   }
 }

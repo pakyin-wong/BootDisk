@@ -33,7 +33,9 @@ namespace we {
       }
 
       public set selectedIndex(val: number) {
-        if (this._selectedIndex === val) { return; }
+        if (this._selectedIndex === val) {
+          return;
+        }
         if (!this.isAnimating && val < this._slides.length && this._slides[val].loaded) {
           clearTimeout(this.autoPlayTimer);
           this._selectedIndex = val;
@@ -79,14 +81,14 @@ namespace we {
           this.bullets.visible = this._slides.length >= 2;
         }
 
-        if (this.currentIndex!==0) {
+        if (this.currentIndex !== 0) {
           // reset index since some of the banner hasn't been loaded yet
           this.currentIndex = 0;
           if (this.bullets) {
             this.bullets.refresh();
           }
         }
-        
+
         // reset dimensions
         this.imageVisible.width = this.width;
         this.imageVisible.height = this.height;
@@ -101,8 +103,8 @@ namespace we {
           this.imageVisible.source = slide.image;
         }
 
-        let shape = new egret.Shape();
-        let gr = shape.graphics;
+        const shape = new egret.Shape();
+        const gr = shape.graphics;
         gr.clear();
         gr.beginFill(0x00ff00, 1);
         if (this.maskRadius > 0) {
@@ -132,7 +134,7 @@ namespace we {
           // animation end event will scheduleNext
           return;
         }
-        if (this._slides.length < 2 ) {
+        if (this._slides.length < 2) {
           return;
         }
         this.isDown = true;

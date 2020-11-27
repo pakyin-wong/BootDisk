@@ -110,7 +110,6 @@ namespace we {
       public destroy() {
         super.destroy();
         if (this['road1Btn1'].hasEventListener(eui.UIEvent.CHANGE)) {
-
           this.road3NextBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoad3NextBtnClick, this);
           this.road3BackBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoad3BackBtnClick, this);
 
@@ -130,7 +129,6 @@ namespace we {
       }
 
       public updateText() {
-
         for (let i = 1; i <= 5; i++) {
           this['road1Btn' + i]['labelDisplayDown']['text'] = this['road1Btn' + i]['labelDisplayUp']['text'] = 'Ball ' + i;
         }

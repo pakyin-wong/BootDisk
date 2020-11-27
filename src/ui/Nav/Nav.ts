@@ -245,7 +245,7 @@ namespace we {
         this.invalidateState();
       }
 
-      public onMoveLayer(){
+      public onMoveLayer() {
         this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
         if (env.isMobile && this._orientationDependent) {
           dir.evtHandler.addEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChange, this);

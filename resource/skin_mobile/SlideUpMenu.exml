@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.SlideUpMenuSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<e:Group id="_root" left="0" right="0" height="1966" y="0">
+		<e:Image id="_bg" source="d_bcba_panel_bg_png" right="0" top="0" left="0" bottom="0" fillMode="scale" scale9Grid="169, 118, 2, 802"/>
+		<e:Rect id="_touchArea" right="0" top="0" left="0" bottom="0" fillAlpha="0" locked="true"/>
+		<e:Image id="_btnClose" source="d-lobby-button-close-none_png" width="80" height="80" right="45" top="45" />
+		<ui:RunTimeLabel id="_lblTitle" text="Label" horizontalCenter="0" height="119" size="80" textAlign="center" verticalAlign="middle" textColor="0xc59466" touchEnabled="false" top="31"/>
+		<e:Group id="_backBtnGroup" left="33" top="45" anchorOffsetX="0" anchorOffsetY="0">
+			<ui:BaseAnimationButton  dbClass="common_ui" dbDisplay="d_common_icon_back" scaleX="1.5" scaleY="1.5" width="30" height="30" verticalCenter="0" x="0" tooltipText="'nav.tooltip.back'" />
+			<ui:RunTimeLabel id="_lblBackButton" text="Label" horizontalCenter="0" height="65" size="44" verticalCenter="-892.5" textAlign="center" verticalAlign="middle" textColor="0xc59466"/>
+			<e:layout>
+				<e:HorizontalLayout horizontalAlign="left" verticalAlign="middle"/>
+			</e:layout>
+		</e:Group>
+		<e:Group id="_content" left="0" right="0" bottom="0" top="186"/>
+	</e:Group>
+</e:Skin>

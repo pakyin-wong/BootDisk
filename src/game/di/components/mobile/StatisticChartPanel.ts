@@ -264,9 +264,9 @@ namespace we {
         if (stat.points) {
           const result = we.utils.stat.toPercentages(stat.points);
           this._diChance.setDiceValues(result);
-          if(env.isMobile && env.orientation === egret.OrientationMode.LANDSCAPE){
+          if (env.isMobile && env.orientation === egret.OrientationMode.LANDSCAPE) {
             this._diChance.setMaxWidth(180);
-          }else{
+          } else {
             this._diChance.setMaxWidth(300);
           }
         }

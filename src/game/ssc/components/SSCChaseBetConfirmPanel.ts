@@ -112,7 +112,6 @@ namespace we {
       protected destroy() {
         super.destroy();
       }
-      
     }
   }
 }

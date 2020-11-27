@@ -186,7 +186,7 @@ namespace we {
           }
         }
 
-        if (this.tableInfo.goodRoad && this.tableInfo.goodRoad.roadmapid !== "") {
+        if (this.tableInfo.goodRoad && this.tableInfo.goodRoad.roadmapid !== '') {
           this._goodRoadLabel.visible = true;
           const goodRoadData = this.tableInfo.goodRoad;
           const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
@@ -221,7 +221,7 @@ namespace we {
       }
 
       protected onMatchGoodRoadUpdate() {
-        if (this.tableInfo.goodRoad && this.tableInfo.goodRoad.roadmapid !== "") {
+        if (this.tableInfo.goodRoad && this.tableInfo.goodRoad.roadmapid !== '') {
           this._goodRoadLabel.visible = true;
           const goodRoadData = this.tableInfo.goodRoad;
           const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
@@ -273,7 +273,7 @@ namespace we {
         // when rm need update
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateSideBarRoadData(tableInfo.roadmap);

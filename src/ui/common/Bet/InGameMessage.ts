@@ -16,7 +16,7 @@ namespace we {
       private _bg: eui.Image;
       private _label: ui.RunTimeLabel;
 
-      private _isAnimating: boolean;
+      protected _isAnimating: boolean;
 
       public duration: number = 3000;
 
@@ -79,6 +79,7 @@ namespace we {
       }
 
       protected setBackground(type: string) {
+
         switch (type) {
           case InGameMessage.INFO:
           case InGameMessage.NEWSHOE:
@@ -113,8 +114,9 @@ namespace we {
               this.visible = true;
               this._label.visible = true;
               this._label.text = message;
+              this._bg.width = this.label.width
             })
-            .wait(this.duration*(isHold?100:1))
+            .wait(this.duration * (isHold ? 100 : 1))
             .call(() => {
               this.endAnimation(type);
             });
@@ -126,7 +128,7 @@ namespace we {
             this._label.visible = true;
             this._label.text = message;
           })
-          .wait(this.duration*(isHold?100:1))
+          .wait(this.duration * (isHold ? 100 : 1))
           .call(() => {
             this.endAnimation(type);
           })

@@ -17,9 +17,11 @@ namespace we {
       protected mount(){
         super.mount();
         this._ringAnim.animation.gotoAndStopByFrame('icon_loop',0);
+        this.expandBottom();
       }
 
       protected async setStateBet(isInit: boolean) {
+        this._centerBurnCard.animation.gotoAndStopByFrame('',0)
         await super.setStateBet(isInit);
         if(isInit){
           await utils.playAnimation(this._ringAnim,'icon_loop',1)
@@ -38,7 +40,7 @@ namespace we {
 
       public expandBottom(){
         if(env.orientation === 'portrait'){
-          this._wholeMoveGroup.y = -408
+          this._wholeMoveGroup.y = -508
         }else{
           this._wholeMoveGroup.y = -260
         }
@@ -56,8 +58,8 @@ namespace we {
             this._dragonCardGroup.y = 951;
             this._tigerCardGroup.y = 951;
           }else{
-            this._dragonCardGroup.y = 726;
-            this._tigerCardGroup.y = 726;
+            this._dragonCardGroup.y = 856;
+            this._tigerCardGroup.y = 856;
           }
         }
       }
@@ -70,8 +72,8 @@ namespace we {
             this._dragonCardGroup.y = 858;
             this._tigerCardGroup.y = 858;
           }else{
-            this._dragonCardGroup.y = 498;
-            this._tigerCardGroup.y = 498;
+            this._dragonCardGroup.y = 628;
+            this._tigerCardGroup.y = 628;
           }
         }
       }

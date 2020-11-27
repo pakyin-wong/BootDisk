@@ -6,7 +6,7 @@ namespace we {
       protected _betChipSetGroup: eui.Group;
       protected _resultGroup: eui.Group;
       protected _betEnabled: boolean = false;
-      protected _quickbetButton: ui.BaseImageButton;
+      protected _quickbetButton: we.ui.RoundRectButton;
       protected _closeButton: ui.BaseImageButton;
       protected _prevButton: ui.BaseImageButton;
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
@@ -34,15 +34,25 @@ namespace we {
         this.generateChipLayer();
         this.generateResultMessage();
         this.generateResultDisplay();
-
+        this._quickbetButton.label.renderText = () => {
+          return i18n.t('mobile_quick_bet_button_add_label');
+        };
         super.initComponents();
       }
 
       protected destroy() {
-        if (this._resultMessage) { this._resultMessage.parent.removeChild(this._resultMessage); }
-        if (this._cardHolder) { this._cardHolder.parent.removeChild(this._cardHolder); }
-        if (this._chipLayer) { this._chipLayer.parent.removeChild(this._chipLayer); }
-        if (this._tableLayer) { this._tableLayer.parent.removeChild(this._tableLayer); }
+        if (this._resultMessage) {
+          this._resultMessage.parent.removeChild(this._resultMessage);
+        }
+        if (this._cardHolder) {
+          this._cardHolder.parent.removeChild(this._cardHolder);
+        }
+        if (this._chipLayer) {
+          this._chipLayer.parent.removeChild(this._chipLayer);
+        }
+        if (this._tableLayer) {
+          this._tableLayer.parent.removeChild(this._tableLayer);
+        }
         super.destroy();
       }
 

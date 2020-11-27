@@ -47,7 +47,7 @@ namespace we {
         this.initPage();
         this.initDmm();
 
-        this.setGroup(env.sideGameCategories.length>0?env.sideGameCategories[0]:'live');
+        this.setGroup(env.sideGameCategories.length > 0 ? env.sideGameCategories[0] : 'live');
         this.addEventListeners();
 
         this.poppableAddon.updateContentPos();
@@ -67,7 +67,7 @@ namespace we {
         this._dmm.dismissOnClickOutside = true;
         this._dmm.dropdown.itemSkin = 'SidePanelDropdownIR';
         this._dmm.dropdown.review = new RunTimeLabel();
-        
+
         const gameListItems = env.sideGameCategories.map(game => {
           return ui.NewDropdownItem(game, () => i18n.t(`gamegroup_tab_${game}`));
         });
@@ -240,7 +240,7 @@ namespace we {
       protected onHide() {
         env.isShowingAlreadyBetPanel = false;
       }
-      
+
       protected updateView() {
         this._dmm.removeToggler();
 

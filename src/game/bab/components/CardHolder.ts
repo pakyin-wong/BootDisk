@@ -220,17 +220,17 @@ namespace we {
 
       protected async betInitState(gameState: core.GameState) {
         console.log('betInitState() begin');
-        const cardData = ['b1','a1','b2','a2','b3','a3']
+        const cardData = ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
         for (let i = 0; i < this.cardAnimNames.length; i++) {
           const cardAnim = <dragonBones.EgretArmatureDisplay>this[this.cardAnimNames[i]];
-          this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this.getCardIndex(cardData[i],core.GameState.BET));
+          this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this.getCardIndex(cardData[i], core.GameState.BET));
           this.showVerticalLoopBack(cardAnim, 0);
         }
 
-        //the following two only for DEAL State
-        this.setLabel(this._playerCard3.armature.getSlot('card_number_horizontal'), this.getCardIndex('b3',core.GameState.DEAL));
+        // the following two only for DEAL State
+        this.setLabel(this._playerCard3.armature.getSlot('card_number_horizontal'), this.getCardIndex('b3', core.GameState.DEAL));
         this.showHorizontalLoopBack(this._playerCard3, 0);
-        this.setLabel(this._bankerCard3.armature.getSlot('card_number_horizontal'), this.getCardIndex('a3',core.GameState.DEAL));
+        this.setLabel(this._bankerCard3.armature.getSlot('card_number_horizontal'), this.getCardIndex('a3', core.GameState.DEAL));
         this.showHorizontalLoopBack(this._bankerCard3, 0);
 
         this._smallCard2Exist = true;
@@ -260,7 +260,8 @@ namespace we {
         return null;
       }
 
-      protected getBetCardIndices() { // for first four cards and small cards .. actually not for b3/a3
+      protected getBetCardIndices() {
+        // for first four cards and small cards .. actually not for b3/a3
         // not for bet state
         const indices = { b1: 0, a1: 0, b2: 0, a2: 0, b3: 0, a3: 0 };
         const cardDataNames = ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
@@ -276,17 +277,17 @@ namespace we {
         const indices = { b1: 0, a1: 0, b2: 0, a2: 0, b3: 0, a3: 0 };
         const cardDataNames = ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
         let total = -1;
-        //let currentDataIndex = 0;
+        // let currentDataIndex = 0;
         for (let i = 0; i < 6; i++) {
           if (this._gameData[cardDataNames[i]]) {
-            //currentDataIndex = i
+            // currentDataIndex = i
             total++;
           }
         }
-        for(let i = 0; i < 4; i++){
+        for (let i = 0; i < 4; i++) {
           indices[cardDataNames[i]] = this._gameData.currentcardindex - total + i;
         }
-        for(let i = 4, j = 4; i < 6; i++){
+        for (let i = 4, j = 4; i < 6; i++) {
           if (this._gameData[cardDataNames[i]]) {
             indices[cardDataNames[i]] = this._gameData.currentcardindex - total + j;
             j++;
@@ -297,10 +298,10 @@ namespace we {
 
       protected getCardIndex(cardName: string, state: core.GameState) {
         if (state === core.GameState.BET) {
-          console.log('betCardIndices',this.getBetCardIndices());
+          console.log('betCardIndices', this.getBetCardIndices());
           return this.getBetCardIndices()[cardName];
         }
-        console.log('dealCardIndices',this.getDealCardIndices());
+        console.log('dealCardIndices', this.getDealCardIndices());
         return this.getDealCardIndices()[cardName];
       }
 
@@ -384,62 +385,26 @@ namespace we {
       }
 
       protected async moveAndHideB3(interval: number) {
-        await new Promise(resolve =>
-          egret.Tween.get(this._playerCard3Group)
-            .to({ alpha: 0 }, interval)
-            .set({ visible: false })
-            .call(resolve)
-        );
-        await new Promise(resolve =>
-          egret.Tween.get(this._playerCardMoveGroup)
-            .to({ x: this._playerCardInitX }, interval)
-            .call(resolve)
-        );
+        await new Promise(resolve => egret.Tween.get(this._playerCard3Group).to({ alpha: 0 }, interval).set({ visible: false }).call(resolve));
+        await new Promise(resolve => egret.Tween.get(this._playerCardMoveGroup).to({ x: this._playerCardInitX }, interval).call(resolve));
         return new Promise(resolve => resolve());
       }
 
       protected async moveAndHideA3(interval: number) {
-        await new Promise(resolve =>
-          egret.Tween.get(this._bankerCard3Group)
-            .to({ alpha: 0 }, interval)
-            .set({ visible: false })
-            .call(resolve)
-        );
-        await new Promise(resolve =>
-          egret.Tween.get(this._bankerCardMoveGroup)
-            .to({ x: this._bankerCardInitX }, interval)
-            .call(resolve)
-        );
+        await new Promise(resolve => egret.Tween.get(this._bankerCard3Group).to({ alpha: 0 }, interval).set({ visible: false }).call(resolve));
+        await new Promise(resolve => egret.Tween.get(this._bankerCardMoveGroup).to({ x: this._bankerCardInitX }, interval).call(resolve));
         return new Promise(resolve => resolve());
       }
 
       protected async moveAndShowB3(interval: number) {
-        await new Promise(resolve =>
-          egret.Tween.get(this._playerCardMoveGroup)
-            .to({ x: 459 }, interval)
-            .call(resolve)
-        );
-        await new Promise(resolve =>
-          egret.Tween.get(this._playerCard3Group)
-            .set({ visible: true })
-            .to({ alpha: 1 }, interval)
-            .call(resolve)
-        );
+        await new Promise(resolve => egret.Tween.get(this._playerCardMoveGroup).to({ x: 459 }, interval).call(resolve));
+        await new Promise(resolve => egret.Tween.get(this._playerCard3Group).set({ visible: true }).to({ alpha: 1 }, interval).call(resolve));
         return new Promise(resolve => resolve());
       }
 
       protected async moveAndShowA3(interval: number) {
-        await new Promise(resolve =>
-          egret.Tween.get(this._bankerCardMoveGroup)
-            .to({ x: 1651 }, interval)
-            .call(resolve)
-        );
-        await new Promise(resolve =>
-          egret.Tween.get(this._bankerCard3Group)
-            .set({ visible: true })
-            .to({ alpha: 1 }, interval)
-            .call(resolve)
-        );
+        await new Promise(resolve => egret.Tween.get(this._bankerCardMoveGroup).to({ x: 1651 }, interval).call(resolve));
+        await new Promise(resolve => egret.Tween.get(this._bankerCard3Group).set({ visible: true }).to({ alpha: 1 }, interval).call(resolve));
         return new Promise(resolve => resolve());
       }
 
@@ -545,7 +510,7 @@ namespace we {
         super.setStateBet(isInit);
         this.movePin();
         this.moveShoe();
-        return new Promise(resolve=>resolve())
+        return new Promise(resolve => resolve());
       }
 
       protected setStateDeal(isInit: boolean) {
@@ -690,7 +655,7 @@ namespace we {
         if (isInit) {
           this.movePin();
           this.moveShoe();
-          //const currentIndexOffsetToFirstCard = this.getCurrentIndexOffsetToFirstCard();
+          // const currentIndexOffsetToFirstCard = this.getCurrentIndexOffsetToFirstCard();
           this.betInitState(core.GameState.DEAL);
           this.dealInitState();
         }

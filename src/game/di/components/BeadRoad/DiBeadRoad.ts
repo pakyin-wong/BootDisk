@@ -43,9 +43,10 @@ namespace we {
         this.showGrid = showGrid;
         this.showOuterGrid = showOuterGrid;
         this.isExpanded = true;
-        if(isInGame) { // to switch highlight bg color
+        if (isInGame) {
+          // to switch highlight bg color
           this.isInGame = isInGame;
-          console.log('is in game')
+          console.log('is in game');
         }
       }
 

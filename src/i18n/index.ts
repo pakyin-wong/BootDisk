@@ -46,7 +46,7 @@ namespace we {
     }
 
     export async function setLang(s, isInit: boolean = false) {
-      const langCodeList = Object.keys(core.lang).map(key=>core.lang[key]);
+      const langCodeList = Object.keys(core.lang).map(key => core.lang[key]);
       if (langCodeList.indexOf(s) < 0) {
         env.language = core.lang.CN;
         i18n.lang = core.lang.CN;
@@ -71,7 +71,7 @@ namespace we {
                 }
               }
             }, this),
-          ()=>utils.BannerLoader.loadBanners()
+          () => utils.BannerLoader.loadBanners(),
         ];
         await loadingMgr.load(tasks, { isSequence: true });
       }

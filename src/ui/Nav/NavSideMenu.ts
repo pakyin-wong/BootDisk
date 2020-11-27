@@ -148,18 +148,19 @@ namespace we {
             i18n.t('nav.menu.logoutMsg'),
             {
               dismiss: { text: i18n.t('nav.menu.cancel') },
-              action: { text: i18n.t('nav.menu.confirm'),
+              action: {
+                text: i18n.t('nav.menu.confirm'),
                 onClick: () => {
-                    if (env.redirecturl) {
-                      window.location.replace(env.redirecturl);
-                    } else {
-                      window.close();
-                    }
+                  if (env.redirecturl) {
+                    window.location.replace(env.redirecturl);
+                  } else {
+                    window.close();
                   }
                 },
+              },
             },
           ],
-          showSFX:'ui_sfx_info_message_mp3'
+          showSFX: 'ui_sfx_info_message_mp3',
         });
         logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickLogout`);
       }

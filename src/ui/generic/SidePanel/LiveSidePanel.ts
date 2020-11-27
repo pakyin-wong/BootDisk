@@ -139,7 +139,7 @@ namespace we {
         this.allTableList.addEventListener(TableList.LOCK, this.onLockChanged, this, false, 10);
         this.allTableList.addEventListener(TableList.UNLOCK, this.onLockChanged, this, false, 10);
 
-        this._subdropdown.gamegroup = env.sideGameCategories.length>0?env.sideGameCategories[0]:'live';
+        this._subdropdown.gamegroup = env.sideGameCategories.length > 0 ? env.sideGameCategories[0] : 'live';
         this.allTableList.setGameFilters(this._subdropdown.getSelectedItem().key);
 
         this._tabbar.dataProvider = this._viewStack;
@@ -302,16 +302,9 @@ namespace we {
         egret.Tween.get(this._viewStack)
           .wait(interval)
           .to({ height: this._targetHeight + (this.isLock ? 500 : 0) }, interval);
-        egret.Tween.get(this._tweenGroup)
-          .to({ scaleX: 1 }, interval)
-          .set({ visible: true })
-          .to({ scaleY: 1, alpha: 1 }, interval);
-        egret.Tween.get(this._tabBarGroup)
-          .wait(interval)
-          .to({ y: 8 }, interval);
-        egret.Tween.get(this._bg)
-          .wait(interval)
-          .to({ ellipseHeight: 28, ellipseWidth: 28 }, interval);
+        egret.Tween.get(this._tweenGroup).to({ scaleX: 1 }, interval).set({ visible: true }).to({ scaleY: 1, alpha: 1 }, interval);
+        egret.Tween.get(this._tabBarGroup).wait(interval).to({ y: 8 }, interval);
+        egret.Tween.get(this._bg).wait(interval).to({ ellipseHeight: 28, ellipseWidth: 28 }, interval);
       }
 
       protected isLock: boolean = true;

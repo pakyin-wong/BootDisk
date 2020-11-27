@@ -1,7 +1,6 @@
 namespace we {
   export namespace lo {
     export class MobileScene extends LotteryMobileSceneBasic {
-
       protected _mode: Mode;
       protected _subScene: core.BaseScene;
       protected _btn_mode: egret.DisplayObject;
@@ -58,7 +57,7 @@ namespace we {
 
         this.addChild(_next);
         this.sceneHeader.addChild(_next.sceneHeader);
-        
+
         this.addChild(this._bottomGamePanel);
         this._bottomGamePanel.manualClose();
         _next.onEnter();
@@ -79,7 +78,7 @@ namespace we {
       public onExit() {
         this._subScene.onExit();
 
-        dir.layerCtr.nav.addChildAt(dir.monitor.nav,0);
+        dir.layerCtr.nav.addChildAt(dir.monitor.nav, 0);
         dir.monitor.nav.onMoveLayer();
 
         env.orientationManager.resumeTracking();

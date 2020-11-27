@@ -64,13 +64,13 @@ namespace we {
       protected addEventListeners() {
         utils.addButtonListener(this._btnConfirmBet, this.onConfirmPressed, this);
         dir.evtHandler.addEventListener('LO_TRAD_CHECK_CURRENT_ROUND_NUMBER', this.checkRound, this);
-        this.addEventListener('close',this.onCancel,this);
+        this.addEventListener('close', this.onCancel, this);
       }
 
       protected removeEventListeners() {
         utils.removeButtonListener(this._btnConfirmBet, this.onConfirmPressed, this);
         dir.evtHandler.removeEventListener('LO_TRAD_CHECK_CURRENT_ROUND_NUMBER', this.checkRound, this);
-        this.removeEventListener('close',this.onCancel,this);
+        this.removeEventListener('close', this.onCancel, this);
       }
 
       protected checkRound(e) {
@@ -94,7 +94,7 @@ namespace we {
         this.destroy();
       }
 
-      protected onCancel(e){
+      protected onCancel(e) {
         dir.evtHandler.dispatchEventWith('onLotteryConfirmBet', false, { noteData: [], roundData: [] });
       }
 
@@ -254,7 +254,7 @@ namespace we {
 
       public updateText() {
         // need to update i18n later
-        //lo_trad.chase.confirm_panel.
+        // lo_trad.chase.confirm_panel.
         this._lblBetConfirm.renderText = () => `${i18n.t('lo_trad.confirm_panel.betconfirm')}`;
         this._lblLotteryName.renderText = () => `${i18n.t('lo_trad.confirm_panel.lotterynametitle')}`;
         this._lblLotteryNameText.renderText = () => `${i18n.t('lo_trad.confirm_panel.lotterynametitle_lo')}`;
@@ -268,7 +268,7 @@ namespace we {
 
         this._lblTotalBetAmountTitle.renderText = () => `${i18n.t('lo_trad.confirm_panel.totalbetamountitle')}`;
         // this._lblTotalBetAmount;
-        this._lblTitleRoundNumber.renderText = () =>`${i18n.t('lo_trad.confirm_panel.roundnumbertitle')}`;
+        this._lblTitleRoundNumber.renderText = () => `${i18n.t('lo_trad.confirm_panel.roundnumbertitle')}`;
         this._lblBtnCancel.renderText = () => `${i18n.t('nav.menu.cancel')}`;
         this._lblConfirmBet.renderText = () => `${i18n.t('lo_trad.ui.confirmbet')}`;
       }

@@ -18,6 +18,12 @@ namespace we {
       protected _toggler: egret.DisplayObject;
       protected _undoStack: we.utils.UndoStack = new we.utils.UndoStack();
 
+      protected _shuffleMask: egret.DisplayObject;
+      protected _shuffleLabel: ui.RunTimeLabel;
+
+      protected _maintenanceMask: egret.DisplayObject;
+      protected _matntenanceLabel: ui.RunTimeLabel;
+
       // table name label
       protected _label: ui.RunTimeLabel;
       protected _label_game: ui.RunTimeLabel;
@@ -209,14 +215,14 @@ namespace we {
         }
       }
 
-      protected onMatchGoodRoadUpdate() { }
+      protected onMatchGoodRoadUpdate() {}
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         // logger.l(utils.LoggerTarget.DEBUG, 'LiveBaListSimpleItem::onTableBetInfoUpdate');
       }
 
       // item clicked
-      protected onTouchTap(evt: egret.Event) { }
+      protected onTouchTap(evt: egret.Event) {}
 
       protected onBetDetailUpdateInBetState() {
         if (this._betDetails && this._chipLayer) {
@@ -272,7 +278,7 @@ namespace we {
             this.updateGame();
           }
           if (this._favouriteButton) {
-            this._favouriteButton.visible = true;
+            // this._favouriteButton.visible = true;
             const active = env.favouriteTableList.indexOf(this._tableId) > -1;
             if (this._favouriteButton.active !== active) {
               this._favouriteButton.active = active;
@@ -286,14 +292,20 @@ namespace we {
         }
       }
 
-      protected onRoadDataUpdate(evt: egret.Event) { }
+      protected onRoadDataUpdate(evt: egret.Event) {}
 
       public updateGame(isInit: boolean = false) {
+        if(this._maintenanceMask) {
+          this._maintenanceMask.visible = this._tableInfo.state == TableState.MAINTENANCE;
+          this._matntenanceLabel.renderText = ()=> i18n.t('gameIcon_maintenance');
+        }
+
         if (!this._gameData) {
           return;
         }
         this.updateCountdownTimer();
         if (this._stateLabel) this._stateLabel.visible = false;
+        if(this._shuffleMask) this._shuffleMask.visible = false;
         switch (this._gameData.state) {
           case core.GameState.IDLE:
             this.setStateIdle(isInit);
@@ -378,7 +390,7 @@ namespace we {
           }
 
           if (this._previousState === core.GameState.BET && this._message && !isInit && this._betMessageEnable) {
-            if (this._chipLayer.getTotalUncfmBetAmount()>0) {
+            if (this._chipLayer.getTotalUncfmBetAmount() > 0) {
               this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.betTimeout'));
             } else {
               this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
@@ -445,9 +457,13 @@ namespace we {
         if (this._previousState !== we.core.GameState.SHUFFLE || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(false);
+          if(this._shuffleMask) {
+            this._shuffleMask.visible = true;
+            this._shuffleLabel.renderText = ()=>i18n.t('gameIcon_shuffle');
+          }else
           if (this._stateLabel) {
             this._stateLabel.visible = true;
-            this._stateLabel.renderText = ()=>i18n.t('baccarat.shuffling');
+            this._stateLabel.renderText = () => i18n.t('baccarat.shuffling');
           }
           if (this._timer) {
             this._timer.countdownValue = 10 * 1000;
@@ -530,7 +546,7 @@ namespace we {
             pass2 = !!this._gameData && this._gameData.state === core.GameState.FINISH;
             break;
           default:
-            logger.e(utils.LogTarget.DEBUG, 'No gametype found in ControlItem::checkResultMessage->' , this._tableInfo.gametype);
+            logger.e(utils.LogTarget.DEBUG, 'No gametype found in ControlItem::checkResultMessage->', this._tableInfo.gametype);
             break;
         }
 

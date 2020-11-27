@@ -35,7 +35,7 @@ namespace we {
         // For the update event
         this.currency = [core.Currency.EUR, core.Currency.JPY, core.Currency.RMB, core.Currency.HKD];
         this.balances = [3000, 6000, 99999999999999, 2000];
-        env.gameTypes = ["13", "16", "18", "19", "0", "2", "14", "5", "1", "12", "15", "17", "23", "24", "25", "21", "22", "20", "26"];
+        env.gameTypes = ['13', '16', '18', '19', '0', '2', '14', '5', '1', '12', '15', '17', '23', '24', '25', '21', '22', '20', '26'];
         this.balance_index = 0;
         // end
         const value = window.location.search;
@@ -80,7 +80,7 @@ namespace we {
         }, 6000);
       }
 
-      public getBalance() { }
+      public getBalance() {}
 
       public getPlayerLotteryStatistic(filter: any) {
         // 0: favourite bet, 1: favourite game, 2: lucky time, 3: lucky game
@@ -761,9 +761,29 @@ namespace we {
           // iconKey08: 'd_lobby_profile_pic_08_png',
         };
         env.profileimage = ''; // 'iconKey01';
-        env.denomList = ["100", "500", "1000", "2000", "3000", "5000", "10000", "20000", "30000", "50000", "100000", "200000", "300000", "500000", "1000000", "2000000", "3000000", "5000000", "10000000", "20000000"];
+        env.denomList = [
+          '100',
+          '500',
+          '1000',
+          '2000',
+          '3000',
+          '5000',
+          '10000',
+          '20000',
+          '30000',
+          '50000',
+          '100000',
+          '200000',
+          '300000',
+          '500000',
+          '1000000',
+          '2000000',
+          '3000000',
+          '5000000',
+          '10000000',
+          '20000000',
+        ];
         env.betLimits = we.mockLimits;
-        
 
         /*
         let denominationList = [];
@@ -778,8 +798,8 @@ namespace we {
         env.wholeDenomList = denominationList;
         */
 
-        env.gameCategories = ["Live", "Lottery"];
-        env.gameTypes = ["13", "16", "18", "19", "0", "2", "14", "5", "1", "12", "15", "17", "23", "24", "25", "21", "22", "20", "26"];
+        env.gameCategories = ['Live', 'Lottery'];
+        env.gameTypes = ['13', '16', '18', '19', '0', '2', '14', '5', '1', '12', '15', '17', '23', '24', '25', '21', '22', '20', '26'];
         env.mode = null || -1;
         env.categorySortOrder = '{}';
         env.storedPositions = JSON.parse('{"TableInfoPanel":{"x":200,"y":400}}');
@@ -817,7 +837,7 @@ namespace we {
         */
       }
 
-      public leaveTable(tableID: string) { }
+      public leaveTable(tableID: string) {}
 
       public getTableList(filter: string) {
         /*
@@ -1464,7 +1484,7 @@ namespace we {
         // return promise.resolve with BetResult
       }
 
-      public lotteryContinuousBet(tableID: string, betDetails: data.BetDetail[], roundBetDetails: data.LotteryBetCommand[], callback: (result) => void) { }
+      public lotteryContinuousBet(tableID: string, betDetails: data.BetDetail[], roundBetDetails: data.LotteryBetCommand[], callback: (result) => void) {}
 
       private onGoodRoadMatch() {
         // random get a ba table
@@ -1737,13 +1757,13 @@ namespace we {
         });
       }
 
-      public getLotteryContinuousBetDetail(betid: string, callback: (res: any) => void, thisArg: any) { }
+      public getLotteryContinuousBetDetail(betid: string, callback: (res: any) => void, thisArg: any) {}
 
-      public getLotteryContinuousBetHistory(filter: any, callback: (res: any) => void, thisArg: any) { }
+      public getLotteryContinuousBetHistory(filter: any, callback: (res: any) => void, thisArg: any) {}
 
-      public getLotteryBetDetail(filter: any, callback: (res: any) => void, thisArg: any) { }
+      public getLotteryBetDetail(filter: any, callback: (res: any) => void, thisArg: any) {}
 
-      public cancelBet(tableID: string, betID: string, gametype: string, callback: (res: any) => void, thisArg: any) { }
+      public cancelBet(tableID: string, betID: string, gametype: string, callback: (res: any) => void, thisArg: any) {}
 
       public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {
         const betCombination = new we.data.BetCombination();
@@ -1756,7 +1776,7 @@ namespace we {
         dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);
       }
 
-      public sendVerifyInfo(id: string, pattern: string[], callback: (data: any) => void, thisArg) { }
+      public sendVerifyInfo(id: string, pattern: string[], callback: (data: any) => void, thisArg) {}
 
       public getBetCombination() {
         dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);

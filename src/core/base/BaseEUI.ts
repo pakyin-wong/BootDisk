@@ -70,7 +70,7 @@ namespace we {
       protected async onOrientationChange() {
         this.clearOrientationDependentComponent();
         this.updateSkin(this._skinKey, true);
-        // await utils.wait(this, 'mounted'); 
+        // await utils.wait(this, 'mounted');
         this.initOrientationDependentComponent();
         this.arrangeComponents();
       }
@@ -79,7 +79,6 @@ namespace we {
       //   console.log(event.type);
       //   return super.dispatchEvent(event);
       // }
-
 
       // init those components which are not generated from the skin
       protected initComponents() {

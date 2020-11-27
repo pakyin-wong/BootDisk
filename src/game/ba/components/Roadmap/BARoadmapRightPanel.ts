@@ -166,7 +166,6 @@ namespace we {
             if (this.tableInfo.gamestatistic.shoePlayerPairCount !== null && this.tableInfo.gamestatistic.shoePlayerPairCount !== undefined) {
               this.playerPairCountLabel.text = this.tableInfo.gamestatistic.shoePlayerPairCount.toString();
             }
-            
 
             this.totalCount = this.tableInfo.gamestatistic.shoeTotalCount;
 
@@ -230,8 +229,8 @@ namespace we {
 
         super.destroy();
 
-          dir.evtHandler.removeEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
-          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        dir.evtHandler.removeEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
     }
   }

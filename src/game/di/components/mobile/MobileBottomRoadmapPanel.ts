@@ -91,9 +91,9 @@ namespace we {
 
       public updateText() {
         if (this.roadmapSizeBtn && this.roadmapOddevenBtn && this.roadmapSumBtn) {
-        this.roadmapSizeBtn.label = i18n.t('dice.roadBig') + '/' + i18n.t('dice.roadSmall');
-        this.roadmapOddevenBtn.label = i18n.t('dice.roadOdd') + '/' + i18n.t('dice.roadEven');
-        this.roadmapSumBtn.label = i18n.t('dice.total');
+          this.roadmapSizeBtn.label = i18n.t('dice.roadBig') + '/' + i18n.t('dice.roadSmall');
+          this.roadmapOddevenBtn.label = i18n.t('dice.roadOdd') + '/' + i18n.t('dice.roadEven');
+          this.roadmapSumBtn.label = i18n.t('dice.total');
         }
       }
 

@@ -264,7 +264,7 @@ namespace we {
       }
 
       public updateResult(gameData: data.GameData, chipLayer?: ui.ChipLayer) {
-        this.gameData = <bam.GameData> gameData;
+        this.gameData = <bam.GameData>gameData;
         this._chipLayer = chipLayer;
 
         this.updateCardArr();
@@ -318,7 +318,7 @@ namespace we {
       }
 
       protected setCardsFlipAllowed() {
-        if (this.isPlayerFlipAllowed()) {
+        if (utils.bam.isPlayerFlipAllowed(this._chipLayer)) {
           this._disabledPlayerRect.visible = false;
           this._playerCard1.touchEnabled = true;
           this._playerCard2.touchEnabled = true;
@@ -333,7 +333,7 @@ namespace we {
           this._openAllPlayer.touchEnabled = false;
           this._openAllPlayerGroup.visible = false;
         }
-        if (this.isBankerFlipAllowed()) {
+        if (utils.bam.isBankerFlipAllowed(this._chipLayer)) {
           this._disabledBankerRect.visible = false;
           this._bankerCard1.touchEnabled = true;
           this._bankerCard2.touchEnabled = true;
@@ -348,34 +348,6 @@ namespace we {
           this._openAllBanker.touchEnabled = false;
           this._openAllBankerGroup.visible = false;
         }
-      }
-
-      protected isPlayerFlipAllowed() {
-        let allowed = false;
-        if (this._chipLayer && this._chipLayer.getConfirmedBetDetails()) {
-          this._chipLayer.getConfirmedBetDetails().map(value => {
-            if (value.field === we.ba.BetField.PLAYER) {
-              if (value.amount > 0) {
-                allowed = true;
-              }
-            }
-          });
-        }
-        return allowed;
-      }
-
-      protected isBankerFlipAllowed() {
-        let allowed = false;
-        if (this._chipLayer && this._chipLayer.getConfirmedBetDetails()) {
-          this._chipLayer.getConfirmedBetDetails().map(value => {
-            if (value.field === we.ba.BetField.BANKER || value.field === we.ba.BetField.SUPER_SIX_BANKER) {
-              if (value.amount > 0) {
-                allowed = true;
-              }
-            }
-          });
-        }
-        return allowed;
       }
     }
   }

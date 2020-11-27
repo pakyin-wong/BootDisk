@@ -19,6 +19,7 @@ namespace we {
       protected _goodRoadLabel: ui.GoodRoadLabel;
 
       // protected _timer: any;
+      protected _shuffleMessage: ui.ShuffleMessage;
 
       constructor(data: any) {
         super(data);
@@ -35,8 +36,8 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.BET || isInit) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer | we.dt.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0, DRAGON: 0, TIGER: 0 };
-            (<we.ba.TableLayer | we.dt.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0, DRAGON: 0, TIGER: 0 };
+            (<we.ba.TableLayer | we.dt.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0, DRAGON: 0, TIGER: 0 };
+            (<we.ba.TableLayer | we.dt.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0, DRAGON: 0, TIGER: 0 };
           }
         }
         if (this._minimizedTableLayer) {
@@ -61,7 +62,7 @@ namespace we {
               // remove existing tooltip
               clearTimeout(this.hideTooltipTimeout);
               dir.tooltipCtr.removeTooltips();
-              dir.tooltipCtr.displayTooltip(stageX, stageY, '请等候下一局');
+              dir.tooltipCtr.displayTooltip(stageX, stageY, `${i18n.t('live.tooltip.waitForNextRound')}`);
               this.hideTooltipTimeout = setTimeout(() => {
                 dir.tooltipCtr.removeTooltips();
               }, 2000);
@@ -152,7 +153,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo> evt.data;
+          const stat = <data.TableInfo>evt.data;
           if (stat.tableid === this._tableId) {
             this._roadmapControl.updateRoadData();
           }
@@ -164,23 +165,36 @@ namespace we {
         if (!evt || !evt.data) {
           return;
         }
-        const betInfo = <data.GameTableBetInfo> evt.data;
+        const betInfo = <data.GameTableBetInfo>evt.data;
         if (betInfo.tableid === this._tableId) {
           // update the scene
-          (<we.ba.TableLayer | we.dt.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-          (<we.ba.TableLayer | we.dt.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+          (<we.ba.TableLayer | we.dt.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+          (<we.ba.TableLayer | we.dt.TableLayer>this._tableLayer).totalPerson = evt.data.count;
           if (this._minimizedTableLayer) {
             this._minimizedTableLayer.updateBetLabel(false, betInfo);
           }
         }
       }
 
+      public updateGame(isInit: boolean = false) {
+        if (!this._gameData) {
+          return;
+        }
+        this._shuffleMessage && this._shuffleMessage.hide();
+        super.updateGame(isInit);
+      }
+
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
-        this._message.showMessage(ui.InGameMessage.INFO, i18n.t('baccarat.shuffling'), null, true);
+        
+        if(this._shuffleMessage) {
+          this._shuffleMessage.show();
+        }else{
+          this._message.showMessage(ui.InGameMessage.INFO, i18n.t('baccarat.shuffling'), null, true);
+        }
         if (this._tableLayer) {
-          (<we.ba.TableLayer | we.dt.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0, DRAGON: 0, TIGER: 0 };
-          (<we.ba.TableLayer | we.dt.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0, DRAGON: 0, TIGER: 0 };
+          (<we.ba.TableLayer | we.dt.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0, DRAGON: 0, TIGER: 0 };
+          (<we.ba.TableLayer | we.dt.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0, DRAGON: 0, TIGER: 0 };
         }
       }
 

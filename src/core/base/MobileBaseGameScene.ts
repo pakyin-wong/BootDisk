@@ -19,7 +19,7 @@ namespace we {
       protected _doubleLabel: ui.RunTimeLabel;
       protected _undoLabel: ui.RunTimeLabel;
 
-      protected _veritcalTop: eui.Group;
+      protected _verticalTop: eui.Group;
       protected _verticalGroup: eui.Group;
 
       protected _GameID: ui.RunTimeLabel;
@@ -313,7 +313,7 @@ namespace we {
         });
 
         const selectedIndex = env.currentSelectedBetLimitIndex;
-        if(this._bottomGamePanel._betLimitDropDownBtn){
+        if (this._bottomGamePanel._betLimitDropDownBtn) {
           this._bottomGamePanel._betLimitDropDownBtn.touchEnabled = true;
         }
         utils.DropdownCreator.new({
@@ -356,7 +356,7 @@ namespace we {
 
       protected onClickBetChipSelected() {
         const testpoint: egret.Point = this._betChipSetGridSelected.localToGlobal(0, 0); // _betChipSetGridSelected(0,0)=> global x and y
-        // console.log(' this._veritcalTop.localToGlobal(49,61)', testpoint);
+        // console.log(' this._verticalTop.localToGlobal(49,61)', testpoint);
         this._betChipSetGridEnabled ? this.hideBetChipPanel() : this.showBetChipPanel();
       }
 
@@ -430,7 +430,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             if (this._totalBet) {
               const totalBet = betInfo.gameroundid === this._gameData.gameroundid ? betInfo.total : 0;
@@ -443,7 +443,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo> evt.data;
+          const stat = <data.TableInfo>evt.data;
           if (stat.tableid === this._tableId) {
             this._bottomGamePanel.updateStat();
           }

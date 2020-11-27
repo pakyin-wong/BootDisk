@@ -6,10 +6,8 @@ namespace we {
     export class Helper {
       protected _factory: dragonBones.EgretFactory;
       public constructor(factory: dragonBones.EgretFactory) {
-        this._factory = factory
+        this._factory = factory;
       }
-      
-
     }
   }
 }

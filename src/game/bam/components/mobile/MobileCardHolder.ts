@@ -102,7 +102,7 @@ namespace we {
 
       public updateResult(gameData: data.GameData, chipLayer?: ui.ChipLayer) {
         // TODO: update card using the gameData
-        this.gameData = <bam.GameData> gameData;
+        this.gameData = <bam.GameData>gameData;
         this._chipLayer = chipLayer;
 
         this.updateCardArr();
@@ -503,7 +503,7 @@ namespace we {
       protected setCardsFlipAllowed(playCardno: number, bankCardno: number) {
         let initSelectedIdx = -1;
 
-        if (this.isBankerFlipAllowed()) {
+        if (utils.bam.isBankerFlipAllowed(this._chipLayer)) {
           for (let i: number = bankCardno; i >= 0; i--) {
             this.cardHolderArr[i].filters = [this.enableFilter];
             this._openAllBanker.visible = false;
@@ -520,7 +520,7 @@ namespace we {
           this._openAllBanker.visible = false;
         }
 
-        if (this.isPlayerFlipAllowed()) {
+        if (utils.bam.isPlayerFlipAllowed(this._chipLayer)) {
           for (let i: number = 3; i <= playCardno; i++) {
             this.cardHolderArr[i].filters = [this.enableFilter];
             this._openAllPlayer.visible = false;
@@ -540,41 +540,6 @@ namespace we {
         if (initSelectedIdx > -1) {
           this.selectCardByIdx(initSelectedIdx);
         }
-      }
-
-      protected isPlayerFlipAllowed() {
-        let allowed = false;
-        if (this._chipLayer && this._chipLayer.getConfirmedBetDetails()) {
-          this._chipLayer.getConfirmedBetDetails().map(value => {
-            if (
-              (value.field === we.ba.BetField.PLAYER && value.amount > 0) ||
-              (value.field === we.ba.BetField.PLAYER_PAIR && value.amount > 0) ||
-              (value.field === we.ba.BetField.TIE && value.amount > 0) ||
-              (value.field === we.ba.BetField.SUPER_SIX && value.amount > 0)
-            ) {
-              allowed = true;
-            }
-          });
-        }
-        return allowed;
-      }
-
-      protected isBankerFlipAllowed() {
-        let allowed = false;
-        if (this._chipLayer && this._chipLayer.getConfirmedBetDetails()) {
-          this._chipLayer.getConfirmedBetDetails().map(value => {
-            if (
-              (value.field === we.ba.BetField.BANKER && value.amount > 0) ||
-              (value.field === we.ba.BetField.BANKER_PAIR && value.amount > 0) ||
-              (value.field === we.ba.BetField.TIE && value.amount > 0) ||
-              (value.field === we.ba.BetField.SUPER_SIX && value.amount > 0) ||
-              (value.field === we.ba.BetField.SUPER_SIX_BANKER && value.amount > 0)
-            ) {
-              allowed = true;
-            }
-          });
-        }
-        return allowed;
       }
 
       public exportData() {

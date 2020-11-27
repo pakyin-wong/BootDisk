@@ -19,6 +19,8 @@ namespace we {
 
       private _common_listpanel: ui.BaseImageButton;
       protected _originBetRelatedGroupY: number;
+      
+      protected _shuffleMessage: ui.ShuffleMessage;
 
       constructor(data: any) {
         super(data);
@@ -67,8 +69,8 @@ namespace we {
         // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
         if (this._previousState !== we.core.GameState.BET || isInit) {
           if (this._tableLayer) {
-            (<we.dt.TableLayer> this._tableLayer).totalAmount = { DRAGON: 0, TIGER: 0 };
-            (<we.dt.TableLayer> this._tableLayer).totalPerson = { DRAGON: 0, TIGER: 0 };
+            (<we.dt.TableLayer>this._tableLayer).totalAmount = { DRAGON: 0, TIGER: 0 };
+            (<we.dt.TableLayer>this._tableLayer).totalPerson = { DRAGON: 0, TIGER: 0 };
           }
         }
         if (this._resultDisplay && env.orientation === 'portrait') {
@@ -100,6 +102,25 @@ namespace we {
           egret.Tween.get(this._betRelatedGroup).to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
         }
       }
+
+      public updateGame(isInit: boolean = false) {
+        if (!this._gameData) {
+          return;
+        }
+        this._shuffleMessage && this._shuffleMessage.hide();
+        super.updateGame(isInit);
+      }
+
+      protected setStateShuffle(isInit: boolean = false) {
+        super.setStateShuffle(isInit);
+        
+        if(this._shuffleMessage) {
+          this._shuffleMessage.show();
+        }else{
+          this._message.showMessage(ui.InGameMessage.INFO, i18n.t('baccarat.shuffling'), null, true);
+        }
+      }
+
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
@@ -231,7 +252,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo> evt.data;
+          const stat = <data.TableInfo>evt.data;
           if (stat.tableid === this._tableId) {
             this._roadmapControl.updateRoadData();
           }
@@ -241,11 +262,11 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             // update the scene
-            (<we.dt.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-            (<we.dt.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+            (<we.dt.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+            (<we.dt.TableLayer>this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }

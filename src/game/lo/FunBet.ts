@@ -103,50 +103,50 @@ namespace we {
       }
 
       public static getBetRate(type: string, group: string, field: string): string {
-        if(!FunBet.betratios) return '0.000';
+        if (!FunBet.betratios) return '0.000';
 
         let ratio = 0;
-        switch(type) {
+        switch (type) {
           case FunBet.GROUP_TYPE.SIZEPARITY2:
           case FunBet.GROUP_TYPE.SUMSIZEPARITY:
             ratio = FunBet.betratios.RATIO_SUMSIZEPARITY;
             break;
           case FunBet.GROUP_TYPE.THREESPECIAL:
-            switch(field) {
-              case "SAME":
+            switch (field) {
+              case 'SAME':
                 ratio = FunBet.betratios.RATIO_SPECIAL_SAME;
-              break;
-		          case "ORDER":
+                break;
+              case 'ORDER':
                 ratio = FunBet.betratios.RATIO_SPECIAL_ORDER;
-              break;
-		          case "DOUBLE":
+                break;
+              case 'DOUBLE':
                 ratio = FunBet.betratios.RATIO_SPECIAL_DOUBLE;
-              break;
-		          case "HALFORDER":
+                break;
+              case 'HALFORDER':
                 ratio = FunBet.betratios.RATIO_SPECIAL_HALFORDER;
-              break;
-              case "OTHER":
+                break;
+              case 'OTHER':
                 ratio = FunBet.betratios.RATIO_SPECIAL_OTHER;
-              break;
+                break;
             }
             break;
           case FunBet.GROUP_TYPE.NUM:
-              ratio = FunBet.betratios.RATIO_SINGLENUM;
-              break;
+            ratio = FunBet.betratios.RATIO_SINGLENUM;
+            break;
           case FunBet.GROUP_TYPE.INTEREST1SPECIAL:
-              ratio = FunBet.betratios.RATIO_INTEREST1;
-              break;
+            ratio = FunBet.betratios.RATIO_INTEREST1;
+            break;
           case FunBet.GROUP_TYPE.DT2:
-            switch(field) {
+            switch (field) {
               case 'DRAGON':
-              ratio = FunBet.betratios.RATIO_DRAGON;
-              break;
+                ratio = FunBet.betratios.RATIO_DRAGON;
+                break;
               case 'TIGER':
-              ratio = FunBet.betratios.RATIO_TIGER;
-              break;
+                ratio = FunBet.betratios.RATIO_TIGER;
+                break;
               case 'TIE':
-              ratio = FunBet.betratios.RATIO_TIE;
-              break;
+                ratio = FunBet.betratios.RATIO_TIE;
+                break;
             }
             break;
         }

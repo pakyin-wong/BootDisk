@@ -29,9 +29,9 @@ namespace we {
         ]);
         this.bg = new ui.RoundRectShape();
         this.addChild(this.bg);
-        if(!env.isMobile){
+        if (!env.isMobile) {
           this.initContent();
-        }else{
+        } else {
           this.initMobileContent();
         }
       }
@@ -151,7 +151,7 @@ namespace we {
         });
         this.collection.replaceAll(rslt);
 
-        if(!env.isMobile){
+        if (!env.isMobile) {
           const w = 12 + Math.ceil(rslt.length / this.rowCount) * (130 + 12);
           if (this.rowCount === 3) {
             this.bg.width = w;
@@ -162,7 +162,7 @@ namespace we {
             this.bg.height = 264;
             this.bg.setRoundRectStyle(w, 264, { tl: 12, tr: 12, br: 12, bl: 12 }, '0x000d1d', 0.9, 0);
           }
-        }else{
+        } else {
           const w = 12 + Math.ceil(rslt.length / this.rowCount) * (260 + 12);
           if (this.rowCount === 3) {
             this.bg.width = w;
