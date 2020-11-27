@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile.SlideUpMenuSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="_root" left="0" right="0" height="1966" y="0">
-		<e:Image id="_bg" source="d_bcba_panel_bg_png" right="0" top="0" left="0" bottom="0" fillMode="scale" scale9Grid="169, 118, 2, 802"/>
+		<e:Image id="_bg" source="m_bcba_penal_h_bg_png" right="0" top="0" left="0" bottom="0" fillMode="scale" scale9Grid="84,68,54,484"/>
 		<e:Rect id="_touchArea" right="0" top="0" left="0" bottom="0" fillAlpha="0" locked="true"/>
 		<e:Image id="_btnClose" source="d-lobby-button-close-none_png" width="80" height="80" right="45" top="45" />
 		<ui:RunTimeLabel id="_lblTitle" text="Label" horizontalCenter="0" height="119" size="80" textAlign="center" verticalAlign="middle" textColor="0xc59466" touchEnabled="false" top="31"/>
