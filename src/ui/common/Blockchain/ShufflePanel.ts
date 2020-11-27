@@ -79,20 +79,43 @@ namespace we {
 
       }
 
-      protected createFirstCard() {
-        const firstCardFront = this.getFirstCardFront(this._gameData.firstcard);
-        firstCardFront.anchorOffsetX = this._firstCardWidth / 2;
-        firstCardFront.anchorOffsetY = this._firstCardHeight / 2;
+      // protected createFirstCard() {
+      //   const firstCardFront = this.getFirstCardFront(this._gameData.firstcard);
 
+      //   firstCardFront.anchorOffsetX = this._firstCardWidth / 2;
+      //   firstCardFront.anchorOffsetY = this._firstCardHeight / 2;
+
+      //   this._firstCard = this._factory.buildArmatureDisplay('poker');
+        
+      //   utils.dblistenToSoundEffect(this._firstCard);
+      //   this._firstCard.armature.getSlot('card_number_vertical').display = this.createIndexLabel(1);
+      //   this._firstCard.armature.getSlot('card_front_vertical').display = firstCardFront;
+      //   this._firstCard.animation.gotoAndStopByTime('burn_card_center_in', 0)
+      //   this._firstCard.visible = false;
+      //   //this._firstCard.anchorOffsetX = this._firstCardWidth / 2;
+      //   //this._firstCard.anchorOffsetY = this._firstCardHeight / 2;
+
+      //   this._firstGroup = new eui.Group();
+      //   this._firstGroup.horizontalCenter = 0;
+      //   this._firstGroup.addChild(this._firstCard);
+      //   this._allCardsGroup.addChild(this._firstGroup);
+
+      //   const skipped = utils.stat.ba.translateCardToNumber(this._gameData.firstcard);
+      //   this._firstGroup.y = (skipped > 7)? this._twoRowFirstCardY: this._oneRowFirstCardY;
+      // }
+
+      protected createFirstCard() {
         this._firstCard = this._factory.buildArmatureDisplay('poker');
+        
         utils.dblistenToSoundEffect(this._firstCard);
         this._firstCard.armature.getSlot('card_number_vertical').display = this.createIndexLabel(1);
-        this._firstCard.armature.getSlot('card_front_vertical').display = firstCardFront;
+        this.getFirstCardFront(this._gameData.firstcard, this._firstCard.armature.getSlot('card_front_vertical'));
+        // this._firstCard.armature.getSlot('card_front_vertical').display = firstCardFront;
         this._firstCard.animation.gotoAndStopByTime('burn_card_center_in', 0)
         this._firstCard.visible = false;
         //this._firstCard.anchorOffsetX = this._firstCardWidth / 2;
         //this._firstCard.anchorOffsetY = this._firstCardHeight / 2;
-
+        
         this._firstGroup = new eui.Group();
         this._firstGroup.horizontalCenter = 0;
         this._firstGroup.addChild(this._firstCard);
@@ -100,6 +123,10 @@ namespace we {
 
         const skipped = utils.stat.ba.translateCardToNumber(this._gameData.firstcard);
         this._firstGroup.y = (skipped > 7)? this._twoRowFirstCardY: this._oneRowFirstCardY;
+        if(env.isMobile){
+          this._firstCard.scaleX = this._firstCardScaleX;
+          this._firstCard.scaleY = this._firstCardScaleY;
+        }
       }
 
       protected createIndexLabel(num: number) {
@@ -119,14 +146,29 @@ namespace we {
         return labelGroup;
       }
 
-      protected getFirstCardFront(cardString: string) {
+      // protected getFirstCardFront(cardString: string) {
+      //   const resName = cardString === 'back' ? 'back' : utils.formatCardForFlip(cardString);
+      //   const image = new eui.Image();
+      //   image.width = this._firstCardWidth;
+      //   image.height = this._firstCardHeight;
+
+      //   image.source = utils.getCardResName(resName);
+      //   return image;
+      // }
+
+      protected getFirstCardFront(cardString: string, card){
         const resName = cardString === 'back' ? 'back' : utils.formatCardForFlip(cardString);
         const image = new eui.Image();
-        image.width = this._firstCardWidth;
-        image.height = this._firstCardHeight;
+        const texture = RES.getRes(utils.getCardResName(resName));
+        const meshDistData = card.displayData as dragonBones.MeshDisplayData;
 
-        image.source = utils.getCardResName(resName);
-        return image;
+        let textureData = new dragonBones.EgretTextureData();
+        textureData.renderTexture = texture;
+        meshDistData.texture = textureData;
+        card.armature.replacedTexture == null;
+        card.replaceDisplayData(meshDistData);
+        card.displayIndex = -1;
+        card.displayIndex = 0;
       }
 
       protected createBg() {

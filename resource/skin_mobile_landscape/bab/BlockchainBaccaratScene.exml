@@ -57,7 +57,7 @@
 		<e:VerticalLayout gap="-65" />
 	</e:layout>
 </e:Group>
-<e:Group id="_betChipSetPanel" width="1566" height="443" scaleY="1" x="366" y="264">
+<e:Group id="_betChipSetPanel" width="1566" height="443" scaleY="1" x="366" y="254">
 	<e:Group id="_betPanelGroup" scaleY="1" x="0" height="443" y="0" width="100%">
 		<e:Image id="_panel" width="1566" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1" scaleX="1"
 		         y="0" height="443" x="0" />
@@ -137,7 +137,7 @@
 </e:Group>
 <bab:MobileHistoryCardHolder id="_historyCardHolder" width="1146" height="373"
                        skinName="skin_mobile_portrait.bab.HistoryHolderSkin" isPoppable="true" hideOnStart="true"  top="450" horizontalCenter="0"/>
-<bc:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true" skeletonName="blockchain"
+<bc:ShufflePanel id="_shufflePanel" width="2424" height="1242" isPoppable="true" skeletonName="blockchain"
                  isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
                  skinName="skin_mobile_landscape.bc.ShufflePanelSkin" />
 <!--<bc:DeckPanel id="_deckPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
