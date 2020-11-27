@@ -92,6 +92,10 @@ declare module skin_desktop{
 	class InGameMessageSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class ShuffleMessage extends eui.Skin{
+	}
+}
 declare module skin_desktop.ba{
 	class LiveListAdvancedItemChipLayerSkin extends eui.Skin{
 	}
@@ -1892,6 +1896,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class GameResultWinSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class ShuffleMessage extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ba{

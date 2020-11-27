@@ -19,6 +19,8 @@ namespace we {
 
       private _common_listpanel: ui.BaseImageButton;
       protected _originBetRelatedGroupY: number;
+      
+      protected _shuffleMessage: ui.ShuffleMessage;
 
       constructor(data: any) {
         super(data);
@@ -100,6 +102,25 @@ namespace we {
           egret.Tween.get(this._betRelatedGroup).to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
         }
       }
+
+      public updateGame(isInit: boolean = false) {
+        if (!this._gameData) {
+          return;
+        }
+        this._shuffleMessage && this._shuffleMessage.hide();
+        super.updateGame(isInit);
+      }
+
+      protected setStateShuffle(isInit: boolean = false) {
+        super.setStateShuffle(isInit);
+        
+        if(this._shuffleMessage) {
+          this._shuffleMessage.show();
+        }else{
+          this._message.showMessage(ui.InGameMessage.INFO, i18n.t('baccarat.shuffling'), null, true);
+        }
+      }
+
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
