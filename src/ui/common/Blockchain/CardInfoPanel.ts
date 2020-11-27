@@ -114,19 +114,13 @@ namespace we {
         // set sha256 Group
         if (this._gameData.maskedcardssnList[this._cardIndex - 1][0] === '*') {
           this._sha256SuccessfulGroup.visible = false;
-          this._encryptedKeyLabel.textColor = 0xffffff;
-          this._decryptedKeyLabel.textColor = 0xffffff;
           this._sha256FailGroup.visible = false;
         } else if (we.utils.SHA256(this._gameData.maskedcardssnList[this._cardIndex - 1]) === this._gameData.hashedcardsList[this._cardIndex - 1]) {
           this._sha256SuccessfulGroup.visible = true;
-          this._encryptedKeyLabel.textColor = 0x0f9d5d;
-          this._decryptedKeyLabel.textColor = 0x0f9d5d;
           this._sha256FailGroup.visible = false;
           isVerifySuccess = 1;
         } else {
           this._sha256SuccessfulGroup.visible = false;
-          this._encryptedKeyLabel.textColor = 0xd83642;
-          this._decryptedKeyLabel.textColor = 0xd83642;
           this._sha256FailGroup.visible = true;
           isVerifySuccess = -1;
         }
