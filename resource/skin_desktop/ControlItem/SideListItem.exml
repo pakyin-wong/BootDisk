@@ -33,6 +33,11 @@
         <e:Image id="_arrow" source="d_lobby_button_down_normal_png" x="290" y="45" rotation="270" visible="false"/>
         <e:Group left="0" right="0">
             <e:Component id="_roadmapNode" top="46" left="1" right="1"/>
+            <e:Group id="_shuffleMask" top="46" left="1" right="1" bottom="0">
+            <ui:RoundRectShape left="0" right="0" top="0" bottom="0" fillColor="0x1e2126" alpha="0.8" cornerBL="8" cornerBR="8" stroke="0" cornerTL="0" cornerTR="0"/>
+							<e:Image width="64" height="57" source="icon-shuffle_png" horizontalCenter="0" x="137" verticalCenter="-17"/>
+							<ui:RunTimeLabel id="_shuffleLabel" text="洗牌中" size="22" height="33" verticalAlign="middle" textAlign="center" textColor="0xcea56f" horizontalCenter="0" x="136" verticalCenter="30"/>
+            </e:Group>
             <ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_desktop.GoodRoadLabelSkin" right="13" bottom="10" />
 			<e:Group id="_alreadyBetSign" right="5" bottom="40" visible="false">
 				<e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0" width="100" height="30"/>
@@ -50,6 +55,11 @@
         -->
         <!--<live:BetLimitDropdown id="_dropdown" width="145" height="30" x="420" y="211" anchorOffsetX="0"
                                anchorOffsetY="0" skinName="BetLimitDropdownSkin" visible="false" />-->
+  <e:Group id="_maintenanceMask" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" visible="false">
+    <ui:RoundRectShape left="0" right="0" top="0" bottom="0" fillColor="0x1e2126" alpha="0.8" cornerBL="8" cornerBR="8" cornerTR="8" cornerTL="8" strokeColor="0x3a3f48" stroke="2"/>
+		<e:Image width="53" height="53" source="icon-maintenance_png" verticalCenter="4.5" horizontalCenter="0"/>
+		<ui:RunTimeLabel id="_matntenanceLabel" text="維護中" size="22" height="33" verticalAlign="middle" textAlign="center" textColor="0xffffff" verticalCenter="51.5" horizontalCenter="0"/>
+  </e:Group>
     </e:Group>
     <e:Component id="_chipLayerNode" width="337" skinName="skin_desktop.ba.SideListChipLayerSkin" anchorOffsetY="0"
                  height="110" left="0" y="0" name="sidebettingtable" alpha="0"  visible="false"/>

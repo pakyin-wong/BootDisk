@@ -373,6 +373,24 @@ namespace we {
         }
       }
 
+      protected animateFavouriteButton(show: boolean) {
+        super.animateFavouriteButton(show);
+        if (!this._favouriteButton) {
+          return;
+        }
+        egret.Tween.removeTweens(this._favouriteButton);
+
+        if (show) {
+            egret.Tween.get(this._favouriteButton)
+              .set({ visible: true })
+              .to({ alpha: 1 }, this._tweenInterval1);
+        } else {
+            egret.Tween.get(this._favouriteButton)
+              .to({ alpha: 0 }, 250)
+              .set({ visible: false });
+        }
+      }
+
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {

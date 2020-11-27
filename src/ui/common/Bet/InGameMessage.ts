@@ -16,7 +16,7 @@ namespace we {
       private _bg: eui.Image;
       private _label: ui.RunTimeLabel;
 
-      private _isAnimating: boolean;
+      protected _isAnimating: boolean;
 
       public duration: number = 3000;
 

@@ -33,6 +33,9 @@ namespace we {
       lobby_no_favourite_text: '没有我的最爱',
       lobby_tag_hint_text: '将你喜爱的游戏标上爱心',
 
+      gameIcon_shuffle: '洗牌中',
+      gameIcon_maintenance: '维护中',
+
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '闲',
       betfield_baccarat_tie: '和',
@@ -580,6 +583,13 @@ namespace we {
       baccarat: {
         tooltip: {
           swapRoadmap: '转换路纸',
+          cardIDHelp: '发牌编号： \n系统会为本靴牌订立发牌编号，发牌次序根据发牌编号的顺序发牌。',
+          encryptedKeyHelp: '提前公布卡牌加密文： \n每靴洗牌后，系统对每张「卡牌序号」进行区块链技术加密并提前公开展示，一\n旦生成即不能更改。 ',
+          mobileEncryptedKeyHelp: '提前公布卡牌加密文： \n每靴洗牌后，系统对每张「卡牌序号」进行区块链技术加密并提前公开展示，一旦生成即不能更改。 ',
+          decryptedKeyHelp: '卡牌加密文： \n开牌后，系统会显示根据「卡牌序号」而生成的「卡牌加密文」，并自动与「提\n前公布卡牌加密文」进行验证。 ',
+          mobileDecryptedKeyHelp: '卡牌加密文： \n开牌后，系统会显示根据「卡牌序号」而生成的「卡牌加密文」，并自动与「提前公布卡牌加密文」进行验证。 ',
+          ssnHelp: '卡牌序号：\n(i)首两位字元为卡牌的「点数」\nA为1点；J为11点；Q为12点；K为13点；其它牌(2、3、 4、5、6、7、8、9)\n依牌面数字面值\n \n(ii)第三位字元为卡牌的「花色」：\nH为红心(Heart)\nD为方块(Diamond)\nS为黑桃(Spade)\nC为梅花(Clubs)\n \n(iii)其后会加入一串「随机字符」，保证序号的唯一性；每次「随机字符」均会\n重新生成，即「本局」黑桃A的「随机字符」与「上局」黑桃A的随机字符不\n同。 \n \n(iv)例子：黑桃A\n「01」代表点数─A\n「C」代表花色─黑桃\n「fhjkssadfhkh32iuhksdhfkjasJC」为随机字符',
+          mobileSsnHelp: '卡牌序号：\n(i)首两位字元为卡牌的「点数」\nA为1点；J为11点；Q为12点；K为13点；其它牌(2、3、 4、5、6、7、8、9)\n依牌面数字面值\n \n(ii)第三位字元为卡牌的「花色」：\nH为红心(Heart)\nD为方块(Diamond)\nS为黑桃(Spade)\nC为梅花(Clubs)\n \n(iii)其后会加入一串「随机字符」，保证序号的唯一性；每次「随机字符」均会重新生成，即「本局」黑桃A的「随机字符」与「上局」黑桃A的随机字符不同。 \n \n(iv)例子：黑桃A\n「01」代表点数─A\n「C」代表花色─黑桃\n「fhjkssadfhkh32iuhksdhfkjasJC」为随机字符',
         },
         statisticChart: {
           bankerPlayerTie: '庄闲和比例 (100局)',
@@ -658,7 +668,8 @@ namespace we {
         restart: '重启游戏',
         retry: '重试',
         cancel: '取消',
-        urlcopied: '第三方验证网站已复制',
+        urlcopied:'第三方验证网站已复制',
+        keycopied:'已复制',
       },
       error: {
         error_1001: '用户於其他装置上登录',

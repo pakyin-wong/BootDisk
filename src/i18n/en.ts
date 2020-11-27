@@ -33,6 +33,9 @@ namespace we {
       lobby_no_favourite_text: 'No favorite game selected',
       lobby_tag_hint_text: 'Mark your favorite games with heart button',
 
+      gameIcon_shuffle: 'Shuffling',
+      gameIcon_maintenance: 'Maintenance',
+
       betfield_baccarat_banker: 'banker',
       betfield_baccarat_player: 'player',
       betfield_baccarat_tie: 'tie',
