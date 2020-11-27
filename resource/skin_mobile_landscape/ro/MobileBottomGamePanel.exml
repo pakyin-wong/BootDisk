@@ -5,7 +5,7 @@
 	<e:layout>
 	<e:VerticalLayout gap="0" horizontalAlign="center"/>
 	</e:layout>
-		<e:Group id="_topPart" x="0" y="0" scaleX="1" scaleY="1" height="66">
+		<e:Group id="_topPart" x="0" y="0" scaleX="1" scaleY="1" height="66" visible="false">
 			<e:Rect width="116" height="66" x="2259" y="0" strokeWeight="0" strokeColor="0x212425" fillColor="0x212425"/>
 			<e:Image id="_arrow" x="2277" source="d_lobby_button_down_normal_png" width="80" height="80" scaleX="1" scaleY="1" visible.off="false" y="-7"/>
 			<e:Image id="_arrowUp" x="2357" width="80" height="80" scaleX="1" scaleY="1" source="d_lobby_button_down_normal_png" rotation="180" visible.on="false" y="73"/>
