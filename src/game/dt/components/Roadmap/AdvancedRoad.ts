@@ -165,11 +165,11 @@ namespace we {
 
       public destroy() {
         super.destroy();
-
-        this.bigRoad.dispose();
-        this.bigEyeRoad.dispose();
-        this.smallRoad.dispose();
-        this.cockroachRoad.dispose();
+        //this.beadRoad.dispose();
+        //this.bigRoad.dispose();
+        //this.bigEyeRoad.dispose();
+        //this.smallRoad.dispose();
+        //this.cockroachRoad.dispose();
 
         // if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
         //   dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
