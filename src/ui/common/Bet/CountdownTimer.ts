@@ -16,6 +16,8 @@ namespace we {
       protected isHover: boolean = false;
       protected isPress: boolean = false;
 
+      public _isColorTransform: boolean = false; //for desktop in-game
+
       public constructor() {
         super();
         // this.once(eui.UIEvent.REMOVED_FROM_STAGE, () => this.stop(), this);
@@ -33,6 +35,7 @@ namespace we {
         if (this.bg_color) {
           // this.bg_flash();
         }
+        this.progressIndicator.isColorTransform = this._isColorTransform;
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.destroy, this);
       }
 
@@ -76,6 +79,7 @@ namespace we {
           this.countdownLabel.text = ``;
         } else {
           this._remainingTime = Math.max(Math.min(second, this._countdownValue), 0);
+          this.progressIndicator.remainingTime = this._remainingTime;
           const ratio = (this._remainingTime * 1.0) / this._countdownValue;
           this.progressIndicator.progress = ratio;
           this.countdownLabel.text = `${Math.ceil(this._remainingTime * 0.001)}`;

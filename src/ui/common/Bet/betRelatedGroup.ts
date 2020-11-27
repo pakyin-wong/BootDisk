@@ -34,6 +34,7 @@ namespace we {
         mouse.setButtonMode(this._confirmButton, true);
         this.addListeners();
         this.changeLang();
+        this._timer._isColorTransform = env.isMobile ? false : true;
       }
 
       protected destroy() {
