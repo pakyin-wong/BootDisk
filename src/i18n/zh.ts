@@ -605,7 +605,7 @@ namespace we {
         statType100: '100局',
         statTypeShoe: '本靴',
         BankerPlayerRatio: '庄閒和比例',
-        PairRatio: '庄對閒對比例',
+        PairRatio: '對子比例',
         round: '局',
         rounds: '局',
         playersqueeze: '咪牌中',
