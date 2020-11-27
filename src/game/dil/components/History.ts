@@ -44,10 +44,6 @@ namespace we {
 
       protected _prevbtn: eui.Group;//desktop only
       protected _prevbtnImage: eui.Image;//desktop only
-      // d_common_panel_info_btn_right_active_png
-      // d_common_panel_info_btn_right_png
-      // d_common_panel_info_btn_left_active_png
-      // d_common_panel_info_btn_left_png
       protected _nextbtn: eui.Group;//desktop only
       protected _nextbtnImage: eui.Image;//desktop only
       
@@ -109,7 +105,24 @@ namespace we {
         this.updateHistoryBar(this._gamestatistic);  
         logger.l(utils.LogTarget.DEBUG, JSON.stringify(this.tableInfo.betInfo.count));
         logger.l(utils.LogTarget.DEBUG, JSON.stringify(this.tableInfo.betInfo.amount));
-      }    
+      }
+      //switch page in isAnalysis    
+      public touchFinishAction(isAnalysis: boolean = false) {
+        if(isAnalysis === false) {
+         return
+        }
+        if (this.round === 10) {
+          this.finishAction(1)
+          if (this._holder) {
+            this._holder.doNext()
+          }
+        } else {
+          this.finishAction(0)
+          if (this._holder) {
+            this._holder.doNext()
+          }
+        }
+      }
       public finishAction(page: number) {
         if (page === 0) {
           this.round = 10;
@@ -120,11 +133,9 @@ namespace we {
           this._roundNumber.text = this.round.toString();
         }
         this.updateHistoryBar(this._data);
-        console.log(' this.updateHistoryBar(this._data);',this._data)
       }
       public updateStat(data: we.data.GameStatistic) {
         this._data = data;
-        console.log('updateStat::this._data = data;',this._data)
         this.updateHistoryBar(this._data);
       }
       protected updateBar(data) {
@@ -170,7 +181,6 @@ namespace we {
         }
       }
       protected updateHistoryBar (data) {
-        console.log('---------------------------------------------------------------updatehistorybar',data)
         if (env.isMobile) {
           // check is 10 records or 50 records
           if (this._totalResult === 10) {
