@@ -33,6 +33,9 @@ namespace we {
       lobby_no_favourite_text: '没有我的最爱',
       lobby_tag_hint_text: '将你喜爱的游戏标上爱心',
 
+      gameIcon_shuffle: '洗牌中',
+      gameIcon_maintenance: '维护中',
+
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '闲',
       betfield_baccarat_tie: '和',
