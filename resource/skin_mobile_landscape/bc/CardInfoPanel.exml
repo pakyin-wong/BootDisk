@@ -76,32 +76,31 @@
                 <bc:BaseCard id="_cardImage" skinName="skin_mobile_landscape.bc.CardInfoCard" x="308" y="145"/>
                 <ui:BaseImageButton id="_prevButton" width="28" height="53" x="192" y="249" currentState="b_bab_prev" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel"/>
                 <ui:BaseImageButton id="_nextButton" width="28" height="53" x="578" y="249" currentState="b_bab_next" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel"/>
-                <ui:InGameMessage id="_message" skinName="skin_desktop.CopyInfoMessageSkin" height="112" horizontalCenter="0" verticalCenter="0" touchEnabled="false" touchChildren="false"/>
                 </e:Group>
                 </ui:Scroller>
                 <e:Group touchEnabled="false">
                 <e:Group id="_indexHelpGroup" x="540" y="400" width="1109" height="263">
                         <ui:RoundRectShape cornerTL_TR_BL_BR="8,8,8,8" strokeIn="2" strokeInColor="0x28323d" fillColor="0x28323d" fillAlpha="0.9" stroke="1" strokeColor="0x28323d" left="25" top="0" bottom="0" right="0"/>
-			<e:Image id="_helpArrow" source="m_bcba_panel_arrow_png" width="83" height="25" left="0" rotation="270" top="0"/>
+			<e:Image id="_helpArrow" source="m_bcba_panel_arrow_png" width="83" height="25" left="0" rotation="270" top="0" visible="false"/>
 			<ui:RunTimeLabel id="_helpLabel" x="69" verticalAlign="top" i18n="baccarat.tooltip.cardIDHelp" size="36" y="45" textAlign="left" wordWrap="true" width="997" height="210" lineSpacing="15"/>
 		</e:Group>
                 <e:Group id="_encryptedKeyHelpGroup" x="1322" y="30" width="1013" height="263">
                         <ui:RoundRectShape cornerTL_TR_BL_BR="8,8,8,8" strokeIn="2" strokeInColor="0x28323d" fillColor="0x28323d" fillAlpha="0.9" stroke="1" strokeColor="0x28323d" left="25" top="0" bottom="0" right="0"/>
-			<e:Image id="_encryptedKeyHelpArrow" source="m_bcba_panel_arrow_png" width="83" height="25" left="0" rotation="270" verticalCenter="-20"/>
+			<e:Image id="_encryptedKeyHelpArrow" source="m_bcba_panel_arrow_png" width="83" height="25" left="0" rotation="270" verticalCenter="-20" visible="false"/>
 			<ui:RunTimeLabel id="_encryptedKeyHelpLabel" x="69" verticalAlign="top" i18n="baccarat.tooltip.mobileEncryptedKeyHelp" size="36" y="40" textAlign="left" wordWrap="true" width="903" height="180" lineSpacing="15"/>
 		</e:Group>
                 <e:Group id="_ssnHelpGroup" x="1100" width="1249" height="1098" y="-250">
                         <ui:RoundRectShape cornerTL_TR_BL_BR="8,8,8,8" strokeIn="2" strokeInColor="0x28323d" fillColor="0x28323d" fillAlpha="0.9" stroke="1" strokeColor="0x28323d" left="25" top="0" bottom="0" right="0"/>
-			<e:Image id="_ssnHelpArrow" source="m_bcba_panel_arrow_png" width="83" height="25" bottom="275" left="0" rotation="270"/>
+			<e:Image id="_ssnHelpArrow" source="m_bcba_panel_arrow_png" width="83" height="25" bottom="275" left="0" rotation="270" visible="false"/>
 			<ui:RunTimeLabel id="_ssnHelpLabel" x="69" verticalAlign="top" i18n="baccarat.tooltip.mobileSsnHelp" size="36" y="42" textAlign="left" wordWrap="true" width="1135" height="1020" lineSpacing="15"/>
 		</e:Group>
                 <e:Group id="_decryptedKeyHelpGroup" x="1096" width="1013" height="263" y="600">
                         <ui:RoundRectShape cornerTL_TR_BL_BR="8,8,8,8" strokeIn="2" strokeInColor="0x28323d" fillColor="0x28323d" fillAlpha="0.9" stroke="1" strokeColor="0x28323d" left="25" top="0" bottom="0" right="0"/>
-			<e:Image id="_decryptedKeyArrow" source="m_bcba_panel_arrow_png" width="83" height="25" left="0" rotation="270" verticalCenter="54"/>
+			<e:Image id="_decryptedKeyArrow" source="m_bcba_panel_arrow_png" width="83" height="25" left="0" rotation="270" verticalCenter="54" visible="false"/>
 			<ui:RunTimeLabel id="_decryptedKeyHelpLabel" x="69" verticalAlign="top" i18n="baccarat.tooltip.mobileDecryptedKeyHelp" size="36" y="40" textAlign="left" wordWrap="true" width="903" height="180" lineSpacing="15"/>
 		</e:Group>
                 </e:Group>
-                <e:Rect id="_closePanel" width="2424" height="1154" y="-250" fillAlpha="0"/>
+                <ui:InGameMessage id="_message" skinName="skin_desktop.CopyInfoMessageSkin" height="112" horizontalCenter="0" verticalCenter="0" touchEnabled="false" touchChildren="false"/>
         </e:Group>
 </e:Skin>
 

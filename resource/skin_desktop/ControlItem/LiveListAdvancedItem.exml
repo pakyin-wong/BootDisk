@@ -47,6 +47,6 @@
 
 
 	</e:Group>
-			<ui:AnimatedToggleButton id="_favouriteButton" dbClass="lobby_ui" dbDisplay="d_lobby_icon_fav" width="44" height="42"  left="295" top="30" visible="false"/>
+			<ui:AnimatedToggleButton id="_favouriteButton" dbClass="lobby_ui" dbDisplay="d_lobby_icon_fav" width="44" height="42"  left="280" top="20" visible="false"/>
 
 </e:Skin>
