@@ -91,11 +91,11 @@ namespace we {
         this._thirdPartyButton.addEventListener(
           egret.TouchEvent.TOUCH_TAP,
           () => {
-            // window.open(env.blockchain.thirdPartySHA256);
-            utils.copyToClipboard(env.blockchain.thirdPartySHA256);
-            if (this._message) {
-              this._message.showMessage(ui.InGameMessage.INFO, i18n.t('message.urlcopied'));
-            }
+            window.open(env.blockchain.thirdPartySHA256,'_blank', 'toolbar=0,location=0,menubar=0');
+            // utils.copyToClipboard(env.blockchain.thirdPartySHA256);
+            // if (this._message) {
+            //   this._message.showMessage(ui.InGameMessage.INFO, i18n.t('message.urlcopied'));
+            // }
           },
           this
         );
