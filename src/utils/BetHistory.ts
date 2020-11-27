@@ -26,7 +26,8 @@ namespace we {
             case we.core.GameType.DTB:
               return i18n.t(`betfield_dragonTiger_${bettype.toLowerCase()}`);
             case we.core.GameType.DI:
-              return i18n.t(`dice.${bettype.toLowerCase()}`);
+              const diresult = this.formatDIBetType(bettype.toLowerCase())
+              return diresult;
             case we.core.GameType.DIL:
               const res = bettype;
               const dilresultStr = res.split('_');
@@ -45,6 +46,34 @@ namespace we {
           }
         }
 
+        private static formatDIBetType(bettype){
+          const bettypearray = bettype.split('_');//odd,even,big,small,sum,triple,double,combine,specific
+          switch(bettypearray[0]){
+            case 'odd':
+              return `${i18n.t('dice.odd')}`;
+            case 'even':
+              return `${i18n.t('dice.even')}`;
+            case 'big':
+              return `${i18n.t('dice.bigFull')}`;
+            case 'small':
+              return `${i18n.t('dice.smallFull')}`;
+            case 'sum':
+              return `${i18n.t('dice.total')} ${bettypearray[1]}`;
+            case 'triple':
+              if (bettypearray[1] === 'all') {
+                return `${i18n.t('dice.allTriple')}`;
+              } else {
+                return `${i18n.t('dice.tripleLong')} ${bettypearray[1]}`;
+              }
+            case 'double':
+              return `${i18n.t('dice.double')} ${bettypearray[1]}`;
+            case 'combine':
+              return `${i18n.t('dice.combines')} (${bettypearray[1]},${bettypearray[2]})`;
+            case 'specific':
+              return `${i18n.t('dice.specific')} ${bettypearray[1]}`;
+
+          }
+        }
         private static formatROBetType(bettype) {
           const bettypearray = bettype.split('_'); // direct,SEPARAT,street,corner,LINE,row,DOZEN,RED,black,odd,even,small,big
           switch (bettypearray[0]) {

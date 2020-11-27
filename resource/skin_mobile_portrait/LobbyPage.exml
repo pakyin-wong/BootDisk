@@ -25,17 +25,22 @@
 					</e:layout>
 				</e:Group>
 			</e:Group>
-			<e:Group id="_title_hotgame" x="1027" y="1524" width="1145">
-				<e:Image width="234" height="79" source="m_lobby_title_left_png"/>
-				<ui:RunTimeLabel id="_txt_hotgame" text="熱門遊戲" i18n="mobile_lobby_hot_game_title" horizontalCenter="0" size="64" height="110" verticalAlign="middle"/>
-				<e:Image width="234" height="79" source="m_lobby_title_right_png"/>
+			<e:Group id="_hotGameGroup">
+				<e:Group id="_title_hotgame" x="1027" y="1524" width="1145">
+					<e:Image width="234" height="79" source="m_lobby_title_left_png"/>
+					<ui:RunTimeLabel id="_txt_hotgame" text="熱門遊戲" i18n="mobile_lobby_hot_game_title" horizontalCenter="0" size="64" height="110" verticalAlign="middle"/>
+					<e:Image width="234" height="79" source="m_lobby_title_right_png"/>
+					<e:layout>
+						<e:HorizontalLayout horizontalAlign="center" gap="34" verticalAlign="middle" paddingLeft="44" paddingRight="44"/>
+					</e:layout>
+				</e:Group>
+				<e:Group id="_hotgameContainer" x="864" y="1491">
+					<e:layout>
+						<e:TileLayout horizontalGap="71" verticalGap="71" orientation="rows" requestedColumnCount="1" columnWidth="1077"/>
+					</e:layout>
+				</e:Group>
 				<e:layout>
-					<e:HorizontalLayout horizontalAlign="center" gap="34" verticalAlign="middle" paddingLeft="44" paddingRight="44"/>
-				</e:layout>
-			</e:Group>
-			<e:Group id="_hotgameContainer" x="864" y="1491">
-				<e:layout>
-					<e:TileLayout horizontalGap="71" verticalGap="71" orientation="rows" requestedColumnCount="1" columnWidth="1077"/>
+					<e:VerticalLayout gap="66"/>
 				</e:layout>
 			</e:Group>
 			<e:Group id="_footer" x="776" y="1697">

@@ -128,7 +128,7 @@ namespace we {
       }
 
       protected disableFlippedCardMouseEvent(){
-        if(this.isPlayerFlipAllowed()){
+        if(utils.bam.isPlayerFlipAllowed(this._chipLayer)){
           this._playerCard1Group.touchEnabled = !(this._playerCard1.name === 'flipped') 
           this._playerCard2Group.touchEnabled = !(this._playerCard2.name === 'flipped') 
           this._playerCard3Group.touchEnabled = !(this._playerCard3.name === 'flipped') 
@@ -137,7 +137,7 @@ namespace we {
           this._playerCard2Group.touchEnabled = false;
           this._playerCard3Group.touchEnabled = false;
         }
-        if(this.isBankerFlipAllowed()){
+        if(utils.bam.isBankerFlipAllowed(this._chipLayer)){
           this._bankerCard1Group.touchEnabled = !(this._bankerCard1.name === 'flipped') 
           this._bankerCard2Group.touchEnabled = !(this._bankerCard2.name === 'flipped') 
           this._bankerCard3Group.touchEnabled = !(this._bankerCard3.name === 'flipped')
@@ -170,13 +170,13 @@ namespace we {
       }
 
       protected flipRemainingFirst4Card() {
-        const darkPlayer = this.isPlayerFlipAllowed() ? '' : 'dark_'
+        const darkPlayer = utils.bam.isPlayerFlipAllowed(this._chipLayer) ? '' : 'dark_'
         this.flipCard(this._playerCard1, 'vertical', darkPlayer)
         this.flipCard(this._playerCard2, 'vertical', darkPlayer)
         this._playerCard1.touchEnabled = false;
         this._playerCard2.touchEnabled = false;
 
-        const darkBanker = this.isBankerFlipAllowed() ? '' : 'dark_'
+        const darkBanker = utils.bam.isBankerFlipAllowed(this._chipLayer) ? '' : 'dark_'
         this.flipCard(this._bankerCard1, 'vertical', darkBanker)
         this.flipCard(this._bankerCard2, 'vertical', darkBanker)
         this._bankerCard1.touchEnabled = false;
@@ -184,7 +184,7 @@ namespace we {
       }
 
       protected flipAll() {
-        const darkPlayer = this.isPlayerFlipAllowed() ? '' : 'dark_'
+        const darkPlayer = utils.bam.isPlayerFlipAllowed(this._chipLayer) ? '' : 'dark_'
         this.flipCard(this._playerCard1, 'vertical', darkPlayer)
         this.flipCard(this._playerCard2, 'vertical', darkPlayer)
         this.flipCard(this._playerCard3, 'horizontal', darkPlayer)
@@ -192,7 +192,7 @@ namespace we {
         this._playerCard2.touchEnabled = false;
         this._playerCard3.touchEnabled = false;
 
-        const darkBanker = this.isPlayerFlipAllowed() ? '' : 'dark_'
+        const darkBanker = utils.bam.isPlayerFlipAllowed(this._chipLayer) ? '' : 'dark_'
         this.flipCard(this._bankerCard1, 'vertical', darkBanker)
         this.flipCard(this._bankerCard2, 'vertical', darkBanker)
         this.flipCard(this._bankerCard3, 'horizontal', darkBanker)
@@ -232,7 +232,7 @@ namespace we {
           this.betInitState(core.GameState.DEAL);
         }
         this.setFirst4Cards();
-        if (this.isPlayerFlipAllowed()) {
+        if (utils.bam.isPlayerFlipAllowed(this._chipLayer)) {
           this._playerCard1Group.touchEnabled = true;
           this._playerCard2Group.touchEnabled = true;
           this._openAllPlayerGroup.visible = true;
@@ -265,7 +265,7 @@ namespace we {
 
           }
         }
-        if (this.isBankerFlipAllowed()) {
+        if (utils.bam.isBankerFlipAllowed(this._chipLayer)) {
           this._bankerCard1Group.touchEnabled = true;
           this._bankerCard2Group.touchEnabled = true;
           this._openAllBankerGroup.visible = true;
@@ -285,7 +285,7 @@ namespace we {
           }
         }
 
-        if (this.isBankerFlipAllowed() && !this.isPlayerFlipAllowed()) {
+        if (utils.bam.isBankerFlipAllowed(this._chipLayer) && !utils.bam.isPlayerFlipAllowed(this._chipLayer)) {
           this.setCenterFlipCard('a1', 'vertical');
           this.changeCenterCardBackAnim('vertical');
           this._currentFocusCard = this._bankerCard1;
@@ -313,7 +313,7 @@ namespace we {
         this._openAllBankerGroup.visible = false;
         this._centerVCard.visible = false;
         this._centerVCard.touchEnabled = false;
-        if (this.isPlayerFlipAllowed()) {
+        if (utils.bam.isPlayerFlipAllowed(this._chipLayer)) {
           this._openAllPlayerGroup.visible = true;
           this._currentFocusCard = this._playerCard3
           this.setCenterFlipCard('b3', 'horizontal')
@@ -358,9 +358,9 @@ namespace we {
         this._openAllPlayerGroup.visible = false;
         this._centerVCard.visible = false;
         this._centerVCard.touchEnabled = false;
-        const darkPlayer = this.isPlayerFlipAllowed() ? '' : 'dark_'
+        const darkPlayer = utils.bam.isPlayerFlipAllowed(this._chipLayer) ? '' : 'dark_'
         this.flipCard(this._playerCard3, 'horizontal', darkPlayer)
-        if (this.isBankerFlipAllowed()) {
+        if (utils.bam.isBankerFlipAllowed(this._chipLayer)) {
           this._openAllBankerGroup.visible = true;
           this._currentFocusCard = this._bankerCard3
           this.setCenterFlipCard('a3', 'horizontal')
@@ -694,12 +694,12 @@ namespace we {
           return component;
         }
 
-        if (this.isBankerFlipAllowed()) {
+        if (utils.bam.isBankerFlipAllowed(this._chipLayer)) {
           nextCard = isNameExist(this._bankerCard2, nextCard)
           nextCard = isNameExist(this._bankerCard1, nextCard)
         }
 
-        if (this.isPlayerFlipAllowed()) {
+        if (utils.bam.isPlayerFlipAllowed(this._chipLayer)) {
           nextCard = isNameExist(this._playerCard2, nextCard)
           nextCard = isNameExist(this._playerCard1, nextCard)
         }
@@ -712,11 +712,12 @@ namespace we {
           if(card.name === 'flipped'){
             return;
           }
+          
           if (this._currentFocusCard) {
             if (this._currentFocusCard.name === 'flipped') {
               this._currentFocusCard.animation.gotoAndStopByFrame(`sq_${orientation}_loop_front`, 0)
             } else {
-              this._currentFocusCard.animation.gotoAndStopByFrame(`sq_${orientation}_select_in`, 0)
+              this._currentFocusCard.animation.play(`sq_${orientation}_select_out`, 1)
             }
           }
           this._currentFocusCard = card
@@ -740,33 +741,6 @@ namespace we {
         this.flipAll();
       }
 
-      protected isPlayerFlipAllowed() {
-        let allowed = false;
-        if (this._chipLayer && this._chipLayer.getConfirmedBetDetails()) {
-          this._chipLayer.getConfirmedBetDetails().map(value => {
-            if (value.field === we.ba.BetField.PLAYER) {
-              if (value.amount > 0) {
-                allowed = true;
-              }
-            }
-          });
-        }
-        return allowed;
-      }
-
-      protected isBankerFlipAllowed() {
-        let allowed = false;
-        if (this._chipLayer && this._chipLayer.getConfirmedBetDetails()) {
-          this._chipLayer.getConfirmedBetDetails().map(value => {
-            if (value.field === we.ba.BetField.BANKER || value.field === we.ba.BetField.SUPER_SIX_BANKER) {
-              if (value.amount > 0) {
-                allowed = true;
-              }
-            }
-          });
-        }
-        return allowed;
-      }
     }
   }
 }

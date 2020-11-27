@@ -137,7 +137,6 @@ namespace we {
 			protected async asyncUpdateCustomGoodRoad(id: string, data: any) {
 				return new Promise((resolve, reject) => {
 					function callback(data) {
-						// console.log('asyncUpdateCustomGoodRoad', data);
 						resolve();
 					}
 					this.client.updateCustomRoadmap(id, data, callback);
@@ -147,7 +146,6 @@ namespace we {
 			protected async asyncUpdateDefaultGoodRoad(ids: string[]) {
 				return new Promise((resolve, reject) => {
 					function callback(data) {
-						// console.log('asyncUpdateDefaultGoodRoad', data);
 						resolve();
 					}
 					this.client.updateDefaultRoadmap(ids, callback);
@@ -165,7 +163,6 @@ namespace we {
 					this.client.updateDefaultRoadmap(updatedefaultItem, this.warpServerCallback(this._goodRoadUpdateCallback));
 				} else if (updatecustomItem.length > 0) {
 					// if custom goodroad exist
-					// console.log('await this.asyncUpdateDefaultGoodRoad(updatedefaultItem);', updatedefaultItem);
 					await this.asyncUpdateDefaultGoodRoad(updatedefaultItem);
 					if (updatecustomItem.length === 1) {
 						this.client.updateCustomRoadmap(updatecustomItem[0][0], updatecustomItem[0][1], this.warpServerCallback(this._goodRoadUpdateCallback));
@@ -173,10 +170,8 @@ namespace we {
 						for (let i = 0; i < updatecustomItem.length; i++) {
 							// if more than one, call update custom goodroad in the last loop
 							if (i === updatecustomItem.length - 1) {
-								// console.log('last', [i, updatecustomItem[i][0], updatecustomItem[i][1]]);
 								await this.client.updateCustomRoadmap(updatecustomItem[i][0], updatecustomItem[i][1], this.warpServerCallback(this._goodRoadUpdateCallback));
 							} else {
-								// console.log('wait ', [i, updatecustomItem[i][0], updatecustomItem[i][1]]);
 								await this.asyncUpdateCustomGoodRoad(updatecustomItem[i][0], updatecustomItem[i][1]);
 							}
 						}
@@ -303,6 +298,7 @@ namespace we {
 				env.showGoodRoadHint = settings.showGoodRoadHint === '1' ? true : false;
 				env.autoConfirmBet = settings.autoConfirmBet === '1' ? true : false;
 				env.voice = settings.voice? settings.voice: 'cn';
+				env.isAutoDismiss = settings.isAutoDismiss === '1' ? true : false;
 				env.redirecturl = player.redirecturl;
 
 				env.currentChipSelectedIndex = settings.currentChipSelectedIndex ? parseInt(settings.currentChipSelectedIndex) : 0;
@@ -573,7 +569,7 @@ namespace we {
 				gameStatus.previousstate = tableInfo.data ? tableInfo.data.state : null;
 				gameStatus.starttime = Math.floor(gameStatus.starttime / 1000000);
 				if(gameStatus.peekstarttime){
-					gameStatus.peekstarttime = Math.floor(gameStatus.peekstarttime / 1000000);
+					gameStatus.peekstarttime = Math.floor(gameStatus.peekstarttime );
 					console.log('peekstarttime xxx', gameStatus.tableid, gameStatus.gameroundid,  gameStatus.peekstarttime , gameStatus.starttime)
 				}
         /*

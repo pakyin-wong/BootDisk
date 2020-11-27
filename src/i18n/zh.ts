@@ -33,6 +33,9 @@ namespace we {
       lobby_no_favourite_text: '沒有我的最愛',
       lobby_tag_hint_text: '將你喜愛的遊戲標上愛心',
 
+      gameIcon_shuffle: '洗牌中',
+      gameIcon_maintenance: '維護中',
+
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '閒',
       betfield_baccarat_tie: '和',
@@ -182,7 +185,7 @@ namespace we {
       overlaypanel_gameSet_sendLiveVerfication: '發送現場驗證',
 
       expiredmessage_text: '您已3局未投注，將於2局後返回遊戲大堂',
-
+      kickoutmessage_text: '您已5局未投注，現在返回遊戲大堂',
       // customerservicehotlinenumber_text: '客服熱線號碼更新為＋63 9250898888',
 
       datePicker_clean: '清除',
@@ -324,6 +327,7 @@ namespace we {
       },
       live: {
         tooltip: {
+          waitForNextRound: '開牌中，請等候下一局',
           confirmBet: '確認投注',
           repeat: '重複下注',
           cancel: '取消',
@@ -449,12 +453,15 @@ namespace we {
         tripleLong: '圍骰',
         doubleLong: '對子 (雙骰、長牌)',
         combine: '牌九式 (骨牌)',
+        specific: '指定骰子',
         specificSingle: '指定骰子: 單骰',
         specificDouble: '指定骰子: 雙骰',
         specificTriple: '指定骰子: 三骰',
 
         betLimitShort: '限紅',
         gameId: '編號',
+
+        combines: '組合',
 
         betGroup: {
           color: '紅 / 黑',
@@ -584,7 +591,7 @@ namespace we {
         betLimitshort: '限紅',
         baccarat: '百家樂',
         gameroundid: '遊戲編號',
-        totalbet: '總投注',
+        totalbet: '總下注',
         totalcount: '總數',
         betSuccess: '下注成功',
         betFail: '下注失敗',

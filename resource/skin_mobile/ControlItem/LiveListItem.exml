@@ -18,7 +18,12 @@
 			</e:layout>
 		</e:Group>
 		<e:Component id="_roadmapNode" width="1136" height="288" y="105" anchorOffsetY="0" horizontalCenter="0"
-		             visible="false" />
+		             />
+			<e:Group id="_shuffleMask" left="0" right="0" top="105" bottom="0">
+				<ui:RoundRectShape left="0" right="0" top="0" bottom="0" fillColor="0x1e2126" alpha="0.8" cornerBL="8" cornerBR="8" stroke="0" cornerTL="0" cornerTR="0"/>
+				<e:Image width="161" height="142" horizontalCenter="0" y="34" source="icon-shuffle_png"/>
+				<ui:RunTimeLabel id="_shuffleLabel" text="洗牌中" horizontalCenter="0" size="52" height="77" y="178" verticalAlign="middle" textAlign="center" textColor="0xcea56f"/>
+			</e:Group>					 
 		<ui:InGameMessage id="_message" anchorOffsetX="238.79" anchorOffsetY="42.5"
 		                  skinName="skin_mobile_portrait.InGameMessageSkin" width="476" height="85" horizontalCenter="0"
 		                  y="237" infoBg="m_common_gamestate_message_black_png"

@@ -28,9 +28,17 @@
 	</e:Group>
 	<e:Group id="_contentContainer" width="100%" height="388" x="0" y="0">
 		<e:Group id="_contentContainerStatic" left="0" right="0" top="0" bottom="0">
-			<e:Image id="_dealerImage" width="100%" height="249" x="0" y="0" />
+			<e:Group  height="249" left="0" right="0">
+				<e:Image id="_dealerImage" width="100%" height="249" y="0"  x="0"/>
+				<e:Image width="100%" height="50" source="d_lobby_banner_fadeout_png" touchEnabled="false"  bottom="0"/>
+			</e:Group>
 			<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left"  text="Baccarat" size="27" x="17" y="213"/>
-			<e:Component id="_roadmapNode" width="100%" height="137" y="249" />
+			<e:Component id="_roadmapNode" width="100%" height="137" y="249"  visible="false"/>
+			<e:Group id="_shuffleMask" left="0" right="0" bottom="0" top="249">
+				<ui:RoundRectShape left="0" right="0" top="0" bottom="0" fillColor="0x1e2126" alpha="0.8" cornerBL="8" cornerBR="8" stroke="0" cornerTL="0" cornerTR="0"/>
+				<e:Image width="83" height="72" horizontalCenter="0" y="16" source="icon-shuffle_png"/>
+				<ui:RunTimeLabel id="_shuffleLabel" text="洗牌中" horizontalCenter="0" size="26" height="38" y="88" verticalAlign="middle" textAlign="center" textColor="0xcea56f"/>
+			</e:Group>
 			<ui:ListItemStateLabel id="_stateLabel"  horizontalCenter="0" verticalCenter="122"/>
 		</e:Group>
 		<e:Group id="_contentContainerDynamic" left="0" right="0" top="0" bottom="0">
@@ -57,4 +65,9 @@
 	<e:Component id="_chipLayerNode" width="100%" skinName="skin_desktop.ba.LiveListItemChipLayerSkin" anchorOffsetY="0"
 	             alpha="0" y="0" left="0" touchEnabled="false" touchChildren="false" visible="false"
 	             name="NormalChipLayerNode" />
+	<e:Group id="_maintenanceMask" width="100%" height="388" x="0" scaleX="1" scaleY="1" visible="false">
+		<ui:RoundRectShape left="0" right="0" top="0" bottom="0" fillColor="0x1e2126" alpha="0.8" cornerBL="20" cornerBR="20" cornerTR="20" cornerTL="20" strokeColor="0x3a3f48" stroke="2"/>
+		<e:Image width="66" height="66" horizontalCenter="0" y="271" source="icon-maintenance_png"/>
+		<ui:RunTimeLabel id="_matntenanceLabel" text="維護中" horizontalCenter="0" size="26" height="38" y="336" verticalAlign="middle" textAlign="center" textColor="0xffffff"/>
+	</e:Group>
 </e:Skin>
