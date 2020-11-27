@@ -215,14 +215,14 @@ namespace we {
         }
       }
 
-      protected onMatchGoodRoadUpdate() { }
+      protected onMatchGoodRoadUpdate() {}
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         // logger.l(utils.LoggerTarget.DEBUG, 'LiveBaListSimpleItem::onTableBetInfoUpdate');
       }
 
       // item clicked
-      protected onTouchTap(evt: egret.Event) { }
+      protected onTouchTap(evt: egret.Event) {}
 
       protected onBetDetailUpdateInBetState() {
         if (this._betDetails && this._chipLayer) {
@@ -292,7 +292,7 @@ namespace we {
         }
       }
 
-      protected onRoadDataUpdate(evt: egret.Event) { }
+      protected onRoadDataUpdate(evt: egret.Event) {}
 
       public updateGame(isInit: boolean = false) {
         if(this._maintenanceMask) {
@@ -390,7 +390,7 @@ namespace we {
           }
 
           if (this._previousState === core.GameState.BET && this._message && !isInit && this._betMessageEnable) {
-            if (this._chipLayer.getTotalUncfmBetAmount()>0) {
+            if (this._chipLayer.getTotalUncfmBetAmount() > 0) {
               this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.betTimeout'));
             } else {
               this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
@@ -463,7 +463,7 @@ namespace we {
           }else
           if (this._stateLabel) {
             this._stateLabel.visible = true;
-            this._stateLabel.renderText = ()=>i18n.t('baccarat.shuffling');
+            this._stateLabel.renderText = () => i18n.t('baccarat.shuffling');
           }
           if (this._timer) {
             this._timer.countdownValue = 10 * 1000;
@@ -546,7 +546,7 @@ namespace we {
             pass2 = !!this._gameData && this._gameData.state === core.GameState.FINISH;
             break;
           default:
-            logger.e(utils.LogTarget.DEBUG, 'No gametype found in ControlItem::checkResultMessage->' , this._tableInfo.gametype);
+            logger.e(utils.LogTarget.DEBUG, 'No gametype found in ControlItem::checkResultMessage->', this._tableInfo.gametype);
             break;
         }
 

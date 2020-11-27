@@ -311,23 +311,23 @@ namespace we {
       public updateText() {
         switch (this._currentChaseType) {
           case lo.SSCChaseType.DOUBLE:
-            this._lblStartMulti.renderText = () =>`${i18n.t('lo_trad.chase.startmulti')}`;
-            this._lblGameRound.renderText = () =>`${i18n.t('lo_trad.chase.btnround')}`;
-            this._lblTo.renderText = () =>`${i18n.t('lo_trad.chase.to')}`;
-            this._lblChaseRoundTitle.renderText = () =>`${i18n.t('lo_trad.chase.chaseround')}`;
+            this._lblStartMulti.renderText = () => `${i18n.t('lo_trad.chase.startmulti')}`;
+            this._lblGameRound.renderText = () => `${i18n.t('lo_trad.chase.btnround')}`;
+            this._lblTo.renderText = () => `${i18n.t('lo_trad.chase.to')}`;
+            this._lblChaseRoundTitle.renderText = () => `${i18n.t('lo_trad.chase.chaseround')}`;
             break;
           case lo.SSCChaseType.SAMEMULTIPLE:
-            this._lblContinuousChaseTitle.renderText = () =>`${i18n.t('lo_trad.chase.continuousChase')}`;
-            this._lblFiveRound.renderText = () =>`5${i18n.t('lo_trad.chase.btnround')}`;
-            this._lblTenRound.renderText = () =>`10${i18n.t('lo_trad.chase.btnround')}`;
-            this._lblFifthteenRound.renderText = () =>`15${i18n.t('lo_trad.chase.btnround')}`;
-            this._lblTwentyRound.renderText = () =>`20${i18n.t('lo_trad.chase.btnround')}`;
-            this._lbTitleMultiplier.renderText =()=>`${i18n.t('lo_trad.ui.multiplier')}`;
+            this._lblContinuousChaseTitle.renderText = () => `${i18n.t('lo_trad.chase.continuousChase')}`;
+            this._lblFiveRound.renderText = () => `5${i18n.t('lo_trad.chase.btnround')}`;
+            this._lblTenRound.renderText = () => `10${i18n.t('lo_trad.chase.btnround')}`;
+            this._lblFifthteenRound.renderText = () => `15${i18n.t('lo_trad.chase.btnround')}`;
+            this._lblTwentyRound.renderText = () => `20${i18n.t('lo_trad.chase.btnround')}`;
+            this._lbTitleMultiplier.renderText = () => `${i18n.t('lo_trad.ui.multiplier')}`;
             break;
           case lo.SSCChaseType.PROFIT:
-            this._lblLowestProfitRateTitle.renderText = () =>`${i18n.t('lo_trad.chase.lowestProfitRate')}`;
-            this._lblChaseRoundTitle.renderText = () =>`${i18n.t('lo_trad.chase.chaseround')}`;
-            this._lblNotice.renderText = () =>`${i18n.t('lo_trad.chase.profitnotice')}`;
+            this._lblLowestProfitRateTitle.renderText = () => `${i18n.t('lo_trad.chase.lowestProfitRate')}`;
+            this._lblChaseRoundTitle.renderText = () => `${i18n.t('lo_trad.chase.chaseround')}`;
+            this._lblNotice.renderText = () => `${i18n.t('lo_trad.chase.profitnotice')}`;
             break;
         }
       }

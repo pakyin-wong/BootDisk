@@ -6,7 +6,7 @@ namespace we {
       // private _channelFX: egret.SoundChannel;
       private _activeChannels: egret.SoundChannel[] = [];
 
-      private bgms:string[]=['bgm_chinese_mp3','bgm_comfort_mp3','bgm_nature_mp3'];
+      private bgms: string[] = ['bgm_chinese_mp3', 'bgm_comfort_mp3', 'bgm_nature_mp3'];
       private _video: egret.FlvVideo;
 
       private _bgmIdx = 0;
@@ -87,7 +87,7 @@ namespace we {
 
       public set bgmIdx(val: number) {
         this._bgmIdx = val;
-        dir.socket.updateSetting('bgmIdx', val.toString())
+        dir.socket.updateSetting('bgmIdx', val.toString());
         this.playBGMWithIndex(val);
       }
 
@@ -104,12 +104,12 @@ namespace we {
         // this._channelBGM = this._soundBGM.play();
         this.playBGMWithIndex(this._bgmIdx);
       }
-      
+
       public playBGMWithIndex(idx: number = -1) {
         let resName = null;
         try {
           resName = this.bgms[idx];
-        } catch(err) {
+        } catch (err) {
           resName = this.bgms[this.bgmIdx];
         } finally {
           this.playBGM(resName);
@@ -153,7 +153,7 @@ namespace we {
             logger.l(utils.LogTarget.DEBUG, 'play end', resName);
             const idx = this._activeChannels.indexOf(sfx);
             if (idx >= 0) {
-              this._activeChannels.splice(idx,1);
+              this._activeChannels.splice(idx, 1);
             }
           },
           this
@@ -181,7 +181,7 @@ namespace we {
                   logger.l(utils.LogTarget.DEBUG, 'play end', `sn_${name}_${env.voice}_mp3`);
                   const idx = this._activeChannels.indexOf(sfx);
                   if (idx >= 0) {
-                    this._activeChannels.splice(idx,1);
+                    this._activeChannels.splice(idx, 1);
                   }
                   resolve();
                 },

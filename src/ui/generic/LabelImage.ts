@@ -48,7 +48,6 @@ namespace we {
         return this._textColor;
       }
 
-
       set text(value: string) {
         this._text = value;
         this.render();

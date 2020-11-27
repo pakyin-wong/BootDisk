@@ -27,7 +27,7 @@ namespace we {
 
         this._arrcol = new eui.ArrayCollection();
         this._chipsetList.dataProvider = this._arrcol;
-        this._chipsetList.itemRendererFunction = item => item == this._custombet? FunBetCustomBetMobileIR : ui.BetChipSetGridItemRenderer;
+        this._chipsetList.itemRendererFunction = item => (item == this._custombet ? FunBetCustomBetMobileIR : ui.BetChipSetGridItemRenderer);
         this._chipsetList.requireSelection = true;
         this._chipsetList.addEventListener(eui.UIEvent.CHANGE, this.onUpdate, this);
 
@@ -46,12 +46,12 @@ namespace we {
       }
 
       private onBetLimitUpdate() {
-        let denomList = env.getBetLimitSet('Lottery', env.currentSelectedBetLimitIndex).chips;
+        const denomList = env.getBetLimitSet('Lottery', env.currentSelectedBetLimitIndex).chips;
         this._arrcol.removeAll();
         this._arrcol.replaceAll(denomList);
         this._arrcol.addItem(this._custombet);
-        
-        if(this._custombet.selected) {
+
+        if (this._custombet.selected) {
           this._chipsetList.selectedIndex = denomList.length;
         } else {
           this._chipsetList.selectedIndex = denomList.length >= env.currentChipSelectedIndex ? env.currentChipSelectedIndex : denomList.length - 1;
@@ -71,9 +71,9 @@ namespace we {
       }
 
       protected onCustomBetSelected() {
-          this._chipsetList.selectedIndex = this._arrcol.source.length - 1;
-          this._custombet.selected = true;
-          this.dispatchEvent(new egret.Event('CUSTOMBET_SELECTED',false,false,this._custombet.currentBet));
+        this._chipsetList.selectedIndex = this._arrcol.source.length - 1;
+        this._custombet.selected = true;
+        this.dispatchEvent(new egret.Event('CUSTOMBET_SELECTED', false, false, this._custombet.currentBet));
       }
 
       protected onReplace() {

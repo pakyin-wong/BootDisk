@@ -178,7 +178,7 @@ namespace we {
         const notes = evt.data.noteData;
         const rounds = evt.data.roundData;
 
-        if(notes.length === 0){
+        if (notes.length === 0) {
           return;
         }
 
@@ -342,7 +342,7 @@ namespace we {
       }
 
       public updateBetTableInfo(info) {
-        if(!info.betInfo){
+        if (!info.betInfo) {
           return;
         }
         this._currentGameRound = info.betInfo.gameroundid;

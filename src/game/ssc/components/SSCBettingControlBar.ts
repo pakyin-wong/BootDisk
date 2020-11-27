@@ -87,10 +87,9 @@ namespace we {
         }
 
         if (this._btnBetDescription) {
-          if(env.isMobile){
+          if (env.isMobile) {
             this._btnBetDescription.addEventListener(egret.TouchEvent.TOUCH_TAP, this.showBetDescription, this);
-          }else
-          {
+          } else {
             this._btnBetDescription.addEventListener(mouse.MouseEvent.ROLL_OVER, this.showBetDescription, this);
           }
         }
@@ -130,9 +129,9 @@ namespace we {
           this._noteDropDown.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onUnitSelect, this);
         }
         if (this._btnBetDescription) {
-          if(env.isMobile){
+          if (env.isMobile) {
             this._btnBetDescription.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.showBetDescription, this);
-          }else{
+          } else {
             this._btnBetDescription.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.showBetDescription, this);
           }
         }
@@ -168,9 +167,9 @@ namespace we {
 
         this._lblBetDes.renderText = () => `${i18n.t('lo_trad.bigTag.' + bigTag)} | ${i18n.t('lo_trad.smallTag.' + smallTag)}\n${i18n.t('lo_trad.betDescription.' + bigTag + '.' + smallTag)}`;
         this._betDesGrp.visible = true;
-        if(env.isMobile){
+        if (env.isMobile) {
           this.bettingPanel.once(egret.TouchEvent.TOUCH_BEGIN, this.hideBetDescription, this);
-        }else {
+        } else {
           this._btnBetDescription.once(mouse.MouseEvent.ROLL_OUT, this.hideBetDescription, this);
         }
       }
@@ -228,15 +227,15 @@ namespace we {
         this.removeListeners();
       }
 
-      protected updateText(){
-        this._lblTitleMultiplier.renderText = () =>`${i18n.t('lo_trad.ui.multiplier')}`;
-        this._lblBetDescription.renderText = () => env.isMobile ? '?': `${i18n.t('lo_trad.bettingcontrol.betdescription')}`;
-        this._lblNote.renderText = () =>`${i18n.t('lo_trad.confirm_panel.notetext')}`;
-        this._lblTitleTotalBetChosen.renderText = () =>`${i18n.t('lo_trad.bettingcontrol.totalbetchosen')}`;
-        this._lblTitleNoteChosen.renderText = () =>`${i18n.t('lo_trad.bettingcontrol.totalnotechosen')}`;
-        this._lblTotalBetDollar.renderText = () =>`${i18n.t('lo_trad.ui.coin')}`;
-        this._lblAdd.renderText = () =>`${i18n.t('lo_trad.bettingcontrol.addbetfields')}`;
-        this._lblInstantBet.renderText = () =>`${i18n.t('lo_trad.bettingcontrol.instantbet')}`;
+      protected updateText() {
+        this._lblTitleMultiplier.renderText = () => `${i18n.t('lo_trad.ui.multiplier')}`;
+        this._lblBetDescription.renderText = () => (env.isMobile ? '?' : `${i18n.t('lo_trad.bettingcontrol.betdescription')}`);
+        this._lblNote.renderText = () => `${i18n.t('lo_trad.confirm_panel.notetext')}`;
+        this._lblTitleTotalBetChosen.renderText = () => `${i18n.t('lo_trad.bettingcontrol.totalbetchosen')}`;
+        this._lblTitleNoteChosen.renderText = () => `${i18n.t('lo_trad.bettingcontrol.totalnotechosen')}`;
+        this._lblTotalBetDollar.renderText = () => `${i18n.t('lo_trad.ui.coin')}`;
+        this._lblAdd.renderText = () => `${i18n.t('lo_trad.bettingcontrol.addbetfields')}`;
+        this._lblInstantBet.renderText = () => `${i18n.t('lo_trad.bettingcontrol.instantbet')}`;
       }
     }
   }

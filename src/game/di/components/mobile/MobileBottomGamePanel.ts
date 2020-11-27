@@ -32,7 +32,7 @@ namespace we {
       protected mount() {
         super.mount();
         // this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
-        if (env.orientation === 'landscape'){
+        if (env.orientation === 'landscape') {
           this._roadButtonPanel.changeState();
         }
       }
@@ -55,7 +55,7 @@ namespace we {
         super.addListeners();
         this.chartBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.tableInfoBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        if (this._roadButtonPanel){
+        if (this._roadButtonPanel) {
           this._roadButtonPanel.roadmapSumBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
           this._roadButtonPanel.roadmapOddevenBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
           this._roadButtonPanel.roadmapSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
@@ -75,7 +75,7 @@ namespace we {
         super.removeListeners();
         this.chartBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.tableInfoBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        if (this._roadButtonPanel){
+        if (this._roadButtonPanel) {
           this._roadButtonPanel.roadmapSumBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
           this._roadButtonPanel.roadmapOddevenBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
           this._roadButtonPanel.roadmapSizeBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
@@ -133,19 +133,19 @@ namespace we {
             }
             break;
           case 'portrait':
-          //   if (e.target.value === '0') {
-          //     this._roadButtonPanel.roadmapType = 0;
-          //   }
-          //   if (e.target.value === '1') {
-          //     this._roadButtonPanel.roadmapType = 1;
-          //   }
+            //   if (e.target.value === '0') {
+            //     this._roadButtonPanel.roadmapType = 0;
+            //   }
+            //   if (e.target.value === '1') {
+            //     this._roadButtonPanel.roadmapType = 1;
+            //   }
 
-          //   this._roadButtonPanel.changeState();
-          //   if (e.target.value === '2' || e.target.value === '3') {
-          //     this._roadButtonPanel.visible = false;
-          //   } else {
-          //     this._roadButtonPanel.visible = true;
-          //   }
+            //   this._roadButtonPanel.changeState();
+            //   if (e.target.value === '2' || e.target.value === '3') {
+            //     this._roadButtonPanel.visible = false;
+            //   } else {
+            //     this._roadButtonPanel.visible = true;
+            //   }
             break;
         }
         this.viewStack.selectedIndex = e.target.value;
@@ -153,9 +153,7 @@ namespace we {
 
       protected onPanelToggle() {
         super.onPanelToggle();
-        if (env.orientation === 'landscape'){
-
-
+        if (env.orientation === 'landscape') {
           this.viewStack.selectedIndex = 0;
           if (env.isBottomPanelOpen) {
             this._roadmapPanel.visible = true;

@@ -102,7 +102,7 @@ namespace we {
       }
 
       private onShowTooltip({ data: { displayObject, x, y } }) {
-        const coord = (<egret.DisplayObject> displayObject).localToGlobal(0, 0);
+        const coord = (<egret.DisplayObject>displayObject).localToGlobal(0, 0);
         // init first to get tooltip width
         this._initTooltip(displayObject.tooltipText.replace(/'/g, ''));
         let showX = 0;

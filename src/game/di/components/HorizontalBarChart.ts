@@ -71,9 +71,7 @@ namespace we {
             this.renderRanks(ranks, this.colorSettings);
           };
           egret.Tween.removeTweens(this);
-          egret.Tween.get(this, { onChange: funcChange, onChangeObj: this })
-            .to({ percentStart: 100, percentTransit: 100 }, duration, egret.Ease.quintIn)
-            .call(funcCompleted, this);
+          egret.Tween.get(this, { onChange: funcChange, onChangeObj: this }).to({ percentStart: 100, percentTransit: 100 }, duration, egret.Ease.quintIn).call(funcCompleted, this);
         } else {
           this.percentStart = 100;
           this.percentTransit = 100;
@@ -87,7 +85,8 @@ namespace we {
 
       // total ranks should be <100, ordered from top 0 degree clockwisely
       // settings should be arrays of [colors[], alphas[], ratios[], angle] and will apply to each of the according rank
-      protected renderRanks(ranks: number[], rankSettings: any) { // setting[4] 0:dont render 1/undefine:render
+      protected renderRanks(ranks: number[], rankSettings: any) {
+        // setting[4] 0:dont render 1/undefine:render
         this.graphic.clear();
         const ranksCopy = ranks.slice();
         const ranksSort = ranksCopy.slice().sort((n1, n2) => n2 - n1);
@@ -113,8 +112,8 @@ namespace we {
             }
             const setting = rankSettings[i];
             if (setting[4] === 0) {
-              continue
-            } 
+              continue;
+            }
             const matrix = new egret.Matrix();
 
             // the max bar length
@@ -125,7 +124,7 @@ namespace we {
             this.graphic.beginFill(0x000000, 0.3);
             RoundRect.drawRoundRect(this.graphic, 0, lastY, this.maxLength, this.barHeight, { tl: 0, tr: this.barHeight * 0.5, br: this.barHeight * 0.5, bl: 0 });
             this.graphic.endFill();
-            if(rank>0) {
+            if (rank > 0) {
               // draw bar
               const gradientAngle: number = (setting[3] * Math.PI) / 180;
               matrix.createGradientBox(barLength, this.barHeight, gradientAngle, 0, lastY);

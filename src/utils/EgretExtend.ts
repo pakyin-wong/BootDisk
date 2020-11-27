@@ -167,18 +167,16 @@ namespace we {
         return;
       }
       try {
-        //this.audio.pause();
+        // this.audio.pause();
         this.audio.volume = this._volume;
         this.audio.currentTime = this.$startTime;
-      }
-      catch (e) {
-        this.audio.addEventListener("canplay", this.canPlay);
+      } catch (e) {
+        this.audio.addEventListener('canplay', this.canPlay);
         return;
       }
-      this.audio.play().catch((err)=>{
+      this.audio.play().catch(err => {
         env.notYetInteract = true;
       });
     };
-
   }
 }

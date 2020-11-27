@@ -45,7 +45,7 @@ namespace we {
           this._panelDismissToggleBtn.addEventListener('CLICKED', this.onPanelToggle, this);
           this._panelDismissToggleBtn['tooltipText'] = env.isAutoDismiss ? 'live.tooltip.autoFullscreenToggleOff' : 'live.tooltip.autoFullscreenToggleOn';
         }
-
+        dir.evtHandler.addEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.resetUncfmBet, this);
         this.setBackground();
       }
 
@@ -103,13 +103,14 @@ namespace we {
         if (this._header && this._header.parent !== null) {
           this._header.parent.removeChild(this._header);
         }
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.resetUncfmBet, this);
         super.destroy();
       }
 
       protected onPanelToggle(evt: egret.TouchEvent) {
         console.log(this._panelDismissToggleBtn.active);
         env.isAutoDismiss = this._panelDismissToggleBtn.active;
-        dir.socket.updateSetting('isAutoDismiss', env.isAutoDismiss?'1':'0');
+        dir.socket.updateSetting('isAutoDismiss', env.isAutoDismiss ? '1' : '0');
         this._panelDismissToggleBtn['tooltipText'] = env.isAutoDismiss ? 'live.tooltip.autoFullscreenToggleOff' : 'live.tooltip.autoFullscreenToggleOn';
         // env.isAutoDismiss = !env.isAutoDismiss;
       }
@@ -156,7 +157,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             this._leftGamePanel.updateTableBetInfo();
             this._rightGamePanel.updateTableBetInfo();
@@ -179,6 +180,12 @@ namespace we {
       }
       protected onMatchGoodRoadUpdate() {
         super.onMatchGoodRoadUpdate();
+      }
+      protected resetUncfmBet() {
+        this._chipLayer.resetUnconfirmedBet();
+        if (this._betRelatedGroup) {
+          this._betRelatedGroup.changeBtnState(false, 0, this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid);
+        }
       }
     }
   }

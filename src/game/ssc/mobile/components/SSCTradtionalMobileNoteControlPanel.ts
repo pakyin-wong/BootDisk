@@ -2,7 +2,6 @@
 namespace we {
   export namespace lo {
     export class SSCTraditionalMobileNoteControlPanel extends SSCNoteControlPanel {
-
       protected initSkin() {
         this.skinName = 'skin_mobile.lo.SSCNoteControlPanel';
       }
@@ -22,27 +21,23 @@ namespace we {
         // this._btnChaseBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.chaseBet, this.bettingPanel);
       }
 
-      public updateText() {
-
-      }
-      public updateBalance() {
-
-      }
+      public updateText() {}
+      public updateBalance() {}
 
       public setConfirmBetButton(enable: boolean) {
         if (!this._notes) {
-            return;
+          return;
         }
         if (this._notes.length > 0) {
           this._btnConfirmBet.buttonEnabled = enable;
           this._btnConfirmBet.enabled = enable;
-            //   this._btnChaseBet.buttonEnabled = enable;
-            //   this._btnChaseBet.enabled = enable;
+          //   this._btnChaseBet.buttonEnabled = enable;
+          //   this._btnChaseBet.enabled = enable;
         } else {
           this._btnConfirmBet.buttonEnabled = false;
           this._btnConfirmBet.enabled = false;
-            //   this._btnChaseBet.buttonEnabled = false;
-            //   this._btnChaseBet.enabled = false;
+          //   this._btnChaseBet.buttonEnabled = false;
+          //   this._btnChaseBet.enabled = false;
         }
       }
 
@@ -50,11 +45,11 @@ namespace we {
         let totalcount = 0;
         if (this.notes.length === 0) {
           this._totalBetCount = totalcount;
-        //   this._lbltotalBetCount.renderText = () => `${this._totalBetCount}`;
+          //   this._lbltotalBetCount.renderText = () => `${this._totalBetCount}`;
         } else {
           this.notes.map(obj => (totalcount += obj.count));
           this._totalBetCount = totalcount;
-        //   this._lbltotalBetCount.renderText = () => `${this._totalBetCount}`;
+          //   this._lbltotalBetCount.renderText = () => `${this._totalBetCount}`;
         }
       }
 
@@ -72,7 +67,6 @@ namespace we {
           this._lbltotalBetAmount.renderText = () => `$ ${this._totalBetAmount}`;
         }
       }
-
     }
   }
 }

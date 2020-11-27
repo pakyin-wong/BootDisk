@@ -17,14 +17,14 @@ namespace we {
 
         this._headerItems = [];
         for (let w = 0; w < 7; w++) {
-          const headeritem = new Datepickeritem(w); 
+          const headeritem = new Datepickeritem(w);
           this._headerItems.push(headeritem);
           this.addChild(headeritem);
         }
 
         this._dateItems = [];
         for (let d = 0; d < 31; d++) {
-          const dateitem = new Datepickeritem(d + 1); 
+          const dateitem = new Datepickeritem(d + 1);
           this._dateItems.push(dateitem);
           this.addChild(dateitem);
         }
@@ -65,15 +65,8 @@ namespace we {
         }
 
         const t = moment().startOf('day');
-        this._tday = moment()
-          .year(this._year)
-          .month(this._month)
-          .daysInMonth();
-        let c = moment()
-          .year(this._year)
-          .month(this._month)
-          .startOf('month')
-          .day();
+        this._tday = moment().year(this._year).month(this._month).daysInMonth();
+        let c = moment().year(this._year).month(this._month).startOf('month').day();
         let r = 1;
         for (let d = 0; d < this._tday; d++) {
           const itemDate = moment([this._year, this._month, d + 1]);
@@ -85,7 +78,7 @@ namespace we {
           this._dateItems[d].isToday = t.isSame(itemDate, 'day');
           this._dateItems[d].lock = itemDate.isAfter(t, 'day');
           this.setItemState(d, 'enabled');
-          if( this._dateItems[d].isToday === true) {
+          if (this._dateItems[d].isToday === true) {
             this.setItemState(d, 'today');
           }
           c++;
@@ -97,17 +90,7 @@ namespace we {
       }
 
       protected onClicked(e: egret.TouchEvent) {
-        this.dispatchEvent(
-          new egret.Event(
-            'PICKED_DATE',
-            false,
-            false,
-            moment()
-              .year(this._year)
-              .month(this._month)
-              .date(e.currentTarget.id)
-          )
-        );
+        this.dispatchEvent(new egret.Event('PICKED_DATE', false, false, moment().year(this._year).month(this._month).date(e.currentTarget.id)));
       }
 
       public pick(date, range) {
@@ -116,19 +99,16 @@ namespace we {
         this.setItemState(this._today, 'today');
         for (let d = 0; d < this._tday; d++) {
           const curr = moment([this._year, this._month, d + 1]);
-          let todaytime = moment()
-            .utcOffset(8)
-            .startOf('day')
-            .unix();
-          let today = moment.unix(todaytime).startOf('day'); // get today's moment,disable it if curr - today > 90
-          let diff = moment(today).diff(curr,"days")
-          if ( diff < 91) {
+          const todaytime = moment().utcOffset(8).startOf('day').unix();
+          const today = moment.unix(todaytime).startOf('day'); // get today's moment,disable it if curr - today > 90
+          const diff = moment(today).diff(curr, 'days');
+          if (diff < 91) {
             if (curr.isSame(date, 'day')) {
               // if (this._isFirstTime) {
               //   this.setItemState(this._today, 'today', false);
               //   this._isFirstTime = false;
               // } else {
-                this.setItemState(d, 'single');
+              this.setItemState(d, 'single');
               // }
             } else if (curr.isBetween(begin, end)) {
               this.setItemState(d, 'enabled');
@@ -136,13 +116,13 @@ namespace we {
                 this.setItemState(this._today, 'today');
               }
             } else {
-              this.setItemState(d, 'disabled'); // 
+              this.setItemState(d, 'disabled'); //
               if (d == this._today) {
                 this.setItemState(this._today, 'today', false);
               }
             }
           } else {
-            this.setItemState(d, 'disabled'); // 
+            this.setItemState(d, 'disabled'); //
           }
         }
       }
@@ -150,18 +130,15 @@ namespace we {
       public checkIsAvailable() {
         for (let d = 0; d < this._tday; d++) {
           const curr = moment([this._year, this._month, d + 1]);
-          let todaytime = moment()
-            .utcOffset(8)
-            .startOf('day')
-            .unix();
-          let today = moment.unix(todaytime).startOf('day'); // get today's moment,disable it if curr - today > 90
-          let diff = moment(today).diff(curr,"days")
+          const todaytime = moment().utcOffset(8).startOf('day').unix();
+          const today = moment.unix(todaytime).startOf('day'); // get today's moment,disable it if curr - today > 90
+          const diff = moment(today).diff(curr, 'days');
           if (diff >= 91) {
             this.setItemState(d, 'disabled');
           } else {
-              if (d == this._today) {
-                this.setItemState(this._today, 'today');
-              }
+            if (d == this._today) {
+              this.setItemState(this._today, 'today');
+            }
           }
         }
       }
@@ -170,14 +147,10 @@ namespace we {
         this.setItemState(this._today, 'today');
         for (let d = 0; d < this._tday; d++) {
           const curr = moment([this._year, this._month, d + 1]);
-          let todaytime = moment()
-            .utcOffset(8)
-            .startOf('day')
-            .unix();
-          let today = moment.unix(todaytime).startOf('day'); // get today's moment,disable it if curr - today > 90
-          let diff = moment(today).diff(curr,"days")
+          const todaytime = moment().utcOffset(8).startOf('day').unix();
+          const today = moment.unix(todaytime).startOf('day'); // get today's moment,disable it if curr - today > 90
+          const diff = moment(today).diff(curr, 'days');
           if (diff < 91) {
-
             if (curr.isSame(begin, 'day')) {
               this.setItemState(d, 'begin');
             } else if (curr.isSame(end, 'day')) {

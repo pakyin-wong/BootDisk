@@ -9,7 +9,6 @@ namespace we {
       public initContent(root: GameTableList) {
         this.root = root;
 
-
         root.sliderGroup = new eui.Group();
         root.sliderGroup.height = 850;
         root.sliderGroup.width = 850;

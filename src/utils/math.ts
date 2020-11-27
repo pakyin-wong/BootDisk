@@ -74,12 +74,12 @@ namespace we {
       return array;
     }
     export function SHA256(s) {
-      let chrsz = 8;
-      let hexcase = 0;
+      const chrsz = 8;
+      const hexcase = 0;
 
       function safe_add(x, y) {
-        let lsw = (x & 0xffff) + (y & 0xffff);
-        let msw = (x >> 16) + (y >> 16) + (lsw >> 16);
+        const lsw = (x & 0xffff) + (y & 0xffff);
+        const msw = (x >> 16) + (y >> 16) + (lsw >> 16);
         return (msw << 16) | (lsw & 0xffff);
       }
 
@@ -109,7 +109,7 @@ namespace we {
       }
 
       function core_sha256(m, l) {
-        let K = new Array(
+        const K = new Array(
           0x428a2f98,
           0x71374491,
           0xb5c0fbcf,
@@ -175,8 +175,8 @@ namespace we {
           0xbef9a3f7,
           0xc67178f2
         );
-        let HASH = new Array(0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19);
-        let W = new Array(64);
+        const HASH = new Array(0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19);
+        const W = new Array(64);
         let a, b, c, d, e, f, g, h, i, j;
         let T1, T2;
 
@@ -194,8 +194,11 @@ namespace we {
           h = HASH[7];
 
           for (let j = 0; j < 64; j++) {
-            if (j < 16) { W[j] = m[j + i]; }
-            else { W[j] = safe_add(safe_add(safe_add(Gamma1256(W[j - 2]), W[j - 7]), Gamma0256(W[j - 15])), W[j - 16]); }
+            if (j < 16) {
+              W[j] = m[j + i];
+            } else {
+              W[j] = safe_add(safe_add(safe_add(Gamma1256(W[j - 2]), W[j - 7]), Gamma0256(W[j - 15])), W[j - 16]);
+            }
 
             T1 = safe_add(safe_add(safe_add(safe_add(h, Sigma1256(e)), Ch(e, f, g)), K[j]), W[j]);
             T2 = safe_add(Sigma0256(a), Maj(a, b, c));
@@ -223,8 +226,8 @@ namespace we {
       }
 
       function str2binb(str) {
-        let bin = Array();
-        let mask = (1 << chrsz) - 1;
+        const bin = Array();
+        const mask = (1 << chrsz) - 1;
         for (let i = 0; i < str.length * chrsz; i += chrsz) {
           bin[i >> 5] |= (str.charCodeAt(i / chrsz) & mask) << (24 - (i % 32));
         }
@@ -236,7 +239,7 @@ namespace we {
         let utftext = '';
 
         for (let n = 0; n < string.length; n++) {
-          let c = string.charCodeAt(n);
+          const c = string.charCodeAt(n);
 
           if (c < 128) {
             utftext += String.fromCharCode(c);
@@ -252,7 +255,7 @@ namespace we {
         return utftext;
       }
       function binb2hex(binarray) {
-        let hex_tab = hexcase ? '0123456789ABCDEF' : '0123456789abcdef';
+        const hex_tab = hexcase ? '0123456789ABCDEF' : '0123456789abcdef';
         let str = '';
         for (let i = 0; i < binarray.length * 4; i++) {
           str += hex_tab.charAt((binarray[i >> 2] >> ((3 - (i % 4)) * 8 + 4)) & 0xf) + hex_tab.charAt((binarray[i >> 2] >> ((3 - (i % 4)) * 8)) & 0xf);

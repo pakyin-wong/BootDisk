@@ -22,7 +22,7 @@ namespace we {
         this.skinName = utils.getSkinByClassname(this._skinKey);
         /// 20201125: as design has changed again. Now 'lobby' is reappeared in desktop version again
         // if (env.isMobile) {
-          this._items = ['lobby', ...env.gameCategories, 'favourite']// ['lobby', 'live', 'lottery', 'egame', 'favourite'];
+        this._items = ['lobby', ...env.gameCategories, 'favourite']; // ['lobby', 'live', 'lottery', 'egame', 'favourite'];
         // } else {
         //   this._items = [...env.gameCategories, 'favourite'];
         // }
@@ -51,7 +51,7 @@ namespace we {
         this._list.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.handleTap, this);
         if (env.isMobile) {
           dir.monitor._sideGameList.setToggler(this._common_listpanel);
-           this._logo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.home, this);
+          this._logo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.home, this);
         } else {
           this._logo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.home, this);
           mouse.setButtonMode(this._logo, true);
@@ -65,7 +65,7 @@ namespace we {
         if (!env.isMobile) {
           this._logo.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.home, this);
         }
-         this._logo.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.home, this);
+        this._logo.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.home, this);
       }
 
       public onEnter() {
@@ -102,15 +102,15 @@ namespace we {
       private home(e: egret.TouchEvent) {
         /// 20201125: as design has changed again. Now 'lobby' is reappeared in desktop version again
         // if (env.isMobile) {
-          this._selectedIdx = 0;
-          this._list.selectedIndex = 0;
+        this._selectedIdx = 0;
+        this._list.selectedIndex = 0;
         // } else {
         //   this._selectedIdx = -1;
         //   this._list.selectedIndex = -1;
         // }
 
         this.loadPage('lobby');
-      } 
+      }
 
       private async loadPage(name: string, data: any = null) {
         const groups = we[name].Page.resGroups;

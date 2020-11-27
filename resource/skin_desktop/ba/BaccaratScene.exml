@@ -3,6 +3,7 @@
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*">
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_jpg" x="0" locked="true" />
+	<e:Rect top="0" bottom="0" left="0" right="0"  fillColor="0xffffff" visible="false"/>
 	<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" width="2600" height="294" x="0" bottom="0" stroke="0"
 	                   fillColor="0x00000000,0x00000050" />
 	<ba:MinimizedTableLayer id="_minimizedTableLayer" skinName="skin_desktop.ba.BAMinimizedTableLayerSkin" x="724" y="1340"
@@ -66,8 +67,8 @@
 	</e:Group>
 	<ui:ShuffleMessage id="_shuffleMessage" horizontalCenter="0" verticalCenter="0" skinName="skin_desktop.ShuffleMessage"/>
 	<ba:GameResultMessage id="_resultMessage" x="0" y="676" width="1" height="1" horizontalCenter="0" />
-	<ui:InGameMessage id="_expiredMessage" y="796" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
-	                  anchorOffsetY="16" expiredBg="d_ba_gamerecord_chipvalue_png" scaleX="1.5" scaleY="1.5"  horizontalCenter="0"/>
+	<ui:InGameMessage id="_expiredMessage" x="1300" y="831" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
+	                  anchorOffsetY="16" expiredBg="d_ba_gamerecord_chipvalue_png" scaleX="1.5" scaleY="1.5" />
 	<ui:InGameMessage id="_message" x="1300" y="831" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
 	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_chipvalue_png" successBg="d_ba_gamerecord_tieelement_png"
 	                  errorBg="d_ba_gamerecord_bankerelement_png" />

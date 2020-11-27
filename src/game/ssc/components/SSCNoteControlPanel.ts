@@ -227,7 +227,7 @@ namespace we {
         super.onExit();
         this.removeListeners();
       }
-      
+
       public updateBalance() {
         this._balance = env.balance;
         this._lblBalance.renderText = () => `${i18n.t('nav.bet_balance')} $${this._balance ? utils.formatNumber(this._balance, true) : ' - '}`;

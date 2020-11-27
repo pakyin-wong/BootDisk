@@ -112,7 +112,7 @@ namespace we {
         this.isShow = true;
         this.target.dispatchEvent(new egret.Event('POPPER_SHOW'));
 
-        if (!skipAnimation) dir.audioCtr.play(this.showSFX?this.showSFX:'ui_sfx_penal_open_mp3');
+        if (!skipAnimation) dir.audioCtr.play(this.showSFX ? this.showSFX : 'ui_sfx_penal_open_mp3');
 
         this.isFocusItem && this.target.stage['inFocusItems'].push(this.target);
         this.inFocusIdx = this.target.stage['inFocusItems'].length;
@@ -138,7 +138,7 @@ namespace we {
         this.isShow = false;
         this.target.dispatchEvent(new egret.Event('POPPER_HIDE'));
 
-        if (!skipAnimation) dir.audioCtr.play(this.hideSFX?this.hideSFX:'ui_sfx_penal_close_mp3');
+        if (!skipAnimation) dir.audioCtr.play(this.hideSFX ? this.hideSFX : 'ui_sfx_penal_close_mp3');
 
         await this.onHide(skipAnimation);
       }
@@ -165,9 +165,7 @@ namespace we {
         content.$x = this._contentPos.x;
         content.$y = this._contentPos.y - 20;
         await new Promise((resolve, reject) => {
-          egret.Tween.get(content)
-            .to({ alpha: 1, $y: this._contentPos.y }, 200)
-            .call(resolve);
+          egret.Tween.get(content).to({ alpha: 1, $y: this._contentPos.y }, 200).call(resolve);
         });
       }
       protected async onHide(skipAnimation: boolean = false) {

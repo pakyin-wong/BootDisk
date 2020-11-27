@@ -7,13 +7,13 @@ namespace we {
       protected _value: number = 0; // #card used
 
       constructor() {
-        super(null,false);
+        super(null, false);
       }
 
       public set value(val: number) {
         this._value = val;
         if (this._label) {
-          this._label.renderText = ()=>i18n.t('baccarat.cardUsed', val);
+          this._label.renderText = () => i18n.t('baccarat.cardUsed', val);
         }
       }
 
@@ -38,7 +38,7 @@ namespace we {
         this.addChild(this._group);
 
         this._label = new we.ui.RunTimeLabel();
-        this._label.renderText = ()=>i18n.t('baccarat.cardUsed', this._value);
+        this._label.renderText = () => i18n.t('baccarat.cardUsed', this._value);
         this._label.size = 30;
         this._label.textColor = 0xffffff;
         this._label.horizontalCenter = 0;

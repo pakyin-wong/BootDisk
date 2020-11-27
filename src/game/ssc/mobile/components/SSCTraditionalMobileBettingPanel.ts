@@ -44,7 +44,7 @@ namespace we {
       // protected _bettingTypeDropDown: SSCTraditionalMobileDropdown;
       // protected _betControlPanelGroup: eui.Group;
       // protected _betControlPanel: SSCTraditionalMobileBetControlPanel;
-      protected _btnBet : ui.RoundRectButton;
+      protected _btnBet: ui.RoundRectButton;
 
       constructor(skin: string = null) {
         super(skin);
@@ -56,20 +56,19 @@ namespace we {
       protected addEventListeners() {
         super.addEventListeners();
         this.addEventListener('GAMETYPEDROPDOWN_ITEM_CHANGE', this.updateCurrentIndex, this);
-        this._btnBet.addEventListener(egret.TouchEvent.TOUCH_TAP,this.openBettingTableState,this);
+        this._btnBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openBettingTableState, this);
       }
 
       protected removeEventListeners() {
         super.removeEventListeners();
         this.removeEventListener('GAMETYPEDROPDOWN_ITEM_CHANGE', this.updateCurrentIndex, this);
-        this._btnBet.removeEventListener(egret.TouchEvent.TOUCH_TAP,this.openBettingTableState,this);
-
+        this._btnBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.openBettingTableState, this);
       }
 
       public setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
-        if(enable){
-        }else{
+        if (enable) {
+        } else {
           this.closeBettingTableState();
         }
       }
@@ -94,7 +93,7 @@ namespace we {
         // this._dropDownOverlay.touchThrough = true;
 
         this._noteControl = new SSCTraditionalNoteControl();
-        this.addChildAt(this._noteControl,0)
+        this.addChildAt(this._noteControl, 0);
         this._noteControl.touchEnabled = false;
         // this._betControlPanel = new SSCTraditionalMobileBetControlPanel(this);
         // this._betControlPanelGroup.addChild(this._betControlPanel);
@@ -130,13 +129,13 @@ namespace we {
       }
 
       public updateBetTableInfo(info) {
-        if(!info.betInfo){
+        if (!info.betInfo) {
           return;
         }
         this._currentGameRound = info.betInfo.gameroundid;
 
-        dir.evtHandler.dispatchEventWith('LO_TRAD_MOBILE_ROUNDID_UPDATE',false,{gameroundid: this._currentGameRound});
-        
+        dir.evtHandler.dispatchEventWith('LO_TRAD_MOBILE_ROUNDID_UPDATE', false, { gameroundid: this._currentGameRound });
+
         if (info.betInfo.lotteryRatio && this._ratioList === undefined) {
           this._ratioList = info.betInfo.lotteryRatio;
         }
@@ -148,9 +147,8 @@ namespace we {
         const currentBigTag = this._currentMap[Object.keys(this._currentMap)[this._currentBigTagIndex]];
         const config = currentBigTag['type'][Object.keys(currentBigTag['type'])[this._currentSmallTagIndex]];
 
-        const playmode = `${i18n.t('lo_trad.bigTag.'+currentBigTag.name)} - ${i18n.t('lo_trad.smallTag.'+config.name)}`;      
+        const playmode = `${i18n.t('lo_trad.bigTag.' + currentBigTag.name)} - ${i18n.t('lo_trad.smallTag.' + config.name)}`;
 
-        
         const bettingTable = new SSCTraditionalMobileBettingTable(config, playmode);
         if (this._bettingControl) {
           this._bettingControl.updateHighestWin(config);
@@ -201,7 +199,6 @@ namespace we {
       }
 
       protected changeBettingTableState(idx: number) {
-
         this._currentBettingStateIndex = idx;
         this._currentBettingTable.switchState(this.bettingTableStates[idx]);
         this._currentBettingTable.currentState = this.bettingTableStates[idx];
@@ -213,20 +210,19 @@ namespace we {
           switch (this._currentBettingStateIndex) {
             case 1:
             case 2:
-              egret.Tween.get(this._footer).to({y:1659, visible:true, touchEnabled:true, touchThrough:false},250)
+              egret.Tween.get(this._footer).to({ y: 1659, visible: true, touchEnabled: true, touchThrough: false }, 250);
               // this._footer.visible = true;
               // this._footer.touchEnabled = true;
               // this._footer.touchThrough = false;
               break;
             case 0:
-              egret.Tween.get(this._footer).to({y:2155, visible:true, touchEnabled:false, touchThrough:true},150)
+              egret.Tween.get(this._footer).to({ y: 2155, visible: true, touchEnabled: false, touchThrough: true }, 150);
               // this._footer.visible = false;
               // this._footer.touchEnabled = false;
               // this._footer.touchThrough = true;
               break;
           }
         }
-
       }
 
       public refreshCurrentBettingTable() {
@@ -324,7 +320,7 @@ namespace we {
       public addNotes() {
         // add notes to _noteControl
         // super.addNotes();
-        let addnotes = this.generateNoteData();
+        const addnotes = this.generateNoteData();
 
         if (!this._noteControl) {
           return;
@@ -373,9 +369,9 @@ namespace we {
         }
       }
 
-       protected updateText() {
-         this._btnBet.label.renderText = () => `${i18n.t('lo_trad.confirm_panel.bettrigger')}`;
-       }
+      protected updateText() {
+        this._btnBet.label.renderText = () => `${i18n.t('lo_trad.confirm_panel.bettrigger')}`;
+      }
     }
   }
 }

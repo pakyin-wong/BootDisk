@@ -1,6 +1,6 @@
 namespace we {
   export namespace dil {
-    export class History extends  ui.Panel {
+    export class History extends ui.Panel {
       protected tableInfo: data.TableInfo;
       protected _gamestatistic: any;
       public round: number = 10;
@@ -46,14 +46,13 @@ namespace we {
       protected _prevbtnImage: eui.Image;//desktop only
       protected _nextbtn: eui.Group;//desktop only
       protected _nextbtnImage: eui.Image;//desktop only
-      
 
-      protected _totalResult:number;
+      protected _totalResult: number;
       public constructor(skin: string = null) {
         super(skin);
       }
 
-      public set totalResult (val:number) {
+      public set totalResult(val: number) {
         this._totalResult = val;
       }
       protected mount() {
@@ -67,42 +66,43 @@ namespace we {
         this.addEventListeners();
         if (this._nextbtn && this._prevbtn) {
           this._nextbtnImage.source = 'd_common_panel_info_btn_right_active_png';
-          this._prevbtnImage.source = 'd_common_panel_info_btn_left_png'
-        }        
+          this._prevbtnImage.source = 'd_common_panel_info_btn_left_png';
+        }
       }
-      protected destroy(){
+      protected destroy() {
         super.destroy();
         this.removeEventListeners();
       }
-      protected addEventListeners(){
-        if(this._nextbtn){
-          this._nextbtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onClickNext,this)
+      protected addEventListeners() {
+        if (this._nextbtn) {
+          this._nextbtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickNext, this);
         }
-        if(this._prevbtn){
-          this._prevbtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onClickPrev,this)
-        }
-      }
-      protected removeEventListeners(){
-        if(this._nextbtn){
-          this._nextbtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onClickNext,this)
-        }
-        if(this._prevbtn){
-          this._prevbtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onClickPrev,this)
+        if (this._prevbtn) {
+          this._prevbtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickPrev, this);
         }
       }
-      public setValue(tableInfo: data.TableInfo) { //called when bet start
+      protected removeEventListeners() {
+        if (this._nextbtn) {
+          this._nextbtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickNext, this);
+        }
+        if (this._prevbtn) {
+          this._prevbtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickPrev, this);
+        }
+      }
+      public setValue(tableInfo: data.TableInfo) {
+        // called when bet start
         this.tableInfo = tableInfo;
         if (tableInfo.gamestatistic) {
           this._gamestatistic = tableInfo.gamestatistic;
-          this._data = tableInfo.gamestatistic
-          this.updateHistoryBar(this._gamestatistic)
+          this._data = tableInfo.gamestatistic;
+          this.updateHistoryBar(this._gamestatistic);
         }
       }
       // update history chart when tableinfo info update
-       public updateHistoryTableInfo(tableInfo) {
+      public updateHistoryTableInfo(tableInfo) {
         this._gamestatistic = tableInfo.gamestatistic;
         // console.log('updateTableBetInfo::this.tableInfo.betInfo',this.tableInfo.betInfo)
-        this.updateHistoryBar(this._gamestatistic);  
+        this.updateHistoryBar(this._gamestatistic);
         logger.l(utils.LogTarget.DEBUG, JSON.stringify(this.tableInfo.betInfo.count));
         logger.l(utils.LogTarget.DEBUG, JSON.stringify(this.tableInfo.betInfo.amount));
       }
@@ -147,62 +147,64 @@ namespace we {
         if (this.round === 10) {
           for (let i = 3; i < 19; i++) {
             this[`_sum${i}Percent`].text = `${percentages_10[i - 3]}%`;
-            (<ui.ProgressBar> this[`_sum${i}`]).proportion = percentages_10[i - 3] / 100;
-            (<ui.ProgressBar> this[`_sum${i}`]).draw();
+            (<ui.ProgressBar>this[`_sum${i}`]).proportion = percentages_10[i - 3] / 100;
+            (<ui.ProgressBar>this[`_sum${i}`]).draw();
           }
         } else {
           for (let i = 3; i < 19; i++) {
             this[`_sum${i}Percent`].text = `${percentages_50[i - 3]}%`;
-            (<ui.ProgressBar> this[`_sum${i}`]).proportion = percentages_50[i - 3] / 100;
-            (<ui.ProgressBar> this[`_sum${i}`]).draw();
+            (<ui.ProgressBar>this[`_sum${i}`]).proportion = percentages_50[i - 3] / 100;
+            (<ui.ProgressBar>this[`_sum${i}`]).draw();
           }
         }
       }
-      protected updateBarWithTenResult(data){//mobile
+      protected updateBarWithTenResult(data) {
+        // mobile
         if (!data || !data.dilHistory || !data.dilHistory.round_10 || !data.dilHistory.round_50) {
           return;
         }
         const percentages_10 = we.utils.stat.toPercentages(data.dilHistory.round_10);
         for (let i = 3; i < 19; i++) {
-            this[`_sum${i}Percent`].text = `${percentages_10[i - 3]}`;
-            (<ui.ProgressBar> this[`_sum${i}`]).proportion = percentages_10[i - 3] / 100;
-            (<ui.ProgressBar> this[`_sum${i}`]).draw();
-          }
+          this[`_sum${i}Percent`].text = `${percentages_10[i - 3]}`;
+          (<ui.ProgressBar>this[`_sum${i}`]).proportion = percentages_10[i - 3] / 100;
+          (<ui.ProgressBar>this[`_sum${i}`]).draw();
+        }
       }
-      protected updateBarWithFiftyResult(data){//mobile
+      protected updateBarWithFiftyResult(data) {
+        // mobile
         if (!data || !data.dilHistory || !data.dilHistory.round_10 || !data.dilHistory.round_50) {
           return;
         }
         const percentages_50 = we.utils.stat.toPercentages(data.dilHistory.round_50);
         for (let i = 3; i < 19; i++) {
           this[`_sum${i}Percent`].text = `${percentages_50[i - 3]}`;
-          (<ui.ProgressBar> this[`_sum${i}`]).proportion = percentages_50[i - 3] / 100;
-          (<ui.ProgressBar> this[`_sum${i}`]).draw();
+          (<ui.ProgressBar>this[`_sum${i}`]).proportion = percentages_50[i - 3] / 100;
+          (<ui.ProgressBar>this[`_sum${i}`]).draw();
         }
       }
-      protected updateHistoryBar (data) {
+      protected updateHistoryBar(data) {
         if (env.isMobile) {
           // check is 10 records or 50 records
           if (this._totalResult === 10) {
             this.updateBarWithTenResult(data);
-          } else if (this._totalResult === 50){
+          } else if (this._totalResult === 50) {
             this.updateBarWithFiftyResult(data);
           }
         } else {
-          this.updateBar(data)
+          this.updateBar(data);
         }
-      };
-      protected onClickNext(){
-        this.finishAction(1)
+      }
+      protected onClickNext() {
+        this.finishAction(1);
         this._nextbtnImage.source = 'd_common_panel_info_btn_right_png';
-        this._prevbtnImage.source = 'd_common_panel_info_btn_left_active_png'
+        this._prevbtnImage.source = 'd_common_panel_info_btn_left_active_png';
         this._prevbtn.touchEnabled = true;
         this._nextbtn.touchEnabled = false;
       }
-      protected onClickPrev(){
-        this.finishAction(0)
+      protected onClickPrev() {
+        this.finishAction(0);
         this._nextbtnImage.source = 'd_common_panel_info_btn_right_active_png';
-        this._prevbtnImage.source = 'd_common_panel_info_btn_left_png'
+        this._prevbtnImage.source = 'd_common_panel_info_btn_left_png';
         this._prevbtn.touchEnabled = false;
         this._nextbtn.touchEnabled = true;
       }

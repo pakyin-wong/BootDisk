@@ -56,50 +56,50 @@ namespace we {
 
       protected setStateIdle(isInit: boolean) {
         super.setStateIdle(isInit);
-        (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearAnim();
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearAnim();
       }
 
       protected setStateBet(isInit: boolean) {
         super.setStateBet(isInit);
         // this._dilGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
-        (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearAnim();
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearAnim();
       }
 
       protected setStateDeal(isInit: boolean) {
         super.setStateDeal(isInit);
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
-          (<we.dil.MobileChipLayer> this._chipLayer).showLuckyNumber();
-          (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer);
+          (<we.dil.MobileChipLayer>this._chipLayer).showLuckyNumber();
+          (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer);
         }
       }
 
       protected setStateFinish(isInit: boolean = false) {
         super.setStateFinish(isInit);
         if (isInit && this._previousState !== we.core.GameState.FINISH) {
-          (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer);
+          (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).updateLuckyNumbers(this._gameData, this._chipLayer);
         }
-        (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.dil.MobileChipLayer> this._chipLayer).showWinningNumber();
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.MobileChipLayer>this._chipLayer).showWinningNumber();
       }
 
       protected setStateRefund(isInit: boolean = false) {
         super.setStateRefund(isInit);
-        (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearAnim();
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearAnim();
       }
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
-        (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearAnim();
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearAnim();
       }
 
       protected setStateUnknown(isInit: boolean = false) {
         super.setStateUnknown(isInit);
-        (<we.dil.MobileChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.dil.LuckyCoinGroup> this._luckyCoinGroup).clearAnim();
+        (<we.dil.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.dil.LuckyCoinGroup>this._luckyCoinGroup).clearAnim();
       }
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
@@ -120,8 +120,8 @@ namespace we {
         }
         if (this._bottomGamePanel._poolPanel) {
           this._bottomGamePanel._poolPanel.setValue(this._tableInfo);
-          this._bottomGamePanel._historyPanel1.setValue(this._tableInfo);// 10 records
-          this._bottomGamePanel._historyPanel2.setValue(this._tableInfo);// 50 records
+          this._bottomGamePanel._historyPanel1.setValue(this._tableInfo); // 10 records
+          this._bottomGamePanel._historyPanel2.setValue(this._tableInfo); // 50 records
         }
         // if (this._bottomGamePanel._betLimitDropDownBtn) {
         //   this.initBottomBetLimitSelector();
@@ -214,7 +214,7 @@ namespace we {
 
       protected onRoadDataUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const stat = <data.TableInfo> evt.data;
+          const stat = <data.TableInfo>evt.data;
           if (stat.tableid === this._tableId) {
             this._roadmapControl.updateRoadData();
           }
@@ -224,7 +224,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             if (this._totalBet) {
               const totalBet = betInfo.gameroundid === this._gameData.gameroundid ? betInfo.total : 0;
@@ -249,7 +249,7 @@ namespace we {
       }
 
       public checkResultMessage(resultData = null) {
-        (<any> this._gameData).hasBet = this.hasBet();
+        (<any>this._gameData).hasBet = this.hasBet();
         super.checkResultMessage(resultData);
       }
 

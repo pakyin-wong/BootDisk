@@ -45,7 +45,7 @@ namespace we {
         if (!this.tableInfo.gamestatistic) {
           return;
         } else {
-          if(!this._bestTimePieChart){
+          if (!this._bestTimePieChart) {
             this.init();
           }
         }
@@ -287,7 +287,7 @@ namespace we {
       }
 
       protected initTypeSelector() {
-        const dropdownSource = this.chartTypeNames.map((data, index) => { 
+        const dropdownSource = this.chartTypeNames.map((data, index) => {
           return ui.NewDropdownItem(index, () => `${data}`);
         });
 

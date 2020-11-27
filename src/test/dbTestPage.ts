@@ -3,7 +3,7 @@ namespace we {
     export class dbTestPage extends core.BasePage {
       private progressbar: eui.ProgressBar;
       protected factory: dragonBones.EgretFactory;
-      
+
       public onEnter() {
         this.addEventListener(eui.UIEvent.COMPLETE, this.mount, this);
       }
@@ -63,20 +63,24 @@ namespace we {
         const redPinClone: egret.Bitmap = new egret.Bitmap();
         // redPinClone.width = redPinMesh.width;
         // redPinClone.height = redPinMesh.height;
-        redPinClone.rotation = 90 + Math.atan2(redPin.globalTransformMatrix.b, redPin.globalTransformMatrix.a)*180/Math.PI;
+        redPinClone.rotation = 90 + (Math.atan2(redPin.globalTransformMatrix.b, redPin.globalTransformMatrix.a) * 180) / Math.PI;
         redPinClone.texture = redPinMesh.texture;
         redPinClone.x = redPin.globalTransformMatrix.tx;
         redPinClone.y = redPin.globalTransformMatrix.ty;
         redPinClone.anchorOffsetX = 14;
-        redPinClone.anchorOffsetY = 111 + (redPinClone.texture.textureHeight*redPinClone.scaleY);
+        redPinClone.anchorOffsetY = 111 + redPinClone.texture.textureHeight * redPinClone.scaleY;
         redPinClone.alpha = 0.7;
         // redPinClone.pixelHitTest = true;
         redPinClone.touchEnabled = true;
         chip.addChild(redPinClone);
-        mouse.setButtonMode(redPinClone,true);
-        redPinClone.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{
-          console.log("Hello world");
-        }, this);
+        mouse.setButtonMode(redPinClone, true);
+        redPinClone.addEventListener(
+          egret.TouchEvent.TOUCH_TAP,
+          () => {
+            console.log('Hello world');
+          },
+          this
+        );
 
         const toolTip = this.createTooltip();
         toolTip.y = -320;
@@ -88,16 +92,16 @@ namespace we {
         egret.Tween.get(bar.origin)
           .to({ rotation: -50 }, 5000, t => {
             bar.invalidUpdate();
-            redPinClone.rotation = 90 + Math.atan2(redPin.globalTransformMatrix.b, redPin.globalTransformMatrix.a)*180/Math.PI;
+            redPinClone.rotation = 90 + (Math.atan2(redPin.globalTransformMatrix.b, redPin.globalTransformMatrix.a) * 180) / Math.PI;
             return t;
-          }).call(()=>{
+          })
+          .call(() => {
             bar.invalidUpdate();
-            redPinClone.rotation = 90 + Math.atan2(redPin.globalTransformMatrix.b, redPin.globalTransformMatrix.a)*180/Math.PI;
+            redPinClone.rotation = 90 + (Math.atan2(redPin.globalTransformMatrix.b, redPin.globalTransformMatrix.a) * 180) / Math.PI;
           });
 
-        chip.animation.timeScale=0.1;
+        chip.animation.timeScale = 0.1;
         this.animChip(chip);
-
 
         // touch event handling
         const infoBtn = chip.armature.getSlot('card_info');
@@ -108,18 +112,20 @@ namespace we {
         infoBtnClone.scaleX = infoBtn.globalTransformMatrix.a;
         infoBtnClone.scaleY = infoBtn.globalTransformMatrix.d;
         infoBtnClone.x = infoBtn.globalTransformMatrix.tx;
-        infoBtnClone.y = infoBtn.globalTransformMatrix.ty - (mesh.height*infoBtnClone.scaleY);
+        infoBtnClone.y = infoBtn.globalTransformMatrix.ty - mesh.height * infoBtnClone.scaleY;
         infoBtnClone.texture = mesh.texture;
         infoBtnClone.alpha = 0;
         infoBtnClone.pixelHitTest = true;
         infoBtnClone.touchEnabled = true;
         chip.addChild(infoBtnClone);
-        mouse.setButtonMode(infoBtnClone,true);
-        infoBtnClone.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{
-          console.log("Hello world");
-        }, this);
-
-        
+        mouse.setButtonMode(infoBtnClone, true);
+        infoBtnClone.addEventListener(
+          egret.TouchEvent.TOUCH_TAP,
+          () => {
+            console.log('Hello world');
+          },
+          this
+        );
       }
 
       protected createTooltip() {
@@ -154,7 +160,6 @@ namespace we {
       }
 
       protected async animChip(chip: dragonBones.EgretArmatureDisplay) {
-
         /// update the label by replacing the ImageDisplayData of the slot
         // create the new texture
         const cardLabel = new ui.LabelImage();
@@ -163,7 +168,7 @@ namespace we {
         cardLabel.fontFamily = 'BarlowBold';
         cardLabel.bold = true;
         cardLabel.hasShadow = true;
-        cardLabel.text = Math.floor(Math.random()*200).toString();
+        cardLabel.text = Math.floor(Math.random() * 200).toString();
 
         // get the slot
         const slot = chip.armature.getSlot('card_number_vertical');
@@ -186,7 +191,7 @@ namespace we {
         displayData.type = 0;
 
         // replace the original displayData
-        slot.replaceDisplayData(displayData,0);
+        slot.replaceDisplayData(displayData, 0);
 
         // set the displayIndex to non zero since new value == current index will not trigger redraw
         slot.displayIndex = -1;
@@ -195,7 +200,7 @@ namespace we {
         /// update the card by replacing the MeshDisplayData of the slot
         // update poker card front by update the texture instead of changing the display
         const card = chip.armature.getSlot('card_back_vertical');
-        const cardStr = utils.getCardResName(utils.formatCardForFlip(`diamond${Math.floor(Math.random()*6+3)}`));
+        const cardStr = utils.getCardResName(utils.formatCardForFlip(`diamond${Math.floor(Math.random() * 6 + 3)}`));
         const texture = RES.getRes(cardStr);
         const meshDistData = card.displayData as dragonBones.MeshDisplayData;
         textureData = new dragonBones.EgretTextureData();
@@ -223,7 +228,6 @@ namespace we {
 
         // console.log(card);
         // console.log(card._deformVertices);
-
 
         // const p3 = we.utils.waitDragonBone(chip);
         // chip.animation.play('shoe_out', 1);

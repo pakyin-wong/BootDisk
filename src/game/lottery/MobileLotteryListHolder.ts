@@ -56,7 +56,7 @@ namespace we {
         let itemName;
         let skinName;
 
-        //always use Normal mode for Mobile Lottery.
+        // always use Normal mode for Mobile Lottery.
         this._mode = 1;
 
         switch (this._mode) {

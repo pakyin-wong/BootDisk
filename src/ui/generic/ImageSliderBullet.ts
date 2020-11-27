@@ -45,14 +45,14 @@ namespace we {
         // update bullet count if count is not equal to slideCount
         if (this._bullets.length !== this._imageSlider.slideCount) {
           this.removeChildren();
-          this._bullets = Array.apply(null, {length: this._imageSlider.slideCount}).map((d, idx)=> {
+          this._bullets = Array.apply(null, { length: this._imageSlider.slideCount }).map((d, idx) => {
             const bullet = new this.BulletItemClass(idx, this._imageSlider);
             bullet.skinName = utils.getSkinByClassname(this.BulletItemSkinname);
             this.addChild(bullet);
             return bullet;
           });
         }
-        this._imageSlider.slides.map((slide: core.IRemoteResourceItem, idx)=>{
+        this._imageSlider.slides.map((slide: core.IRemoteResourceItem, idx) => {
           const bullet = this._bullets[idx];
           bullet.enabled = slide.loaded;
           bullet.selected = this._imageSlider.selectedIndex === idx;
@@ -67,7 +67,7 @@ namespace we {
 
       protected _index: number;
       protected _imageSlider: ImageSlider;
-      protected _colorAttr: string = ''; 
+      protected _colorAttr: string = '';
 
       public selectedColor: number = 0xb58965;
       public normalColor: number = 0x979797;
@@ -81,7 +81,7 @@ namespace we {
 
       protected childrenCreated() {
         super.childrenCreated();
-        const attrs = ['color','fillColor'];
+        const attrs = ['color', 'fillColor'];
         if (this._body) {
           for (const attr of attrs) {
             if (this._body[attr] !== undefined) {
@@ -102,7 +102,7 @@ namespace we {
       public $setEnabled(val: boolean) {
         const result = super.$setEnabled(val);
         if (this._body) {
-          this._body[this._colorAttr] = this.enabled? this._selected? this.selectedColor: this.normalColor: this.disabledColor;
+          this._body[this._colorAttr] = this.enabled ? (this._selected ? this.selectedColor : this.normalColor) : this.disabledColor;
         }
         return result;
       }
@@ -110,7 +110,7 @@ namespace we {
       public $setSelected(val: boolean) {
         this._selected = val;
         if (this._body) {
-          this._body[this._colorAttr] = this.enabled? this._selected? this.selectedColor: this.normalColor: this.disabledColor;
+          this._body[this._colorAttr] = this.enabled ? (this._selected ? this.selectedColor : this.normalColor) : this.disabledColor;
         }
       }
 

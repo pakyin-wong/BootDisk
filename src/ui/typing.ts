@@ -32,7 +32,7 @@ namespace we {
       setValue(gameData);
       show();
       hide();
-      update(gameData,tableId);
+      update(gameData, tableId);
     }
 
     export interface IListItemHelper {
@@ -86,8 +86,8 @@ namespace we {
         originX: number;
         originY: number;
       };
-      showSFX?:string;
-      hideSFX?:string;
+      showSFX?: string;
+      hideSFX?: string;
     }
 
     export interface IMessageDialogOpt {
