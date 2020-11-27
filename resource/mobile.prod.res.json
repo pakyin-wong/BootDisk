@@ -49,7 +49,7 @@
 			"name": "scene_bc_dragontiger"
 		},
 		{
-			"keys": "we_bcba_sfx_card_generate_mp3,we_bcba_sfx_card_icontocontainer_mp3,we_bcba_sfx_card_move_mp3,we_bcba_sfx_card_open_mp3,we_bcba_sfx_card_popup_mp3,we_bcba_sfx_card_removeall_mp3,we_bcba_sfx_card_smallcard_mp3,we_bcba_sfx_card_teleport_mp3,we_bcba_sfx_container_fadeout_mp3,we_bcba_sfx_container_icon_mp3,we_bcba_sfx_newshoe_mp3,we_bcba_sfx_result_mp3,we_bcba_sfx_shoeout_mp3,bc_json",
+			"keys": "we_bcba_sfx_card_generate_mp3,we_bcba_sfx_card_icontocontainer_mp3,we_bcba_sfx_card_move_mp3,we_bcba_sfx_card_open_mp3,we_bcba_sfx_card_popup_mp3,we_bcba_sfx_card_removeall_mp3,we_bcba_sfx_card_smallcard_mp3,we_bcba_sfx_card_teleport_mp3,we_bcba_sfx_container_fadeout_mp3,we_bcba_sfx_container_icon_mp3,we_bcba_sfx_newshoe_mp3,we_bcba_sfx_result_mp3,we_bcba_sfx_shoeout_mp3,bc_json,m_bcba_panel_verification_encryt_bg_png,m_bcba_penal_h_bg_png,m_bcba_panel_verification_key_bg_png,m_bcba_penal_v_bg_png,m_bcba_resultarea_panel_prevresult_png",
 			"name": "scene_bc"
 		}
 	],
@@ -935,6 +935,31 @@
 			"url": "assets/sounds/sn_win_zh.mp3",
 			"type": "sound",
 			"name": "sn_win_zh_mp3"
+		},
+		{
+			"url": "assets/nmimages/m/bc/m_bcba_panel_verification_encryt_bg.png",
+			"type": "image",
+			"name": "m_bcba_panel_verification_encryt_bg_png"
+		},
+		{
+			"url": "assets/nmimages/m/bc/m_bcba_penal_h_bg.png",
+			"type": "image",
+			"name": "m_bcba_penal_h_bg_png"
+		},
+		{
+			"url": "assets/nmimages/m/bc/m_bcba_panel_verification_key_bg.png",
+			"type": "image",
+			"name": "m_bcba_panel_verification_key_bg_png"
+		},
+		{
+			"url": "assets/nmimages/m/bc/m_bcba_penal_v_bg.png",
+			"type": "image",
+			"name": "m_bcba_penal_v_bg_png"
+		},
+		{
+			"url": "assets/nmimages/m/bc/m_bcba_resultarea_panel_prevresult.png",
+			"type": "image",
+			"name": "m_bcba_resultarea_panel_prevresult_png"
 		}
 	]
 }
