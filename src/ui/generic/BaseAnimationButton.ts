@@ -98,7 +98,7 @@ namespace we {
           this._display.dispose();
           dragonBones.WorldClock.clock.remove(this._display.armature);
           this._display = null;
-          this.removeChild(this._group);
+          if (this._group) this.removeChild(this._group);
         }
         // BaseAnimationButton.FACTORIES[this.dbClass].clear(false);
         super.destroy();
