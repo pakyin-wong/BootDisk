@@ -9,7 +9,7 @@
 		          x.left_hand_mode="3" />
 		<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="0"
 		                   colorChange="true" verticalCenter="0" x.right_hand_mode="683" />
-		<e:Group id="_betLabelGroup" bottom="0" height="40%" >
+		<e:Group id="_betLabelGroup" bottom="0" height="40%" touchThrough="true">
 			<e:Group verticalCenter="0" x="798" x.right_hand_mode="75" width="100" >
 				<ui:RunTimeLabel id="_repeatLabel" text="再次下注" verticalCenter="0" horizontalCenter="0" />
 			</e:Group>

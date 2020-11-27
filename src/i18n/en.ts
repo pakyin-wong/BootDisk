@@ -200,7 +200,7 @@ namespace we {
 
       mobile_lobby_feature_title: 'Featured Games',
       mobile_lobby_hot_game_title: 'Hot Games',
-      mobile_ba_undo: 'Recovery',
+      mobile_ba_undo: 'Undo',
       mobile_ba_clear: 'Clear',
       mobile_ba_double: 'Double',
       mobile_ba_repeat: 'Bet Again',
@@ -548,8 +548,8 @@ namespace we {
         exceedTableLimit: 'Exceed Table Limit',
         exceedBetLowerLimit: 'Lower than Bet Lower Limit',
         exceedBetUpperLimit: 'Exceed Bet Upper Limit',
-        startBet: 'Start Bet',
-        stopBet: 'Stop Bet',
+        startBet: 'Start Betting',
+        stopBet: 'No more bet',
         betTimeout: 'Bet Timeout',
       },
       sidePanel: {
@@ -562,7 +562,7 @@ namespace we {
       },
       baccarat: {
         tooltip: {
-          swapRoadmap: 'Swap Roadmap',
+          swapRoadmap: 'Switch scoreboard',
         },
         statisticChart: {
           bankerPlayerTie: 'BPT ratio (100 Rounds)',
@@ -593,7 +593,7 @@ namespace we {
         gameroundid: 'Game Round',
         totalbet: 'Total Bet',
         totalcount: 'Total',
-        betSuccess: 'betSuccess',
+        betSuccess: 'Betting Success',
         betFail: 'Bet fail',
         shuffling: 'Shuffling',
         addNewGoodRoad: 'New Good Road',
