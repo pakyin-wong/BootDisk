@@ -712,11 +712,12 @@ namespace we {
           if(card.name === 'flipped'){
             return;
           }
+          
           if (this._currentFocusCard) {
             if (this._currentFocusCard.name === 'flipped') {
               this._currentFocusCard.animation.gotoAndStopByFrame(`sq_${orientation}_loop_front`, 0)
             } else {
-              this._currentFocusCard.animation.gotoAndStopByFrame(`sq_${orientation}_select_in`, 0)
+              this._currentFocusCard.animation.play(`sq_${orientation}_select_out`, 1)
             }
           }
           this._currentFocusCard = card

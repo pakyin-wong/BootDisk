@@ -303,6 +303,7 @@ namespace we {
 				env.showGoodRoadHint = settings.showGoodRoadHint === '1' ? true : false;
 				env.autoConfirmBet = settings.autoConfirmBet === '1' ? true : false;
 				env.voice = settings.voice? settings.voice: 'cn';
+				env.isAutoDismiss = settings.isAutoDismiss === '1' ? true : false;
 				env.redirecturl = player.redirecturl;
 
 				env.currentChipSelectedIndex = settings.currentChipSelectedIndex ? parseInt(settings.currentChipSelectedIndex) : 0;
@@ -573,7 +574,7 @@ namespace we {
 				gameStatus.previousstate = tableInfo.data ? tableInfo.data.state : null;
 				gameStatus.starttime = Math.floor(gameStatus.starttime / 1000000);
 				if(gameStatus.peekstarttime){
-					gameStatus.peekstarttime = Math.floor(gameStatus.peekstarttime / 1000000);
+					gameStatus.peekstarttime = Math.floor(gameStatus.peekstarttime );
 					console.log('peekstarttime xxx', gameStatus.tableid, gameStatus.gameroundid,  gameStatus.peekstarttime , gameStatus.starttime)
 				}
         /*

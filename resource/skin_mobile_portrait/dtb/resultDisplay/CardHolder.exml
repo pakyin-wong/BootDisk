@@ -3,7 +3,7 @@
         xmlns:w="http://ns.egret.com/wing" width="1242" height="2424">
         <e:Group id="_particleGroup" width="100%" height="100%" />
         <e:Group id="_wholeMoveGroup" width="100%" height="100%" y="0">
-                <e:Image source="m_blockchain_bg_png" horizontalCenter="0" y="45" width="2421" height="1621"/>
+                <e:Image source="m_blockchain_bg_png" width="1242" height="2424" horizontalCenter="0" top="0"/>
                 <e:Group id="_animRingGroup" y="870" horizontalCenter="0" />
                 <e:Group x="0" y="825" width="552" height="104" id="_dragonSumGroup">
                         <e:Image source="d_bcba_resultarea_player_png" width="100%" height="100%" />
@@ -28,7 +28,7 @@
                 <e:Group x="920" y="750" id="_dragonAnimGroup" touchChildren="false" touchEnabled="false" touchThrough="true" />
                 <e:Group x="350" y="750" id="_tigerAnimGroup" touchThrough="true" />
         </e:Group>
-        <e:Group x="400" y="150" id="_smallRedCardGroup" />
-        <ui:RunTimeLabel x="540" y="150" id="_smallRedCardDesc" visible="false" i18n="baccarat.redCardDesc" />
-        <e:Group id="_centerBurnCardGroup" horizontalCenter="0" y="550" visible="false" />
+        <e:Group x="100" y="100" id="_smallRedCardGroup" />
+        <ui:RunTimeLabel x="540" y="150" id="_smallRedCardDesc" i18n="baccarat.redCardDesc"  visible="false"/>
+        <e:Group id="_centerBurnCardGroup" y="700"  x="1000"/>
 </e:Skin>
