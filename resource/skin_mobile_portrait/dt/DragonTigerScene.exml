@@ -125,6 +125,7 @@
 		</e:layout>
 	</e:Group>
 </e:Group>
+<ui:ShuffleMessage id="_shuffleMessage" skinName="skin_mobile_portrait.ShuffleMessage" horizontalCenter="0" y="696"/>
 <dt:GameResultMessage id="_resultMessage" x="620" y="468" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
                       visible.right_hand_mode="false" />
 <ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"

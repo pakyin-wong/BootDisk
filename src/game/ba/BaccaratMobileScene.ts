@@ -25,6 +25,8 @@ namespace we {
 
       protected _common_listpanel: ui.BaseImageButton;
 
+      protected _shuffleMessage: ui.ShuffleMessage;
+
       constructor(data: any) {
         super(data);
         // dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
@@ -93,8 +95,22 @@ namespace we {
         }
       }
 
+      public updateGame(isInit: boolean = false) {
+        if (!this._gameData) {
+          return;
+        }
+        this._shuffleMessage && this._shuffleMessage.hide();
+        super.updateGame(isInit);
+      }
+
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
+        
+        if(this._shuffleMessage) {
+          this._shuffleMessage.show();
+        }else{
+          this._message.showMessage(ui.InGameMessage.INFO, i18n.t('baccarat.shuffling'), null, true);
+        }
         if (this._tableLayer) {
           (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
           (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
