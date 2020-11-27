@@ -66,6 +66,7 @@ namespace we {
       }
 
       protected onSelected() {
+        dir.audioCtr.play('ui_sfx_btn_switch_mp3');
         if (this.isCollapsed) {
           this._viewStack.selectedIndex = this._tabbar.selectedIndex;
 

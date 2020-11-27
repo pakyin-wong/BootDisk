@@ -296,21 +296,31 @@ namespace we {
 				env.playerID = player.playerid;
 				env.currency = player.profile.currency;
 				env.accountType = player.profile.type ? player.profile.type : 0;
+				// env.accountType = 1;
 				// env.nickname = player.profile.nickname;
-				env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
-				env.showGoodRoadHint = player.profile.settings.showGoodRoadHint === '1' ? true : false;
-				env.autoConfirmBet = player.profile.settings.autoConfirmBet === '1' ? true : false;
+				const settings = player.profile.settings;
+				env.nickname = settings.nickname ? settings.nickname : player.profile.nickname;
+				env.showGoodRoadHint = settings.showGoodRoadHint === '1' ? true : false;
+				env.autoConfirmBet = settings.autoConfirmBet === '1' ? true : false;
+				env.voice = settings.voice? settings.voice: 'cn';
+				env.isAutoDismiss = settings.isAutoDismiss === '1' ? true : false;
+				env.redirecturl = player.redirecturl;
 
-				env.currentChipSelectedIndex = player.profile.settings.currentChipSelectedIndex ? parseInt(player.profile.settings.currentChipSelectedIndex) : 0;
-				env.leftHandMode = player.profile.settings.isLeftHand === '1' ? true : false;
+				env.currentChipSelectedIndex = settings.currentChipSelectedIndex ? parseInt(settings.currentChipSelectedIndex) : 0;
+				env.leftHandMode = settings.isLeftHand === '1' ? true : false;
 				env.favouriteTableList = env.favouriteTableList ? env.favouriteTableList : [];
-				if (player.profile.settings.favouriteTableList) {
+				if (settings.favouriteTableList) {
 					try {
-						env.favouriteTableList = JSON.parse(player.profile.settings.favouriteTableList);
+						env.favouriteTableList = JSON.parse(settings.favouriteTableList);
 					} catch (err) {
 						env.favouriteTableList = [];
 					}
 				}
+
+				dir.audioCtr.bgmIdx = settings.bgmIdx?Number(settings.bgmIdx):0;
+				dir.audioCtr.volumeFX = settings.volumeFX?Number(settings.volumeFX):0.5;
+				dir.audioCtr.volumeBGM = settings.volumeBGM?Number(settings.volumeBGM):0.5;
+				dir.audioCtr.volumeLive = settings.volumeLive?Number(settings.volumeLive):0.5;
 
 				env.gameCategories = player.profile.gamecategory;
 				env.gameTypes = player.profile.gametype;
@@ -563,6 +573,10 @@ namespace we {
 				const tableInfo = env.getOrCreateTableInfo(gameStatus.tableid);
 				gameStatus.previousstate = tableInfo.data ? tableInfo.data.state : null;
 				gameStatus.starttime = Math.floor(gameStatus.starttime / 1000000);
+				if(gameStatus.peekstarttime){
+					gameStatus.peekstarttime = Math.floor(gameStatus.peekstarttime / 1000000);
+					console.log('peekstarttime xxx', gameStatus.tableid, gameStatus.gameroundid,  gameStatus.peekstarttime , gameStatus.starttime)
+				}
         /*
         if (tableInfo && tableInfo.tableid && tableInfo.tableid.indexOf('BAB') && tableInfo.data){
           console.log('BAB tableid ' + tableInfo.tableid + ':' + tableInfo.data)
@@ -682,6 +696,7 @@ namespace we {
 					case core.GameType.BAI:
 					case core.GameType.BAS:
 					case core.GameType.BAB:
+					case core.GameType.BAMB:
 					case core.GameType.DTB:
 					case core.GameType.DT: {
 						// const roadmapData = parseAscString(gameStatistic.roadmapdata);
@@ -1301,7 +1316,7 @@ namespace we {
 						tableid: goodRoadData.tableid,
 						goodRoad: goodRoadData,
 					};
-				});
+				}).filter(item=>!(item.goodRoad.name=='' && item.goodRoad.roadmapid==''));
 				env.mergeTableInfoList(tableInfos);
 				// save the list to env.goodRoadTableList
 				const goodRoadTableList = tableInfos.map(data => data.tableid);
@@ -1312,15 +1327,17 @@ namespace we {
 				for (const tableid of added) {
 					const tableInfo = env.tableInfos[tableid];
 					if (tableInfo.data && tableInfo.data.state === core.GameState.BET) {
-						tableInfo.goodRoad.alreadyShown = true;
-						const data = {
-							tableid,
-						};
-						const notification: data.Notification = {
-							type: core.NotificationType.GoodRoad,
-							data,
-						};
-						dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+						if (env.showGoodRoadHint && tableInfo.displayReady && tableInfo.goodRoad && !tableInfo.goodRoad.alreadyShown) {
+							tableInfo.goodRoad.alreadyShown = true;
+							const data = {
+								tableid,
+							};
+							const notification: data.Notification = {
+								type: core.NotificationType.GoodRoad,
+								data,
+							};
+							dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+						}
 					}
 				}
 				for (const tableid of removed) {

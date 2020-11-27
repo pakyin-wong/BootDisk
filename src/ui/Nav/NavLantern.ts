@@ -26,7 +26,11 @@ namespace we {
       }
 
       protected mount() {
-        this._loopMsg = ['客服熱線號碼更新為 +63 9250898888，接聽時間為 8:00-00:00。'];
+        // this._loopMsg = ['客服熱線號碼更新為 +63 9250898888，接聽時間為 8:00-00:00。'];
+        this._loopMsg = [];
+        if (env.localization && env.localization.contact) {
+          this._loopMsg = [env.localization.contact];
+        }
         // this._loopMsg = [`${i18n.t('customerservicehotlinenumber_text')}`];
         this._label = new eui.Label();
         // this._label = new ui.RunTimeLabel();
@@ -36,6 +40,7 @@ namespace we {
         this._label.size = this._next.size = this.fontsize;
         this._label.verticalAlign = this._next.verticalAlign = egret.VerticalAlign.MIDDLE;
         this._label.lineSpacing = this._next.lineSpacing = this.lineSpacing;
+        this._label.wordWrap = true;
 
         this._mask = new egret.Shape();
         this._mask.graphics.beginFill(0x000000);
@@ -45,10 +50,20 @@ namespace we {
         this.mask = this._mask;
 
         this.restart();
+
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.onLanguageChanged, this);
+      }
+
+      protected onLanguageChanged() {
+        if (env.localization && env.localization.contact) {
+          this._loopMsg = [env.localization.contact];
+        }
+        this.restart();
       }
 
       protected destroy() {
         super.destroy();
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.onLanguageChanged, this);
         clearInterval(this._loopInterval);
         egret.Tween.removeTweens(this._label);
         egret.Tween.removeTweens(this._next);

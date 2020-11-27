@@ -117,6 +117,7 @@ namespace we {
 
         for (const key of Object.keys(luckyNumbers)) {
           const coinAnim = this.createLuckyCoinAnim();
+          utils.dblistenToSoundEffect(coinAnim);
           coinAnim.x = x;
           coinAnim.y = 10;
           coinAnim.width = 112;

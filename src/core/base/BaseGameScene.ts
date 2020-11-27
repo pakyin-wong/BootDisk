@@ -263,24 +263,28 @@ namespace we {
 
       public insufficientBalance() {
         if (this._message) {
+          dir.audioCtr.play('ui_sfx_info_error_warning_mp3');
           this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.insufficientBalance'));
         }
       }
 
       public exceedTableLimit() {
         if (this._message) {
+          dir.audioCtr.play('ui_sfx_info_error_warning_mp3');
           this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.exceedTableLimit'));
         }
       }
 
       public generalBetFail() {
         if (this._message) {
+          dir.audioCtr.play('ui_sfx_info_error_warning_mp3');
           this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.generalBetError'));
         }
       }
 
       public exceedBetLimit(evt: egret.Event) {
         if (this._message) {
+          dir.audioCtr.play('ui_sfx_info_error_warning_mp3');
           if (evt && evt.data && evt.data.exceedLower) {
             this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.exceedBetLowerLimit'));
           } else {
@@ -600,6 +604,7 @@ namespace we {
                   dismiss: { text: i18n.t('nav.menu.confirm') },
                 },
               ],
+              showSFX:'ui_sfx_info_message_mp3'
             });
           } else {
             this.showInGameMessage();
@@ -618,6 +623,25 @@ namespace we {
         }
       }
       protected setStateDeal(isInit: boolean = false) {
+
+        if (this._previousState !== we.core.GameState.DEAL) {
+          dir.audioCtr.play('ui_sfx_bet_stop_mp3');
+          this.checkRoundCountWithoutBet();
+
+          if (this._resultDisplay) {
+            this._resultDisplay.reset();
+          }
+
+          if (this._previousState === core.GameState.BET && this._message && !isInit) {
+            if (this._chipLayer.getTotalUncfmBetAmount()>0) {
+              this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.betTimeout'));
+            } else {
+              this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
+            }
+          }
+
+        }
+
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
@@ -627,17 +651,6 @@ namespace we {
           }
         }
 
-        if (this._previousState !== we.core.GameState.DEAL) {
-          this.checkRoundCountWithoutBet();
-
-          if (this._resultDisplay) {
-            this._resultDisplay.reset();
-          }
-
-          if (this._previousState === core.GameState.BET && this._message && !isInit) {
-            this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
-          }
-        }
         if (this._resultDisplay) {
           this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         }
@@ -650,7 +663,7 @@ namespace we {
         }
         if (this._previousState !== we.core.GameState.FINISH) {
           if (this._resultDisplay) {
-            this._resultDisplay.updateResult(this._gameData);
+            this._resultDisplay.updateResult(this._gameData,this._chipLayer,isInit);
           }
 
           if (this._resultMessage) {
@@ -740,6 +753,7 @@ namespace we {
           case core.GameType.BAS:
           case core.GameType.BAM:
           case core.GameType.BAB:
+          case core.GameType.BAMB:
           case core.GameType.DTB:
           case core.GameType.DT:
             pass1 = this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin);
@@ -820,7 +834,8 @@ namespace we {
               }
               break;
             default:
-              // maybe calling errorhandler
+              // TODO: maybe calling errorhandler
+              dir.errHandler.handleError(result.error);
               logger.e(utils.LogTarget.RELEASE, `Bet error: ${result.error.id}`);
           }
           return;
@@ -828,9 +843,11 @@ namespace we {
         // dealing with success message
         if (result.success) {
           logger.l(utils.LogTarget.RELEASE, 'Bet Result Received', result);
+          dir.audioCtr.play('ui_sfx_bet_success_mp3');
           this.dispatchEvent(new egret.Event(core.Event.PLAYER_BET_RESULT, false, false, result));
         } else {
           logger.e(utils.LogTarget.RELEASE, result);
+          dir.audioCtr.play('ui_sfx_bet_time_out_mp3');
         }
       }
 

@@ -13,7 +13,6 @@ namespace we {
 
       public static resGroups = [core.res.Blockchain, core.res.BlockchainDragonTiger];
 
-
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('BlockchainDragonTigerScene');
       }
@@ -32,19 +31,19 @@ namespace we {
         );
       }
 
-      protected onTableBetInfoUpdate(evt: egret.Event) {
-        super.onTableBetInfoUpdate(evt);
-        if (!evt || !evt.data) {
-          return;
-        }
-        const betInfo = <data.GameTableBetInfo> evt.data;
-        if (betInfo.tableid === this._tableId) {
-          // update the scene
-          (<we.dt.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-          (<we.dt.TableLayer> this._tableLayer).totalPerson = evt.data.count;
-          // this._leftGamePanel.totalBet = evt.data.total;
-        }
-      }
+      // protected onTableBetInfoUpdate(evt: egret.Event) {
+      //   super.onTableBetInfoUpdate(evt);
+      //   if (!evt || !evt.data) {
+      //     return;
+      //   }
+      //   const betInfo = <data.GameTableBetInfo> evt.data;
+      //   if (betInfo.tableid === this._tableId) {
+      //     // update the scene
+      //     (<we.dt.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
+      //     (<we.dt.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+      //     // this._leftGamePanel.totalBet = evt.data.total;
+      //   }
+      // }
     }
   }
 }

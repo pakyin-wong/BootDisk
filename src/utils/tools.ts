@@ -31,6 +31,7 @@ namespace we {
           await p1;
         }
       }
+      return new Promise(resolve=>resolve())
     }
 
   }

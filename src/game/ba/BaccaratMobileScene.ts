@@ -74,7 +74,7 @@ namespace we {
         // this._baGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
 
-        if (this._previousState !== we.core.GameState.BET) {
+        if (this._previousState !== we.core.GameState.BET || isInit) {
           if (this._tableLayer) {
             (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
             (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
@@ -87,6 +87,14 @@ namespace we {
         if (env.orientation === 'landscape') {
           egret.Tween.get(this._tableLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
           egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+        }
+      }
+
+      protected setStateShuffle(isInit: boolean = false) {
+        super.setStateShuffle(isInit);
+        if (this._tableLayer) {
+          (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+          (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
         }
       }
 
@@ -110,7 +118,7 @@ namespace we {
         this.setSwitchBAMode(enable);
       }
 
-      protected setSwitchBAMode(enable: boolean){
+      protected setSwitchBAMode(enable: boolean) {
         this._switchBaMode.enabled = enable;
       }
 
@@ -122,7 +130,7 @@ namespace we {
       }
 
       protected showResultDisplay(isShow: boolean) {
-        if(this._alwaysShowResult){
+        if (this._alwaysShowResult) {
           this._resultDisplay.visible = true;
           return;
         }
@@ -189,11 +197,9 @@ namespace we {
         // dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
       }
 
-      protected setGoodRoadLabel(){
+      protected setGoodRoadLabel() {
         this._BAgoodRoadLabel.visible = false;
       }
-
-      
 
       protected addEventListeners() {
         super.addEventListeners();
@@ -323,13 +329,17 @@ namespace we {
 
       protected async onOrientationChange() {
         // this.onExit();
-        const temp = this._switchBaMode.selected;
+        const temp = this.getSelectedBA();
         super.onOrientationChange(temp);
         this.onMatchGoodRoadUpdate();
         // this._switchBaMode.selected = temp;
         // this.onEnter();
         // this.updateSkin('BaccaratScene', true);
         // this.changeHandMode();
+      }
+
+      protected getSelectedBA() {
+        return this._switchBaMode.selected;
       }
 
       // check if game mode btn (e.g. BA) is selected

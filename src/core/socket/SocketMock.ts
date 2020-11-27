@@ -18,6 +18,7 @@ namespace we {
       protected totalTableCount = {
         [we.core.GameType.BAC]: 1,
         [we.core.GameType.BAB]: 1,
+        [we.core.GameType.BAMB]: 1,
         // [we.core.GameType.BAI]: 1,
         // [we.core.GameType.BAS]: 1,
         [we.core.GameType.DT]: 1,
@@ -337,6 +338,38 @@ namespace we {
 
               data.bets = [];
               const mockProcess = new MockProcessBaccaratBlockchain(this, core.GameType.BAB);
+              if (idx !== count - 1) {
+                mockProcess.startRand = idx;
+                mockProcess.endRand = idx + 1;
+              }
+              mockProcess.start(data);
+              this.mockProcesses.push(mockProcess);
+
+              idx++;
+              return data;
+            });
+            break;
+          }
+          case we.core.GameType.BAMB: {
+            tables = Array.apply(null, { length: count }).map((value, idx) => {
+              const data = new we.data.TableInfo();
+              data.tableid = (++this._tempIdx).toString();
+              data.tablename = data.tableid;
+              data.state = TableState.ONLINE;
+              data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockBARoadData);
+              data.gametype = core.GameType.BAMB;
+
+              data.gamestatistic = this.generateDummyStatistic(data);
+
+              data.betInfo = new we.data.GameTableBetInfo();
+              data.betInfo.tableid = data.tableid; // Unique table id
+              data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
+              data.betInfo.total = 10000; // Total bet amount for this gameround
+              data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
+              data.betInfo.ranking = [];
+
+              data.bets = [];
+              const mockProcess = new MockProcessSqueezeBaccaratBlockchain(this, core.GameType.BAMB);
               if (idx !== count - 1) {
                 mockProcess.startRand = idx;
                 mockProcess.endRand = idx + 1;
@@ -729,59 +762,8 @@ namespace we {
         };
         env.profileimage = ''; // 'iconKey01';
         env.denomList = ["100", "500", "1000", "2000", "3000", "5000", "10000", "20000", "30000", "50000", "100000", "200000", "300000", "500000", "1000000", "2000000", "3000000", "5000000", "10000000", "20000000"];
-        env.betLimits = {
-          'Live':
-          [
-            {
-              currency: Currency.RMB,
-              maxlimit: 1000,
-              minlimit: 10,
-              chips: [100, 500, 1000, 2000, 3000, 50000]
-              //chips: [1, 5, 20, 100, 500],
-              // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
-            },
-          ],
-          'Electronic':
-          [
-            {
-              currency: Currency.RMB,
-              maxlimit: 1000,
-              minlimit: 10,
-              chips: [100, 500, 1000, 2000, 3000, 50000]
-              //chips: [1, 5, 20, 100, 500],
-            },
-          ],
-          'Lottery':
-          [
-            {
-              currency: Currency.RMB,
-              maxlimit: 1000,
-              minlimit: 10,
-              chips: [100, 500, 1000, 2000, 3000, 50000]
-              //chips: [1, 5, 20, 100, 500],
-            },
-          ],
-          'Sportbook':
-          [
-            {
-              currency: Currency.RMB,
-              maxlimit: 1000,
-              minlimit: 10,
-              chips: [100, 500, 1000, 2000, 3000, 50000]
-              //chips: [1, 5, 20, 100, 500],
-            },
-          ],
-          'Chess':
-          [
-            {
-              currency: Currency.RMB,
-              maxlimit: 1000,
-              minlimit: 10,
-              chips: [100, 500, 1000, 2000, 3000, 50000]
-              //chips: [1, 5, 20, 100, 500],
-            },
-          ],
-        };
+        env.betLimits = we.mockLimits;
+        
 
         /*
         let denominationList = [];

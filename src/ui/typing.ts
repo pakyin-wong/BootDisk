@@ -8,12 +8,14 @@ namespace we {
       updateLobbyRoadData(roadmapData: any);
       updateSideBarRoadData(roadmapData: any);
       setTableInfo?(tableInfo: data.TableInfo);
+      clearRoadData?();
     }
 
     export interface IAdvancedRoad {
       tableInfo;
       analysis: IAnalysis;
       update(roadmapData: any);
+      clearRoadData?();
     }
 
     export interface IAnalysis {
@@ -26,6 +28,11 @@ namespace we {
     export interface HistoryCardHolder {
       setCards(tableId: string);
       setNumber(number: number);
+      setToggler(toggler);
+      setValue(gameData);
+      show();
+      hide();
+      update(gameData,tableId);
     }
 
     export interface IListItemHelper {
@@ -79,6 +86,8 @@ namespace we {
         originX: number;
         originY: number;
       };
+      showSFX?:string;
+      hideSFX?:string;
     }
 
     export interface IMessageDialogOpt {
@@ -141,6 +150,10 @@ namespace we {
       setFocus(holder: NotificationItemHolder);
       showNextNotification();
       dismissNotification(type: number);
+    }
+
+    export interface IMinimizedTableLayer {
+      updateBetLabel(isinit: boolean, betInfo?: any);
     }
   }
 }

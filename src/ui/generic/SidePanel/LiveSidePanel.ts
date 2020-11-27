@@ -47,6 +47,7 @@ namespace we {
             case we.core.GameType.BAI:
             case we.core.GameType.BAS:
             case we.core.GameType.BAB:
+            case we.core.GameType.BAMB:
               return ba.SideListBetItemHolder;
             case we.core.GameType.BAM:
               return bam.SideListBetItemHolder;
@@ -88,6 +89,7 @@ namespace we {
             case we.core.GameType.BAS:
             case we.core.GameType.BAM:
             case we.core.GameType.BAB:
+            case we.core.GameType.BAMB:
               return ba.SideListItemHolder;
             default:
               throw new Error('Invalid Game Type: ' + tableInfo.gametype);
@@ -111,6 +113,7 @@ namespace we {
             case we.core.GameType.BAS:
             case we.core.GameType.BAM:
             case we.core.GameType.BAB:
+            case we.core.GameType.BAMB:
               return ba.SideListItemHolder;
             case we.core.GameType.RO:
             case we.core.GameType.ROL:
@@ -233,6 +236,7 @@ namespace we {
 
       protected onClearSelection() {
         super.onClearSelection();
+        env.isShowingAlreadyBetPanel = false;
         this._dropdown.visible = false;
         this._dropdown.hide();
         this._subdropdown.hide();
@@ -271,7 +275,7 @@ namespace we {
         this.isLock = false;
         console.log('sidepanel _targetHeight :', this._viewStack.selectedIndex, this._targetHeight);
         super.onSelected();
-
+        env.isShowingAlreadyBetPanel = this._viewStack.selectedIndex == 0;
         switch (this._viewStack.selectedIndex) {
           case 0:
           case 1:

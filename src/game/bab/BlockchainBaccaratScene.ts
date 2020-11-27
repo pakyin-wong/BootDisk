@@ -11,10 +11,10 @@ namespace we {
       protected _alwaysShowResult = true;
       protected _helpButton: eui.Group;
       protected _deckButton: eui.Group;
-      protected _shufflePanel: bab.ShufflePanel;
-      protected _helpPanel: bab.HelpPanel;
-      protected _deckPanel: bab.DeckPanel;
-      protected _cardInfoPanel: bab.CardInfoPanel;
+      protected _shufflePanel: blockchain.ShufflePanel;
+      protected _helpPanel: blockchain.HelpPanel;
+      protected _deckPanel: blockchain.DeckPanel;
+      protected _cardInfoPanel: blockchain.CardInfoPanel;
       protected _historyCardHolder: we.ui.HistoryCardHolder;
       protected _resultDisplay : ui.IResultDisplay & we.blockchain.CardHolder;
 
@@ -24,8 +24,13 @@ namespace we {
         super.initChildren();
         this._helpPanel.setToggler(this._helpButton);
         this._deckPanel.setToggler(this._deckButton);
-        this._deckPanel.setValue(<bab.GameData>this._gameData);
+        this._deckPanel.setValue(this._gameData);
         this._deckPanel.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
+        this._historyCardHolder.setValue(this._gameData)
+                //========
+        // this._deckButton.addEventListener('ENABLE_DECK_BTN', this.enableDeckBtn, this);
+        // this._message.addEventListener('DRAW_RED_CARD',this.newShoeMessage,this)
+                        //========
         this._cardInfoPanel.addEventListener('OPEN_DECK_PANEL', this.showDeckPanel, this);
         this._cardInfoPanel.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
         (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
@@ -48,6 +53,9 @@ namespace we {
               case core.GameState.DEAL:
               case core.GameState.FINISH:
               case core.GameState.SHUFFLE:
+              case core.GameState.PEEK:
+              case core.GameState.PEEK_BANKER:
+              case core.GameState.PEEK_PLAYER:
                 break;
               default:
                 console.log('default state', this._gameData.state);
@@ -57,12 +65,18 @@ namespace we {
           } 
       }
 
+      protected newShoeMessage() {
+        this._message.showMessage(ui.InGameMessage.NEWSHOE, i18n.t('baccarat.redCardDesc'),null, true)
+      }
+
 
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-
+        this._historyCardHolder.update(this._gameData,this._tableId);
+/*
         this._historyCardHolder.setCards(this._tableId);
         this._historyCardHolder.setNumber(this._gameData.currentcardindex);
+  */      
         this._shufflePanel.hide();
         this._deckPanel.setValue(this._gameData);
         console.log('Blockchain scene bet state', this._gameData);
@@ -87,6 +101,7 @@ namespace we {
 
       protected setStateShuffle(isInit: boolean) {
         this.getShoeInfo();
+        this.enableDeckButton(false)
         super.setStateShuffle(isInit);
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit)
       }
@@ -96,6 +111,9 @@ namespace we {
         this._cardInfoPanel.show();
       }
 
+      protected enableDeckBtn(){
+        this.enableDeckButton(true)
+      }
       protected showDeckPanel(evt: egret.Event) {
         this._deckPanel.show();
       }
@@ -114,6 +132,10 @@ namespace we {
         }
       }
 
+      protected enableDeckButton(enable:boolean) {
+        this._deckButton.touchEnabled = enable;
+        this._deckButton.alpha = enable? 1 : 0.5;
+      }
       protected async getShoeInfo() {
         let obj;
         let text;

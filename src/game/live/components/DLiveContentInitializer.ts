@@ -97,6 +97,7 @@ namespace we {
             case we.core.GameType.BAS:
             case we.core.GameType.BAM:
             case we.core.GameType.BAB:
+            case we.core.GameType.BAMB:
               return ba.LiveListHolder;
             case we.core.GameType.RO:
             case we.core.GameType.ROL:

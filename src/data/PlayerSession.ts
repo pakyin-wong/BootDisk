@@ -5,6 +5,7 @@ namespace we {
       public sessionid: string;
       public icons: any;
       public fallbacknicknames: any;
+      public redirecturl: string;
       public profile: {
         // Store the information of the player
         playerid: string;

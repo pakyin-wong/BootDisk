@@ -14,9 +14,10 @@ namespace we {
         return env;
       }
       public UAInfo: any;
+      public notYetInteract: boolean = false;
 
       /* Global Environment Variable */
-      public version: string = '0.12.3f1';
+      public version: string = '0.12.4';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -24,6 +25,7 @@ namespace we {
       public currency: Currency;
       public playerID: string;
       public accountType: number = 0; // 0-api, 1-credit
+      public redirecturl: string;
 
       public nickname: string;
       public nicknameKey: string;
@@ -38,6 +40,8 @@ namespace we {
       public _nicknames: { [langcode: string]: any } = {};
       public _groups: {};
       public groupName: { [groupKey: string]: string } = {};
+
+      public localization: any;
 
       protected _gameCategories: string[];
       protected _gameTypes: number[];
@@ -79,7 +83,7 @@ namespace we {
       public language: string;
 
       public voice: string = 'mandarin';
-      public bgm = 1;
+      // public bgm = 1;
       // public liveVolume = 1;
       // public soundEffect = 1;
       public videoOpen: boolean = true;
@@ -130,6 +134,7 @@ namespace we {
       // check if mobilebottomGamePanel is open
       public isBottomPanelOpen = true;
       public bottomPanelSelectedIdx: number = 0;
+      public isShowingAlreadyBetPanel: boolean = false;
 
       public isAutoDismiss: boolean = true;
 
@@ -143,8 +148,8 @@ namespace we {
           core.GameType.BAI,
           core.GameType.BAS,
           core.GameType.BAM,
-          // core.GameType.BAB,
-          // core.GameType.DTB,
+          core.GameType.BAB,
+          core.GameType.DTB,
           core.GameType.DI,
           core.GameType.DIL,
           core.GameType.DT,
@@ -159,6 +164,7 @@ namespace we {
           core.GameType.BAS,
           core.GameType.BAM,
           core.GameType.BAB,
+          core.GameType.BAMB,
           core.GameType.DTB,
           core.GameType.DI,
           core.GameType.DIL,
@@ -211,7 +217,7 @@ namespace we {
 
       set gameTypes(value: any[]) {
         // value = ['0', '15', '22'];     // TODO: this is just for testing, delete it when finish testing
-        value = value.concat('27', '28'); // TODO: temp add BAB and DTB
+        value = value.concat('27', '28', '29', '15', '22'); // TODO: temp add BAB and DTB
         // console.log(JSON.stringify(value));
         this._gameTypes = value.map((cat: string) => parseInt(cat, 10));
         this.generateLiveGameTab();
@@ -237,6 +243,7 @@ namespace we {
             case core.GameType.BAC:
             case core.GameType.BAI:
             case core.GameType.BAM:
+            case core.GameType.BAMB:
             case core.GameType.BAS:
               gameSubcats.baccarat.push(type);
               break;
@@ -433,6 +440,9 @@ namespace we {
             break;
           case core.GameType.BAB:
             dir.sceneCtr.goto('bab', { tableid: tableId });
+            break;
+          case core.GameType.BAMB:
+            dir.sceneCtr.goto('bamb', { tableid: tableId });
             break;
           case core.GameType.DT:
             dir.sceneCtr.goto('dt', { tableid: tableId });

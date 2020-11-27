@@ -18,6 +18,7 @@ namespace we {
       BAI = 2, // insurance baccarat
       BAM = 18, // squeeze BACCARAT
       BAB = 27, // Blockchain Baccarat
+      BAMB = 29,
       DT = 5, // Dragon Tiger
       DTB = 28, // Blockchain DragonTiger
       RO = 14, // Roulette

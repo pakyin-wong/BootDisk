@@ -11,7 +11,7 @@ namespace we {
       protected _leftGamePanel: BARoadmapLeftPanel;
       protected _rightGamePanel: BARoadmapRightPanel;
       protected _beadRoadResultPanel: BaBeadRoadResultPanel;
-      protected _minimizedTableLayer: MinimizedTableLayer;
+      protected _minimizedTableLayer: ui.IMinimizedTableLayer & eui.Component;
 
       // protected _switchBaMode: eui.ToggleSwitch;
       protected _switchBaMode: ui.BaseButton;
@@ -33,10 +33,10 @@ namespace we {
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
 
-        if (this._previousState !== we.core.GameState.BET) {
+        if (this._previousState !== we.core.GameState.BET || isInit) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer | we.dt.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0, DRAGON: 0, TIGER: 0 };
+            (<we.ba.TableLayer | we.dt.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0, DRAGON: 0, TIGER: 0 };
           }
         }
         if (this._minimizedTableLayer) {
@@ -167,8 +167,8 @@ namespace we {
         const betInfo = <data.GameTableBetInfo> evt.data;
         if (betInfo.tableid === this._tableId) {
           // update the scene
-          (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-          (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+          (<we.ba.TableLayer | we.dt.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
+          (<we.ba.TableLayer | we.dt.TableLayer> this._tableLayer).totalPerson = evt.data.count;
           if (this._minimizedTableLayer) {
             this._minimizedTableLayer.updateBetLabel(false, betInfo);
           }
@@ -177,7 +177,11 @@ namespace we {
 
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
-        this._message.showMessage(ui.InGameMessage.INFO, i18n.t('baccarat.shuffling'),null, true);
+        this._message.showMessage(ui.InGameMessage.INFO, i18n.t('baccarat.shuffling'), null, true);
+        if (this._tableLayer) {
+          (<we.ba.TableLayer | we.dt.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0, DRAGON: 0, TIGER: 0 };
+          (<we.ba.TableLayer | we.dt.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0, DRAGON: 0, TIGER: 0 };
+        }
       }
 
       public checkResultMessage() {
@@ -195,7 +199,8 @@ namespace we {
           case core.GameType.BAI:
           case core.GameType.BAS:
           case core.GameType.BAM:
-          case core.GameType.BAB: {
+          case core.GameType.BAB:
+          case core.GameType.BAMB: {
             // (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.selected);
             (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.active);
             switch (this._gameData.wintype) {

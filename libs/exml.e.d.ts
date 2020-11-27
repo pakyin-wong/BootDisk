@@ -160,24 +160,8 @@ declare module skin_desktop{
 	class BlockchainBaccaratScene extends eui.Skin{
 	}
 }
-declare module skin_desktop.bab{
-	class CardInfoCard extends eui.Skin{
-	}
-}
-declare module skin_desktop.bab{
-	class CardInfoPanelSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop.bab{
-	class DeckCard extends eui.Skin{
-	}
-}
-declare module skin_desktop.bab{
-	class DeckPanelSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop.bab{
-	class HelpPanelSkin extends eui.Skin{
+declare module skin_desktop{
+	class CopyInfoMessageSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.bab{
@@ -188,8 +172,8 @@ declare module skin_desktop.bab{
 	class CornerHistoryHolderSkin extends eui.Skin{
 	}
 }
-declare module skin_desktop.bab{
-	class ShufflePanelSkin extends eui.Skin{
+declare module skin_mobile_portrait.bab{
+	class HistoryHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.bam{
@@ -210,6 +194,38 @@ declare module skin_desktop.bam{
 }
 declare module skin_desktop{
 	class SqueezeTutorial extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BlockchainSqueezeBaccaratScene extends eui.Skin{
+	}
+}
+declare module skin_desktop.bamb{
+	class CardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.bc{
+	class CardInfoCard extends eui.Skin{
+	}
+}
+declare module skin_desktop.bc{
+	class CardInfoPanelSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.bc{
+	class DeckCard extends eui.Skin{
+	}
+}
+declare module skin_desktop.bc{
+	class DeckPanelSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.bc{
+	class HelpPanelSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.bc{
+	class ShufflePanelSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -478,6 +494,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class DTBeadRoadResultPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop.dt{
+	class DTMinimizedTableLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -1364,6 +1384,10 @@ declare module skin_mobile_landscape.bab{
 	class CardHolderSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape.bab{
+	class HistoryHolderSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_landscape.bam{
 	class FlipCardHolderSkin extends eui.Skin{
 	}
@@ -1374,6 +1398,30 @@ declare module skin_mobile_landscape.bam{
 }
 declare module skin_mobile_landscape{
 	class SqueezeBaccaratScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.bc{
+	class CardInfoCard extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.bc{
+	class CardInfoPanelSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.bc{
+	class DeckCard extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.bc{
+	class DeckPanelSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.bc{
+	class HelpPanelSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.bc{
+	class ShufflePanelSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{
@@ -1518,6 +1566,10 @@ declare module skin_mobile_landscape.dt{
 }
 declare module skin_mobile_landscape{
 	class BlockchainDragonTigerScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.dtb{
+	class CardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{
@@ -1718,6 +1770,10 @@ declare module skin_mobile_landscape{
 }
 declare module skin_mobile_landscape{
 	class MobileQuickBet extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class ModeSelect extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{
@@ -1940,6 +1996,30 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class BARoadmapRightPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.bc{
+	class CardInfoCard extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.bc{
+	class CardInfoPanelSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.bc{
+	class DeckCard extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.bc{
+	class DeckPanelSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.bc{
+	class HelpPanelSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.bc{
+	class ShufflePanelSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -2200,6 +2280,10 @@ declare module skin_mobile_portrait.dtb{
 	class CardHolderSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait.dtb{
+	class HistoryHolderSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait{
 	class FavouritePage extends eui.Skin{
 	}
@@ -2374,6 +2458,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class BetHistoryDetail extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class BetHistoryDetailIR extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

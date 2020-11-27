@@ -190,6 +190,15 @@ namespace we {
         this.removeSelf();
       }
 
+      protected setStateShuffle(isInit: boolean = false) {
+        super.setStateShuffle(isInit);
+        if (this._previousState !== we.core.GameState.SHUFFLE || isInit) {
+          if (this._bigRoad) {
+            this._bigRoad.clearRoadData && this._bigRoad.clearRoadData();
+          }
+        }
+      }
+
       protected onMatchGoodRoadUpdate() {
         if (this.tableInfo.goodRoad) {
           this._goodRoadLabel.visible = true;

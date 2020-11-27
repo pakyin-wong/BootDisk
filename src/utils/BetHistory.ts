@@ -1,6 +1,17 @@
 namespace we {
   export namespace utils {
     export class BetHistory {
+      
+        public static isLottery(gametype) {
+          switch(gametype) {
+            case we.core.GameType.LO:
+            case we.core.GameType.RC:
+              return true;
+            default:
+              return false;
+          }
+        }
+
         public static formatBetType(gametype, bettype: string) {
           switch (gametype) {
             case we.core.GameType.BAC:
@@ -8,6 +19,7 @@ namespace we {
             case we.core.GameType.BAI:
             case we.core.GameType.BAM:
             case we.core.GameType.BAB:
+            case we.core.GameType.BAMB:
               return i18n.t(`betfield_baccarat_${bettype.toLowerCase()}`);
 
             case we.core.GameType.DT:
@@ -106,6 +118,7 @@ namespace we {
             case we.core.GameType.BAI:
             case we.core.GameType.BAM:
             case we.core.GameType.BAB:
+            case we.core.GameType.BAMB:
               return new overlay.betHistory.BaResultItem(gameResult);
             case we.core.GameType.DT:
             case we.core.GameType.DTB:

@@ -8,7 +8,17 @@ namespace we {
       }
       public changeLang() {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
-        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
+        this.totalBetLabel.text = i18n.t('dragontiger.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
+
+        if (this.beadRoad.Mode === 1) {
+          this.modeLabel.size = 18;
+          this.modeLabel.text = i18n.t('dragontiger.dragon');
+          this.modeLayer.anchorOffsetX = this.modeLabel.width * 0.55;
+        } else {
+          this.modeLabel.size = 22;
+          this.modeLabel.text = '9';
+          this.modeLayer.anchorOffsetX = this.modeLabel.width * 0.5;
+        }
       }
 
       protected init() {

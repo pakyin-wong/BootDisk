@@ -96,6 +96,8 @@ namespace we {
         // listen to bet list update
         dir.evtHandler.addEventListener(core.Event.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
 
+        this.addEventListener('POPPER_HIDE', this.onHide, this);
+
         utils.addButtonListener(this._btnAlreadyBet, this.onClickBet, this);
         utils.addButtonListener(this._btnGoodRoad, this.onClickGoodRoad, this);
         utils.addButtonListener(this._btnAllGame, this.onClickAllGame, this);
@@ -137,6 +139,7 @@ namespace we {
             case we.core.GameType.BAS:
             case we.core.GameType.BAM:
             case we.core.GameType.BAB:
+            case we.core.GameType.BAMB:
               return ba.MobileSideListBetItemHolder;
             case we.core.GameType.RO:
             case we.core.GameType.ROL:
@@ -171,6 +174,7 @@ namespace we {
             case we.core.GameType.BAS:
             case we.core.GameType.BAM:
             case we.core.GameType.BAB:
+            case we.core.GameType.BAMB:
               return ba.MobileSideListItemHolder;
             default:
               throw new Error('Invalid Game Type: ' + tableInfo.gametype);
@@ -191,6 +195,7 @@ namespace we {
             case we.core.GameType.BAS:
             case we.core.GameType.BAM:
             case we.core.GameType.BAB:
+            case we.core.GameType.BAMB:
               return ba.MobileSideListItemHolder;
             case we.core.GameType.RO:
             case we.core.GameType.ROL:
@@ -232,8 +237,14 @@ namespace we {
         return clone;
       }
 
+      protected onHide() {
+        env.isShowingAlreadyBetPanel = false;
+      }
+      
       protected updateView() {
         this._dmm.removeToggler();
+
+        env.isShowingAlreadyBetPanel = this._pageIds == 'bet';
 
         switch (this._pageIds) {
           case 'bet':
