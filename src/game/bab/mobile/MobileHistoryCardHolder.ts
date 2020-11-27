@@ -1,6 +1,8 @@
 namespace we {
   export namespace bab {
     export class MobileHistoryCardHolder extends blockchain.BasePanel implements ui.HistoryCardHolder {
+      protected _gameData: data.GameData & data.BlockchainGameData
+      
       protected _bankerSum: eui.Label;
       protected _playerSum: eui.Label;
 
@@ -17,6 +19,43 @@ namespace we {
       protected _bankerNum1: eui.Label;
       protected _bankerNum2: eui.Label;
       protected _bankerNum3: eui.Label;
+
+      public setValue(gameData : data.GameData & data.BlockchainGameData){
+        this._gameData = gameData;
+      }
+
+      public update(gameData: data.GameData & data.BlockchainGameData,tableId: string){
+        this.setValue(gameData)
+        if( this.checkFirstRound()){
+            this.setAllCards(false)
+            this.setAllNums(false)
+            this.setAllSums(false)
+        }else{          
+          this.setCards(tableId)
+          this.setNumber(this._gameData.currentcardindex)
+        }
+      }
+
+      public checkFirstRound(){ // run 
+        if(this._gameData.maskedcardssnList && this._gameData.maskedcardssnList[0] && this._gameData.maskedcardssnList[0] != '*'){
+          const firstNumber = this.getUnmaskedCardNumber(this._gameData.maskedcardssnList[0]);
+          if(firstNumber + 1 >= this._gameData.currentcardindex){
+            this.setAllCards(false)
+            this.setAllNums(false)
+            this.setAllSums(false)
+            return true;
+          }
+        }
+        return false;
+      }
+
+      protected getUnmaskedCardNumber(cardString: string) {
+        if (!cardString || cardString.length < 3) {
+          return 99999;
+        }
+        const number = +cardString.slice(0, 2);
+        return number;
+      }
 
       protected createBg(){
         const image = new eui.Image();

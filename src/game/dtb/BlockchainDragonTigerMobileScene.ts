@@ -17,7 +17,7 @@ namespace we {
 
       protected _verticalGroup: eui.Group;
 
-      //private _common_listpanel: ui.BaseImageButton;
+      // private _common_listpanel: ui.BaseImageButton;
       protected _originBetRelatedGroupY: number;
 
       public static resGroups = [core.res.Blockchain, core.res.BlockchainDragonTiger];
@@ -26,6 +26,7 @@ namespace we {
 
       protected _dragonTotalAmount : number = 0;
       protected _tigerTotalAmount : number = 0;
+
 
       constructor(data: any) {
         super(data);
@@ -36,31 +37,26 @@ namespace we {
         this.addListeners();
       }
 
-      protected showSumGroup(){
-        (<we.dtb.MobileCardHolder>this._resultDisplay).showSumGroup()
+      protected showSumGroup() {
+        (<we.dtb.MobileCardHolder> this._resultDisplay).showSumGroup();
       }
 
-      protected hideSumGroup(){
-          (<we.dtb.MobileCardHolder>this._resultDisplay).hideSumGroup();
-
+      protected hideSumGroup() {
+        (<we.dtb.MobileCardHolder> this._resultDisplay).hideSumGroup();
       }
 
-      protected initVariables(){
+      protected initVariables() {
         this._portraitButtonExpandedDealY = 947;
         this._portraitButtonExpandedBetY = 800;
-        this._portraitButtonCollapsedDealY = 1455;        
+        this._portraitButtonCollapsedDealY = 1455;
         this._portraitButtonCollapsedBetY = 1307;
       }
 
-      protected setGoodRoadLabel(){
-      }
+      protected setGoodRoadLabel() {}
 
-      protected setSwitchBAMode(enable: boolean){
-      }
+      protected setSwitchBAMode(enable: boolean) {}
 
-      protected onMatchGoodRoadUpdate() {
-      }
-
+      protected onMatchGoodRoadUpdate() {}
 
       public destroy() {
         super.destroy();
@@ -96,7 +92,7 @@ namespace we {
         }
         // this._dtGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
-        if (this._previousState !== we.core.GameState.BET) {
+        if (this._previousState !== we.core.GameState.BET || isInit) {
           if (this._tableLayer) {
             (<we.dt.TableLayer> this._tableLayer).totalAmount = { DRAGON: 0, TIGER: 0 };
             (<we.dt.TableLayer> this._tableLayer).totalPerson = { DRAGON: 0, TIGER: 0 };
@@ -301,7 +297,7 @@ namespace we {
         this._skinKey = 'BlockchainDragonTigerScene';
       }
 
-      protected getSelectedBA(){
+      protected getSelectedBA() {
         return false;
       }
 
