@@ -24,13 +24,21 @@ namespace we {
       }
 
       protected initDisplay() {
+        const rect = new eui.Rect();
+        rect.left = 0;
+        rect.right = 0;
+        rect.top = 0;
+        rect.bottom = 0;
+        rect.alpha = 0;
+        this.addChild(rect);
+
         const factory = BaseAnimationButton.getFactory(this._dbClass);
         this._display = factory.buildArmatureDisplay(this._dbDisplay);
         utils.dblistenToSoundEffect(this._display);
         this._display.x = 0;
         this._display.y = 0;
         this.addChild(this._display);
-        this.addColorFilter();
+        this.init();
       }
 
       public destroy() {
@@ -48,18 +56,27 @@ namespace we {
         }
       }
 
-      protected addColorFilter() {
+      protected clone: egret.Bitmap;
+
+      public init() {
         const slot = this._display.armature.getSlot('blur');
         const layer: eui.Group = new eui.Group();
         const bitmap: egret.Bitmap = slot.display as egret.Bitmap;
-        const colorFilter = new egret.ColorMatrixFilter([
-          0, 1, 0, 0, 0,
-          0, 0, 1, 0, 0,
-          1, 0, 0, 0, 0,
-          0, 0, 0, 1, 0]);
-        bitmap.filters = [colorFilter];
-        layer.addChild(bitmap);
+        const clone: egret.Bitmap = new egret.Bitmap(bitmap.texture);
+        clone.width = bitmap.width;
+        clone.height = bitmap.height;
+        clone.x = bitmap.x;
+        clone.y = bitmap.y;
+        clone.anchorOffsetX = bitmap.anchorOffsetX;
+        clone.anchorOffsetY = bitmap.anchorOffsetY;
+        this.clone = clone;
+        layer.addChild(clone);
         slot.display = layer;
+      }
+
+      public setColor(r,g,b) {
+        const colorFilter = new egret.ColorMatrixFilter([r, 0, 0, 0, 0, 0, g, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 1, 0]);
+        this.clone.filters = [colorFilter];
       }
 
       // const bitmap: egret.Bitmap = slot.display as egret.Bitmap;
@@ -86,9 +103,11 @@ namespace we {
         } else {
           status = this._enabled ? 'auto_confirm_idle_to_hover' : 'disable_switch_to_off';
         }
+        this.bettingPlaying = false;
         this._display.animation.fadeIn(status, 0, 1, 0, 'CONFIRM_GROUP2');
       }
 
+      protected bettingPlaying: boolean = false;
       protected async update([oldDown, oldHover]: boolean[]) {
         // super.update([oldDown, oldHover]);
         const status = '';
@@ -96,32 +115,47 @@ namespace we {
           switch (env.autoConfirmBet) {
             case true:
               this._display.animation.reset();
+                this.bettingPlaying = false;
               this._display.animation.fadeIn('auto_confirm_idle', 0, 1, 0, 'CONFIRM_GROUP2');
               break;
             case false:
               if (!this._enabled) {
                 // if not in bet state
                 this._display.animation.reset();
+                this.bettingPlaying = false;
                 this._display.animation.fadeIn('disable', 0, 1, 0, 'CONFIRM_GROUP2');
               } else if (!oldDown && this._down) {
                 // if press down
-                this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
+                if (!this.bettingPlaying) {
+                  this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
+                  this.bettingPlaying = true;
+                }
                 this._display.animation.fadeIn('hover_to_press', 0, 1, 0, 'CONFIRM_GROUP2');
               } else if (this._hover && oldDown && !this._down) {
                 // if press up
                 this._display.animation.reset();
-                this._display.animation.fadeIn('press_to_disable', 0, 1, 0, 'CONFIRM_GROUP1');
+                this.bettingPlaying = false;
+                this._display.animation.fadeIn('press_to_disable', 0, 1, 0, 'CONFIRM_GROUP2');
               } else if (!oldHover && this._hover) {
                 // if roll over
-                this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
+                if (!this.bettingPlaying) {
+                  this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
+                  this.bettingPlaying = true;
+                }
                 this._display.animation.fadeIn('idle_to_hover', 0, 1, 0, 'CONFIRM_GROUP2');
               } else if (oldHover && !this._hover) {
                 // roll out
-                this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
+                if (!this.bettingPlaying) {
+                  this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
+                  this.bettingPlaying = true;
+                }
                 this._display.animation.fadeIn('hover_to_idle', 0, 1, 0, 'CONFIRM_GROUP2');
               } else {
                 // if idle on bet state
-                this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
+                if (!this.bettingPlaying) {
+                  this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
+                  this.bettingPlaying = true;
+                }
                 this._display.animation.fadeIn('disble_to_idle', 0, 1, 0, 'CONFIRM_GROUP2');
               }
               break;

@@ -16,7 +16,7 @@ namespace we {
       protected isHover: boolean = false;
       protected isPress: boolean = false;
 
-      public _isColorTransform: boolean = false; //for desktop in-game
+      public _isColorTransform: boolean = false; // for desktop in-game
 
       public constructor() {
         super();
@@ -96,6 +96,7 @@ namespace we {
         }
         this.remainingTime = remainingTime;
         this.changeTextColor();
+        this.dispatchEvent(new egret.Event('UPDATE', true, false, remainingTime));
         // console.log('5000/this.countdownValue', 5000 / this.countdownValue);
         // console.log('progressIndicator.progresds', this.progressIndicator.progress);
 

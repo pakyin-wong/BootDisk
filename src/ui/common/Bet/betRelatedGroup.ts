@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
     export class BetRelatedGroup extends core.BaseGamePanel {
-      public _confirmButton: eui.Button | ui.BetConfirmButton;
+      public _confirmButton: ui.BetConfirmButton;
       protected _repeatButton: ui.BaseImageButton;
       protected _cancelButton: ui.BaseImageButton;
       protected _doubleButton: ui.BaseImageButton;
@@ -35,12 +35,24 @@ namespace we {
         this.addListeners();
         this.changeLang();
         this._timer._isColorTransform = env.isMobile ? false : true;
+        this._timer.addEventListener('UPDATE', this.onRemainingTimeUpdate, this);
       }
 
       protected destroy() {
         super.destroy();
         this.removeListeners();
         this._timer.stop();
+      }
+
+      protected onRemainingTimeUpdate(evt: egret.Event) {
+        const remainingTime: number = evt.data;
+        if (remainingTime>10000) {
+          this._confirmButton.setColor(0,1,0);
+        } else if (remainingTime>5000) {
+          this._confirmButton.setColor(1,1,0);
+        } else {
+          this._confirmButton.setColor(1,0,0);
+        }
       }
 
       protected addListeners() {
