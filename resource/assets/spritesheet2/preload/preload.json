@@ -1,0 +1,195 @@
+{
+  "file": "preload.png",
+  "frames": {
+    "border_png": {
+      "x": 1,
+      "y": 1,
+      "w": 88.5,
+      "h": 23.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 88.5,
+      "sourceH": 23.5
+    },
+    "off_png": {
+      "x": 1,
+      "y": 26.5,
+      "w": 32.5,
+      "h": 13.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 32.5,
+      "sourceH": 13.5
+    },
+    "on_png": {
+      "x": 35.5,
+      "y": 26.5,
+      "w": 32.5,
+      "h": 13.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 32.5,
+      "sourceH": 13.5
+    },
+    "thumb_png": {
+      "x": 70,
+      "y": 26.5,
+      "w": 12.5,
+      "h": 12.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 12.5,
+      "sourceH": 12.5
+    },
+    "checkbox_select_disabled_png": {
+      "x": 1,
+      "y": 42,
+      "w": 11.5,
+      "h": 11.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 11.5,
+      "sourceH": 11.5
+    },
+    "checkbox_select_down_png": {
+      "x": 14.5,
+      "y": 42,
+      "w": 11.5,
+      "h": 11.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 11.5,
+      "sourceH": 11.5
+    },
+    "checkbox_select_up_png": {
+      "x": 28,
+      "y": 42,
+      "w": 11.5,
+      "h": 11.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 11.5,
+      "sourceH": 11.5
+    },
+    "checkbox_unselect_png": {
+      "x": 41.5,
+      "y": 42,
+      "w": 11.5,
+      "h": 11.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 11.5,
+      "sourceH": 11.5
+    },
+    "handle_png": {
+      "x": 55,
+      "y": 42,
+      "w": 11.5,
+      "h": 11.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 11.5,
+      "sourceH": 11.5
+    },
+    "radiobutton_select_disabled_png": {
+      "x": 68.5,
+      "y": 42,
+      "w": 11,
+      "h": 11,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 11,
+      "sourceH": 11
+    },
+    "radiobutton_select_up_png": {
+      "x": 1,
+      "y": 55.5,
+      "w": 11,
+      "h": 11,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 11,
+      "sourceH": 11
+    },
+    "radiobutton_unselect_png": {
+      "x": 14,
+      "y": 55.5,
+      "w": 11,
+      "h": 11,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 11,
+      "sourceH": 11
+    },
+    "button_down_png": {
+      "x": 81.5,
+      "y": 41,
+      "w": 8,
+      "h": 8,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 8,
+      "sourceH": 8
+    },
+    "button_up_png": {
+      "x": 81.5,
+      "y": 51,
+      "w": 8,
+      "h": 8,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 8,
+      "sourceH": 8
+    },
+    "header_png": {
+      "x": 68.5,
+      "y": 55,
+      "w": 8,
+      "h": 8,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 8,
+      "sourceH": 8
+    },
+    "selected_png": {
+      "x": 27,
+      "y": 55.5,
+      "w": 8,
+      "h": 8,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 8,
+      "sourceH": 8
+    },
+    "track_png": {
+      "x": 84.5,
+      "y": 26.5,
+      "w": 3,
+      "h": 3,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 3,
+      "sourceH": 3
+    },
+    "tracklight_png": {
+      "x": 84.5,
+      "y": 31.5,
+      "w": 3,
+      "h": 3,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 3,
+      "sourceH": 3
+    },
+    "radiobutton_select_down_png": {
+      "x": 68.5,
+      "y": 42,
+      "w": 11,
+      "h": 11,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 11,
+      "sourceH": 11
+    }
+  }
+}
