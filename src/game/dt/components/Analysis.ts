@@ -20,8 +20,9 @@ namespace we {
 
       // statisticChartPanels
       public _normalChartPanel: ba.StatisticChart;
-      public _tieChartPanel: ba.StatisticChart;
-      public _dealerChartPanel: ba.StatisticChart;
+      public _shoeChartPanel: ba.StatisticChart;
+      // public _tieChartPanel: ba.StatisticChart;
+      // public _dealerChartPanel: ba.StatisticChart;
 
       public advancedRoad: we.ui.IAdvancedRoad;
 
@@ -150,8 +151,10 @@ namespace we {
           return;
         }
         if (env && env.tableInfos && env.tableInfos[this._tableId] && env.tableInfos[this._tableId].gamestatistic) {
-          const normalInfo = we.utils.stat.ba.getStatInfo(false, env.tableInfos[this._tableId].gamestatistic);
-
+          console.log('this._tableId',this._tableId)
+          console.log('-----------------env.tableInfos[this._tableId].gamestatistic',env.tableInfos[this._tableId].gamestatistic)
+          const normalInfo = we.utils.stat.dt.getStatInfo(false, env.tableInfos[this._tableId].gamestatistic);
+          console.log('DTDTDTnormalInfo',normalInfo)
           this._normalChartPanel.firstCount = normalInfo.bankerCount;
           this._normalChartPanel.secondCount = normalInfo.playerCount;
           this._normalChartPanel.thirdCount = normalInfo.tieCount;
@@ -161,29 +164,39 @@ namespace we {
           this._normalChartPanel.total = normalInfo.totalCount;
           this._normalChartPanel.update();
 
-          const tieInfo = we.utils.stat.ba.getStatInfo(true, env.tableInfos[this._tableId].gamestatistic);
+          // const tieInfo = we.utils.stat.ba.getStatInfo(true, env.tableInfos[this._tableId].gamestatistic);
+          const shoeInfo = we.utils.stat.dt.getStatInfo(true, env.tableInfos[this._tableId].gamestatistic);
+          console.log('DTDTDTshoeInfo',shoeInfo)
+          this._shoeChartPanel.firstCount = shoeInfo.bankerCount;
+          this._shoeChartPanel.secondCount = shoeInfo.playerCount;
+          this._shoeChartPanel.thirdCount = shoeInfo.tieCount;
+          this._shoeChartPanel.firstPercentage = shoeInfo.bankerPercentage;
+          this._shoeChartPanel.secondPercentage = shoeInfo.playerPercentage;
+          this._shoeChartPanel.thirdPercentage = shoeInfo.tiePercentage;
+          this._shoeChartPanel.total = shoeInfo.totalCount;
 
-          this._tieChartPanel.firstCount = tieInfo.bankerCount;
-          this._tieChartPanel.secondCount = tieInfo.playerCount;
-          this._tieChartPanel.thirdCount = tieInfo.tieCount;
-          this._tieChartPanel.firstPercentage = tieInfo.bankerPercentage;
-          this._tieChartPanel.secondPercentage = tieInfo.playerPercentage;
-          this._tieChartPanel.thirdPercentage = tieInfo.tiePercentage;
-          this._tieChartPanel.total = tieInfo.totalCount;
+          this._shoeChartPanel.update();
+          // this._tieChartPanel.firstCount = tieInfo.bankerCount;
+          // this._tieChartPanel.secondCount = tieInfo.playerCount;
+          // this._tieChartPanel.thirdCount = tieInfo.tieCount;
+          // this._tieChartPanel.firstPercentage = tieInfo.bankerPercentage;
+          // this._tieChartPanel.secondPercentage = tieInfo.playerPercentage;
+          // this._tieChartPanel.thirdPercentage = tieInfo.tiePercentage;
+          // this._tieChartPanel.total = tieInfo.totalCount;
 
-          this._tieChartPanel.update();
+          // this._tieChartPanel.update();
 
-          const dealerInfo = we.utils.stat.ba.getStatInfo(true, env.tableInfos[this._tableId].gamestatistic);
+          // const dealerInfo = we.utils.stat.ba.getStatInfo(true, env.tableInfos[this._tableId].gamestatistic);
 
-          this._dealerChartPanel.firstCount = dealerInfo.bankerCount;
-          this._dealerChartPanel.secondCount = dealerInfo.playerCount;
-          this._dealerChartPanel.thirdCount = dealerInfo.tieCount;
-          this._dealerChartPanel.firstPercentage = dealerInfo.bankerPercentage;
-          this._dealerChartPanel.secondPercentage = dealerInfo.playerPercentage;
-          this._dealerChartPanel.thirdPercentage = dealerInfo.tiePercentage;
-          this._dealerChartPanel.total = dealerInfo.totalCount;
+          // this._dealerChartPanel.firstCount = dealerInfo.bankerCount;
+          // this._dealerChartPanel.secondCount = dealerInfo.playerCount;
+          // this._dealerChartPanel.thirdCount = dealerInfo.tieCount;
+          // this._dealerChartPanel.firstPercentage = dealerInfo.bankerPercentage;
+          // this._dealerChartPanel.secondPercentage = dealerInfo.playerPercentage;
+          // this._dealerChartPanel.thirdPercentage = dealerInfo.tiePercentage;
+          // this._dealerChartPanel.total = dealerInfo.totalCount;
 
-          this._dealerChartPanel.update();
+          // this._dealerChartPanel.update();
         }
       }
     }

@@ -123,6 +123,58 @@ namespace we {
           };
         }
       }
+      export namespace dt {
+        export function getStatInfo(shoe: boolean, gamestatistic: any) {
+          if (!gamestatistic) {
+            return {
+              bankerCount: 0,
+              playerCount: 0,
+              tieCount: 0,
+              totalCount: 0,
+              remainingCount: 0,
+              bankerPercentage: 0,
+              playerPercentage: 0,
+              tiePercentage: 0,
+            };
+          }
+          let bankerName;
+          let playerName;
+          let tieName;
+          let totalName;
+
+          if (shoe) {
+             bankerName = 'shoeBankerCount';
+             playerName = 'shoePlayerCount';
+             tieName = 'shoeTieCount';
+             totalName = 'shoeTotalCount';
+          } else {
+             bankerName = 'bankerCount';
+             playerName = 'playerCount';
+             tieName = 'tieCount';
+             totalName = 'totalCount';
+          }
+          console.log("STAT::gamestatistic",gamestatistic)
+          const bankerCount = gamestatistic[bankerName];
+          const playerCount = gamestatistic[playerName];
+          const tieCount = gamestatistic[tieName];
+          const totalCount = gamestatistic[totalName];
+
+          const bankerPercentage = (totalCount===0)?0:bankerCount / totalCount;
+          const playerPercentage = (totalCount===0)?0:playerCount / totalCount;
+          const tiePercentage = (totalCount===0)?0:tieCount / totalCount;
+
+          return {
+            bankerCount,
+            playerCount,
+            tieCount,
+            totalCount,
+            bankerPercentage,
+            playerPercentage,
+            tiePercentage,
+          };
+        }
+      }
+
       export namespace ro {}
       export namespace di {}
     }
