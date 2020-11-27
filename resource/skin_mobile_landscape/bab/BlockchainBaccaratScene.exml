@@ -113,7 +113,7 @@
 		         verticalCenter="0" />
 	</e:Group>
 </e:Group>
-<ba:GameResultMessage id="_resultMessage" y="239" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" height="229"
+<ba:GameResultMessage id="_resultMessage" y="169" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" height="229"
                       horizontalCenter="0" />
 <ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
                   infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"

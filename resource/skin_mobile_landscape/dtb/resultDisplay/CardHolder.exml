@@ -5,14 +5,14 @@
         <e:Group id="_wholeMoveGroup" width="100%" height="100%" y="0">
                 <e:Image source="m_blockchain_bg_png" horizontalCenter="0" y="-180" width="2421" height="1621" />
                 <e:Group id="_animRingGroup" y="650" horizontalCenter="0" />
-                <e:Group x="560" y="372" width="587" height="104" id="_dragonSumGroup">
+                <e:Group x="560" y="755" width="587" height="104" id="_dragonSumGroup">
                         <e:Image source="d_bcba_resultarea_player_png" width="100%" height="100%" />
                         <ui:RunTimeLabel right="209" i18n="dragontiger.dragon" textAlign="center" verticalAlign="middle"
                                          size="68" height="100%" />
                         <e:Label id="_dragonSum" x="460" y="0" textAlign="center" verticalAlign="middle" size="96"
                                  height="100%" />
                 </e:Group>
-                <e:Group right="560" y="372" width="587" height="104" id="_tigerSumGroup">
+                <e:Group right="560" y="755" width="587" height="104" id="_tigerSumGroup">
                         <e:Image source="d_bcba_resultarea_banker_png" width="100%" height="100%" />
                         <ui:RunTimeLabel x="209" i18n="dragontiger.tiger" textAlign="center" verticalAlign="middle"
                                          size="68" height="100%" />
@@ -25,10 +25,10 @@
                 <e:Group x="1291" y="726" id="_tigerCardGroup" width="118" height="171" touchThrough="true">
                         <e:Group id="_tigerCardInfo" left="0" bottom="0" width="40" height="40" />
                 </e:Group>
-                <e:Group x="1120" y="650" id="_dragonAnimGroup" touchChildren="false" touchEnabled="false" touchThrough="true" />
-                <e:Group x="1500" y="680" id="_tigerAnimGroup" touchThrough="true" />
+                <e:Group x="1250" y="800" id="_dragonAnimGroup" touchChildren="false" touchEnabled="false" touchThrough="true" />
+                <e:Group x="1250" y="800" id="_tigerAnimGroup" touchThrough="true" />
         </e:Group>
         <e:Group x="193" y="147" id="_smallRedCardGroup"></e:Group>
-        <ui:RunTimeLabel x="350" y="147" id="_smallRedCardDesc" visible="false" i18n="baccarat.redCardDesc" />
-        <e:Group id="_centerBurnCardGroup" horizontalCenter="0" y="550" visible="false" />
+        <ui:RunTimeLabel x="102" y="667" id="_smallRedCardDesc" visible="false" i18n="baccarat.redCardDesc" />
+        <e:Group id="_centerBurnCardGroup" x="537" y="243" visible="false" />
 </e:Skin>

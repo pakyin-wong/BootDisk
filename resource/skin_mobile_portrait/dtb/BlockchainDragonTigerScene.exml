@@ -127,7 +127,7 @@
 		</e:layout>
 	</e:Group>
 </e:Group>
-<dtb:GameResultMessage id="_resultMessage" x="620" y="468" anchorOffsetX="0" anchorOffsetY="0" scaleX="0.72" scaleY="0.72"
+<dtb:GameResultMessage id="_resultMessage" x="620" y="242" anchorOffsetX="0" anchorOffsetY="0" scaleX="0.72" scaleY="0.72"
                       visible.right_hand_mode="false" />
 <ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
                   infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
