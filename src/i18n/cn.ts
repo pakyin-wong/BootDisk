@@ -190,6 +190,7 @@ namespace we {
 
 
       expiredmessage_text: '您已3局未投注，将于2局后返回游戏大堂',
+      kickoutmessage_text: '您已5局未下注，现在返回游戏大堂',
 
 
       // customerservicehotlinenumber_text: '客服热线号码更新为＋63 9250898888',
@@ -340,6 +341,7 @@ namespace we {
       gamegroup_tab_lottery: '彩票游戏',
       live: {
         tooltip: {
+          waitForNextRound: '开牌中，请等候下一局',
           confirmBet: '确认投注',
           repeat: '重複下注',
           cancel: '取消',
@@ -446,12 +448,15 @@ namespace we {
         tripleLong: '围骰',
         doubleLong: '對子 (雙骰、長牌)',
         combine: '牌九式 (骨牌)',
+        specific: '指定骰子',
         specificSingle: '指定骰子: 单骰',
         specificDouble: '指定骰子: 双骰',
         specificTriple: '指定骰子: 三骰',
 
         betLimitShort: '限红',
         gameId: '编号',
+
+        combines: '組合',
 
         betGroup: {
           color: '红 / 黑',
@@ -608,7 +613,7 @@ namespace we {
         betLimitshort: '限红',
         baccarat: '百家樂',
         gameroundid: '遊戏编号',
-        totalbet: '总投注',
+        totalbet: '总下注',
         totalcount: '总数',
         betSuccess: '下注成功',
         betFail: '下注失败',
@@ -625,7 +630,7 @@ namespace we {
         statType100: '100局',
         statTypeShoe: '本靴',
         BankerPlayerRatio: '庄闲和比例',
-        PairRatio: '庄对闲对比例',
+        PairRatio: '庄闲和比例',
         round: '局',
         rounds: '局',
         playersqueeze: '咪牌中',

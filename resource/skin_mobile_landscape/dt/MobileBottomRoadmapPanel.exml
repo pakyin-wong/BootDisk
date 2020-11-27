@@ -30,13 +30,7 @@
 		<e:Group width="116" right="0" height="100%">
 			<e:Image id="iconBankerBead" width="116" height="52" x="0" y="20" source="d_ba_roadmap_topbar_textbg_banker_png"
 			         anchorOffsetX="0" />
-			<e:Image source="m_ba_goodroad_info_ring_banker_png" x="10" y="85" />
-			<e:Image source="m_ba_goodroad_info_round_player_png" x="45" y="85" />
-			<e:Image source="m_ba_goodroad_info_line_player_png" x="80" y="85" />
 			<e:Image id="iconPlayerBead" width="116" height="52" x="0" y="152" source="d_ba_roadmap_topbar_textbg_player_png" />
-			<e:Image source="m_ba_goodroad_info_ring_player_png" y="215"  x="10"/>
-			<e:Image source="m_ba_goodroad_info_round_banker_png" y="215"  x="45"/>
-			<e:Image source="m_ba_goodroad_info_line_banker_png" y="215"  x="80"/>
 			<ui:RunTimeLabel id="playerButtonLabel" text="虎問路" x="0" y="152" textAlign="center" anchorOffsetX="0" width="116"
 			                 size="28" height="52" verticalAlign="middle" touchEnabled="false" textKey="dragontiger.askTiger" />
 			<ui:RunTimeLabel id="bankerButtonLabel" text="龍問路" x="0" y="20" textAlign="center" anchorOffsetX="0" width="116"
