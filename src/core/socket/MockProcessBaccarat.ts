@@ -78,6 +78,12 @@ namespace we {
         this.dispatchEvent(data);
         await this.sleep(gameData.countdown * 1000);
 
+        // set to shuffle state and wait
+        gameData.previousstate = gameData.state;
+        gameData.state = core.GameState.SHUFFLE;
+        this.dispatchEvent(data);
+        await this.sleep(2000);
+
         // set to deal state and start showing the result
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.DEAL;
