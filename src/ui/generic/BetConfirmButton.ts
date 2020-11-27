@@ -85,20 +85,18 @@ namespace we {
                 this._display.animation.fadeIn('hover_to_press', 0, 1, 0, 'CONFIRM_GROUP2');
               } else if (this._hover && oldDown && !this._down) {
                 // if press up
+                this._display.animation.reset();
                 this._display.animation.fadeIn('press_to_disable', 0, 1, 0, 'CONFIRM_GROUP1');
               } else if (!oldHover && this._hover) {
                 // if roll over
-                await this.prevProm;
                 this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
                 this._display.animation.fadeIn('idle_to_hover', 0, 1, 0, 'CONFIRM_GROUP2');
               } else if (oldHover && !this._hover) {
                 // roll out
-                await this.prevProm;
                 this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
                 this._display.animation.fadeIn('hover_to_idle', 0, 1, 0, 'CONFIRM_GROUP2');
               } else {
                 // if idle on bet state
-                await this.prevProm;
                 this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
                 this._display.animation.fadeIn('disble_to_idle', 0, 1, 0, 'CONFIRM_GROUP2');
               }
