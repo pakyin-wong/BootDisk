@@ -27,12 +27,11 @@ namespace we {
             if (res.error) {
               // TODO: show default lobby banners
             } else {
-
-              const reshomeherobanners = res[`${env.isMobile?'m':''}homeherobanners`]? res[`${env.isMobile?'m':''}homeherobanners`]: [];
-              const reshomelargebanners = res[`${env.isMobile?'m':''}homelargebanners`]? res[`${env.isMobile?'m':''}homelargebanners`]: [];
-              const reshomebanners = res[`${env.isMobile?'m':''}homebanners`]? res[`${env.isMobile?'m':''}homebanners`]: [];
-              const resliveherobanners = res[`${env.isMobile?'m':''}liveherobanners`]? res[`${env.isMobile?'m':''}liveherobanners`]: [];
-              const reslotteryherobanners = res[`${env.isMobile?'m':''}lotteryherobanners`]? res[`${env.isMobile?'m':''}lotteryherobanners`]: [];
+              const reshomeherobanners = res[`${env.isMobile ? 'm' : ''}homeherobanners`] ? res[`${env.isMobile ? 'm' : ''}homeherobanners`] : [];
+              const reshomelargebanners = res[`${env.isMobile ? 'm' : ''}homelargebanners`] ? res[`${env.isMobile ? 'm' : ''}homelargebanners`] : [];
+              const reshomebanners = res[`${env.isMobile ? 'm' : ''}homebanners`] ? res[`${env.isMobile ? 'm' : ''}homebanners`] : [];
+              const resliveherobanners = res[`${env.isMobile ? 'm' : ''}liveherobanners`] ? res[`${env.isMobile ? 'm' : ''}liveherobanners`] : [];
+              const reslotteryherobanners = res[`${env.isMobile ? 'm' : ''}lotteryherobanners`] ? res[`${env.isMobile ? 'm' : ''}lotteryherobanners`] : [];
 
               let offset = 0;
               const allResources = await Promise.all([
@@ -102,7 +101,6 @@ namespace we {
                 lotteryHeroBanners[0].loaded = true;
               }
               dir.lotteryResources = { heroBanners: lotteryHeroBanners };
-
             }
             resolve();
           });

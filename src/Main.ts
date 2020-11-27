@@ -65,9 +65,9 @@ class Main extends eui.UILayer {
     let isMobile = false;
     try {
       isMobile = data.ismobile ? parseInt(data.ismobile) > 0 : false;
-    } catch (err) { }
+    } catch (err) {}
 
-    // if (type === 'mobile' || isMobile) {
+    if (type === 'mobile' || isMobile) {
       // if (true) {
       env.isMobile = true;
       // this.updateMobileHitTest();
@@ -82,7 +82,7 @@ class Main extends eui.UILayer {
       // uncomment below when there are both portrait and landscape layout
       this.orientationManager = new we.utils.OrientationManager(this.stage);
       env.orientationManager = this.orientationManager;
-    // }
+    }
 
     dir.evtHandler = new we.core.EventHandler();
     dir.errHandler = new we.core.ErrorHandler();
@@ -162,7 +162,7 @@ class Main extends eui.UILayer {
     const versionController = new we.core.VersionController();
     await versionController.init();
     RES.setMaxLoadingThread(10);
-    
+
     egret.registerImplementation('eui.IAssetAdapter', new AssetAdapter());
     egret.registerImplementation('eui.IThemeAdapter', new ThemeAdapter());
     RES.registerVersionController(versionController);

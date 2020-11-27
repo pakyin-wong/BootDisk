@@ -1,15 +1,15 @@
 /*tslint:disable prefer-for-of */
 namespace we {
   export namespace utils {
-    export function nvl(obj, defaultValue, objsForChecking = null){
-      if(objsForChecking){
-        for(let objInChecking of objsForChecking ){
-          if(!objInChecking){
+    export function nvl(obj, defaultValue, objsForChecking = null) {
+      if (objsForChecking) {
+        for (const objInChecking of objsForChecking) {
+          if (!objInChecking) {
             return defaultValue;
           }
         }
       }
-      if(!obj) {
+      if (!obj) {
         return defaultValue;
       }
       return obj;

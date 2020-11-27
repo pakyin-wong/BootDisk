@@ -2,12 +2,11 @@
 namespace we {
   export namespace ui {
     export class ListItemStateLabel extends core.BaseEUI {
-
       protected _label: ui.RunTimeLabel;
       protected _renderText: () => string;
 
       constructor() {
-        super('ListItemStateLabelSkin',false);
+        super('ListItemStateLabelSkin', false);
       }
 
       protected initComponents() {

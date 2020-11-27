@@ -60,8 +60,7 @@ namespace we {
         if (env.isMobile) {
           this._btn_date.label.size = 50;
           this._btn_date.label.renderText = () => `${i18n.t('overlaypanel_memberreport_date')}`;
-        }
-        else {
+        } else {
           // ^mobileonly
           this._btn_today.label.renderText = () => `${i18n.t('overlaypanel_memberreport_today')}`;
           this._btn_yesterday.label.renderText = () => `${i18n.t('overlaypanel_memberreport_yesterday')}`;
@@ -212,14 +211,8 @@ namespace we {
 
       protected searchToday() {
         // this._page = 1;
-        this._starttime = moment()
-          .utcOffset(8)
-          .startOf('day')
-          .unix();
-        this._endtime = moment()
-          .utcOffset(8)
-          .endOf('day')
-          .unix();
+        this._starttime = moment().utcOffset(8).startOf('day').unix();
+        this._endtime = moment().utcOffset(8).endOf('day').unix();
         if (!env.isMobile) {
           this._btn_yesterday.active = this._btn_week.active = false;
           this._btn_today.active = true;
@@ -229,16 +222,8 @@ namespace we {
       }
 
       protected searchYesterday() {
-        this._starttime = moment()
-          .utcOffset(8)
-          .startOf('day')
-          .subtract(1, 'day')
-          .unix();
-        this._endtime = moment()
-          .utcOffset(8)
-          .endOf('day')
-          .subtract(1, 'day')
-          .unix();
+        this._starttime = moment().utcOffset(8).startOf('day').subtract(1, 'day').unix();
+        this._endtime = moment().utcOffset(8).endOf('day').subtract(1, 'day').unix();
         if (!env.isMobile) {
           this._btn_today.active = this._btn_week.active = false;
           this._btn_yesterday.active = true;
@@ -248,18 +233,9 @@ namespace we {
       }
 
       protected searchWeek() {
-        this._starttime = moment()
-          .utcOffset(8)
-          .startOf('week')
-          .unix();
-        this._endtime = moment()
-          .utcOffset(8)
-          .endOf('week')
-          .unix();
-        const today = moment()
-          .utcOffset(8)
-          .endOf('day')
-          .unix();
+        this._starttime = moment().utcOffset(8).startOf('week').unix();
+        this._endtime = moment().utcOffset(8).endOf('week').unix();
+        const today = moment().utcOffset(8).endOf('day').unix();
         this._endtime = Math.min(this._endtime, today);
         if (!env.isMobile) {
           this._btn_today.active = this._btn_yesterday.active = false;
@@ -314,7 +290,7 @@ namespace we {
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
         this.initMemberReport();
-        if (env.accountType==1) {
+        if (env.accountType == 1) {
           this.currentState = 'credit';
         } else {
           this.currentState = 'api';

@@ -18,9 +18,9 @@ namespace we {
 
       public get controller(): INotificationController {
         if (env.isMobile) {
-          return <any> this.parent.parent.parent;
+          return <any>this.parent.parent.parent;
         } else {
-          return <any> this.parent.parent;
+          return <any>this.parent.parent;
         }
       }
 
@@ -151,7 +151,7 @@ namespace we {
       }
 
       public setLayoutBoundsPosition(x: number, y: number) {
-        const list = <List> this.parent;
+        const list = <List>this.parent;
         const matrix = this.$getMatrix();
         if (!this.isDeltaIdentity(matrix) || this.anchorOffsetX !== 0 || this.anchorOffsetY !== 0) {
           const bounds = egret.$TempRectangle;

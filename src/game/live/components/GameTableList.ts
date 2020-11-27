@@ -74,7 +74,6 @@ namespace we {
         // dir.evtHandler.addEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
         dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this, false, -1);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.reloadBanners, this);
-
       }
 
       private onDisplayMode(evt: egret.Event) {

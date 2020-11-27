@@ -28,7 +28,7 @@ namespace we {
         this._buttonGroupHideY = 200;
       }
 
-      protected initPos() { }
+      protected initPos() {}
 
       protected initChildren() {
         super.initChildren();
@@ -105,7 +105,7 @@ namespace we {
         this.updateBetLimitText(betLimitItems, selectedIndex);
       }
 
-      protected updateBetLimitText(items, idx) { }
+      protected updateBetLimitText(items, idx) {}
 
       public getActionButton(): eui.Component {
         return this._quickBetButton;
@@ -190,9 +190,9 @@ namespace we {
         this._quickBetButton.buttonEnabled = enable;
       }
 
-      public onRollover(evt: egret.Event) { }
+      public onRollover(evt: egret.Event) {}
 
-      public onRollout(evt: egret.Event) { }
+      public onRollout(evt: egret.Event) {}
     }
   }
 }

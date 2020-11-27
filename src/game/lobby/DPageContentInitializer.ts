@@ -59,8 +59,8 @@ namespace we {
         sliderContainer.addChild(dimmer);
         group.addChild(sliderContainer);
 
-        if (dir.lobbyResources.homeLargeBanners.length>0) {
-          let title: SectionTitle = new SectionTitle();
+        if (dir.lobbyResources.homeLargeBanners.length > 0) {
+          const title: SectionTitle = new SectionTitle();
           group.addChild(title);
           title.width = this._root.stage.stageWidth - 146;
           title.height = 110;
@@ -82,8 +82,8 @@ namespace we {
           group.addChild(postersContainer);
         }
 
-        if (dir.lobbyResources.homeBanners.length>0) {
-          let title = new SectionTitle();
+        if (dir.lobbyResources.homeBanners.length > 0) {
+          const title = new SectionTitle();
           group.addChild(title);
           title.width = this._root.stage.stageWidth - 146;
           title.height = 110;
@@ -109,7 +109,7 @@ namespace we {
         }
 
         this.reloadBanners();
-        
+
         // init footer
         const footer = new eui.Group();
         footer.width = this._root.stage.stageWidth;
@@ -172,8 +172,8 @@ namespace we {
 
       public reloadBanners() {
         this._root._bannerSlider.configSlides(dir.lobbyResources.homeHeroBanners);
-        
-        if (dir.lobbyResources.homeLargeBanners.length>0) {
+
+        if (dir.lobbyResources.homeLargeBanners.length > 0) {
           this._largeBanner.removeChildren();
           for (let i = 0, len = Math.min(dir.lobbyResources.homeLargeBanners.length, 4); i < len; i++) {
             const { image, link } = dir.lobbyResources.homeLargeBanners[i];
@@ -184,7 +184,7 @@ namespace we {
             this._largeBanner.addChild(poster);
           }
         }
-        if (dir.lobbyResources.homeBanners.length>0) {
+        if (dir.lobbyResources.homeBanners.length > 0) {
           this._smallBanner.removeChildren();
           dir.lobbyResources.homeBanners.forEach(banner => {
             const { image, link, title, description } = banner;

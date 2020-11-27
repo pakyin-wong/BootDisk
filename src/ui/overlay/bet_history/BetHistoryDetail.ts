@@ -45,7 +45,7 @@ namespace we {
           this.setText(this._txt_record_win_l, i18n.t('overlaypanel_bethistory_payout'));
           this.setText(this._txt_record_result, i18n.t('overlaypanel_bethistory_recordtab_resuit'));
 
-          if(this._btn_cbet) {
+          if (this._btn_cbet) {
             this.setText(this._btn_cbet.label, i18n.t('overlaypanel_bethistorylottery_record_continuousbetdetail'));
             utils.addButtonListener(this._btn_cbet, this.onCbet, this);
           }
@@ -60,7 +60,7 @@ namespace we {
             utils.addButtonListener(this._btn_prev, this.prevPage, this);
           }
 
-          if(this._btn_replay) {
+          if (this._btn_replay) {
             this.setText(this._btn_replay.label, i18n.t('overlaypanel_bethistory_recordtab_replay'));
             utils.addButtonListener(this._btn_replay, this.onClickReplay, this);
           }
@@ -89,7 +89,6 @@ namespace we {
         }
 
         public dataChanged(source, index): void {
-
           this._source = source;
           this._index = index;
           this.data = source[index];
@@ -100,7 +99,6 @@ namespace we {
           if (this._btn_prev) {
             this._btn_prev.visible = this._index - 1 >= 0;
           }
-
           this._arr = [];
 
           if (utils.BetHistory.isLottery(this.data.gametype)) {
@@ -118,8 +116,9 @@ namespace we {
 
             this._betid = this.data.betid;
             this._btn_cbet && (this._btn_cbet.visible = this.data.result.a2 == '1');
-          } else if(env.accountType == 1) { // Credit client
-            
+          } else if (env.accountType == 1) {
+            // Credit client
+
             this.additem(i18n.t('overlaypanel_bethistory_recordtab_id'), this.data.betid);
             this.additem(i18n.t('overlaypanel_bethistory_recordtab_date'), utils.formatTime(this.data.datetime.toFixed(0)));
             this.additem(i18n.t('overlaypanel_bethistory_recordtab_game'), `${i18n.t('gametype_' + we.core.GameType[this.data.gametype])} ${this.data.tablename}`);
@@ -131,7 +130,8 @@ namespace we {
             this.additem(i18n.t('overlaypanel_bethistory_recordtab_finbalance'), utils.formatNumber(this.data.afterbalance, true));
 
             this._btn_cbet && (this._btn_cbet.visible = false);
-          } else { // API client
+          } else {
+            // API client
             this.additem(i18n.t('overlaypanel_bethistory_recordtab_id'), this.data.betid);
             this.additem(i18n.t('overlaypanel_bethistory_recordtab_date'), utils.formatTime(this.data.datetime.toFixed(0)));
             this.additem(i18n.t('overlaypanel_bethistory_recordtab_game'), `${i18n.t('gametype_' + we.core.GameType[this.data.gametype])} ${this.data.tablename}`);
@@ -142,7 +142,7 @@ namespace we {
 
             this._btn_cbet && (this._btn_cbet.visible = false);
           }
-          
+
           this._arrcol.replaceAll(this._arr);
           this._scroller.viewport.scrollV = 0;
 
@@ -150,11 +150,11 @@ namespace we {
           this.createGameResult(this.data.gametype, this.data.result);
 
           egret.Tween.removeTweens(this._scroller.viewport);
-          egret.Tween.get(this._scroller.viewport).set({alpha:0}).wait(100).set({alpha:1});
+          egret.Tween.get(this._scroller.viewport).set({ alpha: 0 }).wait(100).set({ alpha: 1 });
         }
 
-        protected additem(t,v) {
-          this._arr.push({title:t, value:v});
+        protected additem(t, v) {
+          this._arr.push({ title: t, value: v });
         }
 
         public get sourceIndex() {
@@ -172,7 +172,7 @@ namespace we {
         }
 
         private createGameResult(gametype, gameResult) {
-          let p: eui.Component = utils.BetHistory.createGameResult(gametype,gameResult);
+          const p: eui.Component = utils.BetHistory.createGameResult(gametype, gameResult);
           this._record_result.removeChildren();
           this._record_result.addChild(p);
         }

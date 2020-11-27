@@ -81,8 +81,8 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.BET || isInit) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
           }
         }
       }
@@ -112,8 +112,8 @@ namespace we {
           this._message.showMessage(ui.InGameMessage.INFO, i18n.t('baccarat.shuffling'), null, true);
         }
         if (this._tableLayer) {
-          (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
-          (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+          (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+          (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
         }
       }
 
@@ -293,13 +293,13 @@ namespace we {
       protected initRoadMap() {
         this._roadmapControl = new BARoadmapControl(this._tableId);
         this._roadmapControl.setRoads(
-          (<ba.MobileBottomGamePanel> this._bottomGamePanel)._roadmapPanel.beadRoad,
-          (<ba.MobileBottomGamePanel> this._bottomGamePanel)._roadmapPanel.bigRoad,
-          (<ba.MobileBottomGamePanel> this._bottomGamePanel)._roadmapPanel.bigEyeRoad,
-          (<ba.MobileBottomGamePanel> this._bottomGamePanel)._roadmapPanel.smallRoad,
-          (<ba.MobileBottomGamePanel> this._bottomGamePanel)._roadmapPanel.cockroachRoad,
+          (<ba.MobileBottomGamePanel>this._bottomGamePanel)._roadmapPanel.beadRoad,
+          (<ba.MobileBottomGamePanel>this._bottomGamePanel)._roadmapPanel.bigRoad,
+          (<ba.MobileBottomGamePanel>this._bottomGamePanel)._roadmapPanel.bigEyeRoad,
+          (<ba.MobileBottomGamePanel>this._bottomGamePanel)._roadmapPanel.smallRoad,
+          (<ba.MobileBottomGamePanel>this._bottomGamePanel)._roadmapPanel.cockroachRoad,
           [16, 33, 66, 34, 32],
-          (<ba.MobileBottomGamePanel> this._bottomGamePanel)._roadmapPanel,
+          (<ba.MobileBottomGamePanel>this._bottomGamePanel)._roadmapPanel,
           this._beadRoadResultPanel
         );
       }
@@ -307,7 +307,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const stat = <data.TableInfo> evt.data;
+          const stat = <data.TableInfo>evt.data;
           if (stat.tableid === this._tableId) {
             this._roadmapControl.updateRoadData();
           }
@@ -317,10 +317,10 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }

@@ -18,38 +18,38 @@ namespace we {
         this.parent.dispatchEvent(new egret.Event('CLOSE'));
       }
 
-      protected onRollover(){
-        if(!this._cardString || this._cardString === 'dim' || this._cardString === 'red') {
-            return;
+      protected onRollover() {
+        if (!this._cardString || this._cardString === 'dim' || this._cardString === 'red') {
+          return;
         }
         const hoverImage = new eui.Image();
-        hoverImage.source =   'd_bcba_panel_shoe_card_fill_hover_png'
-        hoverImage.name = 'hover'
-        hoverImage.horizontalCenter = 0  
-        hoverImage.verticalCenter = 0
-        if(env.isMobile){
-          if(env.orientation === 'portrait'){
-            hoverImage.width=89 
-            hoverImage.height=138
-          }else{
-            hoverImage.width=89 
-            hoverImage.height=138
-          }          
-        }else{
-          hoverImage.width=89 
-          hoverImage.height=138
+        hoverImage.source = 'd_bcba_panel_shoe_card_fill_hover_png';
+        hoverImage.name = 'hover';
+        hoverImage.horizontalCenter = 0;
+        hoverImage.verticalCenter = 0;
+        if (env.isMobile) {
+          if (env.orientation === 'portrait') {
+            hoverImage.width = 89;
+            hoverImage.height = 138;
+          } else {
+            hoverImage.width = 89;
+            hoverImage.height = 138;
+          }
+        } else {
+          hoverImage.width = 89;
+          hoverImage.height = 138;
         }
-        this.addChild(hoverImage)
+        this.addChild(hoverImage);
       }
 
-      protected onRollout(){
-        let child = this.getChildByName('hover')
-        do{
-          if(child && this.contains(child)){
-            this.removeChild(child)
+      protected onRollout() {
+        let child = this.getChildByName('hover');
+        do {
+          if (child && this.contains(child)) {
+            this.removeChild(child);
           }
-          child = this.getChildByName('hover')
-        }while(child)
+          child = this.getChildByName('hover');
+        } while (child);
       }
 
       protected setDimCard() {

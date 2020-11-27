@@ -2,8 +2,8 @@ namespace we {
   export namespace dil {
     export class DilBeadRoadResultPanel extends ui.Panel {
       protected gameRoundID: string;
-      protected round:number;
-      protected shoe:number;
+      protected round: number;
+      protected shoe: number;
       protected _gameLabel: ui.RunTimeLabel;
       protected _gameNumLabel: ui.RunTimeLabel;
       public _gameInfoLabel: ui.RunTimeLabel;
@@ -55,9 +55,9 @@ namespace we {
         //     }
 
         //     this.tripleLabel.text = i18n.t('dice.tripleShort');
-       if(this._gameShoeTextLabel){
+        if (this._gameShoeTextLabel) {
           this._gameShoeTextLabel.text = i18n.t('overlaypanel_bethistory_recordtab_shoe');
-          this._gameShoeLabel.text = this.shoe+"-"+this.round;
+          this._gameShoeLabel.text = this.shoe + '-' + this.round;
         }
       }
 

@@ -67,7 +67,7 @@
                                         <e:HorizontalLayout gap="10" verticalAlign="middle"/>
                                 </e:layout>
                         </e:Group>
-                        <e:Label id="_decryptedKeyLabel" x="39" y="326" size="38"  width="1000"/>
+                        <ui:RunTimeLabel id="_decryptedKeyLabel" x="39" y="326" size="38" wordWrap="true" width="1000"/>
                         <e:Group id="_copyDecryptedKey" width="330" height="100" x="788" y="450" touchThrough="true">
                                 <ui:RoundRectButton width="330" height="100" fillAlpha="0" fillAlpha_hover="1" fillColor_hover="0xA0A0A0" stroke="2" strokeColor="0x1b416e" cornerTL_TR_BL_BR="24,24,24,24"/>
                                 <ui:RunTimeLabel size="38" i18n="baccarat.copy" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>

@@ -35,7 +35,7 @@ namespace we {
         this._list.dataProvider = data;
       }
 
-      protected getItemRenderer(){
+      protected getItemRenderer() {
         return DeckCard;
       }
 
@@ -54,9 +54,9 @@ namespace we {
         return arr;
       }
 
-      public resizeHeight(height: number){
-        const diff = height - this.height
-        this.height = height
+      public resizeHeight(height: number) {
+        const diff = height - this.height;
+        this.height = height;
         this._scroller.height += diff;
         this._scroller.invalidateSize();
         this._scroller.invalidateProperties();

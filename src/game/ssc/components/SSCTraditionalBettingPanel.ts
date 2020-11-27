@@ -79,7 +79,7 @@ namespace we {
       protected initComponents() {
         super.initComponents();
         this.createBigTags();
-        if(this._logo){
+        if (this._logo) {
           this._logo.renderImage = () => `${i18n.t('lo_tri_logo')}`;
         }
         // this.createSmallTags();

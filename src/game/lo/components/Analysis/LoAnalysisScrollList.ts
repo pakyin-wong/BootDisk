@@ -52,7 +52,6 @@ namespace we {
       }
 
       public updateList(data: any) {
-
         data.forEach(element => {
           element.renderType = this.renderType;
           element.rowCount = this.rowCount;

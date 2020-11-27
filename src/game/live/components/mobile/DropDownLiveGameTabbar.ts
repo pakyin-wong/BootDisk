@@ -5,7 +5,7 @@ namespace we {
       protected trigger: egret.DisplayObject;
       protected items: string[];
 
-      public constructor(items: string[] = [], key:string = 'live') {
+      public constructor(items: string[] = [], key: string = 'live') {
         super(items);
         this.customKey = key;
       }

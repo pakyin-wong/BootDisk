@@ -3,7 +3,7 @@ namespace we {
     export class MockProcessSqueezeBaccaratBlockchain extends MockProcess {
       public countdownA: number = 12;
       public countdownB: number = 8;
-      protected currentcardindex :number =88;
+      protected currentcardindex: number = 88;
 
       constructor(socket: SocketMock, gameType = core.GameType.BAC) {
         super(socket, gameType);
@@ -26,8 +26,8 @@ namespace we {
         gameData.state = core.GameState.PEEK;
         gameData.peekstarttime = Date.now();
         gameData.countdown = this.countdownA;
-        this.currentcardindex +=4
-        gameData.currentcardindex = this.currentcardindex 
+        this.currentcardindex += 4;
+        gameData.currentcardindex = this.currentcardindex;
         this.dispatchEvent(data);
         await this.sleep(this.countdownA * 1000 + 1000);
 
@@ -38,8 +38,8 @@ namespace we {
           gameData.state = core.GameState.PEEK_PLAYER;
           gameData.peekstarttime = Date.now();
           gameData.countdownB = this.countdownB;
-          this.currentcardindex ++
-          gameData.currentcardindex = this.currentcardindex 
+          this.currentcardindex++;
+          gameData.currentcardindex = this.currentcardindex;
           this.dispatchEvent(data);
           await this.sleep(this.countdownB * 1000 + 1000);
         }
@@ -51,8 +51,8 @@ namespace we {
           gameData.state = core.GameState.PEEK_BANKER;
           gameData.peekstarttime = Date.now();
           gameData.countdownB = this.countdownB;
-          this.currentcardindex ++
-          gameData.currentcardindex = this.currentcardindex 
+          this.currentcardindex++;
+          gameData.currentcardindex = this.currentcardindex;
           this.dispatchEvent(data);
           await this.sleep(this.countdownB * 1000 + 1000);
         }
@@ -95,7 +95,7 @@ namespace we {
         // set to deal state and start showing the result
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.DEAL;
-        (<any>gameData).currentcardindex = this.currentcardindex
+        (<any>gameData).currentcardindex = this.currentcardindex;
         this.dispatchEvent(data);
         await this.sleep(this.startCardInterval);
 
@@ -106,7 +106,7 @@ namespace we {
         gameData.state = core.GameState.FINISH;
         gameData.wintype = ba.WinType.PLAYER;
         this.updateBetResult(data, [ba.BetField.PLAYER]);
-        (<any>gameData).currentcardindex = this.currentcardindex  
+        (<any>gameData).currentcardindex = this.currentcardindex;
         this.dispatchEvent(data);
         await this.sleep(this.finishStateInterval);
 
@@ -124,7 +124,7 @@ namespace we {
         // set to deal state and start showing the result
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.DEAL;
-        (<any>gameData).currentcardindex = this.currentcardindex  
+        (<any>gameData).currentcardindex = this.currentcardindex;
         this.dispatchEvent(data);
         await this.sleep(this.startCardInterval);
 
@@ -135,7 +135,7 @@ namespace we {
         gameData.state = core.GameState.FINISH;
         gameData.wintype = ba.WinType.BANKER;
         this.updateBetResult(data, [ba.BetField.BANKER]);
-        (<any>gameData).currentcardindex = this.currentcardindex
+        (<any>gameData).currentcardindex = this.currentcardindex;
         this.dispatchEvent(data);
         await this.sleep(this.finishStateInterval);
 
@@ -153,7 +153,7 @@ namespace we {
         // set to deal state and start showing the result
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.DEAL;
-        (<any>gameData).currentcardindex = this.currentcardindex  
+        (<any>gameData).currentcardindex = this.currentcardindex;
         this.dispatchEvent(data);
         await this.sleep(this.finishStateInterval);
 
@@ -165,7 +165,7 @@ namespace we {
         gameData.wintype = ba.WinType.BANKER;
         this.updateBetResult(data, [ba.BetField.BANKER, ba.BetField.BANKER_PAIR]);
         this.dispatchEvent(data);
-        (<any>gameData).currentcardindex = this.currentcardindex
+        (<any>gameData).currentcardindex = this.currentcardindex;
         await this.sleep(this.finishStateInterval);
 
         // done
@@ -182,7 +182,7 @@ namespace we {
         // set to deal state and start showing the result
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.DEAL;
-        (<any>gameData).currentcardindex = this.currentcardindex  
+        (<any>gameData).currentcardindex = this.currentcardindex;
         this.dispatchEvent(data);
         await this.sleep(this.startCardInterval);
 
@@ -192,7 +192,7 @@ namespace we {
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.FINISH;
         gameData.wintype = ba.WinType.BANKER;
-        (<any>gameData).currentcardindex = this.currentcardindex
+        (<any>gameData).currentcardindex = this.currentcardindex;
         this.updateBetResult(data, [ba.BetField.BANKER, ba.BetField.PLAYER_PAIR]);
         this.dispatchEvent(data);
         await this.sleep(this.finishStateInterval);
@@ -211,7 +211,7 @@ namespace we {
         // set to deal state and start showing the result
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.DEAL;
-        (<any>gameData).currentcardindex = this.currentcardindex  
+        (<any>gameData).currentcardindex = this.currentcardindex;
         this.dispatchEvent(data);
         await this.sleep(this.startCardInterval);
 
@@ -221,7 +221,7 @@ namespace we {
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.FINISH;
         gameData.wintype = ba.WinType.TIE;
-        (<any>gameData).currentcardindex = this.currentcardindex  
+        (<any>gameData).currentcardindex = this.currentcardindex;
         this.updateBetResult(data, [ba.BetField.TIE]);
         this.dispatchEvent(data);
         await this.sleep(this.finishStateInterval);
@@ -237,7 +237,7 @@ namespace we {
         // set to bet state and wait
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.SHUFFLE;
-        (<any>gameData).currentcardindex = this.currentcardindex  
+        (<any>gameData).currentcardindex = this.currentcardindex;
         this.dispatchEvent(data);
         await this.sleep(this.shuffleStateInterval);
 

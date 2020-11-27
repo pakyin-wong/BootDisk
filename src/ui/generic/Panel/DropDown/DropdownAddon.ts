@@ -118,7 +118,7 @@ namespace we {
       }
 
       public get selectedItem(): any {
-        return this._list?this._list.selectedItem: null;
+        return this._list ? this._list.selectedItem : null;
       }
 
       public clearSelection() {

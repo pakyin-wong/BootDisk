@@ -11,7 +11,7 @@ namespace we {
       private _title: ui.RunTimeLabel;
 
       private _btnConfirm;
-      private _confirm :ui.RunTimeLabel;
+      private _confirm: ui.RunTimeLabel;
       private _config;
 
       private _betTypeConfig;
@@ -43,12 +43,12 @@ namespace we {
         this.toggleDropdown();
       }
 
-      protected addEventListeners(){
+      protected addEventListeners() {
         // this.addEventListener('LO_TRAD_TOGGLE_MOBILE_GAMETYPE_DROPDOWN', this.toggleDropdown, this);
         this._btnConfirm.addEventListener(egret.TouchEvent.TOUCH_TAP, this.syncResult, this);
       }
 
-      protected removeEventListeners(){
+      protected removeEventListeners() {
         // this.removeEventListener('LO_TRAD_TOGGLE_MOBILE_GAMETYPE_DROPDOWN', this.toggleDropdown, this);
         this._btnConfirm.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.syncResult, this);
       }
@@ -58,7 +58,7 @@ namespace we {
         }
         this.initOpt();
         this._title.renderText = () => `${i18n.t('lo_trad.ui.gamemode')}`;
-        this._confirm.renderText = () =>`${i18n.t('mobile_dropdown_confirm')}`;
+        this._confirm.renderText = () => `${i18n.t('mobile_dropdown_confirm')}`;
 
         this._currentBigTagIndex = 0;
         this._currentSmallTagIndex = 0;
@@ -104,7 +104,7 @@ namespace we {
         const tempBetType = [];
 
         for (let i = 0; i < this._betTypeConfig.length; i++) {
-          const name = `${i18n.t('lo_trad.bigTag.'+this._betTypeConfig[i].name)}`;
+          const name = `${i18n.t('lo_trad.bigTag.' + this._betTypeConfig[i].name)}`;
           tempBetType.push({ key: i, renderText: name });
         }
 
@@ -115,7 +115,7 @@ namespace we {
         const tempBetMode = [];
 
         for (let i = 0; i < this._betModeConfig.length; i++) {
-          const name = `${i18n.t('lo_trad.smallTag.'+this._betModeConfig[i].name)}`;
+          const name = `${i18n.t('lo_trad.smallTag.' + this._betModeConfig[i].name)}`;
           tempBetMode.push({ key: i, renderText: name });
         }
 
@@ -223,7 +223,7 @@ namespace we {
         const tempBetMode = [];
 
         for (let i = 0; i < this._betModeConfig.length; i++) {
-          const name = `${i18n.t('lo_trad.smallTag.'+this._betModeConfig[i].name)}`;
+          const name = `${i18n.t('lo_trad.smallTag.' + this._betModeConfig[i].name)}`;
           tempBetMode.push({ key: i, renderText: name });
         }
 

@@ -33,7 +33,11 @@ namespace we {
         this.beadRoad.numRowCollapse = 4; // number of row when collapse
         this.beadRoad.setGridCorners({ tl: 0, tr: 0, bl: 14, br: 14 });
 
-        this.beadRoad.parseRoadData([{ v: '01', gameRoundID: 'cde345' }, { v: '02', gameRoundID: 'g34345' }, { v: '03', gameRoundID: 'g45454' }]);
+        this.beadRoad.parseRoadData([
+          { v: '01', gameRoundID: 'cde345' },
+          { v: '02', gameRoundID: 'g34345' },
+          { v: '03', gameRoundID: 'g45454' },
+        ]);
         // this.beadRoad.expandRoad(true);
         this.addChild(this.beadRoad);
 

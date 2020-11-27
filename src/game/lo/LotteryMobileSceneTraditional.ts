@@ -89,7 +89,6 @@ namespace we {
       }
 
       protected removeEventListeners() {
-
         // utils.removeButtonListener(this._btnBack, this.backToLobby, this);
         dir.evtHandler.removeEventListener('on_lottery_traditional_bet', this.onConfirmPressed, this);
         dir.evtHandler.removeEventListener('ON_LOTTERY_TRAD_INSUFFICIENTBALANCE', this.onInsufficientBalance, this);
@@ -183,7 +182,7 @@ namespace we {
         // }
       }
       protected setSkinName() {
-        this.skinName = "skin_mobile.LotterySceneTraditional";
+        this.skinName = 'skin_mobile.LotterySceneTraditional';
       }
 
       public backToLobby() {
@@ -357,7 +356,7 @@ namespace we {
           this.initBettingTable();
         }
 
-        //this._lblRoomNo.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this._tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
+        // this._lblRoomNo.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this._tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
 
         this.initRoadMap();
 
@@ -367,7 +366,7 @@ namespace we {
         if (this._rightGamePanel) {
           this._rightGamePanel.setTableInfo(this._tableInfo);
         }
-        //this._roadmapControl.setTableInfo(this._tableInfo);
+        // this._roadmapControl.setTableInfo(this._tableInfo);
         // this._chipLayer.type = we.core.BettingTableType.NORMAL;
         // this._tableLayer.type = we.core.BettingTableType.NORMAL;
       }
@@ -381,7 +380,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         // super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             this._bettingPanel.updateRoundDetailInfo(this._tableInfo.betInfo);
             // this._leftGamePanel.updateTableBetInfo();
@@ -405,8 +404,8 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         // this._roadmapControl.updateRoadData();
         if (evt.data.tableid === this._tableId) {
-          //this._leftGamePanel.update();
-          //this._rightGamePanel.update();
+          // this._leftGamePanel.update();
+          // this._rightGamePanel.update();
         }
       }
 
@@ -473,28 +472,28 @@ namespace we {
         }
       }
 
-    //   protected updateTimer() {
-    //     clearInterval(this._counterInterval);
-    //     this._targetTime = this._gameData.starttime + this._gameData.countdown * 1000;
+      //   protected updateTimer() {
+      //     clearInterval(this._counterInterval);
+      //     this._targetTime = this._gameData.starttime + this._gameData.countdown * 1000;
 
-    //     this._counterInterval = setInterval(this.update.bind(this), 500);
-    //     this.update();
-    //   }
+      //     this._counterInterval = setInterval(this.update.bind(this), 500);
+      //     this.update();
+      //   }
 
-    //   protected update() {
-    //     const diff = this._targetTime - env.currTime;
+      //   protected update() {
+      //     const diff = this._targetTime - env.currTime;
 
-    //     if (diff > 0) {
-    //       this._counter.text = moment.utc(diff).format('HH:mm:ss');
-    //     } else {
-    //       this.resetTimer();
-    //     }
-    //   }
+      //     if (diff > 0) {
+      //       this._counter.text = moment.utc(diff).format('HH:mm:ss');
+      //     } else {
+      //       this.resetTimer();
+      //     }
+      //   }
 
-    //   protected resetTimer() {
-    //     this._counter.text = '00:00:00';
-    //     clearInterval(this._counterInterval);
-    //   }
-     }
+      //   protected resetTimer() {
+      //     this._counter.text = '00:00:00';
+      //     clearInterval(this._counterInterval);
+      //   }
+    }
   }
 }

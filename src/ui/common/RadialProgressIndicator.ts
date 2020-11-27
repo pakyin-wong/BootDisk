@@ -12,6 +12,9 @@ namespace we {
       public startColor: number = 0x00ff00;
       public endColor: number = 0xff0000;
 
+      private _remainingTime: number = 30000;
+      private _isColorTransform: boolean = false; //for desktop in-game
+
       public constructor() {
         super();
         this.progressShape = new egret.Shape();
@@ -33,12 +36,36 @@ namespace we {
         return this._progress;
       }
 
+      set remainingTime(value: number) {
+        this._remainingTime = value;
+      }
+
+      set isColorTransform(value: boolean) {
+        this._isColorTransform = value;
+      }
+
       set progress(value: number) {
         this._progress = value;
         if (this.width !== this.progressShape.width || this.height !== this.progressShape.height) {
           this.progressShape.width = this.width;
           this.progressShape.height = this.height;
           this.computeMinSectionRatio();
+        }
+        // set the start and end color
+        if (this._isColorTransform) { // only for desktop in-game
+          if (this._remainingTime > 11000) {
+            this.startColor = this.endColor = 0x00D87B; // green
+          } else if (11000 >= this._remainingTime && this._remainingTime >= 10000) {// 10s to 11s, color transform
+            this.startColor = 0x00D87B; // green
+            this.endColor = 0xF4CB03; // yellow
+          } else if (this._remainingTime < 10000 && this._remainingTime >= 6000) {
+            this.startColor = this.endColor = 0xF4CB03; // yellow
+          } else if (6000 > this._remainingTime && this._remainingTime >= 5000) {
+            this.startColor = 0xF4CB03; // yellow
+            this.endColor = 0xFF281B; // red
+          } else if (this._remainingTime < 5000) {
+            this.startColor = this.endColor = 0xFF281B; // red
+          }
         }
         this.updateProgressShape();
       }

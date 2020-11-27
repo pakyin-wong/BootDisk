@@ -1,12 +1,11 @@
 namespace we {
   export namespace lo {
     export class FunBetCustomBetMobile extends core.BaseEUI {
-
-    protected _btn_custom: ui.RoundRectButton;
-    protected _txt_value: eui.Label;
-    protected _input: eui.EditableText;
-    protected _currBet = 0;
-    protected _isSelected = false;
+      protected _btn_custom: ui.RoundRectButton;
+      protected _txt_value: eui.Label;
+      protected _input: eui.EditableText;
+      protected _currBet = 0;
+      protected _isSelected = false;
 
       public constructor() {
         super('lo.FunBetCustomBetMobile');
@@ -17,7 +16,7 @@ namespace we {
         this.verticalCenter = 20;
         this.horizontalCenter = 0;
         this._btn_custom.label.renderText = () => `${i18n.t('lo_fun_custombet')}`;
-        
+
         this._input.inputType = egret.TextFieldInputType.TEL;
         this._input.restrict = '0-9';
         dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitChange, this);
@@ -37,7 +36,7 @@ namespace we {
       }
 
       protected onFocusOut() {
-        if(this._input.text.length > 0 && !this._input.text.match(/[^0-9]/g)) {
+        if (this._input.text.length > 0 && !this._input.text.match(/[^0-9]/g)) {
           this.currentBet = parseInt(this._input.text, 10) * 100;
           this.checkbetLimit();
           this.dispatchEvent(new egret.Event('CUSTOMBET_SELECTED'));
@@ -48,7 +47,7 @@ namespace we {
       }
 
       protected onBetLimitChange() {
-        if(this._isSelected) {
+        if (this._isSelected) {
           this.checkbetLimit();
           this.dispatchEvent(new egret.Event('CUSTOMBET_SELECTED'));
         }
@@ -74,7 +73,7 @@ namespace we {
 
       public set selected(b) {
         this._isSelected = b;
-        this.currentState = b? 'down' : 'up';
+        this.currentState = b ? 'down' : 'up';
       }
 
       public get selected() {

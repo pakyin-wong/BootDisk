@@ -23,7 +23,7 @@ namespace we {
     }
     export function waitDragonBoneEvent(target: dragonBones.IEventDispatcher, ev: string, animName: string = null) {
       const p = new Promise((resolve, reject) => {
-        const r = (event) => {
+        const r = event => {
           if (!(animName && event.animationName != animName)) {
             target.removeDBEventListener(ev, r, target);
             resolve();

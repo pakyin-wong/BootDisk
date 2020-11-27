@@ -119,11 +119,7 @@ namespace we {
         if (this._gradientColor === null) {
           this._shape.graphics.beginFill(this._color, 1);
         } else {
-          const fillcolor = this._gradientColor
-            .toString()
-            .split(' ')
-            .join('')
-            .split(',');
+          const fillcolor = this._gradientColor.toString().split(' ').join('').split(',');
           const matrix = new egret.Matrix();
           matrix.createGradientBox(1012, 260);
           this._shape.graphics.beginGradientFill(egret.GradientType.LINEAR, [fillcolor[0], fillcolor[1]], [1, 1], [0, 255], matrix);
@@ -134,7 +130,8 @@ namespace we {
         // draw the base
 
         this._shape.graphics.clear();
-        if (this._hasBaseBorder) {// for loading scene progress bar
+        if (this._hasBaseBorder) {
+          // for loading scene progress bar
           const _baseShape = new egret.Shape();
           _baseShape.graphics.lineStyle(2, this._baseBorderColor, 3);
           _baseShape.graphics.beginFill(this._baseColor, 1);
@@ -142,7 +139,6 @@ namespace we {
           utils.drawRoundRect(_baseShape.graphics, points);
           _baseShape.graphics.endFill();
           this.addChildAt(_baseShape, 0);
-
         } else {
           this._shape.graphics.beginFill(this._baseColor, 1);
           const points = utils.roundRectPoints(this.width, this.height, this._roundCorner);
@@ -159,11 +155,7 @@ namespace we {
           if (this._gradientColor === null) {
             this._shape.graphics.beginFill(this._color, 1);
           } else {
-            const fillcolor = this._gradientColor
-              .toString()
-              .split(' ')
-              .join('')
-              .split(',');
+            const fillcolor = this._gradientColor.toString().split(' ').join('').split(',');
             const matrix = new egret.Matrix();
             matrix.createGradientBox(1012, 260);
             this._shape.graphics.beginGradientFill(egret.GradientType.LINEAR, [fillcolor[0], fillcolor[1]], [1, 1], [0, 255], matrix);

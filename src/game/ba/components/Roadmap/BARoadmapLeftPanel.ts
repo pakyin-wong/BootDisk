@@ -71,7 +71,7 @@ namespace we {
 
       protected onSwitchModeClick(e: egret.TouchEvent) {
         this.beadRoad.Mode = ++this.beadRoad.Mode % 2;
-        
+
         this.changeLang();
       }
 

@@ -2,9 +2,8 @@
 namespace we {
   export namespace lo {
     export class SSCTraditionalMobileChaseBetPanel extends SSCChaseBetPanel {
-      
       protected _btnSameMultiple;
-      protected _btnDoubleMultiple; 
+      protected _btnDoubleMultiple;
 
       private _lblChaseBetMode;
       private _lblChaseType;
@@ -18,11 +17,11 @@ namespace we {
         super(noteData, roundData, bettingPanel);
       }
 
-      protected initSkin(){
-        this.skinName = "skin_mobile.SSCTraditionalChaseBetPanel";
+      protected initSkin() {
+        this.skinName = 'skin_mobile.SSCTraditionalChaseBetPanel';
       }
 
-      public init(){
+      public init() {
         this.initChaseType();
         this.createChasePanel();
         this.initData();
@@ -32,7 +31,7 @@ namespace we {
         this.updateText();
       }
 
-      public setConfirmBetButton(enable){
+      public setConfirmBetButton(enable) {
         if (!this._combinedData) {
           return;
         }
@@ -42,22 +41,22 @@ namespace we {
         } else {
           this._btnConfirmBet.buttonEnabled = false;
           this._btnConfirmBet.enabled = false;
-        }      
+        }
       }
 
-      protected initChaseType(){
+      protected initChaseType() {
         this._currentChaseType = 0;
         this._btnSameMultiple.active = true;
         this._btnDoubleMultiple.active = false;
         this._lblChaseType.renderText = () => `${i18n.t('lo_trad.chase.' + this.chaseType[this._currentChaseType])}`;
       }
 
-      protected createChasePanel(){
+      protected createChasePanel() {
         this._currentChaseTopPanel = new we.lo.SSCTraditionalMobileChaseBetTopPanel(this, this._currentChaseType);
         this._chaseTopPanelGroup.addChildAt(this._currentChaseTopPanel, 0);
       }
 
-      protected generateDatas(){
+      protected generateDatas() {
         this.updatePanelData();
       }
 
@@ -73,7 +72,7 @@ namespace we {
         this._lblTotalBet.text = '$ ' + utils.formatNumber(totalbet * 100);
       }
 
-      protected addListeners(){
+      protected addListeners() {
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
         // dir.evtHandler.addEventListener('LO_TRAD_CHASEBETDATA_UPDATE', this.updateActiveItem, this);
         utils.addButtonListener(this._btnConfirmBet, this.onConfirmPressed, this);
@@ -81,8 +80,8 @@ namespace we {
         // this._scroller.addEventListener(eui.UIEvent.CHANGE, this.updateScrollV, this);
         // utils.addButtonListener(this._isStopChaseIfWonGroup, this.onPressedStopChaseIfWon, this);
         // utils.addButtonListener(this.close, this.destroy, this);
-        utils.addButtonListener(this._btnSameMultiple,this.onChaseTypeChange,this);
-        utils.addButtonListener(this._btnDoubleMultiple,this.onChaseTypeChange,this);
+        utils.addButtonListener(this._btnSameMultiple, this.onChaseTypeChange, this);
+        utils.addButtonListener(this._btnDoubleMultiple, this.onChaseTypeChange, this);
         dir.evtHandler.addEventListener('LO_TRAD_ON_BETSTATEUPDATE', this.updateState, this);
       }
 
@@ -91,22 +90,21 @@ namespace we {
         // dir.evtHandler.removeEventListener('LO_TRAD_CHASEBETDATA_UPDATE', this.updateActiveItem, this);
         utils.removeButtonListener(this._btnConfirmBet, this.onConfirmPressed, this);
         dir.evtHandler.removeEventListener('LO_TRAD_ON_UPDATE_ROUNDDETAILS', this.updateRoundDetails, this);
-        utils.removeButtonListener(this._btnSameMultiple,this.onChaseTypeChange,this);
-        utils.removeButtonListener(this._btnDoubleMultiple,this.onChaseTypeChange,this);
+        utils.removeButtonListener(this._btnSameMultiple, this.onChaseTypeChange, this);
+        utils.removeButtonListener(this._btnDoubleMultiple, this.onChaseTypeChange, this);
         // this._scroller.removeEventListener(eui.UIEvent.CHANGE, this.updateScrollV, this);
         // utils.removeButtonListener(this._isStopChaseIfWonGroup, this.onPressedStopChaseIfWon, this);
         // utils.removeButtonListener(this.close, this.destroy, this);
         dir.evtHandler.removeEventListener('LO_TRAD_ON_BETSTATEUPDATE', this.updateState, this);
-       }
+      }
 
       protected onChaseTypeChange(e) {
-        let chaseType ;
-        if(e.target === this._btnSameMultiple){
+        let chaseType;
+        if (e.target === this._btnSameMultiple) {
           chaseType = 0;
           this._btnSameMultiple.active = true;
           this._btnDoubleMultiple.active = false;
-
-        }else if(e.target === this._btnDoubleMultiple){
+        } else if (e.target === this._btnDoubleMultiple) {
           chaseType = 2;
           this._btnDoubleMultiple.active = true;
           this._btnSameMultiple.active = false;
@@ -145,14 +143,14 @@ namespace we {
         }
       }
 
-      protected updateText(){
-        this._lblChaseBetMode.renderText = () =>`${i18n.t('lo_trad.mobile_chasebet.chasebetmode')}`;
+      protected updateText() {
+        this._lblChaseBetMode.renderText = () => `${i18n.t('lo_trad.mobile_chasebet.chasebetmode')}`;
         this._lblChaseType.renderText = () => `${i18n.t('lo_trad.mobile_chasebet.chasetype')}`;
         this._lblBtnSameMultiple.renderText = () => `${i18n.t('lo_trad.chase.SAMEMULTIPLE')}`;
         this._lblBtnDoubleMultiple.renderText = () => `${i18n.t('lo_trad.chase.DOUBLE')}`;
         this._lblTotalBetTitle.renderText = () => `${i18n.t('lo_trad.confirm_panel.totalbetamountitle')}`;
         this._lblConfirmBet.renderText = () => `${i18n.t('lo_trad.ui.confirmbet')}`;
-    }
+      }
 
       protected onConfirmPressed(e) {
         const roundData = [];
@@ -182,7 +180,7 @@ namespace we {
         });
       }
 
-      protected updateIsStopChaseIfWon(v){
+      protected updateIsStopChaseIfWon(v) {
         this._isStopWon = v;
       }
 

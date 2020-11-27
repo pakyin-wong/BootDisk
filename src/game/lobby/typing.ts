@@ -14,7 +14,7 @@ namespace we {
       _posterContainer: eui.Group;
       _hotgameContainer: eui.Group;
       _hotGameGroup: eui.Group;
-      scroller?: eui.Scroller; 
+      scroller?: eui.Scroller;
     }
   }
 }

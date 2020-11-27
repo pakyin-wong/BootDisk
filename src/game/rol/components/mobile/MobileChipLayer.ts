@@ -234,13 +234,7 @@ namespace we {
           label.text = luckyNumbers[key] + 'x';
 
           grid.addChild(label);
-          egret.Tween.get(label)
-            .to({ alpha: 0 }, 1000)
-            .to({ alpha: 1 }, 1000)
-            .to({ alpha: 0 }, 1000)
-            .to({ alpha: 1 }, 1000)
-            .to({ alpha: 0 }, 1000)
-            .to({ alpha: 1 }, 1000);
+          egret.Tween.get(label).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000);
 
           this._luckyAnims.push(coinAnim);
           this._flashingOdds.push(label);

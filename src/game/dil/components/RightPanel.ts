@@ -110,7 +110,7 @@ namespace we {
             if (this.pool) {
               this.pool.setValue(this.tableInfo);
             }
-            if (this.history){
+            if (this.history) {
               this.history.setValue(this.tableInfo);
             }
           }

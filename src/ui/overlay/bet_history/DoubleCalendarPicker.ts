@@ -22,7 +22,7 @@ namespace we {
 
       public range = 6;
       public dayRange = 90;
-      
+
       private currentMonthIndex: number = 0;
       private prevCurrentMonthIndex: number = -1;
       private tempCurrentMonthIndex: number;
@@ -65,7 +65,7 @@ namespace we {
 
         this._calender_prev.setTo(prev.year(), prev.month());
         this._calender_next.setTo(this._current.year(), this._current.month());
-        
+
         this._calender_next.highlightToday = this.currentMonthIndex === 0 ? true : false;
         this._calender_prev.highlightToday = this.prevCurrentMonthIndex === 0 ? true : false;
         // this._calender_next.highlightToday = true
@@ -126,7 +126,8 @@ namespace we {
       }
 
       protected datePicked(e: egret.Event) {
-        if (!this._select) { // need to set range 90days
+        if (!this._select) {
+          // need to set range 90days
           this._select = e.data;
         } else {
           this._start = moment.min(e.data, this._select);
@@ -154,14 +155,13 @@ namespace we {
 
         this.hide();
         this.dispatchEvent(new egret.Event('PICKED_DATE', false, false, data));
-    
       }
 
       public setTo(starttime, endtime) {
         this.clean();
         const start = moment.unix(starttime).startOf('day');
         const end = moment.unix(endtime).startOf('day');
-        this.checkDisplayMonth(end)
+        this.checkDisplayMonth(end);
         if (start.isSame(end, 'day')) {
           this._select = start;
           this._current = moment([start.year(), start.month()]);
@@ -173,17 +173,13 @@ namespace we {
         this.update();
       }
 
-      private checkDisplayMonth(end){
-        let todaytime = moment()
-          .utcOffset(8)
-          .startOf('day')
-          .unix();
-        let today = moment.unix(todaytime).startOf('day');
-        let diff  =  moment(today).diff(end, "months")
+      private checkDisplayMonth(end) {
+        const todaytime = moment().utcOffset(8).startOf('day').unix();
+        const today = moment.unix(todaytime).startOf('day');
+        const diff = moment(today).diff(end, 'months');
         this.currentMonthIndex = diff * -1;
-        this.prevCurrentMonthIndex = this.currentMonthIndex -1;
+        this.prevCurrentMonthIndex = this.currentMonthIndex - 1;
       }
-
     }
   }
 }

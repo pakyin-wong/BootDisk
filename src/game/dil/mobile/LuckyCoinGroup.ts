@@ -31,7 +31,7 @@ namespace we {
             }
             display.armature.dispose();
             display.dispose();
-            
+
             if (display.parent) {
               display.parent.removeChild(display);
             }
@@ -92,7 +92,7 @@ namespace we {
       }
 
       public updateLuckyNumbers(gameData: data.GameData, chipLayer: ui.ChipLayer) {
-        this.gameData = <dil.GameData> gameData;
+        this.gameData = <dil.GameData>gameData;
         this.clearAnim();
 
         if (!(this.gameData && this.gameData.luckynumber)) {
@@ -157,18 +157,18 @@ namespace we {
             await we.utils.sleep(400);
 
             if (coinAnim.animation) {
-              let p = we.utils.waitDragonBone(coinAnim);
+              const p = we.utils.waitDragonBone(coinAnim);
               coinAnim.animation.play(`${animName}_in`, 1);
               coinAnim.visible = true;
               await p;
             }
             if (coinAnim.animation) {
-              let p = we.utils.waitDragonBone(coinAnim);
+              const p = we.utils.waitDragonBone(coinAnim);
               coinAnim.animation.play(`${animName}_loop`, 4);
               await p;
             }
             if (coinAnim.animation) {
-              let p = we.utils.waitDragonBone(coinAnim);
+              const p = we.utils.waitDragonBone(coinAnim);
               coinAnim.animation.play(`${animName}_out`, 1);
               await p;
             }

@@ -74,20 +74,10 @@ namespace we {
         const showPlayer = this.gameData.wintype === we.ba.WinType.PLAYER || this.gameData.wintype === we.ba.WinType.TIE;
         this.setBgVisible(!showPlayer, !showBanker);
         if (showBanker) {
-          egret.Tween.get(this._bankerWin)
-            .to({ alpha: 1 }, 300)
-            .to({ alpha: 0.3 }, 300)
-            .to({ alpha: 1 }, 300)
-            .to({ alpha: 0.3 }, 300)
-            .to({ alpha: 1 }, 300);
+          egret.Tween.get(this._bankerWin).to({ alpha: 1 }, 300).to({ alpha: 0.3 }, 300).to({ alpha: 1 }, 300).to({ alpha: 0.3 }, 300).to({ alpha: 1 }, 300);
         }
         if (showPlayer) {
-          egret.Tween.get(this._playerWin)
-            .to({ alpha: 1 }, 300)
-            .to({ alpha: 0.3 }, 300)
-            .to({ alpha: 1 }, 300)
-            .to({ alpha: 0.3 }, 300)
-            .to({ alpha: 1 }, 300);
+          egret.Tween.get(this._playerWin).to({ alpha: 1 }, 300).to({ alpha: 0.3 }, 300).to({ alpha: 1 }, 300).to({ alpha: 0.3 }, 300).to({ alpha: 1 }, 300);
         }
       }
     }

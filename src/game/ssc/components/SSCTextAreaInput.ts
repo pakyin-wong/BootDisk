@@ -31,17 +31,15 @@ namespace we {
           this.skinName = 'skin_desktop.lo.SSCTextAreaInput';
         }
       }
-      protected childrenCreated(){
+      protected childrenCreated() {
         super.childrenCreated();
 
-        if(env.isMobile){
+        if (env.isMobile) {
           this._textArea.inputType = egret.TextFieldInputType.TEL;
-          this._textArea.restrict ='0-9';
+          this._textArea.restrict = '0-9';
         }
-        
       }
       protected initComponents() {
-
         this.addListeners();
         this.updateText();
       }

@@ -32,9 +32,9 @@ namespace we {
         } else {
           this._gameLabel.text = `${i18n.t('overlaypanel_bethistory_recordtab_round') + this.gameRoundID}`;
         }
-        if(this._gameShoeTextLabel){
+        if (this._gameShoeTextLabel) {
           this._gameShoeTextLabel.text = i18n.t('overlaypanel_bethistory_recordtab_shoe');
-          this._gameShoeLabel.text = this.shoe+"-"+this.round;
+          this._gameShoeLabel.text = this.shoe + '-' + this.round;
         }
       }
     }

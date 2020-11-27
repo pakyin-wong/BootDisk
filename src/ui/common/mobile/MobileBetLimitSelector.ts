@@ -1,7 +1,6 @@
 namespace we {
   export namespace ui {
     export class MobileBetLimitSelector extends RunTimeLabel {
-
       protected initRenderText() {
         super.initRenderText();
 

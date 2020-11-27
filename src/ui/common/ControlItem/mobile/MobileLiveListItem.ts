@@ -32,7 +32,6 @@ namespace we {
         if (this._roadmap) this._roadmap.parent.removeChild(this._roadmap);
       }
 
-
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
         if (tableInfo.roadmap) {

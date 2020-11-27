@@ -38,15 +38,15 @@ namespace we {
         this._gameScene = value;
       }
 
-      public set loGameScene(value: lo.LotteryMobileSceneBasic){
+      public set loGameScene(value: lo.LotteryMobileSceneBasic) {
         this._loGameScene = value;
       }
 
       protected mount() {
         super.mount();
         this.isPanelOpen = env.isBottomPanelOpen;
-        if(this._tableInfoPanel){
-          if(this._tableInfoPanel.pBetLimit){
+        if (this._tableInfoPanel) {
+          if (this._tableInfoPanel.pBetLimit) {
             this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
           }
         }
@@ -89,10 +89,10 @@ namespace we {
           env.isBottomPanelOpen = true;
           this.isPanelOpen = env.isBottomPanelOpen;
           egret.Tween.get(this._middlePart).to({ height: this._middlePartHeight + 11 }, 250);
-          if(this._gameScene){
+          if (this._gameScene) {
             this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
           }
-          if(this._loGameScene){
+          if (this._loGameScene) {
             this._loGameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
           }
         }
@@ -127,12 +127,12 @@ namespace we {
             env.isBottomPanelOpen = false;
             this.isPanelOpen = env.isBottomPanelOpen;
             egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
-            if(this._gameScene){
+            if (this._gameScene) {
               this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
               this._gameScene.updateTableLayerPosition(env.isBottomPanelOpen);
             }
 
-            if(this._loGameScene){
+            if (this._loGameScene) {
               this._loGameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
               this._loGameScene.updateTableLayerPosition(env.isBottomPanelOpen);
             }
@@ -142,11 +142,11 @@ namespace we {
             env.isBottomPanelOpen = true;
             this.isPanelOpen = env.isBottomPanelOpen;
             egret.Tween.get(this._middlePart).to({ height: this._middlePartHeight + 11 }, 250);
-            if(this._gameScene){
+            if (this._gameScene) {
               this._gameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
               this._gameScene.updateTableLayerPosition(env.isBottomPanelOpen);
             }
-            if(this._loGameScene){
+            if (this._loGameScene) {
               this._loGameScene.updateResultDisplayVisible(env.isBottomPanelOpen);
               this._loGameScene.updateTableLayerPosition(env.isBottomPanelOpen);
             }

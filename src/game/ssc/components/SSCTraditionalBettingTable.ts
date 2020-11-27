@@ -9,8 +9,8 @@ namespace we {
       // private _playmodeDropDownButton: eui.Group;
       // private _lblPlayMode : ui.RunTimeLabel;
       // private playMode : string;
-      
-      constructor(config ) {
+
+      constructor(config) {
         super(config);
       }
 
@@ -93,7 +93,7 @@ namespace we {
           switch (this._config.combinationDataId) {
             case 1:
               // inputData.push(this.inputData[1]);
-              for(let i = 1;i < this.inputData.length;i++){
+              for (let i = 1; i < this.inputData.length; i++) {
                 inputData.push(this.inputData[i]);
               }
               break;

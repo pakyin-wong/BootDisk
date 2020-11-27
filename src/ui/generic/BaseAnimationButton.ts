@@ -67,24 +67,28 @@ namespace we {
           throw new Error('Missing property dbDisplay in BaseAnimationButton');
         }
         if (!this._display) {
-          const factory = BaseAnimationButton.getFactory(this._dbClass);
-          this._display = factory.buildArmatureDisplay(this._dbDisplay);
-          utils.dblistenToSoundEffect(this._display);
-          this._group = new eui.Group();
-          this._group.width = 0;
-          this._group.height = 0;
-          this._display.x = this.width / -2;
-          this._display.y = this.height / -2;
-          this._group.verticalCenter = 0;
-          this._group.horizontalCenter = 0;
-
-          this._group.addChild(this._display);
-          this.addChild(this._group);
+          this.initDisplay();
         }
 
         // call update on mount to set initial button state
         const oldState = [this._down, this._hover];
         this.update(oldState);
+      }
+
+      protected initDisplay() {
+        const factory = BaseAnimationButton.getFactory(this._dbClass);
+        this._display = factory.buildArmatureDisplay(this._dbDisplay);
+        utils.dblistenToSoundEffect(this._display);
+        this._group = new eui.Group();
+        this._group.width = 0;
+        this._group.height = 0;
+        this._display.x = this.width / -2;
+        this._display.y = this.height / -2;
+        this._group.verticalCenter = 0;
+        this._group.horizontalCenter = 0;
+
+        this._group.addChild(this._display);
+        this.addChild(this._group);
       }
 
       public destroy() {
@@ -94,7 +98,7 @@ namespace we {
           this._display.dispose();
           dragonBones.WorldClock.clock.remove(this._display.armature);
           this._display = null;
-          this.removeChild(this._group);
+          if (this._group) this.removeChild(this._group);
         }
         // BaseAnimationButton.FACTORIES[this.dbClass].clear(false);
         super.destroy();

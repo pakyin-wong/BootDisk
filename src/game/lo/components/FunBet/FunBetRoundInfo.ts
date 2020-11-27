@@ -18,7 +18,7 @@ namespace we {
 
         this._txt_thisRound.renderText = () => `${i18n.t('lo_fun_bettingRound')}`;
         this._txt_round.renderText = () => `${i18n.t('lo_fun_round')}`;
-        
+
         if (env.isMobile) {
           this._txt_drawingRound.renderText = () => `${i18n.t('lo_fun_mobile_drawing')}`;
           this._txt_lastRound.renderText = () => `${i18n.t('lo_fun_mobile_last')}`;
@@ -47,7 +47,7 @@ namespace we {
 
       public update(r) {
         this._tf_round.text = this._tf_drawingRound.text = r.gameroundid;
-        if(!env.isMobile) {
+        if (!env.isMobile) {
           this._txt_lastRound.renderText = () => `${r.gameroundid} ${i18n.t('lo_fun_lastRound')}`;
         }
 

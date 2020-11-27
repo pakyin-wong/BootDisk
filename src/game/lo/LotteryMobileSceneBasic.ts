@@ -1,7 +1,6 @@
 namespace we {
   export namespace lo {
     export class LotteryMobileSceneBasic extends LotterySceneFunBasic {
-
       protected _btnBack: egret.DisplayObject;
       protected _btn_sidegamelist: egret.DisplayObject;
       protected _btn_video: egret.DisplayObject;
@@ -19,7 +18,7 @@ namespace we {
       protected _targetTime;
       protected _counterInterval;
 
-      //bottomGame
+      // bottomGame
       protected _bottomGamePanel: lo.MobileBottomGamePanel;
       protected _roadmapControl: lo.LoRoadmapControl;
 
@@ -32,7 +31,7 @@ namespace we {
         super.mount();
         this.initVideo();
 
-        //added bottomGame
+        // added bottomGame
         this._bottomGamePanel.setTableInfo(this._tableInfo);
         this._bottomGamePanel.setData();
         this.initRoadMap;
@@ -48,10 +47,10 @@ namespace we {
       protected initText() {
         this._lblRoomNo.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this._tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
         this._GameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
-        this._GameID.renderText = () => `${this._tableInfo.data.gameroundid}`;        
+        this._GameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
       }
 
-      //added bottomGame
+      // added bottomGame
       protected initRoadMap() {
         this._roadmapControl = new LoRoadmapControl(this._tableId);
         // if (this._leftGamePanel) {// for testing
@@ -169,9 +168,9 @@ namespace we {
 
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
-        if(evt && evt.data){
+        if (evt && evt.data) {
           const stat = <data.TableInfo>evt.data;
-          if(stat.tableid === this._tableId){
+          if (stat.tableid === this._tableId) {
             this._bottomGamePanel.updateInfo();
           }
         }
@@ -192,7 +191,7 @@ namespace we {
         clearInterval(this._counterInterval);
       }
 
-      //_bottomGamePanel
+      // _bottomGamePanel
       public updateResultDisplayVisible(bottomGamePanelisOpen: boolean) {
         if (!this._bottomGamePanel._bottomResultDisplayContainer) {
           return;
@@ -216,7 +215,7 @@ namespace we {
       }
 
       public updateTableLayerPosition(bottomGamePanelisOpen: boolean) {
- /*       if (env.orientation === 'landscape') {
+        /*       if (env.orientation === 'landscape') {
           const vlayout = new eui.VerticalLayout();
           if (this._tableLayer) {
             switch (env.tableInfos[this._tableId].gametype) {

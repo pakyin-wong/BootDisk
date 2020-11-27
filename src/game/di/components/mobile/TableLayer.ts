@@ -136,9 +136,7 @@ namespace we {
             }
             const prom = new Promise(resolve => {
               const alpha = run % 2 === 1 ? 1 : 0;
-              egret.Tween.get(image)
-                .to({ alpha }, 125)
-                .call(resolve);
+              egret.Tween.get(image).to({ alpha }, 125).call(resolve);
             });
             tickFlashPromises.push(prom);
           }
