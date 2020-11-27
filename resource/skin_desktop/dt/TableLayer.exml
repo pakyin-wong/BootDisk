@@ -6,10 +6,20 @@
 		         width="382" height="304" />
 		<ui:RunTimeLabel id="_dragonLabel" verticalCenter="-20" horizontalCenter="0"  size="68"/>
 		<e:Label text="1:1" verticalCenter="40" horizontalCenter="0" size="30" />
-		<e:Image source="d_ba_betarea_icon_bet_png" horizontalCenter="-100" verticalCenter="85" />
-		<e:Label id="_dragonTotalAmount" horizontalCenter="-80" verticalCenter="85" size="20" />
-		<e:Image source="d_ba_betarea_icon_person_png" horizontalCenter="50" verticalCenter="85" />
-		<e:Label id="_dragonTotalPerson" horizontalCenter="70" verticalCenter="85" size="20"  />
+		<e:Group  horizontalCenter="-77" verticalCenter="90.5">
+			<e:Image source="d_ba_betarea_icon_bet_png"/>
+			<e:Label id="_dragonTotalAmount" size="20" x="20"/>
+			<e:layout>
+				<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle"/>
+			</e:layout>
+		</e:Group>
+		<e:Group  horizontalCenter="67" verticalCenter="91.5">
+			<e:Image source="d_ba_betarea_icon_person_png"  y="0"/>
+			<e:Label id="_dragonTotalPerson" size="20" x="20"/>
+			<e:layout>
+				<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle"/>
+			</e:layout>
+		</e:Group>
 	</e:Group>
 	<e:Group id="_tieGroup" includeIn="Normal" x="382" y="0" width="382" height="304">
 		<e:Image id="_tieImage" source="d_dt_betarea_general_tie_png" name="d_dt_betarea_general_tie_hover_png" width="382"
@@ -23,10 +33,20 @@
 		         width="382" height="304" />
 		<ui:RunTimeLabel id="_tigerLabel" verticalCenter="-20" horizontalCenter="0"  size="68"/>
 		<e:Label text="1:1" verticalCenter="40" horizontalCenter="0" size="30" />
-		<e:Image source="d_ba_betarea_icon_bet_png" horizontalCenter="-100" verticalCenter="85" />
-		<e:Label id="_tigerTotalAmount" horizontalCenter="-80" verticalCenter="85" size="20" />
-		<e:Image source="d_ba_betarea_icon_person_png" horizontalCenter="50" verticalCenter="85" />
-		<e:Label id="_tigerTotalPerson" horizontalCenter="70" verticalCenter="85" size="20" />
+		<e:Group  horizontalCenter="-77" verticalCenter="90.5">
+			<e:Image source="d_ba_betarea_icon_bet_png"/>
+			<e:Label id="_tigerTotalAmount" size="20" />
+			<e:layout>
+				<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle"/>
+			</e:layout>
+		</e:Group>
+		<e:Group  horizontalCenter="67" verticalCenter="91.5">
+			<e:Image source="d_ba_betarea_icon_person_png" />
+			<e:Label id="_tigerTotalPerson" size="20" />
+			<e:layout>
+				<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle"/>
+			</e:layout>
+		</e:Group>
 	</e:Group>
 	<e:Rect id="mask" left="0" right="0" top="0" bottom="0" width="1146" height="204" ellipseHeight="50" ellipseWidth="50"
 	         locked="true"/>

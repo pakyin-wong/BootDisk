@@ -48,7 +48,9 @@ namespace we {
       }
 
       protected destroyAnim(display: dragonBones.EgretArmatureDisplay) {
-        if (!display) { return; }
+        if (!display) {
+          return;
+        }
         if (display.animation) {
           display.animation.stop();
         }
@@ -108,13 +110,13 @@ namespace we {
         const redPinClone: egret.Bitmap = new egret.Bitmap();
         // redPinClone.width = redPinMesh.width;
         // redPinClone.height = redPinMesh.height;
-        redPinClone.rotation = 90 + Math.atan2(redPin.globalTransformMatrix.b, redPin.globalTransformMatrix.a)*180/Math.PI;
+        redPinClone.rotation = 90 + (Math.atan2(redPin.globalTransformMatrix.b, redPin.globalTransformMatrix.a) * 180) / Math.PI;
         redPinClone.texture = redPinMesh.texture;
         redPinClone.x = redPin.globalTransformMatrix.tx;
         redPinClone.y = redPin.globalTransformMatrix.ty;
         redPinClone.anchorOffsetX = 14;
-        redPinClone.anchorOffsetY = 111 + (redPinClone.texture.textureHeight*redPinClone.scaleY);
-        redPinClone.alpha = 0.7;
+        redPinClone.anchorOffsetY = 111 + redPinClone.texture.textureHeight * redPinClone.scaleY;
+        redPinClone.alpha = 0;
         // redPinClone.pixelHitTest = true;
         redPinClone.touchEnabled = true;
         this._ringAnim.addChild(redPinClone);
@@ -142,7 +144,7 @@ namespace we {
       public updateResult(gameData: data.GameData, chipLayer: ui.ChipLayer, isInit: boolean) {
         console.log(' cardholder::updateResult ', gameData, isInit);
 
-        this._gameData = <bab.GameData>gameData;
+        this._gameData = <bab.GameData> gameData;
         this.updateCardInfoButtons();
         this._cardUsedMessage.value = this._gameData.currentcardindex;
         if (isInit) {
@@ -192,7 +194,7 @@ namespace we {
           await this.distributeCards();
         }
 
-        return new Promise(resolve=>resolve())
+        return new Promise(resolve => resolve());
       }
 
       protected abstract updateAllSum();
@@ -243,7 +245,7 @@ namespace we {
         slot.displayIndex = 0;
       }
 
-      protected abstract async betInitState(gameState: core.GameState) : Promise<{}>;
+      protected abstract async betInitState(gameState: core.GameState): Promise<{}>;
 
       protected abstract async dealInitState();
 
@@ -276,13 +278,13 @@ namespace we {
           egret.Tween.get(bone.origin)
             .to({ rotation: destRad }, 1000, function (t) {
               bone.invalidUpdate();
-              this._clonedPin.rotation = 90 + Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a)*180/Math.PI;
+              // this._clonedPin.rotation = 90 + Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a)*180/Math.PI;
               return t;
             })
             .call(resolve)
         );
-        bone.invalidUpdate();
-        this._clonedPin.rotation = 90 + Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a)*180/Math.PI;
+        // bone.invalidUpdate();
+        // this._clonedPin.rotation = 90 + Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a)*180/Math.PI;
       }
 
       protected async collapseShoe() {
@@ -304,7 +306,7 @@ namespace we {
         const destRad = this.getPinRad();
         bone.origin.rotation = destRad;
         bone.invalidUpdate();
-        this._clonedPin.rotation = 90 + Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a)*180/Math.PI;
+        this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
       }
 
       protected moveShoe() {
@@ -318,16 +320,16 @@ namespace we {
 
       protected abstract updateCardInfoButtons();
 
-      protected getPinRad(num = this._gameData.currentcardindex) {
+      protected getPinRad(num = this._gameData.redcardindex) {
         const totalCount = this._gameData.maskedcardssnList.length;
-        const proportion = (totalCount - num) / totalCount;
+        const proportion = (num - this._gameData.currentcardindex) / totalCount;
         const angleOffset = this._pinInterval * proportion; // -40 to 41 / 131 to 49
         const destAngle = this._pinStartAngle + angleOffset;
         const destRad = (destAngle * Math.PI) / 180;
         return destRad;
       }
 
-      protected getShoeRad(num = this._gameData.redcardindex) {
+      protected getShoeRad(num = this._gameData.currentcardindex) {
         const totalCount = this._gameData.maskedcardssnList.length;
         const proportion = (totalCount - num) / totalCount;
         const angleOffset = this._pinInterval * proportion; // -72 to 9
@@ -336,6 +338,22 @@ namespace we {
         return destRad;
       }
 
+      // protected getPinRad(num = this._gameData.currentcardindex) {
+      //   const proportion = num / this._gameData.maskedcardssnList.length;
+      //   const angleOffset = this._pinInterval * proportion; // -40 to 41 / 131 to 49
+      //   const destAngle = this._pinStartAngle + angleOffset;
+      //   const destRad = (destAngle * Math.PI) / 180;
+      //   return destRad;
+      // }
+
+      // protected getShoeRad(num = this._gameData.redcardindex) {
+      //   const proportion = num / this._gameData.maskedcardssnList.length;
+      //   const angleOffset = this._pinInterval * proportion; // -72 to 9
+      //   const destAngle = this._pinStartAngle + angleOffset;
+      //   const destRad = (destAngle * Math.PI) / 180;
+      //   return destRad;
+      // }
+
       protected async animatePin() {
         const bone = this._ringAnim.armature.getBone('red_card');
         const destRad = this.getPinRad();
@@ -343,14 +361,14 @@ namespace we {
           egret.Tween.get(bone.origin)
             .to({ rotation: destRad }, 1000, function (t) {
               bone.invalidUpdate();
-              this._clonedPin.rotation = 90 + Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a)*180/Math.PI;
+              // this._clonedPin.rotation = 90 + Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a)*180/Math.PI;
               return t;
             })
             .call(resolve)
         );
         this._clonedPin.touchEnabled = true;
         bone.invalidUpdate();
-        this._clonedPin.rotation = 90 + Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a)*180/Math.PI;
+        this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
 
         return new Promise(resolve => resolve());
       }
@@ -385,11 +403,11 @@ namespace we {
         return this._smallRedCard;
       }
 
-      public reset() { }
+      public reset() {}
 
-      public collapseBottom() { }
+      public collapseBottom() {}
 
-      public expandBottom() { }
+      public expandBottom() {}
     }
   }
 }
