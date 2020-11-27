@@ -11,7 +11,7 @@ namespace we {
       protected _leftGamePanel: BARoadmapLeftPanel;
       protected _rightGamePanel: BARoadmapRightPanel;
       protected _beadRoadResultPanel: BaBeadRoadResultPanel;
-      protected _minimizedTableLayer: MinimizedTableLayer;
+      protected _minimizedTableLayer: ui.IMinimizedTableLayer & eui.Component;
 
       // protected _switchBaMode: eui.ToggleSwitch;
       protected _switchBaMode: ui.BaseButton;

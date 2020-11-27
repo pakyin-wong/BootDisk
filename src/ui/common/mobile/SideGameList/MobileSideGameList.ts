@@ -240,7 +240,7 @@ namespace we {
       protected onHide() {
         env.isShowingAlreadyBetPanel = false;
       }
-      
+
       protected updateView() {
         this._dmm.removeToggler();
 

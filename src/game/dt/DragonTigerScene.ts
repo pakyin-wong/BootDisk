@@ -10,6 +10,7 @@ namespace we {
       protected _leftGamePanel: DTRoadmapLeftPanel;
       protected _rightGamePanel: DTRoadmapRightPanel;
       protected _beadRoadResultPanel: DTBeadRoadResultPanel;
+      protected _minimizedTableLayer: ui.IMinimizedTableLayer & eui.Component;
 
       constructor(data: any) {
         super(data);
@@ -44,6 +45,9 @@ namespace we {
           (<we.dt.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
           (<we.dt.TableLayer>this._tableLayer).totalPerson = evt.data.count;
           // this._leftGamePanel.totalBet = evt.data.total;
+          if (this._minimizedTableLayer) {
+            this._minimizedTableLayer.updateBetLabel(false, betInfo);
+          }
         }
       }
 
@@ -55,6 +59,9 @@ namespace we {
             (<we.dt.TableLayer>this._tableLayer).totalAmount = { DRAGON: 0, TIGER: 0 };
             (<we.dt.TableLayer>this._tableLayer).totalPerson = { DRAGON: 0, TIGER: 0 };
           }
+        }
+        if (this._minimizedTableLayer) {
+          this._minimizedTableLayer.updateBetLabel(true);
         }
       }
     }

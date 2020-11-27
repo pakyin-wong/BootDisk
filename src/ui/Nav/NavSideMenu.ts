@@ -151,7 +151,11 @@ namespace we {
               action: {
                 text: i18n.t('nav.menu.confirm'),
                 onClick: () => {
-                  window.location.replace(env.redirecturl);
+                  if (env.redirecturl) {
+                    window.location.replace(env.redirecturl);
+                  } else {
+                    window.close();
+                  }
                 },
               },
             },

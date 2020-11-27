@@ -110,6 +110,7 @@ namespace we {
       protected onPanelToggle(evt: egret.TouchEvent) {
         console.log(this._panelDismissToggleBtn.active);
         env.isAutoDismiss = this._panelDismissToggleBtn.active;
+        dir.socket.updateSetting('isAutoDismiss', env.isAutoDismiss ? '1' : '0');
         this._panelDismissToggleBtn['tooltipText'] = env.isAutoDismiss ? 'live.tooltip.autoFullscreenToggleOff' : 'live.tooltip.autoFullscreenToggleOn';
         // env.isAutoDismiss = !env.isAutoDismiss;
       }

@@ -125,7 +125,7 @@ namespace we {
             this.additem(i18n.t('overlaypanel_bethistory_recordtab_bettype'), utils.BetHistory.formatBetType(this.data.gametype, this.data.field));
             this.additem(i18n.t('overlaypanel_bethistory_recordtab_betamount'), utils.formatNumber(this.data.betamount, true));
             this.additem(i18n.t('overlaypanel_bethistory_record_vaildbet'), utils.formatNumber(this.data.validbetamount, true));
-            this.additem(i18n.t('overlaypanel_bethistory_record_rollingRate'), `${this.data.commissionrate}%`);
+            this.additem(i18n.t('overlaypanel_bethistory_record_rollingRate'), `${this.data.commissionrate * 0.01}%`);
             this.additem(i18n.t('overlaypanel_bethistory_record_rolling'), utils.formatNumber(this.data.commission, true));
             this.additem(i18n.t('overlaypanel_bethistory_recordtab_finbalance'), utils.formatNumber(this.data.afterbalance, true));
 

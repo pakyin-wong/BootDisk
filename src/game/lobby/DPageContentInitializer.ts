@@ -59,50 +59,54 @@ namespace we {
         sliderContainer.addChild(dimmer);
         group.addChild(sliderContainer);
 
-        let title: SectionTitle = new SectionTitle();
-        group.addChild(title);
-        title.width = this._root.stage.stageWidth - 146;
-        title.height = 110;
-        title.renderText = () => i18n.t('mobile_lobby_feature_title');
+        if (dir.lobbyResources.homeLargeBanners.length > 0) {
+          const title: SectionTitle = new SectionTitle();
+          group.addChild(title);
+          title.width = this._root.stage.stageWidth - 146;
+          title.height = 110;
+          title.renderText = () => i18n.t('mobile_lobby_feature_title');
 
-        // init 4 featured posters
-        const featuredPosterHeight = 800;
-        this._largeBanner = new eui.Group();
-        const hlayout = new eui.HorizontalLayout();
-        hlayout.horizontalAlign = egret.HorizontalAlign.CENTER;
-        hlayout.gap = gapSize;
-        hlayout.paddingBottom = 49;
-        this._largeBanner.horizontalCenter = 0;
-        this._largeBanner.layout = hlayout;
+          // init 4 featured posters
+          const featuredPosterHeight = 800;
+          this._largeBanner = new eui.Group();
+          const hlayout = new eui.HorizontalLayout();
+          hlayout.horizontalAlign = egret.HorizontalAlign.CENTER;
+          hlayout.gap = gapSize;
+          hlayout.paddingBottom = 49;
+          this._largeBanner.horizontalCenter = 0;
+          this._largeBanner.layout = hlayout;
 
-        const postersContainer = new eui.Group();
-        postersContainer.percentWidth = 100;
-        postersContainer.addChild(this._largeBanner);
-        group.addChild(postersContainer);
+          const postersContainer = new eui.Group();
+          postersContainer.percentWidth = 100;
+          postersContainer.addChild(this._largeBanner);
+          group.addChild(postersContainer);
+        }
 
-        title = new SectionTitle();
-        group.addChild(title);
-        title.width = this._root.stage.stageWidth - 146;
-        title.height = 110;
-        title.renderText = () => i18n.t('mobile_lobby_hot_game_title');
+        if (dir.lobbyResources.homeBanners.length > 0) {
+          const title = new SectionTitle();
+          group.addChild(title);
+          title.width = this._root.stage.stageWidth - 146;
+          title.height = 110;
+          title.renderText = () => i18n.t('mobile_lobby_hot_game_title');
 
-        // init 3 grids
-        this._smallBanner = new eui.Group();
-        const tlayout = new eui.TileLayout();
-        tlayout.requestedColumnCount = 3;
-        tlayout.paddingTop = gapSize;
-        tlayout.paddingBottom = 49;
-        tlayout.horizontalGap = gapSize;
-        tlayout.verticalGap = gapSize;
-        // tlayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (tlayout.requestedColumnCount - 1)) / tlayout.requestedColumnCount;
-        tlayout.columnWidth = 786;
-        this._smallBanner.layout = tlayout;
-        this._smallBanner.horizontalCenter = 0;
+          // init 3 grids
+          this._smallBanner = new eui.Group();
+          const tlayout = new eui.TileLayout();
+          tlayout.requestedColumnCount = 3;
+          tlayout.paddingTop = gapSize;
+          tlayout.paddingBottom = 49;
+          tlayout.horizontalGap = gapSize;
+          tlayout.verticalGap = gapSize;
+          // tlayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (tlayout.requestedColumnCount - 1)) / tlayout.requestedColumnCount;
+          tlayout.columnWidth = 786;
+          this._smallBanner.layout = tlayout;
+          this._smallBanner.horizontalCenter = 0;
 
-        const gridsContainer = new eui.Group();
-        gridsContainer.percentWidth = 100;
-        gridsContainer.addChild(this._smallBanner);
-        group.addChild(gridsContainer);
+          const gridsContainer = new eui.Group();
+          gridsContainer.percentWidth = 100;
+          gridsContainer.addChild(this._smallBanner);
+          group.addChild(gridsContainer);
+        }
 
         this.reloadBanners();
 
@@ -167,36 +171,38 @@ namespace we {
       }
 
       public reloadBanners() {
-        this._largeBanner.removeChildren();
-        this._smallBanner.removeChildren();
-
         this._root._bannerSlider.configSlides(dir.lobbyResources.homeHeroBanners);
 
-        for (let i = 0, len = Math.min(dir.lobbyResources.homeLargeBanners.length, 4); i < len; i++) {
-          const { image, link } = dir.lobbyResources.homeLargeBanners[i];
-          const poster = new LobbyBannerItem();
-          poster.skinName = 'skin_desktop.LargeBannerSkin';
-          poster.texture = image;
-          poster.link = link;
-          this._largeBanner.addChild(poster);
+        if (dir.lobbyResources.homeLargeBanners.length > 0) {
+          this._largeBanner.removeChildren();
+          for (let i = 0, len = Math.min(dir.lobbyResources.homeLargeBanners.length, 4); i < len; i++) {
+            const { image, link } = dir.lobbyResources.homeLargeBanners[i];
+            const poster = new LobbyBannerItem();
+            poster.skinName = 'skin_desktop.LargeBannerSkin';
+            poster.texture = image;
+            poster.link = link;
+            this._largeBanner.addChild(poster);
+          }
         }
+        if (dir.lobbyResources.homeBanners.length > 0) {
+          this._smallBanner.removeChildren();
+          dir.lobbyResources.homeBanners.forEach(banner => {
+            const { image, link, title, description } = banner;
+            const poster = new LobbyBannerItem();
+            poster.skinName = 'skin_desktop.SmallBannerSkin';
+            poster.texture = image;
+            poster.link = link;
+            poster.title = title;
+            poster.description = description;
+            this._smallBanner.addChild(poster);
 
-        dir.lobbyResources.homeBanners.forEach(banner => {
-          const { image, link, title, description } = banner;
-          const poster = new LobbyBannerItem();
-          poster.skinName = 'skin_desktop.SmallBannerSkin';
-          poster.texture = image;
-          poster.link = link;
-          poster.title = title;
-          poster.description = description;
-          this._smallBanner.addChild(poster);
-
-          // TODO: remove, this is for testing!!!!!
-          // if (!title) {
-          //   poster.title = '百家樂';
-          //   poster.description = 'The perfect game for startup';
-          // }
-        });
+            // TODO: remove, this is for testing!!!!!
+            // if (!title) {
+            //   poster.title = '百家樂';
+            //   poster.description = 'The perfect game for startup';
+            // }
+          });
+        }
       }
     }
   }

@@ -73,7 +73,7 @@ namespace we {
           this.setText(this._txt_record_bettype, utils.BetHistory.formatBetType(this.data.gametype, this.data.field));
           this.setText(this._txt_record_betamount, utils.formatNumber(this.data.betamount, true));
           this.setText(this._txt_record_vaildbet, utils.formatNumber(this.data.validbetamount, true));
-          this.setText(this._txt_record_rollingRate, `${this.data.commissionrate}%`);
+          this.setText(this._txt_record_rollingRate, `${this.data.commissionrate * 0.01}%`);
           this.setText(this._txt_record_rolling, utils.formatNumber(this.data.commission, true));
           this.setText(this._txt_record_orgbalance, utils.formatNumber(this.data.beforebalance, true));
           this.setText(this._txt_record_finbalance, utils.formatNumber(this.data.afterbalance, true));

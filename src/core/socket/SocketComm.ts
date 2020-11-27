@@ -290,7 +290,7 @@ namespace we {
       protected handleReady(player: data.PlayerSession, timestamp: string) {
         // return data with struct data.PlayerSession
 
-        //console.log('player',player);
+        // console.log('player',player);
 
         this.updateTimestamp(timestamp);
         env.playerID = player.playerid;
@@ -303,6 +303,7 @@ namespace we {
         env.showGoodRoadHint = settings.showGoodRoadHint === '1' ? true : false;
         env.autoConfirmBet = settings.autoConfirmBet === '1' ? true : false;
         env.voice = settings.voice ? settings.voice : 'cn';
+        env.isAutoDismiss = settings.isAutoDismiss === '1' ? true : false;
         env.redirecturl = player.redirecturl;
 
         env.currentChipSelectedIndex = settings.currentChipSelectedIndex ? parseInt(settings.currentChipSelectedIndex) : 0;
@@ -431,9 +432,9 @@ namespace we {
               ],
             };
 
-        //if (!Array.isArray(env.betLimits)) {
-        //env.betLimits = [env.betLimits];
-        //}
+        // if (!Array.isArray(env.betLimits)) {
+        // env.betLimits = [env.betLimits];
+        // }
         const keys = Object.keys(env.betLimits);
         env.currentSelectedBetLimitIndex = player.profile.settings.currentSelectedBetLimitIndex ? player.profile.settings.currentSelectedBetLimitIndex : 0;
         let minIdx = env.currentSelectedBetLimitIndex;

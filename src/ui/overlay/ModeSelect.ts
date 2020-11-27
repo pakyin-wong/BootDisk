@@ -12,11 +12,16 @@ namespace we {
         super('ModeSelect');
       }
 
-      protected mount() {
-        super.mount();
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
         this.initTxt();
         this.addListeners();
         this.update();
+      }
+
+      protected clearOrientationDependentComponent() {
+        super.clearOrientationDependentComponent();
+        this.removeListeners();
       }
 
       protected destroy() {
@@ -36,6 +41,7 @@ namespace we {
             this.onClickLightMode();
             break;
         }
+        this.invalidateState();
       }
 
       private initTxt() {

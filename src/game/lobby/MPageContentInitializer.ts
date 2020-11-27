@@ -15,6 +15,10 @@ namespace we {
           root._sliderBullet.imageSlider = root._bannerSlider;
         }
 
+        if (dir.lobbyResources.homeBanners.length == 0) {
+          this._root._hotGameGroup.parent.removeChild(this._root._hotGameGroup);
+        }
+
         root.scroller.viewport.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.touchBegin, this, true, -1);
         root.scroller.viewport.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.touchContinue, this, true, -1);
         root.scroller.viewport.addEventListener(egret.TouchEvent.TOUCH_END, this.touchContinue, this, true, -1);
@@ -29,34 +33,37 @@ namespace we {
       }
 
       public reloadBanners() {
-        this._root._posterContainer.removeChildren();
-        this._root._hotgameContainer.removeChildren();
-
         // init image slider
         this._root._bannerSlider.configSlides(dir.lobbyResources.homeHeroBanners);
 
-        for (let i = 0, len = Math.min(dir.lobbyResources.homeLargeBanners.length, 4); i < len; i++) {
-          const { image, link } = dir.lobbyResources.homeLargeBanners[i];
-          const poster = new LobbyBannerItem();
-          poster.skinName = 'skin_mobile.LargeBannerSkin';
-          poster.texture = image;
-          poster.link = link;
-          poster.hoverScale = 1;
-          this._root._posterContainer.addChild(poster);
+        if (dir.lobbyResources.homeLargeBanners.length > 0) {
+          this._root._posterContainer.removeChildren();
+          for (let i = 0, len = Math.min(dir.lobbyResources.homeLargeBanners.length, 4); i < len; i++) {
+            const { image, link } = dir.lobbyResources.homeLargeBanners[i];
+            const poster = new LobbyBannerItem();
+            poster.skinName = 'skin_mobile.LargeBannerSkin';
+            poster.texture = image;
+            poster.link = link;
+            poster.hoverScale = 1;
+            this._root._posterContainer.addChild(poster);
+          }
         }
 
-        // init 3 grids
-        dir.lobbyResources.homeBanners.forEach(banner => {
-          const { image, link, title, description } = banner;
-          const poster = new LobbyBannerItem();
-          poster.skinName = 'skin_mobile.SmallBannerSkin';
-          poster.texture = image;
-          poster.link = link;
-          poster.title = title;
-          poster.description = description;
-          poster.hoverScale = 1;
-          this._root._hotgameContainer.addChild(poster);
-        });
+        if (dir.lobbyResources.homeBanners.length > 0) {
+          this._root._hotgameContainer.removeChildren();
+          // init 3 grids
+          dir.lobbyResources.homeBanners.forEach(banner => {
+            const { image, link, title, description } = banner;
+            const poster = new LobbyBannerItem();
+            poster.skinName = 'skin_mobile.SmallBannerSkin';
+            poster.texture = image;
+            poster.link = link;
+            poster.title = title;
+            poster.description = description;
+            poster.hoverScale = 1;
+            this._root._hotgameContainer.addChild(poster);
+          });
+        }
       }
 
       protected touchBegin(e: egret.TouchEvent) {

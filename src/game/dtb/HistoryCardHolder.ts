@@ -1,6 +1,8 @@
 namespace we {
   export namespace dtb {
     export class HistoryCardHolder extends ui.Panel implements ui.HistoryCardHolder {
+      protected _gameData: data.GameData & data.BlockchainGameData;
+
       protected _dragonSum: eui.Label;
       protected _tigerSum: eui.Label;
 
@@ -9,6 +11,41 @@ namespace we {
 
       protected _dragonNum: eui.Label;
       protected _tigerNum: eui.Label;
+
+      public setValue(gameData: data.GameData & data.BlockchainGameData) {
+        this._gameData = gameData;
+      }
+
+      public update(gameData: data.GameData & data.BlockchainGameData, tableId: string) {
+        this.setValue(gameData);
+        if (this.checkFirstRound()) {
+          this.setAllCards(false);
+          this.setAllNums(false);
+          this.setAllSums(false);
+        } else {
+          this.setCards(tableId);
+          this.setNumber(this._gameData.currentcardindex);
+        }
+      }
+
+      public checkFirstRound() {
+        // run after setNumber
+        if (this._gameData.maskedcardssnList && this._gameData.maskedcardssnList[0] && this._gameData.maskedcardssnList[0] != '*') {
+          const firstNumber = this.getUnmaskedCardNumber(this._gameData.maskedcardssnList[0]);
+          if (firstNumber + 1 >= this._gameData.currentcardindex) {
+            return true;
+          }
+        }
+        return false;
+      }
+
+      protected getUnmaskedCardNumber(cardString: string) {
+        if (!cardString || cardString.length < 3) {
+          return -9999;
+        }
+        const number = +cardString.slice(0, 2);
+        return number;
+      }
 
       public setCards(tableId: string) {
         this.setAllCards(false);

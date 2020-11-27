@@ -116,7 +116,7 @@ namespace we {
         redPinClone.y = redPin.globalTransformMatrix.ty;
         redPinClone.anchorOffsetX = 14;
         redPinClone.anchorOffsetY = 111 + redPinClone.texture.textureHeight * redPinClone.scaleY;
-        redPinClone.alpha = 0.7;
+        redPinClone.alpha = 0;
         // redPinClone.pixelHitTest = true;
         redPinClone.touchEnabled = true;
         this._ringAnim.addChild(redPinClone);
@@ -278,13 +278,13 @@ namespace we {
           egret.Tween.get(bone.origin)
             .to({ rotation: destRad }, 1000, function (t) {
               bone.invalidUpdate();
-              this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
+              // this._clonedPin.rotation = 90 + Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a)*180/Math.PI;
               return t;
             })
             .call(resolve)
         );
-        bone.invalidUpdate();
-        this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
+        // bone.invalidUpdate();
+        // this._clonedPin.rotation = 90 + Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a)*180/Math.PI;
       }
 
       protected async collapseShoe() {
@@ -320,9 +320,27 @@ namespace we {
 
       protected abstract updateCardInfoButtons();
 
-      protected getPinRad(num = this._gameData.currentcardindex) {
+      /*
+      protected getPinRad(num = this._gameData.redcardindex) {
+        const totalCount = this._gameData.maskedcardssnList.length;
+        const proportion = (num - this._gameData.currentcardindex) / totalCount;
+        const angleOffset = this._pinInterval * proportion; // -40 to 41 / 131 to 49
+        const destAngle = this._pinStartAngle + angleOffset;
+        const destRad = (destAngle * Math.PI) / 180;
+        return destRad;
+      }
+
+      protected getShoeRad(num = this._gameData.currentcardindex) {
         const totalCount = this._gameData.maskedcardssnList.length;
         const proportion = (totalCount - num) / totalCount;
+        const angleOffset = this._pinInterval * proportion; // -72 to 9
+        const destAngle = this._pinStartAngle + angleOffset;
+        const destRad = (destAngle * Math.PI) / 180;
+        return destRad;
+      }
+      */
+      protected getPinRad(num = this._gameData.currentcardindex) {
+        const proportion = num / this._gameData.maskedcardssnList.length;
         const angleOffset = this._pinInterval * proportion; // -40 to 41 / 131 to 49
         const destAngle = this._pinStartAngle + angleOffset;
         const destRad = (destAngle * Math.PI) / 180;
@@ -330,8 +348,7 @@ namespace we {
       }
 
       protected getShoeRad(num = this._gameData.redcardindex) {
-        const totalCount = this._gameData.maskedcardssnList.length;
-        const proportion = (totalCount - num) / totalCount;
+        const proportion = num / this._gameData.maskedcardssnList.length;
         const angleOffset = this._pinInterval * proportion; // -72 to 9
         const destAngle = this._pinStartAngle + angleOffset;
         const destRad = (destAngle * Math.PI) / 180;
@@ -345,7 +362,7 @@ namespace we {
           egret.Tween.get(bone.origin)
             .to({ rotation: destRad }, 1000, function (t) {
               bone.invalidUpdate();
-              this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
+              // this._clonedPin.rotation = 90 + Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a)*180/Math.PI;
               return t;
             })
             .call(resolve)

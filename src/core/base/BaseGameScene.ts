@@ -663,7 +663,7 @@ namespace we {
         }
         if (this._previousState !== we.core.GameState.FINISH) {
           if (this._resultDisplay) {
-            this._resultDisplay.updateResult(this._gameData);
+            this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
           }
 
           if (this._resultMessage) {
