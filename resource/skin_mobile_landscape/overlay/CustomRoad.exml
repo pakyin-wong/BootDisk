@@ -19,7 +19,7 @@
 		<e:Group height="132" x="44" y="53">
 			<ui:RunTimeLabel id="_txt_title" text="Label" height="119" verticalAlign="middle" textColor="0xc59466" size="80"
 			                 bold="true" scaleX="1" scaleY="1" targetWidth="650" />
-			<e:Group x="402" y="26.99999999999997" scaleX="1" scaleY="1" height="97">
+			<!--<e:Group x="402" y="26.99999999999997" scaleX="1" scaleY="1" height="97">
 				<ui:RunTimeLabel id="_selectAllLabel" text="Select All" textAlign="center" anchorOffsetX="0" width="150" size="34"
 				                 verticalAlign="middle" touchEnabled="false" x="33" y="12" scaleX="1" scaleY="1" targetWidth="200" />
 				<ui:ToggleButton id="_selectAllButton" resNameOn="d_lobby_panel_button_checkboxes_active_png"
@@ -30,7 +30,7 @@
 				<e:layout>
 					<e:HorizontalLayout verticalAlign="middle" paddingTop="16" gap="15" />
 				</e:layout>
-			</e:Group>
+			</e:Group>-->
 			<e:layout>
 				<e:HorizontalLayout verticalAlign="middle" gap="10" />
 			</e:layout>
