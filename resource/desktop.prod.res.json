@@ -9,7 +9,7 @@
 			"name": "scene_lobby"
 		},
 		{
-			"keys": "frame-3_jpg,ba_json,baccarat_game_result_tex_png,baccarat_ui_tex_png",
+			"keys": "frame-3_jpg,ba_json,baccarat_game_result_tex_png,baccarat_ui_tex_png,d_sq_ba_timer_bg_png",
 			"name": "scene_baccarat"
 		},
 		{
@@ -51,6 +51,10 @@
 		{
 			"keys": "blockchain_dt_tex_png,dragon_tex_png,tiger_tex_png,we_bcdt_sfx_result_dragonwin_mp3,we_bcdt_sfx_result_tigerwin_mp3,we_bcdt_sfx_scanning_loop_mp3,we_bcdt_sfx_shoe_in_mp3,we_bcdt_sfx_shoe_out_mp3",
 			"name": "scene_bc_dragontiger"
+		},
+		{
+			"keys": "blockchain_sqba_tex_png",
+			"name": "scene_bc_sq_baccarat"
 		}
 	],
 	"resources": [
@@ -1072,6 +1076,16 @@
 			"url": "assets/sounds/sn_win_zh.mp3",
 			"type": "sound",
 			"name": "sn_win_zh_mp3"
+		},
+		{
+			"url": "assets/nmimages/d/ba/d_sq_ba_timer_bg.png",
+			"type": "image",
+			"name": "d_sq_ba_timer_bg_png"
+		},
+		{
+			"url": "assets/dragonbones/d/bamb/blockchain_sqba_tex.png",
+			"type": "image",
+			"name": "blockchain_sqba_tex_png"
 		}
 	]
 }
