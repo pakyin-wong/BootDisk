@@ -127,6 +127,7 @@ interface GameTypeMap {
     BAB: 27;
     DTB: 28;
     BAMB: 29;
+    BASB: 30;
 }
 declare const GameType: GameTypeMap;
 

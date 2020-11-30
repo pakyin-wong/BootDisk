@@ -21,6 +21,7 @@ namespace we {
           case core.GameType.BAS:
           case core.GameType.BAM:
           case core.GameType.BAB:
+          case core.GameType.BASB:
           case core.GameType.BAMB:
             switch (winType) {
               case ba.WinType.BANKER:
@@ -66,8 +67,8 @@ namespace we {
         this.addChild(this._display);
         if (env.isMobile) {
           if (env.orientation === 'portrait') {
-            this._display.scaleX = 830 / this._display.width;
-            this._display.scaleY = 300 / this._display.height;
+            // this._display.scaleX = 830 / this._display.width;
+            // this._display.scaleY = 300 / this._display.height;
           }
         }
       }

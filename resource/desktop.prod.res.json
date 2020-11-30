@@ -9,7 +9,7 @@
 			"name": "scene_lobby"
 		},
 		{
-			"keys": "frame-3_jpg,ba_json,baccarat_game_result_tex_png,baccarat_ui_tex_png",
+			"keys": "frame-3_jpg,ba_json,baccarat_game_result_tex_png,baccarat_ui_tex_png,d_sq_ba_timer_bg_png",
 			"name": "scene_baccarat"
 		},
 		{
@@ -1076,6 +1076,11 @@
 			"url": "assets/sounds/sn_win_zh.mp3",
 			"type": "sound",
 			"name": "sn_win_zh_mp3"
+		},
+		{
+			"url": "assets/nmimages/d/ba/d_sq_ba_timer_bg.png",
+			"type": "image",
+			"name": "d_sq_ba_timer_bg_png"
 		},
 		{
 			"url": "assets/dragonbones/d/bamb/blockchain_sqba_tex.png",
