@@ -65,6 +65,7 @@ namespace we {
           case core.GameType.BAS:
           case core.GameType.BAM:
           case core.GameType.BAB:
+          case core.GameType.BASB:
           case core.GameType.BAMB:
             switch (winType) {
               case ba.WinType.BANKER:

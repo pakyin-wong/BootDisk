@@ -690,6 +690,7 @@ export namespace core {
           case core.GameType.BAI:
           case core.GameType.BAS:
           case core.GameType.BAB:
+          case core.GameType.BASB:
           case core.GameType.BAMB:
           case core.GameType.DTB:
           case core.GameType.DT: {

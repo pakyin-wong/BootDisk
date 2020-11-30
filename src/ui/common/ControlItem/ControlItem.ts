@@ -531,6 +531,7 @@ namespace we {
           case core.GameType.BAS:
           case core.GameType.BAM:
           case core.GameType.BAB:
+          case core.GameType.BASB:
           case core.GameType.BAMB:
           case core.GameType.DT:
           case core.GameType.DTB:

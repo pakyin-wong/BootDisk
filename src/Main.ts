@@ -11,11 +11,13 @@ class Main extends eui.UILayer {
     egret.lifecycle.onPause = () => {
       dir.audioCtr.pause();
       // egret.ticker.pause();
+      we.utils.startTicker(egret.ticker);
     };
 
     egret.lifecycle.onResume = () => {
       dir.audioCtr.resume();
       // egret.ticker.resume();
+      we.utils.stopTicker();
     };
 
     mouse.enable(this.stage);
