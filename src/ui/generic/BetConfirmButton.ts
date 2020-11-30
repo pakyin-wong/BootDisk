@@ -14,6 +14,7 @@ namespace we {
        **/
 
       protected _isBetState = true; // check if betting(have uncfm bet) if true,disable hover animation
+      protected _layout: string; // desktop, mobile horizonal, or mobile vertical
       public constructor() {
         super();
         this.orientationDependent = false;
@@ -21,6 +22,11 @@ namespace we {
       protected mount() {
         super.mount();
         this.addEventListeners();
+        if (!env.isMobile) {
+          this._layout = '';
+        } else {
+          this._layout = '_horizontal';
+        }
       }
 
       protected initDisplay() {
@@ -74,7 +80,7 @@ namespace we {
         slot.display = layer;
       }
 
-      public setColor(r,g,b) {
+      public setColor(r, g, b) {
         const colorFilter = new egret.ColorMatrixFilter([r, 0, 0, 0, 0, 0, g, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 1, 0]);
         this.clone.filters = [colorFilter];
       }
@@ -99,12 +105,12 @@ namespace we {
 
         this._display.animation.reset();
         if (env.autoConfirmBet) {
-          status = this._enabled ? 'idle_switch_to_on' : 'disable_switch_to_on';
+          status = this._enabled ? `idle_switch_to_on${this._layout}` : `disable_switch_to_on${this._layout}`;
         } else {
-          status = this._enabled ? 'auto_confirm_idle_to_hover' : 'disable_switch_to_off';
+          status = this._enabled ? `idle_switch_to_off${this._layout}` : `disable_switch_to_off${this._layout}`;
         }
         this.bettingPlaying = false;
-        this._display.animation.fadeIn(status, 0, 1, 0, 'CONFIRM_GROUP2');
+        this._display.animation.fadeIn(`${status + this._layout}`, 0, 1, 0, 'CONFIRM_GROUP2');
       }
 
       protected bettingPlaying: boolean = false;
@@ -115,48 +121,56 @@ namespace we {
           switch (env.autoConfirmBet) {
             case true:
               this._display.animation.reset();
-                this.bettingPlaying = false;
-              this._display.animation.fadeIn('auto_confirm_idle', 0, 1, 0, 'CONFIRM_GROUP2');
+              this.bettingPlaying = false;
+              this._display.animation.fadeIn(`auto_confirm_idle${this._layout}`, 0, 1, 0, 'CONFIRM_GROUP2');
               break;
             case false:
               if (!this._enabled) {
                 // if not in bet state
+                console.log('........not bet state..');
                 this._display.animation.reset();
                 this.bettingPlaying = false;
-                this._display.animation.fadeIn('disable', 0, 1, 0, 'CONFIRM_GROUP2');
+                this._display.animation.fadeIn(`disable${this._layout}`, 0, 1, 0, 'CONFIRM_GROUP2');
               } else if (!oldDown && this._down) {
                 // if press down
+                console.log('.........press down.');
                 if (!this.bettingPlaying) {
-                  this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
+                  this._display.animation.fadeIn(`betting${this._layout}`, 0, 0, 0, 'CONFIRM_GROUP1');
                   this.bettingPlaying = true;
                 }
-                this._display.animation.fadeIn('hover_to_press', 0, 1, 0, 'CONFIRM_GROUP2');
+                if (!env.isMobile) {
+                  this._display.animation.fadeIn(`hover_to_press${this._layout}`, 0, 1, 0, 'CONFIRM_GROUP2');
+                }
               } else if (this._hover && oldDown && !this._down) {
                 // if press up
+                console.log('........press up ..');
                 this._display.animation.reset();
                 this.bettingPlaying = false;
-                this._display.animation.fadeIn('press_to_disable', 0, 1, 0, 'CONFIRM_GROUP2');
+                this._display.animation.fadeIn(`press_to_disable${this._layout}`, 0, 1, 0, 'CONFIRM_GROUP2');
               } else if (!oldHover && this._hover) {
                 // if roll over
+                console.log('........roll over..');
                 if (!this.bettingPlaying) {
-                  this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
+                  this._display.animation.fadeIn(`betting${this._layout}`, 0, 0, 0, 'CONFIRM_GROUP1');
                   this.bettingPlaying = true;
                 }
-                this._display.animation.fadeIn('idle_to_hover', 0, 1, 0, 'CONFIRM_GROUP2');
+                this._display.animation.fadeIn(`idle_to_hover${this._layout}`, 0, 1, 0, 'CONFIRM_GROUP2');
               } else if (oldHover && !this._hover) {
                 // roll out
+                console.log('........roll out..');
                 if (!this.bettingPlaying) {
-                  this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
+                  this._display.animation.fadeIn(`betting${this._layout}`, 0, 0, 0, 'CONFIRM_GROUP1');
                   this.bettingPlaying = true;
                 }
-                this._display.animation.fadeIn('hover_to_idle', 0, 1, 0, 'CONFIRM_GROUP2');
+                this._display.animation.fadeIn(`hover_to_idle${this._layout}`, 0, 1, 0, 'CONFIRM_GROUP2');
               } else {
                 // if idle on bet state
+                console.log('.......idle on bet state...');
                 if (!this.bettingPlaying) {
-                  this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
+                  this._display.animation.fadeIn(`betting${this._layout}`, 0, 0, 0, 'CONFIRM_GROUP1');
                   this.bettingPlaying = true;
                 }
-                this._display.animation.fadeIn('disble_to_idle', 0, 1, 0, 'CONFIRM_GROUP2');
+                this._display.animation.fadeIn(`disble_to_idle${this._layout}`, 0, 1, 0, 'CONFIRM_GROUP2');
               }
               break;
           }

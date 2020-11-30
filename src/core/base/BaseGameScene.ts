@@ -235,6 +235,7 @@ namespace we {
           this._chipLayer.addEventListener(core.Event.EXCEED_TABLE_LIMIT, this.exceedTableLimit, this);
           this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
           this._chipLayer.addEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
+          dir.evtHandler.addEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.resetUncfmBet, this);
         }
         // if (this._confirmButton) {
         //   this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
@@ -313,6 +314,7 @@ namespace we {
           this._chipLayer.removeEventListener(core.Event.EXCEED_TABLE_LIMIT, this.exceedTableLimit, this);
           this._chipLayer.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
           this._chipLayer.removeEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
+          dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.resetUncfmBet, this);
         }
         // if (this._confirmButton) {
         //   this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
@@ -830,6 +832,15 @@ namespace we {
               dir.socket.bet(this._tableId, bets, this.onBetReturned.bind(this));
             }
           }
+        }
+      }
+
+      protected resetUncfmBet() {
+        console.log("AUTO-CONFIRM-1");
+        this._chipLayer.resetUnconfirmedBet();
+        if (this._betRelatedGroup) {
+          console.log("AUTO-CONFIRM-2");
+          this._betRelatedGroup.changeBtnState(false, 0, this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid);
         }
       }
 

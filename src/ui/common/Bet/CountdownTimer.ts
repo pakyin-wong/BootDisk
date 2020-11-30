@@ -112,7 +112,7 @@ namespace we {
 
       protected changeTextColor() {
         if (this.isPress) {
-          this.countdownLabel.textColor = 0x003418;
+          this.countdownLabel.textColor = env.isMobile ? 0xffffff : 0x003418;
         } else if (this.isHover) {
           this.countdownLabel.textColor = 0xffffff;
         } else {
