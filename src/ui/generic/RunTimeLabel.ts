@@ -5,6 +5,7 @@ namespace we {
       private _isReg: boolean = false;
 
       public _textKey: string = '';
+      public _oddKey: string = '';
       protected _targetWidth: number = -1;
 
       constructor() {
@@ -18,6 +19,14 @@ namespace we {
 
       set textKey(value: string) {
         this._textKey = value;
+      }
+
+      get oddKey(): string {
+        return this._oddKey;
+      }
+
+      set oddKey(val: string) {
+        this._oddKey = val;
       }
 
       public set targetWidth(val: number) {
@@ -36,6 +45,8 @@ namespace we {
           this.render();
         } else if (this._textKey) {
           this.renderText = () => i18n.t(this._textKey);
+        } else if (this._oddKey) {
+          this.renderText = () => i18n.oddt(this._oddKey);
         }
       }
 

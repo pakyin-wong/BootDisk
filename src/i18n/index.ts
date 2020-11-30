@@ -86,5 +86,27 @@ namespace we {
     export function drop(item: ui.IRunTimeComponent) {
       dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, item.render, item);
     }
+
+    function replaceOdd(string) {
+      if (env.language === core.lang.CN || env.language === core.lang.ZH) {
+        let re = /(\d+)[ ]?:[ ]?(\d+)/;
+        let newstr = string.replace(re, '$2:$1');
+        return newstr;
+      }
+    }
+    // localization for odd string, objKey (e.g. ba.BANKER)
+    export function oddt(objKey) {
+      const a: string[] = objKey.split('.');
+      if (a.length==2) {
+        const cat = a[0];
+        const field = a[1];
+        const limits = env.getBetLimitSet(cat, env.currentSelectedBetLimitIndex);
+        const c = a.join('.');
+        const newstr = replaceOdd(limits[field]);
+        return newstr;
+      } else {
+        return objKey;
+      }
+    }
   }
 }
