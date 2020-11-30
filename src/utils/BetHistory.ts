@@ -18,6 +18,7 @@ namespace we {
           case we.core.GameType.BAI:
           case we.core.GameType.BAM:
           case we.core.GameType.BAB:
+          case we.core.GameType.BASB:
           case we.core.GameType.BAMB:
             return i18n.t(`betfield_baccarat_${bettype.toLowerCase()}`);
           case we.core.GameType.DT:
@@ -146,6 +147,7 @@ namespace we {
           case we.core.GameType.BAI:
           case we.core.GameType.BAM:
           case we.core.GameType.BAB:
+          case we.core.GameType.BASB:
           case we.core.GameType.BAMB:
             return new overlay.betHistory.BaResultItem(gameResult);
           case we.core.GameType.DT:
