@@ -34,7 +34,7 @@ namespace we {
         mouse.setButtonMode(this._confirmButton, true);
         this.addListeners();
         this.changeLang();
-        this._timer._isColorTransform = env.isMobile ? false : true;
+        this._timer._isColorTransform = true;
         this._timer.addEventListener('UPDATE', this.onRemainingTimeUpdate, this);
       }
 
@@ -48,12 +48,12 @@ namespace we {
         const confirmButton = this._confirmButton as ui.BetConfirmButton;
         if (confirmButton && confirmButton.setColor) {
           const remainingTime: number = evt.data;
-          if (remainingTime>10000) {
-            confirmButton.setColor(0,1,0);
-          } else if (remainingTime>5000) {
-            confirmButton.setColor(1,1,0);
+          if (remainingTime > 10000) {
+            confirmButton.setColor(0, 1, 0);
+          } else if (remainingTime > 5000) {
+            confirmButton.setColor(1, 1, 0);
           } else {
-            confirmButton.setColor(1,0,0);
+            confirmButton.setColor(1, 0, 0);
           }
         }
       }
@@ -81,9 +81,9 @@ namespace we {
         if (env.isMobile) {
           dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }
-        if (!env.isMobile) {
-          dir.evtHandler.addEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.changeTimerBg, this);
-        }
+        // if (!env.isMobile) {
+        dir.evtHandler.addEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.changeTimerBg, this);
+        // }
       }
 
       protected removeListeners() {
@@ -109,9 +109,9 @@ namespace we {
         if (env.isMobile) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }
-        if (!env.isMobile) {
-          dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.changeTimerBg, this);
-        }
+        // if (!env.isMobile) {
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.changeTimerBg, this);
+        // }
       }
 
       public changeBtnState(isEnable: boolean = true, totalUncfmBetAmount: number = 0, isPrevBet: boolean = false, isBetState: boolean = true) {
@@ -123,30 +123,30 @@ namespace we {
         this._doubleButton.touchChildren = this._doubleButton.touchEnabled = totalUncfmBetAmount ? true : false;
         this._repeatButton.touchChildren = this._repeatButton.touchEnabled = isPrevBet;
 
-        if (env.isMobile) {
-          this._undoButton.alpha = isEnable ? 1 : 0.5;
-          this._cancelButton.alpha = isEnable ? 1 : 0.5;
-          this._repeatButton.alpha = this._repeatButton.touchEnabled ? 1 : 0.5;
-          this._doubleButton.alpha = totalUncfmBetAmount ? 1 : 0.5;
-          this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isEnable;
-          this._confirmButton.alpha = isEnable ? 1 : 0.3;
-          if (this._timer.bg_color) {
-            this._timer.bg_color.alpha = isEnable ? 0.7 : 0;
-            if (isEnable) {
-              this._timer.bg_flash();
-            } else {
-              this._timer.removebg_flash();
-            }
-          }
-        } else {
-          this._undoButton.buttonEnabled = isEnable;
-          this._cancelButton.buttonEnabled = isEnable;
-          this._repeatButton.buttonEnabled = this._repeatButton.touchEnabled;
-          this._doubleButton.buttonEnabled = hasUncfmBet;
-          (this._confirmButton as ui.BetConfirmButton).buttonEnabled = isBetState && hasUncfmBet;
-          (this._confirmButton as ui.BetConfirmButton).isBetState = isBetState;
-          this._timer.bg_flash(false, isEnable);
-        }
+        // if (env.isMobile) {
+        //   this._undoButton.alpha = isEnable ? 1 : 0.5;
+        //   this._cancelButton.alpha = isEnable ? 1 : 0.5;
+        //   this._repeatButton.alpha = this._repeatButton.touchEnabled ? 1 : 0.5;
+        //   this._doubleButton.alpha = totalUncfmBetAmount ? 1 : 0.5;
+        //   this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isEnable;
+        //   this._confirmButton.alpha = isEnable ? 1 : 0.3;
+        //   if (this._timer.bg_color) {
+        //     this._timer.bg_color.alpha = isEnable ? 0.7 : 0;
+        //     if (isEnable) {
+        //       this._timer.bg_flash();
+        //     } else {
+        //       this._timer.removebg_flash();
+        //     }
+        //   }
+        // } else {
+        this._undoButton.buttonEnabled = isEnable;
+        this._cancelButton.buttonEnabled = isEnable;
+        this._repeatButton.buttonEnabled = this._repeatButton.touchEnabled;
+        this._doubleButton.buttonEnabled = hasUncfmBet;
+        (this._confirmButton as ui.BetConfirmButton).buttonEnabled = isBetState && hasUncfmBet;
+        (this._confirmButton as ui.BetConfirmButton).isBetState = isBetState;
+        this._timer.bg_flash(false, isEnable);
+        // }
       }
       protected onConfirmPressed() {
         this.dispatchEvent(new egret.Event('ON_CONFIRM_PRESS'));
@@ -195,11 +195,7 @@ namespace we {
       }
 
       set enableConfirm(e: boolean) {
-        if (env.isMobile) {
-          this._confirmButton.touchEnabled = e;
-        } else {
-          (this._confirmButton as ui.BetConfirmButton).buttonEnabled = e;
-        }
+        (this._confirmButton as ui.BetConfirmButton).buttonEnabled = e;
       }
 
       set enableCancel(e: boolean) {
@@ -221,16 +217,16 @@ namespace we {
       }
 
       protected changeLang() {
-        // for mobile only
         if (env.isMobile) {
-          this._repeatLabel.text = i18n.t('mobile_ba_repeat');
-          this._repeatLabel.targetWidth = 120;
-          this._cancelLabel.text = i18n.t('mobile_ba_clear');
-          this._cancelLabel.targetWidth = 120;
-          this._doubleLabel.text = i18n.t('mobile_ba_double');
-          this._doubleLabel.targetWidth = 120;
-          this._undoLabel.text = i18n.t('mobile_ba_undo');
-          this._undoLabel.targetWidth = 120;
+          // TODO
+          // this._repeatLabel.text = i18n.t('mobile_ba_repeat');
+          // this._repeatLabel.targetWidth = 120;
+          // this._cancelLabel.text = i18n.t('mobile_ba_clear');
+          // this._cancelLabel.targetWidth = 120;
+          // this._doubleLabel.text = i18n.t('mobile_ba_double');
+          // this._doubleLabel.targetWidth = 120;
+          // this._undoLabel.text = i18n.t('mobile_ba_undo');
+          // this._undoLabel.targetWidth = 120;
         }
       }
 
