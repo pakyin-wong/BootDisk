@@ -55,8 +55,8 @@ namespace we {
           this._dragonSumGroup.visible = true;
           this._tigerSumGroup.visible = true;
           if(env.orientation === 'portrait'){
-            this._dragonCardGroup.y = 951;
-            this._tigerCardGroup.y = 951;
+            this._dragonCardGroup.y = 851;
+            this._tigerCardGroup.y = 851;
           }else{
             this._dragonCardGroup.y = 856;
             this._tigerCardGroup.y = 856;
@@ -69,8 +69,8 @@ namespace we {
           this._dragonSumGroup.visible = false;
           this._tigerSumGroup.visible = false;
           if(env.orientation === 'portrait'){
-            this._dragonCardGroup.y = 858;
-            this._tigerCardGroup.y = 858;
+            this._dragonCardGroup.y = 851;
+            this._tigerCardGroup.y = 851;
           }else{
             this._dragonCardGroup.y = 628;
             this._tigerCardGroup.y = 628;
