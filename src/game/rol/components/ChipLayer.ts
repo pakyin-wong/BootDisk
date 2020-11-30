@@ -176,7 +176,7 @@ namespace we {
           grid.removeChildren();
 
           const luckyAnim = this.createAnim();
-          utils.dblistenToSoundEffect(this._winningAnim);
+          utils.dblistenToSoundEffect(luckyAnim);
           let color: string;
           switch (we.ro.RACETRACK_COLOR[+key]) {
             case we.ro.Color.GREEN:
