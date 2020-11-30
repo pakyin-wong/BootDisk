@@ -87,7 +87,7 @@ namespace we {
       dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, item.render, item);
     }
 
-    function replaceOdd(string) {
+    export function replaceOdd(string) {
       if (env.language === core.lang.CN || env.language === core.lang.ZH) {
         let re = /(\d+)[ ]?:[ ]?(\d+)/;
         let newstr = string.replace(re, '$2:$1');
