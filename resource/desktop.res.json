@@ -4114,7 +4114,7 @@
 			"name": "NeonOne_otf"
 		},
 		{
-			"url": "assets/dragonbones/common/common_ui/common_ui_tex.png",
+			"url": "assets/dragonbones/d/common_ui/common_ui_tex.png",
 			"type": "image",
 			"name": "common_ui_tex_png"
 		},
@@ -4154,7 +4154,7 @@
 			"name": "baccarat_ui_tex_png"
 		},
 		{
-			"url": "assets/dragonbones/common/common_ui/common_ui_ske.json",
+			"url": "assets/dragonbones/d/common_ui/common_ui_ske.json",
 			"type": "json",
 			"name": "common_ui_ske_json"
 		},
@@ -4174,7 +4174,7 @@
 			"name": "lobby_ui_tex_json"
 		},
 		{
-			"url": "assets/dragonbones/common/common_ui/common_ui_tex.json",
+			"url": "assets/dragonbones/d/common_ui/common_ui_tex.json",
 			"type": "json",
 			"name": "common_ui_tex_json"
 		},
