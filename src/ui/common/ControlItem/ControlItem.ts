@@ -88,7 +88,9 @@ namespace we {
           this.initBettingTable();
         }
         if (this._favouriteButton) {
-          this._favouriteButton.visible = false;
+          if(!env.isMobile){
+            this._favouriteButton.visible = false;
+          }
           this._favouriteButton.externalClickHandling = true;
         }
       }

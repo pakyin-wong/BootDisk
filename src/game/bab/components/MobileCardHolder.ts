@@ -26,7 +26,7 @@ namespace we {
 
       public expandBottom(){
         if(env.orientation === 'portrait'){
-          this._wholeMoveGroup.y = -510
+          this._wholeMoveGroup.y = -410
         }else{
           this._wholeMoveGroup.y = -260
         }
