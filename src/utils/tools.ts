@@ -41,7 +41,6 @@ namespace we {
       };
       requestAnimationFrame(onTick);
       function onTick() {
-        console.log('custom tick');
           requestAnimationFrame(onTick);
           ticker.update();
       }
