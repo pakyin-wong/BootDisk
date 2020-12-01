@@ -34,7 +34,7 @@ namespace we {
       lobby_no_favourite_text: '沒有我的最愛',
       lobby_tag_hint_text: '將你喜愛的遊戲標上愛心',
 
-      gameIcon_shuffle: '洗牌中',
+      gameIcon_shuffle: '更換新牌靴',
       gameIcon_maintenance: '維護中',
 
       betfield_baccarat_banker: '庄',
