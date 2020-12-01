@@ -1,0 +1,1005 @@
+{
+  "file": "bc-0.png",
+  "frames": {
+    "m_blockchain_bg_mask_png": {
+      "x": 1,
+      "y": 1,
+      "w": 1212,
+      "h": 431,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 1212,
+      "sourceH": 431
+    },
+    "m_blockchain_bg_png": {
+      "x": 1,
+      "y": 434,
+      "w": 1212,
+      "h": 810.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 1212,
+      "sourceH": 810.5
+    },
+    "d_bcba_animation_particle_00000_png": {
+      "x": 1215,
+      "y": 1,
+      "w": 650,
+      "h": 335,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 650,
+      "sourceH": 335
+    },
+    "d_bcba_animation_particle_00001_png": {
+      "x": 1215,
+      "y": 338,
+      "w": 650,
+      "h": 335,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 650,
+      "sourceH": 335
+    },
+    "d_bcba_animation_particle_00002_png": {
+      "x": 1215,
+      "y": 675,
+      "w": 650,
+      "h": 335,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 650,
+      "sourceH": 335
+    },
+    "d_bcba_animation_particle_00003_png": {
+      "x": 1215,
+      "y": 1012,
+      "w": 650,
+      "h": 335,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 650,
+      "sourceH": 335
+    },
+    "d_bcba_animation_particle_00004_png": {
+      "x": 1,
+      "y": 1246.5,
+      "w": 650,
+      "h": 335,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 650,
+      "sourceH": 335
+    },
+    "d_bcba_animation_particle_00005_png": {
+      "x": 1,
+      "y": 1583.5,
+      "w": 650,
+      "h": 335,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 650,
+      "sourceH": 335
+    },
+    "d_bcba_animation_particle_00006_png": {
+      "x": 653,
+      "y": 1349,
+      "w": 650,
+      "h": 335,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 650,
+      "sourceH": 335
+    },
+    "m_bcba_panel_instructions_step1_png": {
+      "x": 653,
+      "y": 1686,
+      "w": 406,
+      "h": 145.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 406,
+      "sourceH": 145.5
+    },
+    "m_bcba_panel_instructions_step2_png": {
+      "x": 1061,
+      "y": 1686,
+      "w": 406,
+      "h": 145.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 406,
+      "sourceH": 145.5
+    },
+    "m_bcba_panel_instructions_step3_png": {
+      "x": 1305,
+      "y": 1349,
+      "w": 406,
+      "h": 145.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 406,
+      "sourceH": 145.5
+    },
+    "m_bcba_panel_instructions_step4_png": {
+      "x": 1305,
+      "y": 1496.5,
+      "w": 406,
+      "h": 145.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 406,
+      "sourceH": 145.5
+    },
+    "m_bcba_resultarea_banker_png": {
+      "x": 653,
+      "y": 1833.5,
+      "w": 311,
+      "h": 53.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 311,
+      "sourceH": 53.5
+    },
+    "m_bcba_resultarea_player_png": {
+      "x": 966,
+      "y": 1833.5,
+      "w": 311,
+      "h": 53.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 311,
+      "sourceH": 53.5
+    },
+    "m_bcba_panel_verification_btn_png": {
+      "x": 1279,
+      "y": 1833.5,
+      "w": 232,
+      "h": 49,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 232,
+      "sourceH": 49
+    },
+    "m_bcba_btn_disable_png": {
+      "x": 653,
+      "y": 1246.5,
+      "w": 156,
+      "h": 41,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 156,
+      "sourceH": 41
+    },
+    "m_bcba_btn_enable_png": {
+      "x": 653,
+      "y": 1289.5,
+      "w": 156,
+      "h": 41,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 156,
+      "sourceH": 41
+    },
+    "m_bcba_CardPanel_png": {
+      "x": 811,
+      "y": 1246.5,
+      "w": 63,
+      "h": 89,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 63,
+      "sourceH": 89
+    },
+    "m_bcba_cardpanel_png": {
+      "x": 876,
+      "y": 1246.5,
+      "w": 63,
+      "h": 89,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 63,
+      "sourceH": 89
+    },
+    "m_bcba_panel_shoe_card_png": {
+      "x": 941,
+      "y": 1246.5,
+      "w": 59.5,
+      "h": 86,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 59.5,
+      "sourceH": 86
+    },
+    "m_bcba_panel_shoe_card_random_dim_png": {
+      "x": 1002.5,
+      "y": 1246.5,
+      "w": 59.5,
+      "h": 86,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 59.5,
+      "sourceH": 86
+    },
+    "m_bcba_panel_shoe_card_red_png": {
+      "x": 1064,
+      "y": 1246.5,
+      "w": 59.5,
+      "h": 86,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 59.5,
+      "sourceH": 86
+    },
+    "m_bcba_card_png": {
+      "x": 1125.5,
+      "y": 1246.5,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_bcba_red_card_png": {
+      "x": 1713,
+      "y": 1349,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_backside_png": {
+      "x": 1773.5,
+      "y": 1349,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_clover10_vertical_png": {
+      "x": 1713,
+      "y": 1436,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_clover2_vertical_png": {
+      "x": 1773.5,
+      "y": 1436,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_clover3_vertical_png": {
+      "x": 1713,
+      "y": 1523,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_clover4_vertical_png": {
+      "x": 1773.5,
+      "y": 1523,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_clover5_vertical_png": {
+      "x": 1713,
+      "y": 1610,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_clover6_vertical_png": {
+      "x": 1773.5,
+      "y": 1610,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_clover7_vertical_png": {
+      "x": 1469,
+      "y": 1697,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_clover8_vertical_png": {
+      "x": 1513,
+      "y": 1784,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_clover9_vertical_png": {
+      "x": 1529.5,
+      "y": 1697,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_cloverA_vertical_png": {
+      "x": 1573.5,
+      "y": 1784,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_cloverJ_vertical_png": {
+      "x": 1590,
+      "y": 1697,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_cloverK_vertical_png": {
+      "x": 1650.5,
+      "y": 1644,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_cloverQ_vertical_png": {
+      "x": 1634,
+      "y": 1784,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_diamond10_vertical_png": {
+      "x": 1711,
+      "y": 1697,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_diamond2_vertical_png": {
+      "x": 1771.5,
+      "y": 1697,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_diamond3_vertical_png": {
+      "x": 1694.5,
+      "y": 1784,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_diamond4_vertical_png": {
+      "x": 1755,
+      "y": 1784,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_diamond5_vertical_png": {
+      "x": 1867,
+      "y": 1,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_diamond6_vertical_png": {
+      "x": 1867,
+      "y": 88,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_diamond7_vertical_png": {
+      "x": 1867,
+      "y": 175,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_diamond8_vertical_png": {
+      "x": 1867,
+      "y": 262,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_diamond9_vertical_png": {
+      "x": 1867,
+      "y": 349,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_diamondA_vertical_png": {
+      "x": 1867,
+      "y": 436,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_diamondJ_vertical_png": {
+      "x": 1867,
+      "y": 523,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_diamondK_vertical_png": {
+      "x": 1867,
+      "y": 610,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_diamondQ_vertical_png": {
+      "x": 1867,
+      "y": 697,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_heart10_vertical_png": {
+      "x": 1867,
+      "y": 784,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_heart2_vertical_png": {
+      "x": 1867,
+      "y": 871,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_heart3_vertical_png": {
+      "x": 1867,
+      "y": 958,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_heart4_vertical_png": {
+      "x": 1867,
+      "y": 1045,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_heart5_vertical_png": {
+      "x": 1867,
+      "y": 1132,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_heart6_vertical_png": {
+      "x": 1867,
+      "y": 1219,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_heart7_vertical_png": {
+      "x": 1867,
+      "y": 1306,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_heart8_vertical_png": {
+      "x": 1834,
+      "y": 1393,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_heart9_vertical_png": {
+      "x": 1834,
+      "y": 1480,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_heartA_vertical_png": {
+      "x": 1834,
+      "y": 1567,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_heartJ_vertical_png": {
+      "x": 1834,
+      "y": 1654,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_heartK_vertical_png": {
+      "x": 1832,
+      "y": 1741,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_heartQ_vertical_png": {
+      "x": 1815.5,
+      "y": 1828,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_spade10_vertical_png": {
+      "x": 1,
+      "y": 1920.5,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_spade2_vertical_png": {
+      "x": 61.5,
+      "y": 1920.5,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_spade3_vertical_png": {
+      "x": 122,
+      "y": 1920.5,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_spade4_vertical_png": {
+      "x": 182.5,
+      "y": 1920.5,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_spade5_vertical_png": {
+      "x": 243,
+      "y": 1920.5,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_spade6_vertical_png": {
+      "x": 303.5,
+      "y": 1920.5,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_spade7_vertical_png": {
+      "x": 364,
+      "y": 1920.5,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_spade8_vertical_png": {
+      "x": 424.5,
+      "y": 1920.5,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_spade9_vertical_png": {
+      "x": 485,
+      "y": 1920.5,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_spadeA_vertical_png": {
+      "x": 545.5,
+      "y": 1920.5,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_spadeJ_vertical_png": {
+      "x": 606,
+      "y": 1920.5,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_spadeK_vertical_png": {
+      "x": 666.5,
+      "y": 1915,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_sq_bac_small_poker_spadeQ_vertical_png": {
+      "x": 727,
+      "y": 1915,
+      "w": 58.5,
+      "h": 85,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58.5,
+      "sourceH": 85
+    },
+    "m_bcba_panel_verification_copy_btn_png": {
+      "x": 1469,
+      "y": 1644,
+      "w": 51.5,
+      "h": 51,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 51.5,
+      "sourceH": 51
+    },
+    "m_bcba_panel_shoe_info_big_png": {
+      "x": 1876,
+      "y": 1828,
+      "w": 49.5,
+      "h": 49.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 49.5,
+      "sourceH": 49.5
+    },
+    "m_bcba_panel_arrow_png": {
+      "x": 941,
+      "y": 1334.5,
+      "w": 41.5,
+      "h": 12.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 41.5,
+      "sourceH": 12.5
+    },
+    "m_bcba_panel_verification_gameinfo_bg_right_png": {
+      "x": 1834,
+      "y": 1349,
+      "w": 25,
+      "h": 41.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 25,
+      "sourceH": 41.5
+    },
+    "m_bcba_panel_verification_gameinfo_bg_top_png": {
+      "x": 1469,
+      "y": 1784,
+      "w": 41.5,
+      "h": 25,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 41.5,
+      "sourceH": 25
+    },
+    "m_bcba_panel_verification_gameinfo_bg_under_png": {
+      "x": 1876,
+      "y": 1879.5,
+      "w": 41.5,
+      "h": 25,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 41.5,
+      "sourceH": 25
+    },
+    "m_bcba_panel_instructions_number1_png": {
+      "x": 1876,
+      "y": 1906.5,
+      "w": 40,
+      "h": 40.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 40,
+      "sourceH": 40.5
+    },
+    "m_bcba_panel_instructions_number2_png": {
+      "x": 1650.5,
+      "y": 1731,
+      "w": 40,
+      "h": 40.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 40,
+      "sourceH": 40.5
+    },
+    "m_bcba_panel_instructions_number3_png": {
+      "x": 1522.5,
+      "y": 1644,
+      "w": 40,
+      "h": 40.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 40,
+      "sourceH": 40.5
+    },
+    "m_bcba_panel_instructions_number4_png": {
+      "x": 1564.5,
+      "y": 1644,
+      "w": 40,
+      "h": 40.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 40,
+      "sourceH": 40.5
+    },
+    "m_bcba_panel_shoe_info_h_png": {
+      "x": 1305,
+      "y": 1644,
+      "w": 34.5,
+      "h": 34.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 34.5,
+      "sourceH": 34.5
+    },
+    "m_bcba_panel_shoe_info_v_png": {
+      "x": 1341.5,
+      "y": 1644,
+      "w": 34.5,
+      "h": 34.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 34.5,
+      "sourceH": 34.5
+    },
+    "m_bcba_panel_verification_fail_png": {
+      "x": 1186,
+      "y": 1246.5,
+      "w": 27,
+      "h": 32,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 27,
+      "sourceH": 32
+    },
+    "m_bcba_panel_verification_success_png": {
+      "x": 1186,
+      "y": 1280.5,
+      "w": 27,
+      "h": 32,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 27,
+      "sourceH": 32
+    },
+    "m_bcba_panel_verification_arrow_left_png": {
+      "x": 1894.5,
+      "y": 1393,
+      "w": 30.5,
+      "h": 30.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 30.5,
+      "sourceH": 30.5
+    },
+    "m_bcba_panel_verification_arrow_right_png": {
+      "x": 1894.5,
+      "y": 1425.5,
+      "w": 30.5,
+      "h": 30.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 30.5,
+      "sourceH": 30.5
+    },
+    "m_bcba_panel_verification_cardinfo_icon_png": {
+      "x": 1186,
+      "y": 1314.5,
+      "w": 26.5,
+      "h": 26.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 26.5,
+      "sourceH": 26.5
+    },
+    "m_bcba_panel_btn_close_png": {
+      "x": 653,
+      "y": 1889,
+      "w": 23.5,
+      "h": 23.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 23.5,
+      "sourceH": 23.5
+    },
+    "m_bcba_panel_btn_back_png": {
+      "x": 678.5,
+      "y": 1889,
+      "w": 22,
+      "h": 22,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 22,
+      "sourceH": 22
+    },
+    "m_bcba_betpool_icon_money_png": {
+      "x": 1692.5,
+      "y": 1731,
+      "w": 16,
+      "h": 16,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 16,
+      "sourceH": 16
+    },
+    "m_bcba_panel_verification_pop_png": {
+      "x": 653,
+      "y": 1332.5,
+      "w": 14.5,
+      "h": 14.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 14.5,
+      "sourceH": 14.5
+    },
+    "d_bcba_animation_particle_00150_png": {
+      "x": 1215,
+      "y": 1,
+      "w": 650,
+      "h": 335,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 650,
+      "sourceH": 335
+    }
+  }
+}

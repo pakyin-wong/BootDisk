@@ -19,7 +19,7 @@ namespace we {
       }
 
       protected onRollover() {
-        if (!this._cardString || this._cardString === 'dim' || this._cardString === 'red') {
+        if (!this._cardString || this._cardString === 'dim' || this._cardString === 'red' || env.isMobile) {
           return;
         }
         const hoverImage = new eui.Image();
@@ -27,22 +27,16 @@ namespace we {
         hoverImage.name = 'hover';
         hoverImage.horizontalCenter = 0;
         hoverImage.verticalCenter = 0;
-        if (env.isMobile) {
-          if (env.orientation === 'portrait') {
-            hoverImage.width = 89;
-            hoverImage.height = 138;
-          } else {
-            hoverImage.width = 89;
-            hoverImage.height = 138;
-          }
-        } else {
-          hoverImage.width = 89;
-          hoverImage.height = 138;
-        }
+        hoverImage.width = 89;
+        hoverImage.height = 138;
+
         this.addChild(hoverImage);
       }
 
       protected onRollout() {
+        if(env.isMobile){
+          return;
+        }
         let child = this.getChildByName('hover');
         do {
           if (child && this.contains(child)) {

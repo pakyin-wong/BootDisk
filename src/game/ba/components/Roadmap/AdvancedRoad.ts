@@ -141,6 +141,14 @@ namespace we {
         // this.roadsContainerDisplay.visible = true;
       }
 
+      public clearRoadData() {
+        this.bigRoad.clearRoadData();
+        this.smallRoad.clearRoadData();
+        this.beadRoad.clearRoadData();
+        this.bigEyeRoad.clearRoadData();
+        this.cockroachRoad.clearRoadData();
+      }
+
       // render text by tableInfo
       public update() {
         if (this.tableInfo) {

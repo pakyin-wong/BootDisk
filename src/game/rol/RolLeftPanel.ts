@@ -17,6 +17,11 @@ namespace we {
 
       public changeLang() {
         super.changeLang();
+
+        this.roadRadioBtn1['labelDisplayDown']['text'] = this.roadRadioBtn1['labelDisplayUp']['text'] = i18n.t('roulette.roadRed') + ' / ' + i18n.t('roulette.roadBlack');
+        this.roadRadioBtn2['labelDisplayDown']['text'] = this.roadRadioBtn2['labelDisplayUp']['text'] = i18n.t('dice.roadBig') + ' / ' + i18n.t('roulette.roadSmall');
+        this.roadRadioBtn3['labelDisplayDown']['text'] = this.roadRadioBtn3['labelDisplayUp']['text'] = i18n.t('dice.roadOdd') + ' / ' + i18n.t('roulette.roadEven');
+        
         this.pageRadioBtn4['labelDisplayDown']['text'] = this.pageRadioBtn4['labelDisplayUp']['text'] = i18n.t('roulette.luckyNumber');
       }
 

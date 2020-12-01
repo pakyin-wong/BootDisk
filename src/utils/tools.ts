@@ -33,5 +33,24 @@ namespace we {
       }
       return new Promise(resolve => resolve());
     };
+
+    let tickerTimeoutId = -1;
+    export const startTicker = function(ticker) {
+      const requestAnimationFrame = function (callback) {
+          tickerTimeoutId = window.setTimeout(callback, 1000 / 10);
+      };
+      requestAnimationFrame(onTick);
+      function onTick() {
+          requestAnimationFrame(onTick);
+          ticker.update();
+      }
+    }
+
+    export const stopTicker = function() {
+      if (tickerTimeoutId>-1) {
+        window.clearTimeout(tickerTimeoutId);
+      }
+    }
+
   }
 }

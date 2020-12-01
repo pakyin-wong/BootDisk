@@ -60,7 +60,6 @@ namespace we {
 
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAdded, this);
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoved, this);
-        dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
         this.onModeUpdate(null);
       }
 
@@ -234,29 +233,18 @@ namespace we {
         if (this.hasEventListener(egret.Event.ENTER_FRAME)) {
           this.removeEventListener(egret.Event.ENTER_FRAME, this.render, this);
         }
-      }
-      protected onAdded(e) {
-        this.render(null);
-        // this.addEventListener(egret.Event.ENTER_FRAME, this.render, this);
-      }
-
-      public dispose() {
-        if (this.hasEventListener(egret.Event.ENTER_FRAME)) {
-          this.removeEventListener(egret.Event.ENTER_FRAME, this.render, this);
-        }
-
-        if (this.hasEventListener(egret.Event.ADDED_TO_STAGE)) {
-          this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.onAdded, this);
-        }
-
-        if (this.hasEventListener(egret.Event.REMOVED_FROM_STAGE)) {
-          this.removeEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoved, this);
-        }
 
         if (dir.evtHandler.hasEventListener(we.core.Event.MODE_UPDATE)) {
           dir.evtHandler.removeEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
         }
+      }
+      protected onAdded(e) {
+        dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
+        // this.addEventListener(egret.Event.ENTER_FRAME, this.render, this);
+        this.onModeUpdate(null);
+      }
 
+      public dispose() {
         if (this.roadMapIconList) {
           for (const elem of this.roadMapIconList) {
             elem.dispose();

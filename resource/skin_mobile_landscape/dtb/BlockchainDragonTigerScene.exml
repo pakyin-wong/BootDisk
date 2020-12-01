@@ -131,27 +131,28 @@
 	<ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 	            skinName="skin_mobile_portrait.GameBar" visible="false" />
 </e:Group>
+
+<e:Group id="_deckButton" x="59" y="307" width="309" height="80" touchThrough="true">
+	<ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab"
+	                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" />
+	<ui:RunTimeLabel i18n="baccarat.fullShoe" verticalCenter="0" horizontalCenter="0" touchEnabled="false" />
+</e:Group>
+<e:Group id="_helpButton" x="59" y="420" width="309" height="80" touchThrough="true">
+	<ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab"
+	                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" />
+	<ui:RunTimeLabel i18n="baccarat.mechanismHelp" verticalCenter="0" horizontalCenter="0" touchEnabled="false" />
+</e:Group>
+<e:Group id="_lastRoundButton" x="59" y="533" width="309" height="80" touchThrough="true">
+	<ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab"
+	                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" />
+	<ui:RunTimeLabel i18n="baccarat.lastRound" verticalCenter="0" horizontalCenter="0" touchEnabled="false" />
+</e:Group>
 <ui:ShuffleMessage id="_shuffleMessage" skinName="skin_mobile_portrait.ShuffleMessage" horizontalCenter="0" y="696"/>
 <dtb:GameResultMessage id="_resultMessage" y="169" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" height="229"
                       horizontalCenter="0" />
 <ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
                   infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
                   errorBg="d_ba_gamerecord_bankerelement_png" y="288" horizontalCenter="0" />
-<e:Group id="_deckButton" x="59" y="307" width="309" height="80" touchThrough="true">
-	<ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab"
-	                    skinName="skin_desktop.ImageButtonSkinBettingPanel" />
-	<ui:RunTimeLabel i18n="baccarat.fullShoe" verticalCenter="0" horizontalCenter="0" touchEnabled="false" />
-</e:Group>
-<e:Group id="_helpButton" x="59" y="420" width="309" height="80" touchThrough="true">
-	<ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab"
-	                    skinName="skin_desktop.ImageButtonSkinBettingPanel" />
-	<ui:RunTimeLabel i18n="baccarat.mechanismHelp" verticalCenter="0" horizontalCenter="0" touchEnabled="false" />
-</e:Group>
-<e:Group id="_lastRoundButton" x="59" y="533" width="309" height="80" touchThrough="true">
-	<ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab"
-	                    skinName="skin_desktop.ImageButtonSkinBettingPanel" />
-	<ui:RunTimeLabel i18n="baccarat.lastRound" verticalCenter="0" horizontalCenter="0" touchEnabled="false" />
-</e:Group>
 <dtb:MobileHistoryCardHolder id="_historyCardHolder" width="731" height="373"
                        skinName="skin_mobile_portrait.dtb.HistoryHolderSkin" isPoppable="true" hideOnStart="true"  verticalCenter="0" horizontalCenter="0"/>
 <bc:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true" skeletonName="blockchain_dt"

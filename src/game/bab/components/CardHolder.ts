@@ -189,18 +189,14 @@ namespace we {
         }
 
         (async () => {
-          if (this._playerCard3Group.visible === true) {
             await this.hideCard(this._playerCard3, 'horizontal');
             this.moveAndHideB3(200);
-          }
           console.log('clearCards 5');
         })();
 
         (async () => {
-          if (this._bankerCard3Group.visible === true) {
             await this.hideCard(this._bankerCard3, 'horizontal');
             this.moveAndHideA3(200);
-          }
           console.log('clearCards 6');
         })();
 
