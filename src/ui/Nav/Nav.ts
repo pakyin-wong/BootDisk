@@ -226,6 +226,11 @@ namespace we {
 
       protected destroy() {
         super.destroy();
+        this.removeListeners();
+        dir.meterCtr.drop('balance', this._balance);
+        dir.meterCtr.drop('balance', this._balanceGame);
+        if (this._timeInterval>-1) clearInterval(this._timeInterval);
+        this._timeInterval = -1;
       }
 
       protected clearOrientationDependentComponent() {
@@ -250,6 +255,7 @@ namespace we {
         if (env.isMobile && this._orientationDependent) {
           dir.evtHandler.addEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChange, this);
         }
+        this.initNav();
       }
     }
   }
