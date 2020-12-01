@@ -88,7 +88,9 @@ namespace we {
           this.initBettingTable();
         }
         if (this._favouriteButton) {
-          this._favouriteButton.visible = false;
+          if(!env.isMobile){
+            this._favouriteButton.visible = false;
+          }
           this._favouriteButton.externalClickHandling = true;
         }
       }
@@ -531,6 +533,7 @@ namespace we {
           case core.GameType.BAS:
           case core.GameType.BAM:
           case core.GameType.BAB:
+          case core.GameType.BASB:
           case core.GameType.BAMB:
           case core.GameType.DT:
           case core.GameType.DTB:

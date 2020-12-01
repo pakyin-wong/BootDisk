@@ -76,6 +76,8 @@ namespace we {
                 gameData.playerpoint = rslt.pv;
                 gameData.wintype = rslt.result;
                 gameData.gameroundid = e.data.gameRoundID; // rslt.gameRoundID;
+                gameData.round = rslt.round;
+                gameData.shoe = rslt.shoe;
 
                 this.beadResultPanel.setCardResult(gameData);
 

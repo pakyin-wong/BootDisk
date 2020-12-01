@@ -139,6 +139,7 @@ namespace we {
             case we.core.GameType.BAS:
             case we.core.GameType.BAM:
             case we.core.GameType.BAB:
+            case we.core.GameType.BASB:
             case we.core.GameType.BAMB:
               return ba.MobileSideListBetItemHolder;
             case we.core.GameType.RO:
@@ -174,6 +175,7 @@ namespace we {
             case we.core.GameType.BAS:
             case we.core.GameType.BAM:
             case we.core.GameType.BAB:
+            case we.core.GameType.BASB:
             case we.core.GameType.BAMB:
               return ba.MobileSideListItemHolder;
             default:
@@ -195,6 +197,7 @@ namespace we {
             case we.core.GameType.BAS:
             case we.core.GameType.BAM:
             case we.core.GameType.BAB:
+            case we.core.GameType.BASB:
             case we.core.GameType.BAMB:
               return ba.MobileSideListItemHolder;
             case we.core.GameType.RO:

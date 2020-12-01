@@ -582,7 +582,7 @@ export namespace core {
         }
         tableInfo.data = gameStatus;
 
-        logger.l(utils.LogTarget.DEBUG, `Table ${gameStatus.tableid} data updated`, tableInfo.data);
+        logger.l(utils.LogTarget.RELEASE, `Table ${gameStatus.tableid} data updated`, tableInfo.data);
 
         this.localActions(tableInfo);
         dir.evtHandler.dispatch(core.Event.TABLE_INFO_UPDATE, tableInfo);
@@ -690,6 +690,7 @@ export namespace core {
           case core.GameType.BAI:
           case core.GameType.BAS:
           case core.GameType.BAB:
+          case core.GameType.BASB:
           case core.GameType.BAMB:
           case core.GameType.DTB:
           case core.GameType.DT: {
@@ -831,7 +832,7 @@ export namespace core {
             // tableInfo.gamestatistic = stats;
           }
         }
-        logger.l(utils.LogTarget.DEBUG, `Table ${tableid} statistic and roadmap data updated`, tableInfo.gamestatistic, tableInfo.roadmap);
+        logger.l(utils.LogTarget.RELEASE, `Table ${tableid} statistic and roadmap data updated`, tableInfo.gamestatistic, tableInfo.roadmap);
 
         dir.evtHandler.dispatch(core.Event.ROADMAP_UPDATE, tableInfo);
 
@@ -1110,7 +1111,7 @@ export namespace core {
           this.checkResultNotificationReady(tableInfo);
         }
 
-        logger.l(utils.LogTarget.DEBUG, `Table ${tableInfo.tableid} on bet info update`, betInfo);
+        logger.l(utils.LogTarget.RELEASE, `Table ${tableInfo.tableid} on bet info update`, betInfo);
 
         dir.evtHandler.dispatch(core.Event.PLAYER_BET_INFO_UPDATE, tableInfo);
 
