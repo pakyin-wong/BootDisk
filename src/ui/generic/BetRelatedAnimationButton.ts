@@ -27,6 +27,7 @@ namespace we {
 
       protected mount() {
         super.mount();
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
 
       protected initDisplay() {
@@ -95,16 +96,17 @@ namespace we {
       }
 
       protected getLabelText() {
-        return i18n.t(`live.tooltip.${this._labelText}`);
+        // return `live.tooltip.${this._labelText}`;
+        return i18n.t(`live.tooltip.${this._labelText}`)
       }
 
-      protected async onOrientationChange() {
-        super.onOrientationChange();
+      protected changeLang() {
         this.init_textLabel();
       }
 
       public destroy() {
         super.destroy();
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
 
       public playBtn(btnState: string, animState: string, playAnim: string, count: number) {
