@@ -49,12 +49,24 @@ namespace we {
         return advancedRoad;
       }
 
-      public getPlaceholder() {
-        return 'd_lobby_placeholder_dt_jpg';
+      public getPlaceholder(gametype: number = core.GameType.DT) {
+        switch (gametype) {
+          case core.GameType.DTB:
+            return 'd_lobby_placeholder_bc_sdba_jpg';
+          case core.GameType.DT:
+          default:
+            return 'd_lobby_placeholder_dt_jpg';
+        }
       }
 
-      public getAdvancedPlaceholder() {
-        return 'd_lobby_pro_placeholder_dt_jpg';
+      public getAdvancedPlaceholder(gametype: number = core.GameType.DT) {
+        switch (gametype) {
+          case core.GameType.DTB:
+            return 'd_lobby_pro_placeholder_bc_sdba_jpg';
+          case core.GameType.DT:
+          default:
+            return 'd_lobby_pro_placeholder_dt_jpg';
+        }
       }
     }
   }
