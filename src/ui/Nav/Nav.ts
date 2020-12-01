@@ -226,17 +226,16 @@ namespace we {
 
       protected destroy() {
         super.destroy();
+        this.clearOrientationDependentComponent();
+      }
+
+      protected clearOrientationDependentComponent() {
+        super.clearOrientationDependentComponent();
         this.removeListeners();
         dir.meterCtr.drop('balance', this._balance);
         dir.meterCtr.drop('balance', this._balanceGame);
         if (this._timeInterval>-1) clearInterval(this._timeInterval);
         this._timeInterval = -1;
-      }
-
-      protected clearOrientationDependentComponent() {
-        super.clearOrientationDependentComponent();
-        dir.meterCtr.drop('balance', this._balance);
-        dir.meterCtr.drop('balance', this._balanceGame);
       }
 
       protected async onOrientationChange() {
