@@ -836,10 +836,8 @@ namespace we {
       }
 
       protected resetUncfmBet() {
-        console.log("AUTO-CONFIRM-1");
         this._chipLayer.resetUnconfirmedBet();
         if (this._betRelatedGroup) {
-          console.log("AUTO-CONFIRM-2");
           this._betRelatedGroup.changeBtnState(false, 0, this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid);
         }
       }

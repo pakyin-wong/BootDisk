@@ -144,7 +144,6 @@ namespace we {
         this._repeatButton.buttonEnabled = this._repeatButton.touchEnabled;
         this._doubleButton.buttonEnabled = hasUncfmBet;
         (this._confirmButton as ui.BetConfirmButton).buttonEnabled = isBetState && hasUncfmBet;
-        (this._confirmButton as ui.BetConfirmButton).isBetState = isBetState;
         this._timer.bg_flash(false, isEnable);
         // }
       }

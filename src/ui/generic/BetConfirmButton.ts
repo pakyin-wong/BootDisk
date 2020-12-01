@@ -13,7 +13,6 @@ namespace we {
        * use animation.fadeIn with different group name instead of animation.play to play the animation so that you can play multiple animation at the same time ("betting" in one group and others in another group)
        **/
 
-      protected _isBetState = true; // check if betting(have uncfm bet) if true,disable hover animation
       protected _layout: string; // desktop, mobile horizonal, or mobile vertical
       public constructor() {
         super();
@@ -65,24 +64,24 @@ namespace we {
       protected clone: egret.Bitmap;
 
       public init() {
-        const slot = this._display.armature.getSlot('blur');
-        const layer: eui.Group = new eui.Group();
-        const bitmap: egret.Bitmap = slot.display as egret.Bitmap;
-        const clone: egret.Bitmap = new egret.Bitmap(bitmap.texture);
-        clone.width = bitmap.width;
-        clone.height = bitmap.height;
-        clone.x = bitmap.x;
-        clone.y = bitmap.y;
-        clone.anchorOffsetX = bitmap.anchorOffsetX;
-        clone.anchorOffsetY = bitmap.anchorOffsetY;
-        this.clone = clone;
-        layer.addChild(clone);
-        slot.display = layer;
+        // const slot = this._display.armature.getSlot('blur');
+        // const layer: eui.Group = new eui.Group();
+        // const bitmap: egret.Bitmap = slot.display as egret.Bitmap;
+        // const clone: egret.Bitmap = new egret.Bitmap(bitmap.texture);
+        // clone.width = bitmap.width;
+        // clone.height = bitmap.height;
+        // clone.x = bitmap.x;
+        // clone.y = bitmap.y;
+        // clone.anchorOffsetX = bitmap.anchorOffsetX;
+        // clone.anchorOffsetY = bitmap.anchorOffsetY;
+        // this.clone = clone;
+        // layer.addChild(clone);
+        // slot.display = layer;
       }
 
       public setColor(r, g, b) {
         const colorFilter = new egret.ColorMatrixFilter([r, 0, 0, 0, 0, 0, g, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 1, 0]);
-        this.clone.filters = [colorFilter];
+        // this.clone.filters = [colorFilter];
       }
 
       // const bitmap: egret.Bitmap = slot.display as egret.Bitmap;
@@ -91,10 +90,6 @@ namespace we {
       // bitmap.filters = [colorFilter];
       // group.addChild(bitmap);
       // slot.display = group;
-
-      public set isBetState(e: boolean) {
-        this._isBetState = e;
-      }
 
       protected async switchAutoConfirm() {
         let status = '';
@@ -107,10 +102,10 @@ namespace we {
         if (env.autoConfirmBet) {
           status = this._enabled ? `idle_switch_to_on${this._layout}` : `disable_switch_to_on${this._layout}`;
         } else {
-          status = this._enabled ? `idle_switch_to_off${this._layout}` : `disable_switch_to_off${this._layout}`;
+          status = `disable_switch_to_off${this._layout}`;
         }
         this.bettingPlaying = false;
-        this._display.animation.fadeIn(`${status + this._layout}`, 0, 1, 0, 'CONFIRM_GROUP2');
+        this._display.animation.fadeIn(status, 0, 1, 0, 'CONFIRM_GROUP2');
       }
 
       protected bettingPlaying: boolean = false;
