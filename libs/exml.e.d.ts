@@ -2545,6 +2545,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class DtResultItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class LoResultItem extends eui.Skin{
 	}
 }
