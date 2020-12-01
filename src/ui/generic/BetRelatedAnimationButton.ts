@@ -13,6 +13,8 @@ namespace we {
        *        when playing "release", user press the button again (i.e. followed by another "release" animation), the new "release" animation will be played immediately
        **/
 
+      protected _text_slot: string;
+      protected _labelText: string;
       protected _btnState: string = 'idle';
       protected _animState: string = 'idle';
       protected _anim: string = 'idle';
@@ -25,6 +27,80 @@ namespace we {
 
       protected mount() {
         super.mount();
+      }
+
+      protected initDisplay() {
+        const rect = new eui.Rect();
+        rect.left = 0;
+        rect.right = 0;
+        rect.top = 0;
+        rect.bottom = 0;
+        rect.alpha = 0;
+        this.addChild(rect);
+
+        const factory = BaseAnimationButton.getFactory(this._dbClass);
+        this._display = factory.buildArmatureDisplay(this._dbDisplay);
+        utils.dblistenToSoundEffect(this._display);
+        this._display.x = 0;
+        this._display.y = 0;
+        this.addChild(this._display);
+        if (env.isMobile) {
+          this.init_textLabel();
+        }
+      }
+
+      public set text_slot(val: string) {
+        this._text_slot = val;
+      }
+
+      public set labelText(val: string) {
+        this._labelText = val;
+      }
+
+      public init_textLabel() {
+        const slot = this._display.armature.getSlot(this._text_slot);
+        const winText = this.getLabelText();
+        this.setLabel(slot, winText, 32, 0xffffff, 'barlow');
+      }
+
+      protected setLabel(slot: dragonBones.Slot, text: string, size: number, color = 0xffffff, fontFamily: string) {
+        const r = new ui.LabelImage();
+        r.fontFamily = fontFamily;
+        r.size = size;
+        r.text = text;
+        r.textColor = color;
+
+        // create a new ImageDisplayData with a EgretTextureData holding the new texture
+        const displayData: dragonBones.ImageDisplayData = new dragonBones.ImageDisplayData();
+        const textureData: dragonBones.EgretTextureData = new dragonBones.EgretTextureData();
+        textureData.renderTexture = r.texture;
+        textureData.region.x = 0;
+        textureData.region.y = 0;
+        textureData.region.width = textureData.renderTexture.textureWidth;
+        textureData.region.height = textureData.renderTexture.textureHeight;
+        textureData.parent = new dragonBones.EgretTextureAtlasData();
+        textureData.parent.scale = 1;
+        displayData.texture = textureData;
+        displayData.pivot.x = 0.5;
+        displayData.pivot.y = 0.5;
+
+        // type 0 is ImageDisplayData
+        displayData.type = 0;
+
+        slot.replaceDisplayData(displayData, 0);
+
+        // set the displayIndex to non zero since new value == current index will not trigger redraw
+        slot.displayIndex = -1;
+        slot.displayIndex = 0;
+      }
+
+      protected getLabelText() {
+        return i18n.t(`live.tooltip.${this._labelText}`);
+      }
+
+      protected async onOrientationChange() {
+        super.onOrientationChange();
+        this.init_textLabel();
       }
 
       public destroy() {
