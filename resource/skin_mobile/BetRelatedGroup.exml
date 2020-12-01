@@ -9,12 +9,11 @@
 		              x.left_hand_mode="3" />
 		-->
 		<e:Group x.right_hand_mode="683" x.left_hand_mode="0">
-			<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin"
-			                   colorChange="true" horizontalCenter="0" verticalCenter="0" y.left_hand_mode="10"
-			                   x.left_hand_mode="15" />
+			<ui:CountdownTimer id="_timer" width="315" height="140" skinName="skin_mobile_portrait.CountdownTimerSkin"
+			                   colorChange="true" horizontalCenter="0" verticalCenter="0" />
 			<ui:BetConfirmButton id="_confirmButton" dbClass="common_ui" dbDisplay="m_common_betcontrol_btn_confirm"
-			                     useColorFilter="true" anchorOffsetX="0" anchorOffsetY="0" width="300" height="120"
-			                     horizontalCenter="0" verticalCenter="0" y.left_hand_mode="40" />
+			                     useColorFilter="true" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0"
+			                     verticalCenter="0" />
 		</e:Group>
 		<!--<e:Group id="_betLabelGroup" bottom="0" height="40%" touchThrough="true">
 		<e:Group verticalCenter="0" x="798" x.right_hand_mode="75" width="100">
