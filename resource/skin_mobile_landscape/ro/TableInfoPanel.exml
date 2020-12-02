@@ -49,7 +49,7 @@
 				<!--<e:Label id="pGameID" text="110326855429" y="197" textAlign="right" size="42" x="110" width="292" height="88"
 				             verticalAlign="middle" alpha="0.7" />
 				-->
-				<ui:ClampWidthLabel id="pGameID" text="110326855429" y="197" textAlign="right" size="42" x="93" width="310"
+				<ui:RunTimeLabel id="pGameID" text="110326855429" y="197" textAlign="right" size="42" x="93" width="310"
 				                    height="88" verticalAlign="middle" alpha="0.7" targetWidth="310"  fontFamily="Barlow"/>
 				<e:Rect width="1" height="308" fillAlpha="0.4" fillColor="0x979797" x="432" y="0" />
 			</e:Group>
@@ -63,7 +63,7 @@
 				<!--<e:Label id="pDealer" text="Miki" y="20" textAlign="right" size="44" x="143" width="292" verticalAlign="middle"
 				             height="88" alpha="0.7" />
 				-->
-				<ui:ClampWidthLabel id="pDealer" text="Miki" y="20" textAlign="right" size="44" x="143" width="292"
+				<ui:RunTimeLabel id="pDealer" text="Miki" y="20" textAlign="right" size="44" x="143" width="292"
 				                    verticalAlign="middle" height="88" alpha="0.7" targetWidth="440" fontFamily="Barlow" />
 				<e:Label id="pTableBetLimit" text="000" y="110" textAlign="right" size="44" x="143" width="292"
 				         verticalAlign="middle" height="88" alpha="0.7" fontFamily="Barlow" />
@@ -76,65 +76,65 @@
 				<e:Rect width="1" height="308" fillAlpha="0.4" fillColor="0x979797" x="472" y="0" />
 			</e:Group>
 			<e:Group x="1016" y="0" scaleX="1" scaleY="1">
-				<ui:ClampWidthLabel id="directLabel" text="直接注" y="40" x="24" scaleX="1" scaleY="1" size="44" targetWidth="250" />
-				<ui:ClampWidthLabel id="pSeparateOdd" text="1:35" y="120" textAlign="right" scaleX="1" scaleY="1"
+				<ui:RunTimeLabel id="directLabel" text="直接注" y="40" x="24" scaleX="1" scaleY="1" size="44" targetWidth="250" />
+				<ui:RunTimeLabel id="pSeparateOdd" text="1:35" y="120" textAlign="right" scaleX="1" scaleY="1"
 				                    size="44" targetWidth="120" right="28" alpha=".7" fontFamily="Barlow" />
-				<ui:ClampWidthLabel id="pSeparateMax" text="000" y="120" textAlign="right" size="44" targetWidth="80" right="140"
+				<ui:RunTimeLabel id="pSeparateMax" text="000" y="120" textAlign="right" size="44" targetWidth="80" right="140"
 				                    alpha=".7" fontFamily="Barlow" />
-				<ui:ClampWidthLabel id="separateLabel" text="分注" y="120" textAlign="left" x="24" scaleX="1" scaleY="1" size="44"
+				<ui:RunTimeLabel id="separateLabel" text="分注" y="120" textAlign="left" x="24" scaleX="1" scaleY="1" size="44"
 				                    targetWidth="250" />
-				<ui:ClampWidthLabel id="pDirectOdd" text="1:17" y="40" textAlign="right" scaleX="1" scaleY="1" size="44"
+				<ui:RunTimeLabel id="pDirectOdd" text="1:17" y="40" textAlign="right" scaleX="1" scaleY="1" size="44"
 				                    targetWidth="120" right="28" alpha=".7" fontFamily="Barlow" />
-				<ui:ClampWidthLabel id="pDirectMax" text="000" y="40" textAlign="right" size="44" targetWidth="80" right="140"
+				<ui:RunTimeLabel id="pDirectMax" text="000" y="40" textAlign="right" size="44" targetWidth="80" right="140"
 				                    alpha=".7" fontFamily="Barlow" />
-				<ui:ClampWidthLabel id="streetLabel" text="街注/三數" y="200" x="24" scaleX="1" scaleY="1" size="44" targetWidth="250" />
-				<ui:ClampWidthLabel id="pStreetOdd" text="1:11" y="200" textAlign="right" scaleX="1" scaleY="1" size="44"
+				<ui:RunTimeLabel id="streetLabel" text="街注/三數" y="200" x="24" scaleX="1" scaleY="1" size="44" targetWidth="250" />
+				<ui:RunTimeLabel id="pStreetOdd" text="1:11" y="200" textAlign="right" scaleX="1" scaleY="1" size="44"
 				                    targetWidth="120" right="28" alpha=".7" fontFamily="Barlow" />
-				<ui:ClampWidthLabel id="pStreetMax" text="000" y="200" textAlign="right" size="44" targetWidth="80" right="140"
+				<ui:RunTimeLabel id="pStreetMax" text="000" y="200" textAlign="right" size="44" targetWidth="80" right="140"
 				                    alpha=".7" fontFamily="Barlow" />
 				<e:Rect width="1" height="308" fillAlpha="0.4" fillColor="0x979797" x="574" y="0" />
 			</e:Group>
 			<e:Group x="1629.0000000000002" y="0" scaleX="1" scaleY="1">
-				<ui:ClampWidthLabel id="cornerLabel" text="角注/四個號" y="40" x="24" size="44" targetWidth="250" />
-				<ui:ClampWidthLabel id="pCornerOdd" text="1:8" y="40" textAlign="right" size="44" targetWidth="120" right="28"
+				<ui:RunTimeLabel id="cornerLabel" text="角注/四個號" y="40" x="24" size="44" targetWidth="250" />
+				<ui:RunTimeLabel id="pCornerOdd" text="1:8" y="40" textAlign="right" size="44" targetWidth="120" right="28"
 				                    alpha=".7" fontFamily="Barlow" />
-				<ui:ClampWidthLabel id="pCornerMax" text="000" y="40" textAlign="right" size="44" targetWidth="80" right="140"
+				<ui:RunTimeLabel id="pCornerMax" text="000" y="40" textAlign="right" size="44" targetWidth="80" right="140"
 				                    alpha=".7" fontFamily="Barlow" />
-				<ui:ClampWidthLabel id="lineLabel" text="線注" y="120" x="24" size="44" targetWidth="250" />
-				<ui:ClampWidthLabel id="pLineOdd" text="1:5" y="120" textAlign="right" size="44" targetWidth="120" right="28"
+				<ui:RunTimeLabel id="lineLabel" text="線注" y="120" x="24" size="44" targetWidth="250" />
+				<ui:RunTimeLabel id="pLineOdd" text="1:5" y="120" textAlign="right" size="44" targetWidth="120" right="28"
 				                    alpha=".7" fontFamily="Barlow" />
-				<ui:ClampWidthLabel id="pLineMax" text="000" y="120" textAlign="right" size="44" targetWidth="80" right="140"
+				<ui:RunTimeLabel id="pLineMax" text="000" y="120" textAlign="right" size="44" targetWidth="80" right="140"
 				                    alpha=".7" fontFamily="Barlow" />
-				<ui:ClampWidthLabel id="columnbetLabel" text="下注一打" y="200" x="24" size="44" targetWidth="250" />
-				<ui:ClampWidthLabel id="pDozenOdd" text="1:2" y="200" textAlign="right" size="44" targetWidth="120" height="44"
+				<ui:RunTimeLabel id="columnbetLabel" text="下注一打" y="200" x="24" size="44" targetWidth="250" />
+				<ui:RunTimeLabel id="pDozenOdd" text="1:2" y="200" textAlign="right" size="44" targetWidth="120" height="44"
 				                    right="28" alpha=".7" fontFamily="Barlow" />
-				<ui:ClampWidthLabel id="pDozenMax" text="000" y="200" textAlign="right" size="44" targetWidth="80" height="44"
+				<ui:RunTimeLabel id="pDozenMax" text="000" y="200" textAlign="right" size="44" targetWidth="80" height="44"
 				                    right="140" alpha=".7" fontFamily="Barlow" />
 				<e:Rect width="1" height="308" fillAlpha="0.4" fillColor="0x979797" x="574" y="0" />
 			</e:Group>
 			<e:Group x="2238" y="0" scaleX="1" scaleY="1">
-				<ui:ClampWidthLabel id="rowLabel" text="行注" y="40" x="24" size="44" targetWidth="250" />
-				<ui:ClampWidthLabel id="pRowOdd" text="1:2" y="40" textAlign="right" size="44" targetWidth="120" right="28"
+				<ui:RunTimeLabel id="rowLabel" text="行注" y="40" x="24" size="44" targetWidth="250" />
+				<ui:RunTimeLabel id="pRowOdd" text="1:2" y="40" textAlign="right" size="44" targetWidth="120" right="28"
 				                    alpha=".7" fontFamily="Barlow" />
-				<ui:ClampWidthLabel id="pRowMax" text="000" y="40" textAlign="right" size="44" targetWidth="80" right="140"
+				<ui:RunTimeLabel id="pRowMax" text="000" y="40" textAlign="right" size="44" targetWidth="80" right="140"
 				                    alpha=".7" fontFamily="Barlow" />
-				<ui:ClampWidthLabel id="colorLabel" text="紅色/黑色" y="120" x="24" size="44" targetWidth="250" />
-				<ui:ClampWidthLabel id="pRedBlackOdd" text="1:1" y="120" textAlign="right" size="44" targetWidth="120" right="28"
+				<ui:RunTimeLabel id="colorLabel" text="紅色/黑色" y="120" x="24" size="44" targetWidth="250" />
+				<ui:RunTimeLabel id="pRedBlackOdd" text="1:1" y="120" textAlign="right" size="44" targetWidth="120" right="28"
 				                    alpha=".7" fontFamily="Barlow" />
-				<ui:ClampWidthLabel id="pRedBlackMax" text="000" y="120" textAlign="right" size="44" targetWidth="80" right="140"
+				<ui:RunTimeLabel id="pRedBlackMax" text="000" y="120" textAlign="right" size="44" targetWidth="80" right="140"
 				                    alpha=".7" fontFamily="Barlow" />
-				<ui:ClampWidthLabel id="oddevenLabel" text="雙數/單數" y="200" x="24" size="44" targetWidth="250" />
-				<ui:ClampWidthLabel id="pOddEvenOdd" text="1:1" y="200" textAlign="right" size="44" targetWidth="120" right="28"
+				<ui:RunTimeLabel id="oddevenLabel" text="雙數/單數" y="200" x="24" size="44" targetWidth="250" />
+				<ui:RunTimeLabel id="pOddEvenOdd" text="1:1" y="200" textAlign="right" size="44" targetWidth="120" right="28"
 				                    alpha=".7" fontFamily="Barlow" />
-				<ui:ClampWidthLabel id="pOddEvenMax" text="000" y="200" textAlign="right" size="44" targetWidth="80" right="140"
+				<ui:RunTimeLabel id="pOddEvenMax" text="000" y="200" textAlign="right" size="44" targetWidth="80" right="140"
 				                    alpha=".7" fontFamily="Barlow" />
 				<e:Rect width="1" height="308" fillAlpha="0.4" fillColor="0x979797" x="574" y="0" scaleX="1" scaleY="1" />
 			</e:Group>
 			<e:Group x="2850" width="576" y="0" scaleX="1" scaleY="1">
-				<ui:ClampWidthLabel id="sizeLabel" text="大/小" y="40" x="24" size="44" targetWidth="250" />
-				<ui:ClampWidthLabel id="pBigSmallOdd" text="1:1" y="40" textAlign="right" size="44" targetWidth="120" right="28"
+				<ui:RunTimeLabel id="sizeLabel" text="大/小" y="40" x="24" size="44" targetWidth="250" />
+				<ui:RunTimeLabel id="pBigSmallOdd" text="1:1" y="40" textAlign="right" size="44" targetWidth="120" right="28"
 				                    alpha=".7" fontFamily="Barlow" />
-				<ui:ClampWidthLabel id="pBigSmallMax" text="000" y="40" textAlign="right" size="44" targetWidth="80" right="140"
+				<ui:RunTimeLabel id="pBigSmallMax" text="000" y="40" textAlign="right" size="44" targetWidth="80" right="140"
 				                    alpha=".7" fontFamily="Barlow" />
 			</e:Group>
 		</e:Group>
