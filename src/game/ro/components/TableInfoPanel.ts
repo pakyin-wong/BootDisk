@@ -39,34 +39,34 @@ namespace we {
       protected sizeLabel: eui.Label;
 
       protected pDirectMax: eui.Label;
-      protected pDirectOdd: eui.Label;
+      protected pDirectOdd: ui.RunTimeLabel;
 
       protected pSeparateMax: eui.Label;
-      protected pSeparateOdd: eui.Label;
+      protected pSeparateOdd: ui.RunTimeLabel;
 
       protected pStreetMax: eui.Label;
-      protected pStreetOdd: eui.Label;
+      protected pStreetOdd: ui.RunTimeLabel;
 
       protected pCornerMax: eui.Label;
-      protected pCornerOdd: eui.Label;
+      protected pCornerOdd: ui.RunTimeLabel;
 
       protected pLineMax: eui.Label;
-      protected pLineOdd: eui.Label;
+      protected pLineOdd: ui.RunTimeLabel;
 
       protected pRowMax: eui.Label;
-      protected pRowOdd: eui.Label;
+      protected pRowOdd: ui.RunTimeLabel;
 
       protected pDozenMax: eui.Label;
-      protected pDozenOdd: eui.Label;
+      protected pDozenOdd: ui.RunTimeLabel;
 
       protected pRedBlackMax: eui.Label;
-      protected pRedBlackOdd: eui.Label;
+      protected pRedBlackOdd: ui.RunTimeLabel;
 
       protected pOddEvenMax: eui.Label;
-      protected pOddEvenOdd: eui.Label;
+      protected pOddEvenOdd: ui.RunTimeLabel;
 
       protected pBigSmallMax: eui.Label;
-      protected pBigSmallOdd: eui.Label;
+      protected pBigSmallOdd: ui.RunTimeLabel;
       // =======
       // protected pCorner: eui.Label;
       // protected pCornerRatio: eui.Label;
@@ -257,45 +257,64 @@ namespace we {
       }
       // >>>>>>> develop
 
-      public setValue(tableInfo: data.TableInfo) {
-        super.setValue(tableInfo);
+      // public setValue(tableInfo: data.TableInfo) {
+      //   super.setValue(tableInfo);
 
-        const betLimitSet = env.getBetLimitSet('Live', env.currentSelectedBetLimitIndex);
-        if (betLimitSet.limits && betLimitSet.limits.ro) {
-          const limits = betLimitSet.limits.ro;
-          const list = [
-            { target: this.pDirectMax, value: utils.numberToFaceValue(limits.DIRECT.maxlimit) },
-            { target: this.pDirectOdd, value: limits.DIRECT.odd },
-            { target: this.pSeparateMax, value: utils.numberToFaceValue(limits.SEPARATE.maxlimit) },
-            { target: this.pSeparateOdd, value: limits.SEPARATE.odd },
-            { target: this.pStreetMax, value: utils.numberToFaceValue(limits.STREET.maxlimit) },
-            { target: this.pStreetOdd, value: limits.STREET.odd },
-            { target: this.pCornerMax, value: utils.numberToFaceValue(limits.CORNER.maxlimit) },
-            { target: this.pCornerOdd, value: limits.CORNER.odd },
-            { target: this.pLineMax, value: utils.numberToFaceValue(limits.LINE.maxlimit) },
-            { target: this.pLineOdd, value: limits.LINE.odd },
-            { target: this.pRowMax, value: utils.numberToFaceValue(limits.ROW.maxlimit) },
-            { target: this.pRowOdd, value: limits.ROW.odd },
-            { target: this.pDozenMax, value: utils.numberToFaceValue(limits.DOZEN.maxlimit) },
-            { target: this.pDozenOdd, value: limits.DOZEN.odd },
-            { target: this.pRedBlackMax, value: utils.numberToFaceValue(limits.RED_BLACK.maxlimit) },
-            { target: this.pRedBlackOdd, value: limits.RED_BLACK.odd },
-            { target: this.pOddEvenMax, value: utils.numberToFaceValue(limits.ODD_EVEN.maxlimit) },
-            { target: this.pOddEvenOdd, value: limits.ODD_EVEN.odd },
-            { target: this.pBigSmallMax, value: utils.numberToFaceValue(limits.BIG_SMALL.maxlimit) },
-            { target: this.pBigSmallOdd, value: limits.BIG_SMALL.odd },
-          ];
-          for (const { target, value } of list) {
-            if (target) {
-              if (value) {
-                target.text = value.toString();
-              } else {
-                target.text = '-';
-              }
-            }
-          }
+      //   const betLimitSet = env.getBetLimitSet('Live', env.currentSelectedBetLimitIndex);
+      //   if (betLimitSet.limits && betLimitSet.limits.ro) {
+      //     const limits = betLimitSet.limits.ro;
+      //     const list = [
+      //       { target: this.pDirectMax, value: utils.numberToFaceValue(limits.DIRECT.maxlimit) },
+      //       { target: this.pDirectOdd, value: limits.DIRECT.odd },
+      //       { target: this.pSeparateMax, value: utils.numberToFaceValue(limits.SEPARATE.maxlimit) },
+      //       { target: this.pSeparateOdd, value: limits.SEPARATE.odd },
+      //       { target: this.pStreetMax, value: utils.numberToFaceValue(limits.STREET.maxlimit) },
+      //       { target: this.pStreetOdd, value: limits.STREET.odd },
+      //       { target: this.pCornerMax, value: utils.numberToFaceValue(limits.CORNER.maxlimit) },
+      //       { target: this.pCornerOdd, value: limits.CORNER.odd },
+      //       { target: this.pLineMax, value: utils.numberToFaceValue(limits.LINE.maxlimit) },
+      //       { target: this.pLineOdd, value: limits.LINE.odd },
+      //       { target: this.pRowMax, value: utils.numberToFaceValue(limits.ROW.maxlimit) },
+      //       { target: this.pRowOdd, value: limits.ROW.odd },
+      //       { target: this.pDozenMax, value: utils.numberToFaceValue(limits.DOZEN.maxlimit) },
+      //       { target: this.pDozenOdd, value: limits.DOZEN.odd },
+      //       { target: this.pRedBlackMax, value: utils.numberToFaceValue(limits.RED_BLACK.maxlimit) },
+      //       { target: this.pRedBlackOdd, value: limits.RED_BLACK.odd },
+      //       { target: this.pOddEvenMax, value: utils.numberToFaceValue(limits.ODD_EVEN.maxlimit) },
+      //       { target: this.pOddEvenOdd, value: limits.ODD_EVEN.odd },
+      //       { target: this.pBigSmallMax, value: utils.numberToFaceValue(limits.BIG_SMALL.maxlimit) },
+      //       { target: this.pBigSmallOdd, value: limits.BIG_SMALL.odd },
+      //     ];
+      //     for (const { target, value } of list) {
+      //       if (target) {
+      //         if (value) {
+      //           target.text = value.toString();
+      //         } else {
+      //           target.text = '-';
+      //         }
+      //       }
+      //     }
+      //   }
+      // }
+      public getConfig() {
+        const betlimits = env.getBetLimitSet('Live', env.currentSelectedBetLimitIndex).limits.ro;
+        if (!betlimits) {
+          return [];
         }
-      }
+        return [
+          { data: betlimits.DIRECT, lblMax: this.pDirectMax, lblOdd: this.pDirectOdd },
+          { data: betlimits.SEPARATE, lblMax: this.pSeparateMax, lblOdd: this.pSeparateOdd },
+          { data: betlimits.STREET, lblMax: this.pStreetMax, lblOdd: this.pStreetOdd },
+          { data: betlimits.CORNER, lblMax: this.pCornerMax, lblOdd: this.pCornerOdd },
+          { data: betlimits.LINE, lblMax: this.pLineMax, lblOdd: this.pLineOdd },
+          { data: betlimits.ROW, lblMax: this.pRowMax, lblOdd: this.pRowOdd },
+          { data: betlimits.DOZEN, lblMax: this.pDozenMax, lblOdd: this.pDozenOdd },
+          { data: betlimits.RED_BLACK, lblMax: this.pRedBlackMax, lblOdd: this.pRedBlackOdd },
+          { data: betlimits.ODD_EVEN, lblMax: this.pOddEvenMax, lblOdd: this.pOddEvenOdd },
+          { data: betlimits.BIG_SMALL, lblMax: this.pBigSmallMax, lblOdd: this.pBigSmallOdd }
+        ];
+    }
+
     }
   }
 }

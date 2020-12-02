@@ -21,22 +21,22 @@ namespace we {
       // protected threeCountLabel: eui.Label;
       // protected threeCountLabel: eui.Label;
 
-      protected pThreeCount: eui.Label;
-      protected pFourCount: eui.Label;
-      protected pFiveCount: eui.Label;
-      protected pSixCount: eui.Label;
-      protected pSevenCount: eui.Label;
-      protected pEightCount: eui.Label;
-      protected pNineCount: eui.Label;
-      protected pTenCount: eui.Label;
-      protected pElevenCount: eui.Label;
-      protected pTwelveCount: eui.Label;
-      protected pThirteenCount: eui.Label;
-      protected pFourteenCount: eui.Label;
-      protected pFifteenCount: eui.Label;
-      protected pSixteenCount: eui.Label;
-      protected pSeventeenCount: eui.Label;
-      protected pEighteenCount: eui.Label;
+      protected pThreeCount: ui.RunTimeLabel;
+      protected pFourCount: ui.RunTimeLabel;
+      protected pFiveCount: ui.RunTimeLabel;
+      protected pSixCount: ui.RunTimeLabel;
+      protected pSevenCount: ui.RunTimeLabel;
+      protected pEightCount: ui.RunTimeLabel;
+      protected pNineCount: ui.RunTimeLabel;
+      protected pTenCount: ui.RunTimeLabel;
+      protected pElevenCount: ui.RunTimeLabel;
+      protected pTwelveCount: ui.RunTimeLabel;
+      protected pThirteenCount: ui.RunTimeLabel;
+      protected pFourteenCount: ui.RunTimeLabel;
+      protected pFifteenCount: ui.RunTimeLabel;
+      protected pSixteenCount: ui.RunTimeLabel;
+      protected pSeventeenCount: ui.RunTimeLabel;
+      protected pEighteenCount: ui.RunTimeLabel;
       // protected pNineTwelveOdd: eui.Label;
       // protected pTenElevenOdd: eui.Label;
 
@@ -86,51 +86,80 @@ namespace we {
         this.tenCountLabel.text = i18n.t('baccarat.totalcount') + ' 10 / 11';
       }
 
-      public setValue(tableInfo: data.TableInfo) {
-        super.setValue(tableInfo);
+      // public setValue(tableInfo: data.TableInfo) {
+      //   super.setValue(tableInfo);
 
-        const betLimitSet = env.getBetLimitSet('Live', env.currentSelectedBetLimitIndex);
-        if (betLimitSet.limits && betLimitSet.limits.dil) {
-          const limits = betLimitSet.limits.dil;
-          const list = [
-            { target: this.pThreeCount, value: limits.SUM_3_18.odd },
-            { target: this.pFourCount, value: limits.SUM_4_17.odd },
-            { target: this.pFiveCount, value: limits.SUM_5_16.odd },
-            { target: this.pSixCount, value: limits.SUM_6_15.odd },
-            { target: this.pSevenCount, value: limits.SUM_7_14.odd },
-            { target: this.pEightCount, value: limits.SUM_8_13.odd },
-            { target: this.pNineCount, value: limits.SUM_9_12.odd },
-            { target: this.pTenCount, value: limits.SUM_10_11.odd },
-            { target: this.pElevenCount, value: limits.SUM_10_11.odd },
-            { target: this.pTwelveCount, value: limits.SUM_9_12.odd },
-            { target: this.pThirteenCount, value: limits.SUM_8_13.odd },
-            { target: this.pFourteenCount, value: limits.SUM_7_14.odd },
-            { target: this.pFifteenCount, value: limits.SUM_6_15.odd },
-            { target: this.pSixteenCount, value: limits.SUM_5_16.odd },
-            { target: this.pSeventeenCount, value: limits.SUM_4_17.odd },
-            { target: this.pEighteenCount, value: limits.SUM_3_18.odd },
-            // { target: this.pNineTwelveOdd, value: limits.SUM_9_12.odd },
-            // { target: this.pTenElevenOdd, value: limits.SUM_10_11.odd },
-            { target: this.pThreeMax, value: utils.numberToFaceValue(limits.SUM_3_18.maxlimit) },
-            { target: this.pFourMax, value: utils.numberToFaceValue(limits.SUM_4_17.maxlimit) },
-            { target: this.pFiveMax, value: utils.numberToFaceValue(limits.SUM_5_16.maxlimit) },
-            { target: this.pSixMax, value: utils.numberToFaceValue(limits.SUM_6_15.maxlimit) },
-            { target: this.pSevenMax, value: utils.numberToFaceValue(limits.SUM_7_14.maxlimit) },
-            { target: this.pEightMax, value: utils.numberToFaceValue(limits.SUM_8_13.maxlimit) },
-            { target: this.pNineMax, value: utils.numberToFaceValue(limits.SUM_9_12.maxlimit) },
-            { target: this.pTenMax, value: utils.numberToFaceValue(limits.SUM_10_11.maxlimit) },
-          ];
-          for (const { target, value } of list) {
-            if (target) {
-              if (value) {
-                target.text = value.toString();
-              } else {
-                target.text = '-';
+      //   const betLimitSet = env.getBetLimitSet('Live', env.currentSelectedBetLimitIndex);
+      //   if (betLimitSet.limits && betLimitSet.limits.dil) {
+      //     const limits = betLimitSet.limits.dil;
+      //     const list = [
+      //       { target: this.pThreeCount, value: limits.SUM_3_18.odd },
+      //       { target: this.pFourCount, value: limits.SUM_4_17.odd },
+      //       { target: this.pFiveCount, value: limits.SUM_5_16.odd },
+      //       { target: this.pSixCount, value: limits.SUM_6_15.odd },
+      //       { target: this.pSevenCount, value: limits.SUM_7_14.odd },
+      //       { target: this.pEightCount, value: limits.SUM_8_13.odd },
+      //       { target: this.pNineCount, value: limits.SUM_9_12.odd },
+      //       { target: this.pTenCount, value: limits.SUM_10_11.odd },
+      //       { target: this.pElevenCount, value: limits.SUM_10_11.odd },
+      //       { target: this.pTwelveCount, value: limits.SUM_9_12.odd },
+      //       { target: this.pThirteenCount, value: limits.SUM_8_13.odd },
+      //       { target: this.pFourteenCount, value: limits.SUM_7_14.odd },
+      //       { target: this.pFifteenCount, value: limits.SUM_6_15.odd },
+      //       { target: this.pSixteenCount, value: limits.SUM_5_16.odd },
+      //       { target: this.pSeventeenCount, value: limits.SUM_4_17.odd },
+      //       { target: this.pEighteenCount, value: limits.SUM_3_18.odd },
+      //       // { target: this.pNineTwelveOdd, value: limits.SUM_9_12.odd },
+      //       // { target: this.pTenElevenOdd, value: limits.SUM_10_11.odd },
+      //       { target: this.pThreeMax, value: utils.numberToFaceValue(limits.SUM_3_18.maxlimit) },
+      //       { target: this.pFourMax, value: utils.numberToFaceValue(limits.SUM_4_17.maxlimit) },
+      //       { target: this.pFiveMax, value: utils.numberToFaceValue(limits.SUM_5_16.maxlimit) },
+      //       { target: this.pSixMax, value: utils.numberToFaceValue(limits.SUM_6_15.maxlimit) },
+      //       { target: this.pSevenMax, value: utils.numberToFaceValue(limits.SUM_7_14.maxlimit) },
+      //       { target: this.pEightMax, value: utils.numberToFaceValue(limits.SUM_8_13.maxlimit) },
+      //       { target: this.pNineMax, value: utils.numberToFaceValue(limits.SUM_9_12.maxlimit) },
+      //       { target: this.pTenMax, value: utils.numberToFaceValue(limits.SUM_10_11.maxlimit) },
+      //     ];
+      //     for (const { target, value } of list) {
+      //       if (target) {
+      //         if (value) {
+      //           target.text = value.toString();
+      //         } else {
+      //           target.text = '-';
+      //         }
+      //       }
+      //     }
+      //   }
+      // }
+            public getConfig() {
+              const betlimits = env.getBetLimitSet('Live', env.currentSelectedBetLimitIndex).limits.dil;
+              if (!betlimits) {
+                return [];
               }
+              return [
+                { data: betlimits.SUM_3_18, lblMax: this.pThreeMax, lblOdd: this.pThreeCount },
+                { data: betlimits.SUM_4_17, lblMax: this.pFourMax, lblOdd: this.pFourCount },
+                { data: betlimits.SUM_5_16, lblMax: this.pFiveMax, lblOdd: this.pFiveCount },
+                { data: betlimits.SUM_6_15, lblMax: this.pSixMax, lblOdd: this.pSixCount },
+                { data: betlimits.SUM_7_14, lblMax: this.pSevenMax, lblOdd: this.pSevenCount },
+                { data: betlimits.SUM_8_13, lblMax: this.pEightMax, lblOdd: this.pEightCount },
+                { data: betlimits.SUM_9_12, lblMax: this.pNineMax, lblOdd: this.pNineCount },
+                { data: betlimits.SUM_10_11, lblMax: this.pTenMax, lblOdd: this.pTenCount },
+
+              ];
+              // =======
+              //       public setValue(tableInfo: data.TableInfo) {
+              //         super.setValue(tableInfo);
+              //         if (tableInfo.gamestatistic) {
+              //           this.pTiger.text = tableInfo.gamestatistic.bankerCount.toString();
+              //           this.pDragon.text = tableInfo.gamestatistic.playerCount.toString();
+              //           this.pTie.text = tableInfo.gamestatistic.tieCount.toString();
+              //         }
+              //         if (this.pGameID) {
+              //           this.pGameID.text = tableInfo.betInfo.gameroundid;
+              //         }
+              // >>>>>>> develop
             }
-          }
-        }
-      }
     }
   }
 }
