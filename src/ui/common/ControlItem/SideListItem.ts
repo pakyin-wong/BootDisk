@@ -102,7 +102,7 @@ namespace we {
       }
 
       protected initBetGroupButtons() {
-        if (this._closeButton.skinName == 'skin_desktop.ImageButtonSkinEmpty') {
+        if (!this._closeButton.skinName) {
           this._closeButton.skinName = 'skin_desktop.ImageButtonSkinLobby';
           this._closeButton.currentState = 'lobby_betcontrol_close';
           this._prevButton.skinName = 'skin_desktop.ImageButtonSkinLobby';
