@@ -33,7 +33,6 @@ namespace we {
         // mouse.setButtonMode(this._btnBack, true);
         mouse.setButtonMode(this._confirmButton, true);
         this.addListeners();
-        this.changeLang();
         this._timer._isColorTransform = true;
         this._timer.addEventListener('UPDATE', this.onRemainingTimeUpdate, this);
       }
@@ -78,12 +77,7 @@ namespace we {
         if (this._cancelButton) {
           this._cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
         }
-        if (env.isMobile) {
-          dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        }
-        // if (!env.isMobile) {
         dir.evtHandler.addEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.changeTimerBg, this);
-        // }
       }
 
       protected removeListeners() {
@@ -106,12 +100,7 @@ namespace we {
         if (this._cancelButton) {
           this._cancelButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
         }
-        if (env.isMobile) {
-          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        }
-        // if (!env.isMobile) {
         dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.changeTimerBg, this);
-        // }
       }
 
       public changeBtnState(isEnable: boolean = true, totalUncfmBetAmount: number = 0, isPrevBet: boolean = false, isBetState: boolean = true) {
