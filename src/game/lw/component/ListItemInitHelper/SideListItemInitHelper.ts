@@ -18,7 +18,8 @@ namespace we {
       }
 
       public generateRoadmap(node: eui.Component) {
-        const road = new lw.LwLobbyBeadRoad();
+        const road = dir.sideRoadPool.get(core.GameType.LW);
+        // const road = new lw.LwLobbyBeadRoad();
         road.height = 127;
         road.roadRow = 3;
         road.roadCol = 8;

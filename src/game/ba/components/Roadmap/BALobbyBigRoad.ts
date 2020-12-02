@@ -21,8 +21,8 @@ namespace we {
       }
 
       protected init() {
-        this.parser = new BARoadParser([25, 25]);
-        this.parser.addEventListener('onUpdate', this.onParserUpdate, this);
+        // this.parser = new BARoadParser([25, 25]);
+        // this.parser.addEventListener('onUpdate', this.onParserUpdate, this);
 
         this.bigRoad = new BABigRoad(25, 23);
         this.bigRoad.scaleX = this.bigRoad.scaleY = 576 / 575;
@@ -89,9 +89,9 @@ namespace we {
       }
 
       public dispose() {
-        if (this.parser.hasEventListener('onUpdate')) {
-          this.parser.removeEventListener('onUpdate', this.onParserUpdate, this);
-        }
+        // if (this.parser.hasEventListener('onUpdate')) {
+        //   this.parser.removeEventListener('onUpdate', this.onParserUpdate, this);
+        // }
       }
     }
   }

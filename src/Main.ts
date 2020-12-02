@@ -69,8 +69,8 @@ class Main extends eui.UILayer {
       isMobile = data.ismobile ? parseInt(data.ismobile) > 0 : false;
     } catch (err) {}
 
-    // if (type === 'mobile' || isMobile) {
-      if (true) {
+    if (type === 'mobile' || isMobile) {
+      // if (true) {
       env.isMobile = true;
       // this.updateMobileHitTest();
       // use these when there is portrait mode only
@@ -110,21 +110,29 @@ class Main extends eui.UILayer {
     if (!env.isMobile) {
       const opt = {
         ba: 8,
-        dt: 4,
-        ro: 4,
-        di: 4,
-        lw: 4,
+        dt: 2,
+        ro: 2,
+        di: 2,
+        lw: 2,
       };
       dir.advancedRoadPool = new we.ui.AdvancedRoadPool(opt);
       dir.analysisPool = new we.ui.AnalysisPool(opt);
       const opt2 = {
         ba: 16,
-        dt: 8,
-        ro: 8,
-        di: 8,
-        lw: 8,
+        dt: 2,
+        ro: 2,
+        di: 2,
+        lw: 2,
       };
       dir.lobbyRoadPool = new we.ui.LobbyRoadPool(opt2);
+      const opt3 = {
+        ba: 6,
+        dt: 2,
+        ro: 2,
+        di: 2,
+        lw: 2,
+      };
+      dir.sideRoadPool = new we.ui.SideRoadPool(opt3);
     }
 
     this.showVersionNumber();

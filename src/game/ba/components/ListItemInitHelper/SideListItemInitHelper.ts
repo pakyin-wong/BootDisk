@@ -18,7 +18,8 @@ namespace we {
       }
 
       public generateRoadmap(node: eui.Component) {
-        const bigRoad = new ba.BetInfoBigRoad();
+        const bigRoad = dir.sideRoadPool.get(core.GameType.BAC);
+        // const bigRoad = new ba.BetInfoBigRoad();
         bigRoad.height = 127;
         bigRoad.scaleX = 336 / 338;
         const idx = node.parent.getChildIndex(node);

@@ -50,7 +50,7 @@ namespace we {
         this._textLayer = new egret.DisplayObjectContainer();
         this._dynamicLayer = new egret.DisplayObjectContainer();
 
-        this._staticLayer.cacheAsBitmap = true;
+        // this._staticLayer.cacheAsBitmap = true;
 
         utils.addChild(this,this._staticLayer);
         utils.addChild(this._staticLayer, this.grid);
@@ -66,7 +66,13 @@ namespace we {
 
         // this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAdded, this);
         // this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoved, this);
-        // this.onModeUpdate(null);        
+        this.onModeUpdate(null);     
+
+        setTimeout(() => {
+          if (!this.roadMapIconList) {
+            this.initRoadData();
+          }
+        });   
       }
 
       public initRoadData() {

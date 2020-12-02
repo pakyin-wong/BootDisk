@@ -43,9 +43,16 @@ namespace we {
         }
       }
 
+      // protected releaseRoadmap() {
+      //   if (this._bigRoad) {
+      //     this._bigRoad.parent.removeChild(this._bigRoad);
+      //   }
+      // }
+
       protected releaseRoadmap() {
-        if (this._bigRoad) {
+        if (this._bigRoad && this.tableInfo) {
           this._bigRoad.parent.removeChild(this._bigRoad);
+          dir.sideRoadPool.release(this._bigRoad, this.tableInfo.gametype);
         }
       }
 
@@ -94,7 +101,17 @@ namespace we {
         this._betChipSetGridSelected.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
       }
 
+      protected initBetGroupButtons() {
+        if (this._closeButton.skinName == 'skin_desktop.ImageButtonSkinEmpty') {
+          this._closeButton.skinName = 'skin_desktop.ImageButtonSkinLobby';
+          this._closeButton.currentState = 'lobby_betcontrol_close';
+          this._prevButton.skinName = 'skin_desktop.ImageButtonSkinLobby';
+          this._prevButton.currentState = 'lobby_betcontrol_previous';
+        }
+      }
+
       protected runtimeGenerateBetChipSet() {
+        this.initBetGroupButtons();
         this.runtimeGenerateBetChipSelected();
         const betChipSet = new BetChipSetGrid();
         betChipSet.top = 40;

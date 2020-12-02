@@ -27,9 +27,10 @@ namespace we {
 
       constructor() {
         super();
-        if (!this.skinName || this.skinName === '') {
-          this.skinName = utils.getSkinByClassname('ImageButtonSkinEmpty');
-        }
+        // 20201202: don't set default skinName since parseSkinName costing milliseconds to execute
+        // if (!this.skinName || this.skinName === '') {
+        //   this.skinName = utils.getSkinByClassname('ImageButtonSkinEmpty');
+        // }
         this.addEventListener(egret.Event.COMPLETE, this.onSkinChanged, this);
         this.touchChildren = false;
         this.buttonEnabled = true;
@@ -92,11 +93,11 @@ namespace we {
       }
 
       public get text() {
-        return this._label.text;
+        return this._label?this._label.text:'';
       }
 
       public set text(text) {
-        this._label.text = text || '';
+        if (this._label) this._label.text = text || '';
       }
 
       public get label(): RunTimeLabel {
