@@ -13,7 +13,8 @@ namespace we {
         this.bigRoad.scaleX = this.bigRoad.scaleY = 337 / 368;
         this.bigRoad.x = 1;
         this.bigRoad.setGridCorners({ tl: 0, tr: 0, bl: 8, br: 8 });
-        this.addChild(this.bigRoad);
+        utils.addChild(this,this.bigRoad);
+        // this.addChild(this.bigRoad);
       }
 
       public updateRoadData(roadmapData: any) {

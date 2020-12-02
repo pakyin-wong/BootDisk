@@ -1,6 +1,6 @@
 namespace we {
   export namespace ba {
-    export class BALobbyBigRoad extends ui.Panel implements we.ui.ILobbyRoad {
+    export class BALobbyBigRoad extends core.BaseEUI implements we.ui.ILobbyRoad {
       protected bigRoad: BABigRoad;
       protected parser: BARoadParser;
       protected useParser: boolean = false;
@@ -9,12 +9,15 @@ namespace we {
 
       public constructor() {
         super();
-        this.cacheAsBitmap = true;
+        // this.cacheAsBitmap = true;
       }
 
       protected childrenCreated() {
         super.childrenCreated();
         this.init();
+
+        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAdded, this);
+        this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoved, this);
       }
 
       protected init() {
@@ -30,6 +33,12 @@ namespace we {
         this.addChild(this.beadRoadGrid);
         this.addChild(this.bigRoad);
         this.bigRoad.initRoadData();
+      }
+      public onRemoved(e) {
+        this.bigRoad.onRemoved(e);
+      }
+      public onAdded(e) {
+        this.bigRoad.onAdded(e);
       }
 
       public drawGridBg(width: number, height: number) {

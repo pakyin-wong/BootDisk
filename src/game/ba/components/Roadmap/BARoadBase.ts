@@ -64,9 +64,9 @@ namespace we {
         // this._staticLayer.addChild(this._textLayer);
         // this.addChild(this._dynamicLayer);
 
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAdded, this);
-        this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoved, this);
-        this.onModeUpdate(null);        
+        // this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAdded, this);
+        // this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoved, this);
+        // this.onModeUpdate(null);        
       }
 
       public initRoadData() {
@@ -240,16 +240,16 @@ namespace we {
         }
       }
 
-      protected onRemoved(e) {
-        if (this.hasEventListener(egret.Event.ENTER_FRAME)) {
-          this.removeEventListener(egret.Event.ENTER_FRAME, this.render, this);
-        }
+      public onRemoved(e) {
+        // if (this.hasEventListener(egret.Event.ENTER_FRAME)) {
+        //   this.removeEventListener(egret.Event.ENTER_FRAME, this.render, this);
+        // }
 
         if (dir.evtHandler.hasEventListener(we.core.Event.MODE_UPDATE)) {
           dir.evtHandler.removeEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
         }
       }
-      protected onAdded(e) {
+      public onAdded(e) {
         dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
         // this.addEventListener(egret.Event.ENTER_FRAME, this.render, this);
         this.onModeUpdate(null);

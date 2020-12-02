@@ -61,6 +61,6 @@
 		<ui:RunTimeLabel id="_matntenanceLabel" text="維護中" size="22" height="33" verticalAlign="middle" textAlign="center" textColor="0xffffff" verticalCenter="51.5" horizontalCenter="0"/>
   </e:Group>
     </e:Group>
-    <e:Component id="_chipLayerNode" width="337" skinName="skin_desktop.ba.SideListChipLayerSkin" anchorOffsetY="0"
+    <e:Component id="_chipLayerNode" width="337" anchorOffsetY="0"
                  height="110" left="0" y="0" name="sidebettingtable" alpha="0"  visible="false"/>
 </e:Skin>
