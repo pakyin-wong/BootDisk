@@ -52,15 +52,21 @@ namespace we {
 
         this._staticLayer.cacheAsBitmap = true;
 
-        this.addChild(this._staticLayer);
-        this._staticLayer.addChild(this.grid);
-        this._staticLayer.addChild(this._shapeLayer);
-        this._staticLayer.addChild(this._textLayer);
-        this.addChild(this._dynamicLayer);
+        utils.addChild(this,this._staticLayer);
+        utils.addChild(this._staticLayer, this.grid);
+        utils.addChild(this._staticLayer, this._shapeLayer);
+        utils.addChild(this._staticLayer, this._textLayer);
+        utils.addChild(this,this._dynamicLayer);
+
+        // this.addChild(this._staticLayer);
+        // this._staticLayer.addChild(this.grid);
+        // this._staticLayer.addChild(this._shapeLayer);
+        // this._staticLayer.addChild(this._textLayer);
+        // this.addChild(this._dynamicLayer);
 
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAdded, this);
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoved, this);
-        this.onModeUpdate(null);
+        this.onModeUpdate(null);        
       }
 
       public initRoadData() {
@@ -227,6 +233,11 @@ namespace we {
 
       protected onModeUpdate(e: egret.Event) {
         this.DarkMode = env.mode === 1 ? 1 : 0;
+        if (this.roadMapIconList) {
+          for (const elem of this.roadMapIconList) {
+            elem.onModeUpdate();
+          }
+        }
       }
 
       protected onRemoved(e) {
