@@ -14,7 +14,7 @@
                          colorChange="true" rotation="90" currentState="vertical" horizontalCenter="0"
                          verticalCenter="0"  verticalCenter.left_hand_mode="0"/>
       <ui:BetConfirmButton id="_confirmButton" dbClass="common_ui" dbDisplay="m_common_betcontrol_btn_confirm"
-                           useColorFilter="true" rotation="90" anchorOffsetX="0" anchorOffsetY="0" left="0" top="0" />
+                           useColorFilter="true" orientation="_vertical" anchorOffsetX="0" anchorOffsetY="0" left="0" top="0" />
     </e:Group>
     <!--<ui:BaseImageButton id="_repeatButton" y="81" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0"
                             skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_repeat" />

@@ -20,6 +20,7 @@
 		</ui:skinName>
 	</ui:TweenConfig>
 	<e:Image id="_bgImg" source="m_ba_bg_offvideo_png" x="0" width="1242" height="986" />
+	<e:Rect top="0" bottom="0" left="0" right="0" fillColor="0xffffff" />
 	<e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="1242" touchEnabled="false"
 	         touchChildren="true" touchThrough="true" height="121">
 		<!--<ui:GoodRoadLabel id="_BAgoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin" x="215" y="23" />
@@ -114,8 +115,7 @@
 	<e:Group id="_betSet" y="122" left="0" right="0" touchThrough="true" left.left_hand_mode="3" right.left_hand_mode="-3"
 	         left.right_hand_mode="16" right.right_hand_mode="0" y.left_hand_mode="267.45" y.right_hand_mode="267.45">
 		<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="150" height="150" skinName="skin_mobile.BetChipSkin"
-		                           labelSize="48" right.right_hand_mode="-20" top="55" 
-		                           left.left_hand_mode="10" />
+		                           labelSize="48" right.right_hand_mode="-20" top="55" left.left_hand_mode="10" />
 		<e:Group id="_betChipSetPanel" width="888" height="871" horizontalCenter="0">
 			<e:Group x="0" y="0" scaleX.left_hand_mode="-1" x.left_hand_mode="888">
 				<e:Image id="_panel" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1" scaleX="1"
@@ -154,7 +154,7 @@
 		                    horizontalCenter="0" />
 	</e:Group>
 	-->
-	<ui:BetRelatedGroup id="_betRelatedGroup" x.right_hand_mode="1074" y="230"  left.left_hand_mode="10"/>
+	<ui:BetRelatedGroup id="_betRelatedGroup" x.right_hand_mode="1074" y="230" left.left_hand_mode="10" />
 </e:Group>
 <di:MobileBottomGamePanel skinName="skin_mobile_portrait.di.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"
                           x="0" scaleY="1" scaleX="1" bottom="42" />
