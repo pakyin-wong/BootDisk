@@ -2,11 +2,11 @@
 <e:Skin class="skin_mobile_portrait.CountdownTimerSkin" width="315" height="140" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="horizontal,vertical">
 	<w:Config id="16dcf084172"></w:Config>
-	<ui:RoundRectShape id="bg_color" cornerTL_TR_BL_BR="60,60,60,60" width="300" height="125" stroke="0" strokeIn="0"
+	<ui:RoundRectShape id="bg_color" rotation.vertical="270" cornerTL_TR_BL_BR="60,60,60,60" width="300" height="125" stroke="0" strokeIn="0"
 	                   fillColor="0xFF0B34" fillAlpha="1" horizontalCenter="0" verticalCenter="0" />
 	<ui:RadialProgressIndicator id="progressIndicator" anchorOffsetX="0" anchorOffsetY="0" left="0" top="0" bottom="0"
 	                            right="0" thickness="6" touchEnabled="false" touchChildren="false" />
-	<e:Group width="62" x="25" y="32" rotation.vertical="270" y.vertical="89">
+	<e:Group width="62" x="25" y="32" rotation.vertical="270" y.vertical="89" verticalCenter.horizontal="0">
 		<e:Label id="countdownLabel" text="0" verticalCenter="0" horizontalCenter="0" textAlign="center"
 		         verticalAlign="middle" size="54" bold="true" rotation="0" fontFamily="Barlow" />
 	</e:Group>

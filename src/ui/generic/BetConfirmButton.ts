@@ -64,24 +64,24 @@ namespace we {
       protected clone: egret.Bitmap;
 
       public init() {
-        // const slot = this._display.armature.getSlot('blur');
-        // const layer: eui.Group = new eui.Group();
-        // const bitmap: egret.Bitmap = slot.display as egret.Bitmap;
-        // const clone: egret.Bitmap = new egret.Bitmap(bitmap.texture);
-        // clone.width = bitmap.width;
-        // clone.height = bitmap.height;
-        // clone.x = bitmap.x;
-        // clone.y = bitmap.y;
-        // clone.anchorOffsetX = bitmap.anchorOffsetX;
-        // clone.anchorOffsetY = bitmap.anchorOffsetY;
-        // this.clone = clone;
-        // layer.addChild(clone);
-        // slot.display = layer;
+        const slot = this._display.armature.getSlot('blur');
+        const layer: eui.Group = new eui.Group();
+        const bitmap: egret.Bitmap = slot.display as egret.Bitmap;
+        const clone: egret.Bitmap = new egret.Bitmap(bitmap.texture);
+        clone.width = bitmap.width;
+        clone.height = bitmap.height;
+        clone.x = bitmap.x;
+        clone.y = bitmap.y;
+        clone.anchorOffsetX = bitmap.anchorOffsetX;
+        clone.anchorOffsetY = bitmap.anchorOffsetY;
+        this.clone = clone;
+        layer.addChild(clone);
+        slot.display = layer;
       }
 
       public setColor(r, g, b) {
         const colorFilter = new egret.ColorMatrixFilter([r, 0, 0, 0, 0, 0, g, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 1, 0]);
-        // this.clone.filters = [colorFilter];
+        this.clone.filters = [colorFilter];
       }
 
       // const bitmap: egret.Bitmap = slot.display as egret.Bitmap;

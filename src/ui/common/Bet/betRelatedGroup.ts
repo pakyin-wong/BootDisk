@@ -16,7 +16,6 @@ namespace we {
       public _timer: ui.CountdownTimer;
 
       public constructor(skin: string = 'BetRelatedGroup') {
-        super(skin);
         if (env.orientation === 'portrait') {
           switch (env._currGameType) {
             case 12: // DI
@@ -26,6 +25,7 @@ namespace we {
               break;
           }
         }
+        super(skin);
       }
 
       protected mount() {
