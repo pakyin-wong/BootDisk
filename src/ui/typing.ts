@@ -44,8 +44,8 @@ namespace we {
       generateAnalysis?(node: eui.Component): IAnalysis & eui.Component;
       generateResultMessage?(node: eui.Component): IGameResultMessage & eui.Component;
       generateResultDisplay?(node: eui.Component): IResultDisplay & eui.Component;
-      getPlaceholder?(): string;
-      getAdvancedPlaceholder?(): string;
+      getPlaceholder?(gametype?: number): string;
+      getAdvancedPlaceholder?(gametype?: number): string;
     }
 
     export interface IRunTimeComponent extends egret.DisplayObject {

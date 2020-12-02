@@ -17,7 +17,7 @@ namespace we {
       public notYetInteract: boolean = false;
 
       /* Global Environment Variable */
-      public version: string = '0.12.8';
+      public version: string = '0.12.10f2';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -219,7 +219,7 @@ namespace we {
 
       set gameTypes(value: any[]) {
         // value = ['0', '15', '22'];     // TODO: this is just for testing, delete it when finish testing
-        value = value.concat('27', '28', '29', '88','15', '22'); // TODO: temp add BAB and DTB
+        value = value.concat('27', '28', '29', '30','15', '22'); // TODO: temp add BAB and DTB
         // console.log(JSON.stringify(value));
         this._gameTypes = value.map((cat: string) => parseInt(cat, 10));
         this.generateLiveGameTab();
@@ -387,6 +387,7 @@ namespace we {
           }
 
           if (tableInfo.data != null && tableInfo.roadmap != null) {
+          // if (tableInfo.data != null) {
             tableInfo.displayReady = true;
             return true;
           }

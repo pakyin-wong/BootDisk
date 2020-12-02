@@ -27,20 +27,20 @@
                                 <e:Group id="_playerCard2Info" left="0" bottom="0" width="40" height="40" />
                         </e:Group>
                 </e:Group>
-                <e:Group x="143" y="810" id="_playerCard3Group" visible="false" width="170" height="117"
-                         touchThrough="true">
+                <e:Group x="143" y="931" id="_playerCard3Group" width="170" height="117"
+                         touchThrough="true" visible="false">
                         <e:Group id="_playerCard3Info" left="0" bottom="0" width="40" height="40" />
                 </e:Group>
-                <e:Group x="656" y="931" id="_bankerCardMoveGroup">
-                        <e:Group x="0" y="0" id="_bankerCard1Group" width="204" height="350" touchThrough="true">
+                <e:Group x="656" y="931" id="_bankerCardMoveGroup" width="255" height="170">
+                        <e:Group x="0" y="0" id="_bankerCard1Group" width="117" height="170" touchThrough="true">
                                 <e:Group id="_bankerCard1Info" left="0" bottom="0" width="40" height="40" />
                         </e:Group>
-                        <e:Group x="138" y="0" id="_bankerCard2Group" width="204" height="350" touchThrough="true">
+                        <e:Group x="138" y="0" id="_bankerCard2Group" width="117" height="170" touchThrough="true">
                                 <e:Group id="_bankerCard2Info" left="0" bottom="0" width="40" height="40" />
                         </e:Group>
                 </e:Group>
-                <e:Group x="930" y="810" id="_bankerCard3Group" visible="false" width="350" height="220"
-                         touchThrough="true">
+                <e:Group x="930" y="931" id="_bankerCard3Group" width="170" height="117"
+                         touchThrough="true" visible="false">
                         <e:Group id="_bankerCard3Info" left="0" bottom="0" width="40" height="40" />
                 </e:Group>
         </e:Group>

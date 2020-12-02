@@ -48,12 +48,16 @@ namespace we {
 
 
       protected createBg(){
-        const image = new eui.Image();
-        image.width = this.width;
-        image.height = this.height;
-        image.source = this._panelBgSource;
-        image.scale9Grid = new egret.Rectangle(169, 118, 2, 802);
-        this.content && this.content.addChildAt(image, 0);
+        // if(env.isMobile){
+        //   this._panelBgSource = 'm_bcba_resultarea_panel_prevresult_png';
+        // }
+
+        // const image = new eui.Image();
+        // image.width = this.width;
+        // image.height = this.height;
+        // image.source = this._panelBgSource;
+        // image.scale9Grid = new egret.Rectangle(169, 118, 2, 802);
+        // this.content && this.content.addChildAt(image, 0);
       }
 
       public setCards(tableId: string) {
