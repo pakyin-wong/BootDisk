@@ -48,12 +48,36 @@ namespace we {
         return advancedRoad;
       }
 
-      public getPlaceholder() {
-        return 'd_lobby_placeholder_ba_jpg';
+      public getPlaceholder(gametype: number = core.GameType.BAC) {
+        switch (gametype) {
+          case core.GameType.BAB:
+          case core.GameType.BASB:
+            return 'd_lobby_placeholder_bc_sdba_jpg';//d_lobby_placeholder_ba_jpg
+          case core.GameType.BAMB:
+            return 'd_lobby_placeholder_bc_sqba_jpg';
+          case core.GameType.BAC:
+          case core.GameType.BAS:
+          case core.GameType.BAI:
+          case core.GameType.BAM:
+          default:
+            return 'd_lobby_placeholder_ba_jpg';
+        }
       }
 
-      public getAdvancedPlaceholder() {
-        return 'd_lobby_pro_placeholder_ba_jpg';
+      public getAdvancedPlaceholder(gametype: number = core.GameType.BAC) {
+        switch (gametype) {
+          case core.GameType.BAB:
+          case core.GameType.BASB:
+            return 'd_lobby_pro_placeholder_bc_sdba_jpg';
+          case core.GameType.BAMB:
+            return 'd_lobby_pro_placeholder_bc_sqba_jpg';
+          case core.GameType.BAC:
+          case core.GameType.BAS:
+          case core.GameType.BAI:
+          case core.GameType.BAM:
+          default:
+            return 'd_lobby_pro_placeholder_ba_jpg';
+        }
       }
     }
   }

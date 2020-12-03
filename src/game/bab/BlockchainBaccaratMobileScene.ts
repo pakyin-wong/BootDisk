@@ -43,6 +43,8 @@ namespace we {
         super.mount();
       }
 
+      protected instantiateVideo() {}
+
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
         this.initVariables();

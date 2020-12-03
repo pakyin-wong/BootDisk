@@ -58,7 +58,7 @@ namespace we {
 
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
-        this._dealerImage.source = this.itemInitHelper && this.itemInitHelper.getPlaceholder ? this.itemInitHelper.getPlaceholder() : null;
+        this._dealerImage.source = this.itemInitHelper && this.itemInitHelper.getPlaceholder ? this.itemInitHelper.getPlaceholder(tableInfo.gametype) : null;
       }
 
       get dealerImage() {
