@@ -10,11 +10,11 @@ namespace we {
       public constructor() {
         super();
         // this.cacheAsBitmap = true;
+        this.init();
       }
 
       protected childrenCreated() {
         super.childrenCreated();
-        this.init();
 
         // this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAdded, this);
         // this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoved, this);
