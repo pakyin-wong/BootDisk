@@ -7,6 +7,7 @@ namespace we {
       protected _textColor: number = 0x000000;
       protected _bold: boolean = false;
       protected _hasShadow: boolean = false;
+      protected _rotation: number;
 
       public constructor() {
         super();
@@ -66,7 +67,12 @@ namespace we {
         return this._hasShadow;
       }
 
-      protected render() {
+      set labelRotation(value: number) {
+        this._rotation = value;
+        this.render();
+      }
+
+      public render() {
         const renderTexture = new egret.RenderTexture();
         const label = new eui.Label();
         label.textColor = this._textColor;
@@ -80,6 +86,14 @@ namespace we {
         if (this._text) {
           label.text = this._text;
         }
+        if (this._rotation) {
+          label.anchorOffsetX = label.width / 2;
+          label.anchorOffsetY = label.height / 2;
+          label.rotation = this._rotation;
+          label.anchorOffsetX = label.width
+          label.anchorOffsetY = 0;
+        }
+
         if (this._hasShadow) {
           const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(1, 90, 0x000000, 0.5, 2, 2, 2, egret.BitmapFilterQuality.LOW);
           label.filters = [shadowFilter];

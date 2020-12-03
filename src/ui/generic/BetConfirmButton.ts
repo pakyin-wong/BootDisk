@@ -12,7 +12,7 @@ namespace we {
        * betting logic: play "betting" when there is unconfirm bet exists
        * use animation.fadeIn with different group name instead of animation.play to play the animation so that you can play multiple animation at the same time ("betting" in one group and others in another group)
        **/
-
+      protected _text_slot: string;
       protected _orientation: string = ''; // desktop ="", portrait="_vertical", landscape="_horizontal"
       public constructor() {
         super();
@@ -37,8 +37,63 @@ namespace we {
         utils.dblistenToSoundEffect(this._display);
         this._display.x = 0;
         this._display.y = 0;
+        this._display.touchEnabled = false;
+        this._display.touchChildren = true;
         this.addChild(this._display);
         this.init();
+
+        this.init_textLabel();
+      }
+
+      protected changeLang() {
+        this.init_textLabel();
+      }
+
+      public set text_slot(val: string) {
+        this._text_slot = val;
+      }
+
+      public init_textLabel() {
+        const slot = this._display.armature.getSlot(this._text_slot);
+        const textLabel = this.getLabelText();
+        this.setLabel(slot, textLabel, 30, 0xffffff, 'barlow');
+      }
+
+      protected setLabel(slot: dragonBones.Slot, text: string, size: number, color = 0xffffff, fontFamily: string) {
+        const r = new ui.LabelImage();
+        r.fontFamily = fontFamily;
+        r.size = size;
+        r.text = text;
+        r.textColor = color;
+        r.labelRotation = this._orientation == '_vertical' ? 270 : 0;
+
+        // create a new ImageDisplayData with a EgretTextureData holding the new texture
+        const displayData: dragonBones.ImageDisplayData = new dragonBones.ImageDisplayData();
+        const textureData: dragonBones.EgretTextureData = new dragonBones.EgretTextureData();
+        textureData.renderTexture = r.texture;
+        textureData.region.x = 0;
+        textureData.region.y = 0;
+        textureData.region.width = textureData.renderTexture.textureWidth;
+        textureData.region.height = textureData.renderTexture.textureHeight;
+        textureData.parent = new dragonBones.EgretTextureAtlasData();
+        textureData.parent.scale = 1;
+        displayData.texture = textureData;
+        displayData.pivot.x = 0.5;
+        displayData.pivot.y = 0.5;
+
+        // type 0 is ImageDisplayData
+        displayData.type = 0;
+
+        slot.replaceDisplayData(displayData, 0);
+
+        // set the displayIndex to non zero since new value == current index will not trigger redraw
+        slot.displayIndex = -1;
+        slot.displayIndex = 0;
+      }
+
+      protected getLabelText() {
+        // return `live.tooltip.${this._labelText}`;
+        return i18n.t(`mobile_ba_AutoConfirm`);
       }
 
       public destroy() {
@@ -48,11 +103,13 @@ namespace we {
 
       protected addEventListeners() {
         dir.evtHandler.addEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.switchAutoConfirm, this);
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
 
       protected removeEventListeners() {
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.switchAutoConfirm, this);
+          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }
       }
 
@@ -70,8 +127,9 @@ namespace we {
         clone.anchorOffsetX = bitmap.anchorOffsetX;
         clone.anchorOffsetY = bitmap.anchorOffsetY;
         this.clone = clone;
-        layer.addChild(clone);
-        slot.display = layer;
+        // layer.addChild(clone);
+        // slot.display = layer;
+        // slot.display = this.clone;
       }
 
       public setColor(r, g, b) {
