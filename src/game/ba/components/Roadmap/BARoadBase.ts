@@ -64,15 +64,15 @@ namespace we {
         // this._staticLayer.addChild(this._textLayer);
         // this.addChild(this._dynamicLayer);
 
-        // this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAdded, this);
-        // this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoved, this);
-        this.onModeUpdate(null);     
+        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAdded, this);
+        this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoved, this);
+        // this.onModeUpdate(null);     
 
         setTimeout(() => {
           if (!this.roadMapIconList) {
             this.initRoadData();
           }
-        });   
+        },10);   
       }
 
       public initRoadData() {

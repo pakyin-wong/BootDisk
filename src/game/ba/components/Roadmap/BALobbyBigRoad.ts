@@ -16,8 +16,8 @@ namespace we {
         super.childrenCreated();
         this.init();
 
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAdded, this);
-        this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoved, this);
+        // this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAdded, this);
+        // this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoved, this);
       }
 
       protected init() {
@@ -34,12 +34,12 @@ namespace we {
         this.addChild(this.bigRoad);
         this.bigRoad.initRoadData();
       }
-      public onRemoved(e) {
-        this.bigRoad.onRemoved(e);
-      }
-      public onAdded(e) {
-        this.bigRoad.onAdded(e);
-      }
+      // public onRemoved(e) {
+      //   this.bigRoad.onRemoved(e);
+      // }
+      // public onAdded(e) {
+      //   this.bigRoad.onAdded(e);
+      // }
 
       public drawGridBg(width: number, height: number) {
         this.beadRoadGrid.graphics.beginFill(0xffffff, 1);

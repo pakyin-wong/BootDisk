@@ -37,6 +37,10 @@ namespace we {
       }
 
       protected initTabs() {
+        this.createAllGameList();
+        this.createGoodRoadList();
+        this.createAlreadyBetList();
+
         this._subdropdown.gamegroup = env.sideGameCategories.length > 0 ? env.sideGameCategories[0] : 'live';
 
         this._tabbar.dataProvider = this._viewStack;
@@ -302,7 +306,7 @@ namespace we {
 
       protected onClearSelection() {
         super.onClearSelection();
-        this.destroyCurrentTableList();
+        // this.destroyCurrentTableList();
         env.isShowingAlreadyBetPanel = false;
         this._dropdown.visible = false;
         this._dropdown.hide();
@@ -339,7 +343,7 @@ namespace we {
       }
 
       protected onSelected() {
-        this.destroyCurrentTableList();
+        // this.destroyCurrentTableList();
         this.isLock = false;
         console.log('sidepanel _targetHeight :', this._viewStack.selectedIndex, this._targetHeight);
         super.onSelected();
@@ -356,7 +360,7 @@ namespace we {
             this._dropdown.visible = true;
             break;
         }
-        this.createTableList(this._tabbar.selectedIndex);
+        // this.createTableList(this._tabbar.selectedIndex);
         this.invalidateHeight();
       }
 

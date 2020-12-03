@@ -125,6 +125,18 @@ namespace we {
         this._betChipSet.init(null, denominationList);
       }
 
+      protected onHideCompleted() {
+        // remove _betChipSet and _betChipSetGridSelected
+        if (this._betChipSet) {
+          this._betChipSetGroup.removeChild(this._betChipSet);
+          this._betChipSet = null;
+        }
+        if (this._betChipSetGridSelected) {
+          this._betButtonGroup.removeChild(this._betChipSetGridSelected);
+          this._betChipSetGridSelected = null;
+        }
+      }
+
       protected showBetChipPanel() {
         this._betChipSetGroup.y = this._betChipPanelTargetY - 100;
         this._betChipSetGroup.visible = true;
