@@ -64,6 +64,8 @@ namespace we {
           this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
           this._confirmButton.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
           this._confirmButton.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+          this._timer.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
+          this._timer.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         }
         if (this._repeatButton) {
           this._repeatButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRepeatPressed, this, true);
@@ -87,6 +89,8 @@ namespace we {
           this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
           this._confirmButton.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
           this._confirmButton.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+          this._timer.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
+          this._timer.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
         }
         if (this._repeatButton) {
           this._repeatButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRepeatPressed, this, true);
