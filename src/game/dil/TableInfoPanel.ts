@@ -1,22 +1,22 @@
 namespace we {
   export namespace dil {
     export class TableInfoPanel extends ui.TableInfoPanel {
-      protected threeCountLabel: eui.Label;
-      protected fourCountLabel: eui.Label;
-      protected fiveCountLabel: eui.Label;
-      protected sixCountLabel: eui.Label;
-      protected sevenCountLabel: eui.Label;
-      protected eightCountLabel: eui.Label;
-      protected nineCountLabel: eui.Label;
-      protected tenCountLabel: eui.Label;
-      protected elevenCountLabel: eui.Label;
-      protected twelveCountLabel: eui.Label;
-      protected thirteenCountLabel: eui.Label;
-      protected fourteenCountLabel: eui.Label;
-      protected fifteenCountLabel: eui.Label;
-      protected sixteenCountLabel: eui.Label;
-      protected seventeenCountLabel: eui.Label;
-      protected eighteenCountLabel: eui.Label;
+      protected threeCountLabel: ui.RunTimeLabel;
+      protected fourCountLabel: ui.RunTimeLabel;
+      protected fiveCountLabel: ui.RunTimeLabel;
+      protected sixCountLabel: ui.RunTimeLabel;
+      protected sevenCountLabel: ui.RunTimeLabel;
+      protected eightCountLabel: ui.RunTimeLabel;
+      protected nineCountLabel: ui.RunTimeLabel;
+      protected tenCountLabel: ui.RunTimeLabel;
+      protected elevenCountLabel: ui.RunTimeLabel;
+      protected twelveCountLabel: ui.RunTimeLabel;
+      protected thirteenCountLabel: ui.RunTimeLabel;
+      protected fourteenCountLabel: ui.RunTimeLabel;
+      protected fifteenCountLabel: ui.RunTimeLabel;
+      protected sixteenCountLabel: ui.RunTimeLabel;
+      protected seventeenCountLabel: ui.RunTimeLabel;
+      protected eighteenCountLabel: ui.RunTimeLabel;
 
       // protected threeCountLabel: eui.Label;
       // protected threeCountLabel: eui.Label;
@@ -29,14 +29,14 @@ namespace we {
       protected pEightCount: ui.RunTimeLabel;
       protected pNineCount: ui.RunTimeLabel;
       protected pTenCount: ui.RunTimeLabel;
-      protected pElevenCount: ui.RunTimeLabel;
-      protected pTwelveCount: ui.RunTimeLabel;
-      protected pThirteenCount: ui.RunTimeLabel;
-      protected pFourteenCount: ui.RunTimeLabel;
-      protected pFifteenCount: ui.RunTimeLabel;
-      protected pSixteenCount: ui.RunTimeLabel;
-      protected pSeventeenCount: ui.RunTimeLabel;
-      protected pEighteenCount: ui.RunTimeLabel;
+      // protected pElevenCount: ui.RunTimeLabel;
+      // protected pTwelveCount: ui.RunTimeLabel;
+      // protected pThirteenCount: ui.RunTimeLabel;
+      // protected pFourteenCount: ui.RunTimeLabel;
+      // protected pFifteenCount: ui.RunTimeLabel;
+      // protected pSixteenCount: ui.RunTimeLabel;
+      // protected pSeventeenCount: ui.RunTimeLabel;
+      // protected pEighteenCount: ui.RunTimeLabel;
       // protected pNineTwelveOdd: eui.Label;
       // protected pTenElevenOdd: eui.Label;
 
