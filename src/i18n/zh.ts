@@ -627,6 +627,8 @@ namespace we {
         mechanismHelp2: '「卡牌序號」以SHA-256技術加密生成「卡牌加密文」，並提前公佈。',
         mechanismHelp3: '開牌後，顯示及驗證「卡牌序號」和「卡牌加密文」以示公正。',
         mechanismHelp4: '玩家可複制「卡牌序號」，並點擊「第三方驗證」鍵跳轉至第三方平台，驗證相關「卡牌加密文」。',
+        mechanismHelpTitle1: 'SHA-256已加密！',
+        mechanismHelpTitle2: 'SHA-256已驗證！',
         verification: '驗證',
         thirdParty: '第三方驗證',
         sha256VerifySuccess: 'SHA256已驗證',

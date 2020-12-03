@@ -620,6 +620,8 @@ namespace we {
         mechanismHelp2: 'Serial No SHA256 ',
         mechanismHelp3: 'Everything can be verified by the encrypted key',
         mechanismHelp4: 'User can copy the information and seek third party verification',
+        mechanismHelpTitle1: 'SHA-256 Encrypted!',
+        mechanismHelpTitle2: 'SHA-256 Verified!',
         verification: 'Verification',
         thirdParty: 'Verification',
         sha256VerifySuccess: 'SHA256 Verified',
