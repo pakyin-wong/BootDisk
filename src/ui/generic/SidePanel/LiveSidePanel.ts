@@ -37,9 +37,6 @@ namespace we {
       }
 
       protected initTabs() {
-
-
-
         this._subdropdown.gamegroup = env.sideGameCategories.length > 0 ? env.sideGameCategories[0] : 'live';
 
         this._tabbar.dataProvider = this._viewStack;
@@ -162,7 +159,7 @@ namespace we {
 
         if (this.goodRoadTableData) this.goodRoadTableList.setTableList(this.goodRoadTableData);
 
-        this.goodRoadTableList.invalidateSize();
+        this.goodRoadTableList.validateNow();
       }
 
       protected createAlreadyBetList() {
@@ -209,7 +206,7 @@ namespace we {
         this.betTableList.addEventListener(TableList.UNLOCK, this.onLockChanged, this, false, 10);
 
         if (this.betTableData) this.betTableList.setTableList(this.betTableData);
-        this.betTableList.invalidateSize();
+        this.betTableList.validateNow();
       }
 
       protected getLayout() {
@@ -279,7 +276,7 @@ namespace we {
         this.goodRoadTableData = tableList;
         if (this.goodRoadTableList) {
           this.goodRoadTableList.setTableList(tableList);
-          this.goodRoadTableList.invalidateSize();
+          this.goodRoadTableList.validateNow();
         }
 
         this.invalidateHeight();
@@ -297,7 +294,7 @@ namespace we {
         this.betTableData = tableList;
         if (this.betTableList) {
           this.betTableList.setTableList(tableList);
-          this.betTableList.invalidateSize();
+          this.betTableList.validateNow();
         }
 
         this.invalidateHeight();
@@ -365,11 +362,8 @@ namespace we {
 
       protected invalidateHeight() {
         if (!this.isCollapsed) {
-          (async () => {
-            await we.utils.sleep(200);
-            this.updateTargetHeight();
-            this.tweenExpand(200);
-          })();
+          this.updateTargetHeight();
+          this.tweenExpand(200);
         }
       }
 
