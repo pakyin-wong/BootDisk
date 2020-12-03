@@ -18,49 +18,49 @@ namespace we {
       protected specificTripleLabel: eui.Label;
 
       protected pBigSmallMax: eui.Label;
-      protected pBigSmallOdd: eui.Label;
+      protected pBigSmallOdd: ui.RunTimeLabel;
 
       protected pOddEvenMax: eui.Label;
-      protected pOddEvenOdd: eui.Label;
+      protected pOddEvenOdd: ui.RunTimeLabel;
 
       protected pTripleMax: eui.Label;
-      protected pTripleOdd: eui.Label;
+      protected pTripleOdd: ui.RunTimeLabel;
 
       protected pTripleAllMax: eui.Label;
-      protected pTripleAllOdd: eui.Label;
+      protected pTripleAllOdd: ui.RunTimeLabel;
 
       protected pDoubleMax: eui.Label;
-      protected pDoubleOdd: eui.Label;
+      protected pDoubleOdd: ui.RunTimeLabel;
 
       protected pFourSeventeenMax: eui.Label;
-      protected pFourSeventeenOdd: eui.Label;
+      protected pFourSeventeenOdd: ui.RunTimeLabel;
 
       protected pFiveSixteenMax: eui.Label;
-      protected pFiveSixteenOdd: eui.Label;
+      protected pFiveSixteenOdd: ui.RunTimeLabel;
 
       protected pSixFifthTeenMax: eui.Label;
-      protected pSixFifthTeenOdd: eui.Label;
+      protected pSixFifthTeenOdd: ui.RunTimeLabel;
 
       protected pSevenFourTeenMax: eui.Label;
-      protected pSevenFourTeenOdd: eui.Label;
+      protected pSevenFourTeenOdd: ui.RunTimeLabel;
 
       protected pEightThirdteenMax: eui.Label;
-      protected pEightThirdteenOdd: eui.Label;
+      protected pEightThirdteenOdd: ui.RunTimeLabel;
 
       protected pNineTenElevenTwelveMax: eui.Label;
-      protected pNineTenElevenTwelveOdd: eui.Label;
+      protected pNineTenElevenTwelveOdd: ui.RunTimeLabel;
 
       protected pCombineMax: eui.Label;
-      protected pCombineOdd: eui.Label;
+      protected pCombineOdd: ui.RunTimeLabel;
 
       protected pSpecificSingleMax: eui.Label;
-      protected pSpecificSingleOdd: eui.Label;
+      protected pSpecificSingleOdd: ui.RunTimeLabel;
 
       protected pSpecificDoubleMax: eui.Label;
-      protected pSpecificDoubleOdd: eui.Label;
+      protected pSpecificDoubleOdd: ui.RunTimeLabel;
 
       protected pSpecificTripleMax: eui.Label;
-      protected pSpecificTripleOdd: eui.Label;
+      protected pSpecificTripleOdd: ui.RunTimeLabel;
 
       protected _scroller: eui.Scroller;
       protected _scrollArea: eui.Group;
@@ -127,55 +127,91 @@ namespace we {
         this.specificTripleLabel.text = i18n.t('dice.specificTriple');
       }
 
-      public setValue(tableInfo: data.TableInfo) {
-        super.setValue(tableInfo);
-
-        const betLimitSet = env.getBetLimitSet('Live', env.currentSelectedBetLimitIndex);
-        if (betLimitSet.limits && betLimitSet.limits.di) {
-          const limits = betLimitSet.limits.di;
-          const list = [
-            { target: this.pOddEvenMax, value: utils.numberToFaceValue(limits.ODD_EVEN.maxlimit) },
-            { target: this.pOddEvenOdd, value: limits.ODD_EVEN.odd },
-            { target: this.pBigSmallMax, value: utils.numberToFaceValue(limits.BIG_SMALL.maxlimit) },
-            { target: this.pBigSmallOdd, value: limits.BIG_SMALL.odd },
-            { target: this.pTripleMax, value: utils.numberToFaceValue(limits.TRIPLE.maxlimit) },
-            { target: this.pTripleOdd, value: limits.TRIPLE.odd },
-            { target: this.pTripleAllMax, value: utils.numberToFaceValue(limits.TRIPLE_ALL.maxlimit) },
-            { target: this.pTripleAllOdd, value: limits.TRIPLE_ALL.odd },
-            { target: this.pDoubleMax, value: utils.numberToFaceValue(limits.DOUBLE.maxlimit) },
-            { target: this.pDoubleOdd, value: limits.DOUBLE.odd },
-            { target: this.pFourSeventeenMax, value: utils.numberToFaceValue(limits.SUM_4_17.maxlimit) },
-            { target: this.pFourSeventeenOdd, value: limits.SUM_4_17.odd },
-            { target: this.pFiveSixteenMax, value: utils.numberToFaceValue(limits.SUM_5_16.maxlimit) },
-            { target: this.pFiveSixteenOdd, value: limits.SUM_5_16.odd },
-            { target: this.pSixFifthTeenMax, value: utils.numberToFaceValue(limits.SUM_6_15.maxlimit) },
-            { target: this.pSixFifthTeenOdd, value: limits.SUM_6_15.odd },
-            { target: this.pSevenFourTeenMax, value: utils.numberToFaceValue(limits.SUM_7_14.maxlimit) },
-            { target: this.pSevenFourTeenOdd, value: limits.SUM_7_14.odd },
-            { target: this.pEightThirdteenMax, value: utils.numberToFaceValue(limits.SUM_8_13.maxlimit) },
-            { target: this.pEightThirdteenOdd, value: limits.SUM_8_13.odd },
-            { target: this.pNineTenElevenTwelveMax, value: utils.numberToFaceValue(limits.SUM_9_10_11_12.maxlimit) },
-            { target: this.pNineTenElevenTwelveOdd, value: limits.SUM_9_10_11_12.odd },
-            { target: this.pCombineMax, value: utils.numberToFaceValue(limits.COMBINE.maxlimit) },
-            { target: this.pCombineOdd, value: limits.COMBINE.odd },
-            { target: this.pSpecificSingleMax, value: utils.numberToFaceValue(limits.SPECIFIC_1.maxlimit) },
-            { target: this.pSpecificSingleOdd, value: limits.SPECIFIC_1.odd },
-            { target: this.pSpecificDoubleMax, value: utils.numberToFaceValue(limits.SPECIFIC_2.maxlimit) },
-            { target: this.pSpecificDoubleOdd, value: limits.SPECIFIC_2.odd },
-            { target: this.pSpecificTripleMax, value: utils.numberToFaceValue(limits.SPECIFIC_3.maxlimit) },
-            { target: this.pSpecificTripleOdd, value: limits.SPECIFIC_3.odd },
-          ];
-          for (const { target, value } of list) {
-            if (target) {
-              if (value) {
-                target.text = value.toString();
-              } else {
-                target.text = '-';
-              }
-            }
-          }
+      public getConfig() {
+        const betlimits = env.getBetLimitSet('Live', env.currentSelectedBetLimitIndex).limits.di;
+        if (!betlimits) {
+          return [];
         }
+        return [
+          { data: betlimits.BIG_SMALL, lblMax: this.pBigSmallMax, lblOdd: this.pBigSmallOdd },
+          { data: betlimits.COMBINE, lblMax: this.pCombineMax, lblOdd: this.pCombineOdd },
+          { data: betlimits.DOUBLE, lblMax: this.pDoubleMax, lblOdd: this.pDoubleOdd },
+          { data: betlimits.ODD_EVEN, lblMax: this.pOddEvenMax, lblOdd: this.pOddEvenOdd },
+          { data: betlimits.SPECIFIC_1, lblMax: this.pSpecificSingleMax, lblOdd: this.pSpecificSingleOdd },
+          { data: betlimits.SPECIFIC_2, lblMax: this.pSpecificDoubleMax, lblOdd: this.pSpecificDoubleOdd },
+          { data: betlimits.SPECIFIC_3, lblMax: this.pSpecificTripleMax, lblOdd: this.pSpecificTripleOdd },
+          { data: betlimits.SUM_4_17, lblMax: this.pFourSeventeenMax, lblOdd: this.pFourSeventeenOdd }, 
+          { data: betlimits.SUM_6_15, lblMax: this.pSixFifthTeenMax, lblOdd: this.pSixFifthTeenOdd }, 
+          { data: betlimits.SUM_5_16, lblMax: this.pFiveSixteenMax, lblOdd: this.pFiveSixteenOdd },
+          { data: betlimits.SUM_7_14, lblMax: this.pSevenFourTeenMax, lblOdd: this.pSevenFourTeenOdd },
+          { data: betlimits.SUM_8_13, lblMax: this.pEightThirdteenMax, lblOdd: this.pEightThirdteenOdd },
+          { data: betlimits.SUM_9_10_11_12, lblMax: this.pNineTenElevenTwelveMax, lblOdd: this.pNineTenElevenTwelveOdd },
+          { data: betlimits.TRIPLE, lblMax: this.pTripleMax, lblOdd: this.pTripleOdd },  
+          { data: betlimits.TRIPLE_ALL, lblMax: this.pTripleAllMax, lblOdd: this.pTripleAllOdd },         
+        ];
+        // =======
+        //       public setValue(tableInfo: data.TableInfo) {
+        //         super.setValue(tableInfo);
+        //         if (tableInfo.gamestatistic) {
+        //           this.pTiger.text = tableInfo.gamestatistic.bankerCount.toString();
+        //           this.pDragon.text = tableInfo.gamestatistic.playerCount.toString();
+        //           this.pTie.text = tableInfo.gamestatistic.tieCount.toString();
+        //         }
+        //         if (this.pGameID) {
+        //           this.pGameID.text = tableInfo.betInfo.gameroundid;
+        //         }
+        // >>>>>>> develop
       }
+
+      // public setValue(tableInfo: data.TableInfo) {
+      //   super.setValue(tableInfo);
+
+      //   const betLimitSet = env.getBetLimitSet('Live', env.currentSelectedBetLimitIndex);
+      //   if (betLimitSet.limits && betLimitSet.limits.di) {
+      //     const limits = betLimitSet.limits.di;
+      //     const list = [
+      //       { target: this.pOddEvenMax, value: utils.numberToFaceValue(limits.ODD_EVEN.maxlimit) },
+      //       { target: this.pOddEvenOdd, value: limits.ODD_EVEN.odd },
+      //       { target: this.pBigSmallMax, value: utils.numberToFaceValue(limits.BIG_SMALL.maxlimit) },
+      //       { target: this.pBigSmallOdd, value: limits.BIG_SMALL.odd },
+      //       { target: this.pTripleMax, value: utils.numberToFaceValue(limits.TRIPLE.maxlimit) },
+      //       { target: this.pTripleOdd, value: limits.TRIPLE.odd },
+      //       { target: this.pTripleAllMax, value: utils.numberToFaceValue(limits.TRIPLE_ALL.maxlimit) },
+      //       { target: this.pTripleAllOdd, value: limits.TRIPLE_ALL.odd },
+      //       { target: this.pDoubleMax, value: utils.numberToFaceValue(limits.DOUBLE.maxlimit) },
+      //       { target: this.pDoubleOdd, value: limits.DOUBLE.odd },
+      //       { target: this.pFourSeventeenMax, value: utils.numberToFaceValue(limits.SUM_4_17.maxlimit) },
+      //       { target: this.pFourSeventeenOdd, value: limits.SUM_4_17.odd },
+      //       { target: this.pFiveSixteenMax, value: utils.numberToFaceValue(limits.SUM_5_16.maxlimit) },
+      //       { target: this.pFiveSixteenOdd, value: limits.SUM_5_16.odd },
+      //       { target: this.pSixFifthTeenMax, value: utils.numberToFaceValue(limits.SUM_6_15.maxlimit) },
+      //       { target: this.pSixFifthTeenOdd, value: limits.SUM_6_15.odd },
+      //       { target: this.pSevenFourTeenMax, value: utils.numberToFaceValue(limits.SUM_7_14.maxlimit) },
+      //       { target: this.pSevenFourTeenOdd, value: limits.SUM_7_14.odd },
+      //       { target: this.pEightThirdteenMax, value: utils.numberToFaceValue(limits.SUM_8_13.maxlimit) },
+      //       { target: this.pEightThirdteenOdd, value: limits.SUM_8_13.odd },
+      //       { target: this.pNineTenElevenTwelveMax, value: utils.numberToFaceValue(limits.SUM_9_10_11_12.maxlimit) },
+      //       { target: this.pNineTenElevenTwelveOdd, value: limits.SUM_9_10_11_12.odd },
+      //       { target: this.pCombineMax, value: utils.numberToFaceValue(limits.COMBINE.maxlimit) },
+      //       { target: this.pCombineOdd, value: limits.COMBINE.odd },
+      //       { target: this.pSpecificSingleMax, value: utils.numberToFaceValue(limits.SPECIFIC_1.maxlimit) },
+      //       { target: this.pSpecificSingleOdd, value: limits.SPECIFIC_1.odd },
+      //       { target: this.pSpecificDoubleMax, value: utils.numberToFaceValue(limits.SPECIFIC_2.maxlimit) },
+      //       { target: this.pSpecificDoubleOdd, value: limits.SPECIFIC_2.odd },
+      //       { target: this.pSpecificTripleMax, value: utils.numberToFaceValue(limits.SPECIFIC_3.maxlimit) },
+      //       { target: this.pSpecificTripleOdd, value: limits.SPECIFIC_3.odd },
+      //     ];
+      //     for (const { target, value } of list) {
+      //       if (target) {
+      //         if (value) {
+      //           target.text = value.toString();
+      //         } else {
+      //           target.text = '-';
+      //         }
+      //       }
+      //     }
+      //   }
+      // }
     }
   }
 }

@@ -121,7 +121,12 @@ namespace we {
             if (item.lblMax) {
               item.lblMax.text = item.data.maxlimit ? utils.numberToFaceValue(item.data.maxlimit) : '-';
             }
-            item.lblOdd.text = item.data.odd ? item.data.odd : '-';
+            const runtimeLabel = item.lblOdd as ui.RunTimeLabel;
+            if (runtimeLabel) {
+              item.lblOdd.renderText = item.data.odd ? ()=>i18n.replaceOdd(item.data.odd) : ()=>'-';
+            } else {
+              item.lblOdd.text = item.data.odd ? item.data.odd : '-';
+            }
           } else {
             if (item.lblMax) {
               item.lblMax.text = '-';
