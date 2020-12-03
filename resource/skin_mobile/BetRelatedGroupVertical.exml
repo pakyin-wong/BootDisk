@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile.BetRelatedGroupVertical" width="145" height="1000" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile.BetRelatedGroupVertical" width="135" height="1000" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="left_hand_mode,right_hand_mode">
-  <e:Group id="_betRelatedGroup" width="145" height="1000" >
-    <e:Rect id="_roundPanel" width="145" height="980" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
+  <e:Group id="_betRelatedGroup" width="135" height="1000" >
+    <e:Rect id="_roundPanel" width="135" height="980" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
             fillColor="0x444444" />
     <!--<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="256" anchorOffsetY="0" height="120"
                   horizontalCenter="0" y="675" skinName="skin_mobile_portrait.BetConfirmButtonMobile" rotation="90" />
     <ui:CountdownTimer id="_timer" width="256" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" y="675"
                        horizontalCenter="0" rotation="90" currentState="vertical" colorChange="true" />
     -->
-    <e:Group bottom="0" >
+    <e:Group bottom="10" >
       <ui:CountdownTimer id="_timer" width="315" height="140" skinName="skin_mobile_portrait.CountdownTimerSkin"
                          colorChange="true" rotation="90" currentState="vertical" horizontalCenter="0"
                          verticalCenter="0"  verticalCenter.left_hand_mode="0"/>
