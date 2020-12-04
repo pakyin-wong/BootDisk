@@ -8,6 +8,7 @@ namespace we {
       protected _bold: boolean = false;
       protected _hasShadow: boolean = false;
       protected _rotation: number;
+      protected _width: number;
 
       public constructor() {
         super();
@@ -72,9 +73,15 @@ namespace we {
         this.render();
       }
 
+      set setWidth(value: number) {
+        this._width = value;
+        this.render();
+      }
+
       public render() {
         const renderTexture = new egret.RenderTexture();
         const label = new eui.Label();
+        label.wordWrap = true;
         label.textColor = this._textColor;
         label.bold = this._bold;
         if (this._fontFamily) {
@@ -86,11 +93,17 @@ namespace we {
         if (this._text) {
           label.text = this._text;
         }
+        if (this._width) {
+          label.width = this._width;
+        }
+        label.textAlign = egret.HorizontalAlign.CENTER;
         if (this._rotation) {
           label.anchorOffsetX = label.width / 2;
           label.anchorOffsetY = label.height / 2;
+          // to be generalized
+          //now is only applicable if this._rotation == 270
           label.rotation = this._rotation;
-          label.anchorOffsetX = label.width
+          label.anchorOffsetX = label.width;
           label.anchorOffsetY = 0;
         }
 

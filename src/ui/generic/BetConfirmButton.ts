@@ -65,6 +65,7 @@ namespace we {
         r.size = size;
         r.text = text;
         r.textColor = color;
+        r.setWidth = 150;
         r.labelRotation = this._orientation == '_vertical' ? 270 : 0;
 
         // create a new ImageDisplayData with a EgretTextureData holding the new texture
