@@ -36,6 +36,8 @@ namespace we {
       protected generateRoadmap() {
         if (this.itemInitHelper) {
           this._bigRoad = this.itemInitHelper.generateRoadmap(this._roadmapNode);
+          this._bigRoad.touchEnabled = false;
+          this._bigRoad.touchChildren = false;
         }
       }
 

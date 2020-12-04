@@ -2,13 +2,6 @@
 namespace we {
   export namespace ui {
     export class MobileLiveListItem extends MobileLiveListSimpleItem {
-      // protected _roadmapControl: ba.BARoadmapControl;
-      // protected _roadsContainer: eui.Group;
-      // protected _bigRoadMap: ba.BABigRoad;
-      // protected _bigEyeRoad: ba.BABigEyeRoad;
-      // protected _smallRoad: ba.BASmallRoad;
-      // protected _cockroachRoad: ba.BACockroachRoad;
-
       protected _roadmap: ILobbyRoad & eui.Component;
       protected _gameType: string;
       protected _gameIdx: string;
