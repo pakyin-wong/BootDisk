@@ -87,11 +87,11 @@
 	<dt:TableInfoPanel width="434" height="430" x="0" y="91" id="_tableInfoWindow" isPoppable="true" isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" anchorOffsetY="0" skinName="skin_desktop.dt.TableInfoPanel"/>	
 	<bc:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true" skeletonName="blockchain_dt"
 	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bc.ShufflePanelSkin" />
-	<bc:DeckPanel id="_deckPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
+	<!--<bc:DeckPanel id="_deckPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
 	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bc.DeckPanelSkin" />
 	<bc:HelpPanel id="_helpPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
 	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bc.HelpPanelSkin" />
 	<bc:CardInfoPanel id="_cardInfoPanel" width="1853" height="1025" verticalCenter="0.5" horizontalCenter="-1.5" isPoppable="true"
-	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bc.CardInfoPanelSkin" />
+	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bc.CardInfoPanelSkin" />-->
 </e:Skin>
 
