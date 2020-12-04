@@ -18,18 +18,19 @@ namespace we {
       }
 
       public generateRoadmap(node: eui.Component) {
-        const road = new lw.LwLobbyBeadRoad();
-        road.height = 127;
-        road.roadRow = 3;
-        road.roadCol = 8;
-        road.roadCellWidth = 42;
-        road.roadCellHeight = 42;
-        road.roadImageWidth = 27;
-        road.roadImageHeight = 27;
-        road.roadScale = 1;
-        road.roadGridColor = 0xffffff;
-        road.roadGridAlpha = 1;
-        road.roadGridBorderColor = 0xdfdfdf;
+        const road = dir.sideRoadPool.get(core.GameType.LW);
+        // const road = new lw.LwLobbyBeadRoad();
+        // road.height = 127;
+        // road.roadRow = 3;
+        // road.roadCol = 8;
+        // road.roadCellWidth = 42;
+        // road.roadCellHeight = 42;
+        // road.roadImageWidth = 27;
+        // road.roadImageHeight = 27;
+        // road.roadScale = 1;
+        // road.roadGridColor = 0xffffff;
+        // road.roadGridAlpha = 1;
+        // road.roadGridBorderColor = 0xdfdfdf;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(road, idx);
         road.drawGridBg(337, 127);

@@ -163,5 +163,5 @@
                   isPoppable="true" isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false"
                   hideOnStart="true" skinName="skin_mobile_landscape.bc.CardInfoPanelSkin" />-->
 <e:Group id="_navLayer" touchChildren="true" touchThrough="true"/>
-<ui:BlockchainMobileSlideUpMenu id="_slideUpMenu" bottom="0" right="0" left="0"/>
+<!--<ui:BlockchainMobileSlideUpMenu id="_slideUpMenu" bottom="0" right="0" left="0"/>-->
 </e:Skin>

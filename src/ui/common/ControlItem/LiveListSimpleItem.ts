@@ -14,6 +14,8 @@ namespace we {
 
       protected _quickBetBtnGroup: eui.Group;
 
+      protected _contentContainerStatic: eui.Group;
+
       protected _arrangeProperties = [
         'x',
         'y',
@@ -71,6 +73,12 @@ namespace we {
         this.generateRoadmap();
         super.initChildren();
         this._betMessageEnable = false;
+        if (this._quickBetGroup) {
+          this._quickBetGroup.cacheAsBitmap = true;
+        }
+        if (this._contentContainerStatic) {
+          this._contentContainerStatic.cacheAsBitmap = true;
+        }
       }
 
       protected generateTableLayer() {

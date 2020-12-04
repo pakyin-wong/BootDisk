@@ -30,16 +30,16 @@ namespace we {
       public generateRoadmap(node: eui.Component) {
         // const bigRoad = new di.DiLobbyBeadRoad();
         const bigRoad = dir.lobbyRoadPool.get(core.GameType.DI);
-        bigRoad.roadGridSize = 40;
-        bigRoad.roadCol = 14;
-        bigRoad.roadRow = 1;
-        bigRoad.roadIndentX = 3;
-        bigRoad.roadIndentY = 3;
-        bigRoad.roadOffsetX = 6;
-        bigRoad.roadOffsetY = 2;
-        bigRoad.roadIconItemYOffset = 4;
-        bigRoad.iconHeight = 132;
-        bigRoad.roadIconItemColors = [0xee2e2e, 0x6dd400, 0x3e60f8, 0xededed, 1]; // [r_color,g_color,b_color, hightlight_color, hightlight_alpha]
+        // bigRoad.roadGridSize = 40;
+        // bigRoad.roadCol = 14;
+        // bigRoad.roadRow = 1;
+        // bigRoad.roadIndentX = 3;
+        // bigRoad.roadIndentY = 3;
+        // bigRoad.roadOffsetX = 6;
+        // bigRoad.roadOffsetY = 2;
+        // bigRoad.roadIconItemYOffset = 4;
+        // bigRoad.iconHeight = 132;
+        // bigRoad.roadIconItemColors = [0xee2e2e, 0x6dd400, 0x3e60f8, 0xededed, 1]; // [r_color,g_color,b_color, hightlight_color, hightlight_alpha]
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(bigRoad, idx);
         bigRoad.drawGridBg(576, 138);

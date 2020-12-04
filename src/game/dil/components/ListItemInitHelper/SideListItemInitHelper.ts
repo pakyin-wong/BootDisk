@@ -18,8 +18,16 @@ namespace we {
       }
 
       public generateRoadmap(node: eui.Component) {
-        const beadRoad = new DilLobbyBeadRoad(36, 8, 2, 3, 4, 6, 12);
-        beadRoad.height = 95;
+        const beadRoad = dir.sideRoadPool.get(core.GameType.DIL);
+        // const beadRoad = new DilLobbyBeadRoad(36, 8, 2, 3, 4, 6, 12);
+        // beadRoad.roadGridSize = 36;
+        // beadRoad.roadCol = 8;
+        // beadRoad.roadRow = 2;
+        // beadRoad.roadIndentX = 3;
+        // beadRoad.roadIndentY = 4;
+        // beadRoad.roadOffsetX = 6;
+        // beadRoad.roadOffsetY = 12;
+        // beadRoad.height = 95;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(beadRoad, idx);
         return beadRoad;

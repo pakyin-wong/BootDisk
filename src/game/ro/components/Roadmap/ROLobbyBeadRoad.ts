@@ -1,6 +1,6 @@
 namespace we {
   export namespace ro {
-    export class ROLobbyBeadRoad extends ui.Panel implements we.ui.ILobbyRoad {
+    export class ROLobbyBeadRoad extends core.BaseEUI implements we.ui.ILobbyRoad {
       protected beadRoad: ROBeadRoad;
 
       public roadGridSize: number = 40;
@@ -20,12 +20,17 @@ namespace we {
 
       public constructor() {
         super();
-        this.cacheAsBitmap = true;
+        // this.cacheAsBitmap = true;
+        this.initParams();
+        this.init();
+      }
+
+      protected initParams() {
+
       }
 
       protected childrenCreated() {
         super.childrenCreated();
-        this.init();
       }
 
       protected init() {
@@ -79,5 +84,64 @@ namespace we {
         this.beadRoad.dispose();
       }
     }
+
+    export class ROLiveListRoadmap extends ROLobbyBeadRoad {
+      protected initParams() {
+        this.roadGridSize = 40;
+        this.roadCol = 12;
+        this.roadRow = 3;
+        this.roadIndentX = 4;
+        this.roadIndentY = 2.5;
+        this.roadOffsetX = 8;
+        this.roadOffsetY = 5;
+        this.roadEmptyColor = 0xc1c1c1;
+        this.roadEmptyAlpha = 0.2;
+      }
+    }
+
+    export class ROSideListRoadmap extends ROLobbyBeadRoad {
+      protected initParams() {
+        this.height = 95;
+        this.roadGridSize = 30;
+        this.roadCol = 9;
+        this.roadRow = 3;
+        this.roadIndentX = 3;
+        this.roadIndentY = 2;
+        this.roadOffsetX = 7.5;
+        this.roadOffsetY = 2.5;
+        this.roadEmptyColor = 0xc1c1c1;
+        this.roadEmptyAlpha = 0.2;
+      }
+    }
+
+    export class ROLargeListRoadmap extends ROLobbyBeadRoad {
+      protected initParams() {
+        this.roadGridSize = 82;
+        this.roadCol = 11;
+        this.roadRow = 3;
+        this.roadIndentX = 15;
+        this.roadIndentY = 8;
+        this.roadOffsetX = 20;
+        this.roadOffsetY = 10;
+        this.roadEmptyColor = 0xc1c1c1;
+        this.roadEmptyAlpha = 0.2;
+      }
+    }
+
+    export class ROSmallListRoadmap extends ROLobbyBeadRoad {
+      protected initParams() {
+        this.roadGridSize = 52;
+        this.roadCol = 9;
+        this.roadRow = 3;
+        this.roadIndentX = 8;
+        this.roadIndentY = 8;
+        this.roadOffsetX = 8;
+        this.roadOffsetY = 8;
+        this.roadEmptyColor = 0xc1c1c1;
+        this.roadEmptyAlpha = 0.2;
+        this.isSmall = true;
+      }
+    }
+
   }
 }

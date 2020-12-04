@@ -32,14 +32,15 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        // draw border corner radius
-        const shape = new egret.Shape();
-        shape.graphics.beginFill(0xffffff, 1);
-        shape.graphics.drawRoundRect(0, 0, this.width, this.height, 48, 48);
-        shape.graphics.endFill();
+        
+        // update 4/12/2020: no need to use mask to create radius
+        // const shape = new egret.Shape();
+        // shape.graphics.beginFill(0xffffff, 1);
+        // shape.graphics.drawRoundRect(0, 0, this.width, this.height, 48, 48);
+        // shape.graphics.endFill();
+        // this._contentContainer.addChild(shape);
+        // this._contentContainer.mask = shape;
 
-        this._contentContainer.addChild(shape);
-        this._contentContainer.mask = shape;
         this._buttonGroup.alpha = 0;
         this._buttonGroup.y = this._buttonGroupHideY;
         this._buttonGroup.visible = false;

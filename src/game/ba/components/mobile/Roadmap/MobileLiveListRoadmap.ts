@@ -1,7 +1,7 @@
 /* tslint:disable triple-equals */
 namespace we {
   export namespace ba {
-    export class MobileLiveListRoadmap extends ui.Panel implements we.ui.ILobbyRoad {
+    export class MobileLiveListRoadmap extends core.BaseEUI implements we.ui.ILobbyRoad {
       protected _roadmapControl: ba.BARoadmapControl;
       protected _roadsContainer: eui.Group;
       protected _bigRoadMap: ba.BABigRoad;
@@ -13,7 +13,8 @@ namespace we {
 
       public constructor() {
         super();
-        this.cacheAsBitmap = true;
+        // this.cacheAsBitmap = true;
+        this.init();
       }
 
       public setTableInfo(tableInfo: data.TableInfo) {
@@ -22,7 +23,6 @@ namespace we {
 
       protected childrenCreated() {
         super.childrenCreated();
-        this.init();
       }
 
       protected init() {

@@ -4,9 +4,14 @@ namespace we {
       protected _list: eui.List;
       protected _gameData: data.GameData & data.BlockchainGameData;
       protected _scroller: ui.Scroller;
+      protected _descrptionLabel: ui.RunTimeLabel;
 
       protected mount() {
         super.mount();
+        if (!env.isMobile || env.orientation === egret.OrientationMode.PORTRAIT) {
+          this._list.addChild(this._descrptionLabel);
+          this._descrptionLabel.renderText = ()=>i18n.t('baccarat.deckDesc');
+        }
         this._list.itemRenderer = this.getItemRenderer();
         this._list.addEventListener(
           'OPEN_CARDINFO_PANEL',

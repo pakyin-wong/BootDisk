@@ -2,19 +2,16 @@
 <e:Skin class="skin_mobile_landscape.bc.DeckPanelSkin" width="2424" height="901" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*">
         <e:Group id="content" width="100%">
-                <ui:Scroller width="75%" y="0" height="901" x="603">
-                        <e:Group width="100%" horizontalCenter="0">
-
-                                <e:List id="_list" horizontalCenter="0" >
-                                        <e:layout>
-                                                <e:TileLayout paddingTop="10" requestedColumnCount="12" horizontalGap="31" verticalGap="22" />
-                                        </e:layout>
-                                </e:List>
-                        </e:Group>
+                <ui:Scroller width="75%" y="0" height="901" x="603" id="_scroller">
+                        <e:List id="_list" horizontalCenter="0"  useVirtualLayout="true">
+                                <e:layout>
+                                        <e:TileLayout paddingTop="10" requestedColumnCount="12" horizontalGap="31" verticalGap="22" />
+                                </e:layout>
+                        </e:List>
                 </ui:Scroller>
-					<e:Group width="507" height="600" x="48" y="24" scaleX="1" scaleY="1">
-						<ui:RunTimeLabel id="_descrptionLabel" i18n="baccarat.deckDesc" height="600" wordWrap="true" scaleX="1" scaleY="1" width="507"/>
-					</e:Group>
+                <e:Group width="507" height="600" x="48" y="24" scaleX="1" scaleY="1">
+                        <ui:RunTimeLabel id="_descrptionLabel" i18n="baccarat.deckDesc" height="600" wordWrap="true" scaleX="1" scaleY="1" width="507"/>
+                </e:Group>
         </e:Group>
 </e:Skin>
 
