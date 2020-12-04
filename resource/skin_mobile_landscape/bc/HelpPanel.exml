@@ -9,13 +9,13 @@
 			<e:Group horizontalCenter="0" top="40">
 				<e:Image y="363" width="80" height="81" left="160" source="m_bcba_panel_instructions_number1_png"/>
 				<e:Image y="50" width="840" height="272" left="260" source="m_bcba_panel_instructions_step1_png"/>
-				<ui:RunTimeLabel i18n="baccarat.mechanismHelp1" y="363" width="850" height="112" size="40" textColor="0xFFFFFF" wordWrap="true" left="260"/>
+				<ui:RunTimeLabel i18n="baccarat.mechanismHelp1" y="363" width="850" height="117" size="40" textColor="0xFFFFFF" wordWrap="true" left="260"/>
 				<e:Image y="363" width="80" height="81" left="1306" source="m_bcba_panel_instructions_number2_png"/>
 				<e:Image y="50" width="840" height="272" left="1395" source="m_bcba_panel_instructions_step2_png"/>
-				<ui:RunTimeLabel i18n="baccarat.mechanismHelp2" y="363" width="850" height="112" size="40" textColor="0xFFFFFF" wordWrap="true" left="1395"/>
+				<ui:RunTimeLabel i18n="baccarat.mechanismHelp2" y="363" width="850" height="117" size="40" textColor="0xFFFFFF" wordWrap="true" left="1395"/>
 				<e:Image y="928" width="80" height="81" left="160" source="m_bcba_panel_instructions_number3_png"/>
 				<e:Image y="628" width="840" height="272" left="260" source="m_bcba_panel_instructions_step3_png"/>
-				<ui:RunTimeLabel i18n="baccarat.mechanismHelp3" y="928" width="850" height="112" size="40" textColor="0xFFFFFF" wordWrap="true" left="260"/>
+				<ui:RunTimeLabel i18n="baccarat.mechanismHelp3" y="928" width="850" height="117" size="40" textColor="0xFFFFFF" wordWrap="true" left="260"/>
 				<e:Image y="928" width="80" height="81" left="1306" source="m_bcba_panel_instructions_number4_png"/>
 				<e:Image y="628" width="840" height="272" left="1395" source="m_bcba_panel_instructions_step4_png"/>
 				<ui:RunTimeLabel i18n="baccarat.mechanismHelp4" y="928" width="850" height="112" size="40" textColor="0xFFFFFF" wordWrap="true" left="1395"/>

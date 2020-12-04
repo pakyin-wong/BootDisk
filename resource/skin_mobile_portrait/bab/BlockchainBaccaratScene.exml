@@ -131,7 +131,7 @@
 	                       skinName="skin_mobile_portrait.bab.HistoryHolderSkin" isPoppable="true"  hideOnStart="true"  verticalCenter="-200" horizontalCenter="0"/>
 	<bc:ShufflePanel id="_shufflePanel" width="1242" height="2155" isPoppable="true" skeletonName="blockchain"
 	                  isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
-	                  skinName="skin_mobile_portrait.bc.ShufflePanelSkin" />
+	                  skinName="skin_mobile_portrait.bc.ShufflePanelSkin"  locked="true"/>
 	<!--<bc:DeckPanel id="_deckPanel" width="1242" height="1966" verticalCenter="0" horizontalCenter="0" isPoppable="true"
 	               isEdgeDismissable="true" dismissOnClickOutside="true" isDraggable="false" hideOnStart="true"
 	               skinName="skin_mobile_portrait.bc.DeckPanelSkin" />
