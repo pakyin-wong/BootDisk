@@ -45,6 +45,7 @@ namespace we {
       protected _betAreaLock: boolean = false;
 
       protected _betSet: egret.DisplayObject;
+      protected _betRelated: egret.DisplayObject;
       protected _betSetTween: ui.TweenConfig;
 
       protected _raceTrackChipLayer: RaceTrackChipLayer;
@@ -338,7 +339,9 @@ namespace we {
         this._betSetTween.validateNow();
 
         egret.Tween.removeTweens(this._betSet);
+        egret.Tween.removeTweens(this._betRelated);
         egret.Tween.get(this._betSet).to(this._betSetTween.getTweenPackage(), 250);
+        egret.Tween.get(this._betRelated).to(this._betSetTween.getTweenPackage(), 250);
       }
 
       protected set settingState(s) {
