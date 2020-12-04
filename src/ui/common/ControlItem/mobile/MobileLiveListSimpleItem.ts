@@ -10,6 +10,8 @@ namespace we {
 
       protected _roadmapNode: eui.Component;
 
+      protected _contentContainerStatic: eui.Group;
+
       public constructor(skinName: string = null) {
         super(skinName);
       }
@@ -72,6 +74,9 @@ namespace we {
         }
         if (this._alreadyBetSign) {
           this._alreadyBetSign.visible = false;
+        }
+        if (this._contentContainerStatic) {
+          this._contentContainerStatic.cacheAsBitmap = true;
         }
       }
 
