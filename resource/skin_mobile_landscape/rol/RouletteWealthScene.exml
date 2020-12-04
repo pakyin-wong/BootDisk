@@ -77,6 +77,15 @@
 		         verticalCenter="0" />
 	</e:Group>
 </e:Group>
+	<e:Group id="_betSet" y="355" left="0" right="0" touchThrough="true" y.right="324">
+		<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" skinName="skin_mobile.BetChipSkin" labelSize="48" x="632" y="20"/>
+		<e:Group id="_betChipSetPanel" horizontalCenter="0" y="168">
+		<e:Image id="_panel" scale9Grid="33,33,0,0" source="m_ba_betarea_chipsbg_round_png" left="0" right="0" y="32" height="411" width="1566"/>
+		<e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" x="229"/>
+		<ui:BetChipSetGrid id="_betChipSet" alpha="0" betChipWidth="201" betChipHeight="201" labelSize="48" width="1566" height="411" numChipsInRow="6" chipSizeScale="0.75" horizontalGapSize="0" verticalGapSize="0" y="70"/>
+		</e:Group>
+		<ui:BetRelatedGroup id="_betRelatedGroup" x="819" y="18"/>
+	</e:Group>
 <e:Scroller id="_betArea" x="181" y="501" width="2061" height="664" scaleX="1" scaleY="1" scrollPolicyH="off"
             scrollPolicyV="off">
 	<e:Group id="_bAViewport">
@@ -96,48 +105,6 @@
 </e:Scroller>
 <ro:MobileHotColdPanel id="_hotcoldPanel" x="696" y="14" skinName="skin_mobile_landscape.ro.MobileHotColdPanel"
                        coldNumLimit="5" hotNumLimit="5" />
-<e:Group id="_betSet" y="355" left="0" right="0" touchThrough="true" y.right="324">
-	<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" skinName="skin_mobile.BetChipSkin"
-	                           labelSize="48" x="632" y="20" />
-	<e:Group id="_betChipSetPanel" horizontalCenter="0" y="168">
-		<e:Image id="_panel" scale9Grid="33,33,0,0" source="m_ba_betarea_chipsbg_round_png" left="0" right="0" y="32"
-		         height="411" width="1566" />
-		<e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" x="229" />
-		<ui:BetChipSetGrid id="_betChipSet" alpha="0" betChipWidth="201" betChipHeight="201" labelSize="48" width="1566"
-		                   height="411" numChipsInRow="6" chipSizeScale="0.75" horizontalGapSize="0" verticalGapSize="0"
-		                   y="70" />
-	</e:Group>
-	<!--<e:Group id="_betRelatedGroup" x="819" y="18">
-	<e:Rect id="_roundPanel" width="960" height="130" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
-	        fillColor="0x444444" right.right="0" left.left="0" />
-	<e:Button id="_confirmButton" width="324" height="130" skinName="skin_mobile_portrait.BetConfirmButtonSkin" x="649"
-	          x.left="0" />
-	<ui:CountdownTimer id="_timer" width="324" height="130" skinName="skin_mobile_portrait.CountdownTimerSkin" x="649"
-	                   x.left="0" colorChange="true" />
-	<ui:RunTimeLabel id="_repeatLabel" text="再次下注" x="41" y="73" textAlign="center" width="128" size="32" height="47"
-	                 verticalAlign="middle" x.left="792" />
-	<ui:RunTimeLabel id="_cancelLabel" text="清除" x="336" y="73" textAlign="center" size="32" height="47"
-	                 verticalAlign="middle" width="128" x.left="488" />
-	<ui:RunTimeLabel id="_doubleLabel" text="雙倍" x="193" y="73" textAlign="center" size="32" height="47"
-	                 verticalAlign="middle" width="128" x.left="640" />
-	<ui:RunTimeLabel id="_undoLabel" text="復原" x="475" y="73" textAlign="center" size="32" height="47"
-	                 verticalAlign="middle" width="128" x.left="330" />
-	<ui:BaseImageButton id="_undoButton" width="64" height="120"
-	                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo" y="5" x="507"
-	                    x.left="368" />
-	<ui:BaseImageButton id="_repeatButton" x="41" width="128" height="120"
-	                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_repeat" y="5"
-	                    x.left="792" />
-	<ui:BaseImageButton id="_cancelButton" x="368" width="64" height="120"
-	                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_cancel" y="5"
-	                    x.left="520" />
-	<ui:BaseImageButton id="_doubleButton" x="225" width="64" height="120"
-	                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_double" y="5"
-	                    x.left="672" />
-</e:Group>
--->
-<ui:BetRelatedGroup id="_betRelatedGroup" x="819" y="18" />
-</e:Group>
 <e:Group id="_settingTransition" x="36" y="363" width="2335" height="727" touchThrough="true">
 <ro:MobileSettingPanel id="_settingPanel" skinName="skin_mobile_landscape.ro.MobileSettingPanel" x="0" y="233" />
 <ro:RaceTrackControl id="_raceTrackControl" width="91" height="417" y="0" x="2238"
