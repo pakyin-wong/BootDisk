@@ -5,7 +5,8 @@
 		<e:Image id="_dragonImage" source="d_dt_betarea_general_dragon_png" name="d_dt_betarea_general_dragon_hover_png"
 		         width="382" height="304" />
 		<ui:RunTimeLabel id="_dragonLabel" verticalCenter="-20" horizontalCenter="0"  size="68"/>
-		<e:Label text="1:1" verticalCenter="40" horizontalCenter="0" size="30" />
+		<!--<e:Label text="1:1" verticalCenter="40" horizontalCenter="0" size="30" />-->
+		<ui:RunTimeLabel text="1:1" oddKey="dt.DRAGON" verticalCenter="40" horizontalCenter="0" size="30" alpha=".7" />
 		<e:Group  horizontalCenter="-77" verticalCenter="90.5">
 			<e:Image source="d_ba_betarea_icon_bet_png"/>
 			<e:Label id="_dragonTotalAmount" size="20" x="20"/>
@@ -25,14 +26,15 @@
 		<e:Image id="_tieImage" source="d_dt_betarea_general_tie_png" name="d_dt_betarea_general_tie_hover_png" width="382"
 		         height="304" />
 		<ui:RunTimeLabel id="_tieLabel" verticalCenter="-20" horizontalCenter="0"  size="68"/>
-		<e:Label text="8:1" verticalCenter="40" horizontalCenter="0" size="30" />
-
+		<!--<e:Label text="8:1" verticalCenter="40" horizontalCenter="0" size="30" />-->
+		<ui:RunTimeLabel text="8:1" oddKey="dt.TIE" verticalCenter="40" horizontalCenter="0" size="30" alpha=".7" />
 	</e:Group>
 	<e:Group id="_tigerGroup" x="764" y="0" width="382" height="304">
 		<e:Image id="_tigerImage" source="d_dt_betarea_general_tiger_png" name="d_dt_betarea_general_tiger_hover_png"
 		         width="382" height="304" />
 		<ui:RunTimeLabel id="_tigerLabel" verticalCenter="-20" horizontalCenter="0"  size="68"/>
-		<e:Label text="1:1" verticalCenter="40" horizontalCenter="0" size="30" />
+		<!--<e:Label text="1:1" verticalCenter="40" horizontalCenter="0" size="30" />-->
+		<ui:RunTimeLabel text="1:1" oddKey="dt.TIGER" verticalCenter="40" horizontalCenter="0" size="30" alpha=".7" />
 		<e:Group  horizontalCenter="-77" verticalCenter="90.5">
 			<e:Image source="d_ba_betarea_icon_bet_png"/>
 			<e:Label id="_tigerTotalAmount" size="20" />

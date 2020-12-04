@@ -10,25 +10,25 @@ namespace we {
       protected greenLabel: eui.Label;
 
       protected pEastMax: eui.Label;
-      protected pEastOdd: eui.Label;
+      protected pEastOdd: ui.RunTimeLabel;
 
       protected pSouthMax: eui.Label;
-      protected pSouthOdd: eui.Label;
+      protected pSouthOdd: ui.RunTimeLabel;
 
       protected pWestMax: eui.Label;
-      protected pWestOdd: eui.Label;
+      protected pWestOdd: ui.RunTimeLabel;
 
       protected pNorthMax: eui.Label;
-      protected pNorthOdd: eui.Label;
+      protected pNorthOdd: ui.RunTimeLabel;
 
       protected pWhiteMax: eui.Label;
-      protected pWhiteOdd: eui.Label;
+      protected pWhiteOdd: ui.RunTimeLabel;
 
       protected pRedMax: eui.Label;
-      protected pRedOdd: eui.Label;
+      protected pRedOdd: ui.RunTimeLabel;
 
       protected pGreenMax: eui.Label;
-      protected pGreenOdd: eui.Label;
+      protected pGreenOdd: ui.RunTimeLabel;
 
       protected _mask: egret.Shape;
 
@@ -44,38 +44,58 @@ namespace we {
         this.greenLabel.text = i18n.t('luckywheel.green');
       }
 
-      public setValue(tableInfo: data.TableInfo) {
-        super.setValue(tableInfo);
+      // public setValue(tableInfo: data.TableInfo) {
+      //   super.setValue(tableInfo);
 
+      //   const betLimitSet = env.getBetLimitSet('Live', env.currentSelectedBetLimitIndex);
+      //   if (betLimitSet.limits && betLimitSet.limits.lw) {
+      //     const limits = betLimitSet.limits.lw;
+      //     const list = [
+      //       { target: this.pEastMax, value: utils.numberToFaceValue(limits.LW_0.maxlimit) },
+      //       { target: this.pEastOdd, value: limits.LW_0.odd },
+      //       { target: this.pSouthMax, value: utils.numberToFaceValue(limits.LW_1.maxlimit) },
+      //       { target: this.pSouthOdd, value: limits.LW_1.odd },
+      //       { target: this.pWestMax, value: utils.numberToFaceValue(limits.LW_2.maxlimit) },
+      //       { target: this.pWestOdd, value: limits.LW_2.odd },
+      //       { target: this.pNorthMax, value: utils.numberToFaceValue(limits.LW_3.maxlimit) },
+      //       { target: this.pNorthOdd, value: limits.LW_3.odd },
+      //       { target: this.pWhiteMax, value: utils.numberToFaceValue(limits.LW_4.maxlimit) },
+      //       { target: this.pWhiteOdd, value: limits.LW_4.odd },
+      //       { target: this.pRedMax, value: utils.numberToFaceValue(limits.LW_5.maxlimit) },
+      //       { target: this.pRedOdd, value: limits.LW_5.odd },
+      //       { target: this.pGreenMax, value: utils.numberToFaceValue(limits.LW_6.maxlimit) },
+      //       { target: this.pGreenOdd, value: limits.LW_6.odd },
+      //     ];
+      //     for (const { target, value } of list) {
+      //       if (target) {
+      //         if (value) {
+      //           target.text = value.toString();
+      //         } else {
+      //           target.text = '-';
+      //         }
+      //       }
+      //     }
+      //   }
+      // }
+      public getConfig() {
         const betLimitSet = env.getBetLimitSet('Live', env.currentSelectedBetLimitIndex);
         if (betLimitSet.limits && betLimitSet.limits.lw) {
-          const limits = betLimitSet.limits.lw;
-          const list = [
-            { target: this.pEastMax, value: utils.numberToFaceValue(limits.LW_0.maxlimit) },
-            { target: this.pEastOdd, value: limits.LW_0.odd },
-            { target: this.pSouthMax, value: utils.numberToFaceValue(limits.LW_1.maxlimit) },
-            { target: this.pSouthOdd, value: limits.LW_1.odd },
-            { target: this.pWestMax, value: utils.numberToFaceValue(limits.LW_2.maxlimit) },
-            { target: this.pWestOdd, value: limits.LW_2.odd },
-            { target: this.pNorthMax, value: utils.numberToFaceValue(limits.LW_3.maxlimit) },
-            { target: this.pNorthOdd, value: limits.LW_3.odd },
-            { target: this.pWhiteMax, value: utils.numberToFaceValue(limits.LW_4.maxlimit) },
-            { target: this.pWhiteOdd, value: limits.LW_4.odd },
-            { target: this.pRedMax, value: utils.numberToFaceValue(limits.LW_5.maxlimit) },
-            { target: this.pRedOdd, value: limits.LW_5.odd },
-            { target: this.pGreenMax, value: utils.numberToFaceValue(limits.LW_6.maxlimit) },
-            { target: this.pGreenOdd, value: limits.LW_6.odd },
-          ];
-          for (const { target, value } of list) {
-            if (target) {
-              if (value) {
-                target.text = value.toString();
-              } else {
-                target.text = '-';
-              }
-            }
+          const betlimits = betLimitSet.limits.lw;
+          console.log('betlimits lwlw',betlimits)
+          if (!betlimits) {
+            return [];
           }
+          return [
+            { data: betlimits.LW_0, lblMax: this.pEastMax, lblOdd: this.pEastOdd },
+            { data: betlimits.LW_1, lblMax: this.pSouthMax, lblOdd: this.pSouthOdd },
+            { data: betlimits.LW_2, lblMax: this.pWestMax, lblOdd: this.pWestOdd },
+            { data: betlimits.LW_3, lblMax: this.pNorthMax, lblOdd: this.pNorthOdd },
+            { data: betlimits.LW_4, lblMax: this.pWhiteMax, lblOdd: this.pWhiteOdd },
+            { data: betlimits.LW_5, lblMax: this.pRedMax, lblOdd: this.pRedOdd },
+            { data: betlimits.LW_6, lblMax: this.pGreenMax, lblOdd: this.pGreenOdd },
+          ];
         }
+        return [];
       }
       // =======
       protected childrenCreated(): void {

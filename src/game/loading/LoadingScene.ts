@@ -203,6 +203,7 @@ namespace we {
           // this._progressbar.value = event.itemsLoaded;
           const progress = Math.floor((event.itemsLoaded * 100) / event.itemsTotal) / 100;
           this._progressbar2.proportion = progress;
+                    this._progressMsg.renderText = () => `${i18n.t('loading.res.downloading')} ${(Math.floor(progress * 10000)/100).toString()}%`;
           // console.log('progress', progress);
           // this._progressbar2.proportion =
         }

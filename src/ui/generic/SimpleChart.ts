@@ -55,7 +55,6 @@ namespace we {
         shapeBlue.graphics.lineStyle(this._lineWidth, this._secondColor);
         shapeBlue.graphics.drawArc(this._radius, this._radius, this._radius, -Math.PI / 2, this._secondAngle * (Math.PI / 180) - Math.PI / 2, false);
         shapeBlue.graphics.endFill();
-        this.addChild(shapeBlue);
 
         const shapeGreen: egret.Shape = new egret.Shape();
         if (shapeGrey) {
@@ -66,7 +65,10 @@ namespace we {
         shapeGreen.graphics.drawArc(this._radius, this._radius, this._radius, this._secondAngle * (Math.PI / 180) - Math.PI / 2, -this._firstAngle * (Math.PI / 180) - Math.PI / 2, false);
         shapeGreen.graphics.endFill();
         this.addChild(shapeGreen);
+        this.addChild(shapeBlue);
+        this.addChild(shapeRed);
       }
+
     }
   }
 }
