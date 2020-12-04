@@ -20,15 +20,15 @@ namespace we {
       public generateRoadmap(node: eui.Component) {
         // const roadmap = new ro.ROLobbyBeadRoad();
         const roadmap = dir.largeRoadPool.get(core.GameType.RO);
-        roadmap.roadGridSize = 82;
-        roadmap.roadCol = 11;
-        roadmap.roadRow = 3;
-        roadmap.roadIndentX = 15;
-        roadmap.roadIndentY = 8;
-        roadmap.roadOffsetX = 20;
-        roadmap.roadOffsetY = 10;
-        roadmap.roadEmptyColor = 0xc1c1c1;
-        roadmap.roadEmptyAlpha = 0.2;
+        // roadmap.roadGridSize = 82;
+        // roadmap.roadCol = 11;
+        // roadmap.roadRow = 3;
+        // roadmap.roadIndentX = 15;
+        // roadmap.roadIndentY = 8;
+        // roadmap.roadOffsetX = 20;
+        // roadmap.roadOffsetY = 10;
+        // roadmap.roadEmptyColor = 0xc1c1c1;
+        // roadmap.roadEmptyAlpha = 0.2;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(roadmap, idx);
         roadmap.drawGridBg(1136, 288);

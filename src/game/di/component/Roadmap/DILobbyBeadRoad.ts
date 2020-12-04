@@ -143,5 +143,39 @@ namespace we {
       }
     }
 
+    export class DiLargeListRoadmap extends DiLobbyBeadRoad {
+      protected initParams() {
+        this.roadGridSize = 80;
+        this.roadCol = 13;
+        this.roadRow = 1;
+        this.roadIndentX = 15;
+        this.roadIndentY = 15;
+        this.roadOffsetX = 14;
+        this.roadOffsetY = 8;
+        this.iconHeight = 264;
+        this.textSize = 37;
+        this.diceSize = 46;
+        this.roadWidth = 1138;
+        this.roadIconItemYOffset = 8;
+      }
+    }
+
+    export class DiSmallListRoadmap extends DiLobbyBeadRoad {
+      protected initParams() {
+        this.roadGridSize = 48;
+        this.roadCol = 10;
+        this.roadRow = 1;
+        this.roadIndentX = 6;
+        this.roadIndentY = 6;
+        this.roadOffsetX = 6;
+        this.roadOffsetY = 10;
+        this.iconHeight = 179;
+        this.textSize = 25;
+        this.diceSize = 30;
+        this.roadWidth = 544;
+        this.roadIconItemYOffset = 6;
+      }
+    }
+
   }
 }

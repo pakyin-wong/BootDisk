@@ -6,13 +6,13 @@ namespace we {
         // const bigRoad = new dil.DilLobbyBeadRoad();
         const bigRoad = dir.smallRoadPool.get(core.GameType.DIL);
         // --Mobile_Portrait
-        bigRoad.roadGridSize = 64;
-        bigRoad.roadCol = 6;
-        bigRoad.roadRow = 2;
-        bigRoad.roadIndentX = 22;
-        bigRoad.roadIndentY = 30;
-        bigRoad.roadOffsetX = 24;
-        bigRoad.roadOffsetY = 24;
+        // bigRoad.roadGridSize = 64;
+        // bigRoad.roadCol = 6;
+        // bigRoad.roadRow = 2;
+        // bigRoad.roadIndentX = 22;
+        // bigRoad.roadIndentY = 30;
+        // bigRoad.roadOffsetX = 24;
+        // bigRoad.roadOffsetY = 24;
         // --Mobile_Portrait
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(bigRoad, idx);

@@ -114,6 +114,34 @@ namespace we {
       }
     }
 
+    export class ROLargeListRoadmap extends ROLobbyBeadRoad {
+      protected initParams() {
+        this.roadGridSize = 82;
+        this.roadCol = 11;
+        this.roadRow = 3;
+        this.roadIndentX = 15;
+        this.roadIndentY = 8;
+        this.roadOffsetX = 20;
+        this.roadOffsetY = 10;
+        this.roadEmptyColor = 0xc1c1c1;
+        this.roadEmptyAlpha = 0.2;
+      }
+    }
+
+    export class ROSmallListRoadmap extends ROLobbyBeadRoad {
+      protected initParams() {
+        this.roadGridSize = 52;
+        this.roadCol = 9;
+        this.roadRow = 3;
+        this.roadIndentX = 8;
+        this.roadIndentY = 8;
+        this.roadOffsetX = 8;
+        this.roadOffsetY = 8;
+        this.roadEmptyColor = 0xc1c1c1;
+        this.roadEmptyAlpha = 0.2;
+        this.isSmall = true;
+      }
+    }
 
   }
 }

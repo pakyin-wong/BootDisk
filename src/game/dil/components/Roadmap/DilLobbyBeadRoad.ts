@@ -118,5 +118,29 @@ namespace we {
       }
     }
 
+    export class DilLargeListRoadmap extends DilLobbyBeadRoad {
+      protected initParams() {
+        this.roadGridSize = 104;
+        this.roadCol = 8;
+        this.roadRow = 2;
+        this.roadIndentX = 38;
+        this.roadIndentY = 24;
+        this.roadOffsetX = 32;
+        this.roadOffsetY = 32;
+        (this.roadEmptyColor = 0x262a2b), (this.roadEmptyAlpha = 1), (this.roadScale = 1);
+      }
+    }
+
+    export class DilSmallListRoadmap extends DilLobbyBeadRoad {
+      protected initParams() {
+        this.roadGridSize = 64;
+        this.roadCol = 6;
+        this.roadRow = 2;
+        this.roadIndentX = 22;
+        this.roadIndentY = 30;
+        this.roadOffsetX = 24;
+        this.roadOffsetY = 24;
+      }
+    }
   }
 }

@@ -12,17 +12,17 @@ namespace we {
           case 'dt':
             return ba.BAMobileLobbyBigRoad;
           case 'ro':
-            return ro.ROLobbyBeadRoad;
+            return ro.ROSmallListRoadmap;
           case 'di':
-            return di.DiLobbyBeadRoad;
+            return di.DiSmallListRoadmap;
           case 'dil':
-            return dil.DilLobbyBeadRoad;
+            return dil.DilSmallListRoadmap;
           case 'lw':
-            return lw.LwLobbyBeadRoad;
-          case 'lo':
-            return lo.LoSidePanel;
-          case 'rc':
-            return rc.RcSidePanel;
+            return lw.LwSmallListRoadmap;
+          // case 'lo':
+          //   return lo.LoSidePanel;
+          // case 'rc':
+          //   return rc.RcSidePanel;
           default:
             throw new Error('invalid game type');
         }

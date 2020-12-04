@@ -139,5 +139,35 @@ namespace we {
       }
     }
 
+    export class LwLargeListRoadmap extends LwLobbyBeadRoad {
+      protected initParams() {
+        this.roadRow = 3;
+        this.roadCol = 12;
+        this.roadCellWidth = 95;
+        this.roadCellHeight = 97;
+        this.roadImageWidth = 66;
+        this.roadImageHeight = 66;
+        this.roadScale = 1;
+        this.roadGridColor = 0xffffff;
+        this.roadGridAlpha = 1;
+        this.roadGridBorderColor = 0x000000;
+      }
+    }
+
+    export class LwSmallListRoadmap extends LwLobbyBeadRoad {
+      protected initParams() {
+        this.roadRow = 3;
+        this.roadCol = 8;
+        this.roadCellWidth = 69;
+        this.roadCellHeight = 65;
+        this.roadImageWidth = 43;
+        this.roadImageHeight = 43;
+        this.roadScale = 1;
+        this.roadGridColor = 0xffffff;
+        this.roadGridAlpha = 1;
+        this.roadGridBorderColor = 0x000000;
+      }
+    }
+
   }
 }
