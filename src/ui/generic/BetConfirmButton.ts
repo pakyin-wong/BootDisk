@@ -65,8 +65,10 @@ namespace we {
         r.size = size;
         r.text = text;
         r.textColor = color;
-        r.setWidth = 150;
-        r.labelRotation = this._orientation == '_vertical' ? 270 : 0;
+        if (this._orientation == '_vertical') {
+          r.setWidth = env.language == 'en' ? 150 : 50;
+          r.labelRotation = env.language == 'en' ? 270 : 0;
+        }
 
         // create a new ImageDisplayData with a EgretTextureData holding the new texture
         const displayData: dragonBones.ImageDisplayData = new dragonBones.ImageDisplayData();
