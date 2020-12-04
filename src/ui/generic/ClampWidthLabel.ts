@@ -65,9 +65,9 @@ namespace we {
           fontFamily: this.fontFamily,
         };
 
-        const width = utils.measureTextWidth(this.text, values, this.style);
         // console.log(width, this.measuredWidth, egret.sys.DisplayList.$canvasScaleFactor);
         if (this.targetWidth > 0) {
+          const width = utils.measureTextWidth(this.text, values, this.style);
           if (this.targetWidth < width) {
             this.width = width;
             this._targetScaleX = this.targetWidth / this.width;

@@ -87,5 +87,5 @@
 
 	</e:Group>
 	<overlay:DoubleCalendarPicker skinName="skin_mobile_portrait.DoubleCalendarPicker" id="_datepicker" width="1050"
-	                              height="1500" horizontalCenter="-0.5" x="96" scaleX="1" scaleY="1"  verticalCenter="0" visible="false"/>
+	                              height="1500" horizontalCenter="-0.5" x="96" scaleX="1" scaleY="1"  verticalCenter="0" />
 </e:Skin>

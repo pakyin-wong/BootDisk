@@ -4,4 +4,6 @@
 	<e:Rect width="1242" height="550" x="0" y="0" fillColor="0x212425"/>
 	<ui:RoundRectShape cornerTL_TR_BL_BR="20,20,20,20" stroke="0" fillColor="0x0f1721" width="576" height="240"  y="30" x="30" />
 	<dt:StatisticChartHolder id="_leftHolder" skinName="skin_mobile_portrait.dt.StatisticChartHolder" width="576" height="240"  y="30" x="30" />
+	<ui:RoundRectShape cornerTL_TR_BL_BR="20,20,20,20" stroke="0" fillColor="0x0f1721" width="576" height="240"  y="30" x="630" />
+	<dt:StatisticChartHolder id="_rightHolder" skinName="skin_mobile_portrait.dt.StatisticChartHolder" width="576" height="240"  y="30" x="630" />
 </e:Skin>

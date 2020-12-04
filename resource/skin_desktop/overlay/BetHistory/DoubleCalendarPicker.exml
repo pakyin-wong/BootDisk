@@ -19,8 +19,8 @@
 		<!--<ui:BaseButton id="_btn_confirm" width="200" height="60" x="945" y="67" skinName="skin_desktop.OverlayPanelButton" />
 		-->
 		<ui:RoundRectButton id="_btn_confirm" cornerTL_TR_BL_BR="30,30,30,30" width="200" height="60" x="875" y="67"
-		                    stroke="0" strokeIn="0" fillAlpha="1" fillColor="0x1b416e" />
-		<ui:BaseImageButton id="_btn_clean" width="133" height="36" x="529" y="79" anchorOffsetX="0" />
+		                    stroke="0" strokeIn="0" fillAlpha="1" fillColor="0x1b416e" skinName="skin_desktop.ImageButtonSkinEmpty" />
+		<ui:BaseImageButton id="_btn_clean" width="133" height="36" x="529" y="79" anchorOffsetX="0" skinName="skin_desktop.ImageButtonSkinEmpty" />
 		<e:Rect width="418" height="60" x="64" y="67" fillColor="0x1b416e" ellipseHeight="60" ellipseWidth="60" />
 		<e:Label id="_txt_current" text="" x="64" y="67" width="418" height="60" textAlign="center" verticalAlign="middle"
 		         fontFamily="Barlow" size="28" />

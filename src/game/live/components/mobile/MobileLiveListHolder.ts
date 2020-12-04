@@ -43,9 +43,14 @@ namespace we {
           case we.core.GameType.BAC:
           case we.core.GameType.BAI:
           case we.core.GameType.BAS:
+          case we.core.GameType.BAM:
+          case we.core.GameType.BAB:
+          case we.core.GameType.BASB:
+          case we.core.GameType.BAMB:
             generalGameType = 'ba';
             break;
           case we.core.GameType.DT:
+          case we.core.GameType.DTB:
           default:
             generalGameType = 'dt';
             break;

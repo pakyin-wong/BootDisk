@@ -96,6 +96,7 @@ namespace we {
 
       protected createRingAnim() {
         this._ringAnim = this._factory.buildArmatureDisplay('blockchain');
+        this._ringAnim.armature.cacheFrameRate = 24;
         utils.dblistenToSoundEffect(this._ringAnim);
         this._cardUsedMessage = new CardUsedMessage();
         this._cardUsedMessage.width = 0;
@@ -137,6 +138,7 @@ namespace we {
 
       protected createCardAnim() {
         const cardAnim = this._factory.buildArmatureDisplay('poker');
+        cardAnim.armature.cacheFrameRate = 24;
         utils.dblistenToSoundEffect(cardAnim);
         return cardAnim;
       }
@@ -395,6 +397,7 @@ namespace we {
       protected getRedCardAnim() {
         if (!this._smallRedCard) {
           this._smallRedCard = this._factory.buildArmatureDisplay('red_card');
+          this._smallRedCard.armature.cacheFrameRate = 24;
           utils.dblistenToSoundEffect(this._smallRedCard);
           this._smallRedCardGroup.addChild(this._smallRedCard);
           this._smallRedCard.addEventListener(mouse.MouseEvent.ROLL_OVER, () => (this._smallRedCardDesc.visible = true), this);

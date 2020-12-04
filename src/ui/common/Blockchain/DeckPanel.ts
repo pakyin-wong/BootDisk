@@ -4,9 +4,14 @@ namespace we {
       protected _list: eui.List;
       protected _gameData: data.GameData & data.BlockchainGameData;
       protected _scroller: ui.Scroller;
+      protected _descrptionLabel: ui.RunTimeLabel;
 
       protected mount() {
         super.mount();
+        if (!env.isMobile || env.orientation === egret.OrientationMode.PORTRAIT) {
+          this._list.addChild(this._descrptionLabel);
+          this._descrptionLabel.renderText = ()=>i18n.t('baccarat.deckDesc');
+        }
         this._list.itemRenderer = this.getItemRenderer();
         this._list.addEventListener(
           'OPEN_CARDINFO_PANEL',
@@ -47,9 +52,9 @@ namespace we {
           } else {
             arr.push({ cardIndex: i + 1, cardString: this._gameData.maskedcardssnList[i] });
           }
-          if (i === this._gameData.redcardindex - 1) {
-            arr.push({ cardIndex: null, cardString: 'red' });
-          }
+          // if (i === this._gameData.redcardindex - 1) {
+          //   arr.push({ cardIndex: null, cardString: 'red' });
+          // }
         }
         return arr;
       }

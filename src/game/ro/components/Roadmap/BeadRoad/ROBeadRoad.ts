@@ -33,7 +33,8 @@ namespace we {
         this.isSmall = _isSmall;
 
         this._topTextLayer = new egret.DisplayObjectContainer();
-        this._staticLayer.addChild(this._topTextLayer);
+        utils.addChild(this._staticLayer, this._topTextLayer);
+        // this._staticLayer.addChild(this._topTextLayer);
         this.isExpanded = true;
       }
 

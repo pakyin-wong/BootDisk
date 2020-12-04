@@ -10,24 +10,27 @@ namespace we {
       protected superSixLabel: eui.Label;
 
       protected pBankerMax: eui.Label;
-      protected pBankerOdd: eui.Label;
+      protected pBankerOdd: ui.RunTimeLabel;
 
       protected pSuperSixBankerMax: eui.Label;
-      protected pSuperSixBankerOdd: eui.Label;
+      protected pSuperSixBankerOdd: ui.RunTimeLabel;
       // protected gameIdLabel: ui.RunTimeLabel;
       // protected betLimitLabel: ui.RunTimeLabel;
 
       protected pPlayerMax: eui.Label;
-      protected pPlayerOdd: eui.Label;
+      protected pPlayerOdd: ui.RunTimeLabel;
 
       protected pTieMax: eui.Label;
-      protected pTieOdd: eui.Label;
+      protected pTieOdd: ui.RunTimeLabel;
 
       protected pBankerPairMax: eui.Label;
-      protected pBankerPairOdd: eui.Label;
+      protected pBankerPairOdd: ui.RunTimeLabel;
 
       protected pPlayerPairMax: eui.Label;
-      protected pPlayerPairOdd: eui.Label;
+      protected pPlayerPairOdd: ui.RunTimeLabel;
+
+      protected pSuperSixMax: eui.Label;
+      protected pSuperSixOdd: ui.RunTimeLabel;
 
       protected _mask: egret.Shape;
 
@@ -54,8 +57,6 @@ namespace we {
         super.onExit();
         dir.evtHandler.removeEventListener(core.Event.BET_LIMIT_CHANGE, this.updateBetLimit, this);
       }
-      protected pSuperSixMax: eui.Label;
-      protected pSuperSixOdd: eui.Label;
 
       public changeLang() {
         super.changeLang();
@@ -77,7 +78,8 @@ namespace we {
             if (item.lblMax) {
               item.lblMax.text = item.data.maxlimit ? utils.numberToFaceValue(item.data.maxlimit) : '-';
             }
-            item.lblOdd.text = item.data.odd ? item.data.odd : '-';
+            // item.lblOdd.text = item.data.odd ? item.data.odd : '-';
+            item.lblOdd.renderText = item.data.odd ? ()=>i18n.replaceOdd(item.data.odd) : ()=>'-';
           } else {
             if (item.lblMax) {
               item.lblMax.text = '-';

@@ -36,7 +36,7 @@
 					-->
 					<ui:RunTimeLabel id="pTableID" text="LW - 百家樂01" textAlign="right" size="44" alpha="0.7"  right="10" fontFamily="Barlow"/>
 					<e:Label id="pRoundID" text="-" textAlign="right" scaleX="1" scaleY="1" size="44" width="100%" alpha="0.7"  fontFamily="Barlow"/>
-					<ui:ClampWidthLabel id="pGameID" text="000-000-000000000" textAlign="right" size="44" targetWidth="350" alpha="0.7"  fontFamily="Barlow"/>
+					<ui:RunTimeLabel id="pGameID" text="000-000-000000000" textAlign="right" size="44" targetWidth="350" alpha="0.7"  fontFamily="Barlow"/>
 					<e:layout>
 						<e:VerticalLayout gap="50" />
 					</e:layout>
@@ -54,7 +54,7 @@
 					<!--<e:Label id="pDealer" text="-" y="0" textAlign="right" scaleX="1" scaleY="1" size="44" x="-3" width="100%"
 					             height="44" alpha="0.7" />
 					-->
-					<ui:ClampWidthLabel id="pDealer" text="Mary" textAlign="right" right="28" y="1" size="44" width="440"
+					<ui:RunTimeLabel id="pDealer" text="Mary" textAlign="right" right="28" y="1" size="44" width="440"
 					                    targetWidth="440" verticalAlign="middle" alpha="0.7"  fontFamily="Barlow"/>
 					<e:Group id="betLimitBtnGroup" y="78" width="100%" height="74">
 						<e:Image id="limitBg" width="312" height="74" x="34" y="0" source="m_ba_tag_redlimit_bg_png" scaleX="1" scaleY="1"
@@ -77,17 +77,17 @@
 					</e:layout>
 				</e:Group>
 				<e:Group x="1199" width="350" y="25">
-					<ui:ClampWidthLabel id="pEastMax" text="000" y="0" right="150" textAlign="right" size="44" targetWidth="80"
+					<ui:RunTimeLabel id="pEastMax" text="000" y="0" right="150" textAlign="right" size="44" targetWidth="80"
 					                    alpha="0.7"  fontFamily="Barlow"/>
-					<ui:ClampWidthLabel id="pEastOdd" text="1.50:1.00" y="0" right="0" textAlign="right" targetWidth="120" size="44"
+					<ui:RunTimeLabel id="pEastOdd" text="1.50:1.00" y="0" right="0" textAlign="right" targetWidth="120" size="44"
 					                    alpha="0.7"  fontFamily="Barlow"/>
-					<ui:ClampWidthLabel id="pSouthMax" text="000" y="90" right="150" textAlign="right" size="44" targetWidth="80"
+					<ui:RunTimeLabel id="pSouthMax" text="000" y="90" right="150" textAlign="right" size="44" targetWidth="80"
 					                    alpha="0.7"  fontFamily="Barlow"/>
-					<ui:ClampWidthLabel id="pSouthOdd" text="-" y="90" right="0" textAlign="right" targetWidth="120" size="44"
+					<ui:RunTimeLabel id="pSouthOdd" text="-" y="90" right="0" textAlign="right" targetWidth="120" size="44"
 					                    alpha="0.7"  fontFamily="Barlow"/>
-					<ui:ClampWidthLabel id="pWestOdd" text="-" y="178" right="0" textAlign="right" targetWidth="120" size="44"
+					<ui:RunTimeLabel id="pWestOdd" text="-" y="178" right="0" textAlign="right" targetWidth="120" size="44"
 					                    alpha="0.7"  fontFamily="Barlow"/>
-					<ui:ClampWidthLabel id="pWestMax" text="000" y="178" right="150" textAlign="right" size="44" targetWidth="80"
+					<ui:RunTimeLabel id="pWestMax" text="000" y="178" right="150" textAlign="right" size="44" targetWidth="80"
 					                    alpha="0.7"  fontFamily="Barlow"/>
 				</e:Group>
 				<e:Group x="1623" anchorOffsetX="0" width="44" y="25">
@@ -99,23 +99,23 @@
 					</e:layout>
 				</e:Group>
 				<e:Group x="1717" anchorOffsetX="0" width="350" y="25">
-					<ui:ClampWidthLabel id="pRedOdd" text="-" y="178" right="0" textAlign="right" targetWidth="120" size="44"
+					<ui:RunTimeLabel id="pRedOdd" text="-" y="178" right="0" textAlign="right" targetWidth="120" size="44"
 					                    alpha="0.7"  fontFamily="Barlow"/>
-					<ui:ClampWidthLabel id="pRedMax" text="000" y="178" right="150" textAlign="right" size="44" targetWidth="80"
+					<ui:RunTimeLabel id="pRedMax" text="000" y="178" right="150" textAlign="right" size="44" targetWidth="80"
 					                    alpha="0.7"  fontFamily="Barlow"/>
-					<ui:ClampWidthLabel id="pNorthOdd" text="-" y="0" right="0" textAlign="right" targetWidth="120" size="44"
+					<ui:RunTimeLabel id="pNorthOdd" text="-" y="0" right="0" textAlign="right" targetWidth="120" size="44"
 					                    alpha="0.7"  fontFamily="Barlow"/>
-					<ui:ClampWidthLabel id="pNorthMax" text="000" y="0" right="150" textAlign="right" size="44" targetWidth="80"
+					<ui:RunTimeLabel id="pNorthMax" text="000" y="0" right="150" textAlign="right" size="44" targetWidth="80"
 					                    alpha="0.7"  fontFamily="Barlow"/>
-					<ui:ClampWidthLabel id="pWhiteOdd" text="-" y="90" right="0" textAlign="right" targetWidth="120" size="44"
+					<ui:RunTimeLabel id="pWhiteOdd" text="-" y="90" right="0" textAlign="right" targetWidth="120" size="44"
 					                    alpha="0.7"  fontFamily="Barlow"/>
-					<ui:ClampWidthLabel id="pWhiteMax" text="000" y="90" right="150" textAlign="right" size="44" targetWidth="80"
+					<ui:RunTimeLabel id="pWhiteMax" text="000" y="90" right="150" textAlign="right" size="44" targetWidth="80"
 					                    alpha="0.7"  fontFamily="Barlow"/>
 				</e:Group>
 				<e:Group x="2223" anchorOffsetX="0" width="350" y="25">
-					<ui:ClampWidthLabel id="pGreenOdd" text="-" y="0" right="0" textAlign="right" targetWidth="120" size="44"
+					<ui:RunTimeLabel id="pGreenOdd" text="-" y="0" right="0" textAlign="right" targetWidth="120" size="44"
 					                    alpha="0.7"  fontFamily="Barlow"/>
-					<ui:ClampWidthLabel id="pGreenMax" text="000" y="0" right="150" textAlign="right" size="44" targetWidth="80"
+					<ui:RunTimeLabel id="pGreenMax" text="000" y="0" right="150" textAlign="right" size="44" targetWidth="80"
 					                    alpha="0.7"  fontFamily="Barlow"/>
 					<ui:RunTimeLabel id="greenLabel" text="發" y="0" x="0" scaleX="1" scaleY="1" size="44" textKey="luckywheel.white" />
 				</e:Group>
