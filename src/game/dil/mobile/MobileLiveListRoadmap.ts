@@ -19,7 +19,7 @@ namespace we {
 
       public constructor() {
         super();
-        this.cacheAsBitmap = true;
+        // this.cacheAsBitmap = true;
       }
 
       protected childrenCreated() {
