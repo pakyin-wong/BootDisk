@@ -138,12 +138,12 @@ class Main extends eui.UILayer {
       dir.sideRoadPool = new we.ui.SideRoadPool(opt3);
     } else {
       const opt1 = {
-        ba: 6,
-        dt: 3,
-        ro: 3,
-        di: 2,
-        dil: 2,
-        lw: 2,
+        ba: 12,
+        dt: 4,
+        ro: 4,
+        di: 4,
+        dil: 4,
+        lw: 4,
       };
       dir.largeRoadPool = new we.ui.MobileLargeRoadPool(opt1);
       const opt2 = {
