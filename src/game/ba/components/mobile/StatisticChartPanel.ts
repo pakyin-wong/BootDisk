@@ -4,7 +4,7 @@ namespace we {
       protected tableInfo: data.TableInfo;
 
       protected _leftHolder: we.ba.StatisticChartHolder;
-      protected _rightHolder: we.ba.StatisticChartHolder;
+      protected _rightHolder: we.ba.StatisticPairChartHolder;
 
       public constructor() {
         super();
@@ -14,8 +14,8 @@ namespace we {
         super.mount();
         this._leftHolder.setupChart1(() => i18n.t('baccarat.statisticChart.shoeBankerPlayerTie'), false);
         this._leftHolder.setupChart2(() => i18n.t('baccarat.statisticChart.bankerPlayerTie'), false);
-        this._rightHolder.setupChart1(() => i18n.t('baccarat.statisticChart.shoeBankerPlayerTiePair'), true);
-        this._rightHolder.setupChart2(() => i18n.t('baccarat.statisticChart.bankerPlayerTiePair'), true);
+        // this._rightHolder.setupPairChart1(() => i18n.t('baccarat.statisticChart.shoeBankerPlayerTiePair'), true);
+        // this._rightHolder.setupPairChart2(() => i18n.t('baccarat.statisticChart.bankerPlayerTiePair'), true);
       }
 
       public setValue(tableInfo: data.TableInfo) {
@@ -29,6 +29,8 @@ namespace we {
       }
 
       protected initData() {
+        // this._rightHolder.setupPairChart1(() => i18n.t('baccarat.statisticChart.shoeBankerPlayerTiePair'), true);
+        // this._rightHolder.setupPairChart2(() => i18n.t('baccarat.statisticChart.bankerPlayerTiePair'), true);
         const shoeInfo = we.utils.stat.ba.getStatInfo(true, this.tableInfo.gamestatistic);
         const normalInfo = we.utils.stat.ba.getStatInfo(false, this.tableInfo.gamestatistic);
 
@@ -55,23 +57,23 @@ namespace we {
         info = {
           firstCount: shoeInfo.bankerPairCount,
           secondCount: shoeInfo.playerPairCount,
-          thirdCount: shoeInfo.remainingCount,
+          thirdCount: shoeInfo.bothPairWinCount,
           firstPercentage: shoeInfo.bankerPairPercentage,
           secondPercentage: shoeInfo.playerPairPercentage,
-          thirdPercentage: shoeInfo.remainingPercentage,
+          thirdPercentage: shoeInfo.bothPairWinCountPercentage,
           totalCount: shoeInfo.totalCount,
         };
-        this._rightHolder.updateChart1(info);
+        this._rightHolder.updatePairChart1(info);
         info = {
           firstCount: normalInfo.bankerPairCount,
           secondCount: normalInfo.playerPairCount,
-          thirdCount: normalInfo.remainingCount,
+          thirdCount: normalInfo.bothPairWinCount,
           firstPercentage: normalInfo.bankerPairPercentage,
           secondPercentage: normalInfo.playerPairPercentage,
-          thirdPercentage: normalInfo.remainingPercentage,
+          thirdPercentage: normalInfo.bothPairWinCountPercentage,
           totalCount: normalInfo.totalCount,
         };
-        this._rightHolder.updateChart2(info);
+        this._rightHolder.updatePairChart2(info);
       }
 
       public update() {

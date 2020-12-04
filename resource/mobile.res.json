@@ -7201,6 +7201,11 @@
 			"name": "m_v_lobby_colormode_light_png"
 		},
 		{
+			"url": "assets/images/m/ba/roadmap/temp/d_ba_roadmap_bar_tiepairstate.png",
+			"type": "image",
+			"name": "d_ba_roadmap_bar_tiepairstate_png"
+		},
+		{
 			"url": "assets/images/m/common/game_panel/common/icon-maintenance.png",
 			"type": "image",
 			"name": "icon-maintenance_png"

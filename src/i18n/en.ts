@@ -251,6 +251,7 @@ namespace we {
         },
         res: {
           onload: 'Loading Resource',
+          downloading: 'loading',
         },
       },
       nav: {
@@ -389,6 +390,8 @@ namespace we {
         askDragon: 'Ask Dn',
         askTiger: 'Ask Tr',
         DragonTigerTieRatio: 'Dragon Tiger ratio',
+        DragonTigerTieRatio100: 'Dragon Tiger ratio(100 rounds)',
+        DragonTigerTieRatioshoe: 'Dragon Tiger ratio(shoe)',
         TieRatio: 'Tie ratio',
         DealerRatio: 'Dealer DT ratio',
         round: 'round',
