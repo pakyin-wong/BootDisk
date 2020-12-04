@@ -18,10 +18,12 @@
                          name="a1/bankerSumn" />
         </e:Group>
         <e:Group x="205" y="470" id="_playerCardMoveGroup">
-                <e:Group x="0" y="0" id="_playerCard1Group" width="204" height="350" touchThrough="true">
+                <e:Group x="0" y="0" id="_playerCard1Group" width="234" height="350" touchEnabled="false" />
+                <e:Group x="256" y="0" id="_playerCard2Group" width="234" height="350" touchEnabled="false" />
+                <e:Group x="0" y="0" id="_playerCard1TouchGroup" width="234" height="350" touchEnabled="true">
                         <e:Group id="_playerCard1Info" left="0" bottom="0" width="40" height="40" />
                 </e:Group>
-                <e:Group x="256" y="0" id="_playerCard2Group" width="204" height="350" touchThrough="true">
+                <e:Group x="256" y="0" id="_playerCard2TouchGroup" width="234" height="350" touchEnabled="true">
                         <e:Group id="_playerCard2Info" left="0" bottom="0" width="40" height="40" />
                 </e:Group>
         </e:Group>
@@ -36,10 +38,12 @@
         </e:Group>
         <e:Group x="1790" y="159" id="_smallCard1Group"></e:Group>
         <e:Group x="1860" y="470" id="_bankerCardMoveGroup">
-                <e:Group x="0" y="0" id="_bankerCard1Group" width="204" height="350" touchThrough="true">
+                <e:Group x="0" y="0" id="_bankerCard1Group" width="234" height="350" touchEnabled="false"/>
+                <e:Group x="256" y="0" id="_bankerCard2Group" width="234" height="350" touchEnabled="false" />
+                <e:Group x="0" y="0" id="_bankerCard1TouchGroup" width="234" height="350" touchEnabled="true">
                         <e:Group id="_bankerCard1Info" left="0" bottom="0" width="40" height="40" />
                 </e:Group>
-                <e:Group x="256" y="0" id="_bankerCard2Group" width="204" height="350" touchThrough="true">
+                <e:Group x="256" y="0" id="_bankerCard2TouchGroup" width="234" height="350" touchEnabled="true">
                         <e:Group id="_bankerCard2Info" left="0" bottom="0" width="40" height="40" />
                 </e:Group>
         </e:Group>
