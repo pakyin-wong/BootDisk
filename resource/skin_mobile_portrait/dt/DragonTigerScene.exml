@@ -6,6 +6,7 @@
 	<e:Image id="_bgImg" source="m_ba_bg_offvideo_png" x="0" width="1242" height="734" />
 	<e:Group id="_verticalGroup" width="1242" x="0" bottom="0">
 		<e:Group id="_verticalTop" width="1242" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
+			<ui:BetRelatedGroup id="_betRelatedGroup" y="71" x.right_hand_mode="214" x.left_hand_mode="43"/>
 			<dt:TableLayer id="_tableLayer" width="1182" height="348" x="30" y="243" isEdgeDismissable="true"
 			               skinName="skin_mobile_portrait.dt.TableLayerSkin" scaleX="1" scaleY="1" />
 			<dt:ChipLayer id="_chipLayer" width="1182" height="348" x="30" y="243" isEdgeDismissable="true"
@@ -66,7 +67,6 @@
 			                    x.right_hand_mode="545" />
 		</e:Group>
 		-->
-<ui:BetRelatedGroup id="_betRelatedGroup" y="71" x.right_hand_mode="214" x.left_hand_mode="43" />
 		<dt:CardHolder id="_resultDisplay" width="412" height="152" y="40" horizontalCenter="0" anchorOffsetX="0"
 		               anchorOffsetY="0" x="415" scaleX="1" scaleY="1" />
 	</e:Group>

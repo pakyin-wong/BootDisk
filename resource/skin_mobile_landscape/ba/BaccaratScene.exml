@@ -7,6 +7,7 @@
 	<e:Rect top="0" bottom="0" x="0" width="2424"  fillColor="0xffffff"/>
 	<e:Group id="_verticalGroup" width="2424" x="0" anchorOffsetY="0" bottom="0">
 		<e:Group id="_verticalTop" width="2424" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
+			<ui:BetRelatedGroup id="_betRelatedGroup" y="71" x.right_hand_mode="762" x.left_hand_mode="600"/>
 			<ba:TableLayer id="_tableLayer" isEdgeDismissable="true" skinName="skin_mobile_landscape.ba.TableLayerSkin"
 			               scaleX="1" scaleY="1" y="222" horizontalCenter="0" />
 			<ba:ChipLayer id="_chipLayer" y="221.5" isEdgeDismissable="true" skinName="skin_mobile_landscape.ba.ChipLayerSkin"
@@ -75,7 +76,6 @@
 			                    x.right_hand_mode="588" x.left_hand_mode="350" />
 		</e:Group>
 		-->
-		<ui:BetRelatedGroup id="_betRelatedGroup" y="71" x.right_hand_mode="762" x.left_hand_mode="600" />
 		<ba:CardHolder id="_resultDisplay" width="1120" height="152" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
 		               y="25" horizontalCenter="0" />
 	</e:Group>

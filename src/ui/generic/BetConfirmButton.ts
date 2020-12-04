@@ -38,7 +38,7 @@ namespace we {
         this._display.x = 0;
         this._display.y = 0;
         this._display.touchEnabled = false;
-        this._display.touchChildren = true;
+        // this._display.touchChildren = true;
         this.addChild(this._display);
         this.init();
 
