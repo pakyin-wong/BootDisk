@@ -110,43 +110,48 @@ class Main extends eui.UILayer {
     if (!env.isMobile) {
       const opt = {
         ba: 8,
-        dt: 2,
-        ro: 2,
+        dt: 3,
+        ro: 3,
         di: 2,
+        dil: 2,
         lw: 2,
       };
       dir.advancedRoadPool = new we.ui.AdvancedRoadPool(opt);
       dir.analysisPool = new we.ui.AnalysisPool(opt);
       const opt2 = {
         ba: 16,
-        dt: 2,
-        ro: 2,
+        dt: 3,
+        ro: 3,
         di: 2,
+        dil: 2,
         lw: 2,
       };
       dir.lobbyRoadPool = new we.ui.LobbyRoadPool(opt2);
       const opt3 = {
         ba: 6,
-        dt: 2,
-        ro: 2,
+        dt: 3,
+        ro: 3,
         di: 2,
+        dil: 2,
         lw: 2,
       };
       dir.sideRoadPool = new we.ui.SideRoadPool(opt3);
     } else {
       const opt1 = {
         ba: 6,
-        dt: 2,
-        ro: 2,
+        dt: 3,
+        ro: 3,
         di: 2,
+        dil: 2,
         lw: 2,
       };
       dir.largeRoadPool = new we.ui.MobileLargeRoadPool(opt1);
       const opt2 = {
         ba: 8,
-        dt: 2,
-        ro: 2,
+        dt: 3,
+        ro: 3,
         di: 2,
+        dil: 2,
         lw: 2,
       };
       dir.smallRoadPool = new we.ui.MobileSmallRoadPool(opt2);
