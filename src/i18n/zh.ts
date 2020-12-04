@@ -34,7 +34,7 @@ namespace we {
       lobby_no_favourite_text: '沒有我的最愛',
       lobby_tag_hint_text: '將你喜愛的遊戲標上愛心',
 
-      gameIcon_shuffle: '洗牌中',
+      gameIcon_shuffle: '更換新牌靴',
       gameIcon_maintenance: '維護中',
 
       betfield_baccarat_banker: '庄',
@@ -79,7 +79,7 @@ namespace we {
       overlaypanel_memberreport_commission_percentage: '洗碼%',
       overlaypanel_memberreport_commission_total: '洗碼佣金',
 
-      overlaypanel_customroad_title: '好路設定',
+      overlaypanel_customroad_title: '百家樂好路設定',
       overlaypanel_customroad_default: '還原預設',
       overlaypanel_customroad_selectall: '全選',
 
@@ -627,6 +627,8 @@ namespace we {
         mechanismHelp2: '「卡牌序號」以SHA-256技術加密生成「卡牌加密文」，並提前公佈。',
         mechanismHelp3: '開牌後，顯示及驗證「卡牌序號」和「卡牌加密文」以示公正。',
         mechanismHelp4: '玩家可複制「卡牌序號」，並點擊「第三方驗證」鍵跳轉至第三方平台，驗證相關「卡牌加密文」。',
+        mechanismHelpTitle1: 'SHA-256已加密！',
+        mechanismHelpTitle2: 'SHA-256已驗證！',
         verification: '驗證',
         thirdParty: '第三方驗證',
         sha256VerifySuccess: 'SHA256已驗證',
