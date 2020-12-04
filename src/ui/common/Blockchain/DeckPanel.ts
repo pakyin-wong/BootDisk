@@ -47,9 +47,9 @@ namespace we {
           } else {
             arr.push({ cardIndex: i + 1, cardString: this._gameData.maskedcardssnList[i] });
           }
-          if (i === this._gameData.redcardindex - 1) {
-            arr.push({ cardIndex: null, cardString: 'red' });
-          }
+          // if (i === this._gameData.redcardindex - 1) {
+          //   arr.push({ cardIndex: null, cardString: 'red' });
+          // }
         }
         return arr;
       }
