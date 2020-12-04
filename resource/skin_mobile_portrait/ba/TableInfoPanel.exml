@@ -38,31 +38,31 @@
 			</e:Group>
 			<ui:RunTimeLabel id="pBetLimit" text="Label" x="311" y="400" width="304" height="74" size="44" verticalAlign="middle"
 			                 textAlign="center" />
-			<ui:ClampWidthLabel id="pBankerOdd" text="0.95:1" y="60" size="44" alpha="0.7" textAlign="right" targetWidth="130" right="50"  fontFamily="Barlow"/>
-			<ui:ClampWidthLabel id="pBankerMax" text="000"  y="60" size="44" alpha="0.7" textAlign="right" targetWidth="80" right="200"  fontFamily="Barlow"/>
+			<ui:RunTimeLabel id="pBankerOdd" text="0.95:1" y="60" size="44" alpha="0.7" textAlign="right" targetWidth="130" right="50"  fontFamily="Barlow"/>
+			<ui:RunTimeLabel id="pBankerMax" text="000"  y="60" size="44" alpha="0.7" textAlign="right" targetWidth="80" right="200"  fontFamily="Barlow"/>
 			
-			<ui:ClampWidthLabel id="pSuperSixBankerOdd" text="0.95:1" textAlign="right" y="130" size="44" targetWidth="130" alpha="0.7" right="50"  fontFamily="Barlow"/>
-			<ui:ClampWidthLabel  id="pSuperSixBankerMax"  text="000"  y="130" size="44" alpha="0.7" textAlign="right" targetWidth="80" right="200"   fontFamily="Barlow"/>
+			<ui:RunTimeLabel id="pSuperSixBankerOdd" text="0.95:1" textAlign="right" y="130" size="44" targetWidth="130" alpha="0.7" right="50"  fontFamily="Barlow"/>
+			<ui:RunTimeLabel  id="pSuperSixBankerMax"  text="000"  y="130" size="44" alpha="0.7" textAlign="right" targetWidth="80" right="200"   fontFamily="Barlow"/>
 			
-			<ui:ClampWidthLabel id="pPlayerOdd" text="0.95:1" textAlign="right" y="200" size="44" targetWidth="130" alpha="0.7"
+			<ui:RunTimeLabel id="pPlayerOdd" text="0.95:1" textAlign="right" y="200" size="44" targetWidth="130" alpha="0.7"
 			                    right="50"  fontFamily="Barlow"/>
-			<ui:ClampWidthLabel  id="pPlayerMax"  text="000"  y="200" size="44" alpha="0.7" textAlign="right" targetWidth="80" right="200"  fontFamily="Barlow"/>
+			<ui:RunTimeLabel  id="pPlayerMax"  text="000"  y="200" size="44" alpha="0.7" textAlign="right" targetWidth="80" right="200"  fontFamily="Barlow"/>
 			
-			<ui:ClampWidthLabel id="pTieOdd" text="0.95:1.5" textAlign="right" y="270" size="44" targetWidth="130"
+			<ui:RunTimeLabel id="pTieOdd" text="0.95:1.5" textAlign="right" y="270" size="44" targetWidth="130"
 			                    alpha="0.7" right="50"  fontFamily="Barlow"/>
-			<ui:ClampWidthLabel  id="pTieMax" text="000"  y="270" size="44" alpha="0.7" textAlign="right" targetWidth="80" right="200"   fontFamily="Barlow"/>
+			<ui:RunTimeLabel  id="pTieMax" text="000"  y="270" size="44" alpha="0.7" textAlign="right" targetWidth="80" right="200"   fontFamily="Barlow"/>
 			
-			<ui:ClampWidthLabel id="pBankerPairOdd" text="0.95:1" textAlign="right" y="340" size="44" targetWidth="130"
+			<ui:RunTimeLabel id="pBankerPairOdd" text="0.95:1" textAlign="right" y="340" size="44" targetWidth="130"
 			                    alpha="0.7" right="50"  fontFamily="Barlow"/>
-			<ui:ClampWidthLabel  id="pBankerPairMax"  text="000"  y="340" size="44" alpha="0.7" textAlign="right" targetWidth="80" right="200"   fontFamily="Barlow"/>
+			<ui:RunTimeLabel  id="pBankerPairMax"  text="000"  y="340" size="44" alpha="0.7" textAlign="right" targetWidth="80" right="200"   fontFamily="Barlow"/>
 			
-			<ui:ClampWidthLabel id="pPlayerPairOdd" text="0.95:1.55" textAlign="right" y="410" size="44" targetWidth="130"
+			<ui:RunTimeLabel id="pPlayerPairOdd" text="0.95:1.55" textAlign="right" y="410" size="44" targetWidth="130"
 			                    alpha="0.7" right="50"  fontFamily="Barlow"/>
-			<ui:ClampWidthLabel  id="pPlayerPairMax" text="000"  y="410" size="44" alpha="0.7" textAlign="right" targetWidth="80" right="200"  fontFamily="Barlow"/>
+			<ui:RunTimeLabel  id="pPlayerPairMax" text="000"  y="410" size="44" alpha="0.7" textAlign="right" targetWidth="80" right="200"  fontFamily="Barlow"/>
 			
 			<ui:RunTimeLabel id="bankerLabel" text="庄" y="60" textAlign="left" x="745" scaleX="1" scaleY="1" size="44"
 			                 textKey="baccarat.banker" />			
-			<ui:ClampWidthLabel id="superSixBankerLabel" text="庄 (免佣)" y="130" textAlign="left" x="745" scaleX="1" scaleY="1"
+			<ui:RunTimeLabel id="superSixBankerLabel" text="庄 (免佣)" y="130" textAlign="left" x="745" scaleX="1" scaleY="1"
 			                    size="44" targetWidth="130" />
 			<ui:RunTimeLabel id="tieLabel" text="和" y="270" x="745" scaleX="1" scaleY="1" size="44" textKey="baccarat.tie" />
 			<ui:RunTimeLabel id="playerLabel" text="閒" y="200" x="745" scaleX="1" scaleY="1" size="44" textKey="baccarat.player" />
@@ -74,9 +74,9 @@
 		<e:Group id="content0" x="0" width="1242" height="550" touchEnabled="false" touchChildren="false" visible="false">
 			<e:Rect id="_bg0" width="100%" height="100%" x="1" y="-1" scaleX="1" scaleY="1" fillColor="0x212425" />
 			<ui:RunTimeLabel id="superSixLabel" text="超級六 (免佣)" y="60" x="47" scaleX="1" scaleY="1" size="44" />
-			<ui:ClampWidthLabel id="pSuperSixOdd" text="-" y="60" textAlign="right" scaleX="1" scaleY="1" size="44" targetWidth="130"
+			<ui:RunTimeLabel id="pSuperSixOdd" text="-" y="60" textAlign="right" scaleX="1" scaleY="1" size="44" targetWidth="130"
 			         height="44" alpha="0.7"  right="621" fontFamily="Barlow"/>
-			<ui:ClampWidthLabel id="pSuperSixMax" text="000" y="60" textAlign="right" right="753" size="44" x="17" targetWidth="80"
+			<ui:RunTimeLabel id="pSuperSixMax" text="000" y="60" textAlign="right" right="753" size="44" x="17" targetWidth="80"
 			         height="44" alpha="0.7"  fontFamily="Barlow"/>
 		</e:Group>-->
 	</ui:HorizontalHolder>

@@ -73,5 +73,42 @@
         <e:Group id="_specific_5_group" width="295" height="100%" x="1480" anchorOffsetX="0"/>
         <e:Group id="_specific_6_group" width="295" height="100%" x="1776" anchorOffsetX="0"/>
     </e:Group>
-    <ui:RunTimeLabel id="_specific_label" text="單骰 1:1 \n雙骰 2:1 三骰 12:1" size="32" bottom="30" textColor="0xffffff" left="30" textAlign="center"/>
+    <ui:RunTimeLabel id="_specific_label" text="單骰 1:1 \n雙骰 2:1 三骰 12:1" size="32" bottom="30" textColor="0xffffff" left="30" textAlign="center" visible="false"/>
+    		<e:Group x="19" y="730" width="265">
+			<e:Group>
+				<!--<ui:RunTimeLabel fontFamily="Barlow" id="_single_label" size="15" left="0" i18n="dice.single" />
+				-->
+				<ui:RunTimeLabel id="_single_label" size="32" text="單骰" left="0" />
+				<ui:RunTimeLabel fontFamily="Barlow" text="1:1" oddKey="di.SPECIFIC_1" size="32" right="0"  textColor="0xd8d8d8"/>
+				<e:layout>
+					<e:HorizontalLayout gap="0" />
+				</e:layout>
+			</e:Group>
+			<e:Group>
+				<e:Group>
+					<!--<ui:RunTimeLabel fontFamily="Barlow" id="_double_label" size="15" i18n="dice.double" />
+					-->
+					<ui:RunTimeLabel id="_double_label" text="雙骰" size="32" />
+					<ui:RunTimeLabel fontFamily="Barlow" text="2:1" oddKey="di.SPECIFIC_2" size="32"  textColor="0xd8d8d8"/>
+					<e:layout>
+						<e:HorizontalLayout gap="0" />
+					</e:layout>
+				</e:Group>
+				<e:Group>
+					<!--<ui:RunTimeLabel fontFamily="Barlow" id="_triple_label" size="15" i18n="dice.triple" />
+					-->
+					<ui:RunTimeLabel id="_triple_label"  text="三骰" size="32" />
+					<ui:RunTimeLabel fontFamily="Barlow" text="12:1" oddKey="di.SPECIFIC_3" size="32"  textColor="0xd8d8d8"/>
+					<e:layout>
+						<e:HorizontalLayout gap="0" />
+					</e:layout>
+				</e:Group>
+				<e:layout>
+					<e:HorizontalLayout gap="10" />
+				</e:layout>
+			</e:Group>
+			<e:layout>
+				<e:VerticalLayout gap="8" horizontalAlign="center" />
+			</e:layout>
+		</e:Group>
 </e:Skin>
