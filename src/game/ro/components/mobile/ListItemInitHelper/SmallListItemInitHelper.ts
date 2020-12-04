@@ -2,7 +2,8 @@ namespace we {
   export namespace ro {
     export class SmallListItemInitHelper implements ui.IListItemHelper {
       public generateRoadmap(node: eui.Component) {
-        const roadmap = new ro.ROLobbyBeadRoad();
+        // const roadmap = new ro.ROLobbyBeadRoad();
+        const roadmap = dir.smallRoadPool.get(core.GameType.RO);
         roadmap.roadGridSize = 52;
         roadmap.roadCol = 9;
         roadmap.roadRow = 3;

@@ -21,7 +21,14 @@ namespace we {
 
       protected destroy() {
         super.destroy();
-        if (this._bigRoad) this._bigRoad.parent.removeChild(this._bigRoad);
+        this.releaseRoadmap();
+      }
+
+      protected releaseRoadmap() {
+        if (this._bigRoad) {
+          this._bigRoad.parent.removeChild(this._bigRoad);
+          dir.smallRoadPool.release(this._bigRoad, this.tableInfo.gametype);
+        }
       }
 
       protected generateRoadmap() {

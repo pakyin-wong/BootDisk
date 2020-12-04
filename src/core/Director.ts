@@ -27,6 +27,8 @@ namespace we {
       public analysisPool: ui.GameComponentPool;
       public lobbyRoadPool: ui.LobbyRoadPool;
       public sideRoadPool: ui.SideRoadPool;
+      public largeRoadPool: ui.MobileLargeRoadPool;
+      public smallRoadPool: ui.MobileSmallRoadPool;
     }
   }
 }

@@ -133,6 +133,23 @@ class Main extends eui.UILayer {
         lw: 2,
       };
       dir.sideRoadPool = new we.ui.SideRoadPool(opt3);
+    } else {
+      const opt1 = {
+        ba: 6,
+        dt: 2,
+        ro: 2,
+        di: 2,
+        lw: 2,
+      };
+      dir.largeRoadPool = new we.ui.MobileLargeRoadPool(opt1);
+      const opt2 = {
+        ba: 8,
+        dt: 2,
+        ro: 2,
+        di: 2,
+        lw: 2,
+      };
+      dir.smallRoadPool = new we.ui.MobileSmallRoadPool(opt2);
     }
 
     this.showVersionNumber();

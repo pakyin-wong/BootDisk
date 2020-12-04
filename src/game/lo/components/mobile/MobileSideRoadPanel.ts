@@ -1,6 +1,6 @@
 namespace we {
   export namespace lo {
-    export class MobileSideRoadPanel extends ui.Panel implements we.ui.ILobbyRoad {
+    export class MobileSideRoadPanel extends core.BaseEUI implements we.ui.ILobbyRoad {
       protected beadRoadGrid: egret.Shape;
       protected roadmapData: any;
 

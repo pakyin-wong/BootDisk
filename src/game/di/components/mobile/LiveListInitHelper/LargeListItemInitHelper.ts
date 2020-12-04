@@ -40,7 +40,8 @@ namespace we {
       // this.beadRoadConfig.parent.addChild(this.beadRoad);
 
       public generateRoadmap(node: eui.Component) {
-        const roadmap = new di.DiLobbyBeadRoad();
+        // const roadmap = new di.DiLobbyBeadRoad();
+        const roadmap = dir.largeRoadPool.get(core.GameType.DI);
         // --Mobile_Portrait Setting
         roadmap.roadGridSize = 80;
         roadmap.roadCol = 13;

@@ -3,7 +3,8 @@ namespace we {
   export namespace di {
     export class SmallListItemInitHelper implements ui.IListItemHelper {
       public generateRoadmap(node: eui.Component) {
-        const bigRoad = new di.DiLobbyBeadRoad();
+        // const bigRoad = new di.DiLobbyBeadRoad();
+        const bigRoad = dir.smallRoadPool.get(core.GameType.DI);
         // --Mobile_Portrait
         bigRoad.roadGridSize = 48;
         bigRoad.roadCol = 10;

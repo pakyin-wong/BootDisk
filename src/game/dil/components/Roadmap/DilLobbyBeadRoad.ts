@@ -1,6 +1,6 @@
 namespace we {
   export namespace dil {
-    export class DilLobbyBeadRoad extends ui.Panel implements we.ui.ILobbyRoad {
+    export class DilLobbyBeadRoad extends core.BaseEUI implements we.ui.ILobbyRoad {
       protected beadRoad: DilBeadRoad;
 
       public roadGridSize: number;
@@ -40,14 +40,19 @@ namespace we {
         this.roadEmptyAlpha = roadEmptyAlpha;
         this.roadScale = roadScale;
 
-        this.cacheAsBitmap = true;
+        // this.cacheAsBitmap = true;
+        this.initParams();
+        this.init();
       }
 
       protected childrenCreated() {
         super.childrenCreated();
-        this.init();
       }
 
+      protected initParams() {
+
+      }
+      
       protected init() {
         this.beadRoad = new DilBeadRoad(this.roadRow, this.roadCol, this.roadGridSize, this.roadScale, this.roadOffsetX, this.roadOffsetY, this.roadEmptyColor, this.roadEmptyAlpha); // in game
         this.beadRoad.x = this.roadIndentX;
@@ -99,5 +104,19 @@ namespace we {
         this.beadRoad.dispose();
       }
     }
+
+    export class DilSideListRoadmap extends DilLobbyBeadRoad {
+      protected initParams() {
+        this.roadGridSize = 36;
+        this.roadCol = 8;
+        this.roadRow = 2;
+        this.roadIndentX = 3;
+        this.roadIndentY = 4;
+        this.roadOffsetX = 6;
+        this.roadOffsetY = 12;
+        this.height = 95;
+      }
+    }
+
   }
 }

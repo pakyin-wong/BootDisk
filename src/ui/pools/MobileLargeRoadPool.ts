@@ -1,6 +1,6 @@
 namespace we {
   export namespace ui {
-    export class SideRoadPool extends GameComponentPool {
+    export class MobileLargeRoadPool extends GameComponentPool {
       // we.ui.IAdvancedRoad
       constructor(opt: any) {
         super(opt);
@@ -10,19 +10,19 @@ namespace we {
         switch (gameType) {
           case 'ba':
           case 'dt':
-            return ba.BetInfoBigRoad;
+            return ba.MobileLiveListRoadmap;
           case 'ro':
-            return ro.ROSideListRoadmap;
+            return ro.ROLobbyBeadRoad;
           case 'di':
-            return di.DiSideListRoadmap;
+            return di.DiLobbyBeadRoad;
           case 'dil':
-            return dil.DilSideListRoadmap;
+            return dil.DilLobbyBeadRoad;
           case 'lw':
-            return lw.LwSideListRoadmap;
-          // case 'lo':
-          //   return lo.LoSidePanel;
-          // case 'rc':
-          //   return rc.RcSidePanel;
+            return lw.LwLobbyBeadRoad;
+          case 'lo':
+            return lo.MobileSideRoadPanel;
+          case 'rc':
+            return rc.RcSidePanel;
           default:
             throw new Error('invalid game type');
         }

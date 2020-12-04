@@ -1,6 +1,6 @@
 namespace we {
   export namespace di {
-    export class DiLobbyBeadRoad extends ui.Panel implements we.ui.ILobbyRoad {
+    export class DiLobbyBeadRoad extends core.BaseEUI implements we.ui.ILobbyRoad {
       protected beadRoad: DiBeadRoad;
 
       public roadGridSize: number = 40;
@@ -24,12 +24,17 @@ namespace we {
 
       public constructor() {
         super();
-        this.cacheAsBitmap = true;
+        // this.cacheAsBitmap = true;
+        this.initParams();
+        this.init();
       }
 
       protected childrenCreated() {
         super.childrenCreated();
-        this.init();
+      }
+
+      protected initParams() {
+
       }
 
       protected init() {
@@ -103,5 +108,40 @@ namespace we {
         this.beadRoad.dispose();
       }
     }
+
+    export class DiLiveListRoadmap extends DiLobbyBeadRoad {
+      protected initParams() {
+        this.roadGridSize = 40;
+        this.roadCol = 14;
+        this.roadRow = 1;
+        this.roadIndentX = 3;
+        this.roadIndentY = 3;
+        this.roadOffsetX = 6;
+        this.roadOffsetY = 2;
+        this.roadIconItemYOffset = 4;
+        this.iconHeight = 132;
+        this.roadIconItemColors = [0xee2e2e, 0x6dd400, 0x3e60f8, 0xededed, 1]; // [r_color,g_color,b_color, hightlight_color, hightlight_alpha]
+      }
+    }
+
+    export class DiSideListRoadmap extends DiLobbyBeadRoad {
+      protected initParams() {
+        this.height = 127;
+        this.roadGridSize = 30;
+        this.roadCol = 8;
+        this.roadRow = 1;
+        this.roadIndentX = 5;
+        this.roadIndentY = 5;
+        this.roadOffsetX = 11;
+        this.roadOffsetY = 5;
+        this.iconHeight = 116;
+        this.textSize = 16;
+        this.diceSize = 20;
+        this.roadWidth = 337;
+        this.roadIconItemYOffset = 4;
+        this.roadIconItemColors = [0xee2e2e, 0x6dd400, 0x3e60f8, 0xededed, 1]; // [r_color,g_color,b_color, hightlight_color, hightlight_alpha]
+      }
+    }
+
   }
 }

@@ -1,6 +1,6 @@
 namespace we {
   export namespace lw {
-    export class LwLobbyBeadRoad extends ui.Panel implements we.ui.ILobbyRoad {
+    export class LwLobbyBeadRoad extends core.BaseEUI implements we.ui.ILobbyRoad {
       protected beadRoad: LwBeadRoad;
 
       public roadIndentX: number = 0;
@@ -20,12 +20,17 @@ namespace we {
 
       public constructor() {
         super();
-        this.cacheAsBitmap = true;
+        // this.cacheAsBitmap = true;
+        this.initParams();
+        this.init();
       }
 
       protected childrenCreated() {
         super.childrenCreated();
-        this.init();
+      }
+
+      protected initParams() {
+
       }
 
       protected init() {
@@ -102,5 +107,37 @@ namespace we {
         this.beadRoad.dispose();
       }
     }
+
+    export class LwLiveListRoadmap extends LwLobbyBeadRoad {
+      protected initParams() {
+        this.roadRow = 3;
+        this.roadCol = 13;
+        this.roadCellWidth = 44.3;
+        this.roadCellHeight = 46;
+        this.roadImageWidth = 31;
+        this.roadImageHeight = 31;
+        this.roadScale = 1;
+        this.roadGridColor = 0xffffff;
+        this.roadGridAlpha = 1;
+        this.roadGridBorderColor = 0xafafaf;
+      }
+    }
+
+    export class LwSideListRoadmap extends LwLobbyBeadRoad {
+      protected initParams() {
+        this.height = 127;
+        this.roadRow = 3;
+        this.roadCol = 8;
+        this.roadCellWidth = 42;
+        this.roadCellHeight = 42;
+        this.roadImageWidth = 27;
+        this.roadImageHeight = 27;
+        this.roadScale = 1;
+        this.roadGridColor = 0xffffff;
+        this.roadGridAlpha = 1;
+        this.roadGridBorderColor = 0xdfdfdf;
+      }
+    }
+
   }
 }

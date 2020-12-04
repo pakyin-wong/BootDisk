@@ -19,7 +19,8 @@ namespace we {
       }
 
       public generateRoadmap(node: eui.Component) {
-        const roadmap = new dil.DilLobbyBeadRoad();
+        // const roadmap = new dil.DilLobbyBeadRoad();
+        const roadmap = dir.largeRoadPool.get(core.GameType.DIL);
         // --Mobile_Portrait Setting
         roadmap.roadGridSize = 104;
         roadmap.roadCol = 8;

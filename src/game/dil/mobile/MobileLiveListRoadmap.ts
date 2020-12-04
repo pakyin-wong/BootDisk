@@ -1,7 +1,7 @@
 // TypeScript file
 namespace we {
   export namespace dil {
-    export class MobileLiveListRoadmap extends ui.Panel implements we.ui.ILobbyRoad {
+    export class MobileLiveListRoadmap extends core.BaseEUI implements we.ui.ILobbyRoad {
       protected bigRoad: DilBeadRoad;
 
       public roadGridSize: number = 104;
