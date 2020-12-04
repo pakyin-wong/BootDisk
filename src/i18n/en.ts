@@ -79,7 +79,7 @@ namespace we {
       overlaypanel_memberreport_commission_percentage: 'Commission %',
       overlaypanel_memberreport_commission_total: 'Comission Total',
 
-      overlaypanel_customroad_title: 'Good Road Settings',
+      overlaypanel_customroad_title: 'Baccarat Good Road Settings',
       overlaypanel_customroad_default: 'Restore Default',
       overlaypanel_customroad_selectall: 'Select All',
 

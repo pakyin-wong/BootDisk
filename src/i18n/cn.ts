@@ -87,7 +87,7 @@ namespace we {
       overlaypanel_memberreport_commission_percentage: '洗码%',
       overlaypanel_memberreport_commission_total: '洗码佣金',
 
-      overlaypanel_customroad_title: '好路设定',
+      overlaypanel_customroad_title: '百家乐好路设定',
       overlaypanel_customroad_default: '还原预设',
       overlaypanel_customroad_selectall: '全选',
 
