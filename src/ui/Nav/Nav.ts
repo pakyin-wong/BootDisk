@@ -70,6 +70,7 @@ namespace we {
           this._balanceGame.renderText = () => `$ ${dir.meterCtr.getLocal('balance')}`;
           this._balanceText.renderText = () => `${i18n.t('nav.bet_balance')}`;
           dir.meterCtr.register('balance', this._balanceGame);
+          dir.meterCtr.rackTo('balance', this._balanceGame, 0);
         }
         dir.meterCtr.register('balance', this._balance);
         if (!isNaN(env.balance)) {
