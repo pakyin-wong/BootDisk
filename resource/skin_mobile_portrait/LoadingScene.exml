@@ -13,6 +13,6 @@
 	                 alpha=".7" />
 	<e:Rect width="750" height="52" y="1840" ellipseHeight="50" ellipseWidth="50" fillColor="0x000000" fillAlpha="0.4"
 	        horizontalCenter="0" visible="false" />
-	<ui:NavLantern id="_tip" width="1020" height="180" y="1795" alpha="0.8" horizontalCenter="0" fontsize="56"
+	<ui:NavLantern id="_tip" width="1020" height="199" y="1795" alpha="0.8" horizontalCenter="0" fontsize="56"
 	               lineSpacing="56" />
 </e:Skin>
