@@ -626,7 +626,7 @@ namespace we {
         allOpen: 'All Open',
         fullShoe: 'All cards in shoe',
         mechanismHelp: 'Help',
-        mechanismHelp1: 'Gameplay: on blockchain ',
+        mechanismHelp1: 'The game is dealt in an electronic mode. Evey card has a "Private Key" ',
         mechanismHelp2: 'Serial No SHA256 ',
         mechanismHelp3: 'Everything can be verified by the encrypted key',
         mechanismHelp4: 'User can copy the information and seek third party verification',
