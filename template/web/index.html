@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Egret</title>
+    <title>WE Gaming</title>
     <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="full-screen" content="true" />
@@ -117,7 +117,7 @@
         document.body.appendChild(s);
     };
 
-    loadSingleScript('jslib/vendor-player/WFPlayer.min.js', function() {
+    var cb = function() {
         var xhr = new XMLHttpRequest();
         xhr.open('GET', './manifest.json?v=' + Math.random(), true);
         xhr.addEventListener("load", function () {
@@ -144,14 +144,11 @@
                 playerDiv.setAttribute("data-frame-rate", "60");
                 playerDiv.setAttribute("data-content-width", "2600");
                 playerDiv.setAttribute("data-content-height", "1340");
-                if (isMobile) {
-                    playerDiv.setAttribute("data-orientation", "auto");
-                } else {
-                }
+                if (isMobile) {} else {}
                 egret.runEgret({
                     renderMode: "webgl",
                     audioType: 2,
-                    antialias: true,
+                    antialias: false,
                     retina: false,
                     calculateCanvasScaleFactor: function (context) {
                         var backingStore = context.backingStorePixelRatio ||
@@ -168,7 +165,9 @@
             });
         });
         xhr.send(null);
-    });
+    };
+    if (typeof window.WebAssembly === 'undefined') cb();
+    else loadSingleScript('jslib/vendor-player/WFPlayer.min.js', cb);
 </script>
 </body>
 
