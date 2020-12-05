@@ -119,7 +119,6 @@ namespace we {
 
       // protected setStateFinish(isInit: boolean) {
       //   super.setStateFinish(isInit);
-      //   console.log('hihi');
       //   if (this._resultDisplay && env.orientation === 'portrait') {
       //     //   egret.Tween.removeTweens(this._betRelatedGroup);
       //     //   egret.Tween.get(this._betRelatedGroup)

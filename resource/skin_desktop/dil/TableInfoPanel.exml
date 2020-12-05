@@ -45,35 +45,35 @@
 			<e:Label id="tenCountLabel" text="和值 10/11" y="252" x="30" scaleX="1" scaleY="1" size="20" />
 			<e:Label id="pThreeMax" text="-" y="16" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
 			         width="50" height="20" anchorOffsetX="0" anchorOffsetY="0" right="114" />
-			<e:Label id="pThreeCount" text="-" y="16" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+			<ui:RunTimeLabel id="pThreeCount" text="-" y="16" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
 			         width="64" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30" />
 			<e:Label id="pFourMax" text="-" y="50" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
 			         width="50" height="20" anchorOffsetX="0" anchorOffsetY="0" right="114" />
-			<e:Label id="pFourCount" text="-" y="50" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+			<ui:RunTimeLabel id="pFourCount" text="-" y="50" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
 			         width="64" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30" />
 			<e:Label id="pFiveMax" text="-" y="84" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
 			         width="50" height="20" anchorOffsetX="0" anchorOffsetY="0" right="114" />
-			<e:Label id="pFiveCount" text="-" y="84" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+			<ui:RunTimeLabel id="pFiveCount" text="-" y="84" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
 			         width="64" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30" />
 			<e:Label id="pSixMax" text="-" y="118" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
 			         width="50" height="20" anchorOffsetX="0" anchorOffsetY="0" right="114" />
-			<e:Label id="pSixCount" text="-" y="118" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+			<ui:RunTimeLabel id="pSixCount" text="-" y="118" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
 			         width="64" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30" />
 			<e:Label id="pSevenMax" text="-" y="152" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
 			         width="50" height="20" anchorOffsetX="0" anchorOffsetY="0" right="114" />
-			<e:Label id="pSevenCount" text="-" y="152" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+			<ui:RunTimeLabel id="pSevenCount" text="-" y="152" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
 			         width="64" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30" />
 			<e:Label id="pEightMax" text="-" y="186" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
 			         width="50" height="20" anchorOffsetX="0" anchorOffsetY="0" right="114" />
-			<e:Label id="pEightCount" text="-" y="185" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+			<ui:RunTimeLabel id="pEightCount" text="-" y="185" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
 			         width="64" height="20" anchorOffsetX="0" anchorOffsetY="0" right="29" />
 			<e:Label id="pNineMax" text="-" y="220" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
 			         width="50" height="20" anchorOffsetX="0" anchorOffsetY="0" right="114" />
-			<e:Label id="pNineCount" text="-" y="220" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+			<ui:RunTimeLabel id="pNineCount" text="-" y="220" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
 			         width="64" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30" />
 			<e:Label id="pTenMax" text="-" y="252" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
 			         width="50" height="20" anchorOffsetX="0" anchorOffsetY="0" right="114" />
-			<e:Label id="pTenCount" text="-" y="252" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+			<ui:RunTimeLabel id="pTenCount" text="-" y="252" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
 			         width="64" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30" />
 		</e:Group>
 	</e:Group>

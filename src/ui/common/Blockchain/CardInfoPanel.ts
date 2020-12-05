@@ -57,7 +57,7 @@ namespace we {
 
       public constructor() {
         super();
-        this.skinName = 'skin_desktop.bab.CardInfoPanelSkin';
+        this.skinName = utils.getSkinByClassname('bc.CardInfoPanelSkin');
       }
 
       protected mount() {

@@ -2,7 +2,6 @@ namespace we {
   export namespace ui {
     export class LiveListItem extends LiveListSimpleItem {
       protected _dealerImage: eui.Image;
-      protected _contentContainerStatic: eui.Group;
       protected _prevButton: ui.BaseImageButton;
 
       public constructor(skinName: string = null) {
@@ -25,12 +24,6 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        if (this._quickBetGroup) {
-          this._quickBetGroup.cacheAsBitmap = true;
-        }
-        if (this._contentContainerStatic) {
-          this._contentContainerStatic.cacheAsBitmap = true;
-        }
         this.addRoundCornerMask();
         this._dealerImage.fillMode = 'cover';
       }

@@ -12,8 +12,8 @@
                          size="18" />
         <e:Group id="playerSumGroup" width="152" height="100%" anchorOffsetY="0" x="0" y="0">
                 <ui:Card id="card3Player" width="36" height="52" left="10" top="57" rotation="270" />
-                <ui:Card id="card2Player" width="36" height="52" top="42" left="66" />
-                <ui:Card id="card1Player" width="36" height="52" top="42" left="106" />
+                <ui:Card id="card1Player" width="36" height="52" top="42" left="66" />
+                <ui:Card id="card2Player" width="36" height="52" top="42" left="106" />
         </e:Group>
         <ui:RunTimeLabel id="lblBankerName" text="莊" y="7" textAlign="right" anchorOffsetX="0" width="79" size="18"
                          x="230" />

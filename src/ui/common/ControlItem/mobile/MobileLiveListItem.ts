@@ -2,13 +2,6 @@
 namespace we {
   export namespace ui {
     export class MobileLiveListItem extends MobileLiveListSimpleItem {
-      // protected _roadmapControl: ba.BARoadmapControl;
-      // protected _roadsContainer: eui.Group;
-      // protected _bigRoadMap: ba.BABigRoad;
-      // protected _bigEyeRoad: ba.BABigEyeRoad;
-      // protected _smallRoad: ba.BASmallRoad;
-      // protected _cockroachRoad: ba.BACockroachRoad;
-
       protected _roadmap: ILobbyRoad & eui.Component;
       protected _gameType: string;
       protected _gameIdx: string;
@@ -27,9 +20,15 @@ namespace we {
         super.initChildren();
       }
 
-      protected destroy() {
-        super.destroy();
-        if (this._roadmap) this._roadmap.parent.removeChild(this._roadmap);
+      // protected destroy() {
+      //   super.destroy();
+      // }
+
+      protected releaseRoadmap() {
+        if (this._bigRoad) {
+          this._bigRoad.parent.removeChild(this._bigRoad);
+          dir.largeRoadPool.release(this._bigRoad, this.tableInfo.gametype);
+        }
       }
 
       public setData(tableInfo: data.TableInfo) {

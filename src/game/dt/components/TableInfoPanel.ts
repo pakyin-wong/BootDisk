@@ -6,13 +6,13 @@ namespace we {
       protected tieLabel: eui.Label;
 
       protected pDragonMax: eui.Label;
-      protected pDragonOdd: eui.Label;
+      protected pDragonOdd: ui.RunTimeLabel;
 
       protected pTigerMax: eui.Label;
-      protected pTigerOdd: eui.Label;
+      protected pTigerOdd: ui.RunTimeLabel;
 
       protected pTieMax: eui.Label;
-      protected pTieOdd: eui.Label;
+      protected pTieOdd: ui.RunTimeLabel;
 
       protected _mask: egret.Shape;
 

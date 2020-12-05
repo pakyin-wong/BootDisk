@@ -11,10 +11,10 @@ namespace we {
       gametype_BAC: '百家樂',
       gametype_BAS: '競速百家樂',
       gametype_BAI: '保險百家樂',
-      gametype_BAM: '咪牌百家樂',
+      gametype_BAM: '共咪百家樂',
       gametype_BAB: '區塊鏈百家樂',
       gametype_BASB: '區塊鏈競速百家樂',
-      gametype_BAMB: '區塊鏈咪牌百家樂',
+      gametype_BAMB: '區塊鏈共咪百家樂',
       gametype_DI: '骰寶',
       gametype_DIL: '財神骰寶',
       gametype_MJ: '麻將',
@@ -34,7 +34,7 @@ namespace we {
       lobby_no_favourite_text: '沒有我的最愛',
       lobby_tag_hint_text: '將你喜愛的遊戲標上愛心',
 
-      gameIcon_shuffle: '洗牌中',
+      gameIcon_shuffle: '更換新牌靴',
       gameIcon_maintenance: '維護中',
 
       betfield_baccarat_banker: '庄',
@@ -79,7 +79,7 @@ namespace we {
       overlaypanel_memberreport_commission_percentage: '洗碼%',
       overlaypanel_memberreport_commission_total: '洗碼佣金',
 
-      overlaypanel_customroad_title: '好路設定',
+      overlaypanel_customroad_title: '百家樂好路設定',
       overlaypanel_customroad_default: '還原預設',
       overlaypanel_customroad_selectall: '全選',
 
@@ -251,6 +251,7 @@ namespace we {
         },
         res: {
           onload: '資源加載中',
+          downloading: '載入中',          
         },
       },
       nav: {
@@ -389,6 +390,8 @@ namespace we {
         askDragon: '龍問路',
         askTiger: '虎問路',
         DragonTigerTieRatio: '龍虎和比例',
+        DragonTigerTieRatio100: '龍虎和比例(100局)',
+        DragonTigerTieRatioshoe: '龍虎和比例(本靴)',
         TieRatio: '和比例',
         DealerRatio: '荷官開龍虎比例',
         round: '局',
@@ -616,7 +619,7 @@ namespace we {
         statType100: '100局',
         statTypeShoe: '本靴',
         BankerPlayerRatio: '庄閒和比例',
-        PairRatio: '庄對閒對比例',
+        PairRatio: '對子比例',
         round: '局',
         rounds: '局',
         playersqueeze: '咪牌中',
@@ -627,6 +630,8 @@ namespace we {
         mechanismHelp2: '「卡牌序號」以SHA-256技術加密生成「卡牌加密文」，並提前公佈。',
         mechanismHelp3: '開牌後，顯示及驗證「卡牌序號」和「卡牌加密文」以示公正。',
         mechanismHelp4: '玩家可複制「卡牌序號」，並點擊「第三方驗證」鍵跳轉至第三方平台，驗證相關「卡牌加密文」。',
+        mechanismHelpTitle1: 'SHA-256已加密！',
+        mechanismHelpTitle2: 'SHA-256已驗證！',
         verification: '驗證',
         thirdParty: '第三方驗證',
         sha256VerifySuccess: 'SHA256已驗證',

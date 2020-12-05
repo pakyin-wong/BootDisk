@@ -18,6 +18,11 @@ namespace we {
       protected _openAllPlayerGroup: eui.Group;
       protected _openAllBankerGroup: eui.Group;
 
+      protected _playerCard1TouchGroup : eui.Group;
+      protected _playerCard2TouchGroup : eui.Group;
+      protected _bankerCard1TouchGroup : eui.Group;
+      protected _bankerCard2TouchGroup : eui.Group;
+
       protected _currentFocusCard: dragonBones.EgretArmatureDisplay;
 
       protected mount() {
@@ -25,11 +30,11 @@ namespace we {
         this.storeCenterCardOriginalHeight();
         this._centerVCard.addEventListener(we.core.Event.CARD_FLIPPED, this.centerCardFlipped('vertical'), this);
         this._centerHCard.addEventListener(we.core.Event.CARD_FLIPPED, this.centerCardFlipped('horizontal'), this);
-        this._playerCard1Group.addEventListener(egret.TouchEvent.TOUCH_TAP, this.focusCard(this._playerCard1, 'b1', 'vertical'), this)
-        this._playerCard2Group.addEventListener(egret.TouchEvent.TOUCH_TAP, this.focusCard(this._playerCard2, 'b2', 'vertical'), this)
+        this._playerCard1TouchGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.focusCard(this._playerCard1, 'b1', 'vertical'), this)
+        this._playerCard2TouchGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.focusCard(this._playerCard2, 'b2', 'vertical'), this)
         this._playerCard3Group.addEventListener(egret.TouchEvent.TOUCH_TAP, this.focusCard(this._playerCard3, 'b3', 'horizontal'), this)
-        this._bankerCard1Group.addEventListener(egret.TouchEvent.TOUCH_TAP, this.focusCard(this._bankerCard1, 'a1', 'vertical'), this)
-        this._bankerCard2Group.addEventListener(egret.TouchEvent.TOUCH_TAP, this.focusCard(this._bankerCard2, 'a2', 'vertical'), this)
+        this._bankerCard1TouchGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.focusCard(this._bankerCard1, 'a1', 'vertical'), this)
+        this._bankerCard2TouchGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.focusCard(this._bankerCard2, 'a2', 'vertical'), this)
         this._bankerCard3Group.addEventListener(egret.TouchEvent.TOUCH_TAP, this.focusCard(this._bankerCard3, 'a3', 'horizontal'), this)
         this._openAllBankerGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openAll('banker'), this);
         this._openAllPlayerGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openAll('player'), this);
@@ -129,21 +134,21 @@ namespace we {
 
       protected disableFlippedCardMouseEvent(){
         if(utils.bam.isPlayerFlipAllowed(this._chipLayer)){
-          this._playerCard1Group.touchEnabled = !(this._playerCard1.name === 'flipped') 
-          this._playerCard2Group.touchEnabled = !(this._playerCard2.name === 'flipped') 
+          this._playerCard1TouchGroup.touchEnabled = !(this._playerCard1.name === 'flipped') 
+          this._playerCard2TouchGroup.touchEnabled = !(this._playerCard2.name === 'flipped') 
           this._playerCard3Group.touchEnabled = !(this._playerCard3.name === 'flipped') 
         }else{
-          this._playerCard1Group.touchEnabled = false;
-          this._playerCard2Group.touchEnabled = false;
+          this._playerCard1TouchGroup.touchEnabled = false;
+          this._playerCard2TouchGroup.touchEnabled = false;
           this._playerCard3Group.touchEnabled = false;
         }
         if(utils.bam.isBankerFlipAllowed(this._chipLayer)){
-          this._bankerCard1Group.touchEnabled = !(this._bankerCard1.name === 'flipped') 
-          this._bankerCard2Group.touchEnabled = !(this._bankerCard2.name === 'flipped') 
+          this._bankerCard1TouchGroup.touchEnabled = !(this._bankerCard1.name === 'flipped') 
+          this._bankerCard2TouchGroup.touchEnabled = !(this._bankerCard2.name === 'flipped') 
           this._bankerCard3Group.touchEnabled = !(this._bankerCard3.name === 'flipped')
         }else{
-          this._bankerCard1Group.touchEnabled = false;
-          this._bankerCard2Group.touchEnabled = false;
+          this._bankerCard1TouchGroup.touchEnabled = false;
+          this._bankerCard2TouchGroup.touchEnabled = false;
           this._bankerCard3Group.touchEnabled = false;
         }
       }
@@ -233,8 +238,8 @@ namespace we {
         }
         this.setFirst4Cards();
         if (utils.bam.isPlayerFlipAllowed(this._chipLayer)) {
-          this._playerCard1Group.touchEnabled = true;
-          this._playerCard2Group.touchEnabled = true;
+          this._playerCard1TouchGroup.touchEnabled = true;
+          this._playerCard2TouchGroup.touchEnabled = true;
           this._openAllPlayerGroup.visible = true;
           this._currentFocusCard = this._playerCard1;
           if (isInit) {
@@ -249,8 +254,8 @@ namespace we {
           this._centerVCard.visible = true;
           this._centerVCard.touchEnabled = true;
         } else {
-          this._playerCard1Group.touchEnabled = false;
-          this._playerCard2Group.touchEnabled = false;
+          this._playerCard1TouchGroup.touchEnabled = false;
+          this._playerCard2TouchGroup.touchEnabled = false;
           this._openAllPlayerGroup.visible = false;
 
           if (isInit) {
@@ -266,13 +271,13 @@ namespace we {
           }
         }
         if (utils.bam.isBankerFlipAllowed(this._chipLayer)) {
-          this._bankerCard1Group.touchEnabled = true;
-          this._bankerCard2Group.touchEnabled = true;
+          this._bankerCard1TouchGroup.touchEnabled = true;
+          this._bankerCard2TouchGroup.touchEnabled = true;
           this._openAllBankerGroup.visible = true;
           this._centerVCard.touchEnabled = true;
         } else {
-          this._bankerCard1Group.touchEnabled = false;
-          this._bankerCard2Group.touchEnabled = false;
+          this._bankerCard1TouchGroup.touchEnabled = false;
+          this._bankerCard2TouchGroup.touchEnabled = false;
           this._openAllBankerGroup.visible = false;
 
           if (isInit) {
@@ -313,6 +318,8 @@ namespace we {
         this._openAllBankerGroup.visible = false;
         this._centerVCard.visible = false;
         this._centerVCard.touchEnabled = false;
+        this._centerVTweenCardBack.visible = false;
+        this._centerVTweenCardFront.visible = false;
         if (utils.bam.isPlayerFlipAllowed(this._chipLayer)) {
           this._openAllPlayerGroup.visible = true;
           this._currentFocusCard = this._playerCard3
@@ -358,6 +365,8 @@ namespace we {
         this._openAllPlayerGroup.visible = false;
         this._centerVCard.visible = false;
         this._centerVCard.touchEnabled = false;
+        this._centerVTweenCardBack.visible = false;
+        this._centerVTweenCardFront.visible = false;
         const darkPlayer = utils.bam.isPlayerFlipAllowed(this._chipLayer) ? '' : 'dark_'
         this.flipCard(this._playerCard3, 'horizontal', darkPlayer)
         if (utils.bam.isBankerFlipAllowed(this._chipLayer)) {
@@ -647,11 +656,11 @@ namespace we {
       }
 
       protected setSideCardsTouchEnabled(enable: boolean) {
-        this._playerCard1Group.touchEnabled = enable;
-        this._playerCard2Group.touchEnabled = enable;
+        this._playerCard1TouchGroup.touchEnabled = enable;
+        this._playerCard2TouchGroup.touchEnabled = enable;
         this._playerCard3Group.touchEnabled = enable;
-        this._bankerCard1Group.touchEnabled = enable;
-        this._bankerCard2Group.touchEnabled = enable;
+        this._bankerCard1TouchGroup.touchEnabled = enable;
+        this._bankerCard2TouchGroup.touchEnabled = enable;
         this._bankerCard3Group.touchEnabled = enable;
       }
 
@@ -664,6 +673,12 @@ namespace we {
 
       protected centerCardFlipped(orientation: string) {
         return () => {
+          if(orientation === 'vertical' && !this._centerVCard.visible){
+            return;
+          }
+          if(orientation === 'horizontal' && !this._centerHCard.visible){
+            return;
+          }
           let centerCard = (orientation === 'vertical') ? this._centerVCard: this._centerHCard;
           this._currentFocusCard.animation.play(`sq_${orientation}_flip`, 1)
           this._currentFocusCard.name = 'flipped'
@@ -687,28 +702,44 @@ namespace we {
 
       protected nextCard() {
         let nextCard = null;
-        const isNameExist = (component: dragonBones.EgretArmatureDisplay, prevCard: dragonBones.EgretArmatureDisplay) => {
-          if (component.name === 'flipped') {
-            return prevCard;
-          }
-          return component;
-        }
+        let nextCards = new Array();
+        let appeared = false;
+        let startNum = 0;
 
-        if (utils.bam.isBankerFlipAllowed(this._chipLayer)) {
-          nextCard = isNameExist(this._bankerCard2, nextCard)
-          nextCard = isNameExist(this._bankerCard1, nextCard)
+        const pushNonFlipCard = (component: dragonBones.EgretArmatureDisplay) => {
+          if (component.name !== 'flipped' ) {
+            nextCards.push(component);
+          }
+
+          if (this._currentFocusCard === component){
+            startNum = nextCards.length;
+          }          
         }
 
         if (utils.bam.isPlayerFlipAllowed(this._chipLayer)) {
-          nextCard = isNameExist(this._playerCard2, nextCard)
-          nextCard = isNameExist(this._playerCard1, nextCard)
+          pushNonFlipCard(this._playerCard1)
+          pushNonFlipCard(this._playerCard2)
         }
+
+        if (utils.bam.isBankerFlipAllowed(this._chipLayer)) {
+          pushNonFlipCard(this._bankerCard1)
+          pushNonFlipCard(this._bankerCard2)
+        }
+
+        if(nextCards[startNum]){
+          return nextCards[startNum];
+        }
+
+        if(nextCards[0]){
+          return nextCards[0];
+        }        
 
         return nextCard;
       }
 
       protected focusCard(card: dragonBones.EgretArmatureDisplay, dataName: string, orientation: string) {
         return () => {
+          console.log('focusCard()');
           if(card.name === 'flipped'){
             return;
           }

@@ -18,7 +18,8 @@ namespace we {
       }
 
       public generateRoadmap(node: eui.Component) {
-        const roadmap = new lw.LwLobbyBeadRoad();
+        // const roadmap = new lw.LwLobbyBeadRoad();
+        const roadmap = dir.largeRoadPool.get(core.GameType.LW);
 
         roadmap.roadRow = 3;
         roadmap.roadCol = 12;

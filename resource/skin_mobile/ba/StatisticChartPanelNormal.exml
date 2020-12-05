@@ -2,7 +2,7 @@
 <e:Skin class="skin_mobile.ba.StatisticChartPanelNormal" width="576" height="240" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<ui:RoundRectShape cornerTL_TR_BL_BR="20,20,20,20" width="576" height="240" x="0" bottom="0" stroke="0"
-	                   fillColor="0x0f1721" />
+	                   fillColor="0x00000000" />
 	<e:Group x="30" y="20" >
 		<ui:RunTimeLabel text="庄閒和比例" x="24" y="12" height="27" size="32" textAlign="left"
 	          verticalAlign="middle" bold="true" i18n="baccarat.BankerPlayerRatio" />

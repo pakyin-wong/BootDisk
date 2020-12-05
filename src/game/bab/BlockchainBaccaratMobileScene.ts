@@ -55,8 +55,8 @@ namespace we {
         // this._deckPanel.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         // this._cardInfoPanel.addEventListener('OPEN_DECK_PANEL', this.showDeckPanel, this);
         // this._cardInfoPanel.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
-        this._helpButton.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{this._slideUpMenu.showHelpPanel()}, this);
-        this._deckButton.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{this._slideUpMenu.showDeckPanel(<bab.GameData>this._gameData)}, this);
+        this._helpButton.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{this.showHelpPanel()}, this);
+        this._deckButton.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{this.showDeckPanel()}, this);
         // (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         (<any>this._resultDisplay).addEventListener('OPEN_SHUFFLE_PANEL', this.showShufflePanel, this);
         this.getShoeInfo();
@@ -196,6 +196,37 @@ namespace we {
             //egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
           }
         }
+      }
+
+      protected createSwipeUpPanel() {
+        if (!this._slideUpMenu) {
+          const menu = new ui.BlockchainMobileSlideUpMenu();
+          menu.bottom = 0;
+          menu.right = 0;
+          menu.left = 0;
+          this.addChild(menu);
+          this._slideUpMenu = menu;
+          this._slideUpMenu.setCurrentScene(this);
+        }
+      }
+
+      protected removeSwipeUpPanel() {
+        if (this._slideUpMenu) {
+          this.removeChild(this._slideUpMenu);
+          this._slideUpMenu = null;
+        }
+      }
+
+      protected showHelpPanel() {
+        this.createSwipeUpPanel();
+        this._slideUpMenu.showHelpPanel();
+        this._slideUpMenu.addEventListener('CLOSE', this.removeSwipeUpPanel, this);
+      }
+
+      protected showDeckPanel() {
+        this.createSwipeUpPanel();
+        this._slideUpMenu.showDeckPanel(<bab.GameData>this._gameData);
+        this._slideUpMenu.addEventListener('CLOSE', this.removeSwipeUpPanel, this);
       }
 
       public showCardInfoPanel(evt: egret.Event) {

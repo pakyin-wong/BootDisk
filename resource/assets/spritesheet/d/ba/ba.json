@@ -561,7 +561,7 @@
       "sourceW": 22,
       "sourceH": 22
     },
-    "d_ba_roadmap_bar_bankerpairstate_png": {
+    "d_ba_roadmap_bar_bankerstate_png": {
       "x": 721,
       "y": 1316,
       "w": 22,
@@ -571,7 +571,7 @@
       "sourceW": 22,
       "sourceH": 22
     },
-    "d_ba_roadmap_bar_bankerstate_png": {
+    "d_ba_roadmap_bar_playerstate_png": {
       "x": 1340,
       "y": 830,
       "w": 22,
@@ -581,7 +581,7 @@
       "sourceW": 22,
       "sourceH": 22
     },
-    "d_ba_roadmap_bar_playerpairstate_png": {
+    "d_ba_roadmap_bar_remainingstate_png": {
       "x": 1340,
       "y": 856,
       "w": 22,
@@ -591,7 +591,7 @@
       "sourceW": 22,
       "sourceH": 22
     },
-    "d_ba_roadmap_bar_playerstate_png": {
+    "d_ba_roadmap_bar_tierstate_png": {
       "x": 1659,
       "y": 182,
       "w": 22,
@@ -601,25 +601,35 @@
       "sourceW": 22,
       "sourceH": 22
     },
-    "d_ba_roadmap_bar_remainingstate_png": {
+    "d_ba_roadmap_bar_bankerpairstate_png": {
       "x": 1659,
       "y": 208,
-      "w": 22,
-      "h": 22,
+      "w": 21,
+      "h": 21,
       "offX": 0,
       "offY": 0,
-      "sourceW": 22,
-      "sourceH": 22
+      "sourceW": 21,
+      "sourceH": 21
     },
-    "d_ba_roadmap_bar_tierstate_png": {
+    "d_ba_roadmap_bar_playerpairstate_png": {
       "x": 1659,
-      "y": 234,
-      "w": 22,
-      "h": 22,
+      "y": 233,
+      "w": 21,
+      "h": 21,
       "offX": 0,
       "offY": 0,
-      "sourceW": 22,
-      "sourceH": 22
+      "sourceW": 21,
+      "sourceH": 21
+    },
+    "d_ba_roadmap_bar_tiepairstate_png": {
+      "x": 1659,
+      "y": 258,
+      "w": 21,
+      "h": 21,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 21,
+      "sourceH": 21
     },
     "d_sq_ba_all_open_btn_normal_b_png": {
       "x": 695,

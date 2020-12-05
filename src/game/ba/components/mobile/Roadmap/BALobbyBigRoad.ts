@@ -1,18 +1,18 @@
 namespace we {
   export namespace ba {
-    export class BAMobileLobbyBigRoad extends ui.Panel implements we.ui.ILobbyRoad {
+    export class BAMobileLobbyBigRoad extends core.BaseEUI implements we.ui.ILobbyRoad {
       protected bigRoad: BABigRoad;
       protected parser: BARoadParser;
       protected useParser: boolean = false;
       protected beadRoadGrid: egret.Shape;
       public constructor() {
         super();
-        this.cacheAsBitmap = true;
+        // this.cacheAsBitmap = true;
+        this.init();
       }
 
       protected childrenCreated() {
         super.childrenCreated();
-        this.init();
       }
 
       protected init() {

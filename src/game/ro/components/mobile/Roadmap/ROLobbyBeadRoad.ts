@@ -1,6 +1,6 @@
 namespace we {
   export namespace ro {
-    export class ROMobileLobbyBeadRoad extends ui.Panel implements we.ui.ILobbyRoad {
+    export class ROMobileLobbyBeadRoad extends core.BaseEUI implements we.ui.ILobbyRoad {
       protected beadRoad: ROBeadRoad;
 
       public roadGridSize: number = 83;
@@ -18,7 +18,7 @@ namespace we {
 
       public constructor() {
         super();
-        this.cacheAsBitmap = true;
+        // this.cacheAsBitmap = true;
       }
 
       protected childrenCreated() {

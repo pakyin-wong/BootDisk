@@ -109,7 +109,7 @@
 	<bc:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true" 
 	                  isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
 	                  skinName="skin_desktop.bc.ShufflePanelSkin" skeletonName="blockchain_sqba" />
-	<bc:DeckPanel id="_deckPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
+	<!--<bc:DeckPanel id="_deckPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
 	               isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
 	               skinName="skin_desktop.bc.DeckPanelSkin" />
 	<bc:HelpPanel id="_helpPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
@@ -117,6 +117,6 @@
 	               skinName="skin_desktop.bc.HelpPanelSkin" />
 	<bc:CardInfoPanel id="_cardInfoPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0"
 	                   isPoppable="true" isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false"
-	                   hideOnStart="true" skinName="skin_desktop.bc.CardInfoPanelSkin" />
+	                   hideOnStart="true" skinName="skin_desktop.bc.CardInfoPanelSkin" />-->
 </e:Skin>
 
