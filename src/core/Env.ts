@@ -148,6 +148,7 @@ namespace we {
           core.GameType.BAI,
           core.GameType.BAS,
           core.GameType.BAM,
+          core.GameType.BAMB,
           core.GameType.BAB,
           core.GameType.BASB,
           core.GameType.DTB,
