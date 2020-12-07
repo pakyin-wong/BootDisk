@@ -34,12 +34,20 @@ namespace we {
 
         const factory = BaseAnimationButton.getFactory(this._dbClass);
         this._display = factory.buildArmatureDisplay(this._dbDisplay);
+        const _displayGroup: eui.Group = new eui.Group();
+        _displayGroup.width = 350;
+        _displayGroup.height = 150;
+        _displayGroup.x = 0;
+        _displayGroup.y = 0;
         utils.dblistenToSoundEffect(this._display);
         this._display.x = 0;
         this._display.y = 0;
+        _displayGroup.touchEnabled = true;
+        _displayGroup.touchChildren = false;
         this._display.touchEnabled = false;
-        // this._display.touchChildren = true;
-        this.addChild(this._display);
+        this._display.touchChildren = false;
+        _displayGroup.addChild(this._display);
+        this.addChild(_displayGroup);
         this.init();
 
         this.init_textLabel();
@@ -130,6 +138,7 @@ namespace we {
         clone.anchorOffsetX = bitmap.anchorOffsetX;
         clone.anchorOffsetY = bitmap.anchorOffsetY;
         this.clone = clone;
+        // to be checked
         // layer.addChild(clone);
         // slot.display = layer;
         // slot.display = this.clone;
