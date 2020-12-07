@@ -61,7 +61,7 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
         if (this._confirmButton) {
           this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
-          this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
+          // this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
           this._confirmButton.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
           this._confirmButton.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
         }
@@ -84,7 +84,7 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
         if (this._confirmButton) {
           this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
-          this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
+          // this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
           this._confirmButton.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
           this._confirmButton.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
         }
@@ -119,9 +119,9 @@ namespace we {
         this._timer.bg_flash(false, isEnable);
         // }
       }
-      protected onConfirmPressed() {
-        this.dispatchEvent(new egret.Event('ON_CONFIRM_PRESS'));
-      }
+      // protected onConfirmPressed() {
+      //   this.dispatchEvent(new egret.Event('ON_CONFIRM_PRESS'));
+      // }
       protected onCancelPressed(evt: egret.Event) {
         this.dispatchEvent(new egret.Event('ON_CANCEL_PRESS'));
         // this.changeBtnState(false);

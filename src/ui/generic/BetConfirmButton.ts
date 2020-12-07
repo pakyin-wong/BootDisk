@@ -13,6 +13,7 @@ namespace we {
        * use animation.fadeIn with different group name instead of animation.play to play the animation so that you can play multiple animation at the same time ("betting" in one group and others in another group)
        **/
       protected _text_slot: string;
+      protected _displayGroup: eui.Group;
       protected _orientation: string = ''; // desktop ="", portrait="_vertical", landscape="_horizontal"
       public constructor() {
         super();
@@ -34,20 +35,22 @@ namespace we {
 
         const factory = BaseAnimationButton.getFactory(this._dbClass);
         this._display = factory.buildArmatureDisplay(this._dbDisplay);
-        const _displayGroup: eui.Group = new eui.Group();
-        _displayGroup.width = 350;
-        _displayGroup.height = 150;
-        _displayGroup.x = 0;
-        _displayGroup.y = 0;
+        this._displayGroup = new eui.Group();
+        this._displayGroup.width = 350;
+        this._displayGroup.height = 150;
+        this._displayGroup.x = 0;
+        this._displayGroup.y = 0;
         utils.dblistenToSoundEffect(this._display);
         this._display.x = 0;
         this._display.y = 0;
-        _displayGroup.touchEnabled = true;
-        _displayGroup.touchChildren = false;
+        this._displayGroup.touchEnabled = true;
+        this._displayGroup.touchChildren = false;
+        this._displayGroup.touchThrough = false;
         this._display.touchEnabled = false;
         this._display.touchChildren = false;
-        _displayGroup.addChild(this._display);
-        this.addChild(_displayGroup);
+        // this._displayGroup.addChild(this._display);
+        this.addChild(this._displayGroup);
+        this.addChild(this._display);
         this.init();
 
         this.init_textLabel();
@@ -115,13 +118,20 @@ namespace we {
       protected addEventListeners() {
         dir.evtHandler.addEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.switchAutoConfirm, this);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        this._displayGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
       }
 
       protected removeEventListeners() {
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.switchAutoConfirm, this);
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+          this._displayGroup.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         }
+      }
+
+      protected onConfirmPressed() {
+        this.dispatchEvent(new egret.Event('ON_CONFIRM_PRESS'));
+        console.log(".........................this is onConfirmPress")
       }
 
       protected clone: egret.Bitmap;
@@ -139,9 +149,12 @@ namespace we {
         clone.anchorOffsetY = bitmap.anchorOffsetY;
         this.clone = clone;
         // to be checked
-        // layer.addChild(clone);
-        // slot.display = layer;
-        // slot.display = this.clone;
+        layer.touchEnabled = false;
+        layer.touchChildren = false;
+        layer.touchThrough = false;
+
+        layer.addChild(clone);
+        slot.display = layer;
       }
 
       public setColor(r, g, b) {
