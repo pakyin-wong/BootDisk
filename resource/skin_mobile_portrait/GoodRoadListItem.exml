@@ -16,6 +16,6 @@
 		                    anchorOffsetX="0" verticalCenter="21.5" skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad"  visible="false"/>
 		<ui:BaseImageButton id="_editButton" currentState="b_edit" width="130" height="100"                       anchorOffsetX="0" skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad"  y="276" visible.up="false" right="21"/>
 		<e:Label id="_titleLabel" text="百家樂01" anchorOffsetY="0" textAlign="left" x="29" y="17" size="46"
-		         anchorOffsetX="0" width="400" multiline="false"  height="68" verticalAlign="middle"/>
+		         anchorOffsetX="0" width="359" multiline="false"  height="68" verticalAlign="middle"/>
 	</e:Group>
 </e:Skin>
