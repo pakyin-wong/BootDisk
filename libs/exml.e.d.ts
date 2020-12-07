@@ -44,6 +44,10 @@ declare module skins{
 	class VSliderSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class AnimLoadingUISkin extends eui.Skin{
+	}
+}
 declare module skin_desktop.ba{
 	class Analysis extends eui.Skin{
 	}
@@ -2812,6 +2816,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class ToggleButtonSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class AnimLoadingUISkin extends eui.Skin{
 	}
 }
 declare module skin_mobile.ba{

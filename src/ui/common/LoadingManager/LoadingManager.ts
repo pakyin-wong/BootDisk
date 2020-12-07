@@ -66,6 +66,8 @@ namespace we {
         const self = this;
         this.isLoading = true;
 
+        this.options.loadingUI = ui.AnimLoadingUI; 
+
         // init progressMap and progressLength
         this.progressMap = Array.apply(null, { length: tasks.length }).map((value, idx) => {
           const progressMap: number[] = this.options.progressMap ? this.options.progressMap : [];

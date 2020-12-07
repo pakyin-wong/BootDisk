@@ -7,6 +7,16 @@ namespace we {
       protected _factory: dragonBones.EgretFactory;
       protected _loadingAnim: dragonBones.EgretArmatureDisplay;
 
+      constructor() {
+        super('AnimLoadingUISkin', false);
+      }
+
+      public mount() {
+        this.createFactory();
+        this._loadingAnim = this._factory.buildArmatureDisplay('armatureName');
+        this._loadingGroup.addChild(this._loadingAnim);
+      }
+
       protected createFactory() {
          const skeletonData = RES.getRes(`lobby_ui_ske_json`);
          const textureData = RES.getRes(`lobby_ui_tex_json`);
@@ -14,16 +24,6 @@ namespace we {
          this._factory = new dragonBones.EgretFactory();
          this._factory.parseDragonBonesData(skeletonData);
          this._factory.parseTextureAtlasData(textureData, texture);
-      }
-
-      constructor() {
-        super('AnimLoadingUISkin', false);
-      }
-
-      public mount() {
-        this._loadingAnim = this._factory.buildArmatureDisplay('armatureName');
-        this._loadingGroup.addChild(this._loadingAnim);
-
       }
 
       public onProgress(progress, current, total) {
