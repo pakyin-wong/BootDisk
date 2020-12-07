@@ -45,11 +45,11 @@
 			"name": "scene_bc"
 		},
 		{
-			"keys": "blockchain_tex_json,blockchain_tex_png,blockchain_ske_json",
+			"keys": "blockchain_tex_json,blockchain_tex_png,blockchain_ske_dbbin",
 			"name": "scene_bc_baccarat"
 		},
 		{
-			"keys": "blockchain_dt_tex_png,dragon_ske_json,dragon_tex_png,dragon_tex_json,tiger_ske_json,tiger_tex_json,tiger_tex_png,blockchain_dt_ske_json,blockchain_dt_tex_json,we_bcdt_sfx_result_dragonwin_mp3,we_bcdt_sfx_result_tigerwin_mp3,we_bcdt_sfx_scanning_loop_mp3,we_bcdt_sfx_shoe_in_mp3,we_bcdt_sfx_shoe_out_mp3",
+			"keys": "blockchain_dt_tex_png,dragon_ske_json,dragon_tex_png,dragon_tex_json,tiger_ske_json,tiger_tex_json,tiger_tex_png,blockchain_dt_tex_json,we_bcdt_sfx_result_dragonwin_mp3,we_bcdt_sfx_result_tigerwin_mp3,we_bcdt_sfx_scanning_loop_mp3,we_bcdt_sfx_shoe_in_mp3,we_bcdt_sfx_shoe_out_mp3,blockchain_dt_ske_dbbin",
 			"name": "scene_bc_dragontiger"
 		}
 	],
@@ -6861,11 +6861,6 @@
 			"name": "blockchain_tex_json"
 		},
 		{
-			"url": "assets/dragonbones/m/bab/blockchain_ske.json",
-			"type": "json",
-			"name": "blockchain_ske_json"
-		},
-		{
 			"url": "assets/dragonbones/m/dtb/tiger_tex.png",
 			"type": "image",
 			"name": "tiger_tex_png"
@@ -6904,11 +6899,6 @@
 			"url": "assets/dragonbones/m/dtb/dragon_tex.json",
 			"type": "json",
 			"name": "dragon_tex_json"
-		},
-		{
-			"url": "assets/dragonbones/m/dtb/blockchain_dt_ske.json",
-			"type": "json",
-			"name": "blockchain_dt_ske_json"
 		},
 		{
 			"url": "assets/sounds/common/bgm_chinese.mp3",
@@ -7425,6 +7415,16 @@
 			"url": "assets/images/m/bc/m_blockchain_bg_mask.png",
 			"type": "image",
 			"name": "m_blockchain_bg_mask_png"
+		},
+		{
+			"url": "assets/dragonbones/m/bab/blockchain_ske.dbbin",
+			"type": "bin",
+			"name": "blockchain_ske_dbbin"
+		},
+		{
+			"url": "assets/dragonbones/m/dtb/blockchain_dt_ske.dbbin",
+			"type": "bin",
+			"name": "blockchain_dt_ske_dbbin"
 		}
 	]
 }

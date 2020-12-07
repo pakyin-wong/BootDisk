@@ -41,11 +41,11 @@
 			"name": "scene_lottery"
 		},
 		{
-			"keys": "blockchain_tex_json,blockchain_tex_png,blockchain_ske_json",
+			"keys": "blockchain_tex_png,blockchain_ske_dbbin",
 			"name": "scene_bc_baccarat"
 		},
 		{
-			"keys": "blockchain_dt_tex_png,dragon_ske_json,dragon_tex_png,dragon_tex_json,tiger_ske_json,tiger_tex_json,tiger_tex_png,blockchain_dt_ske_json,blockchain_dt_tex_json,we_bcdt_sfx_result_dragonwin_mp3,we_bcdt_sfx_result_tigerwin_mp3,we_bcdt_sfx_scanning_loop_mp3,we_bcdt_sfx_shoe_in_mp3,we_bcdt_sfx_shoe_out_mp3",
+			"keys": "blockchain_dt_tex_png,dragon_ske_json,dragon_tex_png,dragon_tex_json,tiger_ske_json,tiger_tex_json,tiger_tex_png,we_bcdt_sfx_result_dragonwin_mp3,we_bcdt_sfx_result_tigerwin_mp3,we_bcdt_sfx_scanning_loop_mp3,we_bcdt_sfx_shoe_in_mp3,we_bcdt_sfx_shoe_out_mp3,blockchain_dt_ske_dbbin",
 			"name": "scene_bc_dragontiger"
 		},
 		{
@@ -846,16 +846,6 @@
 			"name": "blockchain_tex_png"
 		},
 		{
-			"url": "assets/dragonbones/m/bab/blockchain_tex.json",
-			"type": "json",
-			"name": "blockchain_tex_json"
-		},
-		{
-			"url": "assets/dragonbones/m/bab/blockchain_ske.json",
-			"type": "json",
-			"name": "blockchain_ske_json"
-		},
-		{
 			"url": "assets/dragonbones/m/dtb/blockchain_dt_tex.png",
 			"type": "image",
 			"name": "blockchain_dt_tex_png"
@@ -871,19 +861,9 @@
 			"name": "tiger_tex_png"
 		},
 		{
-			"url": "assets/dragonbones/m/dtb/blockchain_dt_tex.json",
-			"type": "json",
-			"name": "blockchain_dt_tex_json"
-		},
-		{
 			"url": "assets/dragonbones/m/dtb/dragon_ske.json",
 			"type": "json",
 			"name": "dragon_ske_json"
-		},
-		{
-			"url": "assets/dragonbones/m/dtb/blockchain_dt_ske.json",
-			"type": "json",
-			"name": "blockchain_dt_ske_json"
 		},
 		{
 			"url": "assets/dragonbones/m/dtb/tiger_ske.json",
@@ -1008,6 +988,16 @@
 			"type": "sheet",
 			"name": "bc-5_json",
 			"subkeys": "d_bcba_animation_particle_00079_png,d_bcba_animation_particle_00080_png,d_bcba_animation_particle_00081_png,d_bcba_animation_particle_00082_png,d_bcba_animation_particle_00083_png,d_bcba_animation_particle_00084_png,d_bcba_animation_particle_00085_png,d_bcba_animation_particle_00086_png,d_bcba_animation_particle_00087_png,d_bcba_animation_particle_00088_png,d_bcba_animation_particle_00089_png,d_bcba_animation_particle_00090_png,d_bcba_animation_particle_00091_png,d_bcba_animation_particle_00092_png,d_bcba_animation_particle_00093_png,d_bcba_animation_particle_00094_png,d_bcba_animation_particle_00095_png,d_bcba_animation_particle_00096_png"
+		},
+		{
+			"url": "assets/dragonbones/m/dtb/blockchain_dt_ske.dbbin",
+			"type": "bin",
+			"name": "blockchain_dt_ske_dbbin"
+		},
+		{
+			"url": "assets/dragonbones/m/bab/blockchain_ske.dbbin",
+			"type": "bin",
+			"name": "blockchain_ske_dbbin"
 		}
 	]
 }

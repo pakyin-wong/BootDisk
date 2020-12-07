@@ -67,14 +67,14 @@ namespace we {
       protected initComponents(){
         super.initComponents();
 
-        let skeletonData = RES.getRes(`blockchain_ske_json`);
+        let skeletonData = RES.getRes(`blockchain_ske_dbbin`);
         let textureData = RES.getRes(`blockchain_tex_json`);
         let texture = RES.getRes(`blockchain_tex_png`);        
         switch(this._gameType){
           case 'ba':
           break;
           case 'dt':
-            skeletonData = RES.getRes(`blockchain_dt_ske_json`);
+            skeletonData = RES.getRes(`blockchain_dt_ske_dbbin`);
             textureData = RES.getRes(`blockchain_dt_tex_json`);
             texture = RES.getRes(`blockchain_dt_tex_png`);
           break;
