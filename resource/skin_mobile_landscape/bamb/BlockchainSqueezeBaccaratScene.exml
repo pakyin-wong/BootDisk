@@ -51,7 +51,7 @@
 			                           labelSize="48" x.right_hand_mode="618" y="60" x.left_hand_mode="1604" />
 		<ui:BetRelatedGroup id="_betRelatedGroup" y="71" x.right_hand_mode="762" x.left_hand_mode="600" />
 	</e:Group>
-	<ba:MobileBottomGamePanel skinName="skin_mobile_landscape.ba.MobileBottomGamePanel" id="_bottomGamePanel" width="2424"
+	<ba:MobileBottomGamePanel skinName="skin_mobile_landscape.bab.MobileBottomGamePanel" id="_bottomGamePanel" width="2424"
 	                          x="1" scaleY="1" y="358" scaleX="1" />
 	<e:layout>
 		<e:VerticalLayout gap="-65" />

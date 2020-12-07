@@ -105,7 +105,7 @@
                            skinName="skin_desktop.CountdownTimerRoundSqueezeBaccaratSkin" />
 	<bab:HistoryCardHolder id="_historyCardHolder" width="385" height="125" x="22" y="151"
 	                       skinName="skin_desktop.bab.CornerHistoryHolderSkin" />
-	<ba:TableInfoPanel width="434" height="566" x="0" y="90" id="_tableInfoWindow" isPoppable="true" isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" anchorOffsetY="0" skinName="skin_desktop.ba.TableInfoPanel"/>
+	<ba:TableInfoPanel width="434" height="566" x="0" y="90" id="_tableInfoWindow" isPoppable="true" isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" anchorOffsetY="0" skinName="skin_desktop.bab.TableInfoPanel"/>
 	<bc:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true" 
 	                  isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
 	                  skinName="skin_desktop.bc.ShufflePanelSkin" skeletonName="blockchain_sqba" />

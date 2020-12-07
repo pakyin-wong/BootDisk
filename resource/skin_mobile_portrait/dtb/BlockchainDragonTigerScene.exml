@@ -65,7 +65,7 @@
 		-->
 		<ui:BetRelatedGroup id="_betRelatedGroup" y="71" x.right_hand_mode="214" x.left_hand_mode="43" />
 	</e:Group>
-	<dt:MobileBottomGamePanel skinName="skin_mobile_portrait.dt.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"
+	<dt:MobileBottomGamePanel skinName="skin_mobile_portrait.dtb.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"
 	                          x="0" scaleY="1" y="731" scaleX="1" />
 	<e:layout.left_hand_mode>
 		<e:VerticalLayout gap="24" />
