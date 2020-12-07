@@ -1,23 +1,23 @@
 namespace we {
   export namespace bamb {
     export class CardHolder extends bab.CardHolder {
-      protected _flipCardHolder : FlipCardHolder;
+      protected _flipCardHolder: FlipCardHolder;
 
       protected _chipLayer: ui.ChipLayer
       protected _openAllPlayerGroup: eui.Group;
       protected _openAllBankerGroup: eui.Group;
 
-      protected _playerCard1TouchGroup : eui.Group;
-      protected _playerCard2TouchGroup : eui.Group;
-      protected _bankerCard1TouchGroup : eui.Group;
-      protected _bankerCard2TouchGroup : eui.Group;
+      protected _playerCard1TouchGroup: eui.Group;
+      protected _playerCard2TouchGroup: eui.Group;
+      protected _bankerCard1TouchGroup: eui.Group;
+      protected _bankerCard2TouchGroup: eui.Group;
 
       protected _currentFocusCard: dragonBones.EgretArmatureDisplay;
 
-      public passFlipCardHolder(flipCardHolder: FlipCardHolder){
+      public passFlipCardHolder(flipCardHolder: FlipCardHolder) {
         this._flipCardHolder = flipCardHolder
         this._flipCardHolder.addEventListener(we.core.Event.CARD_FLIPPED, this.centerCardFlipped, this)
-      }      
+      }
 
       protected mount() {
         super.mount();
@@ -123,21 +123,21 @@ namespace we {
         this.setLabel(this._playerCard3.armature.getSlot(`card_number_horizontal`), this.getCardIndex('b3', core.GameState.DEAL));
       }
 
-      protected disableFlippedCardMouseEvent(){
-        if(utils.bam.isPlayerFlipAllowed(this._chipLayer)){
-          this._playerCard1TouchGroup.touchEnabled = !(this._playerCard1.name === 'flipped') 
-          this._playerCard2TouchGroup.touchEnabled = !(this._playerCard2.name === 'flipped') 
-          this._playerCard3Group.touchEnabled = !(this._playerCard3.name === 'flipped') 
-        }else{
+      protected disableFlippedCardMouseEvent() {
+        if (utils.bam.isPlayerFlipAllowed(this._chipLayer)) {
+          this._playerCard1TouchGroup.touchEnabled = !(this._playerCard1.name === 'flipped')
+          this._playerCard2TouchGroup.touchEnabled = !(this._playerCard2.name === 'flipped')
+          this._playerCard3Group.touchEnabled = !(this._playerCard3.name === 'flipped')
+        } else {
           this._playerCard1TouchGroup.touchEnabled = false;
           this._playerCard2TouchGroup.touchEnabled = false;
           this._playerCard3Group.touchEnabled = false;
         }
-        if(utils.bam.isBankerFlipAllowed(this._chipLayer)){
-          this._bankerCard1TouchGroup.touchEnabled = !(this._bankerCard1.name === 'flipped') 
-          this._bankerCard2TouchGroup.touchEnabled = !(this._bankerCard2.name === 'flipped') 
+        if (utils.bam.isBankerFlipAllowed(this._chipLayer)) {
+          this._bankerCard1TouchGroup.touchEnabled = !(this._bankerCard1.name === 'flipped')
+          this._bankerCard2TouchGroup.touchEnabled = !(this._bankerCard2.name === 'flipped')
           this._bankerCard3Group.touchEnabled = !(this._bankerCard3.name === 'flipped')
-        }else{
+        } else {
           this._bankerCard1TouchGroup.touchEnabled = false;
           this._bankerCard2TouchGroup.touchEnabled = false;
           this._bankerCard3Group.touchEnabled = false;
@@ -190,11 +190,11 @@ namespace we {
       protected async flipCard(card: dragonBones.EgretArmatureDisplay, orientation: string, dark = '') {
         if (card.name !== 'flipped') {
           card.name = 'flipped';
-          await utils.playAnimation( card,`sq_${orientation}_${dark}flip`,1);
+          await utils.playAnimation(card, `sq_${orientation}_${dark}flip`, 1);
           this.updateAllSum();
         }
 
-        return new Promise(resolve=>resolve())
+        return new Promise(resolve => resolve())
       }
 
       protected cardToData(card: dragonBones.EgretArmatureDisplay) {
@@ -229,10 +229,10 @@ namespace we {
             console.log('isinit setstatepeek play 2')
             this._playerCard1.animation.play('sq_vertical_select_in', 1);
           }
-          this._flipCardHolder.setCenterFlipCard(this._gameData.b1, 'vertical')
+          this._flipCardHolder.setCenterFlipCard(this._gameData.b1, 'vertical','b1')
           this._flipCardHolder.changeCenterCardBackAnim('vertical');
-          this._flipCardHolder.setCenterCardsTouchEnabled(true,'vertical')
-          this._flipCardHolder.setCenterCardVisible(true,'vertical')
+          this._flipCardHolder.setCenterCardsTouchEnabled(true, 'vertical')
+          this._flipCardHolder.setCenterCardVisible(true, 'vertical')
         } else {
           this._playerCard1TouchGroup.touchEnabled = false;
           this._playerCard2TouchGroup.touchEnabled = false;
@@ -254,7 +254,7 @@ namespace we {
           this._bankerCard1TouchGroup.touchEnabled = true;
           this._bankerCard2TouchGroup.touchEnabled = true;
           this._openAllBankerGroup.visible = true;
-          this._flipCardHolder.setCenterCardsTouchEnabled(true,'vertical')
+          this._flipCardHolder.setCenterCardsTouchEnabled(true, 'vertical')
         } else {
           this._bankerCard1TouchGroup.touchEnabled = false;
           this._bankerCard2TouchGroup.touchEnabled = false;
@@ -271,10 +271,10 @@ namespace we {
         }
 
         if (utils.bam.isBankerFlipAllowed(this._chipLayer) && !utils.bam.isPlayerFlipAllowed(this._chipLayer)) {
-          this._flipCardHolder.setCenterFlipCard(this._gameData.a1, 'vertical');
+          this._flipCardHolder.setCenterFlipCard(this._gameData.a1, 'vertical','a1');
           this._flipCardHolder.changeCenterCardBackAnim('vertical');
           this._currentFocusCard = this._bankerCard1;
-          this._flipCardHolder.setCenterCardVisible(true,'vertical')
+          this._flipCardHolder.setCenterCardVisible(true, 'vertical')
           if (isInit) {
             this._bankerCard1.animation.gotoAndStopByFrame('sq_vertical_select_loop', 0);
           } else {
@@ -296,24 +296,24 @@ namespace we {
         this.flipRemainingFirst4Card();
         this.showVerticalOutBack(this._smallCard1, 1);
         this._openAllBankerGroup.visible = false;
-        this._flipCardHolder.setCenterCardVisible(false,'vertical')
-        this._flipCardHolder.setCenterCardsTouchEnabled(false,'vertical')
-        this._flipCardHolder.setCenterCardVisible(false,'vertical-tween-back')
-        this._flipCardHolder.setCenterCardVisible(false,'vertical-tween-front')
+        this._flipCardHolder.setCenterCardVisible(false, 'vertical')
+        this._flipCardHolder.setCenterCardsTouchEnabled(false, 'vertical')
+        this._flipCardHolder.setCenterCardVisible(false, 'vertical-tween-back')
+        this._flipCardHolder.setCenterCardVisible(false, 'vertical-tween-front')
         if (utils.bam.isPlayerFlipAllowed(this._chipLayer)) {
           this._openAllPlayerGroup.visible = true;
           this._currentFocusCard = this._playerCard3
-          this._flipCardHolder.setCenterFlipCard(this._gameData.b3, 'horizontal')
+          this._flipCardHolder.setCenterFlipCard(this._gameData.b3, 'horizontal','b3')
           this._flipCardHolder.changeCenterCardBackAnim('horizontal')
           this._playerCard3Group.touchEnabled = true;
-        this._flipCardHolder.setCenterCardVisible(true,'horizontal')
-        this._flipCardHolder.setCenterCardsTouchEnabled(true,'horizontal')
+          this._flipCardHolder.setCenterCardVisible(true, 'horizontal')
+          this._flipCardHolder.setCenterCardsTouchEnabled(true, 'horizontal')
           this._openAllPlayerGroup.visible = true;
           this.focusCard(this._playerCard3, 'b3', 'horizontal')()
         } else {
           this._openAllPlayerGroup.visible = false;
-        this._flipCardHolder.setCenterCardVisible(false,'horizontal')
-        this._flipCardHolder.setCenterCardsTouchEnabled(false,'horizontal')
+          this._flipCardHolder.setCenterCardVisible(false, 'horizontal')
+          this._flipCardHolder.setCenterCardsTouchEnabled(false, 'horizontal')
           this._playerCard3Group.touchEnabled = false;
           this._playerCard3.animation.gotoAndStopByFrame('sq_horizontal_dark_loop_back', 0)
         }
@@ -328,41 +328,41 @@ namespace we {
           this.betInitState(core.GameState.DEAL);
           this.setFirst4Cards();
           this.setPlayerB3Card();
-          if(!this._gameData.b3 && this._smallCard1Exist){
+          if (!this._gameData.b3 && this._smallCard1Exist) {
             this._smallCard1Exist = false
           }
         }
-        if(this._smallCard1Exist){
+        if (this._smallCard1Exist) {
           this._smallCard1Exist = false;
-          this.showVerticalOutBack(this._smallCard1, 1);                    
-        }else{
+          this.showVerticalOutBack(this._smallCard1, 1);
+        } else {
           this._smallCard2Exist = false;
-          this.showVerticalOutBack(this._smallCard2, 1);          
+          this.showVerticalOutBack(this._smallCard2, 1);
         }
-        
+
         this.setBankerA3Card();
         this.flipRemainingFirst4Card();
         this._openAllPlayerGroup.visible = false;
-        this._flipCardHolder.setCenterCardVisible(false,'vertical')
-        this._flipCardHolder.setCenterCardsTouchEnabled(false,'vertical')
-        this._flipCardHolder.setCenterCardVisible(false,'vertical-tween-back')
-        this._flipCardHolder.setCenterCardVisible(false,'vertical-tween-front')
+        this._flipCardHolder.setCenterCardVisible(false, 'vertical')
+        this._flipCardHolder.setCenterCardsTouchEnabled(false, 'vertical')
+        this._flipCardHolder.setCenterCardVisible(false, 'vertical-tween-back')
+        this._flipCardHolder.setCenterCardVisible(false, 'vertical-tween-front')
         const darkPlayer = utils.bam.isPlayerFlipAllowed(this._chipLayer) ? '' : 'dark_'
         this.flipCard(this._playerCard3, 'horizontal', darkPlayer)
         if (utils.bam.isBankerFlipAllowed(this._chipLayer)) {
           this._openAllBankerGroup.visible = true;
           this._currentFocusCard = this._bankerCard3
-          this._flipCardHolder.setCenterFlipCard(this._gameData.a3, 'horizontal')
+          this._flipCardHolder.setCenterFlipCard(this._gameData.a3, 'horizontal','a3')
           this._flipCardHolder.changeCenterCardBackAnim('horizontal');
           this._bankerCard3Group.touchEnabled = true;
-          this._flipCardHolder.setCenterCardVisible(true,'horizontal')
-          this._flipCardHolder.setCenterCardsTouchEnabled(true,'horizontal')
+          this._flipCardHolder.setCenterCardVisible(true, 'horizontal')
+          this._flipCardHolder.setCenterCardsTouchEnabled(true, 'horizontal')
 
           this.focusCard(this._bankerCard3, 'a3', 'horizontal')()
         } else {
           this._openAllBankerGroup.visible = false;
-          this._flipCardHolder.setCenterCardVisible(false,'horizontal')
-          this._flipCardHolder.setCenterCardsTouchEnabled(false,'horizontal')
+          this._flipCardHolder.setCenterCardVisible(false, 'horizontal')
+          this._flipCardHolder.setCenterCardsTouchEnabled(false, 'horizontal')
           this._bankerCard3Group.touchEnabled = false;
           this._bankerCard3.animation.gotoAndStopByFrame('sq_horizontal_dark_loop_back', 0)
         }
@@ -388,10 +388,10 @@ namespace we {
         } else {
           this._flipCardHolder.setCenterCardVisible(false)
         }
-        return new Promise(resolve=>resolve())
+        return new Promise(resolve => resolve())
       }
 
-      
+
 
       protected createFactory() {
         const skeletonData = RES.getRes(`blockchain_sqba_ske_json`);
@@ -443,23 +443,23 @@ namespace we {
       }
 
       protected openAll(side: string) {
-          let card1 = (side === 'player')? this._playerCard1: this._bankerCard1;
-          let card2 = (side === 'player')? this._playerCard2: this._bankerCard2;
-          let card3 = (side === 'player')? this._playerCard3: this._bankerCard3;
-          let state = (side === 'player')? core.GameState.PEEK_PLAYER : core.GameState.PEEK_BANKER;
-          let group = (side === 'player')? this._openAllPlayerGroup : this._openAllBankerGroup;
+        let card1 = (side === 'player') ? this._playerCard1 : this._bankerCard1;
+        let card2 = (side === 'player') ? this._playerCard2 : this._bankerCard2;
+        let card3 = (side === 'player') ? this._playerCard3 : this._bankerCard3;
+        let state = (side === 'player') ? core.GameState.PEEK_PLAYER : core.GameState.PEEK_BANKER;
+        let group = (side === 'player') ? this._openAllPlayerGroup : this._openAllBankerGroup;
 
-        return async ()=>{
+        return async () => {
           if (this._gameData.state === state) {
             this.flipCard(card3, 'horizontal')
             this._flipCardHolder.closeCenterCardBack('horizontal');
-            this._flipCardHolder.setCenterCardVisible(false,'horizontal')
+            this._flipCardHolder.setCenterCardVisible(false, 'horizontal')
             group.visible = false;
             return;
           }
 
           this._flipCardHolder.closeCenterCardBack('vertical');
-          this._flipCardHolder.setCenterCardVisible(false,'vertical')
+          this._flipCardHolder.setCenterCardVisible(false, 'vertical')
 
 
           group.visible = false;
@@ -469,17 +469,17 @@ namespace we {
 
           await this.flipCard(card1, 'vertical')
           await this.flipCard(card2, 'vertical')
-          
+
           const nextCard = this.nextCard();
           if (nextCard) {
             this.disableFlippedCardMouseEvent();
             nextCard.animation.play(`sq_vertical_select_in`)
             this._flipCardHolder.changeCenterCardBackAnim('vertical')
             this._currentFocusCard = nextCard
-            this._flipCardHolder.setCenterFlipCard(this._gameData[this.cardToData(nextCard)], 'vertical')
-            this._flipCardHolder.setCenterCardVisible(true,'vertical')
-            this._flipCardHolder.setCenterCardsTouchEnabled(true,'vertical')
-          } 
+            this._flipCardHolder.setCenterFlipCard(this._gameData[this.cardToData(nextCard)], 'vertical',this.cardToData(nextCard))
+            this._flipCardHolder.setCenterCardVisible(true, 'vertical')
+            this._flipCardHolder.setCenterCardsTouchEnabled(true, 'vertical')
+          }
         }
       }
 
@@ -488,7 +488,7 @@ namespace we {
         this._playerCard2.name = ''
         this._playerCard3.name = ''
         this._bankerCard1.name = ''
-        this._bankerCard2.name = '' 
+        this._bankerCard2.name = ''
         this._bankerCard3.name = ''
         this.setSideCardsTouchEnabled(false);
         this._flipCardHolder.setCenterCardsTouchEnabled(false);
@@ -513,29 +513,31 @@ namespace we {
       protected centerCardFlipped(evt: egret.Event) {
         const orientation = evt.data
         console.log('centerCardFlipped:', orientation)
-        if(!this._flipCardHolder.isCardShowing(orientation)){
+        if (!this._flipCardHolder.isCardShowing(orientation)) {
           return;
         }
-                console.log('centerCardFlipped2')
+        console.log('centerCardFlipped2')
 
-          this._currentFocusCard.animation.play(`sq_${orientation}_flip`, 1)
-          this._currentFocusCard.name = 'flipped'
-          this.updateAllSum();
-          this.checkCardAllOpened();
-          const nextCard = this.nextCard();
-          if (nextCard) {
-            nextCard.animation.play(`sq_${orientation}_select_in`)
-            this._flipCardHolder.setCenterTweenFlipCardFront(this._gameData[this.cardToData(this._currentFocusCard)], orientation);
-            this._flipCardHolder.crossfadeCenterCardAnim(orientation)
-            this._currentFocusCard = nextCard
-            this._flipCardHolder.setCenterFlipCard(this._gameData[this.cardToData(this._currentFocusCard)], orientation);
-          }else{
-            this._flipCardHolder.setCenterTweenFlipCardFront(this._gameData[this.cardToData(this._currentFocusCard)], orientation);
-            this._flipCardHolder.closeCenterCardFront(orientation);
-            this._flipCardHolder.setCenterCardVisible(false)
-            
-          }
-        
+        this._currentFocusCard.animation.play(`sq_${orientation}_flip`, 1)
+        this._currentFocusCard.name = 'flipped'
+        this.updateAllSum();
+        this.checkCardAllOpened();
+        const nextCard = this.nextCard();
+        if (nextCard) {
+          nextCard.animation.play(`sq_${orientation}_select_in`)
+          this._flipCardHolder.setCenterTweenFlipCardFront(this._gameData[this.cardToData(this._currentFocusCard)], orientation);
+          this._flipCardHolder.crossfadeCenterCardAnim(orientation)
+          this._currentFocusCard = nextCard
+          this._flipCardHolder.setCenterFlipCard(this._gameData[this.cardToData(this._currentFocusCard)], orientation, this.cardToData(this._currentFocusCard));
+        } else {
+          this.hideCenterCard(orientation);
+        }
+      }
+
+      protected hideCenterCard(orientation: string) {
+        this._flipCardHolder.setCenterTweenFlipCardFront(this._gameData[this.cardToData(this._currentFocusCard)], orientation);
+        this._flipCardHolder.closeCenterCardFront(orientation);
+        this._flipCardHolder.setCenterCardVisible(false)
       }
 
       protected nextCard() {
@@ -545,13 +547,13 @@ namespace we {
         let startNum = 0;
 
         const pushNonFlipCard = (component: dragonBones.EgretArmatureDisplay) => {
-          if (component.name !== 'flipped' ) {
+          if (component.name !== 'flipped') {
             nextCards.push(component);
           }
 
-          if (this._currentFocusCard === component){
+          if (this._currentFocusCard === component) {
             startNum = nextCards.length;
-          }          
+          }
         }
 
         if (utils.bam.isPlayerFlipAllowed(this._chipLayer)) {
@@ -564,13 +566,13 @@ namespace we {
           pushNonFlipCard(this._bankerCard2)
         }
 
-        if(nextCards[startNum]){
+        if (nextCards[startNum]) {
           return nextCards[startNum];
         }
 
-        if(nextCards[0]){
+        if (nextCards[0]) {
           return nextCards[0];
-        }        
+        }
 
         return nextCard;
       }
@@ -578,10 +580,10 @@ namespace we {
       protected focusCard(card: dragonBones.EgretArmatureDisplay, dataName: string, orientation: string) {
         return () => {
           console.log('focusCard()');
-          if(card.name === 'flipped'){
+          if (card.name === 'flipped') {
             return;
           }
-          
+
           if (this._currentFocusCard) {
             if (this._currentFocusCard.name === 'flipped') {
               this._currentFocusCard.animation.gotoAndStopByFrame(`sq_${orientation}_loop_front`, 0)
@@ -595,10 +597,10 @@ namespace we {
         }
       }
 
-      protected showCenterCard(orientation : string, dataName : string){
-          this._flipCardHolder.changeCenterCardBackAnim(orientation)
-          this._flipCardHolder.setCenterFlipCard(this._gameData[dataName], orientation)
-          this._flipCardHolder.setCenterCardVisible(true, orientation)
+      protected showCenterCard(orientation: string, dataName: string) {
+        this._flipCardHolder.changeCenterCardBackAnim(orientation)
+        this._flipCardHolder.setCenterFlipCard(this._gameData[dataName], orientation, dataName)
+        this._flipCardHolder.setCenterCardVisible(true, orientation)
       }
 
       protected setStateFinish(isInit: boolean) {

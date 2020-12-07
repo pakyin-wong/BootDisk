@@ -11,15 +11,28 @@ namespace we {
         this.dispatchEvent(new egret.Event(we.core.Event.CARD_FLIPPED,false,false,env.orientation))
       }
 
-      public setCenterFlipCard(data: string, orientation: string) {
-        /*
-        let card = (orientation === 'vertical') ? this._centerVCard : this._centerHCard;
-        card.setCardImage(
-          'd_sq_ba_card_back_png',
-          `d_sq_bac_large_poker_${utils.formatCardForFlip(data)}_png`,
-          `d_sq_bac_large_poker_${utils.formatCardForFlip(data)}_png`
-        )
-        */
+            protected getMoveIndex(dataName: string){
+        switch (dataName) {
+          case 'a1':
+            return 3;
+          case 'a2':
+            return 4;
+          case 'a3':
+            return 5;
+          case 'b1':
+            return 2;
+          case 'b2':
+            return 1;
+          case 'b3':
+            return 0;
+          default:
+            logger.e(utils.LogTarget.PROD, 'BAM Unknown Card');
+        }
+        return -1;
+      }
+
+      public setCenterFlipCard(data: string, orientation: string,dataName: string) {
+        this.showAndMoveCard(this.getMoveIndex(dataName), data);
       }
 
       public setCenterTweenFlipCardFront(data: string, orientation: string) {
@@ -63,24 +76,6 @@ namespace we {
         if(!enable){
           this.closeFlipPanel();
         }
-        /*
-        if(!orientation){
-          this._centerHCard.visible = enable;
-          this._centerVCard.visible = enable;
-        }
-        if(orientation === 'vertical'){
-          this._centerVCard.visible = enable;
-        }
-        if(orientation === 'horizontal'){
-          this._centerHCard.visible = enable;
-        }
-        if(orientation === 'vertical-tween-back'){
-          this._centerVTweenCardBack.visible = enable;
-        }
-        if(orientation === 'vertical-tween-front'){
-          this._centerVTweenCardFront.visible = enable;
-        }
-        */
       }
 
       public changeCenterCardBackAnim(orientation: string) {

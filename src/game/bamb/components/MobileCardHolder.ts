@@ -27,9 +27,16 @@ namespace we {
       }
 
       //override
+      /*
       protected showCenterCard(orientation : string, dataName : string){
         this._flipCardHolder.showAndMoveCard(this.getMoveIndex(),this._gameData[this.cardToData(this._currentFocusCard)])
       }
+
+      //override
+      protected hideCenterCard(orientation: string){
+        this._flipCardHolder.closeFlipPanel();
+      }
+      */
 
       protected getMoveIndex(){
         switch (this.cardToData(this._currentFocusCard)) {

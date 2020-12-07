@@ -7,7 +7,7 @@ namespace we {
 
       setCenterCardVisible(enable: boolean, orientation?: string);
 
-      setCenterFlipCard(data: string, orientation: string) ;
+      setCenterFlipCard(data: string, orientation: string, dataName: string) ;
 
       setCenterTweenFlipCardFront(data: string, orientation: string);
 
