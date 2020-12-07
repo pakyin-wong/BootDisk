@@ -17,11 +17,24 @@ namespace we {
       protected _orientation: string = ''; // desktop ="", portrait="_vertical", landscape="_horizontal"
       public constructor() {
         super();
+        this._touchArea = new eui.Group();
         this.orientationDependent = false;
       }
       protected mount() {
         super.mount();
-        this.addEventListeners();
+        this._display.touchEnabled = false;
+        this._display.touchChildren = false;
+        this.addChild(this._touchArea);
+      }
+
+      public set width(width: number) {
+        this.$setWidth(width);
+        this._touchArea.width = width;
+      }
+
+      public set height(height: number) {
+        this.$setHeight(height);
+        this._touchArea.height = height;
       }
 
       protected initDisplay() {
@@ -35,21 +48,11 @@ namespace we {
 
         const factory = BaseAnimationButton.getFactory(this._dbClass);
         this._display = factory.buildArmatureDisplay(this._dbDisplay);
-        this._displayGroup = new eui.Group();
-        this._displayGroup.width = 350;
-        this._displayGroup.height = 150;
-        this._displayGroup.x = 0;
-        this._displayGroup.y = 0;
         utils.dblistenToSoundEffect(this._display);
         this._display.x = 0;
         this._display.y = 0;
-        this._displayGroup.touchEnabled = true;
-        this._displayGroup.touchChildren = false;
-        this._displayGroup.touchThrough = false;
         this._display.touchEnabled = false;
         this._display.touchChildren = false;
-        // this._displayGroup.addChild(this._display);
-        this.addChild(this._displayGroup);
         this.addChild(this._display);
         this.init();
 
@@ -118,21 +121,21 @@ namespace we {
       protected addEventListeners() {
         dir.evtHandler.addEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.switchAutoConfirm, this);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        this._displayGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
+        // this._displayGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
       }
 
       protected removeEventListeners() {
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.switchAutoConfirm, this);
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-          this._displayGroup.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
+          // this._displayGroup.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         }
       }
 
-      protected onConfirmPressed() {
-        this.dispatchEvent(new egret.Event('ON_CONFIRM_PRESS'));
-        console.log(".........................this is onConfirmPress")
-      }
+      // protected onConfirmPressed() {
+      //   this.dispatchEvent(new egret.Event('ON_CONFIRM_PRESS'));
+      //   console.log(".........................this is onConfirmPress")
+      // }
 
       protected clone: egret.Bitmap;
 

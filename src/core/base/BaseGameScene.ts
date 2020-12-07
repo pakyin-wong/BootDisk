@@ -256,8 +256,8 @@ namespace we {
           this._btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
         }
         if (this._betRelatedGroup) {
-          // this._betRelatedGroup.addEventListener('ON_CONFIRM_PRESS', this.onConfirmPressed, this);
-          this._betRelatedGroup._confirmButton.addEventListener('ON_CONFIRM_PRESS', this.onConfirmPressed, this);
+          this._betRelatedGroup.addEventListener('ON_CONFIRM_PRESS', this.onConfirmPressed, this);
+          // this._betRelatedGroup._confirmButton.addEventListener('ON_CONFIRM_PRESS', this.onConfirmPressed, this);
           this._betRelatedGroup.addEventListener('ON_CANCEL_PRESS', this.onCancelPressed, this);
           this._betRelatedGroup.addEventListener('ON_REPEAT_PRESS', this.onRepeatPressed, this);
           this._betRelatedGroup.addEventListener('ON_DOUBLE_PRESS', this.onDoublePressed, this);
@@ -333,8 +333,8 @@ namespace we {
         //   this._cancelButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
         // }
         if (this._betRelatedGroup) {
-          // this._betRelatedGroup.removeEventListener('ON_CONFIRM_PRESS', this.onConfirmPressed, this);
-          this._betRelatedGroup._confirmButton.addEventListener('ON_CONFIRM_PRESS', this.onConfirmPressed, this);
+          this._betRelatedGroup.removeEventListener('ON_CONFIRM_PRESS', this.onConfirmPressed, this);
+          // this._betRelatedGroup._confirmButton.addEventListener('ON_CONFIRM_PRESS', this.onConfirmPressed, this);
           this._betRelatedGroup.removeEventListener('ON_CANCEL_PRESS', this.onCancelPressed, this);
           this._betRelatedGroup.removeEventListener('ON_REPEAT_PRESS', this.onRepeatPressed, this);
           this._betRelatedGroup.removeEventListener('ON_DOUBLE_PRESS', this.onDoublePressed, this);
