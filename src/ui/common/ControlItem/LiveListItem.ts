@@ -61,6 +61,20 @@ namespace we {
       set dealerImage(value: eui.Image) {
         this._dealerImage = value;
       }
+
+      protected generateFavouriteButton() {
+        const button = new AnimatedToggleButton();
+        button.dbClass = 'lobby_ui';
+        button.dbDisplay = 'd_lobby_icon_fav';
+        button.width = 44;
+        button.height = 42;
+        button.right = 10;
+        button.top = 10;
+        button.visible = false;
+        this._favouriteButton = button;
+        this._contentContainerDynamic.addChild(this._favouriteButton);
+      }
+
     }
   }
 }
