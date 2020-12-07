@@ -51,6 +51,10 @@
 		{
 			"keys": "blockchain_dt_tex_png,dragon_ske_json,dragon_tex_png,dragon_tex_json,tiger_ske_json,tiger_tex_json,tiger_tex_png,blockchain_dt_tex_json,we_bcdt_sfx_result_dragonwin_mp3,we_bcdt_sfx_result_tigerwin_mp3,we_bcdt_sfx_scanning_loop_mp3,we_bcdt_sfx_shoe_in_mp3,we_bcdt_sfx_shoe_out_mp3,blockchain_dt_ske_dbbin",
 			"name": "scene_bc_dragontiger"
+		},
+		{
+			"keys": "blockchain_sqba_tex_png,blockchain_sqba_tex_json,blockchain_sqba_ske_json",
+			"name": "scene_bc_sq_baccarat"
 		}
 	],
 	"resources": [
@@ -7425,6 +7429,21 @@
 			"url": "assets/dragonbones/m/dtb/blockchain_dt_ske.dbbin",
 			"type": "bin",
 			"name": "blockchain_dt_ske_dbbin"
+		},
+		{
+			"url": "assets/dragonbones/m/bamb/blockchain_sqba_tex.png",
+			"type": "image",
+			"name": "blockchain_sqba_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/m/bamb/blockchain_sqba_tex.json",
+			"type": "json",
+			"name": "blockchain_sqba_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/m/bamb/blockchain_sqba_ske.json",
+			"type": "json",
+			"name": "blockchain_sqba_ske_json"
 		}
 	]
 }

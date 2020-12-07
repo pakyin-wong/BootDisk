@@ -1408,6 +1408,14 @@ declare module skin_mobile_landscape{
 	class SqueezeBaccaratScene extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape{
+	class BlockchainSqueezeBaccaratScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.bamb{
+	class CardHolderSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_landscape.bc{
 	class CardInfoCard extends eui.Skin{
 	}
@@ -2012,6 +2020,14 @@ declare module skin_mobile_portrait.bam{
 }
 declare module skin_mobile_portrait{
 	class SqueezeBaccaratScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class BlockchainSqueezeBaccaratScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.bamb{
+	class CardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
