@@ -82,6 +82,7 @@
 		"resource/skin_desktop/bam/squeezeTutorial/SqueezeTutorial.exml",
 		"resource/skin_desktop/bamb/BlockchainSqueezeBaccaratScene.exml",
 		"resource/skin_desktop/bamb/ResultDisplay/CardHolder.exml",
+		"resource/skin_desktop/bamb/ResultDisplay/FlipCardHolder.exml",
 		"resource/skin_desktop/bc/CardInfoCard.exml",
 		"resource/skin_desktop/bc/CardInfoPanel.exml",
 		"resource/skin_desktop/bc/DeckCard.exml",

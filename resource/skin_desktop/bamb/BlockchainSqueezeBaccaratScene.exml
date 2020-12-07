@@ -91,6 +91,8 @@
 	</ui:Group>
 	<ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="242" x="18" y="644" anchorOffsetX="0"
 	                          anchorOffsetY="0" visible="false" />
+	<bamb:DFlipCardHolder id="_flipCardHolder" horizontalCenter="0" y="313" width="500" height="900" />
+
 	<e:Group id="_deckButton" x="2279" y="203" width="282" height="49" touchThrough="true">
 		<ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab"
 		                    skinName="skin_desktop.ImageButtonSkinBettingPanel" />

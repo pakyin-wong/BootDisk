@@ -208,6 +208,10 @@ declare module skin_desktop.bamb{
 	class CardHolderSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.bamb{
+	class FlipCardHolderSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop.bc{
 	class CardInfoCard extends eui.Skin{
 	}

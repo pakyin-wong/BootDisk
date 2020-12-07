@@ -156,15 +156,6 @@ namespace we {
         this._factory.parseDragonBonesData(skeletonData);
         this._factory.parseTextureAtlasData(textureData, texture);
       }
-
-      protected setCenterFlipCard(data: string, orientation: string) {
-        let card = (orientation === 'vertical') ? this._centerVCard : this._centerHCard;
-        card.setCardImage(
-          'm_sq_ba_large_poker_backside_png',
-          `m_sq_bac_large_poker_${utils.formatCardForFlip(this._gameData[data])}_png`,
-          `m_sq_bac_large_poker_${utils.formatCardForFlip(this._gameData[data])}_png`
-        )
-      }
     }
   }
 }

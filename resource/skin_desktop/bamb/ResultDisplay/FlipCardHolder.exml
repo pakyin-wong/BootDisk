@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.bamb.FlipCardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*"
+        width="500" height="900">
+        <e:Group horizontalCenter="0" y="14" width="341" height="520" touchThrough="true" touchEnabled="false" id="_centerVCardGroup">
+                <ba:FlipCard cardWidth="341" cardHeight="520" id="_centerVCard"/>
+        </e:Group>
+        <e:Group horizontalCenter="0" y="399" width="520" height="341" touchThrough="true" touchEnabled="false" id="_centerHCardGroup">
+                <ba:FlipCard cardWidth="341" cardHeight="520" id="_centerHCard" rotation="270" />
+        </e:Group>
+        <e:Image id="_centerVTweenCardBack" source="d_sq_ba_card_back_png" width="357" height="548" horizontalCenter="0" y="0" visible="false" touchEnabled="false"/>
+        <e:Image id="_centerVTweenCardFront" source="" width="341" height="520" horizontalCenter="0" y="14" visible="false" touchEnabled="false"/>
+        <e:Image id="_centerHTweenCardBack" source="d_sq_ba_card_back_png" width="357" height="548" horizontalCenter="0" y="407" visible="false" touchEnabled="false" rotation="270"/>
+        <e:Image id="_centerHTweenCardFront" source="" width="341" height="520" horizontalCenter="0" y="401" visible="false" touchEnabled="false" rotation="270"/>
+</e:Skin>
