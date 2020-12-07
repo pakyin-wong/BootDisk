@@ -9,7 +9,7 @@
                 </e:Group>
                 <e:Group x="239" y="557" width="204" height="42" >
                         <e:Label id="_cardIndexLabel" size="36" horizontalCenter="0" verticalCenter="0"/>
-                        <ui:BaseImageButton id="_cardHelp" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel" tooltipText="'baccarat.tooltip.cardIDHelp'" />
+                        <ui:BaseImageButton id="_cardHelp" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel" />
 									<e:layout>
 										<e:HorizontalLayout verticalAlign="middle" horizontalAlign="center"/>
 									</e:layout>
@@ -39,7 +39,7 @@
                         <e:Image id="_encryptedAreaImage" source="d_bcba_panel_verification_encryt_bg_png" width="1025" height="195" />
                         <e:Group x="24" y="24">
                         <ui:RunTimeLabel size="24" i18n="baccarat.encryptedKey" />
-                        <ui:BaseImageButton id="_encryptedHelp" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel" tooltipText="'baccarat.tooltip.encryptedKeyHelp'"/>
+                        <ui:BaseImageButton id="_encryptedHelp" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel" />
                         <e:layout>
                                 <e:HorizontalLayout gap="10" verticalAlign="middle"/>
                         </e:layout>
@@ -55,7 +55,7 @@
                         <e:Image id="_ssnAreaImage" source="d_bcba_panel_verification_key_bg_png" width="1025" height="150"/>
                         <e:Group x="24" y="24">
                                 <ui:RunTimeLabel  size="24"  i18n="baccarat.ssn"/>
-                                <ui:BaseImageButton id="_ssnHelp" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel" tooltipText="'baccarat.tooltip.ssnHelp'"/>
+                                <ui:BaseImageButton id="_ssnHelp" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel" />
                                 <e:layout>
                                         <e:HorizontalLayout gap="10" verticalAlign="middle"/>
                                 </e:layout>
@@ -67,7 +67,7 @@
                         </e:Group>
                         <e:Group x="24" y="160">
                         <ui:RunTimeLabel size="24"  i18n="baccarat.decryptedKey" />               
-                        <ui:BaseImageButton id="_decryptedHelp" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel" tooltipText="'baccarat.tooltip.decryptedKeyHelp'"/>
+                        <ui:BaseImageButton id="_decryptedHelp" currentState="b_bab_help" width="25" height="24" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
                                 <e:layout>
                                         <e:HorizontalLayout gap="10" verticalAlign="middle"/>
                                 </e:layout>
@@ -81,7 +81,28 @@
                 <bc:BaseCard id="_cardImage" skinName="skin_desktop.bc.CardInfoCard" x="239" y="225"/>
                 <ui:BaseImageButton id="_prevButton" width="22" height="43" x="150" y="360" currentState="b_bab_prev" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
                 <ui:BaseImageButton id="_nextButton" width="22" height="43" x="511" y="360" currentState="b_bab_next" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
-					<ui:InGameMessage id="_message" skinName="skin_desktop.CopyInfoMessageSkin" height="112" horizontalCenter="0" verticalCenter="0" touchEnabled="false" touchChildren="false"/>
+		<ui:InGameMessage id="_message" skinName="skin_desktop.CopyInfoMessageSkin" height="112" horizontalCenter="0" verticalCenter="0" touchEnabled="false" touchChildren="false"/>
+                
+                <e:Group id="_indexHelpGroup" x="404" y="541" width="660" height="108">
+                        <ui:RoundRectShape cornerTL_TR_BL_BR="8,8,8,8" strokeIn="2" strokeInColor="0x28323d" fillColor="0x28323d" fillAlpha="0.9" stroke="1" strokeColor="0x28323d" left="0" top="0" bottom="0" right="0"/>
+			<e:Image id="_helpArrow" source="m_bcba_panel_arrow_png" width="83" height="25" left="0" rotation="270" top="0" visible="false"/>
+			<ui:RunTimeLabel id="_helpLabel" x="24" verticalAlign="top" i18n="baccarat.tooltip.cardIDHelp" size="20" y="14" textAlign="left" wordWrap="true" width="600" height="85" lineSpacing="15"/>
+		</e:Group>
+                <e:Group id="_encryptedKeyHelpGroup" x="965" y="285" width="760" height="138">
+                        <ui:RoundRectShape cornerTL_TR_BL_BR="8,8,8,8" strokeIn="2" strokeInColor="0x28323d" fillColor="0x28323d" fillAlpha="0.9" stroke="1" strokeColor="0x28323d" left="0" top="0" bottom="0" right="0"/>
+			<e:Image id="_encryptedKeyHelpArrow" source="m_bcba_panel_arrow_png" width="83" height="25" left="0" rotation="270" verticalCenter="-20" visible="false"/>
+			<ui:RunTimeLabel id="_encryptedKeyHelpLabel" x="24" verticalAlign="top" i18n="baccarat.tooltip.encryptedKeyHelp" size="20" y="14" textAlign="left" wordWrap="true" width="700" height="110" lineSpacing="15"/>
+		</e:Group>
+                <e:Group id="_ssnHelpGroup" x="860" width="760" height="618" y="437">
+                        <ui:RoundRectShape cornerTL_TR_BL_BR="8,8,8,8" strokeIn="2" strokeInColor="0x28323d" fillColor="0x28323d" fillAlpha="0.9" stroke="1" strokeColor="0x28323d" left="0" top="0" bottom="0" right="0"/>
+			<e:Image id="_ssnHelpArrow" source="m_bcba_panel_arrow_png" width="83" height="25" bottom="275" left="0" rotation="270" visible="false"/>
+			<ui:RunTimeLabel id="_ssnHelpLabel" x="24" verticalAlign="top" i18n="baccarat.tooltip.ssnHelp" size="20" y="14" textAlign="left" wordWrap="true" width="700" height="585" lineSpacing="15"/>
+		</e:Group>
+                <e:Group id="_decryptedKeyHelpGroup" x="860" width="760" height="138" y="604">
+                        <ui:RoundRectShape cornerTL_TR_BL_BR="8,8,8,8" strokeIn="2" strokeInColor="0x28323d" fillColor="0x28323d" fillAlpha="0.9" stroke="1" strokeColor="0x28323d" left="0" top="0" bottom="0" right="0"/>
+			<e:Image id="_decryptedKeyArrow" source="m_bcba_panel_arrow_png" width="83" height="25" left="0" rotation="270" verticalCenter="54" visible="false"/>
+			<ui:RunTimeLabel id="_decryptedKeyHelpLabel" x="24" verticalAlign="top" i18n="baccarat.tooltip.decryptedKeyHelp" size="20" y="14" textAlign="left" wordWrap="true" width="700" height="105" lineSpacing="15"/>
+		</e:Group>
         </e:Group>
 </e:Skin>
 
