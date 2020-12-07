@@ -51,6 +51,10 @@
 		{
 			"keys": "we_bcba_sfx_card_generate_mp3,we_bcba_sfx_card_icontocontainer_mp3,we_bcba_sfx_card_move_mp3,we_bcba_sfx_card_open_mp3,we_bcba_sfx_card_popup_mp3,we_bcba_sfx_card_removeall_mp3,we_bcba_sfx_card_smallcard_mp3,we_bcba_sfx_card_teleport_mp3,we_bcba_sfx_container_fadeout_mp3,we_bcba_sfx_container_icon_mp3,we_bcba_sfx_newshoe_mp3,we_bcba_sfx_result_mp3,we_bcba_sfx_shoeout_mp3,m_bcba_panel_verification_encryt_bg_png,m_bcba_penal_h_bg_png,m_bcba_panel_verification_key_bg_png,m_bcba_penal_v_bg_png,m_bcba_resultarea_panel_prevresult_png,bc-8_json,bc-7_json,bc-6_json,bc-5_json,bc-4_json,bc-3_json,bc-2_json,bc-1_json,bc-0_json",
 			"name": "scene_bc"
+		},
+		{
+			"keys": "blockchain_sqba_ske_dbbin,blockchain_sqba_tex_png",
+			"name": "scene_bc_sq_baccarat"
 		}
 	],
 	"resources": [
@@ -998,6 +1002,16 @@
 			"url": "assets/dragonbones/m/bab/blockchain_ske.dbbin",
 			"type": "bin",
 			"name": "blockchain_ske_dbbin"
+		},
+		{
+			"url": "assets/dragonbones/m/bamb/blockchain_sqba_ske.dbbin",
+			"type": "bin",
+			"name": "blockchain_sqba_ske_dbbin"
+		},
+		{
+			"url": "assets/dragonbones/m/bamb/blockchain_sqba_tex.png",
+			"type": "image",
+			"name": "blockchain_sqba_tex_png"
 		}
 	]
 }

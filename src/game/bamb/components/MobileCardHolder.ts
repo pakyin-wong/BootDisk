@@ -149,7 +149,7 @@ namespace we {
       }
 
       protected createFactory() {
-        const skeletonData = RES.getRes(`blockchain_sqba_ske_json`);
+        const skeletonData = RES.getRes(`blockchain_sqba_ske_dbbin`);
         const textureData = RES.getRes(`blockchain_sqba_tex_json`);
         const texture = RES.getRes(`blockchain_sqba_tex_png`);
         this._factory = new dragonBones.EgretFactory();

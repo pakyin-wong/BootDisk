@@ -53,7 +53,7 @@
 			"name": "scene_bc_dragontiger"
 		},
 		{
-			"keys": "blockchain_sqba_tex_png,blockchain_sqba_tex_json,blockchain_sqba_ske_json",
+			"keys": "blockchain_sqba_tex_png,blockchain_sqba_tex_json,blockchain_sqba_ske_dbbin",
 			"name": "scene_bc_sq_baccarat"
 		}
 	],
@@ -7441,9 +7441,9 @@
 			"name": "blockchain_sqba_tex_json"
 		},
 		{
-			"url": "assets/dragonbones/m/bamb/blockchain_sqba_ske.json",
-			"type": "json",
-			"name": "blockchain_sqba_ske_json"
+			"url": "assets/dragonbones/m/bamb/blockchain_sqba_ske.dbbin",
+			"type": "bin",
+			"name": "blockchain_sqba_ske_dbbin"
 		}
 	]
 }
