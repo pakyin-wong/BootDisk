@@ -17,7 +17,7 @@ namespace we {
       public notYetInteract: boolean = false;
 
       /* Global Environment Variable */
-      public version: string = '0.12.12';
+      public version: string = '0.12.13';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -148,6 +148,7 @@ namespace we {
           core.GameType.BAI,
           core.GameType.BAS,
           core.GameType.BAM,
+          core.GameType.BAMB,
           core.GameType.BAB,
           core.GameType.BASB,
           core.GameType.DTB,

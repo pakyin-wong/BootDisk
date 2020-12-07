@@ -318,6 +318,8 @@ namespace we {
         this._openAllBankerGroup.visible = false;
         this._centerVCard.visible = false;
         this._centerVCard.touchEnabled = false;
+        this._centerVTweenCardBack.visible = false;
+        this._centerVTweenCardFront.visible = false;
         if (utils.bam.isPlayerFlipAllowed(this._chipLayer)) {
           this._openAllPlayerGroup.visible = true;
           this._currentFocusCard = this._playerCard3
@@ -363,6 +365,8 @@ namespace we {
         this._openAllPlayerGroup.visible = false;
         this._centerVCard.visible = false;
         this._centerVCard.touchEnabled = false;
+        this._centerVTweenCardBack.visible = false;
+        this._centerVTweenCardFront.visible = false;
         const darkPlayer = utils.bam.isPlayerFlipAllowed(this._chipLayer) ? '' : 'dark_'
         this.flipCard(this._playerCard3, 'horizontal', darkPlayer)
         if (utils.bam.isBankerFlipAllowed(this._chipLayer)) {
@@ -669,6 +673,12 @@ namespace we {
 
       protected centerCardFlipped(orientation: string) {
         return () => {
+          if(orientation === 'vertical' && !this._centerVCard.visible){
+            return;
+          }
+          if(orientation === 'horizontal' && !this._centerHCard.visible){
+            return;
+          }
           let centerCard = (orientation === 'vertical') ? this._centerVCard: this._centerHCard;
           this._currentFocusCard.animation.play(`sq_${orientation}_flip`, 1)
           this._currentFocusCard.name = 'flipped'
@@ -692,22 +702,37 @@ namespace we {
 
       protected nextCard() {
         let nextCard = null;
-        const isNameExist = (component: dragonBones.EgretArmatureDisplay, prevCard: dragonBones.EgretArmatureDisplay) => {
-          if (component.name === 'flipped') {
-            return prevCard;
-          }
-          return component;
-        }
+        let nextCards = new Array();
+        let appeared = false;
+        let startNum = 0;
 
-        if (utils.bam.isBankerFlipAllowed(this._chipLayer)) {
-          nextCard = isNameExist(this._bankerCard2, nextCard)
-          nextCard = isNameExist(this._bankerCard1, nextCard)
+        const pushNonFlipCard = (component: dragonBones.EgretArmatureDisplay) => {
+          if (component.name !== 'flipped' ) {
+            nextCards.push(component);
+          }
+
+          if (this._currentFocusCard === component){
+            startNum = nextCards.length;
+          }          
         }
 
         if (utils.bam.isPlayerFlipAllowed(this._chipLayer)) {
-          nextCard = isNameExist(this._playerCard2, nextCard)
-          nextCard = isNameExist(this._playerCard1, nextCard)
+          pushNonFlipCard(this._playerCard1)
+          pushNonFlipCard(this._playerCard2)
         }
+
+        if (utils.bam.isBankerFlipAllowed(this._chipLayer)) {
+          pushNonFlipCard(this._bankerCard1)
+          pushNonFlipCard(this._bankerCard2)
+        }
+
+        if(nextCards[startNum]){
+          return nextCards[startNum];
+        }
+
+        if(nextCards[0]){
+          return nextCards[0];
+        }        
 
         return nextCard;
       }
