@@ -1,6 +1,6 @@
 namespace we {
   export namespace bamb {
-    export class DFlipCardHolder extends FlipCardHolder {
+    export class DFlipCardHolder extends core.BaseEUI implements FlipCardHolder {
       protected _centerVCard: ba.FlipCard;
       protected _centerVTweenCardBack: eui.Image;
       protected _centerVTweenCardFront: eui.Image;
@@ -21,6 +21,7 @@ namespace we {
 
       protected mount(){
           super.mount();
+          this.setSkinName();
           this.storeCenterCardOriginalHeight();
           this._centerVCard.addEventListener(we.core.Event.CARD_FLIPPED, this.centerVCardFlipped, this);
           this._centerHCard.addEventListener(we.core.Event.CARD_FLIPPED, this.centerHCardFlipped, this);

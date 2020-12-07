@@ -1,30 +1,23 @@
 namespace we {
   export namespace bamb {
-    export abstract class FlipCardHolder extends core.BaseEUI {
-      protected mount(){
-          super.mount();
-          this.setSkinName();
-      }
+    export interface FlipCardHolder extends core.BaseEUI {
+      setCenterCardsTouchEnabled(enable: boolean, orientation?: string);
 
-      protected abstract setSkinName();
-        
-      public abstract setCenterCardsTouchEnabled(enable: boolean, orientation?: string);
+      isCardShowing(orientation: string);
 
-      public abstract isCardShowing(orientation: string);
+      setCenterCardVisible(enable: boolean, orientation?: string);
 
-      public abstract setCenterCardVisible(enable: boolean, orientation?: string);
+      setCenterFlipCard(data: string, orientation: string) ;
 
-      public abstract setCenterFlipCard(data: string, orientation: string) ;
+      setCenterTweenFlipCardFront(data: string, orientation: string);
 
-      public abstract setCenterTweenFlipCardFront(data: string, orientation: string);
+      changeCenterCardBackAnim(orientation: string);
 
-      public abstract changeCenterCardBackAnim(orientation: string);
+      crossfadeCenterCardAnim(orientation: string);
 
-      public abstract crossfadeCenterCardAnim(orientation: string);
+      closeCenterCardBack(orientation: string);
 
-      public abstract closeCenterCardBack(orientation: string);
-
-      public abstract closeCenterCardFront(orientation: string);
+      closeCenterCardFront(orientation: string);
     }
   }
 }

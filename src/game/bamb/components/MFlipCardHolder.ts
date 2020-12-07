@@ -1,94 +1,38 @@
 namespace we {
   export namespace bamb {
-    export class MFlipCardHolder extends FlipCardHolder {
-      protected _centerVCard: ba.FlipCard;
-      protected _centerVTweenCardBack: eui.Image;
-      protected _centerVTweenCardFront: eui.Image;
-
-      protected _centerHCard: ba.FlipCard;
-      protected _centerHTweenCardBack: eui.Image;
-      protected _centerHTweenCardFront: eui.Image;
-
-      protected _centerVCardGroup: eui.Group;
-      protected _centerHCardGroup: eui.Group;
-
-      protected _centerCardData;
-
-      protected createChildren(){
-        super.createChildren();
-        this.setSkinName();
-      }
-
+    export class MFlipCardHolder extends bam.MobileFlipCardHolder implements FlipCardHolder {
       protected mount(){
           super.mount();
-          this.storeCenterCardOriginalHeight();
-          this._centerVCard.addEventListener(we.core.Event.CARD_FLIPPED, this.centerVCardFlipped, this);
-          this._centerHCard.addEventListener(we.core.Event.CARD_FLIPPED, this.centerHCardFlipped, this);
+          this._flipCard1.addEventListener(we.core.Event.CARD_FLIPPED, this.centerCardFlipped, this);
+          this._flipCard2.addEventListener(we.core.Event.CARD_FLIPPED, this.centerCardFlipped, this);
       }
 
-      protected storeCenterCardOriginalHeight() {
-        this._centerCardData = {
-          vertical:{
-            big:{
-              height: this._centerVTweenCardBack.height,
-              width:this._centerVTweenCardBack.width,
-              y:this._centerVTweenCardBack.y
-            },
-            original:{
-              height:this._centerVCardGroup.height,
-              width:this._centerVCardGroup.width,
-              y:this._centerVCardGroup.y
-            }
-          },
-          horizontal:{
-            big:{
-              height: this._centerHTweenCardBack.height,
-              width:this._centerHTweenCardBack.width,
-              y:this._centerHTweenCardBack.y,
-            },
-            original:{
-              height:this._centerHCardGroup.width, // because of rotation
-              width:this._centerHCardGroup.height,
-              y:this._centerHCardGroup.y
-            }
-          }
-        }
-      }
-
-      protected setSkinName() {
-        this.skinName = utils.getSkinByClassname('bamb.FlipCardHolderSkin');
-      }
-
-      protected centerVCardFlipped(evt : egret.Event){
-        const data = {
-          data : 'vertical'
-        }
-        this.dispatchEvent(new egret.Event(we.core.Event.CARD_FLIPPED,false,false,data))
-      }
-
-      protected centerHCardFlipped(evt : egret.Event){
-        const data = {
-          data : 'horizontal'
-        }
-        this.dispatchEvent(new egret.Event(we.core.Event.CARD_FLIPPED,false,false,data))
+      protected centerCardFlipped(evt : egret.Event){
+        this.dispatchEvent(new egret.Event(we.core.Event.CARD_FLIPPED,false,false,env.orientation))
       }
 
       public setCenterFlipCard(data: string, orientation: string) {
+        /*
         let card = (orientation === 'vertical') ? this._centerVCard : this._centerHCard;
         card.setCardImage(
           'd_sq_ba_card_back_png',
           `d_sq_bac_large_poker_${utils.formatCardForFlip(data)}_png`,
           `d_sq_bac_large_poker_${utils.formatCardForFlip(data)}_png`
         )
+        */
       }
 
       public setCenterTweenFlipCardFront(data: string, orientation: string) {
+        /*
         let card = (orientation === 'vertical') ? this._centerVTweenCardFront : this._centerHTweenCardFront;
         card.source = 
           `d_sq_bac_large_poker_${utils.formatCardForFlip(data)}_png`
+          */
       }
 
       public setCenterCardsTouchEnabled(enable: boolean,orientation?: string) {
+        //this.
+        /*
         if(!orientation){
           this._centerHCard.touchEnabled = enable;
           this._centerVCard.touchEnabled = enable;
@@ -99,9 +43,12 @@ namespace we {
         if(orientation === 'horizontal'){
           this._centerHCard.touchEnabled = enable;
         }
+        */
       }
 
       public isCardShowing(orientation: string){
+        return this.isOpen;
+        /*
         if(orientation === 'vertical' && this._centerVCard.visible){
           return true;
         }
@@ -109,9 +56,14 @@ namespace we {
           return true;
         }
         return false;        
+        */
       }
 
       public setCenterCardVisible(enable: boolean, orientation?: string){
+        if(!enable){
+          this.closeFlipPanel();
+        }
+        /*
         if(!orientation){
           this._centerHCard.visible = enable;
           this._centerVCard.visible = enable;
@@ -128,9 +80,11 @@ namespace we {
         if(orientation === 'vertical-tween-front'){
           this._centerVTweenCardFront.visible = enable;
         }
+        */
       }
 
       public changeCenterCardBackAnim(orientation: string) {
+        /*
         let centerTweenCard = (orientation === 'vertical') ? this._centerVTweenCardBack : this._centerHTweenCardBack;
 
         egret.Tween.get(centerTweenCard)
@@ -152,9 +106,11 @@ namespace we {
               width : this._centerCardData[orientation].big.width,
           }, 200)
           .set({ visible: false });
+          */
       }
 
       public crossfadeCenterCardAnim(orientation: string) {
+        /*
         let cardTweenFront = (orientation === 'vertical') ? this._centerVTweenCardFront: this._centerHTweenCardFront;
         let cardTweenBack = (orientation === 'vertical') ? this._centerVTweenCardBack: this._centerHTweenCardBack;
         
@@ -199,9 +155,11 @@ namespace we {
               alpha: 1,
           }, 200)
         .set({visible : false, alpha: 1})
+        */
       }
 
       public closeCenterCardBack(orientation: string) {
+        /*
         let cardTween = (orientation === 'vertical') ? this._centerVTweenCardBack: this._centerHTweenCardBack;
 
         egret.Tween.get(cardTween)
@@ -211,11 +169,13 @@ namespace we {
               width : this._centerCardData[orientation].original.width,})
         .to({alpha: 0},400)
         .set({visible : false, alpha: 1})
+        */
       }
 
 
 
       public closeCenterCardFront(orientation: string) {
+        /*
         let cardTween = (orientation === 'vertical') ? this._centerVTweenCardFront: this._centerHTweenCardFront;
         console.log('closeCenterCardFront xxx')
         egret.Tween.get(cardTween)
@@ -237,6 +197,7 @@ namespace we {
               alpha: 0,
           }, 200)
         .set({visible : false, alpha: 1})
+        */
       }
 
     }

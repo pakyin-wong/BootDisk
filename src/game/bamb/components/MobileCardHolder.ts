@@ -1,6 +1,7 @@
 namespace we {
   export namespace bamb {
     export class MobileCardHolder extends bamb.CardHolder {
+      protected _flipCardHolder: FlipCardHolder & MFlipCardHolder;
       protected _wholeMoveGroup : eui.Group;
       protected _resultGroup: eui.Group;
       protected _playerSumGroup: eui.Group;
@@ -23,6 +24,31 @@ namespace we {
         super.mount();
         this._ringAnim.animation.gotoAndStopByFrame('icon_loop',0);
         this.expandBottom();
+      }
+
+      //override
+      protected showCenterCard(orientation : string, dataName : string){
+        this._flipCardHolder.showAndMoveCard(this.getMoveIndex(),this._gameData[this.cardToData(this._currentFocusCard)])
+      }
+
+      protected getMoveIndex(){
+        switch (this.cardToData(this._currentFocusCard)) {
+          case 'a1':
+            return 3;
+          case 'a2':
+            return 4;
+          case 'a3':
+            return 5;
+          case 'b1':
+            return 2;
+          case 'b2':
+            return 1;
+          case 'b3':
+            return 0;
+          default:
+            logger.e(utils.LogTarget.PROD, 'BAM Unknown Card');
+        }
+        return -1;
       }
 
       public expandBottom(){
@@ -106,6 +132,10 @@ namespace we {
           await utils.playAnimation(this._ringAnim,'icon_loop',1)
         }
         return new Promise(resolve=>resolve())
+      }
+
+      protected showVerticalOutBack(display: dragonBones.EgretArmatureDisplay, playTimes: number) {
+        //display.animation.play('vertical_out_back', playTimes)
       }
 
 

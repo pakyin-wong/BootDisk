@@ -62,20 +62,4 @@
         </e:Group>
         <e:Group x="148" y="164" id="_smallRedCardGroup"></e:Group>
         <ui:RunTimeLabel x="540" y="150" id="_smallRedCardDesc" visible="false" i18n="baccarat.redCardDesc" />
-        <e:Group horizontalCenter="0" bottom="108" width="716" height="1095" touchThrough="true" touchEnabled="false"
-                 id="_centerVCardGroup">
-                <ba:FlipCard cardWidth="716" cardHeight="1095" id="_centerVCard" />
-        </e:Group>
-        <e:Group horizontalCenter="0" y="712" width="520" height="341" touchThrough="true" touchEnabled="false"
-                 id="_centerHCardGroup">
-                <ba:FlipCard cardWidth="341" cardHeight="520" id="_centerHCard" rotation="270" />
-        </e:Group>
-        <e:Image id="_centerVTweenCardBack" source="d_sq_ba_card_back_png" width="357" height="548" horizontalCenter="0"
-                 y="313" visible="false" touchEnabled="false" />
-        <e:Image id="_centerVTweenCardFront" source="" width="341" height="520" horizontalCenter="0" y="327"
-                 visible="false" touchEnabled="false" />
-        <e:Image id="_centerHTweenCardBack" source="d_sq_ba_card_back_png" width="357" height="548" horizontalCenter="0"
-                 y="720" visible="false" touchEnabled="false" rotation="270" />
-        <e:Image id="_centerHTweenCardFront" source="" width="341" height="520" horizontalCenter="0" y="714"
-                 visible="false" touchEnabled="false" rotation="270" />
 </e:Skin>

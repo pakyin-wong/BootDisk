@@ -591,10 +591,14 @@ namespace we {
           }
           this._currentFocusCard = card
           card.animation.play(`sq_${orientation}_select_in`, 1);
+          this.showCenterCard(orientation, dataName);
+        }
+      }
+
+      protected showCenterCard(orientation : string, dataName : string){
           this._flipCardHolder.changeCenterCardBackAnim(orientation)
           this._flipCardHolder.setCenterFlipCard(this._gameData[dataName], orientation)
           this._flipCardHolder.setCenterCardVisible(true, orientation)
-        }
       }
 
       protected setStateFinish(isInit: boolean) {

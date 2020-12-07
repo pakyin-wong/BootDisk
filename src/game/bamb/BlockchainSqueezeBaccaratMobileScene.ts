@@ -10,7 +10,14 @@ namespace we {
       protected _gameData: data.GameData & data.BlockchainGameData & data.SqueezingBlockchainGameData;
       protected _timeMultiple: number = 1000;
       protected _squeezeTimer: ui.CountdownTimer;
+      protected _flipCardHolder: FlipCardHolder;
       public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat, core.res.BlockchainSqueezeBaccarat];
+
+      protected mount(){
+        super.mount();
+        console.log('passFlipCardHolder' , this._flipCardHolder);
+        (<bamb.CardHolder>this._resultDisplay).passFlipCardHolder(this._flipCardHolder);
+      }
 
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('BlockchainSqueezeBaccaratScene');
