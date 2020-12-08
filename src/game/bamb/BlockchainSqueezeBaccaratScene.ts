@@ -21,7 +21,6 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        this._forceNoDismiss = true;
         if (!env.isFirstTimeBam) {
           const tutorial = new bam.SqueezeTutorial('SqueezeTutorial');
           tutorial.x = 106;
