@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+unhide to recover the original size
 <e:Skin class="skin_desktop.GameSetting" width="490" height="327" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">-->
+<e:Skin class="skin_desktop.GameSetting" width="490" height="241" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
 		<e:Image source="popover_png" left="0" top="0" right="0" bottom="0" />

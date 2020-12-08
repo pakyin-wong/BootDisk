@@ -19,6 +19,7 @@ namespace we {
 
       protected mount() {
         super.mount();
+        this._btn_sendLiveVer.visible=false;//remove this to unhide the button
       }
 
       protected init_menu() {
