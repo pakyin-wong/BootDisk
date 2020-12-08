@@ -25,6 +25,7 @@ namespace we {
         this._display.touchEnabled = false;
         this._display.touchChildren = false;
         this.addChild(this._touchArea);
+        this.addEventListeners();
       }
 
       public set width(width: number) {
