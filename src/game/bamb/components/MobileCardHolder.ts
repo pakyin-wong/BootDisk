@@ -18,7 +18,14 @@ namespace we {
         this._roundLoopB = 'round_loop';
         this._verticalFlip = 'vertical_filp';
         this.cardAnimNames = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2']
-        this._flipStr = 'filp'
+      }
+
+      protected flipTypo(orientation : string){
+        if(orientation === 'vertical'){
+          return 'filp'
+        }else{
+          return 'flip'
+        }
       }
       
       // could be treated as second part of mount
@@ -58,8 +65,21 @@ namespace we {
             this._resultGroup.y = -109
           }
         }else{
+          console.log('landscape expandbottom state: ', this._gameData.state)
           this._wholeMoveGroup.y = -260
-          this._resultGroup.y = -260
+          if(this._gameData && 
+          (this._gameData.state === core.GameState.DEAL ||
+            this._gameData.state === core.GameState.PEEK ||
+          this._gameData.state === core.GameState.PEEK_BANKER ||
+          this._gameData.state === core.GameState.PEEK_PLAYER)){
+                      console.log('landscape expandbottom 1')
+
+            this._resultGroup.y = 0
+          }else{
+                      console.log('landscape expandbottom 2')
+
+            this._resultGroup.y = -260
+          }
         }
       }
 
@@ -72,6 +92,8 @@ namespace we {
             this._resultGroup.y = 0
           }
         }else{
+                    console.log('landscape collapsebottom 1')
+
           this._wholeMoveGroup.y = 0;
           this._resultGroup.y = 0;
         }

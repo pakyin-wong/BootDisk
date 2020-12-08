@@ -14,8 +14,6 @@ namespace we {
 
       protected _currentFocusCard: dragonBones.EgretArmatureDisplay;
 
-      protected _flipStr: string;
-
       public passFlipCardHolder(flipCardHolder: FlipCardHolder) {
         this._flipCardHolder = flipCardHolder
         this._flipCardHolder.addEventListener(we.core.Event.CARD_FLIPPED, this.centerCardFlipped, this)
@@ -23,11 +21,15 @@ namespace we {
 
       protected initVariables() {
         super.initVariables();
-        this._flipStr = 'flip'
+        
       }
 
-      protected mount() {
-        super.mount();
+      protected flipTypo(orientation : string) {
+        return 'flip'
+      }
+
+      protected initAnimRelatedComps() {
+        super.initAnimRelatedComps();
         this._playerCard1TouchGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.focusCard(this._playerCard1, 'b1', 'vertical'), this)
         this._playerCard2TouchGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.focusCard(this._playerCard2, 'b2', 'vertical'), this)
         this._playerCard3Group.addEventListener(egret.TouchEvent.TOUCH_TAP, this.focusCard(this._playerCard3, 'b3', 'horizontal'), this)
@@ -198,7 +200,7 @@ namespace we {
         console.log('flipcard :', this.cardToData(card))
         if (card.name !== 'flipped') {
           card.name = 'flipped';
-          await utils.playAnimation(card, `sq_${orientation}_${dark}${this._flipStr}`, 1);
+          await utils.playAnimation(card, `sq_${orientation}_${dark}${this.flipTypo(orientation)}`, 1);
           this.updateAllSum();
         }
 
@@ -539,7 +541,7 @@ namespace we {
         }
         console.log('centerCardFlipped2:', this.cardToData(this._currentFocusCard))
 
-        this._currentFocusCard.animation.play(`sq_${orientation}_${this._flipStr}`, 1)
+        this._currentFocusCard.animation.play(`sq_${orientation}_${this.flipTypo(orientation)}`, 1)
         this._currentFocusCard.name = 'flipped'
         this.updateAllSum();
         this.checkCardAllOpened();
