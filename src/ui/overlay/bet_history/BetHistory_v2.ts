@@ -60,10 +60,10 @@ namespace we {
 
         // Live game list menu
         const _liveArrCol: eui.ArrayCollection = new eui.ArrayCollection();
-        for (const key in utils.Catalogue.LIVE) {
+        for (const key of env.liveGameTab) {
           _liveArrCol.addItem({
             label: i18n.t(`live.gametype.${key}`),
-            val: utils.Catalogue.LIVE[key],
+            val: env.liveCategories[key].join(","),
           });
         }
         this._live_submenu.dataProvider = _liveArrCol;
@@ -81,10 +81,10 @@ namespace we {
 
         // Lottery game list menu
         const _loArrCol: eui.ArrayCollection = new eui.ArrayCollection([]);
-        for (const key in utils.Catalogue.LOTTERY) {
+        for (const key of env.lotteryTab) {
           _loArrCol.addItem({
             label: i18n.t(`lottery.gametype.${key}`),
-            val: utils.Catalogue.LOTTERY[key],
+            val: env.lotteryCategories[key].join(','),
           });
         }
         this._lottery_submenu.dataProvider = _loArrCol;

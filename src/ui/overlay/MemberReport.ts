@@ -263,15 +263,9 @@ namespace we {
 
       protected genGameTypeList(): any {
         const list = [ui.NewDropdownItem(-1, () => `${i18n.t('overlaypanel_bethistory_searchtype_all')}`)];
-        if(env.isMobile) {
-        for (const k of env.mobileValidGameType) {          
-          list.push(ui.NewDropdownItem(k, () => `${i18n.t('gametype_' + utils.EnumHelpers.getKeyByValue(core.GameType,k))}`));
-        }
-        }
-        else {
-        for (const k of env.desktopValidGameType) {          
-          list.push(ui.NewDropdownItem(k, () => `${i18n.t('gametype_' + utils.EnumHelpers.getKeyByValue(core.GameType,k))}`));
-        }
+        const supportedGameType: number[] = env.supportedGameType;
+        for (const k of supportedGameType) {
+          list.push(ui.NewDropdownItem(k, () => `${i18n.t('gametype_' + utils.getKeyByValue(core.GameType,k))}`));
         }
         return list;
       }

@@ -3,6 +3,8 @@ export namespace core {
 		export class SocketComm implements ISocket {
 			private client: PlayerClient;
 
+      private _queryLang: string;
+
 			constructor() {
 				const value = window.location.search;
 
@@ -13,6 +15,8 @@ export namespace core {
 				const secret = data.secret ? data.secret : dir.config.secret;
 				const token = data.token ? data.token : dir.config.token;
 				const operator = data.operator ? data.operator : dir.config.operator;
+				this._queryLang = data.lang;
+        env.language = this._queryLang;
 				let isMobile = false;
 				try {
 					isMobile = data.ismobile ? parseInt(data.ismobile) > 0 : false;
@@ -421,7 +425,11 @@ export namespace core {
 				}
 				env.currentSelectedBetLimitIndex = minIdx;
 
-				env.language = player.profile.settings.language ? player.profile.settings.language : 'cn';
+        if (this._queryLang) {
+          this.updateSetting('language', this._queryLang);
+        } else {
+				  env.language = player.profile.settings.language ? player.profile.settings.language : 'cn';
+        }
 				we.i18n.setLang(env.language ? env.language : 'cn', true);
         /*
         let denominationList = [];
