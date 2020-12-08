@@ -7,11 +7,13 @@
 		                    currentState="lobby_panel_gamelist_tag_icon_allgame"  x="2278" y="809"/>
     <e:Group id="_header" touchThrough="true" anchorOffsetX="0" height="144" left="0" right="0" y="1061">
         <e:Image id="_logo" x="37"  fillMode="scale" verticalCenter="0" source="m_lobby_login_logo_png" height="144" width="401.5900621118012"/>
-        <e:Image height="120" width="1201"  verticalCenter="0" x="612" source="m_lobby_header_submenu_bg_png"/>
-        <e:TabBar id="_list" height="120" width="1019" x="703" verticalCenter="0">
-            <e:layout>
-                <e:HorizontalLayout  gap="99" verticalAlign="middle" />
-            </e:layout>
-        </e:TabBar>
+			<e:Group y="12" horizontalCenter="0">
+			<e:Rect ellipseWidth="120" ellipseHeight="120" fillAlpha="0.2" left="0" right="0" top="0" bottom="0"/>
+				<e:TabBar id="_list" height="120">
+					<e:layout>
+					<e:HorizontalLayout gap="99" verticalAlign="middle" horizontalAlign="center" paddingLeft="91" paddingRight="91"/>
+					</e:layout>
+				</e:TabBar>
+			</e:Group>
     </e:Group>
 </e:Skin>

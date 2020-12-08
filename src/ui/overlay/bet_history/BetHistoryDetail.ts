@@ -149,8 +149,15 @@ namespace we {
           utils.BetHistory.updateWinText(this._record_win_l, this.data.remark, this.data.winamount);
           this.createGameResult(this.data.gametype, this.data.result);
 
+          if(this._btn_replay && !utils.BetHistory.isBlockChain(this.data.gametype)){
+            this.setText(this._btn_replay['label'], i18n.t('overlaypanel_bethistory_record_replay'));
+            this._btn_replay.visible = true;
+          }else{
+            this._btn_replay.visible = false;
+          }
+
           egret.Tween.removeTweens(this._scroller.viewport);
-          egret.Tween.get(this._scroller.viewport).set({ alpha: 0 }).wait(100).set({ alpha: 1 });
+          egret.Tween.get(this._scroller.viewport).set({ alpha: 0 }).wait(100).to({ alpha: 1 }, 250);
         }
 
         protected additem(t, v) {
