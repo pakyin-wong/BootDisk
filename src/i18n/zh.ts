@@ -101,6 +101,7 @@ namespace we {
       overlaypanel_bethistory_recordtab_id: '投注編號',
       overlaypanel_bethistory_recordtab_date: '日期時間',
       overlaypanel_bethistory_recordtab_game: '遊戲',
+      overlaypanel_bethistory_recordtab_gameround: '遊戲編號',
       overlaypanel_bethistory_recordtab_round: '局數',
       overlaypanel_bethistory_recordtab_replay: '重播',
       overlaypanel_bethistory_recordtab_remark: '輸嬴',
