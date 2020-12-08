@@ -123,21 +123,14 @@ namespace we {
       protected addEventListeners() {
         dir.evtHandler.addEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.switchAutoConfirm, this);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        // this._displayGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
       }
 
       protected removeEventListeners() {
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.switchAutoConfirm, this);
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-          // this._displayGroup.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         }
       }
-
-      // protected onConfirmPressed() {
-      //   this.dispatchEvent(new egret.Event('ON_CONFIRM_PRESS'));
-      //   console.log(".........................this is onConfirmPress")
-      // }
 
       protected clones: egret.Bitmap[] = [];
 
@@ -163,7 +156,6 @@ namespace we {
         clone.width = bitmap.width;
         clone.height = bitmap.height;
         this.clones.push(clone);
-        // to be checked
         layer.touchEnabled = false;
         layer.touchChildren = false;
         layer.touchThrough = false;
@@ -178,13 +170,6 @@ namespace we {
           clone.filters = [colorFilter];
         }
       }
-
-      // const bitmap: egret.Bitmap = slot.display as egret.Bitmap;
-      // const group: eui.Group = new eui.Group();
-      // const colorFilter = new egret.ColorMatrixFilter();
-      // bitmap.filters = [colorFilter];
-      // group.addChild(bitmap);
-      // slot.display = group;
 
       public get orientation() {
         return this._orientation;
@@ -213,7 +198,6 @@ namespace we {
 
       protected bettingPlaying: boolean = false;
       protected async update([oldDown, oldHover]: boolean[]) {
-        // super.update([oldDown, oldHover]);
         const status = '';
         if (this._display) {
           switch (env.autoConfirmBet) {
@@ -225,13 +209,11 @@ namespace we {
             case false:
               if (!this._enabled) {
                 // if not in bet state
-                console.log('........not bet state..');
                 this._display.animation.reset();
                 this.bettingPlaying = false;
                 this._display.animation.fadeIn(`disable${this._orientation}`, 0, 1, 0, 'CONFIRM_GROUP2');
               } else if (!oldDown && this._down) {
                 // if press down
-                console.log('.........press down.');
                 if (!this.bettingPlaying) {
                   this._display.animation.fadeIn(`betting${this._orientation}`, 0, 0, 0, 'CONFIRM_GROUP1');
                   this.bettingPlaying = true;
@@ -241,13 +223,11 @@ namespace we {
                 }
               } else if (this._hover && oldDown && !this._down) {
                 // if press up
-                console.log('........press up ..');
                 this._display.animation.reset();
                 this.bettingPlaying = false;
                 this._display.animation.fadeIn(`press_to_disable${this._orientation}`, 0, 1, 0, 'CONFIRM_GROUP2');
               } else if (!oldHover && this._hover) {
                 // if roll over
-                console.log('........roll over..');
                 if (!this.bettingPlaying) {
                   this._display.animation.fadeIn(`betting${this._orientation}`, 0, 0, 0, 'CONFIRM_GROUP1');
                   this.bettingPlaying = true;
@@ -255,7 +235,6 @@ namespace we {
                 this._display.animation.fadeIn(`idle_to_hover${this._orientation}`, 0, 1, 0, 'CONFIRM_GROUP2');
               } else if (oldHover && !this._hover) {
                 // roll out
-                console.log('........roll out..');
                 if (!this.bettingPlaying) {
                   this._display.animation.fadeIn(`betting${this._orientation}`, 0, 0, 0, 'CONFIRM_GROUP1');
                   this.bettingPlaying = true;
@@ -263,7 +242,6 @@ namespace we {
                 this._display.animation.fadeIn(`hover_to_idle${this._orientation}`, 0, 1, 0, 'CONFIRM_GROUP2');
               } else {
                 // if idle on bet state
-                console.log('.......idle on bet state...');
                 if (!this.bettingPlaying) {
                   this._display.animation.fadeIn(`betting${this._orientation}`, 0, 0, 0, 'CONFIRM_GROUP1');
                   this.bettingPlaying = true;
