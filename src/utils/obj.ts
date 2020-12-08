@@ -4,12 +4,12 @@ namespace we {
     export function nvl(obj, defaultValue, objsForChecking = null) {
       if (objsForChecking) {
         for (const objInChecking of objsForChecking) {
-          if (!objInChecking) {
+          if (!objInChecking && Number(obj)!==0) {
             return defaultValue;
           }
         }
       }
-      if (!obj) {
+      if (!obj && Number(obj)!==0) {
         return defaultValue;
       }
       return obj;
