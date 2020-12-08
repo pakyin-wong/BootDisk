@@ -14,10 +14,17 @@ namespace we {
 
       protected _currentFocusCard: dragonBones.EgretArmatureDisplay;
 
+      protected _flipStr: string;
+
       public passFlipCardHolder(flipCardHolder: FlipCardHolder) {
         this._flipCardHolder = flipCardHolder
         this._flipCardHolder.addEventListener(we.core.Event.CARD_FLIPPED, this.centerCardFlipped, this)
       }
+
+            protected initVariables() {
+        super.initVariables();
+        this._flipStr = 'flip'
+            }
 
       protected mount() {
         super.mount();
@@ -188,9 +195,10 @@ namespace we {
       }
 
       protected async flipCard(card: dragonBones.EgretArmatureDisplay, orientation: string, dark = '') {
+        console.log('flipcard :', this.cardToData(card))
         if (card.name !== 'flipped') {
           card.name = 'flipped';
-          await utils.playAnimation(card, `sq_${orientation}_${dark}flip`, 1);
+          await utils.playAnimation(card, `sq_${orientation}_${dark}${this._flipStr}`, 1);
           this.updateAllSum();
         }
 
@@ -508,17 +516,30 @@ namespace we {
         this._bankerCard3Group.touchEnabled = enable;
       }
 
-
+      protected getHoriOrVert(card: dragonBones.EgretArmatureDisplay){
+        const dataName = this.cardToData(card);
+        switch(dataName){
+          case 'b3':
+          case 'a3':
+            return 'horizontal';
+          case 'a1':
+          case 'a2':
+          case 'b1':
+          case 'b2':
+          default:
+            return 'vertical';
+        }
+      }
 
       protected centerCardFlipped(evt: egret.Event) {
-        const orientation = evt.data
+        const orientation = this.getHoriOrVert(this._currentFocusCard)
         console.log('centerCardFlipped:', orientation)
         if (!this._flipCardHolder.isCardShowing(orientation)) {
           return;
         }
-        console.log('centerCardFlipped2')
+        console.log('centerCardFlipped2:' , this.cardToData(this._currentFocusCard))
 
-        this._currentFocusCard.animation.play(`sq_${orientation}_flip`, 1)
+        this._currentFocusCard.animation.play(`sq_${orientation}_${this._flipStr}`, 1)
         this._currentFocusCard.name = 'flipped'
         this.updateAllSum();
         this.checkCardAllOpened();

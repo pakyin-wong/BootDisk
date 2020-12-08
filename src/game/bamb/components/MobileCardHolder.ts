@@ -18,6 +18,7 @@ namespace we {
         this._roundLoopB = 'round_loop';
         this._verticalFlip = 'vertical_filp';
         this.cardAnimNames = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2']
+        this._flipStr = 'filp'
       }
 
       protected mount(){
@@ -25,18 +26,6 @@ namespace we {
         this._ringAnim.animation.gotoAndStopByFrame('icon_loop',0);
         this.expandBottom();
       }
-
-      //override
-      /*
-      protected showCenterCard(orientation : string, dataName : string){
-        this._flipCardHolder.showAndMoveCard(this.getMoveIndex(),this._gameData[this.cardToData(this._currentFocusCard)])
-      }
-
-      //override
-      protected hideCenterCard(orientation: string){
-        this._flipCardHolder.closeFlipPanel();
-      }
-      */
 
       protected getMoveIndex(){
         switch (this.cardToData(this._currentFocusCard)) {
@@ -183,15 +172,6 @@ namespace we {
 
       protected async roundIn(){
         return new Promise(resolve=>resolve())
-      }
-
-      protected createFactory() {
-        const skeletonData = RES.getRes(`blockchain_sqba_ske_json`);
-        const textureData = RES.getRes(`blockchain_sqba_tex_json`);
-        const texture = RES.getRes(`blockchain_sqba_tex_png`);
-        this._factory = new dragonBones.EgretFactory();
-        this._factory.parseDragonBonesData(skeletonData);
-        this._factory.parseTextureAtlasData(textureData, texture);
       }
     }
   }

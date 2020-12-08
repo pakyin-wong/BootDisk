@@ -61,13 +61,11 @@ namespace we {
       }
 
       protected centerVCardFlipped(evt : egret.Event){
-        const data = 'vertical'
-        this.dispatchEvent(new egret.Event(we.core.Event.CARD_FLIPPED,false,false,data))
+        this.dispatchEvent(new egret.Event(we.core.Event.CARD_FLIPPED))
       }
 
       protected centerHCardFlipped(evt : egret.Event){
-        const data = 'horizontal'
-        this.dispatchEvent(new egret.Event(we.core.Event.CARD_FLIPPED,false,false,data))
+        this.dispatchEvent(new egret.Event(we.core.Event.CARD_FLIPPED))
       }
 
       public setCenterFlipCard(data: string, orientation: string) {
