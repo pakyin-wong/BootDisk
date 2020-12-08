@@ -1,36 +1,6 @@
 namespace we {
   export namespace overlay {
     export class BetHistory_v2 extends BetHistory {
-      private static LIVE = {
-        allGame: [
-          GameType.BAC,
-          GameType.BAI,
-          GameType.BAM,
-          GameType.BAB,
-          GameType.BASB,
-          GameType.BAMB,
-          GameType.DTB,
-          GameType.BAS,
-          GameType.LW,
-          GameType.DT,
-          GameType.RO,
-          GameType.ROL,
-          GameType.DI,
-          GameType.DIL,
-        ].join(','),
-        baccarat: [GameType.BAC, GameType.BAI, GameType.BAM, GameType.BAB, GameType.BASB, GameType.BAMB, GameType.BAS].join(','),
-        special: [GameType.LW, GameType.ROL, GameType.DIL].join(','),
-        dragontiger: [GameType.DT, GameType.DTB].join(','),
-        roulette: [GameType.RO, GameType.ROL].join(','),
-        dice: [GameType.DI, GameType.DIL].join(','),
-        other: [GameType.LW].join(','),
-      };
-
-      private static LOTTERY = {
-        allLotteryGame: [GameType.LO, GameType.RC].join(','),
-        lottery: [GameType.LO].join(','),
-        race: [GameType.RC].join(','),
-      };
 
       protected _mainTab: string = 'all';
       protected _loTab: string = 'single';
@@ -90,10 +60,10 @@ namespace we {
 
         // Live game list menu
         const _liveArrCol: eui.ArrayCollection = new eui.ArrayCollection();
-        for (const key in BetHistory_v2.LIVE) {
+        for (const key in utils.Catalogue.LIVE) {
           _liveArrCol.addItem({
             label: i18n.t(`live.gametype.${key}`),
-            val: BetHistory_v2.LIVE[key],
+            val: utils.Catalogue.LIVE[key],
           });
         }
         this._live_submenu.dataProvider = _liveArrCol;
@@ -111,10 +81,10 @@ namespace we {
 
         // Lottery game list menu
         const _loArrCol: eui.ArrayCollection = new eui.ArrayCollection([]);
-        for (const key in BetHistory_v2.LOTTERY) {
+        for (const key in utils.Catalogue.LOTTERY) {
           _loArrCol.addItem({
             label: i18n.t(`lottery.gametype.${key}`),
-            val: BetHistory_v2.LOTTERY[key],
+            val: utils.Catalogue.LOTTERY[key],
           });
         }
         this._lottery_submenu.dataProvider = _loArrCol;

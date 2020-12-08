@@ -40,10 +40,10 @@
 				<ui:RunTimeLabel id="_txt_lcb_count" text="Label" y="9" width="275" height="59" size="40" verticalAlign="middle" scaleX="1" scaleY="1" textAlign="right" x="920"/>
 			</e:Group>
 
-			<ui:RoundRectButton id="_btn_searchType" cornerTL_TR_BL_BR="60,60,60,60" width="400" height="120" x="48" y="228" stroke="0" strokeIn="0" fillAlpha="1" fillColor="0x1b416e"  labelSize="50" labelAutoResize="false">
+			<ui:RoundRectButton id="_btn_searchType" cornerTL_TR_BL_BR="60,60,60,60" width="400" height="120" x="48" y="228" stroke="0" strokeIn="0" fillAlpha="1" fillColor="0x1b416e"  labelSize="50" labelAutoResize="true" labelAutoResizeWidth="240">
 			<e:Skin width="400" height="120">
 				<e:Image source="d_lobby_button_down_normal_png" width="80" height="80" y="22" x="297" touchEnabled="false" />
-	<ui:RunTimeLabel id="_label" text="遊戲總覽" height="74" size="50" verticalAlign="middle" textAlign="center" verticalCenter="0" horizontalCenter="-48.5"/>
+	<ui:RunTimeLabel id="_label" text="遊戲總覽" height="74" size="50" verticalAlign="middle" textAlign="center" verticalCenter="0" horizontalCenter="-48.5" width="240"/>
 			</e:Skin>
 			</ui:RoundRectButton>
 			<e:Rect width="497" height="142" x="496" y="217" fillColor="0x0c2848" fillAlpha="0.4" ellipseHeight="142" ellipseWidth="142" scaleX="1" scaleY="1"/>
