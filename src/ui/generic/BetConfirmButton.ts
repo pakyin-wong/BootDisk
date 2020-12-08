@@ -57,6 +57,8 @@ namespace we {
         this.init();
 
         this.init_textLabel();
+        this._display.touchEnabled = false;
+        this._display.touchChildren = false;
       }
 
       protected changeLang() {
@@ -137,20 +139,30 @@ namespace we {
       //   console.log(".........................this is onConfirmPress")
       // }
 
-      protected clone: egret.Bitmap;
+      protected clones: egret.Bitmap[] = [];
 
       public init() {
-        const slot = this._display.armature.getSlot('blur');
+        this.cloneBettingGlow('blur');
+        if (env.isMobile) {
+          this.cloneBettingGlow('blur2');
+        }
+      }
+
+      protected cloneBettingGlow(slotName: string) {
+        const slot = this._display.armature.getSlot(slotName);
+        if (!slot) return;
         const layer: eui.Group = new eui.Group();
         const bitmap: egret.Bitmap = slot.display as egret.Bitmap;
         const clone: egret.Bitmap = new egret.Bitmap(bitmap.texture);
+        layer.width = bitmap.width;
+        layer.height = bitmap.height;
+        layer.x = bitmap.x;
+        layer.y = bitmap.y;
+        layer.anchorOffsetX = bitmap.anchorOffsetX;
+        layer.anchorOffsetY = bitmap.anchorOffsetY;
         clone.width = bitmap.width;
         clone.height = bitmap.height;
-        clone.x = bitmap.x;
-        clone.y = bitmap.y;
-        clone.anchorOffsetX = bitmap.anchorOffsetX;
-        clone.anchorOffsetY = bitmap.anchorOffsetY;
-        this.clone = clone;
+        this.clones.push(clone);
         // to be checked
         layer.touchEnabled = false;
         layer.touchChildren = false;
@@ -162,7 +174,9 @@ namespace we {
 
       public setColor(r, g, b) {
         const colorFilter = new egret.ColorMatrixFilter([r, 0, 0, 0, 0, 0, g, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 1, 0]);
-        this.clone.filters = [colorFilter];
+        for (const clone of this.clones) {
+          clone.filters = [colorFilter];
+        }
       }
 
       // const bitmap: egret.Bitmap = slot.display as egret.Bitmap;

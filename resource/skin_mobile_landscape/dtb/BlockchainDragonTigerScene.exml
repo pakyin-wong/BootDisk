@@ -6,9 +6,9 @@
 	<e:Image id="_bgImg"/>
 	<dtb:MobileCardHolder id="_resultDisplay" width="2424" height="1242" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
 	                      scaleY="1" x="0" y="0" />
-	<e:Group id="_verticalGroup" width="2424" x="0" anchorOffsetX="0" bottom="0">
-		<e:Group id="_verticalTop" width="2424" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
-			<ui:BetRelatedGroup id="_betRelatedGroup" y="71" x.right_hand_mode="762" x.left_hand_mode="600"/>
+	<e:Group id="_verticalGroup" touchEnabled="false" width="2424" x="0" anchorOffsetX="0" bottom="0">
+		<e:Group id="_verticalTop" touchEnabled="false" width="2424" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
+			<ui:BetRelatedGroup id="_betRelatedGroup" touchEnabled="false" y="71" x.right_hand_mode="762" x.left_hand_mode="600"/>
 			<dt:TableLayer id="_tableLayer" y="222" isEdgeDismissable="true" skinName="skin_mobile_landscape.dt.TableLayerSkin"
 			               scaleX="1" scaleY="1" horizontalCenter="0" />
 			<dt:ChipLayer id="_chipLayer" y="222" isEdgeDismissable="true" skinName="skin_mobile_landscape.dt.ChipLayerSkin"

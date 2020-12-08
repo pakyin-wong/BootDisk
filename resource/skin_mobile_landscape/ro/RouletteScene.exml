@@ -77,8 +77,8 @@
 	</e:Group>
 </e:Group>
 
-<e:Group id="_betRelated" y="355" left="0" right="0" touchThrough="true" y.right="324">
-	<ui:BetRelatedGroup id="_betRelatedGroup" x="819" y="18" />
+<e:Group id="_betRelated" touchEnabled="false" y="355" left="0" right="0" touchThrough="true" y.right="324">
+	<ui:BetRelatedGroup id="_betRelatedGroup" touchEnabled="false" x="819" y="18" />
 </e:Group>
 
 
