@@ -3,6 +3,10 @@ export namespace core {
 		export class SocketComm implements ISocket {
 			private client: PlayerClient;
 
+      private _queryLang: string;
+
+      private _isInit: boolean = false;
+
 			constructor() {
 				const value = window.location.search;
 
@@ -13,6 +17,8 @@ export namespace core {
 				const secret = data.secret ? data.secret : dir.config.secret;
 				const token = data.token ? data.token : dir.config.token;
 				const operator = data.operator ? data.operator : dir.config.operator;
+				this._queryLang = data.lang;
+        env.language = this._queryLang;
 				let isMobile = false;
 				try {
 					isMobile = data.ismobile ? parseInt(data.ismobile) > 0 : false;
@@ -284,8 +290,11 @@ export namespace core {
 			// Handler for Ready event
 			protected handleReady(player: data.PlayerSession, timestamp: string) {
 				// return data with struct data.PlayerSession
-
 				//console.log('player',player);
+
+        if (this._isInit) return;
+        // allow init once only
+        this._isInit = true;
 
 				this.updateTimestamp(timestamp);
 				env.playerID = player.playerid;
@@ -421,7 +430,11 @@ export namespace core {
 				}
 				env.currentSelectedBetLimitIndex = minIdx;
 
-				env.language = player.profile.settings.language ? player.profile.settings.language : 'cn';
+        if (this._queryLang) {
+          this.updateSetting('language', this._queryLang);
+        } else {
+				  env.language = player.profile.settings.language ? player.profile.settings.language : 'cn';
+        }
 				we.i18n.setLang(env.language ? env.language : 'cn', true);
         /*
         let denominationList = [];
@@ -701,12 +714,14 @@ export namespace core {
             const tieCount: number = getStatistic('tiewincount');
             const playerPairCount: number = getStatistic('playerpairwincount');
             const bankerPairCount: number = getStatistic('bankerpairwincount');
+            const bothPairCount: number = getStatistic('bothpairwincount');
             const totalCount: number = bankerCount + playerCount + tieCount;
-            const shoeBankerPairCount: number = getStatistic('shoebankerpairwincount');
             const shoeBankerCount: number = getStatistic('shoebankerwincount');
-            const shoePlayerPairCount: number = getStatistic('shoeplayerpairwincount');
             const shoePlayerCount: number = getStatistic('shoeplayerwincount');
             const shoeTieCount: number = getStatistic('shoetiewincount');
+            const shoeBankerPairCount: number = getStatistic('shoebankerpairwincount');
+            const shoePlayerPairCount: number = getStatistic('shoeplayerpairwincount');
+            const shoeBothPairCount: number = getStatistic('shoebothpairwincount');
             const shoeTotalCount: number = shoeBankerCount + shoePlayerCount + shoeTieCount;
 
             tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(roadmapData);
@@ -717,12 +732,14 @@ export namespace core {
             stats.tieCount = tieCount;
             stats.playerPairCount = playerPairCount;
             stats.bankerPairCount = bankerPairCount;
+            stats.bothPairCount = bothPairCount;
             stats.totalCount = totalCount;
             stats.shoeTieCount = shoeTieCount;
             stats.shoePlayerPairCount = shoePlayerPairCount;
             stats.shoePlayerCount = shoePlayerCount;
             stats.shoeBankerPairCount = shoeBankerPairCount;
             stats.shoeBankerCount = shoeBankerCount;
+            stats.shoeBothPairCount = shoeBothPairCount;
             stats.shoeTotalCount = shoeTotalCount;
 
             tableInfo.gamestatistic = stats;

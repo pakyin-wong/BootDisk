@@ -4,15 +4,20 @@ namespace we {
     export function nvl(obj, defaultValue, objsForChecking = null) {
       if (objsForChecking) {
         for (const objInChecking of objsForChecking) {
-          if (!objInChecking) {
+          if (!objInChecking && Number(obj)!==0) {
             return defaultValue;
           }
         }
       }
-      if (!obj) {
+      if (!obj && Number(obj)!==0) {
         return defaultValue;
       }
       return obj;
+    }
+
+    export function getKeyByValue(object, value) {
+      var key = Object.keys(object).filter(function(key) {return object[key] === value})[0];
+      return key;
     }
 
     export function varToString(varObj) {

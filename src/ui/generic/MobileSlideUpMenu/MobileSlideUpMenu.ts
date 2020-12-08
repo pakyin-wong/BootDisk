@@ -121,11 +121,13 @@ namespace we {
         egret.Tween.removeTweens(this._root);
         if (this._root.y >= this.expandHeight) {
           this._currentStatus = -1;
+          this.dispatchEvent(new egret.Event('CLOSE'));
         } else {
           egret.Tween.get(this._root)
             .to({ y: this.expandHeight }, this.tweenDuration)
             .call(() => {
               this._currentStatus = -1;
+              this.dispatchEvent(new egret.Event('CLOSE'));
             });
         }
       }

@@ -171,12 +171,14 @@ namespace we {
 
           this._normalPairChartPanel.firstCount = normalInfo.bankerPairCount;
           this._normalPairChartPanel.secondCount = normalInfo.playerPairCount;
-          this._normalPairChartPanel.thirdCount = normalInfo.remainingCount;
+          // this._normalPairChartPanel.thirdCount = normalInfo.remainingCount;
+          this._normalPairChartPanel.thirdCount = normalInfo.bothPairWinCount;
           this._normalPairChartPanel.firstPercentage = normalInfo.bankerPairPercentage;
           this._normalPairChartPanel.secondPercentage = normalInfo.playerPairPercentage;
-          this._normalPairChartPanel.thirdPercentage = normalInfo.remainingPercentage;
+          // this._normalPairChartPanel.thirdPercentage = normalInfo.remainingPercentage;
+          this._normalPairChartPanel.thirdPercentage = normalInfo.bothPairWinCountPercentage;
           this._normalPairChartPanel.total = normalInfo.totalCount;
-          this._normalPairChartPanel.update();
+          this._normalPairChartPanel.pairChartUpdate();
 
           const shoeInfo = we.utils.stat.ba.getStatInfo(true, env.tableInfos[this._tableId].gamestatistic);
           this._shoeChartPanel.firstCount = shoeInfo.bankerCount;
@@ -191,12 +193,16 @@ namespace we {
 
           this._shoePairChartPanel.firstCount = shoeInfo.bankerPairCount;
           this._shoePairChartPanel.secondCount = shoeInfo.playerPairCount;
-          this._shoePairChartPanel.thirdCount = shoeInfo.remainingCount;
+          // this._shoePairChartPanel.thirdCount = shoeInfo.remainingCount;
+          this._shoePairChartPanel.thirdCount = shoeInfo.bothPairWinCount;
+          this._shoePairChartPanel.fourthCount = shoeInfo.remainingCount;
           this._shoePairChartPanel.firstPercentage = shoeInfo.bankerPairPercentage;
           this._shoePairChartPanel.secondPercentage = shoeInfo.playerPairPercentage;
-          this._shoePairChartPanel.thirdPercentage = shoeInfo.remainingPercentage;
+          // this._shoePairChartPanel.thirdPercentage = shoeInfo.remainingPercentage;
+          this._shoePairChartPanel.thirdPercentage = shoeInfo.bothPairWinCountPercentage;
+          this._shoePairChartPanel.fourthPercentage = shoeInfo.remainingPercentage;
           this._shoePairChartPanel.total = shoeInfo.totalCount;
-          this._shoePairChartPanel.update();
+          this._shoePairChartPanel.pairChartUpdate();
         }
       }
     }

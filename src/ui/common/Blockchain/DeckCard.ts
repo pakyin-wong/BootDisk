@@ -1,6 +1,8 @@
 namespace we {
   export namespace blockchain {
     export class DeckCard extends blockchain.BaseCard {
+      protected _mask: eui.Component;
+
       public constructor() {
         super();
         this.skinName = utils.getSkinByClassname('bc.DeckCard');
@@ -46,16 +48,25 @@ namespace we {
         } while (child);
       }
 
+      protected dataChanged(): void {
+        if (this._mask) {
+          this.removeChild(this._mask);
+          this._mask = null;
+        }
+        super.dataChanged();
+      }
+
       protected setDimCard() {
         super.setDimCard();
-        const mask = new ui.RoundRectShape();
-        mask.height = this.height;
-        mask.width = this.width;
-        mask.alpha = 0.65;
-        mask.stroke = 0;
-        mask.cornerTL_TR_BL_BR = '5,5,5,5';
-        mask.fillColor = '0x000000';
-        this.addChild(mask);
+        const rect = new eui.Rect();
+        rect.ellipseWidth = 10;
+        rect.ellipseHeight = 10;
+        rect.height = this.height;
+        rect.width = this.width;
+        rect.alpha = 0.65;
+        rect.fillColor = 0x000000;
+        this.addChild(rect);
+        this._mask = rect;
         this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
         mouse.setButtonMode(this, false);
       }

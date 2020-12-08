@@ -22,8 +22,8 @@
 			<ui:RunTimeLabel id="dealerLabel" text="荷官" y="270" x="47" scaleX="1" scaleY="1" size="44" textKey="baccarat.dealer" />
 			<ui:RunTimeLabel id="tableBetLimitLabel" text="限紅" y="340" x="47" scaleX="1" scaleY="1" size="44" />
 			<ui:RunTimeLabel id="betLimitLabel" text="限紅" y="410" x="47" scaleX="1" scaleY="1" size="44" />
-			<ui:RunTimeLabel id="pTableID" text="百家樂01" y="58.48" size="44" textAlign="right" right="705" targetWidth="380" alpha="0.7"
-			                     fontFamily="Barlow,Microsoft YaHei"/>
+			<ui:RunTimeLabel id="pTableID" text="百家樂01" y="58" size="44" textAlign="right" right="705" targetWidth="380" alpha="0.7"
+			                     fontFamily="Barlow,Microsoft YaHei" width="388"/>
 			<e:Label id="pRoundID" text="-" y="130" textAlign="right" scaleX="1" scaleY="1" size="44" width="440" alpha="0.7"
 			         right="630"  fontFamily="Barlow"/>
 			<ui:ClampWidthLabel id="pGameID" text="000-000-000000000" y="200" textAlign="right" right="630" size="44" targetWidth="380"

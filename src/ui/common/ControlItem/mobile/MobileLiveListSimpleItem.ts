@@ -10,6 +10,8 @@ namespace we {
 
       protected _roadmapNode: eui.Component;
 
+      protected _contentContainerStatic: eui.Group;
+
       public constructor(skinName: string = null) {
         super(skinName);
       }
@@ -21,12 +23,21 @@ namespace we {
 
       protected destroy() {
         super.destroy();
-        if (this._bigRoad) this._bigRoad.parent.removeChild(this._bigRoad);
+        this.releaseRoadmap();
+      }
+
+      protected releaseRoadmap() {
+        if (this._bigRoad) {
+          this._bigRoad.parent.removeChild(this._bigRoad);
+          dir.smallRoadPool.release(this._bigRoad, this.tableInfo.gametype);
+        }
       }
 
       protected generateRoadmap() {
         if (this.itemInitHelper) {
           this._bigRoad = this.itemInitHelper.generateRoadmap(this._roadmapNode);
+          this._bigRoad.touchEnabled = false;
+          this._bigRoad.touchChildren = false;
         }
       }
 
@@ -65,6 +76,9 @@ namespace we {
         }
         if (this._alreadyBetSign) {
           this._alreadyBetSign.visible = false;
+        }
+        if (this._contentContainerStatic) {
+          this._contentContainerStatic.cacheAsBitmap = true;
         }
       }
 

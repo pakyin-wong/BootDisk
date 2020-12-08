@@ -21,7 +21,8 @@ namespace we {
         this._iconText.scaleY = scale;
         this._offsetY = this._iconText.height * 0.46;
 
-        this.addChild(this._iconText);
+        utils.addChild(this, this._iconText);
+        // this.addChild(this._iconText);
       }
 
       // protected initGraphics() {

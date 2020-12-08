@@ -263,8 +263,9 @@ namespace we {
 
       protected genGameTypeList(): any {
         const list = [ui.NewDropdownItem(-1, () => `${i18n.t('overlaypanel_bethistory_searchtype_all')}`)];
-        for (const k in core.GameType) {
-          isNaN(Number(k)) && list.push(ui.NewDropdownItem(core.GameType[k], () => `${i18n.t('gametype_' + k)}`));
+        const supportedGameType: number[] = env.supportedGameType;
+        for (const k of supportedGameType) {
+          list.push(ui.NewDropdownItem(k, () => `${i18n.t('gametype_' + utils.getKeyByValue(core.GameType,k))}`));
         }
         return list;
       }

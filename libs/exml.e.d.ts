@@ -44,6 +44,10 @@ declare module skins{
 	class VSliderSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class AnimLoadingUISkin extends eui.Skin{
+	}
+}
 declare module skin_desktop.ba{
 	class Analysis extends eui.Skin{
 	}
@@ -202,6 +206,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop.bamb{
 	class CardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.bamb{
+	class FlipCardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.bc{
@@ -1408,6 +1416,14 @@ declare module skin_mobile_landscape{
 	class SqueezeBaccaratScene extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape{
+	class BlockchainSqueezeBaccaratScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.bamb{
+	class CardHolderSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_landscape.bc{
 	class CardInfoCard extends eui.Skin{
 	}
@@ -1967,6 +1983,10 @@ declare module skin_mobile_portrait.ba{
 	}
 }
 declare module skin_mobile_portrait.ba{
+	class StatisticPairChartHolder extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ba{
 	class TableInfoPanel extends eui.Skin{
 	}
 }
@@ -2008,6 +2028,14 @@ declare module skin_mobile_portrait.bam{
 }
 declare module skin_mobile_portrait{
 	class SqueezeBaccaratScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class BlockchainSqueezeBaccaratScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.bamb{
+	class CardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -2792,6 +2820,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class ToggleButtonSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class AnimLoadingUISkin extends eui.Skin{
 	}
 }
 declare module skin_mobile.ba{

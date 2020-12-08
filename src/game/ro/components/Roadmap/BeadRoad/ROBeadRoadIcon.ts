@@ -64,7 +64,8 @@ namespace we {
         this._iconTopText.verticalAlign = egret.VerticalAlign.MIDDLE;
         this._iconTopText.anchorOffsetX = this._iconTopText.width * 0.5;
         this._iconTopText.anchorOffsetY = this._iconTopText.height * 0.5;
-        this.addChild(this._iconTopText);
+        utils.addChild(this,this._iconTopText);
+        // this.addChild(this._iconTopText);
         this._iconTopText.x = this._iconTopText.width * 0.5;
         this._iconTopText.y = this._iconTopText.height * -0.2;
         this._iconTopText.visible = false;
@@ -246,7 +247,8 @@ namespace we {
       public addToTopTextLayer(topTextLayer: egret.DisplayObjectContainer) {
         this._topTextLayer = topTextLayer;
         if (this._iconTopText) {
-          topTextLayer.addChild(this._iconTopText);
+          utils.addChild(topTextLayer, this._iconTopText);
+          // topTextLayer.addChild(this._iconTopText);
           this._iconTopText.x = this.x + this._offsetX;
           this._iconTopText.y = this.y;
         }
@@ -257,17 +259,20 @@ namespace we {
         this._shapeLayer = shapeLayer;
         this._textLayer = textLayer;
         if (this.iconHightLight) {
-          shapeLayer.addChild(this.iconHightLight);
+          utils.addChild(shapeLayer, this.iconHightLight);
+          // shapeLayer.addChild(this.iconHightLight);
           this.iconHightLight.x = this.x;
           this.iconHightLight.y = this.y;
         }
         if (this._iconShape) {
-          shapeLayer.addChild(this._iconShape);
+          utils.addChild(shapeLayer, this._iconShape);
+          // shapeLayer.addChild(this._iconShape);
           this._iconShape.x = this.x;
           this._iconShape.y = this.y;
         }
         if (this._iconText) {
-          textLayer.addChild(this._iconText);
+          utils.addChild(textLayer, this._iconText);
+          // textLayer.addChild(this._iconText);
           this._iconText.x = this.x + this._offsetX;
           this._iconText.y = this.y + this._offsetY;
 
@@ -282,29 +287,37 @@ namespace we {
         this._layerVisible = v;
         if (v) {
           if (this._shapeLayer) {
-            this._shapeLayer.addChild(this.iconHightLight);
+          utils.addChild(this._shapeLayer, this.iconHightLight);
+            // this._shapeLayer.addChild(this.iconHightLight);
           }
           if (this._shapeLayer) {
-            this._shapeLayer.addChild(this._iconShape);
+          utils.addChild(this._shapeLayer, this._iconShape);
+            // this._shapeLayer.addChild(this._iconShape);
           }
           if (this._textLayer) {
-            this._textLayer.addChild(this._iconText);
+          utils.addChild(this._textLayer, this._iconText);
+            // this._textLayer.addChild(this._iconText);
           }
           if (this._topTextLayer) {
-            this._topTextLayer.addChild(this._iconTopText);
+          utils.addChild(this._topTextLayer, this._iconTopText);
+            // this._topTextLayer.addChild(this._iconTopText);
           }
         } else {
           if (this._shapeLayer && this.iconHightLight.parent === this._shapeLayer) {
-            this._shapeLayer.removeChild(this.iconHightLight);
+            utils.removeFromParent(this.iconHightLight);
+            // this._shapeLayer.removeChild(this.iconHightLight);
           }
           if (this._shapeLayer && this._iconShape.parent === this._shapeLayer) {
-            this._shapeLayer.removeChild(this._iconShape);
+            utils.removeFromParent(this._iconShape);
+            // this._shapeLayer.removeChild(this._iconShape);
           }
           if (this._textLayer && this._iconText.parent === this._textLayer) {
-            this._textLayer.removeChild(this._iconText);
+            utils.removeFromParent(this._iconText);
+            // this._textLayer.removeChild(this._iconText);
           }
           if (this._topTextLayer && this._iconTopText.parent === this._topTextLayer) {
-            this._topTextLayer.removeChild(this._iconTopText);
+            utils.removeFromParent(this._iconTopText);
+            // this._topTextLayer.removeChild(this._iconTopText);
           }
         }
       }

@@ -42,6 +42,7 @@ namespace we {
           this.currentState = 'liveRecord';
         } else this.currentState = 'noliveRecord';
       }
+      
       protected init_menu() {
         this._txt_title.renderText = () => `${i18n.t('nav.menu.soundSet')}`;
         this._txt_liveRecord.renderText = () => `${i18n.t('nav.system.liveRecord')}`;

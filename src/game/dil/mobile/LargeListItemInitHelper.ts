@@ -19,16 +19,17 @@ namespace we {
       }
 
       public generateRoadmap(node: eui.Component) {
-        const roadmap = new dil.DilLobbyBeadRoad();
+        // const roadmap = new dil.DilLobbyBeadRoad();
+        const roadmap = dir.largeRoadPool.get(core.GameType.DIL);
         // --Mobile_Portrait Setting
-        roadmap.roadGridSize = 104;
-        roadmap.roadCol = 8;
-        roadmap.roadRow = 2;
-        roadmap.roadIndentX = 38;
-        roadmap.roadIndentY = 24;
-        roadmap.roadOffsetX = 32;
-        roadmap.roadOffsetY = 32;
-        (roadmap.roadEmptyColor = 0x262a2b), (roadmap.roadEmptyAlpha = 1), (roadmap.roadScale = 1);
+        // roadmap.roadGridSize = 104;
+        // roadmap.roadCol = 8;
+        // roadmap.roadRow = 2;
+        // roadmap.roadIndentX = 38;
+        // roadmap.roadIndentY = 24;
+        // roadmap.roadOffsetX = 32;
+        // roadmap.roadOffsetY = 32;
+        // (roadmap.roadEmptyColor = 0x262a2b), (roadmap.roadEmptyAlpha = 1), (roadmap.roadScale = 1);
 
         // --Mobile_Portrait Setting
         const idx = node.parent.getChildIndex(node);

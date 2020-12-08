@@ -251,6 +251,7 @@ namespace we {
         },
         res: {
           onload: '資源加載中',
+          downloading: '載入中',          
         },
       },
       nav: {
@@ -352,6 +353,7 @@ namespace we {
         },
         gametype: {
           allGame: '全部',
+          blockchain: '區塊鏈',
           baccarat: '百家樂',
           dragontiger: '龍虎',
           luckywheel: '幸運輪',
@@ -389,6 +391,8 @@ namespace we {
         askDragon: '龍問路',
         askTiger: '虎問路',
         DragonTigerTieRatio: '龍虎和比例',
+        DragonTigerTieRatio100: '龍虎和比例(100局)',
+        DragonTigerTieRatioshoe: '龍虎和比例(本靴)',
         TieRatio: '和比例',
         DealerRatio: '荷官開龍虎比例',
         round: '局',
@@ -616,7 +620,7 @@ namespace we {
         statType100: '100局',
         statTypeShoe: '本靴',
         BankerPlayerRatio: '庄閒和比例',
-        PairRatio: '庄對閒對比例',
+        PairRatio: '對子比例',
         round: '局',
         rounds: '局',
         playersqueeze: '咪牌中',

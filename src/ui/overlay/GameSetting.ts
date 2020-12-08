@@ -19,16 +19,24 @@ namespace we {
 
       protected mount() {
         super.mount();
-        this._btn_sendLiveVer.visible=false;//remove this to unhide the button
+        this.updateState();
       }
 
+      protected updateState() {
+        if (env._currGameType === core.GameType.BAB || env._currGameType === core.GameType.DTB || env._currGameType === core.GameType.BASB || env._currGameType === core.GameType.BAMB) {
+          this.currentState = 'noSendLive';
+        } else this.currentState = 'sendLive';
+      }
+      
       protected init_menu() {
         this._txt_title.renderText = () => `${i18n.t('nav.menu.gameSet')}`;
         this._txt_showHint.renderText = () => `${i18n.t('overlaypanel_gameSet_showGoodRoadHint')}`;
         this._btn_sendLiveVer.label.renderText = () => `${i18n.t('overlaypanel_gameSet_sendLiveVerfication')}`;
 
         if (env.isMobile) {
-          this._btn_sendLiveVer.label.size = 60;
+          if(this._btn_sendLiveVer){
+            this._btn_sendLiveVer.label.size = 60;
+          }
         }
 
         this.switch_showHint.active = env.showGoodRoadHint;
@@ -46,7 +54,9 @@ namespace we {
 
       protected addListeners() {
         utils.addButtonListener(this.switch_showHint, this.onSwitchShowHint, this);
-        utils.addButtonListener(this._btn_sendLiveVer, this.onSendLiveVerCall, this);
+        if(this._btn_sendLiveVer){
+          utils.addButtonListener(this._btn_sendLiveVer, this.onSendLiveVerCall, this);
+        }
 
         if (!env.isMobile) {
           utils.addButtonListener(this.switch_autoBet, this.onSwitchAutoBet, this);
@@ -59,7 +69,9 @@ namespace we {
 
       protected removeListeners() {
         this.switch_showHint.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchShowHint, this);
-        this._btn_sendLiveVer.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSendLiveVerCall, this);
+        if(this._btn_sendLiveVer){
+          this._btn_sendLiveVer.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSendLiveVerCall, this);
+        }
 
         if (!env.isMobile) {
           this.switch_autoBet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchAutoBet, this);

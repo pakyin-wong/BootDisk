@@ -19,8 +19,8 @@ namespace we {
       public iconPlayerCockroach: we.ba.BACockroachRoadIcon;
 
       // statisticChartPanels
-      public _normalChartPanel: ba.StatisticChart;
-      public _shoeChartPanel: ba.StatisticChart;
+      public _normalChartPanel: dt.StatisticChart;
+      public _shoeChartPanel: dt.StatisticChart;
       // public _tieChartPanel: ba.StatisticChart;
       // public _dealerChartPanel: ba.StatisticChart;
 
@@ -151,10 +151,7 @@ namespace we {
           return;
         }
         if (env && env.tableInfos && env.tableInfos[this._tableId] && env.tableInfos[this._tableId].gamestatistic) {
-          console.log('this._tableId',this._tableId)
-          console.log('-----------------env.tableInfos[this._tableId].gamestatistic',env.tableInfos[this._tableId].gamestatistic)
           const normalInfo = we.utils.stat.dt.getStatInfo(false, env.tableInfos[this._tableId].gamestatistic);
-          console.log('DTDTDTnormalInfo',normalInfo)
           this._normalChartPanel.firstCount = normalInfo.bankerCount;
           this._normalChartPanel.secondCount = normalInfo.playerCount;
           this._normalChartPanel.thirdCount = normalInfo.tieCount;
@@ -166,7 +163,6 @@ namespace we {
 
           // const tieInfo = we.utils.stat.ba.getStatInfo(true, env.tableInfos[this._tableId].gamestatistic);
           const shoeInfo = we.utils.stat.dt.getStatInfo(true, env.tableInfos[this._tableId].gamestatistic);
-          console.log('DTDTDTshoeInfo',shoeInfo)
           this._shoeChartPanel.firstCount = shoeInfo.bankerCount;
           this._shoeChartPanel.secondCount = shoeInfo.playerCount;
           this._shoeChartPanel.thirdCount = shoeInfo.tieCount;
