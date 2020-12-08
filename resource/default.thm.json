@@ -398,6 +398,7 @@
 		"resource/skin_mobile/MobileCountdownTimerRoundSqueezeBaccarat.exml",
 		"resource/skin_mobile_landscape/bam/resultDisplay/MobileCardHolder.exml",
 		"resource/skin_mobile_landscape/bam/SqueezeBaccaratScene.exml",
+		"resource/skin_mobile_landscape/bamb/MobileBottomGamePanel.exml",
 		"resource/skin_mobile_landscape/bamb/BlockchainSqueezeBaccaratScene.exml",
 		"resource/skin_mobile_landscape/bamb/resultDisplay/MobileCardHolder.exml",
 		"resource/skin_mobile_landscape/bc/CardInfoCard.exml",

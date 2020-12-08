@@ -20,11 +20,13 @@ namespace we {
         this.cardAnimNames = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2']
         this._flipStr = 'filp'
       }
-
-      protected mount(){
-        super.mount();
-        this._ringAnim.animation.gotoAndStopByFrame('icon_loop',0);
-        this.expandBottom();
+      
+      // could be treated as second part of mount
+      public passBackgrounds(backgrounds : any){
+        this._particleGroup = backgrounds.particleGroup;
+        this._wholeMoveGroup = backgrounds.wholeMoveGroup;
+        this._animRingGroup = backgrounds.animRingGroup;
+        super.passBackgrounds(backgrounds);
       }
 
       protected getMoveIndex(){
@@ -62,12 +64,17 @@ namespace we {
       }
 
       public collapseBottom(){
+        if(env.orientation === 'portrait'){
         this._wholeMoveGroup.y = -290
           if(this._gameData && this._gameData.state === core.GameState.BET){
             this._resultGroup.y = 59
           }else{
             this._resultGroup.y = 0
           }
+        }else{
+          this._wholeMoveGroup.y = 0;
+          this._resultGroup.y = 0;
+        }
       }
 
       public showSumGroup(){
@@ -84,14 +91,33 @@ namespace we {
             this._playerCard3Group.y = 679;
             this._bankerCard3Group.y = 679;
           }else{
-            this._playerCardMoveGroup.x = 776;
-            this._bankerCardMoveGroup.x = 776;
-            this._playerCard3Group.x = 778;
-            this._bankerCard3Group.x = 778;
-            this._playerCardMoveGroup.y = 238;
-            this._bankerCardMoveGroup.y = 238;
-            this._playerCard3Group.y = 48;
-            this._bankerCard3Group.y = 48;
+            if(this._gameData.state === core.GameState.FINISH){
+              this._playerCardMoveGroup.x = 829;
+              this._bankerCardMoveGroup.right = 829;
+              this._playerCard3Group.x = 639;
+              this._bankerCard3Group.right = 639;
+              this._playerCardMoveGroup.y = 757;
+              this._bankerCardMoveGroup.y = 757;
+              this._playerCard3Group.y = 757;
+              this._bankerCard3Group.y = 757;
+              this._playerSumGroup.x = 1109;
+              this._bankerSumGroup.right = 1109;
+              this._playerSumGroup.y = 799;
+              this._bankerSumGroup.y = 799;
+            }else{
+              this._playerCardMoveGroup.x = 692;
+              this._bankerCardMoveGroup.right = 692;
+              this._playerCard3Group.x = 502;
+              this._bankerCard3Group.right = 502;
+              this._playerCardMoveGroup.y = 1006;
+              this._bankerCardMoveGroup.y = 1006;
+              this._playerCard3Group.y = 1006;
+              this._bankerCard3Group.y = 1006;
+              this._playerSumGroup.x = 972;
+              this._bankerSumGroup.right = 972;
+              this._playerSumGroup.y = 1048;
+              this._bankerSumGroup.y = 1048;
+            }
           }
         }
       }
@@ -110,14 +136,10 @@ namespace we {
             this._playerCard3Group.y = 536;
             this._bankerCard3Group.y = 536;     
           }else{
-            this._playerCardMoveGroup.x = 625;
-            this._bankerCardMoveGroup.x = 625;
-            this._playerCard3Group.x = 627;
-            this._bankerCard3Group.x = 627;     
-            this._playerCardMoveGroup.x = 334;
-            this._bankerCardMoveGroup.right = 334;
-            this._playerCard3Group.x = 144;
-            this._bankerCard3Group.right = 144;                
+              this._playerCardMoveGroup.x = 925;
+              this._bankerCardMoveGroup.right = 925;
+              this._playerCardMoveGroup.y = 606;
+              this._bankerCardMoveGroup.y = 606;
           }
         }
       }

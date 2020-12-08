@@ -1421,6 +1421,10 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape.bamb{
+	class MobileBottomGamePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.bamb{
 	class CardHolderSkin extends eui.Skin{
 	}
 }
