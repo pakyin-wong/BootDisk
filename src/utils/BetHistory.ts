@@ -176,22 +176,28 @@ namespace we {
         if (!label) {
           return;
         }
-
-        switch (remark) {
-          case -1:
-            label.textColor = 0xff5555;
-            break;
-          default:
-            label.textColor = 0x43ce5c;
-            break;
-        }
+        console.log('remark??????',remark)
+        console.log('amt',amt)
+        console.log('type',typeof(amt))
+        // switch (remark) {
+        //   case -1:
+        //     label.textColor = 0xff5555;
+        //     break;
+        //   default:
+        //     label.textColor = 0x43ce5c;
+        //     break;
+        // }
+   
 
         if (amt > 0) {
           label.text = `+${utils.formatNumber(Math.abs(amt), true)}`;
+          label.textColor = 0x43ce5c;
         } else if (amt === 0) {
           label.text = `${utils.formatNumber(Math.abs(amt), true)}`;
+          label.textColor = 0x43ce5c;
         } else {
           label.text = `-${utils.formatNumber(Math.abs(amt), true)}`;
+          label.textColor = 0xff5555;
         }
       }
     }
