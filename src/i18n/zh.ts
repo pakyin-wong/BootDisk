@@ -353,6 +353,7 @@ namespace we {
         },
         gametype: {
           allGame: '全部',
+          blockchain: '區塊鏈',
           baccarat: '百家樂',
           dragontiger: '龍虎',
           luckywheel: '幸運輪',

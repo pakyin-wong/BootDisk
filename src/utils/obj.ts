@@ -15,6 +15,11 @@ namespace we {
       return obj;
     }
 
+    export function getKeyByValue(object, value) {
+      var key = Object.keys(object).filter(function(key) {return object[key] === value})[0];
+      return key;
+    }
+
     export function varToString(varObj) {
       return Object.keys(varObj)[0];
     }
