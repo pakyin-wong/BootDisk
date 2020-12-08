@@ -186,6 +186,8 @@ namespace we {
       }
 
       protected initPlayerProfile() {
+        this._editName.visible = false;//hide the button for [區塊鏈12/18上線] 暱稱 - 暫時隱藏修改按鈕
+
         this._balance.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
         dir.meterCtr.register('balance', this._balance);
         if (!isNaN(env.balance)) {
