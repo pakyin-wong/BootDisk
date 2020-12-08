@@ -147,8 +147,8 @@ namespace we {
       public loDeniminationIdx = 0;
 
       public init() {
-        if (false) {
-        // if (DEBUG) {
+        // if (false) {
+        if (DEBUG) {
           this.validCategories = ['live','lottery'];
           this.sidePanelValidCategories = ['live','lottery'];
           this.mobileValidGameType = [
