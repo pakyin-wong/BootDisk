@@ -176,9 +176,6 @@ namespace we {
         if (!label) {
           return;
         }
-        console.log('remark??????',remark)
-        console.log('amt',amt)
-        console.log('type',typeof(amt))
         // switch (remark) {
         //   case -1:
         //     label.textColor = 0xff5555;
