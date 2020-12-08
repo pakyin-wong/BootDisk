@@ -41,10 +41,24 @@ namespace we {
     export enum GameName {
       lobby = 'lobby',
       ba = 'ba',
+      bam = 'bam',
+      bab = 'bab',
+      bamb = 'bamb',
+      dt = 'dt',
+      dtb = 'dtb',
+      ro = 'ro',
+      rol = 'rol',
+      di = 'di',
+      dil = 'dil',
+      lw = 'lw',
+      lo = 'lo',
+      rc = 'rc',
     }
     export enum PageName {
       lobby = 'lobby',
       live = 'live',
+      lottery = 'lottery',
+      favourite = 'favourite'
     }
 
     // export enum GameGroupTab {
@@ -54,6 +68,7 @@ namespace we {
 
     export enum LiveGameTab {
       all = 'allGame',
+      bc = 'blockchain',
       ba = 'baccarat',
       dt = 'dragontiger',
       ro = 'roulette',
@@ -68,13 +83,6 @@ namespace we {
       lo = 'lottery',
       rc = 'race',
     }
-
-    export const TableFilter = {
-      FEATURED_TABLE: 1,
-      BACCARAT: '123213',
-      BACCARAT_GOOD_ROAD: 3,
-      OTHER_GAMES: 4,
-    };
 
     export const Mode = {
       UNKNOWN: 0,
