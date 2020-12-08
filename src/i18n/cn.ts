@@ -667,6 +667,17 @@ namespace we {
         announceAfterDisclose: '将于开牌后公布...',
         cardUsed: '牌靴: 已使用$1张',
       },
+      squeezeBaccarat: {
+        tutorial: {
+          title: "咪牌教学",
+          showCard: "全開",
+          next: "下一頁",
+          caption_1: '点撃全开按钮，卡牌立即全开',
+          caption_2: '点击卡牌可切换大卡牌',
+          caption_3: '点撃卡牌中间位置快速开牌',
+          caption_4: '透过拖拽四边四角进行咪牌',
+        },
+      },
       message: {
         test: '你贏得 $1，$2% 會比左我',
         unknownError: '亲，花生未知錯誤',
