@@ -40,20 +40,21 @@ namespace we {
       // this.beadRoadConfig.parent.addChild(this.beadRoad);
 
       public generateRoadmap(node: eui.Component) {
-        const roadmap = new di.DiLobbyBeadRoad();
+        // const roadmap = new di.DiLobbyBeadRoad();
+        const roadmap = dir.largeRoadPool.get(core.GameType.DI);
         // --Mobile_Portrait Setting
-        roadmap.roadGridSize = 80;
-        roadmap.roadCol = 13;
-        roadmap.roadRow = 1;
-        roadmap.roadIndentX = 15;
-        roadmap.roadIndentY = 15;
-        roadmap.roadOffsetX = 14;
-        roadmap.roadOffsetY = 8;
-        roadmap.iconHeight = 264;
-        roadmap.textSize = 37;
-        roadmap.diceSize = 46;
-        roadmap.roadWidth = 1138;
-        roadmap.roadIconItemYOffset = 8;
+        // roadmap.roadGridSize = 80;
+        // roadmap.roadCol = 13;
+        // roadmap.roadRow = 1;
+        // roadmap.roadIndentX = 15;
+        // roadmap.roadIndentY = 15;
+        // roadmap.roadOffsetX = 14;
+        // roadmap.roadOffsetY = 8;
+        // roadmap.iconHeight = 264;
+        // roadmap.textSize = 37;
+        // roadmap.diceSize = 46;
+        // roadmap.roadWidth = 1138;
+        // roadmap.roadIconItemYOffset = 8;
         // --Mobile_Portrait Setting
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(roadmap, idx);

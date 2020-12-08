@@ -5,23 +5,29 @@ namespace we {
 
       constructor() {
         super();
-        this.skinName = utils.getSkinByClassname('GoodRoadLabelSkin');
+        
       }
 
       public set renderText(r: () => string) {
+        if (this.skinName == null) {
+          this.skinName = utils.getSkinByClassname('GoodRoadLabelSkin');
+        }
         this.label.renderText = r;
       }
 
       public get renderText() {
-        return this.label.renderText;
+        return this.label?this.label.renderText:null;
       }
 
       public set text(value: string) {
+        if (this.skinName == null) {
+          this.skinName = utils.getSkinByClassname('GoodRoadLabelSkin');
+        }
         this.label.text = value;
       }
 
       public get text(): string {
-        return this.label.text;
+        return this.label?this.label.text:'';
       }
     }
   }

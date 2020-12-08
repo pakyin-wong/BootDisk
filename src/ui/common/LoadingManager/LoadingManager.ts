@@ -66,6 +66,8 @@ namespace we {
         const self = this;
         this.isLoading = true;
 
+        this.options.loadingUI = ui.AnimLoadingUI; 
+
         // init progressMap and progressLength
         this.progressMap = Array.apply(null, { length: tasks.length }).map((value, idx) => {
           const progressMap: number[] = this.options.progressMap ? this.options.progressMap : [];
@@ -77,7 +79,6 @@ namespace we {
           return 1;
         });
 
-        // TODO: show loading UI
         const loadingUI = this.options.loadingUI ? this.options.loadingUI : LoadingManager.defaultLoadingUI ? LoadingManager.defaultLoadingUI : null;
         this.loadingInstance = loadingUI ? new loadingUI() : null;
         if (this.loadingInstance) {
@@ -104,6 +105,7 @@ namespace we {
               this.onUpdate();
               this._currentIdx++;
             }
+
           }
         } catch (err) {
           throw new Error(err);
@@ -130,6 +132,7 @@ namespace we {
         if (this.loadingInstance) {
           this.loadingInstance.onProgress((this.progress * 1.0) / this.progressLength, this.progress, this.progressLength);
         }
+        
       }
 
       protected progressPromise(promises, tickCallback) {

@@ -4,14 +4,15 @@ namespace we {
       protected tableInfo: data.TableInfo;
 
       protected _leftHolder: we.dt.StatisticChartHolder;
-
+      protected _rightHolder: we.dt.StatisticChartHolder;
       public constructor() {
         super();
       }
 
       public mount() {
         super.mount();
-        this._leftHolder.setupChart1(() => i18n.t('dragontiger.DragonTigerTieRatio'), false);
+        this._leftHolder.setupChart1(() => i18n.t('dragontiger.DragonTigerTieRatioshoe'), false);
+        this._rightHolder.setupChart1(() => i18n.t('dragontiger.DragonTigerTieRatio100'), false);
       }
 
       public setValue(tableInfo: data.TableInfo) {
@@ -25,8 +26,8 @@ namespace we {
       }
 
       protected initData() {
-        const shoeInfo = we.utils.stat.ba.getStatInfo(true, this.tableInfo.gamestatistic);
-        const normalInfo = we.utils.stat.ba.getStatInfo(false, this.tableInfo.gamestatistic);
+        const shoeInfo = we.utils.stat.dt.getStatInfo(true, this.tableInfo.gamestatistic);
+        const normalInfo = we.utils.stat.dt.getStatInfo(false, this.tableInfo.gamestatistic);
 
         let info = {
           firstCount: shoeInfo.bankerCount,
@@ -47,6 +48,7 @@ namespace we {
           thirdPercentage: normalInfo.tiePercentage,
           totalCount: normalInfo.totalCount,
         };
+	      this._rightHolder.updateChart1(info);
       }
 
       public update() {

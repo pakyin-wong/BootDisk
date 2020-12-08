@@ -1,6 +1,6 @@
 namespace we {
   export namespace dil {
-    export class DilLobbyBeadRoad extends ui.Panel implements we.ui.ILobbyRoad {
+    export class DilLobbyBeadRoad extends core.BaseEUI implements we.ui.ILobbyRoad {
       protected beadRoad: DilBeadRoad;
 
       public roadGridSize: number;
@@ -40,14 +40,19 @@ namespace we {
         this.roadEmptyAlpha = roadEmptyAlpha;
         this.roadScale = roadScale;
 
-        this.cacheAsBitmap = true;
+        // this.cacheAsBitmap = true;
+        this.initParams();
+        this.init();
       }
 
       protected childrenCreated() {
         super.childrenCreated();
-        this.init();
       }
 
+      protected initParams() {
+
+      }
+      
       protected init() {
         this.beadRoad = new DilBeadRoad(this.roadRow, this.roadCol, this.roadGridSize, this.roadScale, this.roadOffsetX, this.roadOffsetY, this.roadEmptyColor, this.roadEmptyAlpha); // in game
         this.beadRoad.x = this.roadIndentX;
@@ -97,6 +102,44 @@ namespace we {
       protected destroy() {
         super.destroy();
         this.beadRoad.dispose();
+      }
+    }
+
+    export class DilSideListRoadmap extends DilLobbyBeadRoad {
+      protected initParams() {
+        this.roadGridSize = 36;
+        this.roadCol = 8;
+        this.roadRow = 2;
+        this.roadIndentX = 3;
+        this.roadIndentY = 4;
+        this.roadOffsetX = 6;
+        this.roadOffsetY = 12;
+        this.height = 95;
+      }
+    }
+
+    export class DilLargeListRoadmap extends DilLobbyBeadRoad {
+      protected initParams() {
+        this.roadGridSize = 104;
+        this.roadCol = 8;
+        this.roadRow = 2;
+        this.roadIndentX = 38;
+        this.roadIndentY = 24;
+        this.roadOffsetX = 32;
+        this.roadOffsetY = 32;
+        (this.roadEmptyColor = 0x262a2b), (this.roadEmptyAlpha = 1), (this.roadScale = 1);
+      }
+    }
+
+    export class DilSmallListRoadmap extends DilLobbyBeadRoad {
+      protected initParams() {
+        this.roadGridSize = 64;
+        this.roadCol = 6;
+        this.roadRow = 2;
+        this.roadIndentX = 22;
+        this.roadIndentY = 30;
+        this.roadOffsetX = 24;
+        this.roadOffsetY = 24;
       }
     }
   }

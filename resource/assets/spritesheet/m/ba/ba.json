@@ -331,6 +331,36 @@
       "sourceW": 26,
       "sourceH": 26
     },
+    "d_ba_roadmap_bar_bankerpairstate_png": {
+      "x": 1240.5,
+      "y": 657.5,
+      "w": 24,
+      "h": 24,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 24,
+      "sourceH": 24
+    },
+    "d_ba_roadmap_bar_playerpairstate_png": {
+      "x": 1207,
+      "y": 657.5,
+      "w": 24,
+      "h": 24,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 24,
+      "sourceH": 24
+    },
+    "d_ba_roadmap_bar_tiepairstate_png": {
+      "x": 1240.5,
+      "y": 683.5,
+      "w": 24,
+      "h": 24,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 24,
+      "sourceH": 24
+    },
     "d_ba_navbar_icon_video_png": {
       "x": 640,
       "y": 1409.5,
@@ -432,8 +462,8 @@
       "sourceH": 13.5
     },
     "m_ba_goodroad_info_ring_banker_png": {
-      "x": 1240.5,
-      "y": 657.5,
+      "x": 1207,
+      "y": 683.5,
       "w": 13.5,
       "h": 13.5,
       "offX": 0,
@@ -442,8 +472,8 @@
       "sourceH": 13.5
     },
     "m_ba_goodroad_info_ring_player_png": {
-      "x": 1256,
-      "y": 657.5,
+      "x": 1222.5,
+      "y": 683.5,
       "w": 13.5,
       "h": 13.5,
       "offX": 0,
@@ -453,7 +483,7 @@
     },
     "m_ba_goodroad_info_round_banker_png": {
       "x": 1207,
-      "y": 657.5,
+      "y": 699,
       "w": 13.5,
       "h": 13.5,
       "offX": 0,
@@ -463,33 +493,13 @@
     },
     "m_ba_goodroad_info_round_player_png": {
       "x": 1222.5,
-      "y": 657.5,
+      "y": 699,
       "w": 13.5,
       "h": 13.5,
       "offX": 0,
       "offY": 0,
       "sourceW": 13.5,
       "sourceH": 13.5
-    },
-    "d_ba_roadmap_bar_bankerpairstate_png": {
-      "x": 1240.5,
-      "y": 673,
-      "w": 11,
-      "h": 11,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 11,
-      "sourceH": 11
-    },
-    "d_ba_roadmap_bar_playerpairstate_png": {
-      "x": 1253.5,
-      "y": 673,
-      "w": 11,
-      "h": 11,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 11,
-      "sourceH": 11
     }
   }
 }
