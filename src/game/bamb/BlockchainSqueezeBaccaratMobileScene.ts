@@ -53,6 +53,7 @@ namespace we {
         console.log('PEEK', this._gameData.state, this._gameData.gameroundid, (<any>this._gameData).peekstarttime);
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         this.toggleBottomGamePanel()
+        this.showSumGroup();
         this.setChildIndex(this._resultDisplay, 99999)
         if (this._previousState !== we.core.GameState.PEEK || isInit) {
           this.setBetRelatedComponentsEnabled(false);
@@ -72,6 +73,7 @@ namespace we {
         // console.log('PEEK_PLAYER ' + new Date(Date.now()).toString());
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         this.toggleBottomGamePanel()
+        this.showSumGroup();
         this.setChildIndex(this._resultDisplay, 99999)
 
         if (this._previousState !== we.core.GameState.PEEK_PLAYER || isInit) {
@@ -90,6 +92,7 @@ namespace we {
         // console.log('PEEK_BANKER ' + new Date(Date.now()).toString());
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         this.toggleBottomGamePanel()
+        this.showSumGroup();
         this.setChildIndex(this._resultDisplay, 99999)
         if (this._previousState !== we.core.GameState.PEEK_BANKER || isInit) {
           this.setBetRelatedComponentsEnabled(false);
