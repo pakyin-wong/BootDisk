@@ -5,21 +5,25 @@
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
 		<e:Rect top="0" bottom="0" left="0" right="0" fillAlpha="0.9" fillColor="0x14181e"/>
 		<ui:RunTimeLabel id="txt_title" text="Label" x="48" y="54" size="80" height="119" verticalAlign="middle" width="600" textColor="0xc59466"/>
-		<e:Rect width="800" height="3" x="156" y="572" fillAlpha="0.4" fillColor="0x616161" />
-		<e:Rect width="800" height="3" x="156" y="1683" fillAlpha="0.4" fillColor="0x616161"/>
+		<e:Rect width="800" height="3" y="592" fillAlpha="0.4" fillColor="0x616161"  x="100"/>
+		<e:Rect width="800" height="3" y="1683" fillAlpha="0.4" fillColor="0x616161" x="100"/>
 		<e:Image id="close" width="54" height="54" x="899" y="87" source="m_common_icon_close_png"/>
-		<ui:RunTimeLabel id="txt_selectMode" text="Label" y="237" anchorOffsetX="0" anchorOffsetY="0" height="89"
+		<ui:RunTimeLabel id="txt_selectMode" text="Label" y="196" anchorOffsetX="0" anchorOffsetY="0" height="89"
 		                 textAlign="center" size="60" textColor="0xffffff"
 		                 verticalAlign="middle"  alpha="0.7" left="0" right="0"/>
-		<e:Group id="btn_lightMode" x="195" y="374">
-			<e:Image width="130" height="88" x="95" y="15" source="m_lobby_setting_panel_setting_uicolour_light_png" source.light="m_common_panel_setting_uicolour_light_png"/>
-			<e:Image width="47" height="47" x="0" y="36" source.dark="d_lobby_select_round_no_png" source.light="d_lobby_select_round_yes_png"/>
-			<e:Image width="158" height="118" x="81" y="0" scaleX="1" scaleY="1" source.dark="m_lobby_setting_panel_setting_uicolour_png" source.light="m_common_panel_setting_uicolour_active_png"/>
+		<e:Group id="btn_lightMode" x="195" y="314">
+			<e:Image width="188" height="114" x="18" y="18" source="m_lobby_setting_panel_setting_uicolour_light_png" source.light="m_common_panel_setting_uicolour_light_png"/>
+			<e:Image width="47" height="47" x="21" y="188" source.dark="d_lobby_select_round_no_png" source.light="d_lobby_select_round_yes_png"/>
+			<ui:RunTimeLabel id="txt_lightMode" text="l" y="165" height="83" size="56" textAlign="center" verticalAlign="middle"
+			                 x="66" width="158" />
+			<e:Image width="224" height="150" x="0" y="0" scaleX="1" scaleY="1" source.light="m_common_panel_setting_uicolour_active_png"/>
 		</e:Group>
-		<e:Group id="btn_darkMode" x="556" y="374">
-			<e:Image width="130" height="88" x="105" y="16" source="m_lobby_setting_panel_setting_uicolour_black_png" source.light="m_common_panel_setting_uicolour_black_png"/>
-			<e:Image width="47" height="47" x="0" y="36" source.light="d_lobby_select_round_no_png" source.dark="d_lobby_select_round_yes_png"/>
-			<e:Image width="158" height="118" x="91" y="0" scaleX="1" scaleY="1" source.dark="m_lobby_setting_panel_setting_uicolour_active_png" source.light="m_common_panel_setting_uicolour_png"/>
+		<e:Group id="btn_darkMode" y="314" x="581">
+			<e:Image width="188" height="114" x="18" y="18" source="m_lobby_setting_panel_setting_uicolour_black_png" source.light="m_common_panel_setting_uicolour_black_png"/>
+			<e:Image width="47" height="47" x="21" y="188" source.light="d_lobby_select_round_no_png" source.dark="d_lobby_select_round_yes_png"/>
+			<ui:RunTimeLabel id="txt_darkMode" text="l" y="165" height="83" size="56" textAlign="center" verticalAlign="middle"
+			                 x="66" width="158" />
+			<e:Image width="224" height="150" x="0" y="0" scaleX="1" scaleY="1" source.dark="m_lobby_setting_panel_setting_uicolour_active_png"/>
 		</e:Group>
 		<e:Group id="btn_gameSet" x="104" y="1760" height="96">
 			<ui:RunTimeLabel id="txt_gameSet" text="Label" x="184" y="3" anchorOffsetX="0" width="650" height="89" size="60" textColor="0xffffff" verticalAlign="middle"/>
