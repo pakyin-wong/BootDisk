@@ -7,6 +7,7 @@ namespace we {
       private _progressMsg: ui.RunTimeLabel;
       private _tip: ui.NavLantern;
       private _bannerImages: core.IRemoteResourceItem[];
+      private _bannerIdx: number;
 
       private step: number = 0;
       private flow = [this.preloadRes, this.initSkin, this.preload, this.getBanner, this.idle, this.socketConnect, this.getStaticData, this.idle, this.loadGeneralRes, this.loadingComplete];
@@ -67,7 +68,10 @@ namespace we {
             // preload loading scene banner images
             let images: egret.Texture[] | core.IRemoteResourceItem[] = await Promise.all<egret.Texture>(res.Bannerurls.map(this._loadRemoteImage));
             images = images.map(image => ({ image, link: null, imageUrl: null, loaded: true }));
-            this._bannerImages = images;
+
+            // choose and display a banner image randomly
+            this._bannerIdx = Math.floor(Math.random()*images.length);
+            this._bannerImages = images.length>0?[images[this._bannerIdx]]:[];
 
             if (res.Nicknames) {
               env.nicknameSet = res.Nicknames;
@@ -114,7 +118,11 @@ namespace we {
             // preload loading scene banner images
             let images: egret.Texture[] | core.IRemoteResourceItem[] = await Promise.all<egret.Texture>(res.Bannerurls.map(this._loadRemoteImage));
             images = images.map(image => ({ image, link: null, imageUrl: null, loaded: true }));
-            this._bannerImages = images;
+            if (this._bannerIdx >= images.length) {
+              this._bannerIdx = Math.floor(Math.random()*images.length);
+            }
+            this._bannerImages = images.length>0?[images[this._bannerIdx]]:[];
+            // this._bannerImages = images;
 
             if (res.Nicknames) {
               env.nicknameSet = res.Nicknames;
@@ -186,7 +194,7 @@ namespace we {
         RES.createGroup('firstRun', [core.res.Lobby, core.res.Baccarat, core.res.DragonTiger, core.res.Roulette, core.res.Dice, core.res.Common, core.res.Nav, core.res.LuckyWheel, 'temp', 'test']);
         RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
         this._progressMsg.renderText = () => `${i18n.t('loading.res.onload')}`;
-        // this._progressbar.minimum = 0;
+        // this._progressbar.minimum = 0;common_ui_ske
         // this._progressbar.maximum = 0;
         // this._progressbar.value = 0;
         await RES.loadGroup('firstRun');
