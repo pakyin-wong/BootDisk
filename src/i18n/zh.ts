@@ -649,9 +649,9 @@ namespace we {
       },
       squeezeBaccarat: {
         tutorial: {
-          title: "咪牌教学",
-          showCard: "全开",
-          next: "下一页",
+          title: '咪牌教学',
+          showCard: '全开',
+          next: '下一页',
           caption_1: '點撃全開按鈕，卡牌立即全開',
           caption_2: '點擊卡牌可切換大卡牌',
           caption_3: '點撃卡牌中間位置快速開牌',

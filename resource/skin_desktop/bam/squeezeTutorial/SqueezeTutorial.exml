@@ -4,8 +4,10 @@
     <e:Group width="800" height="800" touchChildren="true">
         <!--<e:Image source="d_sq_ba_instruction_bg_png" width="800" height="800" scale9Grid="20,20,45,35" />
         -->
-        <ui:RoundRectShape cornerTL_TR_BL_BR="20,20,20,20" width="800" height="800" stroke="0" fillColor="0x14181e" fillAlpha="0.9"/>
-        <ui:RunTimeLabel id="_title" bold="true" text="咪牌教學" size="48" textColor="0xc59466" left="40" y="22" />
+        <ui:RoundRectShape cornerTL_TR_BL_BR="20,20,20,20" width="800" height="800" stroke="0" fillColor="0x14181e"
+                           fillAlpha="0.9" />
+        <ui:RunTimeLabel id="_title" bold="true" textKey="squeezeBaccarat.tutorial.title" size="48" textColor="0xc59466"
+                         left="40" y="22" />
         <e:Group y="90" id="_content" width="800" height="710" touchThrough="true">
             <ui:HorizontalHolder id="_holder" width="800" height="710" slideWidth="800" slideHeight="710"
                                  isTouchEnabled="false" isLoop="false" isAuto="false" isBullet="false">
@@ -18,7 +20,8 @@
                         </e:scale9Grid>
                     </e:Image>
                     <ui:RunTimeLabel id="_allOpenOne" width="223" height="57" x="290" y="442" textAlign="center"
-                                     text="全開" size="33" alpha="0.7" verticalAlign="middle" />
+                                     textKey="squeezeBaccarat.tutorial.showCard" size="33" alpha="0.7"
+                                     verticalAlign="middle" />
                     <e:Image x="437.96" y="472" source="d_sq_ba_touch_icon_png" rotation="315" />
                 </e:Group>
                 <e:Group id="_pageTwo" width="800" height="710" visible="true">
@@ -30,29 +33,40 @@
                         </e:scale9Grid>
                     </e:Image>
                     <ui:RunTimeLabel id="_allOpenTwo" width="223" height="57" x="290" y="442" textAlign="center"
-                                     text="全開" size="33" alpha="0.7" verticalAlign="middle" />
+                                     textKey="squeezeBaccarat.tutorial.showCard" size="33" alpha="0.7"
+                                     verticalAlign="middle" />
                     <e:Image x="242.33" y="219.99" source="d_sq_ba_touch_icon_png" rotation="315" />
                 </e:Group>
                 <e:Group id="_pageThree" width="800" height="710">
                     <e:Image source="d_sq_ba_instruction_crad_group_02_png" width="543" height="441.48"
                              anchorOffsetX="0" anchorOffsetY="0" y="25" horizontalCenter="0" />
                     <e:Group id="_mask" x="282" y="431">
-                        <ui:RunTimeLabel id="_allOpenThree" width="223" height="57" textAlign="center" text="全開"
-                                         size="33" alpha="0.7" verticalAlign="middle" />
+                        <ui:RunTimeLabel id="_allOpenThree" width="223" height="57" textAlign="center"
+                                         textKey="squeezeBaccarat.tutorial.showCard" size="33" alpha="0.7"
+                                         verticalAlign="middle" />
                     </e:Group>
                     <e:Image x="348" y="370" source="d_sq_ba_touch_icon_png" rotation="315" />
                 </e:Group>
             </ui:HorizontalHolder>
-            <ui:RunTimeLabel id="_captionOne" horizontalCenter="0" text="點撃全開按鈕 卡牌立即全開" size="28" alpha="0.7" y="571" />
-            <ui:RunTimeLabel id="_captionTwo" horizontalCenter="0" text="點擊卡牌中間位置快速開牌" size="28" alpha="0.7" y="571" />
-            <ui:RunTimeLabel id="_captionThree" horizontalCenter="0" text="點撃全開按鈕 卡牌立即全開" size="28" alpha="0.7" y="571" />
+            <ui:RunTimeLabel id="_captionOne" horizontalCenter="0" textKey="squeezeBaccarat.tutorial.caption_1"
+                             wordWrap="true" width="700" textAlign="center" y="510" height="100" verticalAlign="middle"
+                             size="28" alpha="0.7" />
+            <ui:RunTimeLabel id="_captionTwo" horizontalCenter="0" textKey="squeezeBaccarat.tutorial.caption_3"
+                             wordWrap="true" width="700" textAlign="center" y="510" height="100" verticalAlign="middle"
+                             size="28" alpha="0.7" />
+            <ui:RunTimeLabel id="_captionThree" horizontalCenter="0" textKey="squeezeBaccarat.tutorial.caption_4"
+                             wordWrap="true" width="700" textAlign="center" y="510" height="100" verticalAlign="middle"
+                             size="28" alpha="0.7" />
         </e:Group>
         <e:Rect id="moveArea" width="800" height="800" fillAlpha="0" strokeAlpha="0" />
-			<e:Group id="_bottom" width="800" height="106" touchThrough="true" bottom="0">
-				<e:Component id="_prevButton" skinName="skin_desktop.bam.SqueezeArrowButtonSkin" scaleX="-1" horizontalCenter="-69" verticalCenter="0"/>
-				<ui:RunTimeLabel id="_pageText" width="60" height="57" textAlign="center" text="1/3" size="24" alpha="0.7" verticalAlign="middle" horizontalCenter="0" verticalCenter="0"/>
-				<e:Component id="_nextButton" skinName="skin_desktop.bam.SqueezeArrowButtonSkin" horizontalCenter="69" verticalCenter="0"/>
-			</e:Group>
-			<e:Image id="_close" width="45" height="45" source="d-lobby-button-close-none_png" right="40" y="22"/>
+        <e:Group id="_bottom" width="800" height="106" touchThrough="true" bottom="0">
+            <e:Component id="_prevButton" skinName="skin_desktop.bam.SqueezeArrowButtonSkin" scaleX="-1"
+                         horizontalCenter="-69" verticalCenter="0" />
+            <ui:RunTimeLabel id="_pageText" width="60" height="57" textAlign="center" text="1/3" size="24" alpha="0.7"
+                             verticalAlign="middle" horizontalCenter="0" verticalCenter="0" />
+            <e:Component id="_nextButton" skinName="skin_desktop.bam.SqueezeArrowButtonSkin" horizontalCenter="69"
+                         verticalCenter="0" />
+        </e:Group>
+        <e:Image id="_close" width="45" height="45" source="d-lobby-button-close-none_png" right="40" y="22" />
     </e:Group>
 </e:Skin>

@@ -643,8 +643,19 @@ namespace we {
         ssn: 'Serial Number',
         lastRound: 'Last Round',
         redCardDesc: 'Red Card：After this round, new shoe will be used',
-        announceAfterDisclose:'Announce after card disclosed...',
+        announceAfterDisclose: 'Announce after card disclosed...',
         cardUsed: 'Shoe: $1 used'
+      },
+      squeezeBaccarat: {
+        tutorial: {
+          title: 'Squeeze Tutorial',
+          showCard: 'Show Card',
+          next: 'Next',
+          caption_1: "Click 'Show Card', all cards will be revealed",
+          caption_2: 'Tap card to swap',
+          caption_3: 'Tap center of card to face up that card quickly',
+          caption_4: 'Slowly reveal the card by moving the cursor from 4 corners or edges of the card',
+        },
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',
