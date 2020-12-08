@@ -11,12 +11,24 @@ namespace we {
       protected _timeMultiple: number = 1000;
       protected _squeezeTimer: ui.CountdownTimer;
       protected _flipCardHolder: FlipCardHolder;
+      protected _particleGroup: eui.Group;
+      protected _wholeMoveGroup: eui.Group;
+      protected _animRingGroup: eui.Group;
+      protected _resultDisplay: ui.IResultDisplay & we.blockchain.CardHolder & we.bamb.MobileCardHolder
+
       public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat, core.res.BlockchainSqueezeBaccarat];
 
-      protected mount(){
+      protected mount() {
         super.mount();
-        console.log('passFlipCardHolder' , this._flipCardHolder);
-        (<bamb.CardHolder>this._resultDisplay).passFlipCardHolder(this._flipCardHolder);
+        this._resultDisplay.passFlipCardHolder(this._flipCardHolder);
+      }
+
+      protected passBackgroundsToResultDisplay(){
+        this._resultDisplay.passBackgrounds({
+          wholeMoveGroup: this._wholeMoveGroup,
+          animRingGroup: this._animRingGroup,
+          particleGroup: this._particleGroup
+        })
       }
 
       protected setSkinName() {
@@ -26,15 +38,15 @@ namespace we {
 
       protected toggleBottomGamePanel() {
         super.toggleBottomGamePanel();
-                if (env.isBottomPanelOpen) {
-                  this._squeezeTimer.y = 362;
-                }else{
-                  this._squeezeTimer.y = 488;
+        if (env.isBottomPanelOpen) {
+          this._squeezeTimer.y = 362;
+        } else {
+          this._squeezeTimer.y = 488;
 
-                }
+        }
       }
 
-      protected setStateBet(isInit: boolean = false){
+      protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
         this._squeezeTimer.visible = false;
       }

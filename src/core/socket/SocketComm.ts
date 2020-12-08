@@ -5,6 +5,8 @@ export namespace core {
 
       private _queryLang: string;
 
+      private _isInit: boolean = false;
+
 			constructor() {
 				const value = window.location.search;
 
@@ -288,8 +290,11 @@ export namespace core {
 			// Handler for Ready event
 			protected handleReady(player: data.PlayerSession, timestamp: string) {
 				// return data with struct data.PlayerSession
-
 				//console.log('player',player);
+
+        if (this._isInit) return;
+        // allow init once only
+        this._isInit = true;
 
 				this.updateTimestamp(timestamp);
 				env.playerID = player.playerid;

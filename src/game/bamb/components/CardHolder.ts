@@ -14,9 +14,16 @@ namespace we {
 
       protected _currentFocusCard: dragonBones.EgretArmatureDisplay;
 
+      protected _flipStr: string;
+
       public passFlipCardHolder(flipCardHolder: FlipCardHolder) {
         this._flipCardHolder = flipCardHolder
         this._flipCardHolder.addEventListener(we.core.Event.CARD_FLIPPED, this.centerCardFlipped, this)
+      }
+
+      protected initVariables() {
+        super.initVariables();
+        this._flipStr = 'flip'
       }
 
       protected mount() {
@@ -188,9 +195,10 @@ namespace we {
       }
 
       protected async flipCard(card: dragonBones.EgretArmatureDisplay, orientation: string, dark = '') {
+        console.log('flipcard :', this.cardToData(card))
         if (card.name !== 'flipped') {
           card.name = 'flipped';
-          await utils.playAnimation(card, `sq_${orientation}_${dark}flip`, 1);
+          await utils.playAnimation(card, `sq_${orientation}_${dark}${this._flipStr}`, 1);
           this.updateAllSum();
         }
 
@@ -229,7 +237,7 @@ namespace we {
             console.log('isinit setstatepeek play 2')
             this._playerCard1.animation.play('sq_vertical_select_in', 1);
           }
-          this._flipCardHolder.setCenterFlipCard(this._gameData.b1, 'vertical','b1')
+          this._flipCardHolder.setCenterFlipCard(this._gameData.b1, 'vertical', 'b1')
           this._flipCardHolder.changeCenterCardBackAnim('vertical');
           this._flipCardHolder.setCenterCardsTouchEnabled(true, 'vertical')
           this._flipCardHolder.setCenterCardVisible(true, 'vertical')
@@ -271,7 +279,7 @@ namespace we {
         }
 
         if (utils.bam.isBankerFlipAllowed(this._chipLayer) && !utils.bam.isPlayerFlipAllowed(this._chipLayer)) {
-          this._flipCardHolder.setCenterFlipCard(this._gameData.a1, 'vertical','a1');
+          this._flipCardHolder.setCenterFlipCard(this._gameData.a1, 'vertical', 'a1');
           this._flipCardHolder.changeCenterCardBackAnim('vertical');
           this._currentFocusCard = this._bankerCard1;
           this._flipCardHolder.setCenterCardVisible(true, 'vertical')
@@ -303,7 +311,7 @@ namespace we {
         if (utils.bam.isPlayerFlipAllowed(this._chipLayer)) {
           this._openAllPlayerGroup.visible = true;
           this._currentFocusCard = this._playerCard3
-          this._flipCardHolder.setCenterFlipCard(this._gameData.b3, 'horizontal','b3')
+          this._flipCardHolder.setCenterFlipCard(this._gameData.b3, 'horizontal', 'b3')
           this._flipCardHolder.changeCenterCardBackAnim('horizontal')
           this._playerCard3Group.touchEnabled = true;
           this._flipCardHolder.setCenterCardVisible(true, 'horizontal')
@@ -352,7 +360,7 @@ namespace we {
         if (utils.bam.isBankerFlipAllowed(this._chipLayer)) {
           this._openAllBankerGroup.visible = true;
           this._currentFocusCard = this._bankerCard3
-          this._flipCardHolder.setCenterFlipCard(this._gameData.a3, 'horizontal','a3')
+          this._flipCardHolder.setCenterFlipCard(this._gameData.a3, 'horizontal', 'a3')
           this._flipCardHolder.changeCenterCardBackAnim('horizontal');
           this._bankerCard3Group.touchEnabled = true;
           this._flipCardHolder.setCenterCardVisible(true, 'horizontal')
@@ -476,7 +484,7 @@ namespace we {
             nextCard.animation.play(`sq_vertical_select_in`)
             this._flipCardHolder.changeCenterCardBackAnim('vertical')
             this._currentFocusCard = nextCard
-            this._flipCardHolder.setCenterFlipCard(this._gameData[this.cardToData(nextCard)], 'vertical',this.cardToData(nextCard))
+            this._flipCardHolder.setCenterFlipCard(this._gameData[this.cardToData(nextCard)], 'vertical', this.cardToData(nextCard))
             this._flipCardHolder.setCenterCardVisible(true, 'vertical')
             this._flipCardHolder.setCenterCardsTouchEnabled(true, 'vertical')
           }
@@ -508,17 +516,30 @@ namespace we {
         this._bankerCard3Group.touchEnabled = enable;
       }
 
-
+      protected getHoriOrVert(card: dragonBones.EgretArmatureDisplay) {
+        const dataName = this.cardToData(card);
+        switch (dataName) {
+          case 'b3':
+          case 'a3':
+            return 'horizontal';
+          case 'a1':
+          case 'a2':
+          case 'b1':
+          case 'b2':
+          default:
+            return 'vertical';
+        }
+      }
 
       protected centerCardFlipped(evt: egret.Event) {
-        const orientation = evt.data
+        const orientation = this.getHoriOrVert(this._currentFocusCard)
         console.log('centerCardFlipped:', orientation)
         if (!this._flipCardHolder.isCardShowing(orientation)) {
           return;
         }
-        console.log('centerCardFlipped2')
+        console.log('centerCardFlipped2:', this.cardToData(this._currentFocusCard))
 
-        this._currentFocusCard.animation.play(`sq_${orientation}_flip`, 1)
+        this._currentFocusCard.animation.play(`sq_${orientation}_${this._flipStr}`, 1)
         this._currentFocusCard.name = 'flipped'
         this.updateAllSum();
         this.checkCardAllOpened();

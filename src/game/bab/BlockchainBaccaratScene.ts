@@ -22,6 +22,7 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
+        this.passBackgroundToResultDisplay();
         // this._helpPanel.setToggler(this._helpButton);
         // this._deckPanel.setToggler(this._deckButton);
         // this._deckPanel.setValue(this._gameData);
@@ -45,6 +46,10 @@ namespace we {
           mouse.setButtonMode(this._helpButton, true);
           mouse.setButtonMode(this._deckButton, true);
         }
+      }
+
+      protected passBackgroundToResultDisplay(){
+        this._resultDisplay.passBackgrounds(null);
       }
 
       protected instantiateVideo() {}

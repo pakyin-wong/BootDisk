@@ -8,10 +8,10 @@ namespace we {
       }
 
       protected centerCardFlipped(evt : egret.Event){
-        this.dispatchEvent(new egret.Event(we.core.Event.CARD_FLIPPED,false,false,env.orientation))
+        this.dispatchEvent(new egret.Event(we.core.Event.CARD_FLIPPED,false,false))
       }
 
-            protected getMoveIndex(dataName: string){
+      protected getMoveIndex(dataName: string){
         switch (dataName) {
           case 'a1':
             return 3;
@@ -20,9 +20,9 @@ namespace we {
           case 'a3':
             return 5;
           case 'b1':
-            return 2;
-          case 'b2':
             return 1;
+          case 'b2':
+            return 2;
           case 'b3':
             return 0;
           default:

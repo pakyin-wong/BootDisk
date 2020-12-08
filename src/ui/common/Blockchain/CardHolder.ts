@@ -31,11 +31,19 @@ namespace we {
         this.reset();
         this.initVariables();
         this.createFactory();
+      }
+
+      protected initAnimRelatedComps(){
         this.createParticles();
         this.createRingAnim();
         this.clonePin();
         this.createCards();
         this.addEventListeners();
+      }
+
+      // could be treated as second part of mount
+      public passBackgrounds(backgrounds : any){
+        this.initAnimRelatedComps();
       }
 
       public abstract setDefaultStates();
