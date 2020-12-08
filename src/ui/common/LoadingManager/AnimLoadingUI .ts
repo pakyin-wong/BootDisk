@@ -15,6 +15,7 @@ namespace we {
         this.createFactory();
         this._loadingAnim = this._factory.buildArmatureDisplay('armatureName');
         this._loadingGroup.addChild(this._loadingAnim);
+        this._loadingAnim.animation.play('animation',0);
       }
 
       protected createFactory() {
@@ -27,9 +28,9 @@ namespace we {
       }
 
       public onProgress(progress, current, total) {
-        if (this._loadingAnim) {
-          this._loadingAnim.animation.gotoAndPlayByProgress('animation', progress);
-        }
+        // if (this._loadingAnim) {
+        //   this._loadingAnim.animation.gotoAndPlayByProgress('animation', progress);
+        // }
       }
     }
   }
