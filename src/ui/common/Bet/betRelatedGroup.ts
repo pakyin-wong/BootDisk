@@ -34,6 +34,7 @@ namespace we {
         mouse.setButtonMode(this._confirmButton, true);
         this.addListeners();
         this._timer._isColorTransform = true;
+        this.currentState = env.leftHandMode ? 'left_hand_mode' : 'right_hand_mode';
         this._timer.addEventListener('UPDATE', this.onRemainingTimeUpdate, this);
       }
 
