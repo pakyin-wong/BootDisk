@@ -268,11 +268,11 @@ namespace we {
         bet_balance: 'Balance',
         menu: {
           title: 'Settings',
-          selectMode: 'Select Theme Color',
+          selectMode: 'Theme Color',
           whiteMode: 'Light',
           darkMode: 'Dark',
           info: 'Account',
-          history: 'Game Records',
+          history: 'Bet Records',
           member: 'Member Report',
           road: 'Good Road Settings',
           system: 'System Setting',
