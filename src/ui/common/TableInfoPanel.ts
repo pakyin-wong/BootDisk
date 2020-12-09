@@ -99,8 +99,6 @@ namespace we {
 
         if (!env.isMobile) {
           this.pGameID.targetWidth = 200;
-        }else{
-          this.pTableID.targetWidth = 300;
         }
         // if (tableInfo.betInfo) {
         //   this.pGameID.text = tableInfo.betInfo.gameroundid ? tableInfo.betInfo.gameroundid : '-';
