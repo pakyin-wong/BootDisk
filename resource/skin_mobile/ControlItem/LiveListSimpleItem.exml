@@ -64,6 +64,6 @@
 		                    cornerTL_TR_BL_BR="35,35,35,35" stroke="0" strokeIn="0" fillColor="00AA5E" fillAlpha="1"
 		                    fillAlpha_hover="0.7" labelSize="36" />
 		<ui:AnimatedToggleButton id="_favouriteButton" dbClass="lobby_ui" dbDisplay="d_lobby_icon_fav" height="30" right="20"
-		                         width="30" bottom="-50" scaleX="1.5" scaleY="1.5"  visible="false"/>
+		                         width="30" bottom="-50" scaleX="1.5" scaleY="1.5"  visible="false" tooltipText="'lobby.tooltip.favourite'" tooltipPosition="'above'"/>
 	</e:Group>
 </e:Skin>

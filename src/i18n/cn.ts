@@ -351,6 +351,9 @@ namespace we {
         categoryInstant: '即开彩',
         categoryOtherGame: '其他游戏',
         categoryFavorite: '我的最爱',
+        tooltip: {
+          favourite: '加入我的最爱',
+        },
       },
       gamegroup_tab_live: '真人游戏',
       gamegroup_tab_lottery: '彩票游戏',

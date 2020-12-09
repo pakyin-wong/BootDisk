@@ -56,7 +56,7 @@
 				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="22" />
 			</e:Group>
 			<ui:CountdownTimer id="_timer" width="80" height="80" x="20" y="20" skinName="skin_desktop.CountdownTimerRoundSkin" />
-			<ui:AnimatedToggleButton id="_favouriteButton" dbClass="lobby_ui" dbDisplay="d_lobby_icon_fav" width="44" height="42"  right="10" top="10" visible="false"/>
+			<ui:AnimatedToggleButton id="_favouriteButton" dbClass="lobby_ui" dbDisplay="d_lobby_icon_fav" width="44" height="42"  right="10" top="10" visible="false" tooltipText="'lobby.tooltip.favourite'" tooltipPosition="'above'"/>
 			<e:Rect width="578" fillColor="0x202020" anchorOffsetY="0" ellipseHeight="20" ellipseWidth="20" strokeColor="0x5F6973" strokeWeight="2" height="388" y="0" x="0" fillAlpha="0" touchChildren="false" touchEnabled="false"/>
 			<live:BetLimitDropdown id="_dropdown" y="204" anchorOffsetX="0" anchorOffsetY="0" skinName="BetLimitDropdownSkin" right="1"/>
 		</e:Group>

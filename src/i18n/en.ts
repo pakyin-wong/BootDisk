@@ -327,6 +327,9 @@ namespace we {
         categoryInstant: 'Instant Open Colour',
         categoryOtherGame: 'Other Games',
         categoryFavorite: 'Bookmarks / My Favourites',
+        tooltip: {
+          favourite: 'Add to My Favorite',
+        },
       },
       live: {
         tooltip: {

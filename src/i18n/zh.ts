@@ -326,6 +326,9 @@ namespace we {
         categoryInstant: '即開彩',
         categoryOtherGame: '其他遊戲',
         categoryFavorite: '我的最愛',
+        tooltip: {
+          favourite: '加入我的最愛',
+        },
       },
       live: {
         tooltip: {
