@@ -26,10 +26,10 @@ namespace we {
 
       public changeLang() {
         if (this._gameLabel) {
-          this._gameLabel.text = i18n.t('overlaypanel_bethistory_recordtab_round');
+          this._gameLabel.text = i18n.t('overlaypanel_bethistory_recordtab_gameround');
           this._gameNumLabel.text = this.gameRoundID;
         } else {
-          this._gameLabel.text = `${i18n.t('overlaypanel_bethistory_recordtab_round') + this.gameRoundID}`;
+          this._gameLabel.text = `${i18n.t('overlaypanel_bethistory_recordtab_gameround') + this.gameRoundID}`;
         }
         if (this._gameShoeTextLabel) {
           this._gameShoeTextLabel.text = i18n.t('overlaypanel_bethistory_recordtab_shoe');

@@ -34,6 +34,7 @@ namespace we {
           }
           this.addChild(this.tutorial);
           env.isFirstTimeBam = true;
+          dir.socket.updateSetting('isFirstTimeBam', env.isFirstTimeBam? "1":"0");
         }
       }
 

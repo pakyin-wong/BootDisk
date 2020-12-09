@@ -1,39 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile.BetRelatedGroup" width="984" height="127" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile.BetRelatedGroup" width="984" height="135" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="left_hand_mode,right_hand_mode">
-	<e:Group id="_betRelatedGroup" width="984">
-		<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
-		        fillColor="0x444444" width.left_hand_mode="954" x.right_hand_mode="30" width.right_hand_mode="954" />
-		<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="874"
-		          verticalCenter="0" x.right_hand_mode="682" skinName="skin_mobile_portrait.BetConfirmButtonSkin"
-		          x.left_hand_mode="3" />
-		<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="0"
-		                   colorChange="true" verticalCenter="0" x.right_hand_mode="683" />
-		<e:Group id="_betLabelGroup" bottom="0" height="40%" touchThrough="true">
-			<e:Group verticalCenter="0" x="798" x.right_hand_mode="75" width="100" >
-				<ui:RunTimeLabel id="_repeatLabel" text="再次下注" verticalCenter="0" horizontalCenter="0" />
-			</e:Group>
-			<e:Group verticalCenter="0" x="635" x.right_hand_mode="230" width="100">
-				<ui:RunTimeLabel id="_doubleLabel" text="雙倍" verticalCenter="0" horizontalCenter="0" />
-			</e:Group>
-			<e:Group verticalCenter="0" x="485" x.right_hand_mode="380" width="100">
-				<ui:RunTimeLabel id="_cancelLabel" text="清除" verticalCenter="0" horizontalCenter="0" />
-			</e:Group>
-			<e:Group x="335" verticalCenter="0" x.right_hand_mode="530" width="100">
-				<ui:RunTimeLabel id="_undoLabel" text="復原" verticalCenter="0" horizontalCenter="0" />
-			</e:Group>
+	<e:Group id="_betRelatedGroup" width="984" height="135" touchThrough="true" touchEnabled="false">
+		<e:Rect id="_roundPanel" height="135" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
+		        fillColor="0x444444" width="954" x.right_hand_mode="30" />
+		<!--<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="874"
+		              verticalCenter="0" x.right_hand_mode="682" skinName="skin_mobile_portrait.BetConfirmButtonSkin"
+		              x.left_hand_mode="3" />
+		-->
+		<e:Group touchEnabled="false" touchChildren="true" left.left_hand_mode="-10" verticalCenter="0" left.right_hand_mode="683">
+			<ui:CountdownTimer id="_timer" width="315" height="140" skinName="skin_mobile_portrait.CountdownTimerSkin"
+			                   colorChange="true" horizontalCenter="0" verticalCenter="0" />
 		</e:Group>
-		<ui:BaseImageButton id="_repeatButton" y="0" anchorOffsetX="0" width="128" anchorOffsetY="0" height="120"
-		                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_repeat" x="787"
-		                    x.right_hand_mode="61" />
-		<ui:BaseImageButton id="_doubleButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
-		                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_double" x="651"
-		                    x.right_hand_mode="239" />
-		<ui:BaseImageButton id="_cancelButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
-		                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_cancel" x="500"
-		                    x.right_hand_mode="393" />
-		<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
-		                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo" x="351"
-		                    x.right_hand_mode="545" />
+		<e:Group left.left_hand_mode="-10" touchChildren="true" touchEnabled="false" touchThrough="true" left.right_hand_mode="683">
+			<ui:BetConfirmButton id="_confirmButton" text_slot="content_up" dbClass="common_ui" dbDisplay="m_common_betcontrol_btn_confirm"
+			                     useColorFilter="true" width="350" height="150" orientation="_horizontal" anchorOffsetX="0" anchorOffsetY="0" left="0"
+			                     top="0"  touchEnabled="false" touchChildren="true"/>
+		</e:Group>
+		<ui:BetRelatedAnimationButton id="_repeatButton" text_slot="mobile_size/label-rebet_tc" dbClass="common_ui"
+		                              dbDisplay="m_common_betcontrol_btn_rebet" useColorFilter="true" labelText="repeat"
+		                              anchorOffsetX="0" width="64" anchorOffsetY="0" height="100" x.left_hand_mode="767"
+		                              x.right_hand_mode="81" />
+		<ui:BetRelatedAnimationButton id="_doubleButton" text_slot="double_text" dbClass="common_ui"
+		                              dbDisplay="m_common_betcontrol_btn_double" useColorFilter="true" labelText="double"
+		                              anchorOffsetX="0" width="64" anchorOffsetY="0" height="100" x.left_hand_mode="631"
+		                              x.right_hand_mode="236" />
+		<ui:BetRelatedAnimationButton id="_cancelButton" text_slot="mobile_size/label-clear_tc" dbClass="common_ui"
+		                              dbDisplay="m_common_betcontrol_btn_clear" useColorFilter="true" labelText="cancel"
+		                              anchorOffsetX="0" width="64" anchorOffsetY="0" height="100" x.left_hand_mode="480"
+		                              x.right_hand_mode="385" />
+		<ui:BetRelatedAnimationButton id="_undoButton" text_slot="mobile_size/label-undo_tc" dbClass="common_ui"
+		                              dbDisplay="m_common_betcontrol_btn_undo" useColorFilter="true" labelText="undo"
+		                              anchorOffsetX="0" width="64" anchorOffsetY="0" height="100" x.left_hand_mode="331"
+		                              x.right_hand_mode="537" />
 	</e:Group>
 </e:Skin>

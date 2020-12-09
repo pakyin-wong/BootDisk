@@ -14,6 +14,14 @@ namespace we {
         this._verticalFlip = 'vertical_filp';
       }
 
+
+      protected async closeShoe(){
+            await this.animateShoe();
+            await this.animatePin();
+            return new Promise(resolve=>resolve())
+      }
+
+
       protected initAnimRelatedComps(){
         super.initAnimRelatedComps();
         this._ringAnim.animation.gotoAndStopByFrame('icon_loop',0);

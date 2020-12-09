@@ -22,6 +22,12 @@ namespace we {
         this.cardAnimNames = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2']
       }
 
+      protected async closeShoe(){
+        await this.animateShoe();
+        await this.animatePin();
+        return new Promise(resolve=>resolve())
+      }
+
       protected flipTypo(orientation: string) {
         if (orientation === 'vertical') {
           return 'filp'

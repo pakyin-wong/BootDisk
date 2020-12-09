@@ -109,6 +109,7 @@ namespace we {
       overlaypanel_bethistory_recordtab_id: '投注编号',
       overlaypanel_bethistory_recordtab_date: '日期时间',
       overlaypanel_bethistory_recordtab_game: '游戏',
+      overlaypanel_bethistory_recordtab_gameround: '游戏编号',
       overlaypanel_bethistory_recordtab_round: '局数',
       overlaypanel_bethistory_recordtab_replay: '重播',
       overlaypanel_bethistory_recordtab_remark: '输嬴',
@@ -220,6 +221,7 @@ namespace we {
 
       mobile_lobby_feature_title: '精选推介',
       mobile_lobby_hot_game_title: '热门推介',
+      mobile_ba_AutoConfirm: '自动确认',
       mobile_ba_undo: '复原',
       mobile_ba_clear: '清除',
       mobile_ba_double: '双倍',
@@ -672,7 +674,7 @@ namespace we {
         sha256VerifySuccess: 'SHA256已验证',
         sha256VerifyFail: 'SHA256验证失败',
         deckDesc:
-          '完整牌靴共由8副扑克牌组成，合计416张。首局开始前，系统会在完整牌靴中随机插入红牌，发牌至红卡时，代表该局游戏结束后将进行换靴。洗牌后，将重新生成「卡牌序号」及「卡牌加密文」，确保游戏的真确性。 ',
+          '系统会在「完整牌靴」中显示「卡牌序号」及「卡牌加密文」供玩家验证。洗牌后，两者将会重新生成，确保游戏的真确性。',
         copy: '复制',
         encryptedKey: '提前公布卡牌加密文',
         decryptedKey: '卡牌加密文',
@@ -681,6 +683,17 @@ namespace we {
         redCardDesc: '红卡：该局游戏结束后进行换靴',
         announceAfterDisclose: '将于开牌后公布...',
         cardUsed: '牌靴: 已使用$1张',
+      },
+      squeezeBaccarat: {
+        tutorial: {
+          title: "咪牌教学",
+          showCard: "全開",
+          next: "下一頁",
+          caption_1: '点撃全开按钮，卡牌立即全开',
+          caption_2: '点击卡牌可切换大卡牌',
+          caption_3: '点撃卡牌中间位置快速开牌',
+          caption_4: '透过拖拽四边四角进行咪牌',
+        },
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',

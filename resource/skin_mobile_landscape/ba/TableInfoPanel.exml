@@ -25,8 +25,8 @@
 					                 textKey="baccarat.dealer" />
 					<ui:RunTimeLabel id="tableBetLimitLabel" text="本檯限紅" y="100" x="629" scaleX="1" scaleY="1" size="44" />
 					<ui:RunTimeLabel id="betLimitLabel" text="投注限紅" y="170" x="629" scaleX="1" scaleY="1" size="44" />
-					<ui:RunTimeLabel id="pTableID" text="百家樂01" y="30" size="44" 
-					                    alpha="0.7"  fontFamily="Barlow" x="209" width="335" textAlign="right" anchorOffsetX="0"/>
+					<ui:RunTimeLabel id="pTableID" text="百家樂01" y="30" size="44" textAlign="right" right="2250" targetWidth="380"
+					                 alpha="0.7" fontFamily="Barlow" width="388" />
 					<ui:ClampWidthLabel id="pGameID" text="000-000-000000000" y="170" x="212" size="44"
 					                    targetWidth="400" alpha="0.7"  fontFamily="Barlow" width="400" textAlign="right"/>
 					<ui:ClampWidthLabel id="pDealer" text="Mary" textAlign="right" x="732" y="30" size="44" width="440"
