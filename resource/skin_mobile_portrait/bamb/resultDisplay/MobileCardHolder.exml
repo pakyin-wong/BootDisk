@@ -5,10 +5,10 @@
                 <e:Group x="238" y="679" id="_playerCardMoveGroup">
                         <e:Group x="0" y="0" id="_playerCard1Group" width="117" height="170" touchEnabled="false" />
                         <e:Group x="138" y="0" id="_playerCard2Group" width="117" height="170" touchEnabled="false" />
-                        <e:Group x="0" y="0" id="_playerCard1TouchGroup" width="117" height="170">
+                        <e:Group x="0" y="0" id="_playerCard1TouchGroup" width="117" height="170" touchThrough="false">
                                 <e:Group id="_playerCard1Info" left="0" bottom="0" width="40" height="40" />
                         </e:Group>
-                        <e:Group x="138" y="0" id="_playerCard2TouchGroup" width="117" height="170">
+                        <e:Group x="138" y="0" id="_playerCard2TouchGroup" width="117" height="170" touchThrough="false">
                                 <e:Group id="_playerCard2Info" left="0" bottom="0" width="40" height="40" />
                         </e:Group>
                 </e:Group>
@@ -26,10 +26,10 @@
                 <e:Group right="238" y="679" id="_bankerCardMoveGroup" width="255" height="170">
                         <e:Group x="0" y="0" id="_bankerCard1Group" width="117" height="170" touchThrough="true" />
                         <e:Group x="138" y="0" id="_bankerCard2Group" width="117" height="170" touchThrough="true" />
-                        <e:Group x="0" y="0" id="_bankerCard1TouchGroup" width="117" height="170" touchThrough="true">
+                        <e:Group x="0" y="0" id="_bankerCard1TouchGroup" width="117" height="170" touchThrough="false">
                                 <e:Group id="_bankerCard1Info" left="0" bottom="0" width="40" height="40" />
                         </e:Group>
-                        <e:Group x="138" y="0" id="_bankerCard2TouchGroup" width="117" height="170" touchThrough="true">
+                        <e:Group x="138" y="0" id="_bankerCard2TouchGroup" width="117" height="170" touchThrough="false">
                                 <e:Group id="_bankerCard2Info" left="0" bottom="0" width="40" height="40" />
                         </e:Group>
                 </e:Group>
