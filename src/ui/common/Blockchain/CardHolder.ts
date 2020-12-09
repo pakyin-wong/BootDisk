@@ -177,9 +177,18 @@ namespace we {
             this.setStateShuffle(isInit);
             break;
           case core.GameState.IDLE:
+            this.setStateIdle(isInit);
+            break;
           default:
             console.log('default updateResult ', gameData);
             break;
+        }
+      }
+
+      protected setStateIdle(isInit: boolean) {
+        if (!isInit) {
+          console.log('clearCards()');
+          this.clearCards();
         }
       }
 
@@ -198,8 +207,8 @@ namespace we {
           }
           await this.betInitState(core.GameState.BET);
         } else {
-          console.log('clearCards()');
-          await this.clearCards();
+          // console.log('clearCards()');
+          // await this.clearCards();
           console.log('distributeCards()');
           await this.distributeCards();
         }
