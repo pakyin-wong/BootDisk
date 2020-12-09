@@ -50,8 +50,8 @@ namespace we {
 
       playerprofile_title: 'User Information',
       playerprofile_iconsetting: 'Icon Setting',
-      playerprofile_maxWinAmount: 'Max gains from winning',
-      playerprofile_maxWinCount: 'Max number of consecutive wins',
+      playerprofile_maxWinAmount: 'Max. Win Amount',
+      playerprofile_maxWinCount: 'Max. No. of Consecutive Wins',
       playerprofile_follower: 'Follower',
       playerprofile_following: 'Following',
       playerprofile_favouriteDealer: 'Favorite Dealer',
@@ -117,7 +117,7 @@ namespace we {
       overlaypanel_bethistory_remark_win: 'Win',
       overlaypanel_bethistory_remark_lose: 'Lose',
       overlaypanel_bethistory_remark_ties: 'Ties',
-      overlaypanel_bethistory_limit: 'Record per page',
+      overlaypanel_bethistory_limit: 'Items per page:',
       overlaypanel_bethistory_total: ' %now% of total %total% record(s)',
 
       overlaypanel_bethistory_record_round: 'Round',
@@ -130,6 +130,7 @@ namespace we {
 
       overlaypanel_bethistory_btn_next: 'Next',
       overlaypanel_bethistory_btn_prev: 'Previous',
+      overlaypanel_bethistory_btn_page: 'Page',
       overlaypanel_bethistory_searchtype_all: 'All',
 
       overlaypanel_bethistorylottery_record_round: 'Round',
@@ -211,7 +212,7 @@ namespace we {
       mobile_game_panel_statistic_chart: 'Statistic Chart',
       mobile_game_panel_table_info: 'Table Info',
       mobile_game_panel_analysis: 'Analysis',
-      mobile_table_info_gameID: 'ID',
+      mobile_table_info_gameID: 'Game ID',
       mobile_panel_game_Info: 'Game Information',
 
       mobile_notification_quick_bet_button_label: 'Bet Now',
@@ -232,7 +233,7 @@ namespace we {
       video_setting_cam: 'Camera',
       video_setting_qua: 'Quality',
       video_setting_closer: 'Close mirror',
-      video_setting_far: 'Far mirror',
+      video_setting_far: 'Full Shot',
       video_setting_close: 'Close',
       video_setting_toggle: 'Video turn on',
       video_setting_bluray: 'Blu-ray',
@@ -258,7 +259,7 @@ namespace we {
         tooltip: {
           menu: 'Menu',
           back: 'Back to lobby',
-          refresh: 'Refresh',
+          refresh: 'Refresh balance',
           profile: 'Profile',
           roominfo: 'Room Info',
           betlimit: 'Bet Limit',
@@ -338,9 +339,9 @@ namespace we {
           fullscreen: 'Fullscreen',
           autoFullscreenToggleOn: 'Turn on auto hide',
           autoFullscreenToggleOff: 'Auto hide panel when bet is over',
-          roadmapBankerRound: 'Banker',
-          roadmapPlayerRound: 'Player',
-          roadmapTierRound: 'Tie',
+          roadmapBankerRound: 'No. of Banker win',
+          roadmapPlayerRound: 'No. of Player win',
+          roadmapTierRound: 'No. of Tie',
           roadmapBankerPairRound: 'Banker Pair',
           roadmapPlayerPairRound: 'Player Pair',
           roadmapTotalRound: 'Total',
@@ -373,7 +374,7 @@ namespace we {
       tableInfo: {
         tableInfo: 'Table Info',
         tableNo: 'Table Number',
-        roundNo: 'Round Number',
+        roundNo: 'Shoe - Round',
         dealer: 'Dealer',
         tableBetLimit: 'Table Bet Limit',
         betLimit: 'Bet Limit',
@@ -559,7 +560,7 @@ namespace we {
       },
       sidePanel: {
         changeChip: 'Change Betchips',
-        betted: 'Bet',
+        betted: 'Bet Confirmed',
         goodroad: 'Good Road',
         allgames: 'All Game',
         noGoodRoad: 'No Good Road',
@@ -637,7 +638,7 @@ namespace we {
         thirdParty: 'Third party Verification',
         sha256VerifySuccess: 'SHA256 Verified',
         sha256VerifyFail: 'Cannot be verified by SHA256',
-        deckDesc: '"All Cards" consists of a total of 8 decks of playing cards, a total of 416 cards. Before the start of the first round, the system will randomly insert a red card in "All Cards". When the card is dealt to the red card, it means that the shoe will be changed after the game ends. After the cards are shuffled, the "Card serial number" and "Card encryption text" will be regenerated to ensure the authenticity of the game.',
+        deckDesc: 'The "Private Key" and "Verified Serial Number" will be published on "All Cards" for verification,  those will be regenerated after the cards have shuffled, to ensure the authenticity of the game.',
         copy: 'Copy',
         encryptedKey: 'Published Serial Number',
         decryptedKey: 'Verified Serial Number',
@@ -657,7 +658,7 @@ namespace we {
         urlcopied:'3rd party verification siteurl copied.',
       },
       error: {
-        error_1001: 'Other session logged in',
+        error_1001: 'You have already logged in on another device or browser',
         error_1002: 'Player session timeout',
         error_1003: 'Authorization Error',
 
