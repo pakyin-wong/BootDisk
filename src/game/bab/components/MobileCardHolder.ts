@@ -18,8 +18,8 @@ namespace we {
         this.cardAnimNames = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2']
       }
 
-      protected mount(){
-        super.mount();
+      protected initAnimRelatedComps(){
+        super.initAnimRelatedComps();
         this._ringAnim.animation.gotoAndStopByFrame('icon_loop',0);
         this.expandBottom();
       }

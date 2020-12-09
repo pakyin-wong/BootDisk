@@ -112,7 +112,7 @@ namespace we {
           }
         }
       }
-
+      
       public refresh() {
         // this.validateNow();
         if (this.cornerTL_TR_BL_BR !== '') {

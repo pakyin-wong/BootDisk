@@ -22,6 +22,7 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
+        this.passBackgroundToResultDisplay();
         // this._helpPanel.setToggler(this._helpButton);
         // this._deckPanel.setToggler(this._deckButton);
         // this._deckPanel.setValue(this._gameData);
@@ -47,6 +48,10 @@ namespace we {
         }
       }
 
+      protected passBackgroundToResultDisplay(){
+        this._resultDisplay.passBackgrounds(null);
+      }
+
       protected instantiateVideo() {}
 
       protected setSkinName() {
@@ -56,6 +61,7 @@ namespace we {
       public updateGame(isInit: boolean = false) {
         super.updateGame(isInit);
         if (isInit) {
+          this._historyCardHolder.update(this._gameData, this._tableId);
           switch (this._gameData.state) {
             case core.GameState.BET:
             case core.GameState.DEAL:

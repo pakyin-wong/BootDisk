@@ -86,6 +86,7 @@ namespace we {
 
       public labelSize: number = 24;
       public labelAutoResize: boolean = true;
+      public labelAutoResizeWidth: number = -1;
 
       public value: number = 0;
 
@@ -130,7 +131,7 @@ namespace we {
         this._label.size = this.labelSize;
 
         if (this.labelAutoResize) {
-          this._label.targetWidth = this.width;
+          this._label.targetWidth = this.labelAutoResizeWidth > 0? this.labelAutoResizeWidth : this.width;
         }
 
         this.touchChildren = false;

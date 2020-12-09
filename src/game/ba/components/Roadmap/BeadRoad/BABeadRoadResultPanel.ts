@@ -74,6 +74,7 @@ namespace we {
       */
 
       public setCardResult(rslt: GameData) {
+        console.log(`,,,,,,,,,,GAME RESULT ${JSON.stringify(rslt)}`);
         this.gameRoundID = rslt.gameroundid;
         this.round = rslt.round;
         this.shoe = rslt.shoe;
