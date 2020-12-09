@@ -6,6 +6,7 @@
 		<e:Label id="_txt_record_id" text="Label" size="22" verticalAlign="middle" height="76" fontFamily="Barlow" x.api="48" width.api="137" x.credit="48" width.credit="139"/>
 		<e:Label id="_txt_record_date" text="Label" size="22" verticalAlign="middle" height="76" fontFamily="Barlow" x.api="215" width.api="198" x.credit="217" width.credit="196"/>
 		<e:Label id="_txt_record_game" text="Label" height="76" size="20" verticalAlign="middle" x.api="443" width.api="232" x.credit="443" width.credit="232"/>
+		<e:Label id="_txt_record_replay" width="40" height="40" verticalCenter="0" x.api="1069.5" x.credit="1037.5" verticalAlign="middle" textAlign="center"/>
 		<e:Label id="_txt_record_bettype" text="Label" height="76" size="20" verticalAlign="middle" x.api="1178" width.api="278" x.credit="1114" width.credit="258"/>
 		<e:Label id="_txt_record_betamount" text="Label" height="76" size="22" verticalAlign="middle" fontFamily="Barlow" x.api="1486" width.api="178" x.credit="1402" width.credit="107"/>
 		<e:Label id="_txt_record_win" text="Label" height="76" size="22" verticalAlign="middle" fontFamily="Barlow" x.api="1894" width.api="186" x.credit="1971" width.credit="109"/>

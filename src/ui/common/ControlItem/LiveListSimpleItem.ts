@@ -15,6 +15,7 @@ namespace we {
       protected _quickBetBtnGroup: eui.Group;
 
       protected _contentContainerStatic: eui.Group;
+      protected _contentContainerDynamic: eui.Group;
 
       protected _arrangeProperties = [
         'x',
@@ -381,6 +382,38 @@ namespace we {
         }
       }
 
+      protected generateFavouriteButton() {
+        const button = new AnimatedToggleButton();
+        button.dbClass = 'lobby_ui';
+        button.dbDisplay = 'd_lobby_icon_fav';
+        button.width = 44;
+        button.height = 42;
+        button.bottom = 40;
+        button.visible = false;
+        button.x = 524;
+        this._favouriteButton = button;
+        this._contentContainerDynamic.addChild(this._favouriteButton);
+      }
+
+      protected showFavouriteButton(isShow: boolean) {
+        if (isShow && !this._favouriteButton) {
+          this.generateFavouriteButton();
+          if (!this._favouriteButton) return;
+          if(!env.isMobile){
+            this._favouriteButton.visible = false;
+          }
+          this._favouriteButton.externalClickHandling = true;
+
+          this._favouriteButton.addEventListener('CLICKED', this.onFavouritePressed, this);
+
+          const active = env.favouriteTableList.indexOf(this._tableId) > -1;
+          if (this._favouriteButton.active !== active) {
+            this._favouriteButton.active = active;
+          }
+        }
+        super.showFavouriteButton(isShow);
+      }
+
       protected animateFavouriteButton(show: boolean) {
         super.animateFavouriteButton(show);
         if (!this._favouriteButton) {
@@ -395,7 +428,12 @@ namespace we {
         } else {
             egret.Tween.get(this._favouriteButton)
               .to({ alpha: 0 }, 250)
-              .set({ visible: false });
+              .set({ visible: false })
+              .call(()=>{
+                this._favouriteButton.removeEventListener('CLICKED', this.onFavouritePressed, this);
+                this._favouriteButton.parent.removeChild(this._favouriteButton);
+                this._favouriteButton = null;
+              });
         }
       }
 

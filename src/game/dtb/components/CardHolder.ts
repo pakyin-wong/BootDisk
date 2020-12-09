@@ -37,8 +37,8 @@ namespace we {
 
       protected _verticalFlip: string;
 
-      protected mount() {
-        super.mount();
+      protected initAnimRelatedComps(){
+        super.initAnimRelatedComps();
         this._dragonAnim = this.createDragonTigerAnim('dragon', 0.8);
         this._tigerAnim = this.createDragonTigerAnim('tiger', 0.8);
         this._dragonAnimGroup.addChild(this._dragonAnim);
@@ -97,7 +97,7 @@ namespace we {
       }
 
       protected createFactory() {
-        const skeletonData = RES.getRes(`blockchain_dt_ske_json`);
+        const skeletonData = RES.getRes(`blockchain_dt_ske_dbbin`);
         const textureData = RES.getRes(`blockchain_dt_tex_json`);
         const texture = RES.getRes(`blockchain_dt_tex_png`);
         this._factory = new dragonBones.EgretFactory();

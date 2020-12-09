@@ -432,6 +432,8 @@ namespace we {
         if (!this._gameData) {
           return;
         }
+        console.log('Game state updated: ' + utils.getKeyByValue(core.GameState, this._gameData.state));
+        console.log(this._gameData);
         switch (this._gameData.state) {
           case core.GameState.IDLE:
             this.setStateIdle(isInit);
@@ -475,6 +477,10 @@ namespace we {
         if (this._previousState !== we.core.GameState.IDLE || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(false);
+          
+          if (this._resultDisplay) {
+            this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
+          }
         }
       }
 

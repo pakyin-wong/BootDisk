@@ -39,10 +39,6 @@ namespace we {
         this._skinKey = 'BlockchainBaccaratScene';
       }
 
-      protected mount() {
-        super.mount();
-      }
-
       protected instantiateVideo() {}
 
       protected initOrientationDependentComponent() {
@@ -50,6 +46,7 @@ namespace we {
         this.initVariables();
         // this._helpPanel.setToggler(this._helpButton);
         // this._deckPanel.setToggler(this._deckButton);
+        this.passBackgroundsToResultDisplay();
         this._historyCardHolder.setToggler(this._lastRoundButton);
         // this._deckPanel.setValue(<bab.GameData>this._gameData);
         // this._deckPanel.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
@@ -68,6 +65,11 @@ namespace we {
         }
         this._navLayer && this._header && dir.layerCtr.nav && this._navLayer.addChild(this._header);
 
+      }
+
+      //Pass something to trigger init anim related components in cardholder
+      protected passBackgroundsToResultDisplay(){
+        this._resultDisplay.passBackgrounds(null)
       }
 
       protected initVariables(){
@@ -116,6 +118,7 @@ namespace we {
       public updateGame(isInit: boolean = false) {
         super.updateGame(isInit);
         if (isInit) {
+          this._historyCardHolder.update(this._gameData, this._tableId);
           switch (this._gameData.state) {
             case core.GameState.BET:
             case core.GameState.DEAL:
@@ -132,8 +135,9 @@ namespace we {
 
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-        this._historyCardHolder.setCards(this._tableId);
-        this._historyCardHolder.setNumber(this._gameData.currentcardindex);
+        // this._historyCardHolder.setCards(this._tableId);
+        // this._historyCardHolder.setNumber(this._gameData.currentcardindex);
+        this._historyCardHolder.update(this._gameData, this._tableId);
         this._shufflePanel.hide();
         // this._deckPanel.setValue(this._gameData);
         console.log('Blockchain scene bet state', this._gameData);

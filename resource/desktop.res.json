@@ -49,11 +49,11 @@
 			"name": "preload"
 		},
 		{
-			"keys": "blockchain_tex_png,blockchain_tex_json,blockchain_ske_json,we_bcba_sfx_card_generate_mp3,we_bcba_sfx_card_icontocontainer_mp3,we_bcba_sfx_card_move_mp3,we_bcba_sfx_card_open_mp3,we_bcba_sfx_card_popup_mp3,we_bcba_sfx_card_removeall_mp3,we_bcba_sfx_card_smallcard_mp3,we_bcba_sfx_card_teleport_mp3,we_bcba_sfx_container_fadeout_mp3,we_bcba_sfx_container_icon_mp3,we_bcba_sfx_newshoe_mp3,we_bcba_sfx_result_mp3,we_bcba_sfx_shoeout_mp3",
+			"keys": "blockchain_tex_png,blockchain_tex_json,we_bcba_sfx_card_generate_mp3,we_bcba_sfx_card_icontocontainer_mp3,we_bcba_sfx_card_move_mp3,we_bcba_sfx_card_open_mp3,we_bcba_sfx_card_popup_mp3,we_bcba_sfx_card_removeall_mp3,we_bcba_sfx_card_smallcard_mp3,we_bcba_sfx_card_teleport_mp3,we_bcba_sfx_container_fadeout_mp3,we_bcba_sfx_container_icon_mp3,we_bcba_sfx_newshoe_mp3,we_bcba_sfx_result_mp3,we_bcba_sfx_shoeout_mp3,blockchain_ske_dbbin",
 			"name": "scene_bc_baccarat"
 		},
 		{
-			"keys": "tiger_tex_png,blockchain_dt_tex_png,dragon_tex_png,tiger_tex_json,blockchain_dt_tex_json,blockchain_dt_ske_json,dragon_ske_json,dragon_tex_json,tiger_ske_json,we_bcdt_sfx_result_dragonwin_mp3,we_bcdt_sfx_result_tigerwin_mp3,we_bcdt_sfx_scanning_loop_mp3,we_bcdt_sfx_shoe_in_mp3,we_bcdt_sfx_shoe_out_mp3,we_bcba_sfx_card_generate_mp3,we_bcba_sfx_card_icontocontainer_mp3,we_bcba_sfx_card_move_mp3,we_bcba_sfx_card_open_mp3,we_bcba_sfx_card_popup_mp3,we_bcba_sfx_card_removeall_mp3,we_bcba_sfx_card_smallcard_mp3,we_bcba_sfx_card_teleport_mp3,we_bcba_sfx_container_fadeout_mp3,we_bcba_sfx_container_icon_mp3,we_bcba_sfx_newshoe_mp3,we_bcba_sfx_result_mp3,we_bcba_sfx_shoeout_mp3",
+			"keys": "tiger_tex_png,blockchain_dt_tex_png,dragon_tex_png,tiger_tex_json,blockchain_dt_tex_json,dragon_ske_json,dragon_tex_json,tiger_ske_json,we_bcdt_sfx_result_dragonwin_mp3,we_bcdt_sfx_result_tigerwin_mp3,we_bcdt_sfx_scanning_loop_mp3,we_bcdt_sfx_shoe_in_mp3,we_bcdt_sfx_shoe_out_mp3,we_bcba_sfx_card_generate_mp3,we_bcba_sfx_card_icontocontainer_mp3,we_bcba_sfx_card_move_mp3,we_bcba_sfx_card_open_mp3,we_bcba_sfx_card_popup_mp3,we_bcba_sfx_card_removeall_mp3,we_bcba_sfx_card_smallcard_mp3,we_bcba_sfx_card_teleport_mp3,we_bcba_sfx_container_fadeout_mp3,we_bcba_sfx_container_icon_mp3,we_bcba_sfx_newshoe_mp3,we_bcba_sfx_result_mp3,we_bcba_sfx_shoeout_mp3,blockchain_dt_ske_dbbin",
 			"name": "scene_bc_dragontiger"
 		},
 		{
@@ -61,7 +61,7 @@
 			"name": "scene_bc"
 		},
 		{
-			"keys": "blockchain_sqba_tex_png,blockchain_sqba_tex_json,blockchain_sqba_ske_json",
+			"keys": "blockchain_sqba_tex_png,blockchain_sqba_tex_json,blockchain_sqba_ske_dbbin",
 			"name": "scene_bc_sq_baccarat"
 		}
 	],
@@ -6516,11 +6516,6 @@
 			"name": "blockchain_tex_json"
 		},
 		{
-			"url": "assets/dragonbones/d/bab/blockchain_ske.json",
-			"type": "json",
-			"name": "blockchain_ske_json"
-		},
-		{
 			"url": "assets/images/d/lobby/common/d_lobby_title_left.png",
 			"type": "image",
 			"name": "d_lobby_title_left_png"
@@ -6564,11 +6559,6 @@
 			"url": "assets/dragonbones/d/dtb/blockchain_dt_tex.json",
 			"type": "json",
 			"name": "blockchain_dt_tex_json"
-		},
-		{
-			"url": "assets/dragonbones/d/dtb/blockchain_dt_ske.json",
-			"type": "json",
-			"name": "blockchain_dt_ske_json"
 		},
 		{
 			"url": "assets/dragonbones/d/dtb/dragon_ske.json",
@@ -7946,11 +7936,6 @@
 			"name": "blockchain_sqba_tex_json"
 		},
 		{
-			"url": "assets/dragonbones/d/bamb/blockchain_sqba_ske.json",
-			"type": "json",
-			"name": "blockchain_sqba_ske_json"
-		},
-		{
 			"url": "assets/sounds/sn_banker_zh.mp3",
 			"type": "sound",
 			"name": "sn_banker_zh_mp3"
@@ -8041,6 +8026,21 @@
 			"name": "d_lobby_placeholder_bc_sdba_jpg"
 		},
 		{
+			"url": "assets/dragonbones/d/dtb/blockchain_dt_ske.dbbin",
+			"type": "bin",
+			"name": "blockchain_dt_ske_dbbin"
+		},
+		{
+			"url": "assets/dragonbones/d/bab/blockchain_ske.dbbin",
+			"type": "bin",
+			"name": "blockchain_ske_dbbin"
+		},
+		{
+			"url": "assets/dragonbones/d/bamb/blockchain_sqba_ske.dbbin",
+			"type": "bin",
+			"name": "blockchain_sqba_ske_dbbin"
+    },
+    {
 			"url": "assets/nmimages/d/lobby/common/d_lobby_placeholder_bc_dt.jpg",
 			"type": "image",
 			"name": "d_lobby_placeholder_bc_dt_jpg"

@@ -53,7 +53,7 @@ namespace we {
       protected createFactory() {}
 
       protected createAniamtionObject() {
-        const skeletonData = RES.getRes(`${this._skeletonName}_ske_json`);
+        const skeletonData = RES.getRes(`${this._skeletonName}_ske_dbbin`);
         const textureData = RES.getRes(`${this._skeletonName}_tex_json`);
         const texture = RES.getRes(`${this._skeletonName}_tex_png`);
         const factory = new dragonBones.EgretFactory();
