@@ -101,6 +101,7 @@ namespace we {
       }
 
       public showSumGroup() {
+        if (env.orientation !== 'portrait') {
         if (this._gameData.state === core.GameState.PEEK) {
           this._openAllPlayerGroup.x = 364
           this._openAllBankerGroup.right = 364
@@ -110,6 +111,10 @@ namespace we {
         }
         if (this._gameData.state === core.GameState.PEEK_BANKER) {
           this._openAllBankerGroup.right = 174
+        }
+        }else{
+                    this._openAllPlayerGroup.x = 201
+          this._openAllBankerGroup.right = 201
         }
         if (this._playerSumGroup.visible === false) {
           this._playerSumGroup.visible = true;

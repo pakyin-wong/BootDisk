@@ -602,6 +602,9 @@ namespace we {
 
       protected focusCard(card: dragonBones.EgretArmatureDisplay, dataName: string, orientation: string) {
         return () => {
+          if(!(this._gameData.state === core.GameState.PEEK || this._gameData.state === core.GameState.PEEK_PLAYER || this._gameData.state === core.GameState.PEEK_BANKER)){
+            return;
+          }
           console.log('focusCard()');
           if (card.name === 'flipped') {
             return;
