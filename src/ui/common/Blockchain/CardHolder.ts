@@ -177,16 +177,26 @@ namespace we {
             this.setStateShuffle(isInit);
             break;
           case core.GameState.IDLE:
+            this.setStateIdle(isInit);
+            break;
           default:
             console.log('default updateResult ', gameData);
             break;
         }
       }
 
+      protected setStateIdle(isInit: boolean) {
+        if (isInit || this._gameData.previousstate === core.GameState.SHUFFLE) {
+          this.setDefaultStates();
+        }else{
+          console.log('clearCards() in idle');
+          this.clearCards();          
+        }
+      }
+
       protected async setStateBet(isInit: boolean) {
         console.log('setStateBet() isInit', isInit, this._gameData);
         this.updateAllSum();
-
         if (isInit) {
           this.movePin();
           this.moveShoe();
@@ -198,8 +208,8 @@ namespace we {
           }
           await this.betInitState(core.GameState.BET);
         } else {
-          console.log('clearCards()');
-          await this.clearCards();
+          // console.log('clearCards()');
+          // await this.clearCards();
           console.log('distributeCards()');
           await this.distributeCards();
         }

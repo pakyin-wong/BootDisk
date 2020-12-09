@@ -70,6 +70,7 @@ namespace we {
             case core.GameState.PEEK:
             case core.GameState.PEEK_BANKER:
             case core.GameState.PEEK_PLAYER:
+            case core.GameState.IDLE:
               break;
             default:
               console.log('default state', this._gameData.state);

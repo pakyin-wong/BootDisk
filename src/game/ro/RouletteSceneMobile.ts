@@ -45,6 +45,7 @@ namespace we {
       protected _betAreaLock: boolean = false;
 
       protected _betSet: egret.DisplayObject;
+      protected _betRelated: egret.DisplayObject;
       protected _betSetTween: ui.TweenConfig;
 
       protected _raceTrackChipLayer: RaceTrackChipLayer;

@@ -110,6 +110,38 @@ namespace we {
         if (isInit) {
           console.log('setStateDeal isInit')
           this.betInitState(core.GameState.DEAL);
+          const count = ['a1','a2','a3','b1','b2','b3'].reduce((prev, key)=>{
+            return prev + (this._gameData[key]!=''?1:0)
+          },0);
+          switch (count) {
+            case 6:
+              // possible: deal state after peek banker
+              this._smallCard2Exist = false;
+              this.showVerticalOutBack(this._smallCard2, 1);
+            case 5:
+              // possible: deal state after peek banker/ after peek player
+              this._smallCard1Exist = false;
+              this.showVerticalOutBack(this._smallCard1, 1);
+              if (count == 6) {
+                this.setBankerA3Card();
+                this.moveAndShowA3(50);
+                this.setPlayerB3Card();
+                this.moveAndShowB3(50);
+              } else {
+                if (this._gameData['b3']=='') {
+                  this.setBankerA3Card();
+                  this.moveAndShowA3(50);
+                } else {
+                  this.setPlayerB3Card();
+                  this.moveAndShowB3(50);
+                }
+              }
+            case 4:
+              // possible: deal state after peek
+              this.setFirst4Cards();
+              this.flipRemainingFirst4Card();
+            break;
+          }
         }
       }
 
@@ -337,15 +369,21 @@ namespace we {
           console.log('setStatePeekBanker isInit')
           this.betInitState(core.GameState.DEAL);
           this.setFirst4Cards();
-          this.setPlayerB3Card();
-          if (!this._gameData.b3 && this._smallCard1Exist) {
-            this._smallCard1Exist = false
+          if (this._gameData.b3 !== '') {
+            // if player card 3 is exist, show it
+            this._smallCard1Exist = false;
+            this.setPlayerB3Card();
+            this.moveAndShowB3(50);
           }
         }
         if (this._smallCard1Exist) {
+          // if small card not being used (b3 == ''), use small card 1
           this._smallCard1Exist = false;
           this.showVerticalOutBack(this._smallCard1, 1);
         } else {
+          // else, use both small card 1 and small card 2
+          this._smallCard1Exist = false;
+          this.showVerticalOutBack(this._smallCard1, 1);
           this._smallCard2Exist = false;
           this.showVerticalOutBack(this._smallCard2, 1);
         }

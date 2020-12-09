@@ -238,22 +238,8 @@ namespace we {
           this._chipLayer.addEventListener(core.Event.EXCEED_TABLE_LIMIT, this.exceedTableLimit, this);
           this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
           this._chipLayer.addEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
+          dir.evtHandler.addEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.resetUncfmBet, this);
         }
-        // if (this._confirmButton) {
-        //   this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
-        // }
-        // if (this._repeatButton) {
-        //   this._repeatButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRepeatPressed, this, true);
-        // }
-        // if (this._doubleButton) {
-        //   this._doubleButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDoublePressed, this, true);
-        // }
-        // if (this._undoButton) {
-        //   this._undoButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onUndoPressed, this, true);
-        // }
-        // if (this._cancelButton) {
-        //   this._cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
-        // }
         if (this._btnBack) {
           this._btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
         }
@@ -316,22 +302,8 @@ namespace we {
           this._chipLayer.removeEventListener(core.Event.EXCEED_TABLE_LIMIT, this.exceedTableLimit, this);
           this._chipLayer.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
           this._chipLayer.removeEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
+          dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.resetUncfmBet, this);
         }
-        // if (this._confirmButton) {
-        //   this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
-        // }
-        // if (this._repeatButton) {
-        //   this._repeatButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRepeatPressed, this, true);
-        // }
-        // if (this._doubleButton) {
-        //   this._doubleButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onDoublePressed, this, true);
-        // }
-        // if (this._undoButton) {
-        //   this._undoButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onUndoPressed, this, true);
-        // }
-        // if (this._cancelButton) {
-        //   this._cancelButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
-        // }
         if (this._betRelatedGroup) {
           this._betRelatedGroup.removeEventListener('ON_CONFIRM_PRESS', this.onConfirmPressed, this);
           this._betRelatedGroup.removeEventListener('ON_CANCEL_PRESS', this.onCancelPressed, this);
@@ -466,6 +438,8 @@ namespace we {
         if (!this._gameData) {
           return;
         }
+        console.log('Game state updated: ' + utils.getKeyByValue(core.GameState, this._gameData.state));
+        console.log(this._gameData);
         switch (this._gameData.state) {
           case core.GameState.IDLE:
             this.setStateIdle(isInit);
@@ -509,6 +483,10 @@ namespace we {
         if (this._previousState !== we.core.GameState.IDLE || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(false);
+          
+          if (this._resultDisplay) {
+            this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
+          }
         }
       }
 
@@ -718,19 +696,7 @@ namespace we {
         }
       }
 
-      // protected updateCountdownTimer() {
-      //   if (this._timer) {
-      //     this._timer.countdownValue = this._gameData.countdown * 1000;
-      //     this._timer.remainingTime = this._gameData.countdown * 1000 - (env.currTime - this._gameData.starttime);
-      //     this._timer.start();
-      //   }
-      // }
-
       protected setBetRelatedComponentsEnabled(enable: boolean) {
-        // if (this._timer) {
-        //   this._timer.visible = true;
-        // }
-
         if (this._chipLayer) {
           this._chipLayer.setTouchEnabled(enable);
         }
@@ -740,12 +706,6 @@ namespace we {
         if (this._betChipSet) {
           this._betChipSet.setTouchEnabled(enable);
         }
-        // if (this._confirmButton) {
-        //   this._confirmButton.touchEnabled = enable;
-        // }
-        // if (this._cancelButton) {
-        //   this._cancelButton.touchEnabled = enable;
-        // }
         if (this._betRelatedGroup) {
           this._betRelatedGroup.isTimerVisible = true;
           this._betRelatedGroup.enableConfirm = true;
@@ -842,6 +802,13 @@ namespace we {
         }
       }
 
+      protected resetUncfmBet() {
+        this._chipLayer.resetUnconfirmedBet();
+        if (this._betRelatedGroup) {
+          this._betRelatedGroup.changeBtnState(false, 0, this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid);
+        }
+      }
+
       protected onBetReturned(result) {
         if (!result) {
           logger.e(utils.LogTarget.RELEASE, 'Bet error');
@@ -879,28 +846,6 @@ namespace we {
           dir.audioCtr.play('ui_sfx_bet_time_out_mp3');
         }
       }
-
-      // protected changeBtnState(isEnable: boolean = true) {
-      //   this._undoButton.touchChildren = this._undoButton.touchEnabled = isEnable;
-      //   this._cancelButton.touchChildren = this._cancelButton.touchEnabled = isEnable;
-      //   this._confirmButton.touchChildren = this._confirmButton.touchEnabled = isEnable;
-      //   this._doubleButton.touchChildren = this._doubleButton.touchEnabled = this._chipLayer.getTotalCfmBetAmount() ? true : false;
-      //   this._repeatButton.touchChildren = this._repeatButton.touchEnabled = this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid;
-      //   this._undoButton.alpha = isEnable ? 1 : 0.5;
-      //   this._cancelButton.alpha = isEnable ? 1 : 0.5;
-      //   this._confirmButton.alpha = isEnable ? 1 : 0.3;
-      //   this._repeatButton.alpha = this._repeatButton.touchEnabled ? 1 : 0.5;
-      //   this._doubleButton.alpha = this._doubleButton.touchEnabled ? 1 : 0.5;
-      //   if (this._timer.bg_color) {
-      //     this._timer.bg_color.alpha = isEnable ? 0.7 : 0;
-      //     if (isEnable) {
-      //       this._timer.bg_flash();
-      //     } else {
-      //       this._timer.removebg_flash();
-      //     }
-      //   }
-      // }
-
       protected onCancelPressed(evt: egret.Event) {
         if (this._chipLayer) {
           this._chipLayer.cancelBet();

@@ -202,6 +202,7 @@ namespace we {
 
       mobile_lobby_feature_title: '精選推介',
       mobile_lobby_hot_game_title: '熱門推介',
+      mobile_ba_AutoConfirm: '自動確認',
       mobile_ba_undo: '復原',
       mobile_ba_clear: '清除',
       mobile_ba_double: '雙倍',
@@ -648,6 +649,17 @@ namespace we {
         redCardDesc: '紅卡：該局遊戲結束後進行換靴',
         announceAfterDisclose: '將於開牌後公佈...',
         cardUsed: '牌靴: 已使用$1張',
+      },
+      squeezeBaccarat: {
+        tutorial: {
+          title: '咪牌教学',
+          showCard: '全开',
+          next: '下一页',
+          caption_1: '點撃全開按鈕，卡牌立即全開',
+          caption_2: '點擊卡牌可切換大卡牌',
+          caption_3: '點撃卡牌中間位置快速開牌',
+          caption_4: '透過拖拽四邊四角進行咪牌',
+        },
       },
       message: {
         test: '你贏左 $1，$2% 會比左我',

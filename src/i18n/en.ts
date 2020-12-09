@@ -202,6 +202,7 @@ namespace we {
 
       mobile_lobby_feature_title: 'Featured Games',
       mobile_lobby_hot_game_title: 'Hot Games',
+      mobile_ba_AutoConfirm: 'Auto Confirm',
       mobile_ba_undo: 'Undo',
       mobile_ba_clear: 'Clear',
       mobile_ba_double: 'Double',
@@ -647,6 +648,17 @@ namespace we {
         redCardDesc: 'Red Card：After this round, new shoe will be used',
         announceAfterDisclose:'Will be announced after dealing',
         cardUsed: 'Shoe: $1 used'
+      },
+      squeezeBaccarat: {
+        tutorial: {
+          title: 'Squeeze Tutorial',
+          showCard: 'Show Card',
+          next: 'Next',
+          caption_1: "Click 'Show Card', all cards will be revealed",
+          caption_2: 'Click here to change to large-size card',
+          caption_3: 'Tap center of card to face up that card quickly',
+          caption_4: 'Slowly reveal the card by moving the cursor from 4 corners or edges of the card',
+        },
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',

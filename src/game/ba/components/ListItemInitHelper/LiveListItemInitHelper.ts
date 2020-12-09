@@ -52,7 +52,7 @@ namespace we {
         switch (gametype) {
           case core.GameType.BAB:
           case core.GameType.BASB:
-            return 'd_lobby_placeholder_bc_sdba_jpg';//d_lobby_placeholder_ba_jpg
+            return 'd_lobby_placeholder_bc_sdba_jpg'; // d_lobby_placeholder_ba_jpg
           case core.GameType.BAMB:
             return 'd_lobby_placeholder_bc_sqba_jpg';
           case core.GameType.BAC:

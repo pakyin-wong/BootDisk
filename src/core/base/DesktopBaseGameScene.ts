@@ -45,7 +45,6 @@ namespace we {
           this._panelDismissToggleBtn.addEventListener('CLICKED', this.onPanelToggle, this);
           this._panelDismissToggleBtn['tooltipText'] = env.isAutoDismiss ? 'live.tooltip.autoFullscreenToggleOff' : 'live.tooltip.autoFullscreenToggleOn';
         }
-        dir.evtHandler.addEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.resetUncfmBet, this);
         this.setBackground();
       }
 
@@ -103,7 +102,6 @@ namespace we {
         if (this._header && this._header.parent !== null) {
           this._header.parent.removeChild(this._header);
         }
-        dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.resetUncfmBet, this);
         super.destroy();
       }
 
@@ -180,12 +178,6 @@ namespace we {
       }
       protected onMatchGoodRoadUpdate() {
         super.onMatchGoodRoadUpdate();
-      }
-      protected resetUncfmBet() {
-        this._chipLayer.resetUnconfirmedBet();
-        if (this._betRelatedGroup) {
-          this._betRelatedGroup.changeBtnState(false, 0, this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid);
-        }
       }
     }
   }

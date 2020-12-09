@@ -398,6 +398,7 @@ namespace we {
       protected showFavouriteButton(isShow: boolean) {
         if (isShow && !this._favouriteButton) {
           this.generateFavouriteButton();
+          if (!this._favouriteButton) return;
           if(!env.isMobile){
             this._favouriteButton.visible = false;
           }
