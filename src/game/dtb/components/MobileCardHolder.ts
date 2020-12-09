@@ -29,7 +29,7 @@ namespace we {
       }
 
       protected async setStateBet(isInit: boolean) {
-        this._centerBurnCard.animation.gotoAndStopByFrame('',0)
+        //this._centerBurnCard.animation.gotoAndStopByFrame('',0)
         await super.setStateBet(isInit);
         if(isInit){
           await utils.playAnimation(this._ringAnim,'icon_loop',1)

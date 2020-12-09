@@ -13,7 +13,7 @@ namespace we {
       gametype_BAI: 'BAI',
       gametype_BAM: 'Squeeze Baccarat ',
       gametype_BAB: 'Bc Baccarat',
-      gametype_BASB: 'Bc Speed Baccarat',
+      gametype_BASB: 'Bc Spd Baccarat',
       gametype_BAMB: 'Bc Squeeze Baccarat',
       gametype_DI: 'Sic-bo',
       gametype_DIL: 'GOF Sic-bo',
