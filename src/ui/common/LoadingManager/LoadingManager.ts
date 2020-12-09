@@ -53,18 +53,6 @@ namespace we {
       protected loadingInstance: ILoadingUI & eui.Component;
       protected isLoading: boolean = false;
 
-      // protected _factory: dragonBones.EgretFactory;
-      // protected _loadingAnim: dragonBones.EgretArmatureDisplay;
-
-      // protected createFactory() {
-      //   const skeletonData = RES.getRes(`lobby_ui_ske_json`);
-      //   const textureData = RES.getRes(`lobby_ui_tex_json`);
-      //   const texture = RES.getRes(`lobby_ui_tex_png`);
-      //   this._factory = new dragonBones.EgretFactory();
-      //   this._factory.parseDragonBonesData(skeletonData);
-      //   this._factory.parseTextureAtlasData(textureData, texture);
-      // }
-
       public async load(tasks: (() => Promise<any>)[], options: any = {}) {
         if (this.isLoading) {
           throw new Error('LoadingManager.load is not designed to call multiple time at once.');
@@ -78,8 +66,7 @@ namespace we {
         const self = this;
         this.isLoading = true;
 
-        // this._loadingAnim = this._factory.buildArmatureDisplay('d_lobby_panel_gamelist_betted');
-        // this.stage.addChild(this._loadingAnim);
+        this.options.loadingUI = ui.AnimLoadingUI; 
 
         // init progressMap and progressLength
         this.progressMap = Array.apply(null, { length: tasks.length }).map((value, idx) => {
@@ -110,10 +97,6 @@ namespace we {
                 this.onUpdate();
               }
             );
-              // this._loadingAnim = this._factory.buildArmatureDisplay('armatureName');
-              // this.stage.addChild(this._loadingAnim);
-              // await utils.playAnimation(this._loadingAnim, 'animation', 1);
-              // return new Promise(resolve => resolve());
           } else {
             this._currentIdx = 0;
             for (const task of tasks) {
@@ -122,10 +105,7 @@ namespace we {
               this.onUpdate();
               this._currentIdx++;
             }
-            // this._loadingAnim = this._factory.buildArmatureDisplay('armatureName');
-            // this.stage.addChild(this._loadingAnim);
-            // await utils.playAnimation(this._loadingAnim, 'animation', 1);
-            // return new Promise(resolve => resolve());
+
           }
         } catch (err) {
           throw new Error(err);

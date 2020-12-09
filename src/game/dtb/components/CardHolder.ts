@@ -37,8 +37,8 @@ namespace we {
 
       protected _verticalFlip: string;
 
-      protected mount() {
-        super.mount();
+      protected initAnimRelatedComps(){
+        super.initAnimRelatedComps();
         this._dragonAnim = this.createDragonTigerAnim('dragon', 0.8);
         this._tigerAnim = this.createDragonTigerAnim('tiger', 0.8);
         this._dragonAnimGroup.addChild(this._dragonAnim);

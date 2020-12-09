@@ -5,7 +5,7 @@
 			"name": "common"
 		},
 		{
-			"keys": "font_fnt,d_common_quickbet_bg_png,d_common_quickbet_btn_confirm_active_png,d_common_quickbet_btn_confirm_png,d_common_quickbet_confirm_png,d_lobby_quick_bet_notification_follow_hover_png,d_lobby_quick_bet_notification_follow_normal_png,lobby_json,lobby_ui_tex_png,d_lobby_placeholder_ba_jpg,d_lobby_placeholder_dt_jpg,d_lobby_placeholder_gof_ro_jpg,d_lobby_placeholder_gof_sb_jpg,d_lobby_placeholder_lw_jpg,d_lobby_placeholder_ro_jpg,d_lobby_placeholder_sicbo_jpg,d_lobby_placeholder_sq_ba_jpg,d_lobby_placeholder_wtc_jpg,d_lobby_pro_placeholder_ba_jpg,d_lobby_pro_placeholder_dt_jpg,d_lobby_pro_placeholder_gof_ro_jpg,d_lobby_pro_placeholder_gof_sb_jpg,d_lobby_pro_placeholder_lw_jpg,d_lobby_pro_placeholder_ro_png,d_lobby_pro_placeholder_sicbo_jpg,d_lobby_pro_placeholder_sq_ba_jpg,d_lobby_pro_placeholder_wtc_jpg,d_lobby_placeholder_bc_sqba_jpg,d_lobby_pro_placeholder_bc_sdba_jpg,d_lobby_pro_placeholder_bc_sqba_jpg,d_lobby_placeholder_bc_sdba_jpg",
+			"keys": "font_fnt,d_common_quickbet_bg_png,d_common_quickbet_btn_confirm_active_png,d_common_quickbet_btn_confirm_png,d_common_quickbet_confirm_png,d_lobby_quick_bet_notification_follow_hover_png,d_lobby_quick_bet_notification_follow_normal_png,lobby_json,lobby_ui_tex_png,d_lobby_placeholder_ba_jpg,d_lobby_placeholder_dt_jpg,d_lobby_placeholder_gof_ro_jpg,d_lobby_placeholder_gof_sb_jpg,d_lobby_placeholder_lw_jpg,d_lobby_placeholder_ro_jpg,d_lobby_placeholder_sicbo_jpg,d_lobby_placeholder_sq_ba_jpg,d_lobby_placeholder_wtc_jpg,d_lobby_pro_placeholder_ba_jpg,d_lobby_pro_placeholder_dt_jpg,d_lobby_pro_placeholder_gof_ro_jpg,d_lobby_pro_placeholder_gof_sb_jpg,d_lobby_pro_placeholder_lw_jpg,d_lobby_pro_placeholder_ro_png,d_lobby_pro_placeholder_sicbo_jpg,d_lobby_pro_placeholder_sq_ba_jpg,d_lobby_pro_placeholder_wtc_jpg,d_lobby_placeholder_bc_sqba_jpg,d_lobby_pro_placeholder_bc_sdba_jpg,d_lobby_pro_placeholder_bc_sqba_jpg,d_lobby_placeholder_bc_sdba_jpg,d_lobby_placeholder_bc_dt_jpg,d_lobby_pro_placeholder_bc_dt_jpg",
 			"name": "scene_lobby"
 		},
 		{
@@ -1121,6 +1121,16 @@
 			"url": "assets/dragonbones/d/dtb/blockchain_dt_ske.dbbin",
 			"type": "bin",
 			"name": "blockchain_dt_ske_dbbin"
+    },
+    {
+			"url": "assets/nmimages/d/lobby/common/d_lobby_placeholder_bc_dt.jpg",
+			"type": "image",
+			"name": "d_lobby_placeholder_bc_dt_jpg"
+		},
+		{
+			"url": "assets/nmimages/d/lobby/common/d_lobby_pro_placeholder_bc_dt.jpg",
+			"type": "image",
+			"name": "d_lobby_pro_placeholder_bc_dt_jpg"
 		}
 	]
 }

@@ -305,7 +305,6 @@ namespace we {
         if (!this._gameData) {
           return;
         }
-        this.updateCountdownTimer();
         if (this._stateLabel) this._stateLabel.visible = false;
         if(this._shuffleMask) this._shuffleMask.visible = false;
         switch (this._gameData.state) {
@@ -341,12 +340,22 @@ namespace we {
       protected setStateUnknown(isInit: boolean = false) {
         this.setBetRelatedComponentsEnabled(false);
         this.setResultRelatedComponentsEnabled(false);
+        if (this._timer) {
+          this._timer.countdownValue = 10 * 1000;
+          this._timer.remainingTime = 0;
+          this._timer.start();
+        }
       }
 
       protected setStateIdle(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.IDLE || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(false);
+          if (this._timer) {
+            this._timer.countdownValue = 10 * 1000;
+            this._timer.remainingTime = 0;
+            this._timer.start();
+          }
         }
       }
       protected setStateBet(isInit: boolean = false) {
@@ -377,7 +386,7 @@ namespace we {
           }
         }
         // update the countdownTimer, updated: moved the function call to updateGame to ensure the timer is correct in every state since timer always shown
-        // this.updateCountdownTimer();
+        this.updateCountdownTimer();
       }
 
       protected setStateDeal(isInit: boolean = false) {
@@ -412,6 +421,11 @@ namespace we {
         if (this._previousState !== we.core.GameState.PEEK || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
+          if (this._timer) {
+            this._timer.countdownValue = 10 * 1000;
+            this._timer.remainingTime = 0;
+            this._timer.start();
+          }
         }
 
         if (this._previousState !== we.core.GameState.DEAL) {
@@ -445,6 +459,11 @@ namespace we {
           if (this._resultMessage) {
             this.checkResultMessage();
           }
+          if (this._timer) {
+            this._timer.countdownValue = 10 * 1000;
+            this._timer.remainingTime = 0;
+            this._timer.start();
+          }
         }
       }
 
@@ -452,6 +471,11 @@ namespace we {
         if (this._previousState !== we.core.GameState.REFUND || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(false);
+          if (this._timer) {
+            this._timer.countdownValue = 10 * 1000;
+            this._timer.remainingTime = 0;
+            this._timer.start();
+          }
         }
       }
 

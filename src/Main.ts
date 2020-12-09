@@ -104,7 +104,7 @@ class Main extends eui.UILayer {
     IPhoneChromeFullscreen.OnLoad(this.stage);
 
     // step 2: init Egrets Asset / onResume
-    we.i18n.setLang('cn', true);
+    we.i18n.setLang(env.language, true);
     await this.initRes();
     env.initialized = true;
     if (!env.isMobile) {
