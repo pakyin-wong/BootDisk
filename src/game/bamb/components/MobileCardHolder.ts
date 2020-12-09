@@ -226,6 +226,15 @@ namespace we {
         return new Promise(resolve => resolve())
       }
 
+      protected createFactory() {
+        const skeletonData = RES.getRes(`blockchain_sqba_ske_dbbin`);
+        const textureData = RES.getRes(`blockchain_sqba_tex_json`);
+        const texture = RES.getRes(`blockchain_sqba_tex_png`);
+        this._factory = new dragonBones.EgretFactory();
+        this._factory.parseDragonBonesData(skeletonData);
+        this._factory.parseTextureAtlasData(textureData, texture);
+      }
+
       protected async roundOut() {
         return new Promise(resolve => resolve())
       }
