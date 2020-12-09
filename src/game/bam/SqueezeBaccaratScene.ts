@@ -23,6 +23,8 @@ namespace we {
           tutorial.isEdgeDismissable = true;
           this.addChild(tutorial);
           env.isFirstTimeBam = true;
+          dir.socket.updateSetting('isFirstTimeBam', env.isFirstTimeBam? "1":"0");
+          
         }
       }
 

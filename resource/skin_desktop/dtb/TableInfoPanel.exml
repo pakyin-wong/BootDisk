@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.dt.TableInfoPanel" width="434" height="436" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.dtb.TableInfoPanel" width="434" height="436" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="content" width="100%" height="100%" x="0" y="0">
 		<e:Image id="moveArea" source="popover_png" height="100%" width="100%" x="0" y="0"  alpha=".9"/>
@@ -12,7 +12,7 @@
 		<e:Label id="tableNoLabel" text="檯號" y="60" x="30" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="roundNoLabel" text="局號" y="94" x="30" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="gameIdLabel" text="編號" y="128" scaleX="1" scaleY="1" size="20" anchorOffsetY="0" height="20" x="30" />
-		<e:Label id="dealerLabel" text="荷官" y="162" x="30" scaleX="1" scaleY="1" size="20" />
+		<e:Label id="dealerLabel" text="荷官" y="162" x="30" scaleX="1" scaleY="1" size="20" visible="false"/>
 		<e:Label id="tableBetLimitLabel" text="本檯限紅" y="196" scaleX="1" scaleY="1" size="20" x="30" />
 		<e:Label id="betLimitLabel" text="投注限紅" y="230" x="30" scaleX="1" scaleY="1" size="20" />
 		<e:Rect id="line" width="376" height="1" x="30" y="266" fillColor="0x444444" />
@@ -29,7 +29,7 @@
 		<ui:RunTimeLabel id="pGameID" text="-" y="128" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
 		         width="200" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30" />
 		<e:Label id="pDealer" text="-" y="162" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
-		         width="170" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30" />
+		         width="170" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30" visible="false"/>
 		<e:Label id="pTableBetLimit" text="-" y="196" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
 		         width="170" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30" />
 		<ui:RunTimeLabel id="pBetLimit" text="-" y="230" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"

@@ -219,7 +219,11 @@ namespace we {
         const cardData = ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
         for (let i = 0; i < this.cardAnimNames.length; i++) {
           const cardAnim = <dragonBones.EgretArmatureDisplay>this[this.cardAnimNames[i]];
-          this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this.getCardIndex(cardData[i], core.GameState.BET));
+          if (this.cardAnimNames[i] === '_smallCard1' || this.cardAnimNames[i] === '_smallCard2') {
+            this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this.getCardIndex(cardData[i], core.GameState.BET),66);
+          } else {
+            this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this.getCardIndex(cardData[i], core.GameState.BET));
+          }
           this.showVerticalLoopBack(cardAnim, 0);
         }
 
@@ -560,7 +564,11 @@ namespace we {
             case '_bankerCard2':
               this.setLabel(this._ringAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + i + 1);
               const cardAnim = <dragonBones.EgretArmatureDisplay>this[this.cardAnimNames[i]];
-              this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + i + 1);
+              if (this.cardAnimNames[i] === '_smallCard1' || this.cardAnimNames[i] === '_smallCard2') {
+                this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + i + 1,66);
+              } else {
+                this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + i + 1);
+              }
               await utils.playAnimation(this._ringAnim, 'poker_in', 1, 'POKER_ROUND_ANIMATION_GROUP');
               await utils.playAnimation(this._ringAnim, 'poker_out', 1, 'POKER_ROUND_ANIMATION_GROUP');
 

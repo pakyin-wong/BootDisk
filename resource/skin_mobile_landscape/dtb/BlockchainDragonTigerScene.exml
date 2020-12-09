@@ -61,7 +61,7 @@
 		</e:Group>-->
 
 	</e:Group>
-	<dt:MobileBottomGamePanel skinName="skin_mobile_landscape.dt.MobileBottomGamePanel" id="_bottomGamePanel" width="2424"
+	<dt:MobileBottomGamePanel skinName="skin_mobile_landscape.dtb.MobileBottomGamePanel" id="_bottomGamePanel" width="2424"
 	                          scaleY="1" scaleX="1" />
 	<e:layout>
 		<e:VerticalLayout gap="-55" />

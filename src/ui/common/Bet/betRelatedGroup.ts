@@ -104,21 +104,21 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.changeTimerBg, this);
       }
 
-      public changeBtnState(isEnable: boolean = true, totalUncfmBetAmount: number = 0, isPrevBet: boolean = false, isBetState: boolean = true) {
+      public changeBtnState(isEnable: boolean = true, totalUncfmBetAmount: number = 0, isPrevBet: boolean = false, isBetState: boolean = true, isRepeatClicked: boolean = false) {
         const hasUncfmBet = totalUncfmBetAmount !== 0; // change to boolean
-
+        const enableRepeat = isPrevBet && !isRepeatClicked
         this._undoButton.touchEnabled = isEnable;
         this._cancelButton.touchChildren = this._cancelButton.touchEnabled = isEnable;
         // double btn check uncfm btn , not cfmbtn
         this._doubleButton.touchChildren = this._doubleButton.touchEnabled = totalUncfmBetAmount ? true : false;
-        this._repeatButton.touchChildren = this._repeatButton.touchEnabled = isPrevBet;
+        this._repeatButton.touchChildren = this._repeatButton.touchEnabled = enableRepeat;
+
         this._undoButton.buttonEnabled = isEnable;
         this._cancelButton.buttonEnabled = isEnable;
         this._repeatButton.buttonEnabled = this._repeatButton.touchEnabled;
         this._doubleButton.buttonEnabled = hasUncfmBet;
         (this._confirmButton as ui.BetConfirmButton).buttonEnabled = isBetState && hasUncfmBet;
         this._timer.bg_flash(false, isEnable);
-        // }
       }
       protected onConfirmPressed() {
         this.dispatchEvent(new egret.Event('ON_CONFIRM_PRESS'));

@@ -101,7 +101,8 @@ namespace we {
       overlaypanel_bethistory_recordtab_id: 'Bet ID',
       overlaypanel_bethistory_recordtab_date: 'Date & Time',
       overlaypanel_bethistory_recordtab_game: 'Game',
-      overlaypanel_bethistory_recordtab_round: 'Game ID',
+      overlaypanel_bethistory_recordtab_gameround: 'Game ID',
+      overlaypanel_bethistory_recordtab_round: 'Game ID / ID',
       overlaypanel_bethistory_recordtab_replay: 'Playback',
       overlaypanel_bethistory_recordtab_remark: 'Win / Lose',
       overlaypanel_bethistory_recordtab_bettype: 'Bet Content',
@@ -564,7 +565,7 @@ namespace we {
         goodroad: 'Good Road',
         allgames: 'All Game',
         noGoodRoad: 'No Good Road',
-        noBet: 'No Bet Game',
+        noBet: 'No betted game',
       },
       baccarat: {
         tooltip: {
@@ -638,7 +639,7 @@ namespace we {
         thirdParty: 'Third party Verification',
         sha256VerifySuccess: 'SHA256 Verified',
         sha256VerifyFail: 'Cannot be verified by SHA256',
-        deckDesc: '"All Cards" consists of a total of 8 decks of playing cards, a total of 416 cards. Before the start of the first round, the system will randomly insert a red card in "All Cards". When the card is dealt to the red card, it means that the shoe will be changed after the game ends. After the cards are shuffled, the "Card serial number" and "Card encryption text" will be regenerated to ensure the authenticity of the game.',
+        deckDesc: 'The "Private Key" and "Verified Serial Number" will be published on "All Cards" for verification, those will be regenerated after the cards have shuffled, to ensure the authenticity of the game.',
         copy: 'Copy',
         encryptedKey: 'Published Serial Number',
         decryptedKey: 'Verified Serial Number',
