@@ -91,6 +91,26 @@ namespace we {
         }
       }
 
+      protected async showNextFlippedCard(nextCard: dragonBones.EgretArmatureDisplay,orientation: string){
+        const stateBeforeSleep = this._gameData.state
+        this.setSideCardsTouchEnabled(false)
+        await utils.sleep(1000)
+        if(stateBeforeSleep === this._gameData.state){
+          super.showNextFlippedCard(nextCard, orientation);
+          this.setSideCardsTouchEnabled(true)
+        }
+      }
+
+      protected async hideCenterCard(orientation: string) {
+        const stateBeforeSleep = this._gameData.state
+        this.setSideCardsTouchEnabled(false)
+        await utils.sleep(1000)
+        if(stateBeforeSleep === this._gameData.state){
+          super.hideCenterCard(orientation);
+          this.setSideCardsTouchEnabled(true)
+        }
+      }
+
       public collapseBottom() {
         if (env.orientation === 'portrait') {
           this._wholeMoveGroup.y = -290
