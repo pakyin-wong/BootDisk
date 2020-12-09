@@ -186,9 +186,11 @@ namespace we {
       }
 
       protected setStateIdle(isInit: boolean) {
-        if (!isInit) {
-          console.log('clearCards()');
-          this.clearCards();
+        if (isInit || this._gameData.previousstate === core.GameState.SHUFFLE) {
+          this.setDefaultStates();
+        }else{
+          console.log('clearCards() in idle');
+          this.clearCards();          
         }
       }
 
