@@ -347,7 +347,9 @@ namespace we {
           this._betRelatedGroup.changeBtnState(
             true,
             this._chipLayer.getTotalUncfmBetAmount(),
-            this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
+            this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid,
+            true,
+            this._isRepeatClicked
           );
         }
       }
@@ -358,7 +360,8 @@ namespace we {
             false,
             this._chipLayer.getTotalUncfmBetAmount(),
             this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid,
-            false
+            false,
+            this._isRepeatClicked
           );
         }
       }
@@ -902,7 +905,9 @@ namespace we {
             this._betRelatedGroup.changeBtnState(
               false,
               this._chipLayer.getTotalUncfmBetAmount(),
-              this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid
+              this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid,
+              true,
+              this._isRepeatClicked
             );
           }
         }
@@ -910,6 +915,8 @@ namespace we {
 
       protected onRepeatPressed(evt: egret.Event) {
         if (this._chipLayer) {
+          this._chipLayer.cancelBet();
+          this._undoStack.clearStack();
           this._chipLayer.onRepeatPressed();
           this._isRepeatClicked = true;
           if (this._betRelatedGroup) {

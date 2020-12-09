@@ -115,9 +115,7 @@ namespace we {
       }
 
       public changeBtnState(isEnable: boolean = true, totalUncfmBetAmount: number = 0, isPrevBet: boolean = false, isBetState: boolean = true, isRepeatClicked: boolean = false) {
-        console.log('isRepeatClickedisRepeatClickedisRepeatClicked',isRepeatClicked)
         const hasUncfmBet = totalUncfmBetAmount !== 0; // change to boolean
-        console.log('isPrevBet,!isRepeatClicked isPrevBet && !isRepeatClicked',[isPrevBet,!isRepeatClicked,isPrevBet && !isRepeatClicked])
         const enableRepeat = isPrevBet && !isRepeatClicked
         this._undoButton.touchEnabled = isEnable;
         this._cancelButton.touchChildren = this._cancelButton.touchEnabled = isEnable;
