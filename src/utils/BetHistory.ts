@@ -11,6 +11,18 @@ namespace we {
         }
       }
 
+      public static isBlockChain(gametype) {
+        switch(gametype) {
+          case we.core.GameType.DTB:
+          case we.core.GameType.BAB:
+          case we.core.GameType.BASB:
+          case we.core.GameType.BAMB:
+          return true;
+          default:
+          return false;
+        }
+      }
+
       public static formatBetType(gametype, bettype: string) {
         switch (gametype) {
           case we.core.GameType.BAC:

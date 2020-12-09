@@ -10,7 +10,23 @@ namespace we {
       protected _gameData: data.GameData & data.BlockchainGameData & data.SqueezingBlockchainGameData;
       protected _timeMultiple: number = 1000;
       protected _squeezeTimer: ui.CountdownTimer;
+      protected _flipCardHolder: FlipCardHolder;
+      protected _particleGroup: eui.Group;
+      protected _wholeMoveGroup: eui.Group;
+      protected _animRingGroup: eui.Group;
+      protected _resultDisplay: ui.IResultDisplay & we.blockchain.CardHolder & we.bamb.MobileCardHolder
+
       public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat, core.res.BlockchainSqueezeBaccarat];
+
+
+      protected passBackgroundsToResultDisplay(){
+        this._resultDisplay.passBackgrounds({
+          wholeMoveGroup: this._wholeMoveGroup,
+          animRingGroup: this._animRingGroup,
+          particleGroup: this._particleGroup
+        })
+        this._resultDisplay.passFlipCardHolder(this._flipCardHolder);
+      }
 
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('BlockchainSqueezeBaccaratScene');
@@ -19,22 +35,26 @@ namespace we {
 
       protected toggleBottomGamePanel() {
         super.toggleBottomGamePanel();
-                if (env.isBottomPanelOpen) {
-                  this._squeezeTimer.y = 362;
-                }else{
-                  this._squeezeTimer.y = 488;
+        if (env.isBottomPanelOpen) {
+          this._squeezeTimer.y = 362;
+        } else {
+          this._squeezeTimer.y = 488;
 
-                }
+        }
       }
 
-      protected setStateBet(isInit: boolean = false){
+      protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
         this._squeezeTimer.visible = false;
       }
 
       protected setStatePeek(isInit: boolean = false) {
+
         console.log('PEEK', this._gameData.state, this._gameData.gameroundid, (<any>this._gameData).peekstarttime);
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
+        this.toggleBottomGamePanel()
+        this.showSumGroup();
+        this.setChildIndex(this._resultDisplay, 99999)
         if (this._previousState !== we.core.GameState.PEEK || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
@@ -49,8 +69,12 @@ namespace we {
       }
 
       protected setStatePeekPlayer(isInit: boolean = false) {
+
         // console.log('PEEK_PLAYER ' + new Date(Date.now()).toString());
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
+        this.toggleBottomGamePanel()
+        this.showSumGroup();
+        this.setChildIndex(this._resultDisplay, 99999)
 
         if (this._previousState !== we.core.GameState.PEEK_PLAYER || isInit) {
           this.setBetRelatedComponentsEnabled(false);
@@ -64,8 +88,12 @@ namespace we {
       }
 
       protected setStatePeekBanker(isInit: boolean = false) {
+
         // console.log('PEEK_BANKER ' + new Date(Date.now()).toString());
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
+        this.toggleBottomGamePanel()
+        this.showSumGroup();
+        this.setChildIndex(this._resultDisplay, 99999)
         if (this._previousState !== we.core.GameState.PEEK_BANKER || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);

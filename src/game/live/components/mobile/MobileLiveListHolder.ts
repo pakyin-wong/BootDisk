@@ -181,6 +181,21 @@ namespace we {
           }
         }
       }
+
+      public onTouchTapWhole(evt: egret.TouchEvent) {
+        // check if the parent name is "ActionButton"
+        let t = evt.target;
+        if (t.stage) {
+          while (!(t instanceof egret.Stage)) {
+            if (t.name === 'ActionButton') {
+              return;
+            } else {
+              t = t.parent;
+            }
+          }
+        }
+        super.onTouchTapWhole(evt);
+      }
     }
   }
 }

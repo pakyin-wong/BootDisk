@@ -41,6 +41,30 @@ namespace we {
             if (tab) {
               data['tab'] = tab;
             }
+            if (scene !== 'lobby') {
+              if (data['tableid']) {
+                // check if current tableid is valid
+                const tableinfo = env.tableInfos[data['tableid']];
+                if (!tableinfo || !tableinfo.displayReady) {
+                  data['tableid']=null;
+                }
+              }
+              if (!data['tableid']) {
+                // search for valid game table
+                const gametype = core.GameType[scene.toUpperCase()];
+                if (!gametype) {
+                  egret.error('Game is not valid');
+                  return;
+                }
+                const tableinfos = env.tableInfoArray.filter(tableinfo=>(tableinfo.gametype==gametype && tableinfo.displayReady));
+                if (tableinfos.length==0) {
+                  egret.error('No valid table');
+                  return;
+                }
+                const tableid = tableinfos[0].tableid;
+                data['tableid'] = tableid;
+              }
+            }
             dir.sceneCtr.goto(scene, data);
           } else {
             egret.error('Link is not valid');

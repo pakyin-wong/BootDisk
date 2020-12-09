@@ -12,6 +12,9 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this._forceNoDismiss = true;
+        if (ui.EdgeDismissableAddon.isDismiss) {
+          ui.EdgeDismissableAddon.toggle();
+        }
         if (!env.isFirstTimeBam) {
           const tutorial = new SqueezeTutorial('SqueezeTutorial');
           tutorial.x = 106;

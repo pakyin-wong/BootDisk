@@ -7,8 +7,11 @@
 	<e:Image id="_bgImg" />
 	<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" width="2424" height="1242" x="0" bottom="0" stroke="0"
 	                   fillColor="0x00000000,0x00000050" />
-	<bamb:MobileCardHolder id="_resultDisplay" width="2424" height="1242" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
-	                      scaleY="1" x="0" y="0" />
+    <e:Group id="_particleGroup" width="100%" height="100%" />
+    <e:Group id="_wholeMoveGroup" width="100%" height="100%" y="0">
+           <e:Image source="m_blockchain_bg_png" horizontalCenter="0" y="-180" width="2421" height="1621" />
+           <e:Group id="_animRingGroup" y="650" horizontalCenter="0" />
+    </e:Group>
 	<e:Group id="_verticalGroup" width="2424" x="0" anchorOffsetY="0" bottom="0">
 		<e:Group id="_verticalTop" width="2424" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
 			<ba:TableLayer id="_tableLayer" isEdgeDismissable="true" skinName="skin_mobile_landscape.ba.TableLayerSkin"
@@ -51,7 +54,11 @@
 			                           labelSize="48" x.right_hand_mode="618" y="60" x.left_hand_mode="1604" />
 		<ui:BetRelatedGroup id="_betRelatedGroup" y="71" x.right_hand_mode="762" x.left_hand_mode="600" />
 	</e:Group>
+<<<<<<< HEAD
 	<ba:MobileBottomGamePanel skinName="skin_mobile_landscape.bab.MobileBottomGamePanel" id="_bottomGamePanel" width="2424"
+=======
+	<ba:MobileBottomGamePanel skinName="skin_mobile_landscape.bamb.MobileBottomGamePanel" id="_bottomGamePanel" width="2424"
+>>>>>>> origin/develop
 	                          x="1" scaleY="1" y="358" scaleX="1" />
 	<e:layout>
 		<e:VerticalLayout gap="-65" />
@@ -115,6 +122,8 @@
 </e:Group>
 <ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="241.6" x="18.49" y="644" anchorOffsetX="0"
                           anchorOffsetY="0" visible="false" />
+        <ui:CountdownTimer id="_squeezeTimer" width="182" height="182" y="1000" horizontalCenter="0"
+                           skinName="skin_mobile.CountdownTimerRoundSqueezeBaccaratSkin" visible="false"/>
 <e:Group id="_deckButton" x="59" y="307" width="309" height="80" touchThrough="true">
 	<ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab"
 	                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" />
@@ -130,6 +139,10 @@
 	                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" />
 	<ui:RunTimeLabel i18n="baccarat.lastRound" verticalCenter="0" horizontalCenter="0" touchEnabled="false" />
 </e:Group>
+<bamb:MFlipCardHolder id="_flipCardHolder" width="2424" height="900" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
+	                          scaleY="1" y="83" horizontalCenter="0" />
+<bamb:MobileCardHolder id="_resultDisplay" width="2424" height="1242" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
+	                      scaleY="1" x="0" y="0" />
 <ui:ShuffleMessage id="_shuffleMessage" skinName="skin_mobile_portrait.ShuffleMessage" horizontalCenter="0" y="696"/>
 <bab:GameResultMessage id="_resultMessage" y="169" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" height="229"
                       horizontalCenter="0" />

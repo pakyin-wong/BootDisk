@@ -12,6 +12,6 @@
 	<e:Scroller id="scroller" height="850" y="156" left="0" right="0">
 
 	</e:Scroller>
-	<live:MobileLobbyGridLayoutSwitch width="104" height="104" x="2277" y="688"/>
+	<live:MobileLobbyGridLayoutSwitch width="130" height="130" x="2260" y="606"/>
 
 </e:Skin>

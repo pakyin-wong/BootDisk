@@ -23,11 +23,11 @@
                 </e:Group>
                 <e:Group id="_sha256SuccessfulGroup" x="223" y="520">
                         <e:Image source="m_bcba_panel_verification_success_png" x="20" width="33" height="40"/>
-                        <ui:RunTimeLabel x="58" verticalCenter="0" verticalAlign="middle" i18n="baccarat.sha256VerifySuccess" />
+                        <ui:RunTimeLabel id="_sha256SuccessfulLabel" x="58" verticalCenter="0" verticalAlign="middle" i18n="baccarat.sha256VerifySuccess"  textColor="0x0f9d5d"/>
                 </e:Group>
                 <e:Group id="_sha256FailGroup" x="223" y="520">
                         <e:Image source="m_bcba_panel_verification_fail_png" x="20" width="33" height="40"/>
-                        <ui:RunTimeLabel x="58" verticalCenter="0" verticalAlign="middle" i18n="baccarat.sha256VerifyFail" />
+                        <ui:RunTimeLabel id="_sha256FailLabel" x="58" verticalCenter="0" verticalAlign="middle" i18n="baccarat.sha256VerifyFail"  textColor="0xd83642"/>
                 </e:Group>
                 <e:Group id="_encryptedAreaGroup" width="1146" height="350" x="48" y="568">
                         <e:Image id="_encryptedAreaImage" source="m_bcba_panel_verification_encryt_bg_png" width="1146" height="350" />

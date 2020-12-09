@@ -50,6 +50,7 @@ namespace we {
                 image: allResources[offset + index],
                 imageUrl: (item as any).imageurl,
                 link: (item as any).link,
+                // link: 'weweb://dtb?tableid=TT-DTB-002',
                 loaded: true,
               }));
               offset += reshomelargebanners.length;

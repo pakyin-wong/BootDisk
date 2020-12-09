@@ -24,7 +24,7 @@ namespace we {
       }
 
       protected initCustomPos() {
-        this._buttonGroupShowY = 150;
+        this._buttonGroupShowY = 110;
         this._buttonGroupHideY = 200;
       }
 
@@ -117,6 +117,17 @@ namespace we {
           evt.stopPropagation();
           return;
         }
+        let t = evt.target;
+        if (t.stage) {
+          while (!(t instanceof egret.Stage)) {
+            if (t.name === 'ActionButton') {
+              evt.stopPropagation();
+              return;
+            } else {
+              t = t.parent;
+            }
+          }
+        }
 
         if (this._isButtonGroupShow) {
           this.hideButtonGroup();
@@ -144,7 +155,36 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitChanged, this);
       }
 
+      protected createFavouriteButton() {
+        this.generateFavouriteButton();
+        if (!this._favouriteButton) return;
+
+        this._favouriteButton.externalClickHandling = true;
+
+        this._favouriteButton.addEventListener('CLICKED', this.onFavouritePressed, this);
+
+        const active = env.favouriteTableList.indexOf(this._tableId) > -1;
+        if (this._favouriteButton.active !== active) {
+          this._favouriteButton.active = active;
+        }
+      }
+
+      protected generateFavouriteButton() {
+
+      }
+
+      protected removeFavouriteButton() {
+        if (this._favouriteButton) {
+          this._favouriteButton.removeEventListener('CLICKED', this.onFavouritePressed, this);
+          this._favouriteButton.parent.removeChild(this._favouriteButton);
+          this._favouriteButton = null;
+        }
+      }
+
       protected showButtonGroup() {
+        if (!this._favouriteButton) {
+          this.createFavouriteButton();
+        }
         this._isButtonGroupShow = true;
         this._dimmer.visible = true;
         this.holder.changeState(ui.TableListItemHolder.STATE_FOCUS);
@@ -164,6 +204,7 @@ namespace we {
           .to({ y: this._buttonGroupHideY, alpha: 0 }, this._tweenInterval1)
           .call(() => {
             this._buttonGroup.visible = false;
+            this.removeFavouriteButton();
           });
 
         if (this.holder.isFocus) {

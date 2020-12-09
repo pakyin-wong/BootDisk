@@ -31,11 +31,19 @@ namespace we {
         this.reset();
         this.initVariables();
         this.createFactory();
+      }
+
+      protected initAnimRelatedComps(){
         this.createParticles();
         this.createRingAnim();
         this.clonePin();
         this.createCards();
         this.addEventListeners();
+      }
+
+      // could be treated as second part of mount
+      public passBackgrounds(backgrounds : any){
+        this.initAnimRelatedComps();
       }
 
       public abstract setDefaultStates();
@@ -304,18 +312,22 @@ namespace we {
       }
 
       protected movePin() {
-        const bone = this._ringAnim.armature.getBone('red_card');
-        const destRad = this.getPinRad();
-        bone.origin.rotation = destRad;
-        bone.invalidUpdate();
-        this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
+        if (this._ringAnim.armature) {
+          const bone = this._ringAnim.armature.getBone('red_card');
+          const destRad = this.getPinRad();
+          bone.origin.rotation = destRad;
+          bone.invalidUpdate();
+          this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
+        }
       }
 
       protected moveShoe() {
-        const bone = this._ringAnim.armature.getBone('shoe_bar');
-        const destRad = this.getShoeRad();
-        bone.origin.rotation = destRad;
-        bone.invalidUpdate();
+        if (this._ringAnim.armature) {
+          const bone = this._ringAnim.armature.getBone('shoe_bar');
+          const destRad = this.getShoeRad();
+          bone.origin.rotation = destRad;
+          bone.invalidUpdate();
+        }
       }
 
       protected abstract async distributeCards();
