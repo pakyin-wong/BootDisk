@@ -32,7 +32,10 @@ namespace we {
             this.setAllSums(false)
         }else{          
           this.setCards(tableId)
-          this.setNumber(this._gameData.currentcardindex)
+          const count = ['a1','a2','a3','b1','b2','b3'].reduce((prev, key)=>{
+            return prev + (gameData[key]!=''?1:0)
+          },0);
+          this.setNumber(this._gameData.currentcardindex-count)
         }
       }
 
