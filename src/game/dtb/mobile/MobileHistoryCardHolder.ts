@@ -24,7 +24,11 @@ namespace we {
             this.setAllSums(false)
         }else{          
           this.setCards(tableId)
-          this.setNumber(this._gameData.currentcardindex)
+          let count = ['d','t'].reduce((prev, key)=>{
+            return prev + (gameData[key]!=''?1:0)
+          },1);
+          if (count==1) count = 0;
+          this.setNumber(this._gameData.currentcardindex-count);
         }
       }
 

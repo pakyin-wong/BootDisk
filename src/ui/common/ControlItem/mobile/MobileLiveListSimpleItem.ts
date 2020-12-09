@@ -181,6 +181,22 @@ namespace we {
           this._toggler.renderText = () => ` ${items.length > 0 ? items[idx] : ''}`;
         }
       }
+
+      protected generateFavouriteButton() {
+        const button = new AnimatedToggleButton();
+        button.dbClass = 'lobby_ui';
+        button.dbDisplay = 'd_lobby_icon_fav';
+        button.name = 'ActionButton';
+        button.width = 30;
+        button.height = 30;
+        button.bottom = -50;
+        button.right = 45;
+        button.scaleX = 1.5;
+        button.scaleY = 1.5;
+        // button.visible = false;
+        this._favouriteButton = button;
+        this._buttonGroup.addChild(this._favouriteButton);
+      }
     }
   }
 }

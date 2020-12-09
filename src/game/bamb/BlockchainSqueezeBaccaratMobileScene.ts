@@ -18,10 +18,6 @@ namespace we {
 
       public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat, core.res.BlockchainSqueezeBaccarat];
 
-      protected mount() {
-        super.mount();
-        this._resultDisplay.passFlipCardHolder(this._flipCardHolder);
-      }
 
       protected passBackgroundsToResultDisplay(){
         this._resultDisplay.passBackgrounds({
@@ -29,6 +25,7 @@ namespace we {
           animRingGroup: this._animRingGroup,
           particleGroup: this._particleGroup
         })
+        this._resultDisplay.passFlipCardHolder(this._flipCardHolder);
       }
 
       protected setSkinName() {
@@ -52,8 +49,12 @@ namespace we {
       }
 
       protected setStatePeek(isInit: boolean = false) {
+
         console.log('PEEK', this._gameData.state, this._gameData.gameroundid, (<any>this._gameData).peekstarttime);
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
+        this.toggleBottomGamePanel()
+        this.showSumGroup();
+        this.setChildIndex(this._resultDisplay, 99999)
         if (this._previousState !== we.core.GameState.PEEK || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
@@ -68,8 +69,12 @@ namespace we {
       }
 
       protected setStatePeekPlayer(isInit: boolean = false) {
+
         // console.log('PEEK_PLAYER ' + new Date(Date.now()).toString());
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
+        this.toggleBottomGamePanel()
+        this.showSumGroup();
+        this.setChildIndex(this._resultDisplay, 99999)
 
         if (this._previousState !== we.core.GameState.PEEK_PLAYER || isInit) {
           this.setBetRelatedComponentsEnabled(false);
@@ -83,8 +88,12 @@ namespace we {
       }
 
       protected setStatePeekBanker(isInit: boolean = false) {
+
         // console.log('PEEK_BANKER ' + new Date(Date.now()).toString());
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
+        this.toggleBottomGamePanel()
+        this.showSumGroup();
+        this.setChildIndex(this._resultDisplay, 99999)
         if (this._previousState !== we.core.GameState.PEEK_BANKER || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);

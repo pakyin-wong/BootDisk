@@ -235,6 +235,21 @@ namespace we {
           }
         }
       }
+
+      protected generateFavouriteButton() {
+        const button = new AnimatedToggleButton();
+        button.dbClass = 'lobby_ui';
+        button.dbDisplay = 'd_lobby_icon_fav';
+        button.width = 44;
+        button.height = 42;
+        button.left = 295;
+        button.top = 30;
+        button.visible = false;
+        // width="44" height="42"  left="295" top="30" visible="false"
+        this._favouriteButton = button;
+        this._contentContainerDynamic.addChild(this._favouriteButton);
+      }
+
     }
   }
 }

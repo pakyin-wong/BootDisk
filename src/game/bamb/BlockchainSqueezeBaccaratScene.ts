@@ -13,10 +13,9 @@ namespace we {
       protected _flipCardHolder : FlipCardHolder
       public static resGroups = [core.res.Blockchain, core.res.BlockchainSqueezeBaccarat];
 
-      protected mount(){
-        super.mount();
-        console.log('passFlipCardHolder' , this._flipCardHolder);
+      protected passBackgroundToResultDisplay(){
         (<bamb.CardHolder>this._resultDisplay).passFlipCardHolder(this._flipCardHolder);
+        super.passBackgroundToResultDisplay();
       }
 
       protected initChildren() {
