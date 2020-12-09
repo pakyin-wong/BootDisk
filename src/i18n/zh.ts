@@ -201,6 +201,7 @@ namespace we {
 
       mobile_lobby_feature_title: '精選推介',
       mobile_lobby_hot_game_title: '熱門推介',
+      mobile_ba_AutoConfirm: '自動確認',
       mobile_ba_undo: '復原',
       mobile_ba_clear: '清除',
       mobile_ba_double: '雙倍',

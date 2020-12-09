@@ -201,6 +201,7 @@ namespace we {
 
       mobile_lobby_feature_title: 'Featured Games',
       mobile_lobby_hot_game_title: 'Hot Games',
+      mobile_ba_AutoConfirm: 'Auto Confirm',
       mobile_ba_undo: 'Undo',
       mobile_ba_clear: 'Clear',
       mobile_ba_double: 'Double',

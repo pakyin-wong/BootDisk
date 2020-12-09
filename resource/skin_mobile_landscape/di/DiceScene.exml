@@ -123,9 +123,9 @@
             <e:VerticalLayout gap="-65" />
         </e:layout>
     </e:Group>
-	<e:Group id="_betSet" left="0" right="0" touchThrough="true" y="200" y.right_hand_mode="200" y.left_hand_mode="200">
+	<e:Group id="_betSet" touchEnabled="false" left="0" right="0" touchThrough="true" y="200" y.right_hand_mode="200" y.left_hand_mode="200">
 		<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" skinName="skin_mobile.BetChipSkin" labelSize="48" x.right_hand_mode="528" x.left_hand_mode="1746" y="50"/>
-		<ui:BetRelatedGroup id="_betRelatedGroup" x.right_hand_mode="762" y="65" x.left_hand_mode="600"/>
+		<ui:BetRelatedGroup id="_betRelatedGroup" touchEnabled="false" x.right_hand_mode="762" y="65" x.left_hand_mode="600"/>
 	</e:Group>
 <!--<e:Group id="_betChipSetPanel" width="1566" height="260" scaleY="1" x="366" y="264" y.left_hand_mode="336"
              y.right_hand_mode="336" x.left_hand_mode="390.24" x.right_hand_mode="380">
