@@ -9,15 +9,15 @@
                         <e:Image source="m_bcba_resultarea_player_png" width="100%" height="100%" />
                         <ui:RunTimeLabel right="229" i18n="dragontiger.dragon" textAlign="center" verticalAlign="middle"
                                          size="68" height="100%" />
-                        <e:Label id="_dragonSum" x="440" y="0" textAlign="center" verticalAlign="middle" size="96"
-                                 height="100%" />
+                        <e:Label id="_dragonSum" y="0" textAlign="left" verticalAlign="middle" size="96"
+                                 height="100%"  left="390"/>
                 </e:Group>
                 <e:Group right="0" y="750" width="552" height="104" id="_tigerSumGroup">
                         <e:Image source="m_bcba_resultarea_banker_png" width="100%" height="100%" />
                         <ui:RunTimeLabel x="239" i18n="dragontiger.tiger" textAlign="center" verticalAlign="middle"
                                          size="68" height="100%" />
-                        <e:Label id="_tigerSum" y="0" textAlign="center" verticalAlign="middle" size="96" height="100%"
-                                 right="440" />
+                        <e:Label id="_tigerSum" y="0" textAlign="right" verticalAlign="middle" size="96" height="100%"
+                                 right="390" />
                 </e:Group>
                 <e:Group x="429" y="851" id="_dragonCardGroup" width="118" height="171" touchThrough="true">
                         <e:Group id="_dragonCardInfo" left="0" bottom="0" width="40" height="40" />
