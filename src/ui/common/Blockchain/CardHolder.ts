@@ -197,7 +197,6 @@ namespace we {
       protected async setStateBet(isInit: boolean) {
         console.log('setStateBet() isInit', isInit, this._gameData);
         this.updateAllSum();
-
         if (isInit) {
           this.movePin();
           this.moveShoe();
