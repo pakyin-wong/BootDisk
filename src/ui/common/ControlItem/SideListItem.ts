@@ -256,6 +256,9 @@ namespace we {
         }
       }
 
+      protected generateFavouriteButton() {
+      }
+      
       protected showQuickBetGroup() {
         super.showQuickBetGroup();
         this._betChipSetGridSelected.touchEnabled = true;
