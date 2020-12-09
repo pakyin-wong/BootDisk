@@ -8,6 +8,7 @@ namespace we {
       protected _bankerSumGroup: eui.Group;
       protected _openAllPlayerGroup: eui.Group;
       protected _openAllBankerGroup: eui.Group;
+      protected _mask : eui.Rect;
 
       protected _roundLoopA = 'round_loop';
       protected _roundLoopB = 'round_loop';
@@ -209,11 +210,37 @@ namespace we {
       }
 
       protected async setStateBet(isInit: boolean) {
+        this._mask.visible = false;
         await super.setStateBet(isInit);
         if (isInit) {
           await utils.playAnimation(this._ringAnim, 'icon_loop', 1)
         }
         return new Promise(resolve => resolve())
+      }
+
+      protected setStatePeek(isInit: boolean){
+        this._mask.visible = true;
+        super.setStatePeek(isInit);
+      }
+
+      protected setStatePeekPlayer(isInit: boolean){
+        this._mask.visible = true;
+        super.setStatePeekPlayer(isInit);
+      }
+
+      protected setStatePeekBanker(isInit: boolean){
+        this._mask.visible = true;
+        super.setStatePeekBanker(isInit);
+      }
+
+      protected setStateFinish(isInit: boolean){
+        this._mask.visible = false;
+        super.setStateFinish(isInit);
+      }
+
+      protected setStateIdle(isInit: boolean){
+        this._mask.visible = false;
+        super.setStateIdle(isInit);
       }
 
       protected showVerticalOutBack(display: dragonBones.EgretArmatureDisplay, playTimes: number) {
