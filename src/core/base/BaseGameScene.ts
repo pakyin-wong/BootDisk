@@ -42,6 +42,8 @@ namespace we {
 
       protected _gameRoundCountWithoutBet: number = 0;
 
+      protected _isRepeatClicked: boolean = false;
+
       // this for desktop
       // protected _tableInfoWindow: ui.TableInfoPanel;
 
@@ -406,7 +408,7 @@ namespace we {
           this._chipLayer.updateBetFields(this._betDetails);
           this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
           if (this._betRelatedGroup) {
-            this._betRelatedGroup.changeBtnState(false, 0, this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid);
+            this._betRelatedGroup.changeBtnState(false, 0, this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid,true,this._isRepeatClicked);
           }
         }
       }
@@ -655,6 +657,7 @@ namespace we {
           }
 
           if (this._previousState === core.GameState.BET && this._message && !isInit) {
+            this._isRepeatClicked = false
             if (this._chipLayer.getTotalUncfmBetAmount() > 0) {
               this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.betTimeout'));
             } else {
@@ -825,7 +828,7 @@ namespace we {
               const bets = this._chipLayer.getUnconfirmedBetDetails();
               this._chipLayer.resetUnconfirmedBet(); // Waiting to change to push to waitingforconfirmedbet
               if (this._betRelatedGroup) {
-                this._betRelatedGroup.changeBtnState(false, 0, this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid);
+                this._betRelatedGroup.changeBtnState(false, 0, this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid,true,this._isRepeatClicked);
               }
               this._undoStack.clearStack();
               dir.socket.bet(this._tableId, bets, this.onBetReturned.bind(this));
@@ -908,8 +911,9 @@ namespace we {
       protected onRepeatPressed(evt: egret.Event) {
         if (this._chipLayer) {
           this._chipLayer.onRepeatPressed();
+          this._isRepeatClicked = true;
           if (this._betRelatedGroup) {
-            this._betRelatedGroup.changeBtnState(true, this._chipLayer.getTotalUncfmBetAmount(), false);
+            this._betRelatedGroup.changeBtnState(true, this._chipLayer.getTotalUncfmBetAmount(), false, this._isRepeatClicked);
           }
           if (env.autoConfirmBet) {
             this.onConfirmPressed(evt);

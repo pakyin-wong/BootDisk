@@ -114,14 +114,16 @@ namespace we {
         }
       }
 
-      public changeBtnState(isEnable: boolean = true, totalUncfmBetAmount: number = 0, isPrevBet: boolean = false, isBetState: boolean = true) {
+      public changeBtnState(isEnable: boolean = true, totalUncfmBetAmount: number = 0, isPrevBet: boolean = false, isBetState: boolean = true, isRepeatClicked: boolean = false) {
+        console.log('isRepeatClickedisRepeatClickedisRepeatClicked',isRepeatClicked)
         const hasUncfmBet = totalUncfmBetAmount !== 0; // change to boolean
-
+        console.log('isPrevBet,!isRepeatClicked isPrevBet && !isRepeatClicked',[isPrevBet,!isRepeatClicked,isPrevBet && !isRepeatClicked])
+        const enableRepeat = isPrevBet && !isRepeatClicked
         this._undoButton.touchEnabled = isEnable;
         this._cancelButton.touchChildren = this._cancelButton.touchEnabled = isEnable;
         // double btn check uncfm btn , not cfmbtn
         this._doubleButton.touchChildren = this._doubleButton.touchEnabled = totalUncfmBetAmount ? true : false;
-        this._repeatButton.touchChildren = this._repeatButton.touchEnabled = isPrevBet;
+        this._repeatButton.touchChildren = this._repeatButton.touchEnabled = enableRepeat;
 
         if (env.isMobile) {
           this._undoButton.alpha = isEnable ? 1 : 0.5;
