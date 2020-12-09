@@ -665,6 +665,18 @@ namespace we {
         }
       }
 
+      protected async closeShoe(){
+            await utils.playAnimation(this._ringAnim, 'shoe_out', 1);
+            // await p1;
+            // await p2;
+
+            await this.animateShoe();
+            await this.animatePin();
+
+            await utils.playAnimation(this._ringAnim, 'shoe_in', 1);
+            return new Promise(resolve=>resolve())
+      }
+
       protected setStateShuffle(isInit) {
         if (isInit) {
           (async () => {
@@ -693,14 +705,8 @@ namespace we {
             await this.collapseShoe();
 
             await utils.playAnimation(this.getRedCardAnim(), 'red_poker_out', 1);
-            await utils.playAnimation(this._ringAnim, 'shoe_out', 1);
-            // await p1;
-            // await p2;
+            await this.closeShoe();
 
-            await this.animateShoe();
-            await this.animatePin();
-
-            await utils.playAnimation(this._ringAnim, 'shoe_in', 1);
             // const p3 = utils.waitDragonBone(this._ringAnim);
             // this._ringAnim.animation.fadeIn('shoe_in', 0, 1, 0);
             // await p3;
