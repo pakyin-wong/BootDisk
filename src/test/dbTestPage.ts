@@ -175,7 +175,7 @@ namespace we {
 
         // create a new ImageDisplayData with a EgretTextureData holding the new texture
         const displayData: dragonBones.ImageDisplayData = new dragonBones.ImageDisplayData();
-        let textureData: dragonBones.EgretTextureData = new dragonBones.EgretTextureData();
+        let textureData = new dragonBones['EgretTextureData']();
         textureData.renderTexture = cardLabel.texture;
         textureData.region.x = 0;
         textureData.region.y = 0;
@@ -202,8 +202,9 @@ namespace we {
         const card = chip.armature.getSlot('card_back_vertical');
         const cardStr = utils.getCardResName(utils.formatCardForFlip(`diamond${Math.floor(Math.random() * 6 + 3)}`));
         const texture = RES.getRes(cardStr);
-        const meshDistData = card.displayData as dragonBones.MeshDisplayData;
-        textureData = new dragonBones.EgretTextureData();
+        const displayFrame = card.getDisplayFrameAt(0);
+        const meshDistData = displayFrame.rawDisplayData as dragonBones.MeshDisplayData;
+        textureData = new dragonBones['EgretTextureData']();
         textureData.renderTexture = texture;
         meshDistData.texture = textureData;
         card.armature.replacedTexture == null;

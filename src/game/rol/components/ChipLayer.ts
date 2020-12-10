@@ -135,7 +135,7 @@ namespace we {
           return;
         }
         let source = '';
-        switch (evt.animationName) {
+        switch (evt.eventObject.animationState.name) {
           case 'bet_green_in':
             source = 'Disc_Green_103x214_png';
             break;

@@ -163,7 +163,7 @@ namespace we {
 
         // create a new ImageDisplayData with a EgretTextureData holding the new texture
         const displayData: dragonBones.ImageDisplayData = new dragonBones.ImageDisplayData();
-        const textureData: dragonBones.EgretTextureData = new dragonBones.EgretTextureData();
+        const textureData = new dragonBones['EgretTextureData']();
         textureData.renderTexture = r.texture;
         textureData.region.x = 0;
         textureData.region.y = 0;

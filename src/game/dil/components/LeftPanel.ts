@@ -405,7 +405,7 @@ namespace we {
               if (display.animation) {
                 display.animation.stop();
               }
-              dragonBones.WorldClock.clock.remove(display.armature);
+              // dragonBones.WorldClock.clock.remove(display.armature);
               display.armature.dispose();
               display.dispose();
               if (display.parent) {
