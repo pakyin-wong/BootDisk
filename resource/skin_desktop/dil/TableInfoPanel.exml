@@ -8,7 +8,6 @@
 		<e:Image id="close" source="d-lobby-button-close-none_png" y="15" touchEnabled="true" width="30" height="30"
 		         right="23" />
 		<e:Image id="btnDetail" width="20" height="20" y="60" source="m_ba_tag_btn_detail_png" right="30" />
-		<e:Image id="_toggleArrow" source="d_ba_navbar_icon_dropdown_png" y="230" width="20" height="20" right="30" />
 		<e:Label id="tableNoLabel" text="檯號" y="60" x="30" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="roundNoLabel" text="局號" y="94" x="30" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="gameIdLabel" text="編號" y="128" scaleX="1" scaleY="1" size="20" anchorOffsetY="0" height="20" x="30" />
@@ -33,7 +32,7 @@
 		<e:Label id="pTableBetLimit" text="-" y="196" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
 		         width="170" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30" />
 		<ui:RunTimeLabel id="pBetLimit" text="-" y="230" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
-		                 size="20" x="215" width="146" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		                 size="20" width="146" height="20" anchorOffsetX="0" anchorOffsetY="0"  right="30"/>
 		<e:Group anchorOffsetY="0" x="0" y="302" anchorOffsetX="0" width="100%" touchEnabled="false" height="293">
 			<e:Label id="threeCountLabel" text="和值 3/18" y="16" x="29" scaleX="1" scaleY="1" size="20" />
 			<e:Label id="fourCountLabel" text="和值 4/17" y="50" x="30" scaleX="1" scaleY="1" size="20" />
