@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_landscape.bamb.GameRulePanel" width="2424" height="1082" states="cn,en,zh" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
     <e:Group id="content" width="2424" height="1082">
-    <e:Image id="moveArea" source="popover_png" height="100%" width="100%" x="0" y="0" alpha="1"/>
+    <ui:RoundRectShape id="moveArea" x="0" y="0" cornerTL_TR_BL_BR="35,35,35,35" stroke="2" strokeColor="0x333c4a" fillColor="0x17181b" fillAlpha="1" width="2424" height="1082"/>
+
+    <!--<e:Image id="moveArea" source="popover_png" height="100%" width="100%" x="0" y="0" alpha="1"/>-->
         <e:Group id="_topPart" width="2424" height="174" touchChildren="true">
             <ui:RunTimeLabel id="_lblRuleTitle" text.zh="區塊鏈咪牌百家樂遊戲規則" text.cn="区块链咪牌百家乐游戏规则" text.en="Blockchain Squeeze Baccarat Game Rules"  height="71" size="80" textColor="0xc59466" textKey="" left="48" top="30" verticalAlign="middle" fontFamily="Microsoft JhengHei"/>
 		    <e:Image id="close" source="d-lobby-button-close-none_png" touchEnabled="true" width="96" height="96" top="66" right="26"/>
