@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_landscape.bamb.GameRulePanel" width="2424" height="1082" states="cn,en,zh" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+<e:Skin class="skin_mobile_landscape.basb.GameRulePanel" width="2424" height="1082" states="cn,en,zh" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
     <e:Group id="content" width="2424" height="1082">
     <e:Image id="moveArea" source="popover_png" height="100%" width="100%" x="0" y="0" alpha="1"/>
-        <e:Group id="_topPart" width="2424" height="174" touchChildren="true">
-            <ui:RunTimeLabel id="_lblRuleTitle" text.zh="區塊鏈咪牌百家樂遊戲規則" text.cn="区块链咪牌百家乐游戏规则" text.en="Blockchain Squeeze Baccarat Game Rules"  height="71" size="80" textColor="0xc59466" textKey="" left="48" top="30" verticalAlign="middle" fontFamily="Microsoft JhengHei"/>
+        <e:Group id="_topPart" width="2424" height="174">
+            <ui:RunTimeLabel id="_lblRuleTitle" text.zh="區塊鏈極速百家樂遊戲規則" text.cn="区块链极速百家乐游戏规则" text.en="Blockchain Speed Baccarat Game Rules"  height="71" size="80" textColor="0xc59466" textKey="" left="48" top="30" verticalAlign="middle" fontFamily="Microsoft JhengHei"/>
 		    <e:Image id="close" source="d-lobby-button-close-none_png" touchEnabled="true" width="96" height="96" top="66" right="26"/>
         </e:Group>
         <ui:Scroller scrollPolicyH="off" left="48" right="40" top="174" width="2376" height="908">
@@ -17,8 +17,8 @@
 \n只計算牌面點數，不比花色；總點數得 9 點或最接近 9 點的一方勝出，10 點和花牌 ( J、Q、K ）為 0 點；A 為 1 點；其它牌 ( 2、3、4、5、6、7、8、9 ) 則按牌的面值計算
 \n一方所得的總點數以其所有牌的面值總和計算； 當牌點總面值大於或等於 10 點，則取其個位數來作最終點數" text.cn="区块链咪牌百家乐秉承传统的百家乐游戏规则，它的特别之处在于可透过 SHA-256 技术验证牌靴，确保公平公正
 \n只计算牌面点数，不比花色；总点数得9 点或最接近9 点的一方胜出，10 点和花牌( J、Q、K ）为0 点；A 为1 点；其它牌( 2 、3、4、5、6、7、8、9 ) 则按牌的面值计算
-\n一方所得的总点数以其所有牌的面值总和计算； 当牌点总面值大于或等于 10 点，则取其个位数来作最终点数" text.en="Blockchain Squeeze Baccarat follows the standard rules of Baccarat. Its special feature is that after the betting time is up, you have a right to \nsqueeze the cards if you wager on the 'Player' or \n'Banker' and verify games through SHA-256 technology to ensure fairness and justice.
-\nEither the ‘Player's hand’ or the ‘Banker's hand’ point value equal to or closest to 9 wins. The suits (Spades, Hearts, Diamonds and Clubs) have no \nmeaning in Baccarat games. 'Kings', 'Queens', 'Jacks' and 'Tens' count zero; 'Aces' counts one and the other cards (2、3、4、5、6、7、8、9) \ncount their corresponding point value.
+\n一方所得的总点数以其所有牌的面值总和计算； 当牌点总面值大于或等于 10 点，则取其个位数来作最终点数" text.en="Blockchain Speed Baccarat follows the standard rules of Baccarat. Its special feature is that it can verify games through SHA-256 technology to ensure \nfairness and justice.
+\nEither the ‘Player's hand’ or the ‘Banker's hand’ point value equal to or closest to 9 wins. The suits (Spades, Hearts, Diamonds and Clubs) have no \nmeaning in Baccarat games. 'Kings', 'Queens', 'Jacks' and 'Tens' count zero; 'Aces' counts one and the other cards (2、3、4、5、6、7、8、9) count their corresponding point value.
 \nPoint value is calculated by summing up the card values and using only the last digit of the total." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
                         <e:layout>
                             <e:HorizontalLayout paddingLeft="10" gap="12"/>
@@ -31,61 +31,36 @@
                 <e:Group id="_bettingGuide" width="2376">
                     <ui:RunTimeLabel id="_lblBettingGuide" text.zh="操作及下注指南" text.cn="操作及下注指南" text.en=" Operation and betting guide" size="50" textColor="0xc59466" textKey="" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei"/>
                     <e:Group id="_bettingGuideGrp" width="2376">
-                        <ui:RunTimeLabel width="40" text.zh="1.\n2.\n3.\n\n4.\n5.\n6.\n7.\n8.\n9.\n10." text.cn="1.\n2.\n3.\n\n4.\n5.\n6.\n7.\n8.\n9.\n10." text.en="1.\n2.\n\n3.\n\n4.\n5.\n6.\n7.\n8.\n\n9.\n10." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
+                        <ui:RunTimeLabel width="40" text.zh="1.\n2.\n3.\n\n4.\n5.\n6.\n7.\n8." text.cn="1.\n2.\n3.\n\n4.\n5.\n6.\n7.\n8." text.en="1.\n2.\n\n3.\n\n4.\n5.\n6.\n7.\n8." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
                         <ui:RunTimeLabel width="2232" width.en="2232" id="_betguide" text.zh="開局後，開始下注倒數
 \n「閒」、「庄」各得 2 張牌，並按照「閒」>「庄」>「閒」>「庄」的順序派牌
-\n在各個下注區押注籌碼後，表示押該選項贏；下注區包括：「閒」、「庄」、「和」、「閒對」、「庄對」及「超級六」(「超級六」只限免佣共咪百家樂)
-\n每個單注金額不能高於或低於已設置個人限紅的上、下限 
+\n在各個下注區押注籌碼後，表示押該選項贏；下注區包括：「閒」、「庄」、「和」、「閒對」、「庄對」及「超級六」(「超級六」只限免佣區塊鏈極速百家樂)
+\n每個單注金額不能高於或低於已設置個人限紅的上、下限
 \n若連續 5 局未下注，則會被強制退出遊戲枱
 \n倒數結束後，遊戲枱會停止下注，而已確認之注碼均不得更改或取回
-\n下注「庄」或「閒」的玩家擁有咪牌權
-\n首輪咪牌結束後，會先開「閒」的 2 張牌，然後再開「庄」的 2 張牌，並根據「補牌規則」為「閒」和「庄」進行補牌或不作補牌
-\n若需補牌，玩家則進行次輪咪牌。
+\n停止下注後，會先開「閒」的 2 張牌，然後再開「庄」的 2 張牌，並根據「補牌規則」為「閒」和「庄」進行補牌或不作補牌
 \n開牌後，可驗證已開的卡牌" text.cn="开局后，开始下注倒数
 \n「闲」、「庄」各得 2 张牌，并按照「闲」>「庄」>「闲」>「庄」的顺序派牌
-\n在各个下注区押注筹码后，表示押该选项赢；下注区包括：「闲」、「庄」、「和」、「闲对」、「庄对」及「超级六」(「超级六」只限免佣共咪百家乐)
+\n在各个下注区押注筹码后，表示押该选项赢；下注区包括：「闲」、「庄」、「和」、「闲对」、「庄对」及「超级六」( 「超级六」只限免佣区块链极速百家乐)
 \n每个单注金额不能高于或低于已设置个人限红的上、下限
 \n若连续 5 局未下注，则会被强制退出游戏台
 \n倒数结束后，游戏台会停止下注，而已确认之注码均不得更改或取回
-\n下注「庄」或「闲」的玩家拥有咪牌权
-\n首轮咪牌结束后，会先开「闲」的 2 张牌，然后再开「庄」的 2 张牌，并根据「补牌规则」为「闲」和「庄」进行补牌或不作补牌
-\n若需补牌，玩家则进行次轮咪牌。
-\n开牌后，可验证已开的卡牌" text.en="After the new round begins, the betting countdown starts.
+\n停止下注后，会先开「闲」的 2 张牌，然后再开「庄」的 2 张牌，并根据「补牌规则」为「闲」和「庄」进行补牌或不作补牌
+\n开牌后，可验证已开的卡牌" text.en=" After the new round begins, the betting countdown starts.
 \nThe 'Player' and the 'Banker' will be dealt 2 cards at the start of each hand. The cards are dealt in the following order: ‘Player’ > ‘Banker’ > ‘Player' > ‘Banker’.
-\nYou may choose to wager on any one or more of the betting areas. There are six betting options in Squeeze Baccarat: ‘Player’, ‘Banker’, ‘Tie’, ‘Player Pair’, ‘Banker Pair’ and ‘Super 6’ (‘Super 6’ Only applicable for ‘No Commission Blockchain Squeeze Baccarat’).
+\nYou may choose to wager on any one or more of the betting areas. There are six betting options in Speed Baccarat: ‘Player’, ‘Banker’, ‘Tie’, ‘Player Pair’, ‘Banker Pair’ and ‘Super 6’ ( ‘Super 6’  Only applicable for ‘No Commission Blockchain Speed Baccarat’).
 \nYour single bet amount cannot be higher or lower than the upper and lower single bet limits. 
 \nIf there is no bet after 5 rounds, the system will return you to the game lobby.
 \nAfter the betting countdown is over, no wager may be placed, and all bets that have been placed cannot be changed or retrieved.
-\nYou may squeeze the cards if you wagar on the 'Player' or 'Banker'.
-\nAfter the first round of squeezing time, the dealer turns the 'Player' cards and 'Banker' cards faceup in sequence. When necessary, additional cards are drawn according to the drawing rules.
-\nIf the third card is required, there is a second round squeezing. You may get on the second round of squeezing.
+\nAfter 'stop betting', the dealer turns the 'Player' cards and 'Banker' cards faceup in sequence. When necessary, additional cards are drawn according to the drawing rules.
 \nAfter the cards are opened, the opened cards can be verified" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
                         <e:layout>
-                            <e:HorizontalLayout paddingLeft="10" gap="12"/>
+                            <e:HorizontalLayout paddingLeft="33" gap="12"/>
                         </e:layout>
                     </e:Group>
                     <e:layout>
                         <e:VerticalLayout gap="12"/>
                     </e:layout>
-                </e:Group>
-                <e:Group id="_squeezeGroup" width="2376">
-                    <ui:RunTimeLabel id="_lblSqueezeRule" text.zh="咪牌規則" text.cn="咪牌规则" text.en="Squeezing card rules" size="30" textColor="0xc59466" textKey="" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei"/>
-                    <e:Group id="_squeezeRuleGrp" width="1600">
-                        <ui:RunTimeLabel width="40" text.zh="・\n・\n・\n・" text.cn="・\n・\n・\n・" text.en="・\n\n・\n・\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                        <ui:RunTimeLabel width="2232" width.en="2232" id="_sr" text.zh="下注「庄」或「閒」的玩家擁有咪牌權； 下注「和」、「超級六」、「閒對」、「庄對」的玩家沒有咪牌權
-\n下注「庄」的玩家可咪庄家牌； 下注「閒家」的玩家可咪閒家牌
-\n 如玩家在「庄」及「閒」均有下注，則可咪兩家牌
-\n咪牌時間結束後所有電子牌自動開牌" text.cn="下注「庄」或「闲」的玩家拥有咪牌权； 下注「和」、「超级六」、「闲对」、「庄对」的玩家没有咪牌权
-\n下注「庄」的玩家可咪庄家牌； 下注「闲家」的玩家可咪闲家牌
-\n 如玩家在「庄」及「闲」均有下注，则可咪两家牌
-\n咪牌时间结束后所有电子牌自动开牌" text.en="You may squeeze the cards if you wager on 'Player' or 'Banker'; You have no right to squeeze the cards if you wager on ‘Tie’, ‘Super 6’, ‘Player Pair’ and ‘Banker Pair’.
-\nYou may squeeze the ‘Banker’ cards if you wager on ‘Banker’; You may squeeze the ‘Player’ cards if you wager on ‘Player.
-\nYou may squeeze both hand’s cards if you wager on ‘Banker’ and ‘Player’.
-\nAfter the squeezing time, the electronic play cards may open automatically." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                        <e:layout>
-                            <e:HorizontalLayout paddingLeft="33" gap="12"/>
-                        </e:layout>
-                    </e:Group>
                 </e:Group>
                 <e:Group id="_drawingRule" width="2376">
                     <ui:RunTimeLabel id="_lblDrawingRule" text.zh="補牌規則" text.cn="补牌规则" text.en="Drawing Rules" size="50" textColor="0xc59466" textKey="" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei"/>
@@ -97,7 +72,7 @@
 \n在补牌环节，「闲」较「庄」优先，详情如下：" text.en="The dealer determines to draw the third card based on the total of the first two cards of ‘Player’ and ‘Banker’. 
 \nIn the session of card drawing, the ‘Player's hand’ will be acted upon first, and then the 'Banker's hand', with details as follows: " size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
                             <e:layout>
-                                <e:HorizontalLayout paddingLeft="10" gap="12"/>
+                                <e:HorizontalLayout paddingLeft="33" gap="12"/>
                             </e:layout>
                         </e:Group>
                         <e:Group id="_subdraingRuleGrp1">
@@ -392,7 +367,7 @@
                         <e:Group>
                             <e:Group>
                                 <ui:RunTimeLabel width="40" text.zh="・" text.cn="・" text.en="・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                                <ui:RunTimeLabel width="2090" id="_subpr1" text.zh="賠彩規則分為兩種，包括「區塊鏈咪牌百家樂」及「免佣區塊鏈咪牌百家樂」" text.cn="赔彩规则分为两种，包括「区块链咪牌百家乐」及「免佣区块链咪牌百家乐」" text.en="There are two payout rules, including ‘Blockchain Squeeze Baccarat’ and ‘No Commission Blockchain Squeeze Baccarat’" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8" bold="false"/>  
+                                <ui:RunTimeLabel width="2090" id="_subpr1" text.zh="賠彩規則分為兩種，包括「區塊鏈極速百家樂」及「免佣區塊鏈極速百家樂」" text.cn="赔彩规则分为两种，包括「区块链极速百家乐」及「免佣区块链极速百家乐」" text.en="There are two payout rules, including ‘Blockchain Speed Baccarat’ and ‘No Commission Blockchain Speed Baccarat’" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8" bold="false"/>  
                                 <e:layout>
                                     <e:HorizontalLayout gap="12"/>
                                 </e:layout>
@@ -407,13 +382,13 @@
                         </e:Group>
                         <e:Group>
                             <ui:RunTimeLabel width="40" text.zh="・\n・\n・\n・" text.cn="・\n・\n・\n・" text.en="・\n・\n・\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                        <ui:RunTimeLabel width="2114" id="_subpr3" text.zh="「區塊鏈咪牌百家樂」 及「免佣區塊鏈咪牌百家樂」－  1 賠 1
+                        <ui:RunTimeLabel width="2114" id="_subpr3" text.zh="「區塊鏈極速百家樂」 及「免佣區塊鏈極速百家樂」－  1 賠 1
 \n若「閒」的牌點數大於「庄」的牌點數，任何押於「閒」贏的投注將按 1 賠 1 支付，並將返還押於「閒」贏的初始投注金；
 \n若「閒」牌點數與「庄」牌點數相同，將返還任何押於「閒」贏的投注金；
-\n否則，任何押於「閒」的投注都將被移除" text.cn="「区块链咪牌百家乐」 及「免佣区块链咪牌百家乐」－ 1 赔 1
+\n否則，任何押於「閒」的投注都將被移除" text.cn="「区块链极速百家乐」 及「免佣区块链极速百家乐」－ 1 赔 1
 \n若「闲」的牌点数大于「庄」的牌点数，任何押于「闲」赢的投注将按 1 赔 1 支付，并将返还押于「闲」赢的初始投注金；
 \n若「闲」牌点数与「庄」牌点数相同，将返还任何押于「闲」赢的投注金；
-\n否则，任何押于「闲」的投注都将被移除" text.en="‘Blockchain Squeeze Baccarat’ and ‘No Commission Blockchain Squeeze Baccarat’ - 1：1
+\n否则，任何押于「闲」的投注都将被移除" text.en="‘Blockchain Speed Baccarat’ and ‘No Commission Blockchain Speed Baccarat’ - 1：1
 \nIf the ‘Player's hand’ value is higher than the ‘Banker's hand’ value, any bet on ‘Player’ is paid 1 to 1, and the initial bet is returned; 
 \nIf the ‘Player's hand’ and ‘Banker's hand’ have the same value, any bet on ‘Player’ is returned.
 \nOtherwise, any bet on ‘Player’ is removed. " size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8" bold="false"/>  
@@ -423,7 +398,7 @@
                         </e:Group>
                         <e:Group>
                             <ui:RunTimeLabel width="40" text.zh="b.\n(i)" text.cn="b.\n(i)" text.en="b.\n(i)" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                            <ui:RunTimeLabel id="_subpr4" text.zh="押「庄」\n「區塊鏈咪牌百家樂」 － 1 賠 0.95" text.cn="押「庄」\n「区块链咪牌百家乐」 － 1 赔 0.95" text.en="Bet on ‘Banker’\n ‘Blockchain Squeeze Baccarat’ - 0.95：1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/> 
+                            <ui:RunTimeLabel id="_subpr4" text.zh="押「庄」\n「區塊鏈極速百家樂」 － 1 賠 0.95" text.cn="押「庄」\n「区块链极速百家乐」 － 1 赔 0.95" text.en="Bet on ‘Banker’\n ‘Blockchain Speed Baccarat’ - 0.95：1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/> 
                             <e:layout>
                                 <e:HorizontalLayout gap="12" paddingLeft="55"/>
                             </e:layout>
@@ -443,7 +418,7 @@
                         </e:Group>
                         <e:Group>
                             <ui:RunTimeLabel width="40" text.zh="(ii)" text.cn="(ii)" text.en="(ii)" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/>
-                            <ui:RunTimeLabel id="_subpr6" text.zh="「免佣區塊鏈咪牌百家樂」－ 1 賠 1 或 1 賠 0.5" text.cn="「免佣区块链咪牌百家乐」－ 1 赔 1 或 1 赔 0.5" text.en="‘No Commission Blockchain Squeeze Baccarat’ - 1：1 or  0.5 ：1 "
+                            <ui:RunTimeLabel id="_subpr6" text.zh="「免佣區塊鏈極速百家樂」－ 1 賠 1 或 1 賠 0.5" text.cn="「免佣区块链极速百家乐」－ 1 赔 1 或 1 赔 0.5" text.en="‘No Commission Blockchain Speed Baccarat’ - 1：1 or  0.5 ：1 "
                                         size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/>                             
                             <e:layout>
                                 <e:HorizontalLayout gap="12" paddingLeft="51"/>
@@ -479,11 +454,11 @@
                         </e:Group>
                         <e:Group>
                             <ui:RunTimeLabel width="40" text.zh="・\n・\n・" text.cn="・\n・\n・" text.en="・\n・\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                            <ui:RunTimeLabel width="2114" id="_subpr9" text.zh="「區塊鏈咪牌百家樂」 及「免佣區塊鏈咪牌百家樂」－ 1 賠 8
+                            <ui:RunTimeLabel width="2114" id="_subpr9" text.zh="「區塊鏈極速百家樂」 及「免佣區塊鏈極速百家樂」－ 1 賠 8
 \n若「閒」與「庄」牌點數相同，任何投注於「和局」的投注將按 1 賠 8 支付，並將返還押於「和局」的初始投注金；
-\n否則，任何押於「和局」的投注都將被移除" text.cn="「区块链咪牌百家乐」 及「免佣区块链咪牌百家乐」－ 1 赔 8
+\n否則，任何押於「和局」的投注都將被移除" text.cn="「区块链极速百家乐」 及「免佣区块链极速百家乐」－ 1 赔 8
 \n若「闲」与「庄」牌点数相同，任何投注于「和局」的投注将按 1 赔 8 支付，并将返还押于「和局」的初始投注金；
-\n否则，任何押于「和局」的投注都将被移除" text.en="‘Blockchain Squeeze Baccarat’ and ‘No Commission Blockchain Squeeze Baccarat’ - 8：1
+\n否则，任何押于「和局」的投注都将被移除" text.en="‘Blockchain Speed Baccarat’ and ‘No Commission Blockchain Speed Baccarat’ - 8：1
 \nIf the ‘Player's hand’ and ‘Banker's hand’ values are of the same value, any bet on ‘Tie’ is paid 8 to 1, and the initial bet is returned. 
 \nOtherwise, any bet on ‘Tie’ is removed."
                                             size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8" bold="false"/>  
@@ -501,11 +476,11 @@
                         </e:Group>
                         <e:Group>
                             <ui:RunTimeLabel width="40" text.zh="・\n・\n・" text.cn="・\n・\n・" text.en="・\n・\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                            <ui:RunTimeLabel width="2114" id="_subpr11" text.zh=" 「區塊鏈咪牌百家樂」 及「免佣區塊鏈咪牌百家樂」－ 1 賠 11
+                            <ui:RunTimeLabel width="2114" id="_subpr11" text.zh=" 「區塊鏈極速百家樂」 及「免佣區塊鏈極速百家樂」－ 1 賠 11
 \n若「庄」首 2 張牌構成一對（只計點數，不計花色），任何押於「庄對」的投注將按 1 賠 11 支付，並將返還押於「庄對」的初始投注金；
-\n否則，任何押於「庄對」的投注都將被移除。"  text.cn="「区块链咪牌百家乐」 及「免佣区块链咪牌百家乐」－ 1 赔 11
+\n否則，任何押於「庄對」的投注都將被移除。"  text.cn="「区块链极速百家乐」 及「免佣区块链极速百家乐」－ 1 赔 11
 \n若「庄」首2 张牌构成一对（只计点数，不计花色），任何押于「庄对」的投注将按1 赔11 支付，并将返还押于「庄对」的初始投注金；
-\n否则，任何押于「庄对」的投注都将被移除" text.en="‘Blockchain Squeeze Baccarat’ and ‘No Commission Blockchain Squeeze Baccarat’ - 11：1
+\n否则，任何押于「庄对」的投注都将被移除" text.en="‘Blockchain Speed Baccarat’ and ‘No Commission Blockchain Speed Baccarat’ - 11：1
 \nIf the ‘Player’ first two cards constitute a pair (only count point, regardless of suits), any bet on 'Player Pair' is paid 11 to 1, and the initial bet is returned. 
 \nOtherwise, any bet on 'Player Pair' is removed."
                                             size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8" bold="false"/> 
@@ -523,11 +498,11 @@
                         </e:Group>
                         <e:Group>
                             <ui:RunTimeLabel width="40" text.zh="・\n・\n・" text.cn="・\n・\n・" text.en="・\n・\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                            <ui:RunTimeLabel width="2114" id="_subpr13" text.zh=" 「區塊鏈咪牌百家樂」 及「免佣區塊鏈咪牌百家樂」－ 1 賠 11
+                            <ui:RunTimeLabel width="2114" id="_subpr13" text.zh=" 「區塊鏈極速百家樂」 及「免佣區塊鏈極速百家樂」－ 1 賠 11
 \n若「庄」首 2 張牌構成一對（只計點數，不計花色），任何押於「庄對」的投注將按 1 賠 11 支付，並將返還押於「庄對」的初始投注金；
-\n否則，任何押於「庄對」的投注都將被移除。" text.cn="「区块链咪牌百家乐」 及「免佣区块链咪牌百家乐」－ 1 赔 11
+\n否則，任何押於「庄對」的投注都將被移除。" text.cn="「区块链极速百家乐」 及「免佣区块链极速百家乐」－ 1 赔 11
 \n若「庄」首2 张牌构成一对（只计点数，不计花色），任何押于「庄对」的投注将按1 赔11 支付，并将返还押于「庄对」的初始投注金；
-\n否则，任何押于「庄对」的投注都将被移除。" text.en="‘Blockchain Squeeze Baccarat’ and ‘No Commission Blockchain Squeeze Baccarat’ - 11：1
+\n否则，任何押于「庄对」的投注都将被移除。" text.en="‘Blockchain Speed Baccarat’ and ‘No Commission Blockchain Speed Baccarat’ - 11：1
 \nIf the ‘Banker’ first two cards constitute a pair (only count point, regardless of suits), any bet on 'Banker Pair' is paid 11 to 1, and the initial bet is returned.
 \nOtherwise, any bet on 'Banker Pair' is removed." 
                                             size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8" bold="false"/>  
@@ -545,14 +520,14 @@
                         </e:Group>
 						<e:Group>
                             <ui:RunTimeLabel width="40" text.zh="・\n・\n・\n\n・" text.cn="・\n・\n・\n\n・" text.en="・\n・\n・\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                            <ui:RunTimeLabel width="2114" id="_subpr15" text.zh="「免佣區塊鏈咪牌百家樂」－ 1 賠 12
-\n在 「區塊鏈咪牌百家樂」 模式，不存有「超級六」投注；只限在「免佣區塊鏈咪牌百家樂」時啟動
+                            <ui:RunTimeLabel width="2114" id="_subpr15" text.zh="「免佣區塊鏈極速百家樂」－ 1 賠 12
+\n在 「區塊鏈極速百家樂」 模式，不存有「超級六」投注；只限在「免佣區塊鏈極速百家樂」時啟動
 \n若「庄」牌點數為 6 點，並高於「閒」牌點數﹐任何押於「超級六」的投注則將按 1 賠 12 支付，並將返還押於「超級六」贏的初始投注金；
-\n否則，任何押於「超級六」的投注都將被移除" text.cn="「免佣区块链咪牌百家乐」－ 1 赔 12
-\n在 「区块链咪牌百家乐」 模式，不存有「超级六」投注；只限在「免佣区块链咪牌百家乐」时启动
+\n否則，任何押於「超級六」的投注都將被移除" text.cn="「免佣区块链极速百家乐」－ 1 赔 12
+\n在 「区块链极速百家乐」 模式，不存有「超级六」投注；只限在「免佣区块链极速百家乐」时启动
 \n若「庄」牌点数为6 点，并高于「闲」牌点数﹐任何押于「超级六」的投注则将按1 赔12 支付，并将返还押于「超级六」赢的初始投注金；
-\n否则，任何押于「超级六」的投注都将被移除" text.en="‘No Commission Blockchain Squeeze Baccarat’ - 12：1
-\nOnly available on ‘No Commission Blockchain Squeeze Baccarat’
+\n否则，任何押于「超级六」的投注都将被移除" text.en="‘No Commission Blockchain Speed Baccarat’ - 12：1
+\nOnly available on ‘No Commission Blockchain Speed Baccarat’
 \nIf the ‘Banker's hand’ value is higher than the ‘Player's hand’ value and the ‘Banker's hand’ value is 6, any bet on 'Super 6' is paid 12 to 1, and the initial bet is returned. 
 \nOtherwise, any bet on 'Super 6' is removed." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8" bold="false"/> 
                             <e:layout>
@@ -568,10 +543,10 @@
                                             <ui:RunTimeLabel id="_lblprRow1Item1" horizontalCenter="0" verticalCenter="0" text.zh="下注項目" text.cn="下注项目" text.en="Bet Type" size="36" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:Group id="_prRow1Item2" width="757" height="100">
-                                            <ui:RunTimeLabel id="_lblprRow1Item2" horizontalCenter="0" verticalCenter="0" text.zh="區塊鏈咪牌百家樂" text.cn="区块链咪牌百家乐" text.en="Blockchain Squeeze Baccarat " size="36" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow1Item2" horizontalCenter="0" verticalCenter="0" text.zh="區塊鏈極速百家樂" text.cn="区块链极速百家乐" text.en="Blockchain Speed Baccarat " size="36" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:Group id="_prRow1Item3" width="1017" height="100">
-                                            <ui:RunTimeLabel id="_lblprRow1Item3" horizontalCenter="0" verticalCenter="0" text.zh="免佣區塊鏈咪牌百家樂" text.cn="免佣区块链咪牌百家乐" text.en="‘No Commission Blockchain Squeeze Baccarat’" size="36" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow1Item3" horizontalCenter="0" verticalCenter="0" text.zh="免佣區塊鏈極速百家樂" text.cn="免佣区块链极速百家乐" text.en="‘No Commission Blockchain Speed Baccarat’" size="36" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:layout>
                                             <e:HorizontalLayout gap="1" verticalAlign="middle"/>

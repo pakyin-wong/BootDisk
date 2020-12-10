@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.dtb.GameRulePanel" width="1688" height="940" states="cn,en,zh" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+    <e:Group id="content" width="1688" height="940">
+    <e:Image id="moveArea" source="popover_png" height="100%" width="100%" x="0" y="0" alpha="1"/>
+        <e:Group id="_topPart" width="1688" height="125" touchChildren="true">
+            <ui:RunTimeLabel id="_lblRuleTitle" text.zh="區塊鏈龍虎遊戲規則" text.cn="区块链龙虎游戏规则" text.en="Blockchain Dragon Tiger Game Rules" size="48" textColor="0xc59466" textKey="" left="48" top="27" verticalAlign="middle" fontFamily="Microsoft JhengHei"/>
+		    <e:Image id="close" source="d-lobby-button-close-none_png" touchEnabled="true" width="24" height="24" top="44" right="43"/>
+        </e:Group>
+        <ui:Scroller scrollPolicyH="off" left="48" right="40" top="146" width="1600" height="766">
+        <!--height="788"-->
+            <e:Group id="_page">
+                <e:Group id="_ruleInfo" width="1600">
+                    <ui:RunTimeLabel id="_lblWinRule" height="45" text.zh="獲勝條件" text.cn="获胜条件" text.en="Win conditions" size="30" textColor="0xc59466" verticalAlign="middle" fontFamily="Microsoft JhengHei"/>
+                    <e:Group id="_winRuleTextGrp" width="1600">
+                        <ui:RunTimeLabel width="40" text.zh="・\n・\n・" text.cn="・\n・\n・" text.en="・\n\n・\n・" size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
+                        <ui:RunTimeLabel width="1483" width.en="1483" id="_wr" text.zh="區塊鏈龍虎秉承傳統的龍虎遊戲規則，特別之處在於可透過 SHA-256 技術驗證牌靴，確保遊戲公平公正
+\n遊戲分「龍」、「虎」兩方，只計算牌面點數，不比花色；點數較大的一方將獲得勝利
+\nA 為 1 點；J 為 11 點；Q 為 12 點；K 為 13 點；其它牌 ( 2、3、4、5、6、7、8、9 ) 依牌面數字面值" text.cn="区块链龙虎秉承传统的龙虎游戏规则，特别之处在于可透过 SHA-256 技术验证牌靴，确保游戏公平公正
+\n游戏分「龙」、「虎」两方，只计算牌面点数，不比花色；点数较大的一方将获得胜利
+\nA 为 1 点；J 为 11 点；Q 为 12 点；K 为 13 点；其它牌 ( 2、3、4、5、6、7、8、9 ) 依牌面数字面值" text.en="Blockchain Dragon Tiger  follows the standard rules of Dragon Tiger. The game is verified through SHA-256 technology to ensure fairness and justice.
+\nCompare two cards, the highest ranking card will win. The suits (Spades, Hearts, Diamonds and Clubs) have no meaning in Dragon Tiger.
+\n'Aces' counts one; ‘Jacks’ counts eleven; ‘Queens’ counts twelve; ‘Kings’ counts thirteen; the other cards (2、3、4、5、6、7、8、9) count their corresponding point value." size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
+                        <e:layout>
+                            <e:HorizontalLayout paddingLeft="33" gap="12"/>
+                        </e:layout>
+                    </e:Group>
+                    <e:layout>
+                        <e:VerticalLayout gap="9"/>
+                    </e:layout>
+                </e:Group>
+                <e:Group left="33" id="_bettingGuide" width="1600">
+                    <ui:RunTimeLabel id="_lblBettingGuide" height="45" text.zh="操作及下注指南" text.cn="操作及下注指南" text.en=" Operation and betting guide" size="30" textColor="0xc59466" textKey="" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei"/>
+                    <e:Group id="_bettingGuideGrp" width="1600">
+                        <ui:RunTimeLabel width="40" text.zh="1.\n2.\n3.\n4.\n5.\n6.\n7.\n8." text.cn="1.\n2.\n3.\n4.\n5.\n6.\n7.\n8." text.en="1.\n2.\n3.\n4.\n5.\n6.\n7.\n8." size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
+                        <ui:RunTimeLabel width="1483" width.en="1483" id="_betguide" text.zh="開局後，下注倒數開始
+\n每局派牌時，先銷去一張牌，然後按照「龍」>「虎」的順序派牌
+\n玩家於下注區押注籌碼後，表示押該選項贏出；下注區包括：「龍」、「虎」、「和」
+\n每個單注金額不能高於或低於已設置的個人限紅之上、下限 
+\n若連續 5 局未下注，則會被強制退出娛樂枱
+\n倒數結束後，遊戲枱會停止下注，而已確認之注碼均不得更改或取回
+\n停止下注後，會先開「龍」的牌，然後再開「虎」的牌
+\n完成開牌後，可驗證已開之卡牌" text.cn="开局后，下注倒数开始
+\n每局派牌时，先销去一张牌，然后按照「龙」>「虎」的顺序派牌
+\n玩家于下注区押注筹码后，表示押该选项赢出；下注区包括：「龙」、「虎」、「和」
+\n每个单注金额不能高于或低于已设置的个人限红之上、下限
+\n若连续 5 局未下注，则会被强制退出娱乐台
+\n倒数结束后，游戏台会停止下注，而已确认之注码均不得更改或取回
+\n停止下注后，会先开「龙」的牌，然后再开「虎」的牌
+\n完成开牌后，可验证已开之卡牌" text.en=" After new round begins, betting countdown starts
+\nThe first card will be burnt at the beginning of each game. The cards are dealt in the following order: ‘Dragon’ > ‘Tiger’.
+\nYou may choose to wager on one or more betting areas. There are three betting options in Dragon Tiger: 'Dragon', 'Tiger',  'Tie'.
+\nYour single bet amount cannot be higher or lower than the upper and lower single bet limits respectively. 
+\nIf no bet is placed within 5 rounds, the system will return you to the game lobby.
+\nAfter the betting countdown is over, no wager may be placed, and all bets that have been placed cannot be changed or retrieved.
+\nAfter 'stop betting',  'Dragon' card and  ‘Tiger’ card will be turned face up in sequence.
+\nAfter the cards are opened, the opened cards can be verified" size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
+                        <e:layout>
+                            <e:HorizontalLayout paddingLeft="33" gap="12"/>
+                        </e:layout>
+                    </e:Group>
+                    <e:layout>
+                        <e:VerticalLayout gap="9"/>
+                    </e:layout>
+                </e:Group>
+                <e:Group id="_payoutRule" width="1600">
+                    <ui:RunTimeLabel id="_lblPayoutRule" height="45" text.zh="賠彩規則" text.cn="赔彩规则" text.en="Payout rules" size="30" textColor="0xc59466" textKey="" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei"/>
+                    <e:Group id="_payoutRuleSub" width="1600">
+                        <e:Group>
+                            <ui:RunTimeLabel width="29" text.zh="a." text.cn="a." text.en="a." size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
+                            <ui:RunTimeLabel id="_subpr1" text.zh="押「龍」( 賠彩－1 賠 1 )" text.cn="押「龙」( 赔彩－1 赔 1 )" text.en="Bet on ‘Dragon’ (Payoff: 1 : 1 )" size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/> 
+                            <e:layout>
+                                <e:HorizontalLayout gap="12"/>
+                            </e:layout>
+                        </e:Group>
+                        <e:Group>
+							<ui:RunTimeLabel width="32" text.zh="・\n・\n・" text.cn="・\n・\n・" text.en="・\n・\n・" size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
+							<ui:RunTimeLabel text.zh="若「龍」的牌點數大於「虎」的牌點數，任何押於「龍」贏的投注將按 1 賠 1 支付，並將返還押於「龍」贏的初始投注金；
+\n若「龍」的牌點數與「虎」的牌點數相同，任何押於「龍」贏的投注將返還一半*
+\n否則，任何押於「龍」的投注將被移除" text.cn="若「龙」的牌点数大于「虎」的牌点数，任何押于「龙」赢的投注将按 1 赔 1 支付，并将返还押于「龙」赢的初始投注金；
+\n若「龙」的牌点数与「虎」的牌点数相同，任何押于「龙」赢的投注将返还一半*
+\n否则，任何押于「龙」的投注将被移除" text.en="If the ‘Dragon’s hand’ value is higher than the ‘Tiger’s hand’ value, any bet on ‘Dragon’ is paid 1 to 1, and the initial bet is returned. 
+\nIf the ‘Dragon’s hand’ and ‘Tiger’s hand’ have the same value, return half bet to the player.*
+\nOtherwise, any bet on ‘Dragon’ is removed.  " size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
+							<e:layout>
+								<e:HorizontalLayout paddingLeft="22" gap="12"/>
+							</e:layout>
+						</e:Group>
+                        <e:Group>
+                            <ui:RunTimeLabel width="29" text.zh="b." text.cn="b." text.en="b." size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
+                            <ui:RunTimeLabel id="_subpr2" text.zh="押「虎」( 賠彩－1 賠 1 )" text.cn="押「虎」( 赔彩－1 赔 1 )" text.en="Bet on ‘Tiger’ (Payoff: 1 : 1 )" size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/> 
+                            <e:layout>
+                                <e:HorizontalLayout gap="12"/>
+                            </e:layout>
+                        </e:Group>
+                        <e:Group>
+							<ui:RunTimeLabel width="32" text.zh="・\n・\n・" text.cn="・\n・\n・" text.en="・\n・\n・" size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
+							<ui:RunTimeLabel text.zh="若「虎」的牌點數高於「龍」的牌點數，任何押於「虎」贏的投注將按 1 賠 1 支付，並將返還押於「虎」贏的初始投注金；
+\n若「虎」的牌點數與「龍」的牌點數相同，任何押於「虎」贏的投注將退還一半*
+\n否則，任何押於「虎」的投注將被移除" text.cn="若「虎」的牌点数高于「龙」的牌点数，任何押于「虎」赢的投注将按 1 赔 1 支付，并将返还押于「虎」赢的初始投注金；
+\n若「虎」的牌点数与「龙」的牌点数相同，任何押于「虎」赢的投注将退还一半*
+\n否则，任何押于「虎」的投注将被移除" text.en="If the ‘Tiger’s hand’ value is higher than the ‘Dragon’s hand’ value, any bet on ‘Tiger’ is paid 1 to 1, and the initial bet is returned.
+\nIf the ‘Tiger’s hand’ and ‘Dragon’s hand’ have the same value, return half bet to the player.*
+\nOtherwise, any bet on ‘Tiger’ is removed. " size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
+							<e:layout>
+								<e:HorizontalLayout paddingLeft="22" gap="12"/>
+							</e:layout>
+						</e:Group>
+                        <e:Group>
+                            <ui:RunTimeLabel width="29" text.zh="c." text.cn="c." text.en="c." size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/>
+                            <ui:RunTimeLabel id="_subpr3" text.zh="押「和」(賠彩－1 賠 8 )" text.cn="押「和」(赔彩－1 赔 8 )" text.en="Bet on ‘Tie’ (Payoff: 8:1)" size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/> 
+                            <e:layout>
+                                <e:HorizontalLayout gap="12"/>
+                            </e:layout>
+                        </e:Group>
+                        <e:Group>
+							<ui:RunTimeLabel width="32" text.zh="・\n・" text.cn="・\n・" text.en="・\n・" size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
+							<ui:RunTimeLabel text.zh="若「龍」與「虎」的牌點數相同，任何押於「和」的投注將按 1 賠 8 支付，並將返還押於「和」的初始投注金*
+\n否則，任何押於「和」的投注將被移除" text.cn="若「龙」与「虎」的牌点数相同，任何押于「和」的投注将按 1 赔 8 支付，并将返还押于「和」的初始投注金*
+\n否则，任何押于「和」的投注将被移除" text.en="If the ‘Dragon’s hand’ and ‘Tiger’s hand’ have the same value, any bet on ‘Tie’ is paid 8 to 1, and the initial bet is returned. *
+\nOtherwise, any bet on ‘Tie’ is removed." size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
+							<e:layout>
+								<e:HorizontalLayout paddingLeft="22" gap="12"/>
+							</e:layout>
+						</e:Group>
+                        <e:Group>
+                            <ui:RunTimeLabel text.zh="*備註：" text.cn="*备注：" text.en="*Remark:" size="30" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
+                            <e:layout>
+                                <e:HorizontalLayout gap="12"/>
+                            </e:layout>
+                        </e:Group>
+                        <e:Group id="_prForm" width="1520" height="250">
+                            <e:Group id="_prFormGroup" width="1520" height="250">
+                                <e:Group id="_prRow1" width="1520" height="70">
+                                    <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x112c4c" fillAlpha="0.5" width="1520" height="70"/>
+                                    <e:Group id="prRow1Group">
+                                        <e:Group id="_prRow1Item1" width="431" height="70">
+                                            <ui:RunTimeLabel id="_lblprRow1Item1" horizontalCenter="0" verticalCenter="0" text.zh="下注項目" text.cn="下注项目" text.en="Bet Type" size="24" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                        </e:Group>
+                                        <e:Group id="_prRow1Item2" width="502" height="70">
+                                            <ui:RunTimeLabel id="_lblprRow1Item2" horizontalCenter="0" verticalCenter="0" text.zh="派彩" text.cn="派彩" text.en="Payoff" size="24" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                        </e:Group>
+                                        <e:Group id="_prRow1Item3" width="585" height="70">
+                                            <ui:RunTimeLabel id="_lblprRow1Item3" horizontalCenter="0" verticalCenter="0" text.zh="開「和」" text.cn="开「和」" text.en="If the result is 'Tie'" size="24" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                        </e:Group>
+                                        <e:layout>
+                                            <e:HorizontalLayout gap="1" verticalAlign="middle"/>
+                                        </e:layout>
+                                    </e:Group>
+                                </e:Group>
+                                <e:Group id="_prRow2" width="1520" height="60">
+                                    <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="0,0,0,0" stroke="0" fillColor="0x112c4c" fillAlpha="0" width="1520" height="60"/>
+                                    <e:Group id="prRow2Group">
+                                        <e:Group id="_prRow2Item1" width="431" height="60">
+                                            <ui:RunTimeLabel id="_lblprRow2Item1" horizontalCenter="0" verticalCenter="0" text.zh="龍" text.cn="龙" text.en="Dragon" size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                        </e:Group>
+                                        <e:Group id="_prRow2Item2" width="502" height="60">
+                                            <ui:RunTimeLabel id="_lblprRow2Item2" horizontalCenter="0" verticalCenter="0" text.zh="1 賠 1" text.cn="1 赔 1" text.en="1 : 1" size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                        </e:Group>
+                                        <e:Group id="_prRow2Item3" width="585" height="60">
+                                            <ui:RunTimeLabel id="_lblprRow2Item3" horizontalCenter="0" verticalCenter="0" text.zh="退回一半下注金額" text.cn="退回一半下注金额" text.en="Return half bet" size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                        </e:Group>
+                                        <e:layout>
+                                            <e:HorizontalLayout gap="1" verticalAlign="middle"/>
+                                        </e:layout>
+                                    </e:Group>
+                                </e:Group>
+                                <e:Group id="_prRow3" width="1520" height="60">
+                                    <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="0,0,0,0" stroke="0" fillColor="0x112c4c" fillAlpha="0.5" width="1520" height="60"/>
+                                    <e:Group id="prRow3Group">
+                                        <e:Group id="_prRow3Item1" width="431" height="60">
+                                            <ui:RunTimeLabel id="_lblprRow3Item1" horizontalCenter="0" verticalCenter="0" text.zh="虎" text.cn="虎" text.en="Tiger" size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                        </e:Group>
+                                        <e:Group id="_prRow3Item2" width="502" height="60">
+                                            <ui:RunTimeLabel id="_lblprRow3Item2" horizontalCenter="0" verticalCenter="0" text.zh="1 賠 1" text.cn="1 赔 1" text.en="1 : 1" size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                        </e:Group>
+                                        <e:Group id="_prRow3Item3" width="585" height="60">
+                                            <ui:RunTimeLabel id="_lblprRow3Item3" horizontalCenter="0" verticalCenter="0" text.zh="退回一半下注金額" text.cn="退回一半下注金额" text.en="Return half bet" size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                        </e:Group>
+                                        <e:layout>
+                                            <e:HorizontalLayout gap="1" verticalAlign="middle"/>
+                                        </e:layout>
+                                    </e:Group>
+                                </e:Group>
+                                <e:Group id="_prRow4" width="1520" height="60">
+                                    <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="0,12,0,12" stroke="0" fillColor="0x112c4c" fillAlpha="0" width="1520" height="60"/>
+                                    <e:Group id="prRow4Group">
+                                        <e:Group id="_prRow4Item1" width="431" height="60">
+                                            <ui:RunTimeLabel id="_lblprRow4Item1" horizontalCenter="0" verticalCenter="0" text.zh="和"  text.cn="和" text.en="Tie" size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                        </e:Group>
+                                        <e:Group id="_prRow4Item2" width="502" height="60">
+                                            <ui:RunTimeLabel id="_lblprRow4Item2" horizontalCenter="0" verticalCenter="0" text.zh="1 賠 8"  text.cn="1 赔 8" text.en="8 : 1" size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                        </e:Group>
+                                        <e:Group id="_prRow4Item3" width="585" height="60">
+                                            <ui:RunTimeLabel id="_lblprRow4Item3" horizontalCenter="0" verticalCenter="0" text.zh="贏得 8 倍下注金額"  text.cn="赢得 8 倍下注金额" text.en="Win 8 times of bet" size="24" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                        </e:Group>
+                                        <e:layout>
+                                            <e:HorizontalLayout gap="1" verticalAlign="middle"/>
+                                        </e:layout>
+                                    </e:Group>
+                                </e:Group>
+                                <e:layout>
+                                    <e:VerticalLayout gap="0"/>
+                                </e:layout>
+                            </e:Group>
+                            <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,12,12" stroke="1" strokeColor="0x214a72" width="1520" height="250" fillAlpha="0" fillColor="0x000000"/>
+                            <e:Rect x="431" y="0" id="_prColumnLine1" width="1" height="250" fillColor="0x214a72"/>
+                            <e:Rect x="934" y="0" id="_prColumnLine2" width="1" height="250" fillColor="0x214a72"/>
+                        </e:Group>
+                        <e:layout>
+                            <e:VerticalLayout gap="10" paddingLeft="33"/>
+                        </e:layout>
+                    </e:Group>
+                    <e:layout>
+                        <e:VerticalLayout gap="12"/>
+                    </e:layout>
+                </e:Group>
+                <e:layout>
+                    <e:VerticalLayout gap="48" paddingBottom="60"/>
+                </e:layout>
+            </e:Group>
+        </ui:Scroller>
+    </e:Group>
+</e:Skin>
