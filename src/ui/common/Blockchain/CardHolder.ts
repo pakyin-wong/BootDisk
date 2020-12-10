@@ -241,7 +241,7 @@ namespace we {
         cardLabel.text = num.toString();
 
         // create a new ImageDisplayData with a EgretTextureData holding the new texture
-        const displayData: dragonBones.ImageDisplayData = new dragonBones.ImageDisplayData();
+        // const displayData: dragonBones.ImageDisplayData = new dragonBones.ImageDisplayData();
         const textureData = new dragonBones['EgretTextureData']();
         textureData.renderTexture = cardLabel.texture;
         textureData.region.x = 0;
@@ -250,18 +250,19 @@ namespace we {
         textureData.region.height = textureData.renderTexture.textureHeight;
         textureData.parent = new dragonBones.EgretTextureAtlasData();
         textureData.parent.scale = 1;
-        displayData.texture = textureData;
-        displayData.pivot.x = 0.5;
-        displayData.pivot.y = 0.5;
+        // displayData.texture = textureData;
+        // displayData.pivot.x = 0.5;
+        // displayData.pivot.y = 0.5;
 
-        // type 0 is ImageDisplayData
-        displayData.type = 0;
+        // // type 0 is ImageDisplayData
+        // displayData.type = 0;
 
-        slot.replaceDisplayData(displayData, 0);
+        // slot.replaceDisplayData(displayData, 0);
+        slot.replaceTextureData(textureData, 0);
 
-        // set the displayIndex to non zero since new value == current index will not trigger redraw
-        slot.displayIndex = -1;
-        slot.displayIndex = 0;
+        // // set the displayIndex to non zero since new value == current index will not trigger redraw
+        // slot.displayIndex = -1;
+        // slot.displayIndex = 0;
       }
 
       protected abstract async betInitState(gameState: core.GameState): Promise<{}>;
