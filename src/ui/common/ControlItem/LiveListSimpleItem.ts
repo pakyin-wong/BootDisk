@@ -289,6 +289,10 @@ namespace we {
         //     .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
         //     .call(resolve)
         // );
+        if(this._quickbetButton){
+          this._quickbetButton['tooltipText'] = 'quickBet.tooltip.close';
+          this._quickbetButton['tooltipPosition'] = 'above';
+        }
       }
 
       protected tweenChipLayer(isShow: boolean) {
@@ -312,6 +316,9 @@ namespace we {
           // egret.Tween.get(this._chipLayer)
           //   .to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1)
           //   .set({ visible: false });
+        }
+        if(this._quickbetButton){
+          this._quickbetButton['tooltipText'] = '';
         }
       }
 

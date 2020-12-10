@@ -26,7 +26,7 @@ namespace we {
 
       protected initAnimRelatedComps(){
         super.initAnimRelatedComps();
-        this._ringAnim.animation.gotoAndStopByFrame('icon_loop',0);
+        this._ringAnim.animation.gotoAndStopByTime('icon_loop',0);
         this.expandBottom();
       }
 

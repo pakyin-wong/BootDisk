@@ -6,6 +6,8 @@ namespace we {
 
       public _textKey: string = '';
       public _oddKey: string = '';
+      public overflow: boolean = false; //replace overflow text with overflowText
+      public overflowText: string = '...';
       protected _targetWidth: number = -1;
 
       constructor() {
@@ -82,7 +84,21 @@ namespace we {
       }
 
       public render() {
-        return this._renderer && (this.text = this._renderer());
+        let rslt = this._renderer && (this.text = this._renderer());
+        if(this.overflow){
+          const inText = this.text;
+          const oldWidth = this.width;
+          let count = 0;
+          this.width = 2000;
+          this.validateSize();
+          while(this.textWidth>oldWidth && count < inText.length){
+            this.text = inText.substring(0,inText.length-count-1)+this.overflowText;
+            this.validateSize();
+            count ++;
+          };
+          this.width = oldWidth;
+        }
+        return rslt;
       }
     }
   }

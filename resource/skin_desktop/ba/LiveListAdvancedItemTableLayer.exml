@@ -26,12 +26,4 @@
 		         name="d_lobby_panel_betcontrol_betarea_bankerpair_hover_png" width="116" height="56" />
 		<ui:RunTimeLabel id="_bankerPairLabel" verticalCenter="0" horizontalCenter="0" size="30" />
 	</e:Group>
-	<e:Group id="_superSixBankerGroup" visible="false">
-		<e:Image id="_superSixBankerImage" />
-		<ui:RunTimeLabel id="_superSixBankerLabel" />
-	</e:Group>
-	<e:Group id="_superSixGroup" visible="false">
-		<e:Image id="_superSixImage" />
-		<ui:RunTimeLabel id="_superSixLabel" />
-	</e:Group>
 </e:Skin>

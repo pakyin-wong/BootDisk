@@ -318,11 +318,11 @@ namespace we {
         egret.Tween.removeTweens(this._redBarEffect.origin);
         egret.Tween.removeTweens(this._blueBarEffect.origin);
         
-        this._anim.once(dragonBones.AnimationEvent.COMPLETE,this.resetAnim,this);
+        this._anim.once(dragonBones.EventObject.COMPLETE,this.resetAnim,this);
         this._anim.animation.play('effect_center',1);
       }
 
-      protected resetAnim(e:dragonBones.AnimationEvent = null){
+      protected resetAnim(e:dragonBones.EgretEvent = null){
         if(!this._anim){
           return;
         }

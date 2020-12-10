@@ -574,7 +574,7 @@ namespace we {
 
               await utils.playAnimation(cardAnim, 'vertical_in', 1);
               this.showVerticalLoopBack(cardAnim, 0);
-            // cardAnim.animation.gotoAndStopByFrame('vertical_loop_back', 0);
+            // cardAnim.animation.gotoAndStopByTime('vertical_loop_back', 0);
           }
 
           if (this._gameData.currentcardindex + i + 1 === this._gameData.redcardindex) {
