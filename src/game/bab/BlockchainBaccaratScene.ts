@@ -22,6 +22,7 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
+        this.passBackgroundToResultDisplay();
         // this._helpPanel.setToggler(this._helpButton);
         // this._deckPanel.setToggler(this._deckButton);
         // this._deckPanel.setValue(this._gameData);
@@ -45,6 +46,11 @@ namespace we {
           mouse.setButtonMode(this._helpButton, true);
           mouse.setButtonMode(this._deckButton, true);
         }
+        this._beadRoadResultPanel._gameInfoLabel.text= null;
+      }
+
+      protected passBackgroundToResultDisplay(){
+        this._resultDisplay.passBackgrounds(null);
       }
 
       protected instantiateVideo() {}
@@ -56,6 +62,7 @@ namespace we {
       public updateGame(isInit: boolean = false) {
         super.updateGame(isInit);
         if (isInit) {
+          this._historyCardHolder.update(this._gameData, this._tableId);
           switch (this._gameData.state) {
             case core.GameState.BET:
             case core.GameState.DEAL:
@@ -64,6 +71,7 @@ namespace we {
             case core.GameState.PEEK:
             case core.GameState.PEEK_BANKER:
             case core.GameState.PEEK_PLAYER:
+            case core.GameState.IDLE:
               break;
             default:
               console.log('default state', this._gameData.state);

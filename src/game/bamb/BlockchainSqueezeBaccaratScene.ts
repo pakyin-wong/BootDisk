@@ -13,15 +13,19 @@ namespace we {
       protected _flipCardHolder : FlipCardHolder
       public static resGroups = [core.res.Blockchain, core.res.BlockchainSqueezeBaccarat];
 
-      protected mount(){
-        super.mount();
-        console.log('passFlipCardHolder' , this._flipCardHolder);
+      protected passBackgroundToResultDisplay(){
         (<bamb.CardHolder>this._resultDisplay).passFlipCardHolder(this._flipCardHolder);
+        super.passBackgroundToResultDisplay();
+      }
+
+      //later will be pushed to somewhere
+      protected setStateIdle(isInit: boolean){
+        super.setStateIdle(isInit);
+
       }
 
       protected initChildren() {
         super.initChildren();
-        this._forceNoDismiss = true;
         if (!env.isFirstTimeBam) {
           const tutorial = new bam.SqueezeTutorial('SqueezeTutorial');
           tutorial.x = 106;
@@ -30,6 +34,7 @@ namespace we {
           tutorial.isEdgeDismissable = true;
           this.addChild(tutorial);
           env.isFirstTimeBam = true;
+          dir.socket.updateSetting('isFirstTimeBam', env.isFirstTimeBam? "1":"0");
         }
       }
 

@@ -45,15 +45,15 @@
 			"name": "scene_lottery"
 		},
 		{
-			"keys": "d_lobby_panel_betcontrol_btn_confirm_bg_png,d_lobby_panel_betcontrol_btn_confirm_icon_png,d_lobby_button_down_normal2_png,d_common_liveverification_emoji_icon13_png,d_common_liveverification_emoji_icon102_png,d_common_liveverification_emoji_icon122_png,d_common_liveverification_emoji_icon112_png,d_common_liveverification_emoji_icon22_png,d_common_liveverification_emoji_icon32_png,d_common_liveverification_emoji_icon42_png,d_common_liveverification_emoji_icon52_png,d_common_liveverification_emoji_icon62_png,d_common_liveverification_emoji_icon72_png,d_common_liveverification_emoji_icon82_png,d_common_liveverification_emoji_icon92_png,m_common_liveverification_emoji_icon1_png,m_common_liveverification_emoji_icon10_png,m_common_liveverification_emoji_icon11_png,m_common_liveverification_emoji_icon12_png,m_common_liveverification_emoji_icon2_png,m_common_liveverification_emoji_icon3_png,m_common_liveverification_emoji_icon4_png,m_common_liveverification_emoji_icon5_png,m_common_liveverification_emoji_icon6_png,m_common_liveverification_emoji_icon7_png,m_common_liveverification_emoji_icon8_png,m_common_liveverification_emoji_icon9_png,SicBo_Game_Result_ske_json,SicBo_Game_Result_tex_json,SicBo_Game_Result_tex_png,dice12_png,dice22_png,dice32_png,dice42_png,dice52_png,dice62_png,dice13_png,dice23_png,dice33_png,dice43_png,dice53_png,dice63_png,flash_png,Base_Dice_22_png,Base_Dice_12_png,Base_Dice_32_png,Base_Dice_42_png,Base_Dice_52_png,Base_Dice_62_png,Base_Dice_13_png,Base_Dice_23_png,Base_Dice_33_png,Base_Dice_43_png,Base_Dice_53_png,Base_Dice_63_png,m_common_slide_bar_active_png,m_common_slide_bar_base_png,m_bam_instruction_card_group_landscape_1_png,m_bam_instruction_card_group_landscape_2_png,m_bam_button_close_none_png,m_bam_instruction_card_group_landscape_12_png,m_bam_instruction_card_group_landscape_22_png,m_bam_instruction_crad_group_png,m_bam_instruction_large_crad_png,m_bam_instruction_large_crad_HL_png,m_bam_instruction_reveal_all_btn_png,m_bam_instruction_swtich_crad_group_png,m_bam_panel_btn_bg_Inactive_png,m_bam_touch_icon_png,m_lw_listpenal_result_money_bg_west_png,m_bam_button_close_none2_png,m_bam_instruction_card_group_landscape_13_png,m_bam_instruction_card_group_landscape_23_png,m_bam_instruction_crad_group2_png,m_bam_instruction_large_crad2_png,m_bam_instruction_large_crad_HL2_png,m_bam_instruction_reveal_all_btn2_png,m_bam_instruction_swtich_crad_group2_png,m_bam_panel_btn_bg_Inactive2_png,m_bam_touch_icon2_png,m_lw_listpenal_result_money_bg_west2_png,m_ba_btn_info_png,d_common_video_verification_icon_correct_png,d_sq_ba_timer_bg_png,d_ba_betarea_chipsbg_triangle_png,d_lobby_panel_gamelist_goodroad_remark_icon_png",
+			"keys": "d_lobby_panel_betcontrol_btn_confirm_bg_png,d_lobby_panel_betcontrol_btn_confirm_icon_png,d_lobby_button_down_normal2_png,d_common_liveverification_emoji_icon13_png,d_common_liveverification_emoji_icon102_png,d_common_liveverification_emoji_icon122_png,d_common_liveverification_emoji_icon112_png,d_common_liveverification_emoji_icon22_png,d_common_liveverification_emoji_icon32_png,d_common_liveverification_emoji_icon42_png,d_common_liveverification_emoji_icon52_png,d_common_liveverification_emoji_icon62_png,d_common_liveverification_emoji_icon72_png,d_common_liveverification_emoji_icon82_png,d_common_liveverification_emoji_icon92_png,m_common_liveverification_emoji_icon1_png,m_common_liveverification_emoji_icon10_png,m_common_liveverification_emoji_icon11_png,m_common_liveverification_emoji_icon12_png,m_common_liveverification_emoji_icon2_png,m_common_liveverification_emoji_icon3_png,m_common_liveverification_emoji_icon4_png,m_common_liveverification_emoji_icon5_png,m_common_liveverification_emoji_icon6_png,m_common_liveverification_emoji_icon7_png,m_common_liveverification_emoji_icon8_png,m_common_liveverification_emoji_icon9_png,SicBo_Game_Result_ske_json,SicBo_Game_Result_tex_json,SicBo_Game_Result_tex_png,dice12_png,dice22_png,dice32_png,dice42_png,dice52_png,dice62_png,dice13_png,dice23_png,dice33_png,dice43_png,dice53_png,dice63_png,flash_png,Base_Dice_22_png,Base_Dice_12_png,Base_Dice_32_png,Base_Dice_42_png,Base_Dice_52_png,Base_Dice_62_png,Base_Dice_13_png,Base_Dice_23_png,Base_Dice_33_png,Base_Dice_43_png,Base_Dice_53_png,Base_Dice_63_png,m_common_slide_bar_active_png,m_common_slide_bar_base_png,m_bam_instruction_card_group_landscape_1_png,m_bam_instruction_card_group_landscape_2_png,m_bam_button_close_none_png,m_bam_instruction_card_group_landscape_12_png,m_bam_instruction_card_group_landscape_22_png,m_bam_instruction_crad_group_png,m_bam_instruction_large_crad_png,m_bam_instruction_large_crad_HL_png,m_bam_instruction_reveal_all_btn_png,m_bam_instruction_swtich_crad_group_png,m_bam_panel_btn_bg_Inactive_png,m_bam_touch_icon_png,m_lw_listpenal_result_money_bg_west_png,m_bam_button_close_none2_png,m_bam_instruction_card_group_landscape_13_png,m_bam_instruction_card_group_landscape_23_png,m_bam_instruction_crad_group2_png,m_bam_instruction_large_crad2_png,m_bam_instruction_large_crad_HL2_png,m_bam_instruction_reveal_all_btn2_png,m_bam_instruction_swtich_crad_group2_png,m_bam_panel_btn_bg_Inactive2_png,m_bam_touch_icon2_png,m_lw_listpenal_result_money_bg_west2_png,m_ba_btn_info_png,d_common_video_verification_icon_correct_png,d_sq_ba_timer_bg_png,d_ba_betarea_chipsbg_triangle_png,d_lobby_panel_gamelist_goodroad_remark_icon_png,blockchain_sqba_ske2_json,blockchain_sqba_tex2_json,blockchain_sqba_tex2_png,d_ba_roadmap_bar_tiepairstate2_png,d_ba_roadmap_bar_tiepairstate3_png,d_lobby_placeholder_bc_dt2_jpg,d_lobby_pro_placeholder_bc_dt2_jpg,common_ui_tex2_png",
 			"name": "preload"
 		},
 		{
-			"keys": "blockchain_tex_png,blockchain_tex_json,blockchain_ske_json,we_bcba_sfx_card_generate_mp3,we_bcba_sfx_card_icontocontainer_mp3,we_bcba_sfx_card_move_mp3,we_bcba_sfx_card_open_mp3,we_bcba_sfx_card_popup_mp3,we_bcba_sfx_card_removeall_mp3,we_bcba_sfx_card_smallcard_mp3,we_bcba_sfx_card_teleport_mp3,we_bcba_sfx_container_fadeout_mp3,we_bcba_sfx_container_icon_mp3,we_bcba_sfx_newshoe_mp3,we_bcba_sfx_result_mp3,we_bcba_sfx_shoeout_mp3",
+			"keys": "blockchain_tex_png,blockchain_tex_json,we_bcba_sfx_card_generate_mp3,we_bcba_sfx_card_icontocontainer_mp3,we_bcba_sfx_card_move_mp3,we_bcba_sfx_card_open_mp3,we_bcba_sfx_card_popup_mp3,we_bcba_sfx_card_removeall_mp3,we_bcba_sfx_card_smallcard_mp3,we_bcba_sfx_card_teleport_mp3,we_bcba_sfx_container_fadeout_mp3,we_bcba_sfx_container_icon_mp3,we_bcba_sfx_newshoe_mp3,we_bcba_sfx_result_mp3,we_bcba_sfx_shoeout_mp3,blockchain_ske_dbbin",
 			"name": "scene_bc_baccarat"
 		},
 		{
-			"keys": "tiger_tex_png,blockchain_dt_tex_png,dragon_tex_png,tiger_tex_json,blockchain_dt_tex_json,blockchain_dt_ske_json,dragon_ske_json,dragon_tex_json,tiger_ske_json,we_bcdt_sfx_result_dragonwin_mp3,we_bcdt_sfx_result_tigerwin_mp3,we_bcdt_sfx_scanning_loop_mp3,we_bcdt_sfx_shoe_in_mp3,we_bcdt_sfx_shoe_out_mp3,we_bcba_sfx_card_generate_mp3,we_bcba_sfx_card_icontocontainer_mp3,we_bcba_sfx_card_move_mp3,we_bcba_sfx_card_open_mp3,we_bcba_sfx_card_popup_mp3,we_bcba_sfx_card_removeall_mp3,we_bcba_sfx_card_smallcard_mp3,we_bcba_sfx_card_teleport_mp3,we_bcba_sfx_container_fadeout_mp3,we_bcba_sfx_container_icon_mp3,we_bcba_sfx_newshoe_mp3,we_bcba_sfx_result_mp3,we_bcba_sfx_shoeout_mp3",
+			"keys": "tiger_tex_png,blockchain_dt_tex_png,dragon_tex_png,tiger_tex_json,blockchain_dt_tex_json,dragon_ske_json,dragon_tex_json,tiger_ske_json,we_bcdt_sfx_result_dragonwin_mp3,we_bcdt_sfx_result_tigerwin_mp3,we_bcdt_sfx_scanning_loop_mp3,we_bcdt_sfx_shoe_in_mp3,we_bcdt_sfx_shoe_out_mp3,we_bcba_sfx_card_generate_mp3,we_bcba_sfx_card_icontocontainer_mp3,we_bcba_sfx_card_move_mp3,we_bcba_sfx_card_open_mp3,we_bcba_sfx_card_popup_mp3,we_bcba_sfx_card_removeall_mp3,we_bcba_sfx_card_smallcard_mp3,we_bcba_sfx_card_teleport_mp3,we_bcba_sfx_container_fadeout_mp3,we_bcba_sfx_container_icon_mp3,we_bcba_sfx_newshoe_mp3,we_bcba_sfx_result_mp3,we_bcba_sfx_shoeout_mp3,blockchain_dt_ske_dbbin",
 			"name": "scene_bc_dragontiger"
 		},
 		{
@@ -61,7 +61,7 @@
 			"name": "scene_bc"
 		},
 		{
-			"keys": "blockchain_sqba_tex_png,blockchain_sqba_tex_json,blockchain_sqba_ske_json",
+			"keys": "blockchain_sqba_tex_png,blockchain_sqba_tex_json,blockchain_sqba_ske_dbbin",
 			"name": "scene_bc_sq_baccarat"
 		}
 	],
@@ -4115,7 +4115,7 @@
 			"name": "NeonOne_otf"
 		},
 		{
-			"url": "assets/dragonbones/common/common_ui/common_ui_tex.png",
+			"url": "assets/dragonbones/d/common_ui/common_ui_tex.png",
 			"type": "image",
 			"name": "common_ui_tex_png"
 		},
@@ -4155,7 +4155,7 @@
 			"name": "baccarat_ui_tex_png"
 		},
 		{
-			"url": "assets/dragonbones/common/common_ui/common_ui_ske.json",
+			"url": "assets/dragonbones/d/common_ui/common_ui_ske.json",
 			"type": "json",
 			"name": "common_ui_ske_json"
 		},
@@ -4175,7 +4175,7 @@
 			"name": "lobby_ui_tex_json"
 		},
 		{
-			"url": "assets/dragonbones/common/common_ui/common_ui_tex.json",
+			"url": "assets/dragonbones/d/common_ui/common_ui_tex.json",
 			"type": "json",
 			"name": "common_ui_tex_json"
 		},
@@ -6516,11 +6516,6 @@
 			"name": "blockchain_tex_json"
 		},
 		{
-			"url": "assets/dragonbones/d/bab/blockchain_ske.json",
-			"type": "json",
-			"name": "blockchain_ske_json"
-		},
-		{
 			"url": "assets/images/d/lobby/common/d_lobby_title_left.png",
 			"type": "image",
 			"name": "d_lobby_title_left_png"
@@ -6564,11 +6559,6 @@
 			"url": "assets/dragonbones/d/dtb/blockchain_dt_tex.json",
 			"type": "json",
 			"name": "blockchain_dt_tex_json"
-		},
-		{
-			"url": "assets/dragonbones/d/dtb/blockchain_dt_ske.json",
-			"type": "json",
-			"name": "blockchain_dt_ske_json"
 		},
 		{
 			"url": "assets/dragonbones/d/dtb/dragon_ske.json",
@@ -7946,11 +7936,6 @@
 			"name": "blockchain_sqba_tex_json"
 		},
 		{
-			"url": "assets/dragonbones/d/bamb/blockchain_sqba_ske.json",
-			"type": "json",
-			"name": "blockchain_sqba_ske_json"
-		},
-		{
 			"url": "assets/sounds/sn_banker_zh.mp3",
 			"type": "sound",
 			"name": "sn_banker_zh_mp3"
@@ -8041,6 +8026,21 @@
 			"name": "d_lobby_placeholder_bc_sdba_jpg"
 		},
 		{
+			"url": "assets/dragonbones/d/dtb/blockchain_dt_ske.dbbin",
+			"type": "bin",
+			"name": "blockchain_dt_ske_dbbin"
+		},
+		{
+			"url": "assets/dragonbones/d/bab/blockchain_ske.dbbin",
+			"type": "bin",
+			"name": "blockchain_ske_dbbin"
+		},
+		{
+			"url": "assets/dragonbones/d/bamb/blockchain_sqba_ske.dbbin",
+			"type": "bin",
+			"name": "blockchain_sqba_ske_dbbin"
+    },
+    {
 			"url": "assets/nmimages/d/lobby/common/d_lobby_placeholder_bc_dt.jpg",
 			"type": "image",
 			"name": "d_lobby_placeholder_bc_dt_jpg"
@@ -8049,6 +8049,46 @@
 			"url": "assets/nmimages/d/lobby/common/d_lobby_pro_placeholder_bc_dt.jpg",
 			"type": "image",
 			"name": "d_lobby_pro_placeholder_bc_dt_jpg"
+		},
+		{
+			"name": "blockchain_sqba_ske2_json",
+			"type": "json",
+			"url": "assets/dragonbones/m/bamb/blockchain_sqba_ske.json"
+		},
+		{
+			"name": "blockchain_sqba_tex2_json",
+			"type": "json",
+			"url": "assets/dragonbones/m/bamb/blockchain_sqba_tex.json"
+		},
+		{
+			"name": "blockchain_sqba_tex2_png",
+			"type": "image",
+			"url": "assets/dragonbones/m/bamb/blockchain_sqba_tex.png"
+		},
+		{
+			"name": "d_ba_roadmap_bar_tiepairstate2_png",
+			"type": "image",
+			"url": "assets/images/d/ba/roadmap/d_ba_roadmap_bar_tiepairstate.png"
+		},
+		{
+			"name": "d_ba_roadmap_bar_tiepairstate3_png",
+			"type": "image",
+			"url": "assets/images/m/ba/roadmap/temp/d_ba_roadmap_bar_tiepairstate.png"
+		},
+		{
+			"name": "d_lobby_placeholder_bc_dt2_jpg",
+			"type": "image",
+			"url": "assets/nmimages/d/lobby/common/d_lobby_placeholder_bc_dt.jpg"
+		},
+		{
+			"name": "d_lobby_pro_placeholder_bc_dt2_jpg",
+			"type": "image",
+			"url": "assets/nmimages/d/lobby/common/d_lobby_pro_placeholder_bc_dt.jpg"
+		},
+		{
+			"name": "common_ui_tex2_png",
+			"type": "image",
+			"url": "assets/dragonbones/common/common_ui/old/common_ui_tex.png"
 		}
 	]
 }

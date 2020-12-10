@@ -12,6 +12,9 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this._forceNoDismiss = true;
+        if (ui.EdgeDismissableAddon.isDismiss) {
+          ui.EdgeDismissableAddon.toggle();
+        }
         if (!env.isFirstTimeBam) {
           const tutorial = new SqueezeTutorial('SqueezeTutorial');
           tutorial.x = 106;
@@ -20,6 +23,8 @@ namespace we {
           tutorial.isEdgeDismissable = true;
           this.addChild(tutorial);
           env.isFirstTimeBam = true;
+          dir.socket.updateSetting('isFirstTimeBam', env.isFirstTimeBam? "1":"0");
+          
         }
       }
 

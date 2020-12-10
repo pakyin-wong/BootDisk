@@ -13,3 +13,4 @@ binpacker/node_modules
 package-lock.json
 texturepacker/node_modules
 postpublish/node_modules/
+node_modules/

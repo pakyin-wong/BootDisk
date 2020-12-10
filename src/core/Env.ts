@@ -48,7 +48,9 @@ namespace we {
       protected _gameCategories: string[];
       protected _gameTypes: number[];
       protected _liveGameTab: string[] = [];
+      protected _liveCategories = {};
       protected _lotteryTab: string[] = [];
+      protected _lotteryCategories = {};
 
       public blockchain: { thirdPartySHA256: string; cosmolink: string } = {
         thirdPartySHA256: '',
@@ -188,9 +190,9 @@ namespace we {
           this.validCategories = ['live'];
           this.sidePanelValidCategories = ['live'];
           this.mobileValidGameType = [
-            core.GameType.BAMB,
             core.GameType.BAB,
             core.GameType.BASB,
+            core.GameType.BAMB,
             core.GameType.DTB,
           ];
           this.desktopValidGameType = [
@@ -259,7 +261,7 @@ namespace we {
 
       protected generateLiveGameTab() {
         const gameSubcats = {
-          allGame: [1],
+          allGame: [],
           blockchain: [],
           baccarat: [],
           dragontiger: [],
@@ -275,42 +277,54 @@ namespace we {
             case core.GameType.BAM:
             case core.GameType.BAS:
               gameSubcats.baccarat.push(type);
+              gameSubcats.allGame.push(type);
               break;
             case core.GameType.BAB:
             case core.GameType.BASB:
             case core.GameType.BAMB:
             case core.GameType.DTB:
               gameSubcats.blockchain.push(type);
+              gameSubcats.allGame.push(type);
               break;
             case core.GameType.DT:
               gameSubcats.dragontiger.push(type);
+              gameSubcats.allGame.push(type);
               break;
             case core.GameType.RO:
             case core.GameType.ROL:
               gameSubcats.roulette.push(type);
+              gameSubcats.allGame.push(type);
               break;
             case core.GameType.DI:
             case core.GameType.DIL:
               gameSubcats.dice.push(type);
+              gameSubcats.allGame.push(type);
               break;
             case core.GameType.LW:
               gameSubcats.luckywheel.push(type);
+              gameSubcats.allGame.push(type);
               break;
           }
         }
+
         const tabs = Object.keys(gameSubcats).filter(cat => {
           return gameSubcats[cat].length > 0;
         });
+
         this._liveGameTab = tabs;
+        this._liveCategories = gameSubcats;
       }
 
       get liveGameTab(): any[] {
         return this._liveGameTab;
       }
+      get liveCategories() {
+        return this._liveCategories;
+      }
 
       protected generateLotteryTab() {
         const gameSubcats = {
-          allLotteryGame: [1],
+          allLotteryGame: [],
           lottery: [],
           race: [],
         };
@@ -318,9 +332,11 @@ namespace we {
           switch (type) {
             case core.GameType.LO:
               gameSubcats.lottery.push(type);
+              gameSubcats.allLotteryGame.push(type);
               break;
             case core.GameType.RC:
               gameSubcats.race.push(type);
+              gameSubcats.allLotteryGame.push(type);
               break;
           }
         }
@@ -328,9 +344,13 @@ namespace we {
           return gameSubcats[cat].length > 0;
         });
         this._lotteryTab = tabs;
+        this._lotteryCategories = gameSubcats;
       }
       get lotteryTab(): any[] {
         return this._lotteryTab;
+      }
+      get lotteryCategories() {
+        return this._lotteryCategories;
       }
 
       set currTime(value: number) {

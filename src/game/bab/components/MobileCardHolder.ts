@@ -18,9 +18,15 @@ namespace we {
         this.cardAnimNames = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2']
       }
 
-      protected mount(){
-        super.mount();
-        this._ringAnim.animation.gotoAndStopByFrame('icon_loop',0);
+      protected async closeShoe(){
+        await this.animateShoe();
+        await this.animatePin();
+        return new Promise(resolve=>resolve())
+      }
+
+      protected initAnimRelatedComps(){
+        super.initAnimRelatedComps();
+        this._ringAnim.animation.gotoAndStopByTime('icon_loop',0);
         this.expandBottom();
       }
 

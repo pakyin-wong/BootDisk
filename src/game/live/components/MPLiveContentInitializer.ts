@@ -122,9 +122,9 @@ namespace we {
 
         const gridSwitch: MobileLobbyGridLayoutSwitch = new MobileLobbyGridLayoutSwitch();
         gridSwitch.x = 1088;
-        gridSwitch.y = 298;
-        gridSwitch.width = 104;
-        gridSwitch.height = 104;
+        gridSwitch.y = 596;
+        gridSwitch.width = 130;
+        gridSwitch.height = 130;
         this.root.addChild(gridSwitch);
       }
 

@@ -82,6 +82,22 @@ namespace we {
         }
       }
 
+      protected generateFavouriteButton() {
+        const button = new AnimatedToggleButton();
+        button.dbClass = 'lobby_ui';
+        button.dbDisplay = 'd_lobby_icon_fav';
+        button.name = 'ActionButton';
+        button.width = 44;
+        button.height = 42;
+        button.bottom = -80;
+        button.right = 30;
+        button.scaleX = 2;
+        button.scaleY = 2;
+        // button.visible = false;
+        this._favouriteButton = button;
+        this._buttonGroup.addChild(this._favouriteButton);
+      }
+
       // protected initCustomPos() {
       //   this._buttonGroupShowY = 194;
       //   this._buttonGroupHideY = 230;

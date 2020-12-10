@@ -11,10 +11,10 @@ namespace we {
       private _allOpenTwo;
       private _allOpenThree;
 
-      private _captionOne;
-      private _captionTwo;
-      private _captionThree;
-      private _captionFour;
+      private _captionOne: ui.RunTimeLabel;
+      private _captionTwo: ui.RunTimeLabel;
+      private _captionThree: ui.RunTimeLabel;
+      private _captionFour: ui.RunTimeLabel;
       private _captionArr;
 
       private _pageText;

@@ -10,9 +10,13 @@
 		<!--<ui:BaseButton id="_btn_searchType" width="210" height="60" x="400" y="49"
 		                   skinName="skin_desktop.OverlayPanelButton" active="true" />
 		-->
-		<ui:RoundRectButton id="_btn_searchType" cornerTL_TR_BL_BR="30,30,30,30" width="210" height="60" x="400" y="49"
-		                    stroke="0" strokeIn="0" fillAlpha="1" fillColor="0x1b416e" />
-		<e:Image source="d_lobby_button_down_normal_png" width="35" height="35" y="59" x="559" touchEnabled="false" />
+		<ui:RoundRectButton id="_btn_searchType" cornerTL_TR_BL_BR="30,30,30,30" width="350" height="60" x="400" y="49"
+		                    stroke="0" strokeIn="0" fillAlpha="1" fillColor="0x1b416e">
+							<e:Skin>
+	<ui:RunTimeLabel id="_label" text="Label" left="20" right="70" top="0" bottom="0" verticalAlign="middle" textAlign="center" size="24"/>
+	<e:Image source="d_lobby_button_down_normal_png" width="35" height="35" touchEnabled="false" verticalCenter="0" y="73" scaleX="1" scaleY="1" right="20"/>
+							</e:Skin>
+							</ui:RoundRectButton>
 
 		<ui:RunTimeLabel id="_txt_date" text="d" y="56.5" height="36" size="24" alpha="0.7" verticalAlign="middle" right="774" />
 		<ui:RoundRectButton id="_btn_today" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="951" y="46" stroke="2"
@@ -66,5 +70,5 @@
 	</e:Group>
 	<overlay:DoubleCalendarPicker skinName="skin_desktop.DoubleCalendarPicker" id="_datepicker" width="1207" height="0"
 	                              y="-24" x="511" scaleX="1" scaleY="1" anchorOffsetY="0"/>
-	<ui:Panel id="_ddm_searchType" width="370" maxHeight="300" x="348" y="117" skinName="skin_desktop.NavDropdown"  isDropdownFullWidth="true"/>
+	<ui:Panel id="_ddm_searchType" width="350" maxHeight="300" x="400" y="117" skinName="skin_desktop.NavDropdown"  isDropdownFullWidth="true"/>
 </e:Skin>

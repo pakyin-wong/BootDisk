@@ -31,11 +31,19 @@ namespace we {
         this.reset();
         this.initVariables();
         this.createFactory();
+      }
+
+      protected initAnimRelatedComps(){
         this.createParticles();
         this.createRingAnim();
         this.clonePin();
         this.createCards();
         this.addEventListeners();
+      }
+
+      // could be treated as second part of mount
+      public passBackgrounds(backgrounds : any){
+        this.initAnimRelatedComps();
       }
 
       public abstract setDefaultStates();
@@ -54,7 +62,6 @@ namespace we {
         if (display.animation) {
           display.animation.stop();
         }
-        dragonBones.WorldClock.clock.remove(display.armature);
         display.armature.dispose();
         display.dispose();
         if (display.parent) {
@@ -169,16 +176,26 @@ namespace we {
             this.setStateShuffle(isInit);
             break;
           case core.GameState.IDLE:
+            this.setStateIdle(isInit);
+            break;
           default:
             console.log('default updateResult ', gameData);
             break;
         }
       }
 
+      protected setStateIdle(isInit: boolean) {
+        if (isInit || this._gameData.previousstate === core.GameState.SHUFFLE) {
+          this.setDefaultStates();
+        }else{
+          console.log('clearCards() in idle');
+          this.clearCards();          
+        }
+      }
+
       protected async setStateBet(isInit: boolean) {
         console.log('setStateBet() isInit', isInit, this._gameData);
         this.updateAllSum();
-
         if (isInit) {
           this.movePin();
           this.moveShoe();
@@ -190,8 +207,8 @@ namespace we {
           }
           await this.betInitState(core.GameState.BET);
         } else {
-          console.log('clearCards()');
-          await this.clearCards();
+          // console.log('clearCards()');
+          // await this.clearCards();
           console.log('distributeCards()');
           await this.distributeCards();
         }
@@ -224,8 +241,8 @@ namespace we {
         cardLabel.text = num.toString();
 
         // create a new ImageDisplayData with a EgretTextureData holding the new texture
-        const displayData: dragonBones.ImageDisplayData = new dragonBones.ImageDisplayData();
-        const textureData: dragonBones.EgretTextureData = new dragonBones.EgretTextureData();
+        // const displayData: dragonBones.ImageDisplayData = new dragonBones.ImageDisplayData();
+        const textureData = new dragonBones['EgretTextureData']();
         textureData.renderTexture = cardLabel.texture;
         textureData.region.x = 0;
         textureData.region.y = 0;
@@ -233,18 +250,19 @@ namespace we {
         textureData.region.height = textureData.renderTexture.textureHeight;
         textureData.parent = new dragonBones.EgretTextureAtlasData();
         textureData.parent.scale = 1;
-        displayData.texture = textureData;
-        displayData.pivot.x = 0.5;
-        displayData.pivot.y = 0.5;
+        // displayData.texture = textureData;
+        // displayData.pivot.x = 0.5;
+        // displayData.pivot.y = 0.5;
 
-        // type 0 is ImageDisplayData
-        displayData.type = 0;
+        // // type 0 is ImageDisplayData
+        // displayData.type = 0;
 
-        slot.replaceDisplayData(displayData, 0);
+        // slot.replaceDisplayData(displayData, 0);
+        slot.replaceTextureData(textureData, 0);
 
-        // set the displayIndex to non zero since new value == current index will not trigger redraw
-        slot.displayIndex = -1;
-        slot.displayIndex = 0;
+        // // set the displayIndex to non zero since new value == current index will not trigger redraw
+        // slot.displayIndex = -1;
+        // slot.displayIndex = 0;
       }
 
       protected abstract async betInitState(gameState: core.GameState): Promise<{}>;
@@ -255,12 +273,13 @@ namespace we {
 
       protected setCardFrontFace(cardAnim: dragonBones.EgretArmatureDisplay, currentCard, orientation, rotation) {
         const cardSlot = cardAnim.armature.getSlot(`card_front_${orientation}`);
-        const meshDistData = cardSlot.displayData as dragonBones.MeshDisplayData;
+        const displayFrame = cardSlot.getDisplayFrameAt(0);
+        const meshDistData = displayFrame.rawDisplayData as dragonBones.MeshDisplayData;
         const bitmap = new egret.Bitmap();
         bitmap.texture = RES.getRes(utils.getCardResName(utils.formatCardForFlip(this._gameData[currentCard])));
         bitmap.rotation = rotation;
 
-        const textureData = new dragonBones.EgretTextureData();
+        const textureData = new dragonBones['EgretTextureData']();
         textureData.renderTexture = bitmap.texture;
         meshDistData.texture = textureData;
 
@@ -304,18 +323,22 @@ namespace we {
       }
 
       protected movePin() {
-        const bone = this._ringAnim.armature.getBone('red_card');
-        const destRad = this.getPinRad();
-        bone.origin.rotation = destRad;
-        bone.invalidUpdate();
-        this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
+        if (this._ringAnim.armature) {
+          const bone = this._ringAnim.armature.getBone('red_card');
+          const destRad = this.getPinRad();
+          bone.origin.rotation = destRad;
+          bone.invalidUpdate();
+          this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
+        }
       }
 
       protected moveShoe() {
-        const bone = this._ringAnim.armature.getBone('shoe_bar');
-        const destRad = this.getShoeRad();
-        bone.origin.rotation = destRad;
-        bone.invalidUpdate();
+        if (this._ringAnim.armature) {
+          const bone = this._ringAnim.armature.getBone('shoe_bar');
+          const destRad = this.getShoeRad();
+          bone.origin.rotation = destRad;
+          bone.invalidUpdate();
+        }
       }
 
       protected abstract async distributeCards();

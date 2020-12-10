@@ -41,7 +41,7 @@
 			"name": "scene_lottery"
 		},
 		{
-			"keys": "blockchain_tex_png",
+			"keys": "blockchain_tex_png,blockchain_ske_dbbin",
 			"name": "scene_bc_baccarat"
 		},
 		{
@@ -49,11 +49,11 @@
 			"name": "scene_bc"
 		},
 		{
-			"keys": "blockchain_dt_tex_png,dragon_tex_png,tiger_tex_png,we_bcdt_sfx_result_dragonwin_mp3,we_bcdt_sfx_result_tigerwin_mp3,we_bcdt_sfx_scanning_loop_mp3,we_bcdt_sfx_shoe_in_mp3,we_bcdt_sfx_shoe_out_mp3",
+			"keys": "blockchain_dt_tex_png,dragon_tex_png,tiger_tex_png,we_bcdt_sfx_result_dragonwin_mp3,we_bcdt_sfx_result_tigerwin_mp3,we_bcdt_sfx_scanning_loop_mp3,we_bcdt_sfx_shoe_in_mp3,we_bcdt_sfx_shoe_out_mp3,blockchain_dt_ske_dbbin",
 			"name": "scene_bc_dragontiger"
 		},
 		{
-			"keys": "blockchain_sqba_tex_png",
+			"keys": "blockchain_sqba_tex_png,blockchain_sqba_ske_dbbin",
 			"name": "scene_bc_sq_baccarat"
 		}
 	],
@@ -476,7 +476,7 @@
 			"name": "roulette_w_game_result_tex_png"
 		},
 		{
-			"url": "assets/dragonbones/common/common_ui/common_ui_tex.png",
+			"url": "assets/dragonbones/d/common_ui/common_ui_tex.png",
 			"type": "image",
 			"name": "common_ui_tex_png"
 		},
@@ -1108,6 +1108,21 @@
 			"name": "d_lobby_placeholder_bc_sdba_jpg"
 		},
 		{
+			"url": "assets/dragonbones/d/bamb/blockchain_sqba_ske.dbbin",
+			"type": "bin",
+			"name": "blockchain_sqba_ske_dbbin"
+		},
+		{
+			"url": "assets/dragonbones/d/bab/blockchain_ske.dbbin",
+			"type": "bin",
+			"name": "blockchain_ske_dbbin"
+		},
+		{
+			"url": "assets/dragonbones/d/dtb/blockchain_dt_ske.dbbin",
+			"type": "bin",
+			"name": "blockchain_dt_ske_dbbin"
+    },
+    {
 			"url": "assets/nmimages/d/lobby/common/d_lobby_placeholder_bc_dt.jpg",
 			"type": "image",
 			"name": "d_lobby_placeholder_bc_dt_jpg"

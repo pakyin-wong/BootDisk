@@ -12,15 +12,30 @@ namespace we {
        * betting logic: play "betting" when there is unconfirm bet exists
        * use animation.fadeIn with different group name instead of animation.play to play the animation so that you can play multiple animation at the same time ("betting" in one group and others in another group)
        **/
-
-      protected _isBetState = true; // check if betting(have uncfm bet) if true,disable hover animation
+      protected _text_slot: string;
+      protected _displayGroup: eui.Group;
+      protected _orientation: string = ''; // desktop ="", portrait="_vertical", landscape="_horizontal"
       public constructor() {
         super();
+        this._touchArea = new eui.Group();
         this.orientationDependent = false;
       }
       protected mount() {
         super.mount();
+        this._display.touchEnabled = false;
+        this._display.touchChildren = false;
+        this.addChild(this._touchArea);
         this.addEventListeners();
+      }
+
+      public set width(width: number) {
+        this.$setWidth(width);
+        this._touchArea.width = width;
+      }
+
+      public set height(height: number) {
+        this.$setHeight(height);
+        this._touchArea.height = height;
       }
 
       protected initDisplay() {
@@ -37,8 +52,69 @@ namespace we {
         utils.dblistenToSoundEffect(this._display);
         this._display.x = 0;
         this._display.y = 0;
+        this._display.touchEnabled = false;
+        this._display.touchChildren = false;
         this.addChild(this._display);
         this.init();
+
+        this.init_textLabel();
+        this._display.touchEnabled = false;
+        this._display.touchChildren = false;
+      }
+
+      protected changeLang() {
+        this.init_textLabel();
+      }
+
+      public set text_slot(val: string) {
+        this._text_slot = val;
+      }
+
+      public init_textLabel() {
+        const slot = this._display.armature.getSlot(this._text_slot);
+        const textLabel = this.getLabelText();
+        this.setLabel(slot, textLabel, 30, 0xffffff, 'barlow');
+      }
+
+      protected setLabel(slot: dragonBones.Slot, text: string, size: number, color = 0xffffff, fontFamily: string) {
+        const r = new ui.LabelImage();
+        r.fontFamily = fontFamily;
+        r.size = size;
+        r.text = text;
+        r.textColor = color;
+        if (this._orientation == '_vertical') {
+          r.setWidth = env.language == 'en' ? 150 : 50;
+          r.labelRotation = env.language == 'en' ? 270 : 0;
+        }
+
+        // create a new ImageDisplayData with a EgretTextureData holding the new texture
+        // const displayData: dragonBones.ImageDisplayData = new dragonBones.ImageDisplayData();
+        const textureData = new dragonBones['EgretTextureData']();
+        textureData.renderTexture = r.texture;
+        textureData.region.x = 0;
+        textureData.region.y = 0;
+        textureData.region.width = textureData.renderTexture.textureWidth;
+        textureData.region.height = textureData.renderTexture.textureHeight;
+        textureData.parent = new dragonBones.EgretTextureAtlasData();
+        textureData.parent.scale = 1;
+        // displayData.texture = textureData;
+        // displayData.pivot.x = 0.5;
+        // displayData.pivot.y = 0.5;
+
+        // // type 0 is ImageDisplayData
+        // displayData.type = 0;
+
+        // slot.replaceDisplayData(displayData, 0);
+        slot.replaceTextureData(textureData);
+
+        // // set the displayIndex to non zero since new value == current index will not trigger redraw
+        // slot.displayIndex = -1;
+        // slot.displayIndex = 0;
+      }
+
+      protected getLabelText() {
+        // return `live.tooltip.${this._labelText}`;
+        return i18n.t(`mobile_ba_AutoConfirm`);
       }
 
       public destroy() {
@@ -48,46 +124,61 @@ namespace we {
 
       protected addEventListeners() {
         dir.evtHandler.addEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.switchAutoConfirm, this);
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
 
       protected removeEventListeners() {
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.switchAutoConfirm, this);
+          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }
       }
 
-      protected clone: egret.Bitmap;
+      protected clones: egret.Bitmap[] = [];
 
       public init() {
-        const slot = this._display.armature.getSlot('blur');
+        this.cloneBettingGlow('blur');
+        if (env.isMobile) {
+          this.cloneBettingGlow('blur2');
+        }
+      }
+
+      protected cloneBettingGlow(slotName: string) {
+        const slot = this._display.armature.getSlot(slotName);
+        if (!slot) return;
         const layer: eui.Group = new eui.Group();
         const bitmap: egret.Bitmap = slot.display as egret.Bitmap;
         const clone: egret.Bitmap = new egret.Bitmap(bitmap.texture);
+        layer.width = bitmap.width;
+        layer.height = bitmap.height;
+        layer.x = bitmap.x;
+        layer.y = bitmap.y;
+        layer.anchorOffsetX = bitmap.anchorOffsetX;
+        layer.anchorOffsetY = bitmap.anchorOffsetY;
         clone.width = bitmap.width;
         clone.height = bitmap.height;
-        clone.x = bitmap.x;
-        clone.y = bitmap.y;
-        clone.anchorOffsetX = bitmap.anchorOffsetX;
-        clone.anchorOffsetY = bitmap.anchorOffsetY;
-        this.clone = clone;
+        this.clones.push(clone);
+        layer.touchEnabled = false;
+        layer.touchChildren = false;
+        layer.touchThrough = false;
+
         layer.addChild(clone);
         slot.display = layer;
       }
 
-      public setColor(r,g,b) {
+      public setColor(r, g, b) {
         const colorFilter = new egret.ColorMatrixFilter([r, 0, 0, 0, 0, 0, g, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 1, 0]);
-        this.clone.filters = [colorFilter];
+        for (const clone of this.clones) {
+          clone.filters = [colorFilter];
+        }
       }
 
-      // const bitmap: egret.Bitmap = slot.display as egret.Bitmap;
-      // const group: eui.Group = new eui.Group();
-      // const colorFilter = new egret.ColorMatrixFilter();
-      // bitmap.filters = [colorFilter];
-      // group.addChild(bitmap);
-      // slot.display = group;
+      public get orientation() {
+        return this._orientation;
+      }
 
-      public set isBetState(e: boolean) {
-        this._isBetState = e;
+      public set orientation(val: string) {
+        this._orientation = val;
       }
 
       protected async switchAutoConfirm() {
@@ -99,9 +190,9 @@ namespace we {
 
         this._display.animation.reset();
         if (env.autoConfirmBet) {
-          status = this._enabled ? 'idle_switch_to_on' : 'disable_switch_to_on';
+          status = this._enabled ? `idle_switch_to_on${this._orientation}` : `disable_switch_to_on${this._orientation}`;
         } else {
-          status = this._enabled ? 'auto_confirm_idle_to_hover' : 'disable_switch_to_off';
+          status = `disable_switch_to_off${this._orientation}`;
         }
         this.bettingPlaying = false;
         this._display.animation.fadeIn(status, 0, 1, 0, 'CONFIRM_GROUP2');
@@ -109,54 +200,55 @@ namespace we {
 
       protected bettingPlaying: boolean = false;
       protected async update([oldDown, oldHover]: boolean[]) {
-        // super.update([oldDown, oldHover]);
         const status = '';
         if (this._display) {
           switch (env.autoConfirmBet) {
             case true:
               this._display.animation.reset();
-                this.bettingPlaying = false;
-              this._display.animation.fadeIn('auto_confirm_idle', 0, 1, 0, 'CONFIRM_GROUP2');
+              this.bettingPlaying = false;
+              this._display.animation.fadeIn(`auto_confirm_idle${this._orientation}`, 0, 1, 0, 'CONFIRM_GROUP2');
               break;
             case false:
               if (!this._enabled) {
                 // if not in bet state
                 this._display.animation.reset();
                 this.bettingPlaying = false;
-                this._display.animation.fadeIn('disable', 0, 1, 0, 'CONFIRM_GROUP2');
+                this._display.animation.fadeIn(`disable${this._orientation}`, 0, 1, 0, 'CONFIRM_GROUP2');
               } else if (!oldDown && this._down) {
                 // if press down
                 if (!this.bettingPlaying) {
-                  this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
+                  this._display.animation.fadeIn(`betting${this._orientation}`, 0, 0, 0, 'CONFIRM_GROUP1');
                   this.bettingPlaying = true;
                 }
-                this._display.animation.fadeIn('hover_to_press', 0, 1, 0, 'CONFIRM_GROUP2');
+                if (!env.isMobile) {
+                  this._display.animation.fadeIn(`hover_to_press${this._orientation}`, 0, 1, 0, 'CONFIRM_GROUP2');
+                }
               } else if (this._hover && oldDown && !this._down) {
                 // if press up
                 this._display.animation.reset();
                 this.bettingPlaying = false;
-                this._display.animation.fadeIn('press_to_disable', 0, 1, 0, 'CONFIRM_GROUP2');
+                this._display.animation.fadeIn(`press_to_disable${this._orientation}`, 0, 1, 0, 'CONFIRM_GROUP2');
               } else if (!oldHover && this._hover) {
                 // if roll over
                 if (!this.bettingPlaying) {
-                  this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
+                  this._display.animation.fadeIn(`betting${this._orientation}`, 0, 0, 0, 'CONFIRM_GROUP1');
                   this.bettingPlaying = true;
                 }
-                this._display.animation.fadeIn('idle_to_hover', 0, 1, 0, 'CONFIRM_GROUP2');
+                this._display.animation.fadeIn(`idle_to_hover${this._orientation}`, 0, 1, 0, 'CONFIRM_GROUP2');
               } else if (oldHover && !this._hover) {
                 // roll out
                 if (!this.bettingPlaying) {
-                  this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
+                  this._display.animation.fadeIn(`betting${this._orientation}`, 0, 0, 0, 'CONFIRM_GROUP1');
                   this.bettingPlaying = true;
                 }
-                this._display.animation.fadeIn('hover_to_idle', 0, 1, 0, 'CONFIRM_GROUP2');
+                this._display.animation.fadeIn(`hover_to_idle${this._orientation}`, 0, 1, 0, 'CONFIRM_GROUP2');
               } else {
                 // if idle on bet state
                 if (!this.bettingPlaying) {
-                  this._display.animation.fadeIn('betting', 0, 0, 0, 'CONFIRM_GROUP1');
+                  this._display.animation.fadeIn(`betting${this._orientation}`, 0, 0, 0, 'CONFIRM_GROUP1');
                   this.bettingPlaying = true;
                 }
-                this._display.animation.fadeIn('disble_to_idle', 0, 1, 0, 'CONFIRM_GROUP2');
+                this._display.animation.fadeIn(`disble_to_idle${this._orientation}`, 0, 1, 0, 'CONFIRM_GROUP2');
               }
               break;
           }

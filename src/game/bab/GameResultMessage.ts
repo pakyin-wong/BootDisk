@@ -53,7 +53,7 @@ namespace we {
       protected createFactory() {}
 
       protected createAniamtionObject() {
-        const skeletonData = RES.getRes(`${this._skeletonName}_ske_json`);
+        const skeletonData = RES.getRes(`${this._skeletonName}_ske_dbbin`);
         const textureData = RES.getRes(`${this._skeletonName}_tex_json`);
         const texture = RES.getRes(`${this._skeletonName}_tex_png`);
         const factory = new dragonBones.EgretFactory();
@@ -162,8 +162,8 @@ namespace we {
         r.textColor = color;
 
         // create a new ImageDisplayData with a EgretTextureData holding the new texture
-        const displayData: dragonBones.ImageDisplayData = new dragonBones.ImageDisplayData();
-        const textureData: dragonBones.EgretTextureData = new dragonBones.EgretTextureData();
+        // const displayData: dragonBones.ImageDisplayData = new dragonBones.ImageDisplayData();
+        const textureData = new dragonBones['EgretTextureData']();
         textureData.renderTexture = r.texture;
         textureData.region.x = 0;
         textureData.region.y = 0;
@@ -171,18 +171,19 @@ namespace we {
         textureData.region.height = textureData.renderTexture.textureHeight;
         textureData.parent = new dragonBones.EgretTextureAtlasData();
         textureData.parent.scale = 1;
-        displayData.texture = textureData;
-        displayData.pivot.x = 0.5;
-        displayData.pivot.y = 0.5;
+        // displayData.texture = textureData;
+        // displayData.pivot.x = 0.5;
+        // displayData.pivot.y = 0.5;
 
-        // type 0 is ImageDisplayData
-        displayData.type = 0;
+        // // type 0 is ImageDisplayData
+        // displayData.type = 0;
 
-        slot.replaceDisplayData(displayData, 0);
+        // slot.replaceDisplayData(displayData, 0);
+        slot.replaceTextureData(textureData, 0);
 
-        // set the displayIndex to non zero since new value == current index will not trigger redraw
-        slot.displayIndex = -1;
-        slot.displayIndex = 0;
+        // // set the displayIndex to non zero since new value == current index will not trigger redraw
+        // slot.displayIndex = -1;
+        // slot.displayIndex = 0;
       }
     }
   }

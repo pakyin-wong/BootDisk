@@ -429,11 +429,26 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
+        // if (evt && evt.data) {
+        //   const betInfo = <data.GameTableBetInfo>evt.data;
+        //   if (betInfo.tableid === this._tableId) {
+        //     if (this._totalBet) {
+        //       const totalBet = betInfo.gameroundid === this._gameData.gameroundid ? betInfo.total : 0;
+        //       this._totalBet.renderText = () => utils.numberToFaceValue(totalBet);
+        //     }
+        //   }
+        // }
+      }
+
+      protected onBetDetailUpdate(evt: egret.Event) {
+        super.onBetDetailUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.PlayerBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             if (this._totalBet) {
-              const totalBet = betInfo.gameroundid === this._gameData.gameroundid ? betInfo.total : 0;
+              let totalBet = 0;
+              let _bet = betInfo.bets.map(x => x.amount);
+              totalBet = _bet.reduce((a, b) => a + b, 0)
               this._totalBet.renderText = () => utils.numberToFaceValue(totalBet);
             }
           }
