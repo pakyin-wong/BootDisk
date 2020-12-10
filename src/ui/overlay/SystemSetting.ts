@@ -109,6 +109,8 @@ namespace we {
         this._slider_soundfx.value = dir.audioCtr.volumeFX;
 
         this.addListeners();
+
+        this._btn_currFx.visible = false;//hide the select language
       }
 
       protected destroy() {
