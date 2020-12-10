@@ -57,8 +57,8 @@ namespace we {
       playerprofile_favouriteDealer: 'Favorite Dealer',
       playerProfile: {
         tooltip: {
-          nickname: 'Setting Name',
-          refresh: 'Refresh Balance',
+          nickname: 'Set nickname',
+          refresh: 'Refresh balance',
         },
       },
 
@@ -540,6 +540,16 @@ namespace we {
         },
       },
       goodroad: {
+        tooltip: {
+          disable:'Disable good road',
+          enable:'Enable good road',
+          cleartext:'Clear',
+          drawbanker:'Add Banker',
+          drawplayer:'Add Player',
+          undo:'Undo',
+          cancel:'Cancel',
+          confirm:'Confrm',
+        },
         r1: 'Long Banker',
         r2: 'Long Player',
         r3: 'Hop Hop after Long Road',
@@ -722,6 +732,16 @@ namespace we {
             TIE: 'T',
           },
         },
+      },
+
+      quickBet: {
+        tooltip:{
+          switchChips: 'Switch chips',
+          confirm: 'Confirm bet',
+          cancel: 'Cancel',
+          undo: 'Undo',
+          close: 'Close',  
+        }
       },
 
       lo_round: 'Round %round%',

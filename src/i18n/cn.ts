@@ -65,8 +65,8 @@ namespace we {
       playerprofile_favouriteDealer: '最爱荷官',
       playerProfile: {
         tooltip: {
-          nickname: '设定名稱',
-          refresh: '刷新餘额',
+          nickname: '设定昵称',
+          refresh: '刷新余额',
         },
       },
 
@@ -548,12 +548,14 @@ namespace we {
       },
       goodroad: {
         tooltip: {
-          enable: '啟用好路',
-          disable: '停用好路',
-          cleartext: '清空名称',
-          drawbanker: '画庄',
-          drawplayer: '画閒',
-          confirm: '确认好路',
+          disable:'停用好路',
+          enable:'启用好路',
+          cleartext:'清空名称',
+          drawbanker:'画庄',
+          drawplayer:'画闲',
+          undo:'还原',
+          cancel:'取消',
+          confirm:'确认好路',
         },
         r1: '长庄',
         r2: '长闲',
@@ -758,6 +760,16 @@ namespace we {
             TIE: '和',
           },
         },
+      },
+
+      quickBet: {
+        tooltip:{
+          switchChips: '切换筹码',
+          confirm: '确认投注',
+          cancel: '取消',
+          undo: '还原',
+          close: '关闭',  
+        }
       },
 
       lo_round: '%round% 期',
