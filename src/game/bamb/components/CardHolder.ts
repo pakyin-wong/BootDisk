@@ -585,14 +585,18 @@ namespace we {
         this.checkCardAllOpened();
         const nextCard = this.nextCard();
         if (nextCard) {
+          this.showNextFlippedCard(nextCard,orientation)
+        } else {
+          this.hideCenterCard(orientation);
+        }
+      }
+
+      protected showNextFlippedCard(nextCard: dragonBones.EgretArmatureDisplay,orientation: string){
           nextCard.animation.play(`sq_${orientation}_select_in`)
           this._flipCardHolder.setCenterTweenFlipCardFront(this._gameData[this.cardToData(this._currentFocusCard)], orientation);
           this._flipCardHolder.crossfadeCenterCardAnim(orientation)
           this._currentFocusCard = nextCard
           this._flipCardHolder.setCenterFlipCard(this._gameData[this.cardToData(this._currentFocusCard)], orientation, this.cardToData(this._currentFocusCard));
-        } else {
-          this.hideCenterCard(orientation);
-        }
       }
 
       protected hideCenterCard(orientation: string) {

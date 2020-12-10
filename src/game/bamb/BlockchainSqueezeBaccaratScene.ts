@@ -18,6 +18,12 @@ namespace we {
         super.passBackgroundToResultDisplay();
       }
 
+      //later will be pushed to somewhere
+      protected setStateIdle(isInit: boolean){
+        super.setStateIdle(isInit);
+
+      }
+
       protected initChildren() {
         super.initChildren();
         if (!env.isFirstTimeBam) {

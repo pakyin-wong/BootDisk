@@ -54,7 +54,6 @@ namespace we {
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         this.toggleBottomGamePanel()
         this.showSumGroup();
-        this.setChildIndex(this._resultDisplay, 99999)
         if (this._previousState !== we.core.GameState.PEEK || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
@@ -74,7 +73,6 @@ namespace we {
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         this.toggleBottomGamePanel()
         this.showSumGroup();
-        this.setChildIndex(this._resultDisplay, 99999)
 
         if (this._previousState !== we.core.GameState.PEEK_PLAYER || isInit) {
           this.setBetRelatedComponentsEnabled(false);
@@ -93,7 +91,6 @@ namespace we {
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         this.toggleBottomGamePanel()
         this.showSumGroup();
-        this.setChildIndex(this._resultDisplay, 99999)
         if (this._previousState !== we.core.GameState.PEEK_BANKER || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
