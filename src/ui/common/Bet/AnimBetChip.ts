@@ -1,6 +1,20 @@
 namespace we {
   export namespace ui {
     export class AnimBetChip extends core.BaseEUI implements eui.UIComponent, IBetChip {
+
+      protected static factory: dragonBones.EgretFactory;
+      public static getFactory() {
+        if (!this.factory) {
+          const skeletonData = RES.getRes(`chips_select_ske_json`);
+          const textureData = RES.getRes(`chips_select_tex_json`);
+          const texture = RES.getRes(`chips_select_tex_png`);
+          const factory = new dragonBones.EgretFactory();
+          factory.parseDragonBonesData(skeletonData);
+          factory.parseTextureAtlasData(textureData, texture);
+          this.factory = factory;
+        }
+        return this.factory;
+      }
       // protected chipImageMapping = ['Lv1_Blue', 'Lv1_Yellow', 'Lv1_Orange', 'Lv1_Light_Red', 'Lv1_Purple', 'Lv1_Magentas_Dark', 'Lv1_Green', 'Lv1_Blue_Dark', 'Lv1_Green_Dark', 'Lv1_Gray_Light'];
       protected chipImageMapping = ['Lv1_Yellow', 'Lv1_Light_Red', 'Lv1_Blue', 'Lv1_Green', 'Lv1_Blue_Dark', 'Lv2_Purple_Light', 'Lv2_Green', 'Lv2_Blue_Light', 'Lv2_Red', 'Lv2_Mud', 'Lv1_Gray_Light'];
       protected _value: number;
@@ -17,8 +31,6 @@ namespace we {
       public aspectRatio: number = 0.7;
       protected _touchArea: eui.Rect;
 
-      protected _factory: dragonBones.EgretFactory;
-
       public constructor(value: number = null, index: number = 0, type: we.core.ChipType = we.core.ChipType.PERSPECTIVE) {
         super();
         this._value = value;
@@ -29,16 +41,7 @@ namespace we {
       }
 
       protected createChipAnim() {
-        if (!this._factory) {
-          const skeletonData = RES.getRes(`chips_select_ske_json`);
-          const textureData = RES.getRes(`chips_select_tex_json`);
-          const texture = RES.getRes(`chips_select_tex_png`);
-          const factory = new dragonBones.EgretFactory();
-          factory.parseDragonBonesData(skeletonData);
-          factory.parseTextureAtlasData(textureData, texture);
-          this._factory = factory;
-        }
-        return this._factory.buildArmatureDisplay('chips_select');
+        return AnimBetChip.getFactory().buildArmatureDisplay('chips_select');
       }
 
       protected mount() {
@@ -84,7 +87,6 @@ namespace we {
           this.removeChild(this._chipAnim);
           this._chipAnim = null;
         }
-        if (this._factory) this._factory.clear(true);
       }
 
       protected beep() {

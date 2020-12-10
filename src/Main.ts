@@ -104,27 +104,57 @@ class Main extends eui.UILayer {
     IPhoneChromeFullscreen.OnLoad(this.stage);
 
     // step 2: init Egrets Asset / onResume
-    we.i18n.setLang('cn', true);
+    we.i18n.setLang(env.language, true);
     await this.initRes();
     env.initialized = true;
     if (!env.isMobile) {
       const opt = {
         ba: 8,
-        dt: 4,
-        ro: 4,
-        di: 4,
-        lw: 4,
+        dt: 3,
+        ro: 3,
+        di: 2,
+        dil: 2,
+        lw: 2,
       };
       dir.advancedRoadPool = new we.ui.AdvancedRoadPool(opt);
       dir.analysisPool = new we.ui.AnalysisPool(opt);
       const opt2 = {
         ba: 16,
-        dt: 8,
-        ro: 8,
-        di: 8,
-        lw: 8,
+        dt: 3,
+        ro: 3,
+        di: 2,
+        dil: 2,
+        lw: 2,
       };
       dir.lobbyRoadPool = new we.ui.LobbyRoadPool(opt2);
+      const opt3 = {
+        ba: 6,
+        dt: 3,
+        ro: 3,
+        di: 2,
+        dil: 2,
+        lw: 2,
+      };
+      dir.sideRoadPool = new we.ui.SideRoadPool(opt3);
+    } else {
+      const opt1 = {
+        ba: 12,
+        dt: 4,
+        ro: 4,
+        di: 4,
+        dil: 4,
+        lw: 4,
+      };
+      dir.largeRoadPool = new we.ui.MobileLargeRoadPool(opt1);
+      const opt2 = {
+        ba: 8,
+        dt: 3,
+        ro: 3,
+        di: 2,
+        dil: 2,
+        lw: 2,
+      };
+      dir.smallRoadPool = new we.ui.MobileSmallRoadPool(opt2);
     }
 
     this.showVersionNumber();

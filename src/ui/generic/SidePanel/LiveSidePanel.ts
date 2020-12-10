@@ -6,6 +6,10 @@ namespace we {
       protected _goodroadScroller: ui.Scroller;
       protected _allgamesScroller: ui.Scroller;
 
+      protected betTableData: string[];
+      protected goodRoadTableData: string[];
+      protected allTableData: string[];
+
       protected betTableList: TableList;
       protected goodRoadTableList: TableList;
       protected allTableList: TableList;
@@ -19,7 +23,6 @@ namespace we {
       protected _noBettedLabel: ui.RunTimeLabel;
       protected _noGoodRoadLabel: ui.RunTimeLabel;
 
-      protected allGameList: string[];
 
       protected extendHeight: number = 500;
 
@@ -34,6 +37,136 @@ namespace we {
       }
 
       protected initTabs() {
+        this.createAllGameList();
+        this.createGoodRoadList();
+        this.createAlreadyBetList();
+
+        this._subdropdown.gamegroup = env.sideGameCategories.length > 0 ? env.sideGameCategories[0] : 'live';
+
+        this._tabbar.dataProvider = this._viewStack;
+        this._tabbar.validateNow();
+      }
+
+      protected _currentDisplayIndex = -1;
+      protected destroyCurrentTableList() {
+        if (this._currentDisplayIndex == -1) return;
+        switch (this._currentDisplayIndex) {
+          case 0:
+          this._bettedScroller.viewport = new Group();
+          this.betTableList.removeEventListener(TableList.LOCK, this.onLockChanged, this);
+          this.betTableList.removeEventListener(TableList.UNLOCK, this.onLockChanged, this);
+          break;
+          case 1:
+          this._goodroadScroller.viewport = new Group();
+          this.goodRoadTableList.removeEventListener(TableList.LOCK, this.onLockChanged, this);
+          this.goodRoadTableList.removeEventListener(TableList.UNLOCK, this.onLockChanged, this);
+          break;
+          case 2:
+          this._allgamesScroller.viewport = new Group();
+          this.allTableList.removeEventListener(TableList.LOCK, this.onLockChanged, this);
+          this.allTableList.removeEventListener(TableList.UNLOCK, this.onLockChanged, this);
+          break;
+          default:
+          throw new Error('Wrong tab index');
+        }
+        this._currentDisplayIndex = -1;
+      } 
+
+      protected createTableList(idx: number) {
+        this._currentDisplayIndex = idx;
+        switch (idx) {
+          case 0:
+          this.createAlreadyBetList();
+          break;
+          case 1:
+          this.createGoodRoadList();
+          break;
+          case 2:
+          this.createAllGameList();
+          break;
+          default:
+          throw new Error('Wrong tab index');
+        }
+      }
+
+      protected createAllGameList() {
+        // create all game list
+        this.allTableList = new TableList();
+        this.allTableList.isFreezeScrolling = true;
+        this.allTableList.extendHeight = this.extendHeight;
+        this.allTableList.isAnimateItemTransition = true;
+        this.allTableList.layout = this.getLayout();
+        this.allTableList.itemRendererFunction = item => {
+          const tableInfo = env.tableInfos[item];
+          switch (tableInfo.gametype) {
+            case we.core.GameType.BAC:
+            case we.core.GameType.BAI:
+            case we.core.GameType.BAS:
+            case we.core.GameType.BAM:
+            case we.core.GameType.BAB:
+            case we.core.GameType.BASB:
+            case we.core.GameType.BAMB:
+              return ba.SideListItemHolder;
+            case we.core.GameType.RO:
+            case we.core.GameType.ROL:
+              return ro.SideListItemHolder;
+            case we.core.GameType.DI:
+              return di.SideListItemHolder;
+            case we.core.GameType.DIL:
+              return dil.SideListItemHolder;
+            case we.core.GameType.LW:
+              return lw.SideListItemHolder;
+            case we.core.GameType.DT:
+            case we.core.GameType.DTB:
+              return dt.SideListItemHolder;
+            case we.core.GameType.LO:
+              return lo.SideListItemHolder;
+            case we.core.GameType.RC:
+              return rc.SideListItemHolder;
+            default:
+              throw new Error('Invalid Game Type: ' + tableInfo.gametype);
+          }
+        };
+        this._allgamesScroller.viewport = this.allTableList;
+        this.allTableList.addEventListener(TableList.LOCK, this.onLockChanged, this, false, 10);
+        this.allTableList.addEventListener(TableList.UNLOCK, this.onLockChanged, this, false, 10);
+        this.allTableList.setGameFilters(this._subdropdown.getSelectedItem().key);
+
+        if (this.allTableData) this.allTableList.setTableList(this.allTableData);
+      }
+
+      protected createGoodRoadList() {
+        // create good road list
+        this.goodRoadTableList = new TableList();
+        this.goodRoadTableList.isFreezeScrolling = true;
+        this.goodRoadTableList.extendHeight = this.extendHeight;
+        this.goodRoadTableList.isAnimateItemTransition = true;
+        this.goodRoadTableList.layout = this.getLayout();
+        this.goodRoadTableList.itemRendererFunction = item => {
+          const tableInfo = env.tableInfos[item];
+          switch (tableInfo.gametype) {
+            case we.core.GameType.BAC:
+            case we.core.GameType.BAI:
+            case we.core.GameType.BAS:
+            case we.core.GameType.BAM:
+            case we.core.GameType.BAB:
+            case we.core.GameType.BASB:
+            case we.core.GameType.BAMB:
+              return ba.SideListItemHolder;
+            default:
+              throw new Error('Invalid Game Type: ' + tableInfo.gametype);
+          }
+        };
+        this._goodroadScroller.viewport = this.goodRoadTableList;
+        this.goodRoadTableList.addEventListener(TableList.LOCK, this.onLockChanged, this, false, 10);
+        this.goodRoadTableList.addEventListener(TableList.UNLOCK, this.onLockChanged, this, false, 10);
+
+        if (this.goodRoadTableData) this.goodRoadTableList.setTableList(this.goodRoadTableData);
+
+        this.goodRoadTableList.validateNow();
+      }
+
+      protected createAlreadyBetList() {
         // create bet table list
         this.betTableList = new TableList();
         this.betTableList.isFreezeScrolling = true;
@@ -76,77 +209,8 @@ namespace we {
         this.betTableList.addEventListener(TableList.LOCK, this.onLockChanged, this, false, 10);
         this.betTableList.addEventListener(TableList.UNLOCK, this.onLockChanged, this, false, 10);
 
-        // create good road list
-        this.goodRoadTableList = new TableList();
-        this.goodRoadTableList.isFreezeScrolling = true;
-        this.goodRoadTableList.extendHeight = this.extendHeight;
-        this.goodRoadTableList.isAnimateItemTransition = true;
-        this.goodRoadTableList.layout = this.getLayout();
-        this.goodRoadTableList.itemRendererFunction = item => {
-          const tableInfo = env.tableInfos[item];
-          switch (tableInfo.gametype) {
-            case we.core.GameType.BAC:
-            case we.core.GameType.BAI:
-            case we.core.GameType.BAS:
-            case we.core.GameType.BAM:
-            case we.core.GameType.BAB:
-            case we.core.GameType.BASB:
-            case we.core.GameType.BAMB:
-              return ba.SideListItemHolder;
-            default:
-              throw new Error('Invalid Game Type: ' + tableInfo.gametype);
-          }
-        };
-        this._goodroadScroller.viewport = this.goodRoadTableList;
-        this.goodRoadTableList.addEventListener(TableList.LOCK, this.onLockChanged, this, false, 10);
-        this.goodRoadTableList.addEventListener(TableList.UNLOCK, this.onLockChanged, this, false, 10);
-
-        // create all game list
-        this.allTableList = new TableList();
-        this.allTableList.isFreezeScrolling = true;
-        this.allTableList.extendHeight = this.extendHeight;
-        this.allTableList.isAnimateItemTransition = true;
-        this.allTableList.layout = this.getLayout();
-        this.allTableList.itemRendererFunction = item => {
-          const tableInfo = env.tableInfos[item];
-          switch (tableInfo.gametype) {
-            case we.core.GameType.BAC:
-            case we.core.GameType.BAI:
-            case we.core.GameType.BAS:
-            case we.core.GameType.BAM:
-            case we.core.GameType.BAB:
-            case we.core.GameType.BASB:
-            case we.core.GameType.BAMB:
-              return ba.SideListItemHolder;
-            case we.core.GameType.RO:
-            case we.core.GameType.ROL:
-              return ro.SideListItemHolder;
-            case we.core.GameType.DI:
-              return di.SideListItemHolder;
-            case we.core.GameType.DIL:
-              return dil.SideListItemHolder;
-            case we.core.GameType.LW:
-              return lw.SideListItemHolder;
-            case we.core.GameType.DT:
-            case we.core.GameType.DTB:
-              return dt.SideListItemHolder;
-            case we.core.GameType.LO:
-              return lo.SideListItemHolder;
-            case we.core.GameType.RC:
-              return rc.SideListItemHolder;
-            default:
-              throw new Error('Invalid Game Type: ' + tableInfo.gametype);
-          }
-        };
-        this._allgamesScroller.viewport = this.allTableList;
-        this.allTableList.addEventListener(TableList.LOCK, this.onLockChanged, this, false, 10);
-        this.allTableList.addEventListener(TableList.UNLOCK, this.onLockChanged, this, false, 10);
-
-        this._subdropdown.gamegroup = env.sideGameCategories.length > 0 ? env.sideGameCategories[0] : 'live';
-        this.allTableList.setGameFilters(this._subdropdown.getSelectedItem().key);
-
-        this._tabbar.dataProvider = this._viewStack;
-        this._tabbar.validateNow();
+        if (this.betTableData) this.betTableList.setTableList(this.betTableData);
+        this.betTableList.validateNow();
       }
 
       protected getLayout() {
@@ -190,55 +254,59 @@ namespace we {
 
       protected onFilterChanged(evt: egret.Event) {
         this.allTableList.setGameFilters(evt.data);
-        this.allTableList.setTableList(this.allGameList, true);
+        this.allTableList.setTableList(this.allTableData, true);
       }
 
       protected onTableListUpdate(evt: egret.Event) {
         const tableList = evt.data;
-        this.allGameList = tableList;
-        this.allTableList.setTableList(tableList);
+        this.allTableData = tableList;
+
+        if (this.allTableList) {
+          this.allTableList.setTableList(tableList);
+        }
       }
 
       protected onGoodRoadTableListUpdate(evt: egret.Event) {
         const tableList = evt.data;
-        this.goodRoadTableList.setTableList(tableList);
+
         const count = tableList.length;
         const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(1);
         if (tabItem) {
           tabItem.onBadgeUpdate('goodroad', count);
         }
-        this._noGoodRoadLabel.visible = this.goodRoadTableList.getTableList().length === 0;
-        if (!this.isCollapsed) {
-          (async () => {
-            this.betTableList.invalidateSize();
-            await we.utils.sleep(200);
-            this.updateTargetHeight();
-            this.tweenExpand(200);
-          })();
+
+        this._noGoodRoadLabel.visible = count === 0;
+
+        this.goodRoadTableData = tableList;
+        if (this.goodRoadTableList) {
+          this.goodRoadTableList.setTableList(tableList);
+          this.goodRoadTableList.validateNow();
         }
+
+        this.invalidateHeight();
       }
 
       protected onBetTableListUpdate(evt: egret.Event) {
         const tableList = evt.data;
-        this.betTableList.setTableList(tableList);
         const count = tableList.length;
         const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(0);
         if (tabItem) {
           tabItem.onBadgeUpdate('bet', count);
         }
-        this._noBettedLabel.visible = this.betTableList.getTableList().length === 0;
-        if (!this.isCollapsed) {
-          (async () => {
-            this.betTableList.invalidateSize();
-            await we.utils.sleep(200);
-            this.updateTargetHeight();
-            this.tweenExpand(200);
-          })();
+        this._noBettedLabel.visible = count === 0;
+
+        this.betTableData = tableList;
+        if (this.betTableList) {
+          this.betTableList.setTableList(tableList);
+          this.betTableList.validateNow();
         }
+
+        this.invalidateHeight();
       }
 
       protected onClearSelection() {
         super.onClearSelection();
+        // this.destroyCurrentTableList();
         env.isShowingAlreadyBetPanel = false;
         this._dropdown.visible = false;
         this._dropdown.hide();
@@ -275,6 +343,7 @@ namespace we {
       }
 
       protected onSelected() {
+        // this.destroyCurrentTableList();
         this.isLock = false;
         console.log('sidepanel _targetHeight :', this._viewStack.selectedIndex, this._targetHeight);
         super.onSelected();
@@ -290,6 +359,15 @@ namespace we {
             this._label.visible = false;
             this._dropdown.visible = true;
             break;
+        }
+        // this.createTableList(this._tabbar.selectedIndex);
+        this.invalidateHeight();
+      }
+
+      protected invalidateHeight() {
+        if (!this.isCollapsed) {
+          this.updateTargetHeight();
+          this.tweenExpand(200);
         }
       }
 

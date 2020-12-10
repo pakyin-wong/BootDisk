@@ -2,7 +2,6 @@ namespace we {
   export namespace ui {
     export class LiveListItem extends LiveListSimpleItem {
       protected _dealerImage: eui.Image;
-      protected _contentContainerStatic: eui.Group;
       protected _prevButton: ui.BaseImageButton;
 
       public constructor(skinName: string = null) {
@@ -25,12 +24,6 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        if (this._quickBetGroup) {
-          this._quickBetGroup.cacheAsBitmap = true;
-        }
-        if (this._contentContainerStatic) {
-          this._contentContainerStatic.cacheAsBitmap = true;
-        }
         this.addRoundCornerMask();
         this._dealerImage.fillMode = 'cover';
       }
@@ -68,6 +61,20 @@ namespace we {
       set dealerImage(value: eui.Image) {
         this._dealerImage = value;
       }
+
+      protected generateFavouriteButton() {
+        const button = new AnimatedToggleButton();
+        button.dbClass = 'lobby_ui';
+        button.dbDisplay = 'd_lobby_icon_fav';
+        button.width = 44;
+        button.height = 42;
+        button.right = 10;
+        button.top = 10;
+        button.visible = false;
+        this._favouriteButton = button;
+        this._contentContainerDynamic.addChild(this._favouriteButton);
+      }
+
     }
   }
 }

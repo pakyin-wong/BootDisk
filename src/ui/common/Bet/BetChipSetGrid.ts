@@ -50,6 +50,7 @@ namespace we {
 
       protected destroy() {
         super.destroy();
+        this._setSelectedChip = null;
         this._chipsetList.removeEventListener(eui.UIEvent.CHANGE, this.onChipChange, this);
         dir.evtHandler.removeEventListener(core.Event.BET_DENOMINATION_CHANGE, this.updateSelectedChip, this);
       }

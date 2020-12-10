@@ -4,9 +4,10 @@
         xmlns:live="we.live.*" xmlns:ns1="*" states="left_hand_mode,right_hand_mode">
 	<e:Rect width="1242" height="2155" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" source="m_ba_bg_offvideo_png" x="0" width="1242" height="986" />
-	<e:Group id="_verticalGroup" width="1242" x="0" bottom="0">
-		<e:Group id="_verticalTop" width="1242" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
+	<e:Group id="_verticalGroup" touchEnabled="false" width="1242" x="0" bottom="0">
+		<e:Group id="_verticalTop" touchEnabled="false" width="1242" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
 			<e:Group id="_gradientmask" width="1242" height="319" y="468" y.right_hand_mode="374" y.left_hand_mode="374" />
+			<ui:BetRelatedGroup id="_betRelatedGroup" touchEnabled="false" x.left_hand_mode="34" y="235" x.right_hand_mode="224"/>
 			<lw:TableLayer id="_tableLayer" height="263" y="400" isEdgeDismissable="true"
 			               skinName="skin_mobile_portrait.lw.TableLayerSkin" scaleX="1" scaleY="1" left="0" right="0" />
 			<lw:ChipLayer id="_chipLayer" height="261" y="400" isEdgeDismissable="true"
@@ -65,7 +66,6 @@
 			                    x.right_hand_mode="545" />
 		</e:Group>
 		-->
-		<ui:BetRelatedGroup id="_betRelatedGroup" x.left_hand_mode="34" y="235" x.right_hand_mode="224" />
 	</e:Group>
 	<lw:MobileBottomGamePanel skinName="skin_mobile_portrait.lw.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"
 	                          x="0" scaleY="1" y="731" scaleX="1" />

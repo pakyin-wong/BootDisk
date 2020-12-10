@@ -37,8 +37,8 @@ namespace we {
 
       protected _verticalFlip: string;
 
-      protected mount() {
-        super.mount();
+      protected initAnimRelatedComps(){
+        super.initAnimRelatedComps();
         this._dragonAnim = this.createDragonTigerAnim('dragon', 0.8);
         this._tigerAnim = this.createDragonTigerAnim('tiger', 0.8);
         this._dragonAnimGroup.addChild(this._dragonAnim);
@@ -97,7 +97,7 @@ namespace we {
       }
 
       protected createFactory() {
-        const skeletonData = RES.getRes(`blockchain_dt_ske_json`);
+        const skeletonData = RES.getRes(`blockchain_dt_ske_dbbin`);
         const textureData = RES.getRes(`blockchain_dt_tex_json`);
         const texture = RES.getRes(`blockchain_dt_tex_png`);
         this._factory = new dragonBones.EgretFactory();
@@ -558,31 +558,7 @@ namespace we {
             // await p2a;
 
             await utils.playAnimation(this.getRedCardAnim(), 'red_poker_out', 1);
-            await Promise.all([utils.playAnimation(this._ringAnim, 'shoe_out', 1), utils.playAnimation(this._dragonAnim, 'shoe_out', 1), utils.playAnimation(this._tigerAnim, 'shoe_out', 1)]);
-
-            await this.animateShoe();
-            await this.animatePin();
-
-            // const p3 = utils.waitDragonBone(this._ringAnim);
-            // this._ringAnim.animation.fadeIn('shoe_in', 0, 1, 0);
-
-            // const p3a = (async () => {
-            //   const dragonBlock = utils.waitDragonBone(this._dragonAnim);
-            //   const tigerBlock = utils.waitDragonBone(this._tigerAnim);
-
-            //   this._dragonAnim.animation.play('shoe_in',1);
-            //   this._tigerAnim.animation.play('shoe_in',1);
-
-            //   await dragonBlock;
-            //   await tigerBlock;
-
-            //   return new Promise(resolve => resolve());
-            // })();
-
-            // await p3;
-            // await p3a;
-
-            await Promise.all([utils.playAnimation(this._ringAnim, 'shoe_in', 1), utils.playAnimation(this._dragonAnim, 'shoe_in', 1), utils.playAnimation(this._tigerAnim, 'shoe_in', 1)]);
+            await this.closeShoe()
 
             this._ringAnim.animation.fadeIn(this._roundLoopB, 0, 0, 0);
 
@@ -591,6 +567,16 @@ namespace we {
             return new Promise(resolve => resolve());
           })();
         }
+      }
+
+      protected async closeShoe(){
+                    await Promise.all([utils.playAnimation(this._ringAnim, 'shoe_out', 1), utils.playAnimation(this._dragonAnim, 'shoe_out', 1), utils.playAnimation(this._tigerAnim, 'shoe_out', 1)]);
+            await this.animateShoe();
+            await this.animatePin();
+
+
+            await Promise.all([utils.playAnimation(this._ringAnim, 'shoe_in', 1), utils.playAnimation(this._dragonAnim, 'shoe_in', 1), utils.playAnimation(this._tigerAnim, 'shoe_in', 1)]);
+            return new Promise(resolve=>resolve())
       }
 
       protected showStaticRedCard() {}

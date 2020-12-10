@@ -1,6 +1,6 @@
 namespace we {
   export namespace ba {
-    export class BALobbyBigRoad extends ui.Panel implements we.ui.ILobbyRoad {
+    export class BALobbyBigRoad extends core.BaseEUI implements we.ui.ILobbyRoad {
       protected bigRoad: BABigRoad;
       protected parser: BARoadParser;
       protected useParser: boolean = false;
@@ -9,17 +9,20 @@ namespace we {
 
       public constructor() {
         super();
-        this.cacheAsBitmap = true;
+        // this.cacheAsBitmap = true;
+        this.init();
       }
 
       protected childrenCreated() {
         super.childrenCreated();
-        this.init();
+
+        // this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAdded, this);
+        // this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoved, this);
       }
 
       protected init() {
-        this.parser = new BARoadParser([25, 25]);
-        this.parser.addEventListener('onUpdate', this.onParserUpdate, this);
+        // this.parser = new BARoadParser([25, 25]);
+        // this.parser.addEventListener('onUpdate', this.onParserUpdate, this);
 
         this.bigRoad = new BABigRoad(25, 23);
         this.bigRoad.scaleX = this.bigRoad.scaleY = 576 / 575;
@@ -31,6 +34,12 @@ namespace we {
         this.addChild(this.bigRoad);
         this.bigRoad.initRoadData();
       }
+      // public onRemoved(e) {
+      //   this.bigRoad.onRemoved(e);
+      // }
+      // public onAdded(e) {
+      //   this.bigRoad.onAdded(e);
+      // }
 
       public drawGridBg(width: number, height: number) {
         this.beadRoadGrid.graphics.beginFill(0xffffff, 1);
@@ -80,9 +89,9 @@ namespace we {
       }
 
       public dispose() {
-        if (this.parser.hasEventListener('onUpdate')) {
-          this.parser.removeEventListener('onUpdate', this.onParserUpdate, this);
-        }
+        // if (this.parser.hasEventListener('onUpdate')) {
+        //   this.parser.removeEventListener('onUpdate', this.onParserUpdate, this);
+        // }
       }
     }
   }

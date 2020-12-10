@@ -1,7 +1,7 @@
 // TypeScript file
 namespace we {
   export namespace di {
-    export class MobileLiveListRoadmap extends ui.Panel implements we.ui.ILobbyRoad {
+    export class MobileLiveListRoadmap extends core.BaseEUI implements we.ui.ILobbyRoad {
       protected bigRoad: DiSizeBigRoad;
 
       public roadGridSize: number = 40;
@@ -19,12 +19,12 @@ namespace we {
 
       public constructor() {
         super();
-        this.cacheAsBitmap = true;
+        // this.cacheAsBitmap = true;
+        this.init();
       }
 
       protected childrenCreated() {
         super.childrenCreated();
-        this.init();
       }
 
       protected init() {

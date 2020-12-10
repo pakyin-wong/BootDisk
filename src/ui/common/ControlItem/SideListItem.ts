@@ -36,14 +36,23 @@ namespace we {
 
       public constructor(skinName: string = null) {
         super(skinName);
-        this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
-        const denominationList = env.getBetLimitSet('Live', this.getSelectedBetLimitIndex()).chips;
-        this._betChipSet.init(null, denominationList);
+        if (this._betChipSet && this._betChipSetGridSelected) {
+          this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
+          const denominationList = env.getBetLimitSet('Live', this.getSelectedBetLimitIndex()).chips;
+          this._betChipSet.init(null, denominationList);
+        }
       }
 
+      // protected releaseRoadmap() {
+      //   if (this._bigRoad) {
+      //     this._bigRoad.parent.removeChild(this._bigRoad);
+      //   }
+      // }
+
       protected releaseRoadmap() {
-        if (this._bigRoad) {
+        if (this._bigRoad && this.tableInfo) {
           this._bigRoad.parent.removeChild(this._bigRoad);
+          dir.sideRoadPool.release(this._bigRoad, this.tableInfo.gametype);
         }
       }
 
@@ -51,7 +60,6 @@ namespace we {
 
       protected addEventListeners() {
         super.addEventListeners();
-        this._betChipSetGridSelected.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
         this._closeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
         this._prevButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickUndoButton, this);
         this._contentContainer.addEventListener(egret.TouchEvent.TOUCH_TAP, this.gotoScene, this);
@@ -59,7 +67,7 @@ namespace we {
 
       protected removeEventListeners() {
         super.removeEventListeners();
-        this._betChipSetGridSelected.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
+        if (this._betChipSetGridSelected) this._betChipSetGridSelected.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
         this._closeButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
         this._prevButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickUndoButton, this);
         this._contentContainer.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.gotoScene, this);
@@ -75,6 +83,58 @@ namespace we {
 
       protected onClickBetChipSelected() {
         this._betChipSetGridEnabled ? this.hideBetChipPanel() : this.showBetChipPanel();
+      }
+
+      protected runtimeGenerateBetChipSelected() {
+        const betChipSelected = new ui.BetChipSetGridSelected();
+        betChipSelected.skinName = 'skin_desktop.BetChipSkin';
+        betChipSelected.width = 80;
+        betChipSelected.height = 80;
+        betChipSelected.y = 18;
+        betChipSelected.x = 138;
+        betChipSelected['tooltipText'] = 'sidePanel.changeChip';
+        betChipSelected.horizontalCenter = 8;
+        betChipSelected.chipScale = 1.2;
+        this._betButtonGroup.addChild(betChipSelected);
+        this._betChipSetGridSelected = betChipSelected;
+
+        this._betChipSetGridSelected.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
+      }
+
+      protected initBetGroupButtons() {
+        if (!this._closeButton.skinName) {
+          this._closeButton.skinName = 'skin_desktop.ImageButtonSkinLobby';
+          this._closeButton.currentState = 'lobby_betcontrol_close';
+          this._prevButton.skinName = 'skin_desktop.ImageButtonSkinLobby';
+          this._prevButton.currentState = 'lobby_betcontrol_previous';
+        }
+      }
+
+      protected runtimeGenerateBetChipSet() {
+        this.initBetGroupButtons();
+        this.runtimeGenerateBetChipSelected();
+        const betChipSet = new BetChipSetGrid();
+        betChipSet.top = 40;
+        betChipSet.bottom = 30;
+        betChipSet.left = 10;
+        betChipSet.right = 10;
+        this._betChipSetGroup.addChild(betChipSet);
+        this._betChipSet = betChipSet;
+        this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
+        const denominationList = env.getBetLimitSet('Live', this.getSelectedBetLimitIndex()).chips;
+        this._betChipSet.init(null, denominationList);
+      }
+
+      protected onHideCompleted() {
+        // remove _betChipSet and _betChipSetGridSelected
+        if (this._betChipSet) {
+          this._betChipSetGroup.removeChild(this._betChipSet);
+          this._betChipSet = null;
+        }
+        if (this._betChipSetGridSelected) {
+          this._betButtonGroup.removeChild(this._betChipSetGridSelected);
+          this._betChipSetGridSelected = null;
+        }
       }
 
       protected showBetChipPanel() {
@@ -114,7 +174,6 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        this._betChipSet.resetFormat(1);
         this._goodRoadLabel.visible = false;
 
         // header
@@ -197,10 +256,13 @@ namespace we {
         }
       }
 
+      protected generateFavouriteButton() {
+      }
+      
       protected showQuickBetGroup() {
+        super.showQuickBetGroup();
         this._betChipSetGridSelected.touchEnabled = true;
         this._betChipSetGridSelected.touchChildren = true;
-        super.showQuickBetGroup();
         if (this._button) {
           this._button.visible = false;
         }
@@ -210,8 +272,10 @@ namespace we {
       }
 
       protected hideQuickBetGroup() {
-        this._betChipSetGridSelected.touchEnabled = false;
-        this._betChipSetGridSelected.touchChildren = false;
+        if (this._betChipSetGridSelected) {
+          this._betChipSetGridSelected.touchEnabled = false;
+          this._betChipSetGridSelected.touchChildren = false;
+        }
         super.hideQuickBetGroup();
         this.hideBetChipPanel();
         if (this._tableLayer) {

@@ -426,7 +426,7 @@
 				<!--<ui:RunTimeLabel fontFamily="Barlow" id="_single_label" size="15" left="0" i18n="dice.single" />
 				-->
 				<ui:RunTimeLabel id="_single_label" size="15" left="0" />
-				<e:Label fontFamily="Barlow" text="1:1" size="18" right="0"  textColor="0xd8d8d8"/>
+				<ui:RunTimeLabel fontFamily="Barlow" text="1:1" oddKey="di.SPECIFIC_1" size="18" right="0"  textColor="0xd8d8d8"/>
 				<e:layout>
 					<e:HorizontalLayout gap="2" />
 				</e:layout>
@@ -436,7 +436,7 @@
 					<!--<ui:RunTimeLabel fontFamily="Barlow" id="_double_label" size="15" i18n="dice.double" />
 					-->
 					<ui:RunTimeLabel id="_double_label" size="15" />
-					<e:Label fontFamily="Barlow" text="2:1" size="18"  textColor="0xd8d8d8"/>
+					<ui:RunTimeLabel fontFamily="Barlow" text="2:1" oddKey="di.SPECIFIC_2" size="18"  textColor="0xd8d8d8"/>
 					<e:layout>
 						<e:HorizontalLayout gap="2" />
 					</e:layout>
@@ -445,7 +445,7 @@
 					<!--<ui:RunTimeLabel fontFamily="Barlow" id="_triple_label" size="15" i18n="dice.triple" />
 					-->
 					<ui:RunTimeLabel id="_triple_label" size="15" />
-					<e:Label fontFamily="Barlow" text="12:1" size="18"  textColor="0xd8d8d8"/>
+					<ui:RunTimeLabel fontFamily="Barlow" text="12:1" oddKey="di.SPECIFIC_3" size="18"  textColor="0xd8d8d8"/>
 					<e:layout>
 						<e:HorizontalLayout gap="2" />
 					</e:layout>
@@ -489,25 +489,25 @@
 		-->
 		<di:Row1Odd width="100%" height="100%" />
 		<e:Group width="302" height="27" x="2">
-			<e:Label fontFamily="Barlow" text="1:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
+			<ui:RunTimeLabel oddKey="di.BIG_SMALL" fontFamily="Barlow" text="1:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="127" height="27" x="305">
-			<e:Label fontFamily="Barlow" text="10:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
+			<ui:RunTimeLabel oddKey="di.DOUBLE" fontFamily="Barlow" text="10:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="136" height="27" x="433">
-			<e:Label fontFamily="Barlow" text="180:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
+			<ui:RunTimeLabel oddKey="di.TRIPLE" fontFamily="Barlow" text="180:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="248" height="27" x="569">
-			<e:Label fontFamily="Barlow" text="30:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
+			<ui:RunTimeLabel oddKey="di.TRIPLE_ALL" fontFamily="Barlow" text="30:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="136" height="27" x="819">
-			<e:Label fontFamily="Barlow" text="180:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
+			<ui:RunTimeLabel oddKey="di.TRIPLE" fontFamily="Barlow" text="180:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="127" height="27" x="955">
-			<e:Label fontFamily="Barlow" text="10:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
+			<ui:RunTimeLabel oddKey="di.DOUBLE" fontFamily="Barlow" text="10:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="302" height="27" x="1083">
-			<e:Label fontFamily="Barlow" text="1:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
+			<ui:RunTimeLabel oddKey="di.BIG_SMALL" fontFamily="Barlow" text="1:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 	</e:Group>
 	<e:Group id="_label_group_2" height="27" width="1386" y="245">
@@ -517,46 +517,46 @@
 		-->
 		<di:Row2Odd width="100%" height="100%" />
 		<e:Group width="96" height="27" x="2">
-			<e:Label fontFamily="Barlow" size="18" text="60:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
+			<ui:RunTimeLabel fontFamily="Barlow" oddKey="di.SUM_4_17" size="18" text="60:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="98" height="27" x="99">
-			<e:Label fontFamily="Barlow" size="18" text="30:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
+			<ui:RunTimeLabel fontFamily="Barlow" oddKey="di.SUM_5_16" size="18" text="30:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="199">
-			<e:Label fontFamily="Barlow" size="18" text="16:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
+			<ui:RunTimeLabel fontFamily="Barlow" oddKey="di.SUM_6_15" size="18" text="16:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="298">
-			<e:Label fontFamily="Barlow" size="18" text="12:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
+			<ui:RunTimeLabel fontFamily="Barlow" oddKey="di.SUM_7_14" size="18" text="12:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="397">
-			<e:Label fontFamily="Barlow" size="18" text="8:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
+			<ui:RunTimeLabel fontFamily="Barlow" oddKey="di.SUM_8_13" size="18" text="8:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="496">
-			<e:Label fontFamily="Barlow" size="18" text="7:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
+			<ui:RunTimeLabel fontFamily="Barlow" oddKey="di.SUM_9_10_11_12" size="18" text="7:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="595">
-			<e:Label fontFamily="Barlow" size="18" text="7:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
+			<ui:RunTimeLabel fontFamily="Barlow" oddKey="di.SUM_9_10_11_12" size="18" text="7:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="694">
-			<e:Label fontFamily="Barlow" size="18" text="7:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
+			<ui:RunTimeLabel fontFamily="Barlow" oddKey="di.SUM_9_10_11_12" size="18" text="7:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="793">
-			<e:Label fontFamily="Barlow" size="18" text="7:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
+			<ui:RunTimeLabel fontFamily="Barlow" oddKey="di.SUM_9_10_11_12" size="18" text="7:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="892">
-			<e:Label fontFamily="Barlow" size="18" text="8:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
+			<ui:RunTimeLabel fontFamily="Barlow" oddKey="di.SUM_8_13" size="18" text="8:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="991">
-			<e:Label fontFamily="Barlow" size="18" text="12:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
+			<ui:RunTimeLabel fontFamily="Barlow" oddKey="di.SUM_7_14" size="18" text="12:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="1090">
-			<e:Label fontFamily="Barlow" size="18" text="16:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
+			<ui:RunTimeLabel fontFamily="Barlow" oddKey="di.SUM_6_15" size="18" text="16:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="97" height="27" x="1189">
-			<e:Label fontFamily="Barlow" size="18" text="30:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
+			<ui:RunTimeLabel fontFamily="Barlow" oddKey="di.SUM_5_16" size="18" text="30:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 		<e:Group width="96" height="27" x="1288">
-			<e:Label fontFamily="Barlow" size="18" text="60:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
+			<ui:RunTimeLabel fontFamily="Barlow" oddKey="di.SUM_4_17" size="18" text="60:1" verticalCenter="0" horizontalCenter="0"  textColor="0xd8d8d8"/>
 		</e:Group>
 	</e:Group>
 	<e:Group id="_label_group_3" width="1386" height="26" x="0" y="383">
@@ -565,7 +565,7 @@
 		<e:Rect width="1" height="100%" right="0" top="0" fillColor="0x417DB9" anchorOffsetX="0" anchorOffsetY="0" />
 		-->
 		<di:Row3Odd width="100%" height="100%" />
-		<e:Label fontFamily="Barlow" text="5:1" size="18" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
+		<ui:RunTimeLabel fontFamily="Barlow" text="5:1" size="18" oddKey="di.COMBINE" horizontalCenter="0" verticalCenter="0"  textColor="0xd8d8d8"/>
 	</e:Group>
 	<di:Corner width="24" height="24" left="0" top="0" rotation="0" anchorOffsetX="0" anchorOffsetY="0" visible="false" />
 	<di:Corner width="24" height="24" right="0" top="0" rotation="90" anchorOffsetX="0" anchorOffsetY="0" visible="false" />
@@ -585,8 +585,8 @@
 	        visible="false" />
 	<e:Rect width="1" height="100" right="0" bottom="24" fillColor="0x417DB9" anchorOffsetX="0" anchorOffsetY="0"
 	        visible="false" />
-	<di:Row4Odd height="68" width="198" x="0" y="411" id="_specific_row_bg_odd" />
+	<di:Row4Odd height="68" width="198" x="0" y="411" id="_specific_row_bg_odd"  locked="true"/>
 	<di:Row4 height="68" width="1187" x="199" y="411" id="_specific_row_bg" />
 	<ui:RoundRectShape cornerTL_TR_BL_BR="25,25,25,25" width="1386" height="473" fillAlpha="0" strokeAlpha="1" stroke="3"
-	                   strokeColor="0x2d72a6" strokeInAlpha="1" strokeIn="1" strokeInColor="0x2d72a6" />
+	                   strokeColor="0x2d72a6" strokeInAlpha="1" strokeIn="1" strokeInColor="0x2d72a6"  locked="true"/>
 </e:Skin>

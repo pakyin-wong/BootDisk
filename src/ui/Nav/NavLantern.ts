@@ -20,7 +20,7 @@ namespace we {
       constructor() {
         super();
         if (env.isMobile) {
-          this.fontsize = 56;
+          this.fontsize = 54;
           this.lineSpacing = 50;
         }
       }

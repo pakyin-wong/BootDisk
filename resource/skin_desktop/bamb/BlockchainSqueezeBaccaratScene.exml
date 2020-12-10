@@ -16,9 +16,9 @@
 		               touchEnabled="false" />
 		<ba:ChipLayer id="_chipLayer" width="1170" height="304" skinName="skin_desktop.ba.ChipLayerSkin" />
 	</ui:Group>
-	<ui:Group x="769" y="939" isEdgeDismissable="true">
-	<ui:Group id="_bet">
-		<ui:BetRelatedGroup id="_betRelatedGroup" />
+	<ui:Group x="769" y="939" isEdgeDismissable="true" touchEnabled="false" >
+	<ui:Group id="_bet" touchEnabled="false" >
+		<ui:BetRelatedGroup id="_betRelatedGroup" touchEnabled="false" />
 		<!--<e:Rect id="_roundPanel" width="1039" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 		<e:Rect width="1" height="54" fillAlpha="0.3" fillColor="0x000000" verticalCenter="0" right="460"/>-->
 		<ui:BetChipSetHorizontal id="_betChipSet" width="548" height="64" y="3" anchorOffsetX="0" anchorOffsetY="0" x="15" />
@@ -91,6 +91,8 @@
 	</ui:Group>
 	<ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="242" x="18" y="644" anchorOffsetX="0"
 	                          anchorOffsetY="0" visible="false" />
+	<bamb:DFlipCardHolder id="_flipCardHolder" horizontalCenter="0" y="313" width="500" height="900" />
+
 	<e:Group id="_deckButton" x="2279" y="203" width="282" height="49" touchThrough="true">
 		<ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab"
 		                    skinName="skin_desktop.ImageButtonSkinBettingPanel" />
@@ -105,11 +107,11 @@
                            skinName="skin_desktop.CountdownTimerRoundSqueezeBaccaratSkin" />
 	<bab:HistoryCardHolder id="_historyCardHolder" width="385" height="125" x="22" y="151"
 	                       skinName="skin_desktop.bab.CornerHistoryHolderSkin" />
-	<ba:TableInfoPanel width="434" height="566" x="0" y="90" id="_tableInfoWindow" isPoppable="true" isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" anchorOffsetY="0" skinName="skin_desktop.ba.TableInfoPanel"/>
+	<ba:TableInfoPanel width="434" height="566" x="0" y="90" id="_tableInfoWindow" isPoppable="true" isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" anchorOffsetY="0" skinName="skin_desktop.bab.TableInfoPanel"/>
 	<bc:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true" 
 	                  isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
 	                  skinName="skin_desktop.bc.ShufflePanelSkin" skeletonName="blockchain_sqba" />
-	<bc:DeckPanel id="_deckPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
+	<!--<bc:DeckPanel id="_deckPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
 	               isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
 	               skinName="skin_desktop.bc.DeckPanelSkin" />
 	<bc:HelpPanel id="_helpPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
@@ -117,6 +119,6 @@
 	               skinName="skin_desktop.bc.HelpPanelSkin" />
 	<bc:CardInfoPanel id="_cardInfoPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0"
 	                   isPoppable="true" isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false"
-	                   hideOnStart="true" skinName="skin_desktop.bc.CardInfoPanelSkin" />
+	                   hideOnStart="true" skinName="skin_desktop.bc.CardInfoPanelSkin" />-->
 </e:Skin>
 

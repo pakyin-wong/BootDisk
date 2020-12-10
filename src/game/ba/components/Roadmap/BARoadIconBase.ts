@@ -21,7 +21,7 @@ namespace we {
         this.addChild(this._iconShape);
         this.initIcon(size);
 
-        dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
+        // dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
         // this._iconText = new egret.BitmapText();
       }
 
@@ -90,7 +90,7 @@ namespace we {
 
       public dispose() {
         this.stopAnimate();
-        dir.evtHandler.removeEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
+        // dir.evtHandler.removeEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
       }
 
       public set DarkMode(n: number) {
@@ -104,19 +104,21 @@ namespace we {
         return this.darkModeNumber;
       }
 
-      protected onModeUpdate(e: egret.Event) {
+      public onModeUpdate(e: egret.Event = null) {
         this.darkModeNumber = env.mode === 1 ? 1 : 0;
       }
 
       public addToLayer(shapeLayer: egret.DisplayObjectContainer, textLayer: egret.DisplayObjectContainer) {
         this.isAtAnimateLayer = false;
         if (this._iconShape) {
-          shapeLayer.addChild(this._iconShape);
+          utils.addChild(shapeLayer, this._iconShape);
+          // shapeLayer.addChild(this._iconShape);
           this._iconShape.x = this.x;
           this._iconShape.y = this.y;
         }
         if (this._iconText) {
-          textLayer.addChild(this._iconText);
+          utils.addChild(textLayer, this._iconText);
+          // textLayer.addChild(this._iconText);
           this._iconText.x = this.x + this._offsetX;
           this._iconText.y = this.y + this._offsetY;
         }
@@ -125,12 +127,14 @@ namespace we {
       public addToAnimateLayer(animateLayer: egret.DisplayObjectContainer) {
         this.isAtAnimateLayer = true;
         if (this._iconShape) {
-          animateLayer.addChild(this._iconShape);
+          utils.addChild(animateLayer, this._iconShape);
+          // animateLayer.addChild(this._iconShape);
           this._iconShape.x = this.x;
           this._iconShape.y = this.y;
         }
         if (this._iconText) {
-          animateLayer.addChild(this._iconText);
+          utils.addChild(animateLayer, this._iconText);
+          // animateLayer.addChild(this._iconText);
           this._iconText.x = this.x + this._offsetX;
           this._iconText.y = this.y + this._offsetY;
         }

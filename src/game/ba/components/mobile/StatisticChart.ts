@@ -15,12 +15,19 @@ namespace we {
       public secondCount: number = 0;
       public thirdCount: number = 0;
 
+      // updated when isPairChart === true 
+      public fourthCount: number = 0; 
+
       public firstPercentage: number = 0;
       public secondPercentage: number = 0;
       public thirdPercentage: number = 0;
 
+      // updated when isPairChart === true 
+      public fourthPercentage: number = 0; 
+
       public total: number = 0;
       public chart: ui.SimpleChart;
+      public pairChart: ui.MultipleChart;
       public isGrey: boolean = false;
 
       protected _firstCountLabel: eui.Label;
@@ -36,10 +43,17 @@ namespace we {
 
       protected _thirdColor: number = 0x1f86c;
 
+      // true in Pair Chart
+      protected _isPairChart: boolean = false; 
+
       public constructor(skin) {
         super('ba.StatisticChart', false);
         this.orientationDependent = false;
         this.cacheAsBitmap = true;
+      }
+
+      public set isPairChart(value: boolean) {
+        this._isPairChart = value;
       }
 
       public set thirdColor(value: number) {
@@ -62,8 +76,13 @@ namespace we {
         this.containerDisplay = new egret.Bitmap();
         this.containerDisplay.texture = this.containerRT;
         this.addChild(this.containerDisplay);
-
-        this.update();
+        if (this._isPairChart === false) {
+         this.update();
+        } else {
+             if (!env.isMobile) {
+                this.pairChartUpdate(); 
+             }
+        }
       }
 
       public update() {
@@ -73,8 +92,10 @@ namespace we {
         this._secondCountLabel.text = this.secondCount.toString();
         this._secondPercentageLabel.text = Math.round(this.secondPercentage * 100).toString();
 
-        this._thirdCountLabel.text = this.thirdCount.toString();
-        this._thirdPercentageLabel.text = Math.round(this.thirdPercentage * 100).toString();
+        if (this._thirdCountLabel && this.thirdCount) {
+          this._thirdCountLabel.text = this.thirdCount.toString();
+          this._thirdPercentageLabel.text = Math.round(this.thirdPercentage * 100).toString();
+        }
 
         this._totalLabel.text = this.total.toString();
 
@@ -84,6 +105,25 @@ namespace we {
         this.chart.drawChart(this.isGrey);
 
         // this.render();
+      } 
+
+      public pairChartUpdate() {
+          this._firstCountLabel.text = this.firstCount.toString();
+          this._firstPercentageLabel.text = Math.round(this.firstPercentage * 100).toString();
+
+          this._secondCountLabel.text = this.secondCount.toString();
+          this._secondPercentageLabel.text = Math.round(this.secondPercentage * 100).toString();
+
+          this._thirdCountLabel.text = this.thirdCount.toString();
+          this._thirdPercentageLabel.text = Math.round(this.thirdPercentage * 100).toString();
+
+          this._totalLabel.text = this.total.toString();
+
+          this.pairChart.firstAngle = this.firstPercentage * 360;
+          this.pairChart.secondAngle = this.secondPercentage * 360;
+          this.pairChart.thirdAngle = this.thirdPercentage * 360;
+          console.log('[1 2 3]',[this.firstPercentage * 360,this.secondPercentage * 360,this.thirdPercentage * 360])
+          this.pairChart.drawPairChart(this.isGrey);
       }
 
       public render() {

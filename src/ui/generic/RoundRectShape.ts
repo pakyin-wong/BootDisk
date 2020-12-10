@@ -112,9 +112,9 @@ namespace we {
           }
         }
       }
-
-      public async refresh() {
-        this.validateNow();
+      
+      public refresh() {
+        // this.validateNow();
         if (this.cornerTL_TR_BL_BR !== '') {
           const corners = this.cornerTL_TR_BL_BR.split(' ').join('').split(',');
           this.cornerTL = parseInt(corners[0], 10);

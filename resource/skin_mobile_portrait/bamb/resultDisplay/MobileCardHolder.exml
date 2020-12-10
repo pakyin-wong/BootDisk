@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.bamb.CardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
+        xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" width="1242">
+        <e:Rect id="_mask" fillColor="0x000000" width="1242" height="100%" visible="false" alpha="0.5"  touchEnabled="false" touchChildren="false"/>
+        <e:Group id="_resultGroup" width="100%" height="100%" y="0" touchThrough="true">
+                <e:Group x="238" y="679" id="_playerCardMoveGroup">
+                        <e:Group x="0" y="0" id="_playerCard1Group" width="117" height="170" touchEnabled="false" />
+                        <e:Group x="138" y="0" id="_playerCard2Group" width="117" height="170" touchEnabled="false" />
+                        <e:Group x="0" y="0" id="_playerCard1TouchGroup" width="117" height="170" touchThrough="false">
+                                <e:Group id="_playerCard1Info" left="0" bottom="0" width="40" height="40" />
+                        </e:Group>
+                        <e:Group x="138" y="0" id="_playerCard2TouchGroup" width="117" height="170" touchThrough="false">
+                                <e:Group id="_playerCard2Info" left="0" bottom="0" width="40" height="40" />
+                        </e:Group>
+                </e:Group>
+                <e:Group x="48" y="679" id="_playerCard3Group" width="170" height="117" touchThrough="true"
+                         visible="false">
+                        <e:Group id="_playerCard3Info" left="0" bottom="0" width="40" height="40" />
+                </e:Group>
+                <e:Group x="201" y="530" width="282" height="100" id="_openAllPlayerGroup" visible="false">
+                        <ui:RoundRectButton id="_openAllPlayerButton" width="282" height="100" fillAlpha="1"
+                                            fillAlpha_hover="1" fillColor="0x0066AD" fillColor_hover="0x008CD5"
+                                            stroke="0" cornerTL_TR_BL_BR="50,50,50,50" />
+                        <ui:RunTimeLabel verticalCenter="0" horizontalCenter="0" i18n="baccarat.allOpen" size="48"
+                                         touchEnabled="false" />
+                </e:Group>
+                <e:Group right="238" y="679" id="_bankerCardMoveGroup" width="255" height="170">
+                        <e:Group x="0" y="0" id="_bankerCard1Group" width="117" height="170" touchThrough="true" />
+                        <e:Group x="138" y="0" id="_bankerCard2Group" width="117" height="170" touchThrough="true" />
+                        <e:Group x="0" y="0" id="_bankerCard1TouchGroup" width="117" height="170" touchThrough="false">
+                                <e:Group id="_bankerCard1Info" left="0" bottom="0" width="40" height="40" />
+                        </e:Group>
+                        <e:Group x="138" y="0" id="_bankerCard2TouchGroup" width="117" height="170" touchThrough="false">
+                                <e:Group id="_bankerCard2Info" left="0" bottom="0" width="40" height="40" />
+                        </e:Group>
+                </e:Group>
+                <e:Group right="48" y="679" id="_bankerCard3Group" width="170" height="117" touchThrough="true"
+                         visible="false">
+                        <e:Group id="_bankerCard3Info" left="0" bottom="0" width="40" height="40" />
+                </e:Group>
+                <e:Group width="282" height="100" right="201" y="530" id="_openAllBankerGroup" visible="false">
+                        <ui:RoundRectButton id="_openAllBankerButton" width="282" height="100" fillAlpha="1"
+                                            fillAlpha_hover="1" fillColor="0x93232A" fillColor_hover="0xFF435A"
+                                            stroke="0" cornerTL_TR_BL_BR="50,50,50,50" />
+                        <ui:RunTimeLabel verticalCenter="0" horizontalCenter="0" i18n="baccarat.allOpen" size="48"
+                                         touchEnabled="false" />
+                </e:Group>
+                <e:Group x="518" y="721" width="70" height="89" id="_playerSumGroup">
+                        <ui:RoundRectShape width="70" height="89" cornerTL_TR_BL_BR="7,7,7,7" fillColor="0x0079E5" />
+                        <e:Label id="_playerSum" horizontalCenter="0" verticalCenter="0" textAlign="center" verticalAlign="middle" size="96"
+                                 height="100%" name="b1/playerSum" />
+                </e:Group>
+                <e:Group right="518" y="721" width="70" height="89" id="_bankerSumGroup">
+                        <ui:RoundRectShape width="70" height="89" cornerTL_TR_BL_BR="7,7,7,7" fillColor="0xEA394C" />
+                        <e:Label id="_bankerSum" horizontalCenter="0" verticalCenter="0" textAlign="center" verticalAlign="middle" size="96"
+                                 height="100%" name="a1/bankerSumn" />
+                </e:Group>
+        </e:Group>
+        <e:Group x="148" y="164" id="_smallRedCardGroup"></e:Group>
+        <ui:RunTimeLabel x="540" y="150" id="_smallRedCardDesc" visible="false" i18n="baccarat.redCardDesc" />
+</e:Skin>

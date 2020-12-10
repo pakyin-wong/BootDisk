@@ -28,16 +28,16 @@ namespace we {
       public generateRoadmap(node: eui.Component) {
         // const road = new lw.LwLobbyBeadRoad();
         const road = dir.lobbyRoadPool.get(core.GameType.LW);
-        road.roadRow = 3;
-        road.roadCol = 13;
-        road.roadCellWidth = 44.3;
-        road.roadCellHeight = 46;
-        road.roadImageWidth = 31;
-        road.roadImageHeight = 31;
-        road.roadScale = 1;
-        road.roadGridColor = 0xffffff;
-        road.roadGridAlpha = 1;
-        road.roadGridBorderColor = 0xafafaf;
+        // road.roadRow = 3;
+        // road.roadCol = 13;
+        // road.roadCellWidth = 44.3;
+        // road.roadCellHeight = 46;
+        // road.roadImageWidth = 31;
+        // road.roadImageHeight = 31;
+        // road.roadScale = 1;
+        // road.roadGridColor = 0xffffff;
+        // road.roadGridAlpha = 1;
+        // road.roadGridBorderColor = 0xafafaf;
         // road.roadScale = 578 / 572;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(road, idx);

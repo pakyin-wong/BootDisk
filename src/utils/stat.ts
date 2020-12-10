@@ -67,44 +67,68 @@ namespace we {
               totalCount: 0,
               bankerPairCount: 0,
               playerPairCount: 0,
+              // tiePairCount: 0,
+              //not sure is bothpairwincount or bothPairWinCount
+              bothPairWinCount: 0,
               remainingCount: 0,
               bankerPercentage: 0,
               playerPercentage: 0,
               tiePercentage: 0,
               bankerPairPercentage: 0,
               playerPairPercentage: 0,
+              // tiePairPercentage: 0,
+              bothPairWinCountPercentage: 0,
               remainingPercentage: 0,
             };
           }
-          const bankerName = 'bankerCount';
-          const playerName = 'playerCount';
-          const tieName = 'tieCount';
-          const totalName = 'totalCount';
-          const bankerPairName = 'bankerPairCount';
-          const playerPairName = 'playerPairCount';
+          let bankerName ;
+          let playerName ;
+          let tieName ;
+          let totalName ;
+          let bankerPairName;
+          let playerPairName;
+          // let tiePairName;
+          let bothPairWinName;
+          // const tiePairName = 'tiePairCount';
           if (shoe) {
-            const bankerName = 'shoeBankerCount';
-            const playerName = 'shoePlayerCount';
-            const tieName = 'shoeTieCount';
-            const totalName = 'shoetTotalCount';
-            const bankerPairName = 'shoeBankerPairCount';
-            const playerPairName = 'shoePlayerPairCount';
+             bankerName = 'shoeBankerCount';
+             playerName = 'shoePlayerCount';
+             tieName = 'shoeTieCount';
+             totalName = 'shoeTotalCount';
+             bankerPairName = 'shoeBankerPairCount';
+             playerPairName = 'shoePlayerPairCount';
+            //  tiePairName = 'tiePairCount';
+             bothPairWinName = "shoeBothPairCount";
+          } else {
+           bankerName = 'bankerCount';
+           playerName = 'playerCount';
+           tieName = 'tieCount';
+           totalName = 'totalCount';
+           bankerPairName = 'bankerPairCount';
+           playerPairName = 'playerPairCount';
+          //  tiePairName = 'tiePairCount';
+           bothPairWinName = "bothPairCount";
           }
-
           const bankerCount = gamestatistic[bankerName];
           const playerCount = gamestatistic[playerName];
           const tieCount = gamestatistic[tieName];
           const totalCount = gamestatistic[totalName];
           const bankerPairCount = gamestatistic[bankerPairName];
           const playerPairCount = gamestatistic[playerPairName];
-          const remainingCount = totalCount - bankerPairCount - playerPairCount;
+          // const bankerPairCount = 3;
+          // const playerPairCount = 2;
+          const bothPairWinCount = gamestatistic[bothPairWinName];
+          // const bothPairWinCount = 1;
+          // const remainingCount = totalCount - bankerPairCount - playerPairCount;
+          const remainingCount = totalCount - bankerPairCount - playerPairCount - bothPairWinCount;
 
-          const bankerPercentage = totalCount === 0 ? 0 : bankerCount / totalCount;
-          const playerPercentage = totalCount === 0 ? 0 : playerCount / totalCount;
-          const tiePercentage = totalCount === 0 ? 0 : tieCount / totalCount;
-          const bankerPairPercentage = totalCount === 0 ? 0 : bankerPairCount / totalCount;
-          const playerPairPercentage = totalCount === 0 ? 0 : playerPairCount / totalCount;
-          const remainingPercentage = totalCount === 0 ? 0 : remainingCount / totalCount;
+          const bankerPercentage = (totalCount===0)?0:bankerCount / totalCount;
+          const playerPercentage = (totalCount===0)?0:playerCount / totalCount;
+          const tiePercentage = (totalCount===0)?0:tieCount / totalCount;
+          const bankerPairPercentage = (totalCount===0)?0:bankerPairCount / totalCount;
+          const playerPairPercentage = (totalCount===0)?0:playerPairCount / totalCount;
+          const bothPairWinCountPercentage = (totalCount===0)?0:bothPairWinCount / totalCount; //
+          const remainingPercentage = (totalCount===0)?0:remainingCount / totalCount;
 
           return {
             bankerCount,
@@ -113,12 +137,17 @@ namespace we {
             totalCount,
             bankerPairCount,
             playerPairCount,
+              // tiePairCount: 0,
+              //not sure is bothpairwincount or bothPairWinCount
+            bothPairWinCount,
             remainingCount,
             bankerPercentage,
             playerPercentage,
             tiePercentage,
             bankerPairPercentage,
             playerPairPercentage,
+            //
+            bothPairWinCountPercentage,
             remainingPercentage,
           };
         }
@@ -153,7 +182,6 @@ namespace we {
              tieName = 'tieCount';
              totalName = 'totalCount';
           }
-          console.log("STAT::gamestatistic",gamestatistic)
           const bankerCount = gamestatistic[bankerName];
           const playerCount = gamestatistic[playerName];
           const tieCount = gamestatistic[tieName];

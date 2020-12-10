@@ -2,13 +2,6 @@
 namespace we {
   export namespace ui {
     export class MobileLiveListItem extends MobileLiveListSimpleItem {
-      // protected _roadmapControl: ba.BARoadmapControl;
-      // protected _roadsContainer: eui.Group;
-      // protected _bigRoadMap: ba.BABigRoad;
-      // protected _bigEyeRoad: ba.BABigEyeRoad;
-      // protected _smallRoad: ba.BASmallRoad;
-      // protected _cockroachRoad: ba.BACockroachRoad;
-
       protected _roadmap: ILobbyRoad & eui.Component;
       protected _gameType: string;
       protected _gameIdx: string;
@@ -27,9 +20,15 @@ namespace we {
         super.initChildren();
       }
 
-      protected destroy() {
-        super.destroy();
-        if (this._roadmap) this._roadmap.parent.removeChild(this._roadmap);
+      // protected destroy() {
+      //   super.destroy();
+      // }
+
+      protected releaseRoadmap() {
+        if (this._bigRoad) {
+          this._bigRoad.parent.removeChild(this._bigRoad);
+          dir.largeRoadPool.release(this._bigRoad, this.tableInfo.gametype);
+        }
       }
 
       public setData(tableInfo: data.TableInfo) {
@@ -81,6 +80,22 @@ namespace we {
             this._roadmap.clearRoadData && this._roadmap.clearRoadData();
           }
         }
+      }
+
+      protected generateFavouriteButton() {
+        const button = new AnimatedToggleButton();
+        button.dbClass = 'lobby_ui';
+        button.dbDisplay = 'd_lobby_icon_fav';
+        button.name = 'ActionButton';
+        button.width = 44;
+        button.height = 42;
+        button.bottom = -80;
+        button.right = 30;
+        button.scaleX = 2;
+        button.scaleY = 2;
+        // button.visible = false;
+        this._favouriteButton = button;
+        this._buttonGroup.addChild(this._favouriteButton);
       }
 
       // protected initCustomPos() {

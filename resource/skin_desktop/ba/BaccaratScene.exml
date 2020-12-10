@@ -15,9 +15,9 @@
 		<ba:CardHolder id="_resultDisplay" width="412" height="152" y="11" horizontalCenter="1" anchorOffsetX="0"
 		               anchorOffsetY="0" />
 	</ui:Group>
-	<ui:Group x="769" y="939" isEdgeDismissable="true">
-		<ui:Group id="_bet">
-			<ui:BetRelatedGroup id="_betRelatedGroup" />
+	<ui:Group x="769" y="939" isEdgeDismissable="true" touchEnabled="false" >
+		<ui:Group id="_bet" touchEnabled="false" >
+			<ui:BetRelatedGroup id="_betRelatedGroup" touchEnabled="false" />
 			<!--<e:Rect id="_roundPanel" width="1039" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 			<e:Rect width="1" height="54" fillAlpha="0.3" fillColor="0x000000" verticalCenter="0" right="460" />
 			-->

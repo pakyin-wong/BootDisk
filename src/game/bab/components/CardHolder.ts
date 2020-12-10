@@ -120,7 +120,7 @@ namespace we {
       }
 
       protected createFactory() {
-        const skeletonData = RES.getRes(`blockchain_ske_json`);
+        const skeletonData = RES.getRes(`blockchain_ske_dbbin`);
         const textureData = RES.getRes(`blockchain_tex_json`);
         const texture = RES.getRes(`blockchain_tex_png`);
         this._factory = new dragonBones.EgretFactory();
@@ -219,7 +219,11 @@ namespace we {
         const cardData = ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
         for (let i = 0; i < this.cardAnimNames.length; i++) {
           const cardAnim = <dragonBones.EgretArmatureDisplay>this[this.cardAnimNames[i]];
-          this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this.getCardIndex(cardData[i], core.GameState.BET));
+          if (this.cardAnimNames[i] === '_smallCard1' || this.cardAnimNames[i] === '_smallCard2') {
+            this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this.getCardIndex(cardData[i], core.GameState.BET),66);
+          } else {
+            this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this.getCardIndex(cardData[i], core.GameState.BET));
+          }
           this.showVerticalLoopBack(cardAnim, 0);
         }
 
@@ -560,7 +564,11 @@ namespace we {
             case '_bankerCard2':
               this.setLabel(this._ringAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + i + 1);
               const cardAnim = <dragonBones.EgretArmatureDisplay>this[this.cardAnimNames[i]];
-              this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + i + 1);
+              if (this.cardAnimNames[i] === '_smallCard1' || this.cardAnimNames[i] === '_smallCard2') {
+                this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + i + 1,66);
+              } else {
+                this.setLabel(cardAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + i + 1);
+              }
               await utils.playAnimation(this._ringAnim, 'poker_in', 1, 'POKER_ROUND_ANIMATION_GROUP');
               await utils.playAnimation(this._ringAnim, 'poker_out', 1, 'POKER_ROUND_ANIMATION_GROUP');
 
@@ -657,6 +665,18 @@ namespace we {
         }
       }
 
+      protected async closeShoe(){
+            await utils.playAnimation(this._ringAnim, 'shoe_out', 1);
+            // await p1;
+            // await p2;
+
+            await this.animateShoe();
+            await this.animatePin();
+
+            await utils.playAnimation(this._ringAnim, 'shoe_in', 1);
+            return new Promise(resolve=>resolve())
+      }
+
       protected setStateShuffle(isInit) {
         if (isInit) {
           (async () => {
@@ -685,14 +705,8 @@ namespace we {
             await this.collapseShoe();
 
             await utils.playAnimation(this.getRedCardAnim(), 'red_poker_out', 1);
-            await utils.playAnimation(this._ringAnim, 'shoe_out', 1);
-            // await p1;
-            // await p2;
+            await this.closeShoe();
 
-            await this.animateShoe();
-            await this.animatePin();
-
-            await utils.playAnimation(this._ringAnim, 'shoe_in', 1);
             // const p3 = utils.waitDragonBone(this._ringAnim);
             // this._ringAnim.animation.fadeIn('shoe_in', 0, 1, 0);
             // await p3;

@@ -31,11 +31,19 @@ namespace we {
         this.reset();
         this.initVariables();
         this.createFactory();
+      }
+
+      protected initAnimRelatedComps(){
         this.createParticles();
         this.createRingAnim();
         this.clonePin();
         this.createCards();
         this.addEventListeners();
+      }
+
+      // could be treated as second part of mount
+      public passBackgrounds(backgrounds : any){
+        this.initAnimRelatedComps();
       }
 
       public abstract setDefaultStates();
@@ -96,6 +104,7 @@ namespace we {
 
       protected createRingAnim() {
         this._ringAnim = this._factory.buildArmatureDisplay('blockchain');
+        this._ringAnim.armature.cacheFrameRate = 24;
         utils.dblistenToSoundEffect(this._ringAnim);
         this._cardUsedMessage = new CardUsedMessage();
         this._cardUsedMessage.width = 0;
@@ -137,6 +146,7 @@ namespace we {
 
       protected createCardAnim() {
         const cardAnim = this._factory.buildArmatureDisplay('poker');
+        cardAnim.armature.cacheFrameRate = 24;
         utils.dblistenToSoundEffect(cardAnim);
         return cardAnim;
       }
@@ -167,16 +177,26 @@ namespace we {
             this.setStateShuffle(isInit);
             break;
           case core.GameState.IDLE:
+            this.setStateIdle(isInit);
+            break;
           default:
             console.log('default updateResult ', gameData);
             break;
         }
       }
 
+      protected setStateIdle(isInit: boolean) {
+        if (isInit || this._gameData.previousstate === core.GameState.SHUFFLE) {
+          this.setDefaultStates();
+        }else{
+          console.log('clearCards() in idle');
+          this.clearCards();          
+        }
+      }
+
       protected async setStateBet(isInit: boolean) {
         console.log('setStateBet() isInit', isInit, this._gameData);
         this.updateAllSum();
-
         if (isInit) {
           this.movePin();
           this.moveShoe();
@@ -188,8 +208,8 @@ namespace we {
           }
           await this.betInitState(core.GameState.BET);
         } else {
-          console.log('clearCards()');
-          await this.clearCards();
+          // console.log('clearCards()');
+          // await this.clearCards();
           console.log('distributeCards()');
           await this.distributeCards();
         }
@@ -302,18 +322,22 @@ namespace we {
       }
 
       protected movePin() {
-        const bone = this._ringAnim.armature.getBone('red_card');
-        const destRad = this.getPinRad();
-        bone.origin.rotation = destRad;
-        bone.invalidUpdate();
-        this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
+        if (this._ringAnim.armature) {
+          const bone = this._ringAnim.armature.getBone('red_card');
+          const destRad = this.getPinRad();
+          bone.origin.rotation = destRad;
+          bone.invalidUpdate();
+          this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
+        }
       }
 
       protected moveShoe() {
-        const bone = this._ringAnim.armature.getBone('shoe_bar');
-        const destRad = this.getShoeRad();
-        bone.origin.rotation = destRad;
-        bone.invalidUpdate();
+        if (this._ringAnim.armature) {
+          const bone = this._ringAnim.armature.getBone('shoe_bar');
+          const destRad = this.getShoeRad();
+          bone.origin.rotation = destRad;
+          bone.invalidUpdate();
+        }
       }
 
       protected abstract async distributeCards();
@@ -395,6 +419,7 @@ namespace we {
       protected getRedCardAnim() {
         if (!this._smallRedCard) {
           this._smallRedCard = this._factory.buildArmatureDisplay('red_card');
+          this._smallRedCard.armature.cacheFrameRate = 24;
           utils.dblistenToSoundEffect(this._smallRedCard);
           this._smallRedCardGroup.addChild(this._smallRedCard);
           this._smallRedCard.addEventListener(mouse.MouseEvent.ROLL_OVER, () => (this._smallRedCardDesc.visible = true), this);

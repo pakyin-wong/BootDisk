@@ -17,38 +17,44 @@
     </e:Group>
   </e:Group>
   <e:Group id="_contentContainer" width="100%" height="219" x="0" y="0">
-    <e:Rect width="578" height="190" x="1" y="0" fillColor="0x202020" anchorOffsetY="0" ellipseHeight="20" ellipseWidth="20" strokeColor="0x5f6973" strokeWeight="2"/>
-    <ui:CountdownTimer id="_timer" width="43" height="43" x="10" y="3" skinName="skin_desktop.CountdownTimerRoundSmallSkin"/>
-    <ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="75" y="15" size="24"/>
+		<e:Group id="_contentContainerStatic" left="0" right="0" top="0" bottom="0">
+			<e:Rect width="578" height="190" x="1" y="0" fillColor="0x202020" anchorOffsetY="0" ellipseHeight="20" ellipseWidth="20" strokeColor="0x5f6973" strokeWeight="2" scaleX="1" scaleY="1"/>
+			<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="75" y="15" size="24" scaleX="1" scaleY="1"/>
+			<e:Component id="_roadmapNode" width="100%" height="139" y="51" x="0" scaleX="1" scaleY="1"/>
+			<ui:ListItemStateLabel id="_stateLabel" horizontalCenter="0" verticalCenter="3" x="289" y="113" scaleX="1" scaleY="1"/>
+			<e:Group id="_shuffleMask" left="0" right="0" bottom="27" top="51" x="0" y="51" scaleX="1" scaleY="1">
+				<ui:RoundRectShape left="0" right="0" top="0" bottom="0" fillColor="0x1e2126" alpha="0.8" cornerBL="8" cornerBR="8" stroke="0" cornerTL="0" cornerTR="0"/>
+				<e:Image width="83" height="72" horizontalCenter="0" y="16" source="icon-shuffle_png"/>
+				<ui:RunTimeLabel id="_shuffleLabel" text="洗牌中" horizontalCenter="0" size="26" height="38" y="88" verticalAlign="middle" textAlign="center" textColor="0xcea56f"/>
+			</e:Group>
+			<e:Group id="_alreadyBetSign" right="5" bottom="40" visible="false" x="473" y="149" scaleX="1" scaleY="1">
+				<e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0" width="100" height="30"/>
+				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="18"/>
+			</e:Group>
+			<live:BetLimitDropdown id="_dropdown" width="200" y="4" anchorOffsetX="0" anchorOffsetY="0" skinName="BetLimitDropdownSkin" right="0" x="378" scaleX="1" scaleY="1"/>
 
-    <e:Component id="_roadmapNode" width="100%" height="139" y="51"/>
-    <e:Group id="_shuffleMask" left="0" right="0" bottom="27" top="51">
-      <ui:RoundRectShape left="0" right="0" top="0" bottom="0" fillColor="0x1e2126" alpha="0.8" cornerBL="8" cornerBR="8" stroke="0" cornerTL="0" cornerTR="0"/>
-      <e:Image width="83" height="72" horizontalCenter="0" y="16" source="icon-shuffle_png"/>
-      <ui:RunTimeLabel id="_shuffleLabel" text="洗牌中" horizontalCenter="0" size="26" height="38" y="88" verticalAlign="middle" textAlign="center" textColor="0xcea56f"/>
     </e:Group>
-    <ui:ListItemStateLabel id="_stateLabel" horizontalCenter="0" verticalCenter="3"/>
-    <ui:InGameMessage
-      id="_message"
-      anchorOffsetX="152"
-      anchorOffsetY="16"
-      skinName="skin_desktop.InGameMessageSkin"
-      width="303"
-      height="32"
-      horizontalCenter="0.5"
-      y="115"
-      infoBg="d_ba_gamerecord_playerelement_png"
-      successBg="d_ba_gamerecord_tieelement_png"
-      errorBg="d_ba_gamerecord_bankerelement_png"/>
-    <e:Group id="_alreadyBetSign" right="5" bottom="40" visible="false">
-      <e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0" width="100" height="30"/>
-      <e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="18"/>
+		<e:Group id="_contentContainerDynamic" left="0" right="0" top="0" bottom="0">
+			<ui:CountdownTimer id="_timer" width="43" height="43" x="10" y="3" skinName="skin_desktop.CountdownTimerRoundSmallSkin" scaleX="1" scaleY="1"/>
+			<ui:InGameMessage id="_message" anchorOffsetX="152" anchorOffsetY="16" skinName="skin_desktop.InGameMessageSkin" width="303" height="32" horizontalCenter="0.5" y="99" infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" x="138" scaleX="1" scaleY="1"/>
+			<e:Component id="_quickbetButtonNode" alpha="0" horizontalCenter="0" y="165" width="148" height="42" x="215" scaleX="1" scaleY="1"/>
+			<!--<ui:AnimatedToggleButton id="_favouriteButton" dbClass="lobby_ui" dbDisplay="d_lobby_icon_fav" width="44" height="42" right="10" bottom="40" visible="false" x="524" y="137" scaleX="1" scaleY="1"/>-->
+    
     </e:Group>
-    <live:BetLimitDropdown id="_dropdown" width="200" y="4" anchorOffsetX="0" anchorOffsetY="0" skinName="BetLimitDropdownSkin" right="0"/>
-    <e:Component id="_quickbetButtonNode" alpha="0" horizontalCenter="0" y="165" width="148" height="42"/>
+
+
+
+
+
+
+
+
+
+
+
     <!--<ui:LobbyQuickBetAnimButton id="_quickbetButton" resName="d_lobby_quick_bet_notification_follow_normal_png" hoverResName="d_lobby_quick_bet_notification_follow_hover_png" alpha="0" horizontalCenter="0" y="180" width="148" height="42"
     label1text="快速投注" label2text="X" /> -->
-    <ui:AnimatedToggleButton id="_favouriteButton" dbClass="lobby_ui" dbDisplay="d_lobby_icon_fav" width="44" height="42" right="10" bottom="40" visible="false"/>
+
   </e:Group>
   <e:Component id="_chipLayerNode" width="100%" skinName="skin_desktop.ba.LiveListItemChipLayerSkin" anchorOffsetY="0" y="0" left="0" alpha="0" name="NormalChipLayerNode" visible="false"/>
   <e:Group id="_maintenanceMask" width="100%" height="219" x="0" scaleX="1" scaleY="1" visible="false">

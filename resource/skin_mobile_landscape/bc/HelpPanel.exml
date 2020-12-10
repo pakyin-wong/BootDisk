@@ -9,16 +9,24 @@
 			<e:Group horizontalCenter="0" top="40">
 				<e:Image y="363" width="80" height="81" left="160" source="m_bcba_panel_instructions_number1_png"/>
 				<e:Image y="50" width="840" height="272" left="260" source="m_bcba_panel_instructions_step1_png"/>
-				<ui:RunTimeLabel i18n="baccarat.mechanismHelp1" y="363" width="850" height="112" size="40" textColor="0xFFFFFF" wordWrap="true" left="260"/>
+				<ui:RunTimeLabel i18n="baccarat.mechanismHelp1" y="363" width="850" height="117" size="40" textColor="0xFFFFFF" wordWrap="true" left="260"/>
 				<e:Image y="363" width="80" height="81" left="1306" source="m_bcba_panel_instructions_number2_png"/>
 				<e:Image y="50" width="840" height="272" left="1395" source="m_bcba_panel_instructions_step2_png"/>
-				<ui:RunTimeLabel i18n="baccarat.mechanismHelp2" y="363" width="850" height="112" size="40" textColor="0xFFFFFF" wordWrap="true" left="1395"/>
+				<ui:RunTimeLabel i18n="baccarat.mechanismHelp2" y="363" width="850" height="196.85" size="40" textColor="0xFFFFFF" wordWrap="true" left="1395" anchorOffsetY="0"/>
 				<e:Image y="928" width="80" height="81" left="160" source="m_bcba_panel_instructions_number3_png"/>
 				<e:Image y="628" width="840" height="272" left="260" source="m_bcba_panel_instructions_step3_png"/>
-				<ui:RunTimeLabel i18n="baccarat.mechanismHelp3" y="928" width="850" height="112" size="40" textColor="0xFFFFFF" wordWrap="true" left="260"/>
+				<ui:RunTimeLabel i18n="baccarat.mechanismHelp3" y="928" width="850" height="187.76" size="40" textColor="0xFFFFFF" wordWrap="true" left="260" anchorOffsetY="0"/>
 				<e:Image y="928" width="80" height="81" left="1306" source="m_bcba_panel_instructions_number4_png"/>
 				<e:Image y="628" width="840" height="272" left="1395" source="m_bcba_panel_instructions_step4_png"/>
 				<ui:RunTimeLabel i18n="baccarat.mechanismHelp4" y="928" width="850" height="112" size="40" textColor="0xFFFFFF" wordWrap="true" left="1395"/>
+
+				<ui:RunTimeLabel i18n="baccarat.mechanismHelpTitle1" y="95" width="300" height="112" size="28" wordWrap="true" left="1926" textColor="0x0f9d5d"/>
+				<ui:RunTimeLabel i18n="baccarat.encryptedKey" y="158" width="300" height="112" size="19" wordWrap="true" left="1926" textColor="0xffffff"/>
+				<ui:RunTimeLabel i18n="baccarat.ssn" y="657" width="300" height="112" size="19" wordWrap="true" left="790" textColor="0xffffff"/>
+				<ui:RunTimeLabel i18n="baccarat.encryptedKey" y="785" width="300" height="112" size="19" wordWrap="true" left="790" textColor="0xffffff"/>
+				<ui:RunTimeLabel i18n="baccarat.ssn" y="685" width="300" height="112" size="19" wordWrap="true" left="1434" textColor="0xffffff"/>
+				<ui:RunTimeLabel i18n="baccarat.thirdParty" y="810" width="159" height="112" size="23.2" wordWrap="true" left="1482" textColor="0xffffff" textAlign="center"/>
+				<ui:RunTimeLabel i18n="baccarat.mechanismHelpTitle2" y="890" width="300" height="112" size="26.8" wordWrap="true" left="2035" textColor="0x0f9d5d"/>
 			</e:Group>
                 </ui:Scroller>
         </e:Group>

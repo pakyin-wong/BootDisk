@@ -24,7 +24,7 @@ namespace we {
       }
 
       protected initCustomPos() {
-        this._buttonGroupShowY = 150;
+        this._buttonGroupShowY = 110;
         this._buttonGroupHideY = 200;
       }
 
@@ -32,14 +32,15 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        // draw border corner radius
-        const shape = new egret.Shape();
-        shape.graphics.beginFill(0xffffff, 1);
-        shape.graphics.drawRoundRect(0, 0, this.width, this.height, 48, 48);
-        shape.graphics.endFill();
+        
+        // update 4/12/2020: no need to use mask to create radius
+        // const shape = new egret.Shape();
+        // shape.graphics.beginFill(0xffffff, 1);
+        // shape.graphics.drawRoundRect(0, 0, this.width, this.height, 48, 48);
+        // shape.graphics.endFill();
+        // this._contentContainer.addChild(shape);
+        // this._contentContainer.mask = shape;
 
-        this._contentContainer.addChild(shape);
-        this._contentContainer.mask = shape;
         this._buttonGroup.alpha = 0;
         this._buttonGroup.y = this._buttonGroupHideY;
         this._buttonGroup.visible = false;
@@ -116,6 +117,17 @@ namespace we {
           evt.stopPropagation();
           return;
         }
+        let t = evt.target;
+        if (t.stage) {
+          while (!(t instanceof egret.Stage)) {
+            if (t.name === 'ActionButton') {
+              evt.stopPropagation();
+              return;
+            } else {
+              t = t.parent;
+            }
+          }
+        }
 
         if (this._isButtonGroupShow) {
           this.hideButtonGroup();
@@ -143,7 +155,36 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitChanged, this);
       }
 
+      protected createFavouriteButton() {
+        this.generateFavouriteButton();
+        if (!this._favouriteButton) return;
+
+        this._favouriteButton.externalClickHandling = true;
+
+        this._favouriteButton.addEventListener('CLICKED', this.onFavouritePressed, this);
+
+        const active = env.favouriteTableList.indexOf(this._tableId) > -1;
+        if (this._favouriteButton.active !== active) {
+          this._favouriteButton.active = active;
+        }
+      }
+
+      protected generateFavouriteButton() {
+
+      }
+
+      protected removeFavouriteButton() {
+        if (this._favouriteButton) {
+          this._favouriteButton.removeEventListener('CLICKED', this.onFavouritePressed, this);
+          this._favouriteButton.parent.removeChild(this._favouriteButton);
+          this._favouriteButton = null;
+        }
+      }
+
       protected showButtonGroup() {
+        if (!this._favouriteButton) {
+          this.createFavouriteButton();
+        }
         this._isButtonGroupShow = true;
         this._dimmer.visible = true;
         this.holder.changeState(ui.TableListItemHolder.STATE_FOCUS);
@@ -163,6 +204,7 @@ namespace we {
           .to({ y: this._buttonGroupHideY, alpha: 0 }, this._tweenInterval1)
           .call(() => {
             this._buttonGroup.visible = false;
+            this.removeFavouriteButton();
           });
 
         if (this.holder.isFocus) {

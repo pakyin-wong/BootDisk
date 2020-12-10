@@ -7,6 +7,10 @@ namespace we {
       private _progressMsg: ui.RunTimeLabel;
       private _tip: ui.NavLantern;
       private _bannerImages: core.IRemoteResourceItem[];
+      private _vBannerImages: core.IRemoteResourceItem[];
+
+      private _banner: core.IRemoteResourceItem;
+      private _bannerIdx: number = -1;
 
       private step: number = 0;
       private flow = [this.preloadRes, this.initSkin, this.preload, this.getBanner, this.idle, this.socketConnect, this.getStaticData, this.idle, this.loadGeneralRes, this.loadingComplete];
@@ -43,9 +47,44 @@ namespace we {
         this.skinName = utils.getSkinByClassname(this._skinKey);
       }
 
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
+        this.setBanner();
+        if (this._banner) {
+          this._bannerSlider.configSlides([this._banner]);
+        }
+      }
+
       private preload() {
         dir.monitor.preload();
         this.next();
+      }
+
+      private async loadBanners(data) {
+        let target;
+        if (data.length>0) {
+          let images: egret.Texture[] | core.IRemoteResourceItem[] = await Promise.all<egret.Texture>(data.map(this._loadRemoteImage));
+          images = images.map(image => ({ image, link: null, imageUrl: null, loaded: true }));
+          target = images;
+        } else {
+          target = [];
+        }
+        return Promise.resolve(target);
+      }
+
+      private setBanner() {
+        if (this._bannerIdx < 0) return;
+        if (env.isMobile && env.orientation == egret.OrientationMode.PORTRAIT) {
+          if (this._vBannerImages.length<=this._bannerIdx) {
+            this._bannerIdx = this._vBannerImages.length -1;
+          }
+          this._banner = this._vBannerImages[this._bannerIdx];
+        } else {
+          if (this._bannerImages.length<=this._bannerIdx) {
+            this._bannerIdx = this._bannerImages.length -1;
+          }
+          this._banner = this._bannerImages[this._bannerIdx];
+        }
       }
 
       private async getBanner() {
@@ -65,9 +104,11 @@ namespace we {
           } else {
             this._tip.messages = res.Tips;
             // preload loading scene banner images
-            let images: egret.Texture[] | core.IRemoteResourceItem[] = await Promise.all<egret.Texture>(res.Bannerurls.map(this._loadRemoteImage));
-            images = images.map(image => ({ image, link: null, imageUrl: null, loaded: true }));
-            this._bannerImages = images;
+            this._bannerImages = await this.loadBanners(res.Bannerurls);
+            this._vBannerImages = await this.loadBanners(res.mBannerurls);
+
+            if (this._bannerImages.length > 0)
+              this._bannerIdx = Math.floor(Math.random()*this._bannerImages.length);
 
             if (res.Nicknames) {
               env.nicknameSet = res.Nicknames;
@@ -112,9 +153,11 @@ namespace we {
           } else {
             this._tip.messages = res.Tips;
             // preload loading scene banner images
-            let images: egret.Texture[] | core.IRemoteResourceItem[] = await Promise.all<egret.Texture>(res.Bannerurls.map(this._loadRemoteImage));
-            images = images.map(image => ({ image, link: null, imageUrl: null, loaded: true }));
-            this._bannerImages = images;
+            this._bannerImages = await this.loadBanners(res.Bannerurls);
+            this._vBannerImages = await this.loadBanners(res.mBannerurls);
+
+            if (this._bannerImages.length > 0 && this._bannerIdx < 0)
+              this._bannerIdx = Math.floor(Math.random()*this._bannerImages.length);
 
             if (res.Nicknames) {
               env.nicknameSet = res.Nicknames;
@@ -158,7 +201,10 @@ namespace we {
 
       /** Step 5: Setup and display idle UI element (tips, promote banner...) */
       private idle() {
-        this._bannerSlider.configSlides(this._bannerImages);
+        this.setBanner();
+        if (this._banner) {
+          this._bannerSlider.configSlides([this._banner]);
+        }
         this.next();
       }
 
@@ -186,7 +232,7 @@ namespace we {
         RES.createGroup('firstRun', [core.res.Lobby, core.res.Baccarat, core.res.DragonTiger, core.res.Roulette, core.res.Dice, core.res.Common, core.res.Nav, core.res.LuckyWheel, 'temp', 'test']);
         RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
         this._progressMsg.renderText = () => `${i18n.t('loading.res.onload')}`;
-        // this._progressbar.minimum = 0;
+        // this._progressbar.minimum = 0;common_ui_ske
         // this._progressbar.maximum = 0;
         // this._progressbar.value = 0;
         await RES.loadGroup('firstRun');
@@ -203,6 +249,7 @@ namespace we {
           // this._progressbar.value = event.itemsLoaded;
           const progress = Math.floor((event.itemsLoaded * 100) / event.itemsTotal) / 100;
           this._progressbar2.proportion = progress;
+                    this._progressMsg.renderText = () => `${i18n.t('loading.res.downloading')} ${(Math.floor(progress * 10000)/100).toString()}%`;
           // console.log('progress', progress);
           // this._progressbar2.proportion =
         }

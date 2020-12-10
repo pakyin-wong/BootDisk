@@ -134,7 +134,7 @@ namespace we {
         egret.Tween.removeTweens(this._quickBetGroup);
         this._quickBetGroup.height = 0;
 
-        egret.Tween.get(this._quickBetGroup).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1);
+        egret.Tween.get(this._quickBetGroup).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1).call(()=>this.onHideCompleted());
 
         if (this._mouseOutside) {
           const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1, y: this._originaly }, this._tweenInterval1, egret.Ease.cubicOut);
@@ -151,6 +151,10 @@ namespace we {
             }
           }, 10);
         }
+      }
+
+      protected onHideCompleted() {
+
       }
 
       public onClickButton(evt: egret.Event) {

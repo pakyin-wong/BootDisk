@@ -10,6 +10,8 @@ namespace we {
 
       protected _roadmapNode: eui.Component;
 
+      protected _contentContainerStatic: eui.Group;
+
       public constructor(skinName: string = null) {
         super(skinName);
       }
@@ -21,12 +23,21 @@ namespace we {
 
       protected destroy() {
         super.destroy();
-        if (this._bigRoad) this._bigRoad.parent.removeChild(this._bigRoad);
+        this.releaseRoadmap();
+      }
+
+      protected releaseRoadmap() {
+        if (this._bigRoad) {
+          this._bigRoad.parent.removeChild(this._bigRoad);
+          dir.smallRoadPool.release(this._bigRoad, this.tableInfo.gametype);
+        }
       }
 
       protected generateRoadmap() {
         if (this.itemInitHelper) {
           this._bigRoad = this.itemInitHelper.generateRoadmap(this._roadmapNode);
+          this._bigRoad.touchEnabled = false;
+          this._bigRoad.touchChildren = false;
         }
       }
 
@@ -65,6 +76,9 @@ namespace we {
         }
         if (this._alreadyBetSign) {
           this._alreadyBetSign.visible = false;
+        }
+        if (this._contentContainerStatic) {
+          this._contentContainerStatic.cacheAsBitmap = true;
         }
       }
 
@@ -166,6 +180,22 @@ namespace we {
           // this._toggler.renderText = () => ` ${i18n.t('baccarat.betLimitshort')} ${items.length > 0 ? items[idx] : ''}`;
           this._toggler.renderText = () => ` ${items.length > 0 ? items[idx] : ''}`;
         }
+      }
+
+      protected generateFavouriteButton() {
+        const button = new AnimatedToggleButton();
+        button.dbClass = 'lobby_ui';
+        button.dbDisplay = 'd_lobby_icon_fav';
+        button.name = 'ActionButton';
+        button.width = 30;
+        button.height = 30;
+        button.bottom = -50;
+        button.right = 45;
+        button.scaleX = 1.5;
+        button.scaleY = 1.5;
+        // button.visible = false;
+        this._favouriteButton = button;
+        this._buttonGroup.addChild(this._favouriteButton);
       }
     }
   }

@@ -43,9 +43,14 @@ namespace we {
           case we.core.GameType.BAC:
           case we.core.GameType.BAI:
           case we.core.GameType.BAS:
+          case we.core.GameType.BAM:
+          case we.core.GameType.BAB:
+          case we.core.GameType.BASB:
+          case we.core.GameType.BAMB:
             generalGameType = 'ba';
             break;
           case we.core.GameType.DT:
+          case we.core.GameType.DTB:
           default:
             generalGameType = 'dt';
             break;
@@ -175,6 +180,21 @@ namespace we {
             this.parent.setChildIndex(this, 1);
           }
         }
+      }
+
+      public onTouchTapWhole(evt: egret.TouchEvent) {
+        // check if the parent name is "ActionButton"
+        let t = evt.target;
+        if (t.stage) {
+          while (!(t instanceof egret.Stage)) {
+            if (t.name === 'ActionButton') {
+              return;
+            } else {
+              t = t.parent;
+            }
+          }
+        }
+        super.onTouchTapWhole(evt);
       }
     }
   }
