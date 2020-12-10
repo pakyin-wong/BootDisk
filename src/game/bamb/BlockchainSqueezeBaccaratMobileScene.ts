@@ -18,6 +18,19 @@ namespace we {
 
       public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat, core.res.BlockchainSqueezeBaccarat];
 
+      protected initChildren() {
+        super.initChildren();
+        if (!env.isFirstTimeBam) {
+          const tutorial = new bam.SqueezeTutorial('SqueezeTutorial');
+          tutorial.x = 106;
+          tutorial.y = 171;
+          tutorial.isDraggable = true;
+          tutorial.isEdgeDismissable = true;
+          this.addChild(tutorial);
+          env.isFirstTimeBam = true;
+          dir.socket.updateSetting('isFirstTimeBam', env.isFirstTimeBam? "1":"0");
+        }
+      }
 
       protected passBackgroundsToResultDisplay(){
         this._resultDisplay.passBackgrounds({
@@ -54,7 +67,6 @@ namespace we {
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         this.toggleBottomGamePanel()
         this.showSumGroup();
-        this.setChildIndex(this._resultDisplay, 99999)
         if (this._previousState !== we.core.GameState.PEEK || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
@@ -74,7 +86,6 @@ namespace we {
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         this.toggleBottomGamePanel()
         this.showSumGroup();
-        this.setChildIndex(this._resultDisplay, 99999)
 
         if (this._previousState !== we.core.GameState.PEEK_PLAYER || isInit) {
           this.setBetRelatedComponentsEnabled(false);
@@ -93,7 +104,6 @@ namespace we {
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         this.toggleBottomGamePanel()
         this.showSumGroup();
-        this.setChildIndex(this._resultDisplay, 99999)
         if (this._previousState !== we.core.GameState.PEEK_BANKER || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);

@@ -2,6 +2,7 @@ namespace we {
   export namespace ui {
     export class BaseAnimationButton extends we.core.BaseEUI implements IButton {
       public static FACTORIES: any = {};
+      protected _touchArea: egret.DisplayObject;
 
       public static getFactory(dbClass): dragonBones.EgretFactory {
         if (!BaseAnimationButton.FACTORIES[dbClass]) {
@@ -96,7 +97,6 @@ namespace we {
           this._display.animation.stop();
           this._display.armature.dispose();
           this._display.dispose();
-          dragonBones.WorldClock.clock.remove(this._display.armature);
           this._display = null;
           if (this._group) this.removeChild(this._group);
         }
@@ -120,21 +120,39 @@ namespace we {
           return;
         }
 
+        const touchArea = this._touchArea ? this._touchArea : this;
+
         if (enabled) {
-          this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
-          this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
-          this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
-          this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
-          this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
-          mouse.setButtonMode(this, true);
+          touchArea.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
+          touchArea.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+          touchArea.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
+          touchArea.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
+          touchArea.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+          mouse.setButtonMode(touchArea, true);
         } else {
-          this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
-          this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
-          this.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
-          this.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
-          this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
-          mouse.setButtonMode(this, false);
+          touchArea.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
+          touchArea.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+          touchArea.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
+          touchArea.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
+          touchArea.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+          mouse.setButtonMode(touchArea, false);
         }
+
+        // if (enabled) {
+        //   this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
+        //   this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+        //   this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
+        //   this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
+        //   this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+        //   mouse.setButtonMode(this, true);
+        // } else {
+        //   this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
+        //   this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+        //   this.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
+        //   this.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
+        //   this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+        //   mouse.setButtonMode(this, false);
+        // }
         const oldState = [this._down, this._hover];
         this._enabled = enabled;
         window.requestAnimationFrame(() => {

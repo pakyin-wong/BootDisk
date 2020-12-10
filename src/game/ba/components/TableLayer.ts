@@ -141,16 +141,13 @@ namespace we {
 
       public async flashFields(gameData: we.data.GameData, superSixMode: boolean) {
         const winningFields = [];
-        const { wintype, issupersix, isbankerpair, isplayerpair } = gameData;
+        const { wintype, issupersix, isbankerpair, isplayerpair, bankerpoint } = gameData as ba.GameData;
 
         if (isbankerpair) {
           winningFields.push(ba.BetField.BANKER_PAIR);
         }
         if (isplayerpair) {
           winningFields.push(ba.BetField.PLAYER_PAIR);
-        }
-        if (issupersix) {
-          winningFields.push(ba.BetField.SUPER_SIX);
         }
 
         switch (wintype) {
@@ -159,6 +156,9 @@ namespace we {
               winningFields.push(ba.BetField.SUPER_SIX_BANKER);
             } else {
               winningFields.push(ba.BetField.BANKER);
+            }
+            if (bankerpoint==6) {
+              winningFields.push(ba.BetField.SUPER_SIX);
             }
             break;
           }

@@ -51,7 +51,7 @@
 				<dt:StatisticChartPanel id="_statisticChartPanel" skinName="skin_mobile_landscape.dt.StatisticChartPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
 			</e:Group>
 			<e:Group id="_infoGroup" width="100%" height="100%" name="Group">
-				<dt:TableInfoPanel id="_tableInfoPanel" skinName="skin_mobile_landscape.dt.TableInfoPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
+				<dt:TableInfoPanel id="_tableInfoPanel" skinName="skin_mobile_landscape.dtb.TableInfoPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
 			</e:Group>
 			</e:ViewStack>
 		</e:Group>

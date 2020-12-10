@@ -46,6 +46,7 @@ namespace we {
           mouse.setButtonMode(this._helpButton, true);
           mouse.setButtonMode(this._deckButton, true);
         }
+        this._beadRoadResultPanel._gameInfoLabel.text= null;
       }
 
       protected passBackgroundToResultDisplay(){
@@ -70,6 +71,7 @@ namespace we {
             case core.GameState.PEEK:
             case core.GameState.PEEK_BANKER:
             case core.GameState.PEEK_PLAYER:
+            case core.GameState.IDLE:
               break;
             default:
               console.log('default state', this._gameData.state);

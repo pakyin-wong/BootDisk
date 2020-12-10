@@ -137,6 +137,7 @@ namespace we {
               }
             });
             this._dataColl.replaceAll(res.history);
+            console.log(' this._dataColl', this._dataColl)
           }
         }
 

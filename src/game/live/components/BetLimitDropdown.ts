@@ -71,6 +71,7 @@ namespace we {
         this._scroller = scroller;
 
         const list = new ui.List();
+        // list.itemRenderer = ui.DropdownItemRenderer;
         list.itemRendererSkinName = 'BetLimitDropdownItemSkin';
         list.top = 0;
         list.percentWidth = 100;

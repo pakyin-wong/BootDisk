@@ -54,6 +54,7 @@
 			                           labelSize="48" x.right_hand_mode="618" y="60" x.left_hand_mode="1604" />
 		<ui:BetRelatedGroup id="_betRelatedGroup" y="71" x.right_hand_mode="762" x.left_hand_mode="600" />
 	</e:Group>
+
 	<ba:MobileBottomGamePanel skinName="skin_mobile_landscape.bamb.MobileBottomGamePanel" id="_bottomGamePanel" width="2424"
 	                          x="1" scaleY="1" y="358" scaleX="1" />
 	<e:layout>
@@ -135,10 +136,10 @@
 	                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" />
 	<ui:RunTimeLabel i18n="baccarat.lastRound" verticalCenter="0" horizontalCenter="0" touchEnabled="false" />
 </e:Group>
-<bamb:MFlipCardHolder id="_flipCardHolder" width="2424" height="900" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
-	                          scaleY="1" y="83" horizontalCenter="0" />
 <bamb:MobileCardHolder id="_resultDisplay" width="2424" height="1242" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
 	                      scaleY="1" x="0" y="0" />
+<bamb:MFlipCardHolder id="_flipCardHolder" width="2424" height="900" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
+	                          scaleY="1" y="83" horizontalCenter="0" />
 <ui:ShuffleMessage id="_shuffleMessage" skinName="skin_mobile_portrait.ShuffleMessage" horizontalCenter="0" y="696"/>
 <bab:GameResultMessage id="_resultMessage" y="169" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" height="229"
                       horizontalCenter="0" />

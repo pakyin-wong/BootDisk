@@ -7,7 +7,7 @@ namespace we {
     }
 
     export function dblistenToSoundEffect(target: dragonBones.IEventDispatcher) {
-      function onDBSoundEvent(event: dragonBones.Event) {
+      function onDBSoundEvent(event: dragonBones.EgretEvent) {
         const evtName = event.eventObject.name;
         const type = evtName.split('_')[0];
         if (type === 'audio') {
@@ -15,7 +15,7 @@ namespace we {
           dir.audioCtr.play(audioResName);
         }
       }
-      target.addDBEventListener(dragonBones.Event.ANIMATION_FRAME_EVENT, onDBSoundEvent, null);
+      target.addDBEventListener(dragonBones.EventObject.FRAME_EVENT, onDBSoundEvent, null);
     }
 
     export function waitDragonBone(target, animName: string = null) {
@@ -23,8 +23,8 @@ namespace we {
     }
     export function waitDragonBoneEvent(target: dragonBones.IEventDispatcher, ev: string, animName: string = null) {
       const p = new Promise((resolve, reject) => {
-        const r = event => {
-          if (!(animName && event.animationName != animName)) {
+        const r = (event: dragonBones.EgretEvent) => {
+          if (!(animName && event.eventObject.animationState.name != animName)) {
             target.removeDBEventListener(ev, r, target);
             resolve();
           }

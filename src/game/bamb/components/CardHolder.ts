@@ -110,6 +110,38 @@ namespace we {
         if (isInit) {
           console.log('setStateDeal isInit')
           this.betInitState(core.GameState.DEAL);
+          const count = ['a1','a2','a3','b1','b2','b3'].reduce((prev, key)=>{
+            return prev + (this._gameData[key]!=''?1:0)
+          },0);
+          switch (count) {
+            case 6:
+              // possible: deal state after peek banker
+              this._smallCard2Exist = false;
+              this.showVerticalOutBack(this._smallCard2, 1);
+            case 5:
+              // possible: deal state after peek banker/ after peek player
+              this._smallCard1Exist = false;
+              this.showVerticalOutBack(this._smallCard1, 1);
+              if (count == 6) {
+                this.setBankerA3Card();
+                this.moveAndShowA3(50);
+                this.setPlayerB3Card();
+                this.moveAndShowB3(50);
+              } else {
+                if (this._gameData['b3']=='') {
+                  this.setBankerA3Card();
+                  this.moveAndShowA3(50);
+                } else {
+                  this.setPlayerB3Card();
+                  this.moveAndShowB3(50);
+                }
+              }
+            case 4:
+              // possible: deal state after peek
+              this.setFirst4Cards();
+              this.flipRemainingFirst4Card();
+            break;
+          }
         }
       }
 
@@ -234,7 +266,7 @@ namespace we {
           this._currentFocusCard = this._playerCard1;
           if (isInit) {
             console.log('isinit setstatepeek play')
-            this._playerCard1.animation.gotoAndStopByFrame('sq_vertical_select_loop', 0);
+            this._playerCard1.animation.gotoAndStopByTime('sq_vertical_select_loop', 0);
           } else {
             console.log('isinit setstatepeek play 2')
             this._playerCard1.animation.play('sq_vertical_select_in', 1);
@@ -250,8 +282,8 @@ namespace we {
 
           if (isInit) {
             console.log('isinit setstatepeek play 3')
-            this._playerCard1.animation.gotoAndStopByFrame('sq_vertical_dark_loop_back', 0)
-            this._playerCard2.animation.gotoAndStopByFrame('sq_vertical_dark_loop_back', 0)
+            this._playerCard1.animation.gotoAndStopByTime('sq_vertical_dark_loop_back', 0)
+            this._playerCard2.animation.gotoAndStopByTime('sq_vertical_dark_loop_back', 0)
 
           } else {
             console.log('isinit setstatepeek play 4')
@@ -271,8 +303,8 @@ namespace we {
           this._openAllBankerGroup.visible = false;
 
           if (isInit) {
-            this._bankerCard1.animation.gotoAndStopByFrame('sq_vertical_dark_loop_back', 0)
-            this._bankerCard2.animation.gotoAndStopByFrame('sq_vertical_dark_loop_back', 0)
+            this._bankerCard1.animation.gotoAndStopByTime('sq_vertical_dark_loop_back', 0)
+            this._bankerCard2.animation.gotoAndStopByTime('sq_vertical_dark_loop_back', 0)
           } else {
             this._bankerCard1.animation.play('sq_vertical_dark_in', 1)
             this._bankerCard2.animation.play('sq_vertical_dark_in', 1)
@@ -286,7 +318,7 @@ namespace we {
           this._currentFocusCard = this._bankerCard1;
           this._flipCardHolder.setCenterCardVisible(true, 'vertical')
           if (isInit) {
-            this._bankerCard1.animation.gotoAndStopByFrame('sq_vertical_select_loop', 0);
+            this._bankerCard1.animation.gotoAndStopByTime('sq_vertical_select_loop', 0);
           } else {
             this._bankerCard1.animation.play('sq_vertical_select_in', 1);
           }
@@ -325,7 +357,7 @@ namespace we {
           this._flipCardHolder.setCenterCardVisible(false, 'horizontal')
           this._flipCardHolder.setCenterCardsTouchEnabled(false, 'horizontal')
           this._playerCard3Group.touchEnabled = false;
-          this._playerCard3.animation.gotoAndStopByFrame('sq_horizontal_dark_loop_back', 0)
+          this._playerCard3.animation.gotoAndStopByTime('sq_horizontal_dark_loop_back', 0)
         }
         this.moveAndShowB3(400);
       }
@@ -337,15 +369,21 @@ namespace we {
           console.log('setStatePeekBanker isInit')
           this.betInitState(core.GameState.DEAL);
           this.setFirst4Cards();
-          this.setPlayerB3Card();
-          if (!this._gameData.b3 && this._smallCard1Exist) {
-            this._smallCard1Exist = false
+          if (this._gameData.b3 !== '') {
+            // if player card 3 is exist, show it
+            this._smallCard1Exist = false;
+            this.setPlayerB3Card();
+            this.moveAndShowB3(50);
           }
         }
         if (this._smallCard1Exist) {
+          // if small card not being used (b3 == ''), use small card 1
           this._smallCard1Exist = false;
           this.showVerticalOutBack(this._smallCard1, 1);
         } else {
+          // else, use both small card 1 and small card 2
+          this._smallCard1Exist = false;
+          this.showVerticalOutBack(this._smallCard1, 1);
           this._smallCard2Exist = false;
           this.showVerticalOutBack(this._smallCard2, 1);
         }
@@ -374,7 +412,7 @@ namespace we {
           this._flipCardHolder.setCenterCardVisible(false, 'horizontal')
           this._flipCardHolder.setCenterCardsTouchEnabled(false, 'horizontal')
           this._bankerCard3Group.touchEnabled = false;
-          this._bankerCard3.animation.gotoAndStopByFrame('sq_horizontal_dark_loop_back', 0)
+          this._bankerCard3.animation.gotoAndStopByTime('sq_horizontal_dark_loop_back', 0)
         }
         this.moveAndShowA3(400);
       }
@@ -547,14 +585,18 @@ namespace we {
         this.checkCardAllOpened();
         const nextCard = this.nextCard();
         if (nextCard) {
+          this.showNextFlippedCard(nextCard,orientation)
+        } else {
+          this.hideCenterCard(orientation);
+        }
+      }
+
+      protected showNextFlippedCard(nextCard: dragonBones.EgretArmatureDisplay,orientation: string){
           nextCard.animation.play(`sq_${orientation}_select_in`)
           this._flipCardHolder.setCenterTweenFlipCardFront(this._gameData[this.cardToData(this._currentFocusCard)], orientation);
           this._flipCardHolder.crossfadeCenterCardAnim(orientation)
           this._currentFocusCard = nextCard
           this._flipCardHolder.setCenterFlipCard(this._gameData[this.cardToData(this._currentFocusCard)], orientation, this.cardToData(this._currentFocusCard));
-        } else {
-          this.hideCenterCard(orientation);
-        }
       }
 
       protected hideCenterCard(orientation: string) {
@@ -612,7 +654,7 @@ namespace we {
 
           if (this._currentFocusCard) {
             if (this._currentFocusCard.name === 'flipped') {
-              this._currentFocusCard.animation.gotoAndStopByFrame(`sq_${orientation}_loop_front`, 0)
+              this._currentFocusCard.animation.gotoAndStopByTime(`sq_${orientation}_loop_front`, 0)
             } else {
               this._currentFocusCard.animation.play(`sq_${orientation}_select_out`, 1)
             }
