@@ -42,8 +42,14 @@ namespace we {
       betfield_baccarat_tie: '和',
       betfield_baccarat_banker_pair: '庄对',
       betfield_baccarat_player_pair: '闲对',
-      betfield_baccarat_super_six: '超级六',
+
+      betfield_baccarat_super_six_player: '闲',
       betfield_baccarat_super_six_banker: '庄',
+      betfield_baccarat_super_six_player_pair: '闲对',
+      betfield_baccarat_super_six_tie: '和',
+      betfield_baccarat_super_six: '超级六',
+      betfield_baccarat_super_six_banker_pair: '庄对',
+
       betfield_dragonTiger_dragon: '龙',
       betfield_dragonTiger_tiger: '虎',
       betfield_dragonTiger_tie: '和',

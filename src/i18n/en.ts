@@ -42,8 +42,14 @@ namespace we {
       betfield_baccarat_tie: 'tie',
       betfield_baccarat_banker_pair: 'b-pair',
       betfield_baccarat_player_pair: 'p-pair',
-      betfield_baccarat_super_six: 'super 6',
+
+      betfield_baccarat_super_six_player: 'player',
       betfield_baccarat_super_six_banker: 'banker',
+      betfield_baccarat_super_six_player_pair: 'p-pair',
+      betfield_baccarat_super_six_tie: 'tie',
+      betfield_baccarat_super_six: 'super 6',
+      betfield_baccarat_super_six_banker_pair: 'b-pair',
+
       betfield_dragonTiger_dragon: 'dragon',
       betfield_dragonTiger_tiger: 'tiger',
       betfield_dragonTiger_tie: 'tie',
