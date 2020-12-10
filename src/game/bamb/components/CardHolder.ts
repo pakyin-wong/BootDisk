@@ -266,7 +266,7 @@ namespace we {
           this._currentFocusCard = this._playerCard1;
           if (isInit) {
             console.log('isinit setstatepeek play')
-            this._playerCard1.animation.gotoAndStopByFrame('sq_vertical_select_loop', 0);
+            this._playerCard1.animation.gotoAndStopByTime('sq_vertical_select_loop', 0);
           } else {
             console.log('isinit setstatepeek play 2')
             this._playerCard1.animation.play('sq_vertical_select_in', 1);
@@ -282,8 +282,8 @@ namespace we {
 
           if (isInit) {
             console.log('isinit setstatepeek play 3')
-            this._playerCard1.animation.gotoAndStopByFrame('sq_vertical_dark_loop_back', 0)
-            this._playerCard2.animation.gotoAndStopByFrame('sq_vertical_dark_loop_back', 0)
+            this._playerCard1.animation.gotoAndStopByTime('sq_vertical_dark_loop_back', 0)
+            this._playerCard2.animation.gotoAndStopByTime('sq_vertical_dark_loop_back', 0)
 
           } else {
             console.log('isinit setstatepeek play 4')
@@ -303,8 +303,8 @@ namespace we {
           this._openAllBankerGroup.visible = false;
 
           if (isInit) {
-            this._bankerCard1.animation.gotoAndStopByFrame('sq_vertical_dark_loop_back', 0)
-            this._bankerCard2.animation.gotoAndStopByFrame('sq_vertical_dark_loop_back', 0)
+            this._bankerCard1.animation.gotoAndStopByTime('sq_vertical_dark_loop_back', 0)
+            this._bankerCard2.animation.gotoAndStopByTime('sq_vertical_dark_loop_back', 0)
           } else {
             this._bankerCard1.animation.play('sq_vertical_dark_in', 1)
             this._bankerCard2.animation.play('sq_vertical_dark_in', 1)
@@ -318,7 +318,7 @@ namespace we {
           this._currentFocusCard = this._bankerCard1;
           this._flipCardHolder.setCenterCardVisible(true, 'vertical')
           if (isInit) {
-            this._bankerCard1.animation.gotoAndStopByFrame('sq_vertical_select_loop', 0);
+            this._bankerCard1.animation.gotoAndStopByTime('sq_vertical_select_loop', 0);
           } else {
             this._bankerCard1.animation.play('sq_vertical_select_in', 1);
           }
@@ -357,7 +357,7 @@ namespace we {
           this._flipCardHolder.setCenterCardVisible(false, 'horizontal')
           this._flipCardHolder.setCenterCardsTouchEnabled(false, 'horizontal')
           this._playerCard3Group.touchEnabled = false;
-          this._playerCard3.animation.gotoAndStopByFrame('sq_horizontal_dark_loop_back', 0)
+          this._playerCard3.animation.gotoAndStopByTime('sq_horizontal_dark_loop_back', 0)
         }
         this.moveAndShowB3(400);
       }
@@ -412,7 +412,7 @@ namespace we {
           this._flipCardHolder.setCenterCardVisible(false, 'horizontal')
           this._flipCardHolder.setCenterCardsTouchEnabled(false, 'horizontal')
           this._bankerCard3Group.touchEnabled = false;
-          this._bankerCard3.animation.gotoAndStopByFrame('sq_horizontal_dark_loop_back', 0)
+          this._bankerCard3.animation.gotoAndStopByTime('sq_horizontal_dark_loop_back', 0)
         }
         this.moveAndShowA3(400);
       }
@@ -654,7 +654,7 @@ namespace we {
 
           if (this._currentFocusCard) {
             if (this._currentFocusCard.name === 'flipped') {
-              this._currentFocusCard.animation.gotoAndStopByFrame(`sq_${orientation}_loop_front`, 0)
+              this._currentFocusCard.animation.gotoAndStopByTime(`sq_${orientation}_loop_front`, 0)
             } else {
               this._currentFocusCard.animation.play(`sq_${orientation}_select_out`, 1)
             }

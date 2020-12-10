@@ -1,10 +1,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
 const crypto = require('crypto');
-export class WxgamePlugin implements plugins.Command {
-    private useWxPlugin:boolean = false;
-    constructor(useWxPlugin:boolean) {
-        this.useWxPlugin = useWxPlugin
+export class QhgamePlugin implements plugins.Command {
+    constructor() {
     }
     md5Obj = {}
     md5(content) {
@@ -12,7 +10,6 @@ export class WxgamePlugin implements plugins.Command {
         return md5.update(content).digest('hex');
     }
     async onFile(file: plugins.File) {
-        
         if (file.extname == '.js') {
             const filename = file.origin;
             if (filename == "libs/modules/promise/promise.js" || filename == 'libs/modules/promise/promise.min.js') {
@@ -39,6 +36,8 @@ export class WxgamePlugin implements plugins.Command {
                     content += ";window.eui = eui;"
                 }
                 if (filename == 'libs/modules/dragonBones/dragonBones.js' || filename == 'libs/modules/dragonBones/dragonBones.min.js') {
+                    content = content.replace(`    define(["dragonBones"], function () { return dragonBones; });`, `    // define(["dragonBones"], function () { return dragonBones; });`);
+                    content = content.replace(`{define(["dragonBones"],function(){return dragonBones})}`, `{/*define(["dragonBones"],function(){return dragonBones})*/}`);
                     content += ';window.dragonBones = dragonBones';
                 }
                 content = "var egret = window.egret;" + content;
@@ -56,7 +55,7 @@ export class WxgamePlugin implements plugins.Command {
         //同步 index.html 配置到 game.js
         const gameJSPath = path.join(outputDir, "game.js");
         if (!fs.existsSync(gameJSPath)) {
-            console.log(`${gameJSPath}不存在，请先使用 Launcher 发布微信小游戏`);
+            console.log(`${gameJSPath}不存在，请先使用 Launcher 发布360小游戏`);
             return;
         }
         let gameJSContent = fs.readFileSync(gameJSPath, { encoding: "utf8" });
@@ -91,53 +90,7 @@ export class WxgamePlugin implements plugins.Command {
         if (buildConfig.command !== "publish" && gameJSONContent.plugins && gameJSONContent.plugins['egret-library']) {
             delete gameJSONContent.plugins["egret-library"]
         }
-        this.writeData(gameJSONContent, gameJSONPath)
-
-        //下面的流程是配置开启微信插件的功能
-        let engineVersion = this.readData(path.join(projectRoot, "egretProperties.json")).engineVersion;
-        if (!gameJSONContent.plugins) {
-            gameJSONContent.plugins = {}
-        }
-        if(buildConfig.command == "publish" && this.useWxPlugin){
-            gameJSONContent.plugins["egret-library"] = {
-                "provider": "wx7e2186943221985d",
-                "version": engineVersion,
-                "path": "egret-library"
-            }
-        }else{
-            gameJSONContent.plugins = {}
-        }
-        
-        this.writeData(gameJSONContent, gameJSONPath)
-
-        if (buildConfig.command !== "publish" || !this.useWxPlugin) {
-            return
-        }
-        
-        let libDir = path.join(outputDir, "egret-library")
-        try{
-            fs.mkdirSync(libDir)
-        }catch(e){}
-        let pluginData = { "main": "index.js" }
-        this.writeData(pluginData, path.join(libDir, "plugin.json"))
-        let engineJS = ['assetsmanager', 'dragonBones', 'egret', 'game', 'eui', 'socket', 'tween']
-        let signatureData: any = {
-            "provider": "wx7e2186943221985d",
-            "signature": []
-        }
-        for (let i in engineJS) {
-            let name = engineJS[i] + '.min.js'
-            if (this.md5Obj[name]) {
-                let jsInfo: any = {
-                    "path": name,
-                    "md5": this.md5Obj[name]
-                }
-                signatureData.signature.push(jsInfo)
-            }
-        }
-        this.writeData(signatureData, path.join(libDir, "signature.json"))
-        fs.writeFileSync(path.join(libDir, "index.js"), null);
-
+        this.writeData(gameJSONContent, gameJSONPath);
     }
 
     readData(filePath: string): any {
