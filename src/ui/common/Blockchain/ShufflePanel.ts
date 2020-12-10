@@ -162,7 +162,7 @@ namespace we {
         const texture = RES.getRes(utils.getCardResName(resName));
         const meshDistData = card.displayData as dragonBones.MeshDisplayData;
 
-        let textureData = new dragonBones.EgretTextureData();
+        let textureData = new dragonBones['EgretTextureData']();
         textureData.renderTexture = texture;
         meshDistData.texture = textureData;
         card.armature.replacedTexture == null;
@@ -306,7 +306,7 @@ namespace we {
         for (let i = 1; i < 8 && i <= skipped; i++) {
           const cardGroup = this.createBurnCard(i + 1);
           this._firstRowGroup.addChild(cardGroup.group);
-          cardGroup.card.animation.gotoAndStop('burn_card_loop', 0);
+          cardGroup.card.animation.gotoAndStopByTime('burn_card_loop', 0);
           cardGroup.card.visible = false;
           this._cards.push(cardGroup.card);
         }
@@ -314,7 +314,7 @@ namespace we {
         for (let i = 8; i <= skipped; i++) {
           const cardGroup = this.createBurnCard(i + 1);
           this._secondRowGroup.addChild(cardGroup.group);
-          cardGroup.card.animation.gotoAndStop('burn_card_loop', 0);
+          cardGroup.card.animation.gotoAndStopByTime('burn_card_loop', 0);
           cardGroup.card.visible = false;
           this._cards.push(cardGroup.card);
         }

@@ -18,6 +18,19 @@ namespace we {
 
       public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat, core.res.BlockchainSqueezeBaccarat];
 
+      protected initChildren() {
+        super.initChildren();
+        if (!env.isFirstTimeBam) {
+          const tutorial = new bam.SqueezeTutorial('SqueezeTutorial');
+          tutorial.x = 106;
+          tutorial.y = 171;
+          tutorial.isDraggable = true;
+          tutorial.isEdgeDismissable = true;
+          this.addChild(tutorial);
+          env.isFirstTimeBam = true;
+          dir.socket.updateSetting('isFirstTimeBam', env.isFirstTimeBam? "1":"0");
+        }
+      }
 
       protected passBackgroundsToResultDisplay(){
         this._resultDisplay.passBackgrounds({

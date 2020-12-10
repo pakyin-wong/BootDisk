@@ -355,7 +355,7 @@ namespace we {
               //   cardAnim.animation.play('vertical_in', 1);
               //   await p1;
 
-              //   cardAnim.animation.gotoAndStopByFrame('vertical_loop_back', 0);
+              //   cardAnim.animation.gotoAndStopByTime('vertical_loop_back', 0);
 
               //   return new Promise(resolve => resolve());
               // })();
@@ -378,7 +378,7 @@ namespace we {
               await utils.playAnimation(this._ringAnim, 'poker_in', 1, 'POKER_ROUND_ANIMATION_GROUP');
               await utils.playAnimation(this._ringAnim, 'poker_out', 1, 'POKER_ROUND_ANIMATION_GROUP');
               await utils.playAnimation(cardAnim, 'vertical_in', 1);
-              cardAnim.animation.gotoAndStopByFrame('vertical_loop_back', 0);
+              cardAnim.animation.gotoAndStopByTime('vertical_loop_back', 0);
           }
 
           if (this._gameData.currentcardindex + i + 1 === this._gameData.redcardindex) {

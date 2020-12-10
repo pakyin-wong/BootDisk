@@ -46,6 +46,7 @@ namespace we {
           mouse.setButtonMode(this._helpButton, true);
           mouse.setButtonMode(this._deckButton, true);
         }
+        this._beadRoadResultPanel._gameInfoLabel.text= null;
       }
 
       protected passBackgroundToResultDisplay(){

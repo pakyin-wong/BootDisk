@@ -24,12 +24,12 @@ namespace we {
 
       protected initAnimRelatedComps(){
         super.initAnimRelatedComps();
-        this._ringAnim.animation.gotoAndStopByFrame('icon_loop',0);
+        this._ringAnim.animation.gotoAndStopByTime('icon_loop',0);
         this.expandBottom();
       }
 
       protected async setStateBet(isInit: boolean) {
-        //this._centerBurnCard.animation.gotoAndStopByFrame('',0)
+        this._centerBurnCard.animation.gotoAndStopByTime('',0)
         await super.setStateBet(isInit);
         if(isInit){
           await utils.playAnimation(this._ringAnim,'icon_loop',1)

@@ -174,8 +174,8 @@ namespace we {
         const slot = chip.armature.getSlot('card_number_vertical');
 
         // create a new ImageDisplayData with a EgretTextureData holding the new texture
-        const displayData: dragonBones.ImageDisplayData = new dragonBones.ImageDisplayData();
-        let textureData: dragonBones.EgretTextureData = new dragonBones.EgretTextureData();
+        // const displayData: dragonBones.ImageDisplayData = new dragonBones.ImageDisplayData();
+        let textureData = new dragonBones['EgretTextureData']();
         textureData.renderTexture = cardLabel.texture;
         textureData.region.x = 0;
         textureData.region.y = 0;
@@ -183,27 +183,29 @@ namespace we {
         textureData.region.height = textureData.renderTexture.textureHeight;
         textureData.parent = new dragonBones.EgretTextureAtlasData();
         textureData.parent.scale = 1;
-        displayData.texture = textureData;
-        displayData.pivot.x = 0.5;
-        displayData.pivot.y = 0.5;
+        // displayData.texture = textureData;
+        // displayData.pivot.x = 0.5;
+        // displayData.pivot.y = 0.5;
 
-        // type 0 is ImageDisplayData
-        displayData.type = 0;
+        // // type 0 is ImageDisplayData
+        // displayData.type = 0;
 
-        // replace the original displayData
-        slot.replaceDisplayData(displayData, 0);
+        // // replace the original displayData
+        // slot.replaceDisplayData(displayData, 0);
+        slot.replaceTextureData(textureData, 0);
 
-        // set the displayIndex to non zero since new value == current index will not trigger redraw
-        slot.displayIndex = -1;
-        slot.displayIndex = 0;
+        // // set the displayIndex to non zero since new value == current index will not trigger redraw
+        // slot.displayIndex = -1;
+        // slot.displayIndex = 0;
 
         /// update the card by replacing the MeshDisplayData of the slot
         // update poker card front by update the texture instead of changing the display
         const card = chip.armature.getSlot('card_back_vertical');
         const cardStr = utils.getCardResName(utils.formatCardForFlip(`diamond${Math.floor(Math.random() * 6 + 3)}`));
         const texture = RES.getRes(cardStr);
-        const meshDistData = card.displayData as dragonBones.MeshDisplayData;
-        textureData = new dragonBones.EgretTextureData();
+        const displayFrame = card.getDisplayFrameAt(0);
+        const meshDistData = displayFrame.rawDisplayData as dragonBones.MeshDisplayData;
+        textureData = new dragonBones['EgretTextureData']();
         textureData.renderTexture = texture;
         meshDistData.texture = textureData;
         card.armature.replacedTexture == null;
