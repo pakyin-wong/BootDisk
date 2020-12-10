@@ -7,17 +7,17 @@
 		<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,8,8" width="339" height="100" x="0" y="0" stroke="2" strokeColor="0x000000"
 		                   fillColor="0x282828" strokeIn="2" strokeInColor="0x3a3f48" />
 		<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" x="143" y="5"
-		                           skinName="skin_desktop.BetChipSkin" chipScale="1.2" tooltipText="'sidePanel.changeChip'" />
+		                           skinName="skin_desktop.BetChipSkin" chipScale="1.2" tooltipText="'quickBet.tooltip.switchChips'" />
 		<ui:BaseImageButton id="_closeButton" x="12" y="20" width="56" height="60" currentState="lobby_betcontrol_close"
-		                    skinName="skin_desktop.ImageButtonSkinLobby" />
+		                    skinName="skin_desktop.ImageButtonSkinLobby" tooltipText="'quickBet.tooltip.close'" tooltipPosition="'above'" />
 		<ui:BaseImageButton id="_prevButton" x="68" y="20" width="56" height="60" currentState="lobby_betcontrol_previous"
-		                    skinName="skin_desktop.ImageButtonSkinLobby" />
+		                    skinName="skin_desktop.ImageButtonSkinLobby" tooltipText="'quickBet.tooltip.undo'" tooltipPosition="'above'"/>
 		<!--<ui:BaseImageButton id="_confirmButton" right="10" top="30" width="80" height="40"
 		                        currentState="lobby_confirm_button" skinName="skin_desktop.ImageButtonSkinLobby" />
 		-->
 		<ui:RoundRectButton id="_confirmButton" x="235" y="22" cornerTL_TR_BL_BR="25,25,25,25" width="90" height="52"
 		                    stroke="0" strokeIn="0" fillColor="00aa5e" fillAlpha="1" fillAlpha_hover="0.7"
-		                    fillColor_hover="0x0f9d5d" currentState="lobby_confirm_button" />
+		                    fillColor_hover="0x0f9d5d" currentState="lobby_confirm_button" tooltipText="'quickBet.tooltip.confirm'" tooltipPosition="'above'" />
 		<e:Image x="265" y="37" width="30" height="20" source="d_lobby_panel_betcontrol_btn_confirm_icon_png"
 		         touchEnabled="false" />
 	</e:Group>
