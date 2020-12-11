@@ -17,7 +17,7 @@
 	<e:Group x="19" y="66">
 		<e:Image width="21" height="21" source="d_ba_roadmap_bar_bankerstate_png" />
 		<ui:RunTimeLabel id="_firstLabel" text="B" size="10" verticalAlign="middle" bold="true" verticalCenter="0"
-		                 horizontalCenter="0" i18n="baccarat.bankerShort" />
+		                 horizontalCenter="0" i18n="dragontiger.tiger" />
 	</e:Group>
 	<e:Group x="8" y="86" width="43">
 		<e:Label id="_firstCountLabel" text="50" textAlign="center" horizontalCenter="0" y="0" size="22"  fontFamily="Barlow"/>
@@ -32,7 +32,7 @@
 	<e:Group x="64" y="66">
 		<e:Image width="21" height="21" source="d_ba_roadmap_bar_playerstate_png" />
 		<ui:RunTimeLabel id="_secondLabel" text="P" size="10" verticalAlign="middle" bold="true" verticalCenter="0"
-		                 horizontalCenter="0" i18n="baccarat.playerShort" />
+		                 horizontalCenter="0" i18n="dragontiger.dragon" />
 	</e:Group>
 	<e:Group x="53" y="86" width="43">
 		<e:Label id="_secondCountLabel" text="50" textAlign="center" horizontalCenter="0" y="0" size="22"  fontFamily="Barlow"/>
