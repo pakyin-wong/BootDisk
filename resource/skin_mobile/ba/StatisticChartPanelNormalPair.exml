@@ -4,12 +4,12 @@
 	<ui:RoundRectShape cornerTL_TR_BL_BR="20,20,20,20" width="576" height="240" x="0" bottom="0" stroke="0"
 	                   fillColor="0x00000000" />
 	<e:Group x="30" y="20" >
-	<ui:RunTimeLabel text="庄閒和比例" x="24" y="12" height="27" size="32" textAlign="left"
-	          verticalAlign="middle" bold="true" i18n="baccarat.PairRatio" />
+	<ui:RunTimeLabel text="庄閒和比例" x="24" y="12" height="31" size="32" textAlign="left"
+	          verticalAlign="middle" bold="true" i18n="baccarat.PairRatio"  anchorOffsetY="0"/>
 		<ui:Label text="(" x="24" y="12" height="27" size="32" textAlign="left"
 	          verticalAlign="middle" bold="true" />
-		<ui:RunTimeLabel text="100局" x="24" y="12" height="27" size="32" textAlign="left"
-	          verticalAlign="middle" bold="true" i18n="baccarat.statType100" />
+		<ui:RunTimeLabel text="100局" x="24" y="12" height="34" size="32" textAlign="left"
+	          verticalAlign="middle" bold="true" i18n="baccarat.statType100"  anchorOffsetY="0"/>
 		<ui:Label text=")" x="24" y="12" height="27" size="32" textAlign="left"
 	          verticalAlign="middle" bold="true" />
 		<e:layout>

@@ -15,18 +15,31 @@ namespace we {
       protected _wholeMoveGroup: eui.Group;
       protected _animRingGroup: eui.Group;
       protected _resultDisplay: ui.IResultDisplay & we.blockchain.CardHolder & we.bamb.MobileCardHolder
+      public tutorial: we.bam.SqueezeTutorial;
+      protected tutorial_page_index: number;
+
+
 
       public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat, core.res.BlockchainSqueezeBaccarat];
 
       protected initChildren() {
         super.initChildren();
-        if (!env.isFirstTimeBam) {
-          const tutorial = new bam.SqueezeTutorial('SqueezeTutorial');
-          tutorial.x = 106;
-          tutorial.y = 171;
-          tutorial.isDraggable = true;
-          tutorial.isEdgeDismissable = true;
-          this.addChild(tutorial);
+if (env.isFirstTimeBam) {
+          this.tutorial = new bam.SqueezeTutorial('SqueezeTutorial', this.tutorial_page_index || 0);
+          this.tutorial.isDraggable = false;
+          this.tutorial.isEdgeDismissable = false;
+
+          if (env.orientation === 'portrait') {
+            dir.layerCtr.nav.visible = false;
+            this.tutorial.x = 0;
+            this.tutorial.y = 0;
+            this.tutorial.width = 1242;
+            this.tutorial.height = 2155;
+          } else if (env.orientation === 'landscape') {
+            this.tutorial.bottom = 44;
+            this.tutorial.horizontalCenter = 0;
+          }
+          this.addChild(this.tutorial);
           env.isFirstTimeBam = true;
           dir.socket.updateSetting('isFirstTimeBam', env.isFirstTimeBam? "1":"0");
         }

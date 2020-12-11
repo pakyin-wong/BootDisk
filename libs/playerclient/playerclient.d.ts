@@ -74,6 +74,8 @@ declare class PlayerClient {
     getPlayerStatistic(filter: object, callback?: Function): void;
     getPlayerLotteryStatistic(filter: object, callback?: Function): void;
     sendVerifyInfo(tableID: string, pattern: string[], callback?: Function): void;
+    getGameStatusBA(hostID: string, option: number, callback?: Function): void;
+    getGameStatusDT(hostID: string, option: number, callback?: Function): void;
     private _handleGetTableList;
     private _handleTableInfoUpdate;
     private _isTableInfoCallbackEmpty;

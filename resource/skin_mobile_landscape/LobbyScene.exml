@@ -11,7 +11,7 @@
 			<e:Rect ellipseWidth="120" ellipseHeight="120" fillAlpha="0.2" left="0" right="0" top="0" bottom="0"/>
 				<e:TabBar id="_list" height="120">
 					<e:layout>
-					<e:HorizontalLayout gap="99" verticalAlign="middle" horizontalAlign="center" paddingLeft="91" paddingRight="91"/>
+					<e:HorizontalLayout verticalAlign="middle" horizontalAlign="center" gap="48" paddingLeft="40" paddingRight="40"/>
 					</e:layout>
 				</e:TabBar>
 			</e:Group>

@@ -2,8 +2,10 @@
 <e:Skin class="skin_mobile_portrait.PlayerProfile" height="2155" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="1242">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
-		<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x14181e" />
-		<e:Image id="close" width="96" height="96" right="26" top="68" source="d-lobby-button-close-none_png" locked="true" />
+		<e:Group id="close" height="220" width="190" x="1052" y="0">
+			<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x14181e" x="-1052" y="0" scaleX="1" scaleY="1" fillAlpha="0"/>
+			<e:Image width="96" height="96" right="26" top="68" source="d-lobby-button-close-none_png" x="68" y="68" scaleX="1" scaleY="1"/>
+		</e:Group>
 		<e:Group id="_maskContainer" width="1242" height="2155">
 			<e:Group id="_section_main" x="0" y="0" width="1242" height="2155">
 				<e:Image width="435" height="373" y="271" source="m_common_setting_playinfo_profilepic_oval_png"
@@ -39,17 +41,21 @@
 				         textAlign="right" verticalAlign="middle"  visible="false"/>
 				<e:Label id="_favouriteDealer" text="Label" y="1846" height="72" right="96" size="60"
 				         textAlign="right" verticalAlign="middle"  visible="false"/>
-				<ui:BaseImageButton id="_editName" width="58" height="60" x="1087" y="710"
-				                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_profile_edit" />
-				<ui:BaseImageButton width="57" height="58" x="1088" y="831" skinName="skin_mobile_portrait.ImageButtonSkinNav"
-				                    currentState="lobby_profile_reload" />
+				<e:Group id="_editName" width="100" height="100" x="1065" y="690">
+					<ui:BaseImageButton width="58" height="60" x="22" y="20" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_profile_edit" scaleX="1" scaleY="1"/>
+				</e:Group>
+				<e:Group width="100" height="100" x="1065" y="811">
+					<ui:BaseImageButton width="57" height="58" x="23" y="20" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_profile_reload" scaleX="1" scaleY="1"/>
+				</e:Group>
 				<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="55.00000000000001" width="1000" height="119"
 				                 verticalAlign="middle" textColor="0xc59466" size="80" bold="true" scaleX="1" scaleY="1" />
+				<e:Rect width="20" height="20" x="1079" y="164"/>
 			</e:Group>
 			<e:Group id="_section_iconSelect" x="1242" width="1242" height="2155" y="0">
-				<e:Image id="_sectionBackIcon" width="30" height="54" x="51" y="87" source="m_common_btn_previous_png" />
-				<ui:RunTimeLabel id="_txt_setting" text="頭像設定" y="53" size="80" height="119" textAlign="center" textColor="0xce925e"
-				         verticalAlign="middle" x="121" />
+				<e:Group id="_sectionBackIcon" height="225">
+					<e:Image width="30" height="54" x="51" y="87" source="m_common_btn_previous_png" scaleX="1" scaleY="1"/>
+					<ui:RunTimeLabel id="_txt_setting" text="頭像設定" y="53.00000000000001" size="80" height="119" textAlign="center" textColor="0xce925e" verticalAlign="middle" x="121" scaleX="1" scaleY="1"/>
+				</e:Group>
 				<ui:Scroller id="_iconScroller" height="1445" width="1050" x="96" y="316">
 					<e:Group>
 						<e:List id="_iconList">

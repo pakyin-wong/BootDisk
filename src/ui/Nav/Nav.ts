@@ -7,7 +7,7 @@ namespace we {
       private _profile_toggle: eui.Group;
       private _profile: overlay.PlayerProfile;
       // private _playerProfile: overlay.PlayerProfile;
-      private _menu_toggle: eui.Image;
+      private _menu_toggle: egret.DisplayObject;
       private _menu: Panel;
       private _slider_toggle: ui.BaseImageButton;
 
@@ -17,7 +17,7 @@ namespace we {
       private _balanceText: ui.RunTimeLabel;
 
       private _profilePrc: eui.Image;
-      private _refreshButton: ui.BaseAnimationButton;
+      private _refreshButton: egret.DisplayObject;
 
       private isPlayerProfileOpened: boolean = false;
       // from Monitor.ts
