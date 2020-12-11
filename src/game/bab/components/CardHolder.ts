@@ -461,6 +461,7 @@ namespace we {
               }
               this.setLabel(this._playerCard3.armature.getSlot(`card_number_horizontal`), this._gameData.currentcardindex);
               this._playerCard3.animation.play(`horizontal_flip`, 1);
+              await utils.playAnimation(this._playerCard3, `horizontal_flip`, 1);
               this.updatePlayerSum();
               this.updateBankerSum();
               break;
@@ -482,6 +483,7 @@ namespace we {
               }
               this.setLabel(this._bankerCard3.armature.getSlot(`card_number_horizontal`), this._gameData.currentcardindex);
               this._bankerCard3.animation.play(`horizontal_flip`, 1);
+              await utils.playAnimation(this._bankerCard3, `horizontal_flip`, 1);
               this.updatePlayerSum();
               this.updateBankerSum();
               break;

@@ -54,7 +54,7 @@ namespace we {
         // this._cardInfoPanel.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
         this._helpButton.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{this.showHelpPanel()}, this);
         this._deckButton.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{this.showDeckPanel()}, this);
-        // (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
+        (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         (<any>this._resultDisplay).addEventListener('OPEN_SHUFFLE_PANEL', this.showShufflePanel, this);
         this.getShoeInfo();
         this._bottomGamePanel.addEventListener('TOGGLE', this.toggleBottomGamePanel, this);
@@ -234,7 +234,9 @@ namespace we {
       }
 
       public showCardInfoPanel(evt: egret.Event) {
+        this.createSwipeUpPanel();
         this._slideUpMenu.showCardInfoPanel(<bab.GameData>this._gameData, evt.data);
+        this._slideUpMenu.addEventListener('CLOSE', this.removeSwipeUpPanel, this);
         // this._cardInfoPanel.setValue(this._gameData, evt.data);
         // this._cardInfoPanel.show();
       }

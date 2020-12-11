@@ -5,7 +5,7 @@ namespace we {
       private paddingVertical = 6;
       private paddingHorizontal = 14;
       private stage: egret.Stage;
-      private activeTooltip: eui.Group = null;
+      public activeTooltip: eui.Group = null;
 
       private toolTipPosition: any;
 
@@ -93,6 +93,9 @@ namespace we {
                 break;
               }
               default:
+                egret.Tween.get(this.activeTooltip)
+                  .to({ y: this.activeTooltip.y + (this.activeTooltip.height + 8), alpha: 0 }, 100)
+                  .call(resolve);
                 break;
             }
           });
