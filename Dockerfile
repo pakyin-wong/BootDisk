@@ -1,10 +1,10 @@
-FROM alvinlaw/egret as build-stage
+FROM alvinlaw/egret:5.3.10 as build-stage
 
 WORKDIR /client
 ADD . .
 
 RUN mkdir libs/modules
-RUN cd /egret-core-5.2.31/build/ && tar cf - egret eui assetsmanager dragonBones game tween promise | tar xvf - -C /client/libs/modules/
+RUN cd /egret-core-5.3.10/build/ && tar cf - egret eui assetsmanager dragonBones game tween promise | tar xvf - -C /client/libs/modules/
 
 ARG ENVIRONMENT
 
