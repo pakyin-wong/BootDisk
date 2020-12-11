@@ -23,12 +23,4 @@
 		<ui:BettingGrid id="_bankerPairImage" width="193" height="81" color="0x5a2322" roundCorner="[0,0,10,0]"/>
 		<ui:RunTimeLabel id="_bankerPairLabel" verticalCenter="0" horizontalCenter="0" size="30" />
 	</e:Group>
-	<e:Group id="_superSixBankerGroup" visible="false">
-		<ui:BettingGrid id="_superSixBankerImage" />
-		<ui:RunTimeLabel id="_superSixBankerLabel" />
-	</e:Group>
-	<e:Group id="_superSixGroup" visible="false">
-		<ui:BettingGrid id="_superSixImage" />
-		<ui:RunTimeLabel id="_superSixLabel" />
-	</e:Group>
 </e:Skin>

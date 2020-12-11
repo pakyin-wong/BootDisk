@@ -27,7 +27,7 @@ namespace we {
           this.addChild(listItem);
         }
 
-        console.log(Date.now() - timestamp);
+        // console.log(Date.now() - timestamp);
         // step 3: connect socket
         // this.socketConnect();
         // dir.sceneCtr.goto('LobbyScene');

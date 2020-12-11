@@ -81,7 +81,7 @@ namespace we {
       protected async setStateBet(isInit: boolean) {
         await super.setStateBet(isInit);
         if(isInit){
-          await utils.playAnimation(this._ringAnim,'icon_loop',1)
+          await utils.playAnimation(this._ringAnim,'icon_loop',1);
         }
         return new Promise(resolve=>resolve())
       }

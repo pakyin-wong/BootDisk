@@ -49,9 +49,9 @@ namespace we {
             progressMap: [1, 5, 2, 3, 1],
             loadingUI: ui.DefaultLoadingUI,
           });
-          console.log('sync done');
+          // console.log('sync done');
         } catch (err) {
-          console.log(err);
+          // console.log(err);
         }
       }
 

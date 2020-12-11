@@ -54,7 +54,7 @@ namespace we {
         // this._cardInfoPanel.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
         this._helpButton.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{this.showHelpPanel()}, this);
         this._deckButton.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{this.showDeckPanel()}, this);
-        // (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
+        (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         (<any>this._resultDisplay).addEventListener('OPEN_SHUFFLE_PANEL', this.showShufflePanel, this);
         this.getShoeInfo();
         this._bottomGamePanel.addEventListener('TOGGLE', this.toggleBottomGamePanel, this);
@@ -126,7 +126,7 @@ namespace we {
             case core.GameState.SHUFFLE:
               break;
             default:
-              console.log('default state', this._gameData.state);
+              // console.log('default state', this._gameData.state);
               this._resultDisplay.setDefaultStates()
               break;
           }
@@ -140,7 +140,7 @@ namespace we {
         this._historyCardHolder.update(this._gameData, this._tableId);
         this._shufflePanel.hide();
         // this._deckPanel.setValue(this._gameData);
-        console.log('Blockchain scene bet state', this._gameData);
+        // console.log('Blockchain scene bet state', this._gameData);
         if (isInit || this.previousState !== core.GameState.BET) {
           this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         }
@@ -164,7 +164,7 @@ namespace we {
         // this._deckPanel.setValue(<bab.GameData>this._gameData);
         super.setStateDeal(isInit);
         this.showSumGroup();
-        console.log('Blockchain scene deal state', this._gameData);
+        // console.log('Blockchain scene deal state', this._gameData);
         this.toggleBottomGamePanel();
 
         if(this._mobileBlockchainBar){
@@ -180,7 +180,7 @@ namespace we {
         // this._deckPanel.setValue(<bab.GameData>this._gameData);
         super.setStateFinish(isInit);
         this.showSumGroup();
-        console.log('Blockchain scene finish state', this._gameData);
+        // console.log('Blockchain scene finish state', this._gameData);
         this.toggleBottomGamePanel();
       }
 
@@ -234,7 +234,9 @@ namespace we {
       }
 
       public showCardInfoPanel(evt: egret.Event) {
+        this.createSwipeUpPanel();
         this._slideUpMenu.showCardInfoPanel(<bab.GameData>this._gameData, evt.data);
+        this._slideUpMenu.addEventListener('CLOSE', this.removeSwipeUpPanel, this);
         // this._cardInfoPanel.setValue(this._gameData, evt.data);
         // this._cardInfoPanel.show();
       }
@@ -272,11 +274,11 @@ namespace we {
           obj = JSON.parse(text);
           if (obj.result.cards) {
             this._gameData.hashedcardsList = obj.result.cards
-            console.log('get cosmo succeeded')
+            // console.log('get cosmo succeeded')
           }
           return new Promise(resolve => resolve())
         } catch (error) {
-          console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
+          // console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
           return new Promise(resolve => resolve())
         }
       }

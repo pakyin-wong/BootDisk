@@ -262,7 +262,7 @@ namespace we {
       }
 
       protected onLockChanged(evt: egret.Event) {
-        console.log(evt.$isPropagationStopped);
+        // console.log(evt.$isPropagationStopped);
         const focusItem: TableListItemHolder = evt.data;
         let listItem: TableListItemHolder;
         if (this.isFocus) {

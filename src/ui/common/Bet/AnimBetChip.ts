@@ -90,7 +90,7 @@ namespace we {
       }
 
       protected beep() {
-        console.log('beep');
+        // console.log('beep');
       }
 
       protected setChipValueSlot() {

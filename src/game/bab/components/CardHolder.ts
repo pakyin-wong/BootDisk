@@ -174,7 +174,7 @@ namespace we {
       }
 
       protected async clearCards() {
-        console.log('clearCards');
+        // console.log('clearCards');
         this.hideCard(this._playerCard1, 'vertical', '_front');
         this.hideCard(this._playerCard2, 'vertical', '_front');
         this.hideCard(this._bankerCard1, 'vertical', '_front');
@@ -191,13 +191,13 @@ namespace we {
         (async () => {
             await this.hideCard(this._playerCard3, 'horizontal');
             this.moveAndHideB3(200);
-          console.log('clearCards 5');
+          // console.log('clearCards 5');
         })();
 
         (async () => {
             await this.hideCard(this._bankerCard3, 'horizontal');
             this.moveAndHideA3(200);
-          console.log('clearCards 6');
+          // console.log('clearCards 6');
         })();
 
         await this.roundOut();
@@ -215,7 +215,7 @@ namespace we {
       }
 
       protected async betInitState(gameState: core.GameState) {
-        console.log('betInitState() begin');
+        // console.log('betInitState() begin');
         const cardData = ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
         for (let i = 0; i < this.cardAnimNames.length; i++) {
           const cardAnim = <dragonBones.EgretArmatureDisplay>this[this.cardAnimNames[i]];
@@ -235,7 +235,7 @@ namespace we {
 
         this._smallCard2Exist = true;
         this._smallCard1Exist = true;
-        console.log('betInitState() end');
+        // console.log('betInitState() end');
         return new Promise(resolve => resolve());
       }
 
@@ -298,10 +298,10 @@ namespace we {
 
       protected getCardIndex(cardName: string, state: core.GameState) {
         if (state === core.GameState.BET) {
-          console.log('betCardIndices', this.getBetCardIndices());
+          // console.log('betCardIndices', this.getBetCardIndices());
           return this.getBetCardIndices()[cardName];
         }
-        console.log('dealCardIndices', this.getDealCardIndices());
+        // console.log('dealCardIndices', this.getDealCardIndices());
         return this.getDealCardIndices()[cardName];
       }
 
@@ -312,16 +312,16 @@ namespace we {
           return;
         }
 
-        console.log('dealInitState 2a currentCard', currentCard);
+        // console.log('dealInitState 2a currentCard', currentCard);
 
         const dataNames = ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
-        console.log('dealInitState 3', this._gameData);
+        // console.log('dealInitState 3', this._gameData);
         for (let i = 0, j = 0; i < 6; i++) {
-          console.log('dealInitState loop 3a', dataNames[i], this._gameData[dataNames[i]], this._gameData);
+          // console.log('dealInitState loop 3a', dataNames[i], this._gameData[dataNames[i]], this._gameData);
           if (!this._gameData[dataNames[i]]) {
             continue;
           }
-          console.log('dealInitState loop 3b');
+          // console.log('dealInitState loop 3b');
           switch (dataNames[i]) {
             case 'b1':
               this.setCardFrontFace(this._playerCard1, dataNames[i], 'vertical', 0);
@@ -415,12 +415,12 @@ namespace we {
           return;
         }
         const dataNames = ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
-        console.log('flipCards 3', this._gameData);
+        // console.log('flipCards 3', this._gameData);
         for (let i = dataNames.length - 1; i >= 0; i--) {
           if (!this._gameData[dataNames[i]]) {
             continue;
           }
-          console.log('flipCards loop ', i);
+          // console.log('flipCards loop ', i);
 
           switch (dataNames[i]) {
             case 'b1':
@@ -461,6 +461,7 @@ namespace we {
               }
               this.setLabel(this._playerCard3.armature.getSlot(`card_number_horizontal`), this._gameData.currentcardindex);
               this._playerCard3.animation.play(`horizontal_flip`, 1);
+              await utils.playAnimation(this._playerCard3, `horizontal_flip`, 1);
               this.updatePlayerSum();
               this.updateBankerSum();
               break;
@@ -482,6 +483,7 @@ namespace we {
               }
               this.setLabel(this._bankerCard3.armature.getSlot(`card_number_horizontal`), this._gameData.currentcardindex);
               this._bankerCard3.animation.play(`horizontal_flip`, 1);
+              await utils.playAnimation(this._bankerCard3, `horizontal_flip`, 1);
               this.updatePlayerSum();
               this.updateBankerSum();
               break;
@@ -514,7 +516,7 @@ namespace we {
       }
 
       protected setStateDeal(isInit: boolean) {
-        console.log('setStateDeal()', this._gameData);
+        // console.log('setStateDeal()', this._gameData);
 
         (async () => {
           const currentIndexOffsetToFirstCard = this.getCurrentIndexOffsetToFirstCard();
@@ -527,11 +529,11 @@ namespace we {
           if (isInit) {
             this.movePin();
             this.moveShoe();
-            console.log('dealInitState()');
+            // console.log('dealInitState()');
             await this.betInitState(core.GameState.DEAL);
             await this.dealInitState();
           } else {
-            console.log('flipCards()');
+            // console.log('flipCards()');
             await this.flipCards();
           }
         })();
@@ -627,7 +629,7 @@ namespace we {
           for (let i = 0; i < 6; i++) {
             this._infoArray.push(this._gameData.currentcardindex + 1 + i);
           }
-          console.log('BET infoArray', this._infoArray);
+          // console.log('BET infoArray', this._infoArray);
           return;
         }
         if (this._gameData.state === core.GameState.DEAL || this._gameData.state === core.GameState.FINISH) {
@@ -642,13 +644,13 @@ namespace we {
               this._infoArray = [-1].concat(this._infoArray);
             }
           }
-          console.log('DEAL infoArray', this._infoArray);
+          // console.log('DEAL infoArray', this._infoArray);
           return;
         }
       }
 
       protected setStateFinish(isInit) {
-        console.log('setStateFinish() isInit', isInit, this._gameData);
+        // console.log('setStateFinish() isInit', isInit, this._gameData);
         if (this._gameData.redcardindex <= this._gameData.currentcardindex) {
           this.getRedCardAnim().animation.gotoAndStopByTime('red_poker_loop', 0);
         }
@@ -691,12 +693,14 @@ namespace we {
         } else {
           (async () => {
             await this.clearCards();
-            console.log('shuffle start');
+            // console.log('shuffle start');
 
             // const p1 = utils.waitDragonBone(this.getRedCardAnim());
             // this.getRedCardAnim().animation.fadeIn('red_poker_out');
-            this._smallRedCardGroup.removeChild(this._smallRedCard);
-            this._smallRedCard = null;
+            if(this._smallRedCardGroup.contains(this._smallRedCard)){
+              this._smallRedCardGroup.removeChild(this._smallRedCard);
+              this._smallRedCard = null;
+            }
 
             // const p2 = utils.waitDragonBone(this._ringAnim);
             // this._ringAnim.animation.fadeIn('shoe_out', 0, 1, 0);

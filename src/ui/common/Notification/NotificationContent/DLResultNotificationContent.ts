@@ -19,7 +19,7 @@ namespace we {
         const gameResult = dice1 + dice2 + dice3;
         let luckynumberOdd;
         // console.log('gameResult', [gameResult, typeof gameResult]);
-        console.log('luckynumber', luckynumber);
+        // console.log('luckynumber', luckynumber);
         if (luckynumber) {
           // console.log('object.keys(luckynumber)[0]', [Object.keys(luckynumber)[0], typeof Object.keys(luckynumber)[0]]);
           if (gameResult.toString() in luckynumber) {

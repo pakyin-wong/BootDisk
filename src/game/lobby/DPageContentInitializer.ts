@@ -25,7 +25,7 @@ namespace we {
         this._root.scroller = new ui.Scroller();
         this._root.scroller.width = root.stage.stageWidth;
         this._root.scroller.height = root.stage.stageHeight;
-        console.log('root.stage.stageHeight', this._root.stage.stageHeight);
+        // console.log('root.stage.stageHeight', this._root.stage.stageHeight);
         this._root.addChild(this._root.scroller);
         this._root.scroller.addEventListener(egret.Event.CHANGE, this.onScroll, this);
 

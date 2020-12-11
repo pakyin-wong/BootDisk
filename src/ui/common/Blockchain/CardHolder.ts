@@ -34,9 +34,13 @@ namespace we {
       }
 
       protected initAnimRelatedComps(){
-        this.createParticles();
+        if (!env.isMobile) {
+          this.createParticles();
+        } 
         this.createRingAnim();
-        this.clonePin();
+        if (!env.isMobile) {
+          this.clonePin();
+        } 
         this.createCards();
         this.addEventListeners();
       }
@@ -78,7 +82,7 @@ namespace we {
 
       protected openCardInfo(infoIndex) {
         return (evt: egret.Event) => {
-          console.log('dispatch OPEN_CARDINFO_PANEL', this._infoArray[infoIndex]);
+          // console.log('dispatch OPEN_CARDINFO_PANEL', this._infoArray[infoIndex]);
           if (this._infoArray[0] !== -1) {
             this.dispatchEvent(new egret.Event('OPEN_CARDINFO_PANEL', false, false, this._infoArray[infoIndex]));
           }
@@ -151,7 +155,7 @@ namespace we {
       }
 
       public updateResult(gameData: data.GameData, chipLayer: ui.ChipLayer, isInit: boolean) {
-        console.log(' cardholder::updateResult ', gameData, isInit);
+        // console.log(' cardholder::updateResult ', gameData, isInit);
 
         this._gameData = <bab.GameData> gameData;
         this.updateCardInfoButtons();
@@ -179,7 +183,7 @@ namespace we {
             this.setStateIdle(isInit);
             break;
           default:
-            console.log('default updateResult ', gameData);
+            // console.log('default updateResult ', gameData);
             break;
         }
       }
@@ -188,18 +192,18 @@ namespace we {
         if (isInit || this._gameData.previousstate === core.GameState.SHUFFLE) {
           this.setDefaultStates();
         }else{
-          console.log('clearCards() in idle');
+          // console.log('clearCards() in idle');
           this.clearCards();          
         }
       }
 
       protected async setStateBet(isInit: boolean) {
-        console.log('setStateBet() isInit', isInit, this._gameData);
+        // console.log('setStateBet() isInit', isInit, this._gameData);
         this.updateAllSum();
         if (isInit) {
           this.movePin();
           this.moveShoe();
-          console.log('betInitState()');
+          // console.log('betInitState()');
 
           this._ringAnim.animation.fadeIn(this._roundLoopB, 0, 0, 0, 'ROUND_ANIMATION_GROUP');
           if (this._gameData.redcardindex <= this._gameData.currentcardindex + this._totalCardPerRound) {
@@ -209,7 +213,7 @@ namespace we {
         } else {
           // console.log('clearCards()');
           // await this.clearCards();
-          console.log('distributeCards()');
+          // console.log('distributeCards()');
           await this.distributeCards();
         }
 
@@ -292,7 +296,7 @@ namespace we {
       protected abstract setStateDeal(isInit: boolean);
 
       protected async collapsePin() {
-        this._clonedPin.touchEnabled = false;
+        if (this._clonedPin) this._clonedPin.touchEnabled = false;
         const bone = this._ringAnim.armature.getBone('red_card');
         const destRad = this.getPinRad(0);
         await new Promise(resolve =>
@@ -328,7 +332,7 @@ namespace we {
           const destRad = this.getPinRad();
           bone.origin.rotation = destRad;
           bone.invalidUpdate();
-          this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
+          if (this._clonedPin) this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
         }
       }
 
@@ -391,9 +395,11 @@ namespace we {
             })
             .call(resolve)
         );
-        this._clonedPin.touchEnabled = true;
         bone.invalidUpdate();
-        this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
+        if (this._clonedPin) {
+          this._clonedPin.touchEnabled = true;
+          this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
+        }
 
         return new Promise(resolve => resolve());
       }

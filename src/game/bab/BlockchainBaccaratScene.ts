@@ -74,7 +74,7 @@ namespace we {
             case core.GameState.IDLE:
               break;
             default:
-              console.log('default state', this._gameData.state);
+              // console.log('default state', this._gameData.state);
               this._resultDisplay.setDefaultStates();
               break;
           }
@@ -164,7 +164,7 @@ namespace we {
 
         this._shufflePanel.hide();
         if (this._deckPanel) this._deckPanel.setValue(this._gameData);
-        console.log('Blockchain scene bet state', this._gameData);
+        // console.log('Blockchain scene bet state', this._gameData);
         if (isInit || this.previousState !== core.GameState.BET) {
           this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         }
@@ -174,14 +174,14 @@ namespace we {
         this._shufflePanel.hide();
         if (this._deckPanel) this._deckPanel.setValue(<bab.GameData>this._gameData);
         super.setStateDeal(isInit);
-        console.log('Blockchain scene deal state', this._gameData);
+        // console.log('Blockchain scene deal state', this._gameData);
       }
 
       protected setStateFinish(isInit: boolean) {
         this._shufflePanel.hide();
         if (this._deckPanel) this._deckPanel.setValue(<bab.GameData>this._gameData);
         super.setStateFinish(isInit);
-        console.log('Blockchain scene finish state', this._gameData);
+        // console.log('Blockchain scene finish state', this._gameData);
       }
 
       protected setStateShuffle(isInit: boolean) {
@@ -233,11 +233,11 @@ namespace we {
           obj = JSON.parse(text);
           if (obj.result.cards) {
             this._gameData.hashedcardsList = obj.result.cards;
-            console.log('get cosmo succeeded');
+            // console.log('get cosmo succeeded');
           }
           return new Promise(resolve => resolve());
         } catch (error) {
-          console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
+          // console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
           return new Promise(resolve => resolve());
         }
       }

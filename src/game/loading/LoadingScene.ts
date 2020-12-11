@@ -62,9 +62,9 @@ namespace we {
 
       private async loadBanners(data) {
         let target;
-        if (data.length>0) {
+        if (data && data.length>0) {
           let images: egret.Texture[] | core.IRemoteResourceItem[] = await Promise.all<egret.Texture>(data.map(this._loadRemoteImage));
-          images = images.map(image => ({ image, link: null, imageUrl: null, loaded: true }));
+          images = images.map(image => ({ image, link: null, imageUrl: null, loaded: !!image }));
           target = images;
         } else {
           target = [];
@@ -220,6 +220,13 @@ namespace we {
                 texture.bitmapData = event.currentTarget.data;
                 resolve(texture);
               }
+            },
+            this
+          );
+          loader.once(
+            egret.IOErrorEvent.IO_ERROR,
+            (event: egret.Event) => {
+                resolve(null);
             },
             this
           );
