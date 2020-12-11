@@ -132,6 +132,7 @@
 	<bc:ShufflePanel id="_shufflePanel" width="1242" height="2155" isPoppable="true" skeletonName="blockchain"
 	                  isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
 	                  skinName="skin_mobile_portrait.bc.ShufflePanelSkin"  locked="true"/>
+
 	<!--<bc:DeckPanel id="_deckPanel" width="1242" height="1966" verticalCenter="0" horizontalCenter="0" isPoppable="true"
 	               isEdgeDismissable="true" dismissOnClickOutside="true" isDraggable="false" hideOnStart="true"
 	               skinName="skin_mobile_portrait.bc.DeckPanelSkin" />
@@ -143,4 +144,6 @@
 	                   hideOnStart="true" skinName="skin_mobile_portrait.bc.CardInfoPanelSkin" />-->
 	<e:Group id="_navLayer" touchChildren="true" touchThrough="true"/>
 	<!--<ui:BlockchainMobileSlideUpMenu id="_slideUpMenu" bottom="0" right="0" left="0"/>-->
+	<ui:GameRulePanel id="_gameRulePanel" horizontalCenter="0" bottom="0" hideOnStart="true"/>
+
 </e:Skin>
