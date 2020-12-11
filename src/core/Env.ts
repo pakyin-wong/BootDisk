@@ -19,7 +19,7 @@ namespace we {
       public notYetInteract: boolean = false;
 
       /* Global Environment Variable */
-      public version: string = '0.12.13';
+      public version: string = '0.12.14';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -109,8 +109,6 @@ namespace we {
 
       private _tableInfoArray: data.TableInfo[] = [];
       private _tableInfos: { [key: string]: data.TableInfo } = {};
-      public _currTableId: string;
-      public _currGameType: number;
 
       // array of table id
       public allTableList: string[] = [];
@@ -128,6 +126,8 @@ namespace we {
       public sidePanelExpanded: boolean = false;
       public lobbyGridType: number = 1;
 
+      public _currTableId: string;
+      public _currGameType: number;
       public currentPage: string = 'lobby';
       public currentTab: string = 'all';
 
@@ -149,8 +149,8 @@ namespace we {
       public init() {
         // if (false) {
         if (DEBUG) {
-          this.validCategories = ['live','lottery'];
-          this.sidePanelValidCategories = ['live','lottery'];
+          this.validCategories = ['live', 'lottery'];
+          this.sidePanelValidCategories = ['live', 'lottery'];
           this.mobileValidGameType = [
             core.GameType.BAC,
             core.GameType.BAI,
@@ -189,18 +189,8 @@ namespace we {
         } else {
           this.validCategories = ['live'];
           this.sidePanelValidCategories = ['live'];
-          this.mobileValidGameType = [
-            core.GameType.BAB,
-            core.GameType.BASB,
-            core.GameType.BAMB,
-            core.GameType.DTB,
-          ];
-          this.desktopValidGameType = [
-            core.GameType.BAB,
-            core.GameType.BASB,
-            core.GameType.BAMB,
-            core.GameType.DTB,
-          ];
+          this.mobileValidGameType = [core.GameType.BAB, core.GameType.BASB, core.GameType.BAMB, core.GameType.DTB];
+          this.desktopValidGameType = [core.GameType.BAB, core.GameType.BASB, core.GameType.BAMB, core.GameType.DTB];
         }
 
         dir.evtHandler.addEventListener('LIVE_PAGE_LOCK', this.onLockChanged, this);
@@ -217,10 +207,9 @@ namespace we {
       set gameCategories(value: string[]) {
         // value = ['Lottery'];    // TODO: this is just for testing, delete it when finish testing
         const vals = value.map((cat: string) => cat.toLowerCase());
-        this._gameCategories = this.validCategories
-          .filter(cat => {
-            return vals.indexOf(cat) >= 0;
-          });
+        this._gameCategories = this.validCategories.filter(cat => {
+          return vals.indexOf(cat) >= 0;
+        });
       }
 
       // used for lobby
@@ -242,7 +231,7 @@ namespace we {
 
       set gameTypes(value: any[]) {
         // value = ['0', '15', '22'];     // TODO: this is just for testing, delete it when finish testing
-        value = value.concat('27', '28', '29', '30','15', '22'); // TODO: temp add BAB and DTB
+        value = value.concat('27', '28', '29', '30', '15', '22'); // TODO: temp add BAB and DTB
         // console.log(JSON.stringify(value));
         this._gameTypes = value.map((cat: string) => parseInt(cat, 10));
         this.generateLiveGameTab();
@@ -253,9 +242,9 @@ namespace we {
         return this._gameTypes;
       }
 
-      get supportedGameType():number[] {
-        const supportedGameType: number[] = env.isMobile?this.mobileValidGameType: this.desktopValidGameType;
-        const intersection = this._gameTypes.filter(element => supportedGameType.indexOf(element)>-1);
+      get supportedGameType(): number[] {
+        const supportedGameType: number[] = env.isMobile ? this.mobileValidGameType : this.desktopValidGameType;
+        const intersection = this._gameTypes.filter(element => supportedGameType.indexOf(element) > -1);
         return intersection;
       }
 
@@ -438,7 +427,7 @@ namespace we {
           }
 
           if (tableInfo.data != null && tableInfo.roadmap != null) {
-          // if (tableInfo.data != null) {
+            // if (tableInfo.data != null) {
             tableInfo.displayReady = true;
             return true;
           }
@@ -480,10 +469,16 @@ namespace we {
         return denomMap;
       }
 
+      public refreshScene() {
+        if (!this._currTableId || this._currTableId == '') {
+          // dir.sceneCtr.goto('lobby', {page: this.currentPage, tab: this.currentTab});
+        } else {
+          this.gotoScene(this._currTableId);
+        }
+      }
+
       public gotoScene(tableId: string) {
         const gameType = env.tableInfos[tableId].gametype;
-        this._currTableId = tableId;
-        this._currGameType = gameType;
         switch (gameType) {
           case core.GameType.BAC:
           case core.GameType.BAS:
@@ -532,6 +527,8 @@ namespace we {
             this._currTableId = '';
             break;
         }
+        this._currTableId = tableId;
+        this._currGameType = gameType;
       }
 
       public get sceneId(): string {

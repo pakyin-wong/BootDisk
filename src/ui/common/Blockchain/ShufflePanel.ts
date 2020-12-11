@@ -200,10 +200,8 @@ namespace we {
 
         for (let i = 0; i < this._cards.length; i++){
           this._cards[i].visible = true;
-
-          const block = utils.waitDragonBone(this._cards[i])
           this._cards[i].animation.play('burn_card_in');
-          await block;
+          await utils.sleep(300);
         }
 
         await utils.sleep(2500);

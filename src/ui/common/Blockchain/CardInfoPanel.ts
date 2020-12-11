@@ -224,6 +224,16 @@ namespace we {
             this._decryptedKeyHelpLabel.lineSpacing = 15;
           }
         }else{
+          if(env.language === "en"){
+            this._helpLabel.size = 19;
+            this._encryptedKeyHelpLabel.size = 19;
+            this._ssnHelpLabel.size = 19;
+            this._decryptedKeyHelpLabel.size = 19;
+            this._helpLabel.lineSpacing = 10;
+            this._encryptedKeyHelpLabel.lineSpacing = 10;
+            this._ssnHelpLabel.lineSpacing = 10;
+            this._decryptedKeyHelpLabel.lineSpacing = 10;
+          }else{
             this._helpLabel.size = 20;
             this._encryptedKeyHelpLabel.size = 20;
             this._ssnHelpLabel.size = 20;
@@ -232,6 +242,7 @@ namespace we {
             this._encryptedKeyHelpLabel.lineSpacing = 10;
             this._ssnHelpLabel.lineSpacing = 10;
             this._decryptedKeyHelpLabel.lineSpacing = 10;
+          }
         }
       }
 

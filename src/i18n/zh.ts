@@ -656,8 +656,8 @@ namespace we {
         mechanismHelpTitle2: 'SHA-256已驗證！',
         verification: '卡牌驗證',
         thirdParty: '第三方驗證',
-        sha256VerifySuccess: 'SHA256已驗證',
-        sha256VerifyFail: 'SHA256驗證失敗',
+        sha256VerifySuccess: 'SHA256已驗證！',
+        sha256VerifyFail: 'SHA256驗證失敗！',
         deckDesc:
           '系統會在「完整牌靴」中顯示「卡牌序號」及「卡牌加密文」供玩家驗證。洗牌後，兩者將會重新生成，確保遊戲的真確性。',
         copy: '複製',

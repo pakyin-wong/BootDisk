@@ -99,7 +99,7 @@
                 <e:Group id="_ssnHelpGroup" x="860" width="760" height="618" y="437">
                         <ui:RoundRectShape cornerTL_TR_BL_BR="8,8,8,8" strokeIn="2" strokeInColor="0x28323d" fillColor="0x28323d" fillAlpha="0.9" stroke="1" strokeColor="0x28323d" left="0" top="0" bottom="0" right="0"/>
 			<e:Image id="_ssnHelpArrow" source="m_bcba_panel_arrow_png" width="83" height="25" bottom="275" left="0" rotation="270" visible="false"/>
-			<ui:RunTimeLabel id="_ssnHelpLabel" x="24" verticalAlign="top" i18n="baccarat.tooltip.ssnHelp" size="20" y="14" textAlign="left" wordWrap="true" width="700" height="585" lineSpacing="15"/>
+			<ui:RunTimeLabel id="_ssnHelpLabel" x="24" verticalAlign="top" i18n="baccarat.tooltip.ssnHelp" size="20" y="10" textAlign="left" wordWrap="true" width="700" height="600" lineSpacing="15"/>
 		</e:Group>
                 <e:Group id="_decryptedKeyHelpGroup" x="860" width="760" height="138" y="604">
                         <ui:RoundRectShape cornerTL_TR_BL_BR="8,8,8,8" strokeIn="2" strokeInColor="0x28323d" fillColor="0x28323d" fillAlpha="0.9" stroke="1" strokeColor="0x28323d" left="0" top="0" bottom="0" right="0"/>
