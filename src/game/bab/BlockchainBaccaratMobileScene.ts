@@ -269,7 +269,6 @@ namespace we {
 
       protected hideSumGroup(){
           (<we.bab.MobileCardHolder>this._resultDisplay).hideSumGroup();
-
       }
 
       protected async getShoeInfo() {

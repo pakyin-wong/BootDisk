@@ -28,7 +28,7 @@
                 <e:Group x="920" y="900" id="_dragonAnimGroup" touchChildren="false" touchEnabled="false" touchThrough="true" />
                 <e:Group x="350" y="900" id="_tigerAnimGroup" touchChildren="false" touchEnabled="false" touchThrough="true" />
         </e:Group>
-        <e:Group x="100" y="100" id="_smallRedCardGroup" />
+        <e:Group x="150" y="150" id="_smallRedCardGroup" />
         <ui:RunTimeLabel x="102" y="667" id="_smallRedCardDesc" i18n="baccarat.redCardDesc"  visible="false"/>
         <e:Group id="_centerBurnCardGroup" y="243"  x="537" visible="false"/>
 </e:Skin>
