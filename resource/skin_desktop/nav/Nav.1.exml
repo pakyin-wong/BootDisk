@@ -23,8 +23,10 @@
 			</e:layout>
 		</e:Group>
 	</e:Group>
+	<e:Group id="_menu_toggle" width="110" height="100" y="0" x="2490">
+		<e:Image width="28.8" height="24.4" x="37" y="35" source="d_lobby_navbar_menu_png" scaleX="1" scaleY="1" tooltipText="'nav.tooltip.menu'"/>
+	</e:Group>
 
-	<e:Image id="_menu_toggle" width="28.8" height="24.4" x="2527" y="35" source="d_lobby_navbar_menu_png" tooltipText="'nav.tooltip.menu'" />
 	<!--<ui:UserInfoWindow id="_userInfo" width="480" height="700" x="2000" y="115.76" isPoppable="true"
 	                       dismissOnClickOutside="true" />
 	-->

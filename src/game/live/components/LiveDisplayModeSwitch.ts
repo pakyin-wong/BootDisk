@@ -17,7 +17,7 @@ namespace we {
         this.verticalCenter = 0;
         this.container = new eui.Group();
         const hlayout = new eui.HorizontalLayout();
-        hlayout.gap = 20;
+        hlayout.gap = 0;
         this.container.layout = hlayout;
         this.buttonNames.forEach((name, idx) => {
           const btn = new we.ui.BaseAnimationButton();
@@ -28,8 +28,16 @@ namespace we {
           btn.isSwitch = true;
           btn.height = 30;
           btn.width = 30;
-          btn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onItemClick.bind(this, idx), this);
-          this.container.addChild(btn);
+          btn.verticalCenter = 0;
+          btn.horizontalCenter = 0;
+
+          const btnContainer = new eui.Group();
+          btnContainer.width = 40;
+          btnContainer.height = 40;
+          btnContainer.addChild(btn);
+
+          utils.addButtonListener(btnContainer, this.onItemClick.bind(this, idx), this);
+          this.container.addChild(btnContainer);
           this.buttons.push(btn);
         });
         this.addChild(this.container);
