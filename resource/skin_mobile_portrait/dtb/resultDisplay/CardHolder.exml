@@ -26,7 +26,7 @@
                         <e:Group id="_tigerCardInfo" left="0" bottom="0" width="40" height="40" />
                 </e:Group>
                 <e:Group x="920" y="900" id="_dragonAnimGroup" touchChildren="false" touchEnabled="false" touchThrough="true" />
-                <e:Group x="350" y="900" id="_tigerAnimGroup" touchThrough="true" />
+                <e:Group x="350" y="900" id="_tigerAnimGroup" touchChildren="false" touchEnabled="false" touchThrough="true" />
         </e:Group>
         <e:Group x="350" y="200" id="_smallRedCardGroup" />
         <ui:RunTimeLabel x="102" y="667" id="_smallRedCardDesc" i18n="baccarat.redCardDesc"  visible="false"/>

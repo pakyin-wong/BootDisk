@@ -230,7 +230,7 @@ namespace we {
           return new Promise(resolve => resolve());
         }
 
-        if (this._gameData.d && this._gameData.t) {
+        if (this._gameData.d && !this._gameData.t) {
           this.setCardFrontFace(this._dragonCard, 'd', 'vertical', 0);
           this.setLabel(this._dragonCard.armature.getSlot(`card_number_vertical`), this.getCurrentDIndex());
           await utils.playAnimation(this._dragonCard, this._verticalFlip, 1);
@@ -238,18 +238,9 @@ namespace we {
           // this._dragonCard.animation.play(`vertical_flip`, 1);
           // await p4;
           this.updateDragonSum();
-
-          console.log('dealInitState t');
-          this.setCardFrontFace(this._tigerCard, 't', 'vertical', 0);
-          this.setLabel(this._tigerCard.armature.getSlot(`card_number_vertical`), this.getCurrentTIndex());
-          await utils.playAnimation(this._tigerCard, this._verticalFlip, 1);
-          // const p5 = utils.waitDragonBone(this._tigerCard);
-          // this._tigerCard.animation.play(`vertical_flip`, 1);
-          // await p5;
-          this.updateTigerSum();
         }
 
-        /*if (this._gameData.t) {
+        if (this._gameData.t) {
           console.log('dealInitState t');
           this.setCardFrontFace(this._tigerCard, 't', 'vertical', 0);
           this.setLabel(this._tigerCard.armature.getSlot(`card_number_vertical`), this.getCurrentTIndex());
@@ -258,7 +249,7 @@ namespace we {
           // this._tigerCard.animation.play(`vertical_flip`, 1);
           // await p5;
           this.updateTigerSum();
-      }*/
+      }
 
         return new Promise(resolve => resolve());
       }
