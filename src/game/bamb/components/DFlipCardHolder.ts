@@ -212,7 +212,7 @@ namespace we {
 
       public closeCenterCardFront(orientation: string) {
         let cardTween = (orientation === 'vertical') ? this._centerVTweenCardFront: this._centerHTweenCardFront;
-        console.log('closeCenterCardFront xxx')
+        // console.log('closeCenterCardFront xxx')
         egret.Tween.get(cardTween)
         .set({visible: true,
               y : this._centerCardData[orientation].original.y,

@@ -13,7 +13,7 @@ namespace we {
       gametype_BAI: 'BAI',
       gametype_BAM: 'Squeeze Baccarat ',
       gametype_BAB: 'Bc Baccarat',
-      gametype_BASB: 'Bc Speed Baccarat',
+      gametype_BASB: 'Bc Spd Baccarat',
       gametype_BAMB: 'Bc Squeeze Baccarat',
       gametype_DI: 'Sic-bo',
       gametype_DIL: 'GOF Sic-bo',
@@ -42,23 +42,29 @@ namespace we {
       betfield_baccarat_tie: 'tie',
       betfield_baccarat_banker_pair: 'b-pair',
       betfield_baccarat_player_pair: 'p-pair',
-      betfield_baccarat_super_six: 'super 6',
+
+      betfield_baccarat_super_six_player: 'player',
       betfield_baccarat_super_six_banker: 'banker',
+      betfield_baccarat_super_six_player_pair: 'p-pair',
+      betfield_baccarat_super_six_tie: 'tie',
+      betfield_baccarat_super_six: 'super 6',
+      betfield_baccarat_super_six_banker_pair: 'b-pair',
+
       betfield_dragonTiger_dragon: 'dragon',
       betfield_dragonTiger_tiger: 'tiger',
       betfield_dragonTiger_tie: 'tie',
 
       playerprofile_title: 'User Information',
       playerprofile_iconsetting: 'Icon Setting',
-      playerprofile_maxWinAmount: 'Max gains from winning',
-      playerprofile_maxWinCount: 'Max number of consecutive wins',
+      playerprofile_maxWinAmount: 'Max. Win Amount',
+      playerprofile_maxWinCount: 'Max. No. of Consecutive Wins',
       playerprofile_follower: 'Follower',
       playerprofile_following: 'Following',
       playerprofile_favouriteDealer: 'Favorite Dealer',
       playerProfile: {
         tooltip: {
-          nickname: 'Setting Name',
-          refresh: 'Refresh Balance',
+          nickname: 'Set nickname',
+          refresh: 'Refresh balance',
         },
       },
 
@@ -118,7 +124,7 @@ namespace we {
       overlaypanel_bethistory_remark_win: 'Win',
       overlaypanel_bethistory_remark_lose: 'Lose',
       overlaypanel_bethistory_remark_ties: 'Ties',
-      overlaypanel_bethistory_limit: 'Record per page',
+      overlaypanel_bethistory_limit: 'Items per page:',
       overlaypanel_bethistory_total: ' %now% of total %total% record(s)',
 
       overlaypanel_bethistory_record_round: 'Round',
@@ -131,6 +137,7 @@ namespace we {
 
       overlaypanel_bethistory_btn_next: 'Next',
       overlaypanel_bethistory_btn_prev: 'Previous',
+      overlaypanel_bethistory_btn_page: 'Page',
       overlaypanel_bethistory_searchtype_all: 'All',
 
       overlaypanel_bethistorylottery_record_round: 'Round',
@@ -213,7 +220,7 @@ namespace we {
       mobile_game_panel_statistic_chart: 'Statistic Chart',
       mobile_game_panel_table_info: 'Table Info',
       mobile_game_panel_analysis: 'Analysis',
-      mobile_table_info_gameID: 'ID',
+      mobile_table_info_gameID: 'Game ID',
       mobile_panel_game_Info: 'Game Information',
 
       mobile_notification_quick_bet_button_label: 'Bet Now',
@@ -234,7 +241,7 @@ namespace we {
       video_setting_cam: 'Camera',
       video_setting_qua: 'Quality',
       video_setting_closer: 'Close mirror',
-      video_setting_far: 'Far mirror',
+      video_setting_far: 'Full Shot',
       video_setting_close: 'Close',
       video_setting_toggle: 'Video turn on',
       video_setting_bluray: 'Blu-ray',
@@ -260,7 +267,7 @@ namespace we {
         tooltip: {
           menu: 'Menu',
           back: 'Back to lobby',
-          refresh: 'Refresh',
+          refresh: 'Refresh balance',
           profile: 'Profile',
           roominfo: 'Room Info',
           betlimit: 'Bet Limit',
@@ -328,6 +335,9 @@ namespace we {
         categoryInstant: 'Instant Open Colour',
         categoryOtherGame: 'Other Games',
         categoryFavorite: 'Bookmarks / My Favourites',
+        tooltip: {
+          favourite: 'Add to My Favorite',
+        },
       },
       live: {
         tooltip: {
@@ -340,9 +350,9 @@ namespace we {
           fullscreen: 'Fullscreen',
           autoFullscreenToggleOn: 'Turn on auto hide',
           autoFullscreenToggleOff: 'Auto hide panel when bet is over',
-          roadmapBankerRound: 'Banker',
-          roadmapPlayerRound: 'Player',
-          roadmapTierRound: 'Tie',
+          roadmapBankerRound: 'No. of Banker win',
+          roadmapPlayerRound: 'No. of Player win',
+          roadmapTierRound: 'No. of Tie',
           roadmapBankerPairRound: 'Banker Pair',
           roadmapPlayerPairRound: 'Player Pair',
           roadmapTotalRound: 'Total',
@@ -375,7 +385,7 @@ namespace we {
       tableInfo: {
         tableInfo: 'Table Info',
         tableNo: 'Table Number',
-        roundNo: 'Round Number',
+        roundNo: 'Shoe - Round',
         dealer: 'Dealer',
         tableBetLimit: 'Table Bet Limit',
         betLimit: 'Bet Limit',
@@ -538,6 +548,16 @@ namespace we {
         },
       },
       goodroad: {
+        tooltip: {
+          disable:'Disable good road',
+          enable:'Enable good road',
+          cleartext:'Clear',
+          drawbanker:'Add Banker',
+          drawplayer:'Add Player',
+          undo:'Undo',
+          cancel:'Cancel',
+          confirm:'Confrm',
+        },
         r1: 'Long Banker',
         r2: 'Long Player',
         r3: 'Hop Hop after Long Road',
@@ -561,7 +581,7 @@ namespace we {
       },
       sidePanel: {
         changeChip: 'Change Betchips',
-        betted: 'Bet',
+        betted: 'Bet Confirmed',
         goodroad: 'Good Road',
         allgames: 'All Game',
         noGoodRoad: 'No Good Road',
@@ -646,6 +666,7 @@ namespace we {
         ssn: 'Private Key',
         lastRound: 'Last Round',
         redCardDesc: 'Red Card：After this round, new shoe will be used',
+        shuffleReady: 'Change shoe after the game is completed',
         announceAfterDisclose:'Will be announced after dealing',
         cardUsed: 'Shoe: $1 used'
       },
@@ -670,7 +691,7 @@ namespace we {
         urlcopied:'3rd party verification siteurl copied.',
       },
       error: {
-        error_1001: 'Other session logged in',
+        error_1001: 'You have already logged in on another device or browser',
         error_1002: 'Player session timeout',
         error_1003: 'Authorization Error',
 
@@ -731,6 +752,16 @@ namespace we {
             TIE: 'T',
           },
         },
+      },
+
+      quickBet: {
+        tooltip:{
+          switchChips: 'Switch chips',
+          confirm: 'Confirm bet',
+          cancel: 'Cancel',
+          undo: 'Undo',
+          close: 'Close',  
+        }
       },
 
       lo_round: 'Round %round%',

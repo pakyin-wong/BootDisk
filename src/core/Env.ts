@@ -588,7 +588,7 @@ namespace we {
           env._groups[_item].push(item);
         }
         for (const group in env._groups) {
-          console.log(group);
+          // console.log(group);
           if (env._groups[group].length == 0) {
             delete env._groups[group];
           }

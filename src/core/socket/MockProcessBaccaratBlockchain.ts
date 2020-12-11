@@ -155,7 +155,7 @@ namespace we {
               gameData.playerpoint = utils.getDigit(utils.stat.ba.translateCardToPoint(gameData.b1) + utils.stat.ba.translateCardToPoint(gameData.b2));
               interval = this.cardInterval;
               this.currentCardIndex += 2;
-              console.log('setResults case: ', idx, data);
+              // console.log('setResults case: ', idx, data);
 
               break;
             case 1:
@@ -164,7 +164,7 @@ namespace we {
               gameData.bankerpoint = utils.getDigit(utils.stat.ba.translateCardToPoint(gameData.a1) + utils.stat.ba.translateCardToPoint(gameData.a2));
               interval = this.cardInterval;
               this.currentCardIndex += 2;
-              console.log('setResults case: ', idx, data);
+              // console.log('setResults case: ', idx, data);
 
               break;
             case 2:
@@ -173,7 +173,7 @@ namespace we {
                 gameData.b3 = MockProcessBaccaratBlockchain.allCards[this.currentCardIndex];
                 gameData.playerpoint = gameData.playerpoint + utils.stat.ba.translateCardToPoint(gameData.b3);
                 this.currentCardIndex++;
-                console.log('setResults case: ', idx, data);
+                // console.log('setResults case: ', idx, data);
               } else {
                 continue;
               }
@@ -184,7 +184,7 @@ namespace we {
                 gameData.bankerpoint = gameData.bankerpoint + utils.stat.ba.translateCardToPoint(gameData.a3);
                 interval = this.card3Interval;
                 this.currentCardIndex++;
-                console.log('setResults case: ', idx, data);
+                // console.log('setResults case: ', idx, data);
               } else {
                 continue;
               }
@@ -199,7 +199,7 @@ namespace we {
       }
 
       public async randomWin(data: data.TableInfo) {
-        console.log('randomWin', this.currentCardIndex, this.redCardIndex);
+        // console.log('randomWin', this.currentCardIndex, this.redCardIndex);
         if (this.currentCardIndex > this.redCardIndex) {
           await this.shuffle(data);
         }
@@ -259,7 +259,7 @@ namespace we {
       }
 
       public async shuffle(data: data.TableInfo) {
-        console.log('MockProcess shuffle 1');
+        // console.log('MockProcess shuffle 1');
         this.resetShoe();
         const gameData = new bab.GameData();
         data.data = gameData;
@@ -275,10 +275,10 @@ namespace we {
         gameData.currentcardindex = this.currentCardIndex;
         gameData.redcardindex = this.redCardIndex;
         gameData.firstcard = MockProcessBaccaratBlockchain.allCards[0];
-        console.log('MockProcess shuffle 2', data);
+        // console.log('MockProcess shuffle 2', data);
         this.dispatchEvent(data);
         await this.sleep(this.shuffleStateInterval);
-        console.log('MockProcess shuffle 3', data);
+        // console.log('MockProcess shuffle 3', data);
 
         // this.currentCardIndex += MockProcessBaccaratBlockchain.allCards[0];
 

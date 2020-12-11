@@ -4,7 +4,7 @@ if [ -z "$1" ]
   then
     echo "Please specify the target platform (testing|staging|production|development|release)"
     exit 1
-elif [ "$1" != "staging" ] && [ "$1" != "production" ] && [ "$1" != "development" ] && [ "$1" != "testing" ]; then
+elif [ "$1" != "staging" ] && [ "$1" != "production" ] && [ "$1" != "development" ] && [ "$1" != "testing" ] && [ "$1" != "release" ]; then
     echo "Unknown target platform (development|testing|staging|production|release)"
     exit 1
 fi

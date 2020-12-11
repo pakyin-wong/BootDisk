@@ -156,19 +156,20 @@ namespace we {
       //   return image;
       // }
 
-      protected getFirstCardFront(cardString: string, card){
+      protected getFirstCardFront(cardString: string, cardslot){
         const resName = cardString === 'back' ? 'back' : utils.formatCardForFlip(cardString);
         const image = new eui.Image();
         const texture = RES.getRes(utils.getCardResName(resName));
-        const meshDistData = card.displayData as dragonBones.MeshDisplayData;
+        const displayFrame = cardslot.getDisplayFrameAt(0);
+        const meshDistData = displayFrame.rawDisplayData as dragonBones.MeshDisplayData;
 
         let textureData = new dragonBones['EgretTextureData']();
         textureData.renderTexture = texture;
         meshDistData.texture = textureData;
-        card.armature.replacedTexture == null;
-        card.replaceDisplayData(meshDistData);
-        card.displayIndex = -1;
-        card.displayIndex = 0;
+        cardslot.armature.replacedTexture == null;
+        cardslot.replaceDisplayData(meshDistData);
+        cardslot.displayIndex = -1;
+        cardslot.displayIndex = 0;
       }
 
       protected createBg() {
@@ -222,7 +223,7 @@ namespace we {
         }
 
         this.hide();
-        console.log('showAnim end')
+        // console.log('showAnim end')
         this.dispatchEvent(new egret.Event('ENABLE_DECK_BTN'));
         return new Promise(resolve=>resolve()) 
       }
@@ -238,14 +239,14 @@ namespace we {
 
         setTimeout(() => {
           this.hide();
-          console.log('this.hide')
+          // console.log('this.hide')
           this.dispatchEvent(new egret.Event('ENABLE_DECK_BTN'));
         }, 8000)
       }
 
       protected initCards(gameData: any) {
         this._gameData = gameData;
-        console.log('ShufflePanel::initComponents()', gameData);
+        // console.log('ShufflePanel::initComponents()', gameData);
         this._allCardsGroup.removeChildren();
 
         if (!this._gameData || !this._gameData.firstcard) {
@@ -298,7 +299,7 @@ namespace we {
 
       protected createGroups() {
         const skipped = utils.stat.ba.translateCardToNumber(this._gameData.firstcard);
-        console.log('ShufflePanel::createGroups:skipped', skipped);
+        // console.log('ShufflePanel::createGroups:skipped', skipped);
 
         this.createGroup('_firstRowGroup', (skipped > 7) ? this._twoRowFirstRowY : this._oneRowFirstRowY);
         this.createGroup('_secondRowGroup', this._twoRowSecondRowY);

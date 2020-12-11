@@ -11,7 +11,7 @@ namespace we {
         public constructor(gameresult: any) {
           super('DilResultItem');
           this._gameResult = gameresult;
-          console.log('DILDILDILthis._gameResult', this._gameResult);
+          // console.log('DILDILDILthis._gameResult', this._gameResult);
         }
 
         protected mount() {

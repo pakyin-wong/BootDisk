@@ -58,10 +58,10 @@ namespace we {
         this._chipLayer.addEventListener(
           egret.TouchEvent.TOUCH_TAP,
           ({ stageX, stageY }) => {
-            if (this._gameData.state !== we.core.GameState.BET) {
+            if (this._gameData.state !== we.core.GameState.BET && !dir.tooltipCtr.activeTooltip) {
               // remove existing tooltip
-              clearTimeout(this.hideTooltipTimeout);
-              dir.tooltipCtr.removeTooltips();
+              //clearTimeout(this.hideTooltipTimeout);
+              //dir.tooltipCtr.removeTooltips();
               dir.tooltipCtr.displayTooltip(stageX, stageY, `${i18n.t('live.tooltip.waitForNextRound')}`);
               this.hideTooltipTimeout = setTimeout(() => {
                 dir.tooltipCtr.removeTooltips();

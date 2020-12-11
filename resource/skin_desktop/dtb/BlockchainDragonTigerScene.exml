@@ -88,6 +88,7 @@
 	<dt:TableInfoPanel width="434" height="430" x="0" y="91" id="_tableInfoWindow" isPoppable="true" isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" anchorOffsetY="0" skinName="skin_desktop.dtb.TableInfoPanel"/>	
 	<bc:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true" skeletonName="blockchain_dt"
 	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bc.ShufflePanelSkin" />
+	<ui:GameRulePanel id="_gameRulePanel" horizontalCenter="0" verticalCenter="0" hideOnStart="true"/>
 	<!--<bc:DeckPanel id="_deckPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
 	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bc.DeckPanelSkin" />
 	<bc:HelpPanel id="_helpPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"

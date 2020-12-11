@@ -73,7 +73,7 @@ namespace we {
         this._group.removeChildren();
         let num = 0;
         if (evt) {
-          console.log('BetCombination::onUpdateTable() ', evt.data);
+          // console.log('BetCombination::onUpdateTable() ', evt.data);
           if (evt.data) {
             this._combinations = evt.data;
             this._combinations.map(value => {

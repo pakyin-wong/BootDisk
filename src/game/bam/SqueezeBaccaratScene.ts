@@ -33,9 +33,6 @@ namespace we {
       }
 
       protected setStateDeal(isInit: boolean = false) {
-        if (this._previousState === we.core.GameState.BET) {
-          this.checkRoundCountWithoutBet();
-        }
       }
 
       protected setStatePeek(isInit: boolean = false) {

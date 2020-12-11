@@ -3,7 +3,7 @@ namespace we {
     export class Nav extends core.BaseEUI {
       private _lantern: NavLantern;
       private _time: eui.Label;
-      private _user: eui.Label;
+      private _user: RunTimeLabel;
       private _profile_toggle: eui.Group;
       private _profile: overlay.PlayerProfile;
       // private _playerProfile: overlay.PlayerProfile;
@@ -206,7 +206,7 @@ namespace we {
             env.nickname = env.nicknameKey;
           }
         }
-        this._user.text = env.nickname;
+        this._user.renderText = () => env.nickname;
       }
 
       private onClickSliderToggle() {

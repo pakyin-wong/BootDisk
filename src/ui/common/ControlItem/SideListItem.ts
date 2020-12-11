@@ -92,7 +92,7 @@ namespace we {
         betChipSelected.height = 80;
         betChipSelected.y = 18;
         betChipSelected.x = 138;
-        betChipSelected['tooltipText'] = 'sidePanel.changeChip';
+        betChipSelected['tooltipText'] = 'quickBet.tooltip.switchChips';
         betChipSelected.horizontalCenter = 8;
         betChipSelected.chipScale = 1.2;
         this._betButtonGroup.addChild(betChipSelected);

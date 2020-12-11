@@ -112,6 +112,7 @@
 	<bc:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true" 
 	                  isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
 	                  skinName="skin_desktop.bc.ShufflePanelSkin" skeletonName="blockchain_sqba" />
+	<ui:GameRulePanel id="_gameRulePanel" horizontalCenter="0" verticalCenter="0" hideOnStart="true"/>
 	<!--<bc:DeckPanel id="_deckPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
 	               isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
 	               skinName="skin_desktop.bc.DeckPanelSkin" />

@@ -311,19 +311,19 @@ namespace we {
         }
       }
       protected onScrollerTouchMove(evt: egret.TouchEvent) {
-        console.log('scroll move');
+        // console.log('scroll move');
         if (this._preventScroll) {
           evt.preventDefault();
         }
       }
       protected onScrollerTouchEnd(evt: egret.TouchEvent) {
-        console.log('scroll end');
+        // console.log('scroll end');
         if (this._preventScroll) {
           evt.preventDefault();
         }
       }
       protected onScrollerTouchCancel(evt: egret.TouchEvent) {
-        console.log('scroll cancel');
+        // console.log('scroll cancel');
         if (this._preventScroll) {
           evt.preventDefault();
         }

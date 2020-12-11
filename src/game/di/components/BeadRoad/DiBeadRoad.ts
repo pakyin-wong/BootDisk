@@ -46,7 +46,7 @@ namespace we {
         if (isInGame) {
           // to switch highlight bg color
           this.isInGame = isInGame;
-          console.log('is in game');
+          // console.log('is in game');
         }
       }
 
