@@ -165,7 +165,7 @@ namespace we {
         let textureData = new dragonBones['EgretTextureData']();
         textureData.renderTexture = texture;
         meshDistData.texture = textureData;
-        card.armature.replacedTexture == null;
+        card.armature.replacedTexture = null;
         card.replaceDisplayData(meshDistData);
         card.displayIndex = -1;
         card.displayIndex = 0;
