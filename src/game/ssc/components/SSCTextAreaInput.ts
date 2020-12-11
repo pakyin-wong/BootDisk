@@ -94,11 +94,11 @@ namespace we {
       }
 
       protected loadFileAbort() {
-        console.log('abort');
+        console.error('abort');
       }
 
       protected loadFileError() {
-        console.log('error');
+        console.error('error');
       }
 
       protected onUploadChange() {

@@ -46,10 +46,13 @@ namespace we {
       protected initBetHistoryMobile() {
         let arrcol = new eui.ArrayCollection();
         arrcol.addItem(ui.NewDropdownItem('all', () => `${i18n.t('overlaypanel_bethistory_tab_all')}`));
-        for(var cat of env.gameCategories) {
-          arrcol.addItem(ui.NewDropdownItem(cat, () => `${i18n.t('overlaypanel_bethistory_tab_' + cat)}`));
-        }
-
+        // for(var cat of env.gameCategories) {
+        //   arrcol.addItem(ui.NewDropdownItem(cat, () => `${i18n.t('overlaypanel_bethistory_tab_' + cat)}`));
+        // }
+        let allGameCategories = env.gameCategories;
+        allGameCategories.forEach(e =>{
+          arrcol.addItem(ui.NewDropdownItem(e, () => `${i18n.t('overlaypanel_bethistory_tab_' + e)}`));
+        })
         utils.DropdownCreator.new({
           toggler: this._btn_searchType,
           review: this._btn_searchType.label,

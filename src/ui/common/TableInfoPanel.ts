@@ -27,6 +27,7 @@ namespace we {
       public pBetLimit: ui.RunTimeLabel;
 
       protected _tableinfo: data.TableInfo;
+      protected btnDetail : egret.DisplayObject;
 
       public constructor() {
         super();
@@ -49,6 +50,12 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitChange, this);
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onExit, this);
+
+        if(this.btnDetail){
+          this.btnDetail.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onTouchBtnDetail,this);
+          mouse.setButtonMode(this.btnDetail,true);
+        }
+
         mouse.setButtonMode(this.close, true);
         this.changeLang();
       }
@@ -138,6 +145,10 @@ namespace we {
 
       public getConfig(): any[] {
         return [];
+      }
+
+      protected onTouchBtnDetail(e){
+        dir.evtHandler.dispatchEvent(new egret.Event('OPEN_GAMERULEPANEL'));
       }
     }
   }

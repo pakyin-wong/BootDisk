@@ -84,7 +84,7 @@ namespace we {
 
       protected onSwitchShowHint(e) {
         env.showGoodRoadHint = this.switch_showHint.active = !env.showGoodRoadHint;
-        console.log('env.showGoodRoadHint', env.showGoodRoadHint);
+        // console.log('env.showGoodRoadHint', env.showGoodRoadHint);
 
         const rslt = env.showGoodRoadHint ? '1' : '0';
         dir.socket.updateSetting('showGoodRoadHint', env.showGoodRoadHint === true ? '1' : '0');

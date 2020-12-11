@@ -31,7 +31,7 @@ namespace we {
         }
 
         protected cancelSuccess() {
-          console.log('cancel success');
+          // console.log('cancel success');
         }
 
         protected betdetailreceived(e) {
