@@ -52,6 +52,7 @@ namespace we {
         // this._deckPanel.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         // this._cardInfoPanel.addEventListener('OPEN_DECK_PANEL', this.showDeckPanel, this);
         // this._cardInfoPanel.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
+        (<any>this._resultDisplay).addEventListener('SHOW_SHUFFLE_MESSAGE', this.showShuffleReadyMessage, this);
         this._helpButton.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{this.showHelpPanel()}, this);
         this._deckButton.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{this.showDeckPanel()}, this);
         (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
@@ -257,6 +258,11 @@ namespace we {
           this._shufflePanel.showAnim(this._gameData);
         }
       }
+
+      protected showShuffleReadyMessage() {
+        this._message.showMessage(ui.InGameMessage.INFO, i18n.t('baccarat.shuffleReady'));
+      }
+
       protected showSumGroup(){
         (<we.bab.MobileCardHolder>this._resultDisplay).showSumGroup()
       }

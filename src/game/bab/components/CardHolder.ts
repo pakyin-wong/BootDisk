@@ -582,6 +582,7 @@ namespace we {
 
           if (this._gameData.currentcardindex + i + 1 === this._gameData.redcardindex) {
             // this.dispatchEvent(new egret.Event('DRAW_RED_CARD'))
+            this.dispatchEvent(new egret.Event('SHOW_SHUFFLE_MESSAGE'));
             await utils.playAnimation(this._ringAnim, 'red_poker_in', 1, 'POKER_ROUND_ANIMATION_GROUP');
             await utils.playAnimation(this._ringAnim, 'red_poker_out', 1, 'POKER_ROUND_ANIMATION_GROUP');
             await utils.playAnimation(this.getRedCardAnim(), 'red_poker_in', 1);

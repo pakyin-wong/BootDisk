@@ -28,7 +28,8 @@ namespace we {
         // this._deckPanel.setValue(this._gameData);
         // this._deckPanel.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         this._shufflePanel.addEventListener('ENABLE_DECK_BTN', this.enableDeckBtn, this);
-        this._message.addEventListener('DRAW_RED_CARD',this.newShoeMessage,this)
+        this._message.addEventListener('DRAW_RED_CARD',this.newShoeMessage,this);
+        (<any>this._resultDisplay).addEventListener('SHOW_SHUFFLE_MESSAGE', this.showShuffleReadyMessage, this);
         this._historyCardHolder.setValue(this._gameData)
                 //========
         // this._deckButton.addEventListener('ENABLE_DECK_BTN', this.enableDeckBtn, this);
@@ -83,6 +84,10 @@ namespace we {
 
       protected newShoeMessage() {
         this._message.showMessage(ui.InGameMessage.NEWSHOE, i18n.t('baccarat.redCardDesc'), null, true);
+      }
+
+      protected showShuffleReadyMessage() {
+        this._message.showMessage(ui.InGameMessage.INFO, i18n.t('baccarat.shuffleReady'));
       }
 
       protected runtimeGenerateDeckPanel() {

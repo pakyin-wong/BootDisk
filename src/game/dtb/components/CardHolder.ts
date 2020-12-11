@@ -575,7 +575,7 @@ namespace we {
       }
 
       protected async closeShoe(){
-                    await Promise.all([utils.playAnimation(this._ringAnim, 'shoe_out', 1), utils.playAnimation(this._dragonAnim, 'shoe_out', 1), utils.playAnimation(this._tigerAnim, 'shoe_out', 1)]);
+            await Promise.all([utils.playAnimation(this._ringAnim, 'shoe_out', 1), utils.playAnimation(this._dragonAnim, 'shoe_out', 1), utils.playAnimation(this._tigerAnim, 'shoe_out', 1)]);
             await this.animateShoe();
             await this.animatePin();
 
