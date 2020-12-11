@@ -122,7 +122,7 @@ namespace we {
           this.pairChart.firstAngle = this.firstPercentage * 360;
           this.pairChart.secondAngle = this.secondPercentage * 360;
           this.pairChart.thirdAngle = this.thirdPercentage * 360;
-          console.log('[1 2 3]',[this.firstPercentage * 360,this.secondPercentage * 360,this.thirdPercentage * 360])
+          // console.log('[1 2 3]',[this.firstPercentage * 360,this.secondPercentage * 360,this.thirdPercentage * 360])
           this.pairChart.drawPairChart(this.isGrey);
       }
 

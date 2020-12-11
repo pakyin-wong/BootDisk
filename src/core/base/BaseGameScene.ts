@@ -380,7 +380,7 @@ namespace we {
       protected onTouchTap(evt: egret.Event) {}
 
       protected onBetDetailUpdateInBetState() {
-        console.log('onBetDetailUpdateInBetState');
+        // console.log('onBetDetailUpdateInBetState');
         if (this._betDetails && this._chipLayer) {
           this._chipLayer.updateBetFields(this._betDetails);
           this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
@@ -439,8 +439,8 @@ namespace we {
         if (!this._gameData) {
           return;
         }
-        console.log('Game state updated: ' + utils.getKeyByValue(core.GameState, this._gameData.state));
-        console.log(this._gameData);
+        // console.log('Game state updated: ' + utils.getKeyByValue(core.GameState, this._gameData.state));
+        // console.log(this._gameData);
         switch (this._gameData.state) {
           case core.GameState.IDLE:
             this.setStateIdle(isInit);

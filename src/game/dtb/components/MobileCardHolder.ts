@@ -42,8 +42,8 @@ namespace we {
 
         super.createChildren();
         //this.skinName = utils.getSkinByClassname('dtb.CardHolderSkin');
-        console.log('this skinname', this.skinName);
-       console.log('strings ksinanm',utils.getSkinByClassname('dtb.CardHolderSkin'));
+      //   console.log('this skinname', this.skinName);
+      //  console.log('strings ksinanm',utils.getSkinByClassname('dtb.CardHolderSkin'));
       }
 
       public expandBottom(){
