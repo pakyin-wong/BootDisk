@@ -693,6 +693,7 @@ namespace we {
         ssn: '卡牌序号',
         lastRound: '上局结果',
         redCardDesc: '红卡：该局游戏结束后进行换靴',
+        shuffleReady: '本局结束后，游戏将进行换靴',
         announceAfterDisclose: '将于开牌后公布...',
         cardUsed: '牌靴: 已使用$1张',
       },

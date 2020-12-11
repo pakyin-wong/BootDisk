@@ -666,6 +666,7 @@ namespace we {
         ssn: 'Private Key',
         lastRound: 'Last Round',
         redCardDesc: 'Red Card：After this round, new shoe will be used',
+        shuffleReady: 'Change shoe after the game is completed',
         announceAfterDisclose:'Will be announced after dealing',
         cardUsed: 'Shoe: $1 used'
       },
