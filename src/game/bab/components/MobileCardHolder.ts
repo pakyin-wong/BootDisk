@@ -28,6 +28,32 @@ namespace we {
         super.initAnimRelatedComps();
         this._ringAnim.animation.gotoAndStopByTime('icon_loop',0);
         this.expandBottom();
+
+        if(this._playerSumGroup.visible && this._bankerSumGroup.visible){
+          if(env.orientation === 'portrait'){
+            this._playerCardMoveGroup.y = 931;
+            this._bankerCardMoveGroup.y = 931;
+            this._playerCard3Group.y = 933;
+            this._bankerCard3Group.y = 933;
+          }else{
+            this._playerCardMoveGroup.y = 776;
+            this._bankerCardMoveGroup.y = 776;
+            this._playerCard3Group.y = 778;
+            this._bankerCard3Group.y = 778;
+          }
+        }else{
+          if(env.orientation === 'portrait'){
+            this._playerCardMoveGroup.y = 808;
+            this._bankerCardMoveGroup.y = 808;
+            this._playerCard3Group.y = 810;
+            this._bankerCard3Group.y = 810;          
+          }else{
+            this._playerCardMoveGroup.y = 625;
+            this._bankerCardMoveGroup.y = 625;
+            this._playerCard3Group.y = 627;
+            this._bankerCard3Group.y = 627;     
+          }
+        }
       }
 
       public expandBottom(){
