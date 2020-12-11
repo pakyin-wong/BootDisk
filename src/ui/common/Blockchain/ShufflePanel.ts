@@ -156,19 +156,20 @@ namespace we {
       //   return image;
       // }
 
-      protected getFirstCardFront(cardString: string, card){
+      protected getFirstCardFront(cardString: string, cardslot){
         const resName = cardString === 'back' ? 'back' : utils.formatCardForFlip(cardString);
         const image = new eui.Image();
         const texture = RES.getRes(utils.getCardResName(resName));
-        const meshDistData = card.displayData as dragonBones.MeshDisplayData;
+        const displayFrame = cardslot.getDisplayFrameAt(0);
+        const meshDistData = displayFrame.rawDisplayData as dragonBones.MeshDisplayData;
 
         let textureData = new dragonBones['EgretTextureData']();
         textureData.renderTexture = texture;
         meshDistData.texture = textureData;
-        card.armature.replacedTexture == null;
-        card.replaceDisplayData(meshDistData);
-        card.displayIndex = -1;
-        card.displayIndex = 0;
+        cardslot.armature.replacedTexture == null;
+        cardslot.replaceDisplayData(meshDistData);
+        cardslot.displayIndex = -1;
+        cardslot.displayIndex = 0;
       }
 
       protected createBg() {
