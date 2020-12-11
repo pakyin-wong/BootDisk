@@ -5,9 +5,9 @@
 		<e:Group id="_contentContainerStatic" left="0" right="0" top="0" bottom="0">
 			<ui:RoundRectShape id="_bg" cornerTL_TR_BL_BR="12,12,12,12" height="270" width="543" stroke="1" strokeIn="1" strokeColor="0x000000" strokeInColor="0x3a3f48" fillColor="0xffffff" horizontalCenter="0" verticalCenter="0" x="5" y="1" scaleX="1" scaleY="1"/>
 			<ui:RoundRectShape cornerTL_TR_BL_BR="9,9,0,0" y="0" width="550" height="80" stroke="3" strokeColor="0x393f49" fillColor="0x22282f" x="0" scaleX="1" scaleY="1"/>
-			<e:Group x="85" y="20" scaleX="1" scaleY="1">
-				<ui:RunTimeLabel id="_label_game" textAlign="left" size="36" text="百家樂"/>
-				<e:Label id="_label_ID" textAlign="left" y="-10" size="40" text="3" fontFamily="Barlow" anchorOffsetY="0" height="42"/>
+			<e:Group x="85" y="20" scaleX="1" scaleY="1" width="310">
+				<ui:RunTimeLabel id="_label_game" targetWidth="160" textAlign="left" size="36" text="百家樂"/>
+				<ui:RunTimeLabel id="_label_ID" targetWidth="140" textAlign="left" y="-10" size="40" text="3" fontFamily="Barlow" anchorOffsetY="0" height="42"/>
 				<e:layout>
 				<e:HorizontalLayout verticalAlign="middle"/>
 				</e:layout>
