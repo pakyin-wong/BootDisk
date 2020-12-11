@@ -90,7 +90,7 @@ namespace we {
       }
 
       protected beep() {
-        console.log('beep');
+        // console.log('beep');
       }
 
       protected setChipValueSlot() {
@@ -287,9 +287,9 @@ namespace we {
                 // this._valueLabel.scaleX = 0.4;
                 // this._valueLabel.anchorOffsetY = this._armatureHeight / 2 ;
 
-                this._chipAnim.animation.stop();
-                this._chipAnim.animation.gotoAndStopByFrame('in', 0);
-                this._chipAnim.animation.reset();
+                // this._chipAnim.animation.stop();
+                this._chipAnim.animation.gotoAndStopByTime('in', 0);
+                // this._chipAnim.animation.reset();
               })();
               break;
           }
@@ -330,7 +330,7 @@ namespace we {
               this._chipAnim.animation.play('out', 1);
               // await p1;
 
-              // this._chipAnim.animation.gotoAndStopByFrame('out', 20);
+              // this._chipAnim.animation.gotoAndStopByTime('out', 20);
             })();
             break;
         }

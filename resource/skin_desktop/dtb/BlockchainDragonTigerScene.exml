@@ -17,9 +17,9 @@
 	</ui:Group>
 	
 
-	<ui:Group x="769" y="939" isEdgeDismissable="true">
-	<ui:Group id="_bet">
-		<ui:BetRelatedGroup id="_betRelatedGroup" />
+	<ui:Group x="769" y="939" isEdgeDismissable="true" touchEnabled="false" >
+	<ui:Group id="_bet" touchEnabled="false" >
+		<ui:BetRelatedGroup id="_betRelatedGroup" touchEnabled="false" />
 		<!--<e:Rect id="_roundPanel" width="1039" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 		<e:Rect width="1" height="54" fillAlpha="0.3" fillColor="0x000000" verticalCenter="0" right="460"/>-->
 		<ui:BetChipSetHorizontal id="_betChipSet" width="548" height="64" y="3" anchorOffsetX="0" anchorOffsetY="0" x="15" />
@@ -84,9 +84,10 @@
 		<ui:RunTimeLabel i18n="baccarat.mechanismHelp" verticalCenter="0" horizontalCenter="0" touchEnabled="false"/>
 	</e:Group>
 	<dtb:HistoryCardHolder id="_historyCardHolder" width="190" height="125" x="22" y="151" skinName="skin_desktop.dtb.CornerHistoryHolderSkin" />
-	<dt:TableInfoPanel width="434" height="430" x="0" y="91" id="_tableInfoWindow" isPoppable="true" isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" anchorOffsetY="0" skinName="skin_desktop.dt.TableInfoPanel"/>	
+	<dt:TableInfoPanel width="434" height="430" x="0" y="91" id="_tableInfoWindow" isPoppable="true" isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" anchorOffsetY="0" skinName="skin_desktop.dtb.TableInfoPanel"/>	
 	<bc:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true" skeletonName="blockchain_dt"
 	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bc.ShufflePanelSkin" />
+	<ui:GameRulePanel id="_gameRulePanel" horizontalCenter="0" verticalCenter="0" hideOnStart="true"/>
 	<!--<bc:DeckPanel id="_deckPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
 	                   isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true" skinName="skin_desktop.bc.DeckPanelSkin" />
 	<bc:HelpPanel id="_helpPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"

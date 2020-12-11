@@ -39,10 +39,6 @@ namespace we {
         this._skinKey = 'BlockchainBaccaratScene';
       }
 
-      protected mount() {
-        super.mount();
-      }
-
       protected instantiateVideo() {}
 
       protected initOrientationDependentComponent() {
@@ -50,14 +46,16 @@ namespace we {
         this.initVariables();
         // this._helpPanel.setToggler(this._helpButton);
         // this._deckPanel.setToggler(this._deckButton);
+        this.passBackgroundsToResultDisplay();
         this._historyCardHolder.setToggler(this._lastRoundButton);
         // this._deckPanel.setValue(<bab.GameData>this._gameData);
         // this._deckPanel.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         // this._cardInfoPanel.addEventListener('OPEN_DECK_PANEL', this.showDeckPanel, this);
         // this._cardInfoPanel.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
+        (<any>this._resultDisplay).addEventListener('SHOW_SHUFFLE_MESSAGE', this.showShuffleReadyMessage, this);
         this._helpButton.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{this.showHelpPanel()}, this);
         this._deckButton.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{this.showDeckPanel()}, this);
-        // (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
+        (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         (<any>this._resultDisplay).addEventListener('OPEN_SHUFFLE_PANEL', this.showShufflePanel, this);
         this.getShoeInfo();
         this._bottomGamePanel.addEventListener('TOGGLE', this.toggleBottomGamePanel, this);
@@ -70,12 +68,19 @@ namespace we {
 
       }
 
+      //Pass something to trigger init anim related components in cardholder
+      protected passBackgroundsToResultDisplay(){
+        this._resultDisplay.passBackgrounds(null)
+      }
+
       protected initVariables(){
         this._portraitButtonExpandedDealY = 832;
         this._portraitButtonExpandedBetY = 684;
         this._portraitButtonCollapsedDealY = 1340;        
         this._portraitButtonCollapsedBetY = 1192;
       }
+
+      protected
 
       protected toggleBottomGamePanel() {
         if (env.isBottomPanelOpen) {
@@ -84,6 +89,9 @@ namespace we {
              switch (this._gameData.state) {
                case core.GameState.DEAL:
                case core.GameState.FINISH:
+               case core.GameState.PEEK:
+               case core.GameState.PEEK_BANKER:
+               case core.GameState.PEEK_PLAYER:
                  this._deckButton.y = this._helpButton.y = this._lastRoundButton.y = this._portraitButtonExpandedDealY;
           　      break;
                case core.GameState.BET:
@@ -100,6 +108,9 @@ namespace we {
              switch (this._gameData.state) {
                case core.GameState.DEAL:
                case core.GameState.FINISH:
+               case core.GameState.PEEK:
+               case core.GameState.PEEK_BANKER:
+               case core.GameState.PEEK_PLAYER:
                  this._deckButton.y = this._helpButton.y = this._lastRoundButton.y =  this._portraitButtonCollapsedDealY;
                  break;
                case core.GameState.BET:
@@ -116,6 +127,7 @@ namespace we {
       public updateGame(isInit: boolean = false) {
         super.updateGame(isInit);
         if (isInit) {
+          this._historyCardHolder.update(this._gameData, this._tableId);
           switch (this._gameData.state) {
             case core.GameState.BET:
             case core.GameState.DEAL:
@@ -123,7 +135,7 @@ namespace we {
             case core.GameState.SHUFFLE:
               break;
             default:
-              console.log('default state', this._gameData.state);
+              // console.log('default state', this._gameData.state);
               this._resultDisplay.setDefaultStates()
               break;
           }
@@ -132,11 +144,12 @@ namespace we {
 
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-        this._historyCardHolder.setCards(this._tableId);
-        this._historyCardHolder.setNumber(this._gameData.currentcardindex);
+        // this._historyCardHolder.setCards(this._tableId);
+        // this._historyCardHolder.setNumber(this._gameData.currentcardindex);
+        this._historyCardHolder.update(this._gameData, this._tableId);
         this._shufflePanel.hide();
         // this._deckPanel.setValue(this._gameData);
-        console.log('Blockchain scene bet state', this._gameData);
+        // console.log('Blockchain scene bet state', this._gameData);
         if (isInit || this.previousState !== core.GameState.BET) {
           this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         }
@@ -160,7 +173,7 @@ namespace we {
         // this._deckPanel.setValue(<bab.GameData>this._gameData);
         super.setStateDeal(isInit);
         this.showSumGroup();
-        console.log('Blockchain scene deal state', this._gameData);
+        // console.log('Blockchain scene deal state', this._gameData);
         this.toggleBottomGamePanel();
 
         if(this._mobileBlockchainBar){
@@ -176,7 +189,7 @@ namespace we {
         // this._deckPanel.setValue(<bab.GameData>this._gameData);
         super.setStateFinish(isInit);
         this.showSumGroup();
-        console.log('Blockchain scene finish state', this._gameData);
+        // console.log('Blockchain scene finish state', this._gameData);
         this.toggleBottomGamePanel();
       }
 
@@ -230,7 +243,9 @@ namespace we {
       }
 
       public showCardInfoPanel(evt: egret.Event) {
+        this.createSwipeUpPanel();
         this._slideUpMenu.showCardInfoPanel(<bab.GameData>this._gameData, evt.data);
+        this._slideUpMenu.addEventListener('CLOSE', this.removeSwipeUpPanel, this);
         // this._cardInfoPanel.setValue(this._gameData, evt.data);
         // this._cardInfoPanel.show();
       }
@@ -251,13 +266,17 @@ namespace we {
           this._shufflePanel.showAnim(this._gameData);
         }
       }
+
+      protected showShuffleReadyMessage() {
+        this._message.showMessage(ui.InGameMessage.INFO, i18n.t('baccarat.shuffleReady'));
+      }
+
       protected showSumGroup(){
         (<we.bab.MobileCardHolder>this._resultDisplay).showSumGroup()
       }
 
       protected hideSumGroup(){
           (<we.bab.MobileCardHolder>this._resultDisplay).hideSumGroup();
-
       }
 
       protected async getShoeInfo() {
@@ -268,11 +287,11 @@ namespace we {
           obj = JSON.parse(text);
           if (obj.result.cards) {
             this._gameData.hashedcardsList = obj.result.cards
-            console.log('get cosmo succeeded')
+            // console.log('get cosmo succeeded')
           }
           return new Promise(resolve => resolve())
         } catch (error) {
-          console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
+          // console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
           return new Promise(resolve => resolve())
         }
       }

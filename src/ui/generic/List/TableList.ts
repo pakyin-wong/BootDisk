@@ -89,11 +89,14 @@ namespace we {
               core.GameType.LW,
             ];
             break;
+          case core.LiveGameTab.bc:
+            this.gameFilters = [core.GameType.BAB, core.GameType.BASB, core.GameType.BAMB, core.GameType.DTB];
+            break;
           case core.LiveGameTab.ba:
-            this.gameFilters = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.BAM, core.GameType.BAB, core.GameType.BASB, core.GameType.BAMB];
+            this.gameFilters = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.BAM];
             break;
           case core.LiveGameTab.dt:
-            this.gameFilters = [core.GameType.DT, core.GameType.DTB];
+            this.gameFilters = [core.GameType.DT];
             break;
           case core.LiveGameTab.ro:
             this.gameFilters = [core.GameType.RO, core.GameType.ROL];
@@ -259,7 +262,7 @@ namespace we {
       }
 
       protected onLockChanged(evt: egret.Event) {
-        console.log(evt.$isPropagationStopped);
+        // console.log(evt.$isPropagationStopped);
         const focusItem: TableListItemHolder = evt.data;
         let listItem: TableListItemHolder;
         if (this.isFocus) {

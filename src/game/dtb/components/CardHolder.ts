@@ -37,8 +37,8 @@ namespace we {
 
       protected _verticalFlip: string;
 
-      protected mount() {
-        super.mount();
+      protected initAnimRelatedComps(){
+        super.initAnimRelatedComps();
         this._dragonAnim = this.createDragonTigerAnim('dragon', 0.8);
         this._tigerAnim = this.createDragonTigerAnim('tiger', 0.8);
         this._dragonAnimGroup.addChild(this._dragonAnim);
@@ -97,7 +97,7 @@ namespace we {
       }
 
       protected createFactory() {
-        const skeletonData = RES.getRes(`blockchain_dt_ske_json`);
+        const skeletonData = RES.getRes(`blockchain_dt_ske_dbbin`);
         const textureData = RES.getRes(`blockchain_dt_tex_json`);
         const texture = RES.getRes(`blockchain_dt_tex_png`);
         this._factory = new dragonBones.EgretFactory();
@@ -124,7 +124,7 @@ namespace we {
       }
 
       protected async clearCards() {
-        console.log('clearCards');
+        // console.log('clearCards');
         this.hideCard(this._dragonCard, 'vertical', '_front');
         this.hideCard(this._tigerCard, 'vertical', '_front');
 
@@ -138,7 +138,7 @@ namespace we {
       }
 
       protected async betInitState(gameState: core.GameState) {
-        console.log('betInitState() begin');
+        // console.log('betInitState() begin');
 
         let dNum: number;
         let tNum: number;
@@ -156,7 +156,7 @@ namespace we {
         this.setLabel(this._tigerCard.armature.getSlot('card_number_vertical'), tNum);
         this._tigerCard.animation.gotoAndStopByTime('vertical_loop_back', 0);
 
-        console.log('betInitState() end');
+        // console.log('betInitState() end');
         return new Promise(resolve => resolve());
       }
 
@@ -216,7 +216,7 @@ namespace we {
         }
 
         if (this._gameData.t) {
-          console.log('dealInitState t');
+          // console.log('dealInitState t');
           this.setCardFrontFace(this._tigerCard, 't', 'vertical', 0);
           this.setLabel(this._tigerCard.armature.getSlot(`card_number_vertical`), this.getCurrentTIndex());
           this._tigerCard.animation.gotoAndStopByTime(`vertical_loop_front`, 0);
@@ -230,7 +230,7 @@ namespace we {
           return new Promise(resolve => resolve());
         }
 
-        if (this._gameData.d) {
+        if (this._gameData.d && !this._gameData.t) {
           this.setCardFrontFace(this._dragonCard, 'd', 'vertical', 0);
           this.setLabel(this._dragonCard.armature.getSlot(`card_number_vertical`), this.getCurrentDIndex());
           await utils.playAnimation(this._dragonCard, this._verticalFlip, 1);
@@ -241,7 +241,7 @@ namespace we {
         }
 
         if (this._gameData.t) {
-          console.log('dealInitState t');
+          // console.log('dealInitState t');
           this.setCardFrontFace(this._tigerCard, 't', 'vertical', 0);
           this.setLabel(this._tigerCard.armature.getSlot(`card_number_vertical`), this.getCurrentTIndex());
           await utils.playAnimation(this._tigerCard, this._verticalFlip, 1);
@@ -249,7 +249,7 @@ namespace we {
           // this._tigerCard.animation.play(`vertical_flip`, 1);
           // await p5;
           this.updateTigerSum();
-        }
+      }
 
         return new Promise(resolve => resolve());
       }
@@ -262,7 +262,7 @@ namespace we {
       }
 
       protected setStateDeal(isInit: boolean) {
-        console.log('setStateDeal()', this._gameData);
+        // console.log('setStateDeal()', this._gameData);
 
         (async () => {
           const currentIndexOffsetToFirstCard = this.getCurrentIndexOffsetToFirstCard();
@@ -275,11 +275,11 @@ namespace we {
           if (isInit) {
             this.movePin();
             this.moveShoe();
-            console.log('dealInitState()');
+            // console.log('dealInitState()');
             await this.betInitState(core.GameState.DEAL);
             await this.dealInitState();
           } else {
-            console.log('flipCards()');
+            // console.log('flipCards()');
             await this.flipCards();
           }
         })();
@@ -329,16 +329,21 @@ namespace we {
 
         //   return new Promise(resolve => resolve());
         // })();
+        if(!env.isMobile){
+          this.setLabel(this._ringAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + 1);
 
-        this.setLabel(this._ringAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + 1);
+          await utils.playAnimation(this._ringAnim, 'poker_in', 1, 'POKER_ROUND_ANIMATION_GROUP');
 
-        await utils.playAnimation(this._ringAnim, 'poker_in', 1, 'POKER_ROUND_ANIMATION_GROUP');
+          this.setLabel(this._centerBurnCard.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + 1);
+          this._centerBurnCardGroup.visible = true;
 
-        this.setLabel(this._centerBurnCard.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + 1);
-        this._centerBurnCardGroup.visible = true;
+          await utils.playAnimation(this._centerBurnCard, 'dt_burn_card_center', 1, 'POKER_ROUND_ANIMATION_GROUP');
+          this._centerBurnCardGroup.visible = false;
+        }else{
+          this.setLabel(this._ringAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + 1);
 
-        await utils.playAnimation(this._centerBurnCard, 'dt_burn_card_center', 1, 'POKER_ROUND_ANIMATION_GROUP');
-        this._centerBurnCardGroup.visible = false;
+          await utils.playAnimation(this._ringAnim, 'dt_burn_card_center', 1, 'POKER_ROUND_ANIMATION_GROUP');
+        }
 
         const cardAnimNames = ['_dragonCard', '_tigerCard'];
         for (let i = 0; i < cardAnimNames.length; i++) {
@@ -355,7 +360,7 @@ namespace we {
               //   cardAnim.animation.play('vertical_in', 1);
               //   await p1;
 
-              //   cardAnim.animation.gotoAndStopByFrame('vertical_loop_back', 0);
+              //   cardAnim.animation.gotoAndStopByTime('vertical_loop_back', 0);
 
               //   return new Promise(resolve => resolve());
               // })();
@@ -378,7 +383,7 @@ namespace we {
               await utils.playAnimation(this._ringAnim, 'poker_in', 1, 'POKER_ROUND_ANIMATION_GROUP');
               await utils.playAnimation(this._ringAnim, 'poker_out', 1, 'POKER_ROUND_ANIMATION_GROUP');
               await utils.playAnimation(cardAnim, 'vertical_in', 1);
-              cardAnim.animation.gotoAndStopByFrame('vertical_loop_back', 0);
+              cardAnim.animation.gotoAndStopByTime('vertical_loop_back', 0);
           }
 
           if (this._gameData.currentcardindex + i + 1 === this._gameData.redcardindex) {
@@ -457,7 +462,7 @@ namespace we {
           for (let i = 0; i < 2; i++) {
             this._infoArray.push(this._gameData.currentcardindex + 2 + i);
           }
-          console.log('BET infoArray', this._infoArray);
+          // console.log('BET infoArray', this._infoArray);
           return;
         }
         if (this._gameData.state === core.GameState.DEAL || this._gameData.state === core.GameState.FINISH) {
@@ -472,13 +477,13 @@ namespace we {
               this._infoArray = [-1].concat(this._infoArray);
             }
           }
-          console.log('DEAL infoArray', this._infoArray);
+          // console.log('DEAL infoArray', this._infoArray);
           return;
         }
       }
 
       protected setStateFinish(isInit) {
-        console.log('setStateFinish() isInit', isInit, this._gameData);
+        // console.log('setStateFinish() isInit', isInit, this._gameData);
         if (this._gameData.redcardindex <= this._gameData.currentcardindex) {
           this.getRedCardAnim().animation.gotoAndStopByTime('red_poker_loop', 0);
         }
@@ -529,7 +534,7 @@ namespace we {
         } else {
           (async () => {
             await this.clearCards();
-            console.log('shuffle start');
+            // console.log('shuffle start');
             // const p1 = utils.waitDragonBone(this.getRedCardAnim());
             // this.getRedCardAnim().animation.fadeIn('red_poker_out');
             // this._smallRedCardGroup.removeChild(this._smallRedCard);
@@ -558,31 +563,7 @@ namespace we {
             // await p2a;
 
             await utils.playAnimation(this.getRedCardAnim(), 'red_poker_out', 1);
-            await Promise.all([utils.playAnimation(this._ringAnim, 'shoe_out', 1), utils.playAnimation(this._dragonAnim, 'shoe_out', 1), utils.playAnimation(this._tigerAnim, 'shoe_out', 1)]);
-
-            await this.animateShoe();
-            await this.animatePin();
-
-            // const p3 = utils.waitDragonBone(this._ringAnim);
-            // this._ringAnim.animation.fadeIn('shoe_in', 0, 1, 0);
-
-            // const p3a = (async () => {
-            //   const dragonBlock = utils.waitDragonBone(this._dragonAnim);
-            //   const tigerBlock = utils.waitDragonBone(this._tigerAnim);
-
-            //   this._dragonAnim.animation.play('shoe_in',1);
-            //   this._tigerAnim.animation.play('shoe_in',1);
-
-            //   await dragonBlock;
-            //   await tigerBlock;
-
-            //   return new Promise(resolve => resolve());
-            // })();
-
-            // await p3;
-            // await p3a;
-
-            await Promise.all([utils.playAnimation(this._ringAnim, 'shoe_in', 1), utils.playAnimation(this._dragonAnim, 'shoe_in', 1), utils.playAnimation(this._tigerAnim, 'shoe_in', 1)]);
+            await this.closeShoe()
 
             this._ringAnim.animation.fadeIn(this._roundLoopB, 0, 0, 0);
 
@@ -591,6 +572,16 @@ namespace we {
             return new Promise(resolve => resolve());
           })();
         }
+      }
+
+      protected async closeShoe(){
+            await Promise.all([utils.playAnimation(this._ringAnim, 'shoe_out', 1), utils.playAnimation(this._dragonAnim, 'shoe_out', 1), utils.playAnimation(this._tigerAnim, 'shoe_out', 1)]);
+            await this.animateShoe();
+            await this.animatePin();
+
+
+            await Promise.all([utils.playAnimation(this._ringAnim, 'shoe_in', 1), utils.playAnimation(this._dragonAnim, 'shoe_in', 1), utils.playAnimation(this._tigerAnim, 'shoe_in', 1)]);
+            return new Promise(resolve=>resolve())
       }
 
       protected showStaticRedCard() {}

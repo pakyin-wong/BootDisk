@@ -113,7 +113,7 @@ namespace we {
       }
 
       protected onImageClick(e: eui.UIEvent) {
-        console.log('THE PATTERN = ' + this.pattern);
+        // console.log('THE PATTERN = ' + this.pattern);
         if (this.inputIndex > 3) {
           return;
         }

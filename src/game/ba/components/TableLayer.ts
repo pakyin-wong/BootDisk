@@ -6,16 +6,27 @@ namespace we {
       protected _playerImage: ui.BettingGrid;
       protected _tieImage: ui.BettingGrid;
       protected _bankerImage: ui.BettingGrid;
-      protected _superSixImage: ui.BettingGrid;
+
+      protected _superSixPlayerImage: ui.BettingGrid;
       protected _superSixBankerImage: ui.BettingGrid;
+      protected _superSixPlayerPairImage: ui.BettingGrid;
+      protected _superSixImage: ui.BettingGrid;
+      protected _superSixTieImage: ui.BettingGrid;
+      protected _superSixBankerPairImage: ui.BettingGrid;
 
       protected _playerPairLabel: ui.RunTimeLabel;
       protected _bankerPairLabel: ui.RunTimeLabel;
       protected _playerLabel: ui.RunTimeLabel;
       protected _tieLabel: ui.RunTimeLabel;
       protected _bankerLabel: ui.RunTimeLabel;
+
+      protected _superSixPlayerPairLabel: ui.RunTimeLabel;
+      protected _superSixBankerPairLabel: ui.RunTimeLabel;
+      protected _superSixPlayerLabel: ui.RunTimeLabel;
+      protected _superSixTieLabel: ui.RunTimeLabel;
       protected _superSixLabel: ui.RunTimeLabel;
       protected _superSixBankerLabel: ui.RunTimeLabel;
+
 
       protected _playerTotalAmount: eui.Label;
       protected _bankerTotalAmount: eui.Label;
@@ -51,25 +62,14 @@ namespace we {
         this._imageMapping[ba.BetField.PLAYER_PAIR] = this._playerPairImage;
         this._imageMapping[ba.BetField.TIE] = this._tieImage;
         this._imageMapping[ba.BetField.BANKER_PAIR] = this._bankerPairImage;
-        this._imageMapping[ba.BetField.SUPER_SIX_BANKER] = this._superSixBankerImage;
-        this._imageMapping[ba.BetField.SUPER_SIX] = this._superSixImage;
 
-        /*
-        image = this._imageMapping[ba.BetField.PLAYER];
-        this._imageSourceMapping[ba.BetField.PLAYER] = [image.source, image.name ? image.name : image.source];
-        image = this._imageMapping[ba.BetField.BANKER];
-        this._imageSourceMapping[ba.BetField.BANKER] = [image.source, image.name ? image.name : image.source];
-        image = this._imageMapping[ba.BetField.PLAYER_PAIR];
-        this._imageSourceMapping[ba.BetField.PLAYER_PAIR] = [image.source, image.name ? image.name : image.source];
-        image = this._imageMapping[ba.BetField.TIE];
-        this._imageSourceMapping[ba.BetField.TIE] = [image.source, image.name ? image.name : image.source];
-        image = this._imageMapping[ba.BetField.BANKER_PAIR];
-        this._imageSourceMapping[ba.BetField.BANKER_PAIR] = [image.source, image.name ? image.name : image.source];
-        image = this._imageMapping[ba.BetField.SUPER_SIX_BANKER];
-        this._imageSourceMapping[ba.BetField.SUPER_SIX_BANKER] = [image.source, image.name ? image.name : image.source];
-        image = this._imageMapping[ba.BetField.SUPER_SIX];
-        this._imageSourceMapping[ba.BetField.SUPER_SIX] = [image.source, image.name ? image.name : image.source];
-*/
+
+        this._imageMapping[ba.BetField.SUPER_SIX_PLAYER] = this._superSixPlayerImage;
+        this._imageMapping[ba.BetField.SUPER_SIX_BANKER] = this._superSixBankerImage;
+        this._imageMapping[ba.BetField.SUPER_SIX_PLAYER_PAIR] = this._superSixPlayerPairImage;
+        this._imageMapping[ba.BetField.SUPER_SIX_TIE] = this._superSixTieImage;
+        this._imageMapping[ba.BetField.SUPER_SIX] = this._superSixImage;
+        this._imageMapping[ba.BetField.SUPER_SIX_BANKER_PAIR] = this._superSixBankerPairImage;
 
         this._totalPersonMapping = {};
         this._totalPersonMapping[ba.BetField.PLAYER] = this._playerTotalPerson;
@@ -86,8 +86,13 @@ namespace we {
         this._playerPairLabel.renderText = () => i18n.t('baccarat.playerPairShort');
         this._tieLabel.renderText = () => i18n.t('baccarat.tieShort');
         this._bankerPairLabel.renderText = () => i18n.t('baccarat.bankerPairShort');
-        this._superSixBankerLabel.renderText = () => i18n.t('baccarat.bankerShort');
-        this._superSixLabel.renderText = () => i18n.t('baccarat.superSixShort');
+
+        this._superSixPlayerLabel && (this._superSixPlayerLabel.renderText = () => i18n.t('baccarat.playerShort'));
+        this._superSixBankerLabel && (this._superSixBankerLabel.renderText = () => i18n.t('baccarat.bankerShort'));
+        this._superSixPlayerPairLabel && (this._superSixPlayerPairLabel.renderText = () => i18n.t('baccarat.playerPairShort'));
+        this._superSixTieLabel && (this._superSixTieLabel.renderText = () => i18n.t('baccarat.tieShort'));
+        this._superSixLabel && (this._superSixLabel.renderText = () => i18n.t('baccarat.superSixShort'));
+        this._superSixBankerPairLabel && (this._superSixBankerPairLabel.renderText = () => i18n.t('baccarat.bankerPairShort'));
       }
 
       public onRollover(fieldName: string) {
@@ -100,7 +105,9 @@ namespace we {
       }
 
       public onRollout(fieldName: string) {
-        this._imageMapping[fieldName].filters = [];
+        if(this._imageMapping[fieldName]){
+          this._imageMapping[fieldName].filters = [];
+        }
       }
 
       public clearAllHighlights() {
@@ -141,16 +148,13 @@ namespace we {
 
       public async flashFields(gameData: we.data.GameData, superSixMode: boolean) {
         const winningFields = [];
-        const { wintype, issupersix, isbankerpair, isplayerpair } = gameData;
+        const { wintype, issupersix, isbankerpair, isplayerpair, bankerpoint } = gameData as ba.GameData;
 
         if (isbankerpair) {
           winningFields.push(ba.BetField.BANKER_PAIR);
         }
         if (isplayerpair) {
           winningFields.push(ba.BetField.PLAYER_PAIR);
-        }
-        if (issupersix) {
-          winningFields.push(ba.BetField.SUPER_SIX);
         }
 
         switch (wintype) {
@@ -160,14 +164,25 @@ namespace we {
             } else {
               winningFields.push(ba.BetField.BANKER);
             }
+            if (bankerpoint == 6) {
+              winningFields.push(ba.BetField.SUPER_SIX);
+            }
             break;
           }
           case ba.WinType.PLAYER: {
-            winningFields.push(ba.BetField.PLAYER);
+            if (superSixMode) {
+              winningFields.push(ba.BetField.SUPER_SIX_PLAYER);
+            } else {
+              winningFields.push(ba.BetField.PLAYER);
+            }
             break;
           }
           case ba.WinType.TIE: {
-            winningFields.push(ba.BetField.TIE);
+            if (superSixMode) {
+              winningFields.push(ba.BetField.SUPER_SIX_TIE);
+            } else {
+              winningFields.push(ba.BetField.TIE);
+            }
             break;
           }
           default: {

@@ -32,7 +32,10 @@ namespace we {
             this.setAllSums(false)
         }else{          
           this.setCards(tableId)
-          this.setNumber(this._gameData.currentcardindex)
+          const count = ['a1','a2','a3','b1','b2','b3'].reduce((prev, key)=>{
+            return prev + (gameData[key]!=''?1:0)
+          },0);
+          this.setNumber(this._gameData.currentcardindex-count)
         }
       }
 
@@ -88,7 +91,7 @@ namespace we {
       }
 
       public setNumber(number: number) {
-        console.log('number',number);
+        // console.log('number',number);
         this.setAllNums(true)
         if(this._bankerCard3.visible){
           this._bankerNum3.text = number.toString();

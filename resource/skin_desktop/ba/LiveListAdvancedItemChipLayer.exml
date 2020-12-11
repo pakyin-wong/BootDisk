@@ -31,16 +31,4 @@
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="15"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_superSixBankerGroup" visible="false">
-		<ui:BetChipStack id="_superSixBankerBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
-		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0" betSumBackgroundWidth="60" betSumBackgroundHeight="20"
-		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="15"
-		                 chipType="2" />
-	</e:Group>
-	<e:Group id="_superSixGroup" visible="false">
-		<ui:BetChipStack id="_superSixBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"
-		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0" betSumBackgroundWidth="60" betSumBackgroundHeight="20"
-		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="15"
-		                 chipType="2" />
-	</e:Group>
 </e:Skin>

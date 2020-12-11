@@ -67,14 +67,14 @@ namespace we {
       protected initComponents(){
         super.initComponents();
 
-        let skeletonData = RES.getRes(`blockchain_ske_json`);
+        let skeletonData = RES.getRes(`blockchain_ske_dbbin`);
         let textureData = RES.getRes(`blockchain_tex_json`);
         let texture = RES.getRes(`blockchain_tex_png`);        
         switch(this._gameType){
           case 'ba':
           break;
           case 'dt':
-            skeletonData = RES.getRes(`blockchain_dt_ske_json`);
+            skeletonData = RES.getRes(`blockchain_dt_ske_dbbin`);
             textureData = RES.getRes(`blockchain_dt_tex_json`);
             texture = RES.getRes(`blockchain_dt_tex_png`);
           break;
@@ -318,11 +318,11 @@ namespace we {
         egret.Tween.removeTweens(this._redBarEffect.origin);
         egret.Tween.removeTweens(this._blueBarEffect.origin);
         
-        this._anim.once(dragonBones.AnimationEvent.COMPLETE,this.resetAnim,this);
+        this._anim.once(dragonBones.EventObject.COMPLETE,this.resetAnim,this);
         this._anim.animation.play('effect_center',1);
       }
 
-      protected resetAnim(e:dragonBones.AnimationEvent = null){
+      protected resetAnim(e:dragonBones.EgretEvent = null){
         if(!this._anim){
           return;
         }

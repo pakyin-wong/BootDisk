@@ -23,6 +23,7 @@ namespace we {
         // [we.core.GameType.BAI]: 1,
         // [we.core.GameType.BAS]: 1,
         [we.core.GameType.DT]: 1,
+        [we.core.GameType.DTB]: 1,
         [we.core.GameType.RO]: 1,
         [we.core.GameType.DI]: 1,
         [we.core.GameType.DIL]: 1,
@@ -563,6 +564,38 @@ namespace we {
 
               data.bets = [];
               const mockProcess = new MockProcessDragonTiger(this, core.GameType.DT);
+              if (idx !== count - 1) {
+                mockProcess.startRand = idx;
+                mockProcess.endRand = idx + 1;
+              }
+              mockProcess.start(data);
+              this.mockProcesses.push(mockProcess);
+
+              idx++;
+              return data;
+            });
+            break;
+          }
+          case we.core.GameType.DTB: {
+            tables = Array.apply(null, { length: count }).map((value, idx) => {
+              const data = new we.data.TableInfo();
+              data.tableid = (++this._tempIdx).toString();
+              data.tablename = data.tableid;
+              data.state = TableState.ONLINE;
+              data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockBARoadData);
+              data.gametype = core.GameType.DTB;
+
+              data.gamestatistic = this.generateDummyStatistic(data);
+
+              data.betInfo = new we.data.GameTableBetInfo();
+              data.betInfo.tableid = data.tableid; // Unique table id
+              data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
+              data.betInfo.total = 10000; // Total bet amount for this gameround
+              data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
+              data.betInfo.ranking = [];
+
+              data.bets = [];
+              const mockProcess = new MockProcessBaccaratBlockchain(this, core.GameType.DTB);
               if (idx !== count - 1) {
                 mockProcess.startRand = idx;
                 mockProcess.endRand = idx + 1;

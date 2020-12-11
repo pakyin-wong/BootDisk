@@ -7,6 +7,8 @@ namespace we {
       private static _env: Env;
       protected mobileValidGameType = [];
       protected desktopValidGameType = [];
+      protected validCategories = [];
+      protected sidePanelValidCategories = [];
 
       public static get Instance(): Env {
         const env = this._env ? this._env : new Env();
@@ -17,7 +19,7 @@ namespace we {
       public notYetInteract: boolean = false;
 
       /* Global Environment Variable */
-      public version: string = '0.12.13';
+      public version: string = '0.12.14';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -46,7 +48,9 @@ namespace we {
       protected _gameCategories: string[];
       protected _gameTypes: number[];
       protected _liveGameTab: string[] = [];
+      protected _liveCategories = {};
       protected _lotteryTab: string[] = [];
+      protected _lotteryCategories = {};
 
       public blockchain: { thirdPartySHA256: string; cosmolink: string } = {
         thirdPartySHA256: '',
@@ -105,8 +109,6 @@ namespace we {
 
       private _tableInfoArray: data.TableInfo[] = [];
       private _tableInfos: { [key: string]: data.TableInfo } = {};
-      public _currTableId: string;
-      public _currGameType: number;
 
       // array of table id
       public allTableList: string[] = [];
@@ -124,6 +126,8 @@ namespace we {
       public sidePanelExpanded: boolean = false;
       public lobbyGridType: number = 1;
 
+      public _currTableId: string;
+      public _currGameType: number;
       public currentPage: string = 'lobby';
       public currentTab: string = 'all';
 
@@ -143,40 +147,51 @@ namespace we {
       public loDeniminationIdx = 0;
 
       public init() {
-        this.mobileValidGameType = [
-          core.GameType.BAC,
-          core.GameType.BAI,
-          core.GameType.BAS,
-          core.GameType.BAM,
-          core.GameType.BAB,
-          core.GameType.BASB,
-          core.GameType.DTB,
-          core.GameType.DI,
-          core.GameType.DIL,
-          core.GameType.DT,
-          core.GameType.LW,
-          core.GameType.RO,
-          core.GameType.ROL,
-          core.GameType.LO,
-        ];
-        this.desktopValidGameType = [
-          core.GameType.BAC,
-          core.GameType.BAI,
-          core.GameType.BAS,
-          core.GameType.BAM,
-          core.GameType.BAB,
-          core.GameType.BASB,
-          core.GameType.BAMB,
-          core.GameType.DTB,
-          core.GameType.DI,
-          core.GameType.DIL,
-          core.GameType.DT,
-          core.GameType.LW,
-          core.GameType.RO,
-          core.GameType.ROL,
-          core.GameType.LO,
-          core.GameType.RC,
-        ];
+        // if (false) {
+        if (DEBUG) {
+          this.validCategories = ['live', 'lottery'];
+          this.sidePanelValidCategories = ['live', 'lottery'];
+          this.mobileValidGameType = [
+            core.GameType.BAC,
+            core.GameType.BAI,
+            core.GameType.BAS,
+            core.GameType.BAM,
+            core.GameType.BAMB,
+            core.GameType.BAB,
+            core.GameType.BASB,
+            core.GameType.DTB,
+            core.GameType.DI,
+            core.GameType.DIL,
+            core.GameType.DT,
+            core.GameType.LW,
+            core.GameType.RO,
+            core.GameType.ROL,
+            core.GameType.LO,
+          ];
+          this.desktopValidGameType = [
+            core.GameType.BAC,
+            core.GameType.BAI,
+            core.GameType.BAS,
+            core.GameType.BAM,
+            core.GameType.BAB,
+            core.GameType.BASB,
+            core.GameType.BAMB,
+            core.GameType.DTB,
+            core.GameType.DI,
+            core.GameType.DIL,
+            core.GameType.DT,
+            core.GameType.LW,
+            core.GameType.RO,
+            core.GameType.ROL,
+            core.GameType.LO,
+            core.GameType.RC,
+          ];
+        } else {
+          this.validCategories = ['live'];
+          this.sidePanelValidCategories = ['live'];
+          this.mobileValidGameType = [core.GameType.BAB, core.GameType.BASB, core.GameType.BAMB, core.GameType.DTB];
+          this.desktopValidGameType = [core.GameType.BAB, core.GameType.BASB, core.GameType.BAMB, core.GameType.DTB];
+        }
 
         dir.evtHandler.addEventListener('LIVE_PAGE_LOCK', this.onLockChanged, this);
       }
@@ -191,12 +206,10 @@ namespace we {
 
       set gameCategories(value: string[]) {
         // value = ['Lottery'];    // TODO: this is just for testing, delete it when finish testing
-        const validCategories = ['Live', 'Lottery']; // categories which support in current version
-        this._gameCategories = validCategories
-          .filter(cat => {
-            return value.indexOf(cat) >= 0;
-          })
-          .map((cat: string) => cat.toLowerCase());
+        const vals = value.map((cat: string) => cat.toLowerCase());
+        this._gameCategories = this.validCategories.filter(cat => {
+          return vals.indexOf(cat) >= 0;
+        });
       }
 
       // used for lobby
@@ -206,20 +219,19 @@ namespace we {
 
       // used for side panel dropdown
       get sideGameCategories(): string[] {
-        const validCategories = ['live', 'lottery']; // categories which support in current version side game panel
         if (this._gameCategories) {
-          const cats = validCategories.filter(cat => {
+          const cats = this.sidePanelValidCategories.filter(cat => {
             return this._gameCategories.indexOf(cat) >= 0;
           });
           return cats;
         } else {
-          return validCategories;
+          return this.sidePanelValidCategories;
         }
       }
 
       set gameTypes(value: any[]) {
         // value = ['0', '15', '22'];     // TODO: this is just for testing, delete it when finish testing
-        value = value.concat('27', '28', '29', '30','15', '22'); // TODO: temp add BAB and DTB
+        value = value.concat('27', '28', '29', '30', '15', '22'); // TODO: temp add BAB and DTB
         // console.log(JSON.stringify(value));
         this._gameTypes = value.map((cat: string) => parseInt(cat, 10));
         this.generateLiveGameTab();
@@ -230,56 +242,78 @@ namespace we {
         return this._gameTypes;
       }
 
+      get supportedGameType(): number[] {
+        const supportedGameType: number[] = env.isMobile ? this.mobileValidGameType : this.desktopValidGameType;
+        const intersection = this._gameTypes.filter(element => supportedGameType.indexOf(element) > -1);
+        return intersection;
+      }
+
       protected generateLiveGameTab() {
         const gameSubcats = {
-          allGame: [1],
+          allGame: [],
+          blockchain: [],
           baccarat: [],
           dragontiger: [],
           roulette: [],
           dice: [],
           luckywheel: [],
         };
-        for (const type of this._gameTypes) {
+        const supportedGameType = this.supportedGameType;
+        for (const type of supportedGameType) {
           switch (type) {
-            case core.GameType.BAB:
-            case core.GameType.BASB:
             case core.GameType.BAC:
             case core.GameType.BAI:
             case core.GameType.BAM:
-            case core.GameType.BAMB:
             case core.GameType.BAS:
               gameSubcats.baccarat.push(type);
+              gameSubcats.allGame.push(type);
+              break;
+            case core.GameType.BAB:
+            case core.GameType.BASB:
+            case core.GameType.BAMB:
+            case core.GameType.DTB:
+              gameSubcats.blockchain.push(type);
+              gameSubcats.allGame.push(type);
               break;
             case core.GameType.DT:
-            case core.GameType.DTB:
               gameSubcats.dragontiger.push(type);
+              gameSubcats.allGame.push(type);
               break;
             case core.GameType.RO:
             case core.GameType.ROL:
               gameSubcats.roulette.push(type);
+              gameSubcats.allGame.push(type);
               break;
             case core.GameType.DI:
             case core.GameType.DIL:
               gameSubcats.dice.push(type);
+              gameSubcats.allGame.push(type);
               break;
             case core.GameType.LW:
               gameSubcats.luckywheel.push(type);
+              gameSubcats.allGame.push(type);
               break;
           }
         }
+
         const tabs = Object.keys(gameSubcats).filter(cat => {
           return gameSubcats[cat].length > 0;
         });
+
         this._liveGameTab = tabs;
+        this._liveCategories = gameSubcats;
       }
 
       get liveGameTab(): any[] {
         return this._liveGameTab;
       }
+      get liveCategories() {
+        return this._liveCategories;
+      }
 
       protected generateLotteryTab() {
         const gameSubcats = {
-          allLotteryGame: [1],
+          allLotteryGame: [],
           lottery: [],
           race: [],
         };
@@ -287,9 +321,11 @@ namespace we {
           switch (type) {
             case core.GameType.LO:
               gameSubcats.lottery.push(type);
+              gameSubcats.allLotteryGame.push(type);
               break;
             case core.GameType.RC:
               gameSubcats.race.push(type);
+              gameSubcats.allLotteryGame.push(type);
               break;
           }
         }
@@ -297,9 +333,13 @@ namespace we {
           return gameSubcats[cat].length > 0;
         });
         this._lotteryTab = tabs;
+        this._lotteryCategories = gameSubcats;
       }
       get lotteryTab(): any[] {
         return this._lotteryTab;
+      }
+      get lotteryCategories() {
+        return this._lotteryCategories;
       }
 
       set currTime(value: number) {
@@ -387,7 +427,7 @@ namespace we {
           }
 
           if (tableInfo.data != null && tableInfo.roadmap != null) {
-          // if (tableInfo.data != null) {
+            // if (tableInfo.data != null) {
             tableInfo.displayReady = true;
             return true;
           }
@@ -429,10 +469,16 @@ namespace we {
         return denomMap;
       }
 
+      public refreshScene() {
+        if (!this._currTableId || this._currTableId == '') {
+          // dir.sceneCtr.goto('lobby', {page: this.currentPage, tab: this.currentTab});
+        } else {
+          this.gotoScene(this._currTableId);
+        }
+      }
+
       public gotoScene(tableId: string) {
         const gameType = env.tableInfos[tableId].gametype;
-        this._currTableId = tableId;
-        this._currGameType = gameType;
         switch (gameType) {
           case core.GameType.BAC:
           case core.GameType.BAS:
@@ -481,6 +527,8 @@ namespace we {
             this._currTableId = '';
             break;
         }
+        this._currTableId = tableId;
+        this._currGameType = gameType;
       }
 
       public get sceneId(): string {
@@ -537,7 +585,7 @@ namespace we {
           env._groups[_item].push(item);
         }
         for (const group in env._groups) {
-          console.log(group);
+          // console.log(group);
           if (env._groups[group].length == 0) {
             delete env._groups[group];
           }

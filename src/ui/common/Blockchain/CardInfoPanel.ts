@@ -139,8 +139,6 @@ namespace we {
           this
         );
 
-        //mobile Help Group
-        if(env.isMobile){
           this.changeFontSize();
 
           this.closeAllHint();
@@ -151,7 +149,6 @@ namespace we {
           this._decryptedHelp.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openDecryptedKeyHint, this);
 
           this.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeFontSize, this);
-        }
       }
 
       public setValue(gameData: any, index: number) {
@@ -206,24 +203,35 @@ namespace we {
       }
 
       protected changeFontSize(){
-        if(env.language === "en"){
-          this._helpLabel.size = 34;
-          this._encryptedKeyHelpLabel.size = 34;
-          this._ssnHelpLabel.size = 34;
-          this._decryptedKeyHelpLabel.size = 34;
-          this._helpLabel.lineSpacing = 12;
-          this._encryptedKeyHelpLabel.lineSpacing = 12;
-          this._ssnHelpLabel.lineSpacing = 12;
-          this._decryptedKeyHelpLabel.lineSpacing = 12;
+        if(env.isMobile){
+          if(env.language === "en"){
+            this._helpLabel.size = 34;
+            this._encryptedKeyHelpLabel.size = 34;
+            this._ssnHelpLabel.size = 34;
+            this._decryptedKeyHelpLabel.size = 34;
+            this._helpLabel.lineSpacing = 12;
+            this._encryptedKeyHelpLabel.lineSpacing = 12;
+            this._ssnHelpLabel.lineSpacing = 12;
+            this._decryptedKeyHelpLabel.lineSpacing = 12;
+          }else{
+            this._helpLabel.size = 36;
+            this._encryptedKeyHelpLabel.size = 36;
+            this._ssnHelpLabel.size = 36;
+            this._decryptedKeyHelpLabel.size = 36;
+            this._helpLabel.lineSpacing = 15;
+            this._encryptedKeyHelpLabel.lineSpacing = 15;
+            this._ssnHelpLabel.lineSpacing = 15;
+            this._decryptedKeyHelpLabel.lineSpacing = 15;
+          }
         }else{
-          this._helpLabel.size = 36;
-          this._encryptedKeyHelpLabel.size = 36;
-          this._ssnHelpLabel.size = 36;
-          this._decryptedKeyHelpLabel.size = 36;
-          this._helpLabel.lineSpacing = 15;
-          this._encryptedKeyHelpLabel.lineSpacing = 15;
-          this._ssnHelpLabel.lineSpacing = 15;
-          this._decryptedKeyHelpLabel.lineSpacing = 15;
+            this._helpLabel.size = 20;
+            this._encryptedKeyHelpLabel.size = 20;
+            this._ssnHelpLabel.size = 20;
+            this._decryptedKeyHelpLabel.size = 20;
+            this._helpLabel.lineSpacing = 10;
+            this._encryptedKeyHelpLabel.lineSpacing = 10;
+            this._ssnHelpLabel.lineSpacing = 10;
+            this._decryptedKeyHelpLabel.lineSpacing = 10;
         }
       }
 

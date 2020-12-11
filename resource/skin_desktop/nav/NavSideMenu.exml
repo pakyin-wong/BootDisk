@@ -32,25 +32,23 @@
 			                 textColor="0xffffff" verticalAlign="middle" targetWidth="180"/>
 			<e:Image width="27" height="27" x="0" y="7" source="d_lobby_Icon_logout_normal_png" />
 		</e:Group>
-		<e:Group id="btn_lightMode" x="99" y="113">
-			<e:Image width="56" height="40.3" x="0" y="0" source="d_common_panel_uicolour_icon_light_png" />
-			<e:Image width="56" height="40.3" x="0" y="0" scaleX="1" scaleY="1" source.dark="d_common_panel_setting_uicolour_png"
+		<e:Group id="btn_lightMode" x="60" y="98">
+			<e:Image width="82" height="62" x="8" y="8" source="d_common_panel_uicolour_icon_light_png" />
+			<e:Image width="98" height="78" x="0" y="0" scaleX="1" scaleY="1"
 			         source.light="d_common_panel_setting_uicolour_active_png" />
-			<ui:RunTimeLabel id="txt_lightMode" text="l" y="44.8" height="27" size="18" textAlign="center" verticalAlign="middle"
-			                 left="0" right="0" />
-			<e:Image width="18" height="18" x="19" y="78" source="d_common_panel_setting_uicolour_btn_png"/>
-			<e:Image width="18" height="18" x="19" y="78" source.light="d_common_panel_setting_uicolour_btn_active_png" />
-			<e:Image width="56" height="41" x="0" y="0" scaleX="1" scaleY="1" />
+			<ui:RunTimeLabel id="txt_lightMode" text="l" y="90" height="27" size="18" textAlign="center" verticalAlign="middle"
+			                 x="28" width="60" />
+			<e:Image width="18" height="18" x="10" y="94" source="d_common_panel_setting_uicolour_btn_png"/>
+			<e:Image width="18" height="18" x="10" y="94" source.light="d_common_panel_setting_uicolour_btn_active_png" />
 		</e:Group>
-		<e:Group id="btn_darkMode" x="211" y="113">
-			<e:Image width="56" height="40.3" x="0" y="0" source="d_common_panel_uicolour_icon_drak_png" />
-			<e:Image width="56" height="40.3" x="0" y="0" scaleX="1" scaleY="1" right="0"
+		<e:Group id="btn_darkMode" x="200" y="98">
+			<e:Image width="82" height="62" x="8" y="8" source="d_common_panel_uicolour_icon_drak_png" />
+			<e:Image width="98" height="78" x="0" y="0" scaleX="1" scaleY="1" right="0"
 			         source.dark="d_common_panel_setting_uicolour_active_png" />
-			<ui:RunTimeLabel id="txt_darkMode" text="l" y="44.8" height="27" size="18" textAlign="center" verticalAlign="middle"
-			                 left="0" right="0" />
-			<e:Image width="18" height="18" x="19" y="78" source="d_common_panel_setting_uicolour_btn_png" />
-			<e:Image width="18" height="18" x="19" y="78" source.dark="d_common_panel_setting_uicolour_btn_active_png" />
-			<e:Image width="56" height="41" x="0" y="0" scaleX="1" scaleY="1" />
+			<ui:RunTimeLabel id="txt_darkMode" text="l" y="90" height="27" size="18" textAlign="center" verticalAlign="middle"
+			                 x="28" width="60" />
+			<e:Image width="18" height="18" x="10" y="94" source="d_common_panel_setting_uicolour_btn_png" />
+			<e:Image width="18" height="18" x="10" y="94" source.dark="d_common_panel_setting_uicolour_btn_active_png" />
 		</e:Group>
 	</e:Group>
 </e:Skin>

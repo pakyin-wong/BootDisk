@@ -31,7 +31,7 @@ namespace we {
         const color: string[] = new Array(dices.length);
         // require simplification
         const total = 0;
-        console.log('dices', dices); //
+        // console.log('dices', dices); //
         // ==========================
         // for (let i = 0; i < dices.length; i++) {
         //   let count = 0;
@@ -70,16 +70,16 @@ namespace we {
         for (let i = 3; i < 6; i++) {
           color[sortedDiceWithIndex[i][1]] = 'red';
         }
-        console.log('color', color);
+        // console.log('color', color);
 
         for (let i = 0; i < dices.length; i++) {
           this['_dice' + (i + 1) + 'Label'].text = dices[i];
           if (color[i] === 'red') {
             this['_line' + (i + 1)].gradientColors = '[0xeb632c,0xfdc071]';
-            console.log('red [0xeb632c,0xfdc071]');
+            // console.log('red [0xeb632c,0xfdc071]');
           } else if (color[i] === 'blue') {
             this['_line' + (i + 1)].gradientColors = '[0x5273ef,0x52d7ff]';
-            console.log('blue [0x5273ef,0x52d7ff]');
+            // console.log('blue [0x5273ef,0x52d7ff]');
           }
           this['_line' + (i + 1)].width = 10 + (this._maxWidth * dices[i]) / maxDice;
         }

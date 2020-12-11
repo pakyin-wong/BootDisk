@@ -1,70 +1,71 @@
 {
-    "engineVersion": "5.2.29",
-    "compilerVersion": "5.2.29",
-    "template": {},
-    "target": {
-        "current": "web"
-    },
-    "modules": [{
-            "name": "egret"
-        },
-        {
-            "name": "eui"
-        },
-        {
-            "name": "assetsmanager"
-        },
-        {
-            "name": "dragonBones"
-        },
-        {
-            "name": "game"
-        },
-        {
-            "name": "tween"
-        },
-        {
-            "name": "promise"
-        },
-        {
-            "name": "mouse",
-            "path": "./libs/mouse"
-        },
-        {
-            "name": "greensock",
-            "path": "./libs/greensock"
-        },
-        {
-            "name": "mqtt",
-            "path": "./libs/mqtt"
-        },
-        {
-            "name": "flvvideo",
-            "path": "./libs/flvvideo"
-        },
-        {
-            "name": "animtilelayout",
-            "path": "./libs/animtilelayout"
-        },
-        {
-            "name": "playerclient",
-            "path": "./libs/playerclient"
-        },
-        {
-            "name": "uaparser",
-            "path": "./libs/uaparser"
-        },
-        {
-            "name": "moment",
-            "path": "./libs/moment"
-        },
-        {
-            "name": "jszip",
-            "path": "./libs/jszip"
-        },
-        {
-            "name": "roadmap",
-            "path": "./libs/roadmap"
-        }
-    ]
+	"engineVersion": "5.3.10",
+	"compilerVersion": "5.3.10",
+	"template": {},
+	"target": {
+		"current": "web"
+	},
+	"modules": [
+		{
+			"name": "egret"
+		},
+		{
+			"name": "eui"
+		},
+		{
+			"name": "assetsmanager"
+		},
+		{
+			"name": "dragonBones"
+		},
+		{
+			"name": "game"
+		},
+		{
+			"name": "tween"
+		},
+		{
+			"name": "promise"
+		},
+		{
+			"name": "mouse",
+			"path": "./libs/mouse"
+		},
+		{
+			"name": "greensock",
+			"path": "./libs/greensock"
+		},
+		{
+			"name": "mqtt",
+			"path": "./libs/mqtt"
+		},
+		{
+			"name": "flvvideo",
+			"path": "./libs/flvvideo"
+		},
+		{
+			"name": "animtilelayout",
+			"path": "./libs/animtilelayout"
+		},
+		{
+			"name": "playerclient",
+			"path": "./libs/playerclient"
+		},
+		{
+			"name": "uaparser",
+			"path": "./libs/uaparser"
+		},
+		{
+			"name": "moment",
+			"path": "./libs/moment"
+		},
+		{
+			"name": "jszip",
+			"path": "./libs/jszip"
+		},
+		{
+			"name": "roadmap",
+			"path": "./libs/roadmap"
+		}
+	]
 }

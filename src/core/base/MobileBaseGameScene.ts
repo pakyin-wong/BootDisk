@@ -241,7 +241,7 @@ namespace we {
               case core.GameType.BAC:
               case core.GameType.BAS:
               case core.GameType.BAI:
-                console.log('this._aaaaa', this._tableLayer);
+                // console.log('this._aaaaa', this._tableLayer);
                 if (bottomGamePanelisOpen === true) {
                   vlayout.gap = -65;
                   // this._tableLayer.y -= 24;
@@ -374,7 +374,7 @@ namespace we {
 
       protected showBetChipPanel() {
         const betChipSetGridPosition = this._betChipSetGridSelected.localToGlobal(0, 0);
-        console.log(`................${betChipSetGridPosition}`);
+        // console.log(`................${betChipSetGridPosition}`);
         if (env.orientation === 'portrait') {
           // portrait position
           if (betChipSetGridPosition.y < 1000) {
@@ -429,11 +429,26 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
+        // if (evt && evt.data) {
+        //   const betInfo = <data.GameTableBetInfo>evt.data;
+        //   if (betInfo.tableid === this._tableId) {
+        //     if (this._totalBet) {
+        //       const totalBet = betInfo.gameroundid === this._gameData.gameroundid ? betInfo.total : 0;
+        //       this._totalBet.renderText = () => utils.numberToFaceValue(totalBet);
+        //     }
+        //   }
+        // }
+      }
+
+      protected onBetDetailUpdate(evt: egret.Event) {
+        super.onBetDetailUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.PlayerBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             if (this._totalBet) {
-              const totalBet = betInfo.gameroundid === this._gameData.gameroundid ? betInfo.total : 0;
+              let totalBet = 0;
+              let _bet = betInfo.bets.map(x => x.amount);
+              totalBet = _bet.reduce((a, b) => a + b, 0)
               this._totalBet.renderText = () => utils.numberToFaceValue(totalBet);
             }
           }

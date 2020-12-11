@@ -15,7 +15,7 @@
                                  size="18" anchorOffsetY="0" height="23" scaleX="1" scaleY="1" alpha=".7"
                                  />
                 <ui:RunTimeLabel id="_gameNumLabel" text="1234567890" x="16" y="12" anchorOffsetX="0" size="18"
-                                 anchorOffsetY="0" height="23" scaleX="1" scaleY="1" />
+                                 anchorOffsetY="0" height="23" scaleX="1" scaleY="1" targetWidth="150" />
                 <e:layout>
                         <e:HorizontalLayout gap="4" verticalAlign="middle" />
                 </e:layout>

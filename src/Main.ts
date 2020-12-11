@@ -11,13 +11,14 @@ class Main extends eui.UILayer {
     egret.lifecycle.onPause = () => {
       dir.audioCtr.pause();
       // egret.ticker.pause();
-      we.utils.startTicker(egret.ticker);
+      // we.utils.startTicker(egret.ticker);
     };
 
     egret.lifecycle.onResume = () => {
       dir.audioCtr.resume();
       // egret.ticker.resume();
-      we.utils.stopTicker();
+      // we.utils.stopTicker();
+      env.refreshScene();
     };
 
     mouse.enable(this.stage);
@@ -104,7 +105,7 @@ class Main extends eui.UILayer {
     IPhoneChromeFullscreen.OnLoad(this.stage);
 
     // step 2: init Egrets Asset / onResume
-    we.i18n.setLang('cn', true);
+    we.i18n.setLang(env.language, true);
     await this.initRes();
     env.initialized = true;
     if (!env.isMobile) {

@@ -45,7 +45,6 @@ namespace we {
           this._panelDismissToggleBtn.addEventListener('CLICKED', this.onPanelToggle, this);
           this._panelDismissToggleBtn['tooltipText'] = env.isAutoDismiss ? 'live.tooltip.autoFullscreenToggleOff' : 'live.tooltip.autoFullscreenToggleOn';
         }
-        dir.evtHandler.addEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.resetUncfmBet, this);
         this.setBackground();
       }
 
@@ -82,10 +81,10 @@ namespace we {
 
       protected initOrientationDependentComponent() {
         this._header && dir.layerCtr.nav && dir.layerCtr.nav.addChild(this._header);
-        console.log(this._titleHeader);
+        // console.log(this._titleHeader);
         const titleGroup1: eui.Group = dir.layerCtr.nav.$children[0] as eui.Group;
         const titleGroup: eui.Group = titleGroup1['_titleGroup'];
-        console.log(titleGroup);
+        // console.log(titleGroup);
         this._titleHeader && titleGroup && titleGroup.addChild(this._titleHeader);
         // this._header && this.sceneHeader.addChild(this._header);
       }
@@ -103,12 +102,11 @@ namespace we {
         if (this._header && this._header.parent !== null) {
           this._header.parent.removeChild(this._header);
         }
-        dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.resetUncfmBet, this);
         super.destroy();
       }
 
       protected onPanelToggle(evt: egret.TouchEvent) {
-        console.log(this._panelDismissToggleBtn.active);
+        // console.log(this._panelDismissToggleBtn.active);
         env.isAutoDismiss = this._panelDismissToggleBtn.active;
         dir.socket.updateSetting('isAutoDismiss', env.isAutoDismiss ? '1' : '0');
         this._panelDismissToggleBtn['tooltipText'] = env.isAutoDismiss ? 'live.tooltip.autoFullscreenToggleOff' : 'live.tooltip.autoFullscreenToggleOn';
@@ -180,12 +178,6 @@ namespace we {
       }
       protected onMatchGoodRoadUpdate() {
         super.onMatchGoodRoadUpdate();
-      }
-      protected resetUncfmBet() {
-        this._chipLayer.resetUnconfirmedBet();
-        if (this._betRelatedGroup) {
-          this._betRelatedGroup.changeBtnState(false, 0, this.tableInfo.prevbets && this.tableInfo.prevroundid && this.tableInfo.prevroundid === this.tableInfo.prevbetsroundid);
-        }
       }
     }
   }

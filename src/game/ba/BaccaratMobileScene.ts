@@ -371,6 +371,70 @@ namespace we {
           this.setChipPanelPos();
         }
       }
+
+      protected playResultSoundEffect(totalWin) {
+        let subject;
+
+        switch (this._tableInfo.gametype) {
+          case core.GameType.BAC:
+          case core.GameType.BAI:
+          case core.GameType.BAS:
+          case core.GameType.BAM:
+          case core.GameType.BAB:
+          case core.GameType.BASB:
+          case core.GameType.BAMB: {
+            // (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.selected);
+            (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.enabled);
+            switch (this._gameData.wintype) {
+              case ba.WinType.BANKER: {
+                subject = 'banker';
+                break;
+              }
+              case ba.WinType.PLAYER: {
+                subject = 'player';
+                break;
+              }
+              case ba.WinType.TIE: {
+                subject = 'player';
+                break;
+              }
+              default:
+                break;
+            }
+            break;
+          }
+          case core.GameType.DT:
+          case core.GameType.DTB: {
+            (this._tableLayer as dt.TableLayer).flashFields(this._gameData);
+            switch (this._gameData.wintype) {
+              case dt.WinType.DRAGON: {
+                subject = 'player';
+                break;
+              }
+              case dt.WinType.TIGER: {
+                subject = 'banker';
+                break;
+              }
+              case dt.WinType.TIE: {
+                subject = 'banker';
+                break;
+              }
+              default:
+                break;
+            }
+            break;
+          }
+          default:
+            break;
+        }
+
+        if (this.hasBet() && !isNaN(totalWin)) {
+          dir.audioCtr.playSequence([subject, 'win']);
+        } else {
+          dir.audioCtr.playSequence([subject, 'win']);
+        }
+      }
+
     }
   }
 }

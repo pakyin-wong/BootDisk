@@ -4,8 +4,7 @@ namespace we {
       private _page: eui.Group;
       private _pageIndex: number;
       private _items: string[] = [
-        'MobileSlideupMenuTest',
-        'BetChipSetHorizontalTest',
+        'RoadmapControlTest',
         'dbTest',
         'AnimBetChipTest',
         'RoadmapTest',
@@ -14,7 +13,8 @@ namespace we {
         'ListItemTest',
         'ListTest',
         'ScrollerTest',
-        'RoadmapControlTest',
+        'MobileSlideupMenuTest',
+        'BetChipSetHorizontalTest',
       ];
 
       constructor(data: any = null) {

@@ -3,6 +3,10 @@ export namespace core {
 		export class SocketComm implements ISocket {
 			private client: PlayerClient;
 
+      private _queryLang: string;
+
+      private _isInit: boolean = false;
+
 			constructor() {
 				const value = window.location.search;
 
@@ -13,6 +17,8 @@ export namespace core {
 				const secret = data.secret ? data.secret : dir.config.secret;
 				const token = data.token ? data.token : dir.config.token;
 				const operator = data.operator ? data.operator : dir.config.operator;
+				this._queryLang = data.lang;
+        env.language = this._queryLang;
 				let isMobile = false;
 				try {
 					isMobile = data.ismobile ? parseInt(data.ismobile) > 0 : false;
@@ -284,8 +290,11 @@ export namespace core {
 			// Handler for Ready event
 			protected handleReady(player: data.PlayerSession, timestamp: string) {
 				// return data with struct data.PlayerSession
-
 				//console.log('player',player);
+
+        if (this._isInit) return;
+        // allow init once only
+        this._isInit = true;
 
 				this.updateTimestamp(timestamp);
 				env.playerID = player.playerid;
@@ -339,6 +348,7 @@ export namespace core {
 				// env.nicknameKey = player.profile.nickname;
 				// env.nickname = player.profile.settings.nickname;
 				env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
+        env.isFirstTimeBam = player.profile.settings.isFirstTimeBam === "1" ? true : false
 				// env.icons = {
 				//   iconKey01: 'd_lobby_profile_pic_01_png',
 				//   iconKey02: 'd_lobby_profile_pic_02_png',
@@ -421,7 +431,11 @@ export namespace core {
 				}
 				env.currentSelectedBetLimitIndex = minIdx;
 
-				env.language = player.profile.settings.language ? player.profile.settings.language : 'cn';
+        if (this._queryLang) {
+          this.updateSetting('language', this._queryLang);
+        } else {
+				  env.language = player.profile.settings.language ? player.profile.settings.language : 'cn';
+        }
 				we.i18n.setLang(env.language ? env.language : 'cn', true);
         /*
         let denominationList = [];
@@ -569,7 +583,7 @@ export namespace core {
 				gameStatus.starttime = Math.floor(gameStatus.starttime / 1000000);
 				if(gameStatus.peekstarttime){
 					gameStatus.peekstarttime = Math.floor(gameStatus.peekstarttime );
-					console.log('peekstarttime xxx', gameStatus.tableid, gameStatus.gameroundid,  gameStatus.peekstarttime , gameStatus.starttime)
+					// console.log('peekstarttime xxx', gameStatus.tableid, gameStatus.gameroundid,  gameStatus.peekstarttime , gameStatus.starttime)
 				}
         /*
         if (tableInfo && tableInfo.tableid && tableInfo.tableid.indexOf('BAB') && tableInfo.data){
@@ -1305,27 +1319,29 @@ export namespace core {
 
       protected onGoodRoadMatch(data: data.RoadmapNotification, timestamp: string) {
         this.updateTimestamp(timestamp);
-        // if (!(data instanceof we.data.RoadmapNotification)) {
-        //   return;
-        // }
-        // merge the new tableList to tableListArray
-        const tableInfos: data.TableInfo[] = data.match
-          .map(goodRoadData => {
-            goodRoadData.alreadyShown = false;
-            return {
-              tableid: goodRoadData.tableid,
-              goodRoad: goodRoadData,
-            };
-          })
-          .filter(item => !(item.goodRoad.name == '' && item.goodRoad.roadmapid == ''));
-        env.mergeTableInfoList(tableInfos);
-        // save the list to env.goodRoadTableList
-        const goodRoadTableList = tableInfos.map(data => data.tableid);
-        const added = utils.arrayDiff(goodRoadTableList, env.goodRoadTableList);
-        const removed = utils.arrayDiff(env.goodRoadTableList, goodRoadTableList);
-        env.goodRoadTableList = goodRoadTableList;
 
-        for (const tableid of added) {
+        // backend now only return one tableinfo
+        const matchInfo = data.match[0];
+        matchInfo.alreadyShown = false;
+
+        // check if the target is an add or a delete
+        if (!(matchInfo.name == '' && matchInfo.roadmapid == '')) {
+          // info is an add
+          // update tableinfo
+          const tableinfo = {
+            tableid: matchInfo.tableid,
+            goodRoad: matchInfo
+          }
+          env.mergeTableInfoList([tableinfo]);
+
+          const tableid = matchInfo.tableid;
+
+          // update env.goodRoadTableList
+          const alreadyInList = env.goodRoadTableList.indexOf(tableid)>-1;
+          if (!alreadyInList) {
+            env.goodRoadTableList.push(tableid);
+          }
+          
           const tableInfo = env.tableInfos[tableid];
           if (tableInfo.data && tableInfo.data.state === core.GameState.BET) {
             if (env.showGoodRoadHint && tableInfo.displayReady && tableInfo.goodRoad && !tableInfo.goodRoad.alreadyShown) {
@@ -1340,19 +1356,77 @@ export namespace core {
               dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
             }
           }
-        }
-        for (const tableid of removed) {
+        } else {
+          // info is a delete
+          const tableid = matchInfo.tableid;
+
+          // update env.goodRoadTableList
+          const idx = env.goodRoadTableList.indexOf(tableid);
+          if (idx>-1) {
+            env.goodRoadTableList.splice(idx,1);
+          }
+
           const tableInfo = env.tableInfos[tableid];
           if (tableInfo) {
             tableInfo.goodRoad = null;
           }
         }
-        logger.l(utils.LogTarget.RELEASE, `GoodRoad Table list updated`, goodRoadTableList);
+        logger.l(utils.LogTarget.RELEASE, `GoodRoad Table list updated`, env.goodRoadTableList);
         // filter all the display ready table
         // dispatch GOOD_ROAD_TABLE_LIST_UPDATE
-        dir.evtHandler.dispatch(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, tableInfos);
-        this.filterAndDispatch(goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
+        dir.evtHandler.dispatch(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, data.match);
+        this.filterAndDispatch(env.goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
       }
+      // protected onGoodRoadMatch(data: data.RoadmapNotification, timestamp: string) {
+      //   this.updateTimestamp(timestamp);
+      //   // if (!(data instanceof we.data.RoadmapNotification)) {
+      //   //   return;
+      //   // }
+      //   // merge the new tableList to tableListArray
+      //   const tableInfos: data.TableInfo[] = data.match
+      //     .map(goodRoadData => {
+      //       goodRoadData.alreadyShown = false;
+      //       return {
+      //         tableid: goodRoadData.tableid,
+      //         goodRoad: goodRoadData,
+      //       };
+      //     })
+      //     .filter(item => !(item.goodRoad.name == '' && item.goodRoad.roadmapid == ''));
+      //   env.mergeTableInfoList(tableInfos);
+      //   // save the list to env.goodRoadTableList
+      //   const goodRoadTableList = tableInfos.map(data => data.tableid);
+      //   const added = utils.arrayDiff(goodRoadTableList, env.goodRoadTableList);
+      //   const removed = utils.arrayDiff(env.goodRoadTableList, goodRoadTableList);
+      //   env.goodRoadTableList = goodRoadTableList;
+
+      //   for (const tableid of added) {
+      //     const tableInfo = env.tableInfos[tableid];
+      //     if (tableInfo.data && tableInfo.data.state === core.GameState.BET) {
+      //       if (env.showGoodRoadHint && tableInfo.displayReady && tableInfo.goodRoad && !tableInfo.goodRoad.alreadyShown) {
+      //         tableInfo.goodRoad.alreadyShown = true;
+      //         const data = {
+      //           tableid,
+      //         };
+      //         const notification: data.Notification = {
+      //           type: core.NotificationType.GoodRoad,
+      //           data,
+      //         };
+      //         dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+      //       }
+      //     }
+      //   }
+      //   for (const tableid of removed) {
+      //     const tableInfo = env.tableInfos[tableid];
+      //     if (tableInfo) {
+      //       tableInfo.goodRoad = null;
+      //     }
+      //   }
+      //   logger.l(utils.LogTarget.RELEASE, `GoodRoad Table list updated`, goodRoadTableList);
+      //   // filter all the display ready table
+      //   // dispatch GOOD_ROAD_TABLE_LIST_UPDATE
+      //   dir.evtHandler.dispatch(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, tableInfos);
+      //   this.filterAndDispatch(goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
+      // }
 
       public getBetHistory(filter, callback: (res: any) => void, thisArg) {
         this.client.getBetHistory(filter, this.warpServerCallback(callback.bind(thisArg)));

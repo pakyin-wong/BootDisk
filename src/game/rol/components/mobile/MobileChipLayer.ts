@@ -145,7 +145,7 @@ namespace we {
           return;
         }
         let source = '';
-        switch (evt.animationName) {
+        switch (evt.eventObject.animationState.name) {
           case 'bet_green_in':
             if (env.orientation === 'portrait') {
               source = 'Disc_Green_650x123_png';

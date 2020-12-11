@@ -92,8 +92,10 @@ namespace we {
         this._secondCountLabel.text = this.secondCount.toString();
         this._secondPercentageLabel.text = Math.round(this.secondPercentage * 100).toString();
 
-        this._thirdCountLabel.text = this.thirdCount.toString();
-        this._thirdPercentageLabel.text = Math.round(this.thirdPercentage * 100).toString();
+        if (this._thirdCountLabel && this.thirdCount) {
+          this._thirdCountLabel.text = this.thirdCount.toString();
+          this._thirdPercentageLabel.text = Math.round(this.thirdPercentage * 100).toString();
+        }
 
         this._totalLabel.text = this.total.toString();
 
@@ -120,7 +122,7 @@ namespace we {
           this.pairChart.firstAngle = this.firstPercentage * 360;
           this.pairChart.secondAngle = this.secondPercentage * 360;
           this.pairChart.thirdAngle = this.thirdPercentage * 360;
-          console.log('[1 2 3]',[this.firstPercentage * 360,this.secondPercentage * 360,this.thirdPercentage * 360])
+          // console.log('[1 2 3]',[this.firstPercentage * 360,this.secondPercentage * 360,this.thirdPercentage * 360])
           this.pairChart.drawPairChart(this.isGrey);
       }
 
