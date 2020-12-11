@@ -45,7 +45,8 @@ namespace we {
 
       protected _isRepeatClicked: boolean = false;
       protected _isRepeatConfirmed: boolean = false;
-
+      //GameRulePanel
+      protected _gameRulePanel : we.ui.GameRulePanel;
       // this for desktop
       // protected _tableInfoWindow: ui.TableInfoPanel;
 
@@ -163,6 +164,9 @@ namespace we {
           this._betRelatedGroup.changeBtnState(false);
         }
 
+        if(this._gameRulePanel){
+          this._gameRulePanel.setGameType(this._tableInfo.gametype,true);
+        }
         // if (this._tableInfoWindow) {
         //   this._tableInfoWindow.setToggler(this._lblRoomInfo);
         //   this._tableInfoWindow.setValue(this._tableInfo);

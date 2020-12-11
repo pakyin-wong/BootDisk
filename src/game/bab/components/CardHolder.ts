@@ -698,8 +698,10 @@ namespace we {
 
             // const p1 = utils.waitDragonBone(this.getRedCardAnim());
             // this.getRedCardAnim().animation.fadeIn('red_poker_out');
-            this._smallRedCardGroup.removeChild(this._smallRedCard);
-            this._smallRedCard = null;
+            if(this._smallRedCardGroup.contains(this._smallRedCard)){
+              this._smallRedCardGroup.removeChild(this._smallRedCard);
+              this._smallRedCard = null;
+            }
 
             // const p2 = utils.waitDragonBone(this._ringAnim);
             // this._ringAnim.animation.fadeIn('shoe_out', 0, 1, 0);
