@@ -14,8 +14,11 @@
 										<e:HorizontalLayout verticalAlign="middle" horizontalAlign="center"/>
 									</e:layout>
                 </e:Group>
+					<e:Group id="close" width="90" height="90" x="1763" y="20" touchThrough="false">
+						<e:Rect left="0" right="0" top="0" bottom="0" fillAlpha="0"/>
+						<e:Image source="d-lobby-button-close-none_png" x="22" y="24" width="44" height="44" scaleX="1" scaleY="1"/>
+					</e:Group>
 
-                <e:Image id="close" source="d-lobby-button-close-none_png" x="1785" y="44" width="44" height="44" />
                 <ui:RunTimeLabel i18n="baccarat.verification" horizontalCenter="0" y="44" size="48" textColor="0xc59466" />
                 <e:Group id="_helpButton" x="198" y="683" width="282" height="49" touchThrough="true">
                         <ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab"
@@ -79,8 +82,8 @@
                         </e:Group>                        
                 </e:Group>
                 <bc:BaseCard id="_cardImage" skinName="skin_desktop.bc.CardInfoCard" x="239" y="225"/>
-                <ui:BaseImageButton id="_prevButton" width="22" height="43" x="150" y="360" currentState="b_bab_prev" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
-                <ui:BaseImageButton id="_nextButton" width="22" height="43" x="511" y="360" currentState="b_bab_next" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
+                <ui:BaseImageButton id="_prevButton" width="62" height="63" x="130" y="350" currentState="b_bab_prev" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
+                <ui:BaseImageButton id="_nextButton" width="62" height="63" x="491" y="350" currentState="b_bab_next" skinName="skin_desktop.ImageButtonSkinBettingPanel"/>
 		<ui:InGameMessage id="_message" skinName="skin_desktop.CopyInfoMessageSkin" height="112" horizontalCenter="0" verticalCenter="0" touchEnabled="false" touchChildren="false"/>
                 
                 <e:Group id="_indexHelpGroup" x="404" y="541" width="660" height="108">

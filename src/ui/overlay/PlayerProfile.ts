@@ -35,7 +35,7 @@ namespace we {
       private _nameScroller: we.ui.Scroller;
       private _arrow: eui.Image;
 
-      private _editName: ui.BaseImageButton;
+      private _editName: egret.DisplayObject;
       protected _group_nickname: eui.Group;
       protected _group_ddm: eui.Group;
       protected _ddm_nickname: ui.Panel;
