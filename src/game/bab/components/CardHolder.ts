@@ -460,7 +460,7 @@ namespace we {
                 // this._smallCard1.animation.play('vertical_out_back', 1);
               }
               this.setLabel(this._playerCard3.armature.getSlot(`card_number_horizontal`), this._gameData.currentcardindex);
-              this._playerCard3.animation.play(`horizontal_flip`, 1);
+              //this._playerCard3.animation.play(`horizontal_flip`, 1);
               await utils.playAnimation(this._playerCard3, `horizontal_flip`, 1);
               this.updatePlayerSum();
               this.updateBankerSum();
@@ -482,7 +482,7 @@ namespace we {
                 }
               }
               this.setLabel(this._bankerCard3.armature.getSlot(`card_number_horizontal`), this._gameData.currentcardindex);
-              this._bankerCard3.animation.play(`horizontal_flip`, 1);
+              //this._bankerCard3.animation.play(`horizontal_flip`, 1);
               await utils.playAnimation(this._bankerCard3, `horizontal_flip`, 1);
               this.updatePlayerSum();
               this.updateBankerSum();
@@ -551,6 +551,7 @@ namespace we {
         await this.roundIn();
 
         this._ringAnim.animation.fadeIn(this._roundLoopA, 0, 0, 0, 'ROUND_ANIMATION_GROUP');
+        this._ringAnim.armature.getSlot('card_number_vertical').visible = false;
 
         await utils.playAnimation(this._ringAnim, 'poker_round_in', 1, 'POKER_ROUND_ANIMATION_GROUP');
         this.pokerRoundLoop();
