@@ -1,6 +1,13 @@
-<e:Skin class="skin_mobile.LobbyTabListItemRenderer" xmlns:e="http://ns.egret.com/eui" states="up,down" xmlns:ui="we.ui.*" height="85">
-	<e:Group y="10" horizontalCenter="0">
-		<ui:RunTimeLabel id="label" text="{data}" textColor="0xffffff" alpha.up="0.7" bold.up="false" bold="true" size="44" textAlign="center" height="65" verticalAlign="middle" y="0" x="0"/>
-		<e:Image height="8" visible.up="false" y="67" left="0" right="0" source="m_lobby_header_submenu_hl_png"/>
+<e:Skin class="skin_mobile.LobbyTabListItemRenderer" xmlns:e="http://ns.egret.com/eui" states="up,down" xmlns:ui="we.ui.*" height="120">
+	<e:Group height="120" y="0" x="0">
+		<e:Group y="22.5" x="0">
+			<ui:RunTimeLabel id="label" text="{data}" textColor="0xffffff" alpha.up="0.7" bold.up="false" bold="true" size="44" textAlign="center" height="65" verticalAlign="middle" y="0" x="0"/>
+			<e:Image height="8" visible.up="false" y="67" source="m_lobby_header_submenu_hl_png" left="0" right="0"/>
+		</e:Group>
+		<e:layout>
+			<e:HorizontalLayout verticalAlign="middle" gap="0" paddingLeft="51" paddingRight="51"/>
+		</e:layout>
+
+
 	</e:Group>
 </e:Skin>

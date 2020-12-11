@@ -55,10 +55,10 @@
 				</e:Group>
 			</e:Group>
 			<e:Group left="0" right="0" top="0" bottom="0" scaleX="1" scaleY="1">
-				<e:Scroller height="80" left="48" right="48">
+				<e:Scroller height="80" left="48" right="48" scrollPolicyV="off">
 					<e:TabBar id="_tabs">
 						<e:layout>
-							<e:HorizontalLayout gap="83" />
+							<e:HorizontalLayout gap="0" />
 						</e:layout>
 					</e:TabBar>
 				</e:Scroller>
@@ -69,6 +69,7 @@
 		</e:ViewStack>
 		<ui:Panel id="_dmm" skinName="skin_mobile.SidePanelDropdown" x="48" y="0" y.portrait="168" y.landscape="179" />
 		<e:Group id="close" width="120" height="120" right="4">
+			<e:Rect left="0" right="0" top="0" bottom="0" fillAlpha="0"/>
 			<ui:BaseImageButton width="40" height="40" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
 			                    currentState="game_list_close_btn" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"
 			                    useColorFilter="true" />
