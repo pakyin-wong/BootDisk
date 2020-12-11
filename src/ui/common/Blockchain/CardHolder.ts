@@ -82,7 +82,7 @@ namespace we {
 
       protected openCardInfo(infoIndex) {
         return (evt: egret.Event) => {
-          console.log('dispatch OPEN_CARDINFO_PANEL', this._infoArray[infoIndex]);
+          // console.log('dispatch OPEN_CARDINFO_PANEL', this._infoArray[infoIndex]);
           if (this._infoArray[0] !== -1) {
             this.dispatchEvent(new egret.Event('OPEN_CARDINFO_PANEL', false, false, this._infoArray[infoIndex]));
           }
@@ -155,7 +155,7 @@ namespace we {
       }
 
       public updateResult(gameData: data.GameData, chipLayer: ui.ChipLayer, isInit: boolean) {
-        console.log(' cardholder::updateResult ', gameData, isInit);
+        // console.log(' cardholder::updateResult ', gameData, isInit);
 
         this._gameData = <bab.GameData> gameData;
         this.updateCardInfoButtons();
@@ -183,7 +183,7 @@ namespace we {
             this.setStateIdle(isInit);
             break;
           default:
-            console.log('default updateResult ', gameData);
+            // console.log('default updateResult ', gameData);
             break;
         }
       }
@@ -192,18 +192,18 @@ namespace we {
         if (isInit || this._gameData.previousstate === core.GameState.SHUFFLE) {
           this.setDefaultStates();
         }else{
-          console.log('clearCards() in idle');
+          // console.log('clearCards() in idle');
           this.clearCards();          
         }
       }
 
       protected async setStateBet(isInit: boolean) {
-        console.log('setStateBet() isInit', isInit, this._gameData);
+        // console.log('setStateBet() isInit', isInit, this._gameData);
         this.updateAllSum();
         if (isInit) {
           this.movePin();
           this.moveShoe();
-          console.log('betInitState()');
+          // console.log('betInitState()');
 
           this._ringAnim.animation.fadeIn(this._roundLoopB, 0, 0, 0, 'ROUND_ANIMATION_GROUP');
           if (this._gameData.redcardindex <= this._gameData.currentcardindex + this._totalCardPerRound) {
@@ -213,7 +213,7 @@ namespace we {
         } else {
           // console.log('clearCards()');
           // await this.clearCards();
-          console.log('distributeCards()');
+          // console.log('distributeCards()');
           await this.distributeCards();
         }
 

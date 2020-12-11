@@ -114,7 +114,7 @@ namespace we {
       }
 
       protected setDealState() {
-        console.log('bam cardholder deal state');
+        // console.log('bam cardholder deal state');
         this._bankerCard1.visible = false;
         this._playerCard1.visible = false;
         this._bankerCard2.visible = false;
@@ -297,7 +297,7 @@ namespace we {
 
       protected setCardImage(index: number) {
         if (this._cardHolderArr && this._cardHolderArr[index] && this._cardArr && this._cardArr[index]) {
-          console.log('flipcardpath', `d_sq_bac_large_poker_${utils.formatCardForFlip(this._cardArr[index])}_png`);
+          // console.log('flipcardpath', `d_sq_bac_large_poker_${utils.formatCardForFlip(this._cardArr[index])}_png`);
           this._cardHolderArr[index].setCardImage(
             'd_sq_ba_card_back_png',
             `d_sq_bac_large_poker_${utils.formatCardForFlip(this._cardArr[index])}_png`,

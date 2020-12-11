@@ -63,7 +63,7 @@ namespace we {
 
       protected setStatePeek(isInit: boolean = false) {
 
-        console.log('PEEK', this._gameData.state, this._gameData.gameroundid, (<any>this._gameData).peekstarttime);
+        // console.log('PEEK', this._gameData.state, this._gameData.gameroundid, (<any>this._gameData).peekstarttime);
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         this.toggleBottomGamePanel()
         this.showSumGroup();
@@ -72,8 +72,8 @@ namespace we {
           this.setResultRelatedComponentsEnabled(true);
         }
 
-        console.log(this._gameData);
-        console.log('timer____ ', this._gameData.countdownA * this._timeMultiple, env.currTime, this._gameData.peekstarttime, this._gameData.starttime);
+        // console.log(this._gameData);
+        // console.log('timer____ ', this._gameData.countdownA * this._timeMultiple, env.currTime, this._gameData.peekstarttime, this._gameData.starttime);
         const countdownValue = this._gameData.countdownA * this._timeMultiple;
         const remainingTime = this._gameData.countdownA * this._timeMultiple - (env.currTime - this._gameData.peekstarttime);
         this.startTimer(countdownValue, remainingTime);

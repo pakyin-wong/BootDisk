@@ -240,7 +240,7 @@ namespace we {
       public update() {
         if (this.tableInfo) {
           if (this.tableInfo.gamestatistic) {
-            console.log('dt :: this.tableInfo.gamestatistic', console.log('dt :: this.tableInfo.gamestatistic', this.tableInfo.gamestatistic));
+            // console.log('dt :: this.tableInfo.gamestatistic', console.log('dt :: this.tableInfo.gamestatistic', this.tableInfo.gamestatistic));
             if (this.tableInfo.gamestatistic.shoeBankerCount) {
               this.bankerCountLabel.text = this.tableInfo.gamestatistic.shoeBankerCount.toString();
             }

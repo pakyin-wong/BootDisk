@@ -74,18 +74,18 @@ namespace we {
             this._resultGroup.y = -109
           }
         } else {
-          console.log('landscape expandbottom state: ', this._gameData.state)
+          // console.log('landscape expandbottom state: ', this._gameData.state)
           this._wholeMoveGroup.y = -260
           if (this._gameData &&
             (this._gameData.state === core.GameState.DEAL ||
               this._gameData.state === core.GameState.PEEK ||
               this._gameData.state === core.GameState.PEEK_BANKER ||
               this._gameData.state === core.GameState.PEEK_PLAYER)) {
-            console.log('landscape expandbottom 1')
+            // console.log('landscape expandbottom 1')
 
             this._resultGroup.y = 0
           } else {
-            console.log('landscape expandbottom 2')
+            // console.log('landscape expandbottom 2')
 
             this._resultGroup.y = -260
           }
@@ -121,7 +121,7 @@ namespace we {
             this._resultGroup.y = 0
           }
         } else {
-          console.log('landscape collapsebottom 1')
+          // console.log('landscape collapsebottom 1')
           this._wholeMoveGroup.y = 0;
           this._resultGroup.y = 0;
         }
