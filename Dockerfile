@@ -18,7 +18,7 @@ RUN sed -i "s/\"target\":.*/\"target\": \"${ENVIRONMENT}\",/g" bin-release/web/$
 RUN sed -i "s/js\.zip/js\.zip?v=$(date +%s)/g" bin-release/web/${ENVIRONMENT}/index.html
 RUN if [ "${ENVIRONMENT}" = "development" ] || [ "${ENVIRONMENT}" = "staging" ]; then sed -i "s/\data-show-fps=\"false\"/data-show-fps=\"true\"/g" bin-release/web/${ENVIRONMENT}/index.html; fi
 
-RUN apt-get install -y zip
+# RUN apt-get install -y zip
 RUN zip -r bin-release/web/${ENVIRONMENT}/js.zip bin-release/web/${ENVIRONMENT}/js
 RUN rm -r bin-release/web/${ENVIRONMENT}/resource/assets/images
 RUN for i in $(ls $target/js | grep -v jszip); do rm "$target/js/$i"; done;
