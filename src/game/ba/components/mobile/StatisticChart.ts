@@ -92,7 +92,7 @@ namespace we {
         this._secondCountLabel.text = this.secondCount.toString();
         this._secondPercentageLabel.text = Math.round(this.secondPercentage * 100).toString();
 
-        if (this._thirdCountLabel && this.thirdCount) {
+        if (this._thirdCountLabel && this.thirdCount!==undefined) {
           this._thirdCountLabel.text = this.thirdCount.toString();
           this._thirdPercentageLabel.text = Math.round(this.thirdPercentage * 100).toString();
         }
