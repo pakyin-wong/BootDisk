@@ -223,6 +223,7 @@ namespace we {
       mobile_panel_game_Info: '遊戲資訊',
 
       mobile_notification_quick_bet_button_label: '即時投注',
+      mobile_notification_quick_bet_button_label_real_mobile: '下注',
       mobile_notification_close_button_label: '關閉',
       mobile_notification_next_button_label: '下一頁',
 

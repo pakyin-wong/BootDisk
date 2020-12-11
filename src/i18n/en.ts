@@ -224,6 +224,7 @@ namespace we {
       mobile_panel_game_Info: 'Game Information',
 
       mobile_notification_quick_bet_button_label: 'Bet Now',
+      mobile_notification_quick_bet_button_label_real_mobile: 'Bet',
       mobile_notification_close_button_label: 'Dismiss',
       mobile_notification_next_button_label: 'Next',
 
