@@ -14,8 +14,9 @@
 										<e:HorizontalLayout verticalAlign="middle" horizontalAlign="center"/>
 									</e:layout>
                 </e:Group>
-					<e:Group id="close" width="90" height="90" x="1763" y="20">
-						<e:Image source="d-lobby-button-close-none_png" x="22" y="24.000000000000007" width="44" height="44" scaleX="1" scaleY="1"/>
+					<e:Group id="close" width="90" height="90" x="1763" y="20" touchThrough="false">
+						<e:Rect left="0" right="0" top="0" bottom="0" fillAlpha="0"/>
+						<e:Image source="d-lobby-button-close-none_png" x="22" y="24" width="44" height="44" scaleX="1" scaleY="1"/>
 					</e:Group>
 
                 <ui:RunTimeLabel i18n="baccarat.verification" horizontalCenter="0" y="44" size="48" textColor="0xc59466" />

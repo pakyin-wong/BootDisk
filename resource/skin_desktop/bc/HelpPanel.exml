@@ -3,6 +3,7 @@
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:bab="we.bab.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*">
         <e:Group id="content" width="1853" height="1025">
 					<e:Group id="close" width="90" height="90" y="20" x="1763">
+						<e:Rect left="0" right="0" top="0" bottom="0" fillAlpha="0"/>
 						<e:Image source="d-lobby-button-close-none_png" x="22" y="24" width="44" height="44" scaleX="1" scaleY="1"/>
 					</e:Group>
                 <ui:RunTimeLabel i18n="baccarat.mechanismHelp" horizontalCenter="0" y="44" size="48" textColor="0xc59466"/>
