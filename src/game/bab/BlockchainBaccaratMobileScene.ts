@@ -79,6 +79,8 @@ namespace we {
         this._portraitButtonCollapsedBetY = 1192;
       }
 
+      protected
+
       protected toggleBottomGamePanel() {
         if (env.isBottomPanelOpen) {
           this._resultDisplay.expandBottom();
@@ -86,6 +88,9 @@ namespace we {
              switch (this._gameData.state) {
                case core.GameState.DEAL:
                case core.GameState.FINISH:
+               case core.GameState.PEEK:
+               case core.GameState.PEEK_BANKER:
+               case core.GameState.PEEK_PLAYER:
                  this._deckButton.y = this._helpButton.y = this._lastRoundButton.y = this._portraitButtonExpandedDealY;
           　      break;
                case core.GameState.BET:
@@ -102,6 +107,9 @@ namespace we {
              switch (this._gameData.state) {
                case core.GameState.DEAL:
                case core.GameState.FINISH:
+               case core.GameState.PEEK:
+               case core.GameState.PEEK_BANKER:
+               case core.GameState.PEEK_PLAYER:
                  this._deckButton.y = this._helpButton.y = this._lastRoundButton.y =  this._portraitButtonCollapsedDealY;
                  break;
                case core.GameState.BET:
