@@ -34,9 +34,13 @@ namespace we {
       }
 
       protected initAnimRelatedComps(){
-        this.createParticles();
+        if (!env.isMobile) {
+          this.createParticles();
+        } 
         this.createRingAnim();
-        this.clonePin();
+        if (!env.isMobile) {
+          this.clonePin();
+        } 
         this.createCards();
         this.addEventListeners();
       }
@@ -292,7 +296,7 @@ namespace we {
       protected abstract setStateDeal(isInit: boolean);
 
       protected async collapsePin() {
-        this._clonedPin.touchEnabled = false;
+        if (this._clonedPin) this._clonedPin.touchEnabled = false;
         const bone = this._ringAnim.armature.getBone('red_card');
         const destRad = this.getPinRad(0);
         await new Promise(resolve =>
@@ -328,7 +332,7 @@ namespace we {
           const destRad = this.getPinRad();
           bone.origin.rotation = destRad;
           bone.invalidUpdate();
-          this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
+          if (this._clonedPin) this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
         }
       }
 
@@ -391,9 +395,11 @@ namespace we {
             })
             .call(resolve)
         );
-        this._clonedPin.touchEnabled = true;
         bone.invalidUpdate();
-        this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
+        if (this._clonedPin) {
+          this._clonedPin.touchEnabled = true;
+          this._clonedPin.rotation = 90 + (Math.atan2(bone.globalTransformMatrix.b, bone.globalTransformMatrix.a) * 180) / Math.PI;
+        }
 
         return new Promise(resolve => resolve());
       }

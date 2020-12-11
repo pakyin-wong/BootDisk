@@ -45,7 +45,7 @@
 			"name": "scene_bc_baccarat"
 		},
 		{
-			"keys": "blockchain_dt_tex_png,dragon_ske_json,dragon_tex_png,dragon_tex_json,tiger_ske_json,tiger_tex_json,tiger_tex_png,we_bcdt_sfx_result_dragonwin_mp3,we_bcdt_sfx_result_tigerwin_mp3,we_bcdt_sfx_scanning_loop_mp3,we_bcdt_sfx_shoe_in_mp3,we_bcdt_sfx_shoe_out_mp3,blockchain_dt_ske_dbbin",
+			"keys": "blockchain_dt_tex_png,dragon_tex_png,tiger_tex_png,we_bcdt_sfx_result_dragonwin_mp3,we_bcdt_sfx_result_tigerwin_mp3,we_bcdt_sfx_scanning_loop_mp3,we_bcdt_sfx_shoe_in_mp3,we_bcdt_sfx_shoe_out_mp3,blockchain_dt_ske_dbbin",
 			"name": "scene_bc_dragontiger"
 		},
 		{
@@ -863,26 +863,6 @@
 			"url": "assets/dragonbones/m/dtb/tiger_tex.png",
 			"type": "image",
 			"name": "tiger_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/m/dtb/dragon_ske.json",
-			"type": "json",
-			"name": "dragon_ske_json"
-		},
-		{
-			"url": "assets/dragonbones/m/dtb/tiger_ske.json",
-			"type": "json",
-			"name": "tiger_ske_json"
-		},
-		{
-			"url": "assets/dragonbones/m/dtb/dragon_tex.json",
-			"type": "json",
-			"name": "dragon_tex_json"
-		},
-		{
-			"url": "assets/dragonbones/m/dtb/tiger_tex.json",
-			"type": "json",
-			"name": "tiger_tex_json"
 		},
 		{
 			"url": "assets/sounds/sn_banker_zh.mp3",
