@@ -91,7 +91,7 @@ namespace we {
       }
 
       public setNumber(number: number) {
-        console.log('number',number);
+        // console.log('number',number);
         this.setAllNums(true)
         if(this._bankerCard3.visible){
           this._bankerNum3.text = number.toString();

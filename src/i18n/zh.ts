@@ -9,7 +9,7 @@ namespace we {
       voice_english: '英語',
 
       gametype_BAC: '百家樂',
-      gametype_BAS: '競速百家樂',
+      gametype_BAS: '極速百家樂',
       gametype_BAI: '保險百家樂',
       gametype_BAM: '共咪百家樂',
       gametype_BAB: '區塊鏈百家樂',
@@ -32,7 +32,6 @@ namespace we {
 
       lobby_footer_text: 'Copyright © 2020 World Entertainment 保留一切權利。',
       lobby_no_favourite_text: '沒有我的最愛',
-      lobby_tag_hint_text: '將你喜愛的遊戲標上愛心',
 
       gameIcon_shuffle: '更換新牌靴',
       gameIcon_maintenance: '維護中',
@@ -42,22 +41,28 @@ namespace we {
       betfield_baccarat_tie: '和',
       betfield_baccarat_banker_pair: '庄對',
       betfield_baccarat_player_pair: '閒對',
-      betfield_baccarat_super_six: '超級六',
+
+      betfield_baccarat_super_six_player: '閒',
       betfield_baccarat_super_six_banker: '庄',
+      betfield_baccarat_super_six_player_pair: '閒對',
+      betfield_baccarat_super_six_tie: '和',
+      betfield_baccarat_super_six: '超級六',
+      betfield_baccarat_super_six_banker_pair: '庄對',
+
       betfield_dragonTiger_dragon: '龍',
       betfield_dragonTiger_tiger: '虎',
       betfield_dragonTiger_tie: '和',
 
       playerprofile_title: '賬戶資訊',
       playerprofile_iconsetting: '設定頭像',
-      playerprofile_maxWinAmount: '最大嬴錢數目',
-      playerprofile_maxWinCount: '最大連嬴次數',
+      playerprofile_maxWinAmount: '最⼤贏錢數目',
+      playerprofile_maxWinCount: '最多連贏次數',
       playerprofile_follower: '追隨者',
       playerprofile_following: '追隨中',
       playerprofile_favouriteDealer: '最愛荷官',
       playerProfile: {
         tooltip: {
-          nickname: '設定名稱',
+          nickname: '設定暱稱',
           refresh: '刷新餘額',
         },
       },
@@ -76,14 +81,14 @@ namespace we {
       overlaypanel_memberreport_amountwash: '洗碼量',
       overlaypanel_memberreport_amountwin: '贏輸金額',
       overlaypanel_memberreport_amounttotal: '總金額',
-      overlaypanel_memberreport_commission_percentage: '洗碼%',
+      overlaypanel_memberreport_commission_percentage: '洗碼率',
       overlaypanel_memberreport_commission_total: '洗碼佣金',
 
       overlaypanel_customroad_title: '百家樂好路設定',
       overlaypanel_customroad_default: '還原預設',
       overlaypanel_customroad_selectall: '全選',
 
-      overlaypanel_bethistory_title: '遊戲記錄',
+      overlaypanel_bethistory_title: '投注記錄',
       overlaypanel_bethistory_payout: '派彩',
       overlaypanel_bethistory_tab: '分類',
       overlaypanel_bethistory_tab_all: '遊戲總覽',
@@ -118,7 +123,7 @@ namespace we {
       overlaypanel_bethistory_remark_win: '嬴',
       overlaypanel_bethistory_remark_lose: '輸',
       overlaypanel_bethistory_remark_ties: '和',
-      overlaypanel_bethistory_limit: '每貢顯示項目：',
+      overlaypanel_bethistory_limit: '每頁顯示項目：',
       overlaypanel_bethistory_total: '現在顯示：%now% 項 共 %total% 項記錄',
 
       overlaypanel_bethistory_record_round: '局數',
@@ -129,8 +134,9 @@ namespace we {
       overlaypanel_bethistory_record_result: '遊戲結果',
       overlaypanel_bethistory_record_replay: '重播',
 
-      overlaypanel_bethistory_btn_next: '下一則',
-      overlaypanel_bethistory_btn_prev: '上一則',
+      overlaypanel_bethistory_btn_next: '下一頁',
+      overlaypanel_bethistory_btn_prev: '上一頁',
+      overlaypanel_bethistory_btn_page: '選擇頁數',
       overlaypanel_bethistory_searchtype_all: '全部遊戲',
 
       overlaypanel_bethistorylottery_record_round: '獎期  ',
@@ -213,7 +219,7 @@ namespace we {
       mobile_game_panel_statistic_chart: '統計圖表',
       mobile_game_panel_analysis: '分析',
       mobile_game_panel_table_info: '本檯資訊',
-      mobile_table_info_gameID: '編號',
+      mobile_table_info_gameID: '遊戲編號',
       mobile_panel_game_Info: '遊戲資訊',
 
       mobile_notification_quick_bet_button_label: '即時投注',
@@ -234,7 +240,7 @@ namespace we {
       video_setting_cam: '鏡頭',
       video_setting_qua: '畫質',
       video_setting_closer: '近鏡',
-      video_setting_far: '遠鏡',
+      video_setting_far: '全景',
       video_setting_close: '關閉',
       video_setting_toggle: '視頻開閉',
       video_setting_bluray: '藍光',
@@ -328,6 +334,9 @@ namespace we {
         categoryInstant: '即開彩',
         categoryOtherGame: '其他遊戲',
         categoryFavorite: '我的最愛',
+        tooltip: {
+          favourite: '加入我的最愛',
+        },
       },
       live: {
         tooltip: {
@@ -340,10 +349,10 @@ namespace we {
           fullscreen: '視頻全瑩幕',
           autoFullscreenToggleOn: '開啟自動隱藏界面',
           autoFullscreenToggleOff: '投注結東後, 界面將自動隱藏',
-          roadmapBankerRound: '莊局數',
+          roadmapBankerRound: '庄局數',
           roadmapPlayerRound: '閒局數',
           roadmapTierRound: '和局數',
-          roadmapBankerPairRound: '莊對局數',
+          roadmapBankerPairRound: '庄對局數',
           roadmapPlayerPairRound: '閒對局數',
           roadmapTotalRound: '總局數',
           toggleUp: '展開記錄',
@@ -375,7 +384,7 @@ namespace we {
       tableInfo: {
         tableInfo: '本檯資訊',
         tableNo: '檯號',
-        roundNo: '局號',
+        roundNo: '靴 - 局數',
         dealer: '荷官',
         tableBetLimit: '本檯限紅',
         betLimit: '投注限紅',
@@ -538,6 +547,16 @@ namespace we {
         },
       },
       goodroad: {
+        tooltip: {
+          disable:'停用好路',
+          enable:'啟用好路',
+          cleartext:'清空名稱',
+          drawbanker:'畫庄',
+          drawplayer:'畫閒',
+          undo:'還原',
+          cancel:'取消',
+          confirm:'確認好路',
+        },
         r1: '長庄',
         r2: '長閒',
         r3: '長路轉單跳',
@@ -561,7 +580,7 @@ namespace we {
       },
       sidePanel: {
         changeChip: '切換籌碼',
-        betted: '已下注項目',
+        betted: '已下注',
         goodroad: '好路',
         allgames: '全部遊戲',
         noGoodRoad: '沒有好路',
@@ -607,7 +626,7 @@ namespace we {
         gameroundid: '遊戲編號',
         totalbet: '總下注',
         totalcount: '總數',
-        betSuccess: '下注成功',
+        betSuccess: '投注成功',
         betFail: '下注失敗',
         shuffling: '更換新牌靴',
         addNewGoodRoad: '新增好路',
@@ -635,7 +654,7 @@ namespace we {
         mechanismHelp4: '玩家可複制「卡牌序號」，並點擊「第三方驗證」前往第三方網站驗證相關「卡牌加密文」。',
         mechanismHelpTitle1: 'SHA-256已加密！',
         mechanismHelpTitle2: 'SHA-256已驗證！',
-        verification: '驗證',
+        verification: '卡牌驗證',
         thirdParty: '第三方驗證',
         sha256VerifySuccess: 'SHA256已驗證',
         sha256VerifyFail: 'SHA256驗證失敗',
@@ -672,7 +691,7 @@ namespace we {
         keycopied:'已複製',
       },
       error: {
-        error_1001: '用戶於其他裝置上登錄',
+        error_1001: '您的帳號已在其它地方登錄',
         error_1002: '玩家閒置逾時',
         error_1003: '授權錯誤',
 
@@ -733,6 +752,16 @@ namespace we {
             TIE: '和',
           },
         },
+      },
+
+      quickBet: {
+        tooltip:{
+          switchChips: '切換籌碼',
+          confirm: '確認投注',
+          cancel: '取消',
+          undo: '還原',
+          close: '關閉',  
+        }
       },
 
       lo_round: '%round% 期',

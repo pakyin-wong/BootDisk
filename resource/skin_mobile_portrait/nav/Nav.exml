@@ -6,9 +6,9 @@
 	<e:Group id="_profile_toggle" x.Lobby="795" y="34" y.Game="0" x.Game="787" visible.Game="false" y.Lobby="26">
 		<e:Image id="_profilePrc" width="78" height="78" x.Game="0" y="9" fillMode="scale" source="d_lobby_profile_pic_03_png"
 		         visible.Lobby="true" visible.Game="false"  width.Lobby="84" height.Lobby="84" y.Lobby="15"/>
-		<e:Label id="_user" text="User" x="108" y="0" height="47" size="38.8" fontFamily="Barlow" textColor="0xffffff"
+		<ui:RunTimeLabel id="_user" text="User" x="108" y="0" height="47" size="38.8" fontFamily="Barlow" textColor="0xffffff"
 		         textAlign="left" verticalAlign="middle" maxWidth="202" visible.Lobby="true" x.Lobby="98"
-		         visible.Game="false"  size.Lobby="44" height.Lobby="53"/>
+		         visible.Game="false"  size.Lobby="44" height.Lobby="53" overflow="true"/>
 		<ui:RunTimeLabel id="_balance" text="123,456,789" x.Lobby="98" y="49" height="47" fontFamily="Barlow" size="39"
 		                 textColor="0xffffff" verticalAlign="middle" maxWidth="202" y.Game="0" x.Game="81" scaleX="1"
 		                 scaleY="1"  size.Lobby="44" height.Lobby="53" y.Lobby="53"/>

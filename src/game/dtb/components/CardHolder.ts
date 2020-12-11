@@ -124,7 +124,7 @@ namespace we {
       }
 
       protected async clearCards() {
-        console.log('clearCards');
+        // console.log('clearCards');
         this.hideCard(this._dragonCard, 'vertical', '_front');
         this.hideCard(this._tigerCard, 'vertical', '_front');
 
@@ -138,7 +138,7 @@ namespace we {
       }
 
       protected async betInitState(gameState: core.GameState) {
-        console.log('betInitState() begin');
+        // console.log('betInitState() begin');
 
         let dNum: number;
         let tNum: number;
@@ -156,7 +156,7 @@ namespace we {
         this.setLabel(this._tigerCard.armature.getSlot('card_number_vertical'), tNum);
         this._tigerCard.animation.gotoAndStopByTime('vertical_loop_back', 0);
 
-        console.log('betInitState() end');
+        // console.log('betInitState() end');
         return new Promise(resolve => resolve());
       }
 
@@ -216,7 +216,7 @@ namespace we {
         }
 
         if (this._gameData.t) {
-          console.log('dealInitState t');
+          // console.log('dealInitState t');
           this.setCardFrontFace(this._tigerCard, 't', 'vertical', 0);
           this.setLabel(this._tigerCard.armature.getSlot(`card_number_vertical`), this.getCurrentTIndex());
           this._tigerCard.animation.gotoAndStopByTime(`vertical_loop_front`, 0);
@@ -241,7 +241,7 @@ namespace we {
         }
 
         if (this._gameData.t) {
-          console.log('dealInitState t');
+          // console.log('dealInitState t');
           this.setCardFrontFace(this._tigerCard, 't', 'vertical', 0);
           this.setLabel(this._tigerCard.armature.getSlot(`card_number_vertical`), this.getCurrentTIndex());
           await utils.playAnimation(this._tigerCard, this._verticalFlip, 1);
@@ -262,7 +262,7 @@ namespace we {
       }
 
       protected setStateDeal(isInit: boolean) {
-        console.log('setStateDeal()', this._gameData);
+        // console.log('setStateDeal()', this._gameData);
 
         (async () => {
           const currentIndexOffsetToFirstCard = this.getCurrentIndexOffsetToFirstCard();
@@ -275,11 +275,11 @@ namespace we {
           if (isInit) {
             this.movePin();
             this.moveShoe();
-            console.log('dealInitState()');
+            // console.log('dealInitState()');
             await this.betInitState(core.GameState.DEAL);
             await this.dealInitState();
           } else {
-            console.log('flipCards()');
+            // console.log('flipCards()');
             await this.flipCards();
           }
         })();
@@ -462,7 +462,7 @@ namespace we {
           for (let i = 0; i < 2; i++) {
             this._infoArray.push(this._gameData.currentcardindex + 2 + i);
           }
-          console.log('BET infoArray', this._infoArray);
+          // console.log('BET infoArray', this._infoArray);
           return;
         }
         if (this._gameData.state === core.GameState.DEAL || this._gameData.state === core.GameState.FINISH) {
@@ -477,13 +477,13 @@ namespace we {
               this._infoArray = [-1].concat(this._infoArray);
             }
           }
-          console.log('DEAL infoArray', this._infoArray);
+          // console.log('DEAL infoArray', this._infoArray);
           return;
         }
       }
 
       protected setStateFinish(isInit) {
-        console.log('setStateFinish() isInit', isInit, this._gameData);
+        // console.log('setStateFinish() isInit', isInit, this._gameData);
         if (this._gameData.redcardindex <= this._gameData.currentcardindex) {
           this.getRedCardAnim().animation.gotoAndStopByTime('red_poker_loop', 0);
         }
@@ -534,7 +534,7 @@ namespace we {
         } else {
           (async () => {
             await this.clearCards();
-            console.log('shuffle start');
+            // console.log('shuffle start');
             // const p1 = utils.waitDragonBone(this.getRedCardAnim());
             // this.getRedCardAnim().animation.fadeIn('red_poker_out');
             // this._smallRedCardGroup.removeChild(this._smallRedCard);

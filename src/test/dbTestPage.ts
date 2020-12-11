@@ -45,7 +45,7 @@ namespace we {
         dimMask.width = 2600;
         this.addChild(dimMask);
 
-        const skeletonData = RES.getRes(`blockchain_ske_json`);
+        const skeletonData = RES.getRes(`blockchain_ske_dbbin`);
         const textureData = RES.getRes(`blockchain_tex_json`);
         const texture = RES.getRes(`blockchain_tex_png`);
         const factory: dragonBones.EgretFactory = new dragonBones.EgretFactory();

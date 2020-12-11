@@ -41,6 +41,7 @@ namespace we {
       protected _video: egret.FlvVideo;
 
       protected _gameRoundCountWithoutBet: number = 0;
+      protected _needCheckNoBet: boolean = false;
 
       protected _isRepeatClicked: boolean = false;
       protected _isRepeatConfirmed: boolean = false;
@@ -379,7 +380,7 @@ namespace we {
       protected onTouchTap(evt: egret.Event) {}
 
       protected onBetDetailUpdateInBetState() {
-        console.log('onBetDetailUpdateInBetState');
+        // console.log('onBetDetailUpdateInBetState');
         if (this._betDetails && this._chipLayer) {
           this._chipLayer.updateBetFields(this._betDetails);
           this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
@@ -438,13 +439,14 @@ namespace we {
         if (!this._gameData) {
           return;
         }
-        console.log('Game state updated: ' + utils.getKeyByValue(core.GameState, this._gameData.state));
-        console.log(this._gameData);
+        // console.log('Game state updated: ' + utils.getKeyByValue(core.GameState, this._gameData.state));
+        // console.log(this._gameData);
         switch (this._gameData.state) {
           case core.GameState.IDLE:
             this.setStateIdle(isInit);
             break;
           case core.GameState.BET:
+            if (this.checkRoundCountWithoutBet(isInit)) return;
             this.setStateBet(isInit);
             break;
           case core.GameState.DEAL:
@@ -568,6 +570,7 @@ namespace we {
               this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
             }
           }
+
           this._undoStack.clearStack();
         }
         // update the countdownTimer
@@ -582,32 +585,34 @@ namespace we {
           this._expiredMessage.showMessage(ui.InGameMessage.EXPIRED, i18n.t('kickoutmessage_text'));   
          }
       }
-      protected checkRoundCountWithoutBet() {
-        if (this.tableInfo.totalBet > 0) {
-          this._gameRoundCountWithoutBet = 0;
-        } else {
+      protected incrementRoundCountWithoutBet() {
+        if (this._needCheckNoBet && this.tableInfo.totalBet==0) {
           this._gameRoundCountWithoutBet += 1;
+        } else {
+          this._gameRoundCountWithoutBet = 0;
         }
-
-        if (this._gameRoundCountWithoutBet === 3) {
-          if (env.isMobile) {
-            dir.evtHandler.showMessage({
-              class: 'MessageDialog',
-              args: [
-                i18n.t('expiredmessage_text'),
-                {
-                  dismiss: { text: i18n.t('nav.menu.confirm') },
-                },
-              ],
-              showSFX: 'ui_sfx_info_message_mp3',
-            });
-          } else {
-            this.showInGameMessage();
+      }
+      protected checkRoundCountWithoutBet(isInit: boolean): boolean {
+        if (this._previousState !== we.core.GameState.BET || isInit) {
+          this._needCheckNoBet = true;
+          if (this._gameRoundCountWithoutBet === 3) {
+            if (env.isMobile) {
+              dir.evtHandler.showMessage({
+                class: 'MessageDialog',
+                args: [
+                  i18n.t('expiredmessage_text'),
+                  {
+                    dismiss: { text: i18n.t('nav.menu.confirm') },
+                  },
+                ],
+                showSFX: 'ui_sfx_info_message_mp3',
+              });
+            } else {
+              this.showInGameMessage();
+            }
           }
-        }
 
-        if (this._gameRoundCountWithoutBet >= 5) {
-          if (env.isMobile) {
+          if (this._gameRoundCountWithoutBet >= 5) {
             dir.evtHandler.showMessage({
               class: 'MessageDialog',
               args: [
@@ -619,8 +624,10 @@ namespace we {
               showSFX:'ui_sfx_info_message_mp3'
             });
             this.backToLobby();
-          } 
+            return true;
+          }
         }
+        return false;
       }
 
       protected showInGameMessage() {
@@ -631,7 +638,6 @@ namespace we {
       }
       protected setStateDeal(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.DEAL) {
-          this.checkRoundCountWithoutBet();
           dir.audioCtr.play('ui_sfx_bet_stop_mp3');
           if (this._gameRoundCountWithoutBet >= 5 && !env.isMobile ) {
             this.backToLobby();
@@ -665,6 +671,7 @@ namespace we {
 
       protected setStateFinish(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.FINISH || isInit) {
+          this.incrementRoundCountWithoutBet();
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
         }

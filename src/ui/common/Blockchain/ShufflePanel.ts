@@ -222,7 +222,7 @@ namespace we {
         }
 
         this.hide();
-        console.log('showAnim end')
+        // console.log('showAnim end')
         this.dispatchEvent(new egret.Event('ENABLE_DECK_BTN'));
         return new Promise(resolve=>resolve()) 
       }
@@ -238,14 +238,14 @@ namespace we {
 
         setTimeout(() => {
           this.hide();
-          console.log('this.hide')
+          // console.log('this.hide')
           this.dispatchEvent(new egret.Event('ENABLE_DECK_BTN'));
         }, 8000)
       }
 
       protected initCards(gameData: any) {
         this._gameData = gameData;
-        console.log('ShufflePanel::initComponents()', gameData);
+        // console.log('ShufflePanel::initComponents()', gameData);
         this._allCardsGroup.removeChildren();
 
         if (!this._gameData || !this._gameData.firstcard) {
@@ -298,7 +298,7 @@ namespace we {
 
       protected createGroups() {
         const skipped = utils.stat.ba.translateCardToNumber(this._gameData.firstcard);
-        console.log('ShufflePanel::createGroups:skipped', skipped);
+        // console.log('ShufflePanel::createGroups:skipped', skipped);
 
         this.createGroup('_firstRowGroup', (skipped > 7) ? this._twoRowFirstRowY : this._oneRowFirstRowY);
         this.createGroup('_secondRowGroup', this._twoRowSecondRowY);
