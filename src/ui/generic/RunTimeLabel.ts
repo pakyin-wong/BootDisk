@@ -86,17 +86,18 @@ namespace we {
       public render() {
         let rslt = this._renderer && (this.text = this._renderer());
         if(this.overflow){
+          const values = {
+            italic: this.italic,
+            bold: this.bold,
+            size: this.size,
+            fontFamily: this.fontFamily,
+          };
           const inText = this.text;
-          const oldWidth = this.width;
           let count = 0;
-          this.width = 2000;
-          this.validateSize();
-          while(this.textWidth>oldWidth && count < inText.length){
-            this.text = inText.substring(0,inText.length-count-1)+this.overflowText;
-            this.validateSize();
+          while(utils.measureTextWidth(this.text, values, this.style) > this.width && count < inText.length){
+            this.text = inText.substring(0, inText.length-count-1) + this.overflowText;
             count ++;
           };
-          this.width = oldWidth;
         }
         return rslt;
       }
