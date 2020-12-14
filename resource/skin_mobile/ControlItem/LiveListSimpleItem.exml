@@ -29,7 +29,8 @@
 				<ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_mobile_portrait.GoodRoadLabelSkin" currentState="small" visible="false"/>
 				<e:Group id="_alreadyBetSign" scaleX="1" scaleY="1" height="50">
 				<e:Rect right="0" left="0" top="0" bottom="0" ellipseWidth="50" ellipseHeight="50" fillAlpha="0.76" fillColor="0x42bc60"/>
-				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="40" left="20" right="20"/>
+				<!--<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="40" left="20" right="20"/>-->
+				                <ui:RunTimeLabel text="已下注" horizontalCenter="0" verticalCenter="0" size="40" left="20" right="20" textKey="sidePanel.quickbetted" />  
 				</e:Group>
 				<e:layout>
 				<e:HorizontalLayout/>

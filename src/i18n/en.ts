@@ -583,6 +583,7 @@ namespace we {
       sidePanel: {
         changeChip: 'Change Betchips',
         betted: 'Bet Confirmed',
+        quickbetted: 'Bet',
         goodroad: 'Good Road',
         allgames: 'All Game',
         noGoodRoad: 'No Good Road',
@@ -646,7 +647,7 @@ namespace we {
         PairRatio: 'Pair ratio',
         round: 'round',
         rounds: 'rounds',
-        playersqueeze: 'Squeeze',
+        playersqueeze: 'Squeezing',
         allOpen: 'All Open',
         fullShoe: 'All cards in shoe',
         mechanismHelp: 'Details',
@@ -690,6 +691,7 @@ namespace we {
         retry: 'Retry',
         cancel: 'Cancel',
         urlcopied:'3rd party verification siteurl copied.',
+        keycopied:'copied',
       },
       error: {
         error_1001: 'You have already logged in on another device or browser',
