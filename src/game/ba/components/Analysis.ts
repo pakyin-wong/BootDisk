@@ -11,8 +11,8 @@ namespace we {
       protected _bankerBeadGroup: eui.Group;
       protected _playerBeadGroup: eui.Group;
       protected _analysisGroup: eui.Group;
-      protected _analysisGroup1: ui.HorizontalHolder;
-      protected _analysisGroup2: ui.HorizontalHolder;
+      // protected _analysisGroup1: ui.HorizontalHolder;
+      // protected _analysisGroup2: ui.HorizontalHolder;
 
       // statisticChartPanels
       public _normalChartPanel: ba.StatisticChart;
@@ -62,9 +62,8 @@ namespace we {
         this._bankerBeadGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.askBankerRoad, this);
         this._playerBeadGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.askPlayerRoad, this);
         this._analysisGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.stopProg, this);
-        this._analysisGroup1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchAnalysis1Group, this);
-        this._analysisGroup2.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchAnalysis2Group, this);
-
+        // this._analysisGroup1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchAnalysis1Group, this);
+        // this._analysisGroup2.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchAnalysis2Group, this);
 
         this._bankerAskLabel.renderText = () => i18n.t('baccarat.askBanker');
         this._playerAskLabel.renderText = () => i18n.t('baccarat.askPlayer');
@@ -77,14 +76,14 @@ namespace we {
         mouse.setButtonMode(this._playerBeadGroup, true);
       }
 
-      protected onTouchAnalysis1Group(){
-        console.log("analysis ontouch")
-        this._analysisGroup1.doNext()
-      }
-      protected onTouchAnalysis2Group(){
-        console.log("analysis ontouch")
-        this._analysisGroup2.doNext()
-      }
+      // protected onTouchAnalysis1Group(){
+      //   console.log("analysis ontouch")
+      //   this._analysisGroup1.doNext()
+      // }
+      // protected onTouchAnalysis2Group(){
+      //   console.log("analysis ontouch")
+      //   this._analysisGroup2.doNext()
+      // }
 
       protected getBankerBeadIconGroup() {
         const bankerLayout = new eui.HorizontalLayout();
@@ -140,7 +139,7 @@ namespace we {
         if (evt.target === this._iconBankerBead) {
           evt.stopPropagation();
           if (this.advancedRoad && this.advancedRoad instanceof we.ba.AdvancedRoad) {
-            (<we.ba.AdvancedRoad>this.advancedRoad).askBankerRoad();
+            (<we.ba.AdvancedRoad> this.advancedRoad).askBankerRoad();
           }
         }
       }
@@ -149,7 +148,7 @@ namespace we {
         if (evt.target === this._iconPlayerBead) {
           evt.stopPropagation();
           if (this.advancedRoad && this.advancedRoad instanceof we.ba.AdvancedRoad) {
-            (<we.ba.AdvancedRoad>this.advancedRoad).askPlayerRoad();
+            (<we.ba.AdvancedRoad> this.advancedRoad).askPlayerRoad();
           }
         }
       }
