@@ -31,7 +31,7 @@
 			</e:Group>
         <ui:CountdownTimer id="_timer" width="34" height="34" x="7" y="7" anchorOffsetX="0" anchorOffsetY="0"
                            skinName="skin_desktop.CountdownTimerRoundSmallSkin" />
-        <ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" y="12" text="" size="23.4"  x="47" />
+        <ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" y="11" text="" width="200" targetWidth="250" size="23.4"  x="47"  height="30" verticalAlign="middle"/>
         <e:Image id="_arrow" source="d_lobby_button_down_normal_png" x="290" y="45" rotation="270" visible="false"/>
         <e:Group left="0" right="0">
             <e:Component id="_roadmapNode" top="46" left="1" right="1"/>

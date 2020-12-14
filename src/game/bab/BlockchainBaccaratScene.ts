@@ -90,6 +90,8 @@ namespace we {
           mouse.setButtonMode(this._deckButton, true);
         }
         this._beadRoadResultPanel._gameInfoLabel.text= null;
+
+        this._message.setDuration = 1000;
       }
 
       protected passBackgroundToResultDisplay(){

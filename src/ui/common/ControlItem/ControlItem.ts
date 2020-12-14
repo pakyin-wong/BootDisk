@@ -27,7 +27,7 @@ namespace we {
       // table name label
       protected _label: ui.RunTimeLabel;
       protected _label_game: ui.RunTimeLabel;
-      protected _label_ID: eui.Label;
+      protected _label_ID: ui.RunTimeLabel;
 
       protected _betDetails: data.BetDetail[];
       protected _previousState: number;
