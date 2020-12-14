@@ -350,6 +350,9 @@ namespace we {
       protected abstract updateCardInfoButtons();
 
       protected getPinRad(num = this._gameData.redcardindex) {
+        if(!this._gameData || !this._gameData.maskedcardssnList || !this._gameData.maskedcardssnList.length){
+          return 0;
+        }
         const totalCount = this._gameData.maskedcardssnList.length;
         const proportion = (num - this._gameData.currentcardindex) / totalCount;
         const angleOffset = this._pinInterval * proportion; // -40 to 41 / 131 to 49
@@ -359,6 +362,9 @@ namespace we {
       }
 
       protected getShoeRad(num = this._gameData.currentcardindex) {
+        if(!this._gameData || !this._gameData.maskedcardssnList || !this._gameData.maskedcardssnList.length){
+          return 0;
+        }
         const totalCount = this._gameData.maskedcardssnList.length;
         const proportion = (totalCount - num) / totalCount;
         const angleOffset = this._pinInterval * proportion; // -72 to 9
