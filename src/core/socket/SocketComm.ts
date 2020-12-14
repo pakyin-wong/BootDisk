@@ -359,7 +359,10 @@ export namespace core {
 
 				// env.nicknameKey = player.profile.nickname;
 				// env.nickname = player.profile.settings.nickname;
-				env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
+
+        //in phase 1, nickname field will show user login name (eg: cs-qa-p10) instead of 小熊維尼
+        env.nickname = player.profile.nickname;
+				// env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
         env.isFirstTimeBam = player.profile.settings.isFirstTimeBam === "1" ? true : false
 				// env.icons = {
 				//   iconKey01: 'd_lobby_profile_pic_01_png',
