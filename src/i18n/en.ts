@@ -690,6 +690,7 @@ namespace we {
         retry: 'Retry',
         cancel: 'Cancel',
         urlcopied:'3rd party verification siteurl copied.',
+        keycopied:'copied',
       },
       error: {
         error_1001: 'You have already logged in on another device or browser',
