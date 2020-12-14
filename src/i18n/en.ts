@@ -646,7 +646,7 @@ namespace we {
         PairRatio: 'Pair ratio',
         round: 'round',
         rounds: 'rounds',
-        playersqueeze: 'Squeeze',
+        playersqueeze: 'Squeezing',
         allOpen: 'All Open',
         fullShoe: 'All cards in shoe',
         mechanismHelp: 'Details',
