@@ -608,6 +608,7 @@ namespace we {
       sidePanel: {
         changeChip: '切换筹码',
         betted: '已投注',
+        quickbetted: '已投注',
         goodroad: '好路',
         allgames: '全部游戏',
         noGoodRoad: '没有好路',

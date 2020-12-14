@@ -29,7 +29,8 @@
 		                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />
 		<e:Group id="_alreadyBetSign" right="5" bottom="40" visible="false">
 			<e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0" />
-			<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="22" />
+			<!--<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="22" />-->
+			<ui:RunTimeLabel text="已下注" horizontalCenter="0" verticalCenter="0" textKey="sidePanel.quickbetted" size="22"/>    
 		</e:Group>
 		<ui:CountdownTimer id="_timer" width="80" height="80" x="20" y="20" skinName="skin_desktop.CountdownTimerRoundSkin" />
 	</e:Group>

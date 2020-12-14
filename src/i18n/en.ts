@@ -583,6 +583,7 @@ namespace we {
       sidePanel: {
         changeChip: 'Change Betchips',
         betted: 'Bet Confirmed',
+        quickbetted: 'Bet',
         goodroad: 'Good Road',
         allgames: 'All Game',
         noGoodRoad: 'No Good Road',
