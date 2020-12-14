@@ -16,6 +16,7 @@ target=$path/bin-release/web/$1
 echo "path: $path | target: $target"
 rm -rf $target
 mkdir -p $target
+mkdir -p $target/static
 
 case "${arch}" in
   Linux*|Darwin*)
@@ -31,28 +32,33 @@ esac
 
 $bin publish -version $1
 
-echo `cp $path/config.json $target`
-cp -f $path/config.json $target
-cp -f $path/style.css $target
-cp -f $path/swipeup.png $target
-cp -rf $path/jslib $target
-cp $path/config.$1.json $target
+echo `cp $path/config.json $target/static`
+cp -f $path/config.json $target/static
+cp -f $path/style.css $target/static
+cp -f $path/swipeup.png $target/static
+cp -rf $path/jslib $target/static
+cp $path/config.$1.json $target/static
 case "${arch}" in
   Linux*|Darwin*)
-    sed -i "" "s/\"target\":.*/\"target\": \"$1\",/g" "$target/config.json"
+    sed -i "" "s/\"target\":.*/\"target\": \"$1\",/g" "$target/static/config.json"
     sed -i "" "s/js\.zip/js\.zip?v=$(date +%s)/g" bin-release/web/$1/index.html
     if [ "$1" == "development" ] || [ "$1" == "staging" ]; then sed -i "" "s/\data-show-fps=\"false\"/data-show-fps=\"true\"/g" bin-release/web/$1/index.html; fi
   ;;
   CYGWIN*|MINGW32*|MSYS*|MINGW64*)
-    sed -i "s/\"target\":.*/\"target\": \"$1\",/g" "$target/config.json"
+    sed -i "s/\"target\":.*/\"target\": \"$1\",/g" "$target/static/config.json"
     sed -i "s/js\.zip/js\.zip?v=$(date +%s)/g" bin-release/web/$1/index.html
     if [ "$1" == "development" ] || [ "$1" == "staging" ]; then sed -i "s/\data-show-fps=\"false\"/data-show-fps=\"true\"/g" bin-release/web/$1/index.html; fi
   ;;
 esac
 
 #zip /js 
-jszip-cli add $target/js > $target/js.zip
+jszip-cli add $target/js > $target/static/js.zip
 # cd $target
 # cross-zip js js.zip
 # cd ../../..
 for i in $(ls $target/js | grep -v jszip); do rm "$target/js/$i"; done;
+
+mv $target/js $target/static
+mv $target/resource $target/static
+mv $target/manifest.json $target/static
+

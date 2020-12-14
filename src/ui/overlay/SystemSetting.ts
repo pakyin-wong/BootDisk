@@ -102,7 +102,7 @@ namespace we {
           selected: dir.audioCtr.bgmIdx,
         });
 
-        this._txt_version.text = env.version;
+        this._txt_version.text = env.mainVersion;
 
         this._slider_liveRecord.value = dir.audioCtr.volumeLive;
         this._slider_bgm.value = dir.audioCtr.volumeBGM;
@@ -110,7 +110,7 @@ namespace we {
 
         this.addListeners();
 
-        this._btn_currFx.visible = false;//hide the select language
+        this._btn_currFx.visible = false; // hide the select language
       }
 
       protected destroy() {

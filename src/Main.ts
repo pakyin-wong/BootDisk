@@ -207,7 +207,11 @@ class Main extends eui.UILayer {
       if (DEBUG) {
         prodStr = '';
       }
-      await RES.loadConfig(`resource/${env.isMobile ? 'mobile' : 'desktop'}${prodStr}.res.json`, 'resource/');
+      if (DEBUG) {
+        await RES.loadConfig(`resource/${env.isMobile ? 'mobile' : 'desktop'}${prodStr}.res.json`, 'resource/');
+      } else {
+        await RES.loadConfig(`static/resource/${env.isMobile ? 'mobile' : 'desktop'}${prodStr}.res.json`, 'static/resource/');
+      }
       await this.loadTheme();
 
       fontMgr.loadFonts([
