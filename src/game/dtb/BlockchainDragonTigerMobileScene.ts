@@ -332,6 +332,24 @@ namespace we {
           this._mobileBlockchainBar.playAnim(this._tigerTotalAmount, this._dragonTotalAmount);
         }
       }
+
+      protected async updateMaskedSsn(){
+        if(!this.tableInfo || !this._tableInfo.hostid){
+          return;
+        }
+        dir.socket.getGameStatusDT(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.MASK,
+          (data) => this._gameData.maskedcardssnList = data.maskedcardssnList
+        )
+      }
+
+      protected async updateHash(){
+        if(!this.tableInfo || !this._tableInfo.hostid){
+          return;
+        }
+        dir.socket.getGameStatusDT(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.HASH,
+          (data)=> this._gameData.hashedcardsList = data.hashedcardsList
+        )
+      }
     }
   }
 }

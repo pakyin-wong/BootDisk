@@ -91,8 +91,6 @@ namespace we {
         this._portraitButtonCollapsedBetY = 1192;
       }
 
-      public protected;
-
       protected toggleBottomGamePanel() {
         if (env.isBottomPanelOpen) {
           this._resultDisplay.expandBottom();
@@ -209,7 +207,10 @@ namespace we {
       }
 
       protected setStateShuffle(isInit: boolean) {
-        this.getShoeInfo();
+        if(!isInit){//because if isInit, it already gets in setupTableInfo
+          this.getShoeInfo();
+          this.updateMaskedSsn();
+        }
         super.setStateShuffle(isInit);
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         this.hideSumGroup();
@@ -252,12 +253,16 @@ namespace we {
       }
 
       protected showDeckPanel() {
+        this.getShoeInfo();
+        this.updateMaskedSsn();
         this.createSwipeUpPanel();
         this._slideUpMenu.showDeckPanel(<bab.GameData> this._gameData);
         this._slideUpMenu.addEventListener('CLOSE', this.removeSwipeUpPanel, this);
       }
 
       public showCardInfoPanel(evt: egret.Event) {
+        this.getShoeInfo();
+        this.updateMaskedSsn();
         this.createSwipeUpPanel();
         this._slideUpMenu.showCardInfoPanel(<bab.GameData> this._gameData, evt.data);
         this._slideUpMenu.addEventListener('CLOSE', this.removeSwipeUpPanel, this);
@@ -302,10 +307,11 @@ namespace we {
           obj = JSON.parse(text);
           if (obj.result.cards) {
             this._gameData.hashedcardsList = obj.result.cards;
-            // console.log('get cosmo succeeded')
+            // console.log('get cosmo succeeded');
           }
           return new Promise(resolve => resolve());
         } catch (error) {
+          this.updateHash();
           // console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
           return new Promise(resolve => resolve());
         }
@@ -355,6 +361,44 @@ namespace we {
         dir.layerCtr.nav.addChildAt(dir.monitor.nav, 0);
         dir.monitor.nav.onMoveLayer();
       }
+
+      public setData(tableInfo: data.TableInfo) {
+        let hashedcardsList = new Array();
+        let maskedcardssnList = new Array();
+
+        if(this._gameData && this._gameData.hashedcardsList){
+          hashedcardsList = this._gameData.hashedcardsList
+          maskedcardssnList = this._gameData.maskedcardssnList
+        }
+        super.setData(tableInfo);
+        this._gameData.hashedcardsList = hashedcardsList;
+        this._gameData.maskedcardssnList = maskedcardssnList;
+      }
+
+      protected async updateMaskedSsn(){
+        if(!this.tableInfo || !this._tableInfo.hostid){
+          return;
+        }
+        dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.MASK,
+          (data) => this._gameData.maskedcardssnList = data.maskedcardssnList
+        )
+      }
+
+      protected async updateHash(){
+        if(!this.tableInfo || !this._tableInfo.hostid){
+          return;
+        }
+        dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.HASH,
+          (data)=> this._gameData.hashedcardsList = data.hashedcardsList
+        )
+      }
+
+      protected setupTableInfo() {
+        super.setupTableInfo();
+        this.updateMaskedSsn();
+        this.getShoeInfo();
+      }
+
     }
   }
 }

@@ -98,6 +98,13 @@ namespace we {
         });
       }
 
+
+      public getGameStatusBA(hostID: string, option: number, callback?: Function){
+      }
+
+      public getGameStatusDT(hostID: string, option: number, callback?: Function){
+      }
+
       private _playerLotteryStatisticCallback(data: any) {
         if (!data.error) {
           // if the data is an error, do not update the data

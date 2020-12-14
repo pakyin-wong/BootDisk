@@ -31,7 +31,7 @@ namespace we {
 
       public setValue(gameData: data.GameData & data.BlockchainGameData) {
         this._gameData = gameData;
-        if (!this._gameData || !this._gameData.maskedcardssnList) {
+        if (!this._gameData || !this._gameData.maskedcardssnList || !this._gameData.maskedcardssnList[0]) {
           return;
         }
 

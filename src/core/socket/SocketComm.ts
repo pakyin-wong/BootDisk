@@ -92,6 +92,8 @@ export namespace core {
 				this.client.subscribe(core.MQTT.TABLE_LIST_UPDATE, this.onTableListUpdate, this);
 				this.client.subscribe(core.MQTT.GAME_STATUS_UPDATE, this.onGameStatusUpdate, this);
 				this.client.subscribe(core.MQTT.GAME_STATISTIC_UPDATE, this.onGameStatisticUpdate, this);
+        this.client.subscribe(core.MQTT.GAME_STATISTIC_UPDATE_BA, () => null, this);
+        this.client.subscribe(core.MQTT.GAME_STATISTIC_UPDATE_DT, () => null, this);
 				this.client.subscribe(core.MQTT.PLAYER_BET_INFO_UPDATE, this.onBetInfoUpdate, this);
 				// this.client.subscribe(core.MQTT.PLAYER_BET_RESULT, this.onBetResultReceived, this);
 				this.client.subscribe(core.MQTT.BALANCE_UPDATE, this.onBalanceUpdate, this);
@@ -101,6 +103,16 @@ export namespace core {
 				this.client.subscribe(core.MQTT.NOTIFICATION_ROADMAP_MATCH, this.onGoodRoadMatch, this);
 				this.client.subscribe(core.MQTT.CLOSE, this.onConnectionClose, this);
 			}
+
+      public getGameStatusBA(hostID: string, option: number, callback?: Function){
+        this.client.getGameStatusBA(hostID,option,callback)
+      }
+
+      public getGameStatusDT(hostID: string, option: number, callback?: Function){
+        this.client.getGameStatusDT(hostID,option,callback)
+      }
+
+      
 
 			public onConnectionClose(value: any) {
 				const err = {
