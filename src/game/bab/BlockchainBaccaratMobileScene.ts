@@ -324,6 +324,7 @@ namespace we {
         }
 
         this.createMobileBlockChainBar();
+        this._message.setDuration = 1000;
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
