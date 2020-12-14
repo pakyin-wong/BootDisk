@@ -84,7 +84,7 @@ namespace we {
           () => {
             utils.copyToClipboard(this._gameData.hashedcardsList[this._cardIndex - 1]);
             if (this._message) {
-              this._message.showMessage(ui.InGameMessage.INFO,i18n.t('message.keycopied'));
+              this._message.showMessage(ui.InGameMessage.INFO,i18n.t('message.urlcopied'));
             }
           },
           this
@@ -94,7 +94,7 @@ namespace we {
           () => {
             utils.copyToClipboard(this._gameData.hashedcardsList[this._cardIndex - 1]);
             if (this._message) {
-              this._message.showMessage(ui.InGameMessage.INFO,i18n.t('message.keycopied'));
+              this._message.showMessage(ui.InGameMessage.INFO,i18n.t('message.urlcopied'));
             }
           },
           this
@@ -104,7 +104,7 @@ namespace we {
           () => {
             utils.copyToClipboard(this._gameData.maskedcardssnList[this._cardIndex - 1]);
             if (this._message) {
-              this._message.showMessage(ui.InGameMessage.INFO,i18n.t('message.keycopied'));
+              this._message.showMessage(ui.InGameMessage.INFO,i18n.t('message.urlcopied'));
             }
           },
           this
