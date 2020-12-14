@@ -156,8 +156,8 @@ namespace we {
 
       public updateResult(gameData: data.GameData, chipLayer: ui.ChipLayer, isInit: boolean) {
         // console.log(' cardholder::updateResult ', gameData, isInit);
-
         this._gameData = <bab.GameData> gameData;
+
         this.updateCardInfoButtons();
         this._cardUsedMessage.value = this._gameData.currentcardindex;
         if (isInit) {

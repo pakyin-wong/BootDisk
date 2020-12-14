@@ -155,6 +155,15 @@ namespace we {
         this._gameData = gameData;
         this._cardIndex = index;
 
+        if(!this._gameData.maskedcardssnList || 
+        !this._gameData.maskedcardssnList[this._cardIndex - 1] || 
+        !this._gameData.hashedcardsList || 
+        !this._gameData.hashedcardsList[this._cardIndex - 1]){
+          this._sha256SuccessfulGroup.visible = false;
+          this._sha256FailGroup.visible = false;
+          return;
+        }
+
         // set cardImage
         this._cardImage.dataUpdate(this._gameData.maskedcardssnList[this._cardIndex - 1], this._cardIndex);
         // set cardIndexLabel

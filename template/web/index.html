@@ -22,17 +22,17 @@
         }
 
     </style>
-<link href="./style.css" type="text/css" rel="stylesheet">
+<link href="./static/style.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
-    <input type="file" id="uploadText" style="display:none"/>    
-    <div style="margin: auto;width: 100%;height: 100%;position: static;" class="egret-player" data-entry-class="Main" data-multi-fingered="2" data-show-fps="false" data-show-log="false" data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
+    <input type="file" id="uploadText" style="display:none"/>
+    <div style="margin: auto;width: 100%;height: 100%;position: static;" class="egret-player" data-entry-class="Main" data-multi-fingered="2" data-show-fps="true" data-show-log="false" data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
 </div>
     <div class="fullscreen-overlay">
-        <img src='swipeup.png'/>
+        <img src='static/swipeup.png'/>
     </div>
-<script>    
+<script>
     function loadZip(url,callBack)
     {
         // console.log(url);
@@ -88,7 +88,7 @@
         loadJSZipLib(list, function() {
             var loaded = 0;
             // unzip js zip
-            let zip = loadZip('js.zip', function(zip) {
+            let zip = loadZip('static/js.zip?v=1607692418', function(zip) {
                 var loadNext = function () {
                     // console.log(list[loaded]);
                     createScript(zip,nameList[loaded], function () {
@@ -108,7 +108,7 @@
     var loadSingleScript = function (src, callback) {
         var s = document.createElement('script');
         s.async = false;
-        s.src = src;
+        s.src = 'static/' + src;
         s.addEventListener('load', function () {
             s.parentNode.removeChild(s);
             s.removeEventListener('load', arguments.callee, false);
@@ -119,7 +119,7 @@
 
     var cb = function() {
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', './manifest.json?v=' + Math.random(), true);
+        xhr.open('GET', './static/manifest.json?v=' + Math.random(), true);
         xhr.addEventListener("load", function () {
             var manifest = JSON.parse(xhr.response);
             var list = manifest.initial.concat(manifest.game);
