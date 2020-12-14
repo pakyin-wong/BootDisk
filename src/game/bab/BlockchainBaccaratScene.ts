@@ -26,6 +26,8 @@ namespace we {
 
         if(this._gameData && this._gameData.hashedcardsList){
           hashedcardsList = this._gameData.hashedcardsList
+        }
+        if(this._gameData && this._gameData.maskedcardssnList){
           maskedcardssnList = this._gameData.maskedcardssnList
         }
         super.setData(tableInfo);
@@ -38,7 +40,12 @@ namespace we {
           return;
         }
         dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.MASK,
-          (data) => this._gameData.maskedcardssnList = data.maskedcardssnList
+        //dir.socket.getGameStatusBA('S-BAB-o1l0not1i0',we.blockchain.RETRIEVE_OPTION.MASK,
+        
+          (data) => {
+            //console.log('markedssn', data)
+            this._gameData.maskedcardssnList = data.maskedcardssnList
+          }
         )
       }
 
@@ -47,7 +54,12 @@ namespace we {
           return;
         }
         dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.HASH,
-          (data)=> this._gameData.hashedcardsList = data.hashedcardsList
+
+        //dir.socket.getGameStatusBA('S-BAB-o1l0not1i0',we.blockchain.RETRIEVE_OPTION.HASH,
+          (data)=> {
+            //console.log('hashedcardsList', data)
+            this._gameData.hashedcardsList = data.hashedcardsList
+          }
         )
       }
 
@@ -287,12 +299,15 @@ namespace we {
         try {
           text = await utils.getText(`${env.blockchain.cosmolink}${this._gameData.cosmosshoeid}`);
           obj = JSON.parse(text);
+          //console.log('getShoeInfo by blockchain', text)
           if (obj.result.cards) {
+            //console.log('getShoeInfo', obj.result.cards)
             this._gameData.hashedcardsList = obj.result.cards;
             // console.log('get cosmo succeeded');
           }
           return new Promise(resolve => resolve());
         } catch (error) {
+          //console.log('getShoeInfo by backend')
           this.updateHash();
           // console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
           return new Promise(resolve => resolve());
