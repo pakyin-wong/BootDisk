@@ -45,17 +45,18 @@
 	<ba:BARoadmapRightPanel id="_rightGamePanel" width="698" height="304" x="1910" y="1024" dismissPosX="1910"
 	                        dismissPosY="1297" anchorOffsetX="0" anchorOffsetY="0" isEdgeDismissable="true" />
 	<e:Group id="_titleHeader" touchEnabled="false" touchChildren="true" touchThrough="true">
-		<ui:BaseAnimationButton id="_btnBack" dbClass="common_ui" dbDisplay="d_common_icon_back" width="30" height="30" x="35"
-		                        y="17" tooltipText="'nav.tooltip.back'" />
+		<e:Group id="_btnBack" width="110" height="110">
+			<ui:BaseAnimationButton dbClass="common_ui" dbDisplay="d_common_icon_back" width="30" height="30" tooltipText="'nav.tooltip.back'" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"/>
+		</e:Group>
 		<e:Group height="110">
-			<ui:RunTimeLabel id="_lblRoomNo" y="9" size="28" height="40" verticalAlign="middle" textAlign="right"
-			                 anchorOffsetX="0" right="30" text="" />
+			<e:Group id="_lblRoomInfo" right="0" y="9" height="40">
+				<ui:RunTimeLabel id="_lblRoomNo" size="28" height="40" verticalAlign="middle" textAlign="right" anchorOffsetX="0" text="" scaleX="1" scaleY="1" verticalCenter="0" right="30"/>
+				<e:Image width="24" height="24" source="d_ba_navbar_icon_info_png" tooltipText="'nav.tooltip.roominfo'" scaleX="1" scaleY="1" right="0" verticalCenter="0"/>
+			</e:Group>
 			<live:BetLimitDropdown y="44" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" right="-10" />
-			<e:Image id="_lblRoomInfo" width="24" height="24" y="19" source="d_ba_navbar_icon_info_png"
-			         tooltipText="'nav.tooltip.roominfo'" right="0" />
 		</e:Group>
 		<e:layout>
-			<e:HorizontalLayout verticalAlign="middle" gap="33" paddingLeft="33" />
+			<e:HorizontalLayout verticalAlign="middle" gap="0" paddingLeft="0" />
 		</e:layout>
 	</e:Group>
 	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2600" touchEnabled="false"
@@ -111,6 +112,7 @@
 	<bc:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true" 
 	                  isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
 	                  skinName="skin_desktop.bc.ShufflePanelSkin" skeletonName="blockchain_sqba" />
+	<ui:GameRulePanel id="_gameRulePanel" horizontalCenter="0" verticalCenter="0" hideOnStart="true"/>
 	<!--<bc:DeckPanel id="_deckPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
 	               isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
 	               skinName="skin_desktop.bc.DeckPanelSkin" />

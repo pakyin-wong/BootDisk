@@ -173,6 +173,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop.bab{
+	class GameRulePanel extends eui.Skin{
+	}
+}
+declare module skin_desktop.bab{
 	class CardHolderSkin extends eui.Skin{
 	}
 }
@@ -209,11 +213,19 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop.bamb{
+	class GameRulePanel extends eui.Skin{
+	}
+}
+declare module skin_desktop.bamb{
 	class CardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.bamb{
 	class FlipCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.basb{
+	class GameRulePanel extends eui.Skin{
 	}
 }
 declare module skin_desktop.bc{
@@ -574,6 +586,10 @@ declare module skin_desktop.dt{
 }
 declare module skin_desktop{
 	class BlockchainDragonTigerScene extends eui.Skin{
+	}
+}
+declare module skin_desktop.dtb{
+	class GameRulePanel extends eui.Skin{
 	}
 }
 declare module skin_desktop.dtb{
@@ -1400,6 +1416,10 @@ declare module skin_mobile_landscape{
 	class BlockchainBaccaratScene extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape.bab{
+	class GameRulePanel extends eui.Skin{
+	}
+}
 declare module skin_mobile_landscape{
 	class MobileBlockchainBar extends eui.Skin{
 	}
@@ -1437,11 +1457,19 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape.bamb{
+	class GameRulePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.bamb{
 	class MobileBottomGamePanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape.bamb{
 	class CardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.basb{
+	class GameRulePanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape.bc{
@@ -1610,6 +1638,10 @@ declare module skin_mobile_landscape.dt{
 }
 declare module skin_mobile_landscape{
 	class BlockchainDragonTigerScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.dtb{
+	class GameRulePanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape.dtb{
@@ -2026,6 +2058,10 @@ declare module skin_mobile_portrait{
 	class BlockchainBaccaratScene extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait.bab{
+	class GameRulePanel extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait{
 	class MobileBlockchainBar extends eui.Skin{
 	}
@@ -2071,6 +2107,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait.bamb{
+	class GameRulePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.bamb{
 	class CardHolderSkin extends eui.Skin{
 	}
 }
@@ -2080,6 +2120,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class BARoadmapRightPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.basb{
+	class GameRulePanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.bc{
@@ -2358,6 +2402,10 @@ declare module skin_mobile_portrait.dt{
 }
 declare module skin_mobile_portrait{
 	class BlockchainDragonTigerScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dtb{
+	class GameRulePanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.dtb{

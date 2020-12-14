@@ -20,15 +20,58 @@ namespace we {
 
       public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat];
 
+      public setData(tableInfo: data.TableInfo) {
+        let hashedcardsList = new Array();
+        let maskedcardssnList = new Array();
+
+        if(this._gameData && this._gameData.hashedcardsList){
+          hashedcardsList = this._gameData.hashedcardsList
+          maskedcardssnList = this._gameData.maskedcardssnList
+        }
+        super.setData(tableInfo);
+        this._gameData.hashedcardsList = hashedcardsList;
+        this._gameData.maskedcardssnList = maskedcardssnList;
+      }
+
+      protected async updateMaskedSsn(){
+        if(!this.tableInfo || !this._tableInfo.hostid){
+          return;
+        }
+        dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.MASK,
+          (data) => this._gameData.maskedcardssnList = data.maskedcardssnList
+        )
+      }
+
+      protected async updateHash(){
+        if(!this.tableInfo || !this._tableInfo.hostid){
+          return;
+        }
+        dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.HASH,
+          (data)=> this._gameData.hashedcardsList = data.hashedcardsList
+        )
+      }
+
+
+      protected setupTableInfo() {
+        super.setupTableInfo();
+        this.updateMaskedSsn();
+        this.getShoeInfo();
+
+      }
+
+        
+
       protected initChildren() {
         super.initChildren();
+
         this.passBackgroundToResultDisplay();
         // this._helpPanel.setToggler(this._helpButton);
         // this._deckPanel.setToggler(this._deckButton);
         // this._deckPanel.setValue(this._gameData);
         // this._deckPanel.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         this._shufflePanel.addEventListener('ENABLE_DECK_BTN', this.enableDeckBtn, this);
-        this._message.addEventListener('DRAW_RED_CARD',this.newShoeMessage,this)
+        this._message.addEventListener('DRAW_RED_CARD',this.newShoeMessage,this);
+        (<any>this._resultDisplay).addEventListener('SHOW_SHUFFLE_MESSAGE', this.showShuffleReadyMessage, this);
         this._historyCardHolder.setValue(this._gameData)
                 //========
         // this._deckButton.addEventListener('ENABLE_DECK_BTN', this.enableDeckBtn, this);
@@ -85,6 +128,10 @@ namespace we {
         this._message.showMessage(ui.InGameMessage.NEWSHOE, i18n.t('baccarat.redCardDesc'), null, true);
       }
 
+      protected showShuffleReadyMessage() {
+        this._message.showMessage(ui.InGameMessage.INFO, i18n.t('baccarat.shuffleReady'));
+      }
+
       protected runtimeGenerateDeckPanel() {
         if (!this._deckPanel) {
           const deckPanel = new blockchain.DeckPanel('bc.DeckPanelSkin');
@@ -136,7 +183,7 @@ namespace we {
           this._helpPanel = helpPanel;
           this._helpPanel.addEventListener('POPPER_HIDE', this.onHelpPanelHide, this);
         }
-
+        
       }
 
       protected onDeckPanelHide(evt: egret.Event) {
@@ -185,13 +232,18 @@ namespace we {
       }
 
       protected setStateShuffle(isInit: boolean) {
-        this.getShoeInfo();
+        if(!isInit){
+          this.getShoeInfo();
+          this.updateMaskedSsn();
+        }
         this.enableDeckButton(false);
         super.setStateShuffle(isInit);
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
       }
 
       protected showCardInfoPanel(evt: egret.Event) {
+        this.getShoeInfo();
+        this.updateMaskedSsn();
         this.runtimeGenerateCardInfoPanel();
         this._cardInfoPanel.setValue(this._gameData, evt.data);
         this._cardInfoPanel.show();
@@ -201,6 +253,8 @@ namespace we {
         this.enableDeckButton(true);
       }
       protected showDeckPanel(evt: egret.Event) {
+        this.getShoeInfo();
+        this.updateMaskedSsn();
         this.runtimeGenerateDeckPanel();
         this._deckPanel.show();
       }
@@ -237,6 +291,7 @@ namespace we {
           }
           return new Promise(resolve => resolve());
         } catch (error) {
+          this.updateHash();
           // console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
           return new Promise(resolve => resolve());
         }

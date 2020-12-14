@@ -657,8 +657,8 @@ namespace we {
         mechanismHelpTitle2: 'SHA-256已驗證！',
         verification: '卡牌驗證',
         thirdParty: '第三方驗證',
-        sha256VerifySuccess: 'SHA256已驗證',
-        sha256VerifyFail: 'SHA256驗證失敗',
+        sha256VerifySuccess: 'SHA256已驗證！',
+        sha256VerifyFail: 'SHA256驗證失敗！',
         deckDesc:
           '系統會在「完整牌靴」中顯示「卡牌序號」及「卡牌加密文」供玩家驗證。洗牌後，兩者將會重新生成，確保遊戲的真確性。',
         copy: '複製',
@@ -667,6 +667,7 @@ namespace we {
         ssn: '卡牌序號',
         lastRound: '上局結果',
         redCardDesc: '紅卡：該局遊戲結束後進行換靴',
+        shuffleReady: '本局結束後，遊戲將進行換靴',
         announceAfterDisclose: '將於開牌後公佈...',
         cardUsed: '牌靴: 已使用$1張',
       },

@@ -4,10 +4,10 @@
 	<ui:HorizontalHolder bulletRight="20" bulletTop="20" width="576" height="240" slideWidth="576" slideHeight="240"
 	                     isLoop="true" isAuto="false" bulletGapValue="10" touchAreaAtBottom="true">
 		<e:Group id="content" width="100%" height="100%" touchEnabled="false" touchChildren="false"  touchThrough="true">
-			<ba:StatisticChart id="_statisticPairChart1" isPairChart="true" skinName="skin_mobile.ba.StatisticChartPanelNormalPair"/>
+			<ba:StatisticChart id="_statisticPairChart1" isPairChart="true" skinName="skin_mobile.ba.StatisticChartPanelShoePair"/>
 		</e:Group>
 		<e:Group id="content0" x="0" width="100%" height="100%" touchEnabled="false" touchChildren="false" touchThrough="true">
-			<ba:StatisticChart id="_statisticPairChart2"  isPairChart="true" skinName="skin_mobile.ba.StatisticChartPanelShoePair"/>
+			<ba:StatisticChart id="_statisticPairChart2"  isPairChart="true" skinName="skin_mobile.ba.StatisticChartPanelNormalPair"/>
 		</e:Group>
 	</ui:HorizontalHolder>
 </e:Skin>

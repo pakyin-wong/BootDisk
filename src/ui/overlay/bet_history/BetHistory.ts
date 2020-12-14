@@ -26,7 +26,7 @@ namespace we {
       protected _txt_record_result: ui.RunTimeLabel;
 
       protected _tf_search: eui.EditableText;
-      protected _btn_search: ui.BaseImageButton;
+      protected _btn_search: egret.DisplayObject;
 
       protected _btn_searchType: ui.RoundRectButton;
       protected _ddm_searchType: ui.Panel;

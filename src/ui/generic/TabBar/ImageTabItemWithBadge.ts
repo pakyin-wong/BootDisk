@@ -1,6 +1,7 @@
 namespace we {
   export namespace ui {
     export class ImageTabItemWithBadge extends TabItemWithBadge {
+      protected _imgContainer: eui.Group;
       protected _image: ui.BaseAnimationButton;
 
       constructor() {
@@ -28,7 +29,7 @@ namespace we {
           this._image.dbClass = 'lobby_ui';
           this._image.dbDisplay = `d_lobby_panel_gamelist_${this.data}`;
           this._image.isSwitch = true;
-          this.addChildAt(this._image, 0);
+          this._imgContainer.addChild(this._image);
         }
         this._image.active = false;
         switch (state) {

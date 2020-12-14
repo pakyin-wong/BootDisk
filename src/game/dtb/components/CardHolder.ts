@@ -230,7 +230,7 @@ namespace we {
           return new Promise(resolve => resolve());
         }
 
-        if (this._gameData.d) {
+        if (this._gameData.d && !this._gameData.t) {
           this.setCardFrontFace(this._dragonCard, 'd', 'vertical', 0);
           this.setLabel(this._dragonCard.armature.getSlot(`card_number_vertical`), this.getCurrentDIndex());
           await utils.playAnimation(this._dragonCard, this._verticalFlip, 1);
@@ -249,7 +249,7 @@ namespace we {
           // this._tigerCard.animation.play(`vertical_flip`, 1);
           // await p5;
           this.updateTigerSum();
-        }
+      }
 
         return new Promise(resolve => resolve());
       }
@@ -329,16 +329,21 @@ namespace we {
 
         //   return new Promise(resolve => resolve());
         // })();
+        if(!env.isMobile){
+          this.setLabel(this._ringAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + 1);
 
-        this.setLabel(this._ringAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + 1);
+          await utils.playAnimation(this._ringAnim, 'poker_in', 1, 'POKER_ROUND_ANIMATION_GROUP');
 
-        await utils.playAnimation(this._ringAnim, 'poker_in', 1, 'POKER_ROUND_ANIMATION_GROUP');
+          this.setLabel(this._centerBurnCard.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + 1);
+          this._centerBurnCardGroup.visible = true;
 
-        this.setLabel(this._centerBurnCard.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + 1);
-        this._centerBurnCardGroup.visible = true;
+          await utils.playAnimation(this._centerBurnCard, 'dt_burn_card_center', 1, 'POKER_ROUND_ANIMATION_GROUP');
+          this._centerBurnCardGroup.visible = false;
+        }else{
+          this.setLabel(this._ringAnim.armature.getSlot('card_number_vertical'), this._gameData.currentcardindex + 1);
 
-        await utils.playAnimation(this._centerBurnCard, 'dt_burn_card_center', 1, 'POKER_ROUND_ANIMATION_GROUP');
-        this._centerBurnCardGroup.visible = false;
+          await utils.playAnimation(this._ringAnim, 'dt_burn_card_center', 1, 'POKER_ROUND_ANIMATION_GROUP');
+        }
 
         const cardAnimNames = ['_dragonCard', '_tigerCard'];
         for (let i = 0; i < cardAnimNames.length; i++) {
@@ -570,7 +575,7 @@ namespace we {
       }
 
       protected async closeShoe(){
-                    await Promise.all([utils.playAnimation(this._ringAnim, 'shoe_out', 1), utils.playAnimation(this._dragonAnim, 'shoe_out', 1), utils.playAnimation(this._tigerAnim, 'shoe_out', 1)]);
+            await Promise.all([utils.playAnimation(this._ringAnim, 'shoe_out', 1), utils.playAnimation(this._dragonAnim, 'shoe_out', 1), utils.playAnimation(this._tigerAnim, 'shoe_out', 1)]);
             await this.animateShoe();
             await this.animatePin();
 

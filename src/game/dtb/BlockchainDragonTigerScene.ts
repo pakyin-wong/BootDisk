@@ -31,6 +31,24 @@ namespace we {
         );
       }
 
+      protected async updateMaskedSsn(){
+        if(!this.tableInfo || !this._tableInfo.hostid){
+          return;
+        }
+        dir.socket.getGameStatusDT(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.MASK,
+          (data) => this._gameData.maskedcardssnList = data.maskedcardssnList
+        )
+      }
+
+      protected async updateHash(){
+        if(!this.tableInfo || !this._tableInfo.hostid){
+          return;
+        }
+        dir.socket.getGameStatusDT(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.HASH,
+          (data)=> this._gameData.hashedcardsList = data.hashedcardsList
+        )
+      }
+
       // protected onTableBetInfoUpdate(evt: egret.Event) {
       //   super.onTableBetInfoUpdate(evt);
       //   if (!evt || !evt.data) {
