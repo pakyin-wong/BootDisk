@@ -12,6 +12,7 @@ namespace we {
     export class ALobbyGridLayoutSwitch extends we.core.BaseEUI {
       protected setGridType(type: number) {
         env.lobbyGridType = type;
+        dir.socket.updateSetting('lobbyGridType', type.toString());
         dir.evtHandler.dispatch(core.Event.LIVE_DISPLAY_MODE, type);
       }
     }

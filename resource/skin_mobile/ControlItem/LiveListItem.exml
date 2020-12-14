@@ -5,9 +5,10 @@
 		<e:Group id="_contentContainerStatic" left="0" right="0" top="0" bottom="0">
 			<ui:RoundRectShape id="_bg" cornerTL_TR_BL_BR="12,12,12,12" height="390" width="1138" stroke="1" strokeIn="1" strokeColor="0x000000" strokeInColor="0x3a3f48" fillColor="0xffffff" horizontalCenter="0" x="1" y="0" scaleX="1" scaleY="1"/>
 			<ui:RoundRectShape cornerTL_TR_BL_BR="12,12,0,0" height="104" width="1138" stroke="3" strokeColor="0x393f49" fillColor="0x23282e" horizontalCenter="0" x="1" y="0" scaleX="1" scaleY="1"/>
-			<e:Group x="110" y="24" scaleX="1" scaleY="1">
-				<ui:RunTimeLabel id="_label_game" textAlign="left" size="48" text="百家樂"/>
-				<e:Label id="_label_ID" textAlign="left" y="-10" size="60" text="3" fontFamily="Barlow" anchorOffsetY="0" height="62"/>
+			<e:Group x="110" y="24" scaleX="1" scaleY="1" anchorOffsetX="0" width="680">
+				<ui:RunTimeLabel id="_label_game" targetWidth="300" textAlign="left" size="48" text="百家樂" />
+				<ui:RunTimeLabel id="_label_ID" targetWidth="350" textAlign="left" y="-10" size="60" text="3" fontFamily="Barlow"
+				                 anchorOffsetY="0" height="62" />
 				<e:layout>
 				<e:HorizontalLayout verticalAlign="middle"/>
 				</e:layout>
@@ -30,7 +31,8 @@
 				<ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_mobile_portrait.GoodRoadLabelSkin" visible="false"/>
 				<e:Group id="_alreadyBetSign" height="80" y="0" x="0">
 				<e:Rect right="0" left="0" top="0" bottom="0" ellipseWidth="80" ellipseHeight="80" fillAlpha="0.76" fillColor="0x42bc60"/>
-				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="56" left="30" right="30"/>
+				<!--<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="56" left="30" right="30"/>-->
+				                <ui:RunTimeLabel text="已下注" horizontalCenter="0" verticalCenter="0"  left="30" right="30" textKey="sidePanel.quickbetted" size="56"/>  
 				</e:Group>
 				<e:layout>
 				<e:HorizontalLayout/>

@@ -10,7 +10,7 @@
 		<ui:RunTimeLabel id="_txt_autoBet" text="Label" x="48" y="106" size="24" width="360" height="36" verticalAlign="middle" textAlign="left"/>
 		<ui:BaseButton id="switch_autoBet" width="51" height="31" x="393" y="108.5" skinName="skin_desktop.SwitchBtn"/>
 
-		<ui:RunTimeLabel id="_txt_showHint" text="Label" x="48" y="168" size="24" width="360" height="36" verticalAlign="middle" textAlign="left"/>
+		<ui:RunTimeLabel id="_txt_showHint" text="Label" x="48" y="168" size="24" width="360" targetWidth="320" height="36" verticalAlign="middle" textAlign="left"/>
 		<ui:BaseButton id="switch_showHint" width="51" height="31" x="393" y="170.5" skinName="skin_desktop.SwitchBtn"/>
 
 		<ui:RoundRectButton id="_btn_sendLiveVer" cornerTL_TR_BL_BR="25,25,25,25" width="396" height="50" x="48" y="240" stroke="2"

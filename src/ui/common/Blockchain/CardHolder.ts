@@ -351,7 +351,7 @@ namespace we {
 
       protected getPinRad(num = this._gameData.redcardindex) {
         if(!this._gameData || !this._gameData.maskedcardssnList || !this._gameData.maskedcardssnList.length){
-          return 0;
+          return (this._pinStartAngle * Math.PI) / 180;
         }
         const totalCount = this._gameData.maskedcardssnList.length;
         const proportion = (num - this._gameData.currentcardindex) / totalCount;
@@ -363,7 +363,7 @@ namespace we {
 
       protected getShoeRad(num = this._gameData.currentcardindex) {
         if(!this._gameData || !this._gameData.maskedcardssnList || !this._gameData.maskedcardssnList.length){
-          return 0;
+           return (this._pinStartAngle * Math.PI) / 180;
         }
         const totalCount = this._gameData.maskedcardssnList.length;
         const proportion = (totalCount - num) / totalCount;

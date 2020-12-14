@@ -31,7 +31,7 @@
 			</e:Group>
         <ui:CountdownTimer id="_timer" width="34" height="34" x="7" y="7" anchorOffsetX="0" anchorOffsetY="0"
                            skinName="skin_desktop.CountdownTimerRoundSmallSkin" />
-        <ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" y="12" text="" size="23.4"  x="47" />
+        <ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" y="11" text="" width="200" targetWidth="250" size="23.4"  x="47"  height="30" verticalAlign="middle"/>
         <e:Image id="_arrow" source="d_lobby_button_down_normal_png" x="290" y="45" rotation="270" visible="false"/>
         <e:Group left="0" right="0">
             <e:Component id="_roadmapNode" top="46" left="1" right="1"/>
@@ -43,7 +43,8 @@
             <ui:GoodRoadLabel id="_goodRoadLabel" right="13" bottom="10" />
 			<e:Group id="_alreadyBetSign" right="5" bottom="40" visible="false">
 				<e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0" width="100" height="30"/>
-				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="18"/>
+				<!--<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="18"/>-->
+                <ui:RunTimeLabel text="已下注" horizontalCenter="0" verticalCenter="0" textKey="sidePanel.quickbetted" size="18"/>         
 			</e:Group>
         </e:Group>
         <ui:InGameMessage id="_message" anchorOffsetX="152" anchorOffsetY="16" skinName="skin_desktop.InGameMessageSkin" width="303" height="32" horizontalCenter="0.5" infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" x="18" scaleX="1" scaleY="1" y="88"/>

@@ -71,6 +71,10 @@ namespace we {
         return this._expiredBg;
       }
 
+      set setDuration(value: number) {
+        this.duration = value;
+      }
+      
       public showMessage(type: string, message: string, callback?: () => void, isHold: boolean = false) {
         if (this._bg) {
           this.setBackground(type);

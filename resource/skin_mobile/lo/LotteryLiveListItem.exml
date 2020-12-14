@@ -52,7 +52,9 @@
 			<e:Group id="_alreadyBetSign" height="80" y="0" x="0">
 				<e:Rect right="0" left="0" top="0" bottom="0" ellipseWidth="80" ellipseHeight="80" fillAlpha="0.76"
 				        fillColor="0x42bc60" />
-				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="56" left="30" right="30" />
+				<!--<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="56" left="30" right="30" />-->
+				 <ui:RunTimeLabel text="已下注" horizontalCenter="0" verticalCenter="0"  left="30" right="30" textKey="sidePanel.quickbetted" size="56"/>  
+				
 			</e:Group>
 			<e:layout>
 				<e:HorizontalLayout/>

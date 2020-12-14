@@ -70,6 +70,8 @@ namespace we {
         this._roundLoopA = 'round_loop_a';
         this._roundLoopB = 'round_loop_b';
         this._verticalFlip = 'vertical_flip';
+        this._smallCard1Exist = true;
+        this._smallCard2Exist = true;
 
         this.cardAnimNames = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2', '_smallCard1', '_smallCard2'];
       }
