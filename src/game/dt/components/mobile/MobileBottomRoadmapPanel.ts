@@ -241,13 +241,13 @@ namespace we {
         if (this.tableInfo) {
           if (this.tableInfo.gamestatistic) {
             // console.log('dt :: this.tableInfo.gamestatistic', console.log('dt :: this.tableInfo.gamestatistic', this.tableInfo.gamestatistic));
-            if (this.tableInfo.gamestatistic.shoeBankerCount) {
+            if (this.tableInfo.gamestatistic.shoeBankerCount !== undefined) {
               this.bankerCountLabel.text = this.tableInfo.gamestatistic.shoeBankerCount.toString();
             }
-            if (this.tableInfo.gamestatistic.shoePlayerCount) {
+            if (this.tableInfo.gamestatistic.shoePlayerCount !== undefined) {
               this.playerCountLabel.text = this.tableInfo.gamestatistic.shoePlayerCount.toString();
             }
-            if (this.tableInfo.gamestatistic.shoeTieCount) {
+            if (this.tableInfo.gamestatistic.shoeTieCount !== undefined) {
               if (this.tieCountLabel) {
                 this.tieCountLabel.text = this.tableInfo.gamestatistic.shoeTieCount.toString();
               }
@@ -258,7 +258,7 @@ namespace we {
             // if (this.tableInfo.gamestatistic.playerPairCount) {
             //   this.playerPairCountLabel.text = this.tableInfo.gamestatistic.playerPairCount.toString();
             // }
-            if (this.tableInfo.gamestatistic.shoeTotalCount) {
+            if (this.tableInfo.gamestatistic.shoeTotalCount !== undefined) {
               this.totalCount = this.tableInfo.gamestatistic.shoeTotalCount;
               this.totalCountLabel.text = this.tableInfo.gamestatistic.shoeTotalCount.toString();
             }
