@@ -380,7 +380,7 @@ namespace we {
         if(!this.tableInfo || !this._tableInfo.hostid){
           return;
         }
-        dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.MASK,
+        dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.MASK,null,
           (data) => this._gameData.maskedcardssnList = data.maskedcardssnList
         )
       }
@@ -389,7 +389,7 @@ namespace we {
         if(!this.tableInfo || !this._tableInfo.hostid){
           return;
         }
-        dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.HASH,
+        dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.HASH,null,
           (data)=> this._gameData.hashedcardsList = data.hashedcardsList
         )
       }

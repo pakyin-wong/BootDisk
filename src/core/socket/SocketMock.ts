@@ -99,10 +99,10 @@ namespace we {
       }
 
 
-      public getGameStatusBA(hostID: string, option: number, callback?: Function){
+      public getGameStatusBA(hostID: string, option: number, index:number, callback?: Function){
       }
 
-      public getGameStatusDT(hostID: string, option: number, callback?: Function){
+      public getGameStatusDT(hostID: string, option: number, index:number, callback?: Function){
       }
 
       private _playerLotteryStatisticCallback(data: any) {
