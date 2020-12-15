@@ -8,7 +8,7 @@
 		<ui:RunTimeLabel text="11:1" oddKey="ba.PLAYER_PAIR" horizontalCenter="0" size="35" verticalAlign="top" top="132" alpha="0.7" />
 
 	</e:Group>
-	<e:Group id="_playerGroup" x="271" y="0" width="384" height="200" x.Normal="271">
+	<e:Group id="_playerGroup" x="271" y="0" width="384" height="200" x.Normal="271" visible.SuperSix="false">
 		<e:Image id="_playerImage" source="m_ba_betarea_player_horizontal_png" name="m_ba_betarea_player_horizontal_png"
 		         width="100%" height="100%" x="0" y="0" anchorOffsetX="0" width.Normal="100%" x.Normal="0" y.Normal="0"
 		         height.SuperSix="100%" />
@@ -46,7 +46,7 @@
 
 
 
-	<e:Group id="_superSixPlayerGroup" x="271" y="0" width="384" height="200" x.Normal="271">
+	<e:Group id="_superSixPlayerGroup" x="271" y="0" width="384" height="200" x.Normal="271" visible.Normal="false">
 		<e:Image id="_superSixPlayerImage" source="m_ba_betarea_player_horizontal_png" name="m_ba_betarea_player_horizontal_png"
 		         width="100%" height="100%" x="0" y="0" anchorOffsetX="0" width.Normal="100%" x.Normal="0" y.Normal="0"
 		         height.SuperSix="100%" />
