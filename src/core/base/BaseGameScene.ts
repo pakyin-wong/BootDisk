@@ -417,6 +417,22 @@ namespace we {
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
+
+            if(this.tableInfo.state !== TableState.ONLINE){
+              dir.evtHandler.showMessage({
+                  class: 'MessageDialog',
+                  args: [
+                    i18n.t('table_offline_text'),
+                    {
+                      dismiss: { text: i18n.t('nav.menu.confirm') },
+                    },
+                  ],
+                  showSFX: 'ui_sfx_info_message_mp3',
+                });
+                this.backToLobby();
+                return;
+            }
+            
             this._betDetails = tableInfo.bets;
             this._gameData = this._tableInfo.data;
             this._previousState = this._gameData ? this._gameData.previousstate : null;

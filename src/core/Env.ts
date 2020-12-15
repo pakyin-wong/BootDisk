@@ -484,7 +484,22 @@ namespace we {
       }
 
       public gotoScene(tableId: string) {
-        const gameType = env.tableInfos[tableId].gametype;
+        const info = env.tableInfos[tableId];
+        const state = info.state;
+        if(state !== TableState.ONLINE){
+          dir.evtHandler.showMessage({
+            class: 'MessageDialog',
+            args: [
+              i18n.t('table_offline_text'),
+              {
+                dismiss: { text: i18n.t('nav.menu.confirm') },
+              },
+            ],
+            showSFX: 'ui_sfx_info_message_mp3',
+          });
+          return;
+        }
+        const gameType = info.gametype;
         switch (gameType) {
           case core.GameType.BAC:
           case core.GameType.BAS:
