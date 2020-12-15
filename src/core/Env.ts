@@ -19,8 +19,8 @@ namespace we {
       public notYetInteract: boolean = false;
 
       /* Global Environment Variable */
-      public mainVersion: string = '1.0';
-      protected patch: string = '2';
+      public mainVersion: string = '2.0';
+      protected patch: string = '0';
 
       public get version(): string {
         return `${this.mainVersion}.${this.patch}`;
