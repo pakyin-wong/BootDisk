@@ -51,6 +51,8 @@ namespace we {
       private isPrevBlock = false;
       private isNextBlock = false;
 
+      private _isBulletClickable: boolean = false;
+
       public maskRadius: number = 0;
 
       public constructor() {
@@ -63,6 +65,14 @@ namespace we {
         if (!this.isDragonBone) {
           this.initSlider();
         }
+      }
+
+      public get isBulletClickable() {
+        return this._isBulletClickable;
+      }
+
+      public set isBulletClickable(val:boolean) {
+        this._isBulletClickable = val;
       }
 
       public get currentPageIdx() {
@@ -198,9 +208,20 @@ namespace we {
             bullet.height = this.bulletHeight;
             bullet.source = this._bulletOff;
             bullet.horizontalCenter = 0;
+            bullet.name = `bullet_${i}`
+            console.log('bullet.name',bullet.name)
             this._bulletGroup.addChild(bullet);
+            console.log('this._bulletGroup.$children parent.indexOf',this._bulletGroup.$children)
+            console.log('indexOf',this._bulletGroup.$children.indexOf(bullet))
+            if (this._isBulletClickable === true ) {
+              bullet.addEventListener(egret.TouchEvent.TOUCH_TAP,this.bulletOnTouch,this)
+            }
           }
-
+          // if (this._isBulletClickable === true ) {
+          //   this._bulletGroup.$children.forEach( (e,i) => {
+          //     e.addEventListener()
+          //   } )
+          // }
           const layout = new eui.HorizontalLayout();
           layout.verticalAlign = 'middle';
           layout.horizontalAlign = egret.HorizontalAlign.CENTER;
@@ -225,7 +246,10 @@ namespace we {
         this.mask = shape;
         this.addChild(shape);
       }
+      protected bulletOnTouch(e){
+        console.log('*****************bulletOnTouch::e',e)
 
+      }
       protected updateBullets() {
         if (!this.isBullet) {
           return;
