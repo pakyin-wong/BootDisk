@@ -103,7 +103,7 @@ namespace we {
       }
 
       private update() {
-        if (this._loopMsg.length < 1) {
+        if (!this._loopMsg || this._loopMsg.length < 1) {
           return;
         }
 

@@ -6,7 +6,7 @@ namespace we {
       private _txt_liveRecord: ui.RunTimeLabel;
       private _txt_soundfx: ui.RunTimeLabel;
       private _txt_bgm: ui.RunTimeLabel;
-      private _txt_term: ui.RunTimeLabel;
+      // private _txt_term: ui.RunTimeLabel;
       private _txt_version: ui.RunTimeLabel;
       private _txt_currLang: ui.RunTimeLabel;
       private _txt_currFx: ui.RunTimeLabel;
@@ -38,7 +38,7 @@ namespace we {
         this._txt_liveRecord.renderText = () => `${i18n.t('nav.system.liveRecord')}`;
         this._txt_soundfx.renderText = () => `${i18n.t('nav.system.soundfx')}`;
         this._txt_bgm.renderText = () => `${i18n.t('nav.system.bgm')}`;
-        this._txt_term.renderText = () => `${i18n.t('nav.system.term')}`;
+        // this._txt_term.renderText = () => `${i18n.t('nav.system.term')}`;
 
         const _arrCol_currLang = new eui.ArrayCollection([ui.NewDropdownItem('cn', () => `简体中文`), ui.NewDropdownItem('zh', () => `繁體中文`), ui.NewDropdownItem('en', () => `English`)]);
         if (this._ddm_currLang) {
@@ -103,6 +103,7 @@ namespace we {
         });
 
         this._txt_version.text = env.mainVersion;
+        this._txt_version.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>console.log(`${env.version}`), this);
 
         this._slider_liveRecord.value = dir.audioCtr.volumeLive;
         this._slider_bgm.value = dir.audioCtr.volumeBGM;

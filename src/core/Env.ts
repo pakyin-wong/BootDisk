@@ -20,7 +20,7 @@ namespace we {
 
       /* Global Environment Variable */
       public mainVersion: string = '1.0';
-      protected patch: string = '1';
+      protected patch: string = '2';
 
       public get version(): string {
         return `${this.mainVersion}.${this.patch}`;
