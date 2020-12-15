@@ -404,7 +404,7 @@ namespace we {
 
             // await block1;
             // await block2;
-
+            this.dispatchEvent(new egret.Event('SHOW_SHUFFLE_MESSAGE'));
             await utils.playAnimation(this._ringAnim, 'red_poker_in', 1, 'POKER_ROUND_ANIMATION_GROUP');
             await utils.playAnimation(this._ringAnim, 'red_poker_out', 1, 'POKER_ROUND_ANIMATION_GROUP');
             await utils.playAnimation(this.getRedCardAnim(), 'red_poker_in', 1);
