@@ -39,7 +39,7 @@ namespace we {
         if(!this.tableInfo || !this._tableInfo.hostid){
           return;
         }
-        dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.MASK,
+        dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.MASK,null,
         //dir.socket.getGameStatusBA('S-BAB-o1l0not1i0',we.blockchain.RETRIEVE_OPTION.MASK,
         
           (data) => {
@@ -53,7 +53,7 @@ namespace we {
         if(!this.tableInfo || !this._tableInfo.hostid){
           return;
         }
-        dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.HASH,
+        dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.HASH,null,
 
         //dir.socket.getGameStatusBA('S-BAB-o1l0not1i0',we.blockchain.RETRIEVE_OPTION.HASH,
           (data)=> {

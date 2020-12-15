@@ -2,8 +2,8 @@
 namespace we {
   export namespace core {
     export interface ISocket {
-      getGameStatusBA(hostID: string, option: number, callback?: Function): void;
-      getGameStatusDT(hostID: string, option: number, callback?: Function): void;
+      getGameStatusBA(hostID: string, option: number, index:number, callback?: Function): void;
+      getGameStatusDT(hostID: string, option: number, index:number, callback?: Function): void;
       getStaticInitData(callback: (res: any) => void, thisArg: any);
       getStaticInitDataAsync?(callback: (res: any) => void, thisArg: any);
       connect();
