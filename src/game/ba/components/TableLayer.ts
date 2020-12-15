@@ -27,14 +27,15 @@ namespace we {
       protected _superSixLabel: ui.RunTimeLabel;
       protected _superSixBankerLabel: ui.RunTimeLabel;
 
-
       protected _playerTotalAmount: eui.Label;
       protected _bankerTotalAmount: eui.Label;
       protected _superSixBankerTotalAmount: eui.Label;
+      protected _superSixPlayerTotalAmount: eui.Label;
 
       protected _playerTotalPerson: eui.Label;
       protected _bankerTotalPerson: eui.Label;
       protected _superSixBankerTotalPerson: eui.Label;
+      protected _superSixPlayerTotalPerson: eui.Label;
 
       protected _totalPersonMapping: any; // Total Person for each grid
       protected _totalAmountMapping: any; // Total amount for each grid
@@ -75,11 +76,13 @@ namespace we {
         this._totalPersonMapping[ba.BetField.PLAYER] = this._playerTotalPerson;
         this._totalPersonMapping[ba.BetField.BANKER] = this._bankerTotalPerson;
         this._totalPersonMapping[ba.BetField.SUPER_SIX_BANKER] = this._superSixBankerTotalPerson;
+        this._totalPersonMapping[ba.BetField.SUPER_SIX_PLAYER] = this._superSixPlayerTotalPerson;
 
         this._totalAmountMapping = {};
         this._totalAmountMapping[ba.BetField.PLAYER] = this._playerTotalAmount;
         this._totalAmountMapping[ba.BetField.BANKER] = this._bankerTotalAmount;
         this._totalAmountMapping[ba.BetField.SUPER_SIX_BANKER] = this._superSixBankerTotalAmount;
+        this._totalAmountMapping[ba.BetField.SUPER_SIX_PLAYER] = this._superSixPlayerTotalAmount;
 
         this._playerLabel.renderText = () => i18n.t('baccarat.playerShort');
         this._bankerLabel.renderText = () => i18n.t('baccarat.bankerShort');
