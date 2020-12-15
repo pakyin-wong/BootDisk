@@ -24,10 +24,10 @@ RUN zip -r bin-release/web/${ENVIRONMENT}/static/js.zip bin-release/web/${ENVIRO
 RUN rm -r bin-release/web/${ENVIRONMENT}/resource/assets/images
 RUN for i in $(ls $target/js | grep -v jszip); do rm "$target/js/$i"; done;
 
-# RUN mv bin-release/web/${ENVIRONMENT}/js bin-release/web/${ENVIRONMENT}/static
-RUN cp -R bin-release/web/${ENVIRONMENT}/js bin-release/web/${ENVIRONMENT}/static
-# RUN mv bin-release/web/${ENVIRONMENT}/resource bin-release/web/${ENVIRONMENT}/static
-RUN cp -R bin-release/web/${ENVIRONMENT}/resource bin-release/web/${ENVIRONMENT}/static
+RUN mv bin-release/web/${ENVIRONMENT}/js bin-release/web/${ENVIRONMENT}/static
+# RUN cp -R bin-release/web/${ENVIRONMENT}/js bin-release/web/${ENVIRONMENT}/static
+RUN mv bin-release/web/${ENVIRONMENT}/resource bin-release/web/${ENVIRONMENT}/static
+# RUN cp -R bin-release/web/${ENVIRONMENT}/resource bin-release/web/${ENVIRONMENT}/static
 RUN mv bin-release/web/${ENVIRONMENT}/manifest.json bin-release/web/${ENVIRONMENT}/static
 
 
