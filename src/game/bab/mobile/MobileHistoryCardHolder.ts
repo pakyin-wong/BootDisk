@@ -38,6 +38,12 @@ namespace we {
           this.setNumber(this._gameData.currentcardindex-count)
         }
       }
+      
+      public clearAllCards() {
+        this.setAllCards(false);
+        this.setAllNums(false);
+        this.setAllSums(false);
+      }
 
       public checkFirstRound(){ // run 
         if(this._gameData.maskedcardssnList && this._gameData.maskedcardssnList[0] && this._gameData.maskedcardssnList[0] != '*'){
