@@ -209,10 +209,7 @@ namespace we {
             bullet.source = this._bulletOff;
             bullet.horizontalCenter = 0;
             bullet.name = `bullet_${i}`
-            console.log('bullet.name',bullet.name)
             this._bulletGroup.addChild(bullet);
-            console.log('this._bulletGroup.$children parent.indexOf',this._bulletGroup.$children)
-            console.log('indexOf',this._bulletGroup.$children.indexOf(bullet))
             if (this._isBulletClickable === true ) {
               bullet.addEventListener(egret.TouchEvent.TOUCH_TAP,this.bulletOnTouch,this)
             }
@@ -247,8 +244,10 @@ namespace we {
         this.addChild(shape);
       }
       protected bulletOnTouch(e){
-        console.log('*****************bulletOnTouch::e',e)
-
+        let selectedBullet = e.target.name;
+        let selectedIndex = parseInt(selectedBullet.split('_')[1],10)
+        this._currentPageIdx = 0;
+        this.onMoveFinished(selectedIndex)
       }
       protected updateBullets() {
         if (!this.isBullet) {
