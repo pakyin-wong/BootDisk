@@ -127,7 +127,7 @@ namespace we {
       overlaypanel_bethistory_limit: 'Items per page:',
       overlaypanel_bethistory_total: ' %now% of total %total% record(s)',
 
-      overlaypanel_bethistory_record_round: 'Round',
+      overlaypanel_bethistory_record_round: 'Game ID',
       overlaypanel_bethistory_record_bettype: 'Bet Content',
       overlaypanel_bethistory_record_vaildbet: 'Vaild Turnover',
       overlaypanel_bethistory_record_rollingRate: 'Rolling Percentage',
