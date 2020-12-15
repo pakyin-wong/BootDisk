@@ -2,6 +2,7 @@
 <e:Skin class="skin_mobile_portrait.PlayerProfile" height="2155" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="1242">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
+	<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x14181e"  scaleX="1" scaleY="1" fillAlpha="1"/>
 		<e:Group id="close" height="220" width="190" x="1052" y="0">
 			<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x14181e" x="-1052" y="0" scaleX="1" scaleY="1" fillAlpha="0"/>
 			<e:Image width="96" height="96" right="26" top="68" source="d-lobby-button-close-none_png" x="68" y="68" scaleX="1" scaleY="1"/>
