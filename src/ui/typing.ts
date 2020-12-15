@@ -33,6 +33,7 @@ namespace we {
       show();
       hide();
       update(gameData, tableId);
+      clearAllCards();
     }
 
     export interface IListItemHelper {

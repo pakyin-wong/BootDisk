@@ -126,6 +126,8 @@ namespace we {
         }
       }
 
+
+
       protected newShoeMessage() {
         this._message.showMessage(ui.InGameMessage.NEWSHOE, i18n.t('baccarat.redCardDesc'), null, true);
       }
@@ -241,6 +243,7 @@ namespace we {
         this.enableDeckButton(false);
         super.setStateShuffle(isInit);
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
+        this._historyCardHolder.clearAllCards();
       }
 
       protected showCardInfoPanel(evt: egret.Event) {

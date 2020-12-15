@@ -32,6 +32,12 @@ namespace we {
         }
       }
 
+      public clearAllCards() {
+        this.setAllCards(false);
+        this.setAllNums(false);
+        this.setAllSums(false);
+      }
+
       public checkFirstRound() {
         // run after setNumber
         if (this._gameData.maskedcardssnList && this._gameData.maskedcardssnList[0] && this._gameData.maskedcardssnList[0] != '*') {

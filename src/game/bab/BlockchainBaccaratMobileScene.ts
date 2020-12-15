@@ -215,6 +215,7 @@ namespace we {
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         this.hideSumGroup();
         this.toggleBottomGamePanel();
+        this._historyCardHolder.clearAllCards();
       }
 
       protected setStateIdle(isInit: boolean) {
