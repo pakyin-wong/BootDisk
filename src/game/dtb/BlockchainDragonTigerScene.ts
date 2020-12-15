@@ -36,7 +36,7 @@ namespace we {
           return;
         }
         dir.socket.getGameStatusDT(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.MASK,
-          (data) => this._gameData.maskedcardssnList = data.maskedcardssnList
+          (data) => {this._gameData.maskedcardssnList = data.maskedcardssnList}
         )
       }
 
@@ -45,7 +45,7 @@ namespace we {
           return;
         }
         dir.socket.getGameStatusDT(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.HASH,
-          (data)=> this._gameData.hashedcardsList = data.hashedcardsList
+          (data)=> {this._gameData.hashedcardsList = data.hashedcardsList}
         )
       }
 
