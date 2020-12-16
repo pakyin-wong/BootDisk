@@ -644,7 +644,7 @@ namespace we {
       }
 
       protected updatePlayerSum() {
-        if (this._gameData.state === core.GameState.BET) {
+        if (this._gameData.state === core.GameState.BET|| this._gameData.state === core.GameState.SHUFFLE || this._gameData.state === core.GameState.IDLE) {
           this._playerSum.visible = false;
           this._playerSum.text = '0';
         } else {
@@ -654,7 +654,7 @@ namespace we {
       }
 
       protected updateBankerSum() {
-        if (this._gameData.state === core.GameState.BET) {
+        if (this._gameData.state === core.GameState.BET|| this._gameData.state === core.GameState.SHUFFLE || this._gameData.state === core.GameState.IDLE) {
           this._bankerSum.visible = false;
           this._bankerSum.text = '0';
         } else {
@@ -720,6 +720,8 @@ namespace we {
       }
 
       protected setStateShuffle(isInit) {
+        this.updateAllSum();
+
         if (isInit) {
           (async () => {
             this._smallCard1Exist = true;
