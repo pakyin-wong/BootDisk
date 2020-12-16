@@ -27,7 +27,7 @@ namespace we {
         if(this._gameData && this._gameData.hashedcardsList && this._gameData.hashedcardsList.length > 0){
           hashedcardsList = this._gameData.hashedcardsList
         }
-        if(this._gameData && this._gameData.maskedcardssnList && this._gameData.hashedcardsList.length > 0){
+        if(this._gameData && this._gameData.maskedcardssnList && this._gameData.maskedcardssnList.length > 0){
           maskedcardssnList = this._gameData.maskedcardssnList
         }
         super.setData(tableInfo);
@@ -42,7 +42,7 @@ namespace we {
         if(this._gameData && this._gameData.hashedcardsList && this._gameData.hashedcardsList.length > 0){
           hashedcardsList = this._gameData.hashedcardsList
         }
-        if(this._gameData && this._gameData.maskedcardssnList && this._gameData.hashedcardsList.length > 0){
+        if(this._gameData && this._gameData.maskedcardssnList && this._gameData.maskedcardssnList.length > 0){
           maskedcardssnList = this._gameData.maskedcardssnList
         }
         super.updateTableInfo(tableInfo)
