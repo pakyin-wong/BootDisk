@@ -39,7 +39,7 @@ namespace we {
         this._skinKey = 'BlockchainBaccaratScene';
       }
 
-      protected instantiateVideo() {}
+      protected instantiateVideo() { }
 
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
@@ -52,7 +52,7 @@ namespace we {
         // this._deckPanel.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         // this._cardInfoPanel.addEventListener('OPEN_DECK_PANEL', this.showDeckPanel, this);
         // this._cardInfoPanel.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
-        (<any> this._resultDisplay).addEventListener('SHOW_SHUFFLE_MESSAGE', this.showShuffleReadyMessage, this);
+        (<any>this._resultDisplay).addEventListener('SHOW_SHUFFLE_MESSAGE', this.showShuffleReadyMessage, this);
         this._helpButton.addEventListener(
           egret.TouchEvent.TOUCH_TAP,
           () => {
@@ -67,9 +67,8 @@ namespace we {
           },
           this
         );
-        (<any> this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
-        (<any> this._resultDisplay).addEventListener('OPEN_SHUFFLE_PANEL', this.showShufflePanel, this);
-        this.getShoeInfo();
+        (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
+        (<any>this._resultDisplay).addEventListener('OPEN_SHUFFLE_PANEL', this.showShufflePanel, this);
         this._bottomGamePanel.addEventListener('TOGGLE', this.toggleBottomGamePanel, this);
 
         if (this._navLayer) {
@@ -207,7 +206,7 @@ namespace we {
       }
 
       protected setStateShuffle(isInit: boolean) {
-        if(!isInit){//because if isInit, it already gets in setupTableInfo
+        if (!isInit) {//because if isInit, it already gets in setupTableInfo
           this.getShoeInfo();
           this.updateMaskedSsn();
         }
@@ -254,19 +253,17 @@ namespace we {
       }
 
       protected showDeckPanel() {
-        this.getShoeInfo();
         this.updateMaskedSsn();
         this.createSwipeUpPanel();
-        this._slideUpMenu.showDeckPanel(<bab.GameData> this._gameData);
+        this._slideUpMenu.showDeckPanel(<bab.GameData>this._gameData);
         this._slideUpMenu.addEventListener('CLOSE', this.removeSwipeUpPanel, this);
       }
 
       public showCardInfoPanel(evt: egret.Event) {
-        this.getShoeInfo();
-        (async() => {
+        (async () => {
           await this.updateCard(evt.data)
           this.createSwipeUpPanel();
-          this._slideUpMenu.showCardInfoPanel(<bab.GameData> this._gameData, evt.data);
+          this._slideUpMenu.showCardInfoPanel(<bab.GameData>this._gameData, evt.data);
           this._slideUpMenu.addEventListener('CLOSE', this.removeSwipeUpPanel, this);
         })()
       }
@@ -293,11 +290,11 @@ namespace we {
       }
 
       protected showSumGroup() {
-        (<we.bab.MobileCardHolder> this._resultDisplay).showSumGroup();
+        (<we.bab.MobileCardHolder>this._resultDisplay).showSumGroup();
       }
 
       protected hideSumGroup() {
-        (<we.bab.MobileCardHolder> this._resultDisplay).hideSumGroup();
+        (<we.bab.MobileCardHolder>this._resultDisplay).hideSumGroup();
       }
 
       protected async getShoeInfo() {
@@ -331,7 +328,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             this.updateMobileBlockchainBar(evt);
           }
@@ -368,10 +365,10 @@ namespace we {
         let hashedcardsList = new Array();
         let maskedcardssnList = new Array();
 
-        if(this._gameData && this._gameData.hashedcardsList && this._gameData.hashedcardsList.length > 0){
+        if (this._gameData && this._gameData.hashedcardsList && this._gameData.hashedcardsList.length > 0) {
           hashedcardsList = this._gameData.hashedcardsList
         }
-        if(this._gameData && this._gameData.maskedcardssnList && this._gameData.maskedcardssnList.length > 0){
+        if (this._gameData && this._gameData.maskedcardssnList && this._gameData.maskedcardssnList.length > 0) {
           maskedcardssnList = this._gameData.maskedcardssnList
         }
         super.setData(tableInfo);
@@ -379,14 +376,14 @@ namespace we {
         this._gameData.maskedcardssnList = maskedcardssnList;
       }
 
-      protected updateTableInfo(tableInfo){
+      protected updateTableInfo(tableInfo) {
         let hashedcardsList = new Array();
         let maskedcardssnList = new Array();
 
-        if(this._gameData && this._gameData.hashedcardsList && this._gameData.hashedcardsList.length > 0){
+        if (this._gameData && this._gameData.hashedcardsList && this._gameData.hashedcardsList.length > 0) {
           hashedcardsList = this._gameData.hashedcardsList
         }
-        if(this._gameData && this._gameData.maskedcardssnList && this._gameData.maskedcardssnList.length > 0){
+        if (this._gameData && this._gameData.maskedcardssnList && this._gameData.maskedcardssnList.length > 0) {
           maskedcardssnList = this._gameData.maskedcardssnList
         }
         super.updateTableInfo(tableInfo)
@@ -394,38 +391,48 @@ namespace we {
         this._gameData.maskedcardssnList = maskedcardssnList;
       }
 
-      protected async updateCard(currentcardindex){
-        if(!this.tableInfo || !this._tableInfo.hostid){
-          return;
+      protected async updateCard(currentcardindex) {
+        if (!this.tableInfo || !this._tableInfo.hostid) {
+          return new Promise(resolve => resolve());
         }
-        await new Promise(resolve=>
-          {dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.CARD,currentcardindex,
-          (data) => {
-            if(this._gameData && this._gameData.maskedcardssnList && data.maskedcardssnList && data.maskedcardssnList[0]){
-              this._gameData.maskedcardssnList[currentcardindex] = data.maskedcardssnList[0]
+        await new Promise(resolve => {
+          dir.socket.getGameStatusBA(this._tableInfo.hostid, we.blockchain.RETRIEVE_OPTION.CARD, currentcardindex,
+            (data) => {
+              if (this._gameData && this._gameData.maskedcardssnList && data.maskedcardssnList && data.maskedcardssnList[0]) {
+                this._gameData.maskedcardssnList[currentcardindex - 1] = data.maskedcardssnList[0]
+              }
+              resolve();
             }
-            resolve();
-          }
-        )
+          )
         });
-        return new Promise(resolve=>resolve());
+        return new Promise(resolve => resolve());
       }
 
-      protected async updateMaskedSsn(){
-        if(!this.tableInfo || !this._tableInfo.hostid){
-          return;
+      protected async updateMaskedSsn() {
+        if (!this.tableInfo || !this._tableInfo.hostid) {
+          return new Promise(resolve => resolve());
         }
-        dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.MASK,null,
-          (data) => this._gameData.maskedcardssnList = data.maskedcardssnList
+        await new Promise(resolve =>
+          dir.socket.getGameStatusBA(this._tableInfo.hostid, we.blockchain.RETRIEVE_OPTION.MASK, null,
+            (data) => {
+              this._gameData.maskedcardssnList = data.maskedcardssnList
+              resolve();
+            }
+          )
         )
       }
 
-      protected async updateHash(){
-        if(!this.tableInfo || !this._tableInfo.hostid){
-          return;
+      protected async updateHash() {
+        if (!this.tableInfo || !this._tableInfo.hostid) {
+          return new Promise(resolve => resolve());
         }
-        dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.HASH,null,
-          (data)=> this._gameData.hashedcardsList = data.hashedcardsList
+        await new Promise(resolve =>
+          dir.socket.getGameStatusBA(this._tableInfo.hostid, we.blockchain.RETRIEVE_OPTION.HASH, null,
+            (data) => {
+              this._gameData.hashedcardsList = data.hashedcardsList
+              resolve();
+            }
+          )
         )
       }
 
