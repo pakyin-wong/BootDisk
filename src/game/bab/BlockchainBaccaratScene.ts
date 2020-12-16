@@ -305,7 +305,8 @@ namespace we {
         this.enableDeckButton(true);
       }
       protected showDeckPanel(evt: egret.Event) {
-                (async() => {this.updateMaskedSsn();
+                (async() => {
+                  await this.updateMaskedSsn();
         this.runtimeGenerateDeckPanel();
         this._deckPanel.show();
                 })();

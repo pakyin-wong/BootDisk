@@ -253,10 +253,11 @@ namespace we {
       }
 
       protected showDeckPanel() {
-        (async() => {this.updateMaskedSsn();
-        this.createSwipeUpPanel();
-        this._slideUpMenu.showDeckPanel(<bab.GameData>this._gameData);
-        this._slideUpMenu.addEventListener('CLOSE', this.removeSwipeUpPanel, this);
+        (async() => {
+          await this.updateMaskedSsn();
+          this.createSwipeUpPanel();
+          this._slideUpMenu.showDeckPanel(<bab.GameData>this._gameData);
+          this._slideUpMenu.addEventListener('CLOSE', this.removeSwipeUpPanel, this);
         })();
       }
 
