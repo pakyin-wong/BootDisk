@@ -5,7 +5,7 @@ namespace we {
       public selected: boolean;
       public itemIndex: number;
 
-      private _mode: we.lobby.mode;
+      protected _mode: we.lobby.mode;
       protected _displayItem: we.ui.TableListItem;
 
       public constructor() {
