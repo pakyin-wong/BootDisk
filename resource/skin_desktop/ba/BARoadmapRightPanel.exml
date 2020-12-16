@@ -34,11 +34,11 @@
                  tooltipText="'live.tooltip.roadmapPlayerPairRound'" tooltipPosition="'above'" />
         <e:Image width="20" height="20" x="606" y="14" source="d_ba_goodroad_info_state_total_png"
                  tooltipText="'live.tooltip.roadmapTotalRound'" tooltipPosition="'above'" />
-        <e:Image id="iconBankerBead" width="66" height="30" x="142" y="9" source="d_ba_roadmap_topbar_textbg_banker_png"
+        <e:Image id="iconPlayerBead" width="66" height="30" x="142" y="9" source="d_ba_roadmap_topbar_textbg_player_png"
                  anchorOffsetX="0" />
-        <e:Image id="iconPlayerBead" width="66" height="30" x="9" y="9" source="d_ba_roadmap_topbar_textbg_player_png" />
-        <ui:RunTimeLabel id="playerButtonLabel" text="Ask P" x="9" y="10" textAlign="center" anchorOffsetX="0"
+        <e:Image id="iconBankerBead" width="66" height="30" x="9" y="9" source="d_ba_roadmap_topbar_textbg_banker_png" />
+        <ui:RunTimeLabel id="bankerButtonLabel" text="Ask B" x="9" y="10" textAlign="center" anchorOffsetX="0"
                          width="66" size="16" height="28" verticalAlign="middle" touchEnabled="false" bold="true" />
-        <ui:RunTimeLabel id="bankerButtonLabel" text="Ask B" x="142" y="10" textAlign="center" anchorOffsetX="0"
+        <ui:RunTimeLabel id="playerButtonLabel" text="Ask P" x="142" y="10" textAlign="center" anchorOffsetX="0"
                          width="66" size="16" verticalAlign="middle" height="28" touchEnabled="false" bold="true" />
 </e:Skin>
