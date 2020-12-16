@@ -638,6 +638,7 @@ namespace we {
         confirmRemoveGoodRoad: '刪除',
         cancelRemoveGoodRoad: '取消',
         noCommission: '免佣',
+        noCommissionShort: '免佣',
         clickToSeeVideo: '點擊播放本局視頻',
         askBanker: '庄問路',
         askPlayer: '閒問路',

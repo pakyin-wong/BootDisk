@@ -83,7 +83,7 @@ namespace we {
         }
 
         if (this._lblBaMode) {
-          this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
+          this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommissionShort')}`;
         }
 
         // if (env.isMobile) {

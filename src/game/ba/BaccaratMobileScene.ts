@@ -176,7 +176,7 @@ namespace we {
         }
 
         if (this._lblBaMode) {
-          this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
+          this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommissionShort')}`;
         }
 
         if (this._bottomGamePanel._tableInfoPanel) {

@@ -639,6 +639,7 @@ namespace we {
         confirmRemoveGoodRoad: 'Delete',
         cancelRemoveGoodRoad: 'Cancel',
         noCommission: 'No Commission',
+        noCommissionShort: 'No Comm',
         clickToSeeVideo: 'Click to see video for this round',
         askBanker: 'Ask B',
         askPlayer: 'Ask P',
