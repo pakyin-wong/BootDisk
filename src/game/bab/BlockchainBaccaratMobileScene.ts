@@ -398,7 +398,7 @@ namespace we {
           return new Promise(resolve => resolve());
         }
         await new Promise(resolve => {
-          dir.socket.getGameStatusBA(this._tableInfo.hostid, we.blockchain.RETRIEVE_OPTION.CARD, currentcardindex,
+          dir.socket.getGameStatusBA(this._tableInfo.hostid, we.blockchain.RETRIEVE_OPTION.CARD, currentcardindex - 1,
             (data) => {
               if (this._gameData && this._gameData.maskedcardssnList && data.maskedcardssnList && data.maskedcardssnList[0]) {
                 this._gameData.maskedcardssnList[currentcardindex - 1] = data.maskedcardssnList[0]

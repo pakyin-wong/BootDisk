@@ -33,10 +33,10 @@ namespace we {
 
       protected async updateCard(currentcardindex){
         if(!this.tableInfo || !this._tableInfo.hostid){
-          return;
+          return new Promise(resolve => resolve());;
         }
         await new Promise(resolve=>
-          {dir.socket.getGameStatusDT(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.CARD,currentcardindex,
+          {dir.socket.getGameStatusDT(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.CARD,currentcardindex - 1,
           (data) => {
             if(this._gameData && this._gameData.maskedcardssnList && data.maskedcardssnList && data.maskedcardssnList[0]){
               this._gameData.maskedcardssnList[currentcardindex - 1] = data.maskedcardssnList[0]
