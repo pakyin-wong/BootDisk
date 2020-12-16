@@ -31,6 +31,23 @@ namespace we {
         );
       }
 
+      protected async updateCard(currentcardindex){
+        if(!this.tableInfo || !this._tableInfo.hostid){
+          return;
+        }
+        await new Promise(resolve=>
+          {dir.socket.getGameStatusDT(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.CARD,currentcardindex,
+          (data) => {
+            if(data.maskedcardssnList && data.maskedcardssnList[0]){
+              this._gameData.maskedcardssnList[currentcardindex] = data.maskedcardssnList[0]
+            }
+            resolve();
+          }
+        )
+        });
+        return new Promise(resolve=>resolve());
+      }
+
       protected async updateMaskedSsn(){
         if(!this.tableInfo || !this._tableInfo.hostid){
           return;

@@ -263,12 +263,12 @@ namespace we {
 
       public showCardInfoPanel(evt: egret.Event) {
         this.getShoeInfo();
-        this.updateMaskedSsn();
-        this.createSwipeUpPanel();
-        this._slideUpMenu.showCardInfoPanel(<bab.GameData> this._gameData, evt.data);
-        this._slideUpMenu.addEventListener('CLOSE', this.removeSwipeUpPanel, this);
-        // this._cardInfoPanel.setValue(this._gameData, evt.data);
-        // this._cardInfoPanel.show();
+        (async() => {
+          await this.updateCard(evt.data)
+          this.createSwipeUpPanel();
+          this._slideUpMenu.showCardInfoPanel(<bab.GameData> this._gameData, evt.data);
+          this._slideUpMenu.addEventListener('CLOSE', this.removeSwipeUpPanel, this);
+        })()
       }
       // protected showDeckPanel(evt: egret.Event) {
       //   this._deckPanel.show();
@@ -390,6 +390,23 @@ namespace we {
         super.updateTableInfo(tableInfo)
         this._gameData.hashedcardsList = hashedcardsList;
         this._gameData.maskedcardssnList = maskedcardssnList;
+      }
+
+      protected async updateCard(currentcardindex){
+        if(!this.tableInfo || !this._tableInfo.hostid){
+          return;
+        }
+        await new Promise(resolve=>
+          {dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.CARD,currentcardindex,
+          (data) => {
+            if(data.maskedcardssnList && data.maskedcardssnList[0]){
+              this._gameData.maskedcardssnList[currentcardindex] = data.maskedcardssnList[0]
+            }
+            resolve();
+          }
+        )
+        });
+        return new Promise(resolve=>resolve());
       }
 
       protected async updateMaskedSsn(){
