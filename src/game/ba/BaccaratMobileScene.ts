@@ -133,12 +133,12 @@ namespace we {
           egret.Tween.get(this._betRelatedGroup).to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
         }
 
-        this.setSwitchBAMode(enable);
+        // this.setSwitchBAMode(enable);
       }
 
-      protected setSwitchBAMode(enable: boolean) {
-        this._switchBaMode.enabled = enable;
-      }
+      // protected setSwitchBAMode(enable: boolean) {
+      //   this._switchBaMode.enabled = enable;
+      // }
 
       protected setResultRelatedComponentsEnabled(enable: boolean) {
         super.setResultRelatedComponentsEnabled(enable);
@@ -176,7 +176,7 @@ namespace we {
         }
 
         if (this._lblBaMode) {
-          this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
+          this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommissionShort')}`;
         }
 
         if (this._bottomGamePanel._tableInfoPanel) {

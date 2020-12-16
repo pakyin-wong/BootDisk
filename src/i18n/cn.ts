@@ -663,6 +663,7 @@ namespace we {
         confirmRemoveGoodRoad: '删除',
         cancelRemoveGoodRoad: '取消',
         noCommission: '免佣',
+        noCommissionShort: '免佣',
         clickToSeeVideo: '点击播放本局视频',
         askBanker: '庄问路',
         askPlayer: '闲问路',

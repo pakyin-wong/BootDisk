@@ -82,7 +82,7 @@
 	<ui:Group x="1911" y="959" anchorOffsetX="0" width="596" dismissPosY="1222" dismissPosX="1913" isEdgeDismissable="true">
 		<e:Group height="50" x="0" anchorOffsetX="0" anchorOffsetY="0" y="0">
 			<ui:BaseButton id="_switchBaMode" x="88" y="0" skinName="skin_desktop.SwitchBtn" />
-			<ui:RunTimeLabel id="_lblBaMode" x="13" y="26" scaleX="1" scaleY="1" />
+			<ui:RunTimeLabel id="_lblBaMode" touchEnabled="false" x="13" y="26" scaleX="1" scaleY="1" />
 			<!--<e:ToggleSwitch id="_switchBaMode" label="免佣" x="88" y="28" scaleX="1" scaleY="1"
 			                    skinName="skins.ToggleSwitchSkin" />
 			-->
