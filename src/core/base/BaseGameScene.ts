@@ -122,8 +122,8 @@ namespace we {
         this.removeEventListeners();
         this.removeChildren();
       }
-      public async onFadeEnter() {}
-      public async onFadeExit() {}
+      public async onFadeEnter() { }
+      public async onFadeExit() { }
 
       protected getSelectedBetLimitIndex() {
         return env.currentSelectedBetLimitIndex;
@@ -363,7 +363,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -379,12 +379,12 @@ namespace we {
         }
       }
 
-      protected onMatchGoodRoadUpdate() {}
+      protected onMatchGoodRoadUpdate() { }
 
-      protected onTableBetInfoUpdate(evt: egret.Event) {}
+      protected onTableBetInfoUpdate(evt: egret.Event) { }
 
       // item clicked
-      protected onTouchTap(evt: egret.Event) {}
+      protected onTouchTap(evt: egret.Event) { }
 
       protected onBetDetailUpdateInBetState() {
         // console.log('onBetDetailUpdateInBetState');
@@ -413,34 +413,38 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
-            this._tableInfo = tableInfo;
-
-            if(this.tableInfo.state !== TableState.ONLINE){
-              dir.evtHandler.showMessage({
-                  class: 'MessageDialog',
-                  args: [
-                    i18n.t('table_offline_text'),
-                    {
-                      dismiss: { text: i18n.t('nav.menu.confirm') },
-                    },
-                  ],
-                  showSFX: 'ui_sfx_info_message_mp3',
-                });
-                this.backToLobby();
-                return;
-            }
-            
-            this._betDetails = tableInfo.bets;
-            this._gameData = this._tableInfo.data;
-            this._previousState = this._gameData ? this._gameData.previousstate : null;
+            this.updateTableInfo(tableInfo);
             this.updateTableInfoRelatedComponents();
 
             this.updateGame();
           }
         }
+      }
+
+      protected updateTableInfo(tableInfo) {
+        this._tableInfo = tableInfo;
+
+        if (this.tableInfo.state !== TableState.ONLINE) {
+          dir.evtHandler.showMessage({
+            class: 'MessageDialog',
+            args: [
+              i18n.t('table_offline_text'),
+              {
+                dismiss: { text: i18n.t('nav.menu.confirm') },
+              },
+            ],
+            showSFX: 'ui_sfx_info_message_mp3',
+          });
+          this.backToLobby();
+          return;
+        }
+
+        this._betDetails = tableInfo.bets;
+        this._gameData = this._tableInfo.data;
+        this._previousState = this._gameData ? this._gameData.previousstate : null;
       }
 
       protected updateTableInfoRelatedComponents() {
@@ -462,7 +466,7 @@ namespace we {
         this._chipLayer.resetUnconfirmedBet();
       }
 
-      protected onRoadDataUpdate(evt: egret.Event) {}
+      protected onRoadDataUpdate(evt: egret.Event) { }
 
       public updateGame(isInit: boolean = false) {
         if (!this._gameData) {
@@ -820,7 +824,7 @@ namespace we {
         this.playResultSoundEffect(totalWin);
       }
 
-      protected playResultSoundEffect(totalWin) {}
+      protected playResultSoundEffect(totalWin) { }
 
       protected onConfirmPressed(evt: egret.Event) {
         if (this._chipLayer) {

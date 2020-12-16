@@ -673,6 +673,7 @@ namespace we {
           return;
         }
         if (this._gameData.state === core.GameState.DEAL || this._gameData.state === core.GameState.FINISH) {
+          /*
           let j = 0;
           const dataNames = ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
           this._infoArray = new Array();
@@ -684,7 +685,29 @@ namespace we {
               this._infoArray = [-1].concat(this._infoArray);
             }
           }
-          // console.log('DEAL infoArray', this._infoArray);
+          */
+
+          let j = 0;
+          const dataNames =  ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
+          let currentDataIndex = -1;
+          this._infoArray = new Array();
+          for (let i = dataNames.length - 1; i >= 0; i--) {
+            if (this._gameData[dataNames[i]]) {
+              currentDataIndex = i;
+              break;
+            }
+          }
+          for (let i = dataNames.length - 1; i >= 0; i--) {
+            if (this._gameData[dataNames[i]]) {
+              this._infoArray = [this._gameData.currentcardindex - j].concat(this._infoArray);
+              j++;
+            } else {
+              this._infoArray = [-1].concat(this._infoArray);
+            }
+          }
+          for(let i = currentDataIndex + 1,j=1; i < dataNames.length; i++,j++){
+            this._infoArray[i] = this._gameData.currentcardindex + j
+          }
           return;
         }
       }

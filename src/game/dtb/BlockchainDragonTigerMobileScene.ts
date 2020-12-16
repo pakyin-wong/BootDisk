@@ -350,6 +350,23 @@ namespace we {
           (data)=> {this._gameData.hashedcardsList = data.hashedcardsList}
         )
       }
+
+      protected async updateCard(currentcardindex){
+        if(!this.tableInfo || !this._tableInfo.hostid){
+          return;
+        }
+        await new Promise(resolve=>
+          {dir.socket.getGameStatusDT(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.CARD,currentcardindex,
+          (data) => {
+            if(this._gameData && this._gameData.maskedcardssnList && data.maskedcardssnList && data.maskedcardssnList[0]){
+              this._gameData.maskedcardssnList[currentcardindex] = data.maskedcardssnList[0]
+            }
+            resolve();
+          }
+        )
+        });
+        return new Promise(resolve=>resolve());
+      }
     }
   }
 }
