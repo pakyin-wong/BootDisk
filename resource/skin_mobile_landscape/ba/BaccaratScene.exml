@@ -19,7 +19,7 @@
 			         x.right_hand_mode="2262" x="2262" x.left_hand_mode="2262">
 				<e:ToggleSwitch id="_switchBaMode" label=" " x="4" y="0" scaleX="1" scaleY="1" width="104" height="104"
 				                skinName="skins.MobileToggleSwitchSkin" />
-				<ui:RunTimeLabel id="_lblBaMode" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" />
+				<ui:RunTimeLabel id="_lblBaMode" touchEnabled="false" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" />
 				<e:layout>
 					<e:BasicLayout/>
 				</e:layout>

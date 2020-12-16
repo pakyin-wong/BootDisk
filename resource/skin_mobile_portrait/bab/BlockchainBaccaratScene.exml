@@ -70,7 +70,7 @@
 		</e:Group>
 		<e:Group height="130" x="1088" anchorOffsetX="0" anchorOffsetY="0" y="469" width="130" >
 			<e:ToggleSwitch id="_switchBaMode" label=" " x="0" y="0" scaleX="1" scaleY="1" width="130" height="130" skinName="skins.MobileToggleSwitchSkin"/>
-			<ui:RunTimeLabel id="_lblBaMode" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" targetWidth="125"/>
+			<ui:RunTimeLabel id="_lblBaMode" touchEnabled="false" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" targetWidth="125"/>
 			<e:layout>
 			<e:BasicLayout/>
 			</e:layout>
