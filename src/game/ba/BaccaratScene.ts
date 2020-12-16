@@ -276,9 +276,9 @@ namespace we {
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
-        if (this._switchBaMode) {
-          this._switchBaMode.enabled = enable;
-        }
+        // if (this._switchBaMode) {
+        //   this._switchBaMode.enabled = enable;
+        // }
       }
     }
   }
