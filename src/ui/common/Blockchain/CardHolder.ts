@@ -350,10 +350,10 @@ namespace we {
       protected abstract updateCardInfoButtons();
 
       protected getPinRad(num = this._gameData.redcardindex) {
-        if(!this._gameData || !this._gameData.maskedcardssnList || !this._gameData.maskedcardssnList.length){
+        if(!this._gameData || !this._gameData.hashedlength){
           return (this._pinStartAngle * Math.PI) / 180;
         }
-        const totalCount = this._gameData.maskedcardssnList.length;
+        const totalCount = this._gameData.hashedlength;
         const proportion = (num - this._gameData.currentcardindex) / totalCount;
         const angleOffset = this._pinInterval * proportion; // -40 to 41 / 131 to 49
         const destAngle = this._pinStartAngle + angleOffset;
@@ -362,10 +362,10 @@ namespace we {
       }
 
       protected getShoeRad(num = this._gameData.currentcardindex) {
-        if(!this._gameData || !this._gameData.maskedcardssnList || !this._gameData.maskedcardssnList.length){
+        if(!this._gameData || !this._gameData.hashedlength){
            return (this._pinStartAngle * Math.PI) / 180;
         }
-        const totalCount = this._gameData.maskedcardssnList.length;
+        const totalCount = this._gameData.hashedlength;
         const proportion = (totalCount - num) / totalCount;
         const angleOffset = this._pinInterval * proportion; // -72 to 9
         const destAngle = this._pinStartAngle + angleOffset;

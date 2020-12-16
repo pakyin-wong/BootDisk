@@ -4,6 +4,7 @@ namespace we {
       currentcardindex;
       redcardindex;
       hashedcardsList;
+      hashedlength;
       maskedcardssnList;
       firstcard;
       showfirstcard;
