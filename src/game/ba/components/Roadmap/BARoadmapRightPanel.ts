@@ -79,13 +79,13 @@ namespace we {
         this.addChild(this.iconPlayerBigEye);
 
         this.iconPlayerSmall = new BASmallRoadIcon(16);
-        this.iconPlayerSmall.x = 95;
+        this.iconPlayerSmall.x = 228;
         this.iconPlayerSmall.y = 16;
         this.iconPlayerSmall.setByObject({ v: 'p' });
         this.addChild(this.iconPlayerSmall);
 
         this.iconPlayerCockroach = new BACockroachRoadIcon(16);
-        this.iconPlayerCockroach.x = 113;
+        this.iconPlayerCockroach.x = 246;
         this.iconPlayerCockroach.y = 16;
         this.iconPlayerCockroach.setByObject({ v: 'p' });
         this.addChild(this.iconPlayerCockroach);
@@ -97,13 +97,13 @@ namespace we {
         this.addChild(this.iconBankerBigEye);
 
         this.iconBankerSmall = new BASmallRoadIcon(16);
-        this.iconBankerSmall.x = 228;
+        this.iconBankerSmall.x = 95;
         this.iconBankerSmall.y = 16;
         this.iconBankerSmall.setByObject({ v: 'b' });
         this.addChild(this.iconBankerSmall);
 
         this.iconBankerCockroach = new BACockroachRoadIcon(16);
-        this.iconBankerCockroach.x = 246;
+        this.iconBankerCockroach.x = 113;
         this.iconBankerCockroach.y = 16;
         this.iconBankerCockroach.setByObject({ v: 'b' });
         this.addChild(this.iconBankerCockroach);
