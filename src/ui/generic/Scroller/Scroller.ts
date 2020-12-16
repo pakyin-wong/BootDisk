@@ -123,6 +123,10 @@ namespace we {
           this.verticalScrollBar.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onThumbBegin, this);
           this.verticalScrollBar.addEventListener(egret.TouchEvent.TOUCH_END, this.onThumbEnd, this);
         }
+
+        this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onScrollEnd, this, false, -1);
+        this.addEventListener(eui.UIEvent.CHANGE_END, this.onScrollEnd, this, false, -1);
+        this.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onScrollStart, this, false, -1);
       }
 
       private onUnmount() {
@@ -138,11 +142,31 @@ namespace we {
           this.verticalScrollBar.removeEventListener(egret.TouchEvent.TOUCH_END, this.onThumbEnd, this);
 
           this.disableWheel();
+        this.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onScrollEnd, this);
+        this.removeEventListener(eui.UIEvent.CHANGE_END, this.onScrollEnd, this);
+        this.removeEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onScrollStart, this);
         }
 
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onMount, this);
       }
-
+      public isScrolling: boolean = false;
+      protected onScrollStart(event) {
+        console.log('scroll start');
+        this.isScrolling = true;
+        const group = this.viewport as eui.Group | eui.List;
+        if (group) {
+          group.touchChildren = false;
+        }
+      }
+      protected onScrollEnd(event) {
+        console.log('scroll end');
+        this.isScrolling = false;
+        const group = this.viewport as eui.Group | eui.List;
+        if (group) {
+          group.touchChildren = true;
+        }
+      }
+      
       public setToggler(toggler: egret.DisplayObject, onToggleCallback: (value: boolean) => void) {
         this.collapseAddon.setToggler(toggler, onToggleCallback);
       }

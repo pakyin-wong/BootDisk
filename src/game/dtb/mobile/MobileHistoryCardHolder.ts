@@ -19,10 +19,9 @@ namespace we {
       public update(gameData: data.GameData & data.BlockchainGameData,tableId: string){
         this.setValue(gameData)
         if( this.checkFirstRound()){
-            this.setAllCards(false)
-            this.setAllNums(false)
-            this.setAllSums(false)
+            this.clearAllCards();
         }else{          
+          this.visible = true;
           this.setCards(tableId)
           let count = ['d','t'].reduce((prev, key)=>{
             return prev + (gameData[key]!=''?1:0)
@@ -33,17 +32,16 @@ namespace we {
       }
 
       public clearAllCards() {
+        this.visible = false;
         this.setAllCards(false);
         this.setAllNums(false);
         this.setAllSums(false);
       }
 
-      public checkFirstRound(){ // run after setNumber
-        if(this._gameData.maskedcardssnList && this._gameData.maskedcardssnList[0] && this._gameData.maskedcardssnList[0] != '*'){
-          const firstNumber = this.getUnmaskedCardNumber(this._gameData.maskedcardssnList[0]);
-          if(firstNumber + 1 >= this._gameData.currentcardindex){
-            return true;
-          }
+      public checkFirstRound(){
+        const firstNumber = utils.cardToNumberForFirstCard(this._gameData.firstcard);
+        if (+firstNumber + 1 >= this._gameData.currentcardindex) {
+          return true;
         }
         return false;
       }

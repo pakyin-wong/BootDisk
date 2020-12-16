@@ -26,15 +26,15 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        if (!env.isFirstTimeBam) {
+        if (env.isFirstTimeBam) {
           const tutorial = new bam.SqueezeTutorial('SqueezeTutorial');
           tutorial.x = 106;
           tutorial.y = 171;
           tutorial.isDraggable = true;
           tutorial.isEdgeDismissable = true;
           this.addChild(tutorial);
-          env.isFirstTimeBam = true;
-          dir.socket.updateSetting('isFirstTimeBam', env.isFirstTimeBam? "1":"0");
+          env.isFirstTimeBam = false;
+          dir.socket.updateSetting('isFirstTimeBam', '0');
         }
       }
 

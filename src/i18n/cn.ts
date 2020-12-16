@@ -742,14 +742,15 @@ namespace we {
         error_3031: '储存自选投注组合失败',
         error_3032: '移除自选投注组合失败',
 
-        error_3013: 'Get player bet log error',
-        error_3023: 'Add custom roadmap error',
+        error_3013: '无法载入投注纪录',
+        error_3023: '新增路纸失败',
 
-        error_4001: 'Bet failed',
-        error_4002: 'Balance is not enough',
-        error_4003: 'Bet timeout',
-        error_4004: 'Bet amount below limit',
-        error_4005: 'Bet amount beyound limit',
+        error_4001: '投注失败',
+        error_4002: '馀额不足',
+        error_4003: '下注逾时',
+        error_4004: '低於下限',
+        error_4005: '高於上限',
+        error_4006: '请与客服联络',
       },
       winType: {
         ba: {

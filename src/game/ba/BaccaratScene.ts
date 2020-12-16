@@ -142,8 +142,14 @@ namespace we {
           if (this._tableInfo.goodRoad) {
             this._goodRoadLabel.visible = true;
             const goodRoadData = this._tableInfo.goodRoad;
-            const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
-            this._goodRoadLabel.renderText = () => goodRoadName;
+            // const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
+            // this._goodRoadLabel.renderText = () => goodRoadName;
+            if (goodRoadData.custom) {
+              this._goodRoadLabel.renderText = () => goodRoadData.name
+            } else {
+              this._goodRoadLabel.renderText = () => (goodRoadData.roadmapid ? i18n.t(`goodroad.${goodRoadData.roadmapid}`) : " ");
+            }
+
           } else {
             this._goodRoadLabel.visible = false;
           }

@@ -3,12 +3,12 @@
 	<e:Rect id="_txt_record_bgcolor" left="0" right="0" top="0" bottom="0"/>
 	<e:Group id="_scale" width="2266" height="286">
 		<e:Rect width="2040" height="1" x="48" fillColor="0x353535" y="76" scaleX="1" scaleY="1"/>
-		<ui:RunTimeLabel id="_txt_round" text="Label" size="20" verticalAlign="middle" height="66" width="80" y="79" targetWidth="80" x="48" scaleX="1" scaleY="1"/>
-		<ui:RunTimeLabel id="_txt_bettype" text="Label" size="20" verticalAlign="middle" height="66" width="80" y="145" targetWidth="80" x="48" scaleX="1" scaleY="1"/>
-		<ui:RunTimeLabel id="_txt_result" text="Label" size="20" verticalAlign="middle" height="66" width="80" y="211" targetWidth="80" x="48" scaleX="1" scaleY="1"/>
-		<e:Label id="_txt_record_round" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y="79" alpha="0.7"/>
-		<e:Label id="_txt_record_bettype" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="152" y="145" alpha="0.7"/>
-		<e:Group x="152" height="76" y="210" alpha="0.7" scaleX="1" scaleY="1">
+		<ui:RunTimeLabel id="_txt_round" text="Label" size="20" verticalAlign="middle" height="66" width="280" y="79" targetWidth="280" x="48" scaleX="1" scaleY="1" anchorOffsetX="0"/>
+		<ui:RunTimeLabel id="_txt_bettype" text="Label" size="20" verticalAlign="middle" height="66" width="280" y="145" targetWidth="280" x="48" scaleX="1" scaleY="1"/>
+		<ui:RunTimeLabel id="_txt_result" text="Label" size="20" verticalAlign="middle" height="66" width="280" y="211" targetWidth="280" x="48" scaleX="1" scaleY="1"/>
+		<e:Label id="_txt_record_round" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="339" y="79" alpha="0.7"/>
+		<e:Label id="_txt_record_bettype" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="339" y="145" alpha="0.7"/>
+		<e:Group x="339" height="76" y="210" alpha="0.7" scaleX="1" scaleY="1">
 			<e:Group id="_record_result" scaleX="1" scaleY="1" x="0" y="0"/>
 			<ui:RoundRectButton id="_btn_replay" width="120" height="44" scaleX="1" scaleY="1" fillAlpha="0" strokeColor="0x979797" cornerTL_TR_BL_BR="22,22,22,22" x="0" y="0" labelAutoResize="false" labelSize="20">
 			<e:Skin width="120" height="44">
@@ -25,12 +25,12 @@
 			<e:HorizontalLayout verticalAlign="middle" gap="36"/>
 			</e:layout>
 		</e:Group>
-		<ui:RunTimeLabel id="_txt_vaildbet" text="Label" size="20" verticalAlign="middle" height="66" width="80" y="79" targetWidth="80" x="755" scaleX="1" scaleY="1"/>
-		<ui:RunTimeLabel id="_txt_rollingRate" text="Label" size="20" verticalAlign="middle" height="66" width="80" y="145" targetWidth="80" x="755" scaleX="1" scaleY="1" visible.api="false"/>
-		<ui:RunTimeLabel id="_txt_rolling" text="Label" size="20" verticalAlign="middle" height="66" width="80" y="211" targetWidth="80" x="755" scaleX="1" scaleY="1" visible.api="false"/>
-		<e:Label id="_txt_record_vaildbet" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="859" y="79" alpha="0.7"/>
-		<e:Label id="_txt_record_rollingRate" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="859" y="145" alpha="0.7" visible.api="false"/>
-		<e:Label id="_txt_record_rolling" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="859" y="211" alpha="0.7" visible.api="false"/>
+		<ui:RunTimeLabel id="_txt_vaildbet" text="Label" size="20" verticalAlign="middle" height="66" width="180" y="79" targetWidth="180" x="852" scaleX="1" scaleY="1" anchorOffsetX="0"/>
+		<ui:RunTimeLabel id="_txt_rollingRate" text="Label" size="20" verticalAlign="middle" height="66" width="180" y="145" targetWidth="180" x="852" scaleX="1" scaleY="1" visible.api="false"/>
+		<ui:RunTimeLabel id="_txt_rolling" text="Label" size="20" verticalAlign="middle" height="66" width="180" y="211" targetWidth="180" x="852" scaleX="1" scaleY="1" visible.api="false"/>
+		<e:Label id="_txt_record_vaildbet" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="1046" y="79" alpha="0.7"/>
+		<e:Label id="_txt_record_rollingRate" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="1046" y="145" alpha="0.7" visible.api="false"/>
+		<e:Label id="_txt_record_rolling" text="Label" height="66" size="24" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="Barlow" x="1046" y="211" alpha="0.7" visible.api="false"/>
 	</e:Group>
 	<e:Group id="_toggle" width="2266" height="76">
 		<e:Label id="_txt_record_id" text="Label" x="50" y="0" height="76" size="24" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" width="351" alpha="0.7"/>

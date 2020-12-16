@@ -84,6 +84,15 @@ namespace we {
         .replace('k', '0');
     }
 
+    export function cardToNumberForFirstCard(source) {
+      return source
+        .replace(/^(.+?)([0-9ajqk][0]?)$/, '$2')
+        .replace('a', '1')
+        .replace('j', '11')
+        .replace('q', '12')
+        .replace('k', '13');
+    }
+
     export function getWinMessageKey(gameType, winType, isShort = false) {
       const shortStr = isShort ? '.short' : '';
       switch (gameType) {
