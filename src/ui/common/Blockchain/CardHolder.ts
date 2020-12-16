@@ -82,7 +82,6 @@ namespace we {
 
       protected openCardInfo(infoIndex) {
         return (evt: egret.Event) => {
-          // console.log('dispatch OPEN_CARDINFO_PANEL', this._infoArray[infoIndex]);
           if (this._infoArray[0] !== -1) {
             this.dispatchEvent(new egret.Event('OPEN_CARDINFO_PANEL', false, false, this._infoArray[infoIndex]));
           }
