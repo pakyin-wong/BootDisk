@@ -39,7 +39,7 @@ namespace we {
           {dir.socket.getGameStatusDT(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.CARD,currentcardindex,
           (data) => {
             if(this._gameData && this._gameData.maskedcardssnList && data.maskedcardssnList && data.maskedcardssnList[0]){
-              this._gameData.maskedcardssnList[currentcardindex] = data.maskedcardssnList[0]
+              this._gameData.maskedcardssnList[currentcardindex - 1] = data.maskedcardssnList[0]
             }
             resolve();
           }
@@ -48,22 +48,34 @@ namespace we {
         return new Promise(resolve=>resolve());
       }
 
-      protected async updateMaskedSsn(){
-        if(!this.tableInfo || !this._tableInfo.hostid){
-          return;
+      protected async updateMaskedSsn() {
+        if (!this.tableInfo || !this._tableInfo.hostid) {
+          return new Promise(resolve => resolve());
         }
-        dir.socket.getGameStatusDT(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.MASK,null,
-          (data) => {this._gameData.maskedcardssnList = data.maskedcardssnList}
+        await new Promise(resolve =>
+          dir.socket.getGameStatusDT(this._tableInfo.hostid, we.blockchain.RETRIEVE_OPTION.MASK, null,
+            (data) => {
+              this._gameData.maskedcardssnList = data.maskedcardssnList
+              resolve();
+            }
+          )
         )
+        return new Promise(resolve => resolve());
       }
 
-      protected async updateHash(){
-        if(!this.tableInfo || !this._tableInfo.hostid){
-          return;
+      protected async updateHash() {
+        if (!this.tableInfo || !this._tableInfo.hostid) {
+          return new Promise(resolve => resolve());
         }
-        dir.socket.getGameStatusDT(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.HASH,null,
-          (data)=> {this._gameData.hashedcardsList = data.hashedcardsList}
+        await new Promise(resolve =>
+          dir.socket.getGameStatusDT(this._tableInfo.hostid, we.blockchain.RETRIEVE_OPTION.HASH, null,
+            (data) => {
+              this._gameData.hashedcardsList = data.hashedcardsList
+              resolve();
+            }
+          )
         )
+        return new Promise(resolve => resolve());
       }
 
       // protected onTableBetInfoUpdate(evt: egret.Event) {

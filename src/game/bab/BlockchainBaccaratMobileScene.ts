@@ -253,10 +253,11 @@ namespace we {
       }
 
       protected showDeckPanel() {
-        this.updateMaskedSsn();
+        (async() => {this.updateMaskedSsn();
         this.createSwipeUpPanel();
         this._slideUpMenu.showDeckPanel(<bab.GameData>this._gameData);
         this._slideUpMenu.addEventListener('CLOSE', this.removeSwipeUpPanel, this);
+        })();
       }
 
       public showCardInfoPanel(evt: egret.Event) {
@@ -420,6 +421,7 @@ namespace we {
             }
           )
         )
+        return new Promise(resolve => resolve());
       }
 
       protected async updateHash() {
@@ -434,6 +436,7 @@ namespace we {
             }
           )
         )
+        return new Promise(resolve => resolve());
       }
 
       protected setupTableInfo() {

@@ -79,6 +79,7 @@ namespace we {
             }
           )
         )
+        return new Promise(resolve => resolve());
       }
 
       protected async updateHash() {
@@ -93,6 +94,7 @@ namespace we {
             }
           )
         )
+        return new Promise(resolve => resolve());
       }
 
 
@@ -303,9 +305,10 @@ namespace we {
         this.enableDeckButton(true);
       }
       protected showDeckPanel(evt: egret.Event) {
-        this.updateMaskedSsn();
+                (async() => {this.updateMaskedSsn();
         this.runtimeGenerateDeckPanel();
         this._deckPanel.show();
+                })();
       }
 
       protected showHelpPanel(evt: egret.Event) {
