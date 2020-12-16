@@ -35,13 +35,43 @@ namespace we {
         this._gameData.maskedcardssnList = maskedcardssnList;
       }
 
+      protected updateTableInfo(tableInfo){
+        let hashedcardsList = new Array();
+        let maskedcardssnList = new Array();
+
+        if(this._gameData && this._gameData.hashedcardsList && this._gameData.hashedcardsList.length > 0){
+          hashedcardsList = this._gameData.hashedcardsList
+        }
+        if(this._gameData && this._gameData.maskedcardssnList && this._gameData.hashedcardsList.length > 0){
+          maskedcardssnList = this._gameData.maskedcardssnList
+        }
+        super.updateTableInfo(tableInfo)
+        this._gameData.hashedcardsList = hashedcardsList;
+        this._gameData.maskedcardssnList = maskedcardssnList;
+      }
+
+      protected async updateCard(currentcardindex){
+        if(!this.tableInfo || !this._tableInfo.hostid){
+          return;
+        }
+        await new Promise(resolve=>
+          {dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.CARD,currentcardindex,
+          (data) => {
+            if(this._gameData && this._gameData.maskedcardssnList && data.maskedcardssnList && data.maskedcardssnList[0]){
+              this._gameData.maskedcardssnList[currentcardindex] = data.maskedcardssnList[0]
+            }
+            resolve();
+          }
+        )
+        });
+        return new Promise(resolve=>resolve());
+      }
+
       protected async updateMaskedSsn(){
         if(!this.tableInfo || !this._tableInfo.hostid){
           return;
         }
         dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.MASK,null,
-        //dir.socket.getGameStatusBA('S-BAB-o1l0not1i0',we.blockchain.RETRIEVE_OPTION.MASK,
-        
           (data) => {
             //console.log('markedssn', data)
             this._gameData.maskedcardssnList = data.maskedcardssnList
@@ -259,11 +289,14 @@ namespace we {
       }
 
       protected showCardInfoPanel(evt: egret.Event) {
+        //console.log('showCardInfoPanel',evt.data)
         this.getShoeInfo();
-        this.updateMaskedSsn();
-        this.runtimeGenerateCardInfoPanel();
-        this._cardInfoPanel.setValue(this._gameData, evt.data);
-        this._cardInfoPanel.show();
+        (async() => {
+          await this.updateCard(evt.data)
+          this.runtimeGenerateCardInfoPanel();
+          this._cardInfoPanel.setValue(this._gameData, evt.data);
+          this._cardInfoPanel.show();
+        })()
       }
 
       protected enableDeckBtn() {
@@ -312,7 +345,7 @@ namespace we {
         } catch (error) {
           //console.log('getShoeInfo by backend')
           this.updateHash();
-          // console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
+          console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
           return new Promise(resolve => resolve());
         }
       }

@@ -4,7 +4,8 @@ module we {
     export enum RETRIEVE_OPTION {
         ALL = 0,
         MASK = 1,
-        HASH = 2
+        HASH = 2,
+        CARD = 3
         
     }
   }

@@ -82,7 +82,33 @@ namespace we {
         this.roomLayout.paddingBottom = this.normalGapSize * 3;
         this.setDisplayMode(env.lobbyGridType);
         root.roomList.layout = this.roomLayout;
-        root.roomList.itemRenderer = MobileLiveListHolder;
+        root.roomList.itemRendererFunction = item => {
+          const tableInfo = env.tableInfos[item];
+          switch (tableInfo.gametype) {
+            case we.core.GameType.BAC:
+            case we.core.GameType.BAI:
+            case we.core.GameType.BAS:
+            case we.core.GameType.BAM:
+            case we.core.GameType.BAB:
+            case we.core.GameType.BASB:
+            case we.core.GameType.BAMB:
+              return ba.MobileLiveListHolder;
+            case we.core.GameType.RO:
+            case we.core.GameType.ROL:
+              return ro.MobileLiveListHolder;
+            case we.core.GameType.DI:
+              return di.MobileLiveListHolder;
+            case we.core.GameType.DIL:
+              return dil.MobileLiveListHolder;
+            case we.core.GameType.LW:
+              return lw.MobileLiveListHolder;
+            case we.core.GameType.DT:
+            case we.core.GameType.DTB:
+              return dt.MobileLiveListHolder;
+            default:
+              throw new Error('Invalid Game Type');
+          }
+        };
         root.roomList.setGameFilters(core.LiveGameTab.all);
         root.roomList.setTableList(root.roomIds);
 
