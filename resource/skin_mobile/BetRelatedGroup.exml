@@ -19,12 +19,12 @@
 		</e:Group>
 		<ui:BetRelatedAnimationButton id="_repeatButton" text_slot="mobile_size/label-rebet_tc" dbClass="common_ui"
 		                              dbDisplay="m_common_betcontrol_btn_rebet" useColorFilter="true" labelText="repeat"
-		                              anchorOffsetX="0" width="64" anchorOffsetY="0" height="100" x.left_hand_mode="767"
-		                              x.right_hand_mode="81" />
-		<ui:BetRelatedAnimationButton id="_doubleButton" text_slot="double_text" dbClass="common_ui"
-		                              dbDisplay="m_common_betcontrol_btn_double" useColorFilter="true" labelText="double"
 		                              anchorOffsetX="0" width="64" anchorOffsetY="0" height="100" x.left_hand_mode="631"
 		                              x.right_hand_mode="236" />
+		<ui:BetRelatedAnimationButton id="_doubleButton" text_slot="double_text" dbClass="common_ui"
+		                              dbDisplay="m_common_betcontrol_btn_double" useColorFilter="true" labelText="double"
+		                              anchorOffsetX="0" width="64" anchorOffsetY="0" height="100" x.left_hand_mode="767"
+		                              x.right_hand_mode="81" />
 		<ui:BetRelatedAnimationButton id="_cancelButton" text_slot="mobile_size/label-clear_tc" dbClass="common_ui"
 		                              dbDisplay="m_common_betcontrol_btn_clear" useColorFilter="true" labelText="cancel"
 		                              anchorOffsetX="0" width="64" anchorOffsetY="0" height="100" x.left_hand_mode="480"

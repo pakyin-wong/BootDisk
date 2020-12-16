@@ -301,7 +301,12 @@ namespace we {
           const goodRoadData = this.tableInfo.goodRoad;
           const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
           // this._goodRoadLabel.text = goodRoadName;
-          this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
+          // this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
+          if (goodRoadData.custom) {
+            this._goodRoadLabel.renderText = () => goodRoadData.name
+          } else {
+            this._goodRoadLabel.renderText = () => (goodRoadData.roadmapid ? i18n.t(`goodroad.${goodRoadData.roadmapid}`) : " ");
+          }
         } else {
           this._goodRoadLabel.visible = false;
           this._goodRoadLabel.width = 0;
