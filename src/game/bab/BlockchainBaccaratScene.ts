@@ -35,6 +35,21 @@ namespace we {
         this._gameData.maskedcardssnList = maskedcardssnList;
       }
 
+      protected updateTableInfo(tableInfo){
+        let hashedcardsList = new Array();
+        let maskedcardssnList = new Array();
+
+        if(this._gameData && this._gameData.hashedcardsList && this._gameData.hashedcardsList.length > 0){
+          hashedcardsList = this._gameData.hashedcardsList
+        }
+        if(this._gameData && this._gameData.maskedcardssnList && this._gameData.hashedcardsList.length > 0){
+          maskedcardssnList = this._gameData.maskedcardssnList
+        }
+        super.updateTableInfo(tableInfo)
+        this._gameData.hashedcardsList = hashedcardsList;
+        this._gameData.maskedcardssnList = maskedcardssnList;
+      }
+
       protected async updateMaskedSsn(){
         if(!this.tableInfo || !this._tableInfo.hostid){
           return;
