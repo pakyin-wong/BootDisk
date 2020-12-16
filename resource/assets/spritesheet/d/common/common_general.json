@@ -71,9 +71,29 @@
       "sourceW": 122,
       "sourceH": 41
     },
-    "d_common_chartroom_emoji_icon_14_png": {
+    "d_common_panel_uicolour_icon_drak_png": {
       "x": 146,
       "y": 405,
+      "w": 84,
+      "h": 64,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 84,
+      "sourceH": 64
+    },
+    "d_common_panel_uicolour_icon_light_png": {
+      "x": 177,
+      "y": 337,
+      "w": 84,
+      "h": 64,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 84,
+      "sourceH": 64
+    },
+    "d_common_chartroom_emoji_icon_14_png": {
+      "x": 146,
+      "y": 473,
       "w": 72,
       "h": 70,
       "offX": 0,
@@ -82,8 +102,8 @@
       "sourceH": 70
     },
     "d_common_chartroom_emoji_icon_8_png": {
-      "x": 177,
-      "y": 337,
+      "x": 222,
+      "y": 473,
       "w": 72,
       "h": 64,
       "offX": 0,
@@ -92,8 +112,8 @@
       "sourceH": 64
     },
     "d_common_chartroom_emoji_icon_10_png": {
-      "x": 146,
-      "y": 479,
+      "x": 265,
+      "y": 273,
       "w": 70,
       "h": 66,
       "offX": 0,
@@ -102,8 +122,8 @@
       "sourceH": 66
     },
     "d_common_chartroom_emoji_icon_11_png": {
-      "x": 220,
-      "y": 479,
+      "x": 265,
+      "y": 343,
       "w": 70,
       "h": 66,
       "offX": 0,
@@ -112,57 +132,7 @@
       "sourceH": 66
     },
     "d_common_chartroom_emoji_icon_12_png": {
-      "x": 222,
-      "y": 405,
-      "w": 70,
-      "h": 66,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 70,
-      "sourceH": 66
-    },
-    "d_common_chartroom_emoji_icon_13_png": {
-      "x": 294,
-      "y": 475,
-      "w": 70,
-      "h": 70,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 70,
-      "sourceH": 70
-    },
-    "d_common_chartroom_emoji_icon_15_png": {
-      "x": 253,
-      "y": 273,
-      "w": 70,
-      "h": 66,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 70,
-      "sourceH": 66
-    },
-    "d_common_chartroom_emoji_icon_16_png": {
-      "x": 296,
-      "y": 343,
-      "w": 70,
-      "h": 66,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 70,
-      "sourceH": 66
-    },
-    "d_common_chartroom_emoji_icon_17_png": {
-      "x": 327,
-      "y": 273,
-      "w": 70,
-      "h": 66,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 70,
-      "sourceH": 66
-    },
-    "d_common_chartroom_emoji_icon_18_png": {
-      "x": 368,
+      "x": 298,
       "y": 413,
       "w": 70,
       "h": 66,
@@ -171,28 +141,18 @@
       "sourceW": 70,
       "sourceH": 66
     },
-    "d_common_chartroom_emoji_icon_1_png": {
-      "x": 370,
-      "y": 343,
-      "w": 70,
-      "h": 66,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 70,
-      "sourceH": 66
-    },
-    "d_common_chartroom_emoji_icon_21_png": {
-      "x": 401,
+    "d_common_chartroom_emoji_icon_13_png": {
+      "x": 339,
       "y": 273,
       "w": 70,
-      "h": 66,
+      "h": 70,
       "offX": 0,
       "offY": 0,
       "sourceW": 70,
-      "sourceH": 66
+      "sourceH": 70
     },
-    "d_common_chartroom_emoji_icon_2_png": {
-      "x": 368,
+    "d_common_chartroom_emoji_icon_15_png": {
+      "x": 298,
       "y": 483,
       "w": 70,
       "h": 66,
@@ -201,7 +161,7 @@
       "sourceW": 70,
       "sourceH": 66
     },
-    "d_common_chartroom_emoji_icon_3_png": {
+    "d_common_chartroom_emoji_icon_16_png": {
       "x": 402,
       "y": 156,
       "w": 70,
@@ -211,9 +171,69 @@
       "sourceW": 70,
       "sourceH": 66
     },
+    "d_common_chartroom_emoji_icon_17_png": {
+      "x": 372,
+      "y": 347,
+      "w": 70,
+      "h": 66,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 70,
+      "sourceH": 66
+    },
+    "d_common_chartroom_emoji_icon_18_png": {
+      "x": 413,
+      "y": 226,
+      "w": 70,
+      "h": 66,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 70,
+      "sourceH": 66
+    },
+    "d_common_chartroom_emoji_icon_1_png": {
+      "x": 476,
+      "y": 156,
+      "w": 70,
+      "h": 66,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 70,
+      "sourceH": 66
+    },
+    "d_common_chartroom_emoji_icon_21_png": {
+      "x": 372,
+      "y": 417,
+      "w": 70,
+      "h": 66,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 70,
+      "sourceH": 66
+    },
+    "d_common_chartroom_emoji_icon_2_png": {
+      "x": 446,
+      "y": 296,
+      "w": 70,
+      "h": 66,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 70,
+      "sourceH": 66
+    },
+    "d_common_chartroom_emoji_icon_3_png": {
+      "x": 487,
+      "y": 226,
+      "w": 70,
+      "h": 66,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 70,
+      "sourceH": 66
+    },
     "d_common_chartroom_emoji_icon_4_png": {
-      "x": 442,
-      "y": 413,
+      "x": 550,
+      "y": 156,
       "w": 70,
       "h": 66,
       "offX": 0,
@@ -222,8 +242,8 @@
       "sourceH": 66
     },
     "d_common_chartroom_emoji_icon_5_png": {
-      "x": 444,
-      "y": 343,
+      "x": 446,
+      "y": 366,
       "w": 70,
       "h": 66,
       "offX": 0,
@@ -232,8 +252,8 @@
       "sourceH": 66
     },
     "d_common_chartroom_emoji_icon_9_png": {
-      "x": 442,
-      "y": 483,
+      "x": 446,
+      "y": 436,
       "w": 70,
       "h": 66,
       "offX": 0,
@@ -242,8 +262,8 @@
       "sourceH": 66
     },
     "d_common_icon_chart_normal_png": {
-      "x": 475,
-      "y": 226,
+      "x": 520,
+      "y": 296,
       "w": 70,
       "h": 70,
       "offX": 0,
@@ -252,8 +272,8 @@
       "sourceH": 70
     },
     "d_common_chartroom_emoji_icon_19_png": {
-      "x": 476,
-      "y": 156,
+      "x": 561,
+      "y": 226,
       "w": 69,
       "h": 66,
       "offX": 0,
@@ -262,8 +282,8 @@
       "sourceH": 66
     },
     "d_common_chartroom_emoji_icon_20_png": {
-      "x": 516,
-      "y": 413,
+      "x": 624,
+      "y": 156,
       "w": 69,
       "h": 66,
       "offX": 0,
@@ -272,8 +292,8 @@
       "sourceH": 66
     },
     "d_common_chartroom_emoji_icon_7_png": {
-      "x": 516,
-      "y": 483,
+      "x": 520,
+      "y": 370,
       "w": 66,
       "h": 69,
       "offX": 0,
@@ -282,8 +302,8 @@
       "sourceH": 69
     },
     "d_ba_betarea_chipsbg_triangle_png": {
-      "x": 296,
-      "y": 413,
+      "x": 372,
+      "y": 487,
       "w": 68,
       "h": 40,
       "offX": 0,
@@ -292,8 +312,8 @@
       "sourceH": 40
     },
     "d_common_chartroom_emoji_icon_6_png": {
-      "x": 586,
-      "y": 483,
+      "x": 520,
+      "y": 443,
       "w": 66,
       "h": 64,
       "offX": 0,
@@ -302,8 +322,8 @@
       "sourceH": 64
     },
     "d_common_liveverification_emoji_icon1_png": {
-      "x": 518,
-      "y": 300,
+      "x": 590,
+      "y": 370,
       "w": 66,
       "h": 64,
       "offX": 0,
@@ -312,8 +332,8 @@
       "sourceH": 64
     },
     "d_common_liveverification_emoji_icon2_png": {
-      "x": 549,
-      "y": 156,
+      "x": 594,
+      "y": 296,
       "w": 66,
       "h": 64,
       "offX": 0,
@@ -322,8 +342,8 @@
       "sourceH": 64
     },
     "d_common_liveverification_emoji_icon3_png": {
-      "x": 549,
-      "y": 224,
+      "x": 634,
+      "y": 226,
       "w": 66,
       "h": 62,
       "offX": 0,
@@ -332,8 +352,8 @@
       "sourceH": 62
     },
     "d_common_liveverification_emoji_icon4_png": {
-      "x": 588,
-      "y": 290,
+      "x": 697,
+      "y": 156,
       "w": 66,
       "h": 66,
       "offX": 0,
@@ -342,8 +362,8 @@
       "sourceH": 66
     },
     "d_common_liveverification_emoji_icon5_png": {
-      "x": 589,
-      "y": 360,
+      "x": 590,
+      "y": 438,
       "w": 66,
       "h": 64,
       "offX": 0,
@@ -352,8 +372,8 @@
       "sourceH": 64
     },
     "d_common_liveverification_emoji_icon6_png": {
-      "x": 656,
-      "y": 428,
+      "x": 660,
+      "y": 364,
       "w": 66,
       "h": 64,
       "offX": 0,
@@ -362,8 +382,8 @@
       "sourceH": 64
     },
     "d_common_liveverification_emoji_icon7_png": {
-      "x": 619,
-      "y": 156,
+      "x": 664,
+      "y": 292,
       "w": 66,
       "h": 64,
       "offX": 0,
@@ -372,8 +392,8 @@
       "sourceH": 64
     },
     "d_common_liveverification_emoji_icon8_png": {
-      "x": 658,
-      "y": 224,
+      "x": 660,
+      "y": 432,
       "w": 66,
       "h": 64,
       "offX": 0,
@@ -382,8 +402,8 @@
       "sourceH": 64
     },
     "d_common_liveverification_emoji_icon9_png": {
-      "x": 659,
-      "y": 292,
+      "x": 730,
+      "y": 360,
       "w": 64,
       "h": 66,
       "offX": 0,
@@ -392,8 +412,8 @@
       "sourceH": 66
     },
     "d_common_liveverification_emoji_icon10_png": {
-      "x": 726,
-      "y": 362,
+      "x": 730,
+      "y": 430,
       "w": 64,
       "h": 65,
       "offX": 0,
@@ -402,8 +422,8 @@
       "sourceH": 65
     },
     "d_common_liveverification_emoji_icon11_png": {
-      "x": 689,
-      "y": 156,
+      "x": 704,
+      "y": 226,
       "w": 64,
       "h": 60,
       "offX": 0,
@@ -412,8 +432,8 @@
       "sourceH": 60
     },
     "d_common_liveverification_emoji_icon12_png": {
-      "x": 727,
-      "y": 292,
+      "x": 767,
+      "y": 156,
       "w": 56,
       "h": 64,
       "offX": 0,
@@ -422,8 +442,8 @@
       "sourceH": 64
     },
     "d_common_chartroom_controlbg_png": {
-      "x": 659,
-      "y": 362,
+      "x": 734,
+      "y": 290,
       "w": 61,
       "h": 60,
       "offX": 0,
@@ -432,8 +452,8 @@
       "sourceH": 60
     },
     "d_ba_live_button_swapvideo_png": {
-      "x": 728,
-      "y": 220,
+      "x": 772,
+      "y": 224,
       "w": 58,
       "h": 58,
       "offX": 0,
@@ -442,7 +462,7 @@
       "sourceH": 58
     },
     "m_ba_tag_btn_detail_png": {
-      "x": 757,
+      "x": 827,
       "y": 156,
       "w": 58,
       "h": 58,
@@ -452,8 +472,8 @@
       "sourceH": 58
     },
     "d_ba_betcontrol_icon_cancel_png": {
-      "x": 656,
-      "y": 496,
+      "x": 234,
+      "y": 413,
       "w": 56,
       "h": 56,
       "offX": 0,
@@ -462,16 +482,6 @@
       "sourceH": 56
     },
     "d_ba_betcontrol_icon_double_png": {
-      "x": 716,
-      "y": 496,
-      "w": 56,
-      "h": 56,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 56,
-      "sourceH": 56
-    },
-    "d_ba_betcontrol_icon_repeat_png": {
       "x": 20,
       "y": 495,
       "w": 56,
@@ -481,29 +491,19 @@
       "sourceW": 56,
       "sourceH": 56
     },
-    "d_common_panel_uicolour_icon_drak_png": {
-      "x": 518,
-      "y": 368,
-      "w": 54,
-      "h": 37,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 54,
-      "sourceH": 37
-    },
-    "d_common_panel_uicolour_icon_light_png": {
-      "x": 402,
-      "y": 226,
-      "w": 54,
-      "h": 37,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 54,
-      "sourceH": 37
-    },
-    "d_ba_navbar_icon_hoverelement_png": {
+    "d_ba_betcontrol_icon_repeat_png": {
       "x": 80,
       "y": 495,
+      "w": 56,
+      "h": 56,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 56,
+      "sourceH": 56
+    },
+    "d_ba_navbar_icon_hoverelement_png": {
+      "x": 660,
+      "y": 500,
       "w": 52,
       "h": 52,
       "offX": 0,
@@ -512,8 +512,8 @@
       "sourceH": 52
     },
     "d_common_chartroom_otherbg_png": {
-      "x": 589,
-      "y": 428,
+      "x": 208,
+      "y": 273,
       "w": 51,
       "h": 50,
       "offX": 0,
@@ -522,8 +522,8 @@
       "sourceH": 50
     },
     "d_common_chartroom_selfbg_png": {
-      "x": 726,
-      "y": 431,
+      "x": 716,
+      "y": 500,
       "w": 51,
       "h": 50,
       "offX": 0,
@@ -532,8 +532,8 @@
       "sourceH": 50
     },
     "d_lobby_switch_dark_png": {
-      "x": 776,
-      "y": 485,
+      "x": 444,
+      "y": 511,
       "w": 51,
       "h": 31,
       "offX": 0,
@@ -542,8 +542,8 @@
       "sourceH": 31
     },
     "d_lobby_switch_png": {
-      "x": 776,
-      "y": 520,
+      "x": 499,
+      "y": 511,
       "w": 51,
       "h": 31,
       "offX": 0,
@@ -552,8 +552,8 @@
       "sourceH": 31
     },
     "m_common_header_icon_refresh_png": {
-      "x": 781,
-      "y": 431,
+      "x": 771,
+      "y": 499,
       "w": 51,
       "h": 50,
       "offX": 0,
@@ -562,8 +562,8 @@
       "sourceH": 50
     },
     "d_common_chartroom_icon_hover_png": {
-      "x": 831,
-      "y": 485,
+      "x": 798,
+      "y": 354,
       "w": 50,
       "h": 50,
       "offX": 0,
@@ -572,8 +572,8 @@
       "sourceH": 50
     },
     "d-lobby-button-close-none_png": {
-      "x": 787,
-      "y": 282,
+      "x": 799,
+      "y": 286,
       "w": 48,
       "h": 48,
       "offX": 0,
@@ -582,8 +582,8 @@
       "sourceH": 48
     },
     "d_common_icon_close_png": {
-      "x": 790,
-      "y": 218,
+      "x": 590,
+      "y": 506,
       "w": 48,
       "h": 42,
       "offX": 0,
@@ -592,8 +592,8 @@
       "sourceH": 42
     },
     "d_common_panel_setting_uicolour_btn_active_png": {
-      "x": 819,
-      "y": 156,
+      "x": 834,
+      "y": 218,
       "w": 47,
       "h": 47,
       "offX": 0,
@@ -602,8 +602,8 @@
       "sourceH": 47
     },
     "d_common_panel_setting_uicolour_btn_png": {
-      "x": 794,
-      "y": 334,
+      "x": 851,
+      "y": 269,
       "w": 47,
       "h": 47,
       "offX": 0,
@@ -612,8 +612,8 @@
       "sourceH": 47
     },
     "d_common_icon_emoji_disabled_png": {
-      "x": 794,
-      "y": 385,
+      "x": 885,
+      "y": 218,
       "w": 42,
       "h": 42,
       "offX": 0,
@@ -622,8 +622,8 @@
       "sourceH": 42
     },
     "d_common_icon_emoji_enabled_png": {
-      "x": 836,
-      "y": 431,
+      "x": 889,
+      "y": 156,
       "w": 42,
       "h": 42,
       "offX": 0,
@@ -632,8 +632,8 @@
       "sourceH": 42
     },
     "d_common_icon_msg_disabled_png": {
-      "x": 840,
-      "y": 385,
+      "x": 798,
+      "y": 408,
       "w": 42,
       "h": 42,
       "offX": 0,
@@ -642,8 +642,8 @@
       "sourceH": 42
     },
     "d_common_icon_msg_enabled_png": {
-      "x": 882,
-      "y": 431,
+      "x": 826,
+      "y": 454,
       "w": 42,
       "h": 42,
       "offX": 0,
@@ -652,8 +652,8 @@
       "sourceH": 42
     },
     "m_common_icon_close_png": {
-      "x": 208,
-      "y": 273,
+      "x": 844,
+      "y": 408,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -662,8 +662,8 @@
       "sourceH": 40
     },
     "d_ba_navbar_icon_video_png": {
-      "x": 253,
-      "y": 343,
+      "x": 851,
+      "y": 320,
       "w": 36,
       "h": 28,
       "offX": 0,
@@ -672,8 +672,8 @@
       "sourceH": 28
     },
     "d_ba_navbar_chevron_png": {
-      "x": 619,
-      "y": 224,
+      "x": 554,
+      "y": 511,
       "w": 30,
       "h": 30,
       "offX": 0,
@@ -682,8 +682,8 @@
       "sourceH": 30
     },
     "d_lobby_navbar_menu_png": {
-      "x": 253,
-      "y": 375,
+      "x": 339,
+      "y": 347,
       "w": 29,
       "h": 25,
       "offX": 0,
@@ -692,8 +692,8 @@
       "sourceH": 25
     },
     "d_ba_navbar_icon_setting_png": {
-      "x": 619,
-      "y": 258,
+      "x": 413,
+      "y": 296,
       "w": 28,
       "h": 28,
       "offX": 0,
@@ -702,8 +702,8 @@
       "sourceH": 28
     },
     "d_ba_navbar_icon_sound_png": {
-      "x": 475,
-      "y": 300,
+      "x": 339,
+      "y": 376,
       "w": 28,
       "h": 28,
       "offX": 0,
@@ -712,8 +712,8 @@
       "sourceH": 28
     },
     "d_ba_navbar_icon_stat_png": {
-      "x": 839,
-      "y": 264,
+      "x": 826,
+      "y": 500,
       "w": 28,
       "h": 28,
       "offX": 0,
@@ -722,8 +722,8 @@
       "sourceH": 28
     },
     "d_ba_navbar_icon_dropdown_png": {
-      "x": 839,
-      "y": 296,
+      "x": 798,
+      "y": 454,
       "w": 24,
       "h": 24,
       "offX": 0,
@@ -732,8 +732,8 @@
       "sourceH": 24
     },
     "d_ba_navbar_icon_info_png": {
-      "x": 842,
-      "y": 207,
+      "x": 852,
+      "y": 352,
       "w": 24,
       "h": 24,
       "offX": 0,
@@ -742,8 +742,8 @@
       "sourceH": 24
     },
     "d_ba_navbar_icon_rss_png": {
-      "x": 842,
-      "y": 235,
+      "x": 852,
+      "y": 380,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -752,8 +752,8 @@
       "sourceH": 22
     },
     "d_lobby_navbar_time_png": {
-      "x": 868,
-      "y": 235,
+      "x": 878,
+      "y": 380,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -762,8 +762,8 @@
       "sourceH": 22
     },
     "d_lobby_select_round_no_png": {
-      "x": 845,
-      "y": 324,
+      "x": 826,
+      "y": 532,
       "w": 18,
       "h": 18,
       "offX": 0,
@@ -772,8 +772,8 @@
       "sourceH": 18
     },
     "d_lobby_select_round_yes_png": {
-      "x": 845,
-      "y": 346,
+      "x": 848,
+      "y": 532,
       "w": 18,
       "h": 18,
       "offX": 0,
