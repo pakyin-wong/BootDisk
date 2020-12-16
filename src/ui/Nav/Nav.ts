@@ -78,6 +78,7 @@ namespace we {
         this._timeInterval = setInterval(this.onUpdateTimer.bind(this), 1000);
 
         this.getPlayerProfileSummary();
+        this.updateBalance();
         this.updateIconImage();
         this.updateNickname();
         this.addListeners();
