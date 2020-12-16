@@ -26,6 +26,26 @@ namespace we {
         this.addEventListener(TableList.UNLOCK, this.onLockChanged, this, false, 0);
       }
 
+      public $hitTest(stageX, stageY) {
+        const scroller = this.getParentScroller() as ui.Scroller;
+        if (scroller.isScrolling) {
+          var point = this.globalToLocal(stageX, stageY, egret.$TempPoint);
+          var values = this.$UIComponent;
+          var bounds = egret.$TempRectangle.setTo(0, 0, values[10 /* width */], values[11 /* height */]);
+          var scrollRect = this.$scrollRect;
+          if (scrollRect) {
+              bounds.x = scrollRect.x;
+              bounds.y = scrollRect.y;
+          }
+          if (bounds.contains(point.x, point.y)) {
+              return this;
+          }
+          return null;
+        } else {
+          return super.$hitTest(stageX, stageY);
+        }
+      }
+
       public get tableCount() {
         return this.tableList.length;
       }

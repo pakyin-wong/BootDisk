@@ -51,6 +51,7 @@ namespace we {
       public getPlaceholder(gametype: number = core.GameType.BAC) {
         switch (gametype) {
           case core.GameType.BAB:
+            return 'd_lobby_placeholder_bc_ba_jpg';
           case core.GameType.BASB:
             return 'd_lobby_placeholder_bc_sdba_jpg'; // d_lobby_placeholder_ba_jpg
           case core.GameType.BAMB:
@@ -67,6 +68,7 @@ namespace we {
       public getAdvancedPlaceholder(gametype: number = core.GameType.BAC) {
         switch (gametype) {
           case core.GameType.BAB:
+            return 'd_lobby_pro_placeholder_bc_ba_jpg';
           case core.GameType.BASB:
             return 'd_lobby_pro_placeholder_bc_sdba_jpg';
           case core.GameType.BAMB:

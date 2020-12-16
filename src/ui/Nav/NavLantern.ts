@@ -28,8 +28,8 @@ namespace we {
       protected mount() {
         // this._loopMsg = ['客服熱線號碼更新為 +63 9250898888，接聽時間為 8:00-00:00。'];
         this._loopMsg = [];
-        if (env.localization && env.localization.contact) {
-          this._loopMsg = [env.localization.contact];
+        if (env.localization && env.localization.notice) {
+          this._loopMsg = [env.localization.notice];
         }
         // this._loopMsg = [`${i18n.t('customerservicehotlinenumber_text')}`];
         this._label = new eui.Label();
@@ -55,8 +55,8 @@ namespace we {
       }
 
       protected onLanguageChanged() {
-        if (env.localization && env.localization.contact) {
-          this._loopMsg = [env.localization.contact];
+        if (env.localization && env.localization.notice) {
+          this._loopMsg = [env.localization.notice];
         }
         this.restart();
       }
@@ -103,7 +103,7 @@ namespace we {
       }
 
       private update() {
-        if (this._loopMsg.length < 1) {
+        if (!this._loopMsg || this._loopMsg.length < 1) {
           return;
         }
 
