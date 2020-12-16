@@ -270,7 +270,8 @@ namespace we {
           return;
         }
         logger.l(utils.LogTarget.DEBUG, 'carousel', this._slides[this.currentIndex].link);
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
+        // dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
+        utils.linkTo(this._slides[this.currentIndex].link);
       }
 
       protected getNextIndex() {
