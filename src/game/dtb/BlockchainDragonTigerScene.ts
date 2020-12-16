@@ -38,7 +38,7 @@ namespace we {
         await new Promise(resolve=>
           {dir.socket.getGameStatusDT(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.CARD,currentcardindex,
           (data) => {
-            if(data.maskedcardssnList && data.maskedcardssnList[0]){
+            if(this._gameData && this._gameData.maskedcardssnList && data.maskedcardssnList && data.maskedcardssnList[0]){
               this._gameData.maskedcardssnList[currentcardindex] = data.maskedcardssnList[0]
             }
             resolve();

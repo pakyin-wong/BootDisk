@@ -57,7 +57,7 @@ namespace we {
         await new Promise(resolve=>
           {dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.CARD,currentcardindex,
           (data) => {
-            if(data.maskedcardssnList && data.maskedcardssnList[0]){
+            if(this._gameData && this._gameData.maskedcardssnList && data.maskedcardssnList && data.maskedcardssnList[0]){
               this._gameData.maskedcardssnList[currentcardindex] = data.maskedcardssnList[0]
             }
             resolve();
@@ -345,7 +345,7 @@ namespace we {
         } catch (error) {
           //console.log('getShoeInfo by backend')
           this.updateHash();
-          // console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
+          console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
           return new Promise(resolve => resolve());
         }
       }
