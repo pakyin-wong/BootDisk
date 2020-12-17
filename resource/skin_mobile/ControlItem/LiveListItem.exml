@@ -19,14 +19,7 @@
 				<e:Image width="161" height="142" horizontalCenter="0" y="34" source="icon-shuffle_png"/>
 				<ui:RunTimeLabel id="_shuffleLabel" text="洗牌中" horizontalCenter="0" size="52" height="77" y="178" verticalAlign="middle" textAlign="center" textColor="0xcea56f"/>
 			</e:Group>
-			<e:Group right="30" y="24" x="1041" scaleX="1" scaleY="1">
-				<ui:RunTimeLabel id="_betLimit" textAlign="left" y="-10" size="48" text="3" fontFamily="Barlow" anchorOffsetY="0" height="62" verticalAlign="middle" alpha=".7"/>
-				<ui:RunTimeLabel id="_toggler" textAlign="left" y="24" size="60" x="924" alpha=".7" verticalAlign="middle"/>
-				<e:Image source="m_common_panel_icon_dropdown_png" x="920" y="52" width="25" height="12.5" anchorOffsetX="0" anchorOffsetY="0"/>
-				<e:layout>
-				<e:HorizontalLayout verticalAlign="middle" gap="10"/>
-				</e:layout>
-			</e:Group>
+
 			<e:Group anchorOffsetX="0" anchorOffsetY="0" x="24" y="296" height="80" scaleX="1" scaleY="1">
 				<ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_mobile_portrait.GoodRoadLabelSkin" visible="false"/>
 				<e:Group id="_alreadyBetSign" height="80" y="0" x="0">
@@ -68,5 +61,13 @@
 		                         width="42" bottom="-80" scaleX="2" scaleY="2" tooltipText="'lobby.tooltip.favourite'" tooltipPosition="'above'" />
 		<!--<ui:AnimatedToggleButton id="_favouriteButton" name="ActionButton" dbClass="lobby_ui" dbDisplay="d_lobby_icon_fav" height="44" right="30"
 		                         width="42" bottom="-80" scaleX="2" scaleY="2" />-->
+	</e:Group>
+	<e:Group id="_togglerGroup" right="30" y="24" x="1041" scaleX="1" scaleY="1">
+		<ui:RunTimeLabel id="_betLimit" textAlign="left" y="-10" size="48" text="" fontFamily="Barlow" anchorOffsetY="0" height="62" verticalAlign="middle" alpha=".7"/>
+		<ui:RunTimeLabel id="_toggler" textAlign="left" y="24" size="60" x="924" alpha=".7" verticalAlign="middle"/>
+		<e:Image source="m_common_panel_icon_dropdown_png" x="920" y="52" width="25" height="12.5" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:layout>
+		<e:HorizontalLayout verticalAlign="middle" gap="10"/>
+		</e:layout>
 	</e:Group>
 </e:Skin>
