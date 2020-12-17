@@ -23,7 +23,7 @@ namespace we {
       }
 
       protected updateState() {
-        if (env._currGameType === core.GameType.BAB || env._currGameType === core.GameType.DTB || env._currGameType === core.GameType.BASB || env._currGameType === core.GameType.BAMB) {
+        if (env._currGameType==null || env._currGameType === core.GameType.BAB || env._currGameType === core.GameType.DTB || env._currGameType === core.GameType.BASB || env._currGameType === core.GameType.BAMB) {
           this.currentState = 'noSendLive';
         } else this.currentState = 'sendLive';
       }

@@ -100,8 +100,10 @@ namespace we {
 
       protected setupTableInfo() {
         super.setupTableInfo();
-        this.updateMaskedSsn();
-        this.getShoeInfo();
+        (async()=>{
+        await this.getShoeInfo();
+        await this.updateMaskedSsn();
+        })()
 
       }
 
@@ -281,14 +283,16 @@ namespace we {
       }
 
       protected setStateShuffle(isInit: boolean) {
+        (async()=>{
         if(!isInit){
-          this.getShoeInfo();
-          this.updateMaskedSsn();
+          await this.getShoeInfo();
+          await this.updateMaskedSsn();
         }
         this.enableDeckButton(false);
         super.setStateShuffle(isInit);
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         this._historyCardHolder.clearAllCards();
+        })()
       }
 
       protected showCardInfoPanel(evt: egret.Event) {
