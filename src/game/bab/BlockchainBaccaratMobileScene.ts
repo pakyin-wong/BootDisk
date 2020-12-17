@@ -31,6 +31,9 @@ namespace we {
       protected _bankerTotalAmount: number = 0;
       protected _mobileBlockchainBarType: string = 'ba';
 
+      protected _gameTypeForGettingCardList = 'BA';
+
+
       public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat];
       protected _navLayer: eui.Group;
 
@@ -206,15 +209,17 @@ namespace we {
       }
 
       protected setStateShuffle(isInit: boolean) {
-        if (!isInit) {//because if isInit, it already gets in setupTableInfo
-          this.getShoeInfo();
-          this.updateMaskedSsn();
-        }
-        super.setStateShuffle(isInit);
-        this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
-        this.hideSumGroup();
-        this.toggleBottomGamePanel();
-        this._historyCardHolder.clearAllCards();
+        (async () => {
+          if (!isInit) {//because if isInit, it already gets in setupTableInfo
+            await blockchain.getShoeInfo(this._gameData.cosmosshoeid,this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,300);
+            await blockchain.getGameStatus(this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,'maskedcardssnList',blockchain.RETRIEVE_OPTION.MASK,300)
+          }
+          super.setStateShuffle(isInit);
+          this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
+          this.hideSumGroup();
+          this.toggleBottomGamePanel();
+          this._historyCardHolder.clearAllCards();
+        })();
       }
 
       protected setStateIdle(isInit: boolean) {
@@ -253,8 +258,8 @@ namespace we {
       }
 
       protected showDeckPanel() {
-        (async() => {
-          await this.updateMaskedSsn();
+        (async () => {
+            await blockchain.getGameStatus(this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,'maskedcardssnList',blockchain.RETRIEVE_OPTION.MASK,300)
           this.createSwipeUpPanel();
           this._slideUpMenu.showDeckPanel(<bab.GameData>this._gameData);
           this._slideUpMenu.addEventListener('CLOSE', this.removeSwipeUpPanel, this);
@@ -263,7 +268,7 @@ namespace we {
 
       public showCardInfoPanel(evt: egret.Event) {
         (async () => {
-          await this.updateCard(evt.data)
+            await blockchain.getMaskedListRange(this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,+this._gameData.currentcardindex,+this._gameData.currentcardindex+1,300);
           this.createSwipeUpPanel();
           this._slideUpMenu.showCardInfoPanel(<bab.GameData>this._gameData, evt.data);
           this._slideUpMenu.addEventListener('CLOSE', this.removeSwipeUpPanel, this);
@@ -297,24 +302,6 @@ namespace we {
 
       protected hideSumGroup() {
         (<we.bab.MobileCardHolder>this._resultDisplay).hideSumGroup();
-      }
-
-      protected async getShoeInfo() {
-        let obj;
-        let text;
-        try {
-          text = await utils.getText(`${env.blockchain.cosmolink}${this._gameData.cosmosshoeid}`);
-          obj = JSON.parse(text);
-          if (obj.result.cards) {
-            this._gameData.hashedcardsList = obj.result.cards;
-            // console.log('get cosmo succeeded');
-          }
-          return new Promise(resolve => resolve());
-        } catch (error) {
-          this.updateHash();
-          console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
-          return new Promise(resolve => resolve());
-        }
       }
 
       protected initChildren() {
@@ -393,59 +380,13 @@ namespace we {
         this._gameData.maskedcardssnList = maskedcardssnList;
       }
 
-      protected async updateCard(currentcardindex) {
-        if (!this.tableInfo || !this._tableInfo.hostid) {
-          return new Promise(resolve => resolve());
-        }
-        await new Promise(resolve => {
-          dir.socket.getGameStatusBA(this._tableInfo.hostid, we.blockchain.RETRIEVE_OPTION.CARD, currentcardindex - 1,
-            (data) => {
-              if (this._gameData && this._gameData.maskedcardssnList && data.maskedcardssnList && data.maskedcardssnList[0]) {
-                this._gameData.maskedcardssnList[currentcardindex - 1] = data.maskedcardssnList[0]
-              }
-              resolve();
-            }
-          )
-        });
-        return new Promise(resolve => resolve());
+      public onEnter() {
+        super.onEnter();
+        (async () => {
+          await blockchain.getShoeInfo(this._gameData.cosmosshoeid,this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,300);
+          await blockchain.getGameStatus(this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,'maskedcardssnList',blockchain.RETRIEVE_OPTION.MASK,300)
+        })()
       }
-
-      protected async updateMaskedSsn() {
-        if (!this.tableInfo || !this._tableInfo.hostid) {
-          return new Promise(resolve => resolve());
-        }
-        await new Promise(resolve =>
-          dir.socket.getGameStatusBA(this._tableInfo.hostid, we.blockchain.RETRIEVE_OPTION.MASK, null,
-            (data) => {
-              this._gameData.maskedcardssnList = data.maskedcardssnList
-              resolve();
-            }
-          )
-        )
-        return new Promise(resolve => resolve());
-      }
-
-      protected async updateHash() {
-        if (!this.tableInfo || !this._tableInfo.hostid) {
-          return new Promise(resolve => resolve());
-        }
-        await new Promise(resolve =>
-          dir.socket.getGameStatusBA(this._tableInfo.hostid, we.blockchain.RETRIEVE_OPTION.HASH, null,
-            (data) => {
-              this._gameData.hashedcardsList = data.hashedcardsList
-              resolve();
-            }
-          )
-        )
-        return new Promise(resolve => resolve());
-      }
-
-      protected setupTableInfo() {
-        super.setupTableInfo();
-        this.updateMaskedSsn();
-        this.getShoeInfo();
-      }
-
     }
   }
 }

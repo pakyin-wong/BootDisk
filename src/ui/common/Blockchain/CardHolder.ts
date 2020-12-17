@@ -116,17 +116,17 @@ namespace we {
       }
 
       protected clonePin() {
-        const redPin = this._ringAnim.armature.getSlot('red_card');
+        const redPin = this._ringAnim.armature.getSlot('bar_grey');
         const redPinMesh: egret.Mesh = redPin.display;
         const redPinClone: egret.Bitmap = new egret.Bitmap();
         // redPinClone.width = redPinMesh.width;
         // redPinClone.height = redPinMesh.height;
-        redPinClone.rotation = 90 + (Math.atan2(redPin.globalTransformMatrix.b, redPin.globalTransformMatrix.a) * 180) / Math.PI;
+        redPinClone.rotation = 0//90 + (Math.atan2(redPin.globalTransformMatrix.b, redPin.globalTransformMatrix.a) * 180) / Math.PI;
         redPinClone.texture = redPinMesh.texture;
         redPinClone.x = redPin.globalTransformMatrix.tx;
         redPinClone.y = redPin.globalTransformMatrix.ty;
-        redPinClone.anchorOffsetX = 14;
-        redPinClone.anchorOffsetY = 111 + redPinClone.texture.textureHeight * redPinClone.scaleY;
+        redPinClone.anchorOffsetX = redPinClone.texture.textureWidth / 2 * redPinClone.scaleX;
+        redPinClone.anchorOffsetY =  redPinClone.texture.textureHeight * 1.5 * redPinClone.scaleY;
         redPinClone.alpha = 0;
         // redPinClone.pixelHitTest = true;
         redPinClone.touchEnabled = true;
