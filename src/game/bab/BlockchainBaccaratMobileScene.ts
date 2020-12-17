@@ -272,7 +272,7 @@ namespace we {
         (async () => {
           if(evt.data < this._gameData.currentcardindex &&
             blockchain.getFirstNonOpenedCardIndex(this._gameData) <= evt.data){
-            await blockchain.getMaskedListRange(this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,+this._gameData.currentcardindex,+this._gameData.currentcardindex+1,300);
+            await blockchain.getMaskedListRange(this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,+evt.data,+evt.data+1,300);
           }
           this.createSwipeUpPanel();
           this._slideUpMenu.showCardInfoPanel(<bab.GameData>this._gameData, evt.data);

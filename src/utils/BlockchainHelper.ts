@@ -47,8 +47,10 @@ namespace we {
             await new Promise(resolve =>
                 dir.socket[`getGameStatus${type}`](hostid, we.blockchain.RETRIEVE_OPTION.CARD, from - 1, to - 1,
                     (data) => {
-                        for (let i = 0; i < data.length; i++) {
-                            gameData.maskedcardssnList[i + from - 1] = data.maskedcardssnList[i - 1]
+                        if (data.maskedcardssnList) {
+                            for (let i = 0; i < data.maskedcardssnList.length; i++) {
+                                gameData.maskedcardssnList[i + from - 1] = data.maskedcardssnList[i]
+                            }
                         }
                         resolve();
                     }
@@ -137,7 +139,7 @@ namespace we {
                 return 0;
             }
             let result = 0;
-            for (let i = 0; i < gameData.maskedcardssnList.length; i++) {
+            for (let i = utils.cardToNumberForFirstCard(gameData.firstcard) + 1; i < gameData.maskedcardssnList.length; i++) {
                 if (!gameData.maskedcardssnList[i] || gameData.maskedcardssnList[i][0] === '*') {
                     result = i
                     break;
