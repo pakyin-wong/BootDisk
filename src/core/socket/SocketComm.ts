@@ -104,12 +104,12 @@ export namespace core {
 				this.client.subscribe(core.MQTT.CLOSE, this.onConnectionClose, this);
 			}
 
-      public getGameStatusBA(hostID: string, option: number, index:number, callback?: Function){
-        this.client.getGameStatusBA(hostID,option,index,callback)
+      public getGameStatusBA(hostID: string, option: number, from:number, to: number, callback?: Function){
+        this.client.getGameStatusBA(hostID,option,from,to,callback)
       }
 
-      public getGameStatusDT(hostID: string, option: number, index:number, callback?: Function){
-        this.client.getGameStatusDT(hostID,option,index,callback)
+      public getGameStatusDT(hostID: string, option: number, from:number, to: number, callback?: Function){
+        this.client.getGameStatusDT(hostID,option,from,to,callback)
       }
 
       

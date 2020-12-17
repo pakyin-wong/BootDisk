@@ -10,6 +10,8 @@ namespace we {
       protected _leftGamePanel: dt.DTRoadmapLeftPanel;
       protected _rightGamePanel: dt.DTRoadmapRightPanel;
       protected _beadRoadResultPanel: dt.DTBeadRoadResultPanel;
+      protected _gameTypeForGettingCardList = 'DT'
+
 
       public static resGroups = [core.res.Blockchain, core.res.BlockchainDragonTiger];
 
@@ -31,66 +33,6 @@ namespace we {
         );
       }
 
-      protected async updateCard(currentcardindex){
-        if(!this.tableInfo || !this._tableInfo.hostid){
-          return new Promise(resolve => resolve());;
-        }
-        await new Promise(resolve=>
-          {dir.socket.getGameStatusDT(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.CARD,currentcardindex - 1,
-          (data) => {
-            if(this._gameData && this._gameData.maskedcardssnList && data.maskedcardssnList && data.maskedcardssnList[0]){
-              this._gameData.maskedcardssnList[currentcardindex - 1] = data.maskedcardssnList[0]
-            }
-            resolve();
-          }
-        )
-        });
-        return new Promise(resolve=>resolve());
-      }
-
-      protected async updateMaskedSsn() {
-        if (!this.tableInfo || !this._tableInfo.hostid) {
-          return new Promise(resolve => resolve());
-        }
-        await new Promise(resolve =>
-          dir.socket.getGameStatusDT(this._tableInfo.hostid, we.blockchain.RETRIEVE_OPTION.MASK, null,
-            (data) => {
-              this._gameData.maskedcardssnList = data.maskedcardssnList
-              resolve();
-            }
-          )
-        )
-        return new Promise(resolve => resolve());
-      }
-
-      protected async updateHash() {
-        if (!this.tableInfo || !this._tableInfo.hostid) {
-          return new Promise(resolve => resolve());
-        }
-        await new Promise(resolve =>
-          dir.socket.getGameStatusDT(this._tableInfo.hostid, we.blockchain.RETRIEVE_OPTION.HASH, null,
-            (data) => {
-              this._gameData.hashedcardsList = data.hashedcardsList
-              resolve();
-            }
-          )
-        )
-        return new Promise(resolve => resolve());
-      }
-
-      // protected onTableBetInfoUpdate(evt: egret.Event) {
-      //   super.onTableBetInfoUpdate(evt);
-      //   if (!evt || !evt.data) {
-      //     return;
-      //   }
-      //   const betInfo = <data.GameTableBetInfo> evt.data;
-      //   if (betInfo.tableid === this._tableId) {
-      //     // update the scene
-      //     (<we.dt.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-      //     (<we.dt.TableLayer> this._tableLayer).totalPerson = evt.data.count;
-      //     // this._leftGamePanel.totalBet = evt.data.total;
-      //   }
-      // }
     }
   }
 }
