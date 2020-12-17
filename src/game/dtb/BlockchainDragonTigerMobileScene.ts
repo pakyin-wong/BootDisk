@@ -11,6 +11,8 @@ namespace we {
       protected _bottomGamePanel: ui.MobileBottomCommonPanel & dt.MobileBottomGamePanel;
 
       protected _beadRoadResultPanel: dt.DTBeadRoadResultPanel;
+      protected _gameTypeForGettingCardList = 'DT'
+
 
       // protected _dtGameIDText: ui.RunTimeLabel;
       // protected _dtGameID: ui.RunTimeLabel;
@@ -333,52 +335,9 @@ namespace we {
         }
       }
 
-      protected async updateCard(currentcardindex) {
-        if (!this.tableInfo || !this._tableInfo.hostid) {
-          return new Promise(resolve => resolve());
-        }
-        await new Promise(resolve => {
-          dir.socket.getGameStatusDT(this._tableInfo.hostid, we.blockchain.RETRIEVE_OPTION.CARD, currentcardindex - 1,
-            (data) => {
-              if (this._gameData && this._gameData.maskedcardssnList && data.maskedcardssnList && data.maskedcardssnList[0]) {
-                this._gameData.maskedcardssnList[currentcardindex - 1] = data.maskedcardssnList[0]
-              }
-              resolve();
-            }
-          )
-        });
-        return new Promise(resolve => resolve());
-      }
 
-      protected async updateMaskedSsn() {
-        if (!this.tableInfo || !this._tableInfo.hostid) {
-          return new Promise(resolve => resolve());
-        }
-        await new Promise(resolve =>
-          dir.socket.getGameStatusDT(this._tableInfo.hostid, we.blockchain.RETRIEVE_OPTION.MASK, null,
-            (data) => {
-              this._gameData.maskedcardssnList = data.maskedcardssnList
-              resolve();
-            }
-          )
-        )
-        return new Promise(resolve => resolve());
-      }
 
-      protected async updateHash() {
-        if (!this.tableInfo || !this._tableInfo.hostid) {
-          return new Promise(resolve => resolve());
-        }
-        await new Promise(resolve =>
-          dir.socket.getGameStatusDT(this._tableInfo.hostid, we.blockchain.RETRIEVE_OPTION.HASH, null,
-            (data) => {
-              this._gameData.hashedcardsList = data.hashedcardsList
-              resolve();
-            }
-          )
-        )
-        return new Promise(resolve => resolve());
-      }
+     
     }
   }
 }
