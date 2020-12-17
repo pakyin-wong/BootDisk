@@ -63,7 +63,7 @@
 
 	</e:Group>
 	<e:Group x="268" y="76">
-		<e:Image width="48" height="48" source="d_ba_roadmap_bar_remainingstate_png" />
+		<e:Image width="48" height="48" source="d_ba_roadmap_bar_tiepairstate_png" />
 	</e:Group>
 	<e:Group x="268" y="120" width="48">
 		<e:Label id="_thirdCountLabel" text="50" textAlign="center" horizontalCenter="0" y="0" size="44" />

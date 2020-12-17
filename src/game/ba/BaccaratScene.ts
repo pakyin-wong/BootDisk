@@ -83,7 +83,7 @@ namespace we {
         }
 
         if (this._lblBaMode) {
-          this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
+          this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommissionShort')}`;
         }
 
         // if (env.isMobile) {
@@ -276,9 +276,9 @@ namespace we {
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
-        if (this._switchBaMode) {
-          this._switchBaMode.enabled = enable;
-        }
+        // if (this._switchBaMode) {
+        //   this._switchBaMode.enabled = enable;
+        // }
       }
     }
   }

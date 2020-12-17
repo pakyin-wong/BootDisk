@@ -437,7 +437,7 @@ namespace we {
       }
 
       protected updateDragonSum() {
-        if (this._gameData.state === core.GameState.BET || this._gameData.state === core.GameState.SHUFFLE) {
+        if (this._gameData.state === core.GameState.BET || this._gameData.state === core.GameState.SHUFFLE || this._gameData.state === core.GameState.IDLE) {
           this._dragonSum.visible = false;
           this._dragonSum.text = '0';
         } else {
@@ -447,7 +447,7 @@ namespace we {
       }
 
       protected updateTigerSum() {
-        if (this._gameData.state === core.GameState.BET || this._gameData.state === core.GameState.SHUFFLE) {
+        if (this._gameData.state === core.GameState.BET || this._gameData.state === core.GameState.SHUFFLE || this._gameData.state === core.GameState.IDLE) {
           this._tigerSum.visible = false;
           this._tigerSum.text = '0';
         } else {

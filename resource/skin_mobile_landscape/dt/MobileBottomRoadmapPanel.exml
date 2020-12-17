@@ -28,12 +28,12 @@
 			</e:layout>
 		</e:Group>
 		<e:Group width="116" right="0" height="100%">
-			<e:Image id="iconBankerBead" width="116" height="52" x="0" y="20" source="d_ba_roadmap_topbar_textbg_banker_png"
+			<e:Image id="iconPlayerBead" width="116" height="52" x="0" y="20" source="d_ba_roadmap_topbar_textbg_player_png"
 			         anchorOffsetX="0" />
-			<e:Image id="iconPlayerBead" width="116" height="52" x="0" y="152" source="d_ba_roadmap_topbar_textbg_player_png" />
-			<ui:RunTimeLabel id="playerButtonLabel" text="虎問路" x="0" y="152" textAlign="center" anchorOffsetX="0" width="116"
+			<e:Image id="iconBankerBead" width="116" height="52" x="0" y="152" source="d_ba_roadmap_topbar_textbg_banker_png" />
+			<ui:RunTimeLabel id="bankerButtonLabel" text="虎問路" x="0" y="152" textAlign="center" anchorOffsetX="0" width="116"
 			                 size="28" height="52" verticalAlign="middle" touchEnabled="false" textKey="dragontiger.askTiger" />
-			<ui:RunTimeLabel id="bankerButtonLabel" text="龍問路" x="0" y="20" textAlign="center" anchorOffsetX="0" width="116"
+			<ui:RunTimeLabel id="playerButtonLabel" text="龍問路" x="0" y="20" textAlign="center" anchorOffsetX="0" width="116"
 			                 size="28" verticalAlign="middle" height="52" touchEnabled="false" textKey="dragontiger.askDragon" />
 		</e:Group>
 		<!--<e:Image id="switchModeButton" width="72" height="72" x="512" y="182" source="d_ba_swaproadmap_button_element_png"

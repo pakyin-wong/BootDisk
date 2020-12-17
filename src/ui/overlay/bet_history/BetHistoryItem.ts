@@ -68,7 +68,8 @@ namespace we {
           this.setText(this._txt_record_id, this.data.betid);
           this.setText(this._txt_record_date, utils.formatTime(this.data.datetime.toFixed(0)));
           this.setText(this._txt_record_game, i18n.t('gametype_' + we.core.GameType[this.data.gametype]) + (this.data.tablename ? ' ' + this.data.tablename : ''));
-          this.setText(this._txt_record_round, `${this.data.round} - ${this.data.shoe}`);
+          this.setText(this._txt_record_round, `${this.data.round}`);
+          // this.setText(this._txt_record_round, `${this.data.round} - ${this.data.shoe}`);
           this.setText(this._txt_record_replay, utils.BetHistory.isBlockChain(this.data.gametype)?'-':'');
           this.setText(this._txt_record_remark, utils.BetHistory.formatRemark(this.data.remark));
           this.setText(this._txt_record_bettype, utils.BetHistory.formatBetType(this.data.gametype, this.data.field));

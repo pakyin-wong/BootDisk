@@ -139,6 +139,7 @@ namespace we {
           let tieCount: number = 0;
           let playerPairCount: number = 0;
           let bankerPairCount: number = 0;
+          let bothPairCount: number = 0;
 
           data.roadmap.inGame.bead.forEach(item => {
             if (item.v === 'b') {
@@ -148,10 +149,11 @@ namespace we {
             } else if (item.v === 't') {
               tieCount++;
             }
-            if (item.b > 0) {
+            if (item.b > 0 && item.p > 0) {
+              bothPairCount++;
+            }else if (item.b > 0) {
               bankerPairCount++;
-            }
-            if (item.p > 0) {
+            }else if (item.p > 0) {
               playerPairCount++;
             }
           });
@@ -163,12 +165,14 @@ namespace we {
           stats.tieCount = tieCount;
           stats.playerPairCount = playerPairCount;
           stats.bankerPairCount = bankerPairCount;
+          stats.bothPairCount = bothPairCount;
           stats.totalCount = totalCount;
           stats.shoeBankerCount = 29; // Baccarat
           stats.shoePlayerCount = 20; // Baccarat
           stats.shoeTieCount = 6; // Baccarat
           stats.shoeBankerPairCount = 8; // Baccarat
           stats.shoePlayerPairCount = 5; // Baccarat
+          stats.shoeBothPairCount = 3; // Baccarat
           stats.shoeTotalCount = 55; // Baccarat
 
           return stats;

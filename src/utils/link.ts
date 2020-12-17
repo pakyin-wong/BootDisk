@@ -28,7 +28,7 @@ namespace we {
         case 'weweb:':
           // get the scene and the tableid(if any)
           // arr[2] - scene
-          const scene = arr.length > 2 ? arr[2] : null;
+          let scene = arr.length > 2 ? arr[2] : null;
           // arr[3] - page
           const page = arr.length > 3 ? arr[3] : null;
           // arr[4] - tab
@@ -45,13 +45,16 @@ namespace we {
               if (data['tableid']) {
                 // check if current tableid is valid
                 const tableinfo = env.tableInfos[data['tableid']];
-                if (!tableinfo || !tableinfo.displayReady) {
+                const gametype = core.GameType[scene.toUpperCase()];
+                if (!tableinfo || !tableinfo.displayReady || gametype !== tableinfo.gametype) {
                   data['tableid']=null;
                 }
               }
               if (!data['tableid']) {
                 // search for valid game table
                 const gametype = core.GameType[scene.toUpperCase()];
+                if (scene == 'basb') scene = 'bab';
+                else if (scene == 'bas') scene = 'ba';
                 if (!gametype) {
                   egret.error('Game is not valid');
                   return;

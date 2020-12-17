@@ -47,8 +47,8 @@
 				           scaleX="1" scaleY="1" />
 				<ui:RunTimeLabel id="_txt_term" text="Label" x="564.58" y="1261.53" size="20" width="80" height="29"
 				                 textColor="0xb2b2b2" scaleX="1" scaleY="1" visible="false" />
-				<e:Label id="_txt_version" text="Label" x="870.58" y="1262.53" textColor="0xb2b2b2" width="90" height="26" size="22"
-				         fontFamily="Barlow" scaleX="1" scaleY="1" visible="false" />
+				<e:Label id="_txt_version" text="Label" textColor="0xb2b2b2" size="50"
+				         scaleX="1" scaleY="1"  right="40" y="1052" visible="false"/>
 
 			</e:Group>
 		</ui:Scroller>

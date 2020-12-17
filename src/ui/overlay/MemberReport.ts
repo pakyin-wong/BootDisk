@@ -137,11 +137,14 @@ namespace we {
       }
 
       protected get searchOpt(): {} {
-        return {
+        const opt: any = {
           startdate: this._starttime * 1000,
           enddate: this._endtime * 1000,
-          filter: this._type,
         };
+        if (this._type) {
+          opt.filter = this._type;
+        }
+        return opt;
       }
 
       protected updateMemberReport(data) {
@@ -171,6 +174,8 @@ namespace we {
         this._btn_searchType.addEventListener('DROPDOWN_ITEM_CHANGE', this.onTypeChange, this);
         if (env.isMobile) {
           this._btn_date.addEventListener('DROPDOWN_ITEM_CHANGE', this.onDateDropdownSelected, this);
+        } else {
+          this._ddm_searchType.addEventListener('DROPDOWN_ITEM_CHANGE', this.onTypeChange, this);
         }
       }
 
@@ -180,6 +185,8 @@ namespace we {
         this._btn_searchType.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onTypeChange, this);
         if (env.isMobile) {
           this._btn_date.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onDateDropdownSelected, this);
+        } else {
+          this._ddm_searchType.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onTypeChange, this);
         }
       }
 

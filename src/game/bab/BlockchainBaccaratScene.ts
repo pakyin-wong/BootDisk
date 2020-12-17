@@ -27,7 +27,7 @@ namespace we {
         if(this._gameData && this._gameData.hashedcardsList && this._gameData.hashedcardsList.length > 0){
           hashedcardsList = this._gameData.hashedcardsList
         }
-        if(this._gameData && this._gameData.maskedcardssnList && this._gameData.hashedcardsList.length > 0){
+        if(this._gameData && this._gameData.maskedcardssnList && this._gameData.maskedcardssnList.length > 0){
           maskedcardssnList = this._gameData.maskedcardssnList
         }
         super.setData(tableInfo);
@@ -42,7 +42,7 @@ namespace we {
         if(this._gameData && this._gameData.hashedcardsList && this._gameData.hashedcardsList.length > 0){
           hashedcardsList = this._gameData.hashedcardsList
         }
-        if(this._gameData && this._gameData.maskedcardssnList && this._gameData.hashedcardsList.length > 0){
+        if(this._gameData && this._gameData.maskedcardssnList && this._gameData.maskedcardssnList.length > 0){
           maskedcardssnList = this._gameData.maskedcardssnList
         }
         super.updateTableInfo(tableInfo)
@@ -52,13 +52,13 @@ namespace we {
 
       protected async updateCard(currentcardindex){
         if(!this.tableInfo || !this._tableInfo.hostid){
-          return;
+          return new Promise(resolve=>resolve());
         }
         await new Promise(resolve=>
-          {dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.CARD,currentcardindex,
+          {dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.CARD,currentcardindex - 1,
           (data) => {
             if(this._gameData && this._gameData.maskedcardssnList && data.maskedcardssnList && data.maskedcardssnList[0]){
-              this._gameData.maskedcardssnList[currentcardindex] = data.maskedcardssnList[0]
+              this._gameData.maskedcardssnList[currentcardindex - 1] = data.maskedcardssnList[0]
             }
             resolve();
           }
@@ -67,30 +67,34 @@ namespace we {
         return new Promise(resolve=>resolve());
       }
 
-      protected async updateMaskedSsn(){
-        if(!this.tableInfo || !this._tableInfo.hostid){
-          return;
+      protected async updateMaskedSsn() {
+        if (!this.tableInfo || !this._tableInfo.hostid) {
+          return new Promise(resolve => resolve());
         }
-        dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.MASK,null,
-          (data) => {
-            //console.log('markedssn', data)
-            this._gameData.maskedcardssnList = data.maskedcardssnList
-          }
+        await new Promise(resolve =>
+          dir.socket.getGameStatusBA(this._tableInfo.hostid, we.blockchain.RETRIEVE_OPTION.MASK, null,
+            (data) => {
+              this._gameData.maskedcardssnList = data.maskedcardssnList
+              resolve();
+            }
+          )
         )
+        return new Promise(resolve => resolve());
       }
 
-      protected async updateHash(){
-        if(!this.tableInfo || !this._tableInfo.hostid){
-          return;
+      protected async updateHash() {
+        if (!this.tableInfo || !this._tableInfo.hostid) {
+          return new Promise(resolve => resolve());
         }
-        dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.HASH,null,
-
-        //dir.socket.getGameStatusBA('S-BAB-o1l0not1i0',we.blockchain.RETRIEVE_OPTION.HASH,
-          (data)=> {
-            //console.log('hashedcardsList', data)
-            this._gameData.hashedcardsList = data.hashedcardsList
-          }
+        await new Promise(resolve =>
+          dir.socket.getGameStatusBA(this._tableInfo.hostid, we.blockchain.RETRIEVE_OPTION.HASH, null,
+            (data) => {
+              this._gameData.hashedcardsList = data.hashedcardsList
+              resolve();
+            }
+          )
         )
+        return new Promise(resolve => resolve());
       }
 
 
@@ -125,7 +129,6 @@ namespace we {
         // this._cardInfoPanel.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
         (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         (<any>this._resultDisplay).addEventListener('OPEN_SHUFFLE_PANEL', this.showShufflePanel, this);
-        this.getShoeInfo();
 
         if (!env.isMobile) {
           mouse.setButtonMode(this._helpButton, true);
@@ -290,7 +293,6 @@ namespace we {
 
       protected showCardInfoPanel(evt: egret.Event) {
         //console.log('showCardInfoPanel',evt.data)
-        this.getShoeInfo();
         (async() => {
           await this.updateCard(evt.data)
           this.runtimeGenerateCardInfoPanel();
@@ -303,10 +305,11 @@ namespace we {
         this.enableDeckButton(true);
       }
       protected showDeckPanel(evt: egret.Event) {
-        this.getShoeInfo();
-        this.updateMaskedSsn();
+                (async() => {
+                  await this.updateMaskedSsn();
         this.runtimeGenerateDeckPanel();
         this._deckPanel.show();
+                })();
       }
 
       protected showHelpPanel(evt: egret.Event) {
