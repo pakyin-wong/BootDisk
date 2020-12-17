@@ -18,7 +18,7 @@
 				<e:Image width="113" height="99" horizontalCenter="0" y="19" source="icon-shuffle_png"/>
 				<ui:RunTimeLabel id="_shuffleLabel" text="洗牌中" horizontalCenter="0" size="36" height="54" y="120" verticalAlign="middle" textAlign="center" textColor="0xcea56f"/>
 			</e:Group>
-			<e:Group right="20" y="24" x="498" scaleX="1" scaleY="1">
+			<e:Group id="_togglerGroup" right="20" y="24" x="498" scaleX="1" scaleY="1">
 				<ui:RunTimeLabel id="_toggler" textAlign="left" size="36" alpha=".7"/>
 				<e:Image source="m_common_panel_icon_dropdown_png" x="920" y="52" width="20.42" height="11.41" anchorOffsetX="0" anchorOffsetY="0"/>
 				<e:layout>
@@ -37,7 +37,7 @@
 				</e:layout>
 			</e:Group>
 		</e:Group>
-		<e:Group id="_contentContainerDynamic" left="0" right="0" top="0" bottom="0">
+		<e:Group id="_contentContainerDynamic" left="0" right="0" top="0" bottom="0" touchEnabled="false" touchThrough="true" touchChildren="false">
 			<ui:CountdownTimer id="_timer" width="66" height="66" x="16" y="12" skinName="skin_mobile.CountdownTimerRoundSmallSkin" scaleX="0.9" scaleY="0.9" anchorOffsetX="0" anchorOffsetY="0" rotation="360"/>
 			<ui:InGameMessage id="_message" anchorOffsetX="238.79" anchorOffsetY="42.5" skinName="skin_mobile_portrait.InGameMessageSkin" width="476" height="85" horizontalCenter="0" y="125" infoBg="m_common_gamestate_message_black_png" successBg="m_common_gamestate_message_green_png" errorBg="m_common_gamestate_message_red_png" x="37.99999999999997" scaleX="1" scaleY="1"/>
 		</e:Group>
@@ -55,7 +55,7 @@
 
 
 	</e:Group>
-	<e:Rect id="_dimmer" left="0" top="79" bottom="-2" right="0" fillAlpha="0.7" anchorOffsetY="0" visible="false" />
+	<e:Rect id="_dimmer" left="0" top="79" bottom="-2" right="0" fillAlpha="0.7" anchorOffsetY="0"  visible="false"/>
 	<e:Group id="_buttonGroup" width="552" x="0" y="110" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false"
 	         touchChildren="true">
 		<ui:RoundRectButton id="_quickBetButton" verticalCenter="0" left="40" width="219" height="70"

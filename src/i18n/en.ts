@@ -653,7 +653,7 @@ namespace we {
         allOpen: 'All Open',
         fullShoe: 'All cards in shoe',
         mechanismHelp: 'Details',
-        mechanismHelp1: "The game is dealt in an electronic mode. Evey card has a 'Private Key'",
+        mechanismHelp1: "The game is dealt in an electronic mode. Each shoe containing 8 decks of cards and evey card has a 'Private Key'",
         mechanismHelp2: "Evey card has a unique 'Private Key' and generates a 'Verified Serial Number' through SHA-256 encryption technology.",
         mechanismHelp3: "After the cards is opended, you can verify if the 'Private Key' matches the 'Serial Number', thus the fairness can be guaranteed.",
         mechanismHelp4: "You can copy the 'Verified Serial Number' and do the verification with 3rd party platform.",

@@ -67,7 +67,7 @@ namespace we {
 
       public expandBottom() {
         if (env.orientation === 'portrait') {
-          this._wholeMoveGroup.y = -410
+          this._wholeMoveGroup.y = -210
           if (this._gameData && this._gameData.state === core.GameState.BET) {
             this._resultGroup.y = -150
           } else {
@@ -114,7 +114,7 @@ namespace we {
 
       public collapseBottom() {
         if (env.orientation === 'portrait') {
-          this._wholeMoveGroup.y = -290
+          this._wholeMoveGroup.y = 0
           if (this._gameData && this._gameData.state === core.GameState.BET) {
             this._resultGroup.y = 59
           } else {
