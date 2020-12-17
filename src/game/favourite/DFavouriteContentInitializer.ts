@@ -240,7 +240,7 @@ namespace we {
       }
 
       protected updateNavbarOpacity(scrollV: number) {
-        const scrollTarget = 700;
+        const scrollTarget = 250;
         const ratio = Math.min(1, scrollV / scrollTarget);
         const opacity = egret.Ease.quintIn(ratio);
         this._tabbarBg.alpha = opacity;

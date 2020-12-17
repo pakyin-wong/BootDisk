@@ -104,12 +104,12 @@ export namespace core {
 				this.client.subscribe(core.MQTT.CLOSE, this.onConnectionClose, this);
 			}
 
-      public getGameStatusBA(hostID: string, option: number, index:number, callback?: Function){
-        this.client.getGameStatusBA(hostID,option,index,callback)
+      public getGameStatusBA(hostID: string, option: number, from:number, to: number, callback?: Function){
+        this.client.getGameStatusBA(hostID,option,from,to,callback)
       }
 
-      public getGameStatusDT(hostID: string, option: number, index:number, callback?: Function){
-        this.client.getGameStatusDT(hostID,option,index,callback)
+      public getGameStatusDT(hostID: string, option: number, from:number, to: number, callback?: Function){
+        this.client.getGameStatusDT(hostID,option,from,to,callback)
       }
 
       
@@ -655,6 +655,7 @@ export namespace core {
             dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, tableInfo.bets);
 
             // check good road notification
+            logger.l(utils.LogTarget.RELEASE, 'Local', env.showGoodRoadHint, tableInfo.displayReady, tableInfo.goodRoad);
             if (env.showGoodRoadHint && tableInfo.displayReady && tableInfo.goodRoad && !tableInfo.goodRoad.alreadyShown) {
               tableInfo.goodRoad.alreadyShown = true;
               const data = {
@@ -664,6 +665,7 @@ export namespace core {
                 type: core.NotificationType.GoodRoad,
                 data,
               };
+              logger.l(utils.LogTarget.RELEASE, 'Local Notify');
               dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
             }
           }
@@ -1361,6 +1363,7 @@ export namespace core {
           
           const tableInfo = env.tableInfos[tableid];
           if (tableInfo.data && tableInfo.data.state === core.GameState.BET) {
+            logger.l(utils.LogTarget.RELEASE, env.showGoodRoadHint, tableInfo.displayReady, tableInfo.goodRoad);
             if (env.showGoodRoadHint && tableInfo.displayReady && tableInfo.goodRoad && !tableInfo.goodRoad.alreadyShown) {
               tableInfo.goodRoad.alreadyShown = true;
               const data = {
@@ -1370,6 +1373,7 @@ export namespace core {
                 type: core.NotificationType.GoodRoad,
                 data,
               };
+              logger.l(utils.LogTarget.RELEASE, 'Notify');
               dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
             }
           }

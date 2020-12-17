@@ -28,6 +28,7 @@ namespace we {
       public strokeIn: number = 0;
       public strokeInColor: number = 0x0000ff;
       public strokeInAlpha: number = 1;
+      protected _labelTargetWidth: number = 0;
 
       // state - idle (all values = -2 will refer to the values in state - default)
       public fillColor_idle: string = '-2';
@@ -87,6 +88,7 @@ namespace we {
       public labelSize: number = 24;
       public labelAutoResize: boolean = true;
       public labelAutoResizeWidth: number = -1;
+      public labelOffsetX: number = 0;
 
       public value: number = 0;
 
@@ -114,7 +116,7 @@ namespace we {
 
         if (!this._label) {
           this._label = new RunTimeLabel();
-          this._label.horizontalCenter = 0;
+          this._label.horizontalCenter = this.labelOffsetX;
           this._label.verticalCenter = 0;
           // this._label.top = 10;
           // this._label.bottom = 10;
@@ -129,7 +131,6 @@ namespace we {
         }
 
         this._label.size = this.labelSize;
-
         if (this.labelAutoResize) {
           this._label.targetWidth = this.labelAutoResizeWidth > 0? this.labelAutoResizeWidth : this.width;
         }
@@ -177,6 +178,15 @@ namespace we {
 
       public set label(l: ui.RunTimeLabel) {
         this._label = l;
+      }
+
+      public get labelTargetWidth(): number {
+        return this._labelTargetWidth;
+      }
+
+      public set labelTargetWidth(val: number) {
+        this._labelTargetWidth = val;
+        if (this._label) this._label.targetWidth = val;
       }
 
       public set active(b) {

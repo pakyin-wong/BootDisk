@@ -62,9 +62,17 @@ if (env.isFirstTimeBam) {
       protected toggleBottomGamePanel() {
         super.toggleBottomGamePanel();
         if (env.isBottomPanelOpen) {
-          this._squeezeTimer.y = 362;
+          if (env.orientation === 'landscape') {
+            this._squeezeTimer.y = 1000;
+          } else {
+            this._squeezeTimer.y = 362;
+          }
         } else {
-          this._squeezeTimer.y = 488;
+           if (env.orientation === 'landscape') {
+             this._squeezeTimer.y = 1000;
+           } else {
+            this._squeezeTimer.y = 488;
+           }
 
         }
       }

@@ -17,6 +17,8 @@ namespace we {
       protected _cardInfoPanel: blockchain.CardInfoPanel;
       protected _historyCardHolder: we.ui.HistoryCardHolder;
       protected _resultDisplay: ui.IResultDisplay & we.blockchain.CardHolder;
+      protected _workaroundInterval = 500;
+      protected _gameTypeForGettingCardList = 'BA'
 
       public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat];
 
@@ -24,10 +26,10 @@ namespace we {
         let hashedcardsList = new Array();
         let maskedcardssnList = new Array();
 
-        if(this._gameData && this._gameData.hashedcardsList && this._gameData.hashedcardsList.length > 0){
+        if (this._gameData && this._gameData.hashedcardsList && this._gameData.hashedcardsList.length > 0) {
           hashedcardsList = this._gameData.hashedcardsList
         }
-        if(this._gameData && this._gameData.maskedcardssnList && this._gameData.maskedcardssnList.length > 0){
+        if (this._gameData && this._gameData.maskedcardssnList && this._gameData.maskedcardssnList.length > 0) {
           maskedcardssnList = this._gameData.maskedcardssnList
         }
         super.setData(tableInfo);
@@ -35,14 +37,14 @@ namespace we {
         this._gameData.maskedcardssnList = maskedcardssnList;
       }
 
-      protected updateTableInfo(tableInfo){
+      protected updateTableInfo(tableInfo) {
         let hashedcardsList = new Array();
         let maskedcardssnList = new Array();
 
-        if(this._gameData && this._gameData.hashedcardsList && this._gameData.hashedcardsList.length > 0){
+        if (this._gameData && this._gameData.hashedcardsList && this._gameData.hashedcardsList.length > 0) {
           hashedcardsList = this._gameData.hashedcardsList
         }
-        if(this._gameData && this._gameData.maskedcardssnList && this._gameData.maskedcardssnList.length > 0){
+        if (this._gameData && this._gameData.maskedcardssnList && this._gameData.maskedcardssnList.length > 0) {
           maskedcardssnList = this._gameData.maskedcardssnList
         }
         super.updateTableInfo(tableInfo)
@@ -50,58 +52,10 @@ namespace we {
         this._gameData.maskedcardssnList = maskedcardssnList;
       }
 
-      protected async updateCard(currentcardindex){
-        if(!this.tableInfo || !this._tableInfo.hostid){
-          return;
-        }
-        await new Promise(resolve=>
-          {dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.CARD,currentcardindex,
-          (data) => {
-            if(this._gameData && this._gameData.maskedcardssnList && data.maskedcardssnList && data.maskedcardssnList[0]){
-              this._gameData.maskedcardssnList[currentcardindex] = data.maskedcardssnList[0]
-            }
-            resolve();
-          }
-        )
-        });
-        return new Promise(resolve=>resolve());
+      protected mount() {
+        super.mount();
+        blockchain.getAll(this._gameData.cosmosshoeid,this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,300)
       }
-
-      protected async updateMaskedSsn(){
-        if(!this.tableInfo || !this._tableInfo.hostid){
-          return;
-        }
-        dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.MASK,null,
-          (data) => {
-            //console.log('markedssn', data)
-            this._gameData.maskedcardssnList = data.maskedcardssnList
-          }
-        )
-      }
-
-      protected async updateHash(){
-        if(!this.tableInfo || !this._tableInfo.hostid){
-          return;
-        }
-        dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.HASH,null,
-
-        //dir.socket.getGameStatusBA('S-BAB-o1l0not1i0',we.blockchain.RETRIEVE_OPTION.HASH,
-          (data)=> {
-            //console.log('hashedcardsList', data)
-            this._gameData.hashedcardsList = data.hashedcardsList
-          }
-        )
-      }
-
-
-      protected setupTableInfo() {
-        super.setupTableInfo();
-        this.updateMaskedSsn();
-        this.getShoeInfo();
-
-      }
-
-        
 
       protected initChildren() {
         super.initChildren();
@@ -112,10 +66,10 @@ namespace we {
         // this._deckPanel.setValue(this._gameData);
         // this._deckPanel.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         this._shufflePanel.addEventListener('ENABLE_DECK_BTN', this.enableDeckBtn, this);
-        this._message.addEventListener('DRAW_RED_CARD',this.newShoeMessage,this);
+        this._message.addEventListener('DRAW_RED_CARD', this.newShoeMessage, this);
         (<any>this._resultDisplay).addEventListener('SHOW_SHUFFLE_MESSAGE', this.showShuffleReadyMessage, this);
         this._historyCardHolder.setValue(this._gameData)
-                //========
+        //========
         // this._deckButton.addEventListener('ENABLE_DECK_BTN', this.enableDeckBtn, this);
         // this._message.addEventListener('DRAW_RED_CARD',this.newShoeMessage,this)
         // ========
@@ -125,22 +79,21 @@ namespace we {
         // this._cardInfoPanel.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
         (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         (<any>this._resultDisplay).addEventListener('OPEN_SHUFFLE_PANEL', this.showShufflePanel, this);
-        this.getShoeInfo();
 
         if (!env.isMobile) {
           mouse.setButtonMode(this._helpButton, true);
           mouse.setButtonMode(this._deckButton, true);
         }
-        this._beadRoadResultPanel._gameInfoLabel.text= null;
+        this._beadRoadResultPanel._gameInfoLabel.text = null;
 
         this._message.setDuration = 1000;
       }
 
-      protected passBackgroundToResultDisplay(){
+      protected passBackgroundToResultDisplay() {
         this._resultDisplay.passBackgrounds(null);
       }
 
-      protected instantiateVideo() {}
+      protected instantiateVideo() { }
 
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('BlockchainBaccaratScene');
@@ -161,7 +114,6 @@ namespace we {
             case core.GameState.IDLE:
               break;
             default:
-              // console.log('default state', this._gameData.state);
               this._resultDisplay.setDefaultStates();
               break;
           }
@@ -229,7 +181,7 @@ namespace we {
           this._helpPanel = helpPanel;
           this._helpPanel.addEventListener('POPPER_HIDE', this.onHelpPanelHide, this);
         }
-        
+
       }
 
       protected onDeckPanelHide(evt: egret.Event) {
@@ -257,7 +209,6 @@ namespace we {
 
         this._shufflePanel.hide();
         if (this._deckPanel) this._deckPanel.setValue(this._gameData);
-        // console.log('Blockchain scene bet state', this._gameData);
         if (isInit || this.previousState !== core.GameState.BET) {
           this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         }
@@ -267,46 +218,55 @@ namespace we {
         this._shufflePanel.hide();
         if (this._deckPanel) this._deckPanel.setValue(<bab.GameData>this._gameData);
         super.setStateDeal(isInit);
-        // console.log('Blockchain scene deal state', this._gameData);
       }
 
       protected setStateFinish(isInit: boolean) {
         this._shufflePanel.hide();
         if (this._deckPanel) this._deckPanel.setValue(<bab.GameData>this._gameData);
         super.setStateFinish(isInit);
-        // console.log('Blockchain scene finish state', this._gameData);
       }
 
       protected setStateShuffle(isInit: boolean) {
-        if(!isInit){
-          this.getShoeInfo();
-          this.updateMaskedSsn();
-        }
-        this.enableDeckButton(false);
-        super.setStateShuffle(isInit);
-        this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
-        this._historyCardHolder.clearAllCards();
+        (async () => {
+          if (!isInit) {
+            await blockchain.getAll(this._gameData.cosmosshoeid,this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,300)
+            //await blockchain.getGameStatus(this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,'maskedcardssnList',blockchain.RETRIEVE_OPTION.MASK,300)
+          }
+          this.enableDeckButton(false);
+          super.setStateShuffle(isInit);
+          this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
+          this._historyCardHolder.clearAllCards();
+        })()
       }
 
       protected showCardInfoPanel(evt: egret.Event) {
-        //console.log('showCardInfoPanel',evt.data)
-        this.getShoeInfo();
-        (async() => {
-          await this.updateCard(evt.data)
+
+        (async () => {
+          if(evt.data < this._gameData.currentcardindex &&
+            blockchain.getFirstNonOpenedCardIndex(this._gameData) <= evt.data){
+            await blockchain.getMaskedListRange(this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,+evt.data,+evt.data+1,300);
+          }
+
           this.runtimeGenerateCardInfoPanel();
           this._cardInfoPanel.setValue(this._gameData, evt.data);
           this._cardInfoPanel.show();
-        })()
+        })();
       }
 
       protected enableDeckBtn() {
         this.enableDeckButton(true);
       }
+
       protected showDeckPanel(evt: egret.Event) {
-        this.getShoeInfo();
-        this.updateMaskedSsn();
-        this.runtimeGenerateDeckPanel();
-        this._deckPanel.show();
+        (async () => {
+          if (blockchain.getFirstNonOpenedCardIndex(this._gameData) !== this._gameData.currentcardindex + 1) {
+
+            await blockchain.getGameStatus(this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,'maskedcardssnList',blockchain.RETRIEVE_OPTION.MASK,300)
+
+          }
+          this.runtimeGenerateDeckPanel();
+          this._deckPanel.show();
+        })();
       }
 
       protected showHelpPanel(evt: egret.Event) {
@@ -327,27 +287,7 @@ namespace we {
       protected enableDeckButton(enable: boolean) {
         this._deckButton.touchEnabled = enable;
         this._deckButton.touchChildren = enable;
-        this._deckButton.alpha = enable? 1 : 0.5;
-      }
-      protected async getShoeInfo() {
-        let obj;
-        let text;
-        try {
-          text = await utils.getText(`${env.blockchain.cosmolink}${this._gameData.cosmosshoeid}`);
-          obj = JSON.parse(text);
-          //console.log('getShoeInfo by blockchain', text)
-          if (obj.result.cards) {
-            //console.log('getShoeInfo', obj.result.cards)
-            this._gameData.hashedcardsList = obj.result.cards;
-            // console.log('get cosmo succeeded');
-          }
-          return new Promise(resolve => resolve());
-        } catch (error) {
-          //console.log('getShoeInfo by backend')
-          this.updateHash();
-          console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
-          return new Promise(resolve => resolve());
-        }
+        this._deckButton.alpha = enable ? 1 : 0.5;
       }
     }
   }

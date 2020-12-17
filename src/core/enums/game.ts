@@ -41,8 +41,10 @@ namespace we {
     export enum GameName {
       lobby = 'lobby',
       ba = 'ba',
+      bas = 'bas',
       bam = 'bam',
       bab = 'bab',
+      basb = 'basb',
       bamb = 'bamb',
       dt = 'dt',
       dtb = 'dtb',

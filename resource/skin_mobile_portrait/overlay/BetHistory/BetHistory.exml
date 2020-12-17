@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.BetHistorySkin" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*"
-        xmlns:bh="we.overlay.betHistory.*"  states="all,live,lottery,lotteryC" >
+        xmlns:bh="we.overlay.betHistory.*"  states="all,live,liveCredit,lottery,lotteryC" >
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
 		<e:Group top="0" bottom="0" left="0" right="0">
 			<e:Rect left="0" right="0" top="0" bottom="0" strokeColor="0x333c4a" strokeWeight="2" fillColor="0x14181e" x="0"
@@ -17,12 +17,12 @@
 					<e:HorizontalLayout gap="72" paddingLeft="48"/>
 				</e:layout>
 			</e:List>
-			<e:List id="_lottery_switch" height="74" y="402" width="528" visible.all="false" visible.live="false">
+			<e:List id="_lottery_switch" height="74" y="402" width="528" visible.all="false" visible.live="false" visible.liveCredit="false">
 				<e:layout>
 				<e:HorizontalLayout gap="72" paddingLeft="48"/>
 				</e:layout>
 			</e:List>
-			<e:List id="_lottery_submenu" height="74" y="402" left="528" right="0" visible.all="false" visible.live="false">
+			<e:List id="_lottery_submenu" height="74" y="402" left="528" right="0" visible.all="false" visible.live="false" visible.liveCredit="false">
 				<e:layout>
 				<e:HorizontalLayout paddingLeft="48" gap="72"/>
 				</e:layout>
@@ -33,7 +33,7 @@
 				<ui:RunTimeLabel id="_txt_record_game" text="Label" x="571" y="9" width="275" height="59" size="40" verticalAlign="middle" scaleX="1" scaleY="1"/>
 				<ui:RunTimeLabel id="_txt_record_win" text="Label" y="9" width="275" height="59" size="40" verticalAlign="middle" scaleX="1" scaleY="1" textAlign="right" x="920"/>
 			</e:Group>
-			<e:Group id="_clabel_bar" y="502" visible.all="false" visible.live="false" visible.lottery="false">
+			<e:Group id="_clabel_bar" y="502" visible.all="false" visible.live="false" visible.lottery="false" visible.liveCredit="false">
 				<e:Rect height="80" y="0" fillColor="0x1B416E" scaleX="1" scaleY="1" width="1242" x="0"/>
 				<ui:RunTimeLabel id="_txt_lcb_date" text="Label" x="47" y="9" width="500" size="40" verticalAlign="middle" height="59" textColor="0xD5D5D5" scaleX="1" scaleY="1"/>
 				<ui:RunTimeLabel id="_txt_lcb_game" text="Label" x="571" y="9" width="275" height="59" size="40" verticalAlign="middle" scaleX="1" scaleY="1"/>
@@ -47,7 +47,7 @@
 			</e:Skin>
 			</ui:RoundRectButton>
 			<e:Rect width="497" height="142" x="496" y="217" fillColor="0x0c2848" fillAlpha="0.4" ellipseHeight="142" ellipseWidth="142" scaleX="1" scaleY="1"/>
-			<ui:RoundRectButton id="_btn_date" cornerTL_TR_BL_BR="60,60,60,60" width="250" height="120" x="510" y="228" stroke="0" strokeIn="0" fillAlpha="0" fillAlpha_active="1" fillColor="0x1b416e"  labelSize="50" labelAutoResizeWidth="170" labelAutoResize="true">
+			<ui:RoundRectButton id="_btn_date" cornerTL_TR_BL_BR="60,60,60,60" width="250" height="120" x="515" y="228" stroke="0" strokeIn="0" fillAlpha="0" fillAlpha_active="1" fillColor="0x1b416e"  labelSize="50" labelAutoResizeWidth="175" labelAutoResize="true">
 			<e:Skin width="250" height="120">
 				<e:Image source="d_lobby_button_down_normal_png" width="80" height="80" y="22" x="161" touchEnabled="false" />
 	<ui:RunTimeLabel id="_label" text="今日" size="50" horizontalCenter="-40" verticalCenter="0" height="74" verticalAlign="middle" textAlign="center"/>

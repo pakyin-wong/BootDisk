@@ -67,7 +67,7 @@ namespace we {
 
       public expandBottom() {
         if (env.orientation === 'portrait') {
-          this._wholeMoveGroup.y = -410
+          this._wholeMoveGroup.y = -210
           if (this._gameData && this._gameData.state === core.GameState.BET) {
             this._resultGroup.y = -150
           } else {
@@ -114,7 +114,7 @@ namespace we {
 
       public collapseBottom() {
         if (env.orientation === 'portrait') {
-          this._wholeMoveGroup.y = -290
+          this._wholeMoveGroup.y = 0
           if (this._gameData && this._gameData.state === core.GameState.BET) {
             this._resultGroup.y = 59
           } else {
@@ -235,6 +235,22 @@ namespace we {
 
       protected setStateFinish(isInit: boolean){
         this._mask.visible = false;
+
+        if(env.orientation !== 'portrait'){
+          this._playerCardMoveGroup.x = 829;
+          this._bankerCardMoveGroup.right = 829;
+          this._playerCard3Group.x = 639;
+          this._bankerCard3Group.right = 639;
+          this._playerCardMoveGroup.y = 757;
+          this._bankerCardMoveGroup.y = 757;
+          this._playerCard3Group.y = 757;
+          this._bankerCard3Group.y = 757;
+          this._playerSumGroup.x = 1109;
+          this._bankerSumGroup.right = 1109;
+          this._playerSumGroup.y = 799;
+          this._bankerSumGroup.y = 799;
+        }
+
         super.setStateFinish(isInit);
       }
 

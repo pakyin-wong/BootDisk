@@ -31,6 +31,9 @@ namespace we {
       protected _bankerTotalAmount: number = 0;
       protected _mobileBlockchainBarType: string = 'ba';
 
+      protected _gameTypeForGettingCardList = 'BA';
+
+
       public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat];
       protected _navLayer: eui.Group;
 
@@ -39,7 +42,7 @@ namespace we {
         this._skinKey = 'BlockchainBaccaratScene';
       }
 
-      protected instantiateVideo() {}
+      protected instantiateVideo() { }
 
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
@@ -52,7 +55,7 @@ namespace we {
         // this._deckPanel.addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
         // this._cardInfoPanel.addEventListener('OPEN_DECK_PANEL', this.showDeckPanel, this);
         // this._cardInfoPanel.addEventListener('OPEN_HELP_PANEL', this.showHelpPanel, this);
-        (<any> this._resultDisplay).addEventListener('SHOW_SHUFFLE_MESSAGE', this.showShuffleReadyMessage, this);
+        (<any>this._resultDisplay).addEventListener('SHOW_SHUFFLE_MESSAGE', this.showShuffleReadyMessage, this);
         this._helpButton.addEventListener(
           egret.TouchEvent.TOUCH_TAP,
           () => {
@@ -67,9 +70,8 @@ namespace we {
           },
           this
         );
-        (<any> this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
-        (<any> this._resultDisplay).addEventListener('OPEN_SHUFFLE_PANEL', this.showShufflePanel, this);
-        this.getShoeInfo();
+        (<any>this._resultDisplay).addEventListener('OPEN_CARDINFO_PANEL', this.showCardInfoPanel, this);
+        (<any>this._resultDisplay).addEventListener('OPEN_SHUFFLE_PANEL', this.showShufflePanel, this);
         this._bottomGamePanel.addEventListener('TOGGLE', this.toggleBottomGamePanel, this);
 
         if (this._navLayer) {
@@ -207,15 +209,17 @@ namespace we {
       }
 
       protected setStateShuffle(isInit: boolean) {
-        if(!isInit){//because if isInit, it already gets in setupTableInfo
-          this.getShoeInfo();
-          this.updateMaskedSsn();
-        }
-        super.setStateShuffle(isInit);
-        this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
-        this.hideSumGroup();
-        this.toggleBottomGamePanel();
-        this._historyCardHolder.clearAllCards();
+        (async () => {
+          if (!isInit) {//because if isInit, it already gets in setupTableInfo
+            await blockchain.getAll(this._gameData.cosmosshoeid,this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,300);
+            //await blockchain.getGameStatus(this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,'maskedcardssnList',blockchain.RETRIEVE_OPTION.MASK,300)
+          }
+          super.setStateShuffle(isInit);
+          this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
+          this.hideSumGroup();
+          this.toggleBottomGamePanel();
+          this._historyCardHolder.clearAllCards();
+        })();
       }
 
       protected setStateIdle(isInit: boolean) {
@@ -254,19 +258,24 @@ namespace we {
       }
 
       protected showDeckPanel() {
-        this.getShoeInfo();
-        this.updateMaskedSsn();
-        this.createSwipeUpPanel();
-        this._slideUpMenu.showDeckPanel(<bab.GameData> this._gameData);
-        this._slideUpMenu.addEventListener('CLOSE', this.removeSwipeUpPanel, this);
+        (async () => {
+          if (blockchain.getFirstNonOpenedCardIndex(this._gameData) !== this._gameData.currentcardindex + 1) {
+            await blockchain.getGameStatus(this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,'maskedcardssnList',blockchain.RETRIEVE_OPTION.MASK,300)
+          }
+          this.createSwipeUpPanel();
+          this._slideUpMenu.showDeckPanel(<bab.GameData>this._gameData);
+          this._slideUpMenu.addEventListener('CLOSE', this.removeSwipeUpPanel, this);
+        })();
       }
 
       public showCardInfoPanel(evt: egret.Event) {
-        this.getShoeInfo();
-        (async() => {
-          await this.updateCard(evt.data)
+        (async () => {
+          if(evt.data < this._gameData.currentcardindex &&
+            blockchain.getFirstNonOpenedCardIndex(this._gameData) <= evt.data){
+            await blockchain.getMaskedListRange(this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,+evt.data,+evt.data+1,300);
+          }
           this.createSwipeUpPanel();
-          this._slideUpMenu.showCardInfoPanel(<bab.GameData> this._gameData, evt.data);
+          this._slideUpMenu.showCardInfoPanel(<bab.GameData>this._gameData, evt.data);
           this._slideUpMenu.addEventListener('CLOSE', this.removeSwipeUpPanel, this);
         })()
       }
@@ -293,29 +302,11 @@ namespace we {
       }
 
       protected showSumGroup() {
-        (<we.bab.MobileCardHolder> this._resultDisplay).showSumGroup();
+        (<we.bab.MobileCardHolder>this._resultDisplay).showSumGroup();
       }
 
       protected hideSumGroup() {
-        (<we.bab.MobileCardHolder> this._resultDisplay).hideSumGroup();
-      }
-
-      protected async getShoeInfo() {
-        let obj;
-        let text;
-        try {
-          text = await utils.getText(`${env.blockchain.cosmolink}${this._gameData.cosmosshoeid}`);
-          obj = JSON.parse(text);
-          if (obj.result.cards) {
-            this._gameData.hashedcardsList = obj.result.cards;
-            // console.log('get cosmo succeeded');
-          }
-          return new Promise(resolve => resolve());
-        } catch (error) {
-          this.updateHash();
-          console.log('GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
-          return new Promise(resolve => resolve());
-        }
+        (<we.bab.MobileCardHolder>this._resultDisplay).hideSumGroup();
       }
 
       protected initChildren() {
@@ -331,7 +322,7 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             this.updateMobileBlockchainBar(evt);
           }
@@ -368,10 +359,10 @@ namespace we {
         let hashedcardsList = new Array();
         let maskedcardssnList = new Array();
 
-        if(this._gameData && this._gameData.hashedcardsList && this._gameData.hashedcardsList.length > 0){
+        if (this._gameData && this._gameData.hashedcardsList && this._gameData.hashedcardsList.length > 0) {
           hashedcardsList = this._gameData.hashedcardsList
         }
-        if(this._gameData && this._gameData.maskedcardssnList && this._gameData.maskedcardssnList.length > 0){
+        if (this._gameData && this._gameData.maskedcardssnList && this._gameData.maskedcardssnList.length > 0) {
           maskedcardssnList = this._gameData.maskedcardssnList
         }
         super.setData(tableInfo);
@@ -379,14 +370,14 @@ namespace we {
         this._gameData.maskedcardssnList = maskedcardssnList;
       }
 
-      protected updateTableInfo(tableInfo){
+      protected updateTableInfo(tableInfo) {
         let hashedcardsList = new Array();
         let maskedcardssnList = new Array();
 
-        if(this._gameData && this._gameData.hashedcardsList && this._gameData.hashedcardsList.length > 0){
+        if (this._gameData && this._gameData.hashedcardsList && this._gameData.hashedcardsList.length > 0) {
           hashedcardsList = this._gameData.hashedcardsList
         }
-        if(this._gameData && this._gameData.maskedcardssnList && this._gameData.maskedcardssnList.length > 0){
+        if (this._gameData && this._gameData.maskedcardssnList && this._gameData.maskedcardssnList.length > 0) {
           maskedcardssnList = this._gameData.maskedcardssnList
         }
         super.updateTableInfo(tableInfo)
@@ -394,47 +385,10 @@ namespace we {
         this._gameData.maskedcardssnList = maskedcardssnList;
       }
 
-      protected async updateCard(currentcardindex){
-        if(!this.tableInfo || !this._tableInfo.hostid){
-          return;
-        }
-        await new Promise(resolve=>
-          {dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.CARD,currentcardindex,
-          (data) => {
-            if(this._gameData && this._gameData.maskedcardssnList && data.maskedcardssnList && data.maskedcardssnList[0]){
-              this._gameData.maskedcardssnList[currentcardindex] = data.maskedcardssnList[0]
-            }
-            resolve();
-          }
-        )
-        });
-        return new Promise(resolve=>resolve());
+      protected mount() {
+        super.mount();
+        blockchain.getAll(this._gameData.cosmosshoeid,this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,300)
       }
-
-      protected async updateMaskedSsn(){
-        if(!this.tableInfo || !this._tableInfo.hostid){
-          return;
-        }
-        dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.MASK,null,
-          (data) => this._gameData.maskedcardssnList = data.maskedcardssnList
-        )
-      }
-
-      protected async updateHash(){
-        if(!this.tableInfo || !this._tableInfo.hostid){
-          return;
-        }
-        dir.socket.getGameStatusBA(this._tableInfo.hostid,we.blockchain.RETRIEVE_OPTION.HASH,null,
-          (data)=> this._gameData.hashedcardsList = data.hashedcardsList
-        )
-      }
-
-      protected setupTableInfo() {
-        super.setupTableInfo();
-        this.updateMaskedSsn();
-        this.getShoeInfo();
-      }
-
     }
   }
 }

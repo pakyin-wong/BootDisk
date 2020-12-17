@@ -11,7 +11,7 @@
       "sourceW": 396,
       "sourceH": 36
     },
-    "d_common_panel_setting_uicolour_active_png": {
+    "d_common_panel_setting_uicolour_png": {
       "x": 2,
       "y": 42,
       "w": 156,
@@ -21,18 +21,18 @@
       "sourceW": 156,
       "sourceH": 116
     },
-    "d_common_panel_setting_uicolour_png": {
+    "d_common_panel_setting_uicolour_active_png": {
       "x": 162,
       "y": 42,
-      "w": 156,
-      "h": 116,
+      "w": 98,
+      "h": 78,
       "offX": 0,
       "offY": 0,
-      "sourceW": 156,
-      "sourceH": 116
+      "sourceW": 98,
+      "sourceH": 78
     },
     "d_lobby_button_search_hover_png": {
-      "x": 322,
+      "x": 264,
       "y": 42,
       "w": 48,
       "h": 48,
@@ -42,7 +42,7 @@
       "sourceH": 48
     },
     "d_lobby_button_search_normal_png": {
-      "x": 322,
+      "x": 264,
       "y": 94,
       "w": 48,
       "h": 48,
@@ -52,8 +52,8 @@
       "sourceH": 48
     },
     "d_lobby_button_add_road_banker_png": {
-      "x": 2,
-      "y": 162,
+      "x": 316,
+      "y": 42,
       "w": 46,
       "h": 46,
       "offX": 0,
@@ -62,8 +62,8 @@
       "sourceH": 46
     },
     "d_lobby_button_add_road_player_png": {
-      "x": 52,
-      "y": 162,
+      "x": 316,
+      "y": 92,
       "w": 46,
       "h": 46,
       "offX": 0,
@@ -72,7 +72,7 @@
       "sourceH": 46
     },
     "d_lobby_button_clear_road_png": {
-      "x": 102,
+      "x": 2,
       "y": 162,
       "w": 46,
       "h": 46,
@@ -82,7 +82,7 @@
       "sourceH": 46
     },
     "d_lobby_button_deduct_png": {
-      "x": 152,
+      "x": 52,
       "y": 162,
       "w": 46,
       "h": 46,
@@ -92,7 +92,7 @@
       "sourceH": 46
     },
     "d_lobby_button_down_hover_png": {
-      "x": 202,
+      "x": 102,
       "y": 162,
       "w": 46,
       "h": 46,
@@ -102,7 +102,7 @@
       "sourceH": 46
     },
     "d_lobby_button_down_normal_png": {
-      "x": 252,
+      "x": 152,
       "y": 162,
       "w": 46,
       "h": 46,
@@ -112,8 +112,8 @@
       "sourceH": 46
     },
     "d_lobby_button_next_hover_png": {
-      "x": 302,
-      "y": 162,
+      "x": 202,
+      "y": 124,
       "w": 46,
       "h": 46,
       "offX": 0,
@@ -122,7 +122,7 @@
       "sourceH": 46
     },
     "d_lobby_button_next_normal_png": {
-      "x": 352,
+      "x": 252,
       "y": 146,
       "w": 46,
       "h": 46,
@@ -132,8 +132,8 @@
       "sourceH": 46
     },
     "d_lobby_button_prev_hover_png": {
-      "x": 352,
-      "y": 196,
+      "x": 302,
+      "y": 146,
       "w": 46,
       "h": 46,
       "offX": 0,
@@ -142,8 +142,8 @@
       "sourceH": 46
     },
     "d_lobby_button_prev_normal_png": {
-      "x": 2,
-      "y": 212,
+      "x": 352,
+      "y": 142,
       "w": 46,
       "h": 46,
       "offX": 0,
@@ -152,8 +152,8 @@
       "sourceH": 46
     },
     "d_lobby_panel_button_page_next_normal_png": {
-      "x": 52,
-      "y": 212,
+      "x": 202,
+      "y": 174,
       "w": 46,
       "h": 46,
       "offX": 0,
@@ -162,8 +162,8 @@
       "sourceH": 46
     },
     "d_lobby_panel_button_page_prev_normal_png": {
-      "x": 102,
-      "y": 212,
+      "x": 352,
+      "y": 192,
       "w": 46,
       "h": 46,
       "offX": 0,
@@ -172,7 +172,7 @@
       "sourceH": 46
     },
     "d_lobby_goodroadsetting_hover_png": {
-      "x": 152,
+      "x": 2,
       "y": 212,
       "w": 44,
       "h": 44,
@@ -182,7 +182,7 @@
       "sourceH": 44
     },
     "d_lobby_goodroadsetting_normal_png": {
-      "x": 200,
+      "x": 50,
       "y": 212,
       "w": 44,
       "h": 44,
@@ -192,7 +192,7 @@
       "sourceH": 44
     },
     "d_lobby_Icon_chart_hover_png": {
-      "x": 248,
+      "x": 98,
       "y": 212,
       "w": 40,
       "h": 40,
@@ -202,7 +202,7 @@
       "sourceH": 40
     },
     "d_lobby_Icon_chart_normal_png": {
-      "x": 292,
+      "x": 142,
       "y": 212,
       "w": 40,
       "h": 40,
@@ -212,8 +212,8 @@
       "sourceH": 40
     },
     "d_lobby_Icon_edit_hover_png": {
-      "x": 2,
-      "y": 262,
+      "x": 252,
+      "y": 196,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -222,8 +222,8 @@
       "sourceH": 40
     },
     "d_lobby_Icon_edit_normal_png": {
-      "x": 46,
-      "y": 262,
+      "x": 296,
+      "y": 196,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -232,8 +232,8 @@
       "sourceH": 40
     },
     "d_lobby_Icon_record_hover_png": {
-      "x": 90,
-      "y": 262,
+      "x": 2,
+      "y": 260,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -242,8 +242,8 @@
       "sourceH": 40
     },
     "d_lobby_Icon_record_normal_png": {
-      "x": 134,
-      "y": 262,
+      "x": 46,
+      "y": 260,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -252,7 +252,7 @@
       "sourceH": 40
     },
     "d_lobby_Icon_setting_hover_png": {
-      "x": 178,
+      "x": 90,
       "y": 260,
       "w": 40,
       "h": 40,
@@ -262,8 +262,8 @@
       "sourceH": 40
     },
     "d_lobby_Icon_setting_normal_png": {
-      "x": 222,
-      "y": 260,
+      "x": 134,
+      "y": 256,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -272,7 +272,7 @@
       "sourceH": 40
     },
     "d_lobby_goodroad_select_active_png": {
-      "x": 266,
+      "x": 178,
       "y": 256,
       "w": 40,
       "h": 40,
@@ -282,8 +282,8 @@
       "sourceH": 40
     },
     "d_lobby_goodroad_select_hover_png": {
-      "x": 310,
-      "y": 256,
+      "x": 222,
+      "y": 242,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -292,8 +292,8 @@
       "sourceH": 40
     },
     "d_lobby_goodroad_select_png": {
-      "x": 354,
-      "y": 246,
+      "x": 266,
+      "y": 242,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -302,8 +302,8 @@
       "sourceH": 40
     },
     "d_lobby_panel_button_play_hover_png": {
-      "x": 2,
-      "y": 306,
+      "x": 310,
+      "y": 240,
       "w": 37,
       "h": 37,
       "offX": 0,
@@ -312,8 +312,8 @@
       "sourceH": 37
     },
     "d_lobby_panel_button_play_normal_png": {
-      "x": 43,
-      "y": 306,
+      "x": 351,
+      "y": 242,
       "w": 37,
       "h": 37,
       "offX": 0,
@@ -322,8 +322,8 @@
       "sourceH": 37
     },
     "d_lobby_goodroad_icon_previous_png": {
-      "x": 84,
-      "y": 306,
+      "x": 366,
+      "y": 42,
       "w": 32,
       "h": 32,
       "offX": 0,
@@ -332,8 +332,8 @@
       "sourceH": 32
     },
     "d_common_panel_systemsetting_pressed_select_png": {
-      "x": 120,
-      "y": 306,
+      "x": 366,
+      "y": 78,
       "w": 30,
       "h": 30,
       "offX": 0,
@@ -342,8 +342,8 @@
       "sourceH": 30
     },
     "d_lobby_profile_edit_hover_png": {
-      "x": 154,
-      "y": 306,
+      "x": 162,
+      "y": 124,
       "w": 30,
       "h": 30,
       "offX": 0,
@@ -352,7 +352,7 @@
       "sourceH": 30
     },
     "d_lobby_profile_edit_normal_png": {
-      "x": 188,
+      "x": 2,
       "y": 304,
       "w": 30,
       "h": 30,
@@ -362,7 +362,7 @@
       "sourceH": 30
     },
     "d_lobby_profile_reload_hover_png": {
-      "x": 222,
+      "x": 36,
       "y": 304,
       "w": 30,
       "h": 30,
@@ -372,8 +372,8 @@
       "sourceH": 30
     },
     "d_lobby_Icon_logout_hover_png": {
-      "x": 256,
-      "y": 304,
+      "x": 186,
+      "y": 224,
       "w": 27,
       "h": 27,
       "offX": 0,
@@ -382,8 +382,8 @@
       "sourceH": 27
     },
     "d_lobby_Icon_logout_normal_png": {
-      "x": 287,
-      "y": 300,
+      "x": 70,
+      "y": 304,
       "w": 27,
       "h": 27,
       "offX": 0,
@@ -392,8 +392,8 @@
       "sourceH": 27
     },
     "d_lobby_goodroadsetting_icon_trash_png": {
-      "x": 374,
-      "y": 42,
+      "x": 366,
+      "y": 112,
       "w": 21,
       "h": 24,
       "offX": 0,
@@ -402,8 +402,8 @@
       "sourceH": 24
     },
     "d_lobby_button_pagenav_png": {
-      "x": 374,
-      "y": 70,
+      "x": 101,
+      "y": 304,
       "w": 13,
       "h": 22,
       "offX": 0,
@@ -412,8 +412,8 @@
       "sourceH": 22
     },
     "d_lobby_panel_button_checkboxes_active_png": {
-      "x": 374,
-      "y": 96,
+      "x": 118,
+      "y": 304,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -422,7 +422,7 @@
       "sourceH": 22
     },
     "d_lobby_panel_button_checkboxes_normal_png": {
-      "x": 318,
+      "x": 144,
       "y": 300,
       "w": 22,
       "h": 22,
@@ -432,8 +432,8 @@
       "sourceH": 22
     },
     "d_lobby_goodroad_textbox_btn_clear_png": {
-      "x": 374,
-      "y": 122,
+      "x": 170,
+      "y": 300,
       "w": 19,
       "h": 19,
       "offX": 0,
@@ -442,7 +442,7 @@
       "sourceH": 19
     },
     "d_lobby_btn_bet_icon_close_png": {
-      "x": 344,
+      "x": 193,
       "y": 300,
       "w": 18,
       "h": 18,
@@ -452,8 +452,8 @@
       "sourceH": 18
     },
     "d_lobby_form_textclear_png": {
-      "x": 344,
-      "y": 322,
+      "x": 215,
+      "y": 300,
       "w": 17,
       "h": 18,
       "offX": 0,
@@ -462,8 +462,8 @@
       "sourceH": 18
     },
     "d_lobby_button_triangle_next_png": {
-      "x": 318,
-      "y": 326,
+      "x": 310,
+      "y": 281,
       "w": 10,
       "h": 17,
       "offX": 0,
@@ -472,8 +472,8 @@
       "sourceH": 17
     },
     "d_lobby_button_triangle_prev_png": {
-      "x": 336,
-      "y": 212,
+      "x": 324,
+      "y": 281,
       "w": 10,
       "h": 17,
       "offX": 0,
@@ -482,8 +482,8 @@
       "sourceH": 17
     },
     "d_lobby_btn_dropdown_png": {
-      "x": 322,
-      "y": 146,
+      "x": 144,
+      "y": 326,
       "w": 16,
       "h": 10,
       "offX": 0,
@@ -492,8 +492,8 @@
       "sourceH": 10
     },
     "d_lobby_btn_dropup_popover_png": {
-      "x": 287,
-      "y": 331,
+      "x": 222,
+      "y": 286,
       "w": 16,
       "h": 10,
       "offX": 0,
@@ -502,7 +502,7 @@
       "sourceH": 10
     },
     "d_lobby_profile_reload_normal_png": {
-      "x": 222,
+      "x": 36,
       "y": 304,
       "w": 30,
       "h": 30,

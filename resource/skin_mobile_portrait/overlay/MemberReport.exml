@@ -21,7 +21,7 @@
 		                   skinName="skin_mobile_portrait.OverlayPanelButton" active="true" />
 		-->
 		<ui:RoundRectButton id="_btn_searchType" cornerTL_TR_BL_BR="60,60,60,60" width="400" height="120" x="48" y="318"
-		                    stroke="0" strokeIn="0" fillAlpha="1" fillColor="0x1b416e" />
+		                    stroke="0" strokeIn="0" fillAlpha="1" fillColor="0x1b416e" labelAutoResizeWidth="280" labelAutoResize='true' labelOffsetX="-30" />
 		<e:Image source="d_lobby_button_down_normal_png" width="80" height="80" y="340" x="345" touchEnabled="false" />
 		<!--<ui:BaseButton id="_btn_custom" width="252" height="120" x="727" y="318"
 		                   skinName="skin_mobile_portrait.OverlayPanelSwitch" />

@@ -80,10 +80,10 @@ namespace we {
         };
 
         if (this._gameData.state === core.GameState.BET) {
-          this._playerSum.visible = false;
+          // this._playerSum.visible = false;
           this._playerSum.text = '0';
         } else {
-          this._playerSum.visible = true;
+          // this._playerSum.visible = true;
         }
         let playerSum = 0;
         playerSum += getPointFromCard(this._playerCard1, this._gameData.b1);
@@ -101,10 +101,10 @@ namespace we {
           return 0;
         };
         if (this._gameData.state === core.GameState.BET) {
-          this._bankerSum.visible = false;
+          // this._bankerSum.visible = false;
           this._bankerSum.text = '0';
         } else {
-          this._bankerSum.visible = true;
+          // this._bankerSum.visible = true;
         }
 
         let bankerSum = 0;
