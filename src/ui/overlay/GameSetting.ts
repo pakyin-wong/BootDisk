@@ -85,14 +85,14 @@ namespace we {
       protected onSwitchShowHint(e) {
         env.showGoodRoadHint = this.switch_showHint.active = !env.showGoodRoadHint;
         // console.log('env.showGoodRoadHint', env.showGoodRoadHint);
-
+        dir.audioCtr.play(env.showGoodRoadHint ? 'ui_sfx_penal_open_mp3':'ui_sfx_penal_close_mp3' );
         const rslt = env.showGoodRoadHint ? '1' : '0';
         dir.socket.updateSetting('showGoodRoadHint', env.showGoodRoadHint === true ? '1' : '0');
       }
 
       protected onSwitchAutoBet(e) {
         env.autoConfirmBet = this.switch_autoBet.active = !env.autoConfirmBet;
-
+        dir.audioCtr.play(env.autoConfirmBet ? 'ui_sfx_penal_open_mp3':'ui_sfx_penal_close_mp3' );
         const rslt = env.autoConfirmBet ? '1' : '0';
         dir.evtHandler.dispatch(core.Event.SWITCH_AUTO_CONFIRM_BET, env.autoConfirmBet);
         dir.socket.updateSetting('autoConfirmBet', env.autoConfirmBet === true ? '1' : '0');
