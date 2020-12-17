@@ -181,18 +181,17 @@ namespace we {
             break;
           }
           case ba.WinType.TIE: {
-            if (superSixMode) {
+            // if (superSixMode) {
               winningFields.push(ba.BetField.SUPER_SIX_TIE);
-            } else {
+            // } else {
               winningFields.push(ba.BetField.TIE);
-            }
+            // }
             break;
           }
           default: {
             break;
           }
         }
-
         winningFields.map(fieldName => {
           const colorMatrix = [1, 0, 0, 0, 100, 0, 1, 0, 0, 100, 0, 0, 1, 0, 100, 0, 0, 0, 1, 0];
           const brightnessFilter = new we.ui.BrightnessFilter(colorMatrix);
