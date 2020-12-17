@@ -162,22 +162,22 @@ namespace we {
 
         switch (wintype) {
           case ba.WinType.BANKER: {
-            if (superSixMode) {
+            // if (superSixMode) {
               winningFields.push(ba.BetField.SUPER_SIX_BANKER);
-            } else {
+            // } else {
               winningFields.push(ba.BetField.BANKER);
-            }
+            // }
             if (bankerpoint == 6) {
               winningFields.push(ba.BetField.SUPER_SIX);
             }
             break;
           }
           case ba.WinType.PLAYER: {
-            if (superSixMode) {
+            // if (superSixMode) {
               winningFields.push(ba.BetField.SUPER_SIX_PLAYER);
-            } else {
+            // } else {
               winningFields.push(ba.BetField.PLAYER);
-            }
+            // }
             break;
           }
           case ba.WinType.TIE: {

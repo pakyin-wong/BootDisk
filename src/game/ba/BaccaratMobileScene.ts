@@ -383,8 +383,8 @@ namespace we {
           case core.GameType.BAB:
           case core.GameType.BASB:
           case core.GameType.BAMB: {
-            // (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.selected);
-            (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.enabled);
+            (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.selected);
+            // (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.enabled);
             switch (this._gameData.wintype) {
               case ba.WinType.BANKER: {
                 subject = 'banker';
