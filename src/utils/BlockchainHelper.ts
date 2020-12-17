@@ -61,13 +61,13 @@ namespace we {
             try {
                 text = await utils.getText(`${env.blockchain.cosmolink}${gameData.cosmosshoeid}`);
                 obj = JSON.parse(text);
-/*
+
                 if (obj && obj.result && obj.result.cards) {
                     gameData.hashedcardsList = obj.result.cards;
                 } else {
-  */        
+  
                     throw new Error();
-    //            }
+                }
             } catch (error) {
                 await blockchain.getGameStatus(type, tableInfo, hostid, gameData, HASHEDCARDSLIST, blockchain.RETRIEVE_OPTION.HASH, sleep);
                 logger.l(utils.LogTarget.DEV, 'GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
