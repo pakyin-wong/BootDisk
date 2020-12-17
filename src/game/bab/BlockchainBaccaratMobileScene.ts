@@ -206,15 +206,17 @@ namespace we {
       }
 
       protected setStateShuffle(isInit: boolean) {
+        (async()=>{
         if (!isInit) {//because if isInit, it already gets in setupTableInfo
-          this.getShoeInfo();
-          this.updateMaskedSsn();
+          await this.getShoeInfo();
+          await this.updateMaskedSsn();
         }
         super.setStateShuffle(isInit);
         this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         this.hideSumGroup();
         this.toggleBottomGamePanel();
         this._historyCardHolder.clearAllCards();
+        })();
       }
 
       protected setStateIdle(isInit: boolean) {
@@ -442,8 +444,11 @@ namespace we {
 
       protected setupTableInfo() {
         super.setupTableInfo();
-        this.updateMaskedSsn();
-        this.getShoeInfo();
+        (async()=>{
+        await this.getShoeInfo();
+        await this.updateMaskedSsn();
+        })()
+
       }
 
     }
