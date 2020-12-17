@@ -100,6 +100,7 @@ namespace we {
                 )
                 logger.l(utils.LogTarget.DEV, 'GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
             }
+            await utils.sleep(300)
             await new Promise(resolve =>
                 dir.socket[`getGameStatus${type}`](hostid, blockchain.RETRIEVE_OPTION.MASK, null, null,
                     (data) => {
@@ -135,11 +136,14 @@ namespace we {
         }
 
         export function getFirstNonOpenedCardIndex(gameData) {
+
             if (!gameData || !gameData.maskedcardssnList) {
                 return 0;
             }
             let result = 0;
-            for (let i = utils.cardToNumberForFirstCard(gameData.firstcard) + 1; i < gameData.maskedcardssnList.length; i++) {
+
+            for (let i = +(utils.cardToNumberForFirstCard(gameData.firstcard)) + 1; i < gameData.maskedcardssnList.length; i++) {
+
                 if (!gameData.maskedcardssnList[i] || gameData.maskedcardssnList[i][0] === '*') {
                     result = i
                     break;
