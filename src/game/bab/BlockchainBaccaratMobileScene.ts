@@ -259,7 +259,7 @@ namespace we {
 
       protected showDeckPanel() {
         (async () => {
-          if(blockchain.getFirstNonOpenedCardIndex(this._gameData) < this._gameData.currentcardindex){
+          if (blockchain.getFirstNonOpenedCardIndex(this._gameData) !== this._gameData.currentcardindex + 1) {
             await blockchain.getGameStatus(this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,'maskedcardssnList',blockchain.RETRIEVE_OPTION.MASK,300)
           }
           this.createSwipeUpPanel();
@@ -270,7 +270,8 @@ namespace we {
 
       public showCardInfoPanel(evt: egret.Event) {
         (async () => {
-          if (this._gameData.maskedcardssnList[evt.data - 1] && this._gameData.maskedcardssnList[evt.data - 1][0] && this._gameData.maskedcardssnList[evt.data - 1][0] === '*') {
+          if(evt.data < this._gameData.currentcardindex &&
+            blockchain.getFirstNonOpenedCardIndex(this._gameData) <= evt.data){
             await blockchain.getMaskedListRange(this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,+this._gameData.currentcardindex,+this._gameData.currentcardindex+1,300);
           }
           this.createSwipeUpPanel();
@@ -384,12 +385,9 @@ namespace we {
         this._gameData.maskedcardssnList = maskedcardssnList;
       }
 
-      public onEnter() {
-        super.onEnter();
-        (async () => {
-          await blockchain.getAll(this._gameData.cosmosshoeid,this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,300);
-          //await blockchain.getGameStatus(this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,'maskedcardssnList',blockchain.RETRIEVE_OPTION.MASK,300)
-        })()
+      protected mount() {
+        super.mount();
+        blockchain.getAll(this._gameData.cosmosshoeid,this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,300)
       }
     }
   }
