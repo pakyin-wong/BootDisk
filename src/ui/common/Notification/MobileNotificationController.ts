@@ -162,13 +162,17 @@ namespace we {
         if (notification) {
           switch (notification.type) {
             case core.NotificationType.GoodRoad:
-              if (this.isCountDownAvailble(notification.data.tableid)) {
+            if (
+              (notification.type === 0 && !this.isCountDownAvailble(notification.data.tableid)) ||
+              notification.data.tableid === env._currTableId ||
+              (notification.type === 1 && env.isShowingAlreadyBetPanel)
+            ) {
+                // if false => next countdown < 5s
+                this.showNextNotification();
+              } else {
                 // if true => next countdown >=5s
                 this.goodRoadListDisplay.addItem(notification);
                 this.showNotification(notification.type);
-              } else {
-                // if false => next countdown < 5s
-                this.showNextNotification();
               }
               // const group = new eui.Group();
 
