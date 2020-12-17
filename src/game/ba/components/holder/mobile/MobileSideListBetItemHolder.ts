@@ -17,6 +17,8 @@ namespace we {
         const listItem = new we.ui.MobileSideListBetItem('SideListBetItemSkin');
         if (BAgametype === core.GameType.BAM) {
           listItem.itemInitHelper = new we.bam.LargeListItemInitHelper();
+        } else if (BAgametype === core.GameType.BAMB) {
+          listItem.itemInitHelper = new we.bamb.LargeListItemInitHelper();
         } else {
           listItem.itemInitHelper = new we.ba.LargeListItemInitHelper();
         }
