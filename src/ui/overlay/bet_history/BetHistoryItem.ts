@@ -59,7 +59,7 @@ namespace we {
         protected dataChanged(): void {
           this.forceClosed();
 
-          this.setText(this._txt_round, i18n.t('overlaypanel_bethistory_record_round'));
+          this.setText(this._txt_round, i18n.t('overlaypanel_bethistory_recordtab_gameno'));
           this.setText(this._txt_bettype, i18n.t('overlaypanel_bethistory_record_bettype'));
           this.setText(this._txt_result, i18n.t('overlaypanel_bethistory_record_result'));
           this.setText(this._txt_vaildbet, i18n.t('overlaypanel_bethistory_record_vaildbet'));
@@ -68,7 +68,7 @@ namespace we {
           this.setText(this._txt_record_id, this.data.betid);
           this.setText(this._txt_record_date, utils.formatTime(this.data.datetime.toFixed(0)));
           this.setText(this._txt_record_game, i18n.t('gametype_' + we.core.GameType[this.data.gametype]) + (this.data.tablename ? ' ' + this.data.tablename : ''));
-          this.setText(this._txt_record_round, `${this.data.round}`);
+          this.setText(this._txt_record_round, `${this.data.gameroundid}`);
           // this.setText(this._txt_record_round, `${this.data.round} - ${this.data.shoe}`);
           this.setText(this._txt_record_replay, utils.BetHistory.isBlockChain(this.data.gametype)?'-':'');
           this.setText(this._txt_record_remark, utils.BetHistory.formatRemark(this.data.remark));
