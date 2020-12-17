@@ -338,7 +338,7 @@ namespace we {
           this._BAgoodRoadLabel.visible = true;
           this._BAgoodRoadLabel.label.size = 36;
           const goodRoadData = this._tableInfo.goodRoad;
-          const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
+          const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.simple.${goodRoadData.roadmapid}`);
           this._BAgoodRoadLabel.renderText = () => goodRoadName;
         } else {
           this._BAgoodRoadLabel.visible = false;
