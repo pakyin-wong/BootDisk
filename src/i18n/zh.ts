@@ -652,7 +652,7 @@ namespace we {
         allOpen: '全開',
         fullShoe: '完整牌靴',
         mechanismHelp: '機制說明',
-        mechanismHelp1: '遊戲以電子模式發牌，每張牌均擁有一個「卡牌序號」',
+        mechanismHelp1: '遊戲以電子模式發牌，每局遊戲模擬完整牌靴由八副牌組成，每張牌均擁有一個「卡牌序號」',
         mechanismHelp2: '每張卡牌擁有獨立的「卡牌序號」，並以SHA-256技術加密生成「卡牌加密文」。',
         mechanismHelp3: '開牌後，顯示及驗證「卡牌序號」和「卡牌加密文」以示公正。',
         mechanismHelp4: '玩家可複制「卡牌序號」，並點擊「第三方驗證」前往第三方網站驗證相關「卡牌加密文」。',
