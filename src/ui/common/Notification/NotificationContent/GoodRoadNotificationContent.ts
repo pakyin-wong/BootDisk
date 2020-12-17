@@ -36,9 +36,9 @@ namespace we {
           const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
           // this._lblGoodRoad.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
           if (goodRoadData.custom) {
-            this._lblGoodRoad.renderText = () => goodRoadData.name
+            this._lblGoodRoad.renderText = () => goodRoadData.name;
           } else {
-            this._lblGoodRoad.renderText = () => (goodRoadData.roadmapid ? i18n.t(`goodroad.${goodRoadData.roadmapid}`) : " ");
+            this._lblGoodRoad.renderText = () => (goodRoadData.roadmapid ? i18n.t(`goodroad.simple.${goodRoadData.roadmapid}`) : ' ');
           }
         }
         // if (this._timer) {
@@ -56,9 +56,9 @@ namespace we {
           const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
           // this._lblGoodRoad.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
           if (goodRoadData.custom) {
-            this._lblGoodRoad.renderText = () => goodRoadData.name
+            this._lblGoodRoad.renderText = () => goodRoadData.name;
           } else {
-            this._lblGoodRoad.renderText = () => (goodRoadData.roadmapid ? i18n.t(`goodroad.${goodRoadData.roadmapid}`) : " ");
+            this._lblGoodRoad.renderText = () => (goodRoadData.roadmapid ? i18n.t(`goodroad.simple.${goodRoadData.roadmapid}`) : ' ');
           }
         } else {
           this.removeSelf();

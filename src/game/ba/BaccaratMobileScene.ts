@@ -338,7 +338,7 @@ namespace we {
           this._BAgoodRoadLabel.visible = true;
           this._BAgoodRoadLabel.label.size = 36;
           const goodRoadData = this._tableInfo.goodRoad;
-          const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
+          const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.simple.${goodRoadData.roadmapid}`);
           this._BAgoodRoadLabel.renderText = () => goodRoadName;
         } else {
           this._BAgoodRoadLabel.visible = false;
@@ -383,8 +383,8 @@ namespace we {
           case core.GameType.BAB:
           case core.GameType.BASB:
           case core.GameType.BAMB: {
-            // (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.selected);
-            (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.enabled);
+            (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.selected);
+            // (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.enabled);
             switch (this._gameData.wintype) {
               case ba.WinType.BANKER: {
                 subject = 'banker';
