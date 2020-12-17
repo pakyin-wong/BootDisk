@@ -73,7 +73,7 @@ namespace we {
       */
 
       public onEnter() {
-        console.log('onEnter')
+
         super.onEnter();
         (async () => {
           await blockchain.getShoeInfo(this._gameData.cosmosshoeid,this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,300)
@@ -140,7 +140,6 @@ namespace we {
             case core.GameState.IDLE:
               break;
             default:
-              // console.log('default state', this._gameData.state);
               this._resultDisplay.setDefaultStates();
               break;
           }
@@ -236,7 +235,6 @@ namespace we {
 
         this._shufflePanel.hide();
         if (this._deckPanel) this._deckPanel.setValue(this._gameData);
-        // console.log('Blockchain scene bet state', this._gameData);
         if (isInit || this.previousState !== core.GameState.BET) {
           this._resultDisplay.updateResult(this._gameData, this._chipLayer, isInit);
         }
@@ -246,14 +244,12 @@ namespace we {
         this._shufflePanel.hide();
         if (this._deckPanel) this._deckPanel.setValue(<bab.GameData>this._gameData);
         super.setStateDeal(isInit);
-        // console.log('Blockchain scene deal state', this._gameData);
       }
 
       protected setStateFinish(isInit: boolean) {
         this._shufflePanel.hide();
         if (this._deckPanel) this._deckPanel.setValue(<bab.GameData>this._gameData);
         super.setStateFinish(isInit);
-        // console.log('Blockchain scene finish state', this._gameData);
       }
 
       protected setStateShuffle(isInit: boolean) {
@@ -271,13 +267,11 @@ namespace we {
 
       protected showCardInfoPanel(evt: egret.Event) {
         (async () => {
-          console.log('showCardInfoPanel', evt.data, this._gameData.currentcardindex)
-          if (+(evt.data) > +this._gameData.currentcardindex) {
+          if(evt.data < this._gameData.currentcardindex &&
+            blockchain.getFirstNonOpenedCardIndex(this._gameData) <= evt.data){
             await blockchain.getMaskedListRange(this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,+this._gameData.currentcardindex,+this._gameData.currentcardindex+1,300);
-            console.log('showCardInfoPanel passed')
-            console.log( this._gameData.maskedcardssnList)
-            console.log( this._gameData.hashedcardsList)
           }
+
           this.runtimeGenerateCardInfoPanel();
           this._cardInfoPanel.setValue(this._gameData, evt.data);
           this._cardInfoPanel.show();
@@ -287,28 +281,15 @@ namespace we {
       protected enableDeckBtn() {
         this.enableDeckButton(true);
       }
+
       protected showDeckPanel(evt: egret.Event) {
         (async () => {
-          if(this.getFirstNonOpenedCardIndex() > this._gameData.currentcardindex){
+          if (blockchain.getFirstNonOpenedCardIndex(this._gameData) !== this._gameData.currentcardindex + 1) {
             await blockchain.getGameStatus(this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,'maskedcardssnList',blockchain.RETRIEVE_OPTION.MASK,300)
           }
           this.runtimeGenerateDeckPanel();
           this._deckPanel.show();
         })();
-      }
-
-      protected getFirstNonOpenedCardIndex(){
-        if(!this._gameData || !this._gameData.maskedcardssnList){
-          return 0;
-        }
-        let result = 0;
-        for(let i = 0; i <= this._gameData.maskedcardssnList.length; i++){
-          if(!this._gameData.maskedcardssnList[i] || this._gameData.maskedcardssnList[i][0] === '*'){
-            result = i
-            break;
-          }
-        }
-        return result + 1;
       }
 
       protected showHelpPanel(evt: egret.Event) {
