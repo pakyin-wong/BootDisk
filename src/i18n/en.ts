@@ -570,8 +570,7 @@ namespace we {
         r8: 'Stick on Player',
         r9: 'Banker(s) separate from a Player',
         r10: 'Player(s) separate from a Banker',
-      },
-      simple :{
+              simple :{
         r1: 'Long B.',
         r2: 'Long P.',
         r3: 'Long B with Long P.',
@@ -582,6 +581,7 @@ namespace we {
         r8: 'Stick on P.',
         r9: 'Separate fr P.',
         r10: 'Separate fr B.',
+      },
       },
       game: {
         insufficientBalance: 'Insufficient Balance',
