@@ -288,13 +288,13 @@ namespace we {
         if (this.tableInfo.goodRoad && this.tableInfo.goodRoad.roadmapid !== '') {
           this._goodRoadLabel.visible = true;
           const goodRoadData = this.tableInfo.goodRoad;
-          const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
+          const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.simple.${goodRoadData.roadmapid}`);
           // this._goodRoadLabel.text = goodRoadName;
           // this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
           if (goodRoadData.custom) {
-            this._goodRoadLabel.renderText = () => goodRoadData.name
+            this._goodRoadLabel.renderText = () => goodRoadData.name;
           } else {
-            this._goodRoadLabel.renderText = () => (goodRoadData.roadmapid ? i18n.t(`goodroad.${goodRoadData.roadmapid}`) : " ");
+            this._goodRoadLabel.renderText = () => (goodRoadData.roadmapid ? i18n.t(`goodroad.simple.${goodRoadData.roadmapid}`) : ' ');
           }
         } else {
           this._goodRoadLabel.visible = false;

@@ -145,11 +145,10 @@ namespace we {
             // const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
             // this._goodRoadLabel.renderText = () => goodRoadName;
             if (goodRoadData.custom) {
-              this._goodRoadLabel.renderText = () => goodRoadData.name
+              this._goodRoadLabel.renderText = () => goodRoadData.name;
             } else {
-              this._goodRoadLabel.renderText = () => (goodRoadData.roadmapid ? i18n.t(`goodroad.${goodRoadData.roadmapid}`) : " ");
+              this._goodRoadLabel.renderText = () => (goodRoadData.roadmapid ? i18n.t(`goodroad.simple.${goodRoadData.roadmapid}`) : ' ');
             }
-
           } else {
             this._goodRoadLabel.visible = false;
           }

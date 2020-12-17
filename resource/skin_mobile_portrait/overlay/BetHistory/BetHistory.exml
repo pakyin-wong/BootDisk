@@ -47,7 +47,7 @@
 			</e:Skin>
 			</ui:RoundRectButton>
 			<e:Rect width="497" height="142" x="496" y="217" fillColor="0x0c2848" fillAlpha="0.4" ellipseHeight="142" ellipseWidth="142" scaleX="1" scaleY="1"/>
-			<ui:RoundRectButton id="_btn_date" cornerTL_TR_BL_BR="60,60,60,60" width="250" height="120" x="510" y="228" stroke="0" strokeIn="0" fillAlpha="0" fillAlpha_active="1" fillColor="0x1b416e"  labelSize="50" labelAutoResizeWidth="170" labelAutoResize="true">
+			<ui:RoundRectButton id="_btn_date" cornerTL_TR_BL_BR="60,60,60,60" width="250" height="120" x="515" y="228" stroke="0" strokeIn="0" fillAlpha="0" fillAlpha_active="1" fillColor="0x1b416e"  labelSize="50" labelAutoResizeWidth="175" labelAutoResize="true">
 			<e:Skin width="250" height="120">
 				<e:Image source="d_lobby_button_down_normal_png" width="80" height="80" y="22" x="161" touchEnabled="false" />
 	<ui:RunTimeLabel id="_label" text="今日" size="50" horizontalCenter="-40" verticalCenter="0" height="74" verticalAlign="middle" textAlign="center"/>

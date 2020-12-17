@@ -30,9 +30,9 @@
 	<e:Group height="63" y.Game="15" right.Game="15">
 		<ui:RunTimeLabel id="_balanceGame" visible.Lobby="false" text="123,456,789" x.Lobby="108" y="49" height="47"
 		                 fontFamily="Barlow" size="39" textColor="0xffffff" verticalAlign.Lobby="middle" maxWidth="202"
-		                 y.Game="0" x.Game="81" scaleX="1" scaleY="1" verticalAlign.Game="bottom" size.Game="36" />
+		                 y.Game="0" x.Game="81" scaleX="1" scaleY="1" verticalAlign.Game="bottom" size.Game="44" />
 		<ui:RunTimeLabel id="_balanceText" visible.Lobby="false" text="餘額" x="418" y="4.97" anchorOffsetY="0" height="47"
-		                 size="36" verticalAlign="middle" verticalAlign.Game="bottom" alpha="0.7" />
+		                 size="36" verticalAlign="middle" verticalAlign.Game="bottom" alpha="0.7"  size.Game="44"/>
 		<e:layout>
 			<e:HorizontalLayout gap="10" horizontalAlign="right" />
 		</e:layout>
