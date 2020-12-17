@@ -47,13 +47,13 @@
                 </e:Group>
                 <e:Group x="518" y="721" width="70" height="89" id="_playerSumGroup">
                         <ui:RoundRectShape width="70" height="89" cornerTL_TR_BL_BR="7,7,7,7" fillColor="0x0079E5" />
-                        <e:Label id="_playerSum" horizontalCenter="0" verticalCenter="0" textAlign="center" verticalAlign="middle" size="96"
-                                 height="100%" name="b1/playerSum" />
+                        <e:Label id="_playerSum" horizontalCenter="0" verticalCenter="0" textAlign="center" verticalAlign="middle" size="72"
+                                 height="100%" name="b1/playerSum"  text="0"/>
                 </e:Group>
                 <e:Group right="518" y="721" width="70" height="89" id="_bankerSumGroup">
                         <ui:RoundRectShape width="70" height="89" cornerTL_TR_BL_BR="7,7,7,7" fillColor="0xEA394C" />
-                        <e:Label id="_bankerSum" horizontalCenter="0" verticalCenter="0" textAlign="center" verticalAlign="middle" size="96"
-                                 height="100%" name="a1/bankerSumn" />
+                        <e:Label id="_bankerSum" horizontalCenter="0" verticalCenter="0" textAlign="center" verticalAlign="middle" size="71"
+                                 height="100%" name="a1/bankerSumn"  text="0"/>
                 </e:Group>
         </e:Group>
         <e:Group x="148" y="164" id="_smallRedCardGroup"></e:Group>
