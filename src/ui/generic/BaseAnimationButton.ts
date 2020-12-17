@@ -74,6 +74,9 @@ namespace we {
         // call update on mount to set initial button state
         const oldState = [this._down, this._hover];
         this.update(oldState);
+
+        const touchArea = this._touchArea ? this._touchArea : this;
+        touchArea.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
       }
 
       protected initDisplay() {
@@ -93,6 +96,9 @@ namespace we {
       }
 
       public destroy() {
+        const touchArea = this._touchArea ? this._touchArea : this;
+        touchArea.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+        
         if (this._display) {
           this._display.animation.stop();
           this._display.armature.dispose();
@@ -127,14 +133,14 @@ namespace we {
           touchArea.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
           touchArea.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
           touchArea.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
-          touchArea.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+          // touchArea.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
           mouse.setButtonMode(touchArea, true);
         } else {
           touchArea.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
           touchArea.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
           touchArea.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
           touchArea.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
-          touchArea.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+          // touchArea.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
           mouse.setButtonMode(touchArea, false);
         }
 
@@ -217,7 +223,11 @@ namespace we {
       }
 
       protected onClick() {
-        this.dispatchEvent(new egret.Event('CLICKED'));
+        if (this.buttonEnabled) {
+          this.dispatchEvent(new egret.Event('CLICKED'));
+        } else {
+          dir.audioCtr.play('ui_sfx_btn_disable_mp3')
+        }
       }
 
       public playPromise(anim, count) {

@@ -62,21 +62,21 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
         if (this._confirmButton) {
           this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
-          this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
+          this._confirmButton.addEventListener('CLICKED', this.onConfirmPressed, this, true);
           this._confirmButton.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
           this._confirmButton.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
         }
         if (this._repeatButton) {
-          this._repeatButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRepeatPressed, this, true);
+          this._repeatButton.addEventListener('CLICKED', this.onRepeatPressed, this, true);
         }
         if (this._doubleButton) {
-          this._doubleButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDoublePressed, this, true);
+          this._doubleButton.addEventListener('CLICKED', this.onDoublePressed, this, true);
         }
         if (this._undoButton) {
-          this._undoButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onUndoPressed, this, true);
+          this._undoButton.addEventListener('CLICKED', this.onUndoPressed, this, true);
         }
         if (this._cancelButton) {
-          this._cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
+          this._cancelButton.addEventListener('CLICKED', this.onCancelPressed, this, true);
         }
         dir.evtHandler.addEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.changeTimerBg, this);
       }
@@ -85,21 +85,21 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
         if (this._confirmButton) {
           this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
-          this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
+          this._confirmButton.removeEventListener('CLICKED', this.onConfirmPressed, this, true);
           this._confirmButton.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
           this._confirmButton.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
         }
         if (this._repeatButton) {
-          this._repeatButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRepeatPressed, this, true);
+          this._repeatButton.removeEventListener('CLICKED', this.onRepeatPressed, this, true);
         }
         if (this._doubleButton) {
-          this._doubleButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onDoublePressed, this, true);
+          this._doubleButton.removeEventListener('CLICKED', this.onDoublePressed, this, true);
         }
         if (this._undoButton) {
-          this._undoButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onUndoPressed, this, true);
+          this._undoButton.removeEventListener('CLICKED', this.onUndoPressed, this, true);
         }
         if (this._cancelButton) {
-          this._cancelButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
+          this._cancelButton.removeEventListener('CLICKED', this.onCancelPressed, this, true);
         }
         dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.changeTimerBg, this);
       }
@@ -107,39 +107,39 @@ namespace we {
       public changeBtnState(isEnable: boolean = true, totalUncfmBetAmount: number = 0, isPrevBet: boolean = false, isBetState: boolean = true, isRepeatClicked: boolean = false) {
         const hasUncfmBet = totalUncfmBetAmount !== 0; // change to boolean
         const enableRepeat = isPrevBet && !isRepeatClicked
-        this._undoButton.touchEnabled = isEnable;
-        this._cancelButton.touchChildren = this._cancelButton.touchEnabled = isEnable;
-        // double btn check uncfm btn , not cfmbtn
-        this._doubleButton.touchChildren = this._doubleButton.touchEnabled = totalUncfmBetAmount ? true : false;
-        this._repeatButton.touchChildren = this._repeatButton.touchEnabled = enableRepeat;
+        // this._undoButton.touchEnabled = isEnable;
+        // this._cancelButton.touchChildren = this._cancelButton.touchEnabled = isEnable;
+        // // double btn check uncfm btn , not cfmbtn
+        // this._doubleButton.touchChildren = this._doubleButton.touchEnabled = totalUncfmBetAmount ? true : false;
+        // this._repeatButton.touchChildren = this._repeatButton.touchEnabled = enableRepeat;
 
         this._undoButton.buttonEnabled = isEnable;
         this._cancelButton.buttonEnabled = isEnable;
-        this._repeatButton.buttonEnabled = this._repeatButton.touchEnabled;
+        this._repeatButton.buttonEnabled = enableRepeat;
         this._doubleButton.buttonEnabled = hasUncfmBet;
         (this._confirmButton as ui.BetConfirmButton).buttonEnabled = isBetState && hasUncfmBet;
         this._timer.bg_flash(false, isEnable);
       }
       protected onConfirmPressed() {
-        this.dispatchEvent(new egret.Event('ON_CONFIRM_PRESS'));
+          this.dispatchEvent(new egret.Event('ON_CONFIRM_PRESS'));
       }
       protected onCancelPressed(evt: egret.Event) {
-        this.dispatchEvent(new egret.Event('ON_CANCEL_PRESS'));
+          this.dispatchEvent(new egret.Event('ON_CANCEL_PRESS'));
         // this.changeBtnState(false);
       }
 
       protected onRepeatPressed() {
-        this.dispatchEvent(new egret.Event('ON_REPEAT_PRESS'));
+          this.dispatchEvent(new egret.Event('ON_REPEAT_PRESS'));
         // this.changeBtnState(true);
       }
 
       protected onDoublePressed() {
         // this.changeBtnState(true);
-        this.dispatchEvent(new egret.Event('ON_DOUBLE_PRESS'));
+          this.dispatchEvent(new egret.Event('ON_DOUBLE_PRESS'));
       }
 
       protected onUndoPressed() {
-        this.dispatchEvent(new egret.Event('ON_UNDO_PRESS'));
+          this.dispatchEvent(new egret.Event('ON_UNDO_PRESS'));
       }
 
       protected onTouchDown() {
