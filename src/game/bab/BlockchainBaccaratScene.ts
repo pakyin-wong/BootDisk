@@ -76,8 +76,8 @@ namespace we {
 
         super.onEnter();
         (async () => {
-          await blockchain.getShoeInfo(this._gameData.cosmosshoeid,this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,300)
-          await blockchain.getGameStatus(this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,'maskedcardssnList',blockchain.RETRIEVE_OPTION.MASK,300)
+          await blockchain.getAll(this._gameData.cosmosshoeid,this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,300)
+          //await blockchain.getGameStatus(this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,'maskedcardssnList',blockchain.RETRIEVE_OPTION.MASK,300)
         })()
       }
 
@@ -255,8 +255,8 @@ namespace we {
       protected setStateShuffle(isInit: boolean) {
         (async () => {
           if (!isInit) {
-            await blockchain.getShoeInfo(this._gameData.cosmosshoeid,this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,300)
-            await blockchain.getGameStatus(this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,'maskedcardssnList',blockchain.RETRIEVE_OPTION.MASK,300)
+            await blockchain.getAll(this._gameData.cosmosshoeid,this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,300)
+            //await blockchain.getGameStatus(this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,'maskedcardssnList',blockchain.RETRIEVE_OPTION.MASK,300)
           }
           this.enableDeckButton(false);
           super.setStateShuffle(isInit);
