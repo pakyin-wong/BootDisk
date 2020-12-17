@@ -12,11 +12,12 @@ namespace we {
                 }
             }
             await repeatCheck();
-            isUpdating = true;
-            await utils.sleep(sleep)
             if (!tableInfo || !hostid) {
                 return new Promise(resolve => resolve());
             }
+            isUpdating = true;
+            await utils.sleep(sleep)
+
             await new Promise(resolve =>
                 dir.socket[`getGameStatus${type}`](hostid, option, null, null,
                     (data) => {
@@ -37,11 +38,12 @@ namespace we {
                 }
             }
             await repeatCheck();
-            isUpdating = true;
-            await utils.sleep(sleep)
             if (!tableInfo || !hostid) {
                 return new Promise(resolve => resolve());
             }
+            isUpdating = true;
+            await utils.sleep(sleep)
+
             await new Promise(resolve =>
                 dir.socket[`getGameStatus${type}`](hostid, we.blockchain.RETRIEVE_OPTION.CARD, from - 1, to - 1,
                     (data) => {
@@ -67,7 +69,7 @@ namespace we {
                     await repeatCheck();
                 }
             }
-            
+
             if (!tableInfo || !hostid) {
                 return new Promise(resolve => resolve());
             }
