@@ -27,9 +27,9 @@
 		<ui:BaseButton id="_btn_date" width="252" height="120" y="55" active="true" x="1202"
 		               skinName="skin_mobile_portrait.OverlayPanelSwitch" />
 		-->
-		<ui:RoundRectButton id="_btn_searchType" cornerTL_TR_BL_BR="60,60,60,60" width="400" height="120" x="639" y="50"
-		                    stroke="0" strokeIn="0" fillAlpha="1" fillColor="0x1b416e" />
-		<e:Image source="d_lobby_button_down_normal_png" width="80" height="80" y="70" x="928" touchEnabled="false" />
+		<ui:RoundRectButton id="_btn_searchType" cornerTL_TR_BL_BR="60,60,60,60" width="400" height="120" x="677" y="50"
+		                    stroke="0" strokeIn="0" fillAlpha="1" fillColor="0x1b416e" labelAutoResizeWidth="280" labelAutoResize='true' labelOffsetX="-30" />
+		<e:Image source="d_lobby_button_down_normal_png" width="80" height="80" y="72" x="976" touchEnabled="false" />
 		<ui:RoundRectButton id="_btn_date" cornerTL_TR_BL_BR="60,60,60,60" width="250" height="120" x="1185" y="50" stroke="0"
 		                    strokeIn="0" fillAlpha="0" fillAlpha_click="1" fillAlpha_active="1" fillColor_active="0x1b416e"
 		                    fillColor_click="0x1b416e" />
