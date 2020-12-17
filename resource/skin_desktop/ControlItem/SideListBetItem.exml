@@ -35,7 +35,7 @@
 		<!--<ui:RoundRectShape cornerTL_TR_BL_BR="10,10,0,0" width="339" height="50" x="0" y="0" stroke="2"
 		                       strokeColor="0x000000" fillColor="0x282828" strokeIn="2" strokeInColor="0x3a3f48" />
 		-->
-		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" y="12" left="56" size="23.4"
+		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" y="12" left="48" size="23.4" height="30" width="200" targetWidth="250"
 		                 touchEnabled="false" />
 		<e:Image source="d_lobby_button_down_normal_png" x="290" y="45" rotation="270" />
 		<e:Group id="_bettingGroup" width="100%" x="0" touchEnabled="false" touchChildren="true" top="0">
