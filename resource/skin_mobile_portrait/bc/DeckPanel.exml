@@ -6,7 +6,7 @@
                 <ui:Scroller width="100%" height="1789" id="_scroller" top="0">
                         <e:List id="_list" horizontalCenter="0" >
                                 <e:layout>
-                                        <e:TileLayout paddingTop="250" requestedColumnCount="8" horizontalGap="31" verticalGap="20"  paddingLeft="46" paddingRight="46" columnAlign="justifyUsingGap" horizontalAlign="center"/>
+                                        <e:TileLayout paddingTop="250" paddingBottom="100" requestedColumnCount="8" horizontalGap="31" verticalGap="20"  paddingLeft="46" paddingRight="46" columnAlign="justifyUsingGap" horizontalAlign="center"/>
                                 </e:layout>
                         </e:List>
                 </ui:Scroller>
