@@ -17,6 +17,13 @@ namespace we {
         return this._logger ? this._logger : new Logger();
       }
 
+      constructor() {
+        let clearTimeInterval = 8;
+        setInterval(()=>{
+          if (console.clear) console.clear();
+        },clearTimeInterval*60000);
+      }
+
       public getTargetID(target) {
         switch (target) {
           case 'local':
@@ -30,7 +37,7 @@ namespace we {
             return 3;
           case 'uat':
             return 4;
-          case 'prod':
+          case 'production':
           default:
             return 5;
         }
