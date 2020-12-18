@@ -660,7 +660,7 @@ namespace we {
         PairRatio: '對子比例',
         round: '局',
         rounds: '局',
-        playersqueeze: '咪牌中',
+        playersqueeze: '請咪牌',
         allOpen: '全開',
         fullShoe: '完整牌靴',
         mechanismHelp: '機制說明',

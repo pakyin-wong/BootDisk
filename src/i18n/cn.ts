@@ -685,7 +685,7 @@ namespace we {
         PairRatio: '对子比例',
         round: '局',
         rounds: '局',
-        playersqueeze: '咪牌中',
+        playersqueeze: '请咪牌',
         allOpen: '全开',
         fullShoe: '完整牌靴',
         mechanismHelp: '机制说明',
