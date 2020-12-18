@@ -266,11 +266,11 @@ namespace we {
             break;
         }
 
-        if (this.hasBet() && !isNaN(totalWin)) {
-          dir.audioCtr.playSequence([subject, 'win']);
-        } else {
-          dir.audioCtr.playSequence([subject, 'win']);
-        }
+        // if (this.hasBet() && !isNaN(totalWin)) {
+        //   dir.audioCtr.playSequence([subject, 'win']);
+        // } else {
+        //   dir.audioCtr.playSequence([subject, 'win']);
+        // }
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
