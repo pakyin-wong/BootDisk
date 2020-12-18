@@ -50,7 +50,7 @@ namespace we {
 
         if (env.isMobile) {
           this._sideGameList = new ui.MobileSideGameList();
-          this._sideGameList.bottom = 0;
+          //this._sideGameList.bottom = 0;
           this._sideGameList.isPoppable = true;
           this._sideGameList.dismissOnClickOutside = true;
 
