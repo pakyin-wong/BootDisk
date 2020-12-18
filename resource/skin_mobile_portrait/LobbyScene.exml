@@ -5,8 +5,8 @@
 	<e:Component id="_page" width="100%" height="100%" />
 	<ui:BaseImageButton id="_common_listpanel" width="130" height="130"  x="1088" y="442">
 	<e:Skin>
-	<e:Image id="_background" source="m_common_btn_bg_grey_normal_png" left="0" right="0" top="0" bottom="0"/>
-	<e:Image horizontalCenter="0" verticalCenter="0" source="m_common_btn_gamepanel_png"/>
+	<e:Image id="_background" source="m_common_btn_bg_grey_png" left="0" right="0" top="0" bottom="0"/>
+	<e:Image horizontalCenter="0" verticalCenter="0" source="m_common_btn_gamepanel_png" width="130" height="130" />
 	</e:Skin>
 	</ui:BaseImageButton>
 	<e:Group id="_header" y="0" touchThrough="true" left="0" right="0">
