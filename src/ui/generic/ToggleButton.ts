@@ -31,7 +31,7 @@ namespace we {
         this.rollout();
       }
 
-      protected onTouchTap(e) {
+      public onTouchTap() {
         this.buttonState = ++this.buttonState % 2;
         if (this.buttonState === 0) {
           if (this._hoverResNameOn) {

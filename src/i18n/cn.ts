@@ -686,7 +686,7 @@ namespace we {
         PairRatio: '对子比例',
         round: '局',
         rounds: '局',
-        playersqueeze: '咪牌中',
+        playersqueeze: '请咪牌',
         allOpen: '全开',
         fullShoe: '完整牌靴',
         mechanismHelp: '机制说明',
@@ -714,13 +714,20 @@ namespace we {
       },
       squeezeBaccarat: {
         tutorial: {
-          title: "咪牌教学",
-          showCard: "全開",
-          next: "下一頁",
-          caption_1: '点撃全开按钮，卡牌立即全开',
-          caption_2: '点击卡牌可切换大卡牌',
-          caption_3: '点撃卡牌中间位置快速开牌',
-          caption_4: '透过拖拽四边四角进行咪牌',
+          title: '咪牌教学',
+          showCard: '全開',
+          next: '下一頁',
+          mobile: {
+            caption_1: '点撃全开按钮，卡牌立即全开',
+            caption_2: '点击卡牌可切换大卡牌',
+            caption_3: '点撃卡牌中间位置快速开牌',
+            caption_4: '卡牌四边四角可咪牌',
+          },
+          desktop: {
+            caption_1: '点撃全开按钮，卡牌立即全开',
+            caption_2: '点撃卡牌中间位置快速开牌',
+            caption_3: '透过拖拽四边四角进行咪牌',
+          },
         },
       },
       message: {

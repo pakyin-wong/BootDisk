@@ -12,6 +12,8 @@
 		<ui:BaseImageButton id="_editButton" currentState="b_edit" width="85" height="65"                       anchorOffsetX="0" skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad"  x="255" y="200" visible.up="false"/>
 		<e:Label id="_titleLabel" text="百家樂01" anchorOffsetY="0" textAlign="left" x="31" y="20" size="40"
 		         anchorOffsetX="0" width="385" multiline="false"  height="56" verticalAlign="middle"/>
-		<ui:ToggleButton id="_activeButton" resNameOn="m_common_setting_goodroad_roadmap_checkboxes_active_png" resNameOff="m_common_setting_goodroad_roadmap_checkboxes_png" width="50" height="50" anchorOffsetX="0" x="420" hoverResNameOff="m_common_setting_goodroad_roadmap_checkboxes_png" y="24"/>
+		<e:Group id="_activeButtonGroup" right="0" top="0" touchChildren="false" touchEnabled="true" touchThrough="false">
+		<ui:ToggleButton id="_activeButton" resNameOn="m_common_setting_goodroad_roadmap_checkboxes_active_png" resNameOff="m_common_setting_goodroad_roadmap_checkboxes_png"  width="101" height="103" anchorOffsetX="0" hoverResNameOff="m_common_setting_goodroad_roadmap_checkboxes_png"/>
+		</e:Group>
 	</e:Group>
 </e:Skin>
