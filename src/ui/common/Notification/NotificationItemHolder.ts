@@ -81,7 +81,11 @@ namespace we {
             break;
         }
         this._displayItem.holder = this;
-        this._displayItem.right = 0;
+        if (!env.isMobile) {
+          this._displayItem.right = 0;
+        } else {
+          this._displayItem.horizontalCenter = 0;
+        }
         this.content.addChild(this._displayItem);
         // const self = this;
         // setTimeout(() => {

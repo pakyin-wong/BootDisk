@@ -77,16 +77,16 @@ namespace we {
           'percentHeight',
         ];
         for (const att of properties) {
-          if (this._tableLayer && !isNaN(this._tableLayerNode[att])) {
+          if (this._tableLayer && !isNaN(this._tableLayerNode[att]) && att !== 'height' && att !== 'scaleX' && att !== 'scaleY') {
             this._tableLayer[att] = this._tableLayerNode[att];
           }
-          if (this._chipLayer && !isNaN(this._chipLayerNode[att])) {
+          if (this._chipLayer && !isNaN(this._chipLayerNode[att]) && att !== 'height' && att !== 'scaleX' && att !== 'scaleY') {
             this._chipLayer[att] = this._chipLayerNode[att];
           }
           if (this._resultMessage && !isNaN(this._resultMessageNode[att])) {
             this._resultMessage[att] = this._resultMessageNode[att];
           }
-          if (this._cardHolder && !isNaN(this._resultDisplayNode[att])) {
+          if (this._cardHolder && !isNaN(this._resultDisplayNode[att]) && att !== 'height' && att !== 'scaleX' && att !== 'scaleY') {
             this._cardHolder[att] = this._resultDisplayNode[att];
           }
         }
