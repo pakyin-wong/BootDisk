@@ -5,6 +5,11 @@ namespace we {
       protected _scroller: ui.Scroller;
       // protected _offset: number;
 
+      protected _isSticked: boolean;
+      public get isSticked(): boolean {
+        return this._isSticked;
+      }
+
       public constructor() {
         super();
       }
@@ -57,6 +62,7 @@ namespace we {
 
             const offset = this.scroller.y - point.y + this.scroller.headerOffset;
             this._content.y = Math.max(0, offset);
+            this._isSticked = offset>0;
             // const maxOffset = this.height - this._content.height;
             // this._content.y = Math.min(Math.max(0, offset), maxOffset);
           }

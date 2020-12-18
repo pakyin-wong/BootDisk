@@ -263,7 +263,7 @@ namespace we {
       public insufficientBalance() {
         if (this._message) {
           dir.audioCtr.play('ui_sfx_info_error_warning_mp3');
-          this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.insufficientBalance'));
+          this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('error.error_4002'));
         }
       }
 
@@ -277,7 +277,7 @@ namespace we {
       public generalBetFail() {
         if (this._message) {
           dir.audioCtr.play('ui_sfx_info_error_warning_mp3');
-          this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.generalBetError'));
+          this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('error.error_4001'));
         }
       }
 
@@ -871,6 +871,16 @@ namespace we {
             case '4002':
               if (this._chipLayer) {
                 this._chipLayer.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
+              }
+              break;
+            case '4004':
+              if (this._chipLayer) {
+                this._chipLayer.dispatchEvent(new egret.Event(core.Event.EXCEED_BET_LIMIT,false,false, { exceedLower: true }));
+              }
+              break;
+            case '4005':
+              if (this._chipLayer) {
+                this._chipLayer.dispatchEvent(new egret.Event(core.Event.EXCEED_BET_LIMIT,false,false, { exceedLower: false }));
               }
               break;
             default:

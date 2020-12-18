@@ -62,9 +62,18 @@ namespace we {
       protected setStateIdle(isInit: boolean) {
         super.setStateIdle(isInit);
         if (env.orientation === 'landscape') {
+          this.scaleDownBettingArea();
+        }
+      }
+
+      protected scaleDownBettingArea(){
           egret.Tween.get(this._tableLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
           egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
-        }
+      }
+
+      protected scaleUpBettingArea(){
+          egret.Tween.get(this._tableLayer).to({ scaleX: 1, scaleY: 1 }, 250);
+          egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
       }
 
       protected setStateBet(isInit: boolean) {
@@ -73,8 +82,7 @@ namespace we {
           egret.Tween.removeTweens(this._tableLayer);
           egret.Tween.removeTweens(this._chipLayer);
 
-          egret.Tween.get(this._tableLayer).to({ scaleX: 1, scaleY: 1 }, 250);
-          egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
+          this.scaleUpBettingArea();
         }
         // this._baGameID.renderText = () => `${this._tableInfo.data.gameroundid}`;
         // this._totalBet.renderText = () => `$ ${this._tableInfo.totalBet}`;
@@ -90,8 +98,7 @@ namespace we {
       protected setStateDeal(isInit: boolean) {
         super.setStateDeal(isInit);
         if (env.orientation === 'landscape') {
-          egret.Tween.get(this._tableLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
-          egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+          this.scaleDownBettingArea();
         }
       }
 

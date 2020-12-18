@@ -13,7 +13,7 @@ namespace we {
       private _bannerIdx: number = -1;
 
       private step: number = 0;
-      private flow = [this.preloadRes, this.initSkin, /*this.preload, this.getBanner, this.idle, */this.socketConnect, this.getStaticData, this.idle, this.loadGeneralRes, this.loadingComplete];
+      private flow = [this.preloadRes, this.initSkin, this.preload, /* this.getBanner, this.idle, */this.socketConnect, this.getStaticData, this.idle, this.loadGeneralRes, this.loadingComplete];
 
       public onEnter() {
         this.init();

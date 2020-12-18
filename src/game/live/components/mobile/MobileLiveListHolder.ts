@@ -170,17 +170,17 @@ namespace we {
         this.setZIndex();
       }
 
-      private setZIndex() {
-        if (this.isFocus) {
-          if (this.parent) {
-            this.parent.setChildIndex(this, 1000);
-          }
-        } else {
-          if (this.parent) {
-            this.parent.setChildIndex(this, 1);
-          }
-        }
-      }
+      // protected setZIndex() {
+      //   if (this.isFocus) {
+      //     if (this.parent) {
+      //       this.parent.setChildIndex(this, 1000);
+      //     }
+      //   } else {
+      //     if (this.parent) {
+      //       this.parent.setChildIndex(this, 1);
+      //     }
+      //   }
+      // }
 
       public onTouchTapWhole(evt: egret.TouchEvent) {
         // check if the parent name is "ActionButton"
