@@ -1,7 +1,7 @@
 namespace we {
   export namespace ba {
     export class CardHolder extends core.BaseEUI implements ui.IResultDisplay {
-      private gameData: GameData;
+      protected gameData: GameData;
 
       protected card1Player: ui.Card;
       protected card2Player: ui.Card;
@@ -30,39 +30,44 @@ namespace we {
 
       public updateResult(gameData: data.GameData) {
         // TODO: update card using the gameData
-
-        this.gameData = <ba.GameData>gameData;
+        const data = <ba.GameData>gameData;
+        this.gameData = data;
         const cardArr = [this.gameData.a1, this.gameData.a2, this.gameData.a3, this.gameData.b1, this.gameData.b2, this.gameData.b3];
         const cardHolderArr = [this.card1Banker, this.card2Banker, this.card3Banker, this.card1Player, this.card2Player, this.card3Player];
 
-        this.playerSum.text = this.gameData.playerpoint >= 0 ? this.gameData.playerpoint.toString() : '';
-        this.bankerSum.text = this.gameData.bankerpoint >= 0 ? this.gameData.bankerpoint.toString() : '';
+        this.bankerSum.text = '0';
+        this.playerSum.text = '0';
 
         const bankerReady: boolean = !!this.gameData.a1 && !!this.gameData.a2;
         const playerReady: boolean = !!this.gameData.b1 && !!this.gameData.b2;
-        cardArr.forEach(function (value, index) {
+        for (var index=0;index<cardArr.length;index++) {
+          const value = cardArr[index];
           if (index == 0 || index == 1) {
             if (bankerReady) {
               cardHolderArr[index].setCard(utils.formatCard(value));
+              this.bankerSum.text = data.bankerpoint >= 0 ? data.bankerpoint.toString() : '0';
             } else {
               cardHolderArr[index].setCard('back');
             }
           } else if (index == 3 || index == 4) {
             if (playerReady) {
               cardHolderArr[index].setCard(utils.formatCard(value));
+              this.playerSum.text = data.playerpoint >= 0 ? data.playerpoint.toString() : '0';
             } else {
               cardHolderArr[index].setCard('back');
             }
           } else {
             if (value) {
               cardHolderArr[index].setCard(utils.formatCard(value));
+              this.bankerSum.text = data.bankerpoint >= 0 ? data.bankerpoint.toString() : '0';
+              this.playerSum.text = data.playerpoint >= 0 ? data.playerpoint.toString() : '0';
             } else {
               if ((index + 1) % 3 !== 0) {
                 cardHolderArr[index].setCard('back');
               }
             }
           }
-        });
+        }
 
         switch (this.gameData.state) {
           case core.GameState.PEEK:
@@ -70,13 +75,18 @@ namespace we {
             cardHolderArr[1].setCard('back');
             cardHolderArr[3].setCard('back');
             cardHolderArr[4].setCard('back');
-
+            this.bankerSum.text = '0';
+            this.playerSum.text = '0';            
             break;
           case core.GameState.PEEK_PLAYER:
             cardHolderArr[5].setCard('back');
+            this.playerSum.text = data.playerpoint >= 0 ? data.playerpoint.toString() : '0';
+            // this.playerSum.text = this.gameData.playerpoint >= 0 ? ((this.gameData.playerpoint + 10 - Number(utils.cardToNumber(this.gameData.b3)))%10).toString() : '';
             break;
           case core.GameState.PEEK_BANKER:
             cardHolderArr[2].setCard('back');
+            this.bankerSum.text = data.bankerpoint >= 0 ? data.bankerpoint.toString() : '0';
+            // this.bankerSum.text = this.gameData.bankerpoint >= 0 ? ((this.gameData.bankerpoint + 10 - Number(utils.cardToNumber(this.gameData.a3)))%10).toString() : '';
             break;
         }
       }

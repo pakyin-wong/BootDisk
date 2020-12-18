@@ -33,8 +33,8 @@ namespace we {
         return gameResultMessage;
       }
 
-      public generateResultDisplay(node: eui.Component) {
-        const cardHolder = new ba.SideListBetItemCardHolder();
+      public generateResultDisplay(node: eui.Component): ui.IResultDisplay & eui.Component {
+        const cardHolder = new bam.SideListBetItemCardHolder();
         // cardHolder.skinName = `skin_mobile_portrait.ba.BetItemCardHolderSkin`;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(cardHolder, idx);
