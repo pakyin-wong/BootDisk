@@ -4,23 +4,17 @@
         <ui:RoundRectShape id="moveArea" x="0" y="0" cornerTL_TR_BL_BR="35,35,35,35" stroke="2" strokeColor="0x333c4a" fillColor="0x17181b" fillAlpha="1" width="1242" height="2001"/>
     <!--<e:Image id="moveArea" source="popover_png" height="100%" width="100%" x="0" y="0" alpha="1"/>-->
         <e:Group id="_topPart" width="1242" height="202">
-            <ui:RunTimeLabel id="_lblRuleTitle" text.zh="區塊鏈極速百家樂遊戲規則" text.cn="区块链极速百家乐游戏规则" text.en="Blockchain Speed Baccarat\n Game Rules" size="80" textColor="0xc59466" textKey="" left="48" top="30" verticalAlign="middle" fontFamily="Microsoft JhengHei"/>
+            <ui:RunTimeLabel id="_lblRuleTitle" text.zh="區塊鏈極速百家樂遊戲規則" text.cn="区块链极速百家乐游戏规则" text.en="Blockchain Speed Baccarat\n Game Rules" size="80" textColor="0xc59466" textKey="" left="48" top="30" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow"/>
 		    <e:Image id="close" source="d-lobby-button-close-none_png" touchEnabled="true" width="96" height="96" top="44" right="43"/>
         </e:Group>
-        <ui:Scroller scrollPolicyH="off" left="48" right="40" top="202" top.en="314" width="1242" height="1779" height.en="1667">
-        <!--height="1799"-->
+        <ui:Scroller scrollPolicyH="off" left="48" right="40" top="202" top.en="314" width="1242" height="1799" height.en="1667">
+        <!--height="1799" height.en="1667"-->
             <e:Group id="_page">
                 <e:Group id="_ruleInfo" width="1194">
-                    <ui:RunTimeLabel id="_lblWinRule" height="45" text.zh="獲勝條件" text.cn="获胜条件" text.en="Win conditions" size="50" textColor="0xc59466" verticalAlign="middle" fontFamily="Microsoft JhengHei"/>
+                    <ui:RunTimeLabel id="_lblWinRule" height="45" text.zh="獲勝條件" text.cn="获胜条件" text.en="Win conditions" size="50" textColor="0xc59466" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow"/>
                     <e:Group id="_winRuleTextGrp">
-                        <ui:RunTimeLabel width="40" text.zh="・\n\n・\n\n\n・" text.cn="・\n\n・\n\n\n・" text.en="・\n\n\n・\n\n\n\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                        <ui:RunTimeLabel id="_wr" width="1088" text.zh="區塊鏈極速百家樂秉承傳統的百家樂遊戲規則，它的特別之處在於可透過 SHA-256 技術驗證牌靴，確保公平公正\n只計算牌面點數，不比花色；總點數得 9 點或最接近 9 點的一方勝出，10 點和花牌 ( J、Q、K ）為 0 點；A 為 1 點；其它牌 ( 2、3、4、5、6、7、8、9 ) 則按牌的面值計算
-\n一方所得的總點數以其所有牌的面值總和計算； 當牌點總面值大於或等於 10 點，則取其個位數來作最終點數" text.cn="区块链极速百家乐秉承传统的百家乐游戏规则，它的特别之处在于可透过 SHA-256 技术验证牌靴，确保公平公正
-\n只计算牌面点数，不比花色；总点数得9 点或最接近9 点的一方胜出，10 点和花牌( J、Q、K ）为0 点；A 为1 点；其它牌( 2 、3、4、5、6、7、8、9 ) 则按牌的面值计算
-\n一方所得的总点数以其所有牌的面值总和计算； 当牌点总面值大于或等于 10 点，则取其个位数来作最终点数" text.en="Blockchain Speed Baccarat follows the standard rules of Baccarat. Its special feature is that it can verify games through SHA-256 technology to ensure fairness and justice.
-\nEither the ‘Player's hand’ or the ‘Banker's hand’ point value equal to or closest to 9 wins. The suits (Spades, Hearts, Diamonds and Clubs) have no meaning in Baccarat games. 'Kings', 'Queens', 'Jacks' and 'Tens' count zero; 'Aces' counts one and the other cards (2、3、4、5、6、7、8、9) count \ntheir corresponding point value.
-\nPoint value is calculated by summing up the card values and using only the last digit of the total."
-                                        size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
+                        <ui:RunTimeLabel width="40" text.zh="・\n\n・\n\n\n・" text.cn="・\n\n・\n\n\n・" text.en="・\n\n\n・\n\n\n\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8"/>
+                        <ui:RunTimeLabel id="_wr" width="1088" text.zh="區塊鏈極速百家樂秉承傳統的百家樂遊戲規則，它的特別之處在於可透過 SHA-256 技術驗證牌靴，確保公平公正\n只計算牌面點數，不比花色；總點數得 9 點或最接近 9 點的一方勝出，10 點和花牌 ( J、Q、K ）為 0 點；A 為 1 點；其它牌 ( 2、3、4、5、6、7、8、9 ) 則按牌的面值計算\n一方所得的總點數以其所有牌的面值總和計算； 當牌點總面值大於或等於 10 點，則取其個位數來作最終點數" text.cn="区块链极速百家乐秉承传统的百家乐游戏规则，它的特别之处在于可透过 SHA-256 技术验证牌靴，确保公平公正\n只计算牌面点数，不比花色；总点数得9 点或最接近9 点的一方胜出，10 点和花牌( J、Q、K ）为0 点；A 为1 点；其它牌( 2 、3、4、5、6、7、8、9 ) 则按牌的面值计算\n一方所得的总点数以其所有牌的面值总和计算； 当牌点总面值大于或等于 10 点，则取其个位数来作最终点数" text.en="Blockchain Speed Baccarat follows the standard rules of Baccarat. Its special feature is that it can verify games through SHA-256 technology to ensure fairness and justice.\nEither the ‘Player's hand’ or the ‘Banker's hand’ point value equal to or closest to 9 wins. The suits (Spades, Hearts, Diamonds and Clubs) have no meaning in Baccarat games. 'Kings', 'Queens', 'Jacks' and 'Tens' count zero; 'Aces' counts one and the other cards (2、3、4、5、6、7、8、9) count their corresponding point value.\nPoint value is calculated by summing up the card values and using only the last digit of the total." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8"/>
                         <e:layout>
                             <e:HorizontalLayout paddingLeft="10" gap="12"/>
                         </e:layout>
@@ -30,31 +24,10 @@
                     </e:layout>
                 </e:Group>
                 <e:Group id="_bettingGuide" width="1194">
-                    <ui:RunTimeLabel id="_lblBettingGuide" text.zh="操作及下注指南" text.cn="操作及下注指南" text.en=" Operation and betting guide" size="50" textColor="0xc59466" textKey="" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei"/>
+                    <ui:RunTimeLabel id="_lblBettingGuide" text.zh="操作及下注指南" text.cn="操作及下注指南" text.en=" Operation and betting guide" size="50" textColor="0xc59466" textKey="" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow"/>
                     <e:Group id="_bettingGuideGrp" width="1194">
-                        <ui:RunTimeLabel width="40" text.zh="1.\n2.\n\n3.\n\n\n4.\n5.\n6.\n7.\n\n8." text.cn="1.\n2.\n\n3.\n\n\n4.\n5.\n6.\n7.\n\n8." text.en="1.\n2.\n\n\n3.\n\n\n\n4.\n\n5.\n\n6.\n\n7.\n\n\n8." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                        <ui:RunTimeLabel id="_betguide" width="1088" width.en="1058" text.zh="開局後，開始下注倒數
-\n「閒」、「庄」各得 2 張牌，並按照「閒」>「庄」>「閒」>「庄」的順序派牌
-\n在各個下注區押注籌碼後，表示押該選項贏；下注區包括：「閒」、「庄」、「和」、「閒對」、「庄對」及「超級六」(「超級六」只限免佣區塊鏈極速百家樂)
-\n每個單注金額不能高於或低於已設置個人限紅的上、下限
-\n若連續 5 局未下注，則會被強制退出遊戲枱
-\n倒數結束後，遊戲枱會停止下注，而已確認之注碼均不得更改或取回
-\n停止下注後，會先開「閒」的 2 張牌，然後再開「庄」的 2 張牌，並根據「補牌規則」為「閒」和「庄」進行補牌或不作補牌
-\n開牌後，可驗證已開的卡牌" text.cn="开局后，开始下注倒数
-\n「闲」、「庄」各得 2 张牌，并按照「闲」>「庄」>「闲」>「庄」的顺序派牌
-\n在各个下注区押注筹码后，表示押该选项赢；下注区包括：「闲」、「庄」、「和」、「闲对」、「庄对」及「超级六」(「超级六」只限免佣区块链极速百家乐)
-\n每个单注金额不能高于或低于已设置个人限红的上、下限
-\n若连续 5 局未下注，则会被强制退出游戏台
-\n倒数结束后，游戏台会停止下注，而已确认之注码均不得更改或取回
-\n停止下注后，会先开「闲」的 2 张牌，然后再开「庄」的 2 张牌，并根据「补牌规则」为「闲」和「庄」进行补牌或不作补牌
-\n开牌后，可验证已开的卡牌" text.en="After the new round begins, the betting countdown starts.
-\nThe 'Player' and the 'Banker' will be dealt 2 cards at the start of each hand. The cards are dealt in the following order: ‘Player’ > ‘Banker’ > ‘Player' > ‘Banker’.
-\nYou may choose to wager on any one or more of the betting areas. There are six betting options in Speed Baccarat: ‘Player’, ‘Banker’, ‘Tie’, ‘Player Pair’, ‘Banker Pair’ and ‘Super 6’ ( ‘Super 6’  Only applicable for ‘No Commission Blockchain Speed Baccarat’).
-\nYour single bet amount cannot be higher or lower than the upper and lower single bet limits. 
-\nIf there is no bet after 5 rounds, the system will return you to the game lobby.
-\nAfter the betting countdown is over, no wager may be placed, and all bets that have been placed cannot be changed or retrieved.
-\nAfter 'stop betting', the dealer turns the 'Player' cards and 'Banker' cards faceup in sequence. When necessary, additional cards are drawn according to the drawing rules.
-\nAfter the cards are opened, the opened cards can be verified" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
+                        <ui:RunTimeLabel width="40" text.zh="1.\n2.\n\n3.\n\n\n4.\n5.\n6.\n7.\n\n8." text.cn="1.\n2.\n\n3.\n\n\n4.\n5.\n6.\n7.\n\n8." text.en="1.\n2.\n\n\n3.\n\n\n\n4.\n\n5.\n\n6.\n\n7.\n\n\n8." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8"/>
+                        <ui:RunTimeLabel id="_betguide" width="1088" width.en="1058" text.zh="開局後，開始下注倒數\n「閒」、「庄」各得 2 張牌，並按照「閒」>「庄」>「閒」>「庄」的順序派牌\n在各個下注區押注籌碼後，表示押該選項贏；下注區包括：「閒」、「庄」、「和」、「閒對」、「庄對」及「超級六」(「超級六」只限免佣區塊鏈極速百家樂)\n每個單注金額不能高於或低於已設置個人限紅的上、下限\n若連續 5 局未下注，則會被強制退出遊戲枱\n倒數結束後，遊戲枱會停止下注，而已確認之注碼均不得更改或取回\n停止下注後，會先開「閒」的 2 張牌，然後再開「庄」的 2 張牌，並根據「補牌規則」為「閒」和「庄」進行補牌或不作補牌\n開牌後，可驗證已開的卡牌" text.cn="开局后，开始下注倒数\n「闲」、「庄」各得 2 张牌，并按照「闲」>「庄」>「闲」>「庄」的顺序派牌\n在各个下注区押注筹码后，表示押该选项赢；下注区包括：「闲」、「庄」、「和」、「闲对」、「庄对」及「超级六」(「超级六」只限免佣区块链极速百家乐)\n每个单注金额不能高于或低于已设置个人限红的上、下限\n若连续 5 局未下注，则会被强制退出游戏台\n倒数结束后，游戏台会停止下注，而已确认之注码均不得更改或取回\n停止下注后，会先开「闲」的 2 张牌，然后再开「庄」的 2 张牌，并根据「补牌规则」为「闲」和「庄」进行补牌或不作补牌\n开牌后，可验证已开的卡牌" text.en="After the new round begins, the betting countdown starts.\nThe 'Player' and the 'Banker' will be dealt 2 cards at the start of each hand. The cards are dealt in the following order: ‘Player’ > ‘Banker’ > ‘Player' > ‘Banker’.\nYou may choose to wager on any one or more of the betting areas. There are six betting options in Speed Baccarat: ‘Player’, ‘Banker’, ‘Tie’, ‘Player Pair’, ‘Banker Pair’ and ‘Super 6’ ( ‘Super 6’  Only applicable for ‘No Commission Blockchain Speed Baccarat’).\nYour single bet amount cannot be higher or lower than the upper and lower single bet limits. \nIf there is no bet after 5 rounds, the system will return you to the game lobby.\nAfter the betting countdown is over, no wager may be placed, and all bets that have been placed cannot be changed or retrieved.\nAfter 'stop betting', the dealer turns the 'Player' cards and 'Banker' cards faceup in sequence. When necessary, additional cards are drawn according to the drawing rules.\nAfter the cards are opened, the opened cards can be verified" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8"/>
                         <e:layout>
                             <e:HorizontalLayout paddingLeft="10" gap="12"/>
                         </e:layout>
@@ -64,65 +37,54 @@
                     </e:layout>
                 </e:Group>
                 <e:Group id="_drawingRule" width="1194">
-                    <ui:RunTimeLabel id="_lblDrawingRule" text.zh="補牌規則" text.cn="补牌规则" text.en="Drawing Rules" size="50" textColor="0xc59466" textKey="" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei"/>
+                    <ui:RunTimeLabel id="_lblDrawingRule" text.zh="補牌規則" text.cn="补牌规则" text.en="Drawing Rules" size="50" textColor="0xc59466" textKey="" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow"/>
                     <e:Group id="_drawingRuleSub" width="1194">
                         <e:Group>
-                            <ui:RunTimeLabel width="40" text.zh="・\n\n・" text.cn="・\n\n・" text.en="・\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                            <ui:RunTimeLabel width="1088" width.en="1058" id="_dr1" text.zh="荷官會根據開局時給「閒」、「庄」各發放的 2 張牌的當前點數，按規則決定是否補發第 3 張牌。
-\n在補牌環節，「閒」較「庄」優先，詳情如下：" text.cn="荷官会根据开局时给「闲」、「庄」各发放的 2 张牌的当前点数，按规则决定是否补发第 3 张牌。
-\n在补牌环节，「闲」较「庄」优先，详情如下：" text.en="The dealer determines to draw the third card based on the total of the first two cards of ‘Player’ and ‘Banker’. 
-\nIn the session of card drawing, the ‘Player's hand’ will be acted upon first, and then the 'Banker's hand', with details as follows: " size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>  
+                            <ui:RunTimeLabel width="40" text.zh="・\n\n・" text.cn="・\n\n・" text.en="・\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8"/>
+                            <ui:RunTimeLabel width="1088" width.en="1058" id="_dr1" text.zh="荷官會根據開局時給「閒」、「庄」各發放的 2 張牌的當前點數，按規則決定是否補發第 3 張牌。\n在補牌環節，「閒」較「庄」優先，詳情如下：" text.cn="荷官会根据开局时给「闲」、「庄」各发放的 2 张牌的当前点数，按规则决定是否补发第 3 张牌。\n在补牌环节，「闲」较「庄」优先，详情如下：" text.en="The dealer determines to draw the third card based on the total of the first two cards of ‘Player’ and ‘Banker’. \nIn the session of card drawing, the ‘Player's hand’ will be acted upon first, and then the 'Banker's hand', with details as follows: " size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8"/>  
                             <e:layout>
                                 <e:HorizontalLayout gap="12"/>
                             </e:layout>
                         </e:Group>
                         <e:Group id="_subdraingRuleGrp1">
                             <e:Group>
-                                <ui:RunTimeLabel width="40" text.zh="a." text.cn="a." text.en="a." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/>
-                                <ui:RunTimeLabel id="_subdr1" text.zh="直接定輸贏，「閒」、「庄」均不需要補牌" text.cn="直接定输赢，「闲」、「庄」均不需要补牌" text.en="‘Natural’ -  no further cards are drawn: " size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/>  
+                                <ui:RunTimeLabel width="40" text.zh="a." text.cn="a." text.en="a." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow"/>
+                                <ui:RunTimeLabel id="_subdr1" text.zh="直接定輸贏，「閒」、「庄」均不需要補牌" text.cn="直接定输赢，「闲」、「庄」均不需要补牌" text.en="‘Natural’ -  no further cards are drawn: " size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow"/>  
                                 <e:layout>
                                     <e:HorizontalLayout gap="12" paddingLeft="55"/>
                                 </e:layout>
                             </e:Group>
                             <e:Group >
-                                <ui:RunTimeLabel width="40" text.zh="・" text.cn="・" text.en="・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                                <ui:RunTimeLabel width="954" id="_subdr2" text.zh="只要「閒」、「庄」雙方或其中一方的首 2 張牌之合計點數為 8 或 9 點，「閒」、「庄」兩家均不獲補牌，直接定輸贏" text.cn="只要「闲」、「庄」双方或其中一方的首 2 张牌之合计点数为 8 或 9 点，「闲」、「庄」两家均不获补牌，直接定输赢" text.en="If either the 'Player' or the 'Banker' has a total of an 8 or a 9 (called a &quot;Natural&quot;), they both stand" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8" bold="false"/> 
+                                <ui:RunTimeLabel width="40" text.zh="・" text.cn="・" text.en="・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8"/>
+                                <ui:RunTimeLabel width="985" width.en="968" id="_subdr2" text.zh="只要「閒」、「庄」雙方或其中一方的首 2 張牌之合計點數為 8 或 9 點，「閒」、「庄」兩家均不獲補牌，直接定輸贏" text.cn="只要「闲」、「庄」双方或其中一方的首 2 张牌之合计点数为 8 或 9 点，「闲」、「庄」两家均不获补牌，直接定输赢" text.en="If either the 'Player' or the 'Banker' has a total of an 8 or a 9 (called a &quot;Natural&quot;), they both stand" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8" bold="false"/> 
                                 <e:layout>
                                     <e:HorizontalLayout gap="12" paddingLeft="97"/>
                                 </e:layout>
                             </e:Group> 
                             <e:Group>
-                                <ui:RunTimeLabel width="40" text.zh="b." text.cn="b." text.en="b." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                                <ui:RunTimeLabel id="_subdr3" text.zh="「閒」補牌規則" text.cn="「闲」补牌规则" text.en="Drawing rules for the Player's side:" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/>  
+                                <ui:RunTimeLabel width="40" text.zh="b." text.cn="b." text.en="b." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8"/>
+                                <ui:RunTimeLabel id="_subdr3" text.zh="「閒」補牌規則" text.cn="「闲」补牌规则" text.en="Drawing rules for the Player's side:" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow"/>  
                                 <e:layout>
                                     <e:HorizontalLayout gap="12" paddingLeft="55"/>
                                 </e:layout>
                             </e:Group>
 							<e:Group>
-                                <ui:RunTimeLabel width="40" text.zh="・\n\n・" text.cn="・\n\n・" text.en="・\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                            <ui:RunTimeLabel width="954" id="_subdr4" text.zh="「閒」首 2 張牌之合計點數為 0、1、2、3、4、5，「閒」獲補發第 3 張牌「閒」首 2 張牌之合計點數為 6、7、8、9，「閒」則不獲補發第 3 張牌" text.cn="「闲」首 2 张牌之合计点数为 0、1、2、3、4、5，「闲」获补发第 3 张牌
-\n「闲」首 2 张牌之合计点数为 6、7、8、9，「闲」则不获补发第 3 张牌" text.en="If the ‘Player’ first two cards total are between zero to five (0, 1, 2, 3, 4, 5),  ‘Player’ gets the third card
-\nIf the ‘Player’ first two cards total are between six to nine (6, 7, 8, 9), ‘Player’ stands determine if the ‘Player hand’" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8" bold="false"/> 
+                                <ui:RunTimeLabel width="40" text.zh="・\n\n・" text.cn="・\n\n・" text.en="・\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8"/>
+                            <ui:RunTimeLabel width="985" width.en="968" id="_subdr4" text.zh="「閒」首 2 張牌之合計點數為 0、1、2、3、4、5，「閒」獲補發第 3 張牌「閒」首 2 張牌之合計點數為 6、7、8、9，「閒」則不獲補發第 3 張牌" text.cn="「闲」首 2 张牌之合计点数为 0、1、2、3、4、5，「闲」获补发第 3 张牌\n「闲」首 2 张牌之合计点数为 6、7、8、9，「闲」则不获补发第 3 张牌" text.en="If the ‘Player’ first two cards total are between zero to five (0, 1, 2, 3, 4, 5),  ‘Player’ gets the third card\nIf the ‘Player’ first two cards total are between six to nine (6, 7, 8, 9), ‘Player’ stands determine if the ‘Player hand’" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8" bold="false"/> 
                                 <e:layout>
                                     <e:HorizontalLayout gap="12" paddingLeft="97"/>
                                 </e:layout>
                             </e:Group>
                             <e:Group>
-                                <ui:RunTimeLabel width="48" text.zh="c.\n(i)\n(ii)" text.cn="c.\n(i)\n(ii)" text.en="c.\n(i)\n\n(ii)" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/>
-                                <ui:RunTimeLabel width="993" width.en="954" id="_subdr5" text.zh="「庄」補牌規則\n「庄」會因應首 2 張牌之合計點數而判定是直接補牌；或\n根據「閒」第 3 張牌的點數 (如有) 而判定是否補牌" text.cn="「庄」补牌规则\n「庄」会因应首2 张牌之合计点数而判定是直接补牌；或\n根据「闲」第3 张牌的点数(如有) 而判定是否补牌" text.en="Drawing rules for the ‘Banker’s side’:\nDecide to draw the third card based on the total of the first 2 cards of ‘Banker’. or\nThe point of ‘Player's third card’ determines if 'Banker' gets the third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/>  
+                                <ui:RunTimeLabel width="48" text.zh="c.\n(i)\n(ii)" text.cn="c.\n(i)\n(ii)" text.en="c.\n(i)\n\n(ii)" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/>
+                                <ui:RunTimeLabel width="993" width.en="954" id="_subdr5" text.zh="「庄」補牌規則\n「庄」會因應首 2 張牌之合計點數而判定是直接補牌；或\n根據「閒」第 3 張牌的點數 (如有) 而判定是否補牌" text.cn="「庄」补牌规则\n「庄」会因应首2 张牌之合计点数而判定是直接补牌；或\n根据「闲」第3 张牌的点数(如有) 而判定是否补牌" text.en="Drawing rules for the ‘Banker’s side’:\nDecide to draw the third card based on the total of the first 2 cards of ‘Banker’. or\nThe point of ‘Player's third card’ determines if 'Banker' gets the third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow"/>  
                                 <e:layout>
                                     <e:HorizontalLayout gap="12" paddingLeft="52"/>
                                 </e:layout>
                             </e:Group>
 							<e:Group>
-                                <ui:RunTimeLabel width="40" text.zh="・\n\n・\n\n・" text.cn="・\n\n・\n\n・" text.en="・\n\n・\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                                <ui:RunTimeLabel width="954" id="_subdr6" text.zh="「庄」首 2 張牌之合計點數是 0、1、2，「庄」直接獲補發第 3 張牌
-\n「庄」首 2 張牌之合計點數是 7、8、9，「庄」則不獲補發第 3 張牌
-\n「庄」首 2 張牌之合計點數為 3、4、5、6，「庄」需要按「閒」的第 3 張牌而判定是否補牌，詳情如下表：" text.cn="「庄」首 2 张牌之合计点数是 0、1、2，「庄」直接获补发第 3 张牌
-\n「庄」首 2 张牌之合计点数是 7、8、9，「庄」则不获补发第 3 张牌
-\n「庄」首 2 张牌之合计点数为 3、4、5、6，「庄」需要按「闲」的第 3 张牌而判定是否补牌，详情如下表" text.en="If the first two cards total of ‘Banker’ are between zero to two (0, 1, 2),  ‘Banker’ gets the third card.
-\nIf ‘Banker’ first two cards total are between seven to nine (7, 8, 9),  ‘Banker’ stands.
-\nIf the first two cards total of ‘Banker’ are between three to six (3, 4, 5, 6), the ‘Banker’ will get the third card depend on the point of the ‘Player's third card’, with details below:" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8" bold="false"/> 
+                                <ui:RunTimeLabel width="40" text.zh="・\n\n・\n\n・" text.cn="・\n\n・\n\n・" text.en="・\n\n・\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8"/>
+                                <ui:RunTimeLabel width="985" width.en="968" id="_subdr6" text.zh="「庄」首 2 張牌之合計點數是 0、1、2，「庄」直接獲補發第 3 張牌\n「庄」首 2 張牌之合計點數是 7、8、9，「庄」則不獲補發第 3 張牌\n「庄」首 2 張牌之合計點數為 3、4、5、6，「庄」需要按「閒」的第 3 張牌而判定是否補牌，詳情如下表：" text.cn="「庄」首 2 张牌之合计点数是 0、1、2，「庄」直接获补发第 3 张牌\n「庄」首 2 张牌之合计点数是 7、8、9，「庄」则不获补发第 3 张牌\n「庄」首 2 张牌之合计点数为 3、4、5、6，「庄」需要按「闲」的第 3 张牌而判定是否补牌，详情如下表" text.en="If the first two cards total of ‘Banker’ are between zero to two (0, 1, 2),  ‘Banker’ gets the third card.\nIf ‘Banker’ first two cards total are between seven to nine (7, 8, 9),  ‘Banker’ stands.\nIf the first two cards total of ‘Banker’ are between three to six (3, 4, 5, 6), the ‘Banker’ will get the third card depend on the point of the ‘Player's third card’, with details below:" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8" bold="false"/> 
                                 <e:layout>
                                     <e:HorizontalLayout gap="12" paddingLeft="97"/>
                                 </e:layout>
@@ -135,10 +97,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x112c4c" fillAlpha="0.5" width="1140" height="140"/>
                                             <e:Group id="dr1Row1Group">
                                                 <e:Group id="_dr1Row1Item1" width.zh="401" width.cn="401" width.en="401" height="140">
-                                                    <ui:RunTimeLabel id="_lbldr1Row1Item1" horizontalCenter="0" verticalCenter="0" text.zh="「閒」\n首 2 張牌之合計點數" text.cn="「闲」\n首 2 张牌之合计点数" text.en="'Player'\nTwo cards total points" size="36" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row1Item1" horizontalCenter="0" verticalCenter="0" text.zh="「閒」\n首 2 張牌之合計點數" text.cn="「闲」\n首 2 张牌之合计点数" text.en="'Player'\nTwo cards total points" size="36" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group id="_dr1Row1Item2" width.zh="736" width.cn="736" width.en="736" height="140">
-                                                    <ui:RunTimeLabel id="_lbldr1Row1Item2" horizontalCenter="0" verticalCenter="0" text.zh="「閒」" text.cn="「闲」" text.en="'Player'" size="36" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row1Item2" horizontalCenter="0" verticalCenter="0" text.zh="「閒」" text.cn="「闲」" text.en="'Player'" size="36" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -149,10 +111,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0" width="1140" height="100"/>
                                             <e:Group id="dr1Row2Group">
                                                 <e:Group id="_dr1Row2Item1" width.zh="401" width.cn="401" width.en="401" height="100">
-                                                    <ui:RunTimeLabel id="_lbldr1Row2Item1" horizontalCenter="0" verticalCenter="0" text="0" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row2Item1" horizontalCenter="0" verticalCenter="0" text="0" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group id="_dr1Row2Item2" width.zh="736" width.cn="736" width.en="736" height="100">
-                                                    <ui:RunTimeLabel id="_lbldr1Row2Item2" horizontalCenter="0" verticalCenter="0" text.zh="必須補牌" text.cn="必须补牌" text.en="Draws a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row2Item2" horizontalCenter="0" verticalCenter="0" text.zh="必須補牌" text.cn="必须补牌" text.en="Draws a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -163,10 +125,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0.5" width="1140" height="100"/>
                                             <e:Group id="dr1Row3Group">
                                                 <e:Group id="_dr1Row3Item1" width.zh="401" width.cn="401" width.en="401" height="100">
-                                                    <ui:RunTimeLabel id="_lbldr1Row3Item1" horizontalCenter="0" verticalCenter="0" text="1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row3Item1" horizontalCenter="0" verticalCenter="0" text="1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group id="_dr1Row3Item2" width.zh="736" width.cn="736" width.en="736" height="100">
-                                                    <ui:RunTimeLabel id="_lbldr1Row3Item2" horizontalCenter="0" verticalCenter="0" text.zh="必須補牌" text.cn="必须补牌" text.en="Draws a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row3Item2" horizontalCenter="0" verticalCenter="0" text.zh="必須補牌" text.cn="必须补牌" text.en="Draws a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -177,10 +139,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0" width="1140" height="100"/>
                                             <e:Group id="dr1Row4Group">
                                                 <e:Group id="_dr1Row4Item1" width.zh="401" width.cn="401" width.en="401" height="100">
-                                                    <ui:RunTimeLabel id="_lbldr1Row4Item1" horizontalCenter="0" verticalCenter="0" text="2" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row4Item1" horizontalCenter="0" verticalCenter="0" text="2" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group id="_dr1Row4Item2" width.zh="736" width.cn="736" width.en="736" height="100">
-                                                    <ui:RunTimeLabel id="_lbldr1Row4Item2" horizontalCenter="0" verticalCenter="0" text.zh="必須補牌" text.cn="必须补牌" text.en="Draws a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row4Item2" horizontalCenter="0" verticalCenter="0" text.zh="必須補牌" text.cn="必须补牌" text.en="Draws a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -191,10 +153,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0.5" width="1140" height="100"/>
                                             <e:Group id="dr1Row5Group">
                                                 <e:Group id="_dr1Row5Item1" width.zh="401" width.cn="401" width.en="401" height="100">
-                                                    <ui:RunTimeLabel id="_lbldr1Row5Item1" horizontalCenter="0" verticalCenter="0" text="3" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row5Item1" horizontalCenter="0" verticalCenter="0" text="3" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group id="_dr1Row5Item2" width.zh="736" width.cn="736" width.en="736" height="100">
-                                                    <ui:RunTimeLabel id="_lbldr1Row5Item2" horizontalCenter="0" verticalCenter="0" text.zh="必須補牌" text.cn="必须补牌" text.en="Draws a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row5Item2" horizontalCenter="0" verticalCenter="0" text.zh="必須補牌" text.cn="必须补牌" text.en="Draws a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -205,10 +167,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0" width="1140" height="100"/>
                                             <e:Group id="dr1Row6Group">
                                                 <e:Group id="_dr1Row6Item1" width.zh="401" width.cn="401" width.en="401" height="100">
-                                                    <ui:RunTimeLabel id="_lbldr1Row6Item1" horizontalCenter="0" verticalCenter="0" text="4" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row6Item1" horizontalCenter="0" verticalCenter="0" text="4" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group id="_dr1Row6Item2" width.zh="736" width.cn="736" width.en="736" height="100">
-                                                    <ui:RunTimeLabel id="_lbldr1Row6Item2" horizontalCenter="0" verticalCenter="0" text.zh="必須補牌" text.cn="必须补牌" text.en="Draws a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row6Item2" horizontalCenter="0" verticalCenter="0" text.zh="必須補牌" text.cn="必须补牌" text.en="Draws a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -219,10 +181,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0.5" width="1140" height="100"/>
                                             <e:Group id="dr1Row7Group">
                                                 <e:Group id="_dr1Row7Item1" width.zh="401" width.cn="401" width.en="401" height="100">
-                                                    <ui:RunTimeLabel id="_lbldr1Row7Item1" horizontalCenter="0" verticalCenter="0" text="5" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row7Item1" horizontalCenter="0" verticalCenter="0" text="5" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group id="_dr1Row7Item2" width.zh="736" width.cn="736" width.en="736" height="100">
-                                                    <ui:RunTimeLabel id="_lbldr1Row7Item2" horizontalCenter="0" verticalCenter="0" text.zh="必須補牌" text.cn="必须补牌" text.en="Draws a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row7Item2" horizontalCenter="0" verticalCenter="0" text.zh="必須補牌" text.cn="必须补牌" text.en="Draws a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -233,10 +195,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0" width="1140" height="100"/>
                                             <e:Group id="dr1Row8Group">
                                                 <e:Group id="_dr1Row8Item1" width.zh="401" width.cn="401" width.en="401" height="100">
-                                                    <ui:RunTimeLabel id="_lbldr1Row8Item1" horizontalCenter="0" verticalCenter="0" text="6" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row8Item1" horizontalCenter="0" verticalCenter="0" text="6" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group id="_dr1Row8Item2" width.zh="736" width.cn="736" width.en="736" height="100">
-                                                    <ui:RunTimeLabel id="_lbldr1Row8Item2" horizontalCenter="0" verticalCenter="0" text.zh="不得補牌" text.cn="不得补牌" text.en="Stands" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row8Item2" horizontalCenter="0" verticalCenter="0" text.zh="不得補牌" text.cn="不得补牌" text.en="Stands" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -247,10 +209,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0.5" width="1140" height="100"/>
                                             <e:Group id="dr1Row9Group">
                                                 <e:Group id="_dr1Row9Item1" width.zh="401" width.cn="401" width.en="401" height="100">
-                                                    <ui:RunTimeLabel id="_lbldr1Row9Item1" horizontalCenter="0" verticalCenter="0" text="7" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row9Item1" horizontalCenter="0" verticalCenter="0" text="7" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group id="_dr1Row9Item2" width.zh="736" width.cn="736" width.en="736" height="100">
-                                                    <ui:RunTimeLabel id="_lbldr1Row9Item2" horizontalCenter="0" verticalCenter="0" text.zh="不得補牌" text.cn="不得补牌" text.en="Stands" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row9Item2" horizontalCenter="0" verticalCenter="0" text.zh="不得補牌" text.cn="不得补牌" text.en="Stands" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -261,10 +223,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0" width="1140" height="100" height.en="150"/>
                                             <e:Group id="dr1Row10Group">
                                                 <e:Group id="_dr1Row10Item1" width.zh="401" width.cn="401" width.en="401" height="100" height.en="150">
-                                                    <ui:RunTimeLabel id="_lbldr1Row10Item1" horizontalCenter="0" verticalCenter="0" text="8" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row10Item1" horizontalCenter="0" verticalCenter="0" text="8" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group id="_dr1Row10Item2" width.zh="736" width.cn="736" width.en="736" height="100" height.en="150">
-                                                    <ui:RunTimeLabel id="_lbldr1Row10Item2" horizontalCenter="0" verticalCenter="0" text.zh="例牌，即定勝負" text.cn="例牌，即定胜负" text.en="Natural Numbers -no more cards shall \nbe dealt to either hand" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row10Item2" horizontalCenter="0" verticalCenter="0" text.zh="例牌，即定勝負" text.cn="例牌，即定胜负" text.en="Natural Numbers -no more cards shall \nbe dealt to either hand" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -275,10 +237,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0.5" width="1140" height="100" height.en="150"/>
                                             <e:Group id="dr1Row11Group">
                                                 <e:Group id="_dr1Row11Item1" width.zh="401" width.cn="401" width.en="401" height="100" height.en="150">
-                                                    <ui:RunTimeLabel id="_lbldr1Row11Item1" horizontalCenter="0" verticalCenter="0" text="9" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row11Item1" horizontalCenter="0" verticalCenter="0" text="9" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group id="_dr1Row11Item2" width.zh="736" width.cn="736" width.en="736" height="100" height.en="150">
-                                                    <ui:RunTimeLabel id="_lbldr1Row11Item2" horizontalCenter="0" verticalCenter="0" text.zh="例牌，即定勝負" text.cn="例牌，即定胜负" text.en="Natural Numbers -no more cards shall \nbe dealt to either hand" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel id="_lbldr1Row11Item2" horizontalCenter="0" verticalCenter="0" text.zh="例牌，即定勝負" text.cn="例牌，即定胜负" text.en="Natural Numbers -no more cards shall \nbe dealt to either hand" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -294,10 +256,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x112c4c" fillAlpha="0.5" width="1140" height="140"/>
                                             <e:Group>
                                                 <e:Group width.zh="401" width.cn="401" width.en="401" height="140">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="「庄」\n首 2 張牌之合計點數" text.cn="「庄」\n首 2 张牌之合计点数" text.en="'Banker'\nTwo cards total points'" size="36" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="「庄」\n首 2 張牌之合計點數" text.cn="「庄」\n首 2 张牌之合计点数" text.en="'Banker'\nTwo cards total points'" size="36" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group width.zh="736" width.cn="736" width.en="736" height="140">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="「庄」" text.cn="「庄」" text.en="'Banker'" size="36" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="「庄」" text.cn="「庄」" text.en="'Banker'" size="36" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -308,10 +270,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0" width="1140" height="100"/>
                                             <e:Group>
                                                 <e:Group width.zh="401" width.cn="401" width.en="401" height="100">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text="0" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text="0" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group width.zh="736" width.cn="736" width.en="736" height="100">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="必須補牌" text.cn="必须补牌" text.en="Draws a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="必須補牌" text.cn="必须补牌" text.en="Draws a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -322,10 +284,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0.5" width="1140" height="100"/>
                                             <e:Group>
                                                 <e:Group width.zh="401" width.cn="401" width.en="401" height="100">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text="1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text="1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group width.zh="736" width.cn="736" width.en="736" height="100">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="必須補牌" text.cn="必须补牌" text.en="Draws a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="必須補牌" text.cn="必须补牌" text.en="Draws a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -336,10 +298,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0" width="1140" height="100"/>
                                             <e:Group>
                                                 <e:Group width.zh="401" width.cn="401" width.en="401" height="100">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text="2" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text="2" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group width.zh="736" width.cn="736" width.en="736" height="100">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="必須補牌" text.cn="必须补牌" text.en="Draws a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="必須補牌" text.cn="必须补牌" text.en="Draws a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -350,10 +312,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0.5" width="1140" height="260" height.en="300"/>
                                             <e:Group>
                                                 <e:Group width.zh="401" width.cn="401" width.en="401" height="260" height.en="300">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text="3" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text="3" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group width.zh="736" width.cn="736" width.en="736" height="260" height.en="300">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="(i) 若「閒」補得第 3 張牌是 8 點，\n    「庄」不得補牌；\n(ii) 若閒家第 3 張牌補到 0、1、2、3、\n    4、5、6、7、9，「庄」必須補牌" text.cn="(i) 若「闲」补得第3 张牌是8 点，\n    「庄」不得补牌；\n(ii) 若闲家第3 张牌补到0、1、2、3、\n    4、5、 6、7、9，「庄」必须补牌" text.en="(i) 'Banker' stands if the ‘Player's third \n    card’ is 8; \n(ii)If the ‘Player's third card’ is 0, 1,  2,  3,  \n    4, 5, 6, 7, 9, 'Banker' must draw the \n    third card " size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="left"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="(i) 若「閒」補得第 3 張牌是 8 點，\n    「庄」不得補牌；\n(ii) 若閒家第 3 張牌補到 0、1、2、3、\n    4、5、6、7、9，「庄」必須補牌" text.cn="(i) 若「闲」补得第3 张牌是8 点，\n    「庄」不得补牌；\n(ii) 若闲家第3 张牌补到0、1、2、3、\n    4、5、 6、7、9，「庄」必须补牌" text.en="(i) 'Banker' stands if the ‘Player's third \n    card’ is 8; \n(ii)If the ‘Player's third card’ is 0, 1,  2,  3,  \n    4, 5, 6, 7, 9, 'Banker' must draw the \n    third card " size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="left"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -364,10 +326,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0" width="1140" height="260" height.en="250"/>
                                             <e:Group>
                                                 <e:Group width.zh="401" width.cn="401" width.en="401" height="260" height.en="250">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text="4" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text="4" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group width.zh="736" width.cn="736" width.en="736" height="260" height.en="250">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="(i) 若「閒」補得第 3 張牌是 0、1、8、9 \n    點，「庄」不得補牌；\n(ii) 若「閒」第 3 張牌補到 2、3、4、5、\n    6、7，「庄」必須補牌" text.cn="(i) 若「闲」补得第3 张牌是0、1、8、9 \n    点，「庄」 不得补牌；\n(ii) 若「闲」第3 张牌补到2、3 、4、5、\n    6、7，「庄」必须补牌" text.en="(i) 'Banker' stands if the ‘Player's third \n    card’ is 0, 1, 8 or 9; \n(ii) If the ‘Player's third card’ is  2, 3, 4, 5, 6, \n    7,'Banker' must draw the third card " size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="left"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="(i) 若「閒」補得第 3 張牌是 0、1、8、9 \n    點，「庄」不得補牌；\n(ii) 若「閒」第 3 張牌補到 2、3、4、5、\n    6、7，「庄」必須補牌" text.cn="(i) 若「闲」补得第3 张牌是0、1、8、9 \n    点，「庄」 不得补牌；\n(ii) 若「闲」第3 张牌补到2、3 、4、5、\n    6、7，「庄」必须补牌" text.en="(i) 'Banker' stands if the ‘Player's third \n    card’ is 0, 1, 8 or 9; \n(ii) If the ‘Player's third card’ is  2, 3, 4, 5, 6, \n    7,'Banker' must draw the third card " size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="left"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -378,10 +340,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0.5" width="1140" height="260" height.en="250"/>
                                             <e:Group>
                                                 <e:Group width.zh="401" width.cn="401" width.en="401" height="260" height.en="250">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text="5" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text="5" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group width.zh="736" width.cn="736" width.en="736" height="260" height.en="250">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="(i) 若「閒」補得第 3 張牌是 0、1、2、\n     3、8、9 點，「庄」不得補牌；\n(ii) 若「閒」第 3 張牌補得 4、5、6、7，\n     「庄」必須補牌" text.cn="(i) 若「闲」补得第3 张牌是0、1、2、\n     3、8、9点，「庄」不得补牌；\n(ii) 若「闲」第3 张牌补得4、5、\n     6、7，「庄」必须补牌" text.en="(i) 'Banker' stands if the ‘Player's third \n     card’ is 0, 1, 2, 3, 8, 9; \n(ii) If the ‘Player's third card’ is 4, 5,  6, 7, \n     'Banker' must draw a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="left"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="(i) 若「閒」補得第 3 張牌是 0、1、2、\n     3、8、9 點，「庄」不得補牌；\n(ii) 若「閒」第 3 張牌補得 4、5、6、7，\n     「庄」必須補牌" text.cn="(i) 若「闲」补得第3 张牌是0、1、2、\n     3、8、9点，「庄」不得补牌；\n(ii) 若「闲」第3 张牌补得4、5、\n     6、7，「庄」必须补牌" text.en="(i) 'Banker' stands if the ‘Player's third \n     card’ is 0, 1, 2, 3, 8, 9; \n(ii) If the ‘Player's third card’ is 4, 5,  6, 7, \n     'Banker' must draw a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="left"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -392,10 +354,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0" width="1140" height="260" height.en="250"/>
                                             <e:Group>
                                                 <e:Group width.zh="401" width.cn="401" width.en="401" height="260" height.en="250">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text="6" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text="6" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group width.zh="736" width.cn="736" width.en="736" height="260" height.en="250">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="(i) 若「閒」家第 3 張牌補到 0、1、2、\n     3、4、5、8、9，「庄」不須補牌；\n(ii) 若「閒」補得第 3 張牌是 6 或 7 點，\n     「庄」必須補牌" text.cn="(i) 若「闲」家第3 张牌补到0、1、2、\n     3、4、5、8、9，「庄」不须补牌；\n(ii) 若「闲」补得第3 张牌是6 或7 点，\n     「庄」必须补牌" text.en="(i) 'Banker' stands when the ‘Player's third \n     card’ is 0, 1, 2, 3, 4, 5, 8, 9; \n(ii) If the ‘Player's third card’ is 6 or 7, \n     'Banker' must draw a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="left"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="(i) 若「閒」家第 3 張牌補到 0、1、2、\n     3、4、5、8、9，「庄」不須補牌；\n(ii) 若「閒」補得第 3 張牌是 6 或 7 點，\n     「庄」必須補牌" text.cn="(i) 若「闲」家第3 张牌补到0、1、2、\n     3、4、5、8、9，「庄」不须补牌；\n(ii) 若「闲」补得第3 张牌是6 或7 点，\n     「庄」必须补牌" text.en="(i) 'Banker' stands when the ‘Player's third \n     card’ is 0, 1, 2, 3, 4, 5, 8, 9; \n(ii) If the ‘Player's third card’ is 6 or 7, \n     'Banker' must draw a third card" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="left"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -406,10 +368,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0.5" width="1140" height="100"/>
                                             <e:Group>
                                                 <e:Group width.zh="401" width.cn="401" width.en="401" height="100">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text="7" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text="7" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group width.zh="736" width.cn="736" width.en="736" height="100">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="不得補牌" text.cn="不得补牌" text.en="Stands" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="不得補牌" text.cn="不得补牌" text.en="Stands" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -420,10 +382,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0" width="1140" height="100" height.en="150"/>
                                             <e:Group>
                                                 <e:Group width.zh="401" width.cn="401" width.en="401" height="100" height.en="150">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text="8" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text="8" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group width.zh="736" width.cn="736" width.en="736" height="100" height.en="150">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="例牌，即定勝負" text.cn="例牌，即定胜负" text.en="Natural Numbers -no more cards shall\n be dealt to either hand" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="例牌，即定勝負" text.cn="例牌，即定胜负" text.en="Natural Numbers -no more cards shall\n be dealt to either hand" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -434,10 +396,10 @@
                                             <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0.5" width="1140" height="100" height.en="150"/>
                                             <e:Group>
                                                 <e:Group width.zh="401" width.cn="401" width.en="401" height="100" height.en="150">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text="9" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text="9" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:Group width.zh="736" width.cn="736" width.en="736" height="100" height.en="150">
-                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="例牌，即定勝負" text.cn="例牌，即定胜负" text.en="Natural Numbers -no more cards shall\n be dealt to either hand" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                                    <ui:RunTimeLabel horizontalCenter="0" verticalCenter="0" text.zh="例牌，即定勝負" text.cn="例牌，即定胜负" text.en="Natural Numbers -no more cards shall\n be dealt to either hand" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                                 </e:Group>
                                                 <e:layout>
                                                     <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -472,174 +434,120 @@
                         <e:VerticalLayout gap="12"/>
                     </e:layout>
                 </e:Group>
-                <e:Group id="_payoutRule" width="1194">
-                    <ui:RunTimeLabel id="_lblPayoutRule" text.zh="賠彩規則" text.cn="赔彩规则" text.en="Payout rules" size="50" textColor="0xc59466" textKey="" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei"/>
-                    <e:Group id="_payoutRuleSub" width="1194">
+                <e:Group id="_payoutRule" width="1212">
+                    <ui:RunTimeLabel id="_lblPayoutRule" text.zh="賠彩規則" text.cn="赔彩规则" text.en="Payout rules" size="50" textColor="0xc59466" textKey="" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow"/>
+                    <e:Group id="_payoutRuleSub" width="1212">
                         <e:Group>
                             <e:Group>
-                                <ui:RunTimeLabel width="40" text.zh="・" text.cn="・" text.en="・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                                <ui:RunTimeLabel width="1058" id="_subpr1" text.zh="賠彩規則分為兩種，包括「區塊鏈極速百家樂」及「免佣區塊鏈極速百家樂」" text.cn="赔彩规则分为两种，包括「区块链极速百家乐」及「免佣区块链极速百家乐」" text.en="There are two payout rules, including ‘Blockchain Speed Baccarat’ and ‘No Commission Blockchain Speed Baccarat’" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8" bold="false"/>  
+                                <ui:RunTimeLabel width="40" text.zh="・" text.cn="・" text.en="・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8"/>
+                                <ui:RunTimeLabel width="1058" id="_subpr1" text.zh="賠彩規則分為兩種，包括「區塊鏈極速百家樂」及「免佣區塊鏈極速百家樂」" text.cn="赔彩规则分为两种，包括「区块链极速百家乐」及「免佣区块链极速百家乐」" text.en="There are two payout rules, including ‘Blockchain Speed Baccarat’ and ‘No Commission Blockchain Speed Baccarat’" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8" bold="false"/>  
                                 <e:layout>
                                     <e:HorizontalLayout gap="12"/>
                                 </e:layout>
                             </e:Group>
                         </e:Group>
                         <e:Group>
-                            <ui:RunTimeLabel width="40" text.zh="a." text.cn="a." text.en="a." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                            <ui:RunTimeLabel id="_subpr2" text.zh="押「閒」" text.cn="押「闲」" text.en="Bet on ‘Player’" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/> 
+                            <ui:RunTimeLabel width="40" text.zh="a." text.cn="a." text.en="a." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8"/>
+                            <ui:RunTimeLabel id="_subpr2" text.zh="押「閒」" text.cn="押「闲」" text.en="Bet on ‘Player’" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow"/> 
                             <e:layout>
                                 <e:HorizontalLayout gap="12" paddingLeft="55"/>
                             </e:layout>
                         </e:Group>
                         <e:Group>
-                            <ui:RunTimeLabel width="40" text.zh="・\n・\n\n\n・\n\n・" text.cn="・\n・\n\n\n・\n\n・" text.en="・\n\n・\n\n\n・\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                        <ui:RunTimeLabel width="954" id="_subpr3" text.zh="「區塊鏈極速百家樂」 及「免佣區塊鏈極速百家樂」－  1 賠 1
-\n若「閒」的牌點數大於「庄」的牌點數，任何押於「閒」贏的投注將按 1 賠 1 支付，並將返還押於「閒」贏的初始投注金；
-\n若「閒」牌點數與「庄」牌點數相同，將返還任何押於「閒」贏的投注金；
-\n否則，任何押於「閒」的投注都將被移除" text.cn="「区块链极速百家乐」 及「免佣区块链极速百家乐」－ 1 赔 1
-\n若「闲」的牌点数大于「庄」的牌点数，任何押于「闲」赢的投注将按 1 赔 1 支付，并将返还押于「闲」赢的初始投注金；
-\n若「闲」牌点数与「庄」牌点数相同，将返还任何押于「闲」赢的投注金；
-\n否则，任何押于「闲」的投注都将被移除" text.en="‘Blockchain Speed Baccarat’ and ‘No Commission Blockchain Speed Baccarat’ - 1：1
-\nIf the ‘Player's hand’ value is higher than the ‘Banker's hand’ value, any bet on ‘Player’ is paid 1 to 1, and the initial bet is returned; 
-\nIf the ‘Player's hand’ and ‘Banker's hand’ have the same value, any bet on ‘Player’ is returned.
-\nOtherwise, any bet on ‘Player’ is removed. " size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8" bold="false"/>  
+                            <ui:RunTimeLabel width="40" text.zh="・\n・\n\n・\n\n・" text.cn="・\n・\n\n・\n\n・" text.en="・\n\n・\n\n\n・\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8"/>
+                        <ui:RunTimeLabel width="985" width.en="968" id="_subpr3" text.zh="「區塊鏈極速百家樂」 及「免佣區塊鏈極速百家樂」－  1 賠 1\n若「閒」的牌點數大於「庄」的牌點數，任何押於「閒」贏的投注將按 1 賠 1 支付，並將返還押於「閒」贏的初始投注金；\n若「閒」牌點數與「庄」牌點數相同，將返還任何押於「閒」贏的投注金；\n否則，任何押於「閒」的投注都將被移除" text.cn="「区块链极速百家乐」 及「免佣区块链极速百家乐」－ 1 赔 1\n若「闲」的牌点数大于「庄」的牌点数，任何押于「闲」赢的投注将按 1 赔 1 支付，并将返还押于「闲」赢的初始投注金；\n若「闲」牌点数与「庄」牌点数相同，将返还任何押于「闲」赢的投注金；\n否则，任何押于「闲」的投注都将被移除" text.en="‘Blockchain Speed Baccarat’ and ‘No Commission Blockchain Speed Baccarat’ - 1：1\nIf the ‘Player's hand’ value is higher than the ‘Banker's hand’ value, any bet on ‘Player’ is paid 1 to 1, and the initial bet is \nreturned; \nIf the ‘Player's hand’ and ‘Banker's hand’ have the same value, any bet on ‘Player’ is returned.\nOtherwise, any bet on ‘Player’ is removed. " size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8" bold="false"/>  
                             <e:layout>
                                 <e:HorizontalLayout gap="12" paddingLeft="97"/>
                             </e:layout>
                         </e:Group>
                         <e:Group>
-                            <ui:RunTimeLabel width="40" text.zh="b.\n(i)" text.cn="b.\n(i)" text.en="b.\n(i)" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                            <ui:RunTimeLabel id="_subpr4" text.zh="押「庄」\n「區塊鏈極速百家樂」 － 1 賠 0.95" text.cn="押「庄」\n「区块链极速百家乐」 － 1 赔 0.95" text.en="Bet on ‘Banker’\n ‘Blockchain Speed Baccarat’ - 0.95：1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/> 
+                            <ui:RunTimeLabel width="40" text.zh="b.\n(i)" text.cn="b.\n(i)" text.en="b.\n(i)" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8"/>
+                            <ui:RunTimeLabel id="_subpr4" text.zh="押「庄」\n「區塊鏈極速百家樂」 － 1 賠 0.95" text.cn="押「庄」\n「区块链极速百家乐」 － 1 赔 0.95" text.en="Bet on ‘Banker’\n ‘Blockchain Speed Baccarat’ - 0.95：1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow"/> 
                             <e:layout>
                                 <e:HorizontalLayout gap="12" paddingLeft="55"/>
                             </e:layout>
                         </e:Group>
                         <e:Group>
-                            <ui:RunTimeLabel width="40" text.zh="・\n\n\n・\n\n・" text.cn="・\n\n\n・\n\n・" text.en="・\n\n\n・\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                            <ui:RunTimeLabel width="954" id="_subpr5" text.zh="若「庄」的牌點數大於「閒」的牌點數，任何押於「庄」贏的投注將按 1 賠 0.95 支付，並將返還押於「庄」贏的初始投注金；
-\n若「庄」牌點數與「閒」牌點數相同，將返還任何押於「庄」贏的投注金；
-\n否則，任何押於「庄」的投注都將被移除" text.cn="若「庄」的牌点数大于「闲」的牌点数，任何押于「庄」赢的投注将按 1 赔 0.95 支付，并将返还押于「庄」赢的初始投注金；
-\n若「庄」牌点数与「闲」牌点数相同，将返还任何押于「庄」赢的投注金；
-\n否则，任何押于「庄」的投注都将被移除" text.en="If the ‘Banker's hand’ value is higher than the ‘Player’s hand’ value, any bet on ‘Banker’ is paid 0.95 to 1, and the initial bet is returned; 
-\nIf the ‘Banker's hand’ and ‘Player's hand’ values are of the same value, any bet on ‘Banker’ is returned. 
-\nOtherwise, any bet on ‘Banker’ is removed. " size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8" bold="false"/>  
+                            <ui:RunTimeLabel width="40" text.zh="・\n\n\n・\n\n・" text.cn="・\n\n\n・\n\n・" text.en="・\n\n\n・\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8"/>
+                            <ui:RunTimeLabel width="985" width.en="968" id="_subpr5" text.zh="若「庄」的牌點數大於「閒」的牌點數，任何押於「庄」贏的投注將按 1 賠 0.95 支付，並將返還押於「庄」贏的初始投注金；\n若「庄」牌點數與「閒」牌點數相同，將返還任何押於「庄」贏的投注金；\n否則，任何押於「庄」的投注都將被移除" text.cn="若「庄」的牌点数大于「闲」的牌点数，任何押于「庄」赢的投注将按 1 赔 0.95 支付，并将返还押于「庄」赢的初始投注金；\n若「庄」牌点数与「闲」牌点数相同，将返还任何押于「庄」赢的投注金；\n否则，任何押于「庄」的投注都将被移除" text.en="If the ‘Banker's hand’ value is higher than the ‘Player’s hand’ value, any bet on ‘Banker’ is paid 0.95 to 1, and the initial bet is \nreturned; \nIf the ‘Banker's hand’ and ‘Player's hand’ values are of the same value, any bet on ‘Banker’ is returned. \nOtherwise, any bet on ‘Banker’ is removed. " size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8" bold="false"/>  
                             <e:layout>
                                 <e:HorizontalLayout gap="12" paddingLeft="97"/>
                             </e:layout>
                         </e:Group>
                         <e:Group>
-                            <ui:RunTimeLabel width="44" text.zh="(ii)" text.cn="(ii)" text.en="(ii)" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/>
+                            <ui:RunTimeLabel width="44" text.zh="(ii)" text.cn="(ii)" text.en="(ii)" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow"/>
                             <ui:RunTimeLabel id="_subpr6" text.zh="「免佣區塊鏈極速百家樂」－ 1 賠 1 或 1 賠 0.5" text.cn="「免佣区块链极速百家乐」－ 1 赔 1 或 1 赔 0.5" text.en="‘No Commission Blockchain Speed Baccarat’ - 1：1 or  0.5 ：1 "
-                                        size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/>                             
+                                        size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow"/>                             
                             <e:layout>
                                 <e:HorizontalLayout gap="12" paddingLeft="51"/>
                             </e:layout>
                         </e:Group>
                         <e:Group>
-                            <ui:RunTimeLabel width="40" text.zh="・\n・\n\n\n・\n\n\n・\n\n・" text.cn="・\n・\n\n\n・\n\n\n・\n\n・" text.en="・\n\n・\n\n\n・\n\n\n・\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                            <ui:RunTimeLabel id="_subpr7" width="954" text.zh="不收取任何佣金，但「庄」贏的賠率隨結果改變，詳情如下：
-    \n若「庄」牌點數以 1、2、3、4、5、7、8、9 點大於「閒」的牌點數﹐任何押於「庄」贏的投注將按 1 賠 1 支付，並將返還押於「庄」贏的初始投注金；
-    \n若「庄」牌點數為 6 點，並高於「閒」牌點數，任何押於「庄」贏的投注則將按 1 賠 0.5 支付，並將返還押於「庄」贏的初始投注金；
-    \n若「庄」牌點數與「閒」牌點數相同，將返還任何押於「庄」贏的投注金 ；
-    \n否則，任何押於「庄」的投注都將被移除" text.cn="不收取任何佣金，但「庄」赢的赔率随结果改变，详情如下：
-    \n若「庄」牌点数以1、2、3、4、5、7、8、9 点大于「闲」的牌点数﹐任何押于「庄」赢的投注将按1 赔1 支付，并将返还押于「庄」赢的初始投注金；
-    \n若「庄」牌点数为6 点，并高于「闲」牌点数，任何押于「庄」赢的投注则将按1 赔0.5 支付，并将返还押于「庄」赢的初始投注金；
-    \n若「庄」牌点数与「闲」牌点数相同，将返还任何押于「庄」赢的投注金 ；
-    \n否则，任何押于「庄」的投注都将被移除" text.en="The House takes no commission, but the payout ratio for ‘Banker’ wins is different as follows,
-    \nIf the ‘Banker's hand’ value is higher than the ‘Player's hand’ value and the ‘Banker's hand’ value is not 6, any bet on ‘Banker’ is paid 1 to 1, and the initial bet is returned. 
-    \nIf the ‘Banker's hand’ value is higher than the ‘Player's hand’ value and the ‘Banker's hand’ value is 6, any bet on ‘Banker’ is paid 0.5 to 1, and the initial bet is returned.
-    \nIf the ‘Banker's hand’ and ‘Player's hand’ values are of the same value, any bet on ‘Banker’ is returned. 
-    \nOtherwise, any bet on ‘Banker’ is removed." 
-                                            size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8" bold="false"/> 
+                            <ui:RunTimeLabel width="40" text.zh="・\n・\n\n\n・\n\n\n・\n\n・" text.cn="・\n・\n\n\n・\n\n\n・\n\n・" text.en="・\n\n・\n\n\n・\n\n\n・\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8"/>
+                            <ui:RunTimeLabel id="_subpr7" width="985" width.en="968" text.zh="不收取任何佣金，但「庄」贏的賠率隨結果改變，詳情如下：\n若「庄」牌點數以 1、2、3、4、5、7、8、9 點大於「閒」的牌點數﹐任何押於「庄」贏的投注將按 1 賠 1 支付，並將返還押於「庄」贏的初始投注金；\n若「庄」牌點數為 6 點，並高於「閒」牌點數，任何押於「庄」贏的投注則將按 1 賠 0.5 支付，並將返還押於「庄」贏的初始投注金；\n若「庄」牌點數與「閒」牌點數相同，將返還任何押於「庄」贏的投注金 ；\n否則，任何押於「庄」的投注都將被移除" text.cn="不收取任何佣金，但「庄」赢的赔率随结果改变，详情如下：\n若「庄」牌点数以1、2、3、4、5、7、8、9 点大于「闲」的牌点数﹐任何押于「庄」赢的投注将按1 赔1 支付，并将返还押于「庄」赢的初始投注金；\n若「庄」牌点数为6 点，并高于「闲」牌点数，任何押于「庄」赢的投注则将按1 赔0.5 支付，并将返还押于「庄」赢的初始投注金；\n若「庄」牌点数与「闲」牌点数相同，将返还任何押于「庄」赢的投注金 ；\n否则，任何押于「庄」的投注都将被移除" text.en="The House takes no commission, but the payout ratio for ‘Banker’ wins is different as follows,\nIf the ‘Banker's hand’ value is higher than the ‘Player's hand’ value and the ‘Banker's hand’ value is not 6, any bet on ‘Banker’ is paid 1 to 1, and the initial bet is returned. \nIf the ‘Banker's hand’ value is higher than the ‘Player's hand’ value and the ‘Banker's hand’ value is 6, any bet on ‘Banker’ is paid 0.5 to 1, and the initial bet is returned.\nIf the ‘Banker's hand’ and ‘Player's hand’ values are of the same value, any bet on ‘Banker’ is returned. \nOtherwise, any bet on ‘Banker’ is removed." 
+                                            size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8" bold="false"/> 
                             <e:layout>
                                 <e:HorizontalLayout gap="12" paddingLeft="97"/>
                             </e:layout>
                         </e:Group>
                         <e:Group>
-                            <ui:RunTimeLabel width="40" text.zh="c." text.cn="c." text.en="c." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/>
-                            <ui:RunTimeLabel id="_subpr8" text.zh="押「和」" text.cn="押「和」" text.en="Bet on ‘Tie’" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/> 
+                            <ui:RunTimeLabel width="40" text.zh="c." text.cn="c." text.en="c." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow"/>
+                            <ui:RunTimeLabel id="_subpr8" text.zh="押「和」" text.cn="押「和」" text.en="Bet on ‘Tie’" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow"/> 
                             <e:layout>
                                 <e:HorizontalLayout gap="12" paddingLeft="55"/>
                             </e:layout>
                         </e:Group>
                         <e:Group>
-                            <ui:RunTimeLabel width="40" text.zh="・\n・\n\n・" text.cn="・\n・\n\n・" text.en="・\n\n・\n\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                            <ui:RunTimeLabel width="954" id="_subpr9" text.zh="「區塊鏈極速百家樂」 及「免佣區塊鏈極速百家樂」－ 1 賠 8
-\n若「閒」與「庄」牌點數相同，任何投注於「和局」的投注將按 1 賠 8 支付，並將返還押於「和局」的初始投注金；
-\n否則，任何押於「和局」的投注都將被移除" text.cn="「区块链极速百家乐」 及「免佣区块链极速百家乐」－ 1 赔 8
-\n若「闲」与「庄」牌点数相同，任何投注于「和局」的投注将按 1 赔 8 支付，并将返还押于「和局」的初始投注金；
-\n否则，任何押于「和局」的投注都将被移除" text.en="‘Blockchain Speed Baccarat’ and ‘No Commission Blockchain Speed Baccarat’ - 8：1
-\nIf the ‘Player's hand’ and ‘Banker's hand’ values are of the same value, any bet on ‘Tie’ is paid 8 to 1, and the initial bet is returned. 
-\nOtherwise, any bet on ‘Tie’ is removed."
-                                            size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8" bold="false"/>  
+                            <ui:RunTimeLabel width="40" text.zh="・\n・\n\n・" text.cn="・\n・\n\n・" text.en="・\n\n・\n\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8"/>
+                            <ui:RunTimeLabel width="985" width.en="968" id="_subpr9" text.zh="「區塊鏈極速百家樂」 及「免佣區塊鏈極速百家樂」－ 1 賠 8\n若「閒」與「庄」牌點數相同，任何投注於「和局」的投注將按 1 賠 8 支付，並將返還押於「和局」的初始投注金；\n否則，任何押於「和局」的投注都將被移除" text.cn="「区块链极速百家乐」 及「免佣区块链极速百家乐」－ 1 赔 8\n若「闲」与「庄」牌点数相同，任何投注于「和局」的投注将按 1 赔 8 支付，并将返还押于「和局」的初始投注金；\n否则，任何押于「和局」的投注都将被移除" text.en="‘Blockchain Speed Baccarat’ and ‘No Commission Blockchain Speed Baccarat’ - 8：1\nIf the ‘Player's hand’ and ‘Banker's hand’ values are of the same value, any bet on ‘Tie’ is paid 8 to 1, and the initial bet is \nreturned. \nOtherwise, any bet on ‘Tie’ is removed."
+                                            size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8" bold="false" anchorOffsetX.cn="0" width.cn="986"/>  
                             <e:layout>
                                 <e:HorizontalLayout gap="12" paddingLeft="97"/>
                             </e:layout>
                         </e:Group>
                         <e:Group>
-                            <ui:RunTimeLabel width="40" text.zh="d." text.cn="d." text.en="d." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/>
+                            <ui:RunTimeLabel width="40" text.zh="d." text.cn="d." text.en="d." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow"/>
                             <ui:RunTimeLabel id="_subpr10" text.zh="押「閒對」" text.cn="押「闲对」" text.en="Bet on ‘Player Pair’"
-                                        size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/> 
+                                        size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow"/> 
                             <e:layout>
                                 <e:HorizontalLayout gap="12" paddingLeft="55"/>
                             </e:layout>
                         </e:Group>
                         <e:Group>
-                            <ui:RunTimeLabel width="40" text.zh="・\n・\n\n\n・" text.cn="・\n・\n\n\n・" text.en="・\n\n・\n\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                            <ui:RunTimeLabel width="954" id="_subpr11" text.zh=" 「區塊鏈極速百家樂」 及「免佣區塊鏈極速百家樂」－ 1 賠 11
-\n若「庄」首 2 張牌構成一對（只計點數，不計花色），任何押於「庄對」的投注將按 1 賠 11 支付，並將返還押於「庄對」的初始投注金；
-\n否則，任何押於「庄對」的投注都將被移除。"  text.cn="「区块链极速百家乐」 及「免佣区块链极速百家乐」－ 1 赔 11
-\n若「庄」首2 张牌构成一对（只计点数，不计花色），任何押于「庄对」的投注将按1 赔11 支付，并将返还押于「庄对」的初始投注金；
-\n否则，任何押于「庄对」的投注都将被移除" text.en="‘Blockchain Speed Baccarat’ and ‘No Commission Blockchain Speed Baccarat’ - 11：1
-\nIf the ‘Player’ first two cards constitute a pair (only count point, regardless of suits), any bet on 'Player Pair' is paid 11 to 1, and the initial bet is returned. 
-\nOtherwise, any bet on 'Player Pair' is removed."
-                                            size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8" bold="false"/> 
+                            <ui:RunTimeLabel width="40" text.zh="・\n・\n\n\n・" text.cn="・\n・\n\n\n・" text.en="・\n\n・\n\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8"/>
+                            <ui:RunTimeLabel width="1010" width.en="968" id="_subpr11" text.zh=" 「區塊鏈極速百家樂」 及「免佣區塊鏈極速百家樂」－ 1 賠 11\n若「庄」首 2 張牌構成一對（只計點數，不計花色），任何押於「庄對」的投注將按 1 賠 11 支付，並將返還押於「庄對」的初始投注金；\n否則，任何押於「庄對」的投注都將被移除。"  text.cn="「区块链极速百家乐」 及「免佣区块链极速百家乐」－ 1 赔 11\n若「庄」首2 张牌构成一对（只计点数，不计花色），任何押于「庄对」的投注将按1 赔11 支付，并将返还押于「庄对」的初始投注金；\n否则，任何押于「庄对」的投注都将被移除" text.en="‘Blockchain Speed Baccarat’ and ‘No Commission Blockchain Speed Baccarat’ - 11：1\nIf the ‘Player’ first two cards constitute a pair (only count point, regardless of suits), any bet on 'Player Pair' is paid 11 to 1, and the initial bet is returned. \nOtherwise, any bet on 'Player Pair' is removed."
+                                            size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8" bold="false"/> 
                             <e:layout>
                                 <e:HorizontalLayout gap="12" paddingLeft="97"/>
                             </e:layout>
                         </e:Group>
                         <e:Group>
-                            <ui:RunTimeLabel width="40" text.zh="e." text.cn="e." text.en="e." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/>
+                            <ui:RunTimeLabel width="40" text.zh="e." text.cn="e." text.en="e." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow"/>
                             <ui:RunTimeLabel id="_subpr12" text.zh="押「庄對」" text.cn="押「庄对」" text.en="Bet on ‘Banker Pair’"
-                                            size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8" /> 
+                                            size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8" /> 
                             <e:layout>
                                 <e:HorizontalLayout gap="12" paddingLeft="55"/>
                             </e:layout>
                         </e:Group>
                         <e:Group>
-                            <ui:RunTimeLabel width="40" text.zh="・\n・\n\n\n・" text.cn="・\n・\n\n\n・" text.en="・\n\n・\n\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                            <ui:RunTimeLabel width="954" id="_subpr13" text.zh=" 「區塊鏈極速百家樂」 及「免佣區塊鏈極速百家樂」－ 1 賠 11
-\n若「庄」首 2 張牌構成一對（只計點數，不計花色），任何押於「庄對」的投注將按 1 賠 11 支付，並將返還押於「庄對」的初始投注金；
-\n否則，任何押於「庄對」的投注都將被移除。" text.cn="「区块链极速百家乐」 及「免佣区块链极速百家乐」－ 1 赔 11
-\n若「庄」首2 张牌构成一对（只计点数，不计花色），任何押于「庄对」的投注将按1 赔11 支付，并将返还押于「庄对」的初始投注金；
-\n否则，任何押于「庄对」的投注都将被移除。" text.en="‘Blockchain Speed Baccarat’ and ‘No Commission Blockchain Speed Baccarat’ - 11：1
-\nIf the ‘Banker’ first two cards constitute a pair (only count point, regardless of suits), any bet on 'Banker Pair' is paid 11 to 1, and the initial bet is returned.
-\nOtherwise, any bet on 'Banker Pair' is removed." 
-                                            size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8" bold="false"/>  
+                            <ui:RunTimeLabel width="40" text.zh="・\n・\n\n\n・" text.cn="・\n・\n\n\n・" text.en="・\n\n・\n\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8"/>
+                            <ui:RunTimeLabel width="1010" width.en="968" id="_subpr13" text.zh=" 「區塊鏈極速百家樂」 及「免佣區塊鏈極速百家樂」－ 1 賠 11\n若「庄」首 2 張牌構成一對（只計點數，不計花色），任何押於「庄對」的投注將按 1 賠 11 支付，並將返還押於「庄對」的初始投注金；\n否則，任何押於「庄對」的投注都將被移除。" text.cn="「区块链极速百家乐」 及「免佣区块链极速百家乐」－ 1 赔 11\n若「庄」首2 张牌构成一对（只计点数，不计花色），任何押于「庄对」的投注将按1 赔11 支付，并将返还押于「庄对」的初始投注金；\n否则，任何押于「庄对」的投注都将被移除。" text.en="‘Blockchain Speed Baccarat’ and ‘No Commission Blockchain Speed Baccarat’ - 11：1\nIf the ‘Banker’ first two cards constitute a pair (only count point, regardless of suits), any bet on 'Banker Pair' is paid 11 to 1, and the initial bet is returned.\nOtherwise, any bet on 'Banker Pair' is removed." 
+                                            size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8" bold="false"/>  
                             <e:layout>
                                 <e:HorizontalLayout gap="12" paddingLeft="97"/>
                             </e:layout>
                         </e:Group>
                         <e:Group>
-                            <ui:RunTimeLabel width="40" text.zh="f." text.cn="f." text.en="f." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/>
+                            <ui:RunTimeLabel width="40" text.zh="f." text.cn="f." text.en="f." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow"/>
                             <ui:RunTimeLabel id="_subpr14" text.zh="押「超級六」" text.cn="押「超级六」" text.en="Bet on ‘Super 6’"
-                                        size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow"/> 
+                                        size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow"/> 
                             <e:layout>
                                 <e:HorizontalLayout gap="12" paddingLeft="55"/>
                             </e:layout>
                         </e:Group>
 						<e:Group>
-                            <ui:RunTimeLabel width="40" text.zh="・\n・\n\n\n・\n\n・" text.cn="・\n・\n\n\n・\n\n・" text.en="・\n・\n・\n\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8"/>
-                            <ui:RunTimeLabel width="954" id="_subpr15" text.zh="「免佣區塊鏈極速百家樂」－ 1 賠 12
-\n在 「區塊鏈極速百家樂」 模式，不存有「超級六」投注；只限在「免佣區塊鏈極速百家樂」時啟動
-\n若「庄」牌點數為 6 點，並高於「閒」牌點數﹐任何押於「超級六」的投注則將按 1 賠 12 支付，並將返還押於「超級六」贏的初始投注金；
-\n否則，任何押於「超級六」的投注都將被移除" text.cn="「免佣区块链极速百家乐」－ 1 赔 12
-\n在 「区块链极速百家乐」 模式，不存有「超级六」投注；只限在「免佣区块链极速百家乐」时启动
-\n若「庄」牌点数为6 点，并高于「闲」牌点数﹐任何押于「超级六」的投注则将按1 赔12 支付，并将返还押于「超级六」赢的初始投注金；
-\n否则，任何押于「超级六」的投注都将被移除" text.en="‘No Commission Blockchain Speed Baccarat’ - 12：1
-\nOnly available on ‘No Commission Blockchain Speed Baccarat’
-\nIf the ‘Banker's hand’ value is higher than the ‘Player's hand’ value and the ‘Banker's hand’ value is 6, any bet on 'Super 6' is paid 12 to 1, and the initial bet is returned. 
-\nOtherwise, any bet on 'Super 6' is removed." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Helvetica" fontFamily.en="Barlow" alpha="0.8" bold="false"/> 
+                            <ui:RunTimeLabel width="40" text.zh="・\n・\n\n・\n\n\n・" text.cn="・\n・\n\n・\n\n\n・" text.en="・\n・\n・\n\n\n・" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8"/>
+                            <ui:RunTimeLabel width="985" width.en="968" id="_subpr15" text.zh="「免佣區塊鏈極速百家樂」－ 1 賠 12\n在 「區塊鏈極速百家樂」 模式，不存有「超級六」投注；只限在「免佣區塊鏈極速百家樂」時啟動\n若「庄」牌點數為 6 點，並高於「閒」牌點數﹐任何押於「超級六」的投注則將按 1 賠 12 支付，並將返還押於「超級六」贏的初始投注金；\n否則，任何押於「超級六」的投注都將被移除" text.cn="「免佣区块链极速百家乐」－ 1 赔 12\n在 「区块链极速百家乐」 模式，不存有「超级六」投注；只限在「免佣区块链极速百家乐」时启动\n若「庄」牌点数为6 点，并高于「闲」牌点数﹐任何押于「超级六」的投注则将按1 赔12 支付，并将返还押于「超级六」赢的初始投注金；\n否则，任何押于「超级六」的投注都将被移除" text.en="‘No Commission Blockchain Speed Baccarat’ - 12：1\nOnly available on ‘No Commission Blockchain Speed Baccarat’\nIf the ‘Banker's hand’ value is higher than the ‘Player's hand’ value and the ‘Banker's hand’ value is 6, any bet on 'Super 6' is paid 12 to 1, and the initial bet is returned. \nOtherwise, any bet on 'Super 6' is removed." size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" x="0" y="0" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" alpha="0.8" bold="false"/> 
                             <e:layout>
                                 <e:HorizontalLayout gap="12" paddingLeft="97"/>
                             </e:layout>
@@ -651,13 +559,13 @@
                                     <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,0,0" stroke="0" fillColor="0x112c4c" fillAlpha="0.5" width="1140" height="100" height.en="140"/>
                                     <e:Group id="prRow1Group">
                                         <e:Group id="_prRow1Item1" width="266" height="100" height.en="140">
-                                            <ui:RunTimeLabel id="_lblprRow1Item1" horizontalCenter="0" verticalCenter="0" text.zh="下注項目" text.cn="下注项目" text.en="Bet Type" size="36" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow1Item1" horizontalCenter="0" verticalCenter="0" text.zh="下注項目" text.cn="下注项目" text.en="Bet Type" size="36" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:Group id="_prRow1Item2" width="377" height="100" height.en="140">
-                                            <ui:RunTimeLabel id="_lblprRow1Item2" horizontalCenter="0" verticalCenter="0" text.zh="區塊鏈極速百家樂" text.cn="区块链极速百家乐" text.en="Blockchain Speed Baccarat " size="36" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow1Item2" horizontalCenter="0" verticalCenter="0" text.zh="區塊鏈極速百家樂" text.cn="区块链极速百家乐" text.en="Blockchain\n Speed Baccarat " size="36" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:Group id="_prRow1Item3" width="497" height="100" height.en="140">
-                                            <ui:RunTimeLabel id="_lblprRow1Item3" horizontalCenter="0" verticalCenter="0" text.zh="免佣區塊鏈極速百家樂" text.cn="免佣区块链极速百家乐" text.en="‘No Commission \nBlockchain Speed Baccarat’" size="36" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow1Item3" horizontalCenter="0" verticalCenter="0" text.zh="免佣區塊鏈極速百家樂" text.cn="免佣区块链极速百家乐" text.en="‘No Commission \nBlockchain Speed Baccarat’" size="36" textColor="0x00b8c3" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:layout>
                                             <e:HorizontalLayout gap="1" verticalAlign="middle"/>
@@ -668,13 +576,13 @@
                                     <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="0,0,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0" width="1140" height="140"/>
                                     <e:Group id="prRow2Group">
                                         <e:Group id="_prRow2Item1" width="266" height="140">
-                                            <ui:RunTimeLabel id="_lblprRow2Item1" horizontalCenter="0" verticalCenter="0" text.zh="庄" text.cn="庄" text.en="'Banker'" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow2Item1" horizontalCenter="0" verticalCenter="0" text.zh="庄" text.cn="庄" text.en="'Banker'" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:Group id="_prRow2Item2" width="377" height="140">
-                                            <ui:RunTimeLabel id="_lblprRow2Item2" horizontalCenter="0" verticalCenter="0" text.zh="1 賠 0.95" text.cn="1 赔 0.95" text.en="0.95 : 1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow2Item2" horizontalCenter="0" verticalCenter="0" text.zh="1 賠 0.95" text.cn="1 赔 0.95" text.en="0.95 : 1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:Group id="_prRow2Item3" width="497" height="140">
-                                            <ui:RunTimeLabel id="_lblprRow2Item3" horizontalCenter="0" verticalCenter="0" text.zh="1 賠 1\n* 以 6 點勝出 － 1 賠 0.5" text.cn="1 赔 1\n* 以 6 点胜出 － 1 赔 0.5" text.en="1 : 1\n*Wins on 6 points － 0.5：1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow2Item3" horizontalCenter="0" verticalCenter="0" text.zh="1 賠 1\n* 以 6 點勝出 － 1 賠 0.5" text.cn="1 赔 1\n* 以 6 点胜出 － 1 赔 0.5" text.en="1 : 1\n*Wins on 6 points － 0.5：1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:layout>
                                             <e:HorizontalLayout gap="1" verticalAlign="middle"/>
@@ -685,13 +593,13 @@
                                     <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="0,0,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0.5" width="1140" height="100"/>
                                     <e:Group id="prRow3Group">
                                         <e:Group id="_prRow3Item1" width="266" height="100">
-                                            <ui:RunTimeLabel id="_lblprRow3Item1" horizontalCenter="0" verticalCenter="0" text.zh="閒" text.cn="闲" text.en="'Player'" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow3Item1" horizontalCenter="0" verticalCenter="0" text.zh="閒" text.cn="闲" text.en="'Player'" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:Group id="_prRow3Item2" width="377" height="100">
-                                            <ui:RunTimeLabel id="_lblprRow3Item2" horizontalCenter="0" verticalCenter="0" text.zh="1 賠 1" text.cn="1 赔 1" text.en="1 : 1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow3Item2" horizontalCenter="0" verticalCenter="0" text.zh="1 賠 1" text.cn="1 赔 1" text.en="1 : 1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:Group id="_prRow3Item3" width="497" height="100">
-                                            <ui:RunTimeLabel id="_lblprRow3Item3" horizontalCenter="0" verticalCenter="0" text.zh="1 賠 1" text.cn="1 赔 1" text.en="1 : 1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow3Item3" horizontalCenter="0" verticalCenter="0" text.zh="1 賠 1" text.cn="1 赔 1" text.en="1 : 1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:layout>
                                             <e:HorizontalLayout gap="1" verticalAlign="middle"/>
@@ -702,13 +610,13 @@
                                     <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="0,0,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0" width="1140" height="100"/>
                                     <e:Group id="prRow4Group">
                                         <e:Group id="_prRow4Item1" width="266" height="100">
-                                            <ui:RunTimeLabel id="_lblprRow4Item1" horizontalCenter="0" verticalCenter="0" text="和"  text.cn="和" text.en="'Tie'" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow4Item1" horizontalCenter="0" verticalCenter="0" text="和"  text.cn="和" text.en="'Tie'" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:Group id="_prRow4Item2" width="377" height="100">
-                                            <ui:RunTimeLabel id="_lblprRow4Item2" horizontalCenter="0" verticalCenter="0" text="8 賠 1"  text.cn="8 赔 1" text.en="8 : 1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow4Item2" horizontalCenter="0" verticalCenter="0" text="8 賠 1"  text.cn="8 赔 1" text.en="8 : 1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:Group id="_prRow4Item3" width="497" height="100">
-                                            <ui:RunTimeLabel id="_lblprRow4Item3" horizontalCenter="0" verticalCenter="0" text="1 賠 8"  text.cn="1 赔 8" text.en="8 : 1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow4Item3" horizontalCenter="0" verticalCenter="0" text="1 賠 8"  text.cn="1 赔 8" text.en="8 : 1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:layout>
                                             <e:HorizontalLayout gap="1" verticalAlign="middle"/>
@@ -719,13 +627,13 @@
                                     <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="0,0,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0.5" width="1140" height="100"/>
                                     <e:Group id="prRow5Group">
                                         <e:Group id="_prRow5Item1" width="266" height="100">
-                                            <ui:RunTimeLabel id="_lblprRow5Item1" horizontalCenter="0" verticalCenter="0" text="庄對"  text.cn="庄对" text.en="'Banker Pair'" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow5Item1" horizontalCenter="0" verticalCenter="0" text="庄對"  text.cn="庄对" text.en="'Banker Pair'" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:Group id="_prRow5Item2" width="377" height="100">
-                                            <ui:RunTimeLabel id="_lblprRow5Item2" horizontalCenter="0" verticalCenter="0" text="11 賠 1"  text.cn="11 赔 1" text.en="11 : 1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow5Item2" horizontalCenter="0" verticalCenter="0" text="11 賠 1"  text.cn="11 赔 1" text.en="11 : 1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:Group id="_prRow5Item3" width="497" height="100">
-                                            <ui:RunTimeLabel id="_lblprRow5Item3" horizontalCenter="0" verticalCenter="0" text="1 賠 11"  text.cn="1 赔 11" text.en="11 : 1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow5Item3" horizontalCenter="0" verticalCenter="0" text="1 賠 11"  text.cn="1 赔 11" text.en="11 : 1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:layout>
                                             <e:HorizontalLayout gap="1" verticalAlign="middle"/>
@@ -736,13 +644,13 @@
                                     <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="0,0,0,0" stroke="0" fillColor="0x1e2835" fillAlpha="0" width="1140" height="100"/>
                                     <e:Group id="prRow6Group">
                                         <e:Group id="_prRow6Item1" width="266" height="100">
-                                            <ui:RunTimeLabel id="_lblprRow6Item1" horizontalCenter="0" verticalCenter="0" text="閒對"  text.cn="闲对" text.en="'Player Pair'" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow6Item1" horizontalCenter="0" verticalCenter="0" text="閒對"  text.cn="闲对" text.en="'Player Pair'" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:Group id="_prRow6Item2" width="377" height="100">
-                                            <ui:RunTimeLabel id="_lblprRow6Item2" horizontalCenter="0" verticalCenter="0" text="11 賠 1"  text.cn="11 赔 1" text.en="11 : 1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow6Item2" horizontalCenter="0" verticalCenter="0" text="11 賠 1"  text.cn="11 赔 1" text.en="11 : 1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:Group id="_prRow6Item3" width="497" height="100">
-                                            <ui:RunTimeLabel id="_lblprRow6Item3" horizontalCenter="0" verticalCenter="0" text="1 賠 11"  text.cn="1 赔 11" text.en="11 : 1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow6Item3" horizontalCenter="0" verticalCenter="0" text="1 賠 11"  text.cn="1 赔 11" text.en="11 : 1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:layout>
                                             <e:HorizontalLayout gap="1" verticalAlign="middle"/>
@@ -753,13 +661,13 @@
                                     <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="0,0,12,12" stroke="0" fillColor="0x1e2835" fillAlpha="0.5" width="1140" height="100"/>
                                     <e:Group id="prRow7Group">
                                         <e:Group id="_prRow7Item1" width="266" height="100">
-                                            <ui:RunTimeLabel id="_lblprRow7Item1" horizontalCenter="0" verticalCenter="0" text="超級六"  text.cn="超级六" text.en="'Super 6'" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow7Item1" horizontalCenter="0" verticalCenter="0" text="超級六"  text.cn="超级六" text.en="'Super 6'" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:Group id="_prRow7Item2" width="377" height="100">
-                                            <ui:RunTimeLabel id="_lblprRow7Item2" horizontalCenter="0" verticalCenter="0" text="-" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow7Item2" horizontalCenter="0" verticalCenter="0" text="-" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:Group id="_prRow7Item3" width="497" height="100">
-                                            <ui:RunTimeLabel id="_lblprRow7Item3" horizontalCenter="0" verticalCenter="0" text="1 賠 12"  text.cn="1 赔 12" text.en="12 : 1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Helvetica" fontFamily.en="Barlow" textAlign="center"/> 
+                                            <ui:RunTimeLabel id="_lblprRow7Item3" horizontalCenter="0" verticalCenter="0" text="1 賠 12"  text.cn="1 赔 12" text.en="12 : 1" size="36" textColor="0xffffff" textKey="" wordWrap="true" lineSpacing="10" verticalAlign="middle" fontFamily="Microsoft JhengHei" fontFamily.en="Barlow" textAlign="center"/> 
                                         </e:Group>
                                         <e:layout>
                                             <e:HorizontalLayout gap="3" verticalAlign="middle"/>
@@ -770,9 +678,9 @@
                                     <e:VerticalLayout gap="0"/>
                                 </e:layout>
                             </e:Group>
-                            <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,12,12" stroke="1" strokeColor="0x214a72" width="1140" height="737" height.en="777" fillAlpha="0" fillColor="0x000000"/>
-                            <e:Rect x="266" y="0" id="_prColumnLine1" width="1" height="737" height.en="777" fillColor="0x214a72"/>
-                            <e:Rect x="640" y="0" id="_prColumnLine2" width="1" height="737" height.en="777" fillColor="0x214a72"/>
+                            <ui:RoundRectShape x="0" y="0" cornerTL_TR_BL_BR="12,12,12,12" stroke="3" strokeColor="0x214a72" width="1140" height="737" height.en="777" fillAlpha="0" fillColor="0x000000"/>
+                            <e:Rect x="266" y="0" id="_prColumnLine1" width="3" height="737" height.en="777" fillColor="0x214a72"/>
+                            <e:Rect x="640" y="0" id="_prColumnLine2" width="3" height="737" height.en="777" fillColor="0x214a72"/>
                         </e:Group>
                         <e:layout>
                             <e:VerticalLayout gap="10" paddingLeft="10"/>
