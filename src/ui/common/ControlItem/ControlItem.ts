@@ -661,6 +661,7 @@ namespace we {
                 this._chipLayer.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
               }
               break;
+              /*
             case '4004':
               if (this._chipLayer) {
                 this._chipLayer.dispatchEvent(new egret.Event(core.Event.EXCEED_BET_LIMIT,false,false, { exceedLower: true }));
@@ -671,6 +672,7 @@ namespace we {
                 this._chipLayer.dispatchEvent(new egret.Event(core.Event.EXCEED_BET_LIMIT,false,false, { exceedLower: false }));
               }
               break;
+              */
             default:
               // maybe calling errorhandler
               logger.e(utils.LogTarget.RELEASE, 'Bet error');
