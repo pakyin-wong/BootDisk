@@ -33,7 +33,7 @@ namespace we {
         return gameResultMessage;
       }
 
-      public generateResultDisplay(node: eui.Component) {
+      public generateResultDisplay(node: eui.Component):we.ui.IResultDisplay & eui.Component {
         const cardHolder = new bam.SideListBetItemCardHolder();
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(cardHolder, idx);
