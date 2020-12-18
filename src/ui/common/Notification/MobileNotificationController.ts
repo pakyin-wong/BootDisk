@@ -117,6 +117,7 @@ namespace we {
               break;
             case 'Lobby':
               this._notificationContainer.layout = this.layoutH;
+              this._notificationContainer.bottom  = 150;
               this.layoutH.horizontalAlign = egret.HorizontalAlign.CENTER;
               this.layoutH.verticalAlign = egret.VerticalAlign.BOTTOM;
               this._max_result = 1;
