@@ -14,12 +14,8 @@ namespace we {
       protected bamLabelDisplay: eui.Label;
       protected _timer: ui.CountdownTimer;
 
-      protected card1Banker;
-      protected card2Banker;
-      protected card3Banker;
-      protected card3Player;
-      protected card2Player;
-      protected card1Player;
+      protected bankerCardGroup: eui.Group;
+      protected playerCardGroup: eui.Group;
 
       constructor(gameType?: string) {
         super();
@@ -35,56 +31,51 @@ namespace we {
         this.lblBankerName.renderText = () => `${i18n.t('baccarat.bankerShort')}`;
       }
 
-      // protected setDealState() {
-      //   console.log('bam cardholder deal state');
-      //   this._bankerCard1.visible = false;
-      //   this._playerCard1.visible = false;
-      //   this._bankerCard2.visible = false;
-      //   this._playerCard2.visible = false;
-      //   this._bankerCard3.visible = false;
-      //   this._playerCard3.visible = false;
-      // }
       public updateResult(gameData) {
         if (this._timer) {
-          // this.card1Banker.visible = false;
-          // this.card2Banker.visible = false;
-          // this.card3Banker.visible = false;
-          // this.card1Player.visible = false;
-          // this.card2Player.visible = false;
-          // this.card3Player.visible = false;
           this.setCardVisible(false);
-          // this.updateTimer(gameData);
         }
         super.updateResult(gameData);
-        // if (this._timer) {
-        //   this.card1Banker.visible = true;
-        //   this.card2Banker.visible = true;
-        //   this.card3Banker.visible = true;
-        //   this.card1Player.visible = true;
-        //   this.card2Player.visible = true;
-        //   this.card3Player.visible = true;
-        // }
+        switch (this.gameData.state) {
+          case core.GameState.PEEK:
+          if(!env.isMobile){
+              this.playerCardGroup.x = 30;
+              this.bankerCardGroup.x = 70;
+          }else{
+              this.playerCardGroup.x = 120;
+              this.bankerCardGroup.x = 250;
+          }
+            break;
+          case core.GameState.DEAL:
+              if(gameData.b3){
+                if(!env.isMobile){
+                  this.playerCardGroup.x = 55;
+                }else{
+                  this.playerCardGroup.x = 185;
+                }
+              }
+              if(gameData.a3){
+                if(!env.isMobile){
+                  this.bankerCardGroup.x = 45;
+                }else{
+                  this.bankerCardGroup.x = 160;
+                }
+              }
+            break;
+        }
         switch (gameData.wintype) {
           case we.ba.WinType.PLAYER:
             this.setBgColor('PLAYER')
-            // this.setPlayerBgColor(true);
-            // this.setBankerBgColor(false);
             break;
           case we.ba.WinType.BANKER:
             this.setBgColor('BANKER')
-            // this.setPlayerBgColor(false);
-            // this.setBankerBgColor(true);
             break;
           case we.ba.WinType.TIE:
             this.setBgColor('TIE')
-            // this.setPlayerBgColor(false);
-            // this.setBankerBgColor(false);
             break;
           case we.ba.WinType.NONE:
           default:
             this.setBgColor('NONE')
-            // this.setPlayerBgColor(false);
-            // this.setBankerBgColor(false);
             break;
         }
       }

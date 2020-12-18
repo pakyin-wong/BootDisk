@@ -120,8 +120,6 @@ namespace we {
         }
       }
 
-
-
       protected newShoeMessage() {
         this._message.showMessage(ui.InGameMessage.NEWSHOE, i18n.t('baccarat.redCardDesc'), null, true);
       }

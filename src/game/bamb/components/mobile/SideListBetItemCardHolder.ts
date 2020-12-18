@@ -12,12 +12,8 @@ namespace we {
       protected bamLabelDisplay: eui.Label;
       protected _timer: ui.CountdownTimer;
 
-      protected card1Banker;
-      protected card2Banker;
-      protected card3Banker;
-      protected card3Player;
-      protected card2Player;
-      protected card1Player;
+      protected bankerCardGroup: eui.Group;
+      protected playerCardGroup: eui.Group;
 
       constructor(gameType?: string) {
         super();
@@ -96,6 +92,9 @@ namespace we {
             this._timer.countdownValue = gameData.countdownA * 1000;
             this._timer.remainingTime = gameData.countdownA * 1000 - (env.currTime - gameData.peekstarttime);
             this._timer.start();
+
+            this.playerCardGroup.x = 130;
+            this.bankerCardGroup.x = 220;
             // this.setCardVisible(true);
             break;
           case core.GameState.PEEK_BANKER:
@@ -104,6 +103,7 @@ namespace we {
             this._timer.countdownValue = gameData.countdownB * 1000;
             this._timer.remainingTime = gameData.countdownB * 1000 - (env.currTime - gameData.starttime - gameData.peekstarttime);
             this._timer.start();
+            this.bankerCardGroup.x = 153;
             // this.setCardVisible(true);
             break;
           case core.GameState.PEEK_PLAYER:
@@ -112,6 +112,7 @@ namespace we {
             this._timer.countdownValue = gameData.countdownB * 1000;
             this._timer.remainingTime = gameData.countdownB * 1000 - (env.currTime - gameData.peekstarttime);
             this._timer.start();
+            this.playerCardGroup.x = 195;
             // this.setCardVisible(true);
             break;
           case core.GameState.FINISH:

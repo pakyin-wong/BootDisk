@@ -8,8 +8,14 @@
                 <e:Label id="playerSum" text="" fontFamily="Barlow" textAlign="center" right="10" y="60" />
                 <ui:RunTimeLabel id="lblPlayerName" text="閒" right="5" y="20" />
                 <ui:Card id="card3Player" width="33" height="48" verticalCenter="7" rotation="270"  x="2"/>
-                <ui:Card id="card2Player" width="33" height="48" right="82" verticalCenter="0" />
-                <ui:Card id="card1Player" width="33" height="48" right="44" verticalCenter="0" />
+
+					<e:Group id="playerCardGroup" x="30" verticalCenter="0">
+						<ui:Card id="card2Player" width="33" height="48" x="0" y="0"/>
+						<ui:Card id="card1Player" width="33" height="48" x="38" y="0"/>
+						<e:layout>
+							<e:HorizontalLayout gap="5"/>
+						</e:layout>
+					</e:Group>
         </e:Group>
         <e:Group id="bankerSumGroup" right="0" width="170" height="100%">
                 <e:Image id="_bankertxtbg" source="d_lobby_panel_gamelist_betresult_banker_png" width="40" height="112" />
@@ -19,8 +25,13 @@
                 <ui:RunTimeLabel id="lblBankerName" text="莊" x="5" y="20" />
                 <ui:Card id="card3Banker" width="33" height="48" x="119" anchorOffsetX="0"
                          anchorOffsetY="0" rotation="270"  verticalCenter="7"/>
-                <ui:Card id="card2Banker" width="33" height="48" verticalCenter="0" x="82" anchorOffsetX="0"
-                         anchorOffsetY="0" />
-                <ui:Card id="card1Banker" width="33" height="48" verticalCenter="0" x="44" />
+
+					<e:Group id="bankerCardGroup" verticalCenter="0" x="70">
+						<ui:Card id="card2Banker" width="33" height="48" x="38" anchorOffsetX="0" anchorOffsetY="0" y="0"/>
+						<ui:Card id="card1Banker" width="33" height="48" x="0" y="0"/>
+						<e:layout>
+							<e:HorizontalLayout gap="5"/>
+						</e:layout>
+					</e:Group>
         </e:Group>
 </e:Skin>

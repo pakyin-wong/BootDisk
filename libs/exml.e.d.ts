@@ -1612,10 +1612,6 @@ declare module skin_mobile_portrait.dt{
 	class CardHolderSkin extends eui.Skin{
 	}
 }
-declare module skin_mobile_portrait.dt{
-	class BetItemCardHolderSkin extends eui.Skin{
-	}
-}
 declare module skin_mobile_landscape.dt{
 	class SideListChipLayerSkin extends eui.Skin{
 	}
@@ -2349,6 +2345,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait.dt{
+	class GameResultWinSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dt{
 	class LiveListItemChipLayerSkin extends eui.Skin{
 	}
 }
@@ -2370,6 +2370,10 @@ declare module skin_mobile_portrait.dt{
 }
 declare module skin_mobile_portrait.dt{
 	class QuickBetTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dt{
+	class BetItemCardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.dt{
