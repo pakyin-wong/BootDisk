@@ -65,6 +65,7 @@ namespace we {
                   return;
                 }
                 const tableid = tableinfos[0].tableid;
+                env._currTableId = tableid;
                 data['tableid'] = tableid;
               }
             }
