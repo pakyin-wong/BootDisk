@@ -43,7 +43,37 @@ namespace we {
               cardHolderArr[3].setCard('back');
               cardHolderArr[4].setCard('back');
               this.bankerSum.text = '0';
-              this.playerSum.text = '0';            
+              this.playerSum.text = '0';        
+              if(env.isMobile){
+                this.playerCardGroup.x = 130;
+                this.bankerCardGroup.x = 220;
+              }else{
+                this.playerCardGroup.x = 30;
+                this.bankerCardGroup.x = 70;
+              }    
+          }else if(count<5){
+            if(this.gameData.a3){
+              if(env.isMobile){
+                this.bankerCardGroup.x = 153;
+              }else{
+                this.bankerCardGroup.x = 44;
+              }
+            }
+            if(this.gameData.b3){
+              if(env.isMobile){
+                this.playerCardGroup.x = 195;
+              }else{
+                this.playerCardGroup.x = 53;
+              }
+            }
+          }else if(count<6){
+            if(env.isMobile){
+              this.playerCardGroup.x = 195;
+              this.bankerCardGroup.x = 153;
+            }else{
+              this.playerCardGroup.x = 53;
+              this.bankerCardGroup.x = 44;
+            }
           }
       }
 
@@ -84,6 +114,7 @@ namespace we {
         switch (gameData.state) {
           case core.GameState.DEAL:
             this._timer.visible = false;
+
             // this.setCardVisible(true);
             break;
           case core.GameState.PEEK:
@@ -92,9 +123,13 @@ namespace we {
             this._timer.countdownValue = gameData.countdownA * 1000;
             this._timer.remainingTime = gameData.countdownA * 1000 - (env.currTime - gameData.peekstarttime);
             this._timer.start();
-
-            this.playerCardGroup.x = 130;
-            this.bankerCardGroup.x = 220;
+            if(env.isMobile){
+              this.playerCardGroup.x = 130;
+              this.bankerCardGroup.x = 220;
+            }else{
+              this.playerCardGroup.x = 30;
+              this.bankerCardGroup.x = 70;
+            }
             // this.setCardVisible(true);
             break;
           case core.GameState.PEEK_BANKER:
@@ -103,7 +138,11 @@ namespace we {
             this._timer.countdownValue = gameData.countdownB * 1000;
             this._timer.remainingTime = gameData.countdownB * 1000 - (env.currTime - gameData.starttime - gameData.peekstarttime);
             this._timer.start();
-            this.bankerCardGroup.x = 153;
+            if(env.isMobile){
+              this.bankerCardGroup.x = 153;
+            }else{
+              this.bankerCardGroup.x = 44;
+            }
             // this.setCardVisible(true);
             break;
           case core.GameState.PEEK_PLAYER:
@@ -112,7 +151,11 @@ namespace we {
             this._timer.countdownValue = gameData.countdownB * 1000;
             this._timer.remainingTime = gameData.countdownB * 1000 - (env.currTime - gameData.peekstarttime);
             this._timer.start();
-            this.playerCardGroup.x = 195;
+            if(env.isMobile){
+              this.playerCardGroup.x = 195;
+            }else{
+              this.playerCardGroup.x = 53;
+            }
             // this.setCardVisible(true);
             break;
           case core.GameState.FINISH:
