@@ -2,6 +2,7 @@ namespace we {
   export namespace core {
     export const res = {
       EgretBasic: 'egret_basic',
+      Audio: 'audio',
       Common: 'common',
       Nav: 'nav',
       Loading: 'scene_loading',

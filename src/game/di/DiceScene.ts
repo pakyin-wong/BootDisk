@@ -76,11 +76,11 @@ namespace we {
       }
 
       protected playResultSoundEffect(totalWin) {
-        if (this.hasBet() && !isNaN(totalWin)) {
-          dir.audioCtr.playSequence(['player', 'win']);
-        } else {
-          dir.audioCtr.playSequence(['player', 'win']);
-        }
+        // if (this.hasBet() && !isNaN(totalWin)) {
+        //   dir.audioCtr.playSequence(['player', 'win']);
+        // } else {
+        //   dir.audioCtr.playSequence(['player', 'win']);
+        // }
       }
     }
   }

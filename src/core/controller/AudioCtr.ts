@@ -136,13 +136,13 @@ namespace we {
         }
       }
 
-      public play(resName: string) {
+      public play(resName: string, loopTime: number = 1) {
         const soundFx = RES.getRes(resName);
         if (!soundFx) {
           RES.getResAsync(resName);
           return;
         }
-        const sfx = soundFx.play(0, 1);
+        const sfx = soundFx.play(0, loopTime);
         // set initial volume to current fx volume
         sfx.volume = this._volumeFX;
         this._activeChannels.push(sfx);

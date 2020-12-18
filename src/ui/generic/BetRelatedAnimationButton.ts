@@ -102,7 +102,9 @@ namespace we {
       }
 
       protected changeLang() {
-        this.init_textLabel();
+        if(env.isMobile){
+          this.init_textLabel();
+        }
       }
 
       public destroy() {
