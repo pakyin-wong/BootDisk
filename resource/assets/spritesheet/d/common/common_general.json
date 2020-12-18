@@ -501,6 +501,46 @@
       "sourceW": 56,
       "sourceH": 56
     },
+    "d_bcba_panel_instructions_no3_png": {
+      "x": 798,
+      "y": 354,
+      "w": 54,
+      "h": 55,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 54,
+      "sourceH": 55
+    },
+    "d_bcba_panel_instructions_no4_png": {
+      "x": 799,
+      "y": 286,
+      "w": 54,
+      "h": 55,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 54,
+      "sourceH": 55
+    },
+    "d_bcba_panel_instructions_no1_png": {
+      "x": 208,
+      "y": 273,
+      "w": 19,
+      "h": 54,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 19,
+      "sourceH": 54
+    },
+    "d_bcba_panel_instructions_no2_png": {
+      "x": 834,
+      "y": 218,
+      "w": 54,
+      "h": 54,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 54,
+      "sourceH": 54
+    },
     "d_ba_navbar_icon_hoverelement_png": {
       "x": 660,
       "y": 500,
@@ -512,8 +552,8 @@
       "sourceH": 52
     },
     "d_common_chartroom_otherbg_png": {
-      "x": 208,
-      "y": 273,
+      "x": 716,
+      "y": 500,
       "w": 51,
       "h": 50,
       "offX": 0,
@@ -522,8 +562,8 @@
       "sourceH": 50
     },
     "d_common_chartroom_selfbg_png": {
-      "x": 716,
-      "y": 500,
+      "x": 771,
+      "y": 499,
       "w": 51,
       "h": 50,
       "offX": 0,
@@ -552,8 +592,8 @@
       "sourceH": 31
     },
     "m_common_header_icon_refresh_png": {
-      "x": 771,
-      "y": 499,
+      "x": 889,
+      "y": 156,
       "w": 51,
       "h": 50,
       "offX": 0,
@@ -563,7 +603,7 @@
     },
     "d_common_chartroom_icon_hover_png": {
       "x": 798,
-      "y": 354,
+      "y": 413,
       "w": 50,
       "h": 50,
       "offX": 0,
@@ -572,8 +612,8 @@
       "sourceH": 50
     },
     "d-lobby-button-close-none_png": {
-      "x": 799,
-      "y": 286,
+      "x": 826,
+      "y": 467,
       "w": 48,
       "h": 48,
       "offX": 0,
@@ -592,8 +632,8 @@
       "sourceH": 42
     },
     "d_common_panel_setting_uicolour_btn_active_png": {
-      "x": 834,
-      "y": 218,
+      "x": 852,
+      "y": 413,
       "w": 47,
       "h": 47,
       "offX": 0,
@@ -602,8 +642,8 @@
       "sourceH": 47
     },
     "d_common_panel_setting_uicolour_btn_png": {
-      "x": 851,
-      "y": 269,
+      "x": 856,
+      "y": 345,
       "w": 47,
       "h": 47,
       "offX": 0,
@@ -612,8 +652,8 @@
       "sourceH": 47
     },
     "d_common_icon_emoji_disabled_png": {
-      "x": 885,
-      "y": 218,
+      "x": 857,
+      "y": 276,
       "w": 42,
       "h": 42,
       "offX": 0,
@@ -622,8 +662,8 @@
       "sourceH": 42
     },
     "d_common_icon_emoji_enabled_png": {
-      "x": 889,
-      "y": 156,
+      "x": 892,
+      "y": 210,
       "w": 42,
       "h": 42,
       "offX": 0,
@@ -632,8 +672,8 @@
       "sourceH": 42
     },
     "d_common_icon_msg_disabled_png": {
-      "x": 798,
-      "y": 408,
+      "x": 903,
+      "y": 256,
       "w": 42,
       "h": 42,
       "offX": 0,
@@ -642,8 +682,8 @@
       "sourceH": 42
     },
     "d_common_icon_msg_enabled_png": {
-      "x": 826,
-      "y": 454,
+      "x": 938,
+      "y": 210,
       "w": 42,
       "h": 42,
       "offX": 0,
@@ -652,8 +692,8 @@
       "sourceH": 42
     },
     "m_common_icon_close_png": {
-      "x": 844,
-      "y": 408,
+      "x": 944,
+      "y": 156,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -662,8 +702,8 @@
       "sourceH": 40
     },
     "d_ba_navbar_icon_video_png": {
-      "x": 851,
-      "y": 320,
+      "x": 826,
+      "y": 519,
       "w": 36,
       "h": 28,
       "offX": 0,
@@ -672,8 +712,8 @@
       "sourceH": 28
     },
     "d_ba_navbar_chevron_png": {
-      "x": 554,
-      "y": 511,
+      "x": 231,
+      "y": 273,
       "w": 30,
       "h": 30,
       "offX": 0,
@@ -712,8 +752,8 @@
       "sourceH": 28
     },
     "d_ba_navbar_icon_stat_png": {
-      "x": 826,
-      "y": 500,
+      "x": 554,
+      "y": 511,
       "w": 28,
       "h": 28,
       "offX": 0,
@@ -723,7 +763,7 @@
     },
     "d_ba_navbar_icon_dropdown_png": {
       "x": 798,
-      "y": 454,
+      "y": 467,
       "w": 24,
       "h": 24,
       "offX": 0,
@@ -732,8 +772,8 @@
       "sourceH": 24
     },
     "d_ba_navbar_icon_info_png": {
-      "x": 852,
-      "y": 352,
+      "x": 231,
+      "y": 307,
       "w": 24,
       "h": 24,
       "offX": 0,
@@ -742,8 +782,8 @@
       "sourceH": 24
     },
     "d_ba_navbar_icon_rss_png": {
-      "x": 852,
-      "y": 380,
+      "x": 866,
+      "y": 519,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -752,8 +792,8 @@
       "sourceH": 22
     },
     "d_lobby_navbar_time_png": {
-      "x": 878,
-      "y": 380,
+      "x": 903,
+      "y": 302,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -762,8 +802,8 @@
       "sourceH": 22
     },
     "d_lobby_select_round_no_png": {
-      "x": 826,
-      "y": 532,
+      "x": 857,
+      "y": 322,
       "w": 18,
       "h": 18,
       "offX": 0,
@@ -772,8 +812,8 @@
       "sourceH": 18
     },
     "d_lobby_select_round_yes_png": {
-      "x": 848,
-      "y": 532,
+      "x": 879,
+      "y": 322,
       "w": 18,
       "h": 18,
       "offX": 0,

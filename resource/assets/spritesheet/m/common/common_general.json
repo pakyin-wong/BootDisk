@@ -961,15 +961,55 @@
       "sourceW": 29,
       "sourceH": 29
     },
-    "m_common_panel_setting_bg_png": {
+    "d_bcba_panel_instructions_no3_png": {
       "x": 939,
       "y": 537,
+      "w": 27,
+      "h": 27.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 27,
+      "sourceH": 27.5
+    },
+    "d_bcba_panel_instructions_no4_png": {
+      "x": 1178.5,
+      "y": 493,
+      "w": 27,
+      "h": 27.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 27,
+      "sourceH": 27.5
+    },
+    "m_common_panel_setting_bg_png": {
+      "x": 1207.5,
+      "y": 493,
       "w": 27.5,
       "h": 27.5,
       "offX": 0,
       "offY": 0,
       "sourceW": 27.5,
       "sourceH": 27.5
+    },
+    "d_bcba_panel_instructions_no1_png": {
+      "x": 1025.5,
+      "y": 417,
+      "w": 9.5,
+      "h": 27,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 9.5,
+      "sourceH": 27
+    },
+    "d_bcba_panel_instructions_no2_png": {
+      "x": 1130,
+      "y": 519,
+      "w": 27,
+      "h": 27,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 27,
+      "sourceH": 27
     },
     "m_common_btn_previous_png": {
       "x": 1069,
@@ -982,7 +1022,7 @@
       "sourceH": 27
     },
     "m_common_header_icon_refresh_png": {
-      "x": 968.5,
+      "x": 968,
       "y": 537,
       "w": 25.5,
       "h": 25,
@@ -992,8 +1032,8 @@
       "sourceH": 25
     },
     "m_common_header_goodroad_icon_star_png": {
-      "x": 996,
-      "y": 542,
+      "x": 1087,
+      "y": 520,
       "w": 25,
       "h": 24,
       "offX": 0,
@@ -1002,8 +1042,8 @@
       "sourceH": 24
     },
     "d-lobby-button-close-none_png": {
-      "x": 968.5,
-      "y": 564,
+      "x": 1087,
+      "y": 546,
       "w": 24,
       "h": 24,
       "offX": 0,
@@ -1012,7 +1052,7 @@
       "sourceH": 24
     },
     "d_lobby_button_search_normal_png": {
-      "x": 1023,
+      "x": 995.5,
       "y": 542,
       "w": 24,
       "h": 24,
@@ -1022,8 +1062,8 @@
       "sourceH": 24
     },
     "m_common_notification_close_bg_png": {
-      "x": 1178.5,
-      "y": 493,
+      "x": 968,
+      "y": 564,
       "w": 23.5,
       "h": 23.5,
       "offX": 0,
@@ -1042,8 +1082,8 @@
       "sourceH": 23
     },
     "m_ba_btn_info_png": {
-      "x": 1025.5,
-      "y": 417,
+      "x": 1235,
+      "y": 178.5,
       "w": 10,
       "h": 23,
       "offX": 0,
@@ -1062,8 +1102,8 @@
       "sourceH": 22
     },
     "d_lobby_quick_bet_circle_png": {
-      "x": 1130,
-      "y": 513,
+      "x": 890,
+      "y": 545,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -1082,8 +1122,8 @@
       "sourceH": 13
     },
     "m_common_icon_close_png": {
-      "x": 890,
-      "y": 545,
+      "x": 1031.5,
+      "y": 524.5,
       "w": 20,
       "h": 20,
       "offX": 0,
@@ -1142,8 +1182,8 @@
       "sourceH": 15
     },
     "d_common_panel_systemsetting_pressed_select_png": {
-      "x": 1062.5,
-      "y": 454,
+      "x": 1113,
+      "y": 546,
       "w": 15,
       "h": 15,
       "offX": 0,
@@ -1152,8 +1192,8 @@
       "sourceH": 15
     },
     "m_common_header_bg_dim_png": {
-      "x": 1031.5,
-      "y": 524.5,
+      "x": 1062.5,
+      "y": 454,
       "w": 15,
       "h": 15,
       "offX": 0,
@@ -1172,8 +1212,8 @@
       "sourceH": 15
     },
     "m_ba_tag_redlimit_btn_dropdown_png": {
-      "x": 1232,
-      "y": 440,
+      "x": 925.5,
+      "y": 476.5,
       "w": 13.5,
       "h": 8,
       "offX": 0,
@@ -1203,7 +1243,7 @@
     },
     "d_ba_betarea_icon_bet_png": {
       "x": 1235,
-      "y": 178.5,
+      "y": 203.5,
       "w": 11,
       "h": 11,
       "offX": 0,
@@ -1232,8 +1272,8 @@
       "sourceH": 11
     },
     "m_lobby_banner_bullet_active_png": {
-      "x": 1087,
-      "y": 517,
+      "x": 690.5,
+      "y": 470.5,
       "w": 10,
       "h": 10,
       "offX": 0,
@@ -1242,8 +1282,8 @@
       "sourceH": 10
     },
     "m_lobby_banner_bullet_png": {
-      "x": 1025.5,
-      "y": 442,
+      "x": 1235,
+      "y": 216.5,
       "w": 10,
       "h": 10,
       "offX": 0,
@@ -1262,8 +1302,8 @@
       "sourceH": 6.5
     },
     "m_common_notification_close_icon_png": {
-      "x": 890,
-      "y": 545,
+      "x": 1031.5,
+      "y": 524.5,
       "w": 20,
       "h": 20,
       "offX": 0,
