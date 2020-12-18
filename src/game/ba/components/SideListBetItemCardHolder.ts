@@ -79,6 +79,18 @@ namespace we {
             break;
         }
       }
+
+      public reset(){
+        super.reset();
+        if(!env.isMobile){
+              this.playerCardGroup.x = 30;
+              this.bankerCardGroup.x = 70;
+          }else{
+              this.playerCardGroup.x = 120;
+              this.bankerCardGroup.x = 250;
+          }
+      }
+
       public setBgColor(wintype: string) {
         switch (wintype) {
           case 'PLAYER':
@@ -186,6 +198,7 @@ namespace we {
         this.card2Player.visible = val;
         this.card3Player.visible = val;
       }
+
       public setPlayerBgColor(value: boolean) {
         if (value) {
           this._bankertxtbg.texture = RES.getRes('d_lobby_panel_gamelist_betresult_bankerbg_png')
