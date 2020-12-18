@@ -62,7 +62,7 @@ namespace we {
             confirmButton.setColor(1, 0, 0);
           }
         }
-        if(remainingTime > 3000){
+        if(remainingTime > 3000 && this.isPlaySound){
           this.isPlaySound = false;
         }else if(remainingTime <= 3000 && !this.isPlaySound){
             this.isPlaySound = true;
