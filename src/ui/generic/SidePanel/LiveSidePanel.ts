@@ -181,9 +181,9 @@ namespace we {
             case we.core.GameType.BAS:
             case we.core.GameType.BAB:
             case we.core.GameType.BASB:
-            case we.core.GameType.BAMB:
               return ba.SideListBetItemHolder;
             case we.core.GameType.BAM:
+            case we.core.GameType.BAMB:
               return bam.SideListBetItemHolder;
             case we.core.GameType.RO:
             case we.core.GameType.ROL:
