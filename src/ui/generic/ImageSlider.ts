@@ -71,9 +71,14 @@ namespace we {
         // load slides
         this._slides.forEach(async (slide: core.IRemoteResourceItem) => {
           if (slide.imageUrl) {
-            const texture = await RES.getResByUrl(slide.imageUrl, null, this, RES.ResourceItem.TYPE_IMAGE);
-            slide.image = texture;
-            slide.loaded = true;
+            try {
+              const texture = await RES.getResByUrl(slide.imageUrl, null, this, RES.ResourceItem.TYPE_IMAGE);
+              slide.image = texture;
+              slide.loaded = true;
+            } catch (err) {
+              slide.image = null;
+              slide.loaded = false;
+            }
           }
         });
 
@@ -225,7 +230,9 @@ namespace we {
       private scheduleNext(isPrev: boolean = false) {
         clearTimeout(this.autoPlayTimer);
 
-        if (this._slides.length < 2) return;
+        if (this._slides.length < 2) {
+          return;
+        }
 
         this.autoPlayTimer = setTimeout(() => {
           if (!this._slides.length || this.isDown) {

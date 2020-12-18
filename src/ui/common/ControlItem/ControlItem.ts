@@ -651,9 +651,24 @@ namespace we {
         // dealing with backend error message
         if (result.error) {
           switch (result.error.id) {
+            case '4001':
+              if (this._chipLayer) {
+                this._chipLayer.dispatchEvent(new egret.Event(core.Event.GENERAL_BET_FAIL));
+              }
+              break;
             case '4002':
               if (this._chipLayer) {
                 this._chipLayer.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
+              }
+              break;
+            case '4004':
+              if (this._chipLayer) {
+                this._chipLayer.dispatchEvent(new egret.Event(core.Event.EXCEED_BET_LIMIT,false,false, { exceedLower: true }));
+              }
+              break;
+            case '4005':
+              if (this._chipLayer) {
+                this._chipLayer.dispatchEvent(new egret.Event(core.Event.EXCEED_BET_LIMIT,false,false, { exceedLower: false }));
               }
               break;
             default:
