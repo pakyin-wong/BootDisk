@@ -19,9 +19,12 @@
 	<ui:BaseAnimationButton id="_refreshButton" y="55" x="1138" y.Game="61" scaleX="2" scaleY="2" width="50" height="50"
 	                        visible.Game="false" visible.Lobby="true" dbClass="common_ui" dbDisplay="d_common_icon_refresh"
 	                        useColorFilter="false" tooltipText="'nav.tooltip.refresh'"  x.Lobby="1152" y.Lobby="53" width.Lobby="56" height.Lobby="56"/>
-	<ui:BaseImageButton id="_slider_toggle" y="288" anchorOffsetX="0" width="130" anchorOffsetY="0" height="130"
-	                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_icon_menu" x="1088"
-	                    y.Game="149" />
+	<ui:BaseImageButton id="_slider_toggle" y="288" anchorOffsetX="0" width="130" anchorOffsetY="0" height="130" x="1088" y.Game="149">
+	<e:Skin>
+	<e:Image id="_background" source="m_common_btn_bg_blue_normal_png" left="0" right="0" top="0" bottom="0"/>
+	<e:Image horizontalCenter="0" verticalCenter="0" source="m_common_btn_menu_lobby_png"/>
+	</e:Skin>
+	</ui:BaseImageButton>
 	<e:Rect height="55" fillColor="0x121312" width="1242" x="0" y="2102" />
 	<ui:NavLantern id="_lantern" width="862" height="36" left="11" bottom="6" fontsize="36" lineSpacing="36"
 	               visible.Game="false" visible.Lobby="true" x.Lobby="10" />

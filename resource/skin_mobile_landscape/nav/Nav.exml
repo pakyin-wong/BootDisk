@@ -28,11 +28,10 @@
 	<ui:BaseAnimationButton id="_refreshButton" y="1106" right="38" scaleX="2" scaleY="2" width="50" height="50"  visible.Game="false"
 		                        dbClass="common_ui" dbDisplay="d_common_icon_refresh" useColorFilter="false"
 								 tooltipText="'nav.tooltip.refresh'"  />
-	<ui:BaseImageButton id="_slider_toggle" y="944" width="130" height="130"
-		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_icon_menu"  x="2262" y.Game="148" y.Lobby="914" x.Lobby="2260"  x.Game="2262"/>
-
-
-
-
-
+	<ui:BaseImageButton id="_slider_toggle" y="944" width="130" height="130"  x="2262" y.Game="148" y.Lobby="914" x.Lobby="2260"  x.Game="2262">
+		<e:Skin>
+		<e:Image id="_background" source="m_common_btn_bg_blue_normal_png" left="0" right="0" top="0" bottom="0"/>
+		<e:Image horizontalCenter="0" verticalCenter="0" source="m_common_btn_menu_lobby_png"/>
+		</e:Skin>
+	</ui:BaseImageButton>
 </e:Skin>

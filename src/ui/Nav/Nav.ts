@@ -9,7 +9,7 @@ namespace we {
       // private _playerProfile: overlay.PlayerProfile;
       private _menu_toggle: egret.DisplayObject;
       private _menu: Panel;
-      private _slider_toggle: ui.BaseImageButton;
+      private _slider_toggle: egret.DisplayObject;
 
       private _balance: ui.RunTimeLabel;
       private _balanceGame: ui.RunTimeLabel;
