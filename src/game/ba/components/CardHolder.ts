@@ -73,13 +73,18 @@ namespace we {
             cardHolderArr[1].setCard('back');
             cardHolderArr[3].setCard('back');
             cardHolderArr[4].setCard('back');
-
+            this.bankerSum.text = '0';
+            this.playerSum.text = '0';            
             break;
           case core.GameState.PEEK_PLAYER:
             cardHolderArr[5].setCard('back');
+            this.playerSum.text = data.playerpoint >= 0 ? data.playerpoint.toString() : '';
+            // this.playerSum.text = this.gameData.playerpoint >= 0 ? ((this.gameData.playerpoint + 10 - Number(utils.cardToNumber(this.gameData.b3)))%10).toString() : '';
             break;
           case core.GameState.PEEK_BANKER:
             cardHolderArr[2].setCard('back');
+            this.bankerSum.text = data.bankerpoint >= 0 ? data.bankerpoint.toString() : '';
+            // this.bankerSum.text = this.gameData.bankerpoint >= 0 ? ((this.gameData.bankerpoint + 10 - Number(utils.cardToNumber(this.gameData.a3)))%10).toString() : '';
             break;
         }
       }

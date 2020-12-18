@@ -31,6 +31,7 @@ namespace we {
         this.skinName = utils.getSkinByClassname(`bam.BetItemCardHolderSkin`);
         this.lblPlayerName.renderText = () => `${i18n.t('baccarat.playerShort')}`;
         this.lblBankerName.renderText = () => `${i18n.t('baccarat.bankerShort')}`;
+        this.setCardVisible(true);
       }
 
       protected handleDealState() {
@@ -39,44 +40,27 @@ namespace we {
           const count = ['a1', 'a2', 'a3', 'b1', 'b2', 'b3'].reduce((prev, key) => {
             return prev + (this.gameData[key] != '' ? 1 : 0);
           }, 0);
-          if (count==0) {
+          if (count<4) {
               // first deal state, no card result yet
               cardHolderArr[0].setCard('back');
               cardHolderArr[1].setCard('back');
               cardHolderArr[3].setCard('back');
               cardHolderArr[4].setCard('back');
+              this.bankerSum.text = '0';
+              this.playerSum.text = '0';            
           }
       }
 
       public updateResult(gameData) {
         if (this._timer) {
-          this.setCardVisible(false);
+          // this.setCardVisible(false);
           this.updateTimer(gameData);
         }
         super.updateResult(gameData);
 
-        const cardArr = [this.gameData.a1, this.gameData.a2, this.gameData.a3, this.gameData.b1, this.gameData.b2, this.gameData.b3];
-        const cardHolderArr = [this.card1Banker, this.card2Banker, this.card3Banker, this.card1Player, this.card2Player, this.card3Player];
-
         switch (this.gameData.state) {
           case core.GameState.DEAL:
             this.handleDealState();
-          case core.GameState.PEEK:
-            cardHolderArr[0].setCard('back');
-            cardHolderArr[1].setCard('back');
-            cardHolderArr[3].setCard('back');
-            cardHolderArr[4].setCard('back');
-            this.bankerSum.text = '0';
-            this.playerSum.text = '0';            
-            break;
-          case core.GameState.PEEK_PLAYER:
-            cardHolderArr[5].setCard('back');
-            this.playerSum.text = this.gameData.playerpoint >= 0 ? ((this.gameData.playerpoint + 10 - Number(utils.cardToNumber(this.gameData.b3)))%10).toString() : '';
-            break;
-          case core.GameState.PEEK_BANKER:
-            cardHolderArr[2].setCard('back');
-            this.bankerSum.text = this.gameData.bankerpoint >= 0 ? ((this.gameData.bankerpoint + 10 - Number(utils.cardToNumber(this.gameData.a3)))%10).toString() : '';
-            break;
         }
 
         switch (gameData.wintype) {
@@ -104,7 +88,7 @@ namespace we {
         switch (gameData.state) {
           case core.GameState.DEAL:
             this._timer.visible = false;
-            this.setCardVisible(true);
+            // this.setCardVisible(true);
             break;
           case core.GameState.PEEK:
             this._timer.visible = true;
@@ -112,7 +96,7 @@ namespace we {
             this._timer.countdownValue = gameData.countdownA * 1000;
             this._timer.remainingTime = gameData.countdownA * 1000 - (env.currTime - gameData.peekstarttime);
             this._timer.start();
-            this.setCardVisible(true);
+            // this.setCardVisible(true);
             break;
           case core.GameState.PEEK_BANKER:
             this._timer.visible = true;
@@ -120,7 +104,7 @@ namespace we {
             this._timer.countdownValue = gameData.countdownB * 1000;
             this._timer.remainingTime = gameData.countdownB * 1000 - (env.currTime - gameData.starttime - gameData.peekstarttime);
             this._timer.start();
-            this.setCardVisible(true);
+            // this.setCardVisible(true);
             break;
           case core.GameState.PEEK_PLAYER:
             this._timer.visible = true;
@@ -128,12 +112,12 @@ namespace we {
             this._timer.countdownValue = gameData.countdownB * 1000;
             this._timer.remainingTime = gameData.countdownB * 1000 - (env.currTime - gameData.peekstarttime);
             this._timer.start();
-            this.setCardVisible(true);
+            // this.setCardVisible(true);
             break;
           case core.GameState.FINISH:
             this.bamLabelDisplay.text = '';
             this._timer.visible = false;
-            this.setCardVisible(true);
+            // this.setCardVisible(true);
             break;
           default:
             this.bamLabelDisplay.text = '';
