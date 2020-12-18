@@ -25,7 +25,7 @@ namespace we {
 
         this.card2Player.visible = false;
         this.card3Player.visible = false;
-        this.playerSumGroup.x = -48;
+        this.playerSumGroup.x = -6;
       }
     }
   }
