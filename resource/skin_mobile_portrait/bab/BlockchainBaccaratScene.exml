@@ -45,7 +45,7 @@
 		<e:Group>
 			<e:Group>
 				<ui:RunTimeLabel id="_lblRoomNo" x="25" y="15" size="44" height="56" verticalAlign="middle" textAlign="left"
-				                 anchorOffsetX="0" text="Label" />
+				                 anchorOffsetX="0" text="Label"  width="410" targetWidth="410" />
 				<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Arial" size="44" text="label" x="25" y="65" />
 			</e:Group>
 			<e:layout>
