@@ -136,7 +136,7 @@
                       horizontalCenter="0" />
 <ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
                   infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
-                  errorBg="d_ba_gamerecord_bankerelement_png" y="288" horizontalCenter="0" />
+                  errorBg="d_ba_gamerecord_bankerelement_png" y="450" horizontalCenter="0" />
 <dtb:MobileHistoryCardHolder id="_historyCardHolder" width="731" height="373"
                        skinName="skin_mobile_portrait.dtb.HistoryHolderSkin" isPoppable="true" hideOnStart="true"  verticalCenter="0" horizontalCenter="0"/>
 <bc:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true" skeletonName="blockchain_dt"
