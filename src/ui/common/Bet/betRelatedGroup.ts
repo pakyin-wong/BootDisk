@@ -74,7 +74,7 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
         if (this._confirmButton) {
           this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
-          this._confirmButton.addEventListener('CLICKED', this.onConfirmPressed, this, true);
+          this._confirmButton.addEventListener('CLICKED', this.onConfirmPressed, this);
           this._confirmButton.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
           this._confirmButton.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
         }
@@ -97,7 +97,7 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
         if (this._confirmButton) {
           this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
-          this._confirmButton.removeEventListener('CLICKED', this.onConfirmPressed, this, true);
+          this._confirmButton.removeEventListener('CLICKED', this.onConfirmPressed, this);
           this._confirmButton.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
           this._confirmButton.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
         }
