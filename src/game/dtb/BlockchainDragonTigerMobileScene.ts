@@ -19,7 +19,7 @@ namespace we {
 
       protected _verticalGroup: eui.Group;
 
-      // private _common_listpanel: ui.BaseImageButton;
+      //protected _common_listpanel: ui.BaseImageButton;
       protected _originBetRelatedGroupY: number;
 
       public static resGroups = [core.res.Blockchain, core.res.BlockchainDragonTiger];
