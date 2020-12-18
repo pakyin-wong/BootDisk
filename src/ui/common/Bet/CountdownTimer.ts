@@ -90,7 +90,6 @@ namespace we {
         const timeDiff = egret.getTimer() - this._previousFrameTime;
         this._previousFrameTime = egret.getTimer();
         let remainingTime = this._remainingTime - timeDiff;
-        if(remainingTime)
         if (remainingTime <= 0) {
           this.stop();
           remainingTime = 0;
