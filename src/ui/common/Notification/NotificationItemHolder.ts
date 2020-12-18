@@ -18,25 +18,26 @@ namespace we {
 
       public get controller(): INotificationController {
         if (env.isMobile) {
-          return <any>this.parent.parent.parent;
+          return <any> this.parent.parent.parent;
         } else {
-          return <any>this.parent.parent;
+          return <any> this.parent.parent;
         }
       }
 
       constructor() {
         super();
         this.content = new eui.Group();
+        this.content.width = 410;
         this.addChild(this.content);
-        const mask = new eui.Rect();
-        mask.top = 0;
-        mask.bottom = 0;
-        mask.left = 0;
-        mask.right = 0;
-        this.mask = mask;
-        this.addChild(mask);
+        // const mask = new eui.Rect();
+        // mask.top = 0;
+        // mask.bottom = 0;
+        // mask.left = 0;
+        // mask.right = 0;
+        // this.mask = mask;
+        // this.addChild(mask);
 
-        this.touchEnabled = true;
+        this.touchEnabled = false;
         this.mount();
       }
 
@@ -80,6 +81,7 @@ namespace we {
             break;
         }
         this._displayItem.holder = this;
+        this._displayItem.right = 0;
         this.content.addChild(this._displayItem);
         // const self = this;
         // setTimeout(() => {
@@ -151,7 +153,7 @@ namespace we {
       }
 
       public setLayoutBoundsPosition(x: number, y: number) {
-        const list = <List>this.parent;
+        const list = <List> this.parent;
         const matrix = this.$getMatrix();
         if (!this.isDeltaIdentity(matrix) || this.anchorOffsetX !== 0 || this.anchorOffsetY !== 0) {
           const bounds = egret.$TempRectangle;

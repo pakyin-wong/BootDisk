@@ -16,6 +16,13 @@ namespace we {
             },
             this
           );
+          loader.once(
+            egret.IOErrorEvent.IO_ERROR,
+            (event: egret.Event) => {
+              resolve(null);
+            },
+            this
+          );
           loader.load(url);
         });
       }
@@ -51,14 +58,14 @@ namespace we {
                 imageUrl: (item as any).imageurl,
                 link: (item as any).link,
                 // link: 'weweb://dtb?tableid=TT-DTB-002',
-                loaded: true,
+                loaded: !!item,
               }));
               offset += reshomelargebanners.length;
               const homeBanners = reshomebanners.map((item, index) => ({
                 image: allResources[offset + index],
                 imageUrl: (item as any).imageurl,
                 link: (item as any).link,
-                loaded: true,
+                loaded: !!item,
                 title: (item as any).title,
                 description: (item as any).description,
               }));
@@ -73,7 +80,7 @@ namespace we {
               if (homeHeroBanners.length > 0) {
                 // init first banner
                 homeHeroBanners[0].image = await this._loadRemoteImage(homeHeroBanners[0].imageUrl);
-                homeHeroBanners[0].loaded = true;
+                homeHeroBanners[0].loaded = !!homeHeroBanners[0].image;
               }
               dir.lobbyResources = { homeHeroBanners, homeLargeBanners, homeBanners };
 
@@ -86,7 +93,7 @@ namespace we {
               if (liveHeroBanners.length > 0) {
                 // init first banner
                 liveHeroBanners[0].image = await this._loadRemoteImage(liveHeroBanners[0].imageUrl);
-                liveHeroBanners[0].loaded = true;
+                liveHeroBanners[0].loaded = !!liveHeroBanners[0].image;
               }
               dir.liveResources = { heroBanners: liveHeroBanners };
 
@@ -99,7 +106,7 @@ namespace we {
               if (lotteryHeroBanners.length > 0) {
                 // init first banner
                 lotteryHeroBanners[0].image = await this._loadRemoteImage(lotteryHeroBanners[0].imageUrl);
-                lotteryHeroBanners[0].loaded = true;
+                lotteryHeroBanners[0].loaded = !!lotteryHeroBanners[0].image;
               }
               dir.lotteryResources = { heroBanners: lotteryHeroBanners };
             }
