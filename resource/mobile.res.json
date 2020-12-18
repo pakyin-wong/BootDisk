@@ -7448,6 +7448,26 @@
 			"url": "assets/dragonbones/m/bamb/blockchain_sqba_ske.dbbin",
 			"type": "bin",
 			"name": "blockchain_sqba_ske_dbbin"
+		},
+		{
+			"url": "assets/images/m/common/general/help/d_bcba_panel_instructions_no1.png",
+			"type": "image",
+			"name": "d_bcba_panel_instructions_no1_png"
+		},
+		{
+			"url": "assets/images/m/common/general/help/d_bcba_panel_instructions_no2.png",
+			"type": "image",
+			"name": "d_bcba_panel_instructions_no2_png"
+		},
+		{
+			"url": "assets/images/m/common/general/help/d_bcba_panel_instructions_no3.png",
+			"type": "image",
+			"name": "d_bcba_panel_instructions_no3_png"
+		},
+		{
+			"url": "assets/images/m/common/general/help/d_bcba_panel_instructions_no4.png",
+			"type": "image",
+			"name": "d_bcba_panel_instructions_no4_png"
 		}
 	]
 }

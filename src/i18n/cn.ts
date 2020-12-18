@@ -370,10 +370,10 @@ namespace we {
         tooltip: {
           waitForNextRound: '开牌中，请等候下一局',
           confirmBet: '确认投注',
-          repeat: '重複下注',
-          cancel: '取消',
+          repeat: '再次下注',
+          cancel: '清除',
           double: '双倍',
-          undo: '还原',
+          undo: '复原',
           fullscreen: '视频全莹幕',
           autoFullscreenToggleOn: '开启自动隐藏界面',
           autoFullscreenToggleOff: '投注结束后, 界面将自动隐藏',

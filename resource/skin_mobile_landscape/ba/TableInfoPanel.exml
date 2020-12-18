@@ -25,8 +25,8 @@
 					                 textKey="baccarat.dealer" />
 					<ui:RunTimeLabel id="tableBetLimitLabel" text="本檯限紅" y="100" x="629" scaleX="1" scaleY="1" size="44" />
 					<ui:RunTimeLabel id="betLimitLabel" text="投注限紅" y="170" x="629" scaleX="1" scaleY="1" size="44" />
-					<ui:RunTimeLabel id="pTableID" text="百家樂01" y="30" size="44" textAlign="right" right="2250" targetWidth="380"
-					                 alpha="0.7" fontFamily="Barlow" width="388" />
+					<ui:RunTimeLabel id="pTableID" text="百家樂01" y="30" size="44" textAlign="right" right="2250" targetWidth="250"
+					                 alpha="0.7" fontFamily="Barlow" width="307" />
 					<ui:ClampWidthLabel id="pGameID" text="000-000-000000000" y="170" x="212" size="44"
 					                    targetWidth="400" alpha="0.7"  fontFamily="Barlow" width="400" textAlign="right"/>
 					<ui:ClampWidthLabel id="pDealer" text="Mary" textAlign="right" x="732" y="30" size="44" width="440"
@@ -61,7 +61,7 @@
 					                     fontFamily="Barlow" x="2069"/>
 					<ui:RunTimeLabel id="bankerLabel" text="庄" y="30" textAlign="left" x="1195" scaleX="1" scaleY="1" size="44"
 					                 textKey="baccarat.banker" />
-					<ui:RunTimeLabel id="superSixBankerLabel" text="庄 (免佣)" y="100" x="1195" scaleX="1" scaleY="1" size="44" />
+					<ui:RunTimeLabel id="superSixBankerLabel" text="庄 (免佣)" y="100" x="1195" scaleX="1" scaleY="1" size="44" targetWidth="283"/>
 					<ui:RunTimeLabel id="playerLabel" text="閒" y="170" x="1195" scaleX="1" scaleY="1" size="44"
 					                 textKey="baccarat.player" />
 					<ui:RunTimeLabel id="tieLabel" text="和" y="30" x="1780" scaleX="1" scaleY="1" size="44" textKey="baccarat.tie" />
@@ -69,7 +69,7 @@
 					                 textKey="baccarat.bankerPair" />
 					<ui:RunTimeLabel id="playerPairLabel" text="閒對" y="170" x="1780" scaleX="1" scaleY="1" size="44"
 					                 textKey="baccarat.playerPair" />
-					<ui:RunTimeLabel id="superSixLabel" text="超級六 (免佣)" y="30" x="2315" scaleX="1" scaleY="1" size="44" />
+					<ui:RunTimeLabel id="superSixLabel" text="超級六 (免佣)" y="30" x="2315" scaleX="1" scaleY="1" size="44" targetWidth="283"/>
 					<ui:RunTimeLabel id="pSuperSixOdd" text="-" y="30" textAlign="right" size="44" alpha="0.7" targetWidth="120"
 					                     fontFamily="Barlow" x="2750"/>
 					<ui:RunTimeLabel id="pSuperSixMax" text="000" y="30" textAlign="right" size="44" alpha="0.7" targetWidth="80" fontFamily="Barlow" x="2606"/>

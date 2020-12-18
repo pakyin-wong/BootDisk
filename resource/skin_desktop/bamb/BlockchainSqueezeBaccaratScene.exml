@@ -65,7 +65,7 @@
 		            skinName="skin_desktop.GameBar"  currentState="no_video"/>
 	</e:Group>
 	<ui:ShuffleMessage id="_shuffleMessage" horizontalCenter="0" verticalCenter="0" skinName="skin_desktop.ShuffleMessage"/>
-	<bamb:GameResultMessage id="_resultMessage" x="0" y="676" width="1" height="1" horizontalCenter="0" />
+	<bamb:GameResultMessage id="_resultMessage" x="0" y="826" width="1" height="1" horizontalCenter="0" />
 	<ui:InGameMessage id="_expiredMessage" x="1300" y="831" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
 	                  anchorOffsetY="16" expiredBg="d_ba_gamerecord_chipvalue_png" scaleX="1.5" scaleY="1.5" />
 	<ui:InGameMessage id="_message" x="1300" y="831" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
@@ -92,7 +92,7 @@
 	</ui:Group>
 	<ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="242" x="18" y="644" anchorOffsetX="0"
 	                          anchorOffsetY="0" visible="false" />
-	<bamb:DFlipCardHolder id="_flipCardHolder" horizontalCenter="0" y="313" width="500" height="900" />
+	<bamb:DFlipCardHolder id="_flipCardHolder" horizontalCenter="0" y="313" width="500" height="900"  locked="true"/>
 
 	<e:Group id="_deckButton" x="2279" y="203" width="282" height="49" touchThrough="true">
 		<ui:BaseImageButton left="0" right="0" top="0" bottom="0" currentState="b_bab"
@@ -111,7 +111,7 @@
 	<ba:TableInfoPanel width="434" height="566" x="0" y="90" id="_tableInfoWindow" isPoppable="true" isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" anchorOffsetY="0" skinName="skin_desktop.bab.TableInfoPanel"/>
 	<bc:ShufflePanel id="_shufflePanel" width="2600" height="1340" isPoppable="true" 
 	                  isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
-	                  skinName="skin_desktop.bc.ShufflePanelSkin" skeletonName="blockchain_sqba" />
+	                  skinName="skin_desktop.bc.ShufflePanelSkin" skeletonName="blockchain_sqba"  locked="true"/>
 	<ui:GameRulePanel id="_gameRulePanel" horizontalCenter="0" verticalCenter="0" hideOnStart="true"/>
 	<!--<bc:DeckPanel id="_deckPanel" width="1853" height="1025" verticalCenter="0" horizontalCenter="0" isPoppable="true"
 	               isEdgeDismissable="false" dismissOnClickOutside="false" isDraggable="false" hideOnStart="true"
