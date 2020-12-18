@@ -11,6 +11,7 @@ namespace we {
       private _editButton: ui.BaseImageButton;
       private _titleLabel: eui.Label;
       private _group: eui.Group;
+      private _activeButtonGroup: eui.Group;
 
       private isActive: number;
       private roadId: string;
@@ -51,7 +52,8 @@ namespace we {
         this._binButton.touchEnabled = true;
         this._binButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBinTap, this);
 
-        this._activeButton.addEventListener('onToggle', this.onActiveTap, this);
+        // this._activeButton.addEventListener('onToggle', this.onActiveTap, this);
+        this._activeButtonGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onActiveTap2, this);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
 
         // this.anchorOffsetX = this.width / 2;
@@ -86,8 +88,12 @@ namespace we {
           this._binButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onBinTap, this);
         }
 
-        if (this._activeButton.hasEventListener('onToggle')) {
-          this._activeButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onActiveTap, this);
+        // if (this._activeButton.hasEventListener('onToggle')) {
+        //   this._activeButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onActiveTap, this);
+        // }
+
+        if (this._activeButtonGroup.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this._activeButtonGroup.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onActiveTap2, this);
         }
 
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
@@ -204,8 +210,9 @@ namespace we {
         });
       }
 
-      private onActiveTap(evt: egret.Event) {
-        const enabled: boolean = evt.data === 0;
+      private onActiveTap2() {
+        this._activeButton.onTouchTap();
+        const enabled: boolean = this._activeButton._buttonState === 0;
 
         if (enabled) {
           this.alpha = 1;
@@ -240,7 +247,46 @@ namespace we {
         } else {
           this.dispatchEvent(new egret.Event('onEnableChanged', false, false, enabled));
         }
+
       }
+
+      // private onActiveTap(evt: egret.Event) {
+      //   const enabled: boolean = evt.data === 0;
+
+      //   if (enabled) {
+      //     this.alpha = 1;
+      //   } else {
+      //     this.alpha = 0.5;
+      //   }
+
+      //   // limit max number of enabled
+      //   let roadsEnabledCount = 0;
+      //   const defaults = env.goodRoadData.default.slice();
+      //   defaults.forEach(element => {
+      //     if (element.id === this.roadId) {
+      //       element.enabled = enabled;
+      //     }
+      //     if (element.enabled) {
+      //       roadsEnabledCount++;
+      //     }
+      //   });
+
+      //   const custom = env.goodRoadData.custom.slice();
+      //   custom.forEach(element => {
+      //     if (element.id === this.roadId) {
+      //       element.enabled = enabled;
+      //     }
+      //     if (element.enabled) {
+      //       roadsEnabledCount++;
+      //     }
+      //   });
+
+      //   if (roadsEnabledCount > 20) {
+      //     this._activeButton.setInitButtonState(1);
+      //   } else {
+      //     this.dispatchEvent(new egret.Event('onEnableChanged', false, false, enabled));
+      //   }
+      // }
 
       private onTouchTap(evt: egret.Event) {
         const target = evt.target;
