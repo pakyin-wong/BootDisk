@@ -119,7 +119,6 @@ namespace we {
       overlaypanel_bethistory_recordtab_resuit: 'Game Result',
       overlaypanel_bethistory_recordtab_noresult: 'No game record',
       overlaypanel_bethistory_recordtab_gameno:'Game No.',
-      overlaypanel_bethistory_recordtab_gameid:'Game ID.',
       overlaypanel_bethistory_recordtab_shoe: 'Round',
 
       overlaypanel_bethistory_remark_win: 'Win',
@@ -129,6 +128,7 @@ namespace we {
       overlaypanel_bethistory_total: ' %now% of total %total% record(s)',
 
       overlaypanel_bethistory_record_round: 'Round',
+      overlaypanel_bethistory_record_gameid:'Game ID.',
       overlaypanel_bethistory_record_bettype: 'Bet Content',
       overlaypanel_bethistory_record_vaildbet: 'Vaild Turnover',
       overlaypanel_bethistory_record_rollingRate: 'Rolling Rate',

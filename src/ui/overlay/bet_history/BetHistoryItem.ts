@@ -59,7 +59,7 @@ namespace we {
         protected dataChanged(): void {
           this.forceClosed();
 
-          this.setText(this._txt_round, i18n.t('overlaypanel_bethistory_recordtab_gameid'));
+          this.setText(this._txt_round, i18n.t('overlaypanel_bethistory_record_gameid'));
           this.setText(this._txt_bettype, i18n.t('overlaypanel_bethistory_record_bettype'));
           this.setText(this._txt_result, i18n.t('overlaypanel_bethistory_record_result'));
           this.setText(this._txt_vaildbet, i18n.t('overlaypanel_bethistory_record_vaildbet'));
