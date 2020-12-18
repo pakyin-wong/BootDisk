@@ -251,9 +251,85 @@ namespace we {
           this._bankerSumGroup.y = 799;
         }
 
-        super.setStateFinish(isInit);
-      }
 
+        super.setStateFinish(isInit);
+        this.finishState();
+
+      }
+      protected finishState(){
+        const currentCard = this.getCurrentCard();
+        if (!currentCard) {
+          return;
+        }
+
+        // console.log('dealInitState 2a currentCard', currentCard);
+
+        const dataNames = ['b1', 'a1', 'b2', 'a2', 'b3', 'a3'];
+        for (let i = 0, j = 0; i < 7; i++) {
+          // console.log('dealInitState loop 3a', dataNames[i], this._gameData[dataNames[i]], this._gameData);
+          if (!this._gameData[dataNames[i]]) {
+            continue;
+          }
+          // console.log('dealInitState loop 3b');
+          switch (dataNames[i]) {
+            case 'b1':
+              this.setCardFrontFace(this._playerCard1, dataNames[i], 'vertical', 0);
+              this.setLabel(this._playerCard1.armature.getSlot(`card_number_vertical`), this.getCardIndex('b1', core.GameState.DEAL)); // this._gameData.currentcardindex - currentIndexOffsetToFirstCard);
+              break;
+            case 'a1':
+              this.setCardFrontFace(this._bankerCard1, dataNames[i], 'vertical', 0);
+              this.setLabel(this._bankerCard1.armature.getSlot(`card_number_vertical`), this.getCardIndex('a1', core.GameState.DEAL)); // this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j);
+              break;
+            case 'b2':
+              this.setCardFrontFace(this._playerCard2, dataNames[i], 'vertical', 0);
+              this.setLabel(this._playerCard2.armature.getSlot(`card_number_vertical`), this.getCardIndex('b2', core.GameState.DEAL)); // this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j);
+              this._playerCard1.animation.gotoAndPlayByFrame(`sq_vertical_out`, 5);
+              this._playerCard2.animation.gotoAndPlayByFrame(`sq_vertical_out`, 5);
+              this.updatePlayerSum();
+              break;
+            case 'a2':
+              this.setCardFrontFace(this._bankerCard2, dataNames[i], 'vertical', 0);
+              this.setLabel(this._bankerCard2.armature.getSlot(`card_number_vertical`), this.getCardIndex('a2', core.GameState.DEAL)); // this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j);
+              this._bankerCard1.animation.gotoAndPlayByFrame(`sq_vertical_out`, 5);
+              this._bankerCard2.animation.gotoAndPlayByFrame(`sq_vertical_out`, 5);
+              this.updateBankerSum();
+              break;
+            case 'b3':
+              // if (this._smallCard1Group) {
+              //   this._smallCard1Exist = false;
+              //   this._smallCard1.animation.gotoAndPlayByFrame('sq_horizontal_dark_out', 5);
+              // }
+              this.moveAndShowB3(200);
+              this.setCardFrontFace(this._playerCard3, dataNames[i], 'horizontal', 90);
+              this.setLabel(this._playerCard3.armature.getSlot(`card_number_horizontal`), this.getCardIndex('b2', core.GameState.DEAL)); // this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j);
+              this._playerCard3.animation.gotoAndPlayByFrame('sq_horizontal_dark_out', 5);
+              this.updatePlayerSum();
+              this.updateBankerSum();
+              break;
+            case 'a3':
+              // if (this._smallCard1Group && this._smallCard2Group) {
+              //   if (this._smallCard1Exist) {
+              //     this._smallCard1.animation.gotoAndPlayByFrame('sq_horizontal_dark_out', 5);
+              //     this._smallCard1Exist = false;
+              //   } else {
+              //     this._smallCard2.animation.gotoAndPlayByFrame('sq_horizontal_dark_out', 5);
+              //     this._smallCard2Exist = false;
+              //   }
+              // }
+              this.moveAndShowA3(200);
+              this.setCardFrontFace(this._bankerCard3, dataNames[i], 'horizontal', 90);
+              this.setLabel(this._bankerCard3.armature.getSlot(`card_number_horizontal`), this.getCardIndex('a3', core.GameState.DEAL)); // this._gameData.currentcardindex - currentIndexOffsetToFirstCard + j);
+              this._bankerCard3.animation.gotoAndPlayByFrame('sq_horizontal_dark_out', 5);
+              this.updatePlayerSum();
+              this.updateBankerSum();
+              break;
+          }
+          if (dataNames[i] === currentCard) {
+            break;
+          }
+          j++;
+        }
+      }
       protected setStateIdle(isInit: boolean){
         this._mask.visible = false;
         super.setStateIdle(isInit);

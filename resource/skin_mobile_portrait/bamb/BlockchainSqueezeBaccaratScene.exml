@@ -75,7 +75,6 @@
 				                 anchorOffsetX="0" text="Label" />
 				<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Arial" size="40" text="label" x="25" y="65" />
 			</e:Group>
-			<ui:GoodRoadLabel id="_BAgoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin" x="215" y="23" />
 			<e:layout>
 				<e:HorizontalLayout gap="36" verticalAlign="middle" />
 			</e:layout>
@@ -83,6 +82,7 @@
 			                        bottom="10" />
 			-->
 		</e:Group>
+		<ui:GoodRoadLabel id="_BAgoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin" y="60" horizontalCenter="0"/>
 		<e:Group y="65" right="15">
 			<ui:RunTimeLabel id="_totalBet" text="0" anchorOffsetX="0" textAlign="right" size="44" right="5" fontFamily="Barlow" />
 			<ui:RunTimeLabel id="_totalBetText" text="總下注" anchorOffsetX="0" textAlign="right" size="44" alpha="0.7" />

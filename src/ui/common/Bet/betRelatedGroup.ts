@@ -12,8 +12,11 @@ namespace we {
       protected _doubleLabel: ui.RunTimeLabel;
       protected _undoLabel: ui.RunTimeLabel;
 
+      protected isPlaySound: boolean;
+
       protected _roundPanel: ui.RoundRectShape;
       public _timer: ui.CountdownTimer;
+      
 
       public constructor(skin: string = 'BetRelatedGroup') {
         if (env.orientation === 'portrait') {
@@ -36,18 +39,21 @@ namespace we {
         this._timer._isColorTransform = true;
         this.currentState = env.leftHandMode ? 'left_hand_mode' : 'right_hand_mode';
         this._timer.addEventListener('UPDATE', this.onRemainingTimeUpdate, this);
+        this.isPlaySound = false;
       }
 
       protected destroy() {
         super.destroy();
         this.removeListeners();
         this._timer.stop();
+        this.isPlaySound = false;
       }
 
       protected onRemainingTimeUpdate(evt: egret.Event) {
         const confirmButton = this._confirmButton as ui.BetConfirmButton;
+        const remainingTime: number = evt.data;
         if (confirmButton && confirmButton.setColor) {
-          const remainingTime: number = evt.data;
+
           if (remainingTime > 10000) {
             confirmButton.setColor(0, 1, 0);
           } else if (remainingTime > 5000) {
@@ -55,6 +61,12 @@ namespace we {
           } else {
             confirmButton.setColor(1, 0, 0);
           }
+        }
+        if(remainingTime > 3000 && this.isPlaySound){
+          this.isPlaySound = false;
+        }else if(remainingTime <= 3000 && !this.isPlaySound){
+            this.isPlaySound = true;
+            dir.audioCtr.play('ui_sfx_bet_time_out_mp3', 3);
         }
       }
 
