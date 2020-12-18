@@ -18,13 +18,26 @@ namespace we {
       public tutorial: we.bam.SqueezeTutorial;
       protected tutorial_page_index: number;
 
-
-
       public static resGroups = [core.res.Blockchain, core.res.BlockchainBaccarat, core.res.BlockchainSqueezeBaccarat];
+
+      protected scaleDownBettingArea(){
+          this._tableLayer.scaleX = 1
+          this._tableLayer.scaleY = 1
+          this._chipLayer.scaleX = 1
+          this._chipLayer.scaleY = 1
+      }
+
+      protected scaleUpBettingArea(){
+          this._tableLayer.scaleX = 1 
+          this._tableLayer.scaleY = 1
+          this._chipLayer.scaleX = 1
+          this._chipLayer.scaleY = 1
+      }
+
 
       protected initChildren() {
         super.initChildren();
-if (env.isFirstTimeBam) {
+        if (env.isFirstTimeBam) {
           this.tutorial = new bam.SqueezeTutorial('SqueezeTutorial', this.tutorial_page_index || 0);
           this.tutorial.isDraggable = false;
           this.tutorial.isEdgeDismissable = false;
@@ -45,7 +58,7 @@ if (env.isFirstTimeBam) {
         }
       }
 
-      protected passBackgroundsToResultDisplay(){
+      protected passBackgroundsToResultDisplay() {
         this._resultDisplay.passBackgrounds({
           wholeMoveGroup: this._wholeMoveGroup,
           animRingGroup: this._animRingGroup,
@@ -68,11 +81,11 @@ if (env.isFirstTimeBam) {
             this._squeezeTimer.y = 362;
           }
         } else {
-           if (env.orientation === 'landscape') {
-             this._squeezeTimer.y = 1000;
-           } else {
+          if (env.orientation === 'landscape') {
+            this._squeezeTimer.y = 1000;
+          } else {
             this._squeezeTimer.y = 488;
-           }
+          }
 
         }
       }
