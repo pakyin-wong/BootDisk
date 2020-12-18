@@ -47,7 +47,7 @@ namespace we {
       }
 
       protected get list(): TableList {
-        return <TableList>this.parent;
+        return <TableList> this.parent;
       }
 
       public changeState(state: number): boolean {
@@ -57,11 +57,13 @@ namespace we {
               this.list.dispatchEvent(new egret.Event(TableList.UNLOCK, true, false, this));
             }
             this._holderState = TableListItemHolder.STATE_NORMAL;
+            this.setZIndex();
             return true;
           case TableListItemHolder.STATE_FOCUS:
             if (!this.list.isLocked) {
               this.list.dispatchEvent(new egret.Event(TableList.LOCK, true, false, this));
               this._holderState = TableListItemHolder.STATE_FOCUS;
+              this.setZIndex();
               return true;
             }
             return false;
@@ -115,6 +117,25 @@ namespace we {
       protected gotoScene() {
         env.gotoScene(this.itemData);
       }
+
+      protected setZIndex() {
+        if (this.isFocus) {
+          if (this.parent) {
+            // get stickyHeader from parent
+            let childIdx = 1000;
+            const stickyHeader = this.parent.getChildByName('stickyHeader');
+            if (stickyHeader && (stickyHeader as any).isSticked) {
+              const idx = this.parent.$children.indexOf(stickyHeader);
+              childIdx = idx-1;
+            }
+              this.parent.setChildIndex(this, childIdx);
+          }
+        } else {
+          if (this.parent) {
+            this.parent.setChildIndex(this, 1);
+          }
+        }
+      }      
     }
   }
 }

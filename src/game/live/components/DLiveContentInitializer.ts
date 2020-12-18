@@ -147,6 +147,7 @@ namespace we {
         this._stickyHeader.contentPaddingTop = this.gapSize;
         this._stickyHeader.y = root.slider.height + offsetForTableList + this.gapSize;
         root.roomList.addChild(this._stickyHeader);
+        this._stickyHeader.name = 'stickyHeader';
 
         root.scroller.viewport = root.roomList;
 
@@ -245,8 +246,13 @@ namespace we {
         const scrollTarget = 250;
         const ratio = Math.min(1, scrollV / scrollTarget);
         const opacity = egret.Ease.quintIn(ratio);
-        this._tabbarBg.alpha = opacity;
         dir.evtHandler.dispatch(core.Event.UPDATE_NAVBAR_OPACITY, opacity);
+        
+        const offsetTarget = 400;
+        const barRatio = Math.max(0,Math.min(1, (scrollV - offsetTarget) / scrollTarget));
+        const barOpacity = egret.Ease.quintIn(barRatio);
+        this._tabbarBg.alpha = barOpacity;
+
       }
 
       public reloadBanners() {
