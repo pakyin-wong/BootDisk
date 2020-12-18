@@ -344,10 +344,10 @@ namespace we {
         tooltip: {
           waitForNextRound: '開牌中，請等候下一局',
           confirmBet: '確認投注',
-          repeat: '重複下注',
-          cancel: '取消',
+          repeat: '再次下注',
+          cancel: '清除',
           double: '雙倍',
-          undo: '還原',
+          undo: '復原',
           fullscreen: '視頻全瑩幕',
           autoFullscreenToggleOn: '開啟自動隱藏界面',
           autoFullscreenToggleOff: '投注結東後, 界面將自動隱藏',
