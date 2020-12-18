@@ -66,7 +66,6 @@ namespace we {
       }
 
       public expandBottom() {
-        console.log('expandBottom')
         if (env.orientation === 'portrait') {
           this._wholeMoveGroup.y = -210
           if (this._gameData && this._gameData.state === core.GameState.BET) {
@@ -114,7 +113,6 @@ namespace we {
       }
 
       public collapseBottom() {
-        console.log('collapseBottom')
         if (env.orientation === 'portrait') {
           this._wholeMoveGroup.y = 0
           if (this._gameData && this._gameData.state === core.GameState.BET) {
@@ -130,7 +128,6 @@ namespace we {
       }
 
       public showSumGroup() {
-        console.log('showSumGroup')
         if (env.orientation !== 'portrait') {
         if (this._gameData.state === core.GameState.PEEK) {
           this._openAllPlayerGroup.x = 364
@@ -191,7 +188,6 @@ namespace we {
       }
 
       public hideSumGroup() {
-        console.log('hideSumGroup')
         if (this._playerSumGroup.visible === true) {
           this._playerSumGroup.visible = false;
           this._bankerSumGroup.visible = false;
@@ -257,12 +253,11 @@ namespace we {
 
 
         super.setStateFinish(isInit);
-                this.finishState();
+        this.finishState();
 
       }
       protected finishState(){
         const currentCard = this.getCurrentCard();
-        console.log('currentCard',currentCard)
         if (!currentCard) {
           return;
         }
