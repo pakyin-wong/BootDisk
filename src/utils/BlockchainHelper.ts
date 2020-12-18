@@ -3,15 +3,18 @@ namespace we {
         export let isUpdating = false;
         export const HASHEDCARDSLIST = 'hashedcardsList';
         export const MASKEDCARDSSNLIST = 'maskedcardssnList';
+        const repeatCheck = async (sleep: number, maxrepeat = 10, repeatedTimes = 0) => {
+            let result = repeatedTimes;
+            if (isUpdating && maxrepeat >= repeatedTimes) {
+                await utils.sleep(sleep);
+                result = await repeatCheck(sleep, maxrepeat, repeatedTimes + 1);
+            }
+            return new Promise<number>(resolve => resolve(result))
+        }
         //for option 1 - 2
         export async function getGameStatus(type, tableInfo, hostid, gameData, dataName: string, option, sleep = 0) {
-            let repeatCheck = async () => {
-                if (isUpdating) {
-                    await utils.sleep(200);
-                    await repeatCheck();
-                }
-            }
-            await repeatCheck();
+
+            await repeatCheck(200);
             if (!tableInfo || !hostid) {
                 return new Promise(resolve => resolve());
             }
@@ -31,13 +34,7 @@ namespace we {
         }
         //for option 3
         export async function getMaskedListRange(type, tableInfo, hostid, gameData, from, to, sleep = 0) {
-            let repeatCheck = async () => {
-                if (isUpdating) {
-                    await utils.sleep(200);
-                    await repeatCheck();
-                }
-            }
-            await repeatCheck();
+            await repeatCheck(200);
             if (!tableInfo || !hostid) {
                 return new Promise(resolve => resolve());
             }
@@ -63,14 +60,7 @@ namespace we {
         export async function getAll(cosmosshoeid: string, type, tableInfo, hostid, gameData, sleep = 0) {
             let obj;
             let text;
-
-
-            let repeatCheck = async () => {
-                if (isUpdating) {
-                    await utils.sleep(200);
-                    await repeatCheck();
-                }
-            }
+            await repeatCheck(200)
 
             if (!tableInfo || !hostid) {
                 return new Promise(resolve => resolve());
@@ -114,29 +104,7 @@ namespace we {
             return new Promise(resolve => resolve());
         }
 
-        export async function getShoeInfo(cosmosshoeid: string, type, tableInfo, hostid, gameData, sleep = 0) {
-            let obj;
-            let text;
-
-            try {
-                text = await utils.getText(`${env.blockchain.cosmolink}${gameData.cosmosshoeid}`);
-                obj = JSON.parse(text);
-
-                if (obj && obj.result && obj.result.cards) {
-                    gameData.hashedcardsList = obj.result.cards;
-                } else {
-
-                    throw new Error();
-                }
-            } catch (error) {
-                await blockchain.getGameStatus(type, tableInfo, hostid, gameData, HASHEDCARDSLIST, blockchain.RETRIEVE_OPTION.HASH, sleep);
-                logger.l(utils.LogTarget.DEV, 'GetShoeFromCosmo error. ' + error + '. Fallback to use backend\'s data.');
-            }
-            return new Promise(resolve => resolve());
-        }
-
         export function getFirstNonOpenedCardIndex(gameData) {
-
             if (!gameData || !gameData.maskedcardssnList) {
                 return 0;
             }
