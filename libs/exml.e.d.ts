@@ -2473,6 +2473,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class MobileLobbyGridLayoutSwitch extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class ImageSlider extends eui.Skin{
 	}
 }

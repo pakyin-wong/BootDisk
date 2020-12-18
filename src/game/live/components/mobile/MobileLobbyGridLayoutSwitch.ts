@@ -10,9 +10,9 @@ namespace we {
         this.image.percentWidth = 100;
         this.image.percentHeight = 100;
         this.image.currentState = this.buttons[env.lobbyGridType];
-        this.image.skinName = utils.getSkinByClassname('ImageButtonSkinLobby');
+        this.image.skinName = utils.getSkinByClassname('MobileLobbyGridLayoutSwitch');
         this.image.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggle, this);
-        this.image.useColorFilter = true;
+        // this.image.useColorFilter = true;
         this.addChild(this.image);
       }
 
