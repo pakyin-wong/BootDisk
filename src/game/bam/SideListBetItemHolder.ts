@@ -14,7 +14,11 @@ namespace we {
         }
         const BAgametype = this.tableInfo.gametype;
         const listItem = new we.ui.SideListBetItem('SideListBetItemSkin');
-        listItem.itemInitHelper = new we.bam.SideListItemInitHelper();
+        if (BAgametype === core.GameType.BAM) {
+          listItem.itemInitHelper = new we.bam.SideListItemInitHelper();
+        } else {
+          listItem.itemInitHelper = new we.bamb.SideListItemInitHelper();
+        }
         this._displayItem = listItem;
         this.setDisplayItem(this._displayItem);
       }
