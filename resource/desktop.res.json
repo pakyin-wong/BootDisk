@@ -8094,6 +8094,26 @@
 			"url": "assets/nmimages/d/lobby/common/d_lobby_pro_placeholder_bc_ba.jpg",
 			"type": "image",
 			"name": "d_lobby_pro_placeholder_bc_ba_jpg"
+		},
+		{
+			"url": "assets/images/d/common/general/help/d_bcba_panel_instructions_no1.png",
+			"type": "image",
+			"name": "d_bcba_panel_instructions_no1_png"
+		},
+		{
+			"url": "assets/images/d/common/general/help/d_bcba_panel_instructions_no2.png",
+			"type": "image",
+			"name": "d_bcba_panel_instructions_no2_png"
+		},
+		{
+			"url": "assets/images/d/common/general/help/d_bcba_panel_instructions_no3.png",
+			"type": "image",
+			"name": "d_bcba_panel_instructions_no3_png"
+		},
+		{
+			"url": "assets/images/d/common/general/help/d_bcba_panel_instructions_no4.png",
+			"type": "image",
+			"name": "d_bcba_panel_instructions_no4_png"
 		}
 	]
 }
