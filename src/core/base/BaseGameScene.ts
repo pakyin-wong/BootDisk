@@ -887,6 +887,7 @@ namespace we {
               */
             default:
               // TODO: maybe calling errorhandler
+              console.log('error', result.error.id)
               dir.errHandler.handleError(result.error);
               logger.e(utils.LogTarget.RELEASE, `Bet error: ${result.error.id}`);
           }
