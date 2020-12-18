@@ -389,6 +389,40 @@ namespace we {
         super.mount();
         blockchain.getAll(this._gameData.cosmosshoeid,this._gameTypeForGettingCardList,this._tableInfo,this._tableInfo.hostid,this._gameData,300)
       }
+
+
+      //start of workaround solution / will be changed later LBB-319
+      protected setResultRelatedComponentsEnabled(enable: boolean) {
+        super.setResultRelatedComponentsEnabled(enable);
+        if (this._bottomGamePanel._bottomResultDisplayContainer && env.orientation === 'landscape') {
+          if (this._bottomGamePanel.isPanelOpen) {
+            this._resultDisplay.visible = this._alwaysShowResult || false;
+            if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.FINISH) {
+              this._bottomGamePanel._bottomResultDisplayContainer.visible = false;
+            } else {
+              this._bottomGamePanel._bottomResultDisplayContainer.visible = false;
+            }
+          } else {
+            if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.FINISH) {
+              this._bottomGamePanel._bottomResultDisplayContainer.visible = false;
+              this._resultDisplay.visible = true;
+            }
+          }
+        }
+      }
+
+      public updateResultDisplayVisible(bottomGamePanelisOpen: boolean) {
+        if (!this._bottomGamePanel._bottomResultDisplayContainer) {
+          return;
+        }
+        if (env.orientation === 'landscape') {
+          if (this._previousState === we.core.GameState.DEAL || this._previousState === we.core.GameState.FINISH) {
+            this._resultDisplay.visible = this._alwaysShowResult || !bottomGamePanelisOpen;
+            this._bottomGamePanel._bottomResultDisplayContainer.visible = false;
+          }
+        }
+      }
+      //end of workaround solution
     }
   }
 }

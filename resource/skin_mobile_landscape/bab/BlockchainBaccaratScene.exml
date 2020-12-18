@@ -58,8 +58,6 @@
 					<e:HorizontalLayout gap="8" />
 				</e:layout>
 			</e:Group>
-			<ui:GoodRoadLabel id="_BAgoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin" y="61"
-			                  x.right_hand_mode="183" y.right_hand_mode="59" x.left_hand_mode="183" x="0" />
 		</e:Group>
 		<e:layout>
 			<e:HorizontalLayout gap="36" />
@@ -74,6 +72,7 @@
 			<e:HorizontalLayout horizontalAlign="right" gap="20" gap.left_hand_mode="20" />
 		</e:layout>
 	</e:Group>
+	<ui:GoodRoadLabel id="_BAgoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin" right="420" top="15"/>
 	<ui:BaseImageButton id="_common_listpanel" width="130" height="130" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby" currentState="lobby_panel_gamelist_tag_icon_allgame" x="2262" x.right_hand_mode="2262" y="301" />
 	<e:Group id="_lblRoomInfo" width="130" height="130" x="31" y="303">
 		<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0" ellipseWidth="130" strokeAlpha="0.1" fillAlpha="0.8"/>
@@ -117,7 +116,7 @@
                       horizontalCenter="0" />
 <ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
                   infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
-                  errorBg="d_ba_gamerecord_bankerelement_png" y="288" horizontalCenter="0" />
+                  errorBg="d_ba_gamerecord_bankerelement_png" y="450" horizontalCenter="0" />
 <bab:MobileHistoryCardHolder id="_historyCardHolder" width="1146" height="373"
                        skinName="skin_mobile_portrait.bab.HistoryHolderSkin" isPoppable="true" hideOnStart="true"  top="450" horizontalCenter="0"/>
 <bc:ShufflePanel id="_shufflePanel" width="2424" height="1242" isPoppable="true" skeletonName="blockchain"
