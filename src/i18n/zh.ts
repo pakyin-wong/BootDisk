@@ -691,10 +691,17 @@ namespace we {
           title: '咪牌教学',
           showCard: '全开',
           next: '下一页',
-          caption_1: '點撃全開按鈕，卡牌立即全開',
-          caption_2: '點擊卡牌可切換大卡牌',
-          caption_3: '點撃卡牌中間位置快速開牌',
-          caption_4: '透過拖拽四邊四角進行咪牌',
+          mobile: {
+            caption_1: '點撃全開按鈕，卡牌立即全開',
+            caption_2: '點擊卡牌可切換大卡牌',
+            caption_3: '點撃卡牌中間位置快速開牌',
+            caption_4: '卡牌四邊四角可咪牌',
+          },
+          desktop: {
+            caption_1: '點撃全開按鈕，卡牌立即全開',
+            caption_2: '點撃卡牌中間位置快速開牌',
+            caption_3: '透過拖拽四邊四角進行咪牌',
+          },
         },
       },
       message: {

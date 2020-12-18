@@ -43,13 +43,13 @@
             </e:Group>
         </ui:HorizontalHolder>
         <ui:RunTimeLabel id="_captionOne" horizontalCenter="0" bottom="70" size="48" alpha="0.7" fontFamily="Arial"
-                         textKey="squeezeBaccarat.tutorial.caption_1" wordWrap="true"  width="1000" textAlign="center"/>
+                         textKey="squeezeBaccarat.tutorial.mobile.caption_1" wordWrap="true"  width="1000" textAlign="center"/>
         <ui:RunTimeLabel id="_captionTwo" horizontalCenter="0" bottom="70" size="48" alpha="0.7" fontFamily="Arial"
-                         textKey="squeezeBaccarat.tutorial.caption_2" wordWrap="true" width="1000" textAlign="center"/>
+                         textKey="squeezeBaccarat.tutorial.mobile.caption_2" wordWrap="true" width="1000" textAlign="center"/>
         <ui:RunTimeLabel id="_captionThree" horizontalCenter="0" bottom="70" size="48" alpha="0.7" fontFamily="Arial"
-                         textKey="squeezeBaccarat.tutorial.caption_3" wordWrap="true" width="1000" textAlign="center"/>
+                         textKey="squeezeBaccarat.tutorial.mobile.caption_3" wordWrap="true" width="1000" textAlign="center"/>
         <ui:RunTimeLabel id="_captionFour" horizontalCenter="0" bottom="70" size="48" alpha="0.7" fontFamily="Arial"
-                         textKey="squeezeBaccarat.tutorial.caption_4" wordWrap="true" width="1000" textAlign="center"/>
+                         textKey="squeezeBaccarat.tutorial.mobile.caption_4" wordWrap="true" width="1000" textAlign="center"/>
     </e:Group>
     <e:Group id="_bottom" width="1242" height="300" bottom="0">
         <ui:RunTimeLabel id="_buttonText" text="下一頁" width="448" height="136" size="48" alpha="0.7" fontFamily="Arial"

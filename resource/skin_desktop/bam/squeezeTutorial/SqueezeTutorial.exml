@@ -48,13 +48,13 @@
                     <e:Image x="348" y="370" source="d_sq_ba_touch_icon_png" rotation="315" />
                 </e:Group>
             </ui:HorizontalHolder>
-            <ui:RunTimeLabel id="_captionOne" horizontalCenter="0" textKey="squeezeBaccarat.tutorial.caption_1"
+            <ui:RunTimeLabel id="_captionOne" horizontalCenter="0" textKey="squeezeBaccarat.tutorial.desktop.caption_1"
                              wordWrap="true" width="700" textAlign="center" y="510" height="100" verticalAlign="middle"
                              size="28" alpha="0.7" />
-            <ui:RunTimeLabel id="_captionTwo" horizontalCenter="0" textKey="squeezeBaccarat.tutorial.caption_3"
+            <ui:RunTimeLabel id="_captionTwo" horizontalCenter="0" textKey="squeezeBaccarat.tutorial.desktop.caption_2"
                              wordWrap="true" width="700" textAlign="center" y="510" height="100" verticalAlign="middle"
                              size="28" alpha="0.7" />
-            <ui:RunTimeLabel id="_captionThree" horizontalCenter="0" textKey="squeezeBaccarat.tutorial.caption_4"
+            <ui:RunTimeLabel id="_captionThree" horizontalCenter="0" textKey="squeezeBaccarat.tutorial.desktop.caption_3"
                              wordWrap="true" width="700" textAlign="center" y="510" height="100" verticalAlign="middle"
                              size="28" alpha="0.7" />
         </e:Group>
