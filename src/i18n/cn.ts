@@ -136,6 +136,7 @@ namespace we {
       overlaypanel_bethistory_total: '现在显示：%now% 项 共 %total% 项记录',
 
       overlaypanel_bethistory_record_round: '局数',
+      overlaypanel_bethistory_record_gameid: '遊戏编号',
       overlaypanel_bethistory_record_bettype: '投注项目',
       overlaypanel_bethistory_record_vaildbet: '有效投注',
       overlaypanel_bethistory_record_rollingRate: '洗码率',

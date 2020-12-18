@@ -127,10 +127,11 @@ namespace we {
       overlaypanel_bethistory_limit: 'Items per page:',
       overlaypanel_bethistory_total: ' %now% of total %total% record(s)',
 
-      overlaypanel_bethistory_record_round: 'Game ID',
+      overlaypanel_bethistory_record_round: 'Round',
+      overlaypanel_bethistory_record_gameid:'Game ID.',
       overlaypanel_bethistory_record_bettype: 'Bet Content',
       overlaypanel_bethistory_record_vaildbet: 'Vaild Turnover',
-      overlaypanel_bethistory_record_rollingRate: 'Rolling Percentage',
+      overlaypanel_bethistory_record_rollingRate: 'Rolling Rate',
       overlaypanel_bethistory_record_rolling: 'Rolling Commission',
       overlaypanel_bethistory_record_result: 'Game Result',
       overlaypanel_bethistory_record_replay: 'Playback',
