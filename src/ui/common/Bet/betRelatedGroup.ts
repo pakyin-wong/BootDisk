@@ -79,16 +79,16 @@ namespace we {
           this._confirmButton.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
         }
         if (this._repeatButton) {
-          this._repeatButton.addEventListener('CLICKED', this.onRepeatPressed, this, true);
+          this._repeatButton.addEventListener('CLICKED', this.onRepeatPressed, this);
         }
         if (this._doubleButton) {
-          this._doubleButton.addEventListener('CLICKED', this.onDoublePressed, this, true);
+          this._doubleButton.addEventListener('CLICKED', this.onDoublePressed, this);
         }
         if (this._undoButton) {
-          this._undoButton.addEventListener('CLICKED', this.onUndoPressed, this, true);
+          this._undoButton.addEventListener('CLICKED', this.onUndoPressed, this);
         }
         if (this._cancelButton) {
-          this._cancelButton.addEventListener('CLICKED', this.onCancelPressed, this, true);
+          this._cancelButton.addEventListener('CLICKED', this.onCancelPressed, this);
         }
         dir.evtHandler.addEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.changeTimerBg, this);
       }
@@ -102,16 +102,16 @@ namespace we {
           this._confirmButton.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
         }
         if (this._repeatButton) {
-          this._repeatButton.removeEventListener('CLICKED', this.onRepeatPressed, this, true);
+          this._repeatButton.removeEventListener('CLICKED', this.onRepeatPressed, this);
         }
         if (this._doubleButton) {
-          this._doubleButton.removeEventListener('CLICKED', this.onDoublePressed, this, true);
+          this._doubleButton.removeEventListener('CLICKED', this.onDoublePressed, this);
         }
         if (this._undoButton) {
-          this._undoButton.removeEventListener('CLICKED', this.onUndoPressed, this, true);
+          this._undoButton.removeEventListener('CLICKED', this.onUndoPressed, this);
         }
         if (this._cancelButton) {
-          this._cancelButton.removeEventListener('CLICKED', this.onCancelPressed, this, true);
+          this._cancelButton.removeEventListener('CLICKED', this.onCancelPressed, this);
         }
         dir.evtHandler.removeEventListener(core.Event.SWITCH_AUTO_CONFIRM_BET, this.changeTimerBg, this);
       }
