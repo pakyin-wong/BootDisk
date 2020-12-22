@@ -76,6 +76,10 @@ namespace we {
         this.cardAnimNames = ['_playerCard1', '_bankerCard1', '_playerCard2', '_bankerCard2', '_smallCard1', '_smallCard2'];
       }
 
+      protected wrapCheckRedCard(){
+        
+      }
+
       public setDefaultStates() {
         this._playerCard1.animation.gotoAndStopByTime('vertical_in', 0);
         this._playerCard2.animation.gotoAndStopByTime('vertical_in', 0);
